@@ -1,0 +1,311 @@
+/*
+ * Copyright LWJGL. All rights reserved.
+ * License terms: http://lwjgl.org/license.php
+ * MACHINE GENERATED FILE, DO NOT EDIT
+ */
+#include <jni.h>
+#include "OpenGL.h"
+
+typedef GLvoid (APIENTRY *glCompressedTexImage3DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glCompressedTexImage2DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glCompressedTexImage1DPROC) (GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glCompressedTexSubImage3DPROC) (GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glCompressedTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glCompressedTexSubImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);
+typedef GLvoid (APIENTRY *glGetCompressedTexImagePROC) (GLenum, GLint, GLvoid *);
+typedef GLvoid (APIENTRY *glSampleCoveragePROC) (GLfloat, GLboolean);
+typedef GLvoid (APIENTRY *glActiveTexturePROC) (GLenum);
+typedef GLvoid (APIENTRY *glClientActiveTexturePROC) (GLenum);
+typedef GLvoid (APIENTRY *glMultiTexCoord1fPROC) (GLenum, GLfloat);
+typedef GLvoid (APIENTRY *glMultiTexCoord1sPROC) (GLenum, GLshort);
+typedef GLvoid (APIENTRY *glMultiTexCoord1iPROC) (GLenum, GLint);
+typedef GLvoid (APIENTRY *glMultiTexCoord1dPROC) (GLenum, GLdouble);
+typedef GLvoid (APIENTRY *glMultiTexCoord1fvPROC) (GLenum, const GLfloat *);
+typedef GLvoid (APIENTRY *glMultiTexCoord1svPROC) (GLenum, const GLshort *);
+typedef GLvoid (APIENTRY *glMultiTexCoord1ivPROC) (GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glMultiTexCoord1dvPROC) (GLenum, const GLdouble *);
+typedef GLvoid (APIENTRY *glMultiTexCoord2fPROC) (GLenum, GLfloat, GLfloat);
+typedef GLvoid (APIENTRY *glMultiTexCoord2sPROC) (GLenum, GLshort, GLshort);
+typedef GLvoid (APIENTRY *glMultiTexCoord2iPROC) (GLenum, GLint, GLint);
+typedef GLvoid (APIENTRY *glMultiTexCoord2dPROC) (GLenum, GLdouble, GLdouble);
+typedef GLvoid (APIENTRY *glMultiTexCoord2fvPROC) (GLenum, const GLfloat *);
+typedef GLvoid (APIENTRY *glMultiTexCoord2svPROC) (GLenum, const GLshort *);
+typedef GLvoid (APIENTRY *glMultiTexCoord2ivPROC) (GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glMultiTexCoord2dvPROC) (GLenum, const GLdouble *);
+typedef GLvoid (APIENTRY *glMultiTexCoord3fPROC) (GLenum, GLfloat, GLfloat, GLfloat);
+typedef GLvoid (APIENTRY *glMultiTexCoord3sPROC) (GLenum, GLshort, GLshort, GLshort);
+typedef GLvoid (APIENTRY *glMultiTexCoord3iPROC) (GLenum, GLint, GLint, GLint);
+typedef GLvoid (APIENTRY *glMultiTexCoord3dPROC) (GLenum, GLdouble, GLdouble, GLdouble);
+typedef GLvoid (APIENTRY *glMultiTexCoord3fvPROC) (GLenum, const GLfloat *);
+typedef GLvoid (APIENTRY *glMultiTexCoord3svPROC) (GLenum, const GLshort *);
+typedef GLvoid (APIENTRY *glMultiTexCoord3ivPROC) (GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glMultiTexCoord3dvPROC) (GLenum, const GLdouble *);
+typedef GLvoid (APIENTRY *glMultiTexCoord4fPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef GLvoid (APIENTRY *glMultiTexCoord4sPROC) (GLenum, GLshort, GLshort, GLshort, GLshort);
+typedef GLvoid (APIENTRY *glMultiTexCoord4iPROC) (GLenum, GLint, GLint, GLint, GLint);
+typedef GLvoid (APIENTRY *glMultiTexCoord4dPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef GLvoid (APIENTRY *glMultiTexCoord4fvPROC) (GLenum, const GLfloat *);
+typedef GLvoid (APIENTRY *glMultiTexCoord4svPROC) (GLenum, const GLshort *);
+typedef GLvoid (APIENTRY *glMultiTexCoord4ivPROC) (GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glMultiTexCoord4dvPROC) (GLenum, const GLdouble *);
+typedef GLvoid (APIENTRY *glLoadTransposeMatrixfPROC) (const GLfloat *);
+typedef GLvoid (APIENTRY *glLoadTransposeMatrixdPROC) (const GLdouble *);
+typedef GLvoid (APIENTRY *glMultTransposeMatrixfPROC) (const GLfloat *);
+typedef GLvoid (APIENTRY *glMultTransposeMatrixdPROC) (const GLdouble *);
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexImage3DPROC glCompressedTexImage3D = (glCompressedTexImage3DPROC)(intptr_t)__functionAddress;
+	glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexImage2DPROC glCompressedTexImage2D = (glCompressedTexImage2DPROC)(intptr_t)__functionAddress;
+	glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexImage1DPROC glCompressedTexImage1D = (glCompressedTexImage1DPROC)(intptr_t)__functionAddress;
+	glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexSubImage3DPROC glCompressedTexSubImage3D = (glCompressedTexSubImage3DPROC)(intptr_t)__functionAddress;
+	glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexSubImage2DPROC glCompressedTexSubImage2D = (glCompressedTexSubImage2DPROC)(intptr_t)__functionAddress;
+	glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint width, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
+	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	glCompressedTexSubImage1DPROC glCompressedTexSubImage1D = (glCompressedTexSubImage1DPROC)(intptr_t)__functionAddress;
+	glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEnv *__env, jclass clazz, jint target, jint lod, jlong imgAddress, jlong __functionAddress) {
+	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+	glGetCompressedTexImagePROC glGetCompressedTexImage = (glGetCompressedTexImagePROC)(intptr_t)__functionAddress;
+	glGetCompressedTexImage(target, lod, img);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglSampleCoverage(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert, jlong __functionAddress) {
+	glSampleCoveragePROC glSampleCoverage = (glSampleCoveragePROC)(intptr_t)__functionAddress;
+	glSampleCoverage(value, invert);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglActiveTexture(JNIEnv *__env, jclass clazz, jint texture, jlong __functionAddress) {
+	glActiveTexturePROC glActiveTexture = (glActiveTexturePROC)(intptr_t)__functionAddress;
+	glActiveTexture(texture);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglClientActiveTexture(JNIEnv *__env, jclass clazz, jint texture, jlong __functionAddress) {
+	glClientActiveTexturePROC glClientActiveTexture = (glClientActiveTexturePROC)(intptr_t)__functionAddress;
+	glClientActiveTexture(texture);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jlong __functionAddress) {
+	glMultiTexCoord1fPROC glMultiTexCoord1f = (glMultiTexCoord1fPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1f(texture, s);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jlong __functionAddress) {
+	glMultiTexCoord1sPROC glMultiTexCoord1s = (glMultiTexCoord1sPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1s(texture, s);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1i(JNIEnv *__env, jclass clazz, jint texture, jint s, jlong __functionAddress) {
+	glMultiTexCoord1iPROC glMultiTexCoord1i = (glMultiTexCoord1iPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1i(texture, s);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jlong __functionAddress) {
+	glMultiTexCoord1dPROC glMultiTexCoord1d = (glMultiTexCoord1dPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1d(texture, s);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1fv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
+	glMultiTexCoord1fvPROC glMultiTexCoord1fv = (glMultiTexCoord1fvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1fv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1sv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLshort *v = (const GLshort *)(intptr_t)vAddress;
+	glMultiTexCoord1svPROC glMultiTexCoord1sv = (glMultiTexCoord1svPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1sv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1iv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLint *v = (const GLint *)(intptr_t)vAddress;
+	glMultiTexCoord1ivPROC glMultiTexCoord1iv = (glMultiTexCoord1ivPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1iv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord1dv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLdouble *v = (const GLdouble *)(intptr_t)vAddress;
+	glMultiTexCoord1dvPROC glMultiTexCoord1dv = (glMultiTexCoord1dvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord1dv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jlong __functionAddress) {
+	glMultiTexCoord2fPROC glMultiTexCoord2f = (glMultiTexCoord2fPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2f(texture, s, t);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jlong __functionAddress) {
+	glMultiTexCoord2sPROC glMultiTexCoord2s = (glMultiTexCoord2sPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2s(texture, s, t);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jlong __functionAddress) {
+	glMultiTexCoord2iPROC glMultiTexCoord2i = (glMultiTexCoord2iPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2i(texture, s, t);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jlong __functionAddress) {
+	glMultiTexCoord2dPROC glMultiTexCoord2d = (glMultiTexCoord2dPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2d(texture, s, t);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2fv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
+	glMultiTexCoord2fvPROC glMultiTexCoord2fv = (glMultiTexCoord2fvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2fv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2sv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLshort *v = (const GLshort *)(intptr_t)vAddress;
+	glMultiTexCoord2svPROC glMultiTexCoord2sv = (glMultiTexCoord2svPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2sv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2iv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLint *v = (const GLint *)(intptr_t)vAddress;
+	glMultiTexCoord2ivPROC glMultiTexCoord2iv = (glMultiTexCoord2ivPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2iv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord2dv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLdouble *v = (const GLdouble *)(intptr_t)vAddress;
+	glMultiTexCoord2dvPROC glMultiTexCoord2dv = (glMultiTexCoord2dvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord2dv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r, jlong __functionAddress) {
+	glMultiTexCoord3fPROC glMultiTexCoord3f = (glMultiTexCoord3fPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3f(texture, s, t, r);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r, jlong __functionAddress) {
+	glMultiTexCoord3sPROC glMultiTexCoord3s = (glMultiTexCoord3sPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3s(texture, s, t, r);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r, jlong __functionAddress) {
+	glMultiTexCoord3iPROC glMultiTexCoord3i = (glMultiTexCoord3iPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3i(texture, s, t, r);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r, jlong __functionAddress) {
+	glMultiTexCoord3dPROC glMultiTexCoord3d = (glMultiTexCoord3dPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3d(texture, s, t, r);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3fv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
+	glMultiTexCoord3fvPROC glMultiTexCoord3fv = (glMultiTexCoord3fvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3fv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3sv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLshort *v = (const GLshort *)(intptr_t)vAddress;
+	glMultiTexCoord3svPROC glMultiTexCoord3sv = (glMultiTexCoord3svPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3sv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3iv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLint *v = (const GLint *)(intptr_t)vAddress;
+	glMultiTexCoord3ivPROC glMultiTexCoord3iv = (glMultiTexCoord3ivPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3iv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord3dv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLdouble *v = (const GLdouble *)(intptr_t)vAddress;
+	glMultiTexCoord3dvPROC glMultiTexCoord3dv = (glMultiTexCoord3dvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord3dv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4f(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r, jfloat q, jlong __functionAddress) {
+	glMultiTexCoord4fPROC glMultiTexCoord4f = (glMultiTexCoord4fPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4f(texture, s, t, r, q);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4s(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r, jshort q, jlong __functionAddress) {
+	glMultiTexCoord4sPROC glMultiTexCoord4s = (glMultiTexCoord4sPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4s(texture, s, t, r, q);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4i(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r, jint q, jlong __functionAddress) {
+	glMultiTexCoord4iPROC glMultiTexCoord4i = (glMultiTexCoord4iPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4i(texture, s, t, r, q);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4d(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r, jdouble q, jlong __functionAddress) {
+	glMultiTexCoord4dPROC glMultiTexCoord4d = (glMultiTexCoord4dPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4d(texture, s, t, r, q);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4fv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
+	glMultiTexCoord4fvPROC glMultiTexCoord4fv = (glMultiTexCoord4fvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4fv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4sv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLshort *v = (const GLshort *)(intptr_t)vAddress;
+	glMultiTexCoord4svPROC glMultiTexCoord4sv = (glMultiTexCoord4svPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4sv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4iv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLint *v = (const GLint *)(intptr_t)vAddress;
+	glMultiTexCoord4ivPROC glMultiTexCoord4iv = (glMultiTexCoord4ivPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4iv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultiTexCoord4dv(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress, jlong __functionAddress) {
+	const GLdouble *v = (const GLdouble *)(intptr_t)vAddress;
+	glMultiTexCoord4dvPROC glMultiTexCoord4dv = (glMultiTexCoord4dvPROC)(intptr_t)__functionAddress;
+	glMultiTexCoord4dv(texture, v);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglLoadTransposeMatrixf(JNIEnv *__env, jclass clazz, jlong mAddress, jlong __functionAddress) {
+	const GLfloat *m = (const GLfloat *)(intptr_t)mAddress;
+	glLoadTransposeMatrixfPROC glLoadTransposeMatrixf = (glLoadTransposeMatrixfPROC)(intptr_t)__functionAddress;
+	glLoadTransposeMatrixf(m);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglLoadTransposeMatrixd(JNIEnv *__env, jclass clazz, jlong mAddress, jlong __functionAddress) {
+	const GLdouble *m = (const GLdouble *)(intptr_t)mAddress;
+	glLoadTransposeMatrixdPROC glLoadTransposeMatrixd = (glLoadTransposeMatrixdPROC)(intptr_t)__functionAddress;
+	glLoadTransposeMatrixd(m);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultTransposeMatrixf(JNIEnv *__env, jclass clazz, jlong mAddress, jlong __functionAddress) {
+	const GLfloat *m = (const GLfloat *)(intptr_t)mAddress;
+	glMultTransposeMatrixfPROC glMultTransposeMatrixf = (glMultTransposeMatrixfPROC)(intptr_t)__functionAddress;
+	glMultTransposeMatrixf(m);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultTransposeMatrixd(JNIEnv *__env, jclass clazz, jlong mAddress, jlong __functionAddress) {
+	const GLdouble *m = (const GLdouble *)(intptr_t)mAddress;
+	glMultTransposeMatrixdPROC glMultTransposeMatrixd = (glMultTransposeMatrixdPROC)(intptr_t)__functionAddress;
+	glMultTransposeMatrixd(m);
+}
