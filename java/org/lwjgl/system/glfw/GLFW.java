@@ -305,11 +305,13 @@ public final class GLFW {
 	public static native void nglfwGetVersion(long major, long minor, long rev);
 
 	/**
-	 * 
+	 * This function retrieves the major, minor and revision numbers of the GLFW
+	 * library.  It is intended for when you are using GLFW as a shared library and
+	 * want to ensure that you are using the minimum required version.
 	 *
-	 * @param major 
-	 * @param minor 
-	 * @param rev   
+	 * @param major major version number
+	 * @param minor minor version number
+	 * @param rev   revision number
 	 */
 	public static void glfwGetVersion(ByteBuffer major, ByteBuffer minor, ByteBuffer rev) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -335,7 +337,12 @@ public final class GLFW {
 	/** JNI method for {@link #glfwGetVersionString()} */
 	public static native long nglfwGetVersionString();
 
-	/**  */
+	/**
+	 * This function returns a static string generated at compile-time according to
+	 * which configuration macros were defined.  This is intended for use when
+	 * submitting bug reports, to allow developers to see which code paths are
+	 * enabled in a binary.
+	 */
 	public static String glfwGetVersionString() {
 		long __result = nglfwGetVersionString();
 		return memDecodeUTF8(memByteBufferNT1(__result));
@@ -375,7 +382,12 @@ public final class GLFW {
 	/** JNI method for {@link #glfwGetMonitors()} */
 	public static native long nglfwGetMonitors(long count);
 
-	/**  */
+	/**
+	 * This function returns an array of handles for all currently connected monitors.
+	 * The returned array is valid only until the monitor configuration
+	 * changes.
+	 * See glfwSetMonitorCallback to receive notifications of configuration changes.
+	 */
 	public static PointerBuffer glfwGetMonitors() {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
@@ -385,7 +397,10 @@ public final class GLFW {
 
 	// --- [ glfwGetPrimaryMonitor ] ---
 
-	/**  */
+	/**
+	 * This function returns the primary monitor.  This is usually the monitor
+	 * where elements like the Windows task bar or the OS X menu bar is located.
+	 */
 	public static native long glfwGetPrimaryMonitor();
 
 	// --- [ glfwGetMonitorPos ] ---
@@ -394,11 +409,12 @@ public final class GLFW {
 	public static native void nglfwGetMonitorPos(long monitor, long xpos, long ypos);
 
 	/**
-	 * 
+	 * This function returns the position, in screen coordinates, of the upper-left
+	 * corner of the specified monitor.
 	 *
-	 * @param monitor 
-	 * @param xpos    
-	 * @param ypos    
+	 * @param monitor monitor to query
+	 * @param xpos    The monitor x-coordinate
+	 * @param ypos    The monitor y-coordinate
 	 */
 	public static void glfwGetMonitorPos(long monitor, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -425,11 +441,15 @@ public final class GLFW {
 	public static native void nglfwGetMonitorPhysicalSize(long monitor, long width, long height);
 
 	/**
-	 * 
+	 * This function returns the size, in millimetres, of the display area of the
+	 * specified monitor.
+	 * Note:  Some operating systems do not provide accurate information, either
+	 * because the monitor's EDID data is incorrect, or because the driver does not
+	 * report it accurately.
 	 *
-	 * @param monitor 
-	 * @param width   
-	 * @param height  
+	 * @param monitor monitor to query
+	 * @param width   width, in mm, of the monitor's display
+	 * @param height  height, in mm, of the monitor's display
 	 */
 	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer width, ByteBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -456,9 +476,10 @@ public final class GLFW {
 	public static native long nglfwGetMonitorName(long monitor);
 
 	/**
-	 * 
+	 * This function returns a human-readable name, encoded as UTF-8, of the
+	 * specified monitor.
 	 *
-	 * @param monitor 
+	 * @param monitor monitor to query
 	 */
 	public static String glfwGetMonitorName(long monitor) {
 		if ( LWJGLUtil.CHECKS )
@@ -492,9 +513,10 @@ public final class GLFW {
 	public static native long nglfwGetVideoModes(long monitor, long count);
 
 	/**
-	 * 
+	 * This function returns an array of all video modes supported by the specified
+	 * monitor.
 	 *
-	 * @param monitor 
+	 * @param monitor monitor to query
 	 */
 	public static PointerBuffer glfwGetVideoModes(long monitor) {
 		if ( LWJGLUtil.CHECKS )
@@ -511,9 +533,9 @@ public final class GLFW {
 	public static native void nglfwGetVideoMode(long monitor, long __result);
 
 	/**
-	 * 
+	 * This function returns the current video mode of the specified monitor.
 	 *
-	 * @param monitor 
+	 * @param monitor monitor to query
 	 */
 	public static void glfwGetVideoMode(long monitor, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS )
@@ -527,10 +549,11 @@ public final class GLFW {
 	public static native void nglfwSetGamma(long monitor, float gamma);
 
 	/**
-	 * 
+	 * This function generates a gamma ramp from the specified exponent and then
+	 * calls glfwSetGamma with it.
 	 *
-	 * @param monitor 
-	 * @param gamma   
+	 * @param monitor monitor whose gamma ramp to set
+	 * @param gamma   desired exponent
 	 */
 	public static void glfwSetGamma(long monitor, float gamma) {
 		if ( LWJGLUtil.CHECKS )
@@ -544,10 +567,10 @@ public final class GLFW {
 	public static native void nglfwGetGammaRamp(long monitor, long ramp);
 
 	/**
-	 * 
+	 * This function retrieves the current gamma ramp of the specified monitor.
 	 *
-	 * @param monitor 
-	 * @param ramp    
+	 * @param monitor monitor to query
+	 * @param ramp    Where to store the gamma ramp
 	 */
 	public static void glfwGetGammaRamp(long monitor, ByteBuffer ramp) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -563,10 +586,10 @@ public final class GLFW {
 	public static native void nglfwSetGammaRamp(long monitor, long ramp);
 
 	/**
-	 * 
+	 * This function sets the current gamma ramp for the specified monitor.
 	 *
-	 * @param monitor 
-	 * @param ramp    
+	 * @param monitor monitor whose gamma ramp to set
+	 * @param ramp    gamma ramp to use
 	 */
 	public static void glfwSetGammaRamp(long monitor, ByteBuffer ramp) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -578,16 +601,116 @@ public final class GLFW {
 
 	// --- [ glfwDefaultWindowHints ] ---
 
-	/**  */
+	/**
+	 * This function resets all window hints to their default values
+	 * Note: This function may only be called from the main thread.
+	 */
 	public static native void glfwDefaultWindowHints();
 
 	// --- [ glfwWindowHint ] ---
 
 	/**
-	 * 
+	 * This function sets hints for the next call to glfwCreateWindow.  The
+	 * hints, once set, retain their values until changed by a call to
+	 * glfwWindowHint or glfwDefaultWindowHints, or until the library is
+	 * terminated with glfwTerminate.
+	 * <p/>
+	 * Some window hints are hard constraints.  These must match the available
+	 * capabilities *exactly* for window and context creation to succeed.  Hints
+	 * that are not hard constraints are matched as closely as possible, but the
+	 * resulting window and context may differ from what these hints requested.  To
+	 * find out the actual parameters of the created window and context, use the
+	 * glfwGetWindowParam function.
+	 * <p/>
+	 * The following hints are hard constraints:
+	 * * GLFW_STEREO
+	 * * GLFW_CLIENT_API
+	 * <p/>
+	 * The following additional hints are hard constraints if requesting an OpenGL
+	 * context:
+	 * * GLFW_OPENGL_FORWARD_COMPAT
+	 * * GLFW_OPENGL_PROFILE
+	 * <p/>
+	 * Hints that do not apply to a given type of window or context are ignored.
+	 * Framebuffer hints
+	 * <p/>
+	 * The GLFW_RED_BITS, GLFW_GREEN_BITS, GLFW_BLUE_BITS, GLFW_ALPHA_BITS,
+	 * GLFW_DEPTH_BITS and GLFW_STENCIL_BITS hints specify the desired bit
+	 * depths of the various components of the default framebuffer.
+	 * <p/>
+	 * The GLFW_ACCUM_RED_BITS, GLFW_ACCUM_GREEN_BITS, GLFW_ACCUM_BLUE_BITS
+	 * and GLFW_ACCUM_ALPHA_BITS hints specify the desired bit depths of the
+	 * various components of the accumulation buffer.
+	 * <p/>
+	 * The GLFW_AUX_BUFFERS hint specifies the desired number of auxiliary
+	 * buffers.
+	 * <p/>
+	 * The GLFW_STEREO hint specifies whether to use stereoscopic rendering.
+	 * <p/>
+	 * The GLFW_SAMPLES hint specifies the desired number of samples to use for
+	 * multisampling.
+	 * <p/>
+	 * The GLFW_SRGB_CAPABLE hint specifies whether the framebuffer should be
+	 * sRGB capable.
+	 * <p/>
+	 * Context hints
+	 * <p/>
+	 * The GLFW_CLIENT_API hint specifies which client API to create the context
+	 * for.  Possible values are GLFW_OPENGL_API and GLFW_OPENGL_ES_API.
+	 * <p/>
+	 * The GLFW_CONTEXT_VERSION_MAJOR and GLFW_CONTEXT_VERSION_MINOR hints
+	 * specify the client API version that the created context must be compatible
+	 * with.
+	 * <p/>
+	 * For OpenGL, these hints are *not* hard constraints, as they don't have to
+	 * match exactly, but glfwCreateWindow will still fail if the resulting
+	 * OpenGL version is less than the one requested.  It is therefore perfectly
+	 * safe to use the default of version 1.0 for legacy code and you will still
+	 * get backwards-compatible contexts of version 3.0 and above when available.
+	 * <p/>
+	 * For OpenGL ES, these hints are hard constraints, as there is no backward
+	 * compatibility between OpenGL ES versions.
+	 * <p/>
+	 * If an OpenGL context is requested, the GLFW_OPENGL_FORWARD_COMPAT hint
+	 * specifies whether the OpenGL context should be forward-compatible, i.e. one
+	 * where all functionality deprecated in the requested version of OpenGL is
+	 * removed. This may only be used if the requested OpenGL version is 3.0 or
+	 * above. If another client API is requested, this hint is ignored.
+	 * <p/>
+	 * If an OpenGL context is requested, the GLFW_OPENGL_DEBUG_CONTEXT hint
+	 * specifies whether to create a debug OpenGL context, which may have
+	 * additional error and performance issue reporting functionality.  If another
+	 * client API is requested, this hint is ignored.
+	 * <p/>
+	 * If an OpenGL context is requested, the GLFW_OPENGL_PROFILE hint specifies
+	 * which OpenGL profile to create the context for.  Possible values are one of
+	 * GLFW_OPENGL_CORE_PROFILE or GLFW_OPENGL_COMPAT_PROFILE, or
+	 * GLFW_OPENGL_NO_PROFILE to not request a specific profile.  If requesting
+	 * an OpenGL version below 3.2, GLFW_OPENGL_NO_PROFILE must be used.  If
+	 * another client API is requested, this hint is ignored.
+	 * <p/>
+	 * The GLFW_CONTEXT_ROBUSTNESS hint specifies the robustness strategy to be
+	 * used by the context.  This can be one of GLFW_NO_RESET_NOTIFICATION or
+	 * GLFW_LOSE_CONTEXT_ON_RESET, or GLFW_NO_ROBUSTNESS to not request
+	 * a robustness strategy.
+	 * <p/>
+	 * Window hints
+	 * <p/>
+	 * The GLFW_RESIZABLE hint specifies whether the window will be resizable by
+	 * the user.  The window will still be resizable using the 
+	 * glfwSetWindowSize function.  This hint is ignored for fullscreen windows.
+	 * <p/>
+	 * The GLFW_VISIBLE hint specifies whether the window will be initially
+	 * visible.  This hint is ignored for fullscreen windows.
+	 * <p/>
+	 * New in GLFW 3
+	 * Hints are no longer reset to their default values on window creation.  To
+	 * set default hint values, use  glfwDefaultWindowHints.
+	 * <p/>
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param target 
-	 * @param hint   
+	 * @param target The window hint to set
+	 * @param hint   new value of the window hint
 	 */
 	public static native void glfwWindowHint(int target, int hint);
 
@@ -597,13 +720,22 @@ public final class GLFW {
 	public static native long nglfwCreateWindow(int width, int height, long title, long monitor, long share);
 
 	/**
-	 * 
+	 * This function creates a window and its associated context.  Most of the
+	 * options controlling how the window and its context should be created are
+	 * specified via the glfwWindowHint function.
+	 * <p/>
+	 * Successful creation does not change which context is current.  Before you
+	 * can use the newly created context, you need to make it current using
+	 * glfwMakeContextCurrent.
+	 * <p/>
+	 * Note that the actual properties of the window and context may differ from
+	 * what you requested, as not all parameters and hints are hard constraints.
 	 *
-	 * @param width   
-	 * @param height  
-	 * @param title   
-	 * @param monitor 
-	 * @param share   
+	 * @param width   desired width, in pixels, of the window
+	 * @param height  desired height, in pixels, of the window
+	 * @param title   initial, UTF-8 encoded window title
+	 * @param monitor monitor to use for fullscreen mode, or null to use windowed mode
+	 * @param share   window whose context to share resources with, or null to not share resources
 	 */
 	public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
 		if ( LWJGLUtil.CHECKS )
@@ -622,9 +754,11 @@ public final class GLFW {
 	public static native void nglfwDestroyWindow(long window);
 
 	/**
-	 * 
+	 * This function destroys the specified window and its context.  On calling
+	 * this function, no further callbacks will be called for that window.
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param window 
+	 * @param window window to destroy
 	 */
 	public static void glfwDestroyWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -639,9 +773,9 @@ public final class GLFW {
 	public static native int nglfwWindowShouldClose(long window);
 
 	/**
-	 * 
+	 * This function returns the value of the close flag of the specified window.
 	 *
-	 * @param window 
+	 * @param window window to query
 	 */
 	public static int glfwWindowShouldClose(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -655,10 +789,12 @@ public final class GLFW {
 	public static native void nglfwSetWindowShouldClose(long window, int value);
 
 	/**
-	 * 
+	 * This function sets the value of the close flag of the specified window.
+	 * This can be used to override the user's attempt to close the window, or
+	 * to signal that it should be closed.
 	 *
-	 * @param window 
-	 * @param value  
+	 * @param window window whose flag to change
+	 * @param value  new value
 	 */
 	public static void glfwSetWindowShouldClose(long window, int value) {
 		if ( LWJGLUtil.CHECKS )
@@ -672,10 +808,11 @@ public final class GLFW {
 	public static native void nglfwSetWindowTitle(long window, long title);
 
 	/**
-	 * 
+	 * This function sets the window title, encoded as UTF-8, of the specified
+	 * window.
 	 *
-	 * @param window 
-	 * @param title  
+	 * @param window window whose title to change
+	 * @param title  UTF-8 encoded window title
 	 */
 	public static void glfwSetWindowTitle(long window, ByteBuffer title) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -698,11 +835,12 @@ public final class GLFW {
 	public static native void nglfwGetWindowPos(long window, long xpos, long ypos);
 
 	/**
-	 * 
+	 * This function retrieves the position, in screen coordinates, of the
+	 * upper-left corner of the client area of the specified window.
 	 *
-	 * @param window 
-	 * @param xpos   
-	 * @param ypos   
+	 * @param window window to query
+	 * @param xpos   x-coordinate of the upper-left corner of the client area
+	 * @param ypos   y-coordinate of the upper-left corner of the client area
 	 */
 	public static void glfwGetWindowPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -729,11 +867,12 @@ public final class GLFW {
 	public static native void nglfwSetWindowPos(long window, int xpos, int ypos);
 
 	/**
-	 * 
+	 * This function sets the position, in screen coordinates, of the upper-left
+	 * corner of the client area of the window.
 	 *
-	 * @param window 
-	 * @param xpos   
-	 * @param ypos   
+	 * @param window window to query
+	 * @param xpos   x-coordinate of the upper-left corner of the client area
+	 * @param ypos   y-coordinate of the upper-left corner of the client area
 	 */
 	public static void glfwSetWindowPos(long window, int xpos, int ypos) {
 		if ( LWJGLUtil.CHECKS )
@@ -747,11 +886,12 @@ public final class GLFW {
 	public static native void nglfwGetWindowSize(long window, long width, long height);
 
 	/**
-	 * 
+	 * This function retrieves the size, in pixels, of the client area of the
+	 * specified window.
 	 *
-	 * @param window 
-	 * @param width  
-	 * @param height 
+	 * @param window window whose size to retrieve
+	 * @param width  width of the client area
+	 * @param height height of the client area
 	 */
 	public static void glfwGetWindowSize(long window, ByteBuffer width, ByteBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -778,11 +918,12 @@ public final class GLFW {
 	public static native void nglfwSetWindowSize(long window, int width, int height);
 
 	/**
-	 * 
+	 * This function sets the size, in pixels, of the client area of the specified
+	 * window.
 	 *
-	 * @param window 
-	 * @param width  
-	 * @param height 
+	 * @param window window to resize
+	 * @param width  desired width of the specified window
+	 * @param height desired height of the specified window
 	 */
 	public static void glfwSetWindowSize(long window, int width, int height) {
 		if ( LWJGLUtil.CHECKS )
@@ -796,9 +937,13 @@ public final class GLFW {
 	public static native void nglfwIconifyWindow(long window);
 
 	/**
-	 * 
+	 * This function iconifies/minimizes the specified window, if it was previously
+	 * restored.  If it is a fullscreen window, the original monitor resolution is
+	 * restored until the window is restored.  If the window is already iconified,
+	 * this function does nothing.
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param window 
+	 * @param window window to iconify
 	 */
 	public static void glfwIconifyWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -812,9 +957,12 @@ public final class GLFW {
 	public static native void nglfwRestoreWindow(long window);
 
 	/**
-	 * 
+	 * This function restores the specified window, if it was previously
+	 * iconified/minimized.  If the window is already restored, this function does
+	 * nothing.
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param window 
+	 * @param window window to restore
 	 */
 	public static void glfwRestoreWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -828,9 +976,12 @@ public final class GLFW {
 	public static native void nglfwShowWindow(long window);
 
 	/**
-	 * 
+	 * This function makes the specified window visible, if it was previously
+	 * hidden.  If the window is already visible or is in fullscreen mode, this
+	 * function does nothing.
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param window 
+	 * @param window window to make visible
 	 */
 	public static void glfwShowWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -844,9 +995,12 @@ public final class GLFW {
 	public static native void nglfwHideWindow(long window);
 
 	/**
-	 * 
+	 * This function hides the specified window, if it was previously visible.  If
+	 * the window is already hidden or is in fullscreen mode, this function does
+	 * nothing.
+	 * Note: This function may only be called from the main thread.
 	 *
-	 * @param window 
+	 * @param window window to hide
 	 */
 	public static void glfwHideWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -860,9 +1014,10 @@ public final class GLFW {
 	public static native long nglfwGetWindowMonitor(long window);
 
 	/**
-	 * 
+	 * This function returns the handle of the monitor that the specified window is
+	 * in fullscreen on.
 	 *
-	 * @param window 
+	 * @param window window to query
 	 */
 	public static long glfwGetWindowMonitor(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -876,10 +1031,45 @@ public final class GLFW {
 	public static native int nglfwGetWindowParam(long window, int param);
 
 	/**
-	 * 
+	 * This function returns a property of the specified window.  There are many
+	 * different properties, some related to the window and others to its context.
+	 * <p/>
+	 * The GLFW_FOCUSED parameter indicates whether the window is focused.
+	 * <p/>
+	 * The GLFW_ICONIFIED parameter indicates whether the window is iconified.
+	 * <p/>
+	 * The GLFW_VISIBLE parameter indicates whether the window is visible.
+	 * <p/>
+	 * The GLFW_RESIZABLE parameter indicates whether the window is resizable
+	 * by the user.
+	 * <p/>
+	 * Context parameters
+	 * <p/>
+	 * The GLFW_CLIENT_API parameter indicates the client API provided by the
+	 * window's context; either GLFW_OPENGL_API or GLFW_OPENGL_ES_API.
+	 * <p/>
+	 * The GLFW_CONTEXT_VERSION_MAJOR, GLFW_CONTEXT_VERSION_MINOR and
+	 * GLFW_CONTEXT_REVISION parameters indicate the client API version of the
+	 * window's context.
+	 * <p/>
+	 * The GLFW_OPENGL_FORWARD_COMPAT parameter is GL_TRUE if the window's
+	 * context is an OpenGL forward-compatible one, or GL_FALSE otherwise.
+	 * <p/>
+	 * The GLFW_OPENGL_DEBUG_CONTEXT parameter is GL_TRUE if the window's
+	 * context is an OpenGL debug context, or GL_FALSE otherwise.
+	 * <p/>
+	 * The GLFW_OPENGL_PROFILE parameter indicates the OpenGL profile used by the
+	 * context.  This is GLFW_OPENGL_CORE_PROFILE or GLFW_OPENGL_COMPAT_PROFILE
+	 * if the context uses a known profile, or GLFW_OPENGL_NO_PROFILE if the
+	 * OpenGL profile is unknown or the context is for another client API.
+	 * <p/>
+	 * The GLFW_CONTEXT_ROBUSTNESS parameter indicates the robustness strategy
+	 * used by the context.  This is GLFW_LOSE_CONTEXT_ON_RESET or
+	 * GLFW_NO_RESET_NOTIFICATION if the window's context supports robustness, or
+	 * GLFW_NO_ROBUSTNESS otherwise.
 	 *
-	 * @param window 
-	 * @param param  
+	 * @param window window to query
+	 * @param param  parameter whose value to return
 	 */
 	public static int glfwGetWindowParam(long window, int param) {
 		if ( LWJGLUtil.CHECKS )
@@ -893,10 +1083,12 @@ public final class GLFW {
 	public static native void nglfwSetWindowUserPointer(long window, long pointer);
 
 	/**
-	 * 
+	 * This function sets the user-defined pointer of the specified window.  The
+	 * current value is retained until the window is destroyed.  The initial value
+	 * is null.
 	 *
-	 * @param window  
-	 * @param pointer 
+	 * @param window  window whose pointer to set
+	 * @param pointer new value
 	 */
 	public static void glfwSetWindowUserPointer(long window, long pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -910,9 +1102,10 @@ public final class GLFW {
 	public static native long nglfwGetWindowUserPointer(long window);
 
 	/**
-	 * 
+	 * This function returns the current value of the user-defined pointer of the
+	 * specified window.  The initial value is null.
 	 *
-	 * @param window 
+	 * @param window window whose pointer to return
 	 */
 	public static long glfwGetWindowUserPointer(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -1041,12 +1234,18 @@ public final class GLFW {
 
 	// --- [ glfwPollEvents ] ---
 
-	/**  */
+	/**
+	 * This function processes only those events that have already been recevied
+	 * and then returns immediately.
+	 */
 	public static native void glfwPollEvents();
 
 	// --- [ glfwWaitEvents ] ---
 
-	/**  */
+	/**
+	 * This function blocks until at least one event has been recevied and then
+	 * processes all received events before returning.
+	 */
 	public static native void glfwWaitEvents();
 
 	// --- [ glfwGetInputMode ] ---
@@ -1055,10 +1254,10 @@ public final class GLFW {
 	public static native int nglfwGetInputMode(long window, int mode);
 
 	/**
-	 * 
+	 * Returns the value of an input option for the specified window
 	 *
-	 * @param window 
-	 * @param mode   
+	 * @param window window to query
+	 * @param mode   One of GLFW_CURSOR_MODE, GLFW_STICKY_KEYS or GLFW_STICKY_MOUSE_BUTTONS
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		if ( LWJGLUtil.CHECKS )
@@ -1072,11 +1271,31 @@ public final class GLFW {
 	public static native void nglfwSetInputMode(long window, int mode, int value);
 
 	/**
-	 * 
+	 * Sets an input option for the specified window
+	 * <p/>
+	 * If mode is GLFW_CURSOR_MODE, the value must be one of the supported input
+	 * modes:
+	 * * GLFW_CURSOR_NORMAL makes the cursor visible and behaving normally.
+	 * * GLFW_CURSOR_HIDDEN makes the cursor invisible when it is over the client
+	 * area of the window.
+	 * * GLFW_CURSOR_CAPTURED makes the cursor invisible and unable to leave the
+	 * window but unconstrained in terms of position.
+	 * <p/>
+	 * If mode is GLFW_STICKY_KEYS, the value must be either GL_TRUE to
+	 * enable sticky keys, or GL_FALSE to disable it.  If sticky keys are
+	 * enabled, a key press will ensure that glfwGetKey returns
+	 * GLFW_PRESS the next time it is called even if the key had been released
+	 * before the call.
+	 * <p/>
+	 * If mode is GLFW_STICKY_MOUSE_BUTTONS, the value must be either GL_TRUE
+	 * to enable sticky mouse buttons, or GL_FALSE to disable it.  If sticky
+	 * mouse buttons are enabled, a mouse button press will ensure that
+	 * glfwGetMouseButton returns GLFW_PRESS the next time it is called even
+	 * if the mouse button had been released before the call.
 	 *
-	 * @param window 
-	 * @param mode   
-	 * @param value  
+	 * @param window window whose input mode to set
+	 * @param mode   One of GLFW_CURSOR_MODE, GLFW_STICKY_KEYS or GLFW_STICKY_MOUSE_BUTTONS
+	 * @param value  new value of the specified input mode
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
 		if ( LWJGLUtil.CHECKS )
@@ -1090,10 +1309,21 @@ public final class GLFW {
 	public static native int nglfwGetKey(long window, int key);
 
 	/**
-	 * 
+	 * This function returns the last state reported for the specified key to the
+	 * specified window.  The returned state is one of GLFW_PRESS or
+	 * GLFW_RELEASE.  The higher-level state GLFW_REPEAT is only reported to
+	 * the key callback.
+	 * <p/>
+	 * If the GLFW_STICKY_KEYS input mode is enabled, this function returns
+	 * GLFW_PRESS the first time you call this function after a key has been
+	 * pressed, even if the key has already been released.
+	 * <p/>
+	 * The key functions deal with physical keys, with [key tokens](@ref keys)
+	 * named after their use on the standard US keyboard layout.  If you want to
+	 * input text, use the Unicode character callback instead.
 	 *
-	 * @param window 
-	 * @param key    
+	 * @param window desired window
+	 * @param key    desired keyboard key
 	 */
 	public static int glfwGetKey(long window, int key) {
 		if ( LWJGLUtil.CHECKS )
@@ -1107,10 +1337,15 @@ public final class GLFW {
 	public static native int nglfwGetMouseButton(long window, int button);
 
 	/**
-	 * 
+	 * This function returns the last state reported for the specified mouse button
+	 * to the specified window.
+	 * <p/>
+	 * If the GLFW_STICKY_MOUSE_BUTTONS input mode is enabled, this function
+	 * returns GLFW_PRESS the first time you call this function after a mouse
+	 * button has been pressed, even if the mouse button has already been released.
 	 *
-	 * @param window 
-	 * @param button 
+	 * @param window desired window
+	 * @param button desired mouse button
 	 */
 	public static int glfwGetMouseButton(long window, int button) {
 		if ( LWJGLUtil.CHECKS )
@@ -1124,11 +1359,12 @@ public final class GLFW {
 	public static native void nglfwGetCursorPos(long window, long xpos, long ypos);
 
 	/**
-	 * 
+	 * This function returns the last reported position of the cursor to the
+	 * specified window.
 	 *
-	 * @param window 
-	 * @param xpos   
-	 * @param ypos   
+	 * @param window desired window
+	 * @param xpos   cursor x-coordinate, relative to the left edge of the client area or null
+	 * @param ypos   cursor y-coordinate, relative to the to top edge of the client area, or null.
 	 */
 	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1155,11 +1391,13 @@ public final class GLFW {
 	public static native void nglfwSetCursorPos(long window, int xpos, int ypos);
 
 	/**
-	 * 
+	 * This function sets the position of the cursor. The specified window must be
+	 * focused. If the window does not have focus when this function is called, it
+	 * fails silently.
 	 *
-	 * @param window 
-	 * @param xpos   
-	 * @param ypos   
+	 * @param window desired window
+	 * @param xpos   desired x-coordinate, relative to the left edge of the client area, or null
+	 * @param ypos   desired y-coordinate, relative to the top edge of the client area, or null
 	 */
 	public static void glfwSetCursorPos(long window, int xpos, int ypos) {
 		if ( LWJGLUtil.CHECKS )
@@ -1281,10 +1519,10 @@ public final class GLFW {
 	// --- [ glfwGetJoystickParam ] ---
 
 	/**
-	 * 
+	 * This function returns a parameter of the specified joystick.
 	 *
-	 * @param joy   
-	 * @param param 
+	 * @param joy   joystick to query
+	 * @param param parameter whose value to return
 	 */
 	public static native int glfwGetJoystickParam(int joy, int param);
 
@@ -1294,11 +1532,12 @@ public final class GLFW {
 	public static native int nglfwGetJoystickAxes(int joy, long axes, int numaxes);
 
 	/**
-	 * 
+	 * This function returns the current positions of axes of the specified
+	 * joystick.
 	 *
-	 * @param joy     
-	 * @param axes    
-	 * @param numaxes 
+	 * @param joy     joystick to query
+	 * @param axes    array to hold the values
+	 * @param numaxes size of the provided array
 	 */
 	public static int glfwGetJoystickAxes(int joy, ByteBuffer axes, int numaxes) {
 		if ( LWJGLUtil.CHECKS )
@@ -1319,11 +1558,12 @@ public final class GLFW {
 	public static native int nglfwGetJoystickButtons(int joy, long buttons, int numbuttons);
 
 	/**
-	 * 
+	 * This function returns the current state of buttons of the specified
+	 * joystick.
 	 *
-	 * @param joy        
-	 * @param buttons    
-	 * @param numbuttons 
+	 * @param joy        joystick to query
+	 * @param buttons    array to hold the values
+	 * @param numbuttons size of the provided array
 	 */
 	public static int glfwGetJoystickButtons(int joy, ByteBuffer buttons, int numbuttons) {
 		if ( LWJGLUtil.CHECKS )
@@ -1342,9 +1582,9 @@ public final class GLFW {
 	public static native long nglfwGetJoystickName(int joy);
 
 	/**
-	 * 
+	 * This function returns the name, encoded as UTF-8, of the specified joystick.
 	 *
-	 * @param joy 
+	 * @param joy joystick to query
 	 */
 	public static String glfwGetJoystickName(int joy) {
 		long __result = nglfwGetJoystickName(joy);
@@ -1357,10 +1597,12 @@ public final class GLFW {
 	public static native void nglfwSetClipboardString(long window, long string);
 
 	/**
-	 * 
+	 * This function sets the system clipboard to the specified, UTF-8 encoded
+	 * string.  The string is copied before returning, so you don't have to retain
+	 * it afterwards.
 	 *
-	 * @param window 
-	 * @param string 
+	 * @param window window that will own the clipboard contents
+	 * @param string UTF-8 encoded string
 	 */
 	public static void glfwSetClipboardString(long window, ByteBuffer string) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1383,9 +1625,10 @@ public final class GLFW {
 	public static native long nglfwGetClipboardString(long window);
 
 	/**
-	 * 
+	 * This function returns the contents of the system clipboard, if it contains
+	 * or is convertible to a UTF-8 encoded string.
 	 *
-	 * @param window 
+	 * @param window window that will request the clipboard contents
 	 */
 	public static String glfwGetClipboardString(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -1396,15 +1639,20 @@ public final class GLFW {
 
 	// --- [ glfwGetTime ] ---
 
-	/**  */
+	/**
+	 * This function returns the value of the GLFW timer. Unless the timer has
+	 * been set using glfwSetTime, the timer measures time elapsed since GLFW
+	 * was initialized.
+	 */
 	public static native double glfwGetTime();
 
 	// --- [ glfwSetTime ] ---
 
 	/**
-	 * 
+	 * This function sets the value of the GLFW timer.  It then continues to count
+	 * up from that value.
 	 *
-	 * @param time 
+	 * @param time new value, in seconds
 	 */
 	public static native void glfwSetTime(double time);
 
