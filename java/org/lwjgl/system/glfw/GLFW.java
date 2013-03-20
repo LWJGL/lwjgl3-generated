@@ -185,10 +185,7 @@ public final class GLFW {
 		GLFW_MOUSE_BUTTON_RIGHT  = GLFW_MOUSE_BUTTON_2,
 		GLFW_MOUSE_BUTTON_MIDDLE = GLFW_MOUSE_BUTTON_3;
 
-	/**
-	 * MOUSE_BUTTON_LAST MOUSE_BUTTON_8 MOUSE_BUTTON_LEFT MOUSE_BUTTON_1 MOUSE_BUTTON_RIGHT MOUSE_BUTTON_2
-	 * MOUSE_BUTTON_MIDDLE MOUSE_BUTTON_3 Joysticks.
-	 */
+	/** Joysticks. */
 	public static final int
 		GLFW_JOYSTICK_1  = 0x0,
 		GLFW_JOYSTICK_2  = 0x1,
@@ -206,10 +203,6 @@ public final class GLFW {
 		GLFW_JOYSTICK_14 = 0xD,
 		GLFW_JOYSTICK_15 = 0xE,
 		GLFW_JOYSTICK_16 = 0xF;
-
-	/** JOYSTICK_LAST          JOYSTICK_16 No error has occurred. */
-	public static final int
-		GLFW_NO_ERROR = 0x0;
 
 	/** GLFW has not been initialized. */
 	public static final int
@@ -285,7 +278,23 @@ public final class GLFW {
 
 	// --- [ glfwInit ] ---
 
-	/**  */
+	/**
+	 * This function initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before a program terminates GLFW
+	 * should be terminated in order to free any resources allocated during or after initialization.
+	 * <p/>
+	 * If this function fails, it calls {@link #glfwTerminate} before returning.  If it succeeds, you should call {@link #glfwTerminate} before the program
+	 * exits.
+	 * <p/>
+	 * Additional calls to this function after successful initialization but before termination will succeed but will do nothing.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may only be called from the main thread.</li>
+	 * 	<li>This function may take several seconds to complete on some systems, while on other systems it may take only a fraction of a second to complete.</li>
+	 * 	<li><strong>Mac OS X</strong>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the
+	 * application's bundle, if present.</li>
+	 * </ul>
+	 */
 	public static native int glfwInit();
 
 	// --- [ glfwTerminate ] ---
@@ -293,7 +302,20 @@ public final class GLFW {
 	/** JNI method for {@link #glfwTerminate()} */
 	public static native void nglfwTerminate();
 
-	/**  */
+	/**
+	 * This function destroys all remaining windows, frees any allocated resources and sets the library to an uninitialized state. Once this is called, you
+	 * must again call {@link #glfwInit()} successfully before you will be able to use most GLFW functions.
+	 * <p/>
+	 * If GLFW has been successfully initialized, this function should be called before the program exits. If initialization fails, there is no need to call
+	 * this function, as it is called by {@link #glfwInit()} before it returns failure.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may be called before {@link #glfwInit()}.</li>
+	 * 	<li>This function may only be called from the main thread.</li>
+	 * 	<li>No window's context may be current on another thread when this function is called.</li>
+	 * </ul>
+	 */
 	public static void glfwTerminate() {
 		WindowCallback.clearAll();
 		nglfwTerminate();
@@ -305,9 +327,14 @@ public final class GLFW {
 	public static native void nglfwGetVersion(long major, long minor, long rev);
 
 	/**
-	 * This function retrieves the major, minor and revision numbers of the GLFW
-	 * library.  It is intended for when you are using GLFW as a shared library and
+	 * This function retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and
 	 * want to ensure that you are using the minimum required version.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may be called before {@link #glfwInit()}.</li>
+	 * 	<li>This function may be called from any thread.</li>
+	 * </ul>
 	 *
 	 * @param major major version number
 	 * @param minor minor version number
@@ -338,10 +365,20 @@ public final class GLFW {
 	public static native long nglfwGetVersionString();
 
 	/**
-	 * This function returns a static string generated at compile-time according to
-	 * which configuration macros were defined.  This is intended for use when
-	 * submitting bug reports, to allow developers to see which code paths are
-	 * enabled in a binary.
+	 * This function returns a static string generated at compile-time according to which configuration macros were defined. This is intended for use when
+	 * submitting bug reports, to allow developers to see which code paths are enabled in a binary.
+	 * <p/>
+	 * The format of the string is as follows:
+	 * <ul>
+	 * 	<li>The version of GLFW</li>
+	 * 	<li>The name of the window system API</li>
+	 * 	<li>The name of the context creation API</li>
+	 * 	<li>Any additional options or APIs</li>
+	 * </ul>
+	 * <p/>
+	 * For example, when compiling GLFW 3.0 with MinGW using the Win32 and WGL backends, the version string may look something like this:
+	 * <p/>
+	 * 3.0.0 Win32 WGL MinGW
 	 */
 	public static String glfwGetVersionString() {
 		long __result = nglfwGetVersionString();
@@ -354,17 +391,16 @@ public final class GLFW {
 	public static native void nglfwSetErrorCallback(long cbfun);
 
 	/**
-	 * Sets the error callback.
+	 * This function sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
 	 * <p/>
-	 * This function may be called before {@link #glfwInit()}.
-	 * <p/>
-	 * The error callback is called by the thread where the error was generated.  If you are using GLFW from multiple threads, your error callback needs to be
-	 * written accordingly.
-	 * <p/>
-	 * Because the description string provided to the callback may have been
-	 * generated specifically for that error, it is not guaranteed to be valid
-	 * after the callback has returned.  If you wish to use it after that, you need
-	 * to make your own copy of it before returning.
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may be called before {@link #glfwInit()}.</li>
+	 * 	<li>The error callback is called by the thread where the error was generated. If you are using GLFW from multiple threads, your error callback needs to
+	 * be written accordingly.</li>
+	 * 	<li>Because the description string provided to the callback may have been generated specifically for that error, it is not guaranteed to be valid after
+	 * the callback has returned.  If you wish to use it after that, you need to make your own copy of it before returning.</li>
+	 * </ul>
 	 *
 	 * @param cbfun the new callback or NULL to remove the currently set callback
 	 */
@@ -383,10 +419,10 @@ public final class GLFW {
 	public static native long nglfwGetMonitors(long count);
 
 	/**
-	 * This function returns an array of handles for all currently connected monitors.
-	 * The returned array is valid only until the monitor configuration
+	 * This function returns an array of handles for all currently connected monitors. The returned array is valid only until the monitor configuration
 	 * changes.
-	 * See glfwSetMonitorCallback to receive notifications of configuration changes.
+	 * <p/>
+	 * See {@link #glfwSetMonitorCallback} to receive notifications of configuration changes.
 	 */
 	public static PointerBuffer glfwGetMonitors() {
 		APIBuffer __buffer = apiBuffer();
@@ -441,9 +477,9 @@ public final class GLFW {
 	public static native void nglfwGetMonitorPhysicalSize(long monitor, long width, long height);
 
 	/**
-	 * This function returns the size, in millimetres, of the display area of the
-	 * specified monitor.
-	 * Note:  Some operating systems do not provide accurate information, either
+	 * This function returns the size, in millimetres, of the display area of the specified monitor.
+	 * <p/>
+	 * Note: Some operating systems do not provide accurate information, either
 	 * because the monitor's EDID data is incorrect, or because the driver does not
 	 * report it accurately.
 	 *
@@ -550,7 +586,7 @@ public final class GLFW {
 
 	/**
 	 * This function generates a gamma ramp from the specified exponent and then
-	 * calls glfwSetGamma with it.
+	 * calls {@link #glfwSetGammaRamp} with it.
 	 *
 	 * @param monitor monitor whose gamma ramp to set
 	 * @param gamma   desired exponent
@@ -602,7 +638,8 @@ public final class GLFW {
 	// --- [ glfwDefaultWindowHints ] ---
 
 	/**
-	 * This function resets all window hints to their default values
+	 * This function resets all window hints to their default values.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 */
 	public static native void glfwDefaultWindowHints();
@@ -610,102 +647,28 @@ public final class GLFW {
 	// --- [ glfwWindowHint ] ---
 
 	/**
-	 * This function sets hints for the next call to glfwCreateWindow.  The
+	 * This function sets hints for the next call to {@link #glfwCreateWindow}. The
 	 * hints, once set, retain their values until changed by a call to
-	 * glfwWindowHint or glfwDefaultWindowHints, or until the library is
-	 * terminated with glfwTerminate.
+	 * glfwWindowHint or {@link #glfwDefaultWindowHints}, or until the library is
+	 * terminated with {@link #glfwTerminate}.
 	 * <p/>
-	 * Some window hints are hard constraints.  These must match the available
-	 * capabilities *exactly* for window and context creation to succeed.  Hints
+	 * Some window hints are hard constraints. These must match the available
+	 * capabilities <em>exactly</em> for window creation to succeed. Hints
 	 * that are not hard constraints are matched as closely as possible, but the
-	 * resulting window and context may differ from what these hints requested.  To
-	 * find out the actual parameters of the created window and context, use the
-	 * glfwGetWindowParam function.
+	 * resulting window may differ from what these hints requested. To
+	 * find out the actual parameters of the created window, use the
+	 * {@link #glfwGetWindowParam} function.
 	 * <p/>
-	 * The following hints are hard constraints:
-	 * * GLFW_STEREO
-	 * * GLFW_CLIENT_API
+	 * Hints that do not apply to a given type of window are ignored.
 	 * <p/>
-	 * The following additional hints are hard constraints if requesting an OpenGL
-	 * context:
-	 * * GLFW_OPENGL_FORWARD_COMPAT
-	 * * GLFW_OPENGL_PROFILE
+	 * Window hints:
 	 * <p/>
-	 * Hints that do not apply to a given type of window or context are ignored.
-	 * Framebuffer hints
+	 * The {@link #GLFW_RESIZABLE} hint specifies whether the window will be resizable by
+	 * the user. The window will still be resizable using the
+	 * {@link #glfwSetWindowSize} function.  This hint is ignored for fullscreen windows.
 	 * <p/>
-	 * The GLFW_RED_BITS, GLFW_GREEN_BITS, GLFW_BLUE_BITS, GLFW_ALPHA_BITS,
-	 * GLFW_DEPTH_BITS and GLFW_STENCIL_BITS hints specify the desired bit
-	 * depths of the various components of the default framebuffer.
-	 * <p/>
-	 * The GLFW_ACCUM_RED_BITS, GLFW_ACCUM_GREEN_BITS, GLFW_ACCUM_BLUE_BITS
-	 * and GLFW_ACCUM_ALPHA_BITS hints specify the desired bit depths of the
-	 * various components of the accumulation buffer.
-	 * <p/>
-	 * The GLFW_AUX_BUFFERS hint specifies the desired number of auxiliary
-	 * buffers.
-	 * <p/>
-	 * The GLFW_STEREO hint specifies whether to use stereoscopic rendering.
-	 * <p/>
-	 * The GLFW_SAMPLES hint specifies the desired number of samples to use for
-	 * multisampling.
-	 * <p/>
-	 * The GLFW_SRGB_CAPABLE hint specifies whether the framebuffer should be
-	 * sRGB capable.
-	 * <p/>
-	 * Context hints
-	 * <p/>
-	 * The GLFW_CLIENT_API hint specifies which client API to create the context
-	 * for.  Possible values are GLFW_OPENGL_API and GLFW_OPENGL_ES_API.
-	 * <p/>
-	 * The GLFW_CONTEXT_VERSION_MAJOR and GLFW_CONTEXT_VERSION_MINOR hints
-	 * specify the client API version that the created context must be compatible
-	 * with.
-	 * <p/>
-	 * For OpenGL, these hints are *not* hard constraints, as they don't have to
-	 * match exactly, but glfwCreateWindow will still fail if the resulting
-	 * OpenGL version is less than the one requested.  It is therefore perfectly
-	 * safe to use the default of version 1.0 for legacy code and you will still
-	 * get backwards-compatible contexts of version 3.0 and above when available.
-	 * <p/>
-	 * For OpenGL ES, these hints are hard constraints, as there is no backward
-	 * compatibility between OpenGL ES versions.
-	 * <p/>
-	 * If an OpenGL context is requested, the GLFW_OPENGL_FORWARD_COMPAT hint
-	 * specifies whether the OpenGL context should be forward-compatible, i.e. one
-	 * where all functionality deprecated in the requested version of OpenGL is
-	 * removed. This may only be used if the requested OpenGL version is 3.0 or
-	 * above. If another client API is requested, this hint is ignored.
-	 * <p/>
-	 * If an OpenGL context is requested, the GLFW_OPENGL_DEBUG_CONTEXT hint
-	 * specifies whether to create a debug OpenGL context, which may have
-	 * additional error and performance issue reporting functionality.  If another
-	 * client API is requested, this hint is ignored.
-	 * <p/>
-	 * If an OpenGL context is requested, the GLFW_OPENGL_PROFILE hint specifies
-	 * which OpenGL profile to create the context for.  Possible values are one of
-	 * GLFW_OPENGL_CORE_PROFILE or GLFW_OPENGL_COMPAT_PROFILE, or
-	 * GLFW_OPENGL_NO_PROFILE to not request a specific profile.  If requesting
-	 * an OpenGL version below 3.2, GLFW_OPENGL_NO_PROFILE must be used.  If
-	 * another client API is requested, this hint is ignored.
-	 * <p/>
-	 * The GLFW_CONTEXT_ROBUSTNESS hint specifies the robustness strategy to be
-	 * used by the context.  This can be one of GLFW_NO_RESET_NOTIFICATION or
-	 * GLFW_LOSE_CONTEXT_ON_RESET, or GLFW_NO_ROBUSTNESS to not request
-	 * a robustness strategy.
-	 * <p/>
-	 * Window hints
-	 * <p/>
-	 * The GLFW_RESIZABLE hint specifies whether the window will be resizable by
-	 * the user.  The window will still be resizable using the 
-	 * glfwSetWindowSize function.  This hint is ignored for fullscreen windows.
-	 * <p/>
-	 * The GLFW_VISIBLE hint specifies whether the window will be initially
-	 * visible.  This hint is ignored for fullscreen windows.
-	 * <p/>
-	 * New in GLFW 3
-	 * Hints are no longer reset to their default values on window creation.  To
-	 * set default hint values, use  glfwDefaultWindowHints.
+	 * The {@link #GLFW_VISIBLE} hint specifies whether the window will be initially
+	 * visible. This hint is ignored for fullscreen windows.
 	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
@@ -720,16 +683,16 @@ public final class GLFW {
 	public static native long nglfwCreateWindow(int width, int height, long title, long monitor, long share);
 
 	/**
-	 * This function creates a window and its associated context.  Most of the
-	 * options controlling how the window and its context should be created are
-	 * specified via the glfwWindowHint function.
+	 * This function creates a window. Most of the options controlling how the window should be created are specified via the {@link #glfwWindowHint} function.
 	 * <p/>
-	 * Successful creation does not change which context is current.  Before you
-	 * can use the newly created context, you need to make it current using
-	 * glfwMakeContextCurrent.
+	 * Note that the actual properties of the window may differ from what you requested, as not all parameters and hints are hard constraints.
 	 * <p/>
-	 * Note that the actual properties of the window and context may differ from
-	 * what you requested, as not all parameters and hints are hard constraints.
+	 * To create the window at a specific position, make it initially invisible using the {@link #GLFW_VISIBLE} window hint, set its position and then show it.
+	 * <p/>
+	 * For fullscreen windows the initial cursor mode is {@link #GLFW_CURSOR_CAPTURED} and the screensaver is prohibited from starting. For regular windows the
+	 * initial cursor mode is {@link #GLFW_CURSOR_NORMAL} and the screensaver is allowed to start.
+	 * <p/>
+	 * This function may only be called from the main thread.
 	 *
 	 * @param width   desired width, in pixels, of the window
 	 * @param height  desired height, in pixels, of the window
@@ -754,9 +717,13 @@ public final class GLFW {
 	public static native void nglfwDestroyWindow(long window);
 
 	/**
-	 * This function destroys the specified window and its context.  On calling
-	 * this function, no further callbacks will be called for that window.
-	 * Note: This function may only be called from the main thread.
+	 * This function destroys the specified window. On calling this function, no further callbacks will be called for that window.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may only be called from the main thread.</li>
+	 * 	<li>This function may not be called from a callback.</li>
+	 * </ul>
 	 *
 	 * @param window window to destroy
 	 */
@@ -869,6 +836,19 @@ public final class GLFW {
 	/**
 	 * This function sets the position, in screen coordinates, of the upper-left
 	 * corner of the client area of the window.
+	 * <p/>
+	 * If you wish to set an initial window position you should create a hidden window (using {@link #glfwWindowHint} and {@link #GLFW_VISIBLE}, set its
+	 * position and then show it.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>It is very rarely a good idea to move an already visible window, as it will confuse and annoy the user.</li>
+	 * 	<li>This function may only be called from the main thread.</li>
+	 * 	<li>The window manager may put limits on what positions are allowed.</li>
+	 * 	<li><strong>X11</strong>: Some window managers ignore the set position of hidden (i.e. unmapped) windows, instead placing them where it thinks is
+	 * appropriate once they are shown.</li>
+	 * 	<li><strong>Mac OS X</strong>: The screen coordinate system is inverted.</li>
+	 * </ul>
 	 *
 	 * @param window window to query
 	 * @param xpos   x-coordinate of the upper-left corner of the client area
@@ -920,6 +900,13 @@ public final class GLFW {
 	/**
 	 * This function sets the size, in pixels, of the client area of the specified
 	 * window.
+	 * <p/>
+	 * Notes:
+	 * <ul>
+	 * 	<li>This function may only be called from the main thread.</li>
+	 * 	<li>The window manager may put limits on what window sizes are allowed.</li>
+	 * 	<li>For fullscreen windows, this function selects and switches to the resolution closest to the specified size, without destroying the window's context.</li>
+	 * </ul>
 	 *
 	 * @param window window to resize
 	 * @param width  desired width of the specified window
@@ -941,6 +928,7 @@ public final class GLFW {
 	 * restored.  If it is a fullscreen window, the original monitor resolution is
 	 * restored until the window is restored.  If the window is already iconified,
 	 * this function does nothing.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
 	 * @param window window to iconify
@@ -960,6 +948,7 @@ public final class GLFW {
 	 * This function restores the specified window, if it was previously
 	 * iconified/minimized.  If the window is already restored, this function does
 	 * nothing.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
 	 * @param window window to restore
@@ -979,6 +968,7 @@ public final class GLFW {
 	 * This function makes the specified window visible, if it was previously
 	 * hidden.  If the window is already visible or is in fullscreen mode, this
 	 * function does nothing.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
 	 * @param window window to make visible
@@ -998,6 +988,7 @@ public final class GLFW {
 	 * This function hides the specified window, if it was previously visible.  If
 	 * the window is already hidden or is in fullscreen mode, this function does
 	 * nothing.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
 	 * @param window window to hide
@@ -1031,42 +1022,13 @@ public final class GLFW {
 	public static native int nglfwGetWindowParam(long window, int param);
 
 	/**
-	 * This function returns a property of the specified window.  There are many
-	 * different properties, some related to the window and others to its context.
-	 * <p/>
-	 * The GLFW_FOCUSED parameter indicates whether the window is focused.
-	 * <p/>
-	 * The GLFW_ICONIFIED parameter indicates whether the window is iconified.
-	 * <p/>
-	 * The GLFW_VISIBLE parameter indicates whether the window is visible.
-	 * <p/>
-	 * The GLFW_RESIZABLE parameter indicates whether the window is resizable
-	 * by the user.
-	 * <p/>
-	 * Context parameters
-	 * <p/>
-	 * The GLFW_CLIENT_API parameter indicates the client API provided by the
-	 * window's context; either GLFW_OPENGL_API or GLFW_OPENGL_ES_API.
-	 * <p/>
-	 * The GLFW_CONTEXT_VERSION_MAJOR, GLFW_CONTEXT_VERSION_MINOR and
-	 * GLFW_CONTEXT_REVISION parameters indicate the client API version of the
-	 * window's context.
-	 * <p/>
-	 * The GLFW_OPENGL_FORWARD_COMPAT parameter is GL_TRUE if the window's
-	 * context is an OpenGL forward-compatible one, or GL_FALSE otherwise.
-	 * <p/>
-	 * The GLFW_OPENGL_DEBUG_CONTEXT parameter is GL_TRUE if the window's
-	 * context is an OpenGL debug context, or GL_FALSE otherwise.
-	 * <p/>
-	 * The GLFW_OPENGL_PROFILE parameter indicates the OpenGL profile used by the
-	 * context.  This is GLFW_OPENGL_CORE_PROFILE or GLFW_OPENGL_COMPAT_PROFILE
-	 * if the context uses a known profile, or GLFW_OPENGL_NO_PROFILE if the
-	 * OpenGL profile is unknown or the context is for another client API.
-	 * <p/>
-	 * The GLFW_CONTEXT_ROBUSTNESS parameter indicates the robustness strategy
-	 * used by the context.  This is GLFW_LOSE_CONTEXT_ON_RESET or
-	 * GLFW_NO_RESET_NOTIFICATION if the window's context supports robustness, or
-	 * GLFW_NO_ROBUSTNESS otherwise.
+	 * This function returns a property of the specified window.
+	 * <ul>
+	 * 	<li>The {@link #GLFW_FOCUSED} parameter indicates whether the window is focused.</li>
+	 * 	<li>The {@link #GLFW_ICONIFIED} parameter indicates whether the window is iconified.</li>
+	 * 	<li>The {@link #GLFW_VISIBLE} parameter indicates whether the window is visible.</li>
+	 * 	<li>The {@link #GLFW_RESIZABLE} parameter indicates whether the window is resizable by the user.</li>
+	 * </ul>
 	 *
 	 * @param window window to query
 	 * @param param  parameter whose value to return
@@ -1257,7 +1219,7 @@ public final class GLFW {
 	 * Returns the value of an input option for the specified window
 	 *
 	 * @param window window to query
-	 * @param mode   One of GLFW_CURSOR_MODE, GLFW_STICKY_KEYS or GLFW_STICKY_MOUSE_BUTTONS
+	 * @param mode   One of {@link #GLFW_CURSOR_MODE}, {@link #GLFW_STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS}
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		if ( LWJGLUtil.CHECKS )
@@ -1273,28 +1235,28 @@ public final class GLFW {
 	/**
 	 * Sets an input option for the specified window
 	 * <p/>
-	 * If mode is GLFW_CURSOR_MODE, the value must be one of the supported input
+	 * If mode is {@link #GLFW_CURSOR_MODE}, the value must be one of the supported input
 	 * modes:
-	 * * GLFW_CURSOR_NORMAL makes the cursor visible and behaving normally.
-	 * * GLFW_CURSOR_HIDDEN makes the cursor invisible when it is over the client
-	 * area of the window.
-	 * * GLFW_CURSOR_CAPTURED makes the cursor invisible and unable to leave the
-	 * window but unconstrained in terms of position.
+	 * <ul>
+	 * 	<li>{@link #GLFW_CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
+	 * 	<li>{@link #GLFW_CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window.</li>
+	 * 	<li>{@link #GLFW_CURSOR_CAPTURED} makes the cursor invisible and unable to leave the window but unconstrained in terms of position.</li>
+	 * </ul>
 	 * <p/>
-	 * If mode is GLFW_STICKY_KEYS, the value must be either GL_TRUE to
+	 * If mode is {@link #GLFW_STICKY_KEYS}, the value must be either GL_TRUE to
 	 * enable sticky keys, or GL_FALSE to disable it.  If sticky keys are
-	 * enabled, a key press will ensure that glfwGetKey returns
-	 * GLFW_PRESS the next time it is called even if the key had been released
+	 * enabled, a key press will ensure that {@link #glfwGetKey} returns
+	 * {@link #GLFW_PRESS} the next time it is called even if the key had been released
 	 * before the call.
 	 * <p/>
-	 * If mode is GLFW_STICKY_MOUSE_BUTTONS, the value must be either GL_TRUE
+	 * If mode is {@link #GLFW_STICKY_MOUSE_BUTTONS}, the value must be either GL_TRUE
 	 * to enable sticky mouse buttons, or GL_FALSE to disable it.  If sticky
 	 * mouse buttons are enabled, a mouse button press will ensure that
-	 * glfwGetMouseButton returns GLFW_PRESS the next time it is called even
+	 * {@link #glfwGetMouseButton} returns {@link #GLFW_PRESS} the next time it is called even
 	 * if the mouse button had been released before the call.
 	 *
 	 * @param window window whose input mode to set
-	 * @param mode   One of GLFW_CURSOR_MODE, GLFW_STICKY_KEYS or GLFW_STICKY_MOUSE_BUTTONS
+	 * @param mode   One of {@link #GLFW_CURSOR_MODE}, {@link #GLFW_STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS}
 	 * @param value  new value of the specified input mode
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
@@ -1310,17 +1272,16 @@ public final class GLFW {
 
 	/**
 	 * This function returns the last state reported for the specified key to the
-	 * specified window.  The returned state is one of GLFW_PRESS or
-	 * GLFW_RELEASE.  The higher-level state GLFW_REPEAT is only reported to
+	 * specified window. The returned state is one of {@link #GLFW_PRESS} or
+	 * {@link #GLFW_RELEASE}. The higher-level state {@link #GLFW_REPEAT} is only reported to
 	 * the key callback.
 	 * <p/>
-	 * If the GLFW_STICKY_KEYS input mode is enabled, this function returns
-	 * GLFW_PRESS the first time you call this function after a key has been
+	 * If the {@link #GLFW_STICKY_KEYS} input mode is enabled, this function returns
+	 * {@link #GLFW_PRESS} the first time you call this function after a key has been
 	 * pressed, even if the key has already been released.
 	 * <p/>
-	 * The key functions deal with physical keys, with [key tokens](@ref keys)
-	 * named after their use on the standard US keyboard layout.  If you want to
-	 * input text, use the Unicode character callback instead.
+	 * The key functions deal with physical keys, with tokens named after their use on the standard US keyboard layout. If you want to input text, use the
+	 * Unicode character callback instead.
 	 *
 	 * @param window desired window
 	 * @param key    desired keyboard key
@@ -1340,8 +1301,8 @@ public final class GLFW {
 	 * This function returns the last state reported for the specified mouse button
 	 * to the specified window.
 	 * <p/>
-	 * If the GLFW_STICKY_MOUSE_BUTTONS input mode is enabled, this function
-	 * returns GLFW_PRESS the first time you call this function after a mouse
+	 * If the {@link #GLFW_STICKY_MOUSE_BUTTONS} input mode is enabled, this function
+	 * returns {@link #GLFW_PRESS} the first time you call this function after a mouse
 	 * button has been pressed, even if the mouse button has already been released.
 	 *
 	 * @param window desired window
