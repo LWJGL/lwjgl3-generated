@@ -731,7 +731,7 @@ public final class GL33 {
 	public static native void nglVertexP2ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP2ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex2f}.
 	 *
@@ -751,7 +751,7 @@ public final class GL33 {
 	public static native void nglVertexP3ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP3ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex3f}.
 	 *
@@ -771,7 +771,7 @@ public final class GL33 {
 	public static native void nglVertexP4ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP4ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex4f}.
 	 *
@@ -887,7 +887,7 @@ public final class GL33 {
 	public static native void nglTexCoordP1ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP1ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord1f}.
 	 *
@@ -907,7 +907,7 @@ public final class GL33 {
 	public static native void nglTexCoordP2ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP2ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord2f}.
 	 *
@@ -927,7 +927,7 @@ public final class GL33 {
 	public static native void nglTexCoordP3ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP3ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord3f}.
 	 *
@@ -947,7 +947,7 @@ public final class GL33 {
 	public static native void nglTexCoordP4ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP4ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord4f}.
 	 *
@@ -1095,7 +1095,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP1ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP1ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord1f}.
 	 *
@@ -1116,7 +1116,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP2ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP2ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord2f}.
 	 *
@@ -1137,7 +1137,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP3ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP3ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord3f}.
 	 *
@@ -1158,7 +1158,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP4ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <em>- This function is deprecated and unavailable in the Core profile -</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP4ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord4f}.
 	 *

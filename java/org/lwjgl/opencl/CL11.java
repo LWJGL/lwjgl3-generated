@@ -105,7 +105,7 @@ public final class CL11 {
 			checkBuffer(buffer_create_info, cl_buffer_region.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLMem(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret), __functionAddress), buffer);
+		return CLMem.create(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret), __functionAddress), buffer);
 	}
 
 	/** Alternative version of: {@link #clCreateSubBuffer(CLMem, long, int, ByteBuffer, ByteBuffer)} */
@@ -116,12 +116,12 @@ public final class CL11 {
 			checkBuffer(buffer_create_info, cl_buffer_region.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLMem(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret), __functionAddress), buffer);
+		return CLMem.create(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret), __functionAddress), buffer);
 	}
 
 	// --- [ clSetMemObjectDestructorCallback ] ---
 
-	/** JNI method for {@link #clSetMemObjectDestructorCallback(CLMem, CLMemObjectDestructorCallback, ByteBuffer)} */
+	/** JNI method for {@link #clSetMemObjectDestructorCallback(CLMem, long, ByteBuffer)} */
 	public static native int nclSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -131,11 +131,13 @@ public final class CL11 {
 	 * @param pfn_notify 
 	 * @param user_data  
 	 */
-	public static int clSetMemObjectDestructorCallback(CLMem memobj, CLMemObjectDestructorCallback pfn_notify, ByteBuffer user_data) {
+	public static int clSetMemObjectDestructorCallback(CLMem memobj, long pfn_notify, ByteBuffer user_data) {
 		long __functionAddress = getInstance(memobj).clSetMemObjectDestructorCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclSetMemObjectDestructorCallback(memobj.getPointer(), CLMemObjectDestructorCallback.CALLBACK, memAddress(user_data), __functionAddress);
+			checkPointer(pfn_notify);
+		}
+		return nclSetMemObjectDestructorCallback(memobj.getPointer(), pfn_notify, memAddress(user_data), __functionAddress);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
@@ -301,7 +303,7 @@ public final class CL11 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLEvent(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLEvent.create(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateUserEvent(CLContext, ByteBuffer)} */
@@ -311,7 +313,7 @@ public final class CL11 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLEvent(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLEvent.create(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clSetUserEventStatus ] ---
@@ -334,7 +336,7 @@ public final class CL11 {
 
 	// --- [ clSetEventCallback ] ---
 
-	/** JNI method for {@link #clSetEventCallback(CLEvent, int, CLEventCallback, ByteBuffer)} */
+	/** JNI method for {@link #clSetEventCallback(CLEvent, int, long, ByteBuffer)} */
 	public static native int nclSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -345,11 +347,13 @@ public final class CL11 {
 	 * @param pfn_notify                 
 	 * @param user_data                  
 	 */
-	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, CLEventCallback pfn_notify, ByteBuffer user_data) {
+	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, long pfn_notify, ByteBuffer user_data) {
 		long __functionAddress = getInstance(event).clSetEventCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclSetEventCallback(event.getPointer(), command_exec_callback_type, CLEventCallback.CALLBACK, memAddress(user_data), __functionAddress);
+			checkPointer(pfn_notify);
+		}
+		return nclSetEventCallback(event.getPointer(), command_exec_callback_type, pfn_notify, memAddress(user_data), __functionAddress);
 	}
 
 	// --- [ Function Addresses ] ---

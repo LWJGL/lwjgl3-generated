@@ -20,7 +20,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_GetStockObject(JNIE
 	return (jlong)(intptr_t)GetStockObject(object);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nEnumObjects(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint objectType, jlong objectFuncAddress, jobject param) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nEnumObjects(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint objectType, jlong objectFuncAddress, jlong param) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	GOBJENUMPROC objectFunc = (GOBJENUMPROC)(intptr_t)objectFuncAddress;
 	return (jint)EnumObjects(hdc, objectType, objectFunc, (LPARAM)param);

@@ -370,11 +370,12 @@ public final class CL10 {
 	/**
 	 * Obtains the list of available platforms.
 	 *
-	 * @param num_entries   the number of cl_platform_id entries that can be added to platforms. If platforms is not NULL, the num_entries must be greater than zero.
-	 * @param platforms     returns a list of OpenCL platforms found. The cl_platform_id values returned in platforms can be used to identify a specific OpenCL platform. If
-	 *                      platforms argument is NULL, this argument is ignored. The number of OpenCL platforms returned is the minimum of the value specified by num_entries
-	 *                      or the number of OpenCL platforms available.
-	 * @param num_platforms returns the number of OpenCL platforms available. If num_platforms is NULL, this argument is ignored.
+	 * @param num_entries   the number of {@code cl_platform_id} entries that can be added to {@code platforms}. If {@code platforms} is not NULL, the {@code num_entries} must
+	 *                      be greater than zero.
+	 * @param platforms     returns a list of OpenCL platforms found. The {@code cl_platform_id} values returned in {@code platforms} can be used to identify a specific OpenCL
+	 *                      platform. If {@code platforms} argument is NULL, this argument is ignored. The number of OpenCL platforms returned is the minimum of the value
+	 *                      specified by {@code num_entries} or the number of OpenCL platforms available.
+	 * @param num_platforms returns the number of OpenCL platforms available. If {@code num_platforms} is NULL, this argument is ignored.
 	 */
 	public static int clGetPlatformIDs(int num_entries, ByteBuffer platforms, ByteBuffer num_platforms) {
 		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetPlatformIDs");
@@ -402,7 +403,7 @@ public final class CL10 {
 	public static native int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * Returns information about the given OpenCL platform
+	 * Returns information about the given OpenCL platform.
 	 *
 	 * @param platform             the platform to query
 	 * @param param_name           the parameter to query. One of:<p/>{@link #CL_PLATFORM_PROFILE}, {@link #CL_PLATFORM_VERSION}, {@link #CL_PLATFORM_NAME}, {@link #CL_PLATFORM_VENDOR}, {@link #CL_PLATFORM_EXTENSIONS}
@@ -438,10 +439,15 @@ public final class CL10 {
 	/**
 	 * 
 	 *
-	 * @param platform    
-	 * @param device_type 
-	 * @param num_entries 
-	 * @param devices     
+	 * @param platform    the platform to query
+	 * @param device_type a bitfield that identifies the type of OpenCL device. The {@code device_type} can be used to query specific OpenCL devices or all OpenCL devices
+	 *                    available.
+	 *                    . One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL}
+	 * @param num_entries the number of {@code cl_device_id} entries that can be added to devices. If {@code devices} is not NULL, the {@code num_entries} must be greater
+	 *                    than zero.
+	 * @param devices     returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL
+	 *                    device. If {@code devices} argument is NULL, this argument is ignored. The number of OpenCL devices returned is the minimum of the value specified
+	 *                    by {@code num_entries} or the number of OpenCL devices whose type matches {@code device_type}.
 	 * @param num_devices 
 	 */
 	public static int clGetDeviceIDs(CLPlatform platform, long device_type, int num_entries, ByteBuffer devices, ByteBuffer num_devices) {
@@ -470,13 +476,14 @@ public final class CL10 {
 	public static native int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns specific information about an OpenCL device. {@code device} may be a device returned by {@link #clGetDeviceIDs(CLPlatform, long, int, ByteBuffer, ByteBuffer)} or a sub-device created by
+	 * {@link CL12#clCreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
-	 * @param device               
-	 * @param param_name           
-	 * @param param_value_size     
-	 * @param param_value          
-	 * @param param_value_size_ret 
+	 * @param device               the device to query
+	 * @param param_name           an enumeration constant tha identifies the device information being queried. One of:<p/>{@link #CL_DEVICE_TYPE}, {@link #CL_DEVICE_VENDOR_ID}, {@link #CL_DEVICE_MAX_COMPUTE_UNITS}, {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS}, {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE}, {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE}, {@link #CL_DEVICE_MAX_CLOCK_FREQUENCY}, {@link #CL_DEVICE_ADDRESS_BITS}, {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE}, {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH}, {@link #CL_DEVICE_IMAGE_SUPPORT}, {@link #CL_DEVICE_MAX_PARAMETER_SIZE}, {@link #CL_DEVICE_MAX_SAMPLERS}, {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN}, {@link #CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE}, {@link #CL_DEVICE_SINGLE_FP_CONFIG}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_TYPE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_ARGS}, {@link #CL_DEVICE_LOCAL_MEM_TYPE}, {@link #CL_DEVICE_LOCAL_MEM_SIZE}, {@link #CL_DEVICE_ERROR_CORRECTION_SUPPORT}, {@link #CL_DEVICE_PROFILING_TIMER_RESOLUTION}, {@link #CL_DEVICE_ENDIAN_LITTLE}, {@link #CL_DEVICE_AVAILABLE}, {@link #CL_DEVICE_COMPILER_AVAILABLE}, {@link #CL_DEVICE_EXECUTION_CAPABILITIES}, {@link #CL_DEVICE_QUEUE_PROPERTIES}, {@link #CL_DEVICE_NAME}, {@link #CL_DEVICE_VENDOR}, {@link #CL_DRIVER_VERSION}, {@link #CL_DEVICE_PROFILE}, {@link #CL_DEVICE_VERSION}, {@link #CL_DEVICE_EXTENSIONS}, {@link #CL_DEVICE_PLATFORM}
+	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size in bytes must be &#x2265; the size of {@code param_name}'s return type.
+	 * @param param_value          a pointer to memory location where appropriate values for a given {@code param_name} will be returned. If {@code param_value} is NULL, it is ignored.
+	 * @param param_value_size_ret returns the actual size in bytes of data being queried by {@code param_value}. If {@code param_value_size_ret} is NULL, it is ignored.
 	 */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(device).clGetDeviceInfo;
@@ -500,20 +507,26 @@ public final class CL10 {
 
 	// --- [ clCreateContext ] ---
 
-	/** JNI method for {@link #clCreateContext(ByteBuffer, int, ByteBuffer, CLCreateContextCallback, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clCreateContext(ByteBuffer, int, ByteBuffer, long, long, ByteBuffer)} */
 	public static native long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Creates an OpenCL context. An OpenCL context is created with one or more devices. Contexts are used by the OpenCL runtime for managing objects such as
+	 * command-queues, memory, program and kernel objects and for executing kernels on one or more devices specified in the context.
 	 *
-	 * @param properties  
-	 * @param num_devices 
-	 * @param devices     
-	 * @param pfn_notify  
-	 * @param user_data   
-	 * @param errcode_ret 
+	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
+	 *                    list is terminated with 0. <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present.
+	 * @param num_devices the number of devices specified in the {@code devices} argument
+	 * @param devices     a list of unique devices returned by {@link #clGetDeviceIDs(CLPlatform, long, int, ByteBuffer, ByteBuffer)} or sub-devices created by {@link CL12#clCreateSubDevices} for a platform
+	 * @param pfn_notify  a callback function that can be registered by the application. This callback function will be used by the OpenCL implementation to report
+	 *                    information on errors during context creation as well as errors that occur at runtime in this context. This callback function may be called
+	 *                    asynchronously by the OpenCL implementation. It is the application’s responsibility to ensure that the callback function is thread-safe.
+	 *                    <p/>
+	 *                    If {@code pfn_notify} is NULL, no callback function is registered.
+	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is NULL, no error code is returned.
 	 */
-	public static CLContext clCreateContext(ByteBuffer properties, int num_devices, ByteBuffer devices, CLCreateContextCallback pfn_notify, ByteBuffer user_data, ByteBuffer errcode_ret) {
+	public static CLContext clCreateContext(ByteBuffer properties, int num_devices, ByteBuffer devices, long pfn_notify, long user_data, ByteBuffer errcode_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
 		long __functionAddress = getInstance(platform).clCreateContext;
 		if ( LWJGLUtil.CHECKS ) {
@@ -523,11 +536,11 @@ public final class CL10 {
 			checkBuffer(devices, 1 << PointerBuffer.getPointerSizeShift());
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLContext(nclCreateContext(memAddress(properties), num_devices, memAddress(devices), CLCreateContextCallback.CALLBACK, memAddress(user_data), memAddressSafe(errcode_ret), __functionAddress), platform);
+		return CLContext.create(nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data);
 	}
 
-	/** Alternative version of: {@link #clCreateContext(ByteBuffer, int, ByteBuffer, CLCreateContextCallback, ByteBuffer, ByteBuffer)} */
-	public static CLContext clCreateContext(PointerBuffer properties, PointerBuffer devices, CLCreateContextCallback pfn_notify, ByteBuffer user_data, IntBuffer errcode_ret) {
+	/** Alternative version of: {@link #clCreateContext(ByteBuffer, int, ByteBuffer, long, long, ByteBuffer)} */
+	public static CLContext clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallback pfn_notify, IntBuffer errcode_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
 		long __functionAddress = getInstance(platform).clCreateContext;
 		if ( LWJGLUtil.CHECKS ) {
@@ -536,26 +549,25 @@ public final class CL10 {
 			checkBuffer(devices, 1);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLContext(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), CLCreateContextCallback.CALLBACK, memAddress(user_data), memAddressSafe(errcode_ret), __functionAddress), platform);
+		long user_data = CLContextCallback.register(pfn_notify);
+		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data);
 	}
 
 	// --- [ clCreateContextFromType ] ---
 
-	/** JNI method for {@link #clCreateContextFromType(ByteBuffer, long, CLCreateContextCallback, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clCreateContextFromType(ByteBuffer, long, long, long, ByteBuffer)} */
 	public static native long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
 
 	/**
-	 * Creates a context using devices of the specified type.
-	 * <p/>
-	 * <b>LWJGL note</b>: {@code properties} must contain the CL_CONTEXT_PLATFORM property.
+	 * Creates a context using devices of the specified type. See {@link #clCreateContext(ByteBuffer, int, ByteBuffer, long, long, ByteBuffer)} for details.
 	 *
-	 * @param properties  
-	 * @param device_type 
-	 * @param pfn_notify  
-	 * @param user_data   
-	 * @param errcode_ret 
+	 * @param properties  a list of context property names and their corresponding values
+	 * @param device_type a bit-field that identifies the type of device. One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL}
+	 * @param pfn_notify  a callback function that can be registered by the application
+	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is NULL, no error code is returned.
 	 */
-	public static CLContext clCreateContextFromType(ByteBuffer properties, long device_type, CLCreateContextCallback pfn_notify, ByteBuffer user_data, ByteBuffer errcode_ret) {
+	public static CLContext clCreateContextFromType(ByteBuffer properties, long device_type, long pfn_notify, long user_data, ByteBuffer errcode_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
 		long __functionAddress = getInstance(platform).clCreateContextFromType;
 		if ( LWJGLUtil.CHECKS ) {
@@ -563,11 +575,11 @@ public final class CL10 {
 			checkBuffer(properties, 3 << PointerBuffer.getPointerSizeShift());
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLContext(nclCreateContextFromType(memAddress(properties), device_type, CLCreateContextCallback.CALLBACK, memAddress(user_data), memAddressSafe(errcode_ret), __functionAddress), platform);
+		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data);
 	}
 
-	/** Alternative version of: {@link #clCreateContextFromType(ByteBuffer, long, CLCreateContextCallback, ByteBuffer, ByteBuffer)} */
-	public static CLContext clCreateContextFromType(PointerBuffer properties, long device_type, CLCreateContextCallback pfn_notify, ByteBuffer user_data, IntBuffer errcode_ret) {
+	/** Alternative version of: {@link #clCreateContextFromType(ByteBuffer, long, long, long, ByteBuffer)} */
+	public static CLContext clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallback pfn_notify, IntBuffer errcode_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
 		long __functionAddress = getInstance(platform).clCreateContextFromType;
 		if ( LWJGLUtil.CHECKS ) {
@@ -575,7 +587,8 @@ public final class CL10 {
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLContext(nclCreateContextFromType(memAddress(properties), device_type, CLCreateContextCallback.CALLBACK, memAddress(user_data), memAddressSafe(errcode_ret), __functionAddress), platform);
+		long user_data = CLContextCallback.register(pfn_notify);
+		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data);
 	}
 
 	// --- [ clRetainContext ] ---
@@ -665,7 +678,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLCommandQueue(nclCreateCommandQueue(context.getPointer(), device.getPointer(), properties, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLCommandQueue.create(nclCreateCommandQueue(context.getPointer(), device.getPointer(), properties, memAddressSafe(errcode_ret), __functionAddress), context, device);
 	}
 
 	/** Alternative version of: {@link #clCreateCommandQueue(CLContext, CLDevice, long, ByteBuffer)} */
@@ -675,7 +688,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLCommandQueue(nclCreateCommandQueue(context.getPointer(), device.getPointer(), properties, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLCommandQueue.create(nclCreateCommandQueue(context.getPointer(), device.getPointer(), properties, memAddressSafe(errcode_ret), __functionAddress), context, device);
 	}
 
 	// --- [ clRetainCommandQueue ] ---
@@ -767,7 +780,7 @@ public final class CL10 {
 			checkBuffer(host_ptr, size);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLMem(nclCreateBuffer(context.getPointer(), flags, size, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, size, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateBuffer(CLContext, long, long, ByteBuffer, ByteBuffer)} */
@@ -777,7 +790,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLMem(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining(), memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining(), memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clEnqueueReadBuffer ] ---
@@ -976,7 +989,7 @@ public final class CL10 {
 			checkBuffer(image_format, cl_image_format.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLMem(nclCreateImage2D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateImage2D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateImage2D(CLContext, long, ByteBuffer, long, long, long, ByteBuffer, ByteBuffer)} */
@@ -987,7 +1000,7 @@ public final class CL10 {
 			checkBuffer(image_format, cl_image_format.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLMem(nclCreateImage2D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateImage2D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clCreateImage3D ] ---
@@ -1016,7 +1029,7 @@ public final class CL10 {
 			checkBuffer(image_format, cl_image_format.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLMem(nclCreateImage3D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateImage3D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateImage3D(CLContext, long, ByteBuffer, long, long, long, long, long, ByteBuffer, ByteBuffer)} */
@@ -1027,7 +1040,7 @@ public final class CL10 {
 			checkBuffer(image_format, cl_image_format.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLMem(nclCreateImage3D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateImage3D(context.getPointer(), flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clGetSupportedImageFormats ] ---
@@ -1540,7 +1553,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLSampler(nclCreateSampler(context.getPointer(), normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLSampler.create(nclCreateSampler(context.getPointer(), normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateSampler(CLContext, int, int, int, ByteBuffer)} */
@@ -1550,7 +1563,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLSampler(nclCreateSampler(context.getPointer(), normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLSampler.create(nclCreateSampler(context.getPointer(), normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clRetainSampler ] ---
@@ -1643,7 +1656,7 @@ public final class CL10 {
 			checkBuffer(string, lengths);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLProgram(nclCreateProgramWithSource(context.getPointer(), count, memAddress(string), lengths, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), count, memAddress(string), lengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateProgramWithSource(CLContext, int, ByteBuffer, long, ByteBuffer)} */
@@ -1653,7 +1666,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLProgram(nclCreateProgramWithSource(context.getPointer(), count, memAddress(string), string.remaining(), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), count, memAddress(string), string.remaining(), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** CharSequence version of: {@link #clCreateProgramWithSource(CLContext, int, ByteBuffer, long, ByteBuffer)} */
@@ -1663,7 +1676,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLProgram(nclCreateProgramWithSource(context.getPointer(), count, memAddress(memEncodeUTF8(string)), string.length(), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), count, memAddress(memEncodeUTF8(string)), string.length(), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clCreateProgramWithBinary ] ---
@@ -1690,7 +1703,7 @@ public final class CL10 {
 			checkBuffer(binary_status, 1 << 2);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLProgram(nclCreateProgramWithBinary(context.getPointer(), num_devices, device.getPointer(), lengths, memAddress(binary), memAddress(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLProgram.create(nclCreateProgramWithBinary(context.getPointer(), num_devices, device.getPointer(), lengths, memAddress(binary), memAddress(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** Alternative version of: {@link #clCreateProgramWithBinary(CLContext, int, CLDevice, long, ByteBuffer, ByteBuffer, ByteBuffer)} */
@@ -1701,7 +1714,7 @@ public final class CL10 {
 			checkBuffer(binary_status, 1);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLProgram(nclCreateProgramWithBinary(context.getPointer(), num_devices, device.getPointer(), binary.remaining(), memAddress(binary), memAddress(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLProgram.create(nclCreateProgramWithBinary(context.getPointer(), num_devices, device.getPointer(), binary.remaining(), memAddress(binary), memAddress(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clRetainProgram ] ---
@@ -1740,7 +1753,7 @@ public final class CL10 {
 
 	// --- [ clBuildProgram ] ---
 
-	/** JNI method for {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, CLProgramCallback, ByteBuffer)} */
+	/** JNI method for {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, long, ByteBuffer)} */
 	public static native int nclBuildProgram(long program, int num_devices, long device_list, long options, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -1753,30 +1766,35 @@ public final class CL10 {
 	 * @param pfn_notify  
 	 * @param user_data   
 	 */
-	public static int clBuildProgram(CLProgram program, int num_devices, ByteBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify, ByteBuffer user_data) {
+	public static int clBuildProgram(CLProgram program, int num_devices, ByteBuffer device_list, ByteBuffer options, long pfn_notify, ByteBuffer user_data) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( device_list != null ) checkBuffer(device_list, num_devices << PointerBuffer.getPointerSizeShift());
 			checkNT1(options);
+			checkPointer(pfn_notify);
 		}
-		return nclBuildProgram(program.getPointer(), num_devices, memAddressSafe(device_list), memAddress(options), CLProgramCallback.CALLBACK, memAddress(user_data), __functionAddress);
+		return nclBuildProgram(program.getPointer(), num_devices, memAddressSafe(device_list), memAddress(options), pfn_notify, memAddress(user_data), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, CLProgramCallback, ByteBuffer)} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify, ByteBuffer user_data) {
+	/** Alternative version of: {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, long, ByteBuffer)} */
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, long pfn_notify, ByteBuffer user_data) {
 		long __functionAddress = getInstance(program).clBuildProgram;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), CLProgramCallback.CALLBACK, memAddress(user_data), __functionAddress);
+			checkPointer(pfn_notify);
+		}
+		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify, memAddress(user_data), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, CLProgramCallback, ByteBuffer)} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, ByteBuffer user_data) {
+	/** CharSequence version of: {@link #clBuildProgram(CLProgram, int, ByteBuffer, ByteBuffer, long, ByteBuffer)} */
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, long pfn_notify, ByteBuffer user_data) {
 		long __functionAddress = getInstance(program).clBuildProgram;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), CLProgramCallback.CALLBACK, memAddress(user_data), __functionAddress);
+			checkPointer(pfn_notify);
+		}
+		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify, memAddress(user_data), __functionAddress);
 	}
 
 	// --- [ clGetProgramInfo ] ---
@@ -1867,7 +1885,7 @@ public final class CL10 {
 			checkNT1(kernel_name);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return new CLKernel(nclCreateKernel(program.getPointer(), memAddress(kernel_name), memAddressSafe(errcode_ret), __functionAddress), program);
+		return CLKernel.create(nclCreateKernel(program.getPointer(), memAddress(kernel_name), memAddressSafe(errcode_ret), __functionAddress), program);
 	}
 
 	/** Alternative version of: {@link #clCreateKernel(CLProgram, ByteBuffer, ByteBuffer)} */
@@ -1877,7 +1895,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLKernel(nclCreateKernel(program.getPointer(), memAddress(kernel_name), memAddressSafe(errcode_ret), __functionAddress), program);
+		return CLKernel.create(nclCreateKernel(program.getPointer(), memAddress(kernel_name), memAddressSafe(errcode_ret), __functionAddress), program);
 	}
 
 	/** CharSequence version of: {@link #clCreateKernel(CLProgram, ByteBuffer, ByteBuffer)} */
@@ -1887,7 +1905,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return new CLKernel(nclCreateKernel(program.getPointer(), memAddress(memEncodeASCII(kernel_name)), memAddressSafe(errcode_ret), __functionAddress), program);
+		return CLKernel.create(nclCreateKernel(program.getPointer(), memAddress(memEncodeASCII(kernel_name)), memAddressSafe(errcode_ret), __functionAddress), program);
 	}
 
 	// --- [ clCreateKernelsInProgram ] ---
@@ -2136,7 +2154,7 @@ public final class CL10 {
 
 	// --- [ clEnqueueNativeKernel ] ---
 
-	/** JNI method for {@link #clEnqueueNativeKernel(CLCommandQueue, CLNativeKernelFunc, ByteBuffer, long, int, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clEnqueueNativeKernel(CLCommandQueue, long, ByteBuffer, long, int, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
 	public static native int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2153,27 +2171,29 @@ public final class CL10 {
 	 * @param event_wait_list         
 	 * @param event                   
 	 */
-	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernelFunc user_func, ByteBuffer args, long cb_args, int num_mem_objects, ByteBuffer mem_list, ByteBuffer args_mem_loc, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, long user_func, ByteBuffer args, long cb_args, int num_mem_objects, ByteBuffer mem_list, ByteBuffer args_mem_loc, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(user_func);
 			checkBuffer(args, cb_args);
 			if ( mem_list != null ) checkBuffer(mem_list, 1 << PointerBuffer.getPointerSizeShift());
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
 			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
 		}
-		return nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernelFunc.CALLBACK, memAddress(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueNativeKernel(command_queue.getPointer(), user_func, memAddress(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueNativeKernel(CLCommandQueue, CLNativeKernelFunc, ByteBuffer, long, int, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
-	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernelFunc user_func, ByteBuffer args, int num_mem_objects, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
+	/** Alternative version of: {@link #clEnqueueNativeKernel(CLCommandQueue, long, ByteBuffer, long, int, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, long user_func, ByteBuffer args, int num_mem_objects, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(user_func);
 			if ( mem_list != null ) checkBuffer(mem_list, 1);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernelFunc.CALLBACK, memAddress(args), args.remaining(), num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueNativeKernel(command_queue.getPointer(), user_func, memAddress(args), args.remaining(), num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	// --- [ clGetEventInfo ] ---

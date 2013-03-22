@@ -142,7 +142,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, width * height * depth * GLChecks.getPixelBytes(format, type));
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
@@ -163,7 +162,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * depth * GLChecks.getPixelBytes(format, type)) >> 1);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
@@ -174,7 +172,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * depth * GLChecks.getPixelBytes(format, type)) >> 2);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
@@ -185,7 +182,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * depth * GLChecks.getPixelBytes(format, type)) >> 2);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
@@ -196,7 +192,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * depth * GLChecks.getPixelBytes(format, type)) >> 3);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
@@ -229,7 +224,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, width * height * GLChecks.getPixelBytes(format, type));
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
@@ -250,7 +244,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * GLChecks.getPixelBytes(format, type)) >> 1);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
@@ -261,7 +254,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * GLChecks.getPixelBytes(format, type)) >> 2);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
@@ -272,7 +264,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * GLChecks.getPixelBytes(format, type)) >> 2);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
@@ -283,7 +274,6 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pixels, (width * height * GLChecks.getPixelBytes(format, type)) >> 3);
 			GLChecks.ensureBufferObject(0x88EF, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);

@@ -17,11 +17,11 @@ import static org.lwjgl.system.APIUtil.*;
 /** The core OpenGL 4.3 functionality. */
 public final class GL43 {
 
-	/** No. of supported Shading Language Versions. Accepted by the &lt;pname&gt; parameter of GetIntegerv. */
+	/** No. of supported Shading Language Versions. Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int
 		GL_NUM_SHADING_LANGUAGE_VERSIONS = 0x82E9;
 
-	/** Vertex attrib array has unconverted doubles. Accepted by the &lt;pname&gt; parameter of GetVertexAttribiv. */
+	/** Vertex attrib array has unconverted doubles. Accepted by the {@code pname} parameter of GetVertexAttribiv. */
 	public static final int
 		GL_VERTEX_ATTRIB_ARRAY_LONG = 0x874E;
 
@@ -476,40 +476,32 @@ public final class GL43 {
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, GLChecks.getPixelBytes(format, type));
-		}
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 1);
-		}
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 2);
-		}
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 2);
-		}
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
@@ -533,40 +525,32 @@ public final class GL43 {
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, GLChecks.getPixelBytes(format, type));
-		}
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 1);
-		}
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 2);
-		}
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, (GLChecks.getPixelBytes(format, type)) >> 2);
-		}
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 

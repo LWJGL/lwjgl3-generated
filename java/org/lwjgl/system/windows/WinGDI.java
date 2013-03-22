@@ -180,8 +180,8 @@ public final class WinGDI {
 
 	// --- [ EnumObjects ] ---
 
-	/** JNI method for {@link #EnumObjects(long, int, EnumObjectsProc)} */
-	public static native int nEnumObjects(long hdc, int objectType, long objectFunc, EnumObjectsProc param);
+	/** JNI method for {@link #EnumObjects(long, int, long, long)} */
+	public static native int nEnumObjects(long hdc, int objectType, long objectFunc, long param);
 
 	/**
 	 * Enumerates the pens or brushes available for the specified device context (DC). This function calls the application-defined callback function once for
@@ -189,13 +189,26 @@ public final class WinGDI {
 	 * zero or until all of the objects have been enumerated.
 	 *
 	 * @param hdc        a handle to the DC
-	 * @param objectType the object type. One of:. One of:<p/>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
+	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
 	 * @param objectFunc the application-defined callback function
+	 * @param param      the data passed to the callback function along with the object information.
 	 */
+	public static int EnumObjects(long hdc, int objectType, long objectFunc, long param) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(hdc);
+		return nEnumObjects(hdc, objectType, objectFunc, param);
+	}
+
+	/** Alternative version of: {@link #EnumObjects(long, int, long, long)} */
 	public static int EnumObjects(long hdc, int objectType, EnumObjectsProc objectFunc) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nEnumObjects(hdc, objectType, EnumObjectsProc.CALLBACK, objectFunc);
+		long param = memGlobalRefNew(objectFunc);
+		try {
+			return nEnumObjects(hdc, objectType, EnumObjectsProc.CALLBACK, param);
+		} finally {
+			memGlobalRefDelete(param);
+		}
 	}
 
 	// --- [ SelectObject ] ---
