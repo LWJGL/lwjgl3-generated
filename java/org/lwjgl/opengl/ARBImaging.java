@@ -215,7 +215,7 @@ public final class ARBImaging {
 
 	// --- [ glColorTable ] ---
 
-	/** JNI method for {@link #glColorTable(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glColorTable} */
 	public static native void nglColorTable(int target, int internalformat, int width, int format, int type, long table, long __functionAddress);
 
 	/**
@@ -237,7 +237,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorTable(int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, long tableOffset) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -247,7 +247,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, tableOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glColorTable(int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, ShortBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -257,7 +257,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glColorTable(int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, IntBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -267,7 +267,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glColorTable(int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, FloatBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -279,11 +279,11 @@ public final class ARBImaging {
 
 	// --- [ glCopyColorTable ] ---
 
-	/** JNI method for {@link #glCopyColorTable(int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyColorTable} */
 	public static native void nglCopyColorTable(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
-	 * Defines a color table in exactly the manner of {@link #glColorTable(int, int, int, int, int, ByteBuffer)}, except that the image data are taken from the framebuffer rather than from client memory.
+	 * Defines a color table in exactly the manner of {@link #glColorTable}, except that the image data are taken from the framebuffer rather than from client memory.
 	 *
 	 * @param target         the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
 	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
@@ -362,7 +362,7 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTable ] ---
 
-	/** JNI method for {@link #glGetColorTable(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetColorTable} */
 	public static native void nglGetColorTable(int target, int format, int type, long table, long __functionAddress);
 
 	/**
@@ -382,7 +382,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetColorTable(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, long tableOffset) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -392,7 +392,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, tableOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetColorTable(int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, ShortBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -402,7 +402,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetColorTable(int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, IntBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -412,7 +412,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetColorTable(int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, FloatBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -508,7 +508,7 @@ public final class ARBImaging {
 
 	// --- [ glColorSubTable ] ---
 
-	/** JNI method for {@link #glColorSubTable(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glColorSubTable} */
 	public static native void nglColorSubTable(int target, int start, int count, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -530,7 +530,7 @@ public final class ARBImaging {
 		nglColorSubTable(target, start, count, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorSubTable(int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glColorSubTable} */
 	public static void glColorSubTable(int target, int start, int count, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glColorSubTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -542,7 +542,7 @@ public final class ARBImaging {
 
 	// --- [ glCopyColorSubTable ] ---
 
-	/** JNI method for {@link #glCopyColorSubTable(int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyColorSubTable} */
 	public static native void nglCopyColorSubTable(int target, int start, int x, int y, int width, long __functionAddress);
 
 	/**
@@ -563,7 +563,7 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionFilter1D ] ---
 
-	/** JNI method for {@link #glConvolutionFilter1D(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glConvolutionFilter1D} */
 	public static native void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -585,7 +585,7 @@ public final class ARBImaging {
 		nglConvolutionFilter1D(target, internalformat, width, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glConvolutionFilter1D(int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glConvolutionFilter1D} */
 	public static void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -597,7 +597,7 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionFilter2D ] ---
 
-	/** JNI method for {@link #glConvolutionFilter2D(int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glConvolutionFilter2D} */
 	public static native void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -620,7 +620,7 @@ public final class ARBImaging {
 		nglConvolutionFilter2D(target, internalformat, width, height, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glConvolutionFilter2D(int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glConvolutionFilter2D} */
 	public static void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -632,11 +632,11 @@ public final class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter1D ] ---
 
-	/** JNI method for {@link #glCopyConvolutionFilter1D(int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyConvolutionFilter1D} */
 	public static native void nglCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
-	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D(int, int, int, int, int, ByteBuffer)}, except that image data are taken from the framebuffer, rather than from
+	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
 	 *
 	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_1D}
@@ -654,11 +654,11 @@ public final class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter2D ] ---
 
-	/** JNI method for {@link #glCopyConvolutionFilter2D(int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyConvolutionFilter2D} */
 	public static native void nglCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height, long __functionAddress);
 
 	/**
-	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D(int, int, int, int, int, ByteBuffer)}, except that image data are taken from the framebuffer, rather than from
+	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
 	 *
 	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_2D}
@@ -677,7 +677,7 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionFilter ] ---
 
-	/** JNI method for {@link #glGetConvolutionFilter(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetConvolutionFilter} */
 	public static native void nglGetConvolutionFilter(int target, int format, int type, long image, long __functionAddress);
 
 	/**
@@ -697,7 +697,7 @@ public final class ARBImaging {
 		nglGetConvolutionFilter(target, format, type, memAddress(image), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetConvolutionFilter(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetConvolutionFilter} */
 	public static void glGetConvolutionFilter(int target, int format, int type, long imageOffset) {
 		long __functionAddress = getInstance().glGetConvolutionFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -709,7 +709,7 @@ public final class ARBImaging {
 
 	// --- [ glSeparableFilter2D ] ---
 
-	/** JNI method for {@link #glSeparableFilter2D(int, int, int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glSeparableFilter2D} */
 	public static native void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column, long __functionAddress);
 
 	/**
@@ -734,7 +734,7 @@ public final class ARBImaging {
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), memAddress(column), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSeparableFilter2D(int, int, int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glSeparableFilter2D} */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long rowOffset, ByteBuffer column) {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -744,7 +744,7 @@ public final class ARBImaging {
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, rowOffset, memAddress(column), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSeparableFilter2D(int, int, int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glSeparableFilter2D} */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, long columnOffset) {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -757,7 +757,7 @@ public final class ARBImaging {
 
 	// --- [ glGetSeparableFilter ] ---
 
-	/** JNI method for {@link #glGetSeparableFilter(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetSeparableFilter} */
 	public static native void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span, long __functionAddress);
 
 	/**
@@ -780,7 +780,7 @@ public final class ARBImaging {
 		nglGetSeparableFilter(target, format, type, memAddress(row), memAddress(column), memAddressSafe(span), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetSeparableFilter(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetSeparableFilter} */
 	public static void glGetSeparableFilter(int target, int format, int type, long rowOffset, ByteBuffer column, ByteBuffer span) {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -790,7 +790,7 @@ public final class ARBImaging {
 		nglGetSeparableFilter(target, format, type, rowOffset, memAddress(column), memAddressSafe(span), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetSeparableFilter(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetSeparableFilter} */
 	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, long columnOffset, ByteBuffer span) {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -803,7 +803,7 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameteri ] ---
 
-	/** JNI method for {@link #glConvolutionParameteri(int, int, int)} */
+	/** JNI method for {@link #glConvolutionParameteri} */
 	public static native void nglConvolutionParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -826,7 +826,7 @@ public final class ARBImaging {
 	public static native void nglConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #glConvolutionParameteri(int, int, int)}.
+	 * Pointer version of {@link #glConvolutionParameteri}.
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR}
@@ -853,11 +853,11 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameterf ] ---
 
-	/** JNI method for {@link #glConvolutionParameterf(int, int, float)} */
+	/** JNI method for {@link #glConvolutionParameterf} */
 	public static native void nglConvolutionParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glConvolutionParameteri(int, int, int)}
+	 * Float version of {@link #glConvolutionParameteri}
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to set
@@ -876,7 +876,7 @@ public final class ARBImaging {
 	public static native void nglConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #glConvolutionParameterf(int, int, float)}.
+	 * Pointer version of {@link #glConvolutionParameterf}.
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR}
@@ -987,7 +987,7 @@ public final class ARBImaging {
 
 	// --- [ glHistogram ] ---
 
-	/** JNI method for {@link #glHistogram(int, int, int, boolean)} */
+	/** JNI method for {@link #glHistogram} */
 	public static native void nglHistogram(int target, int width, int internalformat, boolean sink, long __functionAddress);
 
 	/**
@@ -1007,7 +1007,7 @@ public final class ARBImaging {
 
 	// --- [ glResetHistogram ] ---
 
-	/** JNI method for {@link #glResetHistogram(int)} */
+	/** JNI method for {@link #glResetHistogram} */
 	public static native void nglResetHistogram(int target, long __functionAddress);
 
 	/**
@@ -1024,7 +1024,7 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogram ] ---
 
-	/** JNI method for {@link #glGetHistogram(int, boolean, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetHistogram} */
 	public static native void nglGetHistogram(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
@@ -1045,7 +1045,7 @@ public final class ARBImaging {
 		nglGetHistogram(target, reset, format, type, memAddress(values), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetHistogram(int, boolean, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetHistogram} */
 	public static void glGetHistogram(int target, boolean reset, int format, int type, long valuesOffset) {
 		long __functionAddress = getInstance().glGetHistogram;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1141,7 +1141,7 @@ public final class ARBImaging {
 
 	// --- [ glMinmax ] ---
 
-	/** JNI method for {@link #glMinmax(int, int, boolean)} */
+	/** JNI method for {@link #glMinmax} */
 	public static native void nglMinmax(int target, int internalformat, boolean sink, long __functionAddress);
 
 	/**
@@ -1160,7 +1160,7 @@ public final class ARBImaging {
 
 	// --- [ glResetMinmax ] ---
 
-	/** JNI method for {@link #glResetMinmax(int)} */
+	/** JNI method for {@link #glResetMinmax} */
 	public static native void nglResetMinmax(int target, long __functionAddress);
 
 	/**
@@ -1177,7 +1177,7 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmax ] ---
 
-	/** JNI method for {@link #glGetMinmax(int, boolean, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetMinmax} */
 	public static native void nglGetMinmax(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
@@ -1199,7 +1199,7 @@ public final class ARBImaging {
 		nglGetMinmax(target, reset, format, type, memAddress(values), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetMinmax(int, boolean, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetMinmax} */
 	public static void glGetMinmax(int target, boolean reset, int format, int type, long valuesOffset) {
 		long __functionAddress = getInstance().glGetMinmax;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1295,7 +1295,7 @@ public final class ARBImaging {
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor(float, float, float, float)} */
+	/** JNI method for {@link #glBlendColor} */
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -1315,7 +1315,7 @@ public final class ARBImaging {
 
 	// --- [ glBlendEquation ] ---
 
-	/** JNI method for {@link #glBlendEquation(int)} */
+	/** JNI method for {@link #glBlendEquation} */
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**

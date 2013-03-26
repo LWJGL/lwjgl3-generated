@@ -191,7 +191,7 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglChoosePixelFormatARB ] ---
 
-	/** JNI method for {@link #wglChoosePixelFormatARB(long, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #wglChoosePixelFormatARB} */
 	public static native int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats, long __functionAddress);
 
 	/**
@@ -220,7 +220,7 @@ public final class WGLARBPixelFormat {
 		return nwglChoosePixelFormatARB(hdc, memAddressSafe(attribIList), memAddressSafe(attribFList), maxFormats, memAddress(formats), memAddress(numFormats), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglChoosePixelFormatARB(long, ByteBuffer, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #wglChoosePixelFormatARB} */
 	public static int wglChoosePixelFormatARB(long hdc, IntBuffer attribIList, FloatBuffer attribFList, IntBuffer formats, IntBuffer numFormats) {
 		long __functionAddress = getInstance().wglChoosePixelFormatARB;
 		if ( LWJGLUtil.CHECKS ) {

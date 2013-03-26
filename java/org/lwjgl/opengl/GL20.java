@@ -170,7 +170,7 @@ public final class GL20 {
 
 	// --- [ glCreateProgram ] ---
 
-	/** JNI method for {@link #glCreateProgram()} */
+	/** JNI method for {@link #glCreateProgram} */
 	public static native int nglCreateProgram(long __functionAddress);
 
 	/**
@@ -187,7 +187,7 @@ public final class GL20 {
 
 	// --- [ glDeleteProgram ] ---
 
-	/** JNI method for {@link #glDeleteProgram(int)} */
+	/** JNI method for {@link #glDeleteProgram} */
 	public static native void nglDeleteProgram(int program, long __functionAddress);
 
 	/**
@@ -206,7 +206,7 @@ public final class GL20 {
 
 	// --- [ glCreateShader ] ---
 
-	/** JNI method for {@link #glCreateShader(int)} */
+	/** JNI method for {@link #glCreateShader} */
 	public static native int nglCreateShader(int type, long __functionAddress);
 
 	/**
@@ -225,7 +225,7 @@ public final class GL20 {
 
 	// --- [ glDeleteShader ] ---
 
-	/** JNI method for {@link #glDeleteShader(int)} */
+	/** JNI method for {@link #glDeleteShader} */
 	public static native void nglDeleteShader(int shader, long __functionAddress);
 
 	/**
@@ -244,7 +244,7 @@ public final class GL20 {
 
 	// --- [ glAttachShader ] ---
 
-	/** JNI method for {@link #glAttachShader(int, int)} */
+	/** JNI method for {@link #glAttachShader} */
 	public static native void nglAttachShader(int program, int shader, long __functionAddress);
 
 	/**
@@ -275,7 +275,7 @@ public final class GL20 {
 
 	// --- [ glDetachShader ] ---
 
-	/** JNI method for {@link #glDetachShader(int, int)} */
+	/** JNI method for {@link #glDetachShader} */
 	public static native void nglDetachShader(int program, int shader, long __functionAddress);
 
 	/**
@@ -295,7 +295,7 @@ public final class GL20 {
 
 	// --- [ glShaderSource ] ---
 
-	/** JNI method for {@link #glShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glShaderSource} */
 	public static native void nglShaderSource(int shader, int count, long strings, long length, long __functionAddress);
 
 	/**
@@ -323,7 +323,7 @@ public final class GL20 {
 		nglShaderSource(shader, count, memAddress(strings), memAddressSafe(length), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glShaderSource} */
 	public static void glShaderSource(int shader, PointerBuffer strings, IntBuffer length) {
 		long __functionAddress = getInstance().glShaderSource;
 		if ( LWJGLUtil.CHECKS ) {
@@ -333,34 +333,39 @@ public final class GL20 {
 		nglShaderSource(shader, strings.remaining(), memAddress(strings), memAddressSafe(length), __functionAddress);
 	}
 
-	/** Array version of: {@link #glShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** Array version of: {@link #glShaderSource} */
 	public static void glShaderSource(int shader, CharSequence[] strings) {
 		long __functionAddress = getInstance().glShaderSource;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
+		int stringsLengths = __buffer.bufferParam(strings.length << 2);
+		for ( int i = 0; i < strings.length; i++ )
+			__buffer.intValue(stringsLengths + (i << 2), strings[i].length());
 		int stringsAddress = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i])));
-		nglShaderSource(shader, strings.length, __buffer.address() + stringsAddress, 0L, __functionAddress);
+			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
+		nglShaderSource(shader, strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, __functionAddress);
 	}
 
-	/** Single string version of: {@link #glShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** Single string version of: {@link #glShaderSource} */
 	public static void glShaderSource(int shader, CharSequence string) {
 		long __functionAddress = getInstance().glShaderSource;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
+		int stringsLengths = __buffer.intParam();
+		__buffer.intValue(stringsLengths, string.length());
 		int stringsAddress = __buffer.pointerParam();
-		ByteBuffer stringsBuffer = memEncodeUTF8(string);
-		__buffer.pointerValue(stringsAddress, memAddress(stringsBuffer));
-		nglShaderSource(shader, 1, __buffer.address() + stringsAddress, 0L, __functionAddress);
+		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
+		__buffer.pointerValue(stringsAddress, memAddress(stringBuffers));
+		nglShaderSource(shader, 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, __functionAddress);
 	}
 
 	// --- [ glCompileShader ] ---
 
-	/** JNI method for {@link #glCompileShader(int)} */
+	/** JNI method for {@link #glCompileShader} */
 	public static native void nglCompileShader(int shader, long __functionAddress);
 
 	/**
@@ -379,7 +384,7 @@ public final class GL20 {
 
 	// --- [ glLinkProgram ] ---
 
-	/** JNI method for {@link #glLinkProgram(int)} */
+	/** JNI method for {@link #glLinkProgram} */
 	public static native void nglLinkProgram(int program, long __functionAddress);
 
 	/**
@@ -398,7 +403,7 @@ public final class GL20 {
 
 	// --- [ glUseProgram ] ---
 
-	/** JNI method for {@link #glUseProgram(int)} */
+	/** JNI method for {@link #glUseProgram} */
 	public static native void nglUseProgram(int program, long __functionAddress);
 
 	/**
@@ -417,7 +422,7 @@ public final class GL20 {
 
 	// --- [ glValidateProgram ] ---
 
-	/** JNI method for {@link #glValidateProgram(int)} */
+	/** JNI method for {@link #glValidateProgram} */
 	public static native void nglValidateProgram(int program, long __functionAddress);
 
 	/**
@@ -436,7 +441,7 @@ public final class GL20 {
 
 	// --- [ glUniform1f ] ---
 
-	/** JNI method for {@link #glUniform1f(int, float)} */
+	/** JNI method for {@link #glUniform1f} */
 	public static native void nglUniform1f(int location, float v0, long __functionAddress);
 
 	/**
@@ -456,7 +461,7 @@ public final class GL20 {
 
 	// --- [ glUniform2f ] ---
 
-	/** JNI method for {@link #glUniform2f(int, float, float)} */
+	/** JNI method for {@link #glUniform2f} */
 	public static native void nglUniform2f(int location, float v0, float v1, long __functionAddress);
 
 	/**
@@ -477,7 +482,7 @@ public final class GL20 {
 
 	// --- [ glUniform3f ] ---
 
-	/** JNI method for {@link #glUniform3f(int, float, float, float)} */
+	/** JNI method for {@link #glUniform3f} */
 	public static native void nglUniform3f(int location, float v0, float v1, float v2, long __functionAddress);
 
 	/**
@@ -499,7 +504,7 @@ public final class GL20 {
 
 	// --- [ glUniform4f ] ---
 
-	/** JNI method for {@link #glUniform4f(int, float, float, float, float)} */
+	/** JNI method for {@link #glUniform4f} */
 	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
@@ -522,7 +527,7 @@ public final class GL20 {
 
 	// --- [ glUniform1i ] ---
 
-	/** JNI method for {@link #glUniform1i(int, int)} */
+	/** JNI method for {@link #glUniform1i} */
 	public static native void nglUniform1i(int location, int v0, long __functionAddress);
 
 	/**
@@ -542,7 +547,7 @@ public final class GL20 {
 
 	// --- [ glUniform2i ] ---
 
-	/** JNI method for {@link #glUniform2i(int, int, int)} */
+	/** JNI method for {@link #glUniform2i} */
 	public static native void nglUniform2i(int location, int v0, int v1, long __functionAddress);
 
 	/**
@@ -563,7 +568,7 @@ public final class GL20 {
 
 	// --- [ glUniform3i ] ---
 
-	/** JNI method for {@link #glUniform3i(int, int, int, int)} */
+	/** JNI method for {@link #glUniform3i} */
 	public static native void nglUniform3i(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
@@ -585,7 +590,7 @@ public final class GL20 {
 
 	// --- [ glUniform4i ] ---
 
-	/** JNI method for {@link #glUniform4i(int, int, int, int, int)} */
+	/** JNI method for {@link #glUniform4i} */
 	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
@@ -1040,7 +1045,7 @@ public final class GL20 {
 
 	// --- [ glGetShaderInfoLog ] ---
 
-	/** JNI method for {@link #glGetShaderInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetShaderInfoLog} */
 	public static native void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog, long __functionAddress);
 
 	/**
@@ -1063,7 +1068,7 @@ public final class GL20 {
 		nglGetShaderInfoLog(shader, maxLength, memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetShaderInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetShaderInfoLog} */
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		long __functionAddress = getInstance().glGetShaderInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1073,7 +1078,7 @@ public final class GL20 {
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetShaderInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetShaderInfoLog} */
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, CharSequence infoLog) {
 		long __functionAddress = getInstance().glGetShaderInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1085,7 +1090,7 @@ public final class GL20 {
 
 	// --- [ glGetProgramInfoLog ] ---
 
-	/** JNI method for {@link #glGetProgramInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramInfoLog} */
 	public static native void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog, long __functionAddress);
 
 	/**
@@ -1108,7 +1113,7 @@ public final class GL20 {
 		nglGetProgramInfoLog(program, maxLength, memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetProgramInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetProgramInfoLog} */
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		long __functionAddress = getInstance().glGetProgramInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1118,7 +1123,7 @@ public final class GL20 {
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramInfoLog} */
 	public static void glGetProgramInfoLog(int program, IntBuffer length, CharSequence infoLog) {
 		long __functionAddress = getInstance().glGetProgramInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1130,7 +1135,7 @@ public final class GL20 {
 
 	// --- [ glGetAttachedShaders ] ---
 
-	/** JNI method for {@link #glGetAttachedShaders(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetAttachedShaders} */
 	public static native void nglGetAttachedShaders(int program, int maxCount, long count, long shaders, long __functionAddress);
 
 	/**
@@ -1153,7 +1158,7 @@ public final class GL20 {
 		nglGetAttachedShaders(program, maxCount, memAddressSafe(count), memAddress(shaders), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetAttachedShaders(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetAttachedShaders} */
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		long __functionAddress = getInstance().glGetAttachedShaders;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1165,7 +1170,7 @@ public final class GL20 {
 
 	// --- [ glGetUniformLocation ] ---
 
-	/** JNI method for {@link #glGetUniformLocation(int, ByteBuffer)} */
+	/** JNI method for {@link #glGetUniformLocation} */
 	public static native int nglGetUniformLocation(int program, long name, long __functionAddress);
 
 	/**
@@ -1185,7 +1190,7 @@ public final class GL20 {
 		return nglGetUniformLocation(program, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetUniformLocation(int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetUniformLocation} */
 	public static int glGetUniformLocation(int program, CharSequence name) {
 		long __functionAddress = getInstance().glGetUniformLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -1195,7 +1200,7 @@ public final class GL20 {
 
 	// --- [ glGetActiveUniform ] ---
 
-	/** JNI method for {@link #glGetActiveUniform(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetActiveUniform} */
 	public static native void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name, long __functionAddress);
 
 	/**
@@ -1223,7 +1228,7 @@ public final class GL20 {
 		nglGetActiveUniform(program, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetActiveUniform(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetActiveUniform} */
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetActiveUniform;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1235,7 +1240,7 @@ public final class GL20 {
 		nglGetActiveUniform(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveUniform(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetActiveUniform} */
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
 		long __functionAddress = getInstance().glGetActiveUniform;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1337,7 +1342,7 @@ public final class GL20 {
 
 	// --- [ glGetShaderSource ] ---
 
-	/** JNI method for {@link #glGetShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetShaderSource} */
 	public static native void nglGetShaderSource(int shader, int maxLength, long length, long source, long __functionAddress);
 
 	/**
@@ -1360,7 +1365,7 @@ public final class GL20 {
 		nglGetShaderSource(shader, maxLength, memAddressSafe(length), memAddress(source), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetShaderSource} */
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		long __functionAddress = getInstance().glGetShaderSource;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1370,7 +1375,7 @@ public final class GL20 {
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetShaderSource(int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetShaderSource} */
 	public static void glGetShaderSource(int shader, IntBuffer length, CharSequence source) {
 		long __functionAddress = getInstance().glGetShaderSource;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1382,7 +1387,7 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib1f ] ---
 
-	/** JNI method for {@link #glVertexAttrib1f(int, float)} */
+	/** JNI method for {@link #glVertexAttrib1f} */
 	public static native void nglVertexAttrib1f(int index, float v0, long __functionAddress);
 
 	/**
@@ -1402,13 +1407,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib1s ] ---
 
-	/** JNI method for {@link #glVertexAttrib1s(int, short)} */
+	/** JNI method for {@link #glVertexAttrib1s} */
 	public static native void nglVertexAttrib1s(int index, short v0, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1s.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttrib1f(int, float)}.
+	 * Short version of {@link #glVertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1422,13 +1427,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib1d ] ---
 
-	/** JNI method for {@link #glVertexAttrib1d(int, double)} */
+	/** JNI method for {@link #glVertexAttrib1d} */
 	public static native void nglVertexAttrib1d(int index, double v0, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1d.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Double version of {@link #glVertexAttrib1f(int, float)}.
+	 * Double version of {@link #glVertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1442,7 +1447,7 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib2f ] ---
 
-	/** JNI method for {@link #glVertexAttrib2f(int, float, float)} */
+	/** JNI method for {@link #glVertexAttrib2f} */
 	public static native void nglVertexAttrib2f(int index, float v0, float v1, long __functionAddress);
 
 	/**
@@ -1463,13 +1468,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib2s ] ---
 
-	/** JNI method for {@link #glVertexAttrib2s(int, short, short)} */
+	/** JNI method for {@link #glVertexAttrib2s} */
 	public static native void nglVertexAttrib2s(int index, short v0, short v1, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2s.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttrib2f(int, float, float)}.
+	 * Short version of {@link #glVertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1484,13 +1489,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib2d ] ---
 
-	/** JNI method for {@link #glVertexAttrib2d(int, double, double)} */
+	/** JNI method for {@link #glVertexAttrib2d} */
 	public static native void nglVertexAttrib2d(int index, double v0, double v1, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2d.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Double version of {@link #glVertexAttrib2f(int, float, float)}.
+	 * Double version of {@link #glVertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1505,7 +1510,7 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib3f ] ---
 
-	/** JNI method for {@link #glVertexAttrib3f(int, float, float, float)} */
+	/** JNI method for {@link #glVertexAttrib3f} */
 	public static native void nglVertexAttrib3f(int index, float v0, float v1, float v2, long __functionAddress);
 
 	/**
@@ -1527,13 +1532,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib3s ] ---
 
-	/** JNI method for {@link #glVertexAttrib3s(int, short, short, short)} */
+	/** JNI method for {@link #glVertexAttrib3s} */
 	public static native void nglVertexAttrib3s(int index, short v0, short v1, short v2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3s.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttrib3f(int, float, float, float)}.
+	 * Short version of {@link #glVertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1549,13 +1554,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib3d ] ---
 
-	/** JNI method for {@link #glVertexAttrib3d(int, double, double, double)} */
+	/** JNI method for {@link #glVertexAttrib3d} */
 	public static native void nglVertexAttrib3d(int index, double v0, double v1, double v2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3d.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Double version of {@link #glVertexAttrib3f(int, float, float, float)}.
+	 * Double version of {@link #glVertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1571,7 +1576,7 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib4f ] ---
 
-	/** JNI method for {@link #glVertexAttrib4f(int, float, float, float, float)} */
+	/** JNI method for {@link #glVertexAttrib4f} */
 	public static native void nglVertexAttrib4f(int index, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
@@ -1594,13 +1599,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib4s ] ---
 
-	/** JNI method for {@link #glVertexAttrib4s(int, short, short, short, short)} */
+	/** JNI method for {@link #glVertexAttrib4s} */
 	public static native void nglVertexAttrib4s(int index, short v0, short v1, short v2, short v3, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4s.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Short version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1617,13 +1622,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib4d ] ---
 
-	/** JNI method for {@link #glVertexAttrib4d(int, double, double, double, double)} */
+	/** JNI method for {@link #glVertexAttrib4d} */
 	public static native void nglVertexAttrib4d(int index, double v0, double v1, double v2, double v3, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4d.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Double version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Double version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v0    the vertex attribute x component
@@ -1640,13 +1645,13 @@ public final class GL20 {
 
 	// --- [ glVertexAttrib4Nub ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nub(int, byte, byte, byte, byte)} */
+	/** JNI method for {@link #glVertexAttrib4Nub} */
 	public static native void nglVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nub.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized unsigned byte version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized unsigned byte version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param x     the vertex attribute x component
@@ -1669,7 +1674,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib1f(int, float)}.
+	 * Pointer version of {@link #glVertexAttrib1f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1701,7 +1706,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib1s(int, short)}.
+	 * Pointer version of {@link #glVertexAttrib1s}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1733,7 +1738,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib1d(int, double)}.
+	 * Pointer version of {@link #glVertexAttrib1d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1765,7 +1770,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib2f(int, float, float)}.
+	 * Pointer version of {@link #glVertexAttrib2f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1797,7 +1802,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib2s(int, short, short)}.
+	 * Pointer version of {@link #glVertexAttrib2s}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1829,7 +1834,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib2d(int, double, double)}.
+	 * Pointer version of {@link #glVertexAttrib2d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1861,7 +1866,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib3f(int, float, float, float)}.
+	 * Pointer version of {@link #glVertexAttrib3f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1893,7 +1898,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib3s(int, short, short, short)}.
+	 * Pointer version of {@link #glVertexAttrib3s}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1925,7 +1930,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib3d(int, double, double, double)}.
+	 * Pointer version of {@link #glVertexAttrib3d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1957,7 +1962,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -1989,7 +1994,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib4s(int, short, short, short, short)}.
+	 * Pointer version of {@link #glVertexAttrib4s}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2021,7 +2026,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib4d(int, double, double, double, double)}.
+	 * Pointer version of {@link #glVertexAttrib4d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2053,7 +2058,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Integer pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Integer pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2085,7 +2090,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4b.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Byte pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Byte pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2107,7 +2112,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4ub.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttrib4Nub(int, byte, byte, byte, byte)}.
+	 * Pointer version of {@link #glVertexAttrib4Nub}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2129,7 +2134,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Unsigned short pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Unsigned short pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2161,7 +2166,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Unsigned int pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Unsigned int pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2193,7 +2198,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nb.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized byte pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized byte pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2215,7 +2220,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized short pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized short pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2247,7 +2252,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized int pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized int pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2279,7 +2284,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nub.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2301,7 +2306,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2333,7 +2338,7 @@ public final class GL20 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4f(int, float, float, float, float)}.
+	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4f}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2359,7 +2364,7 @@ public final class GL20 {
 
 	// --- [ glVertexAttribPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** JNI method for {@link #glVertexAttribPointer} */
 	public static native void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -2385,7 +2390,7 @@ public final class GL20 {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glVertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2395,7 +2400,7 @@ public final class GL20 {
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_SHORT version of: {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** GL_SHORT version of: {@link #glVertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, ShortBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2405,7 +2410,7 @@ public final class GL20 {
 		nglVertexAttribPointer(index, size, GL11.GL_SHORT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_INT version of: {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** GL_INT version of: {@link #glVertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, IntBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2415,7 +2420,7 @@ public final class GL20 {
 		nglVertexAttribPointer(index, size, GL11.GL_INT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glVertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2425,7 +2430,7 @@ public final class GL20 {
 		nglVertexAttribPointer(index, size, GL11.GL_FLOAT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexAttribPointer(int, int, int, boolean, int, ByteBuffer)} */
+	/** GL_DOUBLE version of: {@link #glVertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, DoubleBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2437,7 +2442,7 @@ public final class GL20 {
 
 	// --- [ glEnableVertexAttribArray ] ---
 
-	/** JNI method for {@link #glEnableVertexAttribArray(int)} */
+	/** JNI method for {@link #glEnableVertexAttribArray} */
 	public static native void nglEnableVertexAttribArray(int index, long __functionAddress);
 
 	/**
@@ -2456,7 +2461,7 @@ public final class GL20 {
 
 	// --- [ glDisableVertexAttribArray ] ---
 
-	/** JNI method for {@link #glDisableVertexAttribArray(int)} */
+	/** JNI method for {@link #glDisableVertexAttribArray} */
 	public static native void nglDisableVertexAttribArray(int index, long __functionAddress);
 
 	/**
@@ -2475,7 +2480,7 @@ public final class GL20 {
 
 	// --- [ glBindAttribLocation ] ---
 
-	/** JNI method for {@link #glBindAttribLocation(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glBindAttribLocation} */
 	public static native void nglBindAttribLocation(int program, int index, long name, long __functionAddress);
 
 	/**
@@ -2496,7 +2501,7 @@ public final class GL20 {
 		nglBindAttribLocation(program, index, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glBindAttribLocation(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glBindAttribLocation} */
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
 		long __functionAddress = getInstance().glBindAttribLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -2506,7 +2511,7 @@ public final class GL20 {
 
 	// --- [ glGetActiveAttrib ] ---
 
-	/** JNI method for {@link #glGetActiveAttrib(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetActiveAttrib} */
 	public static native void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name, long __functionAddress);
 
 	/**
@@ -2531,7 +2536,7 @@ public final class GL20 {
 		nglGetActiveAttrib(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetActiveAttrib(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetActiveAttrib} */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetActiveAttrib;
 		if ( LWJGLUtil.CHECKS )
@@ -2539,7 +2544,7 @@ public final class GL20 {
 		nglGetActiveAttrib(program, index, name.remaining(), memAddress(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveAttrib(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetActiveAttrib} */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
 		long __functionAddress = getInstance().glGetActiveAttrib;
 		if ( LWJGLUtil.CHECKS )
@@ -2549,7 +2554,7 @@ public final class GL20 {
 
 	// --- [ glGetAttribLocation ] ---
 
-	/** JNI method for {@link #glGetAttribLocation(int, ByteBuffer)} */
+	/** JNI method for {@link #glGetAttribLocation} */
 	public static native int nglGetAttribLocation(int program, long name, long __functionAddress);
 
 	/**
@@ -2569,7 +2574,7 @@ public final class GL20 {
 		return nglGetAttribLocation(program, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetAttribLocation(int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetAttribLocation} */
 	public static int glGetAttribLocation(int program, CharSequence name) {
 		long __functionAddress = getInstance().glGetAttribLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -2733,7 +2738,7 @@ public final class GL20 {
 
 	// --- [ glDrawBuffers ] ---
 
-	/** JNI method for {@link #glDrawBuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawBuffers} */
 	public static native void nglDrawBuffers(int n, long bufs, long __functionAddress);
 
 	/**
@@ -2753,7 +2758,7 @@ public final class GL20 {
 		nglDrawBuffers(n, memAddress(bufs), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawBuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDrawBuffers} */
 	public static void glDrawBuffers(IntBuffer bufs) {
 		long __functionAddress = getInstance().glDrawBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -2761,7 +2766,7 @@ public final class GL20 {
 		nglDrawBuffers(bufs.remaining(), memAddress(bufs), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDrawBuffers(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDrawBuffers} */
 	public static void glDrawBuffers(int buf) {
 		long __functionAddress = getInstance().glDrawBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -2774,7 +2779,7 @@ public final class GL20 {
 
 	// --- [ glBlendEquationSeparate ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparate(int, int)} */
+	/** JNI method for {@link #glBlendEquationSeparate} */
 	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
@@ -2794,7 +2799,7 @@ public final class GL20 {
 
 	// --- [ glStencilOpSeparate ] ---
 
-	/** JNI method for {@link #glStencilOpSeparate(int, int, int, int)} */
+	/** JNI method for {@link #glStencilOpSeparate} */
 	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
@@ -2817,7 +2822,7 @@ public final class GL20 {
 
 	// --- [ glStencilFuncSeparate ] ---
 
-	/** JNI method for {@link #glStencilFuncSeparate(int, int, int, int)} */
+	/** JNI method for {@link #glStencilFuncSeparate} */
 	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask, long __functionAddress);
 
 	/**
@@ -2840,7 +2845,7 @@ public final class GL20 {
 
 	// --- [ glStencilMaskSeparate ] ---
 
-	/** JNI method for {@link #glStencilMaskSeparate(int, int)} */
+	/** JNI method for {@link #glStencilMaskSeparate} */
 	public static native void nglStencilMaskSeparate(int face, int mask, long __functionAddress);
 
 	/**

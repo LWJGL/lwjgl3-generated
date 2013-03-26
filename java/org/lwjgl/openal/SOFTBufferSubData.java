@@ -25,7 +25,7 @@ public final class SOFTBufferSubData {
 
 	// --- [ alBufferSubDataSOFT ] ---
 
-	/** JNI method for {@link #alBufferSubDataSOFT(int, int, ByteBuffer, int, int)} */
+	/** JNI method for {@link #alBufferSubDataSOFT} */
 	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
 
 	/**

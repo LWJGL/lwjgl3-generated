@@ -17,7 +17,7 @@ public final class GLFWWin32 {
 
 	// --- [ glfwGetWin32Window ] ---
 
-	/** JNI method for {@link #glfwGetWin32Window(long)} */
+	/** JNI method for {@link #glfwGetWin32Window} */
 	public static native long nglfwGetWin32Window(long window);
 
 	/**

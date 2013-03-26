@@ -36,7 +36,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureOpenDevice ] ---
 
-	/** JNI method for {@link #alcCaptureOpenDevice(ByteBuffer, int, int, int)} */
+	/** JNI method for {@link #alcCaptureOpenDevice} */
 	public static native long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize, long __functionAddress);
 
 	/**
@@ -59,7 +59,7 @@ public final class ALC11 {
 		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize, __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcCaptureOpenDevice(ByteBuffer, int, int, int)} */
+	/** CharSequence version of: {@link #alcCaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = getInstance().alcCaptureOpenDevice;
 		if ( LWJGLUtil.CHECKS )
@@ -69,7 +69,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureCloseDevice ] ---
 
-	/** JNI method for {@link #alcCaptureCloseDevice(long)} */
+	/** JNI method for {@link #alcCaptureCloseDevice} */
 	public static native boolean nalcCaptureCloseDevice(long device, long __functionAddress);
 
 	/**
@@ -88,7 +88,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureStart ] ---
 
-	/** JNI method for {@link #alcCaptureStart(long)} */
+	/** JNI method for {@link #alcCaptureStart} */
 	public static native void nalcCaptureStart(long device, long __functionAddress);
 
 	/**
@@ -111,7 +111,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureStop ] ---
 
-	/** JNI method for {@link #alcCaptureStop(long)} */
+	/** JNI method for {@link #alcCaptureStop} */
 	public static native void nalcCaptureStop(long device, long __functionAddress);
 
 	/**
@@ -133,7 +133,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureSamples ] ---
 
-	/** JNI method for {@link #alcCaptureSamples(long, ByteBuffer, int)} */
+	/** JNI method for {@link #alcCaptureSamples} */
 	public static native void nalcCaptureSamples(long device, long buffer, int samples, long __functionAddress);
 
 	/**
@@ -155,7 +155,7 @@ public final class ALC11 {
 		nalcCaptureSamples(device, memAddress(buffer), samples, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alcCaptureSamples(long, ByteBuffer, int)} */
+	/** Alternative version of: {@link #alcCaptureSamples} */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer) {
 		long __functionAddress = getInstance().alcCaptureSamples;
 		if ( LWJGLUtil.CHECKS ) {

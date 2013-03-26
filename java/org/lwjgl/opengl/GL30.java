@@ -476,7 +476,7 @@ public final class GL30 {
 
 	// --- [ glGetStringi ] ---
 
-	/** JNI method for {@link #glGetStringi(int, int)} */
+	/** JNI method for {@link #glGetStringi} */
 	public static native long nglGetStringi(int name, int index, long __functionAddress);
 
 	/**
@@ -495,7 +495,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1i ] ---
 
-	/** JNI method for {@link #glVertexAttribI1i(int, int)} */
+	/** JNI method for {@link #glVertexAttribI1i} */
 	public static native void nglVertexAttribI1i(int index, int x, long __functionAddress);
 
 	/**
@@ -515,7 +515,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2i ] ---
 
-	/** JNI method for {@link #glVertexAttribI2i(int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI2i} */
 	public static native void nglVertexAttribI2i(int index, int x, int y, long __functionAddress);
 
 	/**
@@ -536,7 +536,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3i ] ---
 
-	/** JNI method for {@link #glVertexAttribI3i(int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI3i} */
 	public static native void nglVertexAttribI3i(int index, int x, int y, int z, long __functionAddress);
 
 	/**
@@ -558,7 +558,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4i ] ---
 
-	/** JNI method for {@link #glVertexAttribI4i(int, int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI4i} */
 	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
@@ -581,7 +581,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI1ui(int, int)} */
+	/** JNI method for {@link #glVertexAttribI1ui} */
 	public static native void nglVertexAttribI1ui(int index, int x, long __functionAddress);
 
 	/**
@@ -601,7 +601,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI2ui(int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI2ui} */
 	public static native void nglVertexAttribI2ui(int index, int x, int y, long __functionAddress);
 
 	/**
@@ -622,7 +622,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI3ui(int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI3ui} */
 	public static native void nglVertexAttribI3ui(int index, int x, int y, int z, long __functionAddress);
 
 	/**
@@ -644,7 +644,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ui(int, int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribI4ui} */
 	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
@@ -673,7 +673,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI1i(int, int)}.
+	 * Pointer version of {@link #glVertexAttribI1i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -705,7 +705,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI2i(int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI2i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -737,7 +737,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI3i(int, int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI3i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -769,7 +769,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI4i(int, int, int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -801,7 +801,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI1ui(int, int)}.
+	 * Pointer version of {@link #glVertexAttribI1ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -833,7 +833,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI2ui(int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI2ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -865,7 +865,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI3ui(int, int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI3ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -897,7 +897,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI4ui(int, int, int, int, int)}.
+	 * Pointer version of {@link #glVertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1031,7 +1031,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribIPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribIPointer(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glVertexAttribIPointer} */
 	public static native void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -1056,7 +1056,7 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribIPointer(int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glVertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1066,7 +1066,7 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribIPointer(int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glVertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1076,7 +1076,7 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribIPointer(int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glVertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1176,7 +1176,7 @@ public final class GL30 {
 
 	// --- [ glUniform1ui ] ---
 
-	/** JNI method for {@link #glUniform1ui(int, int)} */
+	/** JNI method for {@link #glUniform1ui} */
 	public static native void nglUniform1ui(int location, int v0, long __functionAddress);
 
 	/**
@@ -1196,7 +1196,7 @@ public final class GL30 {
 
 	// --- [ glUniform2ui ] ---
 
-	/** JNI method for {@link #glUniform2ui(int, int, int)} */
+	/** JNI method for {@link #glUniform2ui} */
 	public static native void nglUniform2ui(int location, int v0, int v1, long __functionAddress);
 
 	/**
@@ -1217,7 +1217,7 @@ public final class GL30 {
 
 	// --- [ glUniform3ui ] ---
 
-	/** JNI method for {@link #glUniform3ui(int, int, int, int)} */
+	/** JNI method for {@link #glUniform3ui} */
 	public static native void nglUniform3ui(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
@@ -1239,7 +1239,7 @@ public final class GL30 {
 
 	// --- [ glUniform4ui ] ---
 
-	/** JNI method for {@link #glUniform4ui(int, int, int, int, int)} */
+	/** JNI method for {@link #glUniform4ui} */
 	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
@@ -1430,7 +1430,7 @@ public final class GL30 {
 
 	// --- [ glBindFragDataLocation ] ---
 
-	/** JNI method for {@link #glBindFragDataLocation(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glBindFragDataLocation} */
 	public static native void nglBindFragDataLocation(int program, int colorNumber, long name, long __functionAddress);
 
 	/**
@@ -1451,7 +1451,7 @@ public final class GL30 {
 		nglBindFragDataLocation(program, colorNumber, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocation(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glBindFragDataLocation} */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
 		long __functionAddress = getInstance().glBindFragDataLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -1461,7 +1461,7 @@ public final class GL30 {
 
 	// --- [ glGetFragDataLocation ] ---
 
-	/** JNI method for {@link #glGetFragDataLocation(int, ByteBuffer)} */
+	/** JNI method for {@link #glGetFragDataLocation} */
 	public static native int nglGetFragDataLocation(int program, long name, long __functionAddress);
 
 	/**
@@ -1481,7 +1481,7 @@ public final class GL30 {
 		return nglGetFragDataLocation(program, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataLocation(int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
 		long __functionAddress = getInstance().glGetFragDataLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -1491,7 +1491,7 @@ public final class GL30 {
 
 	// --- [ glBeginConditionalRender ] ---
 
-	/** JNI method for {@link #glBeginConditionalRender(int, int)} */
+	/** JNI method for {@link #glBeginConditionalRender} */
 	public static native void nglBeginConditionalRender(int id, int mode, long __functionAddress);
 
 	/**
@@ -1511,7 +1511,7 @@ public final class GL30 {
 
 	// --- [ glEndConditionalRender ] ---
 
-	/** JNI method for {@link #glEndConditionalRender()} */
+	/** JNI method for {@link #glEndConditionalRender} */
 	public static native void nglEndConditionalRender(long __functionAddress);
 
 	/**
@@ -1528,7 +1528,7 @@ public final class GL30 {
 
 	// --- [ glMapBufferRange ] ---
 
-	/** JNI method for {@link #glMapBufferRange(int, long, long, int)} */
+	/** JNI method for {@link #glMapBufferRange} */
 	public static native long nglMapBufferRange(int target, long offset, long length, int access, long __functionAddress);
 
 	/**
@@ -1555,7 +1555,7 @@ public final class GL30 {
 		return memByteBuffer(__result, length);
 	}
 
-	/** Alternative version of: {@link #glMapBufferRange(int, long, long, int)} */
+	/** Alternative version of: {@link #glMapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __functionAddress = getInstance().glMapBufferRange;
 		if ( LWJGLUtil.CHECKS )
@@ -1566,7 +1566,7 @@ public final class GL30 {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
-	/** JNI method for {@link #glFlushMappedBufferRange(int, long, long)} */
+	/** JNI method for {@link #glFlushMappedBufferRange} */
 	public static native void nglFlushMappedBufferRange(int target, long offset, long length, long __functionAddress);
 
 	/**
@@ -1587,7 +1587,7 @@ public final class GL30 {
 
 	// --- [ glClampColor ] ---
 
-	/** JNI method for {@link #glClampColor(int, int)} */
+	/** JNI method for {@link #glClampColor} */
 	public static native void nglClampColor(int target, int clamp, long __functionAddress);
 
 	/**
@@ -1607,7 +1607,7 @@ public final class GL30 {
 
 	// --- [ glIsRenderbuffer ] ---
 
-	/** JNI method for {@link #glIsRenderbuffer(int)} */
+	/** JNI method for {@link #glIsRenderbuffer} */
 	public static native boolean nglIsRenderbuffer(int renderbuffer, long __functionAddress);
 
 	/**
@@ -1626,7 +1626,7 @@ public final class GL30 {
 
 	// --- [ glBindRenderbuffer ] ---
 
-	/** JNI method for {@link #glBindRenderbuffer(int, int)} */
+	/** JNI method for {@link #glBindRenderbuffer} */
 	public static native void nglBindRenderbuffer(int target, int renderbuffer, long __functionAddress);
 
 	/**
@@ -1646,7 +1646,7 @@ public final class GL30 {
 
 	// --- [ glDeleteRenderbuffers ] ---
 
-	/** JNI method for {@link #glDeleteRenderbuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteRenderbuffers} */
 	public static native void nglDeleteRenderbuffers(int n, long renderbuffers, long __functionAddress);
 
 	/**
@@ -1666,7 +1666,7 @@ public final class GL30 {
 		nglDeleteRenderbuffers(n, memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteRenderbuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
 		long __functionAddress = getInstance().glDeleteRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1674,7 +1674,7 @@ public final class GL30 {
 		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteRenderbuffers(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		long __functionAddress = getInstance().glDeleteRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1687,7 +1687,7 @@ public final class GL30 {
 
 	// --- [ glGenRenderbuffers ] ---
 
-	/** JNI method for {@link #glGenRenderbuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenRenderbuffers} */
 	public static native void nglGenRenderbuffers(int n, long renderbuffers, long __functionAddress);
 
 	/**
@@ -1707,7 +1707,7 @@ public final class GL30 {
 		nglGenRenderbuffers(n, memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenRenderbuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
 		long __functionAddress = getInstance().glGenRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1715,7 +1715,7 @@ public final class GL30 {
 		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenRenderbuffers(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenRenderbuffers} */
 	public static int glGenRenderbuffers() {
 		long __functionAddress = getInstance().glGenRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1728,7 +1728,7 @@ public final class GL30 {
 
 	// --- [ glRenderbufferStorage ] ---
 
-	/** JNI method for {@link #glRenderbufferStorage(int, int, int, int)} */
+	/** JNI method for {@link #glRenderbufferStorage} */
 	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height, long __functionAddress);
 
 	/**
@@ -1752,7 +1752,7 @@ public final class GL30 {
 
 	// --- [ glRenderbufferStorageMultisample ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisample(int, int, int, int, int)} */
+	/** JNI method for {@link #glRenderbufferStorageMultisample} */
 	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height, long __functionAddress);
 
 	/**
@@ -1819,7 +1819,7 @@ public final class GL30 {
 
 	// --- [ glIsFramebuffer ] ---
 
-	/** JNI method for {@link #glIsFramebuffer(int)} */
+	/** JNI method for {@link #glIsFramebuffer} */
 	public static native boolean nglIsFramebuffer(int framebuffer, long __functionAddress);
 
 	/**
@@ -1838,7 +1838,7 @@ public final class GL30 {
 
 	// --- [ glBindFramebuffer ] ---
 
-	/** JNI method for {@link #glBindFramebuffer(int, int)} */
+	/** JNI method for {@link #glBindFramebuffer} */
 	public static native void nglBindFramebuffer(int target, int framebuffer, long __functionAddress);
 
 	/**
@@ -1858,7 +1858,7 @@ public final class GL30 {
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	/** JNI method for {@link #glDeleteFramebuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteFramebuffers} */
 	public static native void nglDeleteFramebuffers(int n, long framebuffers, long __functionAddress);
 
 	/**
@@ -1878,7 +1878,7 @@ public final class GL30 {
 		nglDeleteFramebuffers(n, memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteFramebuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
 		long __functionAddress = getInstance().glDeleteFramebuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1886,7 +1886,7 @@ public final class GL30 {
 		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteFramebuffers(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
 		long __functionAddress = getInstance().glDeleteFramebuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1899,7 +1899,7 @@ public final class GL30 {
 
 	// --- [ glGenFramebuffers ] ---
 
-	/** JNI method for {@link #glGenFramebuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenFramebuffers} */
 	public static native void nglGenFramebuffers(int n, long framebuffers, long __functionAddress);
 
 	/**
@@ -1919,7 +1919,7 @@ public final class GL30 {
 		nglGenFramebuffers(n, memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenFramebuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
 		long __functionAddress = getInstance().glGenFramebuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1927,7 +1927,7 @@ public final class GL30 {
 		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenFramebuffers(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenFramebuffers} */
 	public static int glGenFramebuffers() {
 		long __functionAddress = getInstance().glGenFramebuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1940,7 +1940,7 @@ public final class GL30 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	/** JNI method for {@link #glCheckFramebufferStatus(int)} */
+	/** JNI method for {@link #glCheckFramebufferStatus} */
 	public static native int nglCheckFramebufferStatus(int target, long __functionAddress);
 
 	/**
@@ -1959,7 +1959,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture1D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture1D(int, int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferTexture1D} */
 	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
 	/**
@@ -1982,7 +1982,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture2D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture2D(int, int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferTexture2D} */
 	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
 	/**
@@ -2005,7 +2005,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture3D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture3D(int, int, int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferTexture3D} */
 	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer, long __functionAddress);
 
 	/**
@@ -2029,7 +2029,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTextureLayer ] ---
 
-	/** JNI method for {@link #glFramebufferTextureLayer(int, int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferTextureLayer} */
 	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer, long __functionAddress);
 
 	/**
@@ -2052,7 +2052,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
-	/** JNI method for {@link #glFramebufferRenderbuffer(int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferRenderbuffer} */
 	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer, long __functionAddress);
 
 	/**
@@ -2119,7 +2119,7 @@ public final class GL30 {
 
 	// --- [ glBlitFramebuffer ] ---
 
-	/** JNI method for {@link #glBlitFramebuffer(int, int, int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glBlitFramebuffer} */
 	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
@@ -2147,7 +2147,7 @@ public final class GL30 {
 
 	// --- [ glGenerateMipmap ] ---
 
-	/** JNI method for {@link #glGenerateMipmap(int)} */
+	/** JNI method for {@link #glGenerateMipmap} */
 	public static native void nglGenerateMipmap(int target, long __functionAddress);
 
 	/**
@@ -2342,7 +2342,7 @@ public final class GL30 {
 
 	// --- [ glColorMaski ] ---
 
-	/** JNI method for {@link #glColorMaski(int, boolean, boolean, boolean, boolean)} */
+	/** JNI method for {@link #glColorMaski} */
 	public static native void nglColorMaski(int buf, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
 
 	/**
@@ -2443,7 +2443,7 @@ public final class GL30 {
 
 	// --- [ glEnablei ] ---
 
-	/** JNI method for {@link #glEnablei(int, int)} */
+	/** JNI method for {@link #glEnablei} */
 	public static native void nglEnablei(int cap, int index, long __functionAddress);
 
 	/**
@@ -2463,7 +2463,7 @@ public final class GL30 {
 
 	// --- [ glDisablei ] ---
 
-	/** JNI method for {@link #glDisablei(int, int)} */
+	/** JNI method for {@link #glDisablei} */
 	public static native void nglDisablei(int target, int index, long __functionAddress);
 
 	/**
@@ -2483,7 +2483,7 @@ public final class GL30 {
 
 	// --- [ glIsEnabledi ] ---
 
-	/** JNI method for {@link #glIsEnabledi(int, int)} */
+	/** JNI method for {@link #glIsEnabledi} */
 	public static native boolean nglIsEnabledi(int target, int index, long __functionAddress);
 
 	/**
@@ -2503,7 +2503,7 @@ public final class GL30 {
 
 	// --- [ glBindBufferRange ] ---
 
-	/** JNI method for {@link #glBindBufferRange(int, int, int, long, long)} */
+	/** JNI method for {@link #glBindBufferRange} */
 	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size, long __functionAddress);
 
 	/**
@@ -2526,7 +2526,7 @@ public final class GL30 {
 
 	// --- [ glBindBufferBase ] ---
 
-	/** JNI method for {@link #glBindBufferBase(int, int, int)} */
+	/** JNI method for {@link #glBindBufferBase} */
 	public static native void nglBindBufferBase(int target, int index, int buffer, long __functionAddress);
 
 	/**
@@ -2547,7 +2547,7 @@ public final class GL30 {
 
 	// --- [ glBeginTransformFeedback ] ---
 
-	/** JNI method for {@link #glBeginTransformFeedback(int)} */
+	/** JNI method for {@link #glBeginTransformFeedback} */
 	public static native void nglBeginTransformFeedback(int primitiveMode, long __functionAddress);
 
 	/**
@@ -2566,7 +2566,7 @@ public final class GL30 {
 
 	// --- [ glEndTransformFeedback ] ---
 
-	/** JNI method for {@link #glEndTransformFeedback()} */
+	/** JNI method for {@link #glEndTransformFeedback} */
 	public static native void nglEndTransformFeedback(long __functionAddress);
 
 	/**
@@ -2583,7 +2583,7 @@ public final class GL30 {
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
-	/** JNI method for {@link #glTransformFeedbackVaryings(int, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glTransformFeedbackVaryings} */
 	public static native void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode, long __functionAddress);
 
 	/**
@@ -2605,7 +2605,7 @@ public final class GL30 {
 		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glTransformFeedbackVaryings(int, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glTransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, PointerBuffer varyings, int bufferMode) {
 		long __functionAddress = getInstance().glTransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
@@ -2613,7 +2613,7 @@ public final class GL30 {
 		nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode, __functionAddress);
 	}
 
-	/** Array version of: {@link #glTransformFeedbackVaryings(int, int, ByteBuffer, int)} */
+	/** Array version of: {@link #glTransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
 		long __functionAddress = getInstance().glTransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
@@ -2622,25 +2622,25 @@ public final class GL30 {
 		int varyingsAddress = __buffer.bufferParam(varyings.length << PointerBuffer.getPointerSizeShift());
 		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
 		for ( int i = 0; i < varyings.length; i++ )
-			__buffer.pointerValue(varyingsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i])));
+			__buffer.pointerValue(varyingsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
 		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
-	/** Single varying version of: {@link #glTransformFeedbackVaryings(int, int, ByteBuffer, int)} */
+	/** Single varying version of: {@link #glTransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
 		long __functionAddress = getInstance().glTransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int varyingsAddress = __buffer.pointerParam();
-		ByteBuffer varyingsBuffer = memEncodeASCII(varying);
-		__buffer.pointerValue(varyingsAddress, memAddress(varyingsBuffer));
+		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
+		__buffer.pointerValue(varyingsAddress, memAddress(varyingBuffers));
 		nglTransformFeedbackVaryings(program, 1, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
 	// --- [ glGetTransformFeedbackVarying ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbackVarying(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetTransformFeedbackVarying} */
 	public static native void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
 
 	/**
@@ -2668,7 +2668,7 @@ public final class GL30 {
 		nglGetTransformFeedbackVarying(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbackVarying(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetTransformFeedbackVarying} */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2680,7 +2680,7 @@ public final class GL30 {
 		nglGetTransformFeedbackVarying(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetTransformFeedbackVarying(int, int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetTransformFeedbackVarying} */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
 		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2694,7 +2694,7 @@ public final class GL30 {
 
 	// --- [ glBindVertexArray ] ---
 
-	/** JNI method for {@link #glBindVertexArray(int)} */
+	/** JNI method for {@link #glBindVertexArray} */
 	public static native void nglBindVertexArray(int array, long __functionAddress);
 
 	/**
@@ -2713,7 +2713,7 @@ public final class GL30 {
 
 	// --- [ glDeleteVertexArrays ] ---
 
-	/** JNI method for {@link #glDeleteVertexArrays(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteVertexArrays} */
 	public static native void nglDeleteVertexArrays(int n, long arrays, long __functionAddress);
 
 	/**
@@ -2733,7 +2733,7 @@ public final class GL30 {
 		nglDeleteVertexArrays(n, memAddress(arrays), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteVertexArrays(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
 		long __functionAddress = getInstance().glDeleteVertexArrays;
 		if ( LWJGLUtil.CHECKS )
@@ -2741,7 +2741,7 @@ public final class GL30 {
 		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArrays(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
 		long __functionAddress = getInstance().glDeleteVertexArrays;
 		if ( LWJGLUtil.CHECKS )
@@ -2754,7 +2754,7 @@ public final class GL30 {
 
 	// --- [ glGenVertexArrays ] ---
 
-	/** JNI method for {@link #glGenVertexArrays(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenVertexArrays} */
 	public static native void nglGenVertexArrays(int n, long arrays, long __functionAddress);
 
 	/**
@@ -2774,7 +2774,7 @@ public final class GL30 {
 		nglGenVertexArrays(n, memAddress(arrays), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenVertexArrays(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
 		long __functionAddress = getInstance().glGenVertexArrays;
 		if ( LWJGLUtil.CHECKS )
@@ -2782,7 +2782,7 @@ public final class GL30 {
 		nglGenVertexArrays(arrays.remaining(), memAddress(arrays), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenVertexArrays(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenVertexArrays} */
 	public static int glGenVertexArrays() {
 		long __functionAddress = getInstance().glGenVertexArrays;
 		if ( LWJGLUtil.CHECKS )
@@ -2795,7 +2795,7 @@ public final class GL30 {
 
 	// --- [ glIsVertexArray ] ---
 
-	/** JNI method for {@link #glIsVertexArray(int)} */
+	/** JNI method for {@link #glIsVertexArray} */
 	public static native boolean nglIsVertexArray(int array, long __functionAddress);
 
 	/**

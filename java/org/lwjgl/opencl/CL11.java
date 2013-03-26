@@ -86,7 +86,7 @@ public final class CL11 {
 
 	// --- [ clCreateSubBuffer ] ---
 
-	/** JNI method for {@link #clCreateSubBuffer(CLMem, long, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clCreateSubBuffer} */
 	public static native long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret, long __functionAddress);
 
 	/**
@@ -108,7 +108,7 @@ public final class CL11 {
 		return CLMem.create(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret), __functionAddress), buffer);
 	}
 
-	/** Alternative version of: {@link #clCreateSubBuffer(CLMem, long, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #clCreateSubBuffer} */
 	public static CLMem clCreateSubBuffer(CLMem buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
 		long __functionAddress = getInstance(buffer).clCreateSubBuffer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -121,7 +121,7 @@ public final class CL11 {
 
 	// --- [ clSetMemObjectDestructorCallback ] ---
 
-	/** JNI method for {@link #clSetMemObjectDestructorCallback(CLMem, long, ByteBuffer)} */
+	/** JNI method for {@link #clSetMemObjectDestructorCallback} */
 	public static native int nclSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -142,7 +142,7 @@ public final class CL11 {
 
 	// --- [ clEnqueueReadBufferRect ] ---
 
-	/** JNI method for {@link #clEnqueueReadBufferRect(CLCommandQueue, CLMem, int, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clEnqueueReadBufferRect} */
 	public static native int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -176,7 +176,7 @@ public final class CL11 {
 		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueReadBufferRect(CLCommandQueue, CLMem, int, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #clEnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -191,7 +191,7 @@ public final class CL11 {
 
 	// --- [ clEnqueueWriteBufferRect ] ---
 
-	/** JNI method for {@link #clEnqueueWriteBufferRect(CLCommandQueue, CLMem, int, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clEnqueueWriteBufferRect} */
 	public static native int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -225,7 +225,7 @@ public final class CL11 {
 		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueWriteBufferRect(CLCommandQueue, CLMem, int, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, ByteBuffer, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #clEnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -240,7 +240,7 @@ public final class CL11 {
 
 	// --- [ clEnqueueCopyBufferRect ] ---
 
-	/** JNI method for {@link #clEnqueueCopyBufferRect(CLCommandQueue, CLMem, CLMem, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #clEnqueueCopyBufferRect} */
 	public static native int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -273,7 +273,7 @@ public final class CL11 {
 		return nclEnqueueCopyBufferRect(command_queue.getPointer(), src_buffer.getPointer(), dst_buffer.getPointer(), memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueCopyBufferRect(CLCommandQueue, CLMem, CLMem, ByteBuffer, ByteBuffer, ByteBuffer, long, long, long, long, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #clEnqueueCopyBufferRect} */
 	public static int clEnqueueCopyBufferRect(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueCopyBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -288,7 +288,7 @@ public final class CL11 {
 
 	// --- [ clCreateUserEvent ] ---
 
-	/** JNI method for {@link #clCreateUserEvent(CLContext, ByteBuffer)} */
+	/** JNI method for {@link #clCreateUserEvent} */
 	public static native long nclCreateUserEvent(long context, long errcode_ret, long __functionAddress);
 
 	/**
@@ -306,7 +306,7 @@ public final class CL11 {
 		return CLEvent.create(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateUserEvent(CLContext, ByteBuffer)} */
+	/** Alternative version of: {@link #clCreateUserEvent} */
 	public static CLEvent clCreateUserEvent(CLContext context, IntBuffer errcode_ret) {
 		long __functionAddress = getInstance(context).clCreateUserEvent;
 		if ( LWJGLUtil.CHECKS ) {
@@ -318,7 +318,7 @@ public final class CL11 {
 
 	// --- [ clSetUserEventStatus ] ---
 
-	/** JNI method for {@link #clSetUserEventStatus(CLEvent, int)} */
+	/** JNI method for {@link #clSetUserEventStatus} */
 	public static native int nclSetUserEventStatus(long event, int execution_status, long __functionAddress);
 
 	/**
@@ -336,7 +336,7 @@ public final class CL11 {
 
 	// --- [ clSetEventCallback ] ---
 
-	/** JNI method for {@link #clSetEventCallback(CLEvent, int, long, ByteBuffer)} */
+	/** JNI method for {@link #clSetEventCallback} */
 	public static native int nclSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data, long __functionAddress);
 
 	/**

@@ -43,7 +43,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageEnableAMD(int, int, int, ByteBuffer, boolean)} */
+	/** JNI method for {@link #glDebugMessageEnableAMD} */
 	public static native void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
 	/**
@@ -64,7 +64,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageEnableAMD(category, severity, count, memAddressSafe(ids), enabled, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageEnableAMD(int, int, int, ByteBuffer, boolean)} */
+	/** Alternative version of: {@link #glDebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
 		long __functionAddress = getInstance().glDebugMessageEnableAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -74,7 +74,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertAMD(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDebugMessageInsertAMD} */
 	public static native void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf, long __functionAddress);
 
 	/**
@@ -96,7 +96,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageInsertAMD(int, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, ByteBuffer buf) {
 		long __functionAddress = getInstance().glDebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -104,7 +104,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsertAMD(int, int, int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glDebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
 		long __functionAddress = getInstance().glDebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -114,7 +114,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageCallbackAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageCallbackAMD(long, long)} */
+	/** JNI method for {@link #glDebugMessageCallbackAMD} */
 	public static native void nglDebugMessageCallbackAMD(long callback, long userParam, long __functionAddress);
 
 	/**
@@ -131,7 +131,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageCallbackAMD(callback, userParam, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageCallbackAMD(long, long)} */
+	/** Alternative version of: {@link #glDebugMessageCallbackAMD} */
 	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback) {
 		Functions __instance = getInstance();
 		long __functionAddress = __instance.glDebugMessageCallbackAMD;
@@ -142,7 +142,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glGetDebugMessageLogAMD ] ---
 
-	/** JNI method for {@link #glGetDebugMessageLogAMD(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetDebugMessageLogAMD} */
 	public static native int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog, long __functionAddress);
 
 	/**
@@ -170,7 +170,7 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, bufsize, memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLogAMD(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {
@@ -183,7 +183,7 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLogAMD(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, CharSequence messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {

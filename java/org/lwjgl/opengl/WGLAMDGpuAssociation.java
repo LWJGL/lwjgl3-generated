@@ -42,7 +42,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
-	/** JNI method for {@link #wglGetGPUIDsAMD(int, ByteBuffer)} */
+	/** JNI method for {@link #wglGetGPUIDsAMD} */
 	public static native int nwglGetGPUIDsAMD(int maxCount, long ids, long __functionAddress);
 
 	/**
@@ -64,7 +64,7 @@ public final class WGLAMDGpuAssociation {
 		return nwglGetGPUIDsAMD(maxCount, memAddressSafe(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglGetGPUIDsAMD(int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglGetGPUIDsAMD} */
 	public static int wglGetGPUIDsAMD(IntBuffer ids) {
 		long __functionAddress = getInstance().wglGetGPUIDsAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -74,7 +74,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglGetGPUInfoAMD ] ---
 
-	/** JNI method for {@link #wglGetGPUInfoAMD(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #wglGetGPUInfoAMD} */
 	public static native int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
 	/**
@@ -86,7 +86,7 @@ public final class WGLAMDGpuAssociation {
 	 * is equal to {@code size}, the query should be repeated with a larger {@code data} buffer. Strings should be queried using the GL_UNSIGNED_BYTE type,
 	 * are UTF-8 encoded and will be NULL terminated. If the function fails, -1 will be returned.
 	 *
-	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD(int, ByteBuffer)}
+	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD}
 	 * @param property the information being queried. One of:<p/>{@link #WGL_GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD}
 	 * @param dataType the data type to be returned. One of:<p/>{@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL11#GL_FLOAT}, {@link GL11#GL_UNSIGNED_BYTE}
 	 * @param size     the size of the {@code data} buffer
@@ -101,7 +101,7 @@ public final class WGLAMDGpuAssociation {
 		return nwglGetGPUInfoAMD(id, property, dataType, size, memAddress(data), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglGetGPUInfoAMD(int, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglGetGPUInfoAMD} */
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, ByteBuffer data) {
 		long __functionAddress = getInstance().wglGetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -109,7 +109,7 @@ public final class WGLAMDGpuAssociation {
 		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #wglGetGPUInfoAMD(int, int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #wglGetGPUInfoAMD} */
 	public static int wglGetGPUInfoAMD(int id, int property, ByteBuffer data) {
 		long __functionAddress = getInstance().wglGetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -117,7 +117,7 @@ public final class WGLAMDGpuAssociation {
 		return nwglGetGPUInfoAMD(id, property, GL11.GL_UNSIGNED_BYTE, data.remaining(), memAddress(data), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #wglGetGPUInfoAMD(int, int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_INT version of: {@link #wglGetGPUInfoAMD} */
 	public static int wglGetGPUInfoAMD(int id, int property, IntBuffer data) {
 		long __functionAddress = getInstance().wglGetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -127,7 +127,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglGetContextGPUIDAMD ] ---
 
-	/** JNI method for {@link #wglGetContextGPUIDAMD(long)} */
+	/** JNI method for {@link #wglGetContextGPUIDAMD} */
 	public static native int nwglGetContextGPUIDAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -151,7 +151,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglCreateAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #wglCreateAssociatedContextAMD(int)} */
+	/** JNI method for {@link #wglCreateAssociatedContextAMD} */
 	public static native long nwglCreateAssociatedContextAMD(int id, long __functionAddress);
 
 	/**
@@ -168,7 +168,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
 
-	/** JNI method for {@link #wglCreateAssociatedContextAttribsAMD(int, long, ByteBuffer)} */
+	/** JNI method for {@link #wglCreateAssociatedContextAttribsAMD} */
 	public static native long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList, long __functionAddress);
 
 	/**
@@ -189,7 +189,7 @@ public final class WGLAMDGpuAssociation {
 		return nwglCreateAssociatedContextAttribsAMD(id, shareContext, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreateAssociatedContextAttribsAMD(int, long, ByteBuffer)} */
+	/** Alternative version of: {@link #wglCreateAssociatedContextAttribsAMD} */
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, IntBuffer attribList) {
 		long __functionAddress = getInstance().wglCreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS ) {
@@ -201,7 +201,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglDeleteAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #wglDeleteAssociatedContextAMD(long)} */
+	/** JNI method for {@link #wglDeleteAssociatedContextAMD} */
 	public static native int nwglDeleteAssociatedContextAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -220,7 +220,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglMakeAssociatedContextCurrentAMD ] ---
 
-	/** JNI method for {@link #wglMakeAssociatedContextCurrentAMD(long)} */
+	/** JNI method for {@link #wglMakeAssociatedContextCurrentAMD} */
 	public static native int nwglMakeAssociatedContextCurrentAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -239,7 +239,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglGetCurrentAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #wglGetCurrentAssociatedContextAMD()} */
+	/** JNI method for {@link #wglGetCurrentAssociatedContextAMD} */
 	public static native long nwglGetCurrentAssociatedContextAMD(long __functionAddress);
 
 	/** Returns the current associated context in the current thread. */
@@ -252,7 +252,7 @@ public final class WGLAMDGpuAssociation {
 
 	// --- [ wglBlitContextFramebufferAMD ] ---
 
-	/** JNI method for {@link #wglBlitContextFramebufferAMD(long, int, int, int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #wglBlitContextFramebufferAMD} */
 	public static native void nwglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**

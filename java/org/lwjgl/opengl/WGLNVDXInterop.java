@@ -31,7 +31,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXSetResourceShareHandleNV ] ---
 
-	/** JNI method for {@link #wglDXSetResourceShareHandleNV(long, long)} */
+	/** JNI method for {@link #wglDXSetResourceShareHandleNV} */
 	public static native int nwglDXSetResourceShareHandleNV(long dxObject, long shareHandle, long __functionAddress);
 
 	/**
@@ -52,7 +52,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXOpenDeviceNV ] ---
 
-	/** JNI method for {@link #wglDXOpenDeviceNV(long)} */
+	/** JNI method for {@link #wglDXOpenDeviceNV} */
 	public static native long nwglDXOpenDeviceNV(long dxDevice, long __functionAddress);
 
 	/**
@@ -71,7 +71,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXCloseDeviceNV ] ---
 
-	/** JNI method for {@link #wglDXCloseDeviceNV(long)} */
+	/** JNI method for {@link #wglDXCloseDeviceNV} */
 	public static native int nwglDXCloseDeviceNV(long device, long __functionAddress);
 
 	/**
@@ -90,7 +90,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXRegisterObjectNV ] ---
 
-	/** JNI method for {@link #wglDXRegisterObjectNV(long, long, int, int, int)} */
+	/** JNI method for {@link #wglDXRegisterObjectNV} */
 	public static native long nwglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access, long __functionAddress);
 
 	/**
@@ -114,7 +114,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXUnregisterObjectNV ] ---
 
-	/** JNI method for {@link #wglDXUnregisterObjectNV(long, long)} */
+	/** JNI method for {@link #wglDXUnregisterObjectNV} */
 	public static native int nwglDXUnregisterObjectNV(long device, long object, long __functionAddress);
 
 	/**
@@ -135,7 +135,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXObjectAccessNV ] ---
 
-	/** JNI method for {@link #wglDXObjectAccessNV(long, int)} */
+	/** JNI method for {@link #wglDXObjectAccessNV} */
 	public static native int nwglDXObjectAccessNV(long object, int access, long __functionAddress);
 
 	/**
@@ -155,7 +155,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXLockObjectsNV ] ---
 
-	/** JNI method for {@link #wglDXLockObjectsNV(long, int, ByteBuffer)} */
+	/** JNI method for {@link #wglDXLockObjectsNV} */
 	public static native int nwglDXLockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -182,7 +182,7 @@ public final class WGLNVDXInterop {
 		return nwglDXLockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglDXLockObjectsNV(long, int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglDXLockObjectsNV} */
 	public static int wglDXLockObjectsNV(long device, PointerBuffer objects) {
 		long __functionAddress = getInstance().wglDXLockObjectsNV;
 		if ( LWJGLUtil.CHECKS ) {
@@ -194,7 +194,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXUnlockObjectsNV ] ---
 
-	/** JNI method for {@link #wglDXUnlockObjectsNV(long, int, ByteBuffer)} */
+	/** JNI method for {@link #wglDXUnlockObjectsNV} */
 	public static native int nwglDXUnlockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -214,7 +214,7 @@ public final class WGLNVDXInterop {
 		return nwglDXUnlockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglDXUnlockObjectsNV(long, int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglDXUnlockObjectsNV} */
 	public static int wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
 		long __functionAddress = getInstance().wglDXUnlockObjectsNV;
 		if ( LWJGLUtil.CHECKS ) {

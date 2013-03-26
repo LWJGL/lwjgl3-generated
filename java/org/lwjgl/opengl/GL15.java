@@ -107,7 +107,7 @@ public final class GL15 {
 
 	// --- [ glBindBuffer ] ---
 
-	/** JNI method for {@link #glBindBuffer(int, int)} */
+	/** JNI method for {@link #glBindBuffer} */
 	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
 
 	/**
@@ -127,7 +127,7 @@ public final class GL15 {
 
 	// --- [ glDeleteBuffers ] ---
 
-	/** JNI method for {@link #glDeleteBuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteBuffers} */
 	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
 	/**
@@ -147,7 +147,7 @@ public final class GL15 {
 		nglDeleteBuffers(n, memAddress(buffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteBuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteBuffers} */
 	public static void glDeleteBuffers(IntBuffer buffers) {
 		long __functionAddress = getInstance().glDeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -155,7 +155,7 @@ public final class GL15 {
 		nglDeleteBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteBuffers(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteBuffers} */
 	public static void glDeleteBuffers(int buffer) {
 		long __functionAddress = getInstance().glDeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -168,7 +168,7 @@ public final class GL15 {
 
 	// --- [ glGenBuffers ] ---
 
-	/** JNI method for {@link #glGenBuffers(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenBuffers} */
 	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
 
 	/**
@@ -188,7 +188,7 @@ public final class GL15 {
 		nglGenBuffers(n, memAddress(buffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenBuffers(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenBuffers} */
 	public static void glGenBuffers(IntBuffer buffers) {
 		long __functionAddress = getInstance().glGenBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -196,7 +196,7 @@ public final class GL15 {
 		nglGenBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenBuffers(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenBuffers} */
 	public static int glGenBuffers() {
 		long __functionAddress = getInstance().glGenBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -209,7 +209,7 @@ public final class GL15 {
 
 	// --- [ glIsBuffer ] ---
 
-	/** JNI method for {@link #glIsBuffer(int)} */
+	/** JNI method for {@link #glIsBuffer} */
 	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
 
 	/**
@@ -228,7 +228,7 @@ public final class GL15 {
 
 	// --- [ glBufferData ] ---
 
-	/** JNI method for {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** JNI method for {@link #glBufferData} */
 	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
 	/**
@@ -266,7 +266,7 @@ public final class GL15 {
 		nglBufferData(target, size, memAddressSafe(data), usage, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glBufferData} */
 	public static void glBufferData(int target, long size, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -274,7 +274,7 @@ public final class GL15 {
 		nglBufferData(target, size, 0L, usage, __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** ByteBuffer version of: {@link #glBufferData} */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -282,7 +282,7 @@ public final class GL15 {
 		nglBufferData(target, data.remaining(), memAddress(data), usage, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** ShortBuffer version of: {@link #glBufferData} */
 	public static void glBufferData(int target, ShortBuffer data, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -290,7 +290,7 @@ public final class GL15 {
 		nglBufferData(target, data.remaining() << 1, memAddress(data), usage, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** IntBuffer version of: {@link #glBufferData} */
 	public static void glBufferData(int target, IntBuffer data, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -298,7 +298,7 @@ public final class GL15 {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** FloatBuffer version of: {@link #glBufferData} */
 	public static void glBufferData(int target, FloatBuffer data, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -306,7 +306,7 @@ public final class GL15 {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glBufferData(int, long, ByteBuffer, int)} */
+	/** DoubleBuffer version of: {@link #glBufferData} */
 	public static void glBufferData(int target, DoubleBuffer data, int usage) {
 		long __functionAddress = getInstance().glBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -316,7 +316,7 @@ public final class GL15 {
 
 	// --- [ glBufferSubData ] ---
 
-	/** JNI method for {@link #glBufferSubData(int, long, long, ByteBuffer)} */
+	/** JNI method for {@link #glBufferSubData} */
 	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
 	/**
@@ -338,7 +338,7 @@ public final class GL15 {
 		nglBufferSubData(target, offset, size, memAddress(data), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glBufferSubData(int, long, long, ByteBuffer)} */
+	/** Alternative version of: {@link #glBufferSubData} */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
 		long __functionAddress = getInstance().glBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -348,7 +348,7 @@ public final class GL15 {
 
 	// --- [ glGetBufferSubData ] ---
 
-	/** JNI method for {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** JNI method for {@link #glGetBufferSubData} */
 	public static native void nglGetBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
 	/**
@@ -370,7 +370,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, size, memAddress(data), __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** ByteBuffer version of: {@link #glGetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
 		long __functionAddress = getInstance().glGetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -378,7 +378,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data), __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glGetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ShortBuffer data) {
 		long __functionAddress = getInstance().glGetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -386,7 +386,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glGetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, IntBuffer data) {
 		long __functionAddress = getInstance().glGetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -394,7 +394,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glGetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, FloatBuffer data) {
 		long __functionAddress = getInstance().glGetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -402,7 +402,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glGetBufferSubData(int, long, long, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glGetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, DoubleBuffer data) {
 		long __functionAddress = getInstance().glGetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -412,7 +412,7 @@ public final class GL15 {
 
 	// --- [ glMapBuffer ] ---
 
-	/** JNI method for {@link #glMapBuffer(int, int)} */
+	/** JNI method for {@link #glMapBuffer} */
 	public static native long nglMapBuffer(int target, int access, long __functionAddress);
 
 	/**
@@ -438,7 +438,7 @@ public final class GL15 {
 		return memByteBuffer(__result, glGetBufferParameteri(target, GL_BUFFER_SIZE));
 	}
 
-	/** Alternative version of: {@link #glMapBuffer(int, int)} */
+	/** Alternative version of: {@link #glMapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, ByteBuffer old_buffer) {
 		long __functionAddress = getInstance().glMapBuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -448,7 +448,7 @@ public final class GL15 {
 		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
-	/** Explicit size alternative version of: {@link #glMapBuffer(int, int)} */
+	/** Explicit size alternative version of: {@link #glMapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, int length, ByteBuffer old_buffer) {
 		long __functionAddress = getInstance().glMapBuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -459,7 +459,7 @@ public final class GL15 {
 
 	// --- [ glUnmapBuffer ] ---
 
-	/** JNI method for {@link #glUnmapBuffer(int)} */
+	/** JNI method for {@link #glUnmapBuffer} */
 	public static native boolean nglUnmapBuffer(int target, long __functionAddress);
 
 	/**
@@ -563,7 +563,7 @@ public final class GL15 {
 
 	// --- [ glGenQueries ] ---
 
-	/** JNI method for {@link #glGenQueries(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenQueries} */
 	public static native void nglGenQueries(int n, long ids, long __functionAddress);
 
 	/**
@@ -583,7 +583,7 @@ public final class GL15 {
 		nglGenQueries(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenQueries(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenQueries} */
 	public static void glGenQueries(IntBuffer ids) {
 		long __functionAddress = getInstance().glGenQueries;
 		if ( LWJGLUtil.CHECKS )
@@ -591,7 +591,7 @@ public final class GL15 {
 		nglGenQueries(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenQueries(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenQueries} */
 	public static int glGenQueries() {
 		long __functionAddress = getInstance().glGenQueries;
 		if ( LWJGLUtil.CHECKS )
@@ -604,7 +604,7 @@ public final class GL15 {
 
 	// --- [ glDeleteQueries ] ---
 
-	/** JNI method for {@link #glDeleteQueries(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteQueries} */
 	public static native void nglDeleteQueries(int n, long ids, long __functionAddress);
 
 	/**
@@ -624,7 +624,7 @@ public final class GL15 {
 		nglDeleteQueries(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteQueries(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteQueries} */
 	public static void glDeleteQueries(IntBuffer ids) {
 		long __functionAddress = getInstance().glDeleteQueries;
 		if ( LWJGLUtil.CHECKS )
@@ -632,7 +632,7 @@ public final class GL15 {
 		nglDeleteQueries(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteQueries(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteQueries} */
 	public static void glDeleteQueries(int id) {
 		long __functionAddress = getInstance().glDeleteQueries;
 		if ( LWJGLUtil.CHECKS )
@@ -645,7 +645,7 @@ public final class GL15 {
 
 	// --- [ glIsQuery ] ---
 
-	/** JNI method for {@link #glIsQuery(int)} */
+	/** JNI method for {@link #glIsQuery} */
 	public static native boolean nglIsQuery(int id, long __functionAddress);
 
 	/**
@@ -664,7 +664,7 @@ public final class GL15 {
 
 	// --- [ glBeginQuery ] ---
 
-	/** JNI method for {@link #glBeginQuery(int, int)} */
+	/** JNI method for {@link #glBeginQuery} */
 	public static native void nglBeginQuery(int target, int id, long __functionAddress);
 
 	/**
@@ -684,7 +684,7 @@ public final class GL15 {
 
 	// --- [ glEndQuery ] ---
 
-	/** JNI method for {@link #glEndQuery(int)} */
+	/** JNI method for {@link #glEndQuery} */
 	public static native void nglEndQuery(int target, long __functionAddress);
 
 	/**

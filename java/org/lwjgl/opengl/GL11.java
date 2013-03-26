@@ -679,7 +679,7 @@ public final class GL11 {
 
 	// --- [ glEnable ] ---
 
-	/** JNI method for {@link #glEnable(int)} */
+	/** JNI method for {@link #glEnable} */
 	public static native void nglEnable(int target, long __functionAddress);
 
 	/**
@@ -698,7 +698,7 @@ public final class GL11 {
 
 	// --- [ glDisable ] ---
 
-	/** JNI method for {@link #glDisable(int)} */
+	/** JNI method for {@link #glDisable} */
 	public static native void nglDisable(int target, long __functionAddress);
 
 	/**
@@ -717,7 +717,7 @@ public final class GL11 {
 
 	// --- [ glAccum ] ---
 
-	/** JNI method for {@link #glAccum(int, float)} */
+	/** JNI method for {@link #glAccum} */
 	public static native void nglAccum(int op, float value, long __functionAddress);
 
 	/**
@@ -738,14 +738,14 @@ public final class GL11 {
 
 	// --- [ glAlphaFunc ] ---
 
-	/** JNI method for {@link #glAlphaFunc(int, float)} */
+	/** JNI method for {@link #glAlphaFunc} */
 	public static native void nglAlphaFunc(int func, float ref, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glAlphaFunc.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * The alpha test discards a fragment conditionally based on the outcome of a comparison between the incoming fragment’s alpha value and a constant value.
-	 * The comparison is enabled or disabled with the generic {@link #glEnable(int)} and {@link #glDisable(int)} commands using the symbolic constant {@link #GL_ALPHA_TEST}.
+	 * The comparison is enabled or disabled with the generic {@link #glEnable} and {@link #glDisable} commands using the symbolic constant {@link #GL_ALPHA_TEST}.
 	 * When disabled, it is as if the comparison always passes. The test is controlled with this method.
 	 *
 	 * @param func a symbolic constant indicating the alpha test function. The possible constants are:. One of:<p/>{@link #GL_NEVER}, {@link #GL_ALWAYS}, {@link #GL_LESS}, {@link #GL_LEQUAL}, {@link #GL_EQUAL}, {@link #GL_GEQUAL}, {@link #GL_GREATER}, {@link #GL_NOTEQUAL}
@@ -760,7 +760,7 @@ public final class GL11 {
 
 	// --- [ glAreTexturesResident ] ---
 
-	/** JNI method for {@link #glAreTexturesResident(int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glAreTexturesResident} */
 	public static native boolean nglAreTexturesResident(int n, long textures, long residences, long __functionAddress);
 
 	/**
@@ -784,7 +784,7 @@ public final class GL11 {
 		return nglAreTexturesResident(n, memAddress(textures), memAddress(residences), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glAreTexturesResident(int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glAreTexturesResident} */
 	public static boolean glAreTexturesResident(IntBuffer textures, ByteBuffer residences) {
 		long __functionAddress = getInstance().glAreTexturesResident;
 		if ( LWJGLUtil.CHECKS ) {
@@ -794,9 +794,22 @@ public final class GL11 {
 		return nglAreTexturesResident(textures.remaining(), memAddress(textures), memAddress(residences), __functionAddress);
 	}
 
+	/** Single value version of: {@link #glAreTexturesResident} */
+	public static boolean glAreTexturesResident(int texture, ByteBuffer residences) {
+		long __functionAddress = getInstance().glAreTexturesResident;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(residences, 1);
+		}
+		APIBuffer __buffer = apiBuffer();
+		int textures = __buffer.intParam();
+		__buffer.intValue(textures, texture);
+		return nglAreTexturesResident(1, __buffer.address() + textures, memAddress(residences), __functionAddress);
+	}
+
 	// --- [ glArrayElement ] ---
 
-	/** JNI method for {@link #glArrayElement(int)} */
+	/** JNI method for {@link #glArrayElement} */
 	public static native void nglArrayElement(int i, long __functionAddress);
 
 	/**
@@ -815,7 +828,7 @@ public final class GL11 {
 
 	// --- [ glBegin ] ---
 
-	/** JNI method for {@link #glBegin(int)} */
+	/** JNI method for {@link #glBegin} */
 	public static native void nglBegin(int mode, long __functionAddress);
 
 	/**
@@ -834,7 +847,7 @@ public final class GL11 {
 
 	// --- [ glBindTexture ] ---
 
-	/** JNI method for {@link #glBindTexture(int, int)} */
+	/** JNI method for {@link #glBindTexture} */
 	public static native void nglBindTexture(int target, int texture, long __functionAddress);
 
 	/**
@@ -858,7 +871,7 @@ public final class GL11 {
 
 	// --- [ glBitmap ] ---
 
-	/** JNI method for {@link #glBitmap(int, int, float, float, float, float, ByteBuffer)} */
+	/** JNI method for {@link #glBitmap} */
 	public static native void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data, long __functionAddress);
 
 	/**
@@ -884,7 +897,7 @@ public final class GL11 {
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glBitmap(int, int, float, float, float, float, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glBitmap} */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long dataOffset) {
 		long __functionAddress = getInstance().glBitmap;
 		if ( LWJGLUtil.CHECKS ) {
@@ -896,7 +909,7 @@ public final class GL11 {
 
 	// --- [ glBlendFunc ] ---
 
-	/** JNI method for {@link #glBlendFunc(int, int)} */
+	/** JNI method for {@link #glBlendFunc} */
 	public static native void nglBlendFunc(int sfactor, int dfactor, long __functionAddress);
 
 	/**
@@ -916,7 +929,7 @@ public final class GL11 {
 
 	// --- [ glCallList ] ---
 
-	/** JNI method for {@link #glCallList(int)} */
+	/** JNI method for {@link #glCallList} */
 	public static native void nglCallList(int list, long __functionAddress);
 
 	/**
@@ -935,7 +948,7 @@ public final class GL11 {
 
 	// --- [ glCallLists ] ---
 
-	/** JNI method for {@link #glCallLists(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glCallLists} */
 	public static native void nglCallLists(int n, int type, long lists, long __functionAddress);
 
 	/**
@@ -956,7 +969,7 @@ public final class GL11 {
 		nglCallLists(n, type, memAddress(lists), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glCallLists(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glCallLists} */
 	public static void glCallLists(int type, ByteBuffer lists) {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS )
@@ -964,7 +977,7 @@ public final class GL11 {
 		nglCallLists(lists.remaining(), type, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glCallLists(int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glCallLists} */
 	public static void glCallLists(ByteBuffer lists) {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS )
@@ -972,7 +985,7 @@ public final class GL11 {
 		nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glCallLists(int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glCallLists} */
 	public static void glCallLists(ShortBuffer lists) {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS )
@@ -980,7 +993,7 @@ public final class GL11 {
 		nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glCallLists(int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_INT version of: {@link #glCallLists} */
 	public static void glCallLists(IntBuffer lists) {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS )
@@ -990,7 +1003,7 @@ public final class GL11 {
 
 	// --- [ glClear ] ---
 
-	/** JNI method for {@link #glClear(int)} */
+	/** JNI method for {@link #glClear} */
 	public static native void nglClear(int mask, long __functionAddress);
 
 	/**
@@ -1010,7 +1023,7 @@ public final class GL11 {
 
 	// --- [ glClearAccum ] ---
 
-	/** JNI method for {@link #glClearAccum(float, float, float, float)} */
+	/** JNI method for {@link #glClearAccum} */
 	public static native void nglClearAccum(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -1032,7 +1045,7 @@ public final class GL11 {
 
 	// --- [ glClearColor ] ---
 
-	/** JNI method for {@link #glClearColor(float, float, float, float)} */
+	/** JNI method for {@link #glClearColor} */
 	public static native void nglClearColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -1054,7 +1067,7 @@ public final class GL11 {
 
 	// --- [ glClearDepth ] ---
 
-	/** JNI method for {@link #glClearDepth(double)} */
+	/** JNI method for {@link #glClearDepth} */
 	public static native void nglClearDepth(double depth, long __functionAddress);
 
 	/**
@@ -1074,7 +1087,7 @@ public final class GL11 {
 
 	// --- [ glClearStencil ] ---
 
-	/** JNI method for {@link #glClearStencil(int)} */
+	/** JNI method for {@link #glClearStencil} */
 	public static native void nglClearStencil(int s, long __functionAddress);
 
 	/**
@@ -1093,7 +1106,7 @@ public final class GL11 {
 
 	// --- [ glClipPlane ] ---
 
-	/** JNI method for {@link #glClipPlane(int, ByteBuffer)} */
+	/** JNI method for {@link #glClipPlane} */
 	public static native void nglClipPlane(int plane, long equation, long __functionAddress);
 
 	/**
@@ -1115,7 +1128,7 @@ public final class GL11 {
 		nglClipPlane(plane, memAddress(equation), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glClipPlane(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glClipPlane} */
 	public static void glClipPlane(int plane, DoubleBuffer equation) {
 		long __functionAddress = getInstance().glClipPlane;
 		if ( LWJGLUtil.CHECKS )
@@ -1125,7 +1138,7 @@ public final class GL11 {
 
 	// --- [ glColor3b ] ---
 
-	/** JNI method for {@link #glColor3b(byte, byte, byte)} */
+	/** JNI method for {@link #glColor3b} */
 	public static native void nglColor3b(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
@@ -1146,13 +1159,13 @@ public final class GL11 {
 
 	// --- [ glColor3s ] ---
 
-	/** JNI method for {@link #glColor3s(short, short, short)} */
+	/** JNI method for {@link #glColor3s} */
 	public static native void nglColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glColor3b(byte, byte, byte)}
+	 * Short version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1167,13 +1180,13 @@ public final class GL11 {
 
 	// --- [ glColor3i ] ---
 
-	/** JNI method for {@link #glColor3i(int, int, int)} */
+	/** JNI method for {@link #glColor3i} */
 	public static native void nglColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glColor3b(byte, byte, byte)}
+	 * Integer version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1188,13 +1201,13 @@ public final class GL11 {
 
 	// --- [ glColor3f ] ---
 
-	/** JNI method for {@link #glColor3f(float, float, float)} */
+	/** JNI method for {@link #glColor3f} */
 	public static native void nglColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glColor3b(byte, byte, byte)}
+	 * Float version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1209,13 +1222,13 @@ public final class GL11 {
 
 	// --- [ glColor3d ] ---
 
-	/** JNI method for {@link #glColor3d(double, double, double)} */
+	/** JNI method for {@link #glColor3d} */
 	public static native void nglColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glColor3b(byte, byte, byte)}
+	 * Double version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1230,13 +1243,13 @@ public final class GL11 {
 
 	// --- [ glColor3ub ] ---
 
-	/** JNI method for {@link #glColor3ub(byte, byte, byte)} */
+	/** JNI method for {@link #glColor3ub} */
 	public static native void nglColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned version of {@link #glColor3b(byte, byte, byte)}
+	 * Unsigned version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1251,13 +1264,13 @@ public final class GL11 {
 
 	// --- [ glColor3us ] ---
 
-	/** JNI method for {@link #glColor3us(short, short, short)} */
+	/** JNI method for {@link #glColor3us} */
 	public static native void nglColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3us.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glColor3b(byte, byte, byte)}
+	 * Unsigned short version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1272,13 +1285,13 @@ public final class GL11 {
 
 	// --- [ glColor3ui ] ---
 
-	/** JNI method for {@link #glColor3ui(int, int, int)} */
+	/** JNI method for {@link #glColor3ui} */
 	public static native void nglColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glColor3b(byte, byte, byte)}
+	 * Unsigned int version of {@link #glColor3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1299,7 +1312,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3b.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Byte pointer version of {@link #glColor3b(byte, byte, byte)}.
+	 * Byte pointer version of {@link #glColor3b}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1320,7 +1333,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3s(short, short, short)}.
+	 * Pointer version of {@link #glColor3s}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1351,7 +1364,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3i(int, int, int)}.
+	 * Pointer version of {@link #glColor3i}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1382,7 +1395,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3f(float, float, float)}.
+	 * Pointer version of {@link #glColor3f}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1413,7 +1426,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3d(double, double, double)}.
+	 * Pointer version of {@link #glColor3d}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1444,7 +1457,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3ub(byte, byte, byte)}.
+	 * Pointer version of {@link #glColor3ub}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1465,7 +1478,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3us(short, short, short)}.
+	 * Pointer version of {@link #glColor3us}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1496,7 +1509,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3ui(int, int, int)}.
+	 * Pointer version of {@link #glColor3ui}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1521,7 +1534,7 @@ public final class GL11 {
 
 	// --- [ glColor4b ] ---
 
-	/** JNI method for {@link #glColor4b(byte, byte, byte, byte)} */
+	/** JNI method for {@link #glColor4b} */
 	public static native void nglColor4b(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
@@ -1543,13 +1556,13 @@ public final class GL11 {
 
 	// --- [ glColor4s ] ---
 
-	/** JNI method for {@link #glColor4s(short, short, short, short)} */
+	/** JNI method for {@link #glColor4s} */
 	public static native void nglColor4s(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Short version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1565,13 +1578,13 @@ public final class GL11 {
 
 	// --- [ glColor4i ] ---
 
-	/** JNI method for {@link #glColor4i(int, int, int, int)} */
+	/** JNI method for {@link #glColor4i} */
 	public static native void nglColor4i(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Integer version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1587,13 +1600,13 @@ public final class GL11 {
 
 	// --- [ glColor4f ] ---
 
-	/** JNI method for {@link #glColor4f(float, float, float, float)} */
+	/** JNI method for {@link #glColor4f} */
 	public static native void nglColor4f(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Float version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1609,13 +1622,13 @@ public final class GL11 {
 
 	// --- [ glColor4d ] ---
 
-	/** JNI method for {@link #glColor4d(double, double, double, double)} */
+	/** JNI method for {@link #glColor4d} */
 	public static native void nglColor4d(double red, double green, double blue, double alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Double version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1631,13 +1644,13 @@ public final class GL11 {
 
 	// --- [ glColor4ub ] ---
 
-	/** JNI method for {@link #glColor4ub(byte, byte, byte, byte)} */
+	/** JNI method for {@link #glColor4ub} */
 	public static native void nglColor4ub(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Unsigned version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1653,13 +1666,13 @@ public final class GL11 {
 
 	// --- [ glColor4us ] ---
 
-	/** JNI method for {@link #glColor4us(short, short, short, short)} */
+	/** JNI method for {@link #glColor4us} */
 	public static native void nglColor4us(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4us.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Unsigned short version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1675,13 +1688,13 @@ public final class GL11 {
 
 	// --- [ glColor4ui ] ---
 
-	/** JNI method for {@link #glColor4ui(int, int, int, int)} */
+	/** JNI method for {@link #glColor4ui} */
 	public static native void nglColor4ui(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glColor4b(byte, byte, byte, byte)}
+	 * Unsigned int version of {@link #glColor4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -1703,7 +1716,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4b.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4b(byte, byte, byte, byte)}.
+	 * Pointer version of {@link #glColor4b}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1724,7 +1737,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4s(short, short, short, short)}.
+	 * Pointer version of {@link #glColor4s}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1755,7 +1768,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4i(int, int, int, int)}.
+	 * Pointer version of {@link #glColor4i}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1786,7 +1799,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4f(float, float, float, float)}.
+	 * Pointer version of {@link #glColor4f}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1817,7 +1830,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4d(double, double, double, double)}.
+	 * Pointer version of {@link #glColor4d}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1848,7 +1861,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4ub(byte, byte, byte, byte)}.
+	 * Pointer version of {@link #glColor4ub}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1869,7 +1882,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4us(short, short, short, short)}.
+	 * Pointer version of {@link #glColor4us}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1900,7 +1913,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4ui(int, int, int, int)}.
+	 * Pointer version of {@link #glColor4ui}.
 	 *
 	 * @param v the color buffer
 	 */
@@ -1925,7 +1938,7 @@ public final class GL11 {
 
 	// --- [ glColorMask ] ---
 
-	/** JNI method for {@link #glColorMask(boolean, boolean, boolean, boolean)} */
+	/** JNI method for {@link #glColorMask} */
 	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha, long __functionAddress);
 
 	/**
@@ -1947,14 +1960,14 @@ public final class GL11 {
 
 	// --- [ glColorMaterial ] ---
 
-	/** JNI method for {@link #glColorMaterial(int, int)} */
+	/** JNI method for {@link #glColorMaterial} */
 	public static native void nglColorMaterial(int face, int mode, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorMaterial.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * It is possible to attach one or more material properties to the current color, so that they continuously track its component values. This behavior is
-	 * enabled and disabled by calling {@link #glEnable(int)} or {@link #glDisable(int)} with the symbolic value {@link #GL_COLOR_MATERIAL}. This function controls which
+	 * enabled and disabled by calling {@link #glEnable} or {@link #glDisable} with the symbolic value {@link #GL_COLOR_MATERIAL}. This function controls which
 	 * of these modes is selected.
 	 *
 	 * @param face specifies which material face is affected by the current color. One of:<p/>{@link #GL_FRONT}, {@link #GL_BACK}, {@link #GL_FRONT_AND_BACK}
@@ -1969,7 +1982,7 @@ public final class GL11 {
 
 	// --- [ glColorPointer ] ---
 
-	/** JNI method for {@link #glColorPointer(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glColorPointer} */
 	public static native void nglColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -1991,7 +2004,7 @@ public final class GL11 {
 		nglColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorPointer(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2001,7 +2014,7 @@ public final class GL11 {
 		nglColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glColorPointer(int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glColorPointer} */
 	public static void glColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2011,7 +2024,7 @@ public final class GL11 {
 		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glColorPointer(int, int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glColorPointer} */
 	public static void glColorPointer(int size, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2023,7 +2036,7 @@ public final class GL11 {
 
 	// --- [ glCopyPixels ] ---
 
-	/** JNI method for {@link #glCopyPixels(int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyPixels} */
 	public static native void nglCopyPixels(int x, int y, int width, int height, int type, long __functionAddress);
 
 	/**
@@ -2046,7 +2059,7 @@ public final class GL11 {
 
 	// --- [ glCullFace ] ---
 
-	/** JNI method for {@link #glCullFace(int)} */
+	/** JNI method for {@link #glCullFace} */
 	public static native void nglCullFace(int mode, long __functionAddress);
 
 	/**
@@ -2067,7 +2080,7 @@ public final class GL11 {
 
 	// --- [ glDeleteLists ] ---
 
-	/** JNI method for {@link #glDeleteLists(int, int)} */
+	/** JNI method for {@link #glDeleteLists} */
 	public static native void nglDeleteLists(int list, int range, long __functionAddress);
 
 	/**
@@ -2088,7 +2101,7 @@ public final class GL11 {
 
 	// --- [ glDepthFunc ] ---
 
-	/** JNI method for {@link #glDepthFunc(int)} */
+	/** JNI method for {@link #glDepthFunc} */
 	public static native void nglDepthFunc(int func, long __functionAddress);
 
 	/**
@@ -2107,7 +2120,7 @@ public final class GL11 {
 
 	// --- [ glDepthMask ] ---
 
-	/** JNI method for {@link #glDepthMask(boolean)} */
+	/** JNI method for {@link #glDepthMask} */
 	public static native void nglDepthMask(boolean flag, long __functionAddress);
 
 	/**
@@ -2126,7 +2139,7 @@ public final class GL11 {
 
 	// --- [ glDepthRange ] ---
 
-	/** JNI method for {@link #glDepthRange(double, double)} */
+	/** JNI method for {@link #glDepthRange} */
 	public static native void nglDepthRange(double zNear, double zFar, long __functionAddress);
 
 	/**
@@ -2146,7 +2159,7 @@ public final class GL11 {
 
 	// --- [ glDisableClientState ] ---
 
-	/** JNI method for {@link #glDisableClientState(int)} */
+	/** JNI method for {@link #glDisableClientState} */
 	public static native void nglDisableClientState(int array, long __functionAddress);
 
 	/**
@@ -2165,7 +2178,7 @@ public final class GL11 {
 
 	// --- [ glDrawArrays ] ---
 
-	/** JNI method for {@link #glDrawArrays(int, int, int)} */
+	/** JNI method for {@link #glDrawArrays} */
 	public static native void nglDrawArrays(int mode, int first, int count, long __functionAddress);
 
 	/**
@@ -2190,7 +2203,7 @@ public final class GL11 {
 
 	// --- [ glDrawBuffer ] ---
 
-	/** JNI method for {@link #glDrawBuffer(int)} */
+	/** JNI method for {@link #glDrawBuffer} */
 	public static native void nglDrawBuffer(int buf, long __functionAddress);
 
 	/**
@@ -2212,7 +2225,7 @@ public final class GL11 {
 
 	// --- [ glDrawElements ] ---
 
-	/** JNI method for {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawElements} */
 	public static native void nglDrawElements(int mode, int count, int type, long indices, long __functionAddress);
 
 	/**
@@ -2237,7 +2250,7 @@ public final class GL11 {
 		nglDrawElements(mode, count, type, memAddress(indices), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glDrawElements} */
 	public static void glDrawElements(int mode, int count, int type, long indicesOffset) {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2247,7 +2260,7 @@ public final class GL11 {
 		nglDrawElements(mode, count, type, indicesOffset, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDrawElements} */
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2257,7 +2270,7 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining(), type, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements} */
 	public static void glDrawElements(int mode, ByteBuffer indices) {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2267,7 +2280,7 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElements} */
 	public static void glDrawElements(int mode, ShortBuffer indices) {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2277,7 +2290,7 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElements(int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElements} */
 	public static void glDrawElements(int mode, IntBuffer indices) {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2289,7 +2302,7 @@ public final class GL11 {
 
 	// --- [ glDrawPixels ] ---
 
-	/** JNI method for {@link #glDrawPixels(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawPixels} */
 	public static native void nglDrawPixels(int width, int height, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -2312,7 +2325,7 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawPixels(int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glDrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2322,7 +2335,7 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glDrawPixels(int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glDrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2332,7 +2345,7 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glDrawPixels(int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glDrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2342,7 +2355,7 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glDrawPixels(int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glDrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2354,7 +2367,7 @@ public final class GL11 {
 
 	// --- [ glEdgeFlag ] ---
 
-	/** JNI method for {@link #glEdgeFlag(boolean)} */
+	/** JNI method for {@link #glEdgeFlag} */
 	public static native void nglEdgeFlag(boolean flag, long __functionAddress);
 
 	/**
@@ -2385,7 +2398,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlag.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glEdgeFlag(boolean)}.
+	 * Pointer version of {@link #glEdgeFlag}.
 	 *
 	 * @param flag the edge flag buffer
 	 */
@@ -2400,7 +2413,7 @@ public final class GL11 {
 
 	// --- [ glEdgeFlagPointer ] ---
 
-	/** JNI method for {@link #glEdgeFlagPointer(int, ByteBuffer)} */
+	/** JNI method for {@link #glEdgeFlagPointer} */
 	public static native void nglEdgeFlagPointer(int stride, long pointer, long __functionAddress);
 
 	/**
@@ -2420,7 +2433,7 @@ public final class GL11 {
 		nglEdgeFlagPointer(stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glEdgeFlagPointer(int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glEdgeFlagPointer} */
 	public static void glEdgeFlagPointer(int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glEdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2432,7 +2445,7 @@ public final class GL11 {
 
 	// --- [ glEnableClientState ] ---
 
-	/** JNI method for {@link #glEnableClientState(int)} */
+	/** JNI method for {@link #glEnableClientState} */
 	public static native void nglEnableClientState(int array, long __functionAddress);
 
 	/**
@@ -2451,7 +2464,7 @@ public final class GL11 {
 
 	// --- [ glEnd ] ---
 
-	/** JNI method for {@link #glEnd()} */
+	/** JNI method for {@link #glEnd} */
 	public static native void nglEnd(long __functionAddress);
 
 	/**
@@ -2468,7 +2481,7 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1f ] ---
 
-	/** JNI method for {@link #glEvalCoord1f(float)} */
+	/** JNI method for {@link #glEvalCoord1f} */
 	public static native void nglEvalCoord1f(float u, long __functionAddress);
 
 	/**
@@ -2493,7 +2506,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord1f(float)}.
+	 * Pointer version of {@link #glEvalCoord1f}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
@@ -2514,13 +2527,13 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1d ] ---
 
-	/** JNI method for {@link #glEvalCoord1d(double)} */
+	/** JNI method for {@link #glEvalCoord1d} */
 	public static native void nglEvalCoord1d(double u, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glEvalCoord1f(float)}.
+	 * Double version of {@link #glEvalCoord1f}.
 	 *
 	 * @param u the domain coordinate u
 	 */
@@ -2539,7 +2552,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord1d(double)}.
+	 * Pointer version of {@link #glEvalCoord1d}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
@@ -2560,7 +2573,7 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2f ] ---
 
-	/** JNI method for {@link #glEvalCoord2f(float, float)} */
+	/** JNI method for {@link #glEvalCoord2f} */
 	public static native void nglEvalCoord2f(float u, float v, long __functionAddress);
 
 	/**
@@ -2586,7 +2599,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord2f(float, float)}.
+	 * Pointer version of {@link #glEvalCoord2f}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
@@ -2607,13 +2620,13 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2d ] ---
 
-	/** JNI method for {@link #glEvalCoord2d(double, double)} */
+	/** JNI method for {@link #glEvalCoord2d} */
 	public static native void nglEvalCoord2d(double u, double v, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glEvalCoord2f(float, float)}.
+	 * Double version of {@link #glEvalCoord2f}.
 	 *
 	 * @param u the domain coordinate u
 	 * @param v the domain coordinate v
@@ -2633,7 +2646,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord2d(double, double)}.
+	 * Pointer version of {@link #glEvalCoord2d}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
@@ -2654,7 +2667,7 @@ public final class GL11 {
 
 	// --- [ glEvalMesh1 ] ---
 
-	/** JNI method for {@link #glEvalMesh1(int, int, int)} */
+	/** JNI method for {@link #glEvalMesh1} */
 	public static native void nglEvalMesh1(int mode, int i1, int i2, long __functionAddress);
 
 	/**
@@ -2675,7 +2688,7 @@ public final class GL11 {
 
 	// --- [ glEvalMesh2 ] ---
 
-	/** JNI method for {@link #glEvalMesh2(int, int, int, int, int)} */
+	/** JNI method for {@link #glEvalMesh2} */
 	public static native void nglEvalMesh2(int mode, int i1, int i2, int j1, int j2, long __functionAddress);
 
 	/**
@@ -2698,7 +2711,7 @@ public final class GL11 {
 
 	// --- [ glEvalPoint1 ] ---
 
-	/** JNI method for {@link #glEvalPoint1(int)} */
+	/** JNI method for {@link #glEvalPoint1} */
 	public static native void nglEvalPoint1(int i, long __functionAddress);
 
 	/**
@@ -2717,7 +2730,7 @@ public final class GL11 {
 
 	// --- [ glEvalPoint2 ] ---
 
-	/** JNI method for {@link #glEvalPoint2(int, int)} */
+	/** JNI method for {@link #glEvalPoint2} */
 	public static native void nglEvalPoint2(int i, int j, long __functionAddress);
 
 	/**
@@ -2737,7 +2750,7 @@ public final class GL11 {
 
 	// --- [ glFeedbackBuffer ] ---
 
-	/** JNI method for {@link #glFeedbackBuffer(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glFeedbackBuffer} */
 	public static native void nglFeedbackBuffer(int size, int type, long buffer, long __functionAddress);
 
 	/**
@@ -2758,7 +2771,7 @@ public final class GL11 {
 		nglFeedbackBuffer(size, type, memAddress(buffer), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glFeedbackBuffer(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glFeedbackBuffer} */
 	public static void glFeedbackBuffer(int type, FloatBuffer buffer) {
 		long __functionAddress = getInstance().glFeedbackBuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -2768,7 +2781,7 @@ public final class GL11 {
 
 	// --- [ glFinish ] ---
 
-	/** JNI method for {@link #glFinish()} */
+	/** JNI method for {@link #glFinish} */
 	public static native void nglFinish(long __functionAddress);
 
 	/**
@@ -2786,7 +2799,7 @@ public final class GL11 {
 
 	// --- [ glFlush ] ---
 
-	/** JNI method for {@link #glFlush()} */
+	/** JNI method for {@link #glFlush} */
 	public static native void nglFlush(long __functionAddress);
 
 	/**
@@ -2803,7 +2816,7 @@ public final class GL11 {
 
 	// --- [ glFogi ] ---
 
-	/** JNI method for {@link #glFogi(int, int)} */
+	/** JNI method for {@link #glFogi} */
 	public static native void nglFogi(int pname, int param, long __functionAddress);
 
 	/**
@@ -2829,7 +2842,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogi(int, int)}.
+	 * Pointer version of {@link #glFogi}.
 	 *
 	 * @param pname  the fog parameter. One of:<p/>{@link #GL_FOG_MODE}, {@link GL15#GL_FOG_COORD_SRC}
 	 * @param params the fog parameter buffer
@@ -2855,7 +2868,7 @@ public final class GL11 {
 
 	// --- [ glFogf ] ---
 
-	/** JNI method for {@link #glFogf(int, float)} */
+	/** JNI method for {@link #glFogf} */
 	public static native void nglFogf(int pname, float param, long __functionAddress);
 
 	/**
@@ -2881,7 +2894,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogf(int, float)}.
+	 * Pointer version of {@link #glFogf}.
 	 *
 	 * @param pname  the fog parameter. One of:<p/>{@link #GL_FOG_DENSITY}, {@link #GL_FOG_START}, {@link #GL_FOG_END}
 	 * @param params the fog parameter buffer
@@ -2907,7 +2920,7 @@ public final class GL11 {
 
 	// --- [ glFrontFace ] ---
 
-	/** JNI method for {@link #glFrontFace(int)} */
+	/** JNI method for {@link #glFrontFace} */
 	public static native void nglFrontFace(int dir, long __functionAddress);
 
 	/**
@@ -2928,7 +2941,7 @@ public final class GL11 {
 
 	// --- [ glGenLists ] ---
 
-	/** JNI method for {@link #glGenLists(int)} */
+	/** JNI method for {@link #glGenLists} */
 	public static native int nglGenLists(int s, long __functionAddress);
 
 	/**
@@ -2950,7 +2963,7 @@ public final class GL11 {
 
 	// --- [ glGenTextures ] ---
 
-	/** JNI method for {@link #glGenTextures(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenTextures} */
 	public static native void nglGenTextures(int n, long textures, long __functionAddress);
 
 	/**
@@ -2971,7 +2984,7 @@ public final class GL11 {
 		nglGenTextures(n, memAddress(textures), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenTextures(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenTextures} */
 	public static void glGenTextures(IntBuffer textures) {
 		long __functionAddress = getInstance().glGenTextures;
 		if ( LWJGLUtil.CHECKS )
@@ -2979,7 +2992,7 @@ public final class GL11 {
 		nglGenTextures(textures.remaining(), memAddress(textures), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenTextures(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenTextures} */
 	public static int glGenTextures() {
 		long __functionAddress = getInstance().glGenTextures;
 		if ( LWJGLUtil.CHECKS )
@@ -2992,18 +3005,18 @@ public final class GL11 {
 
 	// --- [ glDeleteTextures ] ---
 
-	/** JNI method for {@link #glDeleteTextures(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteTextures} */
 	public static native void nglDeleteTextures(int n, long textures, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTextures.xml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
-	 * currently bound to any of the target bindings of {@link #glBindTexture(int, int)} is deleted, it is as though {@link #glBindTexture(int, int)} had been executed with the
+	 * currently bound to any of the target bindings of {@link #glBindTexture} is deleted, it is as though {@link #glBindTexture} had been executed with the
 	 * same target and texture zero. Additionally, special care must be taken when deleting a texture if any of the images of the texture are attached to a
 	 * framebuffer object.
 	 * <p/>
-	 * Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures(int, ByteBuffer)} are marked as unused again. Unused names in textures are
+	 * Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures} are marked as unused again. Unused names in textures are
 	 * silently ignored, as is the name zero.
 	 *
 	 * @param n        the number of texture names in the {@code textures} parameter
@@ -3018,7 +3031,7 @@ public final class GL11 {
 		nglDeleteTextures(n, memAddress(textures), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteTextures(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteTextures} */
 	public static void glDeleteTextures(IntBuffer textures) {
 		long __functionAddress = getInstance().glDeleteTextures;
 		if ( LWJGLUtil.CHECKS )
@@ -3026,7 +3039,7 @@ public final class GL11 {
 		nglDeleteTextures(textures.remaining(), memAddress(textures), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteTextures(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteTextures} */
 	public static void glDeleteTextures(int texture) {
 		long __functionAddress = getInstance().glDeleteTextures;
 		if ( LWJGLUtil.CHECKS )
@@ -3039,7 +3052,7 @@ public final class GL11 {
 
 	// --- [ glGetClipPlane ] ---
 
-	/** JNI method for {@link #glGetClipPlane(int, ByteBuffer)} */
+	/** JNI method for {@link #glGetClipPlane} */
 	public static native void nglGetClipPlane(int plane, long equation, long __functionAddress);
 
 	/**
@@ -3060,7 +3073,7 @@ public final class GL11 {
 		nglGetClipPlane(plane, memAddress(equation), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetClipPlane(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetClipPlane} */
 	public static void glGetClipPlane(int plane, DoubleBuffer equation) {
 		long __functionAddress = getInstance().glGetClipPlane;
 		if ( LWJGLUtil.CHECKS ) {
@@ -3250,7 +3263,7 @@ public final class GL11 {
 
 	// --- [ glGetError ] ---
 
-	/** JNI method for {@link #glGetError()} */
+	/** JNI method for {@link #glGetError} */
 	public static native int nglGetError(long __functionAddress);
 
 	/**
@@ -3723,7 +3736,7 @@ public final class GL11 {
 
 	// --- [ glGetPolygonStipple ] ---
 
-	/** JNI method for {@link #glGetPolygonStipple(ByteBuffer)} */
+	/** JNI method for {@link #glGetPolygonStipple} */
 	public static native void nglGetPolygonStipple(long pattern, long __functionAddress);
 
 	/**
@@ -3743,7 +3756,7 @@ public final class GL11 {
 		nglGetPolygonStipple(memAddress(pattern), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetPolygonStipple(ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetPolygonStipple} */
 	public static void glGetPolygonStipple(long patternOffset) {
 		long __functionAddress = getInstance().glGetPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
@@ -3755,7 +3768,7 @@ public final class GL11 {
 
 	// --- [ glGetString ] ---
 
-	/** JNI method for {@link #glGetString(int)} */
+	/** JNI method for {@link #glGetString} */
 	public static native long nglGetString(int name, long __functionAddress);
 
 	/**
@@ -3993,7 +4006,7 @@ public final class GL11 {
 
 	// --- [ glGetTexImage ] ---
 
-	/** JNI method for {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetTexImage} */
 	public static native void nglGetTexImage(int tex, int lod, int format, int type, long img, long __functionAddress);
 
 	/**
@@ -4016,7 +4029,7 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glGetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, long imgOffset) {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4026,7 +4039,7 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, imgOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glGetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, ShortBuffer img) {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4036,7 +4049,7 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glGetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, IntBuffer img) {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4046,7 +4059,7 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glGetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, FloatBuffer img) {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4056,7 +4069,7 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTexImage(int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glGetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, DoubleBuffer img) {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4246,7 +4259,7 @@ public final class GL11 {
 
 	// --- [ glHint ] ---
 
-	/** JNI method for {@link #glHint(int, int)} */
+	/** JNI method for {@link #glHint} */
 	public static native void nglHint(int target, int hint, long __functionAddress);
 
 	/**
@@ -4267,7 +4280,7 @@ public final class GL11 {
 
 	// --- [ glInitNames ] ---
 
-	/** JNI method for {@link #glInitNames()} */
+	/** JNI method for {@link #glInitNames} */
 	public static native void nglInitNames(long __functionAddress);
 
 	/**
@@ -4284,7 +4297,7 @@ public final class GL11 {
 
 	// --- [ glInterleavedArrays ] ---
 
-	/** JNI method for {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glInterleavedArrays} */
 	public static native void nglInterleavedArrays(int format, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -4305,7 +4318,7 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glInterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4315,7 +4328,7 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, pointerOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glInterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, ShortBuffer pointer) {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4325,7 +4338,7 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glInterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, IntBuffer pointer) {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4335,7 +4348,7 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glInterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4345,7 +4358,7 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glInterleavedArrays(int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glInterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, DoubleBuffer pointer) {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4357,13 +4370,13 @@ public final class GL11 {
 
 	// --- [ glIsEnabled ] ---
 
-	/** JNI method for {@link #glIsEnabled(int)} */
+	/** JNI method for {@link #glIsEnabled} */
 	public static native boolean nglIsEnabled(int cap, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabled.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable(int)}) or disabled.
+	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable}) or disabled.
 	 *
 	 * @param cap the enable state to query
 	 */
@@ -4376,7 +4389,7 @@ public final class GL11 {
 
 	// --- [ glIsList ] ---
 
-	/** JNI method for {@link #glIsList(int)} */
+	/** JNI method for {@link #glIsList} */
 	public static native boolean nglIsList(int list, long __functionAddress);
 
 	/**
@@ -4395,7 +4408,7 @@ public final class GL11 {
 
 	// --- [ glIsTexture ] ---
 
-	/** JNI method for {@link #glIsTexture(int)} */
+	/** JNI method for {@link #glIsTexture} */
 	public static native boolean nglIsTexture(int texture, long __functionAddress);
 
 	/**
@@ -4414,7 +4427,7 @@ public final class GL11 {
 
 	// --- [ glLightModeli ] ---
 
-	/** JNI method for {@link #glLightModeli(int, int)} */
+	/** JNI method for {@link #glLightModeli} */
 	public static native void nglLightModeli(int pname, int param, long __functionAddress);
 
 	/**
@@ -4434,13 +4447,13 @@ public final class GL11 {
 
 	// --- [ glLightModelf ] ---
 
-	/** JNI method for {@link #glLightModelf(int, float)} */
+	/** JNI method for {@link #glLightModelf} */
 	public static native void nglLightModelf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModelf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glLightModeli(int, int)}.
+	 * Float version of {@link #glLightModeli}.
 	 *
 	 * @param pname the lighting model parameter to set
 	 * @param param the parameter value
@@ -4460,7 +4473,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightModeli(int, int)}.
+	 * Pointer version of {@link #glLightModeli}.
 	 *
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
@@ -4492,7 +4505,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightModelf(int, float)}.
+	 * Pointer version of {@link #glLightModelf}.
 	 *
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
@@ -4518,7 +4531,7 @@ public final class GL11 {
 
 	// --- [ glLighti ] ---
 
-	/** JNI method for {@link #glLighti(int, int, int)} */
+	/** JNI method for {@link #glLighti} */
 	public static native void nglLighti(int light, int pname, int param, long __functionAddress);
 
 	/**
@@ -4539,13 +4552,13 @@ public final class GL11 {
 
 	// --- [ glLightf ] ---
 
-	/** JNI method for {@link #glLightf(int, int, float)} */
+	/** JNI method for {@link #glLightf} */
 	public static native void nglLightf(int light, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glLighti(int, int, int)}.
+	 * Float version of {@link #glLighti}.
 	 *
 	 * @param light the light for which to set the parameter
 	 * @param pname the parameter to set
@@ -4566,7 +4579,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glLighti(int, int, int)}.
+	 * Pointer version of {@link #glLighti}.
 	 *
 	 * @param light  the light for which to set the parameter
 	 * @param pname  the parameter to set
@@ -4599,7 +4612,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightf(int, int, float)}.
+	 * Pointer version of {@link #glLightf}.
 	 *
 	 * @param light  the light for which to set the parameter
 	 * @param pname  the parameter to set
@@ -4626,14 +4639,14 @@ public final class GL11 {
 
 	// --- [ glLineStipple ] ---
 
-	/** JNI method for {@link #glLineStipple(int, short)} */
+	/** JNI method for {@link #glLineStipple} */
 	public static native void nglLineStipple(int factor, short pattern, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLineStipple.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Defines a line stipple. It determines those fragments that are to be drawn when the line is rasterized. Line stippling may be enabled or disabled using
-	 * {@link #glEnable(int)} or {@link #glDisable(int)} with the constant {@link #GL_LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
+	 * {@link #glEnable} or {@link #glDisable} with the constant {@link #GL_LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
 	 *
 	 * @param factor  a count that is used to modify the effective line stipple by causing each bit in pattern to be used {@code factor} times. {@code factor} is clamped
 	 *                to the range [1, 256].
@@ -4648,7 +4661,7 @@ public final class GL11 {
 
 	// --- [ glLineWidth ] ---
 
-	/** JNI method for {@link #glLineWidth(float)} */
+	/** JNI method for {@link #glLineWidth} */
 	public static native void nglLineWidth(float width, long __functionAddress);
 
 	/**
@@ -4667,7 +4680,7 @@ public final class GL11 {
 
 	// --- [ glListBase ] ---
 
-	/** JNI method for {@link #glListBase(int)} */
+	/** JNI method for {@link #glListBase} */
 	public static native void nglListBase(int base, long __functionAddress);
 
 	/**
@@ -4686,7 +4699,7 @@ public final class GL11 {
 
 	// --- [ glLoadMatrixf ] ---
 
-	/** JNI method for {@link #glLoadMatrixf(ByteBuffer)} */
+	/** JNI method for {@link #glLoadMatrixf} */
 	public static native void nglLoadMatrixf(long m, long __functionAddress);
 
 	/**
@@ -4716,7 +4729,7 @@ public final class GL11 {
 		nglLoadMatrixf(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glLoadMatrixf(ByteBuffer)} */
+	/** Alternative version of: {@link #glLoadMatrixf} */
 	public static void glLoadMatrix(FloatBuffer m) {
 		long __functionAddress = getInstance().glLoadMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4728,13 +4741,13 @@ public final class GL11 {
 
 	// --- [ glLoadMatrixd ] ---
 
-	/** JNI method for {@link #glLoadMatrixd(ByteBuffer)} */
+	/** JNI method for {@link #glLoadMatrixd} */
 	public static native void nglLoadMatrixd(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadMatrix.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glLoadMatrixf(ByteBuffer)}.
+	 * Double version of {@link #glLoadMatrixf}.
 	 *
 	 * @param m the matrix data
 	 */
@@ -4747,7 +4760,7 @@ public final class GL11 {
 		nglLoadMatrixd(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glLoadMatrixd(ByteBuffer)} */
+	/** Alternative version of: {@link #glLoadMatrixd} */
 	public static void glLoadMatrix(DoubleBuffer m) {
 		long __functionAddress = getInstance().glLoadMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4759,7 +4772,7 @@ public final class GL11 {
 
 	// --- [ glLoadIdentity ] ---
 
-	/** JNI method for {@link #glLoadIdentity()} */
+	/** JNI method for {@link #glLoadIdentity} */
 	public static native void nglLoadIdentity(long __functionAddress);
 
 	/**
@@ -4767,7 +4780,7 @@ public final class GL11 {
 	 * <p/>
 	 * Sets the current matrix to the identity matrix.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glLoadMatrixf(ByteBuffer)} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glLoadMatrixf} with the following matrix:
 	 * <table border="1" cellspacing="0" cellpadding="2">
 	 * 	<tr align="center"><td>1</td><td>0</td><td>0</td><td>0</td></tr>
 	 * 	<tr align="center"><td>0</td><td>1</td><td>0</td><td>0</td></tr>
@@ -4784,7 +4797,7 @@ public final class GL11 {
 
 	// --- [ glLoadName ] ---
 
-	/** JNI method for {@link #glLoadName(int)} */
+	/** JNI method for {@link #glLoadName} */
 	public static native void nglLoadName(int name, long __functionAddress);
 
 	/**
@@ -4803,7 +4816,7 @@ public final class GL11 {
 
 	// --- [ glLogicOp ] ---
 
-	/** JNI method for {@link #glLogicOp(int)} */
+	/** JNI method for {@link #glLogicOp} */
 	public static native void nglLogicOp(int op, long __functionAddress);
 
 	/**
@@ -4822,7 +4835,7 @@ public final class GL11 {
 
 	// --- [ glMap1f ] ---
 
-	/** JNI method for {@link #glMap1f(int, float, float, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glMap1f} */
 	public static native void nglMap1f(int target, float u1, float u2, int stride, int order, long points, long __functionAddress);
 
 	/**
@@ -4847,7 +4860,7 @@ public final class GL11 {
 		nglMap1f(target, u1, u2, stride, order, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap1f(int, float, float, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glMap1f} */
 	public static void glMap1(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
 		long __functionAddress = getInstance().glMap1f;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4859,13 +4872,13 @@ public final class GL11 {
 
 	// --- [ glMap1d ] ---
 
-	/** JNI method for {@link #glMap1d(int, double, double, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glMap1d} */
 	public static native void nglMap1d(int target, double u1, double u2, int stride, int order, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glMap1f(int, float, float, int, int, ByteBuffer)}.
+	 * Double version of {@link #glMap1f}.
 	 *
 	 * @param target the evaluator target
 	 * @param u1     the first endpoint of the pre-image of the map
@@ -4883,7 +4896,7 @@ public final class GL11 {
 		nglMap1d(target, u1, u2, stride, order, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap1d(int, double, double, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glMap1d} */
 	public static void glMap1(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
 		long __functionAddress = getInstance().glMap1d;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4895,13 +4908,13 @@ public final class GL11 {
 
 	// --- [ glMap2f ] ---
 
-	/** JNI method for {@link #glMap2f(int, float, float, int, int, float, float, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glMap2f} */
 	public static native void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Bivariate version of {@link #glMap1f(int, float, float, int, int, ByteBuffer)}.
+	 * Bivariate version of {@link #glMap1f}.
 	 *
 	 * @param target  the evaluator target
 	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
@@ -4923,7 +4936,7 @@ public final class GL11 {
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap2f(int, float, float, int, int, float, float, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glMap2f} */
 	public static void glMap2(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
 		long __functionAddress = getInstance().glMap2f;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4935,13 +4948,13 @@ public final class GL11 {
 
 	// --- [ glMap2d ] ---
 
-	/** JNI method for {@link #glMap2d(int, double, double, int, int, double, double, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glMap2d} */
 	public static native void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glMap2f(int, float, float, int, int, float, float, int, int, ByteBuffer)}.
+	 * Double version of {@link #glMap2f}.
 	 *
 	 * @param target  the evaluator target
 	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
@@ -4963,7 +4976,7 @@ public final class GL11 {
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap2d(int, double, double, int, int, double, double, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glMap2d} */
 	public static void glMap2(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
 		long __functionAddress = getInstance().glMap2d;
 		if ( LWJGLUtil.CHECKS ) {
@@ -4975,7 +4988,7 @@ public final class GL11 {
 
 	// --- [ glMapGrid1f ] ---
 
-	/** JNI method for {@link #glMapGrid1f(int, float, float)} */
+	/** JNI method for {@link #glMapGrid1f} */
 	public static native void nglMapGrid1f(int n, float u1, float u2, long __functionAddress);
 
 	/**
@@ -4996,13 +5009,13 @@ public final class GL11 {
 
 	// --- [ glMapGrid1d ] ---
 
-	/** JNI method for {@link #glMapGrid1d(int, double, double)} */
+	/** JNI method for {@link #glMapGrid1d} */
 	public static native void nglMapGrid1d(int n, double u1, double u2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid1d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glMapGrid1f(int, float, float)}.
+	 * Double version of {@link #glMapGrid1f}.
 	 *
 	 * @param n  the number of partitions of the interval
 	 * @param u1 the first interval endpoint
@@ -5017,7 +5030,7 @@ public final class GL11 {
 
 	// --- [ glMapGrid2f ] ---
 
-	/** JNI method for {@link #glMapGrid2f(int, float, float, int, float, float)} */
+	/** JNI method for {@link #glMapGrid2f} */
 	public static native void nglMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2, long __functionAddress);
 
 	/**
@@ -5041,13 +5054,13 @@ public final class GL11 {
 
 	// --- [ glMapGrid2d ] ---
 
-	/** JNI method for {@link #glMapGrid2d(int, double, double, int, double, double)} */
+	/** JNI method for {@link #glMapGrid2d} */
 	public static native void nglMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glMapGrid2f(int, float, float, int, float, float)}.
+	 * Double version of {@link #glMapGrid2f}.
 	 *
 	 * @param un the number of partitions of the interval in the u-dimension
 	 * @param u1 the first u-dimension interval endpoint
@@ -5065,7 +5078,7 @@ public final class GL11 {
 
 	// --- [ glMateriali ] ---
 
-	/** JNI method for {@link #glMateriali(int, int, int)} */
+	/** JNI method for {@link #glMateriali} */
 	public static native void nglMateriali(int face, int pname, int param, long __functionAddress);
 
 	/**
@@ -5086,13 +5099,13 @@ public final class GL11 {
 
 	// --- [ glMaterialf ] ---
 
-	/** JNI method for {@link #glMaterialf(int, int, float)} */
+	/** JNI method for {@link #glMaterialf} */
 	public static native void nglMaterialf(int face, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterialf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glMateriali(int, int, int)}.
+	 * Float version of {@link #glMateriali}.
 	 *
 	 * @param face  the material face for which to set the parameter
 	 * @param pname the parameter to set
@@ -5113,7 +5126,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glMateriali(int, int, int)}.
+	 * Pointer version of {@link #glMateriali}.
 	 *
 	 * @param face   the material face for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_AMBIENT}, {@link #GL_DIFFUSE}, {@link #GL_AMBIENT_AND_DIFFUSE}, {@link #GL_SPECULAR}, {@link #GL_EMISSION}
@@ -5146,7 +5159,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glMaterialf(int, int, float)}.
+	 * Pointer version of {@link #glMaterialf}.
 	 *
 	 * @param face   the material face for which to set the parameter
 	 * @param pname  the parameter to set
@@ -5173,7 +5186,7 @@ public final class GL11 {
 
 	// --- [ glMatrixMode ] ---
 
-	/** JNI method for {@link #glMatrixMode(int)} */
+	/** JNI method for {@link #glMatrixMode} */
 	public static native void nglMatrixMode(int mode, long __functionAddress);
 
 	/**
@@ -5192,13 +5205,13 @@ public final class GL11 {
 
 	// --- [ glMultMatrixf ] ---
 
-	/** JNI method for {@link #glMultMatrixf(ByteBuffer)} */
+	/** JNI method for {@link #glMultMatrixf} */
 	public static native void nglMultMatrixf(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf(ByteBuffer)} for details.
+	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf} for details.
 	 *
 	 * @param m the matrix data
 	 */
@@ -5211,7 +5224,7 @@ public final class GL11 {
 		nglMultMatrixf(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultMatrixf(ByteBuffer)} */
+	/** Alternative version of: {@link #glMultMatrixf} */
 	public static void glMultMatrix(FloatBuffer m) {
 		long __functionAddress = getInstance().glMultMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5223,13 +5236,13 @@ public final class GL11 {
 
 	// --- [ glMultMatrixd ] ---
 
-	/** JNI method for {@link #glMultMatrixd(ByteBuffer)} */
+	/** JNI method for {@link #glMultMatrixd} */
 	public static native void nglMultMatrixd(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glMultMatrixf(ByteBuffer)}.
+	 * Double version of {@link #glMultMatrixf}.
 	 *
 	 * @param m the matrix data
 	 */
@@ -5242,7 +5255,7 @@ public final class GL11 {
 		nglMultMatrixd(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultMatrixd(ByteBuffer)} */
+	/** Alternative version of: {@link #glMultMatrixd} */
 	public static void glMultMatrix(DoubleBuffer m) {
 		long __functionAddress = getInstance().glMultMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5254,7 +5267,7 @@ public final class GL11 {
 
 	// --- [ glFrustum ] ---
 
-	/** JNI method for {@link #glFrustum(double, double, double, double, double, double)} */
+	/** JNI method for {@link #glFrustum} */
 	public static native void nglFrustum(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
 	/**
@@ -5265,7 +5278,7 @@ public final class GL11 {
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf(ByteBuffer)} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
 	 * <table border="1" cellspacing="0" cellpadding="2">
 	 * 	<tr align="center"><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
 	 * 	<tr align="center"><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
@@ -5289,7 +5302,7 @@ public final class GL11 {
 
 	// --- [ glNewList ] ---
 
-	/** JNI method for {@link #glNewList(int, int)} */
+	/** JNI method for {@link #glNewList} */
 	public static native void nglNewList(int n, int mode, long __functionAddress);
 
 	/**
@@ -5309,14 +5322,14 @@ public final class GL11 {
 
 	// --- [ glEndList ] ---
 
-	/** JNI method for {@link #glEndList()} */
+	/** JNI method for {@link #glEndList} */
 	public static native void nglEndList(long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEndList.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
 	 * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
-	 * associated with the index indicated with {@link #glNewList(int, int)}.
+	 * associated with the index indicated with {@link #glNewList}.
 	 */
 	public static void glEndList() {
 		long __functionAddress = getInstance().glEndList;
@@ -5327,7 +5340,7 @@ public final class GL11 {
 
 	// --- [ glNormal3f ] ---
 
-	/** JNI method for {@link #glNormal3f(float, float, float)} */
+	/** JNI method for {@link #glNormal3f} */
 	public static native void nglNormal3f(float nx, float ny, float nz, long __functionAddress);
 
 	/**
@@ -5348,13 +5361,13 @@ public final class GL11 {
 
 	// --- [ glNormal3b ] ---
 
-	/** JNI method for {@link #glNormal3b(byte, byte, byte)} */
+	/** JNI method for {@link #glNormal3b} */
 	public static native void nglNormal3b(byte nx, byte ny, byte nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Byte version of {@link #glNormal3f(float, float, float)}.
+	 * Byte version of {@link #glNormal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
@@ -5369,13 +5382,13 @@ public final class GL11 {
 
 	// --- [ glNormal3s ] ---
 
-	/** JNI method for {@link #glNormal3s(short, short, short)} */
+	/** JNI method for {@link #glNormal3s} */
 	public static native void nglNormal3s(short nx, short ny, short nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glNormal3f(float, float, float)}.
+	 * Short version of {@link #glNormal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
@@ -5390,13 +5403,13 @@ public final class GL11 {
 
 	// --- [ glNormal3i ] ---
 
-	/** JNI method for {@link #glNormal3i(int, int, int)} */
+	/** JNI method for {@link #glNormal3i} */
 	public static native void nglNormal3i(int nx, int ny, int nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glNormal3f(float, float, float)}.
+	 * Integer version of {@link #glNormal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
@@ -5411,13 +5424,13 @@ public final class GL11 {
 
 	// --- [ glNormal3d ] ---
 
-	/** JNI method for {@link #glNormal3d(double, double, double)} */
+	/** JNI method for {@link #glNormal3d} */
 	public static native void nglNormal3d(double nx, double ny, double nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glNormal3f(float, float, float)}.
+	 * Double version of {@link #glNormal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
@@ -5438,7 +5451,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3f(float, float, float)}.
+	 * Pointer version of {@link #glNormal3f}.
 	 *
 	 * @param v the normal buffer
 	 */
@@ -5469,7 +5482,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3b(byte, byte, byte)}.
+	 * Pointer version of {@link #glNormal3b}.
 	 *
 	 * @param v the normal buffer
 	 */
@@ -5490,7 +5503,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3s(short, short, short)}.
+	 * Pointer version of {@link #glNormal3s}.
 	 *
 	 * @param v the normal buffer
 	 */
@@ -5521,7 +5534,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3i(int, int, int)}.
+	 * Pointer version of {@link #glNormal3i}.
 	 *
 	 * @param v the normal buffer
 	 */
@@ -5552,7 +5565,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3d(double, double, double)}.
+	 * Pointer version of {@link #glNormal3d}.
 	 *
 	 * @param v the normal buffer
 	 */
@@ -5577,7 +5590,7 @@ public final class GL11 {
 
 	// --- [ glNormalPointer ] ---
 
-	/** JNI method for {@link #glNormalPointer(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glNormalPointer} */
 	public static native void nglNormalPointer(int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -5598,7 +5611,7 @@ public final class GL11 {
 		nglNormalPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glNormalPointer(int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glNormalPointer} */
 	public static void glNormalPointer(int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5608,7 +5621,7 @@ public final class GL11 {
 		nglNormalPointer(type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_BYTE version of: {@link #glNormalPointer(int, int, ByteBuffer)} */
+	/** GL_BYTE version of: {@link #glNormalPointer} */
 	public static void glNormalPointer(int stride, ByteBuffer pointer) {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5618,7 +5631,7 @@ public final class GL11 {
 		nglNormalPointer(GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_SHORT version of: {@link #glNormalPointer(int, int, ByteBuffer)} */
+	/** GL_SHORT version of: {@link #glNormalPointer} */
 	public static void glNormalPointer(int stride, ShortBuffer pointer) {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5628,7 +5641,7 @@ public final class GL11 {
 		nglNormalPointer(GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glNormalPointer(int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glNormalPointer} */
 	public static void glNormalPointer(int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -5640,7 +5653,7 @@ public final class GL11 {
 
 	// --- [ glOrtho ] ---
 
-	/** JNI method for {@link #glOrtho(double, double, double, double, double, double)} */
+	/** JNI method for {@link #glOrtho} */
 	public static native void nglOrtho(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
 	/**
@@ -5651,7 +5664,7 @@ public final class GL11 {
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf(ByteBuffer)} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
 	 * <table border="1" cellspacing="0" cellpadding="2">
 	 * 	<tr align="center"><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
 	 * 	<tr align="center"><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
@@ -5675,7 +5688,7 @@ public final class GL11 {
 
 	// --- [ glPassThrough ] ---
 
-	/** JNI method for {@link #glPassThrough(float)} */
+	/** JNI method for {@link #glPassThrough} */
 	public static native void nglPassThrough(float token, long __functionAddress);
 
 	/**
@@ -5683,7 +5696,7 @@ public final class GL11 {
 	 * <p/>
 	 * Inserts a marker when the GL is in feeback mode. {@code token} is returned as if it were a primitive; it is indicated with its own unique identifying
 	 * value. The ordering of any {@code PassThrough} commands with respect to primitive specification is maintained by feedback. {@code PassThrough} may
-	 * not occur between {@link #glBegin(int)} and {@link #glEnd()}.
+	 * not occur between {@link #glBegin} and {@link #glEnd}.
 	 *
 	 * @param token the marker value to insert
 	 */
@@ -5828,7 +5841,7 @@ public final class GL11 {
 
 	// --- [ glPixelStorei ] ---
 
-	/** JNI method for {@link #glPixelStorei(int, int)} */
+	/** JNI method for {@link #glPixelStorei} */
 	public static native void nglPixelStorei(int pname, int param, long __functionAddress);
 
 	/**
@@ -5848,13 +5861,13 @@ public final class GL11 {
 
 	// --- [ glPixelStoref ] ---
 
-	/** JNI method for {@link #glPixelStoref(int, int)} */
+	/** JNI method for {@link #glPixelStoref} */
 	public static native void nglPixelStoref(int pname, int param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStoref.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glPixelStorei(int, int)}.
+	 * Float version of {@link #glPixelStorei}.
 	 *
 	 * @param pname the pixel store parameter to set
 	 * @param param the parameter value
@@ -5868,7 +5881,7 @@ public final class GL11 {
 
 	// --- [ glPixelTransferi ] ---
 
-	/** JNI method for {@link #glPixelTransferi(int, int)} */
+	/** JNI method for {@link #glPixelTransferi} */
 	public static native void nglPixelTransferi(int pname, int param, long __functionAddress);
 
 	/**
@@ -5888,13 +5901,13 @@ public final class GL11 {
 
 	// --- [ glPixelTransferf ] ---
 
-	/** JNI method for {@link #glPixelTransferf(int, float)} */
+	/** JNI method for {@link #glPixelTransferf} */
 	public static native void nglPixelTransferf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelTransferf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glPixelTransferi(int, int)}.
+	 * Float version of {@link #glPixelTransferi}.
 	 *
 	 * @param pname the pixel transfer parameter to set
 	 * @param param the parameter value
@@ -5908,7 +5921,7 @@ public final class GL11 {
 
 	// --- [ glPixelZoom ] ---
 
-	/** JNI method for {@link #glPixelZoom(float, float)} */
+	/** JNI method for {@link #glPixelZoom} */
 	public static native void nglPixelZoom(float xfactor, float yfactor, long __functionAddress);
 
 	/**
@@ -5936,7 +5949,7 @@ public final class GL11 {
 
 	// --- [ glPointSize ] ---
 
-	/** JNI method for {@link #glPointSize(float)} */
+	/** JNI method for {@link #glPointSize} */
 	public static native void nglPointSize(float size, long __functionAddress);
 
 	/**
@@ -5955,7 +5968,7 @@ public final class GL11 {
 
 	// --- [ glPolygonMode ] ---
 
-	/** JNI method for {@link #glPolygonMode(int, int)} */
+	/** JNI method for {@link #glPolygonMode} */
 	public static native void nglPolygonMode(int face, int mode, long __functionAddress);
 
 	/**
@@ -5979,7 +5992,7 @@ public final class GL11 {
 
 	// --- [ glPolygonOffset ] ---
 
-	/** JNI method for {@link #glPolygonOffset(float, float)} */
+	/** JNI method for {@link #glPolygonOffset} */
 	public static native void nglPolygonOffset(float factor, float units, long __functionAddress);
 
 	/**
@@ -6003,19 +6016,19 @@ public final class GL11 {
 
 	// --- [ glPolygonStipple ] ---
 
-	/** JNI method for {@link #glPolygonStipple(ByteBuffer)} */
+	/** JNI method for {@link #glPolygonStipple} */
 	public static native void nglPolygonStipple(long pattern, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonStipple.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple(int, short)}, masking out certain fragments produced by rasterization so that they
+	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple}, masking out certain fragments produced by rasterization so that they
 	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
 	 * <p/>
 	 * If x<sub>w</sub> and y<sub>w</sub> are the window coordinates of a rasterized polygon fragment, then that fragment is sent to the next stage of the GL
 	 * if and only if the bit of the pattern (x<sub>w</sub> mod 32, y<sub>w</sub> mod 32) is 1.
 	 * <p/>
-	 * Polygon stippling may be enabled or disabled with {@link #glEnable(int)} or {@link #glDisable(int)} using the constant {@link #GL_POLYGON_STIPPLE}. When disabled,
+	 * Polygon stippling may be enabled or disabled with {@link #glEnable} or {@link #glDisable} using the constant {@link #GL_POLYGON_STIPPLE}. When disabled,
 	 * it is as if the stipple pattern were all ones.
 	 *
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
@@ -6029,7 +6042,7 @@ public final class GL11 {
 		nglPolygonStipple(memAddress(pattern), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glPolygonStipple(ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glPolygonStipple} */
 	public static void glPolygonStipple(long patternOffset) {
 		long __functionAddress = getInstance().glPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6041,7 +6054,7 @@ public final class GL11 {
 
 	// --- [ glPushAttrib ] ---
 
-	/** JNI method for {@link #glPushAttrib(int)} */
+	/** JNI method for {@link #glPushAttrib} */
 	public static native void nglPushAttrib(int mask, long __functionAddress);
 
 	/**
@@ -6067,7 +6080,7 @@ public final class GL11 {
 
 	// --- [ glPushClientAttrib ] ---
 
-	/** JNI method for {@link #glPushClientAttrib(int)} */
+	/** JNI method for {@link #glPushClientAttrib} */
 	public static native void nglPushClientAttrib(int mask, long __functionAddress);
 
 	/**
@@ -6093,13 +6106,13 @@ public final class GL11 {
 
 	// --- [ glPopAttrib ] ---
 
-	/** JNI method for {@link #glPopAttrib()} */
+	/** JNI method for {@link #glPopAttrib} */
 	public static native void nglPopAttrib(long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopAttrib.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib(int)}. Those not saved remain unchanged.
+	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopAttrib() {
 		long __functionAddress = getInstance().glPopAttrib;
@@ -6110,13 +6123,13 @@ public final class GL11 {
 
 	// --- [ glPopClientAttrib ] ---
 
-	/** JNI method for {@link #glPopClientAttrib()} */
+	/** JNI method for {@link #glPopClientAttrib} */
 	public static native void nglPopClientAttrib(long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopClientAttrib.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib(int)}. Those not saved remain unchanged.
+	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopClientAttrib() {
 		long __functionAddress = getInstance().glPopClientAttrib;
@@ -6127,7 +6140,7 @@ public final class GL11 {
 
 	// --- [ glPopMatrix ] ---
 
-	/** JNI method for {@link #glPopMatrix()} */
+	/** JNI method for {@link #glPopMatrix} */
 	public static native void nglPopMatrix(long __functionAddress);
 
 	/**
@@ -6144,7 +6157,7 @@ public final class GL11 {
 
 	// --- [ glPopName ] ---
 
-	/** JNI method for {@link #glPopName()} */
+	/** JNI method for {@link #glPopName} */
 	public static native void nglPopName(long __functionAddress);
 
 	/**
@@ -6161,7 +6174,7 @@ public final class GL11 {
 
 	// --- [ glPrioritizeTextures ] ---
 
-	/** JNI method for {@link #glPrioritizeTextures(int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glPrioritizeTextures} */
 	public static native void nglPrioritizeTextures(int n, long textures, long priorities, long __functionAddress);
 
 	/**
@@ -6184,7 +6197,7 @@ public final class GL11 {
 		nglPrioritizeTextures(n, memAddress(textures), memAddress(priorities), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glPrioritizeTextures(int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glPrioritizeTextures} */
 	public static void glPrioritizeTextures(IntBuffer textures, FloatBuffer priorities) {
 		long __functionAddress = getInstance().glPrioritizeTextures;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6196,7 +6209,7 @@ public final class GL11 {
 
 	// --- [ glPushMatrix ] ---
 
-	/** JNI method for {@link #glPushMatrix()} */
+	/** JNI method for {@link #glPushMatrix} */
 	public static native void nglPushMatrix(long __functionAddress);
 
 	/**
@@ -6213,7 +6226,7 @@ public final class GL11 {
 
 	// --- [ glPushName ] ---
 
-	/** JNI method for {@link #glPushName(int)} */
+	/** JNI method for {@link #glPushName} */
 	public static native void nglPushName(int name, long __functionAddress);
 
 	/**
@@ -6232,7 +6245,7 @@ public final class GL11 {
 
 	// --- [ glRasterPos2i ] ---
 
-	/** JNI method for {@link #glRasterPos2i(int, int)} */
+	/** JNI method for {@link #glRasterPos2i} */
 	public static native void nglRasterPos2i(int x, int y, long __functionAddress);
 
 	/**
@@ -6258,13 +6271,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos2s ] ---
 
-	/** JNI method for {@link #glRasterPos2s(short, short)} */
+	/** JNI method for {@link #glRasterPos2s} */
 	public static native void nglRasterPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos2i(int, int)}.
+	 * Short version of {@link #glRasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6278,13 +6291,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos2f ] ---
 
-	/** JNI method for {@link #glRasterPos2f(float, float)} */
+	/** JNI method for {@link #glRasterPos2f} */
 	public static native void nglRasterPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glRasterPos2i(int, int)}.
+	 * Float version of {@link #glRasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6298,13 +6311,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos2d ] ---
 
-	/** JNI method for {@link #glRasterPos2d(double, double)} */
+	/** JNI method for {@link #glRasterPos2d} */
 	public static native void nglRasterPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos2i(int, int)}.
+	 * Double version of {@link #glRasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6324,7 +6337,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2i(int, int)}.
+	 * Pointer version of {@link #glRasterPos2i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6355,7 +6368,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2s(short, short)}.
+	 * Pointer version of {@link #glRasterPos2s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6386,7 +6399,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2f(float, float)}.
+	 * Pointer version of {@link #glRasterPos2f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6417,7 +6430,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2d(double, double)}.
+	 * Pointer version of {@link #glRasterPos2d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6442,13 +6455,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos3i ] ---
 
-	/** JNI method for {@link #glRasterPos3i(int, int, int)} */
+	/** JNI method for {@link #glRasterPos3i} */
 	public static native void nglRasterPos3i(int x, int y, int z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i(int, int)} for more details.
+	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6463,13 +6476,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos3s ] ---
 
-	/** JNI method for {@link #glRasterPos3s(short, short, short)} */
+	/** JNI method for {@link #glRasterPos3s} */
 	public static native void nglRasterPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos3i(int, int, int)}.
+	 * Short version of {@link #glRasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6484,13 +6497,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos3f ] ---
 
-	/** JNI method for {@link #glRasterPos3f(float, float, float)} */
+	/** JNI method for {@link #glRasterPos3f} */
 	public static native void nglRasterPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glRasterPos3i(int, int, int)}.
+	 * Float version of {@link #glRasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6505,13 +6518,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos3d ] ---
 
-	/** JNI method for {@link #glRasterPos3d(double, double, double)} */
+	/** JNI method for {@link #glRasterPos3d} */
 	public static native void nglRasterPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos3i(int, int, int)}.
+	 * Double version of {@link #glRasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6532,7 +6545,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3i(int, int, int)}.
+	 * Pointer version of {@link #glRasterPos3i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6563,7 +6576,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3s(short, short, short)}.
+	 * Pointer version of {@link #glRasterPos3s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6594,7 +6607,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3f(float, float, float)}.
+	 * Pointer version of {@link #glRasterPos3f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6625,7 +6638,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3d(double, double, double)}.
+	 * Pointer version of {@link #glRasterPos3d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6650,13 +6663,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos4i ] ---
 
-	/** JNI method for {@link #glRasterPos4i(int, int, int, int)} */
+	/** JNI method for {@link #glRasterPos4i} */
 	public static native void nglRasterPos4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i(int, int)} for more details.
+	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6672,13 +6685,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos4s ] ---
 
-	/** JNI method for {@link #glRasterPos4s(short, short, short, short)} */
+	/** JNI method for {@link #glRasterPos4s} */
 	public static native void nglRasterPos4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos4i(int, int, int, int)}.
+	 * Short version of {@link #glRasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6694,7 +6707,7 @@ public final class GL11 {
 
 	// --- [ glRasterPos4f ] ---
 
-	/** JNI method for {@link #glRasterPos4f(float, float, float, float)} */
+	/** JNI method for {@link #glRasterPos4f} */
 	public static native void nglRasterPos4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
@@ -6716,13 +6729,13 @@ public final class GL11 {
 
 	// --- [ glRasterPos4d ] ---
 
-	/** JNI method for {@link #glRasterPos4d(double, double, double, double)} */
+	/** JNI method for {@link #glRasterPos4d} */
 	public static native void nglRasterPos4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos4i(int, int, int, int)}.
+	 * Double version of {@link #glRasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -6744,7 +6757,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4i(int, int, int, int)}.
+	 * Pointer version of {@link #glRasterPos4i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6775,7 +6788,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4s(short, short, short, short)}.
+	 * Pointer version of {@link #glRasterPos4s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6806,7 +6819,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4f(float, float, float, float)}.
+	 * Pointer version of {@link #glRasterPos4f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6837,7 +6850,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4d(double, double, double, double)}.
+	 * Pointer version of {@link #glRasterPos4d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
@@ -6862,7 +6875,7 @@ public final class GL11 {
 
 	// --- [ glReadBuffer ] ---
 
-	/** JNI method for {@link #glReadBuffer(int)} */
+	/** JNI method for {@link #glReadBuffer} */
 	public static native void nglReadBuffer(int src, long __functionAddress);
 
 	/**
@@ -6884,7 +6897,7 @@ public final class GL11 {
 
 	// --- [ glReadPixels ] ---
 
-	/** JNI method for {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glReadPixels} */
 	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -6913,7 +6926,7 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6923,7 +6936,7 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6933,7 +6946,7 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6943,7 +6956,7 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
@@ -6955,7 +6968,7 @@ public final class GL11 {
 
 	// --- [ glRecti ] ---
 
-	/** JNI method for {@link #glRecti(int, int, int, int)} */
+	/** JNI method for {@link #glRecti} */
 	public static native void nglRecti(int x1, int y1, int x2, int y2, long __functionAddress);
 
 	/**
@@ -6990,13 +7003,13 @@ public final class GL11 {
 
 	// --- [ glRects ] ---
 
-	/** JNI method for {@link #glRects(short, short, short, short)} */
+	/** JNI method for {@link #glRects} */
 	public static native void nglRects(short x1, short y1, short x2, short y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRects.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glRecti(int, int, int, int)}.
+	 * Short version of {@link #glRecti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -7012,13 +7025,13 @@ public final class GL11 {
 
 	// --- [ glRectf ] ---
 
-	/** JNI method for {@link #glRectf(float, float, float, float)} */
+	/** JNI method for {@link #glRectf} */
 	public static native void nglRectf(float x1, float y1, float x2, float y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glRecti(int, int, int, int)}.
+	 * Float version of {@link #glRecti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -7034,13 +7047,13 @@ public final class GL11 {
 
 	// --- [ glRectd ] ---
 
-	/** JNI method for {@link #glRectd(double, double, double, double)} */
+	/** JNI method for {@link #glRectd} */
 	public static native void nglRectd(double x1, double y1, double x2, double y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectd.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glRecti(int, int, int, int)}.
+	 * Double version of {@link #glRecti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -7062,7 +7075,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRecti(int, int, int, int)}.
+	 * Pointer version of {@link #glRecti}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
@@ -7096,7 +7109,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRects(short, short, short, short)}.
+	 * Pointer version of {@link #glRects}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
@@ -7130,7 +7143,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRectf(float, float, float, float)}.
+	 * Pointer version of {@link #glRectf}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
@@ -7164,7 +7177,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glRectd(double, double, double, double)}.
+	 * Pointer version of {@link #glRectd}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
@@ -7192,7 +7205,7 @@ public final class GL11 {
 
 	// --- [ glRenderMode ] ---
 
-	/** JNI method for {@link #glRenderMode(int)} */
+	/** JNI method for {@link #glRenderMode} */
 	public static native int nglRenderMode(int mode, long __functionAddress);
 
 	/**
@@ -7211,7 +7224,7 @@ public final class GL11 {
 
 	// --- [ glRotatef ] ---
 
-	/** JNI method for {@link #glRotatef(float, float, float, float)} */
+	/** JNI method for {@link #glRotatef} */
 	public static native void nglRotatef(float angle, float x, float y, float z, long __functionAddress);
 
 	/**
@@ -7252,13 +7265,13 @@ public final class GL11 {
 
 	// --- [ glRotated ] ---
 
-	/** JNI method for {@link #glRotated(double, double, double, double)} */
+	/** JNI method for {@link #glRotated} */
 	public static native void nglRotated(double angle, double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRotated.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glRotatef(float, float, float, float)}.
+	 * Double version of {@link #glRotatef}.
 	 *
 	 * @param angle the angle of rotation in degrees
 	 * @param x     the x coordinate of the rotation vector
@@ -7274,7 +7287,7 @@ public final class GL11 {
 
 	// --- [ glScalef ] ---
 
-	/** JNI method for {@link #glScalef(float, float, float)} */
+	/** JNI method for {@link #glScalef} */
 	public static native void nglScalef(float x, float y, float z, long __functionAddress);
 
 	/**
@@ -7282,7 +7295,7 @@ public final class GL11 {
 	 * <p/>
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf(ByteBuffer)} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
 	 * <table border="1" cellspacing="0" cellpadding="2">
 	 * 	<tr align="center"><td>x</td><td>0</td><td>0</td><td>0</td></tr>
 	 * 	<tr align="center"><td>0</td><td>y</td><td>0</td><td>0</td></tr>
@@ -7303,13 +7316,13 @@ public final class GL11 {
 
 	// --- [ glScaled ] ---
 
-	/** JNI method for {@link #glScaled(double, double, double)} */
+	/** JNI method for {@link #glScaled} */
 	public static native void nglScaled(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glScaled.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glScalef(float, float, float)}.
+	 * Double version of {@link #glScalef}.
 	 *
 	 * @param x the x-axis scaling factor
 	 * @param y the y-axis scaling factor
@@ -7324,13 +7337,13 @@ public final class GL11 {
 
 	// --- [ glScissor ] ---
 
-	/** JNI method for {@link #glScissor(int, int, int, int)} */
+	/** JNI method for {@link #glScissor} */
 	public static native void nglScissor(int x, int y, int width, int height, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissor.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable(int)} or {@link #glDisable(int)}
+	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable} or {@link #glDisable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
 	 * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
 	 * test passes. Otherwise, the test fails and the fragment is discarded.
@@ -7349,7 +7362,7 @@ public final class GL11 {
 
 	// --- [ glSelectBuffer ] ---
 
-	/** JNI method for {@link #glSelectBuffer(int, ByteBuffer)} */
+	/** JNI method for {@link #glSelectBuffer} */
 	public static native void nglSelectBuffer(int size, long buffer, long __functionAddress);
 
 	/**
@@ -7369,7 +7382,7 @@ public final class GL11 {
 		nglSelectBuffer(size, memAddress(buffer), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glSelectBuffer(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glSelectBuffer} */
 	public static void glSelectBuffer(IntBuffer buffer) {
 		long __functionAddress = getInstance().glSelectBuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -7379,7 +7392,7 @@ public final class GL11 {
 
 	// --- [ glShadeModel ] ---
 
-	/** JNI method for {@link #glShadeModel(int)} */
+	/** JNI method for {@link #glShadeModel} */
 	public static native void nglShadeModel(int mode, long __functionAddress);
 
 	/**
@@ -7402,7 +7415,7 @@ public final class GL11 {
 
 	// --- [ glStencilFunc ] ---
 
-	/** JNI method for {@link #glStencilFunc(int, int, int)} */
+	/** JNI method for {@link #glStencilFunc} */
 	public static native void nglStencilFunc(int func, int ref, int mask, long __functionAddress);
 
 	/**
@@ -7428,7 +7441,7 @@ public final class GL11 {
 
 	// --- [ glStencilMask ] ---
 
-	/** JNI method for {@link #glStencilMask(int)} */
+	/** JNI method for {@link #glStencilMask} */
 	public static native void nglStencilMask(int mask, long __functionAddress);
 
 	/**
@@ -7450,7 +7463,7 @@ public final class GL11 {
 
 	// --- [ glStencilOp ] ---
 
-	/** JNI method for {@link #glStencilOp(int, int, int)} */
+	/** JNI method for {@link #glStencilOp} */
 	public static native void nglStencilOp(int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
@@ -7479,7 +7492,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord1f ] ---
 
-	/** JNI method for {@link #glTexCoord1f(float)} */
+	/** JNI method for {@link #glTexCoord1f} */
 	public static native void nglTexCoord1f(float s, long __functionAddress);
 
 	/**
@@ -7498,13 +7511,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord1s ] ---
 
-	/** JNI method for {@link #glTexCoord1s(short)} */
+	/** JNI method for {@link #glTexCoord1s} */
 	public static native void nglTexCoord1s(short s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord1f(float)}.
+	 * Short version of {@link #glTexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
@@ -7517,13 +7530,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord1i ] ---
 
-	/** JNI method for {@link #glTexCoord1i(int)} */
+	/** JNI method for {@link #glTexCoord1i} */
 	public static native void nglTexCoord1i(int s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord1f(float)}.
+	 * Integer version of {@link #glTexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
@@ -7536,13 +7549,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord1d ] ---
 
-	/** JNI method for {@link #glTexCoord1d(double)} */
+	/** JNI method for {@link #glTexCoord1d} */
 	public static native void nglTexCoord1d(double s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord1f(float)}.
+	 * Double version of {@link #glTexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
@@ -7561,7 +7574,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1f(float)}.
+	 * Pointer version of {@link #glTexCoord1f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7592,7 +7605,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1s(short)}.
+	 * Pointer version of {@link #glTexCoord1s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7623,7 +7636,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1i(int)}.
+	 * Pointer version of {@link #glTexCoord1i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7654,7 +7667,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1d(double)}.
+	 * Pointer version of {@link #glTexCoord1d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7679,7 +7692,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord2f ] ---
 
-	/** JNI method for {@link #glTexCoord2f(float, float)} */
+	/** JNI method for {@link #glTexCoord2f} */
 	public static native void nglTexCoord2f(float s, float t, long __functionAddress);
 
 	/**
@@ -7699,13 +7712,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord2s ] ---
 
-	/** JNI method for {@link #glTexCoord2s(short, short)} */
+	/** JNI method for {@link #glTexCoord2s} */
 	public static native void nglTexCoord2s(short s, short t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord2f(float, float)}.
+	 * Short version of {@link #glTexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7719,13 +7732,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord2i ] ---
 
-	/** JNI method for {@link #glTexCoord2i(int, int)} */
+	/** JNI method for {@link #glTexCoord2i} */
 	public static native void nglTexCoord2i(int s, int t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord2f(float, float)}.
+	 * Integer version of {@link #glTexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7739,13 +7752,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord2d ] ---
 
-	/** JNI method for {@link #glTexCoord2d(double, double)} */
+	/** JNI method for {@link #glTexCoord2d} */
 	public static native void nglTexCoord2d(double s, double t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord2f(float, float)}.
+	 * Double version of {@link #glTexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7765,7 +7778,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2f(float, float)}.
+	 * Pointer version of {@link #glTexCoord2f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7796,7 +7809,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2s(short, short)}.
+	 * Pointer version of {@link #glTexCoord2s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7827,7 +7840,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2i(int, int)}.
+	 * Pointer version of {@link #glTexCoord2i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7858,7 +7871,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2d(double, double)}.
+	 * Pointer version of {@link #glTexCoord2d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -7883,7 +7896,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord3f ] ---
 
-	/** JNI method for {@link #glTexCoord3f(float, float, float)} */
+	/** JNI method for {@link #glTexCoord3f} */
 	public static native void nglTexCoord3f(float s, float t, float r, long __functionAddress);
 
 	/**
@@ -7904,13 +7917,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord3s ] ---
 
-	/** JNI method for {@link #glTexCoord3s(short, short, short)} */
+	/** JNI method for {@link #glTexCoord3s} */
 	public static native void nglTexCoord3s(short s, short t, short r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord3f(float, float, float)}.
+	 * Short version of {@link #glTexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7925,13 +7938,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord3i ] ---
 
-	/** JNI method for {@link #glTexCoord3i(int, int, int)} */
+	/** JNI method for {@link #glTexCoord3i} */
 	public static native void nglTexCoord3i(int s, int t, int r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord3f(float, float, float)}.
+	 * Integer version of {@link #glTexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7946,13 +7959,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord3d ] ---
 
-	/** JNI method for {@link #glTexCoord3d(double, double, double)} */
+	/** JNI method for {@link #glTexCoord3d} */
 	public static native void nglTexCoord3d(double s, double t, double r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord3f(float, float, float)}.
+	 * Double version of {@link #glTexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -7973,7 +7986,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3f(float, float, float)}.
+	 * Pointer version of {@link #glTexCoord3f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8004,7 +8017,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3s(short, short, short)}.
+	 * Pointer version of {@link #glTexCoord3s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8035,7 +8048,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3i(int, int, int)}.
+	 * Pointer version of {@link #glTexCoord3i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8066,7 +8079,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3d(double, double, double)}.
+	 * Pointer version of {@link #glTexCoord3d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8091,7 +8104,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord4f ] ---
 
-	/** JNI method for {@link #glTexCoord4f(float, float, float, float)} */
+	/** JNI method for {@link #glTexCoord4f} */
 	public static native void nglTexCoord4f(float s, float t, float r, float q, long __functionAddress);
 
 	/**
@@ -8113,13 +8126,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord4s ] ---
 
-	/** JNI method for {@link #glTexCoord4s(short, short, short, short)} */
+	/** JNI method for {@link #glTexCoord4s} */
 	public static native void nglTexCoord4s(short s, short t, short r, short q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord4f(float, float, float, float)}.
+	 * Short version of {@link #glTexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -8135,13 +8148,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord4i ] ---
 
-	/** JNI method for {@link #glTexCoord4i(int, int, int, int)} */
+	/** JNI method for {@link #glTexCoord4i} */
 	public static native void nglTexCoord4i(int s, int t, int r, int q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord4f(float, float, float, float)}.
+	 * Integer version of {@link #glTexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -8157,13 +8170,13 @@ public final class GL11 {
 
 	// --- [ glTexCoord4d ] ---
 
-	/** JNI method for {@link #glTexCoord4d(double, double, double, double)} */
+	/** JNI method for {@link #glTexCoord4d} */
 	public static native void nglTexCoord4d(double s, double t, double r, double q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord4f(float, float, float, float)}.
+	 * Double version of {@link #glTexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -8185,7 +8198,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4f(float, float, float, float)}.
+	 * Pointer version of {@link #glTexCoord4f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8216,7 +8229,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4s(short, short, short, short)}.
+	 * Pointer version of {@link #glTexCoord4s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8247,7 +8260,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4i(int, int, int, int)}.
+	 * Pointer version of {@link #glTexCoord4i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8278,7 +8291,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4d(double, double, double, double)}.
+	 * Pointer version of {@link #glTexCoord4d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
@@ -8303,7 +8316,7 @@ public final class GL11 {
 
 	// --- [ glTexCoordPointer ] ---
 
-	/** JNI method for {@link #glTexCoordPointer(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexCoordPointer} */
 	public static native void nglTexCoordPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -8325,7 +8338,7 @@ public final class GL11 {
 		nglTexCoordPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexCoordPointer(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glTexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8335,7 +8348,7 @@ public final class GL11 {
 		nglTexCoordPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glTexCoordPointer(int, int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glTexCoordPointer} */
 	public static void glTexCoordPointer(int size, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glTexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8347,7 +8360,7 @@ public final class GL11 {
 
 	// --- [ glTexEnvi ] ---
 
-	/** JNI method for {@link #glTexEnvi(int, int, int)} */
+	/** JNI method for {@link #glTexEnvi} */
 	public static native void nglTexEnvi(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -8375,7 +8388,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexEnvi(int, int, int)}.
+	 * Pointer version of {@link #glTexEnvi}.
 	 *
 	 * @param target the texture environment target. Must be:<p/>{@link #GL_TEXTURE_ENV}
 	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_TEXTURE_ENV_COLOR}
@@ -8402,13 +8415,13 @@ public final class GL11 {
 
 	// --- [ glTexEnvf ] ---
 
-	/** JNI method for {@link #glTexEnvf(int, int, float)} */
+	/** JNI method for {@link #glTexEnvf} */
 	public static native void nglTexEnvf(int target, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnvf.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glTexEnvi(int, int, int)}.
+	 * Float version of {@link #glTexEnvi}.
 	 *
 	 * @param target the texture environment target
 	 * @param pname  the parameter to set
@@ -8429,7 +8442,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexEnvf(int, int, float)}.
+	 * Pointer version of {@link #glTexEnvf}.
 	 *
 	 * @param target the texture environment target. Must be:<p/>{@link #GL_TEXTURE_ENV}
 	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_TEXTURE_ENV_COLOR}
@@ -8456,7 +8469,7 @@ public final class GL11 {
 
 	// --- [ glTexGeni ] ---
 
-	/** JNI method for {@link #glTexGeni(int, int, int)} */
+	/** JNI method for {@link #glTexGeni} */
 	public static native void nglTexGeni(int coord, int pname, int param, long __functionAddress);
 
 	/**
@@ -8464,7 +8477,7 @@ public final class GL11 {
 	 * <p/>
 	 * Sets an integer texture coordinate generation parameter.
 	 * <p/>
-	 * A texture coordinate generation function is enabled or disabled using {@link #glEnable(int)} and {@link #glDisable(int)} with an argument of
+	 * A texture coordinate generation function is enabled or disabled using {@link #glEnable} and {@link #glDisable} with an argument of
 	 * {@link #GL_TEXTURE_GEN_S}, {@link #GL_TEXTURE_GEN_T}, {@link #GL_TEXTURE_GEN_R}, or {@link #GL_TEXTURE_GEN_Q} (each indicates the corresponding texture
 	 * coordinate). When enabled, the specified texture coordinate is computed according to the current {@link #GL_EYE_LINEAR}, {@link #GL_OBJECT_LINEAR} or
 	 * {@link #GL_SPHERE_MAP} specification, depending on the current setting of {@link #GL_TEXTURE_GEN_MODE} for that coordinate. When disabled, subsequent
@@ -8491,7 +8504,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGeni(int, int, int)}.
+	 * Pointer version of {@link #glTexGeni}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_OBJECT_PLANE}, {@link #GL_EYE_PLANE}
@@ -8518,13 +8531,13 @@ public final class GL11 {
 
 	// --- [ glTexGenf ] ---
 
-	/** JNI method for {@link #glTexGenf(int, int, float)} */
+	/** JNI method for {@link #glTexGenf} */
 	public static native void nglTexGenf(int coord, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGenf.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glTexGeni(int, int, int)}.
+	 * Float version of {@link #glTexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
@@ -8545,7 +8558,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGenf(int, int, float)}.
+	 * Pointer version of {@link #glTexGenf}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_OBJECT_PLANE}, {@link #GL_EYE_PLANE}
@@ -8572,13 +8585,13 @@ public final class GL11 {
 
 	// --- [ glTexGend ] ---
 
-	/** JNI method for {@link #glTexGend(int, int, double)} */
+	/** JNI method for {@link #glTexGend} */
 	public static native void nglTexGend(int coord, int pname, double param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGend.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTexGeni(int, int, int)}.
+	 * Double version of {@link #glTexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
@@ -8599,7 +8612,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGend(int, int, double)}.
+	 * Pointer version of {@link #glTexGend}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set
@@ -8626,7 +8639,7 @@ public final class GL11 {
 
 	// --- [ glTexImage2D ] ---
 
-	/** JNI method for {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexImage2D} */
 	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -8653,7 +8666,7 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8663,7 +8676,7 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8673,7 +8686,7 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8683,7 +8696,7 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8693,7 +8706,7 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8705,13 +8718,13 @@ public final class GL11 {
 
 	// --- [ glTexImage1D ] ---
 
-	/** JNI method for {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexImage1D} */
 	public static native void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * One-dimensional version of {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)}}.
+	 * One-dimensional version of {@link #glTexImage2D}}.
 	 *
 	 * @param target         the texture target. One of:<p/>{@link #GL_TEXTURE_1D}, {@link #GL_PROXY_TEXTURE_1D}
 	 * @param level          the level-of-detail number
@@ -8731,7 +8744,7 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8741,7 +8754,7 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8751,7 +8764,7 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8761,7 +8774,7 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8771,7 +8784,7 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -8783,31 +8796,31 @@ public final class GL11 {
 
 	// --- [ glCopyTexImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexImage2D(int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyTexImage2D} */
 	public static native void nglCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage2D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)}, except that the image data are taken from the framebuffer rather
+	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory.
 	 * <p/>
-	 * {@code x}, {@code y}, {@code width}, and {@code height} correspond precisely to the corresponding arguments to {@link #glReadPixels(int, int, int, int, int, int, ByteBuffer)}; they specify the
+	 * {@code x}, {@code y}, {@code width}, and {@code height} correspond precisely to the corresponding arguments to {@link #glReadPixels}; they specify the
 	 * image's width and height, and the lower left (x, y) coordinates of the framebuffer region to be copied.
 	 * <p/>
-	 * The image is taken from the framebuffer exactly as if these arguments were passed to {@link #glCopyPixels(int, int, int, int, int)} with argument type set to {@link #GL_COLOR},
+	 * The image is taken from the framebuffer exactly as if these arguments were passed to {@link #glCopyPixels} with argument type set to {@link #GL_COLOR},
 	 * {@link #GL_DEPTH}, or {@link GL30#GL_DEPTH_STENCIL}, depending on {@code internalformat}. RGBA data is taken from the current color buffer, while depth
 	 * component and stencil index data are taken from the depth and stencil buffers, respectively.
 	 * <p/>
-	 * Subsequent processing is identical to that described for {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)}, beginning with clamping of the R, G, B, A, or depth values, and masking
+	 * Subsequent processing is identical to that described for {@link #glTexImage2D}, beginning with clamping of the R, G, B, A, or depth values, and masking
 	 * of the stencil index values from the resulting pixel groups. Parameters {@code level}, {@code internalformat}, and {@code border} are specified using
-	 * the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)}.
+	 * the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage2D}.
 	 * <p/>
-	 * The constraints on width, height, and border are exactly those for the corresponding arguments of {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)}.
+	 * The constraints on width, height, and border are exactly those for the corresponding arguments of {@link #glTexImage2D}.
 	 *
 	 * @param target         the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP}
 	 * @param level          the level-of-detail number
-	 * @param internalFormat the texture internal format. See {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} for a list of supported formats.
+	 * @param internalFormat the texture internal format. See {@link #glTexImage2D} for a list of supported formats.
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the texture width
@@ -8823,21 +8836,21 @@ public final class GL11 {
 
 	// --- [ glCopyTexImage1D ] ---
 
-	/** JNI method for {@link #glCopyTexImage1D(int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyTexImage1D} */
 	public static native void nglCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)}, except that the image data are taken from the framebuffer rather
-	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D(int, int, int, int, int, int, int, int)}
+	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D}, except that the image data are taken from the framebuffer rather
+	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D}
 	 * with corresponding arguments and height of 1, except that the height of the image is always 1, regardless of the value of border. level, internalformat,
-	 * and border are specified using the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)}. The constraints on
-	 * width and border are exactly those of the corresponding arguments of {@link #glTexImage1D(int, int, int, int, int, int, int, ByteBuffer)}.
+	 * and border are specified using the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage1D}. The constraints on
+	 * width and border are exactly those of the corresponding arguments of {@link #glTexImage1D}.
 	 *
 	 * @param target         the texture target. Must be:<p/>{@link #GL_TEXTURE_1D}
 	 * @param level          the level-of-detail number
-	 * @param internalFormat the texture internal format. See {@link #glTexImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} for a list of supported formats.
+	 * @param internalFormat the texture internal format. See {@link #glTexImage2D} for a list of supported formats.
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the texture width
@@ -8852,14 +8865,14 @@ public final class GL11 {
 
 	// --- [ glCopyTexSubImage1D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage1D(int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyTexSubImage1D} */
 	public static native void nglCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexSubImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width} or {@code border}
-	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D(int, int, int, int, int, int, int)} for more
+	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D} for more
 	 * details.
 	 *
 	 * @param target  the texture target. Must be:<p/>{@link #GL_TEXTURE_1D}
@@ -8878,7 +8891,7 @@ public final class GL11 {
 
 	// --- [ glCopyTexSubImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage2D(int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyTexSubImage2D} */
 	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -8886,7 +8899,7 @@ public final class GL11 {
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width}, {@code height},
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
-	 * {@link #glCopyTexImage2D(int, int, int, int, int, int, int, int)} for more details.
+	 * {@link #glCopyTexImage2D} for more details.
 	 *
 	 * @param target  the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP}
 	 * @param level   the level-of-detail number
@@ -8906,7 +8919,7 @@ public final class GL11 {
 
 	// --- [ glTexParameteri ] ---
 
-	/** JNI method for {@link #glTexParameteri(int, int, int)} */
+	/** JNI method for {@link #glTexParameteri} */
 	public static native void nglTexParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -8933,7 +8946,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexParameteri(int, int, int)}.
+	 * Pointer version of {@link #glTexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
@@ -8960,13 +8973,13 @@ public final class GL11 {
 
 	// --- [ glTexParameterf ] ---
 
-	/** JNI method for {@link #glTexParameterf(int, int, float)} */
+	/** JNI method for {@link #glTexParameterf} */
 	public static native void nglTexParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameterf.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glTexParameteri(int, int, int)}.
+	 * Float version of {@link #glTexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
@@ -8987,7 +9000,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexParameterf(int, int, float)}.
+	 * Pointer version of {@link #glTexParameterf}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
@@ -9014,7 +9027,7 @@ public final class GL11 {
 
 	// --- [ glTexSubImage1D ] ---
 
-	/** JNI method for {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexSubImage1D} */
 	public static native void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -9039,7 +9052,7 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9049,7 +9062,7 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9059,7 +9072,7 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9069,7 +9082,7 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9079,7 +9092,7 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage1D(int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9091,7 +9104,7 @@ public final class GL11 {
 
 	// --- [ glTexSubImage2D ] ---
 
-	/** JNI method for {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexSubImage2D} */
 	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -9119,7 +9132,7 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9129,7 +9142,7 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9139,7 +9152,7 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9149,7 +9162,7 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9159,7 +9172,7 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage2D(int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9171,7 +9184,7 @@ public final class GL11 {
 
 	// --- [ glTranslatef ] ---
 
-	/** JNI method for {@link #glTranslatef(float, float, float)} */
+	/** JNI method for {@link #glTranslatef} */
 	public static native void nglTranslatef(float x, float y, float z, long __functionAddress);
 
 	/**
@@ -9179,7 +9192,7 @@ public final class GL11 {
 	 * <p/>
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf(ByteBuffer)} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
 	 * <table border="1" cellspacing="0" cellpadding="2">
 	 * 	<tr align="center"><td>1</td><td>0</td><td>0</td><td>x</td></tr>
 	 * 	<tr align="center"><td>0</td><td>1</td><td>0</td><td>y</td></tr>
@@ -9200,13 +9213,13 @@ public final class GL11 {
 
 	// --- [ glTranslated ] ---
 
-	/** JNI method for {@link #glTranslated(double, double, double)} */
+	/** JNI method for {@link #glTranslated} */
 	public static native void nglTranslated(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTranslated.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glTranslatef(float, float, float)}.
+	 * Double version of {@link #glTranslatef}.
 	 *
 	 * @param x the x-axis translation
 	 * @param y the y-axis translation
@@ -9221,13 +9234,13 @@ public final class GL11 {
 
 	// --- [ glVertex2f ] ---
 
-	/** JNI method for {@link #glVertex2f(float, float)} */
+	/** JNI method for {@link #glVertex2f} */
 	public static native void nglVertex2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin(int)} and {@link #glEnd()} by giving its coordinates in two dimensions. The z coordinate is implicitly set
+	 * Specifies a single vertex between {@link #glBegin} and {@link #glEnd} by giving its coordinates in two dimensions. The z coordinate is implicitly set
 	 * to zero and the w coordinate to one.
 	 *
 	 * @param x the vertex x coordinate
@@ -9242,13 +9255,13 @@ public final class GL11 {
 
 	// --- [ glVertex2s ] ---
 
-	/** JNI method for {@link #glVertex2s(short, short)} */
+	/** JNI method for {@link #glVertex2s} */
 	public static native void nglVertex2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glVertex2f(float, float)}.
+	 * Short version of {@link #glVertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9262,13 +9275,13 @@ public final class GL11 {
 
 	// --- [ glVertex2i ] ---
 
-	/** JNI method for {@link #glVertex2i(int, int)} */
+	/** JNI method for {@link #glVertex2i} */
 	public static native void nglVertex2i(int x, int y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex2f(float, float)}.
+	 * Integer version of {@link #glVertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9282,13 +9295,13 @@ public final class GL11 {
 
 	// --- [ glVertex2d ] ---
 
-	/** JNI method for {@link #glVertex2d(double, double)} */
+	/** JNI method for {@link #glVertex2d} */
 	public static native void nglVertex2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glVertex2f(float, float)}.
+	 * Double version of {@link #glVertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9308,7 +9321,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2f(float, float)}.
+	 * Pointer version of {@link #glVertex2f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9339,7 +9352,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2s(short, short)}.
+	 * Pointer version of {@link #glVertex2s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9370,7 +9383,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2i(int, int)}.
+	 * Pointer version of {@link #glVertex2i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9401,7 +9414,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2d(double, double)}.
+	 * Pointer version of {@link #glVertex2d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9426,13 +9439,13 @@ public final class GL11 {
 
 	// --- [ glVertex3f ] ---
 
-	/** JNI method for {@link #glVertex3f(float, float, float)} */
+	/** JNI method for {@link #glVertex3f} */
 	public static native void nglVertex3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin(int)} and {@link #glEnd()} by giving its coordinates in three dimensions. The w coordinate is implicitly set
+	 * Specifies a single vertex between {@link #glBegin} and {@link #glEnd} by giving its coordinates in three dimensions. The w coordinate is implicitly set
 	 * to one.
 	 *
 	 * @param x the vertex x coordinate
@@ -9448,13 +9461,13 @@ public final class GL11 {
 
 	// --- [ glVertex3s ] ---
 
-	/** JNI method for {@link #glVertex3s(short, short, short)} */
+	/** JNI method for {@link #glVertex3s} */
 	public static native void nglVertex3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glVertex3f(float, float, float)}.
+	 * Short version of {@link #glVertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9469,13 +9482,13 @@ public final class GL11 {
 
 	// --- [ glVertex3i ] ---
 
-	/** JNI method for {@link #glVertex3i(int, int, int)} */
+	/** JNI method for {@link #glVertex3i} */
 	public static native void nglVertex3i(int x, int y, int z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex3f(float, float, float)}.
+	 * Integer version of {@link #glVertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9490,13 +9503,13 @@ public final class GL11 {
 
 	// --- [ glVertex3d ] ---
 
-	/** JNI method for {@link #glVertex3d(double, double, double)} */
+	/** JNI method for {@link #glVertex3d} */
 	public static native void nglVertex3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glVertex3f(float, float, float)}.
+	 * Double version of {@link #glVertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9517,7 +9530,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3f(float, float, float)}.
+	 * Pointer version of {@link #glVertex3f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9548,7 +9561,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3s(short, short, short)}.
+	 * Pointer version of {@link #glVertex3s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9579,7 +9592,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3i(int, int, int)}.
+	 * Pointer version of {@link #glVertex3i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9610,7 +9623,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3d(double, double, double)}.
+	 * Pointer version of {@link #glVertex3d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9635,13 +9648,13 @@ public final class GL11 {
 
 	// --- [ glVertex4f ] ---
 
-	/** JNI method for {@link #glVertex4f(float, float, float, float)} */
+	/** JNI method for {@link #glVertex4f} */
 	public static native void nglVertex4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin(int)} and {@link #glEnd()} by giving its coordinates in four dimensions.
+	 * Specifies a single vertex between {@link #glBegin} and {@link #glEnd} by giving its coordinates in four dimensions.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9657,13 +9670,13 @@ public final class GL11 {
 
 	// --- [ glVertex4s ] ---
 
-	/** JNI method for {@link #glVertex4s(short, short, short, short)} */
+	/** JNI method for {@link #glVertex4s} */
 	public static native void nglVertex4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glVertex4f(float, float, float, float)}.
+	 * Short version of {@link #glVertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9679,13 +9692,13 @@ public final class GL11 {
 
 	// --- [ glVertex4i ] ---
 
-	/** JNI method for {@link #glVertex4i(int, int, int, int)} */
+	/** JNI method for {@link #glVertex4i} */
 	public static native void nglVertex4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex4f(float, float, float, float)}.
+	 * Integer version of {@link #glVertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9701,13 +9714,13 @@ public final class GL11 {
 
 	// --- [ glVertex4d ] ---
 
-	/** JNI method for {@link #glVertex4d(double, double, double, double)} */
+	/** JNI method for {@link #glVertex4d} */
 	public static native void nglVertex4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glVertex4f(float, float, float, float)}.
+	 * Double version of {@link #glVertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -9729,7 +9742,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4f(float, float, float, float)}.
+	 * Pointer version of {@link #glVertex4f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9760,7 +9773,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4s(short, short, short, short)}.
+	 * Pointer version of {@link #glVertex4s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9791,7 +9804,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4i(int, int, int, int)}.
+	 * Pointer version of {@link #glVertex4i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9822,7 +9835,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4d(double, double, double, double)}.
+	 * Pointer version of {@link #glVertex4d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
@@ -9847,7 +9860,7 @@ public final class GL11 {
 
 	// --- [ glVertexPointer ] ---
 
-	/** JNI method for {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glVertexPointer} */
 	public static native void nglVertexPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -9869,7 +9882,7 @@ public final class GL11 {
 		nglVertexPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glVertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9879,7 +9892,7 @@ public final class GL11 {
 		nglVertexPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_SHORT version of: {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** GL_SHORT version of: {@link #glVertexPointer} */
 	public static void glVertexPointer(int size, int stride, ShortBuffer pointer) {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9889,7 +9902,7 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_INT version of: {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** GL_INT version of: {@link #glVertexPointer} */
 	public static void glVertexPointer(int size, int stride, IntBuffer pointer) {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9899,7 +9912,7 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_INT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glVertexPointer} */
 	public static void glVertexPointer(int size, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9909,7 +9922,7 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexPointer(int, int, int, ByteBuffer)} */
+	/** GL_DOUBLE version of: {@link #glVertexPointer} */
 	public static void glVertexPointer(int size, int stride, DoubleBuffer pointer) {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -9921,7 +9934,7 @@ public final class GL11 {
 
 	// --- [ glViewport ] ---
 
-	/** JNI method for {@link #glViewport(int, int, int, int)} */
+	/** JNI method for {@link #glViewport} */
 	public static native void nglViewport(int x, int y, int w, int h, long __functionAddress);
 
 	/**

@@ -98,7 +98,7 @@ public final class GL41 {
 
 	// --- [ glShaderBinary ] ---
 
-	/** JNI method for {@link #glShaderBinary(int, ByteBuffer, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glShaderBinary} */
 	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length, long __functionAddress);
 
 	/**
@@ -122,7 +122,7 @@ public final class GL41 {
 		nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glShaderBinary(int, ByteBuffer, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glShaderBinary} */
 	public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
 		long __functionAddress = getInstance().glShaderBinary;
 		if ( LWJGLUtil.CHECKS )
@@ -132,7 +132,7 @@ public final class GL41 {
 
 	// --- [ glGetShaderPrecisionFormat ] ---
 
-	/** JNI method for {@link #glGetShaderPrecisionFormat(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetShaderPrecisionFormat} */
 	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision, long __functionAddress);
 
 	/**
@@ -155,7 +155,7 @@ public final class GL41 {
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetShaderPrecisionFormat(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
 		long __functionAddress = getInstance().glGetShaderPrecisionFormat;
 		if ( LWJGLUtil.CHECKS ) {
@@ -166,7 +166,7 @@ public final class GL41 {
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetShaderPrecisionFormat(int, int, ByteBuffer, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetShaderPrecisionFormat} */
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
 		long __functionAddress = getInstance().glGetShaderPrecisionFormat;
 		if ( LWJGLUtil.CHECKS ) {
@@ -181,7 +181,7 @@ public final class GL41 {
 
 	// --- [ glDepthRangef ] ---
 
-	/** JNI method for {@link #glDepthRangef(float, float)} */
+	/** JNI method for {@link #glDepthRangef} */
 	public static native void nglDepthRangef(float zNear, float zFar, long __functionAddress);
 
 	/**
@@ -201,7 +201,7 @@ public final class GL41 {
 
 	// --- [ glClearDepthf ] ---
 
-	/** JNI method for {@link #glClearDepthf(float)} */
+	/** JNI method for {@link #glClearDepthf} */
 	public static native void nglClearDepthf(float depth, long __functionAddress);
 
 	/**
@@ -220,7 +220,7 @@ public final class GL41 {
 
 	// --- [ glGetProgramBinary ] ---
 
-	/** JNI method for {@link #glGetProgramBinary(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramBinary} */
 	public static native void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary, long __functionAddress);
 
 	/**
@@ -245,7 +245,7 @@ public final class GL41 {
 		nglGetProgramBinary(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetProgramBinary(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetProgramBinary} */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		long __functionAddress = getInstance().glGetProgramBinary;
 		if ( LWJGLUtil.CHECKS ) {
@@ -256,7 +256,7 @@ public final class GL41 {
 		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary), __functionAddress);
 	}
 
-	/** Buffer return version of: {@link #glGetProgramBinary(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Buffer return version of: {@link #glGetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, int bufSize, IntBuffer binaryFormat) {
 		long __functionAddress = getInstance().glGetProgramBinary;
 		if ( LWJGLUtil.CHECKS ) {
@@ -270,7 +270,7 @@ public final class GL41 {
 		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
 	}
 
-	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
 		long __functionAddress = getInstance().glGetProgramBinary;
 		if ( LWJGLUtil.CHECKS ) {
@@ -287,7 +287,7 @@ public final class GL41 {
 
 	// --- [ glProgramBinary ] ---
 
-	/** JNI method for {@link #glProgramBinary(int, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glProgramBinary} */
 	public static native void nglProgramBinary(int program, int binaryFormat, long binary, int length, long __functionAddress);
 
 	/**
@@ -309,7 +309,7 @@ public final class GL41 {
 		nglProgramBinary(program, binaryFormat, memAddress(binary), length, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glProgramBinary(int, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glProgramBinary} */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
 		long __functionAddress = getInstance().glProgramBinary;
 		if ( LWJGLUtil.CHECKS )
@@ -319,7 +319,7 @@ public final class GL41 {
 
 	// --- [ glProgramParameteri ] ---
 
-	/** JNI method for {@link #glProgramParameteri(int, int, int)} */
+	/** JNI method for {@link #glProgramParameteri} */
 	public static native void nglProgramParameteri(int program, int pname, int value, long __functionAddress);
 
 	/**
@@ -340,7 +340,7 @@ public final class GL41 {
 
 	// --- [ glUseProgramStages ] ---
 
-	/** JNI method for {@link #glUseProgramStages(int, int, int)} */
+	/** JNI method for {@link #glUseProgramStages} */
 	public static native void nglUseProgramStages(int pipeline, int stages, int program, long __functionAddress);
 
 	/**
@@ -361,7 +361,7 @@ public final class GL41 {
 
 	// --- [ glActiveShaderProgram ] ---
 
-	/** JNI method for {@link #glActiveShaderProgram(int, int)} */
+	/** JNI method for {@link #glActiveShaderProgram} */
 	public static native void nglActiveShaderProgram(int pipeline, int program, long __functionAddress);
 
 	/**
@@ -442,7 +442,7 @@ public final class GL41 {
 		int stringsAddress = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i])));
+			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
 		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress, __functionAddress);
 	}
 
@@ -453,14 +453,14 @@ public final class GL41 {
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int stringsAddress = __buffer.pointerParam();
-		ByteBuffer stringsBuffer = memEncodeUTF8(string);
-		__buffer.pointerValue(stringsAddress, memAddress(stringsBuffer));
+		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
+		__buffer.pointerValue(stringsAddress, memAddress(stringBuffers));
 		return nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress, __functionAddress);
 	}
 
 	// --- [ glBindProgramPipeline ] ---
 
-	/** JNI method for {@link #glBindProgramPipeline(int)} */
+	/** JNI method for {@link #glBindProgramPipeline} */
 	public static native void nglBindProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
@@ -479,7 +479,7 @@ public final class GL41 {
 
 	// --- [ glDeleteProgramPipelines ] ---
 
-	/** JNI method for {@link #glDeleteProgramPipelines(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteProgramPipelines} */
 	public static native void nglDeleteProgramPipelines(int n, long pipelines, long __functionAddress);
 
 	/**
@@ -499,7 +499,7 @@ public final class GL41 {
 		nglDeleteProgramPipelines(n, memAddress(pipelines), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteProgramPipelines(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteProgramPipelines} */
 	public static void glDeleteProgramPipelines(IntBuffer pipelines) {
 		long __functionAddress = getInstance().glDeleteProgramPipelines;
 		if ( LWJGLUtil.CHECKS )
@@ -507,7 +507,7 @@ public final class GL41 {
 		nglDeleteProgramPipelines(pipelines.remaining(), memAddress(pipelines), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteProgramPipelines(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteProgramPipelines} */
 	public static void glDeleteProgramPipelines(int pipeline) {
 		long __functionAddress = getInstance().glDeleteProgramPipelines;
 		if ( LWJGLUtil.CHECKS )
@@ -520,7 +520,7 @@ public final class GL41 {
 
 	// --- [ glGenProgramPipelines ] ---
 
-	/** JNI method for {@link #glGenProgramPipelines(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenProgramPipelines} */
 	public static native void nglGenProgramPipelines(int n, long pipelines, long __functionAddress);
 
 	/**
@@ -540,7 +540,7 @@ public final class GL41 {
 		nglGenProgramPipelines(n, memAddress(pipelines), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenProgramPipelines(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenProgramPipelines} */
 	public static void glGenProgramPipelines(IntBuffer pipelines) {
 		long __functionAddress = getInstance().glGenProgramPipelines;
 		if ( LWJGLUtil.CHECKS )
@@ -548,7 +548,7 @@ public final class GL41 {
 		nglGenProgramPipelines(pipelines.remaining(), memAddress(pipelines), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenProgramPipelines(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenProgramPipelines} */
 	public static int glGenProgramPipelines() {
 		long __functionAddress = getInstance().glGenProgramPipelines;
 		if ( LWJGLUtil.CHECKS )
@@ -561,7 +561,7 @@ public final class GL41 {
 
 	// --- [ glIsProgramPipeline ] ---
 
-	/** JNI method for {@link #glIsProgramPipeline(int)} */
+	/** JNI method for {@link #glIsProgramPipeline} */
 	public static native boolean nglIsProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
@@ -624,7 +624,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform1i ] ---
 
-	/** JNI method for {@link #glProgramUniform1i(int, int, int)} */
+	/** JNI method for {@link #glProgramUniform1i} */
 	public static native void nglProgramUniform1i(int program, int location, int x, long __functionAddress);
 
 	/**
@@ -645,7 +645,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform2i ] ---
 
-	/** JNI method for {@link #glProgramUniform2i(int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform2i} */
 	public static native void nglProgramUniform2i(int program, int location, int x, int y, long __functionAddress);
 
 	/**
@@ -667,7 +667,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform3i ] ---
 
-	/** JNI method for {@link #glProgramUniform3i(int, int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform3i} */
 	public static native void nglProgramUniform3i(int program, int location, int x, int y, int z, long __functionAddress);
 
 	/**
@@ -690,7 +690,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform4i ] ---
 
-	/** JNI method for {@link #glProgramUniform4i(int, int, int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform4i} */
 	public static native void nglProgramUniform4i(int program, int location, int x, int y, int z, int w, long __functionAddress);
 
 	/**
@@ -714,7 +714,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform1ui ] ---
 
-	/** JNI method for {@link #glProgramUniform1ui(int, int, int)} */
+	/** JNI method for {@link #glProgramUniform1ui} */
 	public static native void nglProgramUniform1ui(int program, int location, int x, long __functionAddress);
 
 	/**
@@ -735,7 +735,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform2ui ] ---
 
-	/** JNI method for {@link #glProgramUniform2ui(int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform2ui} */
 	public static native void nglProgramUniform2ui(int program, int location, int x, int y, long __functionAddress);
 
 	/**
@@ -757,7 +757,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform3ui ] ---
 
-	/** JNI method for {@link #glProgramUniform3ui(int, int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform3ui} */
 	public static native void nglProgramUniform3ui(int program, int location, int x, int y, int z, long __functionAddress);
 
 	/**
@@ -780,7 +780,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform4ui ] ---
 
-	/** JNI method for {@link #glProgramUniform4ui(int, int, int, int, int, int)} */
+	/** JNI method for {@link #glProgramUniform4ui} */
 	public static native void nglProgramUniform4ui(int program, int location, int x, int y, int z, int w, long __functionAddress);
 
 	/**
@@ -804,7 +804,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform1f ] ---
 
-	/** JNI method for {@link #glProgramUniform1f(int, int, float)} */
+	/** JNI method for {@link #glProgramUniform1f} */
 	public static native void nglProgramUniform1f(int program, int location, float x, long __functionAddress);
 
 	/**
@@ -825,7 +825,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform2f ] ---
 
-	/** JNI method for {@link #glProgramUniform2f(int, int, float, float)} */
+	/** JNI method for {@link #glProgramUniform2f} */
 	public static native void nglProgramUniform2f(int program, int location, float x, float y, long __functionAddress);
 
 	/**
@@ -847,7 +847,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform3f ] ---
 
-	/** JNI method for {@link #glProgramUniform3f(int, int, float, float, float)} */
+	/** JNI method for {@link #glProgramUniform3f} */
 	public static native void nglProgramUniform3f(int program, int location, float x, float y, float z, long __functionAddress);
 
 	/**
@@ -870,7 +870,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform4f ] ---
 
-	/** JNI method for {@link #glProgramUniform4f(int, int, float, float, float, float)} */
+	/** JNI method for {@link #glProgramUniform4f} */
 	public static native void nglProgramUniform4f(int program, int location, float x, float y, float z, float w, long __functionAddress);
 
 	/**
@@ -894,7 +894,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform1d ] ---
 
-	/** JNI method for {@link #glProgramUniform1d(int, int, double)} */
+	/** JNI method for {@link #glProgramUniform1d} */
 	public static native void nglProgramUniform1d(int program, int location, double x, long __functionAddress);
 
 	/**
@@ -915,7 +915,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform2d ] ---
 
-	/** JNI method for {@link #glProgramUniform2d(int, int, double, double)} */
+	/** JNI method for {@link #glProgramUniform2d} */
 	public static native void nglProgramUniform2d(int program, int location, double x, double y, long __functionAddress);
 
 	/**
@@ -937,7 +937,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform3d ] ---
 
-	/** JNI method for {@link #glProgramUniform3d(int, int, double, double, double)} */
+	/** JNI method for {@link #glProgramUniform3d} */
 	public static native void nglProgramUniform3d(int program, int location, double x, double y, double z, long __functionAddress);
 
 	/**
@@ -960,7 +960,7 @@ public final class GL41 {
 
 	// --- [ glProgramUniform4d ] ---
 
-	/** JNI method for {@link #glProgramUniform4d(int, int, double, double, double, double)} */
+	/** JNI method for {@link #glProgramUniform4d} */
 	public static native void nglProgramUniform4d(int program, int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
@@ -2090,7 +2090,7 @@ public final class GL41 {
 
 	// --- [ glValidateProgramPipeline ] ---
 
-	/** JNI method for {@link #glValidateProgramPipeline(int)} */
+	/** JNI method for {@link #glValidateProgramPipeline} */
 	public static native void nglValidateProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
@@ -2109,7 +2109,7 @@ public final class GL41 {
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
-	/** JNI method for {@link #glGetProgramPipelineInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramPipelineInfoLog} */
 	public static native void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog, long __functionAddress);
 
 	/**
@@ -2132,7 +2132,7 @@ public final class GL41 {
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetProgramPipelineInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetProgramPipelineInfoLog} */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, ByteBuffer infoLog) {
 		long __functionAddress = getInstance().glGetProgramPipelineInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2142,7 +2142,7 @@ public final class GL41 {
 		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramPipelineInfoLog(int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramPipelineInfoLog} */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, CharSequence infoLog) {
 		long __functionAddress = getInstance().glGetProgramPipelineInfoLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2154,7 +2154,7 @@ public final class GL41 {
 
 	// --- [ glVertexAttribL1d ] ---
 
-	/** JNI method for {@link #glVertexAttribL1d(int, double)} */
+	/** JNI method for {@link #glVertexAttribL1d} */
 	public static native void nglVertexAttribL1d(int index, double x, long __functionAddress);
 
 	/**
@@ -2174,7 +2174,7 @@ public final class GL41 {
 
 	// --- [ glVertexAttribL2d ] ---
 
-	/** JNI method for {@link #glVertexAttribL2d(int, double, double)} */
+	/** JNI method for {@link #glVertexAttribL2d} */
 	public static native void nglVertexAttribL2d(int index, double x, double y, long __functionAddress);
 
 	/**
@@ -2195,7 +2195,7 @@ public final class GL41 {
 
 	// --- [ glVertexAttribL3d ] ---
 
-	/** JNI method for {@link #glVertexAttribL3d(int, double, double, double)} */
+	/** JNI method for {@link #glVertexAttribL3d} */
 	public static native void nglVertexAttribL3d(int index, double x, double y, double z, long __functionAddress);
 
 	/**
@@ -2217,7 +2217,7 @@ public final class GL41 {
 
 	// --- [ glVertexAttribL4d ] ---
 
-	/** JNI method for {@link #glVertexAttribL4d(int, double, double, double, double)} */
+	/** JNI method for {@link #glVertexAttribL4d} */
 	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w, long __functionAddress);
 
 	/**
@@ -2246,7 +2246,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribL1d(int, double)}.
+	 * Pointer version of {@link #glVertexAttribL1d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2278,7 +2278,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribL2d(int, double, double)}.
+	 * Pointer version of {@link #glVertexAttribL2d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2310,7 +2310,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribL3d(int, double, double, double)}.
+	 * Pointer version of {@link #glVertexAttribL3d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2342,7 +2342,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribL4d(int, double, double, double, double)}.
+	 * Pointer version of {@link #glVertexAttribL4d}.
 	 *
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
@@ -2368,7 +2368,7 @@ public final class GL41 {
 
 	// --- [ glVertexAttribLPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribLPointer(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glVertexAttribLPointer} */
 	public static native void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -2393,7 +2393,7 @@ public final class GL41 {
 		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribLPointer(int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glVertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glVertexAttribLPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2403,7 +2403,7 @@ public final class GL41 {
 		nglVertexAttribLPointer(index, size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer(int, int, int, int, ByteBuffer)} */
+	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
 		long __functionAddress = getInstance().glVertexAttribLPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -2475,7 +2475,7 @@ public final class GL41 {
 
 	// --- [ glViewportIndexedf ] ---
 
-	/** JNI method for {@link #glViewportIndexedf(int, float, float, float, float)} */
+	/** JNI method for {@link #glViewportIndexedf} */
 	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h, long __functionAddress);
 
 	/**
@@ -2504,7 +2504,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewportIndexed.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glViewportIndexedf(int, float, float, float, float)}.
+	 * Pointer version of {@link #glViewportIndexedf}.
 	 *
 	 * @param index the viewport to set
 	 * @param v     the viewport parameters
@@ -2561,7 +2561,7 @@ public final class GL41 {
 
 	// --- [ glScissorIndexed ] ---
 
-	/** JNI method for {@link #glScissorIndexed(int, int, int, int, int)} */
+	/** JNI method for {@link #glScissorIndexed} */
 	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height, long __functionAddress);
 
 	/**
@@ -2590,7 +2590,7 @@ public final class GL41 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissorIndexed.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glScissorIndexed(int, int, int, int, int)}.
+	 * Pointer version of {@link #glScissorIndexed}.
 	 *
 	 * @param index the index of the viewport whose scissor box to modify
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
@@ -2647,7 +2647,7 @@ public final class GL41 {
 
 	// --- [ glDepthRangeIndexed ] ---
 
-	/** JNI method for {@link #glDepthRangeIndexed(int, double, double)} */
+	/** JNI method for {@link #glDepthRangeIndexed} */
 	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar, long __functionAddress);
 
 	/**

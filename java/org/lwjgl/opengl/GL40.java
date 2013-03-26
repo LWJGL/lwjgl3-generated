@@ -186,7 +186,7 @@ public final class GL40 {
 
 	// --- [ glBlendEquationi ] ---
 
-	/** JNI method for {@link #glBlendEquationi(int, int)} */
+	/** JNI method for {@link #glBlendEquationi} */
 	public static native void nglBlendEquationi(int buf, int mode, long __functionAddress);
 
 	/**
@@ -206,7 +206,7 @@ public final class GL40 {
 
 	// --- [ glBlendEquationSeparatei ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparatei(int, int, int)} */
+	/** JNI method for {@link #glBlendEquationSeparatei} */
 	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
@@ -227,7 +227,7 @@ public final class GL40 {
 
 	// --- [ glBlendFunci ] ---
 
-	/** JNI method for {@link #glBlendFunci(int, int, int)} */
+	/** JNI method for {@link #glBlendFunci} */
 	public static native void nglBlendFunci(int buf, int sfactor, int dfactor, long __functionAddress);
 
 	/**
@@ -248,7 +248,7 @@ public final class GL40 {
 
 	// --- [ glBlendFuncSeparatei ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparatei(int, int, int, int, int)} */
+	/** JNI method for {@link #glBlendFuncSeparatei} */
 	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
@@ -271,7 +271,7 @@ public final class GL40 {
 
 	// --- [ glDrawArraysIndirect ] ---
 
-	/** JNI method for {@link #glDrawArraysIndirect(int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawArraysIndirect} */
 	public static native void nglDrawArraysIndirect(int mode, long indirect, long __functionAddress);
 
 	/**
@@ -307,7 +307,7 @@ public final class GL40 {
 		nglDrawArraysIndirect(mode, memAddress(indirect), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawArraysIndirect(int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glDrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, long indirectOffset) {
 		long __functionAddress = getInstance().glDrawArraysIndirect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -317,7 +317,7 @@ public final class GL40 {
 		nglDrawArraysIndirect(mode, indirectOffset, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glDrawArraysIndirect(int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glDrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
 		long __functionAddress = getInstance().glDrawArraysIndirect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -330,7 +330,7 @@ public final class GL40 {
 
 	// --- [ glDrawElementsIndirect ] ---
 
-	/** JNI method for {@link #glDrawElementsIndirect(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawElementsIndirect} */
 	public static native void nglDrawElementsIndirect(int mode, int type, long indirect, long __functionAddress);
 
 	/**
@@ -380,7 +380,7 @@ public final class GL40 {
 		nglDrawElementsIndirect(mode, type, memAddress(indirect), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsIndirect(int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glDrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, long indirectOffset) {
 		long __functionAddress = getInstance().glDrawElementsIndirect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -390,7 +390,7 @@ public final class GL40 {
 		nglDrawElementsIndirect(mode, type, indirectOffset, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glDrawElementsIndirect(int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glDrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
 		long __functionAddress = getInstance().glDrawElementsIndirect;
 		if ( LWJGLUtil.CHECKS ) {
@@ -403,7 +403,7 @@ public final class GL40 {
 
 	// --- [ glUniform1d ] ---
 
-	/** JNI method for {@link #glUniform1d(int, double)} */
+	/** JNI method for {@link #glUniform1d} */
 	public static native void nglUniform1d(int location, double x, long __functionAddress);
 
 	/**
@@ -423,7 +423,7 @@ public final class GL40 {
 
 	// --- [ glUniform2d ] ---
 
-	/** JNI method for {@link #glUniform2d(int, double, double)} */
+	/** JNI method for {@link #glUniform2d} */
 	public static native void nglUniform2d(int location, double x, double y, long __functionAddress);
 
 	/**
@@ -444,7 +444,7 @@ public final class GL40 {
 
 	// --- [ glUniform3d ] ---
 
-	/** JNI method for {@link #glUniform3d(int, double, double, double)} */
+	/** JNI method for {@link #glUniform3d} */
 	public static native void nglUniform3d(int location, double x, double y, double z, long __functionAddress);
 
 	/**
@@ -466,7 +466,7 @@ public final class GL40 {
 
 	// --- [ glUniform4d ] ---
 
-	/** JNI method for {@link #glUniform4d(int, double, double, double, double)} */
+	/** JNI method for {@link #glUniform4d} */
 	public static native void nglUniform4d(int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
@@ -945,7 +945,7 @@ public final class GL40 {
 
 	// --- [ glMinSampleShading ] ---
 
-	/** JNI method for {@link #glMinSampleShading(float)} */
+	/** JNI method for {@link #glMinSampleShading} */
 	public static native void nglMinSampleShading(float value, long __functionAddress);
 
 	/**
@@ -964,7 +964,7 @@ public final class GL40 {
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
-	/** JNI method for {@link #glGetSubroutineUniformLocation(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetSubroutineUniformLocation} */
 	public static native int nglGetSubroutineUniformLocation(int program, int shadertype, long name, long __functionAddress);
 
 	/**
@@ -985,7 +985,7 @@ public final class GL40 {
 		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetSubroutineUniformLocation(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
 		long __functionAddress = getInstance().glGetSubroutineUniformLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -995,7 +995,7 @@ public final class GL40 {
 
 	// --- [ glGetSubroutineIndex ] ---
 
-	/** JNI method for {@link #glGetSubroutineIndex(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetSubroutineIndex} */
 	public static native int nglGetSubroutineIndex(int program, int shadertype, long name, long __functionAddress);
 
 	/**
@@ -1016,7 +1016,7 @@ public final class GL40 {
 		return nglGetSubroutineIndex(program, shadertype, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetSubroutineIndex(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
 		long __functionAddress = getInstance().glGetSubroutineIndex;
 		if ( LWJGLUtil.CHECKS )
@@ -1057,7 +1057,7 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineUniformName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetActiveSubroutineUniformName} */
 	public static native void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
 
 	/**
@@ -1082,7 +1082,7 @@ public final class GL40 {
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetActiveSubroutineUniformName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetActiveSubroutineUniformName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1092,7 +1092,7 @@ public final class GL40 {
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveSubroutineUniformName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, CharSequence name) {
 		long __functionAddress = getInstance().glGetActiveSubroutineUniformName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1104,7 +1104,7 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineName ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetActiveSubroutineName} */
 	public static native void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
 
 	/**
@@ -1129,7 +1129,7 @@ public final class GL40 {
 		nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetActiveSubroutineName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetActiveSubroutineName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1139,7 +1139,7 @@ public final class GL40 {
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveSubroutineName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, CharSequence name) {
 		long __functionAddress = getInstance().glGetActiveSubroutineName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1282,7 +1282,7 @@ public final class GL40 {
 
 	// --- [ glPatchParameteri ] ---
 
-	/** JNI method for {@link #glPatchParameteri(int, int)} */
+	/** JNI method for {@link #glPatchParameteri} */
 	public static native void nglPatchParameteri(int pname, int value, long __functionAddress);
 
 	/**
@@ -1336,7 +1336,7 @@ public final class GL40 {
 
 	// --- [ glBindTransformFeedback ] ---
 
-	/** JNI method for {@link #glBindTransformFeedback(int, int)} */
+	/** JNI method for {@link #glBindTransformFeedback} */
 	public static native void nglBindTransformFeedback(int target, int id, long __functionAddress);
 
 	/**
@@ -1356,7 +1356,7 @@ public final class GL40 {
 
 	// --- [ glDeleteTransformFeedbacks ] ---
 
-	/** JNI method for {@link #glDeleteTransformFeedbacks(int, ByteBuffer)} */
+	/** JNI method for {@link #glDeleteTransformFeedbacks} */
 	public static native void nglDeleteTransformFeedbacks(int n, long ids, long __functionAddress);
 
 	/**
@@ -1376,7 +1376,7 @@ public final class GL40 {
 		nglDeleteTransformFeedbacks(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteTransformFeedbacks(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
 		long __functionAddress = getInstance().glDeleteTransformFeedbacks;
 		if ( LWJGLUtil.CHECKS )
@@ -1384,7 +1384,7 @@ public final class GL40 {
 		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteTransformFeedbacks(int, ByteBuffer)} */
+	/** Single value version of: {@link #glDeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
 		long __functionAddress = getInstance().glDeleteTransformFeedbacks;
 		if ( LWJGLUtil.CHECKS )
@@ -1397,7 +1397,7 @@ public final class GL40 {
 
 	// --- [ glGenTransformFeedbacks ] ---
 
-	/** JNI method for {@link #glGenTransformFeedbacks(int, ByteBuffer)} */
+	/** JNI method for {@link #glGenTransformFeedbacks} */
 	public static native void nglGenTransformFeedbacks(int n, long ids, long __functionAddress);
 
 	/**
@@ -1417,7 +1417,7 @@ public final class GL40 {
 		nglGenTransformFeedbacks(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenTransformFeedbacks(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
 		long __functionAddress = getInstance().glGenTransformFeedbacks;
 		if ( LWJGLUtil.CHECKS )
@@ -1425,7 +1425,7 @@ public final class GL40 {
 		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenTransformFeedbacks(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
 		long __functionAddress = getInstance().glGenTransformFeedbacks;
 		if ( LWJGLUtil.CHECKS )
@@ -1438,7 +1438,7 @@ public final class GL40 {
 
 	// --- [ glIsTransformFeedback ] ---
 
-	/** JNI method for {@link #glIsTransformFeedback(int)} */
+	/** JNI method for {@link #glIsTransformFeedback} */
 	public static native boolean nglIsTransformFeedback(int id, long __functionAddress);
 
 	/**
@@ -1457,7 +1457,7 @@ public final class GL40 {
 
 	// --- [ glDrawTransformFeedback ] ---
 
-	/** JNI method for {@link #glDrawTransformFeedback(int, int)} */
+	/** JNI method for {@link #glDrawTransformFeedback} */
 	public static native void nglDrawTransformFeedback(int mode, int id, long __functionAddress);
 
 	/**
@@ -1477,7 +1477,7 @@ public final class GL40 {
 
 	// --- [ glDrawTransformFeedbackStream ] ---
 
-	/** JNI method for {@link #glDrawTransformFeedbackStream(int, int, int)} */
+	/** JNI method for {@link #glDrawTransformFeedbackStream} */
 	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream, long __functionAddress);
 
 	/**
@@ -1498,7 +1498,7 @@ public final class GL40 {
 
 	// --- [ glBeginQueryIndexed ] ---
 
-	/** JNI method for {@link #glBeginQueryIndexed(int, int, int)} */
+	/** JNI method for {@link #glBeginQueryIndexed} */
 	public static native void nglBeginQueryIndexed(int target, int index, int id, long __functionAddress);
 
 	/**
@@ -1519,7 +1519,7 @@ public final class GL40 {
 
 	// --- [ glEndQueryIndexed ] ---
 
-	/** JNI method for {@link #glEndQueryIndexed(int, int)} */
+	/** JNI method for {@link #glEndQueryIndexed} */
 	public static native void nglEndQueryIndexed(int target, int index, long __functionAddress);
 
 	/**

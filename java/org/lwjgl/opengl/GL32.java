@@ -197,7 +197,7 @@ public final class GL32 {
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glDrawElementsBaseVertex} */
 	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -221,7 +221,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -231,7 +231,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -241,7 +241,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -251,7 +251,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -261,7 +261,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex(int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -273,7 +273,7 @@ public final class GL32 {
 
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glDrawRangeElementsBaseVertex} */
 	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -299,7 +299,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -309,7 +309,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -319,7 +319,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -329,7 +329,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -339,7 +339,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex(int, int, int, int, int, ByteBuffer, int)} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -351,7 +351,7 @@ public final class GL32 {
 
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** JNI method for {@link #glDrawElementsInstancedBaseVertex} */
 	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex, long __functionAddress);
 
 	/**
@@ -376,7 +376,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -386,7 +386,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, primcount, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -396,7 +396,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), type, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -406,7 +406,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -416,7 +416,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex(int, int, int, ByteBuffer, int, int)} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -428,7 +428,7 @@ public final class GL32 {
 
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsBaseVertex(int, ByteBuffer, int, ByteBuffer, int, ByteBuffer)} */
+	/** JNI method for {@link #glMultiDrawElementsBaseVertex} */
 	public static native void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex, long __functionAddress);
 
 	/**
@@ -456,7 +456,7 @@ public final class GL32 {
 		nglMultiDrawElementsBaseVertex(mode, memAddress(count), type, memAddress(indices), primcount, memAddress(basevertex), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex(int, ByteBuffer, int, ByteBuffer, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex} */
 	public static void glMultiDrawElementsBaseVertex(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
 		long __functionAddress = getInstance().glMultiDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -469,7 +469,7 @@ public final class GL32 {
 
 	// --- [ glProvokingVertex ] ---
 
-	/** JNI method for {@link #glProvokingVertex(int)} */
+	/** JNI method for {@link #glProvokingVertex} */
 	public static native void nglProvokingVertex(int mode, long __functionAddress);
 
 	/**
@@ -488,7 +488,7 @@ public final class GL32 {
 
 	// --- [ glTexImage2DMultisample ] ---
 
-	/** JNI method for {@link #glTexImage2DMultisample(int, int, int, int, int, boolean)} */
+	/** JNI method for {@link #glTexImage2DMultisample} */
 	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -514,7 +514,7 @@ public final class GL32 {
 
 	// --- [ glTexImage3DMultisample ] ---
 
-	/** JNI method for {@link #glTexImage3DMultisample(int, int, int, int, int, int, boolean)} */
+	/** JNI method for {@link #glTexImage3DMultisample} */
 	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -585,7 +585,7 @@ public final class GL32 {
 
 	// --- [ glSampleMaski ] ---
 
-	/** JNI method for {@link #glSampleMaski(int, int)} */
+	/** JNI method for {@link #glSampleMaski} */
 	public static native void nglSampleMaski(int index, int mask, long __functionAddress);
 
 	/**
@@ -605,7 +605,7 @@ public final class GL32 {
 
 	// --- [ glFramebufferTexture ] ---
 
-	/** JNI method for {@link #glFramebufferTexture(int, int, int, int)} */
+	/** JNI method for {@link #glFramebufferTexture} */
 	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level, long __functionAddress);
 
 	/**
@@ -627,7 +627,7 @@ public final class GL32 {
 
 	// --- [ glFenceSync ] ---
 
-	/** JNI method for {@link #glFenceSync(int, int)} */
+	/** JNI method for {@link #glFenceSync} */
 	public static native long nglFenceSync(int condition, int flags, long __functionAddress);
 
 	/**
@@ -648,7 +648,7 @@ public final class GL32 {
 
 	// --- [ glIsSync ] ---
 
-	/** JNI method for {@link #glIsSync(long)} */
+	/** JNI method for {@link #glIsSync} */
 	public static native boolean nglIsSync(long sync, long __functionAddress);
 
 	/**
@@ -669,7 +669,7 @@ public final class GL32 {
 
 	// --- [ glDeleteSync ] ---
 
-	/** JNI method for {@link #glDeleteSync(long)} */
+	/** JNI method for {@link #glDeleteSync} */
 	public static native void nglDeleteSync(long sync, long __functionAddress);
 
 	/**
@@ -690,7 +690,7 @@ public final class GL32 {
 
 	// --- [ glClientWaitSync ] ---
 
-	/** JNI method for {@link #glClientWaitSync(long, int, long)} */
+	/** JNI method for {@link #glClientWaitSync} */
 	public static native int nglClientWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
@@ -722,7 +722,7 @@ public final class GL32 {
 
 	// --- [ glWaitSync ] ---
 
-	/** JNI method for {@link #glWaitSync(long, int, long)} */
+	/** JNI method for {@link #glWaitSync} */
 	public static native void nglWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**

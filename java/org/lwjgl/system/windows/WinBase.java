@@ -25,7 +25,7 @@ public final class WinBase {
 
 	// --- [ GetVersionEx ] ---
 
-	/** JNI method for {@link #GetVersionEx(ByteBuffer)} */
+	/** JNI method for {@link #GetVersionEx} */
 	public static native int nGetVersionEx(long versionInfo);
 
 	/**
@@ -50,7 +50,7 @@ public final class WinBase {
 
 	// --- [ GetModuleHandle ] ---
 
-	/** JNI method for {@link #GetModuleHandle(ByteBuffer)} */
+	/** JNI method for {@link #GetModuleHandle} */
 	public static native long nGetModuleHandle(long moduleName);
 
 	/**
@@ -69,14 +69,14 @@ public final class WinBase {
 		return nGetModuleHandle(memAddressSafe(moduleName));
 	}
 
-	/** CharSequence version of: {@link #GetModuleHandle(ByteBuffer)} */
+	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
 		return nGetModuleHandle(memAddressSafe(memEncodeUTF16(moduleName)));
 	}
 
 	// --- [ LoadLibrary ] ---
 
-	/** JNI method for {@link #LoadLibrary(ByteBuffer)} */
+	/** JNI method for {@link #LoadLibrary} */
 	public static native long nLoadLibrary(long name);
 
 	/**
@@ -101,14 +101,14 @@ public final class WinBase {
 		return nLoadLibrary(memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #LoadLibrary(ByteBuffer)} */
+	/** CharSequence version of: {@link #LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
 		return nLoadLibrary(memAddress(memEncodeUTF16(name)));
 	}
 
 	// --- [ GetProcAddress ] ---
 
-	/** JNI method for {@link #GetProcAddress(long, ByteBuffer)} */
+	/** JNI method for {@link #GetProcAddress} */
 	public static native long nGetProcAddress(long handle, long name);
 
 	/**
@@ -126,7 +126,7 @@ public final class WinBase {
 		return nGetProcAddress(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #GetProcAddress(long, ByteBuffer)} */
+	/** CharSequence version of: {@link #GetProcAddress} */
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
@@ -135,7 +135,7 @@ public final class WinBase {
 
 	// --- [ FreeLibrary ] ---
 
-	/** JNI method for {@link #FreeLibrary(long)} */
+	/** JNI method for {@link #FreeLibrary} */
 	public static native int nFreeLibrary(long handle);
 
 	/**

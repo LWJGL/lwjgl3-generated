@@ -20,7 +20,7 @@ public final class CL12 {
 
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
 
-	/** JNI method for {@link #clGetExtensionFunctionAddressForPlatform(CLPlatform, ByteBuffer)} */
+	/** JNI method for {@link #clGetExtensionFunctionAddressForPlatform} */
 	public static native long nclGetExtensionFunctionAddressForPlatform(long platform, long func_name, long __functionAddress);
 
 	/**
@@ -38,7 +38,7 @@ public final class CL12 {
 		return nclGetExtensionFunctionAddressForPlatform(platform.getPointer(), memAddress(func_name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #clGetExtensionFunctionAddressForPlatform(CLPlatform, ByteBuffer)} */
+	/** CharSequence version of: {@link #clGetExtensionFunctionAddressForPlatform} */
 	public static long clGetExtensionFunctionAddressForPlatform(CLPlatform platform, CharSequence func_name) {
 		long __functionAddress = getInstance(platform).clGetExtensionFunctionAddressForPlatform;
 		if ( LWJGLUtil.CHECKS )

@@ -82,7 +82,7 @@ public final class SOFTBufferSamples {
 
 	// --- [ alBufferSamplesSOFT ] ---
 
-	/** JNI method for {@link #alBufferSamplesSOFT(int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #alBufferSamplesSOFT} */
 	public static native void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**
@@ -126,7 +126,7 @@ public final class SOFTBufferSamples {
 
 	// --- [ alIsBufferFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alIsBufferFormatSupportedSOFT(int)} */
+	/** JNI method for {@link #alIsBufferFormatSupportedSOFT} */
 	public static native boolean nalIsBufferFormatSupportedSOFT(int format, long __functionAddress);
 
 	/**
@@ -146,7 +146,7 @@ public final class SOFTBufferSamples {
 
 	// --- [ alBufferSubSamplesSOFT ] ---
 
-	/** JNI method for {@link #alBufferSubSamplesSOFT(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #alBufferSubSamplesSOFT} */
 	public static native void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**
@@ -188,7 +188,7 @@ public final class SOFTBufferSamples {
 
 	// --- [ alGetBufferSamplesSOFT ] ---
 
-	/** JNI method for {@link #alGetBufferSamplesSOFT(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #alGetBufferSamplesSOFT} */
 	public static native void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**

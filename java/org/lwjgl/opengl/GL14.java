@@ -166,7 +166,7 @@ public final class GL14 {
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor(float, float, float, float)} */
+	/** JNI method for {@link #glBlendColor} */
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -188,7 +188,7 @@ public final class GL14 {
 
 	// --- [ glBlendEquation ] ---
 
-	/** JNI method for {@link #glBlendEquation(int)} */
+	/** JNI method for {@link #glBlendEquation} */
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
@@ -207,7 +207,7 @@ public final class GL14 {
 
 	// --- [ glFogCoordf ] ---
 
-	/** JNI method for {@link #glFogCoordf(float)} */
+	/** JNI method for {@link #glFogCoordf} */
 	public static native void nglFogCoordf(float coord, long __functionAddress);
 
 	/**
@@ -226,13 +226,13 @@ public final class GL14 {
 
 	// --- [ glFogCoordd ] ---
 
-	/** JNI method for {@link #glFogCoordd(double)} */
+	/** JNI method for {@link #glFogCoordd} */
 	public static native void nglFogCoordd(double coord, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoordd.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glFogCoordf(float)}.
+	 * Double version of {@link #glFogCoordf}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
@@ -251,7 +251,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogCoordf(float)}.
+	 * Pointer version of {@link #glFogCoordf}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
@@ -282,7 +282,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogCoordd(double)}.
+	 * Pointer version of {@link #glFogCoordd}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
@@ -307,7 +307,7 @@ public final class GL14 {
 
 	// --- [ glFogCoordPointer ] ---
 
-	/** JNI method for {@link #glFogCoordPointer(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glFogCoordPointer} */
 	public static native void nglFogCoordPointer(int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -328,7 +328,7 @@ public final class GL14 {
 		nglFogCoordPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glFogCoordPointer(int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glFogCoordPointer} */
 	public static void glFogCoordPointer(int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glFogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -338,7 +338,7 @@ public final class GL14 {
 		nglFogCoordPointer(type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glFogCoordPointer(int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glFogCoordPointer} */
 	public static void glFogCoordPointer(int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glFogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -350,7 +350,7 @@ public final class GL14 {
 
 	// --- [ glMultiDrawArrays ] ---
 
-	/** JNI method for {@link #glMultiDrawArrays(int, ByteBuffer, ByteBuffer, int)} */
+	/** JNI method for {@link #glMultiDrawArrays} */
 	public static native void nglMultiDrawArrays(int mode, long first, long count, int primcount, long __functionAddress);
 
 	/**
@@ -373,7 +373,7 @@ public final class GL14 {
 		nglMultiDrawArrays(mode, memAddress(first), memAddress(count), primcount, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawArrays(int, ByteBuffer, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glMultiDrawArrays} */
 	public static void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
 		long __functionAddress = getInstance().glMultiDrawArrays;
 		if ( LWJGLUtil.CHECKS ) {
@@ -385,7 +385,7 @@ public final class GL14 {
 
 	// --- [ glMultiDrawElements ] ---
 
-	/** JNI method for {@link #glMultiDrawElements(int, ByteBuffer, int, ByteBuffer, int)} */
+	/** JNI method for {@link #glMultiDrawElements} */
 	public static native void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount, long __functionAddress);
 
 	/**
@@ -411,7 +411,7 @@ public final class GL14 {
 		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), primcount, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawElements(int, ByteBuffer, int, ByteBuffer, int)} */
+	/** Alternative version of: {@link #glMultiDrawElements} */
 	public static void glMultiDrawElements(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		long __functionAddress = getInstance().glMultiDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -423,7 +423,7 @@ public final class GL14 {
 
 	// --- [ glPointParameterf ] ---
 
-	/** JNI method for {@link #glPointParameterf(int, float)} */
+	/** JNI method for {@link #glPointParameterf} */
 	public static native void nglPointParameterf(int pname, float param, long __functionAddress);
 
 	/**
@@ -443,13 +443,13 @@ public final class GL14 {
 
 	// --- [ glPointParameteri ] ---
 
-	/** JNI method for {@link #glPointParameteri(int, int)} */
+	/** JNI method for {@link #glPointParameteri} */
 	public static native void nglPointParameteri(int pname, int param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameteri.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Integer version of {@link #glPointParameterf(int, float)}.
+	 * Integer version of {@link #glPointParameterf}.
 	 *
 	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE}, {@link #GL_POINT_DISTANCE_ATTENUATION}
 	 * @param param the parameter value
@@ -469,7 +469,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glPointParameterf(int, float)}.
+	 * Pointer version of {@link #glPointParameterf}.
 	 *
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
@@ -501,7 +501,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glPointParameteri(int, int)}.
+	 * Pointer version of {@link #glPointParameteri}.
 	 *
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
@@ -527,7 +527,7 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3b ] ---
 
-	/** JNI method for {@link #glSecondaryColor3b(byte, byte, byte)} */
+	/** JNI method for {@link #glSecondaryColor3b} */
 	public static native void nglSecondaryColor3b(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
@@ -548,13 +548,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3s ] ---
 
-	/** JNI method for {@link #glSecondaryColor3s(short, short, short)} */
+	/** JNI method for {@link #glSecondaryColor3s} */
 	public static native void nglSecondaryColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Short version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -569,13 +569,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3i ] ---
 
-	/** JNI method for {@link #glSecondaryColor3i(int, int, int)} */
+	/** JNI method for {@link #glSecondaryColor3i} */
 	public static native void nglSecondaryColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3i.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Integer version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Integer version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -590,13 +590,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3f ] ---
 
-	/** JNI method for {@link #glSecondaryColor3f(float, float, float)} */
+	/** JNI method for {@link #glSecondaryColor3f} */
 	public static native void nglSecondaryColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Float version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -611,13 +611,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3d ] ---
 
-	/** JNI method for {@link #glSecondaryColor3d(double, double, double)} */
+	/** JNI method for {@link #glSecondaryColor3d} */
 	public static native void nglSecondaryColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Double version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -632,13 +632,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ub ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ub(byte, byte, byte)} */
+	/** JNI method for {@link #glSecondaryColor3ub} */
 	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Unsigned version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -653,13 +653,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3us ] ---
 
-	/** JNI method for {@link #glSecondaryColor3us(short, short, short)} */
+	/** JNI method for {@link #glSecondaryColor3us} */
 	public static native void nglSecondaryColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3us.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Unsigned short version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -674,13 +674,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ui ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ui(int, int, int)} */
+	/** JNI method for {@link #glSecondaryColor3ui} */
 	public static native void nglSecondaryColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ui.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glSecondaryColor3b(byte, byte, byte)}
+	 * Unsigned int version of {@link #glSecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
@@ -701,7 +701,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3b.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Byte pointer version of {@link #glSecondaryColor3b(byte, byte, byte)}.
+	 * Byte pointer version of {@link #glSecondaryColor3b}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -722,7 +722,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3s(short, short, short)}.
+	 * Pointer version of {@link #glSecondaryColor3s}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -753,7 +753,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3i(int, int, int)}.
+	 * Pointer version of {@link #glSecondaryColor3i}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -784,7 +784,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3f(float, float, float)}.
+	 * Pointer version of {@link #glSecondaryColor3f}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -815,7 +815,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3d(double, double, double)}.
+	 * Pointer version of {@link #glSecondaryColor3d}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -846,7 +846,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3ub(byte, byte, byte)}.
+	 * Pointer version of {@link #glSecondaryColor3ub}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -867,7 +867,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3us(short, short, short)}.
+	 * Pointer version of {@link #glSecondaryColor3us}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -898,7 +898,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3ui(int, int, int)}.
+	 * Pointer version of {@link #glSecondaryColor3ui}.
 	 *
 	 * @param v the secondary color buffer
 	 */
@@ -923,7 +923,7 @@ public final class GL14 {
 
 	// --- [ glSecondaryColorPointer ] ---
 
-	/** JNI method for {@link #glSecondaryColorPointer(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glSecondaryColorPointer} */
 	public static native void nglSecondaryColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
 	/**
@@ -945,7 +945,7 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSecondaryColorPointer(int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glSecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, long pointerOffset) {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -955,7 +955,7 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointer(int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -965,7 +965,7 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glSecondaryColorPointer(int, int, int, ByteBuffer)} */
+	/** GL_FLOAT version of: {@link #glSecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int stride, FloatBuffer pointer) {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
@@ -977,7 +977,7 @@ public final class GL14 {
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparate(int, int, int, int)} */
+	/** JNI method for {@link #glBlendFuncSeparate} */
 	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
 
 	/**
@@ -999,7 +999,7 @@ public final class GL14 {
 
 	// --- [ glWindowPos2i ] ---
 
-	/** JNI method for {@link #glWindowPos2i(int, int)} */
+	/** JNI method for {@link #glWindowPos2i} */
 	public static native void nglWindowPos2i(int x, int y, long __functionAddress);
 
 	/**
@@ -1019,13 +1019,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2s ] ---
 
-	/** JNI method for {@link #glWindowPos2s(short, short)} */
+	/** JNI method for {@link #glWindowPos2s} */
 	public static native void nglWindowPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glWindowPos2i(int, int)}.
+	 * Short version of {@link #glWindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1039,13 +1039,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2f ] ---
 
-	/** JNI method for {@link #glWindowPos2f(float, float)} */
+	/** JNI method for {@link #glWindowPos2f} */
 	public static native void nglWindowPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glWindowPos2i(int, int)}.
+	 * Float version of {@link #glWindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1059,13 +1059,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2d ] ---
 
-	/** JNI method for {@link #glWindowPos2d(double, double)} */
+	/** JNI method for {@link #glWindowPos2d} */
 	public static native void nglWindowPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glWindowPos2i(int, int)}.
+	 * Double version of {@link #glWindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1085,7 +1085,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2i(int, int)}.
+	 * Pointer version of {@link #glWindowPos2i}.
 	 *
 	 * @param p the position value
 	 */
@@ -1116,7 +1116,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2s(short, short)}.
+	 * Pointer version of {@link #glWindowPos2s}.
 	 *
 	 * @param p the position value
 	 */
@@ -1147,7 +1147,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2f(float, float)}.
+	 * Pointer version of {@link #glWindowPos2f}.
 	 *
 	 * @param p the position value
 	 */
@@ -1178,7 +1178,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2d(double, double)}.
+	 * Pointer version of {@link #glWindowPos2d}.
 	 *
 	 * @param p the position value
 	 */
@@ -1203,7 +1203,7 @@ public final class GL14 {
 
 	// --- [ glWindowPos3i ] ---
 
-	/** JNI method for {@link #glWindowPos3i(int, int, int)} */
+	/** JNI method for {@link #glWindowPos3i} */
 	public static native void nglWindowPos3i(int x, int y, int z, long __functionAddress);
 
 	/**
@@ -1224,13 +1224,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3s ] ---
 
-	/** JNI method for {@link #glWindowPos3s(short, short, short)} */
+	/** JNI method for {@link #glWindowPos3s} */
 	public static native void nglWindowPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3s.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Short version of {@link #glWindowPos3i(int, int, int)}.
+	 * Short version of {@link #glWindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1245,13 +1245,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3f ] ---
 
-	/** JNI method for {@link #glWindowPos3f(float, float, float)} */
+	/** JNI method for {@link #glWindowPos3f} */
 	public static native void nglWindowPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3f.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Float version of {@link #glWindowPos3i(int, int, int)}.
+	 * Float version of {@link #glWindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1266,13 +1266,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3d ] ---
 
-	/** JNI method for {@link #glWindowPos3d(double, double, double)} */
+	/** JNI method for {@link #glWindowPos3d} */
 	public static native void nglWindowPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3d.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Double version of {@link #glWindowPos3i(int, int, int)}.
+	 * Double version of {@link #glWindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
@@ -1293,7 +1293,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3i(int, int, int)}.
+	 * Pointer version of {@link #glWindowPos3i}.
 	 *
 	 * @param p the position value
 	 */
@@ -1324,7 +1324,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3s(short, short, short)}.
+	 * Pointer version of {@link #glWindowPos3s}.
 	 *
 	 * @param p the position value
 	 */
@@ -1355,7 +1355,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3f(float, float, float)}.
+	 * Pointer version of {@link #glWindowPos3f}.
 	 *
 	 * @param p the position value
 	 */
@@ -1386,7 +1386,7 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> <em>- This function is deprecated and unavailable in the Core profile -</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3d(double, double, double)}.
+	 * Pointer version of {@link #glWindowPos3d}.
 	 *
 	 * @param p the position value
 	 */

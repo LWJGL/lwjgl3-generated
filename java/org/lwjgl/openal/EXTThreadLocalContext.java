@@ -17,7 +17,7 @@ public final class EXTThreadLocalContext {
 
 	// --- [ alcSetThreadContext ] ---
 
-	/** JNI method for {@link #alcSetThreadContext(long)} */
+	/** JNI method for {@link #alcSetThreadContext} */
 	public static native boolean nalcSetThreadContext(long context, long __functionAddress);
 
 	/**
@@ -37,7 +37,7 @@ public final class EXTThreadLocalContext {
 
 	// --- [ alcGetThreadContext ] ---
 
-	/** JNI method for {@link #alcGetThreadContext()} */
+	/** JNI method for {@link #alcGetThreadContext} */
 	public static native long nalcGetThreadContext(long __functionAddress);
 
 	/**

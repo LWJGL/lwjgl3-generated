@@ -43,7 +43,7 @@ public final class WGLARBCreateContext {
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #wglCreateContextAttribsARB(long, long, ByteBuffer)} */
+	/** JNI method for {@link #wglCreateContextAttribsARB} */
 	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
 
 	/**
@@ -68,7 +68,7 @@ public final class WGLARBCreateContext {
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreateContextAttribsARB(long, long, ByteBuffer)} */
+	/** Alternative version of: {@link #wglCreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
 		long __functionAddress = getInstance().wglCreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {

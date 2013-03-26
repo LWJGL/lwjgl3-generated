@@ -48,11 +48,11 @@ public final class WGLARBPbuffer {
 		WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
 		WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
-	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB(long, int, int, int, ByteBuffer)}. */
+	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB}. */
 	public static final int
 		WGL_PBUFFER_LARGEST_ARB = 0x2033;
 
-	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB(long, int, ByteBuffer)}. */
+	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB}. */
 	public static final int
 		WGL_PBUFFER_WIDTH_ARB  = 0x2034,
 		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
@@ -62,7 +62,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglCreatePbufferARB ] ---
 
-	/** JNI method for {@link #wglCreatePbufferARB(long, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #wglCreatePbufferARB} */
 	public static native long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList, long __functionAddress);
 
 	/**
@@ -87,7 +87,7 @@ public final class WGLARBPbuffer {
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreatePbufferARB(long, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglCreatePbufferARB} */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
 		long __functionAddress = getInstance().wglCreatePbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
@@ -100,13 +100,13 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglGetPbufferDCARB ] ---
 
-	/** JNI method for {@link #wglGetPbufferDCARB(long)} */
+	/** JNI method for {@link #wglGetPbufferDCARB} */
 	public static native long nwglGetPbufferDCARB(long pbuffer, long __functionAddress);
 
 	/**
 	 * Creates a device context for the pbuffer.
 	 *
-	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB(long, int, int, int, ByteBuffer)}
+	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB}
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
 		long __functionAddress = getInstance().wglGetPbufferDCARB;
@@ -119,11 +119,11 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglReleasePbufferDCARB ] ---
 
-	/** JNI method for {@link #wglReleasePbufferDCARB(long, long)} */
+	/** JNI method for {@link #wglReleasePbufferDCARB} */
 	public static native int nwglReleasePbufferDCARB(long pbuffer, long hdc, long __functionAddress);
 
 	/**
-	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB(long)}.
+	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB}.
 	 *
 	 * @param pbuffer a pbuffer handle
 	 * @param hdc     a device context handle
@@ -140,7 +140,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglDestroyPbufferARB ] ---
 
-	/** JNI method for {@link #wglDestroyPbufferARB(long)} */
+	/** JNI method for {@link #wglDestroyPbufferARB} */
 	public static native int nwglDestroyPbufferARB(long pbuffer, long __functionAddress);
 
 	/**
@@ -162,7 +162,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglQueryPbufferARB ] ---
 
-	/** JNI method for {@link #wglQueryPbufferARB(long, int, ByteBuffer)} */
+	/** JNI method for {@link #wglQueryPbufferARB} */
 	public static native int nwglQueryPbufferARB(long pbuffer, int attribute, long value, long __functionAddress);
 
 	/**
@@ -182,7 +182,7 @@ public final class WGLARBPbuffer {
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglQueryPbufferARB(long, int, ByteBuffer)} */
+	/** Alternative version of: {@link #wglQueryPbufferARB} */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
 		long __functionAddress = getInstance().wglQueryPbufferARB;
 		if ( LWJGLUtil.CHECKS ) {

@@ -460,7 +460,7 @@ public final class GL43 {
 
 	// --- [ glClearBufferData ] ---
 
-	/** JNI method for {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glClearBufferData} */
 	public static native void nglClearBufferData(int target, int internalformat, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -481,7 +481,7 @@ public final class GL43 {
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -489,7 +489,7 @@ public final class GL43 {
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -497,7 +497,7 @@ public final class GL43 {
 		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glClearBufferData(int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
 		long __functionAddress = getInstance().glClearBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -507,7 +507,7 @@ public final class GL43 {
 
 	// --- [ glClearBufferSubData ] ---
 
-	/** JNI method for {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glClearBufferSubData} */
 	public static native void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -530,7 +530,7 @@ public final class GL43 {
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -538,7 +538,7 @@ public final class GL43 {
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -546,7 +546,7 @@ public final class GL43 {
 		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glClearBufferSubData(int, int, long, long, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
 		long __functionAddress = getInstance().glClearBufferSubData;
 		if ( LWJGLUtil.CHECKS )
@@ -556,7 +556,7 @@ public final class GL43 {
 
 	// --- [ glDispatchCompute ] ---
 
-	/** JNI method for {@link #glDispatchCompute(int, int, int)} */
+	/** JNI method for {@link #glDispatchCompute} */
 	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z, long __functionAddress);
 
 	/**
@@ -577,7 +577,7 @@ public final class GL43 {
 
 	// --- [ glDispatchComputeIndirect ] ---
 
-	/** JNI method for {@link #glDispatchComputeIndirect(long)} */
+	/** JNI method for {@link #glDispatchComputeIndirect} */
 	public static native void nglDispatchComputeIndirect(long indirect, long __functionAddress);
 
 	/**
@@ -612,7 +612,7 @@ public final class GL43 {
 
 	// --- [ glCopyImageSubData ] ---
 
-	/** JNI method for {@link #glCopyImageSubData(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyImageSubData} */
 	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth, long __functionAddress);
 
 	/**
@@ -645,7 +645,7 @@ public final class GL43 {
 
 	// --- [ glDebugMessageControl ] ---
 
-	/** JNI method for {@link #glDebugMessageControl(int, int, int, int, ByteBuffer, boolean)} */
+	/** JNI method for {@link #glDebugMessageControl} */
 	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
 	/**
@@ -669,7 +669,7 @@ public final class GL43 {
 		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageControl(int, int, int, int, ByteBuffer, boolean)} */
+	/** Alternative version of: {@link #glDebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
 		long __functionAddress = getInstance().glDebugMessageControl;
 		if ( LWJGLUtil.CHECKS )
@@ -677,7 +677,7 @@ public final class GL43 {
 		nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled, __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDebugMessageControl(int, int, int, int, ByteBuffer, boolean)} */
+	/** Single value version of: {@link #glDebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		long __functionAddress = getInstance().glDebugMessageControl;
 		if ( LWJGLUtil.CHECKS )
@@ -690,7 +690,7 @@ public final class GL43 {
 
 	// --- [ glDebugMessageInsert ] ---
 
-	/** JNI method for {@link #glDebugMessageInsert(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDebugMessageInsert} */
 	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message, long __functionAddress);
 
 	/**
@@ -715,7 +715,7 @@ public final class GL43 {
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageInsert(int, int, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
 		long __functionAddress = getInstance().glDebugMessageInsert;
 		if ( LWJGLUtil.CHECKS )
@@ -723,7 +723,7 @@ public final class GL43 {
 		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsert(int, int, int, int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glDebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
 		long __functionAddress = getInstance().glDebugMessageInsert;
 		if ( LWJGLUtil.CHECKS )
@@ -733,7 +733,7 @@ public final class GL43 {
 
 	// --- [ glDebugMessageCallback ] ---
 
-	/** JNI method for {@link #glDebugMessageCallback(long, long)} */
+	/** JNI method for {@link #glDebugMessageCallback} */
 	public static native void nglDebugMessageCallback(long callback, long userParam, long __functionAddress);
 
 	/**
@@ -752,7 +752,7 @@ public final class GL43 {
 		nglDebugMessageCallback(callback, userParam, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageCallback(long, long)} */
+	/** Alternative version of: {@link #glDebugMessageCallback} */
 	public static void glDebugMessageCallback(DEBUGPROC callback) {
 		Functions __instance = getInstance();
 		long __functionAddress = __instance.glDebugMessageCallback;
@@ -763,7 +763,7 @@ public final class GL43 {
 
 	// --- [ glGetDebugMessageLog ] ---
 
-	/** JNI method for {@link #glGetDebugMessageLog(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetDebugMessageLog} */
 	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog, long __functionAddress);
 
 	/**
@@ -794,7 +794,7 @@ public final class GL43 {
 		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLog(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -808,7 +808,7 @@ public final class GL43 {
 		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLog(int, int, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, CharSequence messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLog;
 		if ( LWJGLUtil.CHECKS ) {
@@ -824,7 +824,7 @@ public final class GL43 {
 
 	// --- [ glPushDebugGroup ] ---
 
-	/** JNI method for {@link #glPushDebugGroup(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glPushDebugGroup} */
 	public static native void nglPushDebugGroup(int source, int id, int length, long message, long __functionAddress);
 
 	/**
@@ -847,7 +847,7 @@ public final class GL43 {
 		nglPushDebugGroup(source, id, length, memAddress(message), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glPushDebugGroup(int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glPushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, ByteBuffer message) {
 		long __functionAddress = getInstance().glPushDebugGroup;
 		if ( LWJGLUtil.CHECKS )
@@ -855,7 +855,7 @@ public final class GL43 {
 		nglPushDebugGroup(source, id, message.remaining(), memAddress(message), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glPushDebugGroup(int, int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glPushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
 		long __functionAddress = getInstance().glPushDebugGroup;
 		if ( LWJGLUtil.CHECKS )
@@ -865,7 +865,7 @@ public final class GL43 {
 
 	// --- [ glObjectLabel ] ---
 
-	/** JNI method for {@link #glObjectLabel(int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glObjectLabel} */
 	public static native void nglObjectLabel(int identifier, int name, int length, long label, long __functionAddress);
 
 	/**
@@ -888,7 +888,7 @@ public final class GL43 {
 		nglObjectLabel(identifier, name, length, memAddress(label), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glObjectLabel(int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, ByteBuffer label) {
 		long __functionAddress = getInstance().glObjectLabel;
 		if ( LWJGLUtil.CHECKS )
@@ -896,7 +896,7 @@ public final class GL43 {
 		nglObjectLabel(identifier, name, label.remaining(), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glObjectLabel(int, int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
 		long __functionAddress = getInstance().glObjectLabel;
 		if ( LWJGLUtil.CHECKS )
@@ -906,7 +906,7 @@ public final class GL43 {
 
 	// --- [ glGetObjectLabel ] ---
 
-	/** JNI method for {@link #glGetObjectLabel(int, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetObjectLabel} */
 	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label, long __functionAddress);
 
 	/**
@@ -930,7 +930,7 @@ public final class GL43 {
 		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetObjectLabel(int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		long __functionAddress = getInstance().glGetObjectLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -940,7 +940,7 @@ public final class GL43 {
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetObjectLabel(int, int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, CharSequence label) {
 		long __functionAddress = getInstance().glGetObjectLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -952,7 +952,7 @@ public final class GL43 {
 
 	// --- [ glObjectPtrLabel ] ---
 
-	/** JNI method for {@link #glObjectPtrLabel(long, int, ByteBuffer)} */
+	/** JNI method for {@link #glObjectPtrLabel} */
 	public static native void nglObjectPtrLabel(long ptr, int length, long label, long __functionAddress);
 
 	/**
@@ -975,7 +975,7 @@ public final class GL43 {
 		nglObjectPtrLabel(ptr, length, memAddress(label), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glObjectPtrLabel(long, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
 		long __functionAddress = getInstance().glObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -985,7 +985,7 @@ public final class GL43 {
 		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glObjectPtrLabel(long, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
 		long __functionAddress = getInstance().glObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -997,7 +997,7 @@ public final class GL43 {
 
 	// --- [ glGetObjectPtrLabel ] ---
 
-	/** JNI method for {@link #glGetObjectPtrLabel(long, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetObjectPtrLabel} */
 	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label, long __functionAddress);
 
 	/**
@@ -1021,7 +1021,7 @@ public final class GL43 {
 		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetObjectPtrLabel(long, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		long __functionAddress = getInstance().glGetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1032,7 +1032,7 @@ public final class GL43 {
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetObjectPtrLabel(long, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, CharSequence label) {
 		long __functionAddress = getInstance().glGetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1045,7 +1045,7 @@ public final class GL43 {
 
 	// --- [ glFramebufferParameteri ] ---
 
-	/** JNI method for {@link #glFramebufferParameteri(int, int, int)} */
+	/** JNI method for {@link #glFramebufferParameteri} */
 	public static native void nglFramebufferParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -1154,7 +1154,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateTexSubImage ] ---
 
-	/** JNI method for {@link #glInvalidateTexSubImage(int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glInvalidateTexSubImage} */
 	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -1180,7 +1180,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateTexImage ] ---
 
-	/** JNI method for {@link #glInvalidateTexImage(int, int)} */
+	/** JNI method for {@link #glInvalidateTexImage} */
 	public static native void nglInvalidateTexImage(int texture, int level, long __functionAddress);
 
 	/**
@@ -1200,7 +1200,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateBufferSubData ] ---
 
-	/** JNI method for {@link #glInvalidateBufferSubData(int, long, long)} */
+	/** JNI method for {@link #glInvalidateBufferSubData} */
 	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length, long __functionAddress);
 
 	/**
@@ -1221,7 +1221,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateBufferData ] ---
 
-	/** JNI method for {@link #glInvalidateBufferData(int)} */
+	/** JNI method for {@link #glInvalidateBufferData} */
 	public static native void nglInvalidateBufferData(int buffer, long __functionAddress);
 
 	/**
@@ -1240,7 +1240,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateFramebuffer ] ---
 
-	/** JNI method for {@link #glInvalidateFramebuffer(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glInvalidateFramebuffer} */
 	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments, long __functionAddress);
 
 	/**
@@ -1261,7 +1261,7 @@ public final class GL43 {
 		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glInvalidateFramebuffer(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glInvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
 		long __functionAddress = getInstance().glInvalidateFramebuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -1269,7 +1269,7 @@ public final class GL43 {
 		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glInvalidateFramebuffer(int, int, ByteBuffer)} */
+	/** Single value version of: {@link #glInvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		long __functionAddress = getInstance().glInvalidateFramebuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -1282,7 +1282,7 @@ public final class GL43 {
 
 	// --- [ glInvalidateSubFramebuffer ] ---
 
-	/** JNI method for {@link #glInvalidateSubFramebuffer(int, int, ByteBuffer, int, int, int, int)} */
+	/** JNI method for {@link #glInvalidateSubFramebuffer} */
 	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -1307,7 +1307,7 @@ public final class GL43 {
 		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glInvalidateSubFramebuffer(int, int, ByteBuffer, int, int, int, int)} */
+	/** Alternative version of: {@link #glInvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().glInvalidateSubFramebuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -1315,7 +1315,7 @@ public final class GL43 {
 		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height, __functionAddress);
 	}
 
-	/** Single value version of: {@link #glInvalidateSubFramebuffer(int, int, ByteBuffer, int, int, int, int)} */
+	/** Single value version of: {@link #glInvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().glInvalidateSubFramebuffer;
 		if ( LWJGLUtil.CHECKS )
@@ -1328,7 +1328,7 @@ public final class GL43 {
 
 	// --- [ glMultiDrawArraysIndirect ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysIndirect(int, ByteBuffer, int, int)} */
+	/** JNI method for {@link #glMultiDrawArraysIndirect} */
 	public static native void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride, long __functionAddress);
 
 	/**
@@ -1372,7 +1372,7 @@ public final class GL43 {
 
 	// --- [ glMultiDrawElementsIndirect ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsIndirect(int, int, ByteBuffer, int, int)} */
+	/** JNI method for {@link #glMultiDrawElementsIndirect} */
 	public static native void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride, long __functionAddress);
 
 	/**
@@ -1463,7 +1463,7 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceIndex ] ---
 
-	/** JNI method for {@link #glGetProgramResourceIndex(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramResourceIndex} */
 	public static native int nglGetProgramResourceIndex(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1484,7 +1484,7 @@ public final class GL43 {
 		return nglGetProgramResourceIndex(program, programInterface, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceIndex(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
 		long __functionAddress = getInstance().glGetProgramResourceIndex;
 		if ( LWJGLUtil.CHECKS )
@@ -1494,7 +1494,7 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceName ] ---
 
-	/** JNI method for {@link #glGetProgramResourceName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramResourceName} */
 	public static native void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name, long __functionAddress);
 
 	/**
@@ -1519,7 +1519,7 @@ public final class GL43 {
 		nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetProgramResourceName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
 		long __functionAddress = getInstance().glGetProgramResourceName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1529,7 +1529,7 @@ public final class GL43 {
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceName(int, int, int, int, ByteBuffer, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, CharSequence name) {
 		long __functionAddress = getInstance().glGetProgramResourceName;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1593,7 +1593,7 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceLocation ] ---
 
-	/** JNI method for {@link #glGetProgramResourceLocation(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramResourceLocation} */
 	public static native int nglGetProgramResourceLocation(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1614,7 +1614,7 @@ public final class GL43 {
 		return nglGetProgramResourceLocation(program, programInterface, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceLocation(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
 		long __functionAddress = getInstance().glGetProgramResourceLocation;
 		if ( LWJGLUtil.CHECKS )
@@ -1624,7 +1624,7 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
-	/** JNI method for {@link #glGetProgramResourceLocationIndex(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetProgramResourceLocationIndex} */
 	public static native int nglGetProgramResourceLocationIndex(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1645,7 +1645,7 @@ public final class GL43 {
 		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex(int, int, ByteBuffer)} */
+	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
 		long __functionAddress = getInstance().glGetProgramResourceLocationIndex;
 		if ( LWJGLUtil.CHECKS )
@@ -1655,7 +1655,7 @@ public final class GL43 {
 
 	// --- [ glShaderStorageBlockBinding ] ---
 
-	/** JNI method for {@link #glShaderStorageBlockBinding(int, int, int)} */
+	/** JNI method for {@link #glShaderStorageBlockBinding} */
 	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding, long __functionAddress);
 
 	/**
@@ -1676,7 +1676,7 @@ public final class GL43 {
 
 	// --- [ glTexBufferRange ] ---
 
-	/** JNI method for {@link #glTexBufferRange(int, int, int, long, long)} */
+	/** JNI method for {@link #glTexBufferRange} */
 	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size, long __functionAddress);
 
 	/**
@@ -1699,7 +1699,7 @@ public final class GL43 {
 
 	// --- [ glTexStorage2DMultisample ] ---
 
-	/** JNI method for {@link #glTexStorage2DMultisample(int, int, int, int, int, boolean)} */
+	/** JNI method for {@link #glTexStorage2DMultisample} */
 	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -1724,7 +1724,7 @@ public final class GL43 {
 
 	// --- [ glTexStorage3DMultisample ] ---
 
-	/** JNI method for {@link #glTexStorage3DMultisample(int, int, int, int, int, int, boolean)} */
+	/** JNI method for {@link #glTexStorage3DMultisample} */
 	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -1750,7 +1750,7 @@ public final class GL43 {
 
 	// --- [ glTextureView ] ---
 
-	/** JNI method for {@link #glTextureView(int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glTextureView} */
 	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers, long __functionAddress);
 
 	/**
@@ -1776,7 +1776,7 @@ public final class GL43 {
 
 	// --- [ glBindVertexBuffer ] ---
 
-	/** JNI method for {@link #glBindVertexBuffer(int, int, long, int)} */
+	/** JNI method for {@link #glBindVertexBuffer} */
 	public static native void nglBindVertexBuffer(int bindingindex, int buffer, long offset, int stride, long __functionAddress);
 
 	/**
@@ -1798,7 +1798,7 @@ public final class GL43 {
 
 	// --- [ glVertexAttribFormat ] ---
 
-	/** JNI method for {@link #glVertexAttribFormat(int, int, int, boolean, int)} */
+	/** JNI method for {@link #glVertexAttribFormat} */
 	public static native void nglVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1822,7 +1822,7 @@ public final class GL43 {
 
 	// --- [ glVertexAttribIFormat ] ---
 
-	/** JNI method for {@link #glVertexAttribIFormat(int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribIFormat} */
 	public static native void nglVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1844,7 +1844,7 @@ public final class GL43 {
 
 	// --- [ glVertexAttribLFormat ] ---
 
-	/** JNI method for {@link #glVertexAttribLFormat(int, int, int, int)} */
+	/** JNI method for {@link #glVertexAttribLFormat} */
 	public static native void nglVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1866,7 +1866,7 @@ public final class GL43 {
 
 	// --- [ glVertexAttribBinding ] ---
 
-	/** JNI method for {@link #glVertexAttribBinding(int, int)} */
+	/** JNI method for {@link #glVertexAttribBinding} */
 	public static native void nglVertexAttribBinding(int attribindex, int bindingindex, long __functionAddress);
 
 	/**
@@ -1886,7 +1886,7 @@ public final class GL43 {
 
 	// --- [ glVertexBindingDivisor ] ---
 
-	/** JNI method for {@link #glVertexBindingDivisor(int, int)} */
+	/** JNI method for {@link #glVertexBindingDivisor} */
 	public static native void nglVertexBindingDivisor(int index, int divisor, long __functionAddress);
 
 	/**

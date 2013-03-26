@@ -21,7 +21,7 @@ public final class WGLEXTSwapControl {
 
 	// --- [ wglSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglSwapIntervalEXT(int)} */
+	/** JNI method for {@link #wglSwapIntervalEXT} */
 	public static native int nwglSwapIntervalEXT(int interval, long __functionAddress);
 
 	/**
@@ -48,7 +48,7 @@ public final class WGLEXTSwapControl {
 
 	// --- [ wglGetSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglGetSwapIntervalEXT()} */
+	/** JNI method for {@link #wglGetSwapIntervalEXT} */
 	public static native int nwglGetSwapIntervalEXT(long __functionAddress);
 
 	/** Returns the current swap interval for the window associated with the current context. */

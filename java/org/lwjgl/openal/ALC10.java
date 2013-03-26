@@ -55,7 +55,7 @@ public final class ALC10 {
 
 	// --- [ alcOpenDevice ] ---
 
-	/** JNI method for {@link #alcOpenDevice(ByteBuffer)} */
+	/** JNI method for {@link #alcOpenDevice} */
 	public static native long nalcOpenDevice(long deviceSpecifier, long __functionAddress);
 
 	/**
@@ -75,7 +75,7 @@ public final class ALC10 {
 		return nalcOpenDevice(memAddressSafe(deviceSpecifier), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcOpenDevice(ByteBuffer)} */
+	/** CharSequence version of: {@link #alcOpenDevice} */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
 		long __functionAddress = getInstance().alcOpenDevice;
 		if ( LWJGLUtil.CHECKS )
@@ -85,7 +85,7 @@ public final class ALC10 {
 
 	// --- [ alcCloseDevice ] ---
 
-	/** JNI method for {@link #alcCloseDevice(long)} */
+	/** JNI method for {@link #alcCloseDevice} */
 	public static native boolean nalcCloseDevice(long deviceHandle, long __functionAddress);
 
 	/**
@@ -107,7 +107,7 @@ public final class ALC10 {
 
 	// --- [ alcCreateContext ] ---
 
-	/** JNI method for {@link #alcCreateContext(long, ByteBuffer)} */
+	/** JNI method for {@link #alcCreateContext} */
 	public static native long nalcCreateContext(long deviceHandle, long attrList, long __functionAddress);
 
 	/**
@@ -126,7 +126,7 @@ public final class ALC10 {
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alcCreateContext(long, ByteBuffer)} */
+	/** Alternative version of: {@link #alcCreateContext} */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
 		long __functionAddress = getInstance().alcCreateContext;
 		if ( LWJGLUtil.CHECKS ) {
@@ -139,7 +139,7 @@ public final class ALC10 {
 
 	// --- [ alcMakeContextCurrent ] ---
 
-	/** JNI method for {@link #alcMakeContextCurrent(long)} */
+	/** JNI method for {@link #alcMakeContextCurrent} */
 	public static native boolean nalcMakeContextCurrent(long context, long __functionAddress);
 
 	/**
@@ -162,7 +162,7 @@ public final class ALC10 {
 
 	// --- [ alcProcessContext ] ---
 
-	/** JNI method for {@link #alcProcessContext(long)} */
+	/** JNI method for {@link #alcProcessContext} */
 	public static native void nalcProcessContext(long context, long __functionAddress);
 
 	/**
@@ -186,7 +186,7 @@ public final class ALC10 {
 
 	// --- [ alcSuspendContext ] ---
 
-	/** JNI method for {@link #alcSuspendContext(long)} */
+	/** JNI method for {@link #alcSuspendContext} */
 	public static native void nalcSuspendContext(long context, long __functionAddress);
 
 	/**
@@ -208,7 +208,7 @@ public final class ALC10 {
 
 	// --- [ alcDestroyContext ] ---
 
-	/** JNI method for {@link #alcDestroyContext(long)} */
+	/** JNI method for {@link #alcDestroyContext} */
 	public static native void nalcDestroyContext(long context, long __functionAddress);
 
 	/**
@@ -231,7 +231,7 @@ public final class ALC10 {
 
 	// --- [ alcGetCurrentContext ] ---
 
-	/** JNI method for {@link #alcGetCurrentContext()} */
+	/** JNI method for {@link #alcGetCurrentContext} */
 	public static native long nalcGetCurrentContext(long __functionAddress);
 
 	/** Queries for, and obtains a handle to, the current context for the application. If there is no current context, NULL is returned. */
@@ -244,7 +244,7 @@ public final class ALC10 {
 
 	// --- [ alcGetContextsDevice ] ---
 
-	/** JNI method for {@link #alcGetContextsDevice(long)} */
+	/** JNI method for {@link #alcGetContextsDevice} */
 	public static native long nalcGetContextsDevice(long context, long __functionAddress);
 
 	/**
@@ -263,7 +263,7 @@ public final class ALC10 {
 
 	// --- [ alcIsExtensionPresent ] ---
 
-	/** JNI method for {@link #alcIsExtensionPresent(long, ByteBuffer)} */
+	/** JNI method for {@link #alcIsExtensionPresent} */
 	public static native boolean nalcIsExtensionPresent(long deviceHandle, long extName, long __functionAddress);
 
 	/**
@@ -284,7 +284,7 @@ public final class ALC10 {
 		return nalcIsExtensionPresent(deviceHandle, memAddress(extName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcIsExtensionPresent(long, ByteBuffer)} */
+	/** CharSequence version of: {@link #alcIsExtensionPresent} */
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
 		long __functionAddress = getInstance().alcIsExtensionPresent;
 		if ( LWJGLUtil.CHECKS )
@@ -294,7 +294,7 @@ public final class ALC10 {
 
 	// --- [ alcGetProcAddress ] ---
 
-	/** JNI method for {@link #alcGetProcAddress(long, ByteBuffer)} */
+	/** JNI method for {@link #alcGetProcAddress} */
 	public static native long nalcGetProcAddress(long deviceHandle, long funcName, long __functionAddress);
 
 	/**
@@ -318,7 +318,7 @@ public final class ALC10 {
 		return nalcGetProcAddress(deviceHandle, memAddress(funcName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcGetProcAddress(long, ByteBuffer)} */
+	/** CharSequence version of: {@link #alcGetProcAddress} */
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
 		long __functionAddress = getInstance().alcGetProcAddress;
 		if ( LWJGLUtil.CHECKS )
@@ -328,7 +328,7 @@ public final class ALC10 {
 
 	// --- [ alcGetEnumValue ] ---
 
-	/** JNI method for {@link #alcGetEnumValue(long, ByteBuffer)} */
+	/** JNI method for {@link #alcGetEnumValue} */
 	public static native int nalcGetEnumValue(long deviceHandle, long enumName, long __functionAddress);
 
 	/**
@@ -349,7 +349,7 @@ public final class ALC10 {
 		return nalcGetEnumValue(deviceHandle, memAddress(enumName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcGetEnumValue(long, ByteBuffer)} */
+	/** CharSequence version of: {@link #alcGetEnumValue} */
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
 		long __functionAddress = getInstance().alcGetEnumValue;
 		if ( LWJGLUtil.CHECKS )
@@ -359,7 +359,7 @@ public final class ALC10 {
 
 	// --- [ alcGetError ] ---
 
-	/** JNI method for {@link #alcGetError(long)} */
+	/** JNI method for {@link #alcGetError} */
 	public static native int nalcGetError(long deviceHandle, long __functionAddress);
 
 	/**
@@ -383,7 +383,7 @@ public final class ALC10 {
 
 	// --- [ alcGetString ] ---
 
-	/** JNI method for {@link #alcGetString(long, int)} */
+	/** JNI method for {@link #alcGetString} */
 	public static native long nalcGetString(long deviceHandle, int token, long __functionAddress);
 
 	/**

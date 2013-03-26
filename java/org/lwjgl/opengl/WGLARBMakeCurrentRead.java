@@ -27,7 +27,7 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglMakeContextCurrentARB ] ---
 
-	/** JNI method for {@link #wglMakeContextCurrentARB(long, long, long)} */
+	/** JNI method for {@link #wglMakeContextCurrentARB} */
 	public static native int nwglMakeContextCurrentARB(long drawDC, long readDC, long hglrc, long __functionAddress);
 
 	/**
@@ -71,7 +71,7 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglGetCurrentReadDCARB ] ---
 
-	/** JNI method for {@link #wglGetCurrentReadDCARB()} */
+	/** JNI method for {@link #wglGetCurrentReadDCARB} */
 	public static native long nwglGetCurrentReadDCARB(long __functionAddress);
 
 	/** Returns the "read" device context for the current OpenGL context. */

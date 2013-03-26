@@ -44,7 +44,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
-	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT(ByteBuffer)} */
+	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT} */
 	public static native long nalcLoopbackOpenDeviceSOFT(long deviceName, long __functionAddress);
 
 	/**
@@ -79,7 +79,7 @@ public final class SOFTLoopback {
 		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT(ByteBuffer)} */
+	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
 		long __functionAddress = getInstance().alcLoopbackOpenDeviceSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -89,7 +89,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT(long, int, int, int)} */
+	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT} */
 	public static native boolean nalcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type, long __functionAddress);
 
 	/**
@@ -112,7 +112,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcRenderSamplesSOFT ] ---
 
-	/** JNI method for {@link #alcRenderSamplesSOFT(long, ByteBuffer, int)} */
+	/** JNI method for {@link #alcRenderSamplesSOFT} */
 	public static native void nalcRenderSamplesSOFT(long device, long buffer, int samples, long __functionAddress);
 
 	/**

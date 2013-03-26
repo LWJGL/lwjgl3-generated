@@ -25,7 +25,7 @@ public final class ARBCopyBuffer {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** JNI method for {@link #glCopyBufferSubData(int, int, long, long, long)} */
+	/** JNI method for {@link #glCopyBufferSubData} */
 	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**

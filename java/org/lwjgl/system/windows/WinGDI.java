@@ -141,7 +141,7 @@ public final class WinGDI {
 
 	// --- [ CancelDC ] ---
 
-	/** JNI method for {@link #CancelDC(long)} */
+	/** JNI method for {@link #CancelDC} */
 	public static native int nCancelDC(long hdc);
 
 	/**
@@ -157,7 +157,7 @@ public final class WinGDI {
 
 	// --- [ CreateCompatibleDC ] ---
 
-	/** JNI method for {@link #CreateCompatibleDC(long)} */
+	/** JNI method for {@link #CreateCompatibleDC} */
 	public static native long nCreateCompatibleDC(long hdc);
 
 	/**
@@ -180,7 +180,7 @@ public final class WinGDI {
 
 	// --- [ EnumObjects ] ---
 
-	/** JNI method for {@link #EnumObjects(long, int, long, long)} */
+	/** JNI method for {@link #EnumObjects} */
 	public static native int nEnumObjects(long hdc, int objectType, long objectFunc, long param);
 
 	/**
@@ -199,7 +199,7 @@ public final class WinGDI {
 		return nEnumObjects(hdc, objectType, objectFunc, param);
 	}
 
-	/** Alternative version of: {@link #EnumObjects(long, int, long, long)} */
+	/** Alternative version of: {@link #EnumObjects} */
 	public static int EnumObjects(long hdc, int objectType, EnumObjectsProc objectFunc) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
@@ -213,7 +213,7 @@ public final class WinGDI {
 
 	// --- [ SelectObject ] ---
 
-	/** JNI method for {@link #SelectObject(long, long)} */
+	/** JNI method for {@link #SelectObject} */
 	public static native long nSelectObject(long hdc, long object);
 
 	/**
@@ -232,7 +232,7 @@ public final class WinGDI {
 
 	// --- [ GetCurrentObject ] ---
 
-	/** JNI method for {@link #GetCurrentObject(long, int)} */
+	/** JNI method for {@link #GetCurrentObject} */
 	public static native long nGetCurrentObject(long hdc, int objectType);
 
 	/**
@@ -249,7 +249,7 @@ public final class WinGDI {
 
 	// --- [ GetObjectType ] ---
 
-	/** JNI method for {@link #GetObjectType(long)} */
+	/** JNI method for {@link #GetObjectType} */
 	public static native int nGetObjectType(long object);
 
 	/**
@@ -265,7 +265,7 @@ public final class WinGDI {
 
 	// --- [ DeleteObject ] ---
 
-	/** JNI method for {@link #DeleteObject(long)} */
+	/** JNI method for {@link #DeleteObject} */
 	public static native int nDeleteObject(long object);
 
 	/**
@@ -282,7 +282,7 @@ public final class WinGDI {
 
 	// --- [ GetDCOrgEx ] ---
 
-	/** JNI method for {@link #GetDCOrgEx(long, ByteBuffer)} */
+	/** JNI method for {@link #GetDCOrgEx} */
 	public static native int nGetDCOrgEx(long hdc, long point);
 
 	/**
@@ -302,7 +302,7 @@ public final class WinGDI {
 
 	// --- [ GetDeviceCaps ] ---
 
-	/** JNI method for {@link #GetDeviceCaps(long, int)} */
+	/** JNI method for {@link #GetDeviceCaps} */
 	public static native int nGetDeviceCaps(long hdc, int index);
 
 	/**
@@ -319,7 +319,7 @@ public final class WinGDI {
 
 	// --- [ SaveDC ] ---
 
-	/** JNI method for {@link #SaveDC(long)} */
+	/** JNI method for {@link #SaveDC} */
 	public static native int nSaveDC(long hdc);
 
 	/**
@@ -336,7 +336,7 @@ public final class WinGDI {
 
 	// --- [ RestoreDC ] ---
 
-	/** JNI method for {@link #RestoreDC(long, int)} */
+	/** JNI method for {@link #RestoreDC} */
 	public static native int nRestoreDC(long hdc, int savedDC);
 
 	/**
@@ -355,7 +355,7 @@ public final class WinGDI {
 
 	// --- [ ChoosePixelFormat ] ---
 
-	/** JNI method for {@link #ChoosePixelFormat(long, ByteBuffer)} */
+	/** JNI method for {@link #ChoosePixelFormat} */
 	public static native int nChoosePixelFormat(long hdc, long pixelFormatDescriptor);
 
 	/**
@@ -374,7 +374,7 @@ public final class WinGDI {
 
 	// --- [ DescribePixelFormat ] ---
 
-	/** JNI method for {@link #DescribePixelFormat(long, int, int, ByteBuffer)} */
+	/** JNI method for {@link #DescribePixelFormat} */
 	public static native int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
 
 	/**
@@ -398,7 +398,7 @@ public final class WinGDI {
 		return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddress(pixelFormatDescriptor));
 	}
 
-	/** Alternative version of: {@link #DescribePixelFormat(long, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #DescribePixelFormat} */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, ByteBuffer pixelFormatDescriptor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hdc);
@@ -409,7 +409,7 @@ public final class WinGDI {
 
 	// --- [ GetPixelFormat ] ---
 
-	/** JNI method for {@link #GetPixelFormat(long)} */
+	/** JNI method for {@link #GetPixelFormat} */
 	public static native int nGetPixelFormat(long hdc);
 
 	/**
@@ -425,7 +425,7 @@ public final class WinGDI {
 
 	// --- [ SetPixelFormat ] ---
 
-	/** JNI method for {@link #SetPixelFormat(long, int, ByteBuffer)} */
+	/** JNI method for {@link #SetPixelFormat} */
 	public static native int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor);
 
 	/**
@@ -446,7 +446,7 @@ public final class WinGDI {
 
 	// --- [ SwapBuffers ] ---
 
-	/** JNI method for {@link #SwapBuffers(long)} */
+	/** JNI method for {@link #SwapBuffers} */
 	public static native int nSwapBuffers(long dc);
 
 	/**

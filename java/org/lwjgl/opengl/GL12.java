@@ -119,7 +119,7 @@ public final class GL12 {
 
 	// --- [ glTexImage3D ] ---
 
-	/** JNI method for {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexImage3D} */
 	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -147,7 +147,7 @@ public final class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -157,7 +157,7 @@ public final class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -167,7 +167,7 @@ public final class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -177,7 +177,7 @@ public final class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -187,7 +187,7 @@ public final class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage3D(int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -199,7 +199,7 @@ public final class GL12 {
 
 	// --- [ glTexSubImage3D ] ---
 
-	/** JNI method for {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glTexSubImage3D} */
 	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -229,7 +229,7 @@ public final class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glTexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -239,7 +239,7 @@ public final class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** ShortBuffer version of: {@link #glTexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -249,7 +249,7 @@ public final class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** IntBuffer version of: {@link #glTexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -259,7 +259,7 @@ public final class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** FloatBuffer version of: {@link #glTexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -269,7 +269,7 @@ public final class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage3D(int, int, int, int, int, int, int, int, int, int, ByteBuffer)} */
+	/** DoubleBuffer version of: {@link #glTexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -281,7 +281,7 @@ public final class GL12 {
 
 	// --- [ glCopyTexSubImage3D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage3D(int, int, int, int, int, int, int, int, int)} */
+	/** JNI method for {@link #glCopyTexSubImage3D} */
 	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -310,7 +310,7 @@ public final class GL12 {
 
 	// --- [ glDrawRangeElements ] ---
 
-	/** JNI method for {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glDrawRangeElements} */
 	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices, long __functionAddress);
 
 	/**
@@ -361,7 +361,7 @@ public final class GL12 {
 		nglDrawRangeElements(mode, start, end, count, type, memAddress(indices), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** Buffer object offset version of: {@link #glDrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indicesOffset) {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -371,7 +371,7 @@ public final class GL12 {
 		nglDrawRangeElements(mode, start, end, count, type, indicesOffset, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glDrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -381,7 +381,7 @@ public final class GL12 {
 		nglDrawRangeElements(mode, start, end, indices.remaining(), type, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -391,7 +391,7 @@ public final class GL12 {
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
@@ -401,7 +401,7 @@ public final class GL12 {
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElements(int, int, int, int, int, ByteBuffer)} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {

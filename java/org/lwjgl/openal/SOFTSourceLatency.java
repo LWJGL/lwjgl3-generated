@@ -50,7 +50,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcedSOFT ] ---
 
-	/** JNI method for {@link #alSourcedSOFT(int, int, double)} */
+	/** JNI method for {@link #alSourcedSOFT} */
 	public static native void nalSourcedSOFT(int source, int param, double value, long __functionAddress);
 
 	/**
@@ -69,7 +69,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSource3dSOFT ] ---
 
-	/** JNI method for {@link #alSource3dSOFT(int, int, double, double, double)} */
+	/** JNI method for {@link #alSource3dSOFT} */
 	public static native void nalSource3dSOFT(int source, int param, double value1, double value2, double value3, long __functionAddress);
 
 	/**
@@ -90,11 +90,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcedvSOFT ] ---
 
-	/** JNI method for {@link #alSourcedvSOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alSourcedvSOFT} */
 	public static native void nalSourcedvSOFT(int source, int param, long value, long __functionAddress);
 
 	/**
-	 * pointer version of {@link #alSourcedSOFT(int, int, double)}
+	 * pointer version of {@link #alSourcedSOFT}
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
@@ -107,7 +107,7 @@ public final class SOFTSourceLatency {
 		nalSourcedvSOFT(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourcedvSOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourcedvSOFT} */
 	public static void alSourcedvSOFT(int source, int param, DoubleBuffer value) {
 		long __functionAddress = getInstance().alSourcedvSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -117,7 +117,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcedSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcedSOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alGetSourcedSOFT} */
 	public static native void nalGetSourcedSOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -134,7 +134,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcedSOFT(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcedSOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSourcedSOFT} */
 	public static void alGetSourcedSOFT(int source, int param, DoubleBuffer value) {
 		long __functionAddress = getInstance().alGetSourcedSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -144,7 +144,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSource3dSOFT ] ---
 
-	/** JNI method for {@link #alGetSource3dSOFT(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #alGetSource3dSOFT} */
 	public static native void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -163,7 +163,7 @@ public final class SOFTSourceLatency {
 		nalGetSource3dSOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSource3dSOFT(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSource3dSOFT} */
 	public static void alGetSource3dSOFT(int source, int param, DoubleBuffer value1, DoubleBuffer value2, DoubleBuffer value3) {
 		long __functionAddress = getInstance().alGetSource3dSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -173,11 +173,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcedvSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcedvSOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alGetSourcedvSOFT} */
 	public static native void nalGetSourcedvSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetSourcedSOFT(int, int, ByteBuffer)}
+	 * Pointer version of {@link #alGetSourcedSOFT}
 	 *
 	 * @param source the source to query
 	 * @param param  the parameter to query
@@ -190,7 +190,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcedvSOFT(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcedvSOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSourcedvSOFT} */
 	public static void alGetSourcedvSOFT(int source, int param, DoubleBuffer values) {
 		long __functionAddress = getInstance().alGetSourcedvSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -200,7 +200,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcei64SOFT ] ---
 
-	/** JNI method for {@link #alSourcei64SOFT(int, int, long)} */
+	/** JNI method for {@link #alSourcei64SOFT} */
 	public static native void nalSourcei64SOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -219,7 +219,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSource3i64SOFT ] ---
 
-	/** JNI method for {@link #alSource3i64SOFT(int, int, long, long, long)} */
+	/** JNI method for {@link #alSource3i64SOFT} */
 	public static native void nalSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -240,7 +240,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcei64vSOFT ] ---
 
-	/** JNI method for {@link #alSourcei64vSOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alSourcei64vSOFT} */
 	public static native void nalSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
@@ -257,7 +257,7 @@ public final class SOFTSourceLatency {
 		nalSourcei64vSOFT(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourcei64vSOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourcei64vSOFT} */
 	public static void alSourcei64vSOFT(int source, int param, LongBuffer values) {
 		long __functionAddress = getInstance().alSourcei64vSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -267,7 +267,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64SOFT ] ---
 
-	/** JNI method for {@link #alGetSourcei64SOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alGetSourcei64SOFT} */
 	public static native void nalGetSourcei64SOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -284,7 +284,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcei64SOFT(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcei64SOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSourcei64SOFT} */
 	public static void alGetSourcei64SOFT(int source, int param, LongBuffer value) {
 		long __functionAddress = getInstance().alGetSourcei64SOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -294,7 +294,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSource3i64SOFT ] ---
 
-	/** JNI method for {@link #alGetSource3i64SOFT(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #alGetSource3i64SOFT} */
 	public static native void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -313,7 +313,7 @@ public final class SOFTSourceLatency {
 		nalGetSource3i64SOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSource3i64SOFT(int, int, ByteBuffer, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSource3i64SOFT} */
 	public static void alGetSource3i64SOFT(int source, int param, LongBuffer value1, LongBuffer value2, LongBuffer value3) {
 		long __functionAddress = getInstance().alGetSource3i64SOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -323,7 +323,7 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64vSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcei64vSOFT(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alGetSourcei64vSOFT} */
 	public static native void nalGetSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
@@ -340,7 +340,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcei64vSOFT(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcei64vSOFT(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetSourcei64vSOFT} */
 	public static void alGetSourcei64vSOFT(int source, int param, LongBuffer values) {
 		long __functionAddress = getInstance().alGetSourcei64vSOFT;
 		if ( LWJGLUtil.CHECKS )
