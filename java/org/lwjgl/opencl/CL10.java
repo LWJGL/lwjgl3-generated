@@ -3144,19 +3144,16 @@ public final class CL10 {
 		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
 	}
 
-	/** Single value version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, CLDevice device, ByteBuffer options, CLBuildProgramCallback pfn_notify) {
+	/** CharSequence version of: {@link #clBuildProgram} */
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLBuildProgramCallback pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		APIBuffer __buffer = apiBuffer();
-		int device_list = __buffer.pointerParam();
-		__buffer.pointerValue(device_list, device);
 		long user_data = program.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(options), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
+		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #clBuildProgram} */
+	/** Single value version of: {@link #clBuildProgram} */
 	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLBuildProgramCallback pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )

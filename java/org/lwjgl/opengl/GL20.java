@@ -1078,14 +1078,29 @@ public final class GL20 {
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetShaderInfoLog} */
-	public static void glGetShaderInfoLog(int shader, IntBuffer length, CharSequence infoLog) {
+	/** String return version of: {@link #glGetShaderInfoLog} */
+	public static String glGetShaderInfoLog(int shader, int maxLength) {
 		long __functionAddress = getInstance().glGetShaderInfoLog;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetShaderInfoLog(shader, infoLog.length(), memAddressSafe(length), memAddress(memEncodeUTF8(infoLog)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(maxLength);
+		nglGetShaderInfoLog(shader, maxLength, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetShaderInfoLog} */
+	public static String glGetShaderInfoLog(int shader) {
+		long __functionAddress = getInstance().glGetShaderInfoLog;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int maxLength = glGetShaderi(shader, GL_INFO_LOG_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(maxLength);
+		nglGetShaderInfoLog(shader, maxLength, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetProgramInfoLog ] ---
@@ -1123,14 +1138,29 @@ public final class GL20 {
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramInfoLog} */
-	public static void glGetProgramInfoLog(int program, IntBuffer length, CharSequence infoLog) {
+	/** String return version of: {@link #glGetProgramInfoLog} */
+	public static String glGetProgramInfoLog(int program, int maxLength) {
 		long __functionAddress = getInstance().glGetProgramInfoLog;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetProgramInfoLog(program, infoLog.length(), memAddressSafe(length), memAddress(memEncodeUTF8(infoLog)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(maxLength);
+		nglGetProgramInfoLog(program, maxLength, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetProgramInfoLog} */
+	public static String glGetProgramInfoLog(int program) {
+		long __functionAddress = getInstance().glGetProgramInfoLog;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int maxLength = glGetProgrami(program, GL_INFO_LOG_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(maxLength);
+		nglGetProgramInfoLog(program, maxLength, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttachedShaders ] ---
@@ -1240,16 +1270,35 @@ public final class GL20 {
 		nglGetActiveUniform(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveUniform} */
-	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
+	/** String return version of: {@link #glGetActiveUniform} */
+	public static String glGetActiveUniform(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		long __functionAddress = getInstance().glGetActiveUniform;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		nglGetActiveUniform(program, index, name.length(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform} */
+	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
+		long __functionAddress = getInstance().glGetActiveUniform;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetUniformfv ] ---
@@ -1375,14 +1424,29 @@ public final class GL20 {
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetShaderSource} */
-	public static void glGetShaderSource(int shader, IntBuffer length, CharSequence source) {
+	/** String return version of: {@link #glGetShaderSource} */
+	public static String glGetShaderSource(int shader, int maxLength) {
 		long __functionAddress = getInstance().glGetShaderSource;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetShaderSource(shader, source.length(), memAddressSafe(length), memAddress(memEncodeUTF8(source)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int source = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetShaderSource} */
+	public static String glGetShaderSource(int shader) {
+		long __functionAddress = getInstance().glGetShaderSource;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int maxLength = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int source = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
 	}
 
 	// --- [ glVertexAttrib1f ] ---
@@ -2544,12 +2608,29 @@ public final class GL20 {
 		nglGetActiveAttrib(program, index, name.remaining(), memAddress(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveAttrib} */
-	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
+	/** String return version of: {@link #glGetActiveAttrib} */
+	public static String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		long __functionAddress = getInstance().glGetActiveAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetActiveAttrib(program, index, name.length(), memAddress(length), memAddress(size), memAddress(type), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib} */
+	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
+		long __functionAddress = getInstance().glGetActiveAttrib;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(maxLength);
+		int length = __buffer.intParam();
+		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttribLocation ] ---

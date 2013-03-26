@@ -2680,16 +2680,35 @@ public final class GL30 {
 		nglGetTransformFeedbackVarying(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetTransformFeedbackVarying} */
-	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, CharSequence name) {
+	/** String return version of: {@link #glGetTransformFeedbackVarying} */
+	public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		nglGetTransformFeedbackVarying(program, index, name.length(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying} */
+	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
+		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glBindVertexArray ] ---

@@ -940,14 +940,29 @@ public final class GL43 {
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetObjectLabel} */
-	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, CharSequence label) {
+	/** String return version of: {@link #glGetObjectLabel} */
+	public static String glGetObjectLabel(int identifier, int name, int bufSize) {
 		long __functionAddress = getInstance().glGetObjectLabel;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetObjectLabel(identifier, name, label.length(), memAddressSafe(length), memAddress(memEncodeUTF8(label)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int label = __buffer.bufferParam(bufSize);
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel} */
+	public static String glGetObjectLabel(int identifier, int name) {
+		long __functionAddress = getInstance().glGetObjectLabel;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int label = __buffer.bufferParam(bufSize);
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -1032,15 +1047,33 @@ public final class GL43 {
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetObjectPtrLabel} */
-	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, CharSequence label) {
+	/** String return version of: {@link #glGetObjectPtrLabel} */
+	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
 		long __functionAddress = getInstance().glGetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
-			if ( length != null ) checkBuffer(length, 1);
 		}
-		nglGetObjectPtrLabel(ptr, label.length(), memAddressSafe(length), memAddress(memEncodeUTF8(label)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int label = __buffer.bufferParam(bufSize);
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel} */
+	public static String glGetObjectPtrLabel(long ptr) {
+		long __functionAddress = getInstance().glGetObjectPtrLabel;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(ptr);
+		}
+		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int label = __buffer.bufferParam(bufSize);
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -1529,14 +1562,29 @@ public final class GL43 {
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramResourceName} */
-	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, CharSequence name) {
+	/** String return version of: {@link #glGetProgramResourceName} */
+	public static String glGetProgramResourceName(int program, int programInterface, int index, int bufSize) {
 		long __functionAddress = getInstance().glGetProgramResourceName;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetProgramResourceName(program, programInterface, index, name.length(), memAddressSafe(length), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName} */
+	public static String glGetProgramResourceName(int program, int programInterface, int index) {
+		long __functionAddress = getInstance().glGetProgramResourceName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---

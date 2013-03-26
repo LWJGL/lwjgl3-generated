@@ -1092,14 +1092,29 @@ public final class GL40 {
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveSubroutineUniformName} */
-	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, CharSequence name) {
+	/** String return version of: {@link #glGetActiveSubroutineUniformName} */
+	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize) {
 		long __functionAddress = getInstance().glGetActiveSubroutineUniformName;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveSubroutineUniformName(program, shadertype, index, name.length(), memAddressSafe(length), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufsize);
+		int length = __buffer.intParam();
+		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineUniformName} */
+	public static String glGetActiveSubroutineUniformName(int program, int shadertype, int index) {
+		long __functionAddress = getInstance().glGetActiveSubroutineUniformName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufsize);
+		int length = __buffer.intParam();
+		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetActiveSubroutineName ] ---
@@ -1139,14 +1154,29 @@ public final class GL40 {
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveSubroutineName} */
-	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, CharSequence name) {
+	/** String return version of: {@link #glGetActiveSubroutineName} */
+	public static String glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize) {
 		long __functionAddress = getInstance().glGetActiveSubroutineName;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveSubroutineName(program, shadertype, index, name.length(), memAddressSafe(length), memAddress(memEncodeASCII(name)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufsize);
+		int length = __buffer.intParam();
+		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineName} */
+	public static String glGetActiveSubroutineName(int program, int shadertype, int index) {
+		long __functionAddress = getInstance().glGetActiveSubroutineName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufsize = glGetProgramStagei(program, shadertype, GL_ACTIVE_SUBROUTINE_MAX_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int name = __buffer.bufferParam(bufsize);
+		int length = __buffer.intParam();
+		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	// --- [ glUniformSubroutinesuiv ] ---

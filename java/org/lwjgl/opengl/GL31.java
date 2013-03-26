@@ -467,14 +467,29 @@ public final class GL31 {
 		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveUniformName} */
-	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, CharSequence uniformName) {
+	/** String return version of: {@link #glGetActiveUniformName} */
+	public static String glGetActiveUniformName(int program, int uniformIndex, int bufSize) {
 		long __functionAddress = getInstance().glGetActiveUniformName;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveUniformName(program, uniformIndex, uniformName.length(), memAddressSafe(length), memAddress(memEncodeASCII(uniformName)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int uniformName = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformName} */
+	public static String glGetActiveUniformName(int program, int uniformIndex) {
+		long __functionAddress = getInstance().glGetActiveUniformName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufSize = glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int uniformName = __buffer.bufferParam(bufSize);
+		int length = __buffer.intParam();
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
 	}
 
 	// --- [ glGetUniformBlockIndex ] ---
@@ -588,14 +603,29 @@ public final class GL31 {
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetActiveUniformBlockName} */
-	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, CharSequence uniformBlockName) {
+	/** String return version of: {@link #glGetActiveUniformBlockName} */
+	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
 		long __functionAddress = getInstance().glGetActiveUniformBlockName;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.length(), memAddressSafe(length), memAddress(memEncodeASCII(uniformBlockName)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int uniformBlockName = __buffer.bufferParam(bufSize);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName} */
+	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
+		long __functionAddress = getInstance().glGetActiveUniformBlockName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufSize = glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int uniformBlockName = __buffer.bufferParam(bufSize);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName, __functionAddress);
+		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
 	}
 
 	// --- [ glUniformBlockBinding ] ---

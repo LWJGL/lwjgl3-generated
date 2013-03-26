@@ -2142,14 +2142,29 @@ public final class GL41 {
 		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetProgramPipelineInfoLog} */
-	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, CharSequence infoLog) {
+	/** String return version of: {@link #glGetProgramPipelineInfoLog} */
+	public static String glGetProgramPipelineInfoLog(int pipeline, int bufSize) {
 		long __functionAddress = getInstance().glGetProgramPipelineInfoLog;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetProgramPipelineInfoLog(pipeline, infoLog.length(), memAddressSafe(length), memAddress(memEncodeUTF8(infoLog)), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(bufSize);
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+	}
+
+	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLog} */
+	public static String glGetProgramPipelineInfoLog(int pipeline) {
+		long __functionAddress = getInstance().glGetProgramPipelineInfoLog;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		int bufSize = glGetProgramPipelinei(pipeline, GL20.GL_INFO_LOG_LENGTH);
+		APIBuffer __buffer = apiBuffer();
+		int length = __buffer.intParam();
+		int infoLog = __buffer.bufferParam(bufSize);
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog, __functionAddress);
+		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
 	}
 
 	// --- [ glVertexAttribL1d ] ---
