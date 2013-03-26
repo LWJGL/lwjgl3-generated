@@ -1038,21 +1038,36 @@ public final class GL40 {
 	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<p/>{@link GL20#GL_VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER}, {@link GL40#GL_TESS_CONTROL_SHADER}, {@link GL40#GL_TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
 	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<p/>{@link #GL_NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH}
-	 * @param values     
+	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
 	public static void glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname, ByteBuffer values) {
 		long __functionAddress = getInstance().glGetActiveSubroutineUniformiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1 << 2);
+		}
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer)} */
 	public static void glGetActiveSubroutineUniform(int program, int shadertype, int index, int pname, IntBuffer values) {
 		long __functionAddress = getInstance().glGetActiveSubroutineUniformiv;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values), __functionAddress);
+	}
+
+	/** Single return value version of: {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer)} */
+	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
+		long __functionAddress = getInstance().glGetActiveSubroutineUniformiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values), __functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int values = __buffer.intParam();
+		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, __buffer.address() + values, __functionAddress);
+		return __buffer.intValue(values);
 	}
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
