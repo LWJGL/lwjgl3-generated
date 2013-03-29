@@ -42,8 +42,8 @@ typedef cl_sampler (APIENTRY *clCreateSamplerPROC) (cl_context, cl_bool, cl_addr
 typedef cl_int (APIENTRY *clRetainSamplerPROC) (cl_sampler);
 typedef cl_int (APIENTRY *clReleaseSamplerPROC) (cl_sampler);
 typedef cl_int (APIENTRY *clGetSamplerInfoPROC) (cl_sampler, cl_sampler_info, size_t, cl_void *, size_t *);
-typedef cl_program (APIENTRY *clCreateProgramWithSourcePROC) (cl_context, cl_uint, const cl_char* *, const size_t *, cl_int *);
-typedef cl_program (APIENTRY *clCreateProgramWithBinaryPROC) (cl_context, cl_uint, const cl_device_id *, const size_t *, const cl_uchar* *, cl_int *, cl_int *);
+typedef cl_program (APIENTRY *clCreateProgramWithSourcePROC) (cl_context, cl_uint, const cl_char **, const size_t *, cl_int *);
+typedef cl_program (APIENTRY *clCreateProgramWithBinaryPROC) (cl_context, cl_uint, const cl_device_id *, const size_t *, const cl_uchar **, cl_int *, cl_int *);
 typedef cl_int (APIENTRY *clRetainProgramPROC) (cl_program);
 typedef cl_int (APIENTRY *clReleaseProgramPROC) (cl_program);
 typedef cl_int (APIENTRY *clBuildProgramPROC) (cl_program, cl_uint, const cl_device_id *, const cl_char *, cl_program_callback, void *);
@@ -59,7 +59,7 @@ typedef cl_int (APIENTRY *clGetKernelInfoPROC) (cl_kernel, cl_kernel_info, size_
 typedef cl_int (APIENTRY *clGetKernelWorkGroupInfoPROC) (cl_kernel, cl_device_id, cl_kernel_work_group_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clEnqueueNDRangeKernelPROC) (cl_command_queue, cl_kernel, cl_uint, const size_t *, const size_t *, const size_t *, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueTaskPROC) (cl_command_queue, cl_kernel, cl_uint, const cl_event *, cl_event *);
-typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel_func, cl_void *, size_t, cl_uint, const cl_mem *, const cl_void* *, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel_func, cl_void *, size_t, cl_uint, const cl_mem *, const cl_void **, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clWaitForEventsPROC) (cl_uint, const cl_event *);
 typedef cl_int (APIENTRY *clGetEventInfoPROC) (cl_event, cl_event_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clRetainEventPROC) (cl_event);
@@ -386,7 +386,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetSamplerInfo(JNIEnv *__en
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateProgramWithSource(JNIEnv *__env, jclass clazz, jlong contextAddress, jint count, jlong stringsAddress, jlong lengthsAddress, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
-	const cl_char* *strings = (const cl_char* *)(intptr_t)stringsAddress;
+	const cl_char **strings = (const cl_char **)(intptr_t)stringsAddress;
 	const size_t *lengths = (const size_t *)(intptr_t)lengthsAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateProgramWithSourcePROC clCreateProgramWithSource = (clCreateProgramWithSourcePROC)(intptr_t)__functionAddress;
@@ -397,7 +397,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateProgramWithBinary(JN
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	const cl_device_id *device_list = (const cl_device_id *)(intptr_t)device_listAddress;
 	const size_t *lengths = (const size_t *)(intptr_t)lengthsAddress;
-	const cl_uchar* *binaries = (const cl_uchar* *)(intptr_t)binariesAddress;
+	const cl_uchar **binaries = (const cl_uchar **)(intptr_t)binariesAddress;
 	cl_int *binary_status = (cl_int *)(intptr_t)binary_statusAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateProgramWithBinaryPROC clCreateProgramWithBinary = (clCreateProgramWithBinaryPROC)(intptr_t)__functionAddress;
@@ -526,7 +526,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNativeKernel(JNIEnv 
 	cl_native_kernel_func user_func = (cl_native_kernel_func)(intptr_t)user_funcAddress;
 	cl_void *args = (cl_void *)(intptr_t)argsAddress;
 	const cl_mem *mem_list = (const cl_mem *)(intptr_t)mem_listAddress;
-	const cl_void* *args_mem_loc = (const cl_void* *)(intptr_t)args_mem_locAddress;
+	const cl_void **args_mem_loc = (const cl_void **)(intptr_t)args_mem_locAddress;
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueNativeKernelPROC clEnqueueNativeKernel = (clEnqueueNativeKernelPROC)(intptr_t)__functionAddress;

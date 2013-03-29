@@ -114,7 +114,7 @@ typedef GLvoid (APIENTRY *glGetMaterialfvPROC) (GLenum, GLenum, GLfloat *);
 typedef GLvoid (APIENTRY *glGetPixelMapfvPROC) (GLenum, GLfloat *);
 typedef GLvoid (APIENTRY *glGetPixelMapusvPROC) (GLenum, GLushort *);
 typedef GLvoid (APIENTRY *glGetPixelMapuivPROC) (GLenum, GLuint *);
-typedef GLvoid (APIENTRY *glGetPointervPROC) (GLenum, GLvoid* *);
+typedef GLvoid (APIENTRY *glGetPointervPROC) (GLenum, GLvoid **);
 typedef GLvoid (APIENTRY *glGetPolygonStipplePROC) (GLvoid *);
 typedef const GLubyte * (APIENTRY *glGetStringPROC) (GLenum);
 typedef GLvoid (APIENTRY *glGetTexEnvivPROC) (GLenum, GLenum, GLint *);
@@ -921,7 +921,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPixelMapuiv(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPointerv(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid* *params = (GLvoid* *)(intptr_t)paramsAddress;
+	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
 	glGetPointervPROC glGetPointerv = (glGetPointervPROC)(intptr_t)__functionAddress;
 	glGetPointerv(pname, params);
 }

@@ -14,7 +14,7 @@ typedef GLvoid (APIENTRY *glFogCoordfvPROC) (const GLfloat *);
 typedef GLvoid (APIENTRY *glFogCoorddvPROC) (const GLdouble *);
 typedef GLvoid (APIENTRY *glFogCoordPointerPROC) (GLenum, GLsizei, const GLvoid *);
 typedef GLvoid (APIENTRY *glMultiDrawArraysPROC) (GLenum, const GLint *, const GLsizei *, GLsizei);
-typedef GLvoid (APIENTRY *glMultiDrawElementsPROC) (GLenum, GLsizei *, GLenum, const GLvoid* *, GLsizei);
+typedef GLvoid (APIENTRY *glMultiDrawElementsPROC) (GLenum, GLsizei *, GLenum, const GLvoid **, GLsizei);
 typedef GLvoid (APIENTRY *glPointParameterfPROC) (GLenum, GLfloat);
 typedef GLvoid (APIENTRY *glPointParameteriPROC) (GLenum, GLint);
 typedef GLvoid (APIENTRY *glPointParameterfvPROC) (GLenum, const GLfloat *);
@@ -101,7 +101,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawArrays(JNIEnv *__e
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawElements(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong __functionAddress) {
 	GLsizei *count = (GLsizei *)(intptr_t)countAddress;
-	const GLvoid* *indices = (const GLvoid* *)(intptr_t)indicesAddress;
+	const GLvoid **indices = (const GLvoid **)(intptr_t)indicesAddress;
 	glMultiDrawElementsPROC glMultiDrawElements = (glMultiDrawElementsPROC)(intptr_t)__functionAddress;
 	glMultiDrawElements(mode, count, type, indices, primcount);
 }

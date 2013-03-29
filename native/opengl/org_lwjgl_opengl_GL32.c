@@ -9,7 +9,7 @@
 typedef GLvoid (APIENTRY *glDrawElementsBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLint);
 typedef GLvoid (APIENTRY *glDrawRangeElementsBaseVertexPROC) (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *, GLint);
 typedef GLvoid (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glMultiDrawElementsBaseVertexPROC) (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei, GLint *);
+typedef GLvoid (APIENTRY *glMultiDrawElementsBaseVertexPROC) (GLenum, const GLsizei *, GLenum, const GLvoid **, GLsizei, GLint *);
 typedef GLvoid (APIENTRY *glProvokingVertexPROC) (GLenum);
 typedef GLvoid (APIENTRY *glTexImage2DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
 typedef GLvoid (APIENTRY *glTexImage3DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsInstancedBaseVe
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglMultiDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong basevertexAddress, jlong __functionAddress) {
 	const GLsizei *count = (const GLsizei *)(intptr_t)countAddress;
-	const GLvoid* *indices = (const GLvoid* *)(intptr_t)indicesAddress;
+	const GLvoid **indices = (const GLvoid **)(intptr_t)indicesAddress;
 	GLint *basevertex = (GLint *)(intptr_t)basevertexAddress;
 	glMultiDrawElementsBaseVertexPROC glMultiDrawElementsBaseVertex = (glMultiDrawElementsBaseVertexPROC)(intptr_t)__functionAddress;
 	glMultiDrawElementsBaseVertex(mode, count, type, indices, primcount, basevertex);

@@ -15,7 +15,7 @@ typedef GLvoid (APIENTRY *glProgramBinaryPROC) (GLuint, GLenum, const GLvoid *, 
 typedef GLvoid (APIENTRY *glProgramParameteriPROC) (GLuint, GLenum, GLint);
 typedef GLvoid (APIENTRY *glUseProgramStagesPROC) (GLuint, GLbitfield, GLuint);
 typedef GLvoid (APIENTRY *glActiveShaderProgramPROC) (GLuint, GLuint);
-typedef GLuint (APIENTRY *glCreateShaderProgramvPROC) (GLenum, GLsizei, const GLchar* *);
+typedef GLuint (APIENTRY *glCreateShaderProgramvPROC) (GLenum, GLsizei, const GLchar **);
 typedef GLvoid (APIENTRY *glBindProgramPipelinePROC) (GLuint);
 typedef GLvoid (APIENTRY *glDeleteProgramPipelinesPROC) (GLsizei, const GLuint *);
 typedef GLvoid (APIENTRY *glGenProgramPipelinesPROC) (GLsizei, GLuint *);
@@ -146,7 +146,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglActiveShaderProgram(JNIEnv 
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL41_nglCreateShaderProgramv(JNIEnv *__env, jclass clazz, jint type, jint count, jlong stringsAddress, jlong __functionAddress) {
-	const GLchar* *strings = (const GLchar* *)(intptr_t)stringsAddress;
+	const GLchar **strings = (const GLchar **)(intptr_t)stringsAddress;
 	glCreateShaderProgramvPROC glCreateShaderProgramv = (glCreateShaderProgramvPROC)(intptr_t)__functionAddress;
 	return (jint)glCreateShaderProgramv(type, count, strings);
 }

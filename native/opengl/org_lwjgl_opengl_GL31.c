@@ -11,7 +11,7 @@ typedef GLvoid (APIENTRY *glDrawElementsInstancedPROC) (GLenum, GLsizei, GLenum,
 typedef GLvoid (APIENTRY *glCopyBufferSubDataPROC) (GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr);
 typedef GLvoid (APIENTRY *glPrimitiveRestartIndexPROC) (GLuint);
 typedef GLvoid (APIENTRY *glTexBufferPROC) (GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetUniformIndicesPROC) (GLuint, GLsizei, const GLchar* *, GLuint *);
+typedef GLvoid (APIENTRY *glGetUniformIndicesPROC) (GLuint, GLsizei, const GLchar **, GLuint *);
 typedef GLvoid (APIENTRY *glGetActiveUniformsivPROC) (GLuint, GLsizei, const GLuint *, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetActiveUniformNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
 typedef GLuint (APIENTRY *glGetUniformBlockIndexPROC) (GLuint, const GLchar *);
@@ -46,7 +46,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglTexBuffer(JNIEnv *__env, jc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetUniformIndices(JNIEnv *__env, jclass clazz, jint program, jint uniformCount, jlong uniformNamesAddress, jlong uniformIndicesAddress, jlong __functionAddress) {
-	const GLchar* *uniformNames = (const GLchar* *)(intptr_t)uniformNamesAddress;
+	const GLchar **uniformNames = (const GLchar **)(intptr_t)uniformNamesAddress;
 	GLuint *uniformIndices = (GLuint *)(intptr_t)uniformIndicesAddress;
 	glGetUniformIndicesPROC glGetUniformIndices = (glGetUniformIndicesPROC)(intptr_t)__functionAddress;
 	glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);

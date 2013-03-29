@@ -80,7 +80,7 @@ typedef GLvoid (APIENTRY *glBindBufferRangePROC) (GLenum, GLuint, GLuint, GLintp
 typedef GLvoid (APIENTRY *glBindBufferBasePROC) (GLenum, GLuint, GLuint);
 typedef GLvoid (APIENTRY *glBeginTransformFeedbackPROC) (GLenum);
 typedef GLvoid (APIENTRY *glEndTransformFeedbackPROC) ();
-typedef GLvoid (APIENTRY *glTransformFeedbackVaryingsPROC) (GLuint, GLsizei, const GLchar* *, GLenum);
+typedef GLvoid (APIENTRY *glTransformFeedbackVaryingsPROC) (GLuint, GLsizei, const GLchar **, GLenum);
 typedef GLvoid (APIENTRY *glGetTransformFeedbackVaryingPROC) (GLuint, GLuint, GLsizei, GLsizei *, GLsizei *, GLenum *, GLchar *);
 typedef GLvoid (APIENTRY *glBindVertexArrayPROC) (GLuint);
 typedef GLvoid (APIENTRY *glDeleteVertexArraysPROC) (GLsizei, const GLuint *);
@@ -492,7 +492,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglEndTransformFeedback(JNIEnv
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglTransformFeedbackVaryings(JNIEnv *__env, jclass clazz, jint program, jint count, jlong varyingsAddress, jint bufferMode, jlong __functionAddress) {
-	const GLchar* *varyings = (const GLchar* *)(intptr_t)varyingsAddress;
+	const GLchar **varyings = (const GLchar **)(intptr_t)varyingsAddress;
 	glTransformFeedbackVaryingsPROC glTransformFeedbackVaryings = (glTransformFeedbackVaryingsPROC)(intptr_t)__functionAddress;
 	glTransformFeedbackVaryings(program, count, varyings, bufferMode);
 }

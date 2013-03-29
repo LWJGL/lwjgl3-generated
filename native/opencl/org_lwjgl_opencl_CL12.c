@@ -12,7 +12,7 @@ typedef cl_int (APIENTRY *clReleaseDevicePROC) (cl_device_id);
 typedef cl_int (APIENTRY *clCreateSubDevicesPROC) (cl_device_id, const cl_device_partition_property *, cl_uint, cl_device_id *, cl_uint *);
 typedef cl_mem (APIENTRY *clCreateImagePROC) (cl_context, cl_mem_flags, const cl_image_format *, const cl_image_desc *, void *, cl_int *);
 typedef cl_program (APIENTRY *clCreateProgramWithBuiltInKernelsPROC) (cl_context, cl_uint, const cl_device_id *, const cl_char *, cl_int *);
-typedef cl_int (APIENTRY *clCompileProgramPROC) (cl_program, cl_uint, const cl_device_id *, const cl_char *, cl_uint, const cl_program *, const cl_char* *, cl_program_callback, void *);
+typedef cl_int (APIENTRY *clCompileProgramPROC) (cl_program, cl_uint, const cl_device_id *, const cl_char *, cl_uint, const cl_program *, const cl_char **, cl_program_callback, void *);
 typedef cl_program (APIENTRY *clLinkProgramPROC) (cl_context, cl_uint, const cl_device_id *, const cl_char *, cl_uint, const cl_program *, cl_program_callback, void *);
 typedef cl_int (APIENTRY *clUnloadPlatformCompilerPROC) (cl_platform_id);
 typedef cl_int (APIENTRY *clGetKernelArgInfoPROC) (cl_kernel, cl_uint, cl_kernel_arg_info, size_t, void *, size_t *);
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL12_nclCompileProgram(JNIEnv *__en
 	const cl_device_id *device_list = (const cl_device_id *)(intptr_t)device_listAddress;
 	const cl_char *options = (const cl_char *)(intptr_t)optionsAddress;
 	const cl_program *input_headers = (const cl_program *)(intptr_t)input_headersAddress;
-	const cl_char* *header_include_names = (const cl_char* *)(intptr_t)header_include_namesAddress;
+	const cl_char **header_include_names = (const cl_char **)(intptr_t)header_include_namesAddress;
 	cl_program_callback pfn_notify = (cl_program_callback)(intptr_t)pfn_notifyAddress;
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	clCompileProgramPROC clCompileProgram = (clCompileProgramPROC)(intptr_t)__functionAddress;

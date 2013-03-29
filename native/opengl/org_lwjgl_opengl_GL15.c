@@ -16,7 +16,7 @@ typedef GLvoid (APIENTRY *glGetBufferSubDataPROC) (GLenum, GLintptr, GLsizeiptr,
 typedef GLvoid * (APIENTRY *glMapBufferPROC) (GLenum, GLenum);
 typedef GLboolean (APIENTRY *glUnmapBufferPROC) (GLenum);
 typedef GLvoid (APIENTRY *glGetBufferParameterivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetBufferPointervPROC) (GLenum, GLenum, GLvoid* *);
+typedef GLvoid (APIENTRY *glGetBufferPointervPROC) (GLenum, GLenum, GLvoid **);
 typedef GLvoid (APIENTRY *glGenQueriesPROC) (GLsizei, GLuint *);
 typedef GLvoid (APIENTRY *glDeleteQueriesPROC) (GLsizei, const GLuint *);
 typedef GLboolean (APIENTRY *glIsQueryPROC) (GLuint);
@@ -83,7 +83,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetBufferParameteriv(JNIEnv
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetBufferPointerv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid* *params = (GLvoid* *)(intptr_t)paramsAddress;
+	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
 	glGetBufferPointervPROC glGetBufferPointerv = (glGetBufferPointervPROC)(intptr_t)__functionAddress;
 	glGetBufferPointerv(target, pname, params);
 }
