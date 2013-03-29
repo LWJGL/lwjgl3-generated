@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -177,7 +178,7 @@ public final class WGLNVDXInterop {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
-			checkBuffer(objects, count << PointerBuffer.getPointerSizeShift());
+			checkBuffer(objects, count << POINTER_SHIFT);
 		}
 		return nwglDXLockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}
@@ -209,7 +210,7 @@ public final class WGLNVDXInterop {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
-			checkBuffer(objects, count << PointerBuffer.getPointerSizeShift());
+			checkBuffer(objects, count << POINTER_SHIFT);
 		}
 		return nwglDXUnlockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}

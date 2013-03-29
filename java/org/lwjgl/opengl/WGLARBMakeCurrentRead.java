@@ -43,12 +43,12 @@ public final class WGLARBMakeCurrentRead {
 	 * If {@code wglMakeContextCurrentARB} is used to associate a different device for reads than for draws, the "read" device will be used for the following
 	 * OpenGL operations:
 	 * <ol>
-	 * 	<li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER}. Note, that accumulation operations use the value of READ_BUFFER, but
+	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER}. Note, that accumulation operations use the value of READ_BUFFER, but
 	 * are not allowed when a different device context is used for reads.  In this case, the accumulation operation will generate
 	 * {@link GL11#GL_INVALID_OPERATION}.</li>
-	 * 	<li>Any depth values that are retrieved by {@link GL11#glReadPixels}, {@link GL11#glCopyPixels}, or any OpenGL extension that sources depth images from the
+	 * <li>Any depth values that are retrieved by {@link GL11#glReadPixels}, {@link GL11#glCopyPixels}, or any OpenGL extension that sources depth images from the
 	 * frame buffer in the manner of ReadPixels and CopyPixels.</li>
-	 * 	<li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the manner
+	 * <li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the manner
 	 * of ReadPixels and CopyPixels.</li>
 	 * </ol>
 	 * <p/>

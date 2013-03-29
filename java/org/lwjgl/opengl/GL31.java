@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -337,7 +338,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glGetUniformIndices;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(uniformNames, uniformCount << PointerBuffer.getPointerSizeShift());
+			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
 			checkBuffer(uniformIndices, uniformCount << 2);
 		}
 		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices), __functionAddress);
@@ -361,10 +362,10 @@ public final class GL31 {
 			checkBuffer(uniformIndices, uniformNames.length);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int uniformNamesAddress = __buffer.bufferParam(uniformNames.length << PointerBuffer.getPointerSizeShift());
+		int uniformNamesAddress = __buffer.bufferParam(uniformNames.length << POINTER_SHIFT);
 		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
 		for ( int i = 0; i < uniformNames.length; i++ )
-			__buffer.pointerValue(uniformNamesAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
+			__buffer.pointerValue(uniformNamesAddress + (i << POINTER_SHIFT), memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
 		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices), __functionAddress);
 	}
 

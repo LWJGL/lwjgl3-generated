@@ -892,13 +892,6 @@ public final class WinUser {
 	}
 
 	/** CharSequence version of: {@link #CreateWindowEx} */
-	public static long CreateWindowEx(int exStyle, CharSequence className, ByteBuffer windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(instance);
-		return nCreateWindowEx(exStyle, memAddress(memEncodeUTF16(className)), memAddress(windowName), style, x, y, width, height, parent, menu, instance, param);
-	}
-
-	/** CharSequence version of: {@link #CreateWindowEx} */
 	public static long CreateWindowEx(int exStyle, CharSequence className, CharSequence windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);

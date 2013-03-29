@@ -7,7 +7,7 @@
 #include <stddef.h>
 #include "WindowsLWJGL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_DISPLAY_DEVICE_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_DISPLAY_1DEVICE_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
 	buffer[0] = (jint)(offsetof(DISPLAY_DEVICE, cb));

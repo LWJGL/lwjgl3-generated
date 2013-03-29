@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core OpenGL 1.4 functionality. */
@@ -406,7 +407,7 @@ public final class GL14 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(count, primcount << 2);
-			checkBuffer(indices, primcount << PointerBuffer.getPointerSizeShift());
+			checkBuffer(indices, primcount << POINTER_SHIFT);
 		}
 		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), primcount, __functionAddress);
 	}

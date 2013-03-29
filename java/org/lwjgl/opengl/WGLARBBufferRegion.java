@@ -41,8 +41,7 @@ public final class WGLARBBufferRegion {
 	 * @param hdc        the device context for the device on which the buffer region is created
 	 * @param layerPlane the layer plane. Positive values identify overlay planes, negative values identify underlay planes. A value of 0 identifies the main plane.
 	 * @param type       a bitwise OR of any of the following values indicating which buffers can be saved or restored.  Multiple bits can be set and may result in better
-	 *                   performance if multiple buffers are saved or restored.
-	 *                   . One of:<p/>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB}
+	 *                   performance if multiple buffers are saved or restored. One of:<p/>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB}
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = getInstance().wglCreateBufferRegionARB;

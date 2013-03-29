@@ -252,8 +252,7 @@ public final class WGL {
 	 * @param extrusion    how much a font is extruded in the negative z direction. The value must be equal to or greater than 0. When extrusion is 0, the display lists are
 	 *                     not extruded.
 	 * @param format       the format to use in the display lists. When format is {@link #WGL_FONT_LINES}, the {@code wglUseFontOutlines} function creates fonts with line
-	 *                     segments. When format is {@link #WGL_FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons.
-	 *                     . One of:<p/>{@link #WGL_FONT_LINES}, {@link #WGL_FONT_POLYGONS}
+	 *                     segments. When format is {@link #WGL_FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons. One of:<p/>{@link #WGL_FONT_LINES}, {@link #WGL_FONT_POLYGONS}
 	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is NULL, no
 	 *                     glyph metrics are returned.
 	 */

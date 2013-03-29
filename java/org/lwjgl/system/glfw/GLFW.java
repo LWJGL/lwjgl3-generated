@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -289,9 +290,9 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may only be called from the main thread.</li>
-	 * 	<li>This function may take several seconds to complete on some systems, while on other systems it may take only a fraction of a second to complete.</li>
-	 * 	<li><strong>Mac OS X</strong>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function may take several seconds to complete on some systems, while on other systems it may take only a fraction of a second to complete.</li>
+	 * <li><strong>Mac OS X</strong>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the
 	 * application's bundle, if present.</li>
 	 * </ul>
 	 */
@@ -311,9 +312,9 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may be called before {@link #glfwInit}.</li>
-	 * 	<li>This function may only be called from the main thread.</li>
-	 * 	<li>No window's context may be current on another thread when this function is called.</li>
+	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>No window's context may be current on another thread when this function is called.</li>
 	 * </ul>
 	 */
 	public static void glfwTerminate() {
@@ -332,8 +333,8 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may be called before {@link #glfwInit}.</li>
-	 * 	<li>This function may be called from any thread.</li>
+	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>This function may be called from any thread.</li>
 	 * </ul>
 	 *
 	 * @param major major version number
@@ -370,10 +371,10 @@ public final class GLFW {
 	 * <p/>
 	 * The format of the string is as follows:
 	 * <ul>
-	 * 	<li>The version of GLFW</li>
-	 * 	<li>The name of the window system API</li>
-	 * 	<li>The name of the context creation API</li>
-	 * 	<li>Any additional options or APIs</li>
+	 * <li>The version of GLFW</li>
+	 * <li>The name of the window system API</li>
+	 * <li>The name of the context creation API</li>
+	 * <li>Any additional options or APIs</li>
 	 * </ul>
 	 * <p/>
 	 * For example, when compiling GLFW 3.0 with MinGW using the Win32 and WGL backends, the version string may look something like this:
@@ -395,10 +396,10 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may be called before {@link #glfwInit}.</li>
-	 * 	<li>The error callback is called by the thread where the error was generated. If you are using GLFW from multiple threads, your error callback needs to
+	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>The error callback is called by the thread where the error was generated. If you are using GLFW from multiple threads, your error callback needs to
 	 * be written accordingly.</li>
-	 * 	<li>Because the description string provided to the callback may have been generated specifically for that error, it is not guaranteed to be valid after
+	 * <li>Because the description string provided to the callback may have been generated specifically for that error, it is not guaranteed to be valid after
 	 * the callback has returned.  If you wish to use it after that, you need to make your own copy of it before returning.</li>
 	 * </ul>
 	 *
@@ -721,8 +722,8 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may only be called from the main thread.</li>
-	 * 	<li>This function may not be called from a callback.</li>
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function may not be called from a callback.</li>
 	 * </ul>
 	 *
 	 * @param window window to destroy
@@ -842,12 +843,12 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>It is very rarely a good idea to move an already visible window, as it will confuse and annoy the user.</li>
-	 * 	<li>This function may only be called from the main thread.</li>
-	 * 	<li>The window manager may put limits on what positions are allowed.</li>
-	 * 	<li><strong>X11</strong>: Some window managers ignore the set position of hidden (i.e. unmapped) windows, instead placing them where it thinks is
+	 * <li>It is very rarely a good idea to move an already visible window, as it will confuse and annoy the user.</li>
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>The window manager may put limits on what positions are allowed.</li>
+	 * <li><strong>X11</strong>: Some window managers ignore the set position of hidden (i.e. unmapped) windows, instead placing them where it thinks is
 	 * appropriate once they are shown.</li>
-	 * 	<li><strong>Mac OS X</strong>: The screen coordinate system is inverted.</li>
+	 * <li><strong>Mac OS X</strong>: The screen coordinate system is inverted.</li>
 	 * </ul>
 	 *
 	 * @param window window to query
@@ -903,9 +904,9 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * 	<li>This function may only be called from the main thread.</li>
-	 * 	<li>The window manager may put limits on what window sizes are allowed.</li>
-	 * 	<li>For fullscreen windows, this function selects and switches to the resolution closest to the specified size, without destroying the window's context.</li>
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>The window manager may put limits on what window sizes are allowed.</li>
+	 * <li>For fullscreen windows, this function selects and switches to the resolution closest to the specified size, without destroying the window's context.</li>
 	 * </ul>
 	 *
 	 * @param window window to resize
@@ -1024,10 +1025,10 @@ public final class GLFW {
 	/**
 	 * This function returns a property of the specified window.
 	 * <ul>
-	 * 	<li>The {@link #GLFW_FOCUSED} parameter indicates whether the window is focused.</li>
-	 * 	<li>The {@link #GLFW_ICONIFIED} parameter indicates whether the window is iconified.</li>
-	 * 	<li>The {@link #GLFW_VISIBLE} parameter indicates whether the window is visible.</li>
-	 * 	<li>The {@link #GLFW_RESIZABLE} parameter indicates whether the window is resizable by the user.</li>
+	 * <li>The {@link #GLFW_FOCUSED} parameter indicates whether the window is focused.</li>
+	 * <li>The {@link #GLFW_ICONIFIED} parameter indicates whether the window is iconified.</li>
+	 * <li>The {@link #GLFW_VISIBLE} parameter indicates whether the window is visible.</li>
+	 * <li>The {@link #GLFW_RESIZABLE} parameter indicates whether the window is resizable by the user.</li>
 	 * </ul>
 	 *
 	 * @param window window to query
@@ -1238,9 +1239,9 @@ public final class GLFW {
 	 * If mode is {@link #GLFW_CURSOR_MODE}, the value must be one of the supported input
 	 * modes:
 	 * <ul>
-	 * 	<li>{@link #GLFW_CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
-	 * 	<li>{@link #GLFW_CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window.</li>
-	 * 	<li>{@link #GLFW_CURSOR_CAPTURED} makes the cursor invisible and unable to leave the window but unconstrained in terms of position.</li>
+	 * <li>{@link #GLFW_CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
+	 * <li>{@link #GLFW_CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window.</li>
+	 * <li>{@link #GLFW_CURSOR_CAPTURED} makes the cursor invisible and unable to leave the window but unconstrained in terms of position.</li>
 	 * </ul>
 	 * <p/>
 	 * If mode is {@link #GLFW_STICKY_KEYS}, the value must be either GL_TRUE to

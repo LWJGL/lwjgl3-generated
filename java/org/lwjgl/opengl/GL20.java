@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -317,7 +318,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glShaderSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(strings, count << PointerBuffer.getPointerSizeShift());
+			checkBuffer(strings, count << POINTER_SHIFT);
 			if ( length != null ) checkBuffer(length, count << 2);
 		}
 		nglShaderSource(shader, count, memAddress(strings), memAddressSafe(length), __functionAddress);
@@ -342,10 +343,10 @@ public final class GL20 {
 		int stringsLengths = __buffer.bufferParam(strings.length << 2);
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.intValue(stringsLengths + (i << 2), strings[i].length());
-		int stringsAddress = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
+		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
+			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
 		nglShaderSource(shader, strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, __functionAddress);
 	}
 
@@ -2791,7 +2792,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glGetVertexAttribPointerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(pointer, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(pointer, 1 << POINTER_SHIFT);
 		}
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer), __functionAddress);
 	}

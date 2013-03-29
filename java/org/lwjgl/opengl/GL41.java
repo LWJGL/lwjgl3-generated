@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -439,10 +440,10 @@ public final class GL41 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
+		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
+			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
 		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress, __functionAddress);
 	}
 

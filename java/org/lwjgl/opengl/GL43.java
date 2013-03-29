@@ -1598,7 +1598,7 @@ public final class GL43 {
 	 * Retrieves values for multiple properties of a single active resource within a program object.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}.. One of:<p/>{@link #GL_UNIFORM}, {@link #GL_UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER}
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. One of:<p/>{@link #GL_UNIFORM}, {@link #GL_UNIFORM_BLOCK}, {@link #GL_PROGRAM_INPUT}, {@link #GL_PROGRAM_OUTPUT}, {@link #GL_BUFFER_VARIABLE}, {@link #GL_SHADER_STORAGE_BLOCK}, {@link #GL_VERTEX_SUBROUTINE}, {@link #GL_TESS_CONTROL_SUBROUTINE}, {@link #GL_TESS_EVALUATION_SUBROUTINE}, {@link #GL_GEOMETRY_SUBROUTINE}, {@link #GL_FRAGMENT_SUBROUTINE}, {@link #GL_COMPUTE_SUBROUTINE}, {@link #GL_VERTEX_SUBROUTINE_UNIFORM}, {@link #GL_TESS_CONTROL_SUBROUTINE_UNIFORM}, {@link #GL_TESS_EVALUATION_SUBROUTINE_UNIFORM}, {@link #GL_GEOMETRY_SUBROUTINE_UNIFORM}, {@link #GL_FRAGMENT_SUBROUTINE_UNIFORM}, {@link #GL_COMPUTE_SUBROUTINE_UNIFORM}, {@link #GL_TRANSFORM_FEEDBACK_VARYING}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER}
 	 * @param index            the active resource index
 	 * @param propCount        the number of properties in {@code props}
 	 * @param props            an array that will receive the active resource properties
@@ -1681,7 +1681,7 @@ public final class GL43 {
 	 * Queries the fragment color index of a named variable within a program.
 	 *
 	 * @param program          the name of a program object whose resources to query
-	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}.. Must be:<p/>{@link #GL_PROGRAM_OUTPUT}
+	 * @param programInterface a token identifying the interface within {@code program} containing the resource named {@code name}. Must be:<p/>{@link #GL_PROGRAM_OUTPUT}
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -450,7 +451,7 @@ public final class GL32 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(count, primcount << 2);
-			checkBuffer(indices, primcount << PointerBuffer.getPointerSizeShift());
+			checkBuffer(indices, primcount << POINTER_SHIFT);
 			checkBuffer(basevertex, primcount << 2);
 		}
 		nglMultiDrawElementsBaseVertex(mode, memAddress(count), type, memAddress(indices), primcount, memAddress(basevertex), __functionAddress);
@@ -701,10 +702,10 @@ public final class GL32 {
 	 * <p/>
 	 * The return value is one of four status values:
 	 * <ul>
-	 * 	<li>{@link #GL_ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
-	 * 	<li>{@link #GL_TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
-	 * 	<li>{@link #GL_CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
-	 * 	<li>{@link #GL_WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
+	 * <li>{@link #GL_ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
+	 * <li>{@link #GL_TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
+	 * <li>{@link #GL_CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
+	 * <li>{@link #GL_WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on

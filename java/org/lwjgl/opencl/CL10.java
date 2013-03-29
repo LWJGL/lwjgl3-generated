@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -380,16 +381,16 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code num_entries} is equal to zero and {@code platforms} is not {@code NULL} or if both {@code num_platforms} and
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_entries} is equal to zero and {@code platforms} is not {@code NULL} or if both {@code num_platforms} and
 	 *         {@code platforms} are {@code NULL}.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetPlatformIDs(int num_entries, ByteBuffer platforms, ByteBuffer num_platforms) {
 		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetPlatformIDs");
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( platforms != null ) checkBuffer(platforms, num_entries << PointerBuffer.getPointerSizeShift());
+			if ( platforms != null ) checkBuffer(platforms, num_entries << POINTER_SHIFT);
 			if ( num_platforms != null ) checkBuffer(num_platforms, 1 << 2);
 		}
 		return nclGetPlatformIDs(num_entries, memAddressSafe(platforms), memAddressSafe(num_platforms), __functionAddress);
@@ -421,10 +422,10 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
+	 *         <li>{@link #CL_INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
 	 *         size of return type and {@code param_value} is not a {@code NULL} value.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetPlatformInfo(CLPlatform platform, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -432,7 +433,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetPlatformInfo(platform.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -457,8 +458,7 @@ public final class CL10 {
 	 *
 	 * @param platform    the platform to query
 	 * @param device_type a bitfield that identifies the type of OpenCL device. The {@code device_type} can be used to query specific OpenCL devices or all OpenCL devices
-	 *                    available.
-	 *                    . One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM}
+	 *                    available. One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM}
 	 * @param num_entries the number of {@code cl_device_id} entries that can be added to devices. If {@code devices} is not {@code NULL}, the {@code num_entries} must be greater
 	 *                    than zero.
 	 * @param devices     returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL
@@ -468,19 +468,19 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
-	 *         	<li>{@link #CL_INVALID_DEVICE_TYPE} if {@code device_type} is not a valid value.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code num_entries} is equal to zero and {@code devices} is not {@code NULL} or if both {@code num_devices} and {@code devices} are {@code NULL}.</li>
-	 *         	<li>{@link #CL_DEVICE_NOT_FOUND} if no OpenCL devices that matched {@code device_type} were found.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
+	 *         <li>{@link #CL_INVALID_DEVICE_TYPE} if {@code device_type} is not a valid value.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_entries} is equal to zero and {@code devices} is not {@code NULL} or if both {@code num_devices} and {@code devices} are {@code NULL}.</li>
+	 *         <li>{@link #CL_DEVICE_NOT_FOUND} if no OpenCL devices that matched {@code device_type} were found.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetDeviceIDs(CLPlatform platform, long device_type, int num_entries, ByteBuffer devices, ByteBuffer num_devices) {
 		long __functionAddress = getInstance(platform).clGetDeviceIDs;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( devices != null ) checkBuffer(devices, num_entries << PointerBuffer.getPointerSizeShift());
+			if ( devices != null ) checkBuffer(devices, num_entries << POINTER_SHIFT);
 			if ( num_devices != null ) checkBuffer(num_devices, 1 << 2);
 		}
 		return nclGetDeviceIDs(platform.getPointer(), device_type, num_entries, memAddressSafe(devices), memAddressSafe(num_devices), __functionAddress);
@@ -506,19 +506,19 @@ public final class CL10 {
 	 * {@link CL12#clCreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
 	 * @param device               the device to query
-	 * @param param_name           an enumeration constant tha identifies the device information being queried. One of:<p/>{@link #CL_DEVICE_TYPE}, {@link #CL_DEVICE_VENDOR_ID}, {@link #CL_DEVICE_MAX_COMPUTE_UNITS}, {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS}, {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE}, {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE}, {@link #CL_DEVICE_MAX_CLOCK_FREQUENCY}, {@link #CL_DEVICE_ADDRESS_BITS}, {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE}, {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH}, {@link #CL_DEVICE_IMAGE_SUPPORT}, {@link #CL_DEVICE_MAX_PARAMETER_SIZE}, {@link #CL_DEVICE_MAX_SAMPLERS}, {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN}, {@link #CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE}, {@link #CL_DEVICE_SINGLE_FP_CONFIG}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_TYPE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_ARGS}, {@link #CL_DEVICE_LOCAL_MEM_TYPE}, {@link #CL_DEVICE_LOCAL_MEM_SIZE}, {@link #CL_DEVICE_ERROR_CORRECTION_SUPPORT}, {@link #CL_DEVICE_PROFILING_TIMER_RESOLUTION}, {@link #CL_DEVICE_ENDIAN_LITTLE}, {@link #CL_DEVICE_AVAILABLE}, {@link #CL_DEVICE_COMPILER_AVAILABLE}, {@link #CL_DEVICE_EXECUTION_CAPABILITIES}, {@link #CL_DEVICE_QUEUE_PROPERTIES}, {@link #CL_DEVICE_NAME}, {@link #CL_DEVICE_VENDOR}, {@link #CL_DRIVER_VERSION}, {@link #CL_DEVICE_PROFILE}, {@link #CL_DEVICE_VERSION}, {@link #CL_DEVICE_EXTENSIONS}, {@link #CL_DEVICE_PLATFORM}, {@link CL11#DEVICE_PREFERRED_VECTOR_WIDTH_HALF}, {@link CL11#DEVICE_HOST_UNIFIED_MEMORY}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_CHAR}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_SHORT}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_INT}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_LONG}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_FLOAT}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE}, {@link CL11#DEVICE_NATIVE_VECTOR_WIDTH_HALF}, {@link CL11#DEVICE_OPENCL_C_VERSION}
+	 * @param param_name           an enumeration constant tha identifies the device information being queried. One of:<p/>{@link #CL_DEVICE_TYPE}, {@link #CL_DEVICE_VENDOR_ID}, {@link #CL_DEVICE_MAX_COMPUTE_UNITS}, {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS}, {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE}, {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE}, {@link #CL_DEVICE_MAX_CLOCK_FREQUENCY}, {@link #CL_DEVICE_ADDRESS_BITS}, {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE}, {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH}, {@link #CL_DEVICE_IMAGE_SUPPORT}, {@link #CL_DEVICE_MAX_PARAMETER_SIZE}, {@link #CL_DEVICE_MAX_SAMPLERS}, {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN}, {@link #CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE}, {@link #CL_DEVICE_SINGLE_FP_CONFIG}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_TYPE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_ARGS}, {@link #CL_DEVICE_LOCAL_MEM_TYPE}, {@link #CL_DEVICE_LOCAL_MEM_SIZE}, {@link #CL_DEVICE_ERROR_CORRECTION_SUPPORT}, {@link #CL_DEVICE_PROFILING_TIMER_RESOLUTION}, {@link #CL_DEVICE_ENDIAN_LITTLE}, {@link #CL_DEVICE_AVAILABLE}, {@link #CL_DEVICE_COMPILER_AVAILABLE}, {@link #CL_DEVICE_EXECUTION_CAPABILITIES}, {@link #CL_DEVICE_QUEUE_PROPERTIES}, {@link #CL_DEVICE_NAME}, {@link #CL_DEVICE_VENDOR}, {@link #CL_DRIVER_VERSION}, {@link #CL_DEVICE_PROFILE}, {@link #CL_DEVICE_VERSION}, {@link #CL_DEVICE_EXTENSIONS}, {@link #CL_DEVICE_PLATFORM}, {@link CL11#CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_HOST_UNIFIED_MEMORY}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_INT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_OPENCL_C_VERSION}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory location where appropriate values for a given {@code param_name} will be returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_DEVICE} if {@code device} is not valid.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
+	 *         <li>{@link #CL_INVALID_DEVICE} if {@code device} is not valid.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
 	 *         size of return type and {@code param_value} is not a {@code NULL} value or if {@code param_name} is a value that is available as an extension and the
 	 *         corresponding extension is not supported by the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -526,7 +526,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetDeviceInfo(device.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -568,7 +568,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetDeviceInfo(device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetDeviceInfo(device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateContext ] ---
@@ -581,12 +581,14 @@ public final class CL10 {
 	 * command-queues, memory, program and kernel objects and for executing kernels on one or more devices specified in the context.
 	 *
 	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
-	 *                    list is terminated with 0. <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present.
+	 *                    list is terminated with 0.
+	 *                    <p/>
+	 *                    <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present. One of:<p/>{@link #CL_CONTEXT_PLATFORM}, {@link CL12#CL_CONTEXT_INTEROP_USER_SYNC}
 	 * @param num_devices the number of devices specified in the {@code devices} argument
 	 * @param devices     a list of unique devices returned by {@link #clGetDeviceIDs} or sub-devices created by {@link CL12#clCreateSubDevices} for a platform
 	 * @param pfn_notify  a callback function that can be registered by the application. This callback function will be used by the OpenCL implementation to report
 	 *                    information on errors during context creation as well as errors that occur at runtime in this context. This callback function may be called
-	 *                    asynchronously by the OpenCL implementation. It is the application’s responsibility to ensure that the callback function is thread-safe.
+	 *                    asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
 	 *                    <p/>
 	 *                    If {@code pfn_notify} is {@code NULL}, no callback function is registered.
 	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
@@ -595,17 +597,17 @@ public final class CL10 {
 	 * @return a valid non-zero context and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the context is created successfully. Otherwise, it returns a {@code NULL} value with the
 	 *         following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_PLATFORM} if {@code properties} is {@code NULL} and no platform could be selected or if platform value specified in properties is not a
+	 *         <li>{@link #CL_INVALID_PLATFORM} if {@code properties} is {@code NULL} and no platform could be selected or if platform value specified in properties is not a
 	 *         valid platform.</li>
-	 *         	<li>{@link CL11#CL_INVALID_PROPERTY} if context property name in {@code properties} is not a supported property name, if the value specified for a supported
+	 *         <li>{@link CL11#CL_INVALID_PROPERTY} if context property name in {@code properties} is not a supported property name, if the value specified for a supported
 	 *         property name is not valid, or if the same property name is specified more than once.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code devices} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code num_devices} is equal to zero.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_DEVICE} if {@code devices} contains an invalid device.</li>
-	 *         	<li>{@link #CL_DEVICE_NOT_AVAILABLE} if a device in {@code devices} is currently not available even though the device was returned by {@link #clGetDeviceIDs}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code devices} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_devices} is equal to zero.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_DEVICE} if {@code devices} contains an invalid device.</li>
+	 *         <li>{@link #CL_DEVICE_NOT_AVAILABLE} if a device in {@code devices} is currently not available even though the device was returned by {@link #clGetDeviceIDs}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLContext clCreateContext(ByteBuffer properties, int num_devices, ByteBuffer devices, long pfn_notify, long user_data, ByteBuffer errcode_ret) {
@@ -613,11 +615,11 @@ public final class CL10 {
 		long __functionAddress = getInstance(platform).clCreateContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(properties, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(devices, num_devices << PointerBuffer.getPointerSizeShift());
+			checkBuffer(properties, 3 << POINTER_SHIFT);
+			checkBuffer(devices, num_devices << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return CLContext.create(nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data, isObject(pfn_notify));
+		return CLContext.create(nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Alternative version of: {@link #clCreateContext} */
@@ -630,7 +632,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data, isObject(pfn_notify));
+		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Single value version of: {@link #clCreateContext} */
@@ -646,7 +648,7 @@ public final class CL10 {
 		int devices = __buffer.pointerParam();
 		__buffer.pointerValue(devices, device);
 		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data, isObject(pfn_notify));
+		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	// --- [ clCreateContextFromType ] ---
@@ -668,10 +670,10 @@ public final class CL10 {
 		long __functionAddress = getInstance(platform).clCreateContextFromType;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(properties, 3 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(properties, 3 << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data, isObject(pfn_notify));
+		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Alternative version of: {@link #clCreateContextFromType} */
@@ -684,7 +686,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, user_data, isObject(pfn_notify));
+		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	// --- [ clRetainContext ] ---
@@ -703,9 +705,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clRetainContext(CLContext context) {
@@ -730,9 +732,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clReleaseContext(CLContext context) {
@@ -758,11 +760,11 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
 	 *         size of return type and {@code param_value} is not a {@code NULL} value.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetContextInfo(CLContext context, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -770,7 +772,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetContextInfo(context.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -802,7 +804,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetContextInfo(context.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetContextInfo(context.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateCommandQueue ] ---
@@ -827,12 +829,12 @@ public final class CL10 {
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_DEVICE} if {@code device} is not a valid device or is not associated with {@code context}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values specified in {@code properties} are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_QUEUE_PROPERTIES} if values specified in {@code properties} are valid but are not supported by the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_DEVICE} if {@code device} is not a valid device or is not associated with {@code context}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if values specified in {@code properties} are not valid.</li>
+	 *         <li>{@link #CL_INVALID_QUEUE_PROPERTIES} if values specified in {@code properties} are valid but are not supported by the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLCommandQueue clCreateCommandQueue(CLContext context, CLDevice device, long properties, ByteBuffer errcode_ret) {
@@ -870,9 +872,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clRetainCommandQueue(CLCommandQueue command_queue) {
@@ -899,9 +901,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clReleaseCommandQueue(CLCommandQueue command_queue) {
@@ -922,16 +924,16 @@ public final class CL10 {
 	 * @param command_queue        the command-queue being queried
 	 * @param param_name           the information to query. One of:<p/>{@link #CL_QUEUE_CONTEXT}, {@link #CL_QUEUE_DEVICE}, {@link #CL_QUEUE_REFERENCE_COUNT}, {@link #CL_QUEUE_PROPERTIES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
 	 *         size of return type and {@code param_value} is not a {@code NULL} value.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -939,7 +941,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetCommandQueueInfo(command_queue.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -981,7 +983,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetCommandQueueInfo(command_queue.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetCommandQueueInfo(command_queue.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateBuffer ] ---
@@ -994,8 +996,7 @@ public final class CL10 {
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
 	 * @param flags       a bit-field that is used to specify allocation and usage information such as the memory area that should be used to allocate the buffer object and
-	 *                    how it will be used. If value specified for flags is 0, the default is used which is {@link #CL_MEM_READ_WRITE}.
-	 *                    . One of:<p/>{@link #CL_MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS}
+	 *                    how it will be used. If value specified for flags is 0, the default is used which is {@link #CL_MEM_READ_WRITE}. One of:<p/>{@link #CL_MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS}
 	 * @param size        the size in bytes of the buffer memory object to be allocated
 	 * @param host_ptr    a pointer to the buffer data that may already be allocated by the application. The size of the buffer that {@code host_ptr} points to must be
 	 *                    &#x2265; {@code size} bytes.
@@ -1004,15 +1005,15 @@ public final class CL10 {
 	 * @return a valid non-zero buffer object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the buffer object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values specified in flags are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_BUFFER_SIZE} if size is 0. Implementations may return {@link #CL_INVALID_BUFFER_SIZE} if size is greater than
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if values specified in flags are not valid.</li>
+	 *         <li>{@link #CL_INVALID_BUFFER_SIZE} if size is 0. Implementations may return {@link #CL_INVALID_BUFFER_SIZE} if size is greater than
 	 *         {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE} value all devices in context.</li>
-	 *         	<li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_COPY_HOST_PTR} are set in flags or if
+	 *         <li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_COPY_HOST_PTR} are set in flags or if
 	 *         {@code host_ptr} is not {@code NULL} but {@link #CL_MEM_COPY_HOST_PTR} or {@link #CL_MEM_USE_HOST_PTR} are not set in flags.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for buffer object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for buffer object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLMem clCreateBuffer(CLContext context, long flags, long size, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
@@ -1026,13 +1027,23 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clCreateBuffer} */
-	public static CLMem clCreateBuffer(CLContext context, long flags, long size, ByteBuffer host_ptr, IntBuffer errcode_ret) {
+	public static CLMem clCreateBuffer(CLContext context, long flags, long size, IntBuffer errcode_ret) {
 		long __functionAddress = getInstance(context).clCreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, size, memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, size, 0L, memAddressSafe(errcode_ret), __functionAddress), context);
+	}
+
+	/** ByteBuffer version of: {@link #clCreateBuffer} */
+	public static CLMem clCreateBuffer(CLContext context, long flags, ByteBuffer host_ptr, IntBuffer errcode_ret) {
+		long __functionAddress = getInstance(context).clCreateBuffer;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining(), memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** ShortBuffer version of: {@link #clCreateBuffer} */
@@ -1042,7 +1053,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr == null ? 0 : host_ptr.remaining(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining() << 1, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** IntBuffer version of: {@link #clCreateBuffer} */
@@ -1052,7 +1063,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr == null ? 0 : host_ptr.remaining(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** FloatBuffer version of: {@link #clCreateBuffer} */
@@ -1062,7 +1073,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr == null ? 0 : host_ptr.remaining(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	/** DoubleBuffer version of: {@link #clCreateBuffer} */
@@ -1072,7 +1083,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr == null ? 0 : host_ptr.remaining(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateBuffer(context.getPointer(), flags, host_ptr.remaining() << 3, memAddress(host_ptr), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
 	// --- [ clEnqueueReadBuffer ] ---
@@ -1082,6 +1093,16 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to read from a buffer object to host memory.
+	 * <p/>
+	 * Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
+	 * {@code host_ptr} is a pointer to the memory region specified when the buffer object being read is created with {@link #CL_MEM_USE_HOST_PTR}, must meet
+	 * the following requirements in order to avoid undefined behavior:
+	 * <ul>
+	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
+	 * read command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -1108,23 +1129,23 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
 	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the region being read specified by {@code (offset, size)} is out of bounds or if {@code ptr} is a {@code NULL} value or if
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if the region being read specified by {@code (offset, size)} is out of bounds or if {@code ptr} is a {@code NULL} value or if
 	 *         {@code size} is 0.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with buffer.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadBuffer} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with buffer.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadBuffer} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, long size, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
@@ -1132,8 +1153,8 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ptr, size);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, size, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -1148,6 +1169,16 @@ public final class CL10 {
 		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, size, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
+	/** ByteBuffer version of: {@link #clEnqueueReadBuffer} */
+	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = getInstance(command_queue).clEnqueueReadBuffer;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+	}
+
 	/** ShortBuffer version of: {@link #clEnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueReadBuffer;
@@ -1155,7 +1186,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining() << 1, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueReadBuffer} */
@@ -1165,7 +1196,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueReadBuffer} */
@@ -1175,7 +1206,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadBuffer} */
@@ -1185,7 +1216,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueReadBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_read, offset, ptr.remaining() << 3, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	// --- [ clEnqueueWriteBuffer ] ---
@@ -1195,6 +1226,15 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to write to a buffer object from host memory.
+	 * <p/>
+	 * Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * {@code host_ptr + offset}, where {@code host_ptr} is a pointer to the memory region specified when the buffer object being written is created with
+	 * {@link #CL_MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:
+	 * <ul>
+	 * <li>The host memory region given by {@code (host_ptr + offset, cb)} contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -1221,23 +1261,23 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
 	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the region being written specified by {@code (offset, size)} is out of bounds or if {@code ptr} is a {@code NULL} value or if
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if the region being written specified by {@code (offset, size)} is out of bounds or if {@code ptr} is a {@code NULL} value or if
 	 *         {@code size} is 0.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with buffer.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteBuffer} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with buffer.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteBuffer} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, long size, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
@@ -1245,8 +1285,8 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ptr, size);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, size, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -1261,6 +1301,16 @@ public final class CL10 {
 		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, size, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
+	/** ByteBuffer version of: {@link #clEnqueueWriteBuffer} */
+	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = getInstance(command_queue).clEnqueueWriteBuffer;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+	}
+
 	/** ShortBuffer version of: {@link #clEnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueWriteBuffer;
@@ -1268,7 +1318,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining() << 1, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueWriteBuffer} */
@@ -1278,7 +1328,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteBuffer} */
@@ -1288,7 +1338,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteBuffer} */
@@ -1298,7 +1348,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining(), memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueWriteBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_write, offset, ptr.remaining() << 3, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	// --- [ clEnqueueCopyBuffer ] ---
@@ -1327,33 +1377,33 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_buffer} are not the same or if
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_buffer} are not the same or if
 	 *         the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_buffer} and {@code dst_buffer} are not valid buffer objects.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code src_offset}, {@code dst_offset}, {@code size}, {@code src_offset + size} or {@code dst_offset + size} require
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_buffer} and {@code dst_buffer} are not valid buffer objects.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code src_offset}, {@code dst_offset}, {@code size}, {@code src_offset + size} or {@code dst_offset + size} require
 	 *         accessing elements outside the {@code src_buffer} and {@code dst_buffer} buffer objects respectively.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code size} is 0.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code size} is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code src_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code dst_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link #CL_MEM_COPY_OVERLAP} if {@code src_buffer} and {@code dst_buffer} are the same buffer or sub-buffer object and the source and destination
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code src_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code dst_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_MEM_COPY_OVERLAP} if {@code src_buffer} and {@code dst_buffer} are the same buffer or sub-buffer object and the source and destination
 	 *         regions overlap or if {@code src_buffer} and {@code dst_buffer} are different sub-buffers of the same associated buffer object and they overlap. The
 	 *         regions overlap if {@code src_offset &#x2264 dst_offset &#x2264 src_offset + size – 1} or if {@code dst_offset &#x2264 src_offset &#x2264 dst_offset + size – 1}.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_buffer} or {@code dst_buffer}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_buffer} or {@code dst_buffer}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyBuffer(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueCopyBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueCopyBuffer(command_queue.getPointer(), src_buffer.getPointer(), dst_buffer.getPointer(), src_offset, dst_offset, size, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -1382,9 +1432,9 @@ public final class CL10 {
 	 * <p/>
 	 * If the buffer object is created with {@link #CL_MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
 	 * <ul>
-	 * 	<li>The {@code host_ptr} specified in {@link #clCreateBuffer} is guaranteed to contain the latest bits in the region being mapped when the
+	 * <li>The {@code host_ptr} specified in {@link #clCreateBuffer} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapBuffer} command has completed.</li>
-	 * 	<li>The pointer value returned by {@code clEnqueueMapBuffer} will be derived from the {@code host_ptr} specified when the buffer object is created.</li>
+	 * <li>The pointer value returned by {@code clEnqueueMapBuffer} will be derived from the {@code host_ptr} specified when the buffer object is created.</li>
 	 * </ul>
 	 * <p/>
 	 * Mapped buffer objects are unmapped using {@link #clEnqueueUnmapMemObject}.
@@ -1416,34 +1466,34 @@ public final class CL10 {
 	 * @return a pointer to the mapped region. The {@code errcode_ret} is set to {@link #CL_SUCCESS}. A {@code NULL} pointer is returned otherwise with one of the following error values
 	 *         returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated with
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated with
 	 *         {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if region being mapped given by {@code (offset, size)} is out of bounds or if {@code size} is 0 or if values specified in
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if region being mapped given by {@code (offset, size)} is out of bounds or if {@code size} is 0 or if values specified in
 	 *         {@code map_flags} are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link #CL_MAP_FAILURE} if there is a failure to map the requested region into the host address space. This error cannot occur for buffer objects
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_MAP_FAILURE} if there is a failure to map the requested region into the host address space. This error cannot occur for buffer objects
 	 *         created with {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_ALLOC_HOST_PTR}.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the map operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the map operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if buffer has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS} and
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if buffer has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS} and
 	 *         {@link #CL_MAP_READ} is set in {@code map_flags} or if {@code buffer} has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS} and {@link #CL_MAP_WRITE} or {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION} is set in {@code map_flags}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static ByteBuffer clEnqueueMapBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event, ByteBuffer errcode_ret) {
 		long __functionAddress = getInstance(command_queue).clEnqueueMapBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_map, map_flags, offset, size, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
@@ -1485,7 +1535,7 @@ public final class CL10 {
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
 	 * @param flags           a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS}
-	 * @param image_format    a pointer to a {@link #cl_image_format} structure that describes format properties of the image to be allocated
+	 * @param image_format    a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
 	 * @param image_width     the width of the image in pixels
 	 * @param image_height    the height of the image in pixels
 	 * @param image_row_pitch the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &#x2265; {@code image_width * size} of element in
@@ -1499,20 +1549,20 @@ public final class CL10 {
 	 * @return a valid non-zero image object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if {@code image_width} or {@code image_height} are 0 or if they exceed values specified in
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if {@code image_width} or {@code image_height} are 0 or if they exceed values specified in
 	 *         {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH} or {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT} respectively for all devices in {@code context} or if values specified
 	 *         by {@code image_row_pitch} do not follow rules described in the argument description.</li>
-	 *         	<li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL12#CL_MEM_USE_HOST_PTR} or {@link CL12#CL_MEM_COPY_HOST_PTR} are set in flags
-	 *         or if {@code host_ptr} is not {@code NULL} but {@link CL12#CL_MEM_COPY_HOST_PTR} or {@link CL12#CL_MEM_USE_HOST_PTR} are not set in flags.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if there are no devices in {@code context} that support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_COPY_HOST_PTR} are set in flags or if
+	 *         {@code host_ptr} is not {@code NULL} but {@link #CL_MEM_COPY_HOST_PTR} or {@link #CL_MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if there are no devices in {@code context} that support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
@@ -1579,7 +1629,7 @@ public final class CL10 {
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
 	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS}
-	 * @param image_format      a pointer to a {@link #cl_image_format} structure that describes format properties of the image to be allocated
+	 * @param image_format      a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
 	 * @param image_width       the width of the image in pixels
 	 * @param image_height      the height of the image in pixels
 	 * @param image_depth       the depth of the image in pixels. This must be a value &gt; 1.
@@ -1599,21 +1649,21 @@ public final class CL10 {
 	 * @return a valid non-zero image object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if {@code image_width}, {@code image_height} are 0 or if {@code image_depth} &#x2264; 1 or if they exceed values
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if {@code image_width}, {@code image_height} are 0 or if {@code image_depth} &#x2264; 1 or if they exceed values
 	 *         specified in {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT} or {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH} respectively for
 	 *         all devices in {@code context} or if values specified by {@code image_row_pitch} and {@code image_slice_pitch} do not follow rules described in the
 	 *         argument descriptions.</li>
-	 *         	<li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL12#CL_MEM_USE_HOST_PTR} or {@link CL12#CL_MEM_COPY_HOST_PTR} are set in flags
-	 *         or if {@code host_ptr} is not {@code NULL} but {@link CL12#CL_MEM_COPY_HOST_PTR} or {@link CL12#CL_MEM_USE_HOST_PTR} are not set in flags.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if there are no devices in {@code context} that support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_COPY_HOST_PTR} are set in flags or if
+	 *         {@code host_ptr} is not {@code NULL} but {@link #CL_MEM_COPY_HOST_PTR} or {@link #CL_MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if there are no devices in {@code context} that support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
@@ -1679,9 +1729,9 @@ public final class CL10 {
 	 * Can be used to get the list of image formats supported by an OpenCL implementation when the following information about an image memory object is
 	 * specified:
 	 * <ul>
-	 * 	<li>Context</li>
-	 * 	<li>Image type – 1D, 2D, or 3D image, 1D image buffer, 1D or 2D image array</li>
-	 * 	<li>Image object allocation information</li>
+	 * <li>Context</li>
+	 * <li>Image type – 1D, 2D, or 3D image, 1D image buffer, 1D or 2D image array</li>
+	 * <li>Image object allocation information</li>
 	 * </ul>
 	 * <p/>
 	 * {@code clGetSupportedImageFormats} returns a union of image formats supported by all devices in the context.
@@ -1690,17 +1740,17 @@ public final class CL10 {
 	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS}
 	 * @param image_type        the image type. One of:<p/>{@link CL12#CL_MEM_OBJECT_IMAGE1D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER}, {@link #CL_MEM_OBJECT_IMAGE2D}, {@link #CL_MEM_OBJECT_IMAGE3D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_ARRAY}, {@link CL12#CL_MEM_OBJECT_IMAGE2D_ARRAY}
 	 * @param num_entries       the number of entries that can be returned in the memory location given by {@code image_formats}
-	 * @param image_formats     a pointer to a memory location where the list of supported image formats are returned. Each entry describes a {@link #cl_image_format} structure
+	 * @param image_formats     a pointer to a memory location where the list of supported image formats are returned. Each entry describes a {@link cl_image_format} structure
 	 *                          supported by the OpenCL implementation. If {@code image_formats} is {@code NULL}, it is ignored.
 	 * @param num_image_formats the actual number of supported image formats for a specific context and values specified by {@code flags}. If {@code num_image_formats} is {@code NULL}, it
 	 *                          is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code flags} or {@code image_type} are not valid, or if {@code num_entries} is 0 and {@code image_formats} is not {@code NULL}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code flags} or {@code image_type} are not valid, or if {@code num_entries} is 0 and {@code image_formats} is not {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetSupportedImageFormats(CLContext context, long flags, int image_type, int num_entries, ByteBuffer image_formats, ByteBuffer num_image_formats) {
@@ -1738,10 +1788,10 @@ public final class CL10 {
 	 * to the memory region specified when the image being read is created with {@link #CL_MEM_USE_HOST_PTR}, must meet the following requirements in order to
 	 * avoid undefined behavior:
 	 * <ul>
-	 * 	<li>All commands that use this image object have finished execution before the read command begins execution.</li>
-	 * 	<li>The row_pitch and slice_pitch argument values in clEnqueueReadImage must be set to the image row pitch and slice pitch.</li>
-	 * 	<li>The image object is not mapped.</li>
-	 * 	<li>The image object is not used by any command-queue until the read command has finished execution.</li>
+	 * <li>All commands that use this image object have finished execution before the read command begins execution.</li>
+	 * <li>The row_pitch and slice_pitch argument values in clEnqueueReadImage must be set to the image row pitch and slice pitch.</li>
+	 * <li>The image object is not mapped.</li>
+	 * <li>The image object is not used by any command-queue until the read command has finished execution.</li>
 	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
@@ -1781,41 +1831,41 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
 	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the region being read specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if the region being read specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a
 	 *         {@code NULL} value.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for
+	 *         <li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for
 	 *         {@code origin} and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
 	 *         with queue.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, ByteBuffer origin, ByteBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueReadImage(command_queue.getPointer(), image.getPointer(), blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -1893,10 +1943,10 @@ public final class CL10 {
 	 * to the memory region specified when the image being written is created with {@link #CL_MEM_USE_HOST_PTR}, must meet the following requirements in order
 	 * to avoid undefined behavior:
 	 * <ul>
-	 * 	<li>The host memory region being written contains the latest bits when the enqueued write command begins execution.</li>
-	 * 	<li>The input_row_pitch and input_slice_pitch argument values in clEnqueueWriteImage must be set to the image row pitch and slice pitch.</li>
-	 * 	<li>The image object is not mapped.</li>
-	 * 	<li>The image object is not used by any command-queue until the write command has finished execution.</li>
+	 * <li>The host memory region being written contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The input_row_pitch and input_slice_pitch argument values in clEnqueueWriteImage must be set to the image row pitch and slice pitch.</li>
+	 * <li>The image object is not mapped.</li>
+	 * <li>The image object is not used by any command-queue until the write command has finished execution.</li>
 	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
@@ -1936,41 +1986,41 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
 	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the region being written specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if the region being written specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a
 	 *         {@code NULL} value.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for
+	 *         <li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for
 	 *         {@code origin} and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
 	 *         with queue.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueReadImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code clEnqueueWriteImage} is called on image which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS}.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, ByteBuffer origin, ByteBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueWriteImage(command_queue.getPointer(), image.getPointer(), blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -2044,16 +2094,16 @@ public final class CL10 {
 	 * Enqueues a command to copy image objects. {@code src_image and {@code dst_image} can be 1D, 2D, 3D image or a 1D, 2D image array objects allowing us to
 	 * perform the following actions:
 	 * <ul>
-	 * 	<li>Copy a 1D image object to a 1D image object.</li>
-	 * 	<li>Copy a 1D image object to a scanline of a 2D image object and vice-versa.</li>
-	 * 	<li>Copy a 1D image object to a scanline of a 2D slice of a 3D image object and vice-versa.</li>
-	 * 	<li>Copy a 1D image object to a scanline of a specific image index of a 1D or 2D image array object and vice-versa.</li>
-	 * 	<li>Copy a 2D image object to a 2D image object.</li>
-	 * 	<li>Copy a 2D image object to a 2D slice of a 3D image object and vice-versa.</li>
-	 * 	<li>Copy a 2D image object to a specific image index of a 2D image array object and vice-versa.</li>
-	 * 	<li>Copy images from a 1D image array object to a 1D image array object.</li>
-	 * 	<li>Copy images from a 2D image array object to a 2D image array object.</li>
-	 * 	<li>Copy a 3D image object to a 3D image object.</li>
+	 * <li>Copy a 1D image object to a 1D image object.</li>
+	 * <li>Copy a 1D image object to a scanline of a 2D image object and vice-versa.</li>
+	 * <li>Copy a 1D image object to a scanline of a 2D slice of a 3D image object and vice-versa.</li>
+	 * <li>Copy a 1D image object to a scanline of a specific image index of a 1D or 2D image array object and vice-versa.</li>
+	 * <li>Copy a 2D image object to a 2D image object.</li>
+	 * <li>Copy a 2D image object to a 2D slice of a 3D image object and vice-versa.</li>
+	 * <li>Copy a 2D image object to a specific image index of a 2D image array object and vice-versa.</li>
+	 * <li>Copy images from a 1D image array object to a 1D image array object.</li>
+	 * <li>Copy images from a 2D image array object to a 2D image array object.</li>
+	 * <li>Copy a 3D image object to a 3D image object.</li>
 	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the copy command will be queued. The OpenCL context associated with {@code command_queue}, {@code src_image} and
@@ -2086,39 +2136,39 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_image} are not the same or if the
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_image} are not the same or if the
 	 *         context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_image} and {@code dst_image} are not valid image objects.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_MISMATCH} if {@code src_image} and {@code dst_image} do not use the same image format.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the 2D or 3D rectangular region specified by {@code src_origin} and {@code src_origin + region} refers to a region
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_image} and {@code dst_image} are not valid image objects.</li>
+	 *         <li>{@link #CL_IMAGE_FORMAT_MISMATCH} if {@code src_image} and {@code dst_image} do not use the same image format.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if the 2D or 3D rectangular region specified by {@code src_origin} and {@code src_origin + region} refers to a region
 	 *         outside {@code src_image}, or if the 2D or 3D rectangular region specified by {@code dst_origin} and {@code dst_origin + region} refers to a region
 	 *         outside {@code dst_image}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values in {@code src_origin}, {@code dst_origin} and {@code region} do not follow rules described in the argument
+	 *         <li>{@link #CL_INVALID_VALUE} if values in {@code src_origin}, {@code dst_origin} and {@code region} do not follow rules described in the argument
 	 *         description for {@code src_origin}, {@code dst_origin} and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code src_image} or
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code src_image} or
 	 *         {@code dst_image} are not supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code src_image} or {@code dst_image} are not
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code src_image} or {@code dst_image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_image} or {@code dst_image}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_image} or {@code dst_image}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_MEM_COPY_OVERLAP} if {@code src_image} and {@code dst_image} are the same image object and the source and destination regions overlap.</li>
+	 *         <li>{@link #CL_MEM_COPY_OVERLAP} if {@code src_image} and {@code dst_image} are the same image object and the source and destination regions overlap.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyImage(CLCommandQueue command_queue, CLMem src_image, CLMem dst_image, ByteBuffer src_origin, ByteBuffer dst_origin, ByteBuffer region, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueCopyImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(src_origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(dst_origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(src_origin, 3 << POINTER_SHIFT);
+			checkBuffer(dst_origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueCopyImage(command_queue.getPointer(), src_image.getPointer(), dst_image.getPointer(), memAddress(src_origin), memAddress(dst_origin), memAddress(region), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -2174,38 +2224,38 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_buffer} are not the same or if
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_buffer} are not the same or if
 	 *         the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_image} is not a valid image object or {@code dst_buffer} is not a valid buffer object or if
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code src_image} is not a valid image object or {@code dst_buffer} is not a valid buffer object or if
 	 *         {@code src_image} is a 1D image buffer object created from {@code dst_buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if the 1D, 2D or 3D rectangular region specified by {@code src_origin} and {@code src_origin + region} refers to a region
+	 *         <li>{@link #CL_INVALID_VALUE} if the 1D, 2D or 3D rectangular region specified by {@code src_origin} and {@code src_origin + region} refers to a region
 	 *         outside {@code src_image}, or if the region specified by {@code dst_offset} and {@code dst_offset + dst_cb} to a region outside {@code dst_buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values in {@code src_origin} and region do not follow rules described in the argument description for
+	 *         <li>{@link #CL_INVALID_VALUE} if values in {@code src_origin} and region do not follow rules described in the argument description for
 	 *         {@code src_origin} and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code dst_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code src_image} are not
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code dst_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code src_image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code src_image} are not supported by device
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code src_image} are not supported by device
 	 *         associated with queue.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_image} or {@code dst_buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_image} or {@code dst_buffer}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyImageToBuffer(CLCommandQueue command_queue, CLMem src_image, CLMem dst_buffer, ByteBuffer src_origin, ByteBuffer region, long dst_offset, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueCopyImageToBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(src_origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(src_origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueCopyImageToBuffer(command_queue.getPointer(), src_image.getPointer(), dst_buffer.getPointer(), memAddress(src_origin), memAddress(region), dst_offset, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -2255,39 +2305,39 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_image} are not the same or if
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_image} are not the same or if
 	 *         the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT if {@code src_buffer} is not a valid buffer object or {@code dst_image} is not a valid image object or if
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT if {@code src_buffer} is not a valid buffer object or {@code dst_image} is not a valid image object or if
 	 *         {@code dst_image} is a 1D image buffer object created from {@code src_buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE if the 1D, 2D or 3D rectangular region specified by {@code dst_origin} and {@code dst_origin + region} refer to a region
+	 *         <li>{@link #CL_INVALID_VALUE if the 1D, 2D or 3D rectangular region specified by {@code dst_origin} and {@code dst_origin + region} refer to a region
 	 *         outside {@code dst_image}, or if the region specified by {@code src_offset} and {@code src_offset + src_cb refer} to a region outside
 	 *         {@code src_buffer}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE if values in {@code dst_origin} and {@code region} do not follow rules described in the argument description for
+	 *         <li>{@link #CL_INVALID_VALUE if values in {@code dst_origin} and {@code region} do not follow rules described in the argument description for
 	 *         {@code dst_origin} and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code src_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
-	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code dst_image} are not
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if {@code src_buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code dst_image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED if image format (image channel order and data type) for {@code dst_image} are not supported by device
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED if image format (image channel order and data type) for {@code dst_image} are not supported by device
 	 *         associated with queue.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE if there is a failure to allocate memory for data store associated with {@code src_buffer} or {@code dst_image}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE if there is a failure to allocate memory for data store associated with {@code src_buffer} or {@code dst_image}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyBufferToImage(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_image, long src_offset, ByteBuffer dst_origin, ByteBuffer region, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueCopyBufferToImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(dst_origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(dst_origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueCopyBufferToImage(command_queue.getPointer(), src_buffer.getPointer(), dst_image.getPointer(), src_offset, memAddress(dst_origin), memAddress(region), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -2318,9 +2368,9 @@ public final class CL10 {
 	 * <p/>
 	 * If the image object is created with {@link #CL_MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
 	 * <ul>
-	 * 	<li>The {@code host_ptr} specified in {@link CL12#clCreateImage} is guaranteed to contain the latest bits in the region being mapped when the
+	 * <li>The {@code host_ptr} specified in {@link CL12#clCreateImage} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapImage} command has completed.</li>
-	 * 	<li>The pointer value returned by {@code clEnqueueMapImage} will be derived from the {@code host_ptr} specified when the image object is created.</li>
+	 * <li>The pointer value returned by {@code clEnqueueMapImage} will be derived from the {@code host_ptr} specified when the image object is created.</li>
 	 * </ul>
 	 * Mapped image objects are unmapped using {@link #clEnqueueUnmapMemObject}.
 	 *
@@ -2362,46 +2412,46 @@ public final class CL10 {
 	 * @return a pointer to the mapped region. The {@code errcode_ret} is set to {@link #CL_SUCCESS}. A {@code NULL} pointer is returned otherwise with one of the following error values
 	 *         returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and image are not the same or if context associated with
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and image are not the same or if context associated with
 	 *         {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if region being mapped given by {@code (origin, origin+region)} is out of bounds or if values specified in
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if region being mapped given by {@code (origin, origin+region)} is out of bounds or if values specified in
 	 *         {@code map_flags} are not valid.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for {@code origin}
+	 *         <li>{@link #CL_INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for {@code origin}
 	 *         and {@code region}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code image_row_pitch} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code image} is a 3D image, 1D or 2D image array object and {@code image_slice_pitch} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code image_row_pitch} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code image} is a 3D image, 1D or 2D image array object and {@code image_slice_pitch} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for {@code image} are not
 	 *         supported by device associated with queue.</li>
-	 *         	<li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for {@code image} are not supported by device associated
 	 *         with queue.</li>
-	 *         	<li>{@link #CL_MAP_FAILURE} if there is a failure to map the requested region into the host address space. This error cannot occur for image objects
+	 *         <li>{@link #CL_MAP_FAILURE} if there is a failure to map the requested region into the host address space. This error cannot occur for image objects
 	 *         created with {@link #CL_MEM_USE_HOST_PTR} or {@link #CL_MEM_ALLOC_HOST_PTR}.</li>
-	 *         	<li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the map operation is blocking and the execution status of any of the events in
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the map operation is blocking and the execution status of any of the events in
 	 *         {@code event_wait_list} is a negative integer value.</li>
-	 *         	<li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} does not support images (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if {@code image} has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS} and
+	 *         <li>{@link #CL_INVALID_OPERATION} if {@code image} has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS} and
 	 *         {@link #CL_MAP_READ} is set in {@code map_flags} or if image has been created with {@link CL12#CL_MEM_HOST_READ_ONLY} or
 	 *         {@link CL12#CL_MEM_HOST_NO_ACCESS} and {@link #CL_MAP_WRITE} or {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION} is set in {@code map_flags}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static ByteBuffer clEnqueueMapImage(CLCommandQueue command_queue, CLMem image, int blocking_map, long map_flags, ByteBuffer origin, ByteBuffer region, ByteBuffer image_row_pitch, ByteBuffer image_slice_pitch, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event, ByteBuffer errcode_ret) {
 		long __functionAddress = getInstance(command_queue).clEnqueueMapImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(origin, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(region, 3 << PointerBuffer.getPointerSizeShift());
-			checkBuffer(image_row_pitch, 1 << PointerBuffer.getPointerSizeShift());
-			if ( image_slice_pitch != null ) checkBuffer(image_slice_pitch, 1 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(origin, 3 << POINTER_SHIFT);
+			checkBuffer(region, 3 << POINTER_SHIFT);
+			checkBuffer(image_row_pitch, 1 << POINTER_SHIFT);
+			if ( image_slice_pitch != null ) checkBuffer(image_slice_pitch, 1 << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapImage(command_queue.getPointer(), image.getPointer(), blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
@@ -2452,16 +2502,16 @@ public final class CL10 {
 	 * @param image                the image object being queried
 	 * @param param_name           the information to query. One of:<p/>{@link #CL_IMAGE_FORMAT}, {@link #CL_IMAGE_ELEMENT_SIZE}, {@link #CL_IMAGE_ROW_PITCH}, {@link #CL_IMAGE_SLICE_PITCH}, {@link #CL_IMAGE_WIDTH}, {@link #CL_IMAGE_HEIGHT}, {@link #CL_IMAGE_DEPTH}, {@link CL12#CL_IMAGE_ARRAY_SIZE}, {@link CL12#CL_IMAGE_BUFFER}, {@link CL12#CL_IMAGE_NUM_MIP_LEVELS}, {@link CL12#CL_IMAGE_NUM_SAMPLES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory where the appropriate result being queried is returned.
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is a not a valid image object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code image} is a not a valid image object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetImageInfo(CLMem image, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -2469,7 +2519,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetImageInfo(image.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -2501,7 +2551,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetImageInfo(image.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetImageInfo(image.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clRetainMemObject ] ---
@@ -2512,15 +2562,15 @@ public final class CL10 {
 	/**
 	 * Increments the {@code memobj} reference count.
 	 * <p/>
-	 * {@link #clCreateBuffer}, {@link CL12#clCreateSubBuffer} and {@link CL12#clCreateImage} perform an implicit retain.
+	 * {@link #clCreateBuffer}, {@link CL11#clCreateSubBuffer} and {@link CL12#clCreateImage} perform an implicit retain.
 	 *
 	 * @param memobj the memory object to retain
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object (buffer or image object).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object (buffer or image object).</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clRetainMemObject(CLMem memobj) {
@@ -2546,9 +2596,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clReleaseMemObject(CLMem memobj) {
@@ -2586,14 +2636,14 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code mapped_ptr} is not a valid pointer returned by {@link #clEnqueueMapBuffer}, or {@link #clEnqueueMapImage} for {@code memobj}.</li>
-	 *         	<li>{@link #CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code mapped_ptr} is not a valid pointer returned by {@link #clEnqueueMapBuffer}, or {@link #clEnqueueMapImage} for {@code memobj}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and {@code memobj} are not the same or if the context associated with
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and {@code memobj} are not the same or if the context associated with
 	 *         {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
 	 *         </ul>
 	 */
@@ -2601,8 +2651,8 @@ public final class CL10 {
 		long __functionAddress = getInstance(command_queue).clEnqueueUnmapMemObject;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueUnmapMemObject(command_queue.getPointer(), memobj.getPointer(), memAddress(mapped_ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -2633,11 +2683,11 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is a not a valid memory object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if {@code memobj} is a not a valid memory object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -2645,7 +2695,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetMemObjectInfo(memobj.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -2687,7 +2737,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetMemObjectInfo(memobj.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetMemObjectInfo(memobj.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateSampler ] ---
@@ -2711,13 +2761,13 @@ public final class CL10 {
 	 * @return a valid non-zero sampler object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the sampler object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code addressing_mode}, {@code filter_mode} or {@code normalized_coords} or combination of these argument values are
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code addressing_mode}, {@code filter_mode} or {@code normalized_coords} or combination of these argument values are
 	 *         not valid.</li>
-	 *         	<li>{@link #CL_INVALID_OPERATION} if images are not supported by any device associated with {@code context} (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
+	 *         <li>{@link #CL_INVALID_OPERATION} if images are not supported by any device associated with {@code context} (i.e. {@link #CL_DEVICE_IMAGE_SUPPORT} is
 	 *         {@link #CL_FALSE}).</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLSampler clCreateSampler(CLContext context, int normalized_coords, int addressing_mode, int filter_mode, ByteBuffer errcode_ret) {
@@ -2751,9 +2801,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_SAMPLER} if sampler is not a valid sampler object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_SAMPLER} if sampler is not a valid sampler object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clRetainSampler(CLSampler sampler) {
@@ -2776,9 +2826,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_SAMPLER} if {@code sampler} is not a valid sampler object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_SAMPLER} if {@code sampler} is not a valid sampler object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clReleaseSampler(CLSampler sampler) {
@@ -2799,16 +2849,16 @@ public final class CL10 {
 	 * @param sampler              the sampler being queried
 	 * @param param_name           the information to query. One of:<p/>{@link #CL_SAMPLER_REFERENCE_COUNT}, {@link #CL_SAMPLER_CONTEXT}, {@link #CL_SAMPLER_NORMALIZED_COORDS}, {@link #CL_SAMPLER_ADDRESSING_MODE}, {@link #CL_SAMPLER_FILTER_MODE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory where the appropriate result being queried is returned
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_SAMPLER} if {@code sampler} is a not a valid sampler object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_SAMPLER} if {@code sampler} is a not a valid sampler object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clGetSamplerInfo(CLSampler sampler, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
@@ -2816,7 +2866,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetSamplerInfo(sampler.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
@@ -2848,7 +2898,7 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetSamplerInfo(sampler.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << PointerBuffer.getPointerSizeShift(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetSamplerInfo(sampler.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateProgramWithSource ] ---
@@ -2872,18 +2922,18 @@ public final class CL10 {
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code count} is zero or if {@code strings} or any entry in {@code strings} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code count} is zero or if {@code strings} or any entry in {@code strings} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLProgram clCreateProgramWithSource(CLContext context, int count, ByteBuffer strings, ByteBuffer lengths, ByteBuffer errcode_ret) {
 		long __functionAddress = getInstance(context).clCreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(strings, count << PointerBuffer.getPointerSizeShift());
-			if ( lengths != null ) checkBuffer(lengths, count << PointerBuffer.getPointerSizeShift());
+			checkBuffer(strings, count << POINTER_SHIFT);
+			if ( lengths != null ) checkBuffer(lengths, count << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), count, memAddress(strings), memAddressSafe(lengths), memAddressSafe(errcode_ret), __functionAddress), context);
@@ -2908,13 +2958,13 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
+		int stringsLengths = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsLengths + (i << PointerBuffer.getPointerSizeShift()), strings[i].length());
-		int stringsAddress = __buffer.bufferParam(strings.length << PointerBuffer.getPointerSizeShift());
+			__buffer.pointerValue(stringsLengths + (i << POINTER_SHIFT), strings[i].length());
+		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
+			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -2944,14 +2994,14 @@ public final class CL10 {
 	 * <p/>
 	 * The program binaries specified by {@code binaries} contain the bits that describe one of the following:
 	 * <ul>
-	 * 	<li>a program executable to be run on the device(s) associated with {@code context},</li>
-	 * 	<li>a compiled program for device(s) associated with {@code context}, or</li>
-	 * 	<li>a library of compiled programs for device(s) associated with {@code context}.</li>
+	 * <li>a program executable to be run on the device(s) associated with {@code context},</li>
+	 * <li>a compiled program for device(s) associated with {@code context}, or</li>
+	 * <li>a library of compiled programs for device(s) associated with {@code context}.</li>
 	 * </ul>
 	 * The program binary can consist of either or both:
 	 * <ul>
-	 * 	<li>Device-specific code and/or,</li>
-	 * 	<li>Implementation-specific intermediate representation (IR) which will be converted to the device-specific code.</li>
+	 * <li>Device-specific code and/or,</li>
+	 * <li>Implementation-specific intermediate representation (IR) which will be converted to the device-specific code.</li>
 	 * </ul>
 	 * OpenCL allows applications to create a program object using the program source or binary and build appropriate program executables. This can be very
 	 * useful as it allows applications to load program source and then compile and link to generate a program executable online on its first instance for
@@ -2976,22 +3026,22 @@ public final class CL10 {
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code device_list} is {@code NULL} or {@code num_devices} is zero.</li>
-	 *         	<li>{@link #CL_INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with {@code context}.</li>
-	 *         	<li>{@link #CL_INVALID_VALUE} if {@code lengths} or {@code binaries} are NULL or if any entry in {@code lengths[i]} is zero or {@code binaries[i]} is {@code NULL}.</li>
-	 *         	<li>{@link #CL_INVALID_BINARY} if an invalid program binary was encountered for any device. {@code binary_status} will return specific status for each device.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code device_list} is {@code NULL} or {@code num_devices} is zero.</li>
+	 *         <li>{@link #CL_INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with {@code context}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code lengths} or {@code binaries} are NULL or if any entry in {@code lengths[i]} is zero or {@code binaries[i]} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_BINARY} if an invalid program binary was encountered for any device. {@code binary_status} will return specific status for each device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static CLProgram clCreateProgramWithBinary(CLContext context, int num_devices, ByteBuffer device_list, ByteBuffer lengths, ByteBuffer binaries, ByteBuffer binary_status, ByteBuffer errcode_ret) {
 		long __functionAddress = getInstance(context).clCreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(binaries, num_devices << PointerBuffer.getPointerSizeShift());
-			checkBuffer(device_list, num_devices << PointerBuffer.getPointerSizeShift());
-			checkBuffer(lengths, num_devices << PointerBuffer.getPointerSizeShift());
+			checkBuffer(binaries, num_devices << POINTER_SHIFT);
+			checkBuffer(device_list, num_devices << POINTER_SHIFT);
+			checkBuffer(lengths, num_devices << POINTER_SHIFT);
 			if ( binary_status != null ) checkBuffer(binary_status, num_devices << 2);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
@@ -3021,12 +3071,12 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int binariesAddress = __buffer.bufferParam(binaries.length << PointerBuffer.getPointerSizeShift());
+		int binariesAddress = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
 		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerValue(binariesAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(binaries[i]));
-		int binariesLengths = __buffer.bufferParam(binaries.length << PointerBuffer.getPointerSizeShift());
+			__buffer.pointerValue(binariesAddress + (i << POINTER_SHIFT), memAddress(binaries[i]));
+		int binariesLengths = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
 		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerValue(binariesLengths + (i << PointerBuffer.getPointerSizeShift()), binaries[i].remaining());
+			__buffer.pointerValue(binariesLengths + (i << POINTER_SHIFT), binaries[i].remaining());
 		return CLProgram.create(nclCreateProgramWithBinary(context.getPointer(), binaries.length, memAddress(device_list), __buffer.address() + binariesLengths, __buffer.address() + binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -3059,9 +3109,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clRetainProgram(CLProgram program) {
@@ -3084,9 +3134,9 @@ public final class CL10 {
 	 *
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         	<li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
-	 *         	<li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         	<li>{@link #CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
 	public static int clReleaseProgram(CLProgram program) {
@@ -3121,48 +3171,75 @@ public final class CL10 {
 	 *                    not need to wait for the build to complete and can return immediately once the build operation can begin. The build operation can begin if the
 	 *                    context, program whose sources are being compiled and linked, list of devices and build options specified are all valid and appropriate host and
 	 *                    device resources needed to perform the build are available. If {@code pfn_notify} is {@code NULL}, {@code clBuildProgram} does not return until the build
-	 *                    has completed. This callback function may be called asynchronously by the OpenCL implementation. It is the application’s responsibility to ensure
+	 *                    has completed. This callback function may be called asynchronously by the OpenCL implementation. It is the application's responsibility to ensure
 	 *                    that the callback function is thread-safe.
 	 * @param user_data   will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is &gt; 0, or if {@code device_list is not {@code NULL} and {@code num_devices} is 0.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with program.</li>
+	 *         <li>{@link #CL_INVALID_BINARY if {@code program} is created with {@link #clCreateProgramWithBinary} and devices listed in {@code device_list} do not have a valid
+	 *         program binary loaded.</li>
+	 *         <li>{@link #CL_INVALID_BUILD_OPTIONS} if the build options specified by {@code options} are invalid.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the build of a program executable for any of the devices listed in {@code device_list} by a previous call to
+	 *         {@code clBuildProgram} for {@code program} has not completed.</li>
+	 *         <li>{@link #CL_COMPILER_NOT_AVAILABLE} if {@code program} is created with {@link #clCreateProgramWithSource} and a compiler is not available i.e.
+	 *         {@link #CL_DEVICE_COMPILER_AVAILABLE} is set to {@link #CL_FALSE}.</li>
+	 *         <li>{@link #CL_BUILD_PROGRAM_FAILURE} if there is a failure to build the program executable. This error will be returned if {@code clBuildProgram} does
+	 *         not return until the build has completed.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if there are kernel objects attached to {@code program}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if program was not created with {@link #clCreateProgramWithSource} or {@link #clCreateProgramWithBinary}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clBuildProgram(CLProgram program, int num_devices, ByteBuffer device_list, ByteBuffer options, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( device_list != null ) checkBuffer(device_list, num_devices << PointerBuffer.getPointerSizeShift());
+			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
 			checkNT1(options);
 		}
 		return nclBuildProgram(program.getPointer(), num_devices, memAddressSafe(device_list), memAddress(options), pfn_notify, user_data, __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLBuildProgramCallback pfn_notify) {
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLProgramCallbackBuild pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		long user_data = program.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallbackBuild.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != 0L ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	/** CharSequence version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLBuildProgramCallback pfn_notify) {
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgramCallbackBuild pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		long user_data = program.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallbackBuild.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != 0L ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	/** Single value version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLBuildProgramCallback pfn_notify) {
+	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLProgramCallbackBuild pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int device_list = __buffer.pointerParam();
 		__buffer.pointerValue(device_list, device);
-		long user_data = program.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLBuildProgramCallback.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallbackBuild.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != 0L ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -3192,32 +3269,63 @@ public final class CL10 {
 	public static native int nclGetProgramInfo(long program, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns information about a program object.
 	 *
-	 * @param program              
-	 * @param param_name           
+	 * @param program              the program object being queried
+	 * @param param_name           the information to query. One of:<p/>{@link #CL_PROGRAM_REFERENCE_COUNT}, {@link #CL_PROGRAM_CONTEXT}, {@link #CL_PROGRAM_NUM_DEVICES}, {@link #CL_PROGRAM_DEVICES}, {@link #CL_PROGRAM_SOURCE}, {@link #CL_PROGRAM_BINARY_SIZES}, {@link #CL_PROGRAM_BINARIES}, {@link CL12#CL_PROGRAM_NUM_KERNELS}, {@link CL12#CL_PROGRAM_KERNEL_NAMES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is a not a valid program object.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE} if {@code param_name} is {@link CL12#CL_PROGRAM_NUM_KERNELS} or {@link CL12#CL_PROGRAM_KERNEL_NAMES} and a
+	 *         successful program executable has not been built for at least one device in the list of devices associated with {@code program}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetProgramInfo(CLProgram program, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(program).clGetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetProgramInfo(program.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetProgramInfo} */
-	public static int clGetProgramInfo(CLProgram program, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetProgramInfo(CLProgram program, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(program).clGetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetProgramInfo(program.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetProgramInfo(program.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clGetProgramInfo} */
+	public static int clGetProgramInfo(CLProgram program, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(program).clGetProgramInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetProgramInfo(program.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clGetProgramInfo} */
+	public static int clGetProgramInfo(CLProgram program, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(program).clGetProgramInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetProgramInfo(program.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clGetProgramBuildInfo ] ---
@@ -3226,33 +3334,63 @@ public final class CL10 {
 	public static native int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns build information for each device in the program object.
 	 *
-	 * @param program              
-	 * @param device               
-	 * @param param_name           
+	 * @param program              the program object being queried
+	 * @param device               the device for which build information is being queried. {@code device} must be a valid device associated with {@code program}.
+	 * @param param_name           the information to query. One of:<p/>{@link #CL_PROGRAM_BUILD_STATUS}, {@link #CL_PROGRAM_BUILD_OPTIONS}, {@link #CL_PROGRAM_BUILD_LOG}, {@link CL12#CL_PROGRAM_BINARY_TYPE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_DEVICE} if {@code device} is not in the list of devices associated with program.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is a not a valid program object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(program).clGetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetProgramBuildInfo(program.getPointer(), device.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetProgramBuildInfo} */
-	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(program).clGetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetProgramBuildInfo(program.getPointer(), device.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetProgramBuildInfo(program.getPointer(), device.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clGetProgramBuildInfo} */
+	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(program).clGetProgramBuildInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetProgramBuildInfo(program.getPointer(), device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clGetProgramBuildInfo} */
+	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(program).clGetProgramBuildInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetProgramBuildInfo(program.getPointer(), device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clCreateKernel ] ---
@@ -3261,11 +3399,35 @@ public final class CL10 {
 	public static native long nclCreateKernel(long program, long kernel_name, long errcode_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Creates a kernel object.
+	 * <p/>
+	 * A kernel is a function declared in a program. A kernel is identified by the {@code __kernel} qualifier applied to any function in a program. A kernel
+	 * object encapsulates the specific {@code __kernel} function declared in a program and the argument values to be used when executing this {@code __kernel}
+	 * function.
+	 * <p/>
+	 * Kernel objects can only be created once you have a program object with a valid program source or binary loaded into the program object and the program
+	 * executable has been successfully built for one or more devices associated with program. No changes to the program executable are allowed while there are
+	 * kernel objects associated with a program object. This means that calls to {@link #clBuildProgram} and {@link CL12#clCompileProgram} return
+	 * {@link #CL_INVALID_OPERATION} if there are kernel objects attached to a program object. The OpenCL context associated with program will be the context
+	 * associated with kernel. The list of devices associated with program are the devices associated with kernel. Devices associated with a program object for
+	 * which a valid program executable has been built can be used to execute kernels declared in the program object.
 	 *
-	 * @param program     
-	 * @param kernel_name 
+	 * @param program     a program object with a successfully built executable
+	 * @param kernel_name a function name in the program declared with the {@code __kernel} qualifier
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero kernel object and {@code errcode_ret} is set to {@link #CL_SUCCESS} if the kernel object is created successfully. Otherwise, it returns a {@code NULL} value
+	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE} if there is no successfully built executable for {@code program}.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL_NAME} if {@code kernel_name} is not found in {@code program}.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL_DEFINITION} if the function definition for {@code __kernel} function given by {@code kernel_name} such as the number of
+	 *         arguments, the argument types are not the same for all devices for which the program executable has been built.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code kernel_name} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static CLKernel clCreateKernel(CLProgram program, ByteBuffer kernel_name, ByteBuffer errcode_ret) {
 		long __functionAddress = getInstance(program).clCreateKernel;
@@ -3303,18 +3465,31 @@ public final class CL10 {
 	public static native int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Creates kernel objects for all kernel functions in {@code program}. Kernel objects are not created for any {@code __kernel} functions in {@code program}
+	 * that do not have the same function definition across all devices for which a program executable has been successfully built.
+	 * <p/>
+	 * See {@link #clCreateKernel} for more details.
 	 *
-	 * @param program         
-	 * @param num_kernels     
-	 * @param kernels         
-	 * @param num_kernels_ret 
+	 * @param program         a program object with a successfully built executable
+	 * @param num_kernels     the size of memory pointed to by kernels specified as the number of cl_kernel entries
+	 * @param kernels         the buffer where the kernel objects for kernels in {@code program} will be returned. If {@code kernels} is {@code NULL}, it is ignored. If {@code kernels}
+	 *                        is not {@code NULL}, {@code num_kernels} must be greater than or equal to the number of kernels in {@code program}.
+	 * @param num_kernels_ret the number of kernels in {@code program}. If {@code num_kernels_ret} is {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the kernel objects were successfully allocated. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
+	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE} if there is no successfully built executable for any device in {@code program}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code kernels} is not {@code NULL} and {@code num_kernels} is less than the number of kernels in {@code program}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clCreateKernelsInProgram(CLProgram program, int num_kernels, ByteBuffer kernels, ByteBuffer num_kernels_ret) {
 		long __functionAddress = getInstance(program).clCreateKernelsInProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( kernels != null ) checkBuffer(kernels, num_kernels << PointerBuffer.getPointerSizeShift());
+			if ( kernels != null ) checkBuffer(kernels, num_kernels << POINTER_SHIFT);
 			if ( num_kernels_ret != null ) checkBuffer(num_kernels_ret, 1 << 2);
 		}
 		return nclCreateKernelsInProgram(program.getPointer(), num_kernels, memAddressSafe(kernels), memAddressSafe(num_kernels_ret), __functionAddress);
@@ -3336,9 +3511,16 @@ public final class CL10 {
 	public static native int nclRetainKernel(long kernel, long __functionAddress);
 
 	/**
-	 * 
+	 * Increments the {@code kernel} reference count. {@link #clCreateKernel} or {@link #clCreateKernelsInProgram} do an implicit retain.
 	 *
-	 * @param kernel 
+	 * @param kernel the kernel to retain
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_KERNEL} if kernel is not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clRetainKernel(CLKernel kernel) {
 		long __functionAddress = getInstance(kernel).clRetainKernel;
@@ -3353,9 +3535,19 @@ public final class CL10 {
 	public static native int nclReleaseKernel(long kernel, long __functionAddress);
 
 	/**
-	 * 
+	 * Decrements the {@code kernel} reference count.
+	 * <p/>
+	 * The kernel object is deleted once the number of instances that are retained to {@code kernel} become zero and the kernel object is no longer needed by
+	 * any enqueued commands that use {@code kernel}.
 	 *
-	 * @param kernel 
+	 * @param kernel the kernel to release
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_KERNEL} if kernel is not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clReleaseKernel(CLKernel kernel) {
 		long __functionAddress = getInstance(kernel).clReleaseKernel;
@@ -3370,24 +3562,141 @@ public final class CL10 {
 	public static native int nclSetKernelArg(long kernel, int arg_index, long arg_size, long arg_value, long __functionAddress);
 
 	/**
-	 * 
+	 * Set the argument value for a specific argument of a kernel.
 	 *
-	 * @param kernel    
-	 * @param arg_index 
-	 * @param arg_size  
-	 * @param arg_value 
+	 * @param kernel    a valid kernel object
+	 * @param arg_index the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
+	 *                  the total number of arguments declared by a kernel.
+	 *                  <p/>
+	 *                  For example, consider the following kernel:
+	 *                  <pre>{@code
+	 *                  kernel void image_filter (
+	 *                  	int n, int m,
+	 *                  	__constant float *filter_weights,
+	 *                  	__read_only image2d_t src_image,
+	 *                  	__write_only image2d_t dst_image
+	 *                  ) {
+	 *                  	&hellip;
+	 *                  }}</pre>
+	 *                  Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for
+	 *                  {@code dst_image}.
+	 *                  <p/>
+	 *                  <strong>NOTE</strong>: A kernel object does not update the reference count for objects such as memory, sampler objects specified as argument values
+	 *                  by {@code clSetKernelArg}, Users may not rely on a kernel object to retain objects specified as argument values to the kernel.
+	 * @param arg_size  the size of the argument value. If the argument is a memory object, the size is the size of the buffer or image object type. For arguments declared
+	 *                  with the {@code __local} qualifier, the size specified will be the size in bytes of the buffer that must be allocated for the {@code __local}
+	 *                  argument. If the argument is of type {@code sampler_t}, the {@code arg_size} value must be equal to {@code sizeof(cl_sampler)}. For all other
+	 *                  arguments, the size will be the size of argument type.
+	 * @param arg_value a pointer to data that should be used as the argument value for argument specified by {@code arg_index}. The argument data pointed to by
+	 *                  {@code arg_value} is copied and the {@code arg_value} pointer can therefore be reused by the application after {@code clSetKernelArg} returns. The
+	 *                  argument value specified is the value used by all API calls that enqueue kernel ({@link #clEnqueueNDRangeKernel} and {@link #clEnqueueTask}) until
+	 *                  the argument value is changed by a call to {@code clSetKernelArg} for {@code kernel}.
+	 *                  <p/>
+	 *                  If the argument is a memory object (buffer, image or image array), the {@code arg_value} entry will be a pointer to the appropriate buffer, image or
+	 *                  image array object. The memory object must be created with the context associated with the kernel object. If the argument is a buffer object, the
+	 *                  {@code arg_value} pointer can be {@code NULL} or point to a {@code NULL} value in which case a {@code NULL} value will be used as the value for the argument declared as
+	 *                  a pointer to {@code __global} or {@code __constant} memory in the kernel. If the argument is declared with the {@code __local} qualifier, the
+	 *                  {@code arg_value} entry must be {@code NULL}. If the argument is of type {@code sampler_t}, the {@code arg_value} entry must be a pointer to the sampler
+	 *                  object.
+	 *                  <p/>
+	 *                  If the argument is declared to be a pointer of a built-in scalar or vector type, or a user defined structure type in the global or constant address
+	 *                  space, the memory object specified as argument value must be a buffer object (or {@code NULL}). If the argument is declared with the {@code __constant}
+	 *                  qualifier, the size in bytes of the memory object cannot exceed {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE} and the number of arguments declared as
+	 *                  pointers to {@code __constant} memory cannot exceed {@link #CL_DEVICE_MAX_CONSTANT_ARGS}.
+	 *                  <p/>
+	 *                  The memory object specified as argument value must be a 2D image object if the argument is declared to be of type {@code image2d_t}. The memory
+	 *                  object specified as argument value must be a 3D image object if argument is declared to be of type {@code image3d_t}. The memory object specified as
+	 *                  argument value must be a 1D image object if the argument is declared to be of type {@code image1d_t}. The memory object specified as argument value
+	 *                  must be a 1D image buffer object if the argument is declared to be of type {@code image1d_buffer_t}. The memory object specified as argument value
+	 *                  must be a 1D image array object if argument is declared to be of type {@code image1d_array_t}. The memory object specified as argument value must be
+	 *                  a 2D image array object if argument is declared to be of type {@code image2d_array_t}.
+	 *                  <p/>
+	 *                  For all other kernel arguments, the {@code arg_value} entry must be a pointer to the actual data to be used as argument value.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function was executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
+	 *         <li>{@link #CL_INVALID_ARG_INDEX} if {@code arg_index} is not a valid argument index.</li>
+	 *         <li>{@link #CL_INVALID_ARG_VALUE} if {@code arg_value} specified is not a valid value.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} for an argument declared to be a memory object when the specified {@code arg_value} is not a valid memory object.</li>
+	 *         <li>{@link #CL_INVALID_SAMPLER} for an argument declared to be of type {@code sampler_t} when the specified {@code arg_value} is not a valid sampler object.</li>
+	 *         <li>{@link #CL_INVALID_ARG_SIZE} if {@code arg_size} does not match the size of the data type for an argument that is not a memory object or if the
+	 *         argument is a memory object and {@code arg_size != sizeof(cl_mem)} or if {@code arg_size} is zero and the argument is declared with the
+	 *         {@code __local} qualifier or if the argument is a sampler and {@code arg_size != sizeof(cl_sampler)}.</li>
+	 *         <li>{@link #CL_INVALID_ARG_VALUE} if the argument is an image declared with the {@code read_only} qualifier and {@code arg_value} refers to an image
+	 *         object created with {@code cl_mem_flags} of {@link #CL_MEM_WRITE_ONLY} or if the image argument is declared with the {@code write_only} qualifier
+	 *         and {@code arg_value} refers to an image object created with {@code cl_mem_flags} of {@link #CL_MEM_READ_ONLY}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, long arg_size, ByteBuffer arg_value) {
 		long __functionAddress = getInstance(kernel).clSetKernelArg;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(arg_value, arg_size);
+			if ( arg_value != null ) checkBuffer(arg_value, arg_size);
 		}
-		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_size, memAddress(arg_value), __functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_size, memAddressSafe(arg_value), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, long arg_size) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_size, 0L, __functionAddress);
+	}
+
+	/** ByteBuffer version of: {@link #clSetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, ByteBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** ShortBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, ShortBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, IntBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** LongBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, LongBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** FloatBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, FloatBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** DoubleBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, DoubleBuffer arg_value) {
+		long __functionAddress = getInstance(kernel).clSetKernelArg;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clSetKernelArg} */
+	public static int clSetKernelArg(CLKernel kernel, int arg_index, PointerBuffer arg_value) {
 		long __functionAddress = getInstance(kernel).clSetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -3400,32 +3709,61 @@ public final class CL10 {
 	public static native int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns information about a kernel object.
 	 *
-	 * @param kernel               
-	 * @param param_name           
+	 * @param kernel               the kernel object being queried
+	 * @param param_name           the information to query. One of:<p/>{@link #CL_KERNEL_FUNCTION_NAME}, {@link #CL_KERNEL_NUM_ARGS}, {@link #CL_KERNEL_REFERENCE_COUNT}, {@link #CL_KERNEL_CONTEXT}, {@link #CL_KERNEL_PROGRAM}, {@link CL12#CL_KERNEL_ATTRIBUTES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetKernelInfo(CLKernel kernel, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(kernel).clGetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetKernelInfo(kernel.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetKernelInfo} */
-	public static int clGetKernelInfo(CLKernel kernel, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelInfo(CLKernel kernel, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(kernel).clGetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetKernelInfo(kernel.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetKernelInfo(kernel.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clGetKernelInfo} */
+	public static int clGetKernelInfo(CLKernel kernel, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(kernel).clGetKernelInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetKernelInfo(kernel.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clGetKernelInfo} */
+	public static int clGetKernelInfo(CLKernel kernel, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(kernel).clGetKernelInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetKernelInfo(kernel.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clGetKernelWorkGroupInfo ] ---
@@ -3434,33 +3772,77 @@ public final class CL10 {
 	public static native int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns information about the kernel object that may be specific to a device.
 	 *
-	 * @param kernel               
-	 * @param device               
-	 * @param param_name           
+	 * @param kernel               the kernel object being queried
+	 * @param device               identifies a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL context
+	 *                             that is associated with {@code kernel}. If the list of devices associated with {@code kernel} is a single device, {@code device} can be a {@code NULL} value.
+	 * @param param_name           the information to query. One of:<p/>{@link #CL_KERNEL_WORK_GROUP_SIZE}, {@link #CL_KERNEL_COMPILE_WORK_GROUP_SIZE}, {@link #CL_KERNEL_LOCAL_MEM_SIZE}, {@link CL11#CL_KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE}, {@link CL11#CL_KERNEL_PRIVATE_MEM_SIZE}, {@link CL12#CL_KERNEL_GLOBAL_WORK_SIZE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is
+	 *         more than one device associated with {@code kernel}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is {@link CL12#CL_KERNEL_GLOBAL_WORK_SIZE} and {@code device} is not a custom device or kernel is
+	 *         not a built-in kernel.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(kernel).clGetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetKernelWorkGroupInfo} */
-	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(kernel).clGetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clGetKernelWorkGroupInfo} */
+	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(kernel).clGetKernelWorkGroupInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** LongBuffer version of: {@link #clGetKernelWorkGroupInfo} */
+	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(kernel).clGetKernelWorkGroupInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clGetKernelWorkGroupInfo} */
+	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(kernel).clGetKernelWorkGroupInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetKernelWorkGroupInfo(kernel.getPointer(), device.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clEnqueueNDRangeKernel ] ---
@@ -3469,27 +3851,92 @@ public final class CL10 {
 	public static native int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a command to execute a kernel on a device.
 	 *
-	 * @param command_queue           
-	 * @param kernel                  
-	 * @param work_dim                
-	 * @param global_work_offset      
-	 * @param global_work_size        
-	 * @param local_work_size         
-	 * @param num_events_in_wait_list 
-	 * @param event_wait_list         
-	 * @param event                   
+	 * @param command_queue           a valid command-queue. The kernel will be queued for execution on the device associated with {@code command_queue}.
+	 * @param kernel                  a valid kernel object. The OpenCL context associated with {@code kernel} and {@code command_queue} must be the same.
+	 * @param work_dim                the number of dimensions used to specify the global work-items and work-items in the work-group. {@code work_dim} must be greater than zero and less
+	 *                                than or equal to {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS}.
+	 * @param global_work_offset      can be used to specify an array of {@code work_dim} unsigned values that describe the offset used to calculate the global ID of a work-item. If
+	 *                                {@code global_work_offset} is {@code NULL}, the global IDs start at offset {@code (0, 0, &hellip; 0)}.
+	 * @param global_work_size        points to an array of {@code work_dim} unsigned values that describe the number of global work-items in {@code work_dim} dimensions that will
+	 *                                execute the kernel function. The total number of global work-items is computed as <code>global_work_size[0] * &hellip; * global_work_size[work_dim – 1]</code>.
+	 * @param local_work_size         points to an array of {@code work_dim} unsigned values that describe the number of work-items that make up a work-group (also referred to as the
+	 *                                size of the work-group) that will execute the kernel specified by {@code kernel}. The total number of work-items in a work-group is computed as
+	 *                                <code>local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code>. The total number of work-items in the work-group must be less than or equal to
+	 *                                the {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE} value and the number of work-items specified in <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
+	 *                                must be less than or equal to the corresponding values specified by {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}<code>[0]</code>, &hellip;
+	 *                                {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}<code>[work_dim – 1]</code>. The explicitly specified {@code local_work_size} will be used to determine how to
+	 *                                break the global work-items specified by {@code global_work_size} into appropriate work-group instances. If {@code local_work_size} is specified, the
+	 *                                values specified in <code>global_work_size[0], &hellip; global_work_size[work_dim - 1]</code> must be evenly divisible by the corresponding values
+	 *                                specified in <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>.
+	 *                                <p/>
+	 *                                The work-group size to be used for kernel can also be specified in the program source using the
+	 *                                <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier. In this case the size of work group specified by {@code local_work_size} must
+	 *                                match the value specified by the {@code reqd_work_group_size} attribute qualifier.
+	 *                                <p/>
+	 *                                {@code local_work_size} can also be a {@code NULL} value in which case the OpenCL implementation will determine how to be break the global work-items into
+	 *                                appropriate work-group instances.
+	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
+	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                                {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event                   Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                                {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                                {@code event_wait_list} array.
+	 *
+	 * @return {@link #CL_SUCCESS} if the kernel execution was successfully queued. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE} if there is no successfully built program executable available for device associated with {@code command_queue}.</li>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and {@code kernel} are not the same or if the context associated with
+	 *         {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link #CL_INVALID_KERNEL_ARGS} if the kernel argument values have not been specified.</li>
+	 *         <li>{@link #CL_INVALID_WORK_DIMENSION} if {@code work_dim} is not a valid value (i.e. a value between 1 and 3).</li>
+	 *         <li>{@link #CL_INVALID_GLOBAL_WORK_SIZE} if {@code global_work_size} is {@code NULL}, or if any of the values specified in
+	 *         <code>global_work_size[0], &hellip; global_work_size[work_dim – 1]</code> are 0 or exceed the range given by the {@code sizeof(size_t)} for the device
+	 *         on which the kernel execution will be enqueued.</li>
+	 *         <li>{@link #CL_INVALID_GLOBAL_OFFSET} if the value specified in {@code global_work_size} + the corresponding values in {@code global_work_offset} for
+	 *         any dimensions is greater than the {@code sizeof(size_t)} for the device on which the kernel execution will be enqueued.</li>
+	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is specified and number of work-items specified by {@code global_work_size} is not
+	 *         evenly divisible by size of work-group given by {@code local_work_size} or does not match the work-group size specified for kernel using the
+	 *         <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier in program source.</li>
+	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is specified and the total number of work-items in the work-group computed as
+	 *         <code>local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code> is greater than the value specified by {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE}</li>
+	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is {@code NULL} and the <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier
+	 *         is used to declare the work-group size for kernel in the program source.</li>
+	 *         <li>{@link #CL_INVALID_WORK_ITEM_SIZE} if the number of work-items specified in any of <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
+	 *         is greater than the corresponding values specified by {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}{@code [0]}, &hellip; {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES}{@code[work_dim – 1]}.</li>
+	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET} if a sub-buffer object is specified as the value for an argument that is a buffer object and the offset
+	 *         specified when the sub-buffer object is created is not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_SIZE} if an image object is specified as an argument value and the image dimensions (image width, height, specified or
+	 *         compute row and/or slice pitch) are not supported by device associated with queue.</li>
+	 *         <li>{@link #CL_IMAGE_FORMAT_NOT_SUPPORTED} if an image object is specified as an argument value and the image format (image channel order and data type)
+	 *         is not supported by device associated with queue.</li>
+	 *         <li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to queue the execution instance of kernel on the command-queue because of insufficient resources
+	 *         needed to execute the kernel. For example, the explicitly specified {@code local_work_size} causes a failure to execute the kernel because of
+	 *         insufficient resources such as registers or local memory. Another example would be the number of read-only image args used in kernel exceed the
+	 *         {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS} value for device or the number of write-only image args used in kernel exceed the
+	 *         {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS} value for device or the number of samplers used in kernel exceed {@link #CL_DEVICE_MAX_SAMPLERS} for device.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with image or buffer objects specified
+	 *         as arguments to kernel.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clEnqueueNDRangeKernel(CLCommandQueue command_queue, CLKernel kernel, int work_dim, ByteBuffer global_work_offset, ByteBuffer global_work_size, ByteBuffer local_work_size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueNDRangeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( global_work_offset != null ) checkBuffer(global_work_offset, work_dim << PointerBuffer.getPointerSizeShift());
-			if ( global_work_size != null ) checkBuffer(global_work_size, work_dim << PointerBuffer.getPointerSizeShift());
-			if ( local_work_size != null ) checkBuffer(local_work_size, work_dim << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( global_work_offset != null ) checkBuffer(global_work_offset, work_dim << POINTER_SHIFT);
+			if ( global_work_size != null ) checkBuffer(global_work_size, work_dim << POINTER_SHIFT);
+			if ( local_work_size != null ) checkBuffer(local_work_size, work_dim << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueNDRangeKernel(command_queue.getPointer(), kernel.getPointer(), work_dim, memAddressSafe(global_work_offset), memAddressSafe(global_work_size), memAddressSafe(local_work_size), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -3513,20 +3960,30 @@ public final class CL10 {
 	public static native int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a command to execute a kernel on a device. The kernel is executed using a single work-item.
+	 * <p/>
+	 * {@code clEnqueueTask} is equivalent to calling {@link #clEnqueueNDRangeKernel} with {@code work_dim = 1}, {@code global_work_offset = NULL},
+	 * {@code global_work_size[0]} set to 1 and {@code local_work_size[0]} set to 1.
 	 *
-	 * @param command_queue           
-	 * @param kernel                  
-	 * @param num_events_in_wait_list 
-	 * @param event_wait_list         
-	 * @param event                   
+	 * @param command_queue           a valid command-queue. The kernel will be queued for execution on the device associated with {@code command_queue}.
+	 * @param kernel                  a valid kernel object. The OpenCL context associated with {@code kernel} and {@code command_queue} must be the same.
+	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
+	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                                {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event                   Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                                {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                                {@code event_wait_list} array.
+	 *
+	 * @return {@link #CL_SUCCESS} if the kernel execution was successfully queued. Otherwise, see {@link #clEnqueueNDRangeKernel}.
 	 */
 	public static int clEnqueueTask(CLCommandQueue command_queue, CLKernel kernel, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueTask;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
 		return nclEnqueueTask(command_queue.getPointer(), kernel.getPointer(), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
@@ -3547,42 +4004,152 @@ public final class CL10 {
 	public static native int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a command to execute a native C/C++ function not compiled using the OpenCL compiler.
+	 * <p/>
+	 * <strong>LWJGL note</strong>: For the versions of this method that accept a {@link CLNativeKernel}, the {@code args} argument must not be null and must
+	 * have enough extra space at the beginning to store a pointer value (i.e. {@link Pointer#POINTER_SIZE} bytes). The application must not store
+	 * useful information there, as it will be overwritten by <em>LWJGL</em>. The {@code args} pointer in the callback invocation will be the address after
+	 * that pointer value.
 	 *
-	 * @param command_queue           
-	 * @param user_func               
-	 * @param args                    
-	 * @param cb_args                 
-	 * @param num_mem_objects         
-	 * @param mem_list                
-	 * @param args_mem_loc            
-	 * @param num_events_in_wait_list 
-	 * @param event_wait_list         
-	 * @param event                   
+	 * @param command_queue           a valid command-queue. A native user function can only be executed on a command-queue created on a device that has {@link #CL_EXEC_NATIVE_KERNEL}
+	 *                                capability set in {@link #CL_DEVICE_EXECUTION_CAPABILITIES}.
+	 * @param user_func               a pointer to a host-callable user function
+	 * @param args                    a pointer to the args list that {@code user_func} should be called with
+	 * @param cb_args                 the size in bytes of the args list that {@code args} points to.
+	 *                                <p/>
+	 *                                The data pointed to by {@code args} and {@code cb_args} bytes in size will be copied and a pointer to this copied region will be passed to
+	 *                                {@code user_func}. The copy needs to be done because the memory objects (cl_mem values) that args may contain need to be modified and replaced by
+	 *                                appropriate pointers to global memory. When {@code clEnqueueNativeKernel} returns, the memory region pointed to by args can be reused by the
+	 *                                application.
+	 * @param num_mem_objects         the number of buffer objects that are passed in {@code args}
+	 * @param mem_list                a list of valid buffer objects, if {@code num_mem_objects} &gt; 0. The buffer object values specified in {@code mem_list} are memory object handles
+	 *                                (cl_mem values) returned by {@link #clCreateBuffer} or {@code NULL}.
+	 * @param args_mem_loc            a pointer to appropriate locations that {@code args} points to where memory object handles (cl_mem values) are stored. Before the user function is
+	 *                                executed, the memory object handles are replaced by pointers to global memory.
+	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
+	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                                {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event                   Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                                {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                                {@code event_wait_list} array.
+	 *
+	 * @return {@link #CL_SUCCESS} if the user function execution instance was successfully queued. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code user_func} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code args} is a {@code NULL} value and {@code cb_args} &gt; 0, or if {@code args} is a {@code NULL} value and
+	 *         {@code num_mem_objects} &gt; 0.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code args} is not {@code NULL} and {@code cb_args} is 0.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_mem_objects} &gt; 0 and {@code mem_list} or {@code args_mem_loc} are {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_mem_objects} = 0 and {@code mem_list} or {@code args_mem_loc} are not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_OPERATION} if the device associated with {@code command_queue} cannot execute the native kernel.</li>
+	 *         <li>{@link #CL_INVALID_MEM_OBJECT} if one or more memory objects specified in {@code mem_list} are not valid or are not buffer objects.</li>
+	 *         <li>{@link #CL_OUT_OF_RESOURCES} if there is a failure to queue the execution instance of kernel on the command-queue because of insufficient resources
+	 *         needed to execute the kernel.</li>
+	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with buffer objects specified as
+	 *         arguments to kernel.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, long user_func, ByteBuffer args, long cb_args, int num_mem_objects, ByteBuffer mem_list, ByteBuffer args_mem_loc, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkPointer(user_func);
-			checkBuffer(args, cb_args);
-			if ( mem_list != null ) checkBuffer(mem_list, 1 << PointerBuffer.getPointerSizeShift());
-			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << PointerBuffer.getPointerSizeShift());
-			if ( event != null ) checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( args != null ) checkBuffer(args, cb_args);
+			if ( mem_list != null ) checkBuffer(mem_list, num_mem_objects << POINTER_SHIFT);
+			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, num_mem_objects << POINTER_SHIFT);
+			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueNativeKernel(command_queue.getPointer(), user_func, memAddress(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		return nclEnqueueNativeKernel(command_queue.getPointer(), user_func, memAddressSafe(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddressSafe(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clEnqueueNativeKernel} */
-	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, long user_func, ByteBuffer args, int num_mem_objects, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernel user_func, ByteBuffer args, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkPointer(user_func);
-			if ( mem_list != null ) checkBuffer(mem_list, 1);
+			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, mem_list.remaining());
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueNativeKernel(command_queue.getPointer(), user_func, memAddress(args), args.remaining(), num_mem_objects, memAddressSafe(mem_list), memAddress(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		long user_data = user_func.register(args);
+		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), mem_list == null ? 0 : mem_list.remaining(), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != 0L ) memGlobalRefDelete(user_data);
+		return __result;
+	}
+
+	/** Single value version of: {@link #clEnqueueNativeKernel} */
+	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernel user_func, ByteBuffer args, CLMem memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		APIBuffer __buffer = apiBuffer();
+		int mem_list = __buffer.pointerParam();
+		__buffer.pointerValue(mem_list, memobj);
+		int args_mem_loc = __buffer.pointerParam();
+		__buffer.pointerValue(args_mem_loc, memobj_loc);
+		long user_data = user_func.register(args);
+		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != 0L ) memGlobalRefDelete(user_data);
+		return __result;
+	}
+
+	// --- [ clWaitForEvents ] ---
+
+	/** JNI method for {@link #clWaitForEvents} */
+	public static native int nclWaitForEvents(int num_events, long event_list, long __functionAddress);
+
+	/**
+	 * Waits on the host thread for commands identified by event objects in {@code event_list} to complete. A command is considered complete if its execution
+	 * status is {@link #CL_COMPLETE} or a negative value. The events specified in {@code event_list} act as synchronization points.
+	 *
+	 * @param num_events the number of events in {@code event_list}
+	 * @param event_list the list of events
+	 *
+	 * @return {@link #CL_SUCCESS} if the execution status of all events in event_list is {@link #CL_COMPLETE}. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_events} is zero or {@code event_list} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if events specified in {@code event_list} do not belong to the same context.</li>
+	 *         <li>{@link #CL_INVALID_EVENT} if event objects specified in {@code event_list} are not valid event objects.</li>
+	 *         <li>{@link CL11#CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the execution status of any of the events in {@code event_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
+	public static int clWaitForEvents(int num_events, ByteBuffer event_list) {
+		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(event_list, num_events << POINTER_SHIFT);
+		}
+		return nclWaitForEvents(num_events, memAddress(event_list), __functionAddress);
+	}
+
+	/** Alternative version of: {@link #clWaitForEvents} */
+	public static int clWaitForEvents(PointerBuffer event_list) {
+		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclWaitForEvents(event_list.remaining(), memAddress(event_list), __functionAddress);
+	}
+
+	/** Single value version of: {@link #clWaitForEvents} */
+	public static int clWaitForEvents(CLEvent event) {
+		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int event_list = __buffer.pointerParam();
+		__buffer.pointerValue(event_list, event);
+		return nclWaitForEvents(1, __buffer.address() + event_list, __functionAddress);
 	}
 
 	// --- [ clGetEventInfo ] ---
@@ -3591,32 +4158,66 @@ public final class CL10 {
 	public static native int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns information about an event object.
+	 * <p/>
+	 * Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS}
+	 * returns {@link #CL_COMPLETE}) is not a synchronization point. There are no guarantees that the memory objects being modified by command associated with
+	 * event will be visible to other enqueued commands.
 	 *
-	 * @param event                
-	 * @param param_name           
+	 * @param event                the event object being queried
+	 * @param param_name           the information to query. One of:<p/>{@link #CL_EVENT_COMMAND_QUEUE}, {@link #CL_EVENT_COMMAND_TYPE}, {@link #CL_EVENT_REFERENCE_COUNT}, {@link #CL_EVENT_COMMAND_EXECUTION_STATUS}, {@link CL11#CL_EVENT_CONTEXT}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if information to query given in {@code param_name} cannot be queried for event.</li>
+	 *         <li>{@link #CL_INVALID_EVENT} if {@code event} is a not a valid event object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetEventInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(event).clGetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetEventInfo(event.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetEventInfo} */
-	public static int clGetEventInfo(CLEvent event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetEventInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(event).clGetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetEventInfo(event.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetEventInfo(event.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** IntBuffer version of: {@link #clGetEventInfo} */
+	public static int clGetEventInfo(CLEvent event, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(event).clGetEventInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetEventInfo(event.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** PointerBuffer version of: {@link #clGetEventInfo} */
+	public static int clGetEventInfo(CLEvent event, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(event).clGetEventInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetEventInfo(event.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clRetainEvent ] ---
@@ -3625,9 +4226,16 @@ public final class CL10 {
 	public static native int nclRetainEvent(long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Increments the event reference count. The OpenCL commands that return an event perform an implicit retain.
 	 *
-	 * @param event 
+	 * @param event the event to retain
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_EVENT} if {@code event} is not a valid event object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clRetainEvent(CLEvent event) {
 		long __functionAddress = getInstance(event).clRetainEvent;
@@ -3642,9 +4250,27 @@ public final class CL10 {
 	public static native int nclReleaseEvent(long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Decrements the event reference count.
+	 * <p/>
+	 * The event object is deleted once the reference count becomes zero, the specific command identified by this event has completed (or terminated) and there
+	 * are no commands in the command-queues of a context that require a wait for this event to complete.
+	 * <p/>
+	 * <strong>NOTE</strong>: Developers should be careful when releasing their last reference count on events created by {@link CL11#clCreateUserEvent} that
+	 * have not yet been set to status of {@link #CL_COMPLETE} or an error. If the user event was used in the {@code event_wait_list} argument passed to a
+	 * clEnqueue*** API or another application host thread is waiting for it in {@link #clWaitForEvents}, those commands and host threads will continue to wait for the
+	 * event status to reach {@link #CL_COMPLETE} or error, even after the user has released the object. Since in this scenario the developer has released his
+	 * last reference count to the user event, it would be in principle no longer valid for him to change the status of the event to unblock all the other
+	 * machinery. As a result the waiting tasks will wait forever, and associated events, cl_mem objects, command queues and contexts are likely to leak.
+	 * In-order command-queues caught up in this deadlock may cease to do any work.
 	 *
-	 * @param event 
+	 * @param event the event to release
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_INVALID_EVENT} if {@code event} is not a valid event object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clReleaseEvent(CLEvent event) {
 		long __functionAddress = getInstance(event).clReleaseEvent;
@@ -3659,18 +4285,31 @@ public final class CL10 {
 	public static native int nclEnqueueMarker(long command_queue, long event, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a marker command to {@code command_queue}. The marker command is not completed until all commands enqueued before it have completed. The marker
+	 * command returns an event which can be waited on, i.e. this event can be waited on to insure that all commands, which have been queued before the marker
+	 * command, have been completed.
 	 *
-	 * @param command_queue 
-	 * @param event         
+	 * @param command_queue the command-queue to insert the marker to
+	 * @param event         Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                      {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                      complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                      {@code event_wait_list} array.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code event} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clEnqueueMarker(CLCommandQueue command_queue, ByteBuffer event) {
 		long __functionAddress = getInstance(command_queue).clEnqueueMarker;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(event, 1 << PointerBuffer.getPointerSizeShift());
+			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueMarker(command_queue.getPointer(), memAddress(event), __functionAddress);
+		return nclEnqueueMarker(command_queue.getPointer(), memAddressSafe(event), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clEnqueueMarker} */
@@ -3678,9 +4317,9 @@ public final class CL10 {
 		long __functionAddress = getInstance(command_queue).clEnqueueMarker;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(event, 1);
+			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueMarker(command_queue.getPointer(), memAddress(event), __functionAddress);
+		return nclEnqueueMarker(command_queue.getPointer(), memAddressSafe(event), __functionAddress);
 	}
 
 	// --- [ clEnqueueBarrier ] ---
@@ -3689,9 +4328,17 @@ public final class CL10 {
 	public static native int nclEnqueueBarrier(long command_queue, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a barrier operation. The {@code clEnqueueBarrier} command ensures that all queued commands in {@code command_queue} have finished execution
+	 * before the next batch of commands can begin execution. The {@code clEnqueueBarrier} command is a synchronization point.
 	 *
-	 * @param command_queue 
+	 * @param command_queue the command-queue to insert the barrier to
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clEnqueueBarrier(CLCommandQueue command_queue) {
 		long __functionAddress = getInstance(command_queue).clEnqueueBarrier;
@@ -3706,18 +4353,27 @@ public final class CL10 {
 	public static native int nclEnqueueWaitForEvents(long command_queue, int num_events, long event_list, long __functionAddress);
 
 	/**
-	 * 
+	 * Enqueues a wait for a specific event or a list of events to complete before any future commands queued in the command-queue are executed.
 	 *
-	 * @param command_queue 
-	 * @param num_events    
-	 * @param event_list    
+	 * @param command_queue the command-queue
+	 * @param num_events    the number of events in {@code event_list}
+	 * @param event_list    the list of events
+	 *
+	 * @return {@link #CL_SUCCESS} if the function was successfully executed. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link #CL_INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_list} are not the same.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_events} is zero or {@code event_list} is {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_EVENT} if event objects specified in {@code event_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, int num_events, ByteBuffer event_list) {
 		long __functionAddress = getInstance(command_queue).clEnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(event_list, num_events << PointerBuffer.getPointerSizeShift());
-			checkBuffer(event_list, 1 << PointerBuffer.getPointerSizeShift());
+			checkBuffer(event_list, num_events << POINTER_SHIFT);
 		}
 		return nclEnqueueWaitForEvents(command_queue.getPointer(), num_events, memAddress(event_list), __functionAddress);
 	}
@@ -3725,11 +4381,20 @@ public final class CL10 {
 	/** Alternative version of: {@link #clEnqueueWaitForEvents} */
 	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, PointerBuffer event_list) {
 		long __functionAddress = getInstance(command_queue).clEnqueueWaitForEvents;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(event_list, 1);
-		}
 		return nclEnqueueWaitForEvents(command_queue.getPointer(), event_list.remaining(), memAddress(event_list), __functionAddress);
+	}
+
+	/** Single value version of: {@link #clEnqueueWaitForEvents} */
+	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, CLEvent event) {
+		long __functionAddress = getInstance(command_queue).clEnqueueWaitForEvents;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int event_list = __buffer.pointerParam();
+		__buffer.pointerValue(event_list, event);
+		return nclEnqueueWaitForEvents(command_queue.getPointer(), 1, __buffer.address() + event_list, __functionAddress);
 	}
 
 	// --- [ clGetEventProfilingInfo ] ---
@@ -3738,32 +4403,53 @@ public final class CL10 {
 	public static native int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns profiling information for the command associated with {@code event}.
 	 *
-	 * @param event                
-	 * @param param_name           
+	 * @param event                the event object
+	 * @param param_name           the profiling data to query. One of:<p/>{@link #CL_PROFILING_COMMAND_QUEUED}, {@link #CL_PROFILING_COMMAND_SUBMIT}, {@link #CL_PROFILING_COMMAND_START}, {@link #CL_PROFILING_COMMAND_END}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link #CL_SUCCESS} if the function is executed successfully and the profiling information has been recorded. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link #CL_PROFILING_INFO_NOT_AVAILABLE} if the {@link #CL_QUEUE_PROFILING_ENABLE} flag is not set for the command-queue, if the execution status of
+	 *         the command identified by {@code event} is not {@link #CL_COMPLETE} or if {@code event} is a user event object.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
+	 *         and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_EVENT} if {@code event} is a not a valid event object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clGetEventProfilingInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(event).clGetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << PointerBuffer.getPointerSizeShift());
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
 		return nclGetEventProfilingInfo(event.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clGetEventProfilingInfo} */
-	public static int clGetEventProfilingInfo(CLEvent event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetEventProfilingInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(event).clGetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetEventProfilingInfo(event.getPointer(), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetEventProfilingInfo(event.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+	}
+
+	/** LongBuffer version of: {@link #clGetEventProfilingInfo} */
+	public static int clGetEventProfilingInfo(CLEvent event, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = getInstance(event).clGetEventProfilingInfo;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return nclGetEventProfilingInfo(event.getPointer(), param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
 	// --- [ clFlush ] ---
@@ -3772,9 +4458,27 @@ public final class CL10 {
 	public static native int nclFlush(long command_queue, long __functionAddress);
 
 	/**
-	 * 
+	 * Issues all previously queued OpenCL commands in {@code command_queue} to the device associated with {@code command_queue}. {@code clFlush} only
+	 * guarantees that all queued commands to {@code command_queue} will eventually be submitted to the appropriate device. There is no guarantee that they
+	 * will be complete after {@code clFlush} returns.
+	 * <p/>
+	 * Any blocking commands queued in a command-queue and {@link #clReleaseCommandQueue} perform an implicit flush of the command-queue. These blocking commands are
+	 * {@link #clEnqueueReadBuffer}, {@link CL11#clEnqueueReadBufferRect}, {@link #clEnqueueReadImage}, with {@code blocking_read} set to {@link #CL_TRUE}; {@link #clEnqueueWriteBuffer},
+	 * {@link CL11#clEnqueueWriteBufferRect}, {@link #clEnqueueWriteImage} with {@code blocking_write} set to {@link #CL_TRUE}; {@link #clEnqueueMapBuffer}, {@link #clEnqueueMapImage} with
+	 * {@code blocking_map} set to {@link #CL_TRUE}; or {@link #clWaitForEvents}.
+	 * <p/>
+	 * To use event objects that refer to commands enqueued in a command-queue as event objects to wait on by commands enqueued in a different command-queue,
+	 * the application must call a {@code clFlush} or any blocking commands that perform an implicit flush of the command-queue where the commands that refer
+	 * to these event objects are enqueued.
 	 *
-	 * @param command_queue 
+	 * @param command_queue the command-queue
+	 *
+	 * @return {@link #CL_SUCCESS} if the function call was executed successfully. Otherwise, it returns one of the following errors:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static int clFlush(CLCommandQueue command_queue) {
 		long __functionAddress = getInstance(command_queue).clFlush;
@@ -3789,9 +4493,11 @@ public final class CL10 {
 	public static native int nclFinish(long command_queue, long __functionAddress);
 
 	/**
-	 * 
+	 * Blocks until all previously queued OpenCL commands in {@code command_queue} are issued to the associated device and have completed. {@code clFinish}
+	 * does not return until all previously queued commands in {@code command_queue} have been processed and completed. {@code clFinish} is also a
+	 * synchronization point.
 	 *
-	 * @param command_queue 
+	 * @param command_queue the command-queue
 	 */
 	public static int clFinish(CLCommandQueue command_queue) {
 		long __functionAddress = getInstance(command_queue).clFinish;
@@ -3803,28 +4509,38 @@ public final class CL10 {
 	// --- [ clGetExtensionFunctionAddress ] ---
 
 	/** JNI method for {@link #clGetExtensionFunctionAddress} */
-	public static native long nclGetExtensionFunctionAddress(long func_name, long __functionAddress);
+	public static native long nclGetExtensionFunctionAddress(long funcname, long __functionAddress);
 
 	/**
-	 * 
+	 * Returns the address of the extension function named by {@code funcname}. The pointer returned should be cast to a function pointer type matching the
+	 * extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL} indicates that the specified
+	 * function does not exist for the implementation. A non-{@code NULL} return value for {@code clGetExtensionFunctionAddress} does not guarantee that an extension
+	 * function is actually supported. The application must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
+	 * or <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
+	 * <p/>
+	 * {@code clGetExtensionFunctionAddress} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
+	 * {@code clGetExtensionFunctionAddress}, implementations may choose to also export those functions statically from the object libraries implementing those
+	 * functions. However, portable applications cannot rely on this behavior.
 	 *
-	 * @param func_name 
+	 * @param funcname the extension function name
+	 *
+	 * @return the extension function address
 	 */
-	public static long clGetExtensionFunctionAddress(ByteBuffer func_name) {
+	public static long clGetExtensionFunctionAddress(ByteBuffer funcname) {
 		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetExtensionFunctionAddress");
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkNT1(func_name);
+			checkNT1(funcname);
 		}
-		return nclGetExtensionFunctionAddress(memAddress(func_name), __functionAddress);
+		return nclGetExtensionFunctionAddress(memAddress(funcname), __functionAddress);
 	}
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddress} */
-	public static long clGetExtensionFunctionAddress(CharSequence func_name) {
+	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
 		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetExtensionFunctionAddress");
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nclGetExtensionFunctionAddress(memAddress(memEncodeASCII(func_name)), __functionAddress);
+		return nclGetExtensionFunctionAddress(memAddress(memEncodeASCII(funcname)), __functionAddress);
 	}
 
 	// --- [ Function Addresses ] ---
@@ -3894,6 +4610,7 @@ public final class CL10 {
 			funcs.clEnqueueNDRangeKernel != 0L &&
 			funcs.clEnqueueTask != 0L &&
 			funcs.clEnqueueNativeKernel != 0L &&
+			funcs.clWaitForEvents != 0L &&
 			funcs.clGetEventInfo != 0L &&
 			funcs.clRetainEvent != 0L &&
 			funcs.clReleaseEvent != 0L &&
@@ -3966,6 +4683,7 @@ public final class CL10 {
 			clEnqueueNDRangeKernel,
 			clEnqueueTask,
 			clEnqueueNativeKernel,
+			clWaitForEvents,
 			clGetEventInfo,
 			clRetainEvent,
 			clReleaseEvent,
@@ -4032,6 +4750,7 @@ public final class CL10 {
 			clEnqueueNDRangeKernel = provider.getFunctionAddress("clEnqueueNDRangeKernel");
 			clEnqueueTask = provider.getFunctionAddress("clEnqueueTask");
 			clEnqueueNativeKernel = provider.getFunctionAddress("clEnqueueNativeKernel");
+			clWaitForEvents = provider.getFunctionAddress("clWaitForEvents");
 			clGetEventInfo = provider.getFunctionAddress("clGetEventInfo");
 			clRetainEvent = provider.getFunctionAddress("clRetainEvent");
 			clReleaseEvent = provider.getFunctionAddress("clReleaseEvent");

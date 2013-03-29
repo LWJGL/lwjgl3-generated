@@ -46,26 +46,27 @@ typedef cl_program (APIENTRY *clCreateProgramWithSourcePROC) (cl_context, cl_uin
 typedef cl_program (APIENTRY *clCreateProgramWithBinaryPROC) (cl_context, cl_uint, const cl_device_id *, const size_t *, const cl_uchar* *, cl_int *, cl_int *);
 typedef cl_int (APIENTRY *clRetainProgramPROC) (cl_program);
 typedef cl_int (APIENTRY *clReleaseProgramPROC) (cl_program);
-typedef cl_int (APIENTRY *clBuildProgramPROC) (cl_program, cl_uint, cl_device_id *, cl_char *, cl_build_program_callback, void *);
+typedef cl_int (APIENTRY *clBuildProgramPROC) (cl_program, cl_uint, const cl_device_id *, const cl_char *, cl_program_callback, void *);
 typedef cl_int (APIENTRY *clUnloadCompilerPROC) ();
 typedef cl_int (APIENTRY *clGetProgramInfoPROC) (cl_program, cl_program_info, size_t, cl_void *, size_t *);
-typedef cl_int (APIENTRY *clGetProgramBuildInfoPROC) (cl_program, cl_device_id, cl_program_build_info, size_t, cl_void *, size_t *);
-typedef cl_kernel (APIENTRY *clCreateKernelPROC) (cl_program, cl_char *, cl_int *);
+typedef cl_int (APIENTRY *clGetProgramBuildInfoPROC) (cl_program, cl_device_id, cl_program_info, size_t, cl_void *, size_t *);
+typedef cl_kernel (APIENTRY *clCreateKernelPROC) (cl_program, const cl_char *, cl_int *);
 typedef cl_int (APIENTRY *clCreateKernelsInProgramPROC) (cl_program, cl_uint, cl_kernel *, cl_uint *);
 typedef cl_int (APIENTRY *clRetainKernelPROC) (cl_kernel);
 typedef cl_int (APIENTRY *clReleaseKernelPROC) (cl_kernel);
-typedef cl_int (APIENTRY *clSetKernelArgPROC) (cl_kernel, cl_uint, size_t, cl_void *);
+typedef cl_int (APIENTRY *clSetKernelArgPROC) (cl_kernel, cl_uint, size_t, const cl_void *);
 typedef cl_int (APIENTRY *clGetKernelInfoPROC) (cl_kernel, cl_kernel_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clGetKernelWorkGroupInfoPROC) (cl_kernel, cl_device_id, cl_kernel_work_group_info, size_t, cl_void *, size_t *);
-typedef cl_int (APIENTRY *clEnqueueNDRangeKernelPROC) (cl_command_queue, cl_kernel, cl_uint, size_t *, size_t *, size_t *, cl_uint, cl_event *, cl_event *);
-typedef cl_int (APIENTRY *clEnqueueTaskPROC) (cl_command_queue, cl_kernel, cl_uint, cl_event *, cl_event *);
-typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel_func, cl_void *, size_t, cl_uint, cl_mem *, cl_void* *, cl_uint, cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueNDRangeKernelPROC) (cl_command_queue, cl_kernel, cl_uint, const size_t *, const size_t *, const size_t *, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueTaskPROC) (cl_command_queue, cl_kernel, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel_func, cl_void *, size_t, cl_uint, const cl_mem *, const cl_void* *, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clWaitForEventsPROC) (cl_uint, const cl_event *);
 typedef cl_int (APIENTRY *clGetEventInfoPROC) (cl_event, cl_event_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clRetainEventPROC) (cl_event);
 typedef cl_int (APIENTRY *clReleaseEventPROC) (cl_event);
 typedef cl_int (APIENTRY *clEnqueueMarkerPROC) (cl_command_queue, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueBarrierPROC) (cl_command_queue);
-typedef cl_int (APIENTRY *clEnqueueWaitForEventsPROC) (cl_command_queue, cl_uint, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueWaitForEventsPROC) (cl_command_queue, cl_uint, const cl_event *);
 typedef cl_int (APIENTRY *clGetEventProfilingInfoPROC) (cl_event, cl_profiling_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clFlushPROC) (cl_command_queue);
 typedef cl_int (APIENTRY *clFinishPROC) (cl_command_queue);
@@ -417,9 +418,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseProgram(JNIEnv *__en
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclBuildProgram(JNIEnv *__env, jclass clazz, jlong programAddress, jint num_devices, jlong device_listAddress, jlong optionsAddress, jlong pfn_notifyAddress, jlong user_dataAddress, jlong __functionAddress) {
 	cl_program program = (cl_program)(intptr_t)programAddress;
-	cl_device_id *device_list = (cl_device_id *)(intptr_t)device_listAddress;
-	cl_char *options = (cl_char *)(intptr_t)optionsAddress;
-	cl_build_program_callback pfn_notify = (cl_build_program_callback)(intptr_t)pfn_notifyAddress;
+	const cl_device_id *device_list = (const cl_device_id *)(intptr_t)device_listAddress;
+	const cl_char *options = (const cl_char *)(intptr_t)optionsAddress;
+	cl_program_callback pfn_notify = (cl_program_callback)(intptr_t)pfn_notifyAddress;
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	clBuildProgramPROC clBuildProgram = (clBuildProgramPROC)(intptr_t)__functionAddress;
 	return (jint)clBuildProgram(program, num_devices, device_list, options, pfn_notify, user_data);
@@ -449,7 +450,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetProgramBuildInfo(JNIEnv 
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateKernel(JNIEnv *__env, jclass clazz, jlong programAddress, jlong kernel_nameAddress, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_program program = (cl_program)(intptr_t)programAddress;
-	cl_char *kernel_name = (cl_char *)(intptr_t)kernel_nameAddress;
+	const cl_char *kernel_name = (const cl_char *)(intptr_t)kernel_nameAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateKernelPROC clCreateKernel = (clCreateKernelPROC)(intptr_t)__functionAddress;
 	return (jlong)(intptr_t)clCreateKernel(program, kernel_name, errcode_ret);
@@ -477,7 +478,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseKernel(JNIEnv *__env
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclSetKernelArg(JNIEnv *__env, jclass clazz, jlong kernelAddress, jint arg_index, jlong arg_size, jlong arg_valueAddress, jlong __functionAddress) {
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
-	cl_void *arg_value = (cl_void *)(intptr_t)arg_valueAddress;
+	const cl_void *arg_value = (const cl_void *)(intptr_t)arg_valueAddress;
 	clSetKernelArgPROC clSetKernelArg = (clSetKernelArgPROC)(intptr_t)__functionAddress;
 	return (jint)clSetKernelArg(kernel, arg_index, (size_t)arg_size, arg_value);
 }
@@ -502,10 +503,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetKernelWorkGroupInfo(JNIE
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNDRangeKernel(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong kernelAddress, jint work_dim, jlong global_work_offsetAddress, jlong global_work_sizeAddress, jlong local_work_sizeAddress, jint num_events_in_wait_list, jlong event_wait_listAddress, jlong eventAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
-	size_t *global_work_offset = (size_t *)(intptr_t)global_work_offsetAddress;
-	size_t *global_work_size = (size_t *)(intptr_t)global_work_sizeAddress;
-	size_t *local_work_size = (size_t *)(intptr_t)local_work_sizeAddress;
-	cl_event *event_wait_list = (cl_event *)(intptr_t)event_wait_listAddress;
+	const size_t *global_work_offset = (const size_t *)(intptr_t)global_work_offsetAddress;
+	const size_t *global_work_size = (const size_t *)(intptr_t)global_work_sizeAddress;
+	const size_t *local_work_size = (const size_t *)(intptr_t)local_work_sizeAddress;
+	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueNDRangeKernelPROC clEnqueueNDRangeKernel = (clEnqueueNDRangeKernelPROC)(intptr_t)__functionAddress;
 	return (jint)clEnqueueNDRangeKernel(command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
@@ -514,7 +515,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNDRangeKernel(JNIEnv
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueTask(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong kernelAddress, jint num_events_in_wait_list, jlong event_wait_listAddress, jlong eventAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
-	cl_event *event_wait_list = (cl_event *)(intptr_t)event_wait_listAddress;
+	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueTaskPROC clEnqueueTask = (clEnqueueTaskPROC)(intptr_t)__functionAddress;
 	return (jint)clEnqueueTask(command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
@@ -524,12 +525,18 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNativeKernel(JNIEnv 
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	cl_native_kernel_func user_func = (cl_native_kernel_func)(intptr_t)user_funcAddress;
 	cl_void *args = (cl_void *)(intptr_t)argsAddress;
-	cl_mem *mem_list = (cl_mem *)(intptr_t)mem_listAddress;
-	cl_void* *args_mem_loc = (cl_void* *)(intptr_t)args_mem_locAddress;
-	cl_event *event_wait_list = (cl_event *)(intptr_t)event_wait_listAddress;
+	const cl_mem *mem_list = (const cl_mem *)(intptr_t)mem_listAddress;
+	const cl_void* *args_mem_loc = (const cl_void* *)(intptr_t)args_mem_locAddress;
+	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueNativeKernelPROC clEnqueueNativeKernel = (clEnqueueNativeKernelPROC)(intptr_t)__functionAddress;
 	return (jint)clEnqueueNativeKernel(command_queue, user_func, args, (size_t)cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclWaitForEvents(JNIEnv *__env, jclass clazz, jint num_events, jlong event_listAddress, jlong __functionAddress) {
+	const cl_event *event_list = (const cl_event *)(intptr_t)event_listAddress;
+	clWaitForEventsPROC clWaitForEvents = (clWaitForEventsPROC)(intptr_t)__functionAddress;
+	return (jint)clWaitForEvents(num_events, event_list);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetEventInfo(JNIEnv *__env, jclass clazz, jlong eventAddress, jint param_name, jlong param_value_size, jlong param_valueAddress, jlong param_value_size_retAddress, jlong __functionAddress) {
@@ -567,7 +574,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueBarrier(JNIEnv *__en
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueWaitForEvents(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jint num_events, jlong event_listAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
-	cl_event *event_list = (cl_event *)(intptr_t)event_listAddress;
+	const cl_event *event_list = (const cl_event *)(intptr_t)event_listAddress;
 	clEnqueueWaitForEventsPROC clEnqueueWaitForEvents = (clEnqueueWaitForEventsPROC)(intptr_t)__functionAddress;
 	return (jint)clEnqueueWaitForEvents(command_queue, num_events, event_list);
 }
@@ -592,8 +599,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclFinish(JNIEnv *__env, jclas
 	return (jint)clFinish(command_queue);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclGetExtensionFunctionAddress(JNIEnv *__env, jclass clazz, jlong func_nameAddress, jlong __functionAddress) {
-	const cl_char *func_name = (const cl_char *)(intptr_t)func_nameAddress;
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclGetExtensionFunctionAddress(JNIEnv *__env, jclass clazz, jlong funcnameAddress, jlong __functionAddress) {
+	const cl_char *funcname = (const cl_char *)(intptr_t)funcnameAddress;
 	clGetExtensionFunctionAddressPROC clGetExtensionFunctionAddress = (clGetExtensionFunctionAddressPROC)(intptr_t)__functionAddress;
-	return (jlong)(intptr_t)clGetExtensionFunctionAddress(func_name);
+	return (jlong)(intptr_t)clGetExtensionFunctionAddress(funcname);
 }

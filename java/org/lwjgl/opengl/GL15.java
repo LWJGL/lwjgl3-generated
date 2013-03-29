@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -241,15 +242,15 @@ public final class GL15 {
 	 * {@code usage} can be broken down into two parts: first, the frequency of access (modification and usage), and second, the nature of that access. The
 	 * frequency of access may be one of these:
 	 * <ul>
-	 * 	<li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
-	 * 	<li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
-	 * 	<li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
+	 * <li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
+	 * <li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
+	 * <li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
 	 * </ul>
 	 * The nature of access may be one of these:
 	 * <ul>
-	 * 	<li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
-	 * 	<li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
-	 * 	<li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
+	 * <li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
+	 * <li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
+	 * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
 	 * </ul>
 	 *
 	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER}
@@ -422,9 +423,9 @@ public final class GL15 {
 	 * <p/>
 	 * <b>LWJGL note</b>: This method comes in 3 flavors:
 	 * <ol>
-	 * 	<li>{@link #glMapBuffer(int, int)} - Calls {@link #glGetBufferParameteri(int, int)} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
-	 * 	<li>{@link #glMapBuffer(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteri(int, int)} to retrieve the buffer size and the {@code old_buffer} parameter is reused if the returned size and pointer match the buffer capacity and address, respectively.</li>
-	 * 	<li>{@link #glMapBuffer(int, int, int, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if {@code size} and the returned pointer match the buffer capacity and address, respectively. This is the most efficient method.</li>
+	 * <li>{@link #glMapBuffer(int, int)} - Calls {@link #glGetBufferParameteri(int, int)} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
+	 * <li>{@link #glMapBuffer(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteri(int, int)} to retrieve the buffer size and the {@code old_buffer} parameter is reused if the returned size and pointer match the buffer capacity and address, respectively.</li>
+	 * <li>{@link #glMapBuffer(int, int, int, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if {@code size} and the returned pointer match the buffer capacity and address, respectively. This is the most efficient method.</li>
 	 * </ol>
 	 *
 	 * @param target the target buffer object being mapped. One of:<p/>{@link GL15#GL_ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER}

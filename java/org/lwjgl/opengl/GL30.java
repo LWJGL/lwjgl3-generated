@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -1538,8 +1539,8 @@ public final class GL30 {
 	 * <p/>
 	 * <b>LWJGL note</b>: This method comes in 2 flavors:
 	 * <ol>
-	 * 	<li>{@link #glMapBufferRange(int, long, long, int)} - Always returns a new ByteBuffer instance.</li>
-	 * 	<li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if the given length and returned pointer match the buffer capacity and address, respectively.</li>
+	 * <li>{@link #glMapBufferRange(int, long, long, int)} - Always returns a new ByteBuffer instance.</li>
+	 * <li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if the given length and returned pointer match the buffer capacity and address, respectively.</li>
 	 * </ol>
 	 *
 	 * @param target a binding to which the target buffer is bound. One of:<p/>{@link GL15#GL_ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER}
@@ -2600,7 +2601,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glTransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(varyings, count << PointerBuffer.getPointerSizeShift());
+			checkBuffer(varyings, count << POINTER_SHIFT);
 		}
 		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode, __functionAddress);
 	}
@@ -2619,10 +2620,10 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.bufferParam(varyings.length << PointerBuffer.getPointerSizeShift());
+		int varyingsAddress = __buffer.bufferParam(varyings.length << POINTER_SHIFT);
 		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
 		for ( int i = 0; i < varyings.length; i++ )
-			__buffer.pointerValue(varyingsAddress + (i << PointerBuffer.getPointerSizeShift()), memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
+			__buffer.pointerValue(varyingsAddress + (i << POINTER_SHIFT), memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
 		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
