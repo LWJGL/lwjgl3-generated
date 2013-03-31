@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Video mode. */
 public final class GLFWvidmode {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

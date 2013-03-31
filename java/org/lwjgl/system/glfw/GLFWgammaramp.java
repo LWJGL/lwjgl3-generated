@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Gamma ramp. */
 public final class GLFWgammaramp {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

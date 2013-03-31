@@ -551,7 +551,7 @@ public final class CL10GL {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("opencl10gl") ) return null;
+		if ( !ext.contains("OpenCL10GL") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -565,7 +565,7 @@ public final class CL10GL {
 			funcs.clEnqueueAcquireGLObjects != 0L &&
 			funcs.clEnqueueReleaseGLObjects != 0L;
 
-		return CL.checkExtension("opencl10gl", funcs, supported);
+		return CL.checkExtension("OpenCL10GL", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL10GL}. */

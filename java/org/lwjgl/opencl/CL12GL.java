@@ -110,13 +110,13 @@ public final class CL12GL {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("opencl12gl") ) return null;
+		if ( !ext.contains("OpenCL12GL") ) return null;
 
 		Functions funcs = new Functions(provider);
 
 		boolean supported =  funcs.clCreateFromGLTexture != 0L;
 
-		return CL.checkExtension("opencl12gl", funcs, supported);
+		return CL.checkExtension("OpenCL12GL", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL12GL}. */

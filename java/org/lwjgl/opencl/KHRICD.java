@@ -6,7 +6,7 @@
 package org.lwjgl.opencl;
 
 /** Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_khr_icd.txt">khr_icd</a> extension. */
-public final class KHRIcd {
+public final class KHRICD {
 
 	/** Accepted as {@code param_name} to the function clGetPlatformInfo. */
 	public static final int
@@ -16,6 +16,6 @@ public final class KHRIcd {
 	public static final int
 		CL_PLATFORM_NOT_FOUND_KHR = 0xFFFFFC17;
 
-	private KHRIcd() {}
+	private KHRICD() {}
 
 }

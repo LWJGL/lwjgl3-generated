@@ -18,7 +18,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class OSVERSIONINFOEX {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

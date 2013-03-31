@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include <jni.h>
-#include "opencl.h"
+#include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clGetGLContextInfoKHRPROC) (const cl_context_properties *, cl_gl_context_info, size_t, cl_void *, size_t *);
 

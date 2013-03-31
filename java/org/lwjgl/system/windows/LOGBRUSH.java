@@ -13,7 +13,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class LOGBRUSH {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

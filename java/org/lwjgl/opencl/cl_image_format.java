@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Image format struct. */
 public final class cl_image_format {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

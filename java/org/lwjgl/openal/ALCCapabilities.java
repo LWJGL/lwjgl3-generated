@@ -21,12 +21,12 @@ public final class ALCCapabilities {
 	public final boolean
 		OpenALC10,
 		OpenALC11,
-		ALC_EXT_DEDICATED,
-		ALC_EXT_disconnect,
-		ALC_EXT_EFX,
-		ALC_EXT_thread_local_context,
 		ALC_ENUMERATE_ALL_EXT,
 		ALC_ENUMERATION_EXT,
+		ALC_EXT_DEDICATED,
+		ALC_EXT_EFX,
+		ALC_EXT_disconnect,
+		ALC_EXT_thread_local_context,
 		ALC_SOFT_loopback;
 
 	ALCCapabilities(long device, Set<String> ext) {
@@ -34,12 +34,12 @@ public final class ALCCapabilities {
 
 		OpenALC10 = (__ALC10 = ALC10.create(ext, provider)) != null;
 		OpenALC11 = (__ALC11 = ALC11.create(ext, provider)) != null;
-		ALC_EXT_DEDICATED = ext.contains("ALC_EXT_DEDICATED");
-		ALC_EXT_disconnect = ext.contains("ALC_EXT_disconnect");
-		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
-		ALC_EXT_thread_local_context = (__EXTThreadLocalContext = EXTThreadLocalContext.create(ext, provider, device)) != null;
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");
 		ALC_ENUMERATION_EXT = ext.contains("ALC_ENUMERATION_EXT");
+		ALC_EXT_DEDICATED = ext.contains("ALC_EXT_DEDICATED");
+		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
+		ALC_EXT_disconnect = ext.contains("ALC_EXT_disconnect");
+		ALC_EXT_thread_local_context = (__EXTThreadLocalContext = EXTThreadLocalContext.create(ext, provider, device)) != null;
 		ALC_SOFT_loopback = (__SOFTLoopback = SOFTLoopback.create(ext, provider, device)) != null;
 	}
 }

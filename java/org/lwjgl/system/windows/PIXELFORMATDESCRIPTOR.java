@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Describes the pixel format of a drawing surface. */
 public final class PIXELFORMATDESCRIPTOR {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

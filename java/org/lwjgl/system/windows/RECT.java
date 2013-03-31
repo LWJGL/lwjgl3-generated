@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Defines the coordinates of the upper-left and lower-right corners of a rectangle. */
 public final class RECT {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains the coordinates of a point. */
 public final class POINTL {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

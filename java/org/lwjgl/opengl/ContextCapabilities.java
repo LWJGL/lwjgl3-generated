@@ -39,8 +39,8 @@ public final class ContextCapabilities {
 	final WGLARBPixelFormat.Functions      __WGLARBPixelFormat;
 	final WGLEXTExtensionsString.Functions __WGLEXTExtensionsString;
 	final WGLEXTSwapControl.Functions      __WGLEXTSwapControl;
-	final WGLNVCopyImage.Functions         __WGLNVCopyImage;
 	final WGLNVDXInterop.Functions         __WGLNVDXInterop;
+	final WGLNVCopyImage.Functions         __WGLNVCopyImage;
 	final WGLNVGpuAffinity.Functions       __WGLNVGpuAffinity;
 
 	/** Indicates whether an OpenGL functionality is available or not. */
@@ -83,9 +83,9 @@ public final class ContextCapabilities {
 		WGL_EXT_pixel_format_packed_float,
 		WGL_EXT_swap_control,
 		WGL_EXT_swap_control_tear,
-		WGL_NV_copy_image,
 		WGL_NV_DX_interop,
 		WGL_NV_DX_interop2,
+		WGL_NV_copy_image,
 		WGL_NV_gpu_affinity;
 
 	ContextCapabilities(Set<String> ext, boolean fc) {
@@ -129,9 +129,9 @@ public final class ContextCapabilities {
 		WGL_EXT_pixel_format_packed_float = ext.contains("WGL_EXT_pixel_format_packed_float");
 		WGL_EXT_swap_control = (__WGLEXTSwapControl = WGLEXTSwapControl.create(ext, provider)) != null;
 		WGL_EXT_swap_control_tear = ext.contains("WGL_EXT_swap_control_tear");
-		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
 		WGL_NV_DX_interop = (__WGLNVDXInterop = WGLNVDXInterop.create(ext, provider)) != null;
 		WGL_NV_DX_interop2 = ext.contains("WGL_NV_DX_interop2");
+		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
 		WGL_NV_gpu_affinity = (__WGLNVGpuAffinity = WGLNVGpuAffinity.create(ext, provider)) != null;
 	}
 }

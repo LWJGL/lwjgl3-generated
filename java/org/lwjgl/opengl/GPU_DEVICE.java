@@ -17,7 +17,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GPU_DEVICE {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

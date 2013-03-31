@@ -1180,7 +1180,7 @@ public final class CL12 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("opencl12") ) return null;
+		if ( !ext.contains("OpenCL12") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -1201,7 +1201,7 @@ public final class CL12 {
 			funcs.clEnqueueMarkerWithWaitList != 0L &&
 			funcs.clEnqueueBarrierWithWaitList != 0L;
 
-		return CL.checkExtension("opencl12", funcs, supported);
+		return CL.checkExtension("OpenCL12", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL12}. */

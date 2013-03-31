@@ -22,20 +22,20 @@ import java.util.Set;
  */
 public class CLCapabilities {
 
-	final CL10.Functions           __CL10;
-	final CL10GL.Functions         __CL10GL;
-	final CL11.Functions           __CL11;
-	final CL12.Functions           __CL12;
-	final CL12GL.Functions         __CL12GL;
-	final APPLEGLSharing.Functions __APPLEGLSharing;
-	final KHRGLSharing.Functions   __KHRGLSharing;
+	final CL10.Functions                    __CL10;
+	final CL10GL.Functions                  __CL10GL;
+	final CL11.Functions                    __CL11;
+	final CL12.Functions                    __CL12;
+	final CL12GL.Functions                  __CL12GL;
+	final AMDBusAddressableMemory.Functions __AMDBusAddressableMemory;
+	final APPLEGLSharing.Functions          __APPLEGLSharing;
+	final KHRGLSharing.Functions            __KHRGLSharing;
 
 	/** The OpenCL major version. */
 	public final int majorVersion;
 
 	/** The OpenCL minor version. */
 	public final int minorVersion;
-
 
 	/** Indicates whether an OpenCL functionality is available or not. */
 	public final boolean
@@ -44,9 +44,39 @@ public class CLCapabilities {
 		OpenCL11,
 		OpenCL12,
 		OpenCL12GL,
-		CL_apple_gl_sharing,
-		CL_khr_gl_sharing,
-		CL_khr_icd;
+		cl_amd_bus_addressable_memory,
+		cl_amd_compile_options,
+		cl_amd_device_attribute_query,
+		cl_amd_device_board_name,
+		cl_amd_device_persistent_memory,
+		cl_amd_device_profiling_timer_offset,
+		cl_amd_device_topology,
+		cl_amd_event_callback,
+		cl_amd_fp64,
+		cl_amd_media_ops,
+		cl_amd_media_ops2,
+		cl_amd_offline_devices,
+		cl_amd_popcnt,
+		cl_amd_predefined_macros,
+		cl_amd_printf,
+		cl_amd_vec3,
+		cl_apple_gl_sharing,
+		cl_intel_printf,
+		cl_khr_3d_image_writes,
+		cl_khr_byte_addressable_store,
+		cl_khr_fp16,
+		cl_khr_fp64,
+		cl_khr_gl_sharing,
+		cl_khr_global_int32_base_atomics,
+		cl_khr_global_int32_extended_atomics,
+		cl_khr_icd,
+		cl_khr_int64_base_atomics,
+		cl_khr_int64_extended_atomics,
+		cl_khr_local_int32_base_atomics,
+		cl_khr_local_int32_extended_atomics,
+		cl_khr_select_fprounding_mode,
+		cl_nv_compiler_options,
+		cl_nv_pragma_unroll;
 
 	CLCapabilities(long platform, int majorVersion, int minorVersion, Set<String> ext) {
 		this.majorVersion = majorVersion;
@@ -59,9 +89,39 @@ public class CLCapabilities {
 		OpenCL11 = (__CL11 = CL11.create(ext, provider)) != null;
 		OpenCL12 = (__CL12 = CL12.create(ext, provider)) != null;
 		OpenCL12GL = (__CL12GL = CL12GL.create(ext, provider)) != null;
-		CL_apple_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(ext, provider, platform)) != null;
-		CL_khr_gl_sharing = (__KHRGLSharing = KHRGLSharing.create(ext, provider, platform)) != null;
-		CL_khr_icd = ext.contains("cl_khr_icd");
+		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = AMDBusAddressableMemory.create(ext, provider, platform)) != null;
+		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
+		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");
+		cl_amd_device_board_name = ext.contains("cl_amd_device_board_name");
+		cl_amd_device_persistent_memory = ext.contains("cl_amd_device_persistent_memory");
+		cl_amd_device_profiling_timer_offset = ext.contains("cl_amd_device_profiling_timer_offset");
+		cl_amd_device_topology = ext.contains("cl_amd_device_topology");
+		cl_amd_event_callback = ext.contains("cl_amd_event_callback");
+		cl_amd_fp64 = ext.contains("cl_amd_fp64");
+		cl_amd_media_ops = ext.contains("cl_amd_media_ops");
+		cl_amd_media_ops2 = ext.contains("cl_amd_media_ops2");
+		cl_amd_offline_devices = ext.contains("cl_amd_offline_devices");
+		cl_amd_popcnt = ext.contains("cl_amd_popcnt");
+		cl_amd_predefined_macros = ext.contains("cl_amd_predefined_macros");
+		cl_amd_printf = ext.contains("cl_amd_printf");
+		cl_amd_vec3 = ext.contains("cl_amd_vec3");
+		cl_apple_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(ext, provider, platform)) != null;
+		cl_intel_printf = ext.contains("cl_intel_printf");
+		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
+		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
+		cl_khr_fp16 = ext.contains("cl_khr_fp16");
+		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_sharing = (__KHRGLSharing = KHRGLSharing.create(ext, provider, platform)) != null;
+		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
+		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
+		cl_khr_icd = ext.contains("cl_khr_icd");
+		cl_khr_int64_base_atomics = ext.contains("cl_khr_int64_base_atomics");
+		cl_khr_int64_extended_atomics = ext.contains("cl_khr_int64_extended_atomics");
+		cl_khr_local_int32_base_atomics = ext.contains("cl_khr_local_int32_base_atomics");
+		cl_khr_local_int32_extended_atomics = ext.contains("cl_khr_local_int32_extended_atomics");
+		cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
+		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
+		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
 
 	CLCapabilities(int majorVersion, int minorVersion, Set<String> ext, CLPlatform platform) {
@@ -69,14 +129,44 @@ public class CLCapabilities {
 		this.minorVersion = minorVersion;
 		CLCapabilities caps = platform.getCapabilities();
 
-		OpenCL10 = (__CL10 = ext.contains("opencl10") ? caps.__CL10 : null) != null;
-		OpenCL10GL = (__CL10GL = ext.contains("opencl10gl") ? caps.__CL10GL : null) != null;
-		OpenCL11 = (__CL11 = ext.contains("opencl11") ? caps.__CL11 : null) != null;
-		OpenCL12 = (__CL12 = ext.contains("opencl12") ? caps.__CL12 : null) != null;
-		OpenCL12GL = (__CL12GL = ext.contains("opencl12gl") ? caps.__CL12GL : null) != null;
-		CL_apple_gl_sharing = (__APPLEGLSharing = ext.contains("cl_apple_gl_sharing") ? caps.__APPLEGLSharing : null) != null;
-		CL_khr_gl_sharing = (__KHRGLSharing = ext.contains("cl_khr_gl_sharing") ? caps.__KHRGLSharing : null) != null;
-		CL_khr_icd = ext.contains("cl_khr_icd");
+		OpenCL10 = (__CL10 = ext.contains("OpenCL10") ? caps.__CL10 : null) != null;
+		OpenCL10GL = (__CL10GL = ext.contains("OpenCL10GL") ? caps.__CL10GL : null) != null;
+		OpenCL11 = (__CL11 = ext.contains("OpenCL11") ? caps.__CL11 : null) != null;
+		OpenCL12 = (__CL12 = ext.contains("OpenCL12") ? caps.__CL12 : null) != null;
+		OpenCL12GL = (__CL12GL = ext.contains("OpenCL12GL") ? caps.__CL12GL : null) != null;
+		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = ext.contains("cl_amd_bus_addressable_memory") ? caps.__AMDBusAddressableMemory : null) != null;
+		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
+		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");
+		cl_amd_device_board_name = ext.contains("cl_amd_device_board_name");
+		cl_amd_device_persistent_memory = ext.contains("cl_amd_device_persistent_memory");
+		cl_amd_device_profiling_timer_offset = ext.contains("cl_amd_device_profiling_timer_offset");
+		cl_amd_device_topology = ext.contains("cl_amd_device_topology");
+		cl_amd_event_callback = ext.contains("cl_amd_event_callback");
+		cl_amd_fp64 = ext.contains("cl_amd_fp64");
+		cl_amd_media_ops = ext.contains("cl_amd_media_ops");
+		cl_amd_media_ops2 = ext.contains("cl_amd_media_ops2");
+		cl_amd_offline_devices = ext.contains("cl_amd_offline_devices");
+		cl_amd_popcnt = ext.contains("cl_amd_popcnt");
+		cl_amd_predefined_macros = ext.contains("cl_amd_predefined_macros");
+		cl_amd_printf = ext.contains("cl_amd_printf");
+		cl_amd_vec3 = ext.contains("cl_amd_vec3");
+		cl_apple_gl_sharing = (__APPLEGLSharing = ext.contains("cl_apple_gl_sharing") ? caps.__APPLEGLSharing : null) != null;
+		cl_intel_printf = ext.contains("cl_intel_printf");
+		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
+		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
+		cl_khr_fp16 = ext.contains("cl_khr_fp16");
+		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_sharing = (__KHRGLSharing = ext.contains("cl_khr_gl_sharing") ? caps.__KHRGLSharing : null) != null;
+		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
+		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
+		cl_khr_icd = ext.contains("cl_khr_icd");
+		cl_khr_int64_base_atomics = ext.contains("cl_khr_int64_base_atomics");
+		cl_khr_int64_extended_atomics = ext.contains("cl_khr_int64_extended_atomics");
+		cl_khr_local_int32_base_atomics = ext.contains("cl_khr_local_int32_base_atomics");
+		cl_khr_local_int32_extended_atomics = ext.contains("cl_khr_local_int32_extended_atomics");
+		cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
+		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
+		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
 
 	public String toString() {
@@ -85,9 +175,39 @@ public class CLCapabilities {
 		buf.append("OpenCL ").append(majorVersion).append('.').append(minorVersion);
 		buf.append(" - Extensions: ");
 
-		if ( CL_apple_gl_sharing ) buf.append("cl_apple_gl_sharing ");
-		if ( CL_khr_gl_sharing ) buf.append("cl_khr_gl_sharing ");
-		if ( CL_khr_icd ) buf.append("cl_khr_icd ");
+		if ( cl_amd_bus_addressable_memory ) buf.append("cl_amd_bus_addressable_memory ");
+		if ( cl_amd_compile_options ) buf.append("cl_amd_compile_options ");
+		if ( cl_amd_device_attribute_query ) buf.append("cl_amd_device_attribute_query ");
+		if ( cl_amd_device_board_name ) buf.append("cl_amd_device_board_name ");
+		if ( cl_amd_device_persistent_memory ) buf.append("cl_amd_device_persistent_memory ");
+		if ( cl_amd_device_profiling_timer_offset ) buf.append("cl_amd_device_profiling_timer_offset ");
+		if ( cl_amd_device_topology ) buf.append("cl_amd_device_topology ");
+		if ( cl_amd_event_callback ) buf.append("cl_amd_event_callback ");
+		if ( cl_amd_fp64 ) buf.append("cl_amd_fp64 ");
+		if ( cl_amd_media_ops ) buf.append("cl_amd_media_ops ");
+		if ( cl_amd_media_ops2 ) buf.append("cl_amd_media_ops2 ");
+		if ( cl_amd_offline_devices ) buf.append("cl_amd_offline_devices ");
+		if ( cl_amd_popcnt ) buf.append("cl_amd_popcnt ");
+		if ( cl_amd_predefined_macros ) buf.append("cl_amd_predefined_macros ");
+		if ( cl_amd_printf ) buf.append("cl_amd_printf ");
+		if ( cl_amd_vec3 ) buf.append("cl_amd_vec3 ");
+		if ( cl_apple_gl_sharing ) buf.append("cl_apple_gl_sharing ");
+		if ( cl_intel_printf ) buf.append("cl_intel_printf ");
+		if ( cl_khr_3d_image_writes ) buf.append("cl_khr_3d_image_writes ");
+		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
+		if ( cl_khr_fp16 ) buf.append("cl_khr_fp16 ");
+		if ( cl_khr_fp64 ) buf.append("cl_khr_fp64 ");
+		if ( cl_khr_gl_sharing ) buf.append("cl_khr_gl_sharing ");
+		if ( cl_khr_global_int32_base_atomics ) buf.append("cl_khr_global_int32_base_atomics ");
+		if ( cl_khr_global_int32_extended_atomics ) buf.append("cl_khr_global_int32_extended_atomics ");
+		if ( cl_khr_icd ) buf.append("cl_khr_icd ");
+		if ( cl_khr_int64_base_atomics ) buf.append("cl_khr_int64_base_atomics ");
+		if ( cl_khr_int64_extended_atomics ) buf.append("cl_khr_int64_extended_atomics ");
+		if ( cl_khr_local_int32_base_atomics ) buf.append("cl_khr_local_int32_base_atomics ");
+		if ( cl_khr_local_int32_extended_atomics ) buf.append("cl_khr_local_int32_extended_atomics ");
+		if ( cl_khr_select_fprounding_mode ) buf.append("cl_khr_select_fprounding_mode ");
+		if ( cl_nv_compiler_options ) buf.append("cl_nv_compiler_options ");
+		if ( cl_nv_pragma_unroll ) buf.append("cl_nv_pragma_unroll ");
 
 		return buf.toString();
 	}

@@ -4539,7 +4539,7 @@ public final class CL10 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("opencl10") ) return null;
+		if ( !ext.contains("OpenCL10") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -4610,7 +4610,7 @@ public final class CL10 {
 			funcs.clFinish != 0L &&
 			funcs.clGetExtensionFunctionAddress != 0L;
 
-		return CL.checkExtension("opencl10", funcs, supported);
+		return CL.checkExtension("OpenCL10", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL10}. */

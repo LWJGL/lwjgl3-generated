@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Buffer region struct. */
 public final class cl_buffer_region {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

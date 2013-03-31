@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains information about the initialization and environment of a printer or a display device. */
 public final class DEVMODE {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 

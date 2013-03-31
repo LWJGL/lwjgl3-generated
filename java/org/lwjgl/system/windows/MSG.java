@@ -14,7 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains message information from a thread's message queue. */
 public final class MSG {
 
-
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
