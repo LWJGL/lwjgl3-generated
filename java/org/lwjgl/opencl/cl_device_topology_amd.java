@@ -30,7 +30,7 @@ public final class cl_device_topology_amd {
 			PCIE_FUNCTION;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = BufferUtils.createIntBuffer(9);
 
 		SIZEOF = offsets(memAddress(offsets));
 
