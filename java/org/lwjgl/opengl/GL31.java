@@ -201,7 +201,7 @@ public final class GL31 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstanced(mode, count, type, memAddress(indices), primcount, __functionAddress);
 	}
@@ -211,7 +211,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glDrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstanced(mode, count, type, indicesOffset, primcount, __functionAddress);
 	}
@@ -221,7 +221,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glDrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstanced(mode, indices.remaining(), type, memAddress(indices), primcount, __functionAddress);
 	}
@@ -231,7 +231,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glDrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, __functionAddress);
 	}
@@ -241,7 +241,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glDrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, __functionAddress);
 	}
@@ -251,7 +251,7 @@ public final class GL31 {
 		long __functionAddress = getInstance().glDrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, __functionAddress);
 	}

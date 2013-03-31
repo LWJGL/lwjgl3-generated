@@ -893,7 +893,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glBitmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data), __functionAddress);
 	}
@@ -903,7 +903,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glBitmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, dataOffset, __functionAddress);
 	}
@@ -2000,7 +2000,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2010,7 +2010,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -2020,7 +2020,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2030,7 +2030,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglColorPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2246,7 +2246,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElements(mode, count, type, memAddress(indices), __functionAddress);
 	}
@@ -2256,7 +2256,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElements(mode, count, type, indicesOffset, __functionAddress);
 	}
@@ -2266,7 +2266,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElements(mode, indices.remaining(), type, memAddress(indices), __functionAddress);
 	}
@@ -2276,7 +2276,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), __functionAddress);
 	}
@@ -2286,7 +2286,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), __functionAddress);
 	}
@@ -2296,7 +2296,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), __functionAddress);
 	}
@@ -2321,7 +2321,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -2331,7 +2331,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglDrawPixels(width, height, format, type, pixelsOffset, __functionAddress);
 	}
@@ -2341,7 +2341,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -2351,7 +2351,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -2361,7 +2361,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -2429,7 +2429,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glEdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglEdgeFlagPointer(stride, memAddress(pointer), __functionAddress);
 	}
@@ -2439,7 +2439,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glEdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglEdgeFlagPointer(stride, pointerOffset, __functionAddress);
 	}
@@ -3578,7 +3578,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 2);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapfv(map, memAddress(data), __functionAddress);
 	}
@@ -3588,7 +3588,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapfv(map, dataOffset, __functionAddress);
 	}
@@ -3599,7 +3599,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapfv(map, memAddress(data), __functionAddress);
 	}
@@ -3622,7 +3622,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 1);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapusv(map, memAddress(data), __functionAddress);
 	}
@@ -3632,7 +3632,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapusv(map, dataOffset, __functionAddress);
 	}
@@ -3643,7 +3643,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapusv(map, memAddress(data), __functionAddress);
 	}
@@ -3666,7 +3666,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 2);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapuiv(map, memAddress(data), __functionAddress);
 	}
@@ -3676,7 +3676,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapuiv(map, dataOffset, __functionAddress);
 	}
@@ -3687,7 +3687,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPixelMapuiv(map, memAddress(data), __functionAddress);
 	}
@@ -3752,7 +3752,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pattern, 128);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPolygonStipple(memAddress(pattern), __functionAddress);
 	}
@@ -3762,7 +3762,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetPolygonStipple(patternOffset, __functionAddress);
 	}
@@ -4025,7 +4025,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
@@ -4035,7 +4035,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetTexImage(tex, lod, format, type, imgOffset, __functionAddress);
 	}
@@ -4045,7 +4045,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
@@ -4055,7 +4055,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
@@ -4065,7 +4065,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
@@ -4075,7 +4075,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glGetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
@@ -4314,7 +4314,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
@@ -4324,7 +4324,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglInterleavedArrays(format, stride, pointerOffset, __functionAddress);
 	}
@@ -4334,7 +4334,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
@@ -4344,7 +4344,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
@@ -4354,7 +4354,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
@@ -4364,7 +4364,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glInterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
@@ -5607,7 +5607,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglNormalPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -5617,7 +5617,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglNormalPointer(type, stride, pointerOffset, __functionAddress);
 	}
@@ -5627,7 +5627,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglNormalPointer(GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
@@ -5637,7 +5637,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglNormalPointer(GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -5647,7 +5647,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glNormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglNormalPointer(GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -5727,7 +5727,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 2);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglPixelMapfv(map, size, memAddress(values), __functionAddress);
 	}
@@ -5737,7 +5737,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapfv(map, size, valuesOffset, __functionAddress);
 	}
@@ -5747,7 +5747,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapfv(map, values.remaining(), memAddress(values), __functionAddress);
 	}
@@ -5771,7 +5771,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 1);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglPixelMapusv(map, size, memAddress(values), __functionAddress);
 	}
@@ -5781,7 +5781,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapusv(map, size, valuesOffset, __functionAddress);
 	}
@@ -5791,7 +5791,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapusv(map, values.remaining(), memAddress(values), __functionAddress);
 	}
@@ -5815,7 +5815,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 2);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglPixelMapuiv(map, size, memAddress(values), __functionAddress);
 	}
@@ -5825,7 +5825,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapuiv(map, size, valuesOffset, __functionAddress);
 	}
@@ -5835,7 +5835,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPixelMapuiv(map, values.remaining(), memAddress(values), __functionAddress);
 	}
@@ -6038,7 +6038,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglPolygonStipple(memAddress(pattern), __functionAddress);
 	}
@@ -6048,7 +6048,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglPolygonStipple(patternOffset, __functionAddress);
 	}
@@ -6922,7 +6922,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -6932,7 +6932,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglReadPixels(x, y, width, height, format, type, pixelsOffset, __functionAddress);
 	}
@@ -6942,7 +6942,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -6952,7 +6952,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -6962,7 +6962,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -8334,7 +8334,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglTexCoordPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -8344,7 +8344,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglTexCoordPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -8354,7 +8354,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglTexCoordPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -8662,9 +8662,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** Buffer object offset version of: {@link #glTexImage2D} */
@@ -8672,7 +8672,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixelsOffset, __functionAddress);
 	}
@@ -8682,9 +8682,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #glTexImage2D} */
@@ -8692,9 +8692,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage2D} */
@@ -8702,9 +8702,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** DoubleBuffer version of: {@link #glTexImage2D} */
@@ -8712,9 +8712,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	// --- [ glTexImage1D ] ---
@@ -8740,9 +8740,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** Buffer object offset version of: {@link #glTexImage1D} */
@@ -8750,7 +8750,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixelsOffset, __functionAddress);
 	}
@@ -8760,9 +8760,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #glTexImage1D} */
@@ -8770,9 +8770,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage1D} */
@@ -8780,9 +8780,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** DoubleBuffer version of: {@link #glTexImage1D} */
@@ -8790,9 +8790,9 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	// --- [ glCopyTexImage2D ] ---
@@ -9048,7 +9048,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9058,7 +9058,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixelsOffset, __functionAddress);
 	}
@@ -9068,7 +9068,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9078,7 +9078,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9088,7 +9088,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9098,7 +9098,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9128,7 +9128,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9138,7 +9138,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixelsOffset, __functionAddress);
 	}
@@ -9148,7 +9148,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9158,7 +9158,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9168,7 +9168,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9178,7 +9178,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -9878,7 +9878,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -9888,7 +9888,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglVertexPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -9898,7 +9898,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexPointer(size, GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -9908,7 +9908,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexPointer(size, GL11.GL_INT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -9918,7 +9918,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -9928,7 +9928,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glVertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexPointer(size, GL11.GL_DOUBLE, stride, memAddress(pointer), __functionAddress);
 	}

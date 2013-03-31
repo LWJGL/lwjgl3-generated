@@ -5,7 +5,7 @@
  */
 #include <jni.h>
 #include <stddef.h>
-#include "opencl.h"
+#include "OpenCL.h"
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1buffer_1region_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;

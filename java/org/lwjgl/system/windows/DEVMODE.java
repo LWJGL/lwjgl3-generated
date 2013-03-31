@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains information about the initialization and environment of a printer or a display device. */
 public final class DEVMODE {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -60,7 +62,120 @@ public final class DEVMODE {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		long deviceName,
+		int deviceNameBytes,
+		int specVersion,
+		int driverVersion,
+		int size,
+		int driverExtra,
+		int fields,
+		int position_x,
+		int position_y,
+		int logPixels,
+		int bitsPerPel,
+		int pelsWidth,
+		int pelsHeight,
+		int displayFlags,
+		int displayFrequency
+	) {
+		ByteBuffer struct = malloc();
+
+		deviceNameSet(struct, deviceName, deviceNameBytes);
+		specVersionSet(struct, specVersion);
+		driverVersionSet(struct, driverVersion);
+		sizeSet(struct, size);
+		driverExtraSet(struct, driverExtra);
+		fieldsSet(struct, fields);
+		positionXSet(struct, position_x);
+		positionYSet(struct, position_y);
+		logPixelsSet(struct, logPixels);
+		bitsPerPelSet(struct, bitsPerPel);
+		pelsWidthSet(struct, pelsWidth);
+		pelsHeightSet(struct, pelsHeight);
+		displayFlagsSet(struct, displayFlags);
+		displayFrequencySet(struct, displayFrequency);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		ByteBuffer deviceName,
+		int specVersion,
+		int driverVersion,
+		int size,
+		int driverExtra,
+		int fields,
+		int position_x,
+		int position_y,
+		int logPixels,
+		int bitsPerPel,
+		int pelsWidth,
+		int pelsHeight,
+		int displayFlags,
+		int displayFrequency
+	) {
+		ByteBuffer struct = malloc();
+
+		deviceNameSet(struct, deviceName);
+		specVersionSet(struct, specVersion);
+		driverVersionSet(struct, driverVersion);
+		sizeSet(struct, size);
+		driverExtraSet(struct, driverExtra);
+		fieldsSet(struct, fields);
+		positionXSet(struct, position_x);
+		positionYSet(struct, position_y);
+		logPixelsSet(struct, logPixels);
+		bitsPerPelSet(struct, bitsPerPel);
+		pelsWidthSet(struct, pelsWidth);
+		pelsHeightSet(struct, pelsHeight);
+		displayFlagsSet(struct, displayFlags);
+		displayFrequencySet(struct, displayFrequency);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		CharSequence deviceName,
+		int specVersion,
+		int driverVersion,
+		int size,
+		int driverExtra,
+		int fields,
+		int position_x,
+		int position_y,
+		int logPixels,
+		int bitsPerPel,
+		int pelsWidth,
+		int pelsHeight,
+		int displayFlags,
+		int displayFrequency
+	) {
+		ByteBuffer struct = malloc();
+
+		deviceNameSet(struct, deviceName);
+		specVersionSet(struct, specVersion);
+		driverVersionSet(struct, driverVersion);
+		sizeSet(struct, size);
+		driverExtraSet(struct, driverExtra);
+		fieldsSet(struct, fields);
+		positionXSet(struct, position_x);
+		positionYSet(struct, position_y);
+		logPixelsSet(struct, logPixels);
+		bitsPerPelSet(struct, bitsPerPel);
+		pelsWidthSet(struct, pelsWidth);
+		pelsHeightSet(struct, pelsHeight);
+		displayFlagsSet(struct, displayFlags);
+		displayFrequencySet(struct, displayFrequency);
+
+		return struct;
+	}
 
 	public static void deviceNameSet(ByteBuffer struct, long deviceName, int bytes) { memCopy(deviceName, memAddress(struct) + DEVICENAME, bytes); }
 	public static void deviceNameSet(ByteBuffer struct, ByteBuffer deviceName) {

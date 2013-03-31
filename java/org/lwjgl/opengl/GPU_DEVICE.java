@@ -17,6 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GPU_DEVICE {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -51,7 +53,85 @@ public final class GPU_DEVICE {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int cb,
+		long DeviceName,
+		int DeviceNameBytes,
+		long DeviceString,
+		int DeviceStringBytes,
+		int Flags,
+		int virtualScreen_left,
+		int virtualScreen_top,
+		int virtualScreen_right,
+		int virtualScreen_bottom
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName, DeviceNameBytes);
+		DeviceStringSet(struct, DeviceString, DeviceStringBytes);
+		FlagsSet(struct, Flags);
+		virtualScreenLeftSet(struct, virtualScreen_left);
+		virtualScreenTopSet(struct, virtualScreen_top);
+		virtualScreenRightSet(struct, virtualScreen_right);
+		virtualScreenBottomSet(struct, virtualScreen_bottom);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int cb,
+		ByteBuffer DeviceName,
+		ByteBuffer DeviceString,
+		int Flags,
+		int virtualScreen_left,
+		int virtualScreen_top,
+		int virtualScreen_right,
+		int virtualScreen_bottom
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName);
+		DeviceStringSet(struct, DeviceString);
+		FlagsSet(struct, Flags);
+		virtualScreenLeftSet(struct, virtualScreen_left);
+		virtualScreenTopSet(struct, virtualScreen_top);
+		virtualScreenRightSet(struct, virtualScreen_right);
+		virtualScreenBottomSet(struct, virtualScreen_bottom);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int cb,
+		CharSequence DeviceName,
+		CharSequence DeviceString,
+		int Flags,
+		int virtualScreen_left,
+		int virtualScreen_top,
+		int virtualScreen_right,
+		int virtualScreen_bottom
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName);
+		DeviceStringSet(struct, DeviceString);
+		FlagsSet(struct, Flags);
+		virtualScreenLeftSet(struct, virtualScreen_left);
+		virtualScreenTopSet(struct, virtualScreen_top);
+		virtualScreenRightSet(struct, virtualScreen_right);
+		virtualScreenBottomSet(struct, virtualScreen_bottom);
+
+		return struct;
+	}
 
 	public static void cbSet(ByteBuffer struct, int cb) { struct.putInt(struct.position() + CB, cb); }
 	public static void DeviceNameSet(ByteBuffer struct, long DeviceName, int bytes) { memCopy(DeviceName, memAddress(struct) + DEVICENAME, bytes); }

@@ -769,7 +769,7 @@ public final class CL11 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL11") ) return null;
+		if ( !ext.contains("opencl11") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -783,7 +783,7 @@ public final class CL11 {
 			funcs.clSetUserEventStatus != 0L &&
 			funcs.clSetEventCallback != 0L;
 
-		return CL.checkExtension("OpenCL11", funcs, supported);
+		return CL.checkExtension("opencl11", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL11}. */

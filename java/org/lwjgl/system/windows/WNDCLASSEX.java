@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains the window class attributes that are registered by the {@link WinUser#RegisterClassEx} function. */
 public final class WNDCLASSEX {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -54,7 +56,107 @@ public final class WNDCLASSEX {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int size,
+		int style,
+		long wndProc,
+		int clsExtra,
+		int wndExtra,
+		long instance,
+		long icon,
+		long cursor,
+		long background,
+		long menuName,
+		long className,
+		long iconSm
+	) {
+		ByteBuffer struct = malloc();
+
+		sizeSet(struct, size);
+		styleSet(struct, style);
+		wndProcSet(struct, wndProc);
+		clsExtraSet(struct, clsExtra);
+		wndExtraSet(struct, wndExtra);
+		instanceSet(struct, instance);
+		iconSet(struct, icon);
+		cursorSet(struct, cursor);
+		backgroundSet(struct, background);
+		menuNameSet(struct, menuName);
+		classNameSet(struct, className);
+		iconSmSet(struct, iconSm);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int size,
+		int style,
+		long wndProc,
+		int clsExtra,
+		int wndExtra,
+		long instance,
+		long icon,
+		long cursor,
+		long background,
+		ByteBuffer menuName,
+		ByteBuffer className,
+		long iconSm
+	) {
+		ByteBuffer struct = malloc();
+
+		sizeSet(struct, size);
+		styleSet(struct, style);
+		wndProcSet(struct, wndProc);
+		clsExtraSet(struct, clsExtra);
+		wndExtraSet(struct, wndExtra);
+		instanceSet(struct, instance);
+		iconSet(struct, icon);
+		cursorSet(struct, cursor);
+		backgroundSet(struct, background);
+		menuNameSet(struct, menuName);
+		classNameSet(struct, className);
+		iconSmSet(struct, iconSm);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int size,
+		int style,
+		long wndProc,
+		int clsExtra,
+		int wndExtra,
+		long instance,
+		long icon,
+		long cursor,
+		long background,
+		CharSequence menuName,
+		CharSequence className,
+		long iconSm
+	) {
+		ByteBuffer struct = malloc();
+
+		sizeSet(struct, size);
+		styleSet(struct, style);
+		wndProcSet(struct, wndProc);
+		clsExtraSet(struct, clsExtra);
+		wndExtraSet(struct, wndExtra);
+		instanceSet(struct, instance);
+		iconSet(struct, icon);
+		cursorSet(struct, cursor);
+		backgroundSet(struct, background);
+		menuNameSet(struct, menuName);
+		classNameSet(struct, className);
+		iconSmSet(struct, iconSm);
+
+		return struct;
+	}
 
 	public static void sizeSet(ByteBuffer struct, int size) { struct.putInt(struct.position() + SIZE, size); }
 	public static void styleSet(ByteBuffer struct, int style) { struct.putInt(struct.position() + STYLE, style); }

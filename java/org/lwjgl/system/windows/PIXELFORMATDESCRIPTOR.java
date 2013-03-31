@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Describes the pixel format of a drawing surface. */
 public final class PIXELFORMATDESCRIPTOR {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -82,7 +84,69 @@ public final class PIXELFORMATDESCRIPTOR {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int size,
+		int version,
+		int flags,
+		int pixelType,
+		int colorBits,
+		int redBits,
+		int redShirt,
+		int greenBits,
+		int greenShift,
+		int blueBits,
+		int blueShift,
+		int alphaBits,
+		int alphaShift,
+		int accumBits,
+		int accumRedBits,
+		int accumGreenBits,
+		int accumBlueBits,
+		int accumAlphaBits,
+		int depthBits,
+		int stencilBits,
+		int auxBuffers,
+		int layerType,
+		int reserved,
+		int layerMask,
+		int visibleMask,
+		int damageMask
+	) {
+		ByteBuffer struct = malloc();
+
+		sizeSet(struct, size);
+		versionSet(struct, version);
+		flagsSet(struct, flags);
+		pixelTypeSet(struct, pixelType);
+		colorBitsSet(struct, colorBits);
+		redBitsSet(struct, redBits);
+		redShirtSet(struct, redShirt);
+		greenBitsSet(struct, greenBits);
+		greenShiftSet(struct, greenShift);
+		blueBitsSet(struct, blueBits);
+		blueShiftSet(struct, blueShift);
+		alphaBitsSet(struct, alphaBits);
+		alphaShiftSet(struct, alphaShift);
+		accumBitsSet(struct, accumBits);
+		accumRedBitsSet(struct, accumRedBits);
+		accumGreenBitsSet(struct, accumGreenBits);
+		accumBlueBitsSet(struct, accumBlueBits);
+		accumAlphaBitsSet(struct, accumAlphaBits);
+		depthBitsSet(struct, depthBits);
+		stencilBitsSet(struct, stencilBits);
+		auxBuffersSet(struct, auxBuffers);
+		layerTypeSet(struct, layerType);
+		reservedSet(struct, reserved);
+		layerMaskSet(struct, layerMask);
+		visibleMaskSet(struct, visibleMask);
+		damageMaskSet(struct, damageMask);
+
+		return struct;
+	}
 
 	public static void sizeSet(ByteBuffer struct, int size) { struct.putShort(struct.position() + SIZE, (short)size); }
 	public static void versionSet(ByteBuffer struct, int version) { struct.putShort(struct.position() + VERSION, (short)version); }

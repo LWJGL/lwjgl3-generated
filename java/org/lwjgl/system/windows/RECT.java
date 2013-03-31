@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Defines the coordinates of the upper-left and lower-right corners of a rectangle. */
 public final class RECT {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -38,7 +40,25 @@ public final class RECT {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int left,
+		int top,
+		int right,
+		int bottom
+	) {
+		ByteBuffer struct = malloc();
+
+		leftSet(struct, left);
+		topSet(struct, top);
+		rightSet(struct, right);
+		bottomSet(struct, bottom);
+
+		return struct;
+	}
 
 	public static void leftSet(ByteBuffer struct, int left) { struct.putInt(struct.position() + LEFT, left); }
 	public static void topSet(ByteBuffer struct, int top) { struct.putInt(struct.position() + TOP, top); }

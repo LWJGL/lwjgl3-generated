@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices} function. */
 public final class DISPLAY_DEVICE {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -42,7 +44,75 @@ public final class DISPLAY_DEVICE {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int cb,
+		long DeviceName,
+		int DeviceNameBytes,
+		long DeviceString,
+		int DeviceStringBytes,
+		int StateFlags,
+		long DeviceID,
+		int DeviceIDBytes,
+		long DeviceKey,
+		int DeviceKeyBytes
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName, DeviceNameBytes);
+		DeviceStringSet(struct, DeviceString, DeviceStringBytes);
+		StateFlagsSet(struct, StateFlags);
+		DeviceIDSet(struct, DeviceID, DeviceIDBytes);
+		DeviceKeySet(struct, DeviceKey, DeviceKeyBytes);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int cb,
+		ByteBuffer DeviceName,
+		ByteBuffer DeviceString,
+		int StateFlags,
+		ByteBuffer DeviceID,
+		ByteBuffer DeviceKey
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName);
+		DeviceStringSet(struct, DeviceString);
+		StateFlagsSet(struct, StateFlags);
+		DeviceIDSet(struct, DeviceID);
+		DeviceKeySet(struct, DeviceKey);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int cb,
+		CharSequence DeviceName,
+		CharSequence DeviceString,
+		int StateFlags,
+		CharSequence DeviceID,
+		CharSequence DeviceKey
+	) {
+		ByteBuffer struct = malloc();
+
+		cbSet(struct, cb);
+		DeviceNameSet(struct, DeviceName);
+		DeviceStringSet(struct, DeviceString);
+		StateFlagsSet(struct, StateFlags);
+		DeviceIDSet(struct, DeviceID);
+		DeviceKeySet(struct, DeviceKey);
+
+		return struct;
+	}
 
 	public static void cbSet(ByteBuffer struct, int cb) { struct.putInt(struct.position() + CB, cb); }
 	public static void DeviceNameSet(ByteBuffer struct, long DeviceName, int bytes) { memCopy(DeviceName, memAddress(struct) + DEVICENAME, bytes); }

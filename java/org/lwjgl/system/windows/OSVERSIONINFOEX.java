@@ -18,6 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class OSVERSIONINFOEX {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -54,7 +56,96 @@ public final class OSVERSIONINFOEX {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int osVersionInfoSize,
+		int majorVersion,
+		int minorVersion,
+		int buildNumber,
+		int platformId,
+		long csdVersion,
+		int csdVersionBytes,
+		int servicePackMajor,
+		int servicePackMinor,
+		int suiteMask,
+		int productType
+	) {
+		ByteBuffer struct = malloc();
+
+		osVersionInfoSizeSet(struct, osVersionInfoSize);
+		majorVersionSet(struct, majorVersion);
+		minorVersionSet(struct, minorVersion);
+		buildNumberSet(struct, buildNumber);
+		platformIdSet(struct, platformId);
+		csdVersionSet(struct, csdVersion, csdVersionBytes);
+		servicePackMajorSet(struct, servicePackMajor);
+		servicePackMinorSet(struct, servicePackMinor);
+		suiteMaskSet(struct, suiteMask);
+		productTypeSet(struct, productType);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int osVersionInfoSize,
+		int majorVersion,
+		int minorVersion,
+		int buildNumber,
+		int platformId,
+		ByteBuffer csdVersion,
+		int servicePackMajor,
+		int servicePackMinor,
+		int suiteMask,
+		int productType
+	) {
+		ByteBuffer struct = malloc();
+
+		osVersionInfoSizeSet(struct, osVersionInfoSize);
+		majorVersionSet(struct, majorVersion);
+		minorVersionSet(struct, minorVersion);
+		buildNumberSet(struct, buildNumber);
+		platformIdSet(struct, platformId);
+		csdVersionSet(struct, csdVersion);
+		servicePackMajorSet(struct, servicePackMajor);
+		servicePackMinorSet(struct, servicePackMinor);
+		suiteMaskSet(struct, suiteMask);
+		productTypeSet(struct, productType);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int osVersionInfoSize,
+		int majorVersion,
+		int minorVersion,
+		int buildNumber,
+		int platformId,
+		CharSequence csdVersion,
+		int servicePackMajor,
+		int servicePackMinor,
+		int suiteMask,
+		int productType
+	) {
+		ByteBuffer struct = malloc();
+
+		osVersionInfoSizeSet(struct, osVersionInfoSize);
+		majorVersionSet(struct, majorVersion);
+		minorVersionSet(struct, minorVersion);
+		buildNumberSet(struct, buildNumber);
+		platformIdSet(struct, platformId);
+		csdVersionSet(struct, csdVersion);
+		servicePackMajorSet(struct, servicePackMajor);
+		servicePackMinorSet(struct, servicePackMinor);
+		suiteMaskSet(struct, suiteMask);
+		productTypeSet(struct, productType);
+
+		return struct;
+	}
 
 	public static void osVersionInfoSizeSet(ByteBuffer struct, int osVersionInfoSize) { struct.putInt(struct.position() + OSVERSIONINFOSIZE, osVersionInfoSize); }
 	public static void majorVersionSet(ByteBuffer struct, int majorVersion) { struct.putInt(struct.position() + MAJORVERSION, majorVersion); }

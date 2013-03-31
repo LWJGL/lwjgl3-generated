@@ -232,7 +232,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
@@ -242,7 +242,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglColorTable(target, internalformat, width, format, type, tableOffset, __functionAddress);
 	}
@@ -252,7 +252,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
@@ -262,7 +262,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
@@ -272,7 +272,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
@@ -377,7 +377,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
@@ -387,7 +387,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetColorTable(target, format, type, tableOffset, __functionAddress);
 	}
@@ -397,7 +397,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
@@ -407,7 +407,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
@@ -417,7 +417,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
@@ -525,7 +525,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorSubTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglColorSubTable(target, start, count, format, type, memAddress(data), __functionAddress);
 	}
@@ -535,7 +535,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glColorSubTable;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglColorSubTable(target, start, count, format, type, dataOffset, __functionAddress);
 	}
@@ -580,7 +580,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglConvolutionFilter1D(target, internalformat, width, format, type, memAddress(data), __functionAddress);
 	}
@@ -590,7 +590,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglConvolutionFilter1D(target, internalformat, width, format, type, dataOffset, __functionAddress);
 	}
@@ -615,7 +615,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglConvolutionFilter2D(target, internalformat, width, height, format, type, memAddress(data), __functionAddress);
 	}
@@ -625,7 +625,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglConvolutionFilter2D(target, internalformat, width, height, format, type, dataOffset, __functionAddress);
 	}
@@ -692,7 +692,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetConvolutionFilter;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetConvolutionFilter(target, format, type, memAddress(image), __functionAddress);
 	}
@@ -702,7 +702,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetConvolutionFilter;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetConvolutionFilter(target, format, type, imageOffset, __functionAddress);
 	}
@@ -728,8 +728,8 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), memAddress(column), __functionAddress);
 	}
@@ -739,7 +739,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, rowOffset, memAddress(column), __functionAddress);
 	}
@@ -749,8 +749,8 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), columnOffset, __functionAddress);
 	}
@@ -774,8 +774,8 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetSeparableFilter(target, format, type, memAddress(row), memAddress(column), memAddressSafe(span), __functionAddress);
 	}
@@ -785,7 +785,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetSeparableFilter(target, format, type, rowOffset, memAddress(column), memAddressSafe(span), __functionAddress);
 	}
@@ -795,8 +795,8 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetSeparableFilter(target, format, type, memAddress(row), columnOffset, memAddressSafe(span), __functionAddress);
 	}
@@ -1040,7 +1040,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetHistogram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetHistogram(target, reset, format, type, memAddress(values), __functionAddress);
 	}
@@ -1050,7 +1050,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetHistogram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetHistogram(target, reset, format, type, valuesOffset, __functionAddress);
 	}
@@ -1194,7 +1194,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetMinmax;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetMinmax(target, reset, format, type, memAddress(values), __functionAddress);
 	}
@@ -1204,7 +1204,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().glGetMinmax;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetMinmax(target, reset, format, type, valuesOffset, __functionAddress);
 	}

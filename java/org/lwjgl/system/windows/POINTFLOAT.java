@@ -13,6 +13,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class POINTFLOAT {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -33,7 +35,21 @@ public final class POINTFLOAT {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		float x,
+		float y
+	) {
+		ByteBuffer struct = malloc();
+
+		xSet(struct, x);
+		ySet(struct, y);
+
+		return struct;
+	}
 
 	public static void xSet(ByteBuffer struct, float x) { struct.putFloat(struct.position() + X, x); }
 	public static void ySet(ByteBuffer struct, float y) { struct.putFloat(struct.position() + Y, y); }

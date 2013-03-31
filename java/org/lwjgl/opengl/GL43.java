@@ -605,7 +605,7 @@ public final class GL43 {
 		long __functionAddress = getInstance().glDispatchComputeIndirect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x90EF, true);
+			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
 		}
 		nglDispatchComputeIndirect(indirect, __functionAddress);
 	}

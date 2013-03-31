@@ -13,6 +13,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class LOGPEN {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -39,7 +41,25 @@ public final class LOGPEN {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int lopnStyle,
+		int lopnWidth_x,
+		int lopnWidth_y,
+		int lopnColor
+	) {
+		ByteBuffer struct = malloc();
+
+		lopnStyleSet(struct, lopnStyle);
+		lopnWidthXSet(struct, lopnWidth_x);
+		lopnWidthYSet(struct, lopnWidth_y);
+		lopnColorSet(struct, lopnColor);
+
+		return struct;
+	}
 
 	public static void lopnStyleSet(ByteBuffer struct, int lopnStyle) { struct.putInt(struct.position() + LOPNSTYLE, lopnStyle); }
 	public static void lopnWidthXSet(ByteBuffer struct, int x) { struct.putInt(struct.position() + LOPNWIDTH_X, x); }

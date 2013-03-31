@@ -2404,7 +2404,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glVertexAttribLPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2414,7 +2414,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glVertexAttribLPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglVertexAttribLPointer(index, size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -2424,7 +2424,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glVertexAttribLPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer), __functionAddress);
 	}

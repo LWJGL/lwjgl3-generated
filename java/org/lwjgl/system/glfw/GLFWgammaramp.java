@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Gamma ramp. */
 public final class GLFWgammaramp {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -36,7 +38,41 @@ public final class GLFWgammaramp {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		long red,
+		int redBytes,
+		long green,
+		int greenBytes,
+		long blue,
+		int blueBytes
+	) {
+		ByteBuffer struct = malloc();
+
+		redSet(struct, red, redBytes);
+		greenSet(struct, green, greenBytes);
+		blueSet(struct, blue, blueBytes);
+
+		return struct;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		ByteBuffer red,
+		ByteBuffer green,
+		ByteBuffer blue
+	) {
+		ByteBuffer struct = malloc();
+
+		redSet(struct, red);
+		greenSet(struct, green);
+		blueSet(struct, blue);
+
+		return struct;
+	}
 
 	public static void redSet(ByteBuffer struct, long red, int bytes) { memCopy(red, memAddress(struct) + RED, bytes); }
 	public static void redSet(ByteBuffer struct, ByteBuffer red) {

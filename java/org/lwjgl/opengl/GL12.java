@@ -142,9 +142,9 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** Buffer object offset version of: {@link #glTexImage3D} */
@@ -152,7 +152,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixelsOffset, __functionAddress);
 	}
@@ -162,9 +162,9 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** IntBuffer version of: {@link #glTexImage3D} */
@@ -172,9 +172,9 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage3D} */
@@ -182,9 +182,9 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	/** DoubleBuffer version of: {@link #glTexImage3D} */
@@ -192,9 +192,9 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddress(pixels), __functionAddress);
+		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
 	// --- [ glTexSubImage3D ] ---
@@ -224,7 +224,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -234,7 +234,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset, __functionAddress);
 	}
@@ -244,7 +244,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -254,7 +254,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -264,7 +264,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -274,7 +274,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels), __functionAddress);
 	}
@@ -356,7 +356,7 @@ public final class GL12 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, count, type, memAddress(indices), __functionAddress);
 	}
@@ -366,7 +366,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawRangeElements(mode, start, end, count, type, indicesOffset, __functionAddress);
 	}
@@ -376,7 +376,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawRangeElements(mode, start, end, indices.remaining(), type, memAddress(indices), __functionAddress);
 	}
@@ -386,7 +386,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), __functionAddress);
 	}
@@ -396,7 +396,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), __functionAddress);
 	}
@@ -406,7 +406,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), __functionAddress);
 	}

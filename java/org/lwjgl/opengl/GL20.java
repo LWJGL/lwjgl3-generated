@@ -2450,7 +2450,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2460,7 +2460,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset, __functionAddress);
 	}
@@ -2470,7 +2470,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribPointer(index, size, GL11.GL_SHORT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2480,7 +2480,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribPointer(index, size, GL11.GL_INT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2490,7 +2490,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribPointer(index, size, GL11.GL_FLOAT, normalized, stride, memAddress(pointer), __functionAddress);
 	}
@@ -2500,7 +2500,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glVertexAttribPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribPointer(index, size, GL11.GL_DOUBLE, normalized, stride, memAddress(pointer), __functionAddress);
 	}

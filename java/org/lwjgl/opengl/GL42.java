@@ -357,7 +357,7 @@ public final class GL42 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, count, type, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
@@ -367,7 +367,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, count, type, indicesOffset, primcount, baseinstance, __functionAddress);
 	}
@@ -377,7 +377,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), type, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
@@ -387,7 +387,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
@@ -397,7 +397,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
@@ -407,7 +407,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
@@ -435,7 +435,7 @@ public final class GL42 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
@@ -445,7 +445,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indicesOffset, primcount, basevertex, baseinstance, __functionAddress);
 	}
@@ -455,7 +455,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
@@ -465,7 +465,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
@@ -475,7 +475,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
@@ -485,7 +485,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8895, false);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}

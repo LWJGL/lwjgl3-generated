@@ -13,6 +13,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class LOGBRUSH {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -35,7 +37,23 @@ public final class LOGBRUSH {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int lbStyle,
+		int lbColor,
+		long lbHatch
+	) {
+		ByteBuffer struct = malloc();
+
+		lbStyleSet(struct, lbStyle);
+		lbColorSet(struct, lbColor);
+		lbHatchSet(struct, lbHatch);
+
+		return struct;
+	}
 
 	public static void lbStyleSet(ByteBuffer struct, int lbStyle) { struct.putInt(struct.position() + LBSTYLE, lbStyle); }
 	public static void lbColorSet(ByteBuffer struct, int lbColor) { struct.putInt(struct.position() + LBCOLOR, lbColor); }

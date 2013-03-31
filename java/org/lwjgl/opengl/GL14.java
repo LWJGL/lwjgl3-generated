@@ -324,7 +324,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glFogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglFogCoordPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -334,7 +334,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glFogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglFogCoordPointer(type, stride, pointerOffset, __functionAddress);
 	}
@@ -344,7 +344,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glFogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglFogCoordPointer(GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
@@ -941,7 +941,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -951,7 +951,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglSecondaryColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -961,7 +961,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
@@ -971,7 +971,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().glSecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglSecondaryColorPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}

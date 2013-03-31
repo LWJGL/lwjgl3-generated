@@ -225,7 +225,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddress(data), __functionAddress);
 	}
@@ -235,7 +235,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset, __functionAddress);
 	}
@@ -245,7 +245,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, 0, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -274,7 +274,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddress(data), __functionAddress);
 	}
@@ -284,7 +284,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, dataOffset, __functionAddress);
 	}
@@ -294,7 +294,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage2D(target, level, internalformat, width, height, 0, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -322,7 +322,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddress(data), __functionAddress);
 	}
@@ -332,7 +332,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, dataOffset, __functionAddress);
 	}
@@ -342,7 +342,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexImage1D(target, level, internalformat, width, 0, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -374,7 +374,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data), __functionAddress);
 	}
@@ -384,7 +384,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset, __functionAddress);
 	}
@@ -394,7 +394,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -424,7 +424,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, memAddress(data), __functionAddress);
 	}
@@ -434,7 +434,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset, __functionAddress);
 	}
@@ -444,7 +444,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -472,7 +472,7 @@ public final class GL13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
-			GLChecks.ensureBufferObject(0x88EF, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, memAddress(data), __functionAddress);
 	}
@@ -482,7 +482,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, dataOffset, __functionAddress);
 	}
@@ -492,7 +492,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glCompressedTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88EF, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		}
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data), __functionAddress);
 	}
@@ -517,7 +517,7 @@ public final class GL13 {
 			checkFunctionAddress(__functionAddress);
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, lod, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(0x88ED, false);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetCompressedTexImage(target, lod, memAddress(img), __functionAddress);
 	}
@@ -527,7 +527,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().glGetCompressedTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x88ED, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		}
 		nglGetCompressedTexImage(target, lod, imgOffset, __functionAddress);
 	}

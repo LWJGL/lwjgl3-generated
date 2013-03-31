@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include <jni.h>
-#include "opencl.h"
+#include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clGetPlatformIDsPROC) (cl_uint, cl_platform_id *, cl_uint *);
 typedef cl_int (APIENTRY *clGetPlatformInfoPROC) (cl_platform_id, cl_platform_info, size_t, cl_void *, size_t *);

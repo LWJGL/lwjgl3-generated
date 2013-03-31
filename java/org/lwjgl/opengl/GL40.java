@@ -302,7 +302,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 4 * 4);
-			GLChecks.ensureBufferObject(0x8F43, false);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglDrawArraysIndirect(mode, memAddress(indirect), __functionAddress);
 	}
@@ -312,7 +312,7 @@ public final class GL40 {
 		long __functionAddress = getInstance().glDrawArraysIndirect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8F43, true);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		}
 		nglDrawArraysIndirect(mode, indirectOffset, __functionAddress);
 	}
@@ -323,7 +323,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, (4 * 4) >> 2);
-			GLChecks.ensureBufferObject(0x8F43, false);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglDrawArraysIndirect(mode, memAddress(indirect), __functionAddress);
 	}
@@ -375,7 +375,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 5 * 4);
-			GLChecks.ensureBufferObject(0x8F43, false);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect), __functionAddress);
 	}
@@ -385,7 +385,7 @@ public final class GL40 {
 		long __functionAddress = getInstance().glDrawElementsIndirect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8F43, true);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		}
 		nglDrawElementsIndirect(mode, type, indirectOffset, __functionAddress);
 	}
@@ -396,7 +396,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, (5 * 4) >> 2);
-			GLChecks.ensureBufferObject(0x8F43, false);
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect), __functionAddress);
 	}

@@ -1052,7 +1052,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -1062,7 +1062,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, true);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		}
 		nglVertexAttribIPointer(index, size, type, stride, pointerOffset, __functionAddress);
 	}
@@ -1072,7 +1072,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -1082,7 +1082,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glVertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(0x8894, false);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		}
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
@@ -1562,7 +1562,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBufferRange(target, offset, length, access, __functionAddress);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	// --- [ glFlushMappedBufferRange ] ---

@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Image description struct. */
 public final class cl_image_desc {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -50,7 +52,37 @@ public final class cl_image_desc {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		int image_type,
+		long image_width,
+		long image_height,
+		long image_depth,
+		long image_array_size,
+		long image_row_pitch,
+		long image_slice_pitch,
+		int num_mip_levels,
+		int num_samples,
+		long buffer
+	) {
+		ByteBuffer struct = malloc();
+
+		image_typeSet(struct, image_type);
+		image_widthSet(struct, image_width);
+		image_heightSet(struct, image_height);
+		image_depthSet(struct, image_depth);
+		image_array_sizeSet(struct, image_array_size);
+		image_row_pitchSet(struct, image_row_pitch);
+		image_slice_pitchSet(struct, image_slice_pitch);
+		num_mip_levelsSet(struct, num_mip_levels);
+		num_samplesSet(struct, num_samples);
+		bufferSet(struct, buffer);
+
+		return struct;
+	}
 
 	public static void image_typeSet(ByteBuffer struct, int image_type) { struct.putInt(struct.position() + IMAGE_TYPE, image_type); }
 	public static void image_widthSet(ByteBuffer struct, long image_width) { PointerBuffer.put(struct, struct.position() + IMAGE_WIDTH, image_width); }

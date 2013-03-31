@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains message information from a thread's message queue. */
 public final class MSG {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -46,7 +48,31 @@ public final class MSG {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		long window,
+		int message,
+		long wParam,
+		long lParam,
+		int time,
+		int point_x,
+		int point_y
+	) {
+		ByteBuffer struct = malloc();
+
+		windowSet(struct, window);
+		messageSet(struct, message);
+		wParamSet(struct, wParam);
+		lParamSet(struct, lParam);
+		timeSet(struct, time);
+		pointXSet(struct, point_x);
+		pointYSet(struct, point_y);
+
+		return struct;
+	}
 
 	public static void windowSet(ByteBuffer struct, long window) { PointerBuffer.put(struct, struct.position() + WINDOW, window); }
 	public static void messageSet(ByteBuffer struct, int message) { struct.putInt(struct.position() + MESSAGE, message); }

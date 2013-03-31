@@ -63,9 +63,7 @@ public final class CL10 {
 		CL_INVALID_EVENT_WAIT_LIST         = -57,
 		CL_INVALID_EVENT                   = -58,
 		CL_INVALID_OPERATION               = -59,
-		CL_INVALID_GL_OBJECT               = -60,
 		CL_INVALID_BUFFER_SIZE             = -61,
-		CL_INVALID_MIP_LEVEL               = -62,
 		CL_INVALID_GLOBAL_WORK_SIZE        = -63;
 
 	/** OpenCL Version */
@@ -583,7 +581,7 @@ public final class CL10 {
 	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
 	 *                    list is terminated with 0.
 	 *                    <p/>
-	 *                    <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present. One of:<p/>{@link #CL_CONTEXT_PLATFORM}, {@link CL12#CL_CONTEXT_INTEROP_USER_SYNC}
+	 *                    <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present. One of:<p/>{@link #CL_CONTEXT_PLATFORM}, {@link CL12#CL_CONTEXT_INTEROP_USER_SYNC}, {@link KHRGLSharing#CL_GL_CONTEXT_KHR}, {@link KHRGLSharing#CL_EGL_DISPLAY_KHR}, {@link KHRGLSharing#CL_GLX_DISPLAY_KHR}, {@link KHRGLSharing#CL_WGL_HDC_KHR}, {@link KHRGLSharing#CL_CGL_SHAREGROUP_KHR}
 	 * @param num_devices the number of devices specified in the {@code devices} argument
 	 * @param devices     a list of unique devices returned by {@link #clGetDeviceIDs} or sub-devices created by {@link CL12#clCreateSubDevices} for a platform
 	 * @param pfn_notify  a callback function that can be registered by the application. This callback function will be used by the OpenCL implementation to report
@@ -599,8 +597,8 @@ public final class CL10 {
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PLATFORM} if {@code properties} is {@code NULL} and no platform could be selected or if platform value specified in properties is not a
 	 *         valid platform.</li>
-	 *         <li>{@link CL11#CL_INVALID_PROPERTY} if context property name in {@code properties} is not a supported property name, if the value specified for a supported
-	 *         property name is not valid, or if the same property name is specified more than once.</li>
+	 *         <li>{@link CL11#CL_INVALID_PROPERTY} if context property name in {@code properties} is not a supported property name, if the value specified for a
+	 *         supported property name is not valid, or if the same property name is specified more than once.</li>
 	 *         <li>{@link #CL_INVALID_VALUE} if {@code devices} is {@code NULL}.</li>
 	 *         <li>{@link #CL_INVALID_VALUE} if {@code num_devices} is equal to zero.</li>
 	 *         <li>{@link #CL_INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
@@ -659,7 +657,10 @@ public final class CL10 {
 	/**
 	 * Creates a context using devices of the specified type. See {@link #clCreateContext} for details.
 	 *
-	 * @param properties  a list of context property names and their corresponding values
+	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
+	 *                    list is terminated with 0.
+	 *                    <p/>
+	 *                    <strong>LWJGL note</strong>: The {@link #CL_CONTEXT_PLATFORM} property must be present.
 	 * @param device_type a bit-field that identifies the type of device. One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM}
 	 * @param pfn_notify  a callback function that can be registered by the application
 	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
@@ -1497,7 +1498,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_map, map_flags, offset, size, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
-		return memByteBuffer(__result, (int)buffer.getInfoLong(CL_MEM_SIZE));
+		return memByteBuffer(__result, size);
 	}
 
 	/** Alternative version of: {@link #clEnqueueMapBuffer} */
@@ -1509,20 +1510,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_map, map_flags, offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
-		int length = (int)buffer.getInfoLong(CL_MEM_SIZE);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
-	}
-
-	/** Explicit size alternative version of: {@link #clEnqueueMapBuffer} */
-	public static ByteBuffer clEnqueueMapBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, int length, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance(command_queue).clEnqueueMapBuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			if ( event != null ) checkBuffer(event, 1);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		long __result = nclEnqueueMapBuffer(command_queue.getPointer(), buffer.getPointer(), blocking_map, map_flags, offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == size ? old_buffer : memByteBuffer(__result, size);
 	}
 
 	// --- [ clCreateImage2D ] ---
@@ -2472,7 +2460,7 @@ public final class CL10 {
 		}
 		long __result = nclEnqueueMapImage(command_queue.getPointer(), image.getPointer(), blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
 		int length = (int)image.getInfoLong(CL_MEM_SIZE);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #clEnqueueMapImage} */
@@ -2488,7 +2476,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue.getPointer(), image.getPointer(), blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret), __functionAddress);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	// --- [ clGetImageInfo ] ---
@@ -4551,7 +4539,7 @@ public final class CL10 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL10") ) return null;
+		if ( !ext.contains("opencl10") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -4622,7 +4610,7 @@ public final class CL10 {
 			funcs.clFinish != 0L &&
 			funcs.clGetExtensionFunctionAddress != 0L;
 
-		return CL.checkExtension("OpenCL10", funcs, supported);
+		return CL.checkExtension("opencl10", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code CL10}. */

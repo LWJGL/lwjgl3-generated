@@ -4,12 +4,12 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include <jni.h>
-#include "opencl.h"
+#include "OpenCL.h"
 
-typedef cl_mem (APIENTRY *clCreateSubBufferPROC) (cl_mem, cl_mem_flags, cl_buffer_create_type, const void *, cl_int *);
+typedef cl_mem (APIENTRY *clCreateSubBufferPROC) (cl_mem, cl_mem_flags, cl_buffer_create_type, const cl_void *, cl_int *);
 typedef cl_int (APIENTRY *clSetMemObjectDestructorCallbackPROC) (cl_mem, cl_mem_object_destructor_callback, void *);
-typedef cl_int (APIENTRY *clEnqueueReadBufferRectPROC) (cl_command_queue, cl_mem, cl_bool, const size_t *, const size_t *, const size_t *, size_t, size_t, size_t, size_t, void *, cl_uint, const cl_event *, cl_event *);
-typedef cl_int (APIENTRY *clEnqueueWriteBufferRectPROC) (cl_command_queue, cl_mem, cl_bool, const size_t *, const size_t *, const size_t *, size_t, size_t, size_t, size_t, const void *, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueReadBufferRectPROC) (cl_command_queue, cl_mem, cl_bool, const size_t *, const size_t *, const size_t *, size_t, size_t, size_t, size_t, cl_void *, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueWriteBufferRectPROC) (cl_command_queue, cl_mem, cl_bool, const size_t *, const size_t *, const size_t *, size_t, size_t, size_t, size_t, const cl_void *, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueCopyBufferRectPROC) (cl_command_queue, cl_mem, cl_mem, size_t *, size_t *, size_t *, size_t, size_t, size_t, size_t, cl_uint, const cl_event *, cl_event *);
 typedef cl_event (APIENTRY *clCreateUserEventPROC) (cl_context, cl_int *);
 typedef cl_int (APIENTRY *clSetUserEventStatusPROC) (cl_event, cl_int);
@@ -17,7 +17,7 @@ typedef cl_int (APIENTRY *clSetEventCallbackPROC) (cl_event, cl_int, cl_event_ca
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL11_nclCreateSubBuffer(JNIEnv *__env, jclass clazz, jlong bufferAddress, jlong flags, jint buffer_create_type, jlong buffer_create_infoAddress, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_mem buffer = (cl_mem)(intptr_t)bufferAddress;
-	const void *buffer_create_info = (const void *)(intptr_t)buffer_create_infoAddress;
+	const cl_void *buffer_create_info = (const cl_void *)(intptr_t)buffer_create_infoAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateSubBufferPROC clCreateSubBuffer = (clCreateSubBufferPROC)(intptr_t)__functionAddress;
 	return (jlong)(intptr_t)clCreateSubBuffer(buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclEnqueueReadBufferRect(JNIEn
 	const size_t *buffer_offset = (const size_t *)(intptr_t)buffer_offsetAddress;
 	const size_t *host_offset = (const size_t *)(intptr_t)host_offsetAddress;
 	const size_t *region = (const size_t *)(intptr_t)regionAddress;
-	void *ptr = (void *)(intptr_t)ptrAddress;
+	cl_void *ptr = (cl_void *)(intptr_t)ptrAddress;
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueReadBufferRectPROC clEnqueueReadBufferRect = (clEnqueueReadBufferRectPROC)(intptr_t)__functionAddress;
@@ -50,7 +50,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclEnqueueWriteBufferRect(JNIE
 	const size_t *buffer_offset = (const size_t *)(intptr_t)buffer_offsetAddress;
 	const size_t *host_offset = (const size_t *)(intptr_t)host_offsetAddress;
 	const size_t *region = (const size_t *)(intptr_t)regionAddress;
-	const void *ptr = (const void *)(intptr_t)ptrAddress;
+	const cl_void *ptr = (const cl_void *)(intptr_t)ptrAddress;
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWriteBufferRectPROC clEnqueueWriteBufferRect = (clEnqueueWriteBufferRectPROC)(intptr_t)__functionAddress;

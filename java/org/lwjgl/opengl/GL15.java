@@ -446,7 +446,7 @@ public final class GL15 {
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBuffer(target, access, __functionAddress);
 		int length = glGetBufferParameteri(target, GL_BUFFER_SIZE);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapBuffer} */
@@ -455,7 +455,7 @@ public final class GL15 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBuffer(target, access, __functionAddress);
-		return __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	// --- [ glUnmapBuffer ] ---

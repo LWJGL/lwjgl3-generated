@@ -13,6 +13,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 public final class WINDOWPOS {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -43,7 +45,31 @@ public final class WINDOWPOS {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		long hwnd,
+		long hwndInsertAfter,
+		int x,
+		int y,
+		int cx,
+		int cy,
+		int flags
+	) {
+		ByteBuffer struct = malloc();
+
+		hwndSet(struct, hwnd);
+		hwndInsertAfterSet(struct, hwndInsertAfter);
+		xSet(struct, x);
+		ySet(struct, y);
+		cxSet(struct, cx);
+		cySet(struct, cy);
+		flagsSet(struct, flags);
+
+		return struct;
+	}
 
 	public static void hwndSet(ByteBuffer struct, long hwnd) { PointerBuffer.put(struct, struct.position() + HWND, hwnd); }
 	public static void hwndInsertAfterSet(ByteBuffer struct, long hwndInsertAfter) { PointerBuffer.put(struct, struct.position() + HWNDINSERTAFTER, hwndInsertAfter); }

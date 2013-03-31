@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Contains information about the placement and orientation of a glyph in a character cell. */
 public final class GLYPHMETRICSFLOAT {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -44,7 +46,29 @@ public final class GLYPHMETRICSFLOAT {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		float blackBoxX,
+		float blockBoxY,
+		float glyphOrigin_x,
+		float glyphOrigin_y,
+		float cellIncX,
+		float cellIncY
+	) {
+		ByteBuffer struct = malloc();
+
+		blackBoxXSet(struct, blackBoxX);
+		blockBoxYSet(struct, blockBoxY);
+		glyphOriginXSet(struct, glyphOrigin_x);
+		glyphOriginYSet(struct, glyphOrigin_y);
+		cellIncXSet(struct, cellIncX);
+		cellIncYSet(struct, cellIncY);
+
+		return struct;
+	}
 
 	public static void blackBoxXSet(ByteBuffer struct, float blackBoxX) { struct.putFloat(struct.position() + BLACKBOXX, blackBoxX); }
 	public static void blockBoxYSet(ByteBuffer struct, float blockBoxY) { struct.putFloat(struct.position() + BLOCKBOXY, blockBoxY); }

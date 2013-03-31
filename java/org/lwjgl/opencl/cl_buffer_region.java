@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Buffer region struct. */
 public final class cl_buffer_region {
 
+
+	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
@@ -34,7 +36,21 @@ public final class cl_buffer_region {
 
 	private static native int offsets(long buffer);
 
+	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+
+	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	public static ByteBuffer malloc(
+		long origin,
+		long size
+	) {
+		ByteBuffer struct = malloc();
+
+		originSet(struct, origin);
+		sizeSet(struct, size);
+
+		return struct;
+	}
 
 	public static void originSet(ByteBuffer struct, long origin) { PointerBuffer.put(struct, struct.position() + ORIGIN, origin); }
 	public static void sizeSet(ByteBuffer struct, long size) { PointerBuffer.put(struct, struct.position() + SIZE, size); }
