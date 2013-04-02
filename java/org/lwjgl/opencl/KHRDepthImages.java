@@ -5,13 +5,13 @@
  */
 package org.lwjgl.opencl;
 
-/** Native bindings to the <strong>khr_fp16</strong> extension. */
-public final class KHRFP16 {
+/** Native bindings to the <strong>khr_depth_images</strong> extension. */
+public final class KHRDepthImages {
 
-	/** cl_device_info */
+	/** cl_channel_order */
 	public static final int
-		CL_DEVICE_HALF_FP_CONFIG = 0x1033;
+		CL_DEPTH = 0x10BD;
 
-	private KHRFP16() {}
+	private KHRDepthImages() {}
 
 }

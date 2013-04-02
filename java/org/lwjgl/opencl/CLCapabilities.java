@@ -31,6 +31,7 @@ public class CLCapabilities {
 	final APPLEGLSharing.Functions          __APPLEGLSharing;
 	final KHRGLEvent.Functions              __KHRGLEvent;
 	final KHRGLSharing.Functions            __KHRGLSharing;
+	final KHRTerminateContext.Functions     __KHRTerminateContext;
 
 	/** The OpenCL major version. */
 	public final int majorVersion;
@@ -65,18 +66,25 @@ public class CLCapabilities {
 		cl_intel_printf,
 		cl_khr_3d_image_writes,
 		cl_khr_byte_addressable_store,
+		cl_khr_depth_images,
 		cl_khr_fp16,
 		cl_khr_fp64,
+		cl_khr_gl_depth_images,
 		cl_khr_gl_event,
+		cl_khr_gl_msaa_sharing,
 		cl_khr_gl_sharing,
 		cl_khr_global_int32_base_atomics,
 		cl_khr_global_int32_extended_atomics,
 		cl_khr_icd,
+		cl_khr_image2d_from_buffer,
+		cl_khr_initialize_memory,
 		cl_khr_int64_base_atomics,
 		cl_khr_int64_extended_atomics,
 		cl_khr_local_int32_base_atomics,
 		cl_khr_local_int32_extended_atomics,
 		cl_khr_select_fprounding_mode,
+		cl_khr_spir,
+		cl_khr_terminate_context,
 		cl_nv_compiler_options,
 		cl_nv_pragma_unroll;
 
@@ -111,18 +119,25 @@ public class CLCapabilities {
 		cl_intel_printf = ext.contains("cl_intel_printf");
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
+		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
 		cl_khr_fp16 = ext.contains("cl_khr_fp16");
 		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_depth_images = ext.contains("cl_khr_gl_depth_images");
 		cl_khr_gl_event = (__KHRGLEvent = KHRGLEvent.create(ext, provider, platform)) != null;
+		cl_khr_gl_msaa_sharing = ext.contains("cl_khr_gl_msaa_sharing");
 		cl_khr_gl_sharing = (__KHRGLSharing = KHRGLSharing.create(ext, provider, platform)) != null;
 		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
 		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
 		cl_khr_icd = ext.contains("cl_khr_icd");
+		cl_khr_image2d_from_buffer = ext.contains("cl_khr_image2d_from_buffer");
+		cl_khr_initialize_memory = ext.contains("cl_khr_initialize_memory");
 		cl_khr_int64_base_atomics = ext.contains("cl_khr_int64_base_atomics");
 		cl_khr_int64_extended_atomics = ext.contains("cl_khr_int64_extended_atomics");
 		cl_khr_local_int32_base_atomics = ext.contains("cl_khr_local_int32_base_atomics");
 		cl_khr_local_int32_extended_atomics = ext.contains("cl_khr_local_int32_extended_atomics");
 		cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
+		cl_khr_spir = ext.contains("cl_khr_spir");
+		cl_khr_terminate_context = (__KHRTerminateContext = KHRTerminateContext.create(ext, provider, platform)) != null;
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
@@ -157,18 +172,25 @@ public class CLCapabilities {
 		cl_intel_printf = ext.contains("cl_intel_printf");
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
+		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
 		cl_khr_fp16 = ext.contains("cl_khr_fp16");
 		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_depth_images = ext.contains("cl_khr_gl_depth_images");
 		cl_khr_gl_event = (__KHRGLEvent = ext.contains("cl_khr_gl_event") ? caps.__KHRGLEvent : null) != null;
+		cl_khr_gl_msaa_sharing = ext.contains("cl_khr_gl_msaa_sharing");
 		cl_khr_gl_sharing = (__KHRGLSharing = ext.contains("cl_khr_gl_sharing") ? caps.__KHRGLSharing : null) != null;
 		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
 		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
 		cl_khr_icd = ext.contains("cl_khr_icd");
+		cl_khr_image2d_from_buffer = ext.contains("cl_khr_image2d_from_buffer");
+		cl_khr_initialize_memory = ext.contains("cl_khr_initialize_memory");
 		cl_khr_int64_base_atomics = ext.contains("cl_khr_int64_base_atomics");
 		cl_khr_int64_extended_atomics = ext.contains("cl_khr_int64_extended_atomics");
 		cl_khr_local_int32_base_atomics = ext.contains("cl_khr_local_int32_base_atomics");
 		cl_khr_local_int32_extended_atomics = ext.contains("cl_khr_local_int32_extended_atomics");
 		cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
+		cl_khr_spir = ext.contains("cl_khr_spir");
+		cl_khr_terminate_context = (__KHRTerminateContext = ext.contains("cl_khr_terminate_context") ? caps.__KHRTerminateContext : null) != null;
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
@@ -199,18 +221,25 @@ public class CLCapabilities {
 		if ( cl_intel_printf ) buf.append("cl_intel_printf ");
 		if ( cl_khr_3d_image_writes ) buf.append("cl_khr_3d_image_writes ");
 		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
+		if ( cl_khr_depth_images ) buf.append("cl_khr_depth_images ");
 		if ( cl_khr_fp16 ) buf.append("cl_khr_fp16 ");
 		if ( cl_khr_fp64 ) buf.append("cl_khr_fp64 ");
+		if ( cl_khr_gl_depth_images ) buf.append("cl_khr_gl_depth_images ");
 		if ( cl_khr_gl_event ) buf.append("cl_khr_gl_event ");
+		if ( cl_khr_gl_msaa_sharing ) buf.append("cl_khr_gl_msaa_sharing ");
 		if ( cl_khr_gl_sharing ) buf.append("cl_khr_gl_sharing ");
 		if ( cl_khr_global_int32_base_atomics ) buf.append("cl_khr_global_int32_base_atomics ");
 		if ( cl_khr_global_int32_extended_atomics ) buf.append("cl_khr_global_int32_extended_atomics ");
 		if ( cl_khr_icd ) buf.append("cl_khr_icd ");
+		if ( cl_khr_image2d_from_buffer ) buf.append("cl_khr_image2d_from_buffer ");
+		if ( cl_khr_initialize_memory ) buf.append("cl_khr_initialize_memory ");
 		if ( cl_khr_int64_base_atomics ) buf.append("cl_khr_int64_base_atomics ");
 		if ( cl_khr_int64_extended_atomics ) buf.append("cl_khr_int64_extended_atomics ");
 		if ( cl_khr_local_int32_base_atomics ) buf.append("cl_khr_local_int32_base_atomics ");
 		if ( cl_khr_local_int32_extended_atomics ) buf.append("cl_khr_local_int32_extended_atomics ");
 		if ( cl_khr_select_fprounding_mode ) buf.append("cl_khr_select_fprounding_mode ");
+		if ( cl_khr_spir ) buf.append("cl_khr_spir ");
+		if ( cl_khr_terminate_context ) buf.append("cl_khr_terminate_context ");
 		if ( cl_nv_compiler_options ) buf.append("cl_nv_compiler_options ");
 		if ( cl_nv_pragma_unroll ) buf.append("cl_nv_pragma_unroll ");
 

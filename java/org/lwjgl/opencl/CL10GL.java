@@ -344,7 +344,7 @@ public final class CL10GL {
 	 * Returns additional information about the GL texture object associated with {@code memobj}.
 	 *
 	 * @param memobj               
-	 * @param param_name           specifies what additional information about the GL texture object associated with {@code memobj} to query. One of:<p/>{@link #CL_GL_TEXTURE_TARGET}, {@link #CL_GL_MIPMAP_LEVEL}
+	 * @param param_name           specifies what additional information about the GL texture object associated with {@code memobj} to query. One of:<p/>{@link #CL_GL_TEXTURE_TARGET}, {@link #CL_GL_MIPMAP_LEVEL}, {@link KHRGLMSAASharing#CL_GL_NUM_SAMPLES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
