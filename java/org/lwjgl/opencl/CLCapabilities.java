@@ -29,6 +29,7 @@ public class CLCapabilities {
 	final CL12GL.Functions                  __CL12GL;
 	final AMDBusAddressableMemory.Functions __AMDBusAddressableMemory;
 	final APPLEGLSharing.Functions          __APPLEGLSharing;
+	final KHRGLEvent.Functions              __KHRGLEvent;
 	final KHRGLSharing.Functions            __KHRGLSharing;
 
 	/** The OpenCL major version. */
@@ -66,6 +67,7 @@ public class CLCapabilities {
 		cl_khr_byte_addressable_store,
 		cl_khr_fp16,
 		cl_khr_fp64,
+		cl_khr_gl_event,
 		cl_khr_gl_sharing,
 		cl_khr_global_int32_base_atomics,
 		cl_khr_global_int32_extended_atomics,
@@ -111,6 +113,7 @@ public class CLCapabilities {
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_fp16 = ext.contains("cl_khr_fp16");
 		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_event = (__KHRGLEvent = KHRGLEvent.create(ext, provider, platform)) != null;
 		cl_khr_gl_sharing = (__KHRGLSharing = KHRGLSharing.create(ext, provider, platform)) != null;
 		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
 		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
@@ -156,6 +159,7 @@ public class CLCapabilities {
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_fp16 = ext.contains("cl_khr_fp16");
 		cl_khr_fp64 = ext.contains("cl_khr_fp64");
+		cl_khr_gl_event = (__KHRGLEvent = ext.contains("cl_khr_gl_event") ? caps.__KHRGLEvent : null) != null;
 		cl_khr_gl_sharing = (__KHRGLSharing = ext.contains("cl_khr_gl_sharing") ? caps.__KHRGLSharing : null) != null;
 		cl_khr_global_int32_base_atomics = ext.contains("cl_khr_global_int32_base_atomics");
 		cl_khr_global_int32_extended_atomics = ext.contains("cl_khr_global_int32_extended_atomics");
@@ -197,6 +201,7 @@ public class CLCapabilities {
 		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
 		if ( cl_khr_fp16 ) buf.append("cl_khr_fp16 ");
 		if ( cl_khr_fp64 ) buf.append("cl_khr_fp64 ");
+		if ( cl_khr_gl_event ) buf.append("cl_khr_gl_event ");
 		if ( cl_khr_gl_sharing ) buf.append("cl_khr_gl_sharing ");
 		if ( cl_khr_global_int32_base_atomics ) buf.append("cl_khr_global_int32_base_atomics ");
 		if ( cl_khr_global_int32_extended_atomics ) buf.append("cl_khr_global_int32_extended_atomics ");

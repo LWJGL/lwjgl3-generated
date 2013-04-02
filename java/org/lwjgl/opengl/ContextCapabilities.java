@@ -28,8 +28,10 @@ public final class ContextCapabilities {
 	final GL42.Functions                   __GL42;
 	final GL43.Functions                   __GL43;
 	final AMDDebugOutput.Functions         __AMDDebugOutput;
+	final ARBCLEvent.Functions             __ARBCLEvent;
 	final ARBCopyBuffer.Functions          __ARBCopyBuffer;
 	final ARBImaging.Functions             __ARBImaging;
+	final ARBSync.Functions                __ARBSync;
 	final WGLAMDGpuAssociation.Functions   __WGLAMDGpuAssociation;
 	final WGLARBBufferRegion.Functions     __WGLARBBufferRegion;
 	final WGLARBCreateContext.Functions    __WGLARBCreateContext;
@@ -60,9 +62,53 @@ public final class ContextCapabilities {
 		OpenGL41,
 		OpenGL42,
 		OpenGL43,
+		GL_AMD_conservative_depth,
 		GL_AMD_debug_output,
+		GL_AMD_shader_stencil_export,
+		GL_AMD_shader_trinary_minmax,
+		GL_AMD_texture_texture4,
+		GL_AMD_transform_feedback3_lines_triangles,
+		GL_AMD_vertex_shader_layer,
+		GL_AMD_vertex_shader_viewport_index,
+		GL_ARB_arrays_of_arrays,
+		GL_ARB_cl_event,
+		GL_ARB_compatibility,
+		GL_ARB_conservative_depth,
 		GL_ARB_copy_buffer,
+		GL_ARB_explicit_attrib_location,
+		GL_ARB_fragment_coord_conventions,
+		GL_ARB_fragment_layer_viewport,
+		GL_ARB_fragment_program_shadow,
 		GL_ARB_imaging,
+		GL_ARB_robust_buffer_access_behavior,
+		GL_ARB_robustness_isolation,
+		GL_ARB_shader_bit_encoding,
+		GL_ARB_shader_image_size,
+		GL_ARB_shader_precision,
+		GL_ARB_shader_stencil_export,
+		GL_ARB_shader_texture_lod,
+		GL_ARB_shading_language_420pack,
+		GL_ARB_shading_language_packing,
+		GL_ARB_sync,
+		GL_ARB_texture_buffer_object_rgb32,
+		GL_ARB_texture_env_add,
+		GL_ARB_texture_env_crossbar,
+		GL_ARB_texture_non_power_of_two,
+		GL_ARB_texture_query_levels,
+		GL_ARB_texture_query_lod,
+		GL_ATI_shader_texture_lod,
+		GL_EXT_shadow_funcs,
+		GL_NV_blend_square,
+		GL_NV_fragment_program4,
+		GL_NV_fragment_program_option,
+		GL_NV_geometry_shader4,
+		GL_NV_parameter_buffer_object2,
+		GL_NV_shader_atomic_counters,
+		GL_NV_shader_atomic_float,
+		GL_NV_shader_storage_buffer_object,
+		GL_NV_vertex_program1_1,
+		GL_NV_vertex_program2,
+		GL_NV_vertex_program4,
 		WGL_AMD_gpu_association,
 		WGL_ARB_buffer_region,
 		WGL_ARB_create_context,
@@ -106,9 +152,53 @@ public final class ContextCapabilities {
 		OpenGL41 = (__GL41 = GL41.create(ext, provider)) != null;
 		OpenGL42 = (__GL42 = GL42.create(ext, provider)) != null;
 		OpenGL43 = (__GL43 = GL43.create(ext, provider)) != null;
+		GL_AMD_conservative_depth = ext.contains("GL_AMD_conservative_depth");
 		GL_AMD_debug_output = (__AMDDebugOutput = AMDDebugOutput.create(ext, provider)) != null;
+		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
+		GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
+		GL_AMD_texture_texture4 = ext.contains("GL_AMD_texture_texture4");
+		GL_AMD_transform_feedback3_lines_triangles = ext.contains("GL_AMD_transform_feedback3_lines_triangles");
+		GL_AMD_vertex_shader_layer = ext.contains("GL_AMD_vertex_shader_layer");
+		GL_AMD_vertex_shader_viewport_index = ext.contains("GL_AMD_vertex_shader_viewport_index");
+		GL_ARB_arrays_of_arrays = ext.contains("GL_ARB_arrays_of_arrays");
+		GL_ARB_cl_event = (__ARBCLEvent = ARBCLEvent.create(ext, provider)) != null;
+		GL_ARB_compatibility = ext.contains("GL_ARB_compatibility");
+		GL_ARB_conservative_depth = ext.contains("GL_ARB_conservative_depth");
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
+		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
+		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
+		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");
+		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
+		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
+		GL_ARB_robustness_isolation = ext.contains("GL_ARB_robustness_isolation");
+		GL_ARB_shader_bit_encoding = ext.contains("GL_ARB_shader_bit_encoding");
+		GL_ARB_shader_image_size = ext.contains("GL_ARB_shader_image_size");
+		GL_ARB_shader_precision = ext.contains("GL_ARB_shader_precision");
+		GL_ARB_shader_stencil_export = ext.contains("GL_ARB_shader_stencil_export");
+		GL_ARB_shader_texture_lod = ext.contains("GL_ARB_shader_texture_lod");
+		GL_ARB_shading_language_420pack = ext.contains("GL_ARB_shading_language_420pack");
+		GL_ARB_shading_language_packing = ext.contains("GL_ARB_shading_language_packing");
+		GL_ARB_sync = (__ARBSync = ARBSync.create(ext, provider)) != null;
+		GL_ARB_texture_buffer_object_rgb32 = ext.contains("GL_ARB_texture_buffer_object_rgb32");
+		GL_ARB_texture_env_add = ext.contains("GL_ARB_texture_env_add");
+		GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
+		GL_ARB_texture_non_power_of_two = ext.contains("GL_ARB_texture_non_power_of_two");
+		GL_ARB_texture_query_levels = ext.contains("GL_ARB_texture_query_levels");
+		GL_ARB_texture_query_lod = ext.contains("GL_ARB_texture_query_lod");
+		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
+		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
+		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
+		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
+		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");
+		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
+		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
+		GL_NV_shader_atomic_counters = ext.contains("GL_NV_shader_atomic_counters");
+		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
+		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
+		GL_NV_vertex_program1_1 = ext.contains("GL_NV_vertex_program1_1");
+		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
+		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
 		WGL_AMD_gpu_association = (__WGLAMDGpuAssociation = WGLAMDGpuAssociation.create(ext, provider)) != null;
 		WGL_ARB_buffer_region = (__WGLARBBufferRegion = WGLARBBufferRegion.create(ext, provider)) != null;
 		WGL_ARB_create_context = (__WGLARBCreateContext = WGLARBCreateContext.create(ext, provider)) != null;

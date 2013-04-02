@@ -3166,7 +3166,7 @@ public final class CL10 {
 	 * @return {@link #CL_SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
-	 *         <li>{@link #CL_INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is &gt; 0, or if {@code device_list is not {@code NULL} and {@code num_devices} is 0.</li>
+	 *         <li>{@link #CL_INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is &gt; 0, or if {@code device_list} is not {@code NULL} and {@code num_devices} is 0.</li>
 	 *         <li>{@link #CL_INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
 	 *         <li>{@link #CL_INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with program.</li>
 	 *         <li>{@link #CL_INVALID_BINARY if {@code program} is created with {@link #clCreateProgramWithBinary} and devices listed in {@code device_list} do not have a valid
@@ -3240,7 +3240,6 @@ public final class CL10 {
 	 * compiler will not be used in the future or that the compiler will actually be unloaded by the implementation.
 	 * <p/>
 	 * Calls to {@link #clBuildProgram} after {@code clUnloadCompiler} will reload the compiler, if necessary, to build the appropriate program executable.
-	 *
 	 *
 	 * @return always {@link #CL_SUCCESS}
 	 */
