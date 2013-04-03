@@ -63,7 +63,9 @@ public class CLCapabilities {
 		cl_amd_printf,
 		cl_amd_vec3,
 		cl_apple_gl_sharing,
+		cl_intel_device_partition_by_names,
 		cl_intel_printf,
+		cl_intel_thread_local_exec,
 		cl_khr_3d_image_writes,
 		cl_khr_byte_addressable_store,
 		cl_khr_depth_images,
@@ -86,6 +88,7 @@ public class CLCapabilities {
 		cl_khr_spir,
 		cl_khr_terminate_context,
 		cl_nv_compiler_options,
+		cl_nv_device_attribute_query,
 		cl_nv_pragma_unroll;
 
 	CLCapabilities(long platform, int majorVersion, int minorVersion, Set<String> ext) {
@@ -116,7 +119,9 @@ public class CLCapabilities {
 		cl_amd_printf = ext.contains("cl_amd_printf");
 		cl_amd_vec3 = ext.contains("cl_amd_vec3");
 		cl_apple_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(ext, provider, platform)) != null;
+		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
 		cl_intel_printf = ext.contains("cl_intel_printf");
+		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
@@ -139,6 +144,7 @@ public class CLCapabilities {
 		cl_khr_spir = ext.contains("cl_khr_spir");
 		cl_khr_terminate_context = (__KHRTerminateContext = KHRTerminateContext.create(ext, provider, platform)) != null;
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
+		cl_nv_device_attribute_query = ext.contains("cl_nv_device_attribute_query");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
 
@@ -169,7 +175,9 @@ public class CLCapabilities {
 		cl_amd_printf = ext.contains("cl_amd_printf");
 		cl_amd_vec3 = ext.contains("cl_amd_vec3");
 		cl_apple_gl_sharing = (__APPLEGLSharing = ext.contains("cl_apple_gl_sharing") ? caps.__APPLEGLSharing : null) != null;
+		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
 		cl_intel_printf = ext.contains("cl_intel_printf");
+		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
@@ -192,6 +200,7 @@ public class CLCapabilities {
 		cl_khr_spir = ext.contains("cl_khr_spir");
 		cl_khr_terminate_context = (__KHRTerminateContext = ext.contains("cl_khr_terminate_context") ? caps.__KHRTerminateContext : null) != null;
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
+		cl_nv_device_attribute_query = ext.contains("cl_nv_device_attribute_query");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
 	}
 
@@ -218,7 +227,9 @@ public class CLCapabilities {
 		if ( cl_amd_printf ) buf.append("cl_amd_printf ");
 		if ( cl_amd_vec3 ) buf.append("cl_amd_vec3 ");
 		if ( cl_apple_gl_sharing ) buf.append("cl_apple_gl_sharing ");
+		if ( cl_intel_device_partition_by_names ) buf.append("cl_intel_device_partition_by_names ");
 		if ( cl_intel_printf ) buf.append("cl_intel_printf ");
+		if ( cl_intel_thread_local_exec ) buf.append("cl_intel_thread_local_exec ");
 		if ( cl_khr_3d_image_writes ) buf.append("cl_khr_3d_image_writes ");
 		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
 		if ( cl_khr_depth_images ) buf.append("cl_khr_depth_images ");
@@ -241,6 +252,7 @@ public class CLCapabilities {
 		if ( cl_khr_spir ) buf.append("cl_khr_spir ");
 		if ( cl_khr_terminate_context ) buf.append("cl_khr_terminate_context ");
 		if ( cl_nv_compiler_options ) buf.append("cl_nv_compiler_options ");
+		if ( cl_nv_device_attribute_query ) buf.append("cl_nv_device_attribute_query ");
 		if ( cl_nv_pragma_unroll ) buf.append("cl_nv_pragma_unroll ");
 
 		return buf.toString();

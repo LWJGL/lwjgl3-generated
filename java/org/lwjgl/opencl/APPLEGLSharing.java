@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to the <strong>cl_apple_gl_sharing</strong> extension. */
+/** Native bindings to the <strong>apple_gl_sharing</strong> extension. */
 public final class APPLEGLSharing {
 
 	/** Error code returned by {@link #clGetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
