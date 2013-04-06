@@ -110,7 +110,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_WaitMessage(JNIEnv 
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nDispatchMessage(JNIEnv *__env, jclass clazz, jlong msgAddress) {
 	const MSG *msg = (const MSG *)(intptr_t)msgAddress;
-	return (jlong)(intptr_t)DispatchMessage(msg);
+	return (jlong)DispatchMessage(msg);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_GetQueueStatus(JNIEnv *__env, jclass clazz, jint flags) {
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_GetMessageTime(JNIE
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nDefWindowProc(JNIEnv *__env, jclass clazz, jlong windowAddress, jint msg, jlong wParam, jlong lParam) {
 	HWND window = (HWND)(intptr_t)windowAddress;
-	return (jlong)(intptr_t)DefWindowProc(window, msg, (WPARAM)wParam, (LPARAM)lParam);
+	return (jlong)DefWindowProc(window, msg, (WPARAM)wParam, (LPARAM)lParam);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nGetDC(JNIEnv *__env, jclass clazz, jlong windowAddress) {
