@@ -45,3 +45,22 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceCo
 	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
 	return (jint)QueryPerformanceCounter(frequency);
 }
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_GlobalAlloc(JNIEnv *__env, jclass clazz, jint flags, jlong bytes) {
+	return (jlong)(intptr_t)GlobalAlloc(flags, (SIZE_T)bytes);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalLock(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
+	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
+	return (jlong)(intptr_t)GlobalLock(hMem);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalUnlock(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
+	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
+	return (jint)GlobalUnlock(hMem);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalFree(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
+	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
+	return (jlong)(intptr_t)GlobalFree(hMem);
+}

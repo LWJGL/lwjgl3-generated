@@ -274,3 +274,29 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nTrackMouseEvent(JN
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_GetForegroundWindow(JNIEnv *__env, jclass clazz) {
 	return (jlong)(intptr_t)GetForegroundWindow();
 }
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nOpenClipboard(JNIEnv *__env, jclass clazz, jlong hWndNewOwnerAddress) {
+	HWND hWndNewOwner = (HWND)(intptr_t)hWndNewOwnerAddress;
+	return (jint)OpenClipboard(hWndNewOwner);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_EmptyClipboard(JNIEnv *__env, jclass clazz) {
+	return (jint)EmptyClipboard();
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetClipboardData(JNIEnv *__env, jclass clazz, jint format, jlong hMemAddress) {
+	HANDLE hMem = (HANDLE)(intptr_t)hMemAddress;
+	return (jlong)(intptr_t)SetClipboardData(format, hMem);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_IsClipboardFormatAvailable(JNIEnv *__env, jclass clazz, jint format) {
+	return (jint)IsClipboardFormatAvailable(format);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_GetClipboardData(JNIEnv *__env, jclass clazz, jint format) {
+	return (jlong)(intptr_t)GetClipboardData(format);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_CloseClipboard(JNIEnv *__env, jclass clazz) {
+	return (jint)CloseClipboard();
+}

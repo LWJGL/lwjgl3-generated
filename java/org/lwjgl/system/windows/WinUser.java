@@ -1122,6 +1122,27 @@ public final class WinUser {
 		TME_QUERY     = 0x40000000,
 		TME_CANCEL    = 0x80000000;
 
+	/** Predefined Clipboard formats. */
+	public static final int
+		CF_TEXT         = 0x1,
+		CF_BITMAP       = 0x2,
+		CF_METAFILEPICT = 0x3,
+		CF_SYLK         = 0x4,
+		CF_DIF          = 0x5,
+		CF_TIFF         = 0x6,
+		CF_OEMTEXT      = 0x7,
+		CF_DIB          = 0x8,
+		CF_PALETTE      = 0x9,
+		CF_PENDATA      = 0xA,
+		CF_RIFF         = 0xB,
+		CF_WAVE         = 0xC,
+		CF_UNICODETEXT  = 0xD,
+		CF_ENHMETAFILE  = 0xE,
+		CF_HDROP        = 0xF,
+		CF_LOCALE       = 0x10,
+		CF_DIBV5        = 0x11,
+		CF_MAX          = 0x12;
+
 	private WinUser() {}
 
 	// --- [ RegisterClassEx ] ---
@@ -2097,5 +2118,80 @@ public final class WinUser {
 	 * thread that creates the foreground window than it does to other threads.
 	 */
 	public static native long GetForegroundWindow();
+
+	// --- [ OpenClipboard ] ---
+
+	/** JNI method for {@link #OpenClipboard} */
+	public static native int nOpenClipboard(long hWndNewOwner);
+
+	/**
+	 * Opens the clipboard for examination and prevents other applications from modifying the clipboard content.
+	 *
+	 * @param hWndNewOwner a handle to the window to be associated with the open clipboard. If this parameter is {@code NULL}, the open clipboard is associated with the current task.
+	 */
+	public static int OpenClipboard(long hWndNewOwner) {
+		return nOpenClipboard(hWndNewOwner);
+	}
+
+	// --- [ EmptyClipboard ] ---
+
+	/**
+	 * Empties the clipboard and frees handles to data in the clipboard. The function then assigns ownership of the clipboard to the window that currently has
+	 * the clipboard open.
+	 */
+	public static native int EmptyClipboard();
+
+	// --- [ SetClipboardData ] ---
+
+	/** JNI method for {@link #SetClipboardData} */
+	public static native long nSetClipboardData(int format, long hMem);
+
+	/**
+	 * Places data on the clipboard in a specified clipboard format. The window must be the current clipboard owner, and the application must have called the
+	 * {@link #OpenClipboard} function. (When responding to the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS} messages, the clipboard owner must
+	 * not call {@link #OpenClipboard} before calling {@link #SetClipboardData}.)
+	 *
+	 * @param format the clipboard format. This parameter can be a registered format or any of the standard clipboard formats.
+	 * @param hMem   a handle to the data in the specified format. This parameter can be {@code NULL}, indicating that the window provides data in the specified clipboard
+	 *               format (renders the format) upon request. If a window delays rendering, it must process the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS}
+	 *               messages.
+	 *               <p/>
+	 *               If {@code SetClipboardData} succeeds, the system owns the object identified by the {@code hMem} parameter. The application may not write to or free
+	 *               the data once ownership has been transferred to the system, but it can lock and read from the data until the {@link #CloseClipboard} function is
+	 *               called. (The memory must be unlocked before the {@link #Clipboard} is closed.) If the {@code hMem} parameter identifies a memory object, the object
+	 *               must have been allocated using the function with the {@link #GMEM_MOVEABLE} flag.
+	 *
+	 * @return the handle to the data if the function succeeds. If the function fails, the return value is {@code NULL}.
+	 */
+	public static long SetClipboardData(int format, long hMem) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(hMem);
+		return nSetClipboardData(format, hMem);
+	}
+
+	// --- [ IsClipboardFormatAvailable ] ---
+
+	/**
+	 * Determines whether the clipboard contains data in the specified format.
+	 *
+	 * @param format a standard or registered clipboard format
+	 */
+	public static native int IsClipboardFormatAvailable(int format);
+
+	// --- [ GetClipboardData ] ---
+
+	/**
+	 * Retrieves data from the clipboard in a specified format. The clipboard must have been opened previously.
+	 *
+	 * @param format a clipboard format
+	 *
+	 * @return the handle to a clipboard object in the specified format if the function succeeds. If the function fails, the return value is {@code NULL}.
+	 */
+	public static native long GetClipboardData(int format);
+
+	// --- [ CloseClipboard ] ---
+
+	/** Closes the clipboard. */
+	public static native int CloseClipboard();
 
 }
