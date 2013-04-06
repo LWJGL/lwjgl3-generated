@@ -52,27 +52,27 @@ public final class GLFWvidmode {
 		int blueBits,
 		int greenBits
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer glfwvidmode = malloc();
 
-		widthSet(struct, width);
-		heightSet(struct, height);
-		redBitsSet(struct, redBits);
-		blueBitsSet(struct, blueBits);
-		greenBitsSet(struct, greenBits);
+		widthSet(glfwvidmode, width);
+		heightSet(glfwvidmode, height);
+		redBitsSet(glfwvidmode, redBits);
+		blueBitsSet(glfwvidmode, blueBits);
+		greenBitsSet(glfwvidmode, greenBits);
 
-		return struct;
+		return glfwvidmode;
 	}
 
-	public static void widthSet(ByteBuffer struct, int width) { struct.putInt(struct.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer struct, int height) { struct.putInt(struct.position() + HEIGHT, height); }
-	public static void redBitsSet(ByteBuffer struct, int redBits) { struct.putInt(struct.position() + REDBITS, redBits); }
-	public static void blueBitsSet(ByteBuffer struct, int blueBits) { struct.putInt(struct.position() + BLUEBITS, blueBits); }
-	public static void greenBitsSet(ByteBuffer struct, int greenBits) { struct.putInt(struct.position() + GREENBITS, greenBits); }
+	public static void widthSet(ByteBuffer glfwvidmode, int width) { glfwvidmode.putInt(glfwvidmode.position() + WIDTH, width); }
+	public static void heightSet(ByteBuffer glfwvidmode, int height) { glfwvidmode.putInt(glfwvidmode.position() + HEIGHT, height); }
+	public static void redBitsSet(ByteBuffer glfwvidmode, int redBits) { glfwvidmode.putInt(glfwvidmode.position() + REDBITS, redBits); }
+	public static void blueBitsSet(ByteBuffer glfwvidmode, int blueBits) { glfwvidmode.putInt(glfwvidmode.position() + BLUEBITS, blueBits); }
+	public static void greenBitsSet(ByteBuffer glfwvidmode, int greenBits) { glfwvidmode.putInt(glfwvidmode.position() + GREENBITS, greenBits); }
 
-	public static int widthGet(ByteBuffer struct) { return struct.getInt(struct.position() + WIDTH); }
-	public static int heightGet(ByteBuffer struct) { return struct.getInt(struct.position() + HEIGHT); }
-	public static int redBitsGet(ByteBuffer struct) { return struct.getInt(struct.position() + REDBITS); }
-	public static int blueBitsGet(ByteBuffer struct) { return struct.getInt(struct.position() + BLUEBITS); }
-	public static int greenBitsGet(ByteBuffer struct) { return struct.getInt(struct.position() + GREENBITS); }
+	public static int widthGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + WIDTH); }
+	public static int heightGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + HEIGHT); }
+	public static int redBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REDBITS); }
+	public static int blueBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + BLUEBITS); }
+	public static int greenBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + GREENBITS); }
 
 }

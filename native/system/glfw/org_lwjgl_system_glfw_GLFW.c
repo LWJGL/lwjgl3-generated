@@ -258,12 +258,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetMouseButton(JNIEn
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetCursorPos(JNIEnv *__env, jclass clazz, jlong windowAddress, jlong xposAddress, jlong yposAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
-	int *xpos = (int *)(intptr_t)xposAddress;
-	int *ypos = (int *)(intptr_t)yposAddress;
+	double *xpos = (double *)(intptr_t)xposAddress;
+	double *ypos = (double *)(intptr_t)yposAddress;
 	glfwGetCursorPos(window, xpos, ypos);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetCursorPos(JNIEnv *__env, jclass clazz, jlong windowAddress, jint xpos, jint ypos) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetCursorPos(JNIEnv *__env, jclass clazz, jlong windowAddress, jdouble xpos, jdouble ypos) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
 	glfwSetCursorPos(window, xpos, ypos);
 }
@@ -314,7 +314,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickAxes(JNIE
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickButtons(JNIEnv *__env, jclass clazz, jint joy, jlong buttonsAddress, jint numbuttons) {
-	char *buttons = (char *)(intptr_t)buttonsAddress;
+	unsigned char *buttons = (unsigned char *)(intptr_t)buttonsAddress;
 	return (jint)glfwGetJoystickButtons(joy, buttons, numbuttons);
 }
 

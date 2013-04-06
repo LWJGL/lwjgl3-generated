@@ -11,27 +11,24 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines the x- and y- coordinates of a point. */
-public final class POINT {
+public final class LARGE_INTEGER {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
 	/** The struct member offsets. */
 	public static final int
-		X,
-		Y;
+		QUADPART;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = BufferUtils.createIntBuffer(1);
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		X = offsets.get(0);
-		Y = offsets.get(1);
+		QUADPART = offsets.get(0);
 	}
 
-	private POINT() {}
+	private LARGE_INTEGER() {}
 
 	private static native int offsets(long buffer);
 
@@ -40,21 +37,17 @@ public final class POINT {
 
 	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
-		int x,
-		int y
+		long QuadPart
 	) {
-		ByteBuffer point = malloc();
+		ByteBuffer large_integer = malloc();
 
-		xSet(point, x);
-		ySet(point, y);
+		QuadPartSet(large_integer, QuadPart);
 
-		return point;
+		return large_integer;
 	}
 
-	public static void xSet(ByteBuffer point, int x) { point.putInt(point.position() + X, x); }
-	public static void ySet(ByteBuffer point, int y) { point.putInt(point.position() + Y, y); }
+	public static void QuadPartSet(ByteBuffer large_integer, long QuadPart) { large_integer.putLong(large_integer.position() + QUADPART, QuadPart); }
 
-	public static int xGet(ByteBuffer point) { return point.getInt(point.position() + X); }
-	public static int yGet(ByteBuffer point) { return point.getInt(point.position() + Y); }
+	public static long QuadPartGet(ByteBuffer large_integer) { return large_integer.getLong(large_integer.position() + QUADPART); }
 
 }

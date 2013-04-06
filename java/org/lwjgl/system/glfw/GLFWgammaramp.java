@@ -49,13 +49,13 @@ public final class GLFWgammaramp {
 		long blue,
 		int blueBytes
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer glfwgammaramp = malloc();
 
-		redSet(struct, red, redBytes);
-		greenSet(struct, green, greenBytes);
-		blueSet(struct, blue, blueBytes);
+		redSet(glfwgammaramp, red, redBytes);
+		greenSet(glfwgammaramp, green, greenBytes);
+		blueSet(glfwgammaramp, blue, blueBytes);
 
-		return struct;
+		return glfwgammaramp;
 	}
 
 	/** Alternative virtual constructor. */
@@ -64,51 +64,51 @@ public final class GLFWgammaramp {
 		ByteBuffer green,
 		ByteBuffer blue
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer glfwgammaramp = malloc();
 
-		redSet(struct, red);
-		greenSet(struct, green);
-		blueSet(struct, blue);
+		redSet(glfwgammaramp, red);
+		greenSet(glfwgammaramp, green);
+		blueSet(glfwgammaramp, blue);
 
-		return struct;
+		return glfwgammaramp;
 	}
 
-	public static void redSet(ByteBuffer struct, long red, int bytes) { memCopy(red, memAddress(struct) + RED, bytes); }
-	public static void redSet(ByteBuffer struct, ByteBuffer red) {
+	public static void redSet(ByteBuffer glfwgammaramp, long red, int bytes) { memCopy(red, memAddress(glfwgammaramp) + RED, bytes); }
+	public static void redSet(ByteBuffer glfwgammaramp, ByteBuffer red) {
 		checkBufferGT(red, 256 * 2);
-		redSet(struct, memAddress(red), red.remaining());
+		redSet(glfwgammaramp, memAddress(red), red.remaining());
 	}
-	public static void greenSet(ByteBuffer struct, long green, int bytes) { memCopy(green, memAddress(struct) + GREEN, bytes); }
-	public static void greenSet(ByteBuffer struct, ByteBuffer green) {
+	public static void greenSet(ByteBuffer glfwgammaramp, long green, int bytes) { memCopy(green, memAddress(glfwgammaramp) + GREEN, bytes); }
+	public static void greenSet(ByteBuffer glfwgammaramp, ByteBuffer green) {
 		checkBufferGT(green, 256 * 2);
-		greenSet(struct, memAddress(green), green.remaining());
+		greenSet(glfwgammaramp, memAddress(green), green.remaining());
 	}
-	public static void blueSet(ByteBuffer struct, long blue, int bytes) { memCopy(blue, memAddress(struct) + BLUE, bytes); }
-	public static void blueSet(ByteBuffer struct, ByteBuffer blue) {
+	public static void blueSet(ByteBuffer glfwgammaramp, long blue, int bytes) { memCopy(blue, memAddress(glfwgammaramp) + BLUE, bytes); }
+	public static void blueSet(ByteBuffer glfwgammaramp, ByteBuffer blue) {
 		checkBufferGT(blue, 256 * 2);
-		blueSet(struct, memAddress(blue), blue.remaining());
+		blueSet(glfwgammaramp, memAddress(blue), blue.remaining());
 	}
 
-	public static void redGet(ByteBuffer struct, long red, int bytes) {
-		memCopy(memAddress(struct) + RED, red, bytes);
+	public static void redGet(ByteBuffer glfwgammaramp, long red, int bytes) {
+		memCopy(memAddress(glfwgammaramp) + RED, red, bytes);
 	}
-	public static void redGetb(ByteBuffer struct, ByteBuffer red) {
+	public static void redGetb(ByteBuffer glfwgammaramp, ByteBuffer red) {
 		checkBufferGT(red, 256 * 2);
-		redGet(struct, memAddress(red), red.remaining());
+		redGet(glfwgammaramp, memAddress(red), red.remaining());
 	}
-	public static void greenGet(ByteBuffer struct, long green, int bytes) {
-		memCopy(memAddress(struct) + GREEN, green, bytes);
+	public static void greenGet(ByteBuffer glfwgammaramp, long green, int bytes) {
+		memCopy(memAddress(glfwgammaramp) + GREEN, green, bytes);
 	}
-	public static void greenGetb(ByteBuffer struct, ByteBuffer green) {
+	public static void greenGetb(ByteBuffer glfwgammaramp, ByteBuffer green) {
 		checkBufferGT(green, 256 * 2);
-		greenGet(struct, memAddress(green), green.remaining());
+		greenGet(glfwgammaramp, memAddress(green), green.remaining());
 	}
-	public static void blueGet(ByteBuffer struct, long blue, int bytes) {
-		memCopy(memAddress(struct) + BLUE, blue, bytes);
+	public static void blueGet(ByteBuffer glfwgammaramp, long blue, int bytes) {
+		memCopy(memAddress(glfwgammaramp) + BLUE, blue, bytes);
 	}
-	public static void blueGetb(ByteBuffer struct, ByteBuffer blue) {
+	public static void blueGetb(ByteBuffer glfwgammaramp, ByteBuffer blue) {
 		checkBufferGT(blue, 256 * 2);
-		blueGet(struct, memAddress(blue), blue.remaining());
+		blueGet(glfwgammaramp, memAddress(blue), blue.remaining());
 	}
 
 }

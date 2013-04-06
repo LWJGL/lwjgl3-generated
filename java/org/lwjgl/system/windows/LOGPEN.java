@@ -50,24 +50,24 @@ public final class LOGPEN {
 		int lopnWidth_y,
 		int lopnColor
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer logpen = malloc();
 
-		lopnStyleSet(struct, lopnStyle);
-		lopnWidthXSet(struct, lopnWidth_x);
-		lopnWidthYSet(struct, lopnWidth_y);
-		lopnColorSet(struct, lopnColor);
+		lopnStyleSet(logpen, lopnStyle);
+		lopnWidthXSet(logpen, lopnWidth_x);
+		lopnWidthYSet(logpen, lopnWidth_y);
+		lopnColorSet(logpen, lopnColor);
 
-		return struct;
+		return logpen;
 	}
 
-	public static void lopnStyleSet(ByteBuffer struct, int lopnStyle) { struct.putInt(struct.position() + LOPNSTYLE, lopnStyle); }
-	public static void lopnWidthXSet(ByteBuffer struct, int x) { struct.putInt(struct.position() + LOPNWIDTH_X, x); }
-	public static void lopnWidthYSet(ByteBuffer struct, int y) { struct.putInt(struct.position() + LOPNWIDTH_Y, y); }
-	public static void lopnColorSet(ByteBuffer struct, int lopnColor) { struct.putInt(struct.position() + LOPNCOLOR, lopnColor); }
+	public static void lopnStyleSet(ByteBuffer logpen, int lopnStyle) { logpen.putInt(logpen.position() + LOPNSTYLE, lopnStyle); }
+	public static void lopnWidthXSet(ByteBuffer logpen, int x) { logpen.putInt(logpen.position() + LOPNWIDTH_X, x); }
+	public static void lopnWidthYSet(ByteBuffer logpen, int y) { logpen.putInt(logpen.position() + LOPNWIDTH_Y, y); }
+	public static void lopnColorSet(ByteBuffer logpen, int lopnColor) { logpen.putInt(logpen.position() + LOPNCOLOR, lopnColor); }
 
-	public static int lopnStyleGet(ByteBuffer struct) { return struct.getInt(struct.position() + LOPNSTYLE); }
-	public static int lopnWidthXGet(ByteBuffer struct) { return struct.getInt(struct.position() + LOPNWIDTH_X); }
-	public static int lopnWidthYGet(ByteBuffer struct) { return struct.getInt(struct.position() + LOPNWIDTH_Y); }
-	public static int lopnColorGet(ByteBuffer struct) { return struct.getInt(struct.position() + LOPNCOLOR); }
+	public static int lopnStyleGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNSTYLE); }
+	public static int lopnWidthXGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH_X); }
+	public static int lopnWidthYGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH_Y); }
+	public static int lopnColorGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNCOLOR); }
 
 }

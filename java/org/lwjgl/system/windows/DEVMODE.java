@@ -82,24 +82,24 @@ public final class DEVMODE {
 		int displayFlags,
 		int displayFrequency
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer devmode = malloc();
 
-		deviceNameSet(struct, deviceName, deviceNameBytes);
-		specVersionSet(struct, specVersion);
-		driverVersionSet(struct, driverVersion);
-		sizeSet(struct, size);
-		driverExtraSet(struct, driverExtra);
-		fieldsSet(struct, fields);
-		positionXSet(struct, position_x);
-		positionYSet(struct, position_y);
-		logPixelsSet(struct, logPixels);
-		bitsPerPelSet(struct, bitsPerPel);
-		pelsWidthSet(struct, pelsWidth);
-		pelsHeightSet(struct, pelsHeight);
-		displayFlagsSet(struct, displayFlags);
-		displayFrequencySet(struct, displayFrequency);
+		deviceNameSet(devmode, deviceName, deviceNameBytes);
+		specVersionSet(devmode, specVersion);
+		driverVersionSet(devmode, driverVersion);
+		sizeSet(devmode, size);
+		driverExtraSet(devmode, driverExtra);
+		fieldsSet(devmode, fields);
+		positionXSet(devmode, position_x);
+		positionYSet(devmode, position_y);
+		logPixelsSet(devmode, logPixels);
+		bitsPerPelSet(devmode, bitsPerPel);
+		pelsWidthSet(devmode, pelsWidth);
+		pelsHeightSet(devmode, pelsHeight);
+		displayFlagsSet(devmode, displayFlags);
+		displayFrequencySet(devmode, displayFrequency);
 
-		return struct;
+		return devmode;
 	}
 
 	/** Alternative virtual constructor. */
@@ -119,24 +119,24 @@ public final class DEVMODE {
 		int displayFlags,
 		int displayFrequency
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer devmode = malloc();
 
-		deviceNameSet(struct, deviceName);
-		specVersionSet(struct, specVersion);
-		driverVersionSet(struct, driverVersion);
-		sizeSet(struct, size);
-		driverExtraSet(struct, driverExtra);
-		fieldsSet(struct, fields);
-		positionXSet(struct, position_x);
-		positionYSet(struct, position_y);
-		logPixelsSet(struct, logPixels);
-		bitsPerPelSet(struct, bitsPerPel);
-		pelsWidthSet(struct, pelsWidth);
-		pelsHeightSet(struct, pelsHeight);
-		displayFlagsSet(struct, displayFlags);
-		displayFrequencySet(struct, displayFrequency);
+		deviceNameSet(devmode, deviceName);
+		specVersionSet(devmode, specVersion);
+		driverVersionSet(devmode, driverVersion);
+		sizeSet(devmode, size);
+		driverExtraSet(devmode, driverExtra);
+		fieldsSet(devmode, fields);
+		positionXSet(devmode, position_x);
+		positionYSet(devmode, position_y);
+		logPixelsSet(devmode, logPixels);
+		bitsPerPelSet(devmode, bitsPerPel);
+		pelsWidthSet(devmode, pelsWidth);
+		pelsHeightSet(devmode, pelsHeight);
+		displayFlagsSet(devmode, displayFlags);
+		displayFrequencySet(devmode, displayFrequency);
 
-		return struct;
+		return devmode;
 	}
 
 	/** Alternative virtual constructor. */
@@ -156,68 +156,68 @@ public final class DEVMODE {
 		int displayFlags,
 		int displayFrequency
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer devmode = malloc();
 
-		deviceNameSet(struct, deviceName);
-		specVersionSet(struct, specVersion);
-		driverVersionSet(struct, driverVersion);
-		sizeSet(struct, size);
-		driverExtraSet(struct, driverExtra);
-		fieldsSet(struct, fields);
-		positionXSet(struct, position_x);
-		positionYSet(struct, position_y);
-		logPixelsSet(struct, logPixels);
-		bitsPerPelSet(struct, bitsPerPel);
-		pelsWidthSet(struct, pelsWidth);
-		pelsHeightSet(struct, pelsHeight);
-		displayFlagsSet(struct, displayFlags);
-		displayFrequencySet(struct, displayFrequency);
+		deviceNameSet(devmode, deviceName);
+		specVersionSet(devmode, specVersion);
+		driverVersionSet(devmode, driverVersion);
+		sizeSet(devmode, size);
+		driverExtraSet(devmode, driverExtra);
+		fieldsSet(devmode, fields);
+		positionXSet(devmode, position_x);
+		positionYSet(devmode, position_y);
+		logPixelsSet(devmode, logPixels);
+		bitsPerPelSet(devmode, bitsPerPel);
+		pelsWidthSet(devmode, pelsWidth);
+		pelsHeightSet(devmode, pelsHeight);
+		displayFlagsSet(devmode, displayFlags);
+		displayFrequencySet(devmode, displayFrequency);
 
-		return struct;
+		return devmode;
 	}
 
-	public static void deviceNameSet(ByteBuffer struct, long deviceName, int bytes) { memCopy(deviceName, memAddress(struct) + DEVICENAME, bytes); }
-	public static void deviceNameSet(ByteBuffer struct, ByteBuffer deviceName) {
+	public static void deviceNameSet(ByteBuffer devmode, long deviceName, int bytes) { memCopy(deviceName, memAddress(devmode) + DEVICENAME, bytes); }
+	public static void deviceNameSet(ByteBuffer devmode, ByteBuffer deviceName) {
 		checkNT2(deviceName);
 		checkBufferGT(deviceName, 32 * 2);
-		deviceNameSet(struct, memAddress(deviceName), deviceName.remaining());
+		deviceNameSet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
-	public static void deviceNameSet(ByteBuffer struct, CharSequence deviceName) { ByteBuffer buffer = memEncodeUTF16(deviceName, true); deviceNameSet(struct, memAddress(buffer), buffer.capacity()); }
-	public static void specVersionSet(ByteBuffer struct, int specVersion) { struct.putShort(struct.position() + SPECVERSION, (short)specVersion); }
-	public static void driverVersionSet(ByteBuffer struct, int driverVersion) { struct.putShort(struct.position() + DRIVERVERSION, (short)driverVersion); }
-	public static void sizeSet(ByteBuffer struct, int size) { struct.putShort(struct.position() + SIZE, (short)size); }
-	public static void driverExtraSet(ByteBuffer struct, int driverExtra) { struct.putShort(struct.position() + DRIVEREXTRA, (short)driverExtra); }
-	public static void fieldsSet(ByteBuffer struct, int fields) { struct.putInt(struct.position() + FIELDS, fields); }
-	public static void positionXSet(ByteBuffer struct, int x) { struct.putInt(struct.position() + POSITION_X, x); }
-	public static void positionYSet(ByteBuffer struct, int y) { struct.putInt(struct.position() + POSITION_Y, y); }
-	public static void logPixelsSet(ByteBuffer struct, int logPixels) { struct.putShort(struct.position() + LOGPIXELS, (short)logPixels); }
-	public static void bitsPerPelSet(ByteBuffer struct, int bitsPerPel) { struct.putInt(struct.position() + BITSPERPEL, bitsPerPel); }
-	public static void pelsWidthSet(ByteBuffer struct, int pelsWidth) { struct.putInt(struct.position() + PELSWIDTH, pelsWidth); }
-	public static void pelsHeightSet(ByteBuffer struct, int pelsHeight) { struct.putInt(struct.position() + PELSHEIGHT, pelsHeight); }
-	public static void displayFlagsSet(ByteBuffer struct, int displayFlags) { struct.putInt(struct.position() + DISPLAYFLAGS, displayFlags); }
-	public static void displayFrequencySet(ByteBuffer struct, int displayFrequency) { struct.putInt(struct.position() + DISPLAYFREQUENCY, displayFrequency); }
+	public static void deviceNameSet(ByteBuffer devmode, CharSequence deviceName) { ByteBuffer buffer = memEncodeUTF16(deviceName, true); deviceNameSet(devmode, memAddress(buffer), buffer.capacity()); }
+	public static void specVersionSet(ByteBuffer devmode, int specVersion) { devmode.putShort(devmode.position() + SPECVERSION, (short)specVersion); }
+	public static void driverVersionSet(ByteBuffer devmode, int driverVersion) { devmode.putShort(devmode.position() + DRIVERVERSION, (short)driverVersion); }
+	public static void sizeSet(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
+	public static void driverExtraSet(ByteBuffer devmode, int driverExtra) { devmode.putShort(devmode.position() + DRIVEREXTRA, (short)driverExtra); }
+	public static void fieldsSet(ByteBuffer devmode, int fields) { devmode.putInt(devmode.position() + FIELDS, fields); }
+	public static void positionXSet(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION_X, x); }
+	public static void positionYSet(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION_Y, y); }
+	public static void logPixelsSet(ByteBuffer devmode, int logPixels) { devmode.putShort(devmode.position() + LOGPIXELS, (short)logPixels); }
+	public static void bitsPerPelSet(ByteBuffer devmode, int bitsPerPel) { devmode.putInt(devmode.position() + BITSPERPEL, bitsPerPel); }
+	public static void pelsWidthSet(ByteBuffer devmode, int pelsWidth) { devmode.putInt(devmode.position() + PELSWIDTH, pelsWidth); }
+	public static void pelsHeightSet(ByteBuffer devmode, int pelsHeight) { devmode.putInt(devmode.position() + PELSHEIGHT, pelsHeight); }
+	public static void displayFlagsSet(ByteBuffer devmode, int displayFlags) { devmode.putInt(devmode.position() + DISPLAYFLAGS, displayFlags); }
+	public static void displayFrequencySet(ByteBuffer devmode, int displayFrequency) { devmode.putInt(devmode.position() + DISPLAYFREQUENCY, displayFrequency); }
 
-	public static void deviceNameGet(ByteBuffer struct, long deviceName, int bytes) {
-		memCopy(memAddress(struct) + DEVICENAME, deviceName, bytes);
+	public static void deviceNameGet(ByteBuffer devmode, long deviceName, int bytes) {
+		memCopy(memAddress(devmode) + DEVICENAME, deviceName, bytes);
 	}
-	public static void deviceNameGetb(ByteBuffer struct, ByteBuffer deviceName) {
+	public static void deviceNameGetb(ByteBuffer devmode, ByteBuffer deviceName) {
 		checkBufferGT(deviceName, 32 * 2);
-		deviceNameGet(struct, memAddress(deviceName), deviceName.remaining());
+		deviceNameGet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
-	public static String deviceNameGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + DEVICENAME)); }
-	public static String deviceNameGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + DEVICENAME, size)); }
-	public static int specVersionGet(ByteBuffer struct) { return struct.getShort(struct.position() + SPECVERSION); }
-	public static int driverVersionGet(ByteBuffer struct) { return struct.getShort(struct.position() + DRIVERVERSION); }
-	public static int sizeGet(ByteBuffer struct) { return struct.getShort(struct.position() + SIZE); }
-	public static int driverExtraGet(ByteBuffer struct) { return struct.getShort(struct.position() + DRIVEREXTRA); }
-	public static int fieldsGet(ByteBuffer struct) { return struct.getInt(struct.position() + FIELDS); }
-	public static int positionXGet(ByteBuffer struct) { return struct.getInt(struct.position() + POSITION_X); }
-	public static int positionYGet(ByteBuffer struct) { return struct.getInt(struct.position() + POSITION_Y); }
-	public static int logPixelsGet(ByteBuffer struct) { return struct.getShort(struct.position() + LOGPIXELS); }
-	public static int bitsPerPelGet(ByteBuffer struct) { return struct.getInt(struct.position() + BITSPERPEL); }
-	public static int pelsWidthGet(ByteBuffer struct) { return struct.getInt(struct.position() + PELSWIDTH); }
-	public static int pelsHeightGet(ByteBuffer struct) { return struct.getInt(struct.position() + PELSHEIGHT); }
-	public static int displayFlagsGet(ByteBuffer struct) { return struct.getInt(struct.position() + DISPLAYFLAGS); }
-	public static int displayFrequencyGet(ByteBuffer struct) { return struct.getInt(struct.position() + DISPLAYFREQUENCY); }
+	public static String deviceNameGets(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
+	public static String deviceNameGets(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
+	public static int specVersionGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SPECVERSION); }
+	public static int driverVersionGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVERVERSION); }
+	public static int sizeGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
+	public static int driverExtraGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
+	public static int fieldsGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
+	public static int positionXGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION_X); }
+	public static int positionYGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION_Y); }
+	public static int logPixelsGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }
+	public static int bitsPerPelGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + BITSPERPEL); }
+	public static int pelsWidthGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSWIDTH); }
+	public static int pelsHeightGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSHEIGHT); }
+	public static int displayFlagsGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFLAGS); }
+	public static int displayFrequencyGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFREQUENCY); }
 
 }

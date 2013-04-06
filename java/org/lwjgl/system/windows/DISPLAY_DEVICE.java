@@ -59,16 +59,16 @@ public final class DISPLAY_DEVICE {
 		long DeviceKey,
 		int DeviceKeyBytes
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer display_device = malloc();
 
-		cbSet(struct, cb);
-		DeviceNameSet(struct, DeviceName, DeviceNameBytes);
-		DeviceStringSet(struct, DeviceString, DeviceStringBytes);
-		StateFlagsSet(struct, StateFlags);
-		DeviceIDSet(struct, DeviceID, DeviceIDBytes);
-		DeviceKeySet(struct, DeviceKey, DeviceKeyBytes);
+		cbSet(display_device, cb);
+		DeviceNameSet(display_device, DeviceName, DeviceNameBytes);
+		DeviceStringSet(display_device, DeviceString, DeviceStringBytes);
+		StateFlagsSet(display_device, StateFlags);
+		DeviceIDSet(display_device, DeviceID, DeviceIDBytes);
+		DeviceKeySet(display_device, DeviceKey, DeviceKeyBytes);
 
-		return struct;
+		return display_device;
 	}
 
 	/** Alternative virtual constructor. */
@@ -80,16 +80,16 @@ public final class DISPLAY_DEVICE {
 		ByteBuffer DeviceID,
 		ByteBuffer DeviceKey
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer display_device = malloc();
 
-		cbSet(struct, cb);
-		DeviceNameSet(struct, DeviceName);
-		DeviceStringSet(struct, DeviceString);
-		StateFlagsSet(struct, StateFlags);
-		DeviceIDSet(struct, DeviceID);
-		DeviceKeySet(struct, DeviceKey);
+		cbSet(display_device, cb);
+		DeviceNameSet(display_device, DeviceName);
+		DeviceStringSet(display_device, DeviceString);
+		StateFlagsSet(display_device, StateFlags);
+		DeviceIDSet(display_device, DeviceID);
+		DeviceKeySet(display_device, DeviceKey);
 
-		return struct;
+		return display_device;
 	}
 
 	/** Alternative virtual constructor. */
@@ -101,86 +101,86 @@ public final class DISPLAY_DEVICE {
 		CharSequence DeviceID,
 		CharSequence DeviceKey
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer display_device = malloc();
 
-		cbSet(struct, cb);
-		DeviceNameSet(struct, DeviceName);
-		DeviceStringSet(struct, DeviceString);
-		StateFlagsSet(struct, StateFlags);
-		DeviceIDSet(struct, DeviceID);
-		DeviceKeySet(struct, DeviceKey);
+		cbSet(display_device, cb);
+		DeviceNameSet(display_device, DeviceName);
+		DeviceStringSet(display_device, DeviceString);
+		StateFlagsSet(display_device, StateFlags);
+		DeviceIDSet(display_device, DeviceID);
+		DeviceKeySet(display_device, DeviceKey);
 
-		return struct;
+		return display_device;
 	}
 
-	public static void cbSet(ByteBuffer struct, int cb) { struct.putInt(struct.position() + CB, cb); }
-	public static void DeviceNameSet(ByteBuffer struct, long DeviceName, int bytes) { memCopy(DeviceName, memAddress(struct) + DEVICENAME, bytes); }
-	public static void DeviceNameSet(ByteBuffer struct, ByteBuffer DeviceName) {
+	public static void cbSet(ByteBuffer display_device, int cb) { display_device.putInt(display_device.position() + CB, cb); }
+	public static void DeviceNameSet(ByteBuffer display_device, long DeviceName, int bytes) { memCopy(DeviceName, memAddress(display_device) + DEVICENAME, bytes); }
+	public static void DeviceNameSet(ByteBuffer display_device, ByteBuffer DeviceName) {
 		checkNT2(DeviceName);
 		checkBufferGT(DeviceName, 32 * 2);
-		DeviceNameSet(struct, memAddress(DeviceName), DeviceName.remaining());
+		DeviceNameSet(display_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static void DeviceNameSet(ByteBuffer struct, CharSequence DeviceName) { ByteBuffer buffer = memEncodeUTF16(DeviceName, true); DeviceNameSet(struct, memAddress(buffer), buffer.capacity()); }
-	public static void DeviceStringSet(ByteBuffer struct, long DeviceString, int bytes) { memCopy(DeviceString, memAddress(struct) + DEVICESTRING, bytes); }
-	public static void DeviceStringSet(ByteBuffer struct, ByteBuffer DeviceString) {
+	public static void DeviceNameSet(ByteBuffer display_device, CharSequence DeviceName) { ByteBuffer buffer = memEncodeUTF16(DeviceName, true); DeviceNameSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceStringSet(ByteBuffer display_device, long DeviceString, int bytes) { memCopy(DeviceString, memAddress(display_device) + DEVICESTRING, bytes); }
+	public static void DeviceStringSet(ByteBuffer display_device, ByteBuffer DeviceString) {
 		checkNT2(DeviceString);
 		checkBufferGT(DeviceString, 128 * 2);
-		DeviceStringSet(struct, memAddress(DeviceString), DeviceString.remaining());
+		DeviceStringSet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static void DeviceStringSet(ByteBuffer struct, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(struct, memAddress(buffer), buffer.capacity()); }
-	public static void StateFlagsSet(ByteBuffer struct, int StateFlags) { struct.putInt(struct.position() + STATEFLAGS, StateFlags); }
-	public static void DeviceIDSet(ByteBuffer struct, long DeviceID, int bytes) { memCopy(DeviceID, memAddress(struct) + DEVICEID, bytes); }
-	public static void DeviceIDSet(ByteBuffer struct, ByteBuffer DeviceID) {
+	public static void DeviceStringSet(ByteBuffer display_device, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void StateFlagsSet(ByteBuffer display_device, int StateFlags) { display_device.putInt(display_device.position() + STATEFLAGS, StateFlags); }
+	public static void DeviceIDSet(ByteBuffer display_device, long DeviceID, int bytes) { memCopy(DeviceID, memAddress(display_device) + DEVICEID, bytes); }
+	public static void DeviceIDSet(ByteBuffer display_device, ByteBuffer DeviceID) {
 		checkNT2(DeviceID);
 		checkBufferGT(DeviceID, 128 * 2);
-		DeviceIDSet(struct, memAddress(DeviceID), DeviceID.remaining());
+		DeviceIDSet(display_device, memAddress(DeviceID), DeviceID.remaining());
 	}
-	public static void DeviceIDSet(ByteBuffer struct, CharSequence DeviceID) { ByteBuffer buffer = memEncodeUTF16(DeviceID, true); DeviceIDSet(struct, memAddress(buffer), buffer.capacity()); }
-	public static void DeviceKeySet(ByteBuffer struct, long DeviceKey, int bytes) { memCopy(DeviceKey, memAddress(struct) + DEVICEKEY, bytes); }
-	public static void DeviceKeySet(ByteBuffer struct, ByteBuffer DeviceKey) {
+	public static void DeviceIDSet(ByteBuffer display_device, CharSequence DeviceID) { ByteBuffer buffer = memEncodeUTF16(DeviceID, true); DeviceIDSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceKeySet(ByteBuffer display_device, long DeviceKey, int bytes) { memCopy(DeviceKey, memAddress(display_device) + DEVICEKEY, bytes); }
+	public static void DeviceKeySet(ByteBuffer display_device, ByteBuffer DeviceKey) {
 		checkNT2(DeviceKey);
 		checkBufferGT(DeviceKey, 128 * 2);
-		DeviceKeySet(struct, memAddress(DeviceKey), DeviceKey.remaining());
+		DeviceKeySet(display_device, memAddress(DeviceKey), DeviceKey.remaining());
 	}
-	public static void DeviceKeySet(ByteBuffer struct, CharSequence DeviceKey) { ByteBuffer buffer = memEncodeUTF16(DeviceKey, true); DeviceKeySet(struct, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceKeySet(ByteBuffer display_device, CharSequence DeviceKey) { ByteBuffer buffer = memEncodeUTF16(DeviceKey, true); DeviceKeySet(display_device, memAddress(buffer), buffer.capacity()); }
 
-	public static int cbGet(ByteBuffer struct) { return struct.getInt(struct.position() + CB); }
-	public static void DeviceNameGet(ByteBuffer struct, long DeviceName, int bytes) {
-		memCopy(memAddress(struct) + DEVICENAME, DeviceName, bytes);
+	public static int cbGet(ByteBuffer display_device) { return display_device.getInt(display_device.position() + CB); }
+	public static void DeviceNameGet(ByteBuffer display_device, long DeviceName, int bytes) {
+		memCopy(memAddress(display_device) + DEVICENAME, DeviceName, bytes);
 	}
-	public static void DeviceNameGetb(ByteBuffer struct, ByteBuffer DeviceName) {
+	public static void DeviceNameGetb(ByteBuffer display_device, ByteBuffer DeviceName) {
 		checkBufferGT(DeviceName, 32 * 2);
-		DeviceNameGet(struct, memAddress(DeviceName), DeviceName.remaining());
+		DeviceNameGet(display_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static String DeviceNameGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + DEVICENAME)); }
-	public static String DeviceNameGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + DEVICENAME, size)); }
-	public static void DeviceStringGet(ByteBuffer struct, long DeviceString, int bytes) {
-		memCopy(memAddress(struct) + DEVICESTRING, DeviceString, bytes);
+	public static String DeviceNameGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICENAME), DEVICENAME); }
+	public static String DeviceNameGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICENAME); }
+	public static void DeviceStringGet(ByteBuffer display_device, long DeviceString, int bytes) {
+		memCopy(memAddress(display_device) + DEVICESTRING, DeviceString, bytes);
 	}
-	public static void DeviceStringGetb(ByteBuffer struct, ByteBuffer DeviceString) {
+	public static void DeviceStringGetb(ByteBuffer display_device, ByteBuffer DeviceString) {
 		checkBufferGT(DeviceString, 128 * 2);
-		DeviceStringGet(struct, memAddress(DeviceString), DeviceString.remaining());
+		DeviceStringGet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static String DeviceStringGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + DEVICESTRING)); }
-	public static String DeviceStringGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + DEVICESTRING, size)); }
-	public static int StateFlagsGet(ByteBuffer struct) { return struct.getInt(struct.position() + STATEFLAGS); }
-	public static void DeviceIDGet(ByteBuffer struct, long DeviceID, int bytes) {
-		memCopy(memAddress(struct) + DEVICEID, DeviceID, bytes);
+	public static String DeviceStringGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
+	public static String DeviceStringGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
+	public static int StateFlagsGet(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
+	public static void DeviceIDGet(ByteBuffer display_device, long DeviceID, int bytes) {
+		memCopy(memAddress(display_device) + DEVICEID, DeviceID, bytes);
 	}
-	public static void DeviceIDGetb(ByteBuffer struct, ByteBuffer DeviceID) {
+	public static void DeviceIDGetb(ByteBuffer display_device, ByteBuffer DeviceID) {
 		checkBufferGT(DeviceID, 128 * 2);
-		DeviceIDGet(struct, memAddress(DeviceID), DeviceID.remaining());
+		DeviceIDGet(display_device, memAddress(DeviceID), DeviceID.remaining());
 	}
-	public static String DeviceIDGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + DEVICEID)); }
-	public static String DeviceIDGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + DEVICEID, size)); }
-	public static void DeviceKeyGet(ByteBuffer struct, long DeviceKey, int bytes) {
-		memCopy(memAddress(struct) + DEVICEKEY, DeviceKey, bytes);
+	public static String DeviceIDGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEID), DEVICEID); }
+	public static String DeviceIDGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEID); }
+	public static void DeviceKeyGet(ByteBuffer display_device, long DeviceKey, int bytes) {
+		memCopy(memAddress(display_device) + DEVICEKEY, DeviceKey, bytes);
 	}
-	public static void DeviceKeyGetb(ByteBuffer struct, ByteBuffer DeviceKey) {
+	public static void DeviceKeyGetb(ByteBuffer display_device, ByteBuffer DeviceKey) {
 		checkBufferGT(DeviceKey, 128 * 2);
-		DeviceKeyGet(struct, memAddress(DeviceKey), DeviceKey.remaining());
+		DeviceKeyGet(display_device, memAddress(DeviceKey), DeviceKey.remaining());
 	}
-	public static String DeviceKeyGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + DEVICEKEY)); }
-	public static String DeviceKeyGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + DEVICEKEY, size)); }
+	public static String DeviceKeyGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEKEY), DEVICEKEY); }
+	public static String DeviceKeyGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEKEY); }
 
 }

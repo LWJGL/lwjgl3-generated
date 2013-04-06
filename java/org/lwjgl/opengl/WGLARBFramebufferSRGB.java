@@ -17,7 +17,7 @@ public final class WGLARBFramebufferSRGB {
 	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB}.
 	 */
 	public static final int
-		WGL_WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20A9;
+		WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20A9;
 
 	private WGLARBFramebufferSRGB() {}
 

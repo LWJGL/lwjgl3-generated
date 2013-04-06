@@ -72,20 +72,20 @@ public final class OSVERSIONINFOEX {
 		int suiteMask,
 		int productType
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(struct, osVersionInfoSize);
-		majorVersionSet(struct, majorVersion);
-		minorVersionSet(struct, minorVersion);
-		buildNumberSet(struct, buildNumber);
-		platformIdSet(struct, platformId);
-		csdVersionSet(struct, csdVersion, csdVersionBytes);
-		servicePackMajorSet(struct, servicePackMajor);
-		servicePackMinorSet(struct, servicePackMinor);
-		suiteMaskSet(struct, suiteMask);
-		productTypeSet(struct, productType);
+		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
+		majorVersionSet(osversioninfoex, majorVersion);
+		minorVersionSet(osversioninfoex, minorVersion);
+		buildNumberSet(osversioninfoex, buildNumber);
+		platformIdSet(osversioninfoex, platformId);
+		csdVersionSet(osversioninfoex, csdVersion, csdVersionBytes);
+		servicePackMajorSet(osversioninfoex, servicePackMajor);
+		servicePackMinorSet(osversioninfoex, servicePackMinor);
+		suiteMaskSet(osversioninfoex, suiteMask);
+		productTypeSet(osversioninfoex, productType);
 
-		return struct;
+		return osversioninfoex;
 	}
 
 	/** Alternative virtual constructor. */
@@ -101,20 +101,20 @@ public final class OSVERSIONINFOEX {
 		int suiteMask,
 		int productType
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(struct, osVersionInfoSize);
-		majorVersionSet(struct, majorVersion);
-		minorVersionSet(struct, minorVersion);
-		buildNumberSet(struct, buildNumber);
-		platformIdSet(struct, platformId);
-		csdVersionSet(struct, csdVersion);
-		servicePackMajorSet(struct, servicePackMajor);
-		servicePackMinorSet(struct, servicePackMinor);
-		suiteMaskSet(struct, suiteMask);
-		productTypeSet(struct, productType);
+		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
+		majorVersionSet(osversioninfoex, majorVersion);
+		minorVersionSet(osversioninfoex, minorVersion);
+		buildNumberSet(osversioninfoex, buildNumber);
+		platformIdSet(osversioninfoex, platformId);
+		csdVersionSet(osversioninfoex, csdVersion);
+		servicePackMajorSet(osversioninfoex, servicePackMajor);
+		servicePackMinorSet(osversioninfoex, servicePackMinor);
+		suiteMaskSet(osversioninfoex, suiteMask);
+		productTypeSet(osversioninfoex, productType);
 
-		return struct;
+		return osversioninfoex;
 	}
 
 	/** Alternative virtual constructor. */
@@ -130,56 +130,56 @@ public final class OSVERSIONINFOEX {
 		int suiteMask,
 		int productType
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(struct, osVersionInfoSize);
-		majorVersionSet(struct, majorVersion);
-		minorVersionSet(struct, minorVersion);
-		buildNumberSet(struct, buildNumber);
-		platformIdSet(struct, platformId);
-		csdVersionSet(struct, csdVersion);
-		servicePackMajorSet(struct, servicePackMajor);
-		servicePackMinorSet(struct, servicePackMinor);
-		suiteMaskSet(struct, suiteMask);
-		productTypeSet(struct, productType);
+		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
+		majorVersionSet(osversioninfoex, majorVersion);
+		minorVersionSet(osversioninfoex, minorVersion);
+		buildNumberSet(osversioninfoex, buildNumber);
+		platformIdSet(osversioninfoex, platformId);
+		csdVersionSet(osversioninfoex, csdVersion);
+		servicePackMajorSet(osversioninfoex, servicePackMajor);
+		servicePackMinorSet(osversioninfoex, servicePackMinor);
+		suiteMaskSet(osversioninfoex, suiteMask);
+		productTypeSet(osversioninfoex, productType);
 
-		return struct;
+		return osversioninfoex;
 	}
 
-	public static void osVersionInfoSizeSet(ByteBuffer struct, int osVersionInfoSize) { struct.putInt(struct.position() + OSVERSIONINFOSIZE, osVersionInfoSize); }
-	public static void majorVersionSet(ByteBuffer struct, int majorVersion) { struct.putInt(struct.position() + MAJORVERSION, majorVersion); }
-	public static void minorVersionSet(ByteBuffer struct, int minorVersion) { struct.putInt(struct.position() + MINORVERSION, minorVersion); }
-	public static void buildNumberSet(ByteBuffer struct, int buildNumber) { struct.putInt(struct.position() + BUILDNUMBER, buildNumber); }
-	public static void platformIdSet(ByteBuffer struct, int platformId) { struct.putInt(struct.position() + PLATFORMID, platformId); }
-	public static void csdVersionSet(ByteBuffer struct, long csdVersion, int bytes) { memCopy(csdVersion, memAddress(struct) + CSDVERSION, bytes); }
-	public static void csdVersionSet(ByteBuffer struct, ByteBuffer csdVersion) {
+	public static void osVersionInfoSizeSet(ByteBuffer osversioninfoex, int osVersionInfoSize) { osversioninfoex.putInt(osversioninfoex.position() + OSVERSIONINFOSIZE, osVersionInfoSize); }
+	public static void majorVersionSet(ByteBuffer osversioninfoex, int majorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MAJORVERSION, majorVersion); }
+	public static void minorVersionSet(ByteBuffer osversioninfoex, int minorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MINORVERSION, minorVersion); }
+	public static void buildNumberSet(ByteBuffer osversioninfoex, int buildNumber) { osversioninfoex.putInt(osversioninfoex.position() + BUILDNUMBER, buildNumber); }
+	public static void platformIdSet(ByteBuffer osversioninfoex, int platformId) { osversioninfoex.putInt(osversioninfoex.position() + PLATFORMID, platformId); }
+	public static void csdVersionSet(ByteBuffer osversioninfoex, long csdVersion, int bytes) { memCopy(csdVersion, memAddress(osversioninfoex) + CSDVERSION, bytes); }
+	public static void csdVersionSet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkNT2(csdVersion);
 		checkBufferGT(csdVersion, 128 * 2);
-		csdVersionSet(struct, memAddress(csdVersion), csdVersion.remaining());
+		csdVersionSet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
-	public static void csdVersionSet(ByteBuffer struct, CharSequence csdVersion) { ByteBuffer buffer = memEncodeUTF16(csdVersion, true); csdVersionSet(struct, memAddress(buffer), buffer.capacity()); }
-	public static void servicePackMajorSet(ByteBuffer struct, int servicePackMajor) { struct.putShort(struct.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
-	public static void servicePackMinorSet(ByteBuffer struct, int servicePackMinor) { struct.putShort(struct.position() + SERVICEPACKMINOR, (short)servicePackMinor); }
-	public static void suiteMaskSet(ByteBuffer struct, int suiteMask) { struct.putShort(struct.position() + SUITEMASK, (short)suiteMask); }
-	public static void productTypeSet(ByteBuffer struct, int productType) { struct.put(struct.position() + PRODUCTTYPE, (byte)productType); }
+	public static void csdVersionSet(ByteBuffer osversioninfoex, CharSequence csdVersion) { ByteBuffer buffer = memEncodeUTF16(csdVersion, true); csdVersionSet(osversioninfoex, memAddress(buffer), buffer.capacity()); }
+	public static void servicePackMajorSet(ByteBuffer osversioninfoex, int servicePackMajor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
+	public static void servicePackMinorSet(ByteBuffer osversioninfoex, int servicePackMinor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMINOR, (short)servicePackMinor); }
+	public static void suiteMaskSet(ByteBuffer osversioninfoex, int suiteMask) { osversioninfoex.putShort(osversioninfoex.position() + SUITEMASK, (short)suiteMask); }
+	public static void productTypeSet(ByteBuffer osversioninfoex, int productType) { osversioninfoex.put(osversioninfoex.position() + PRODUCTTYPE, (byte)productType); }
 
-	public static int osVersionInfoSizeGet(ByteBuffer struct) { return struct.getInt(struct.position() + OSVERSIONINFOSIZE); }
-	public static int majorVersionGet(ByteBuffer struct) { return struct.getInt(struct.position() + MAJORVERSION); }
-	public static int minorVersionGet(ByteBuffer struct) { return struct.getInt(struct.position() + MINORVERSION); }
-	public static int buildNumberGet(ByteBuffer struct) { return struct.getInt(struct.position() + BUILDNUMBER); }
-	public static int platformIdGet(ByteBuffer struct) { return struct.getInt(struct.position() + PLATFORMID); }
-	public static void csdVersionGet(ByteBuffer struct, long csdVersion, int bytes) {
-		memCopy(memAddress(struct) + CSDVERSION, csdVersion, bytes);
+	public static int osVersionInfoSizeGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + OSVERSIONINFOSIZE); }
+	public static int majorVersionGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MAJORVERSION); }
+	public static int minorVersionGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MINORVERSION); }
+	public static int buildNumberGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + BUILDNUMBER); }
+	public static int platformIdGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + PLATFORMID); }
+	public static void csdVersionGet(ByteBuffer osversioninfoex, long csdVersion, int bytes) {
+		memCopy(memAddress(osversioninfoex) + CSDVERSION, csdVersion, bytes);
 	}
-	public static void csdVersionGetb(ByteBuffer struct, ByteBuffer csdVersion) {
+	public static void csdVersionGetb(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkBufferGT(csdVersion, 128 * 2);
-		csdVersionGet(struct, memAddress(csdVersion), csdVersion.remaining());
+		csdVersionGet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
-	public static String csdVersionGets(ByteBuffer struct) { return memDecodeUTF16(memByteBufferNT2(memAddress(struct) + CSDVERSION)); }
-	public static String csdVersionGets(ByteBuffer struct, int size) { return memDecodeUTF16(memByteBuffer(memAddress(struct) + CSDVERSION, size)); }
-	public static int servicePackMajorGet(ByteBuffer struct) { return struct.getShort(struct.position() + SERVICEPACKMAJOR); }
-	public static int servicePackMinorGet(ByteBuffer struct) { return struct.getShort(struct.position() + SERVICEPACKMINOR); }
-	public static int suiteMaskGet(ByteBuffer struct) { return struct.getShort(struct.position() + SUITEMASK); }
-	public static int productTypeGet(ByteBuffer struct) { return struct.get(struct.position() + PRODUCTTYPE); }
+	public static String csdVersionGets(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }
+	public static String csdVersionGets(ByteBuffer osversioninfoex, int size) { return memDecodeUTF16(osversioninfoex, size, CSDVERSION); }
+	public static int servicePackMajorGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMAJOR); }
+	public static int servicePackMinorGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMINOR); }
+	public static int suiteMaskGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SUITEMASK); }
+	public static int productTypeGet(ByteBuffer osversioninfoex) { return osversioninfoex.get(osversioninfoex.position() + PRODUCTTYPE); }
 
 }

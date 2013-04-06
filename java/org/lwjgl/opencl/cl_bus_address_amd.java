@@ -43,18 +43,18 @@ public final class cl_bus_address_amd {
 		long surface_bus_address,
 		long marker_bus_address
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer cl_bus_address_amd = malloc();
 
-		surface_bus_addressSet(struct, surface_bus_address);
-		marker_bus_addressSet(struct, marker_bus_address);
+		surface_bus_addressSet(cl_bus_address_amd, surface_bus_address);
+		marker_bus_addressSet(cl_bus_address_amd, marker_bus_address);
 
-		return struct;
+		return cl_bus_address_amd;
 	}
 
-	public static void surface_bus_addressSet(ByteBuffer struct, long surface_bus_address) { struct.putLong(struct.position() + SURFACE_BUS_ADDRESS, surface_bus_address); }
-	public static void marker_bus_addressSet(ByteBuffer struct, long marker_bus_address) { struct.putLong(struct.position() + MARKER_BUS_ADDRESS, marker_bus_address); }
+	public static void surface_bus_addressSet(ByteBuffer cl_bus_address_amd, long surface_bus_address) { cl_bus_address_amd.putLong(cl_bus_address_amd.position() + SURFACE_BUS_ADDRESS, surface_bus_address); }
+	public static void marker_bus_addressSet(ByteBuffer cl_bus_address_amd, long marker_bus_address) { cl_bus_address_amd.putLong(cl_bus_address_amd.position() + MARKER_BUS_ADDRESS, marker_bus_address); }
 
-	public static long surface_bus_addressGet(ByteBuffer struct) { return struct.getLong(struct.position() + SURFACE_BUS_ADDRESS); }
-	public static long marker_bus_addressGet(ByteBuffer struct) { return struct.getLong(struct.position() + MARKER_BUS_ADDRESS); }
+	public static long surface_bus_addressGet(ByteBuffer cl_bus_address_amd) { return cl_bus_address_amd.getLong(cl_bus_address_amd.position() + SURFACE_BUS_ADDRESS); }
+	public static long marker_bus_addressGet(ByteBuffer cl_bus_address_amd) { return cl_bus_address_amd.getLong(cl_bus_address_amd.position() + MARKER_BUS_ADDRESS); }
 
 }

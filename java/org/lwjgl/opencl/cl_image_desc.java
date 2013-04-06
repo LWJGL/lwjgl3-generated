@@ -67,42 +67,42 @@ public final class cl_image_desc {
 		int num_samples,
 		long buffer
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer cl_image_desc = malloc();
 
-		image_typeSet(struct, image_type);
-		image_widthSet(struct, image_width);
-		image_heightSet(struct, image_height);
-		image_depthSet(struct, image_depth);
-		image_array_sizeSet(struct, image_array_size);
-		image_row_pitchSet(struct, image_row_pitch);
-		image_slice_pitchSet(struct, image_slice_pitch);
-		num_mip_levelsSet(struct, num_mip_levels);
-		num_samplesSet(struct, num_samples);
-		bufferSet(struct, buffer);
+		image_typeSet(cl_image_desc, image_type);
+		image_widthSet(cl_image_desc, image_width);
+		image_heightSet(cl_image_desc, image_height);
+		image_depthSet(cl_image_desc, image_depth);
+		image_array_sizeSet(cl_image_desc, image_array_size);
+		image_row_pitchSet(cl_image_desc, image_row_pitch);
+		image_slice_pitchSet(cl_image_desc, image_slice_pitch);
+		num_mip_levelsSet(cl_image_desc, num_mip_levels);
+		num_samplesSet(cl_image_desc, num_samples);
+		bufferSet(cl_image_desc, buffer);
 
-		return struct;
+		return cl_image_desc;
 	}
 
-	public static void image_typeSet(ByteBuffer struct, int image_type) { struct.putInt(struct.position() + IMAGE_TYPE, image_type); }
-	public static void image_widthSet(ByteBuffer struct, long image_width) { PointerBuffer.put(struct, struct.position() + IMAGE_WIDTH, image_width); }
-	public static void image_heightSet(ByteBuffer struct, long image_height) { PointerBuffer.put(struct, struct.position() + IMAGE_HEIGHT, image_height); }
-	public static void image_depthSet(ByteBuffer struct, long image_depth) { PointerBuffer.put(struct, struct.position() + IMAGE_DEPTH, image_depth); }
-	public static void image_array_sizeSet(ByteBuffer struct, long image_array_size) { PointerBuffer.put(struct, struct.position() + IMAGE_ARRAY_SIZE, image_array_size); }
-	public static void image_row_pitchSet(ByteBuffer struct, long image_row_pitch) { PointerBuffer.put(struct, struct.position() + IMAGE_ROW_PITCH, image_row_pitch); }
-	public static void image_slice_pitchSet(ByteBuffer struct, long image_slice_pitch) { PointerBuffer.put(struct, struct.position() + IMAGE_SLICE_PITCH, image_slice_pitch); }
-	public static void num_mip_levelsSet(ByteBuffer struct, int num_mip_levels) { struct.putInt(struct.position() + NUM_MIP_LEVELS, num_mip_levels); }
-	public static void num_samplesSet(ByteBuffer struct, int num_samples) { struct.putInt(struct.position() + NUM_SAMPLES, num_samples); }
-	public static void bufferSet(ByteBuffer struct, long buffer) { PointerBuffer.put(struct, struct.position() + BUFFER, buffer); }
+	public static void image_typeSet(ByteBuffer cl_image_desc, int image_type) { cl_image_desc.putInt(cl_image_desc.position() + IMAGE_TYPE, image_type); }
+	public static void image_widthSet(ByteBuffer cl_image_desc, long image_width) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_WIDTH, image_width); }
+	public static void image_heightSet(ByteBuffer cl_image_desc, long image_height) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_HEIGHT, image_height); }
+	public static void image_depthSet(ByteBuffer cl_image_desc, long image_depth) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_DEPTH, image_depth); }
+	public static void image_array_sizeSet(ByteBuffer cl_image_desc, long image_array_size) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_ARRAY_SIZE, image_array_size); }
+	public static void image_row_pitchSet(ByteBuffer cl_image_desc, long image_row_pitch) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_ROW_PITCH, image_row_pitch); }
+	public static void image_slice_pitchSet(ByteBuffer cl_image_desc, long image_slice_pitch) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + IMAGE_SLICE_PITCH, image_slice_pitch); }
+	public static void num_mip_levelsSet(ByteBuffer cl_image_desc, int num_mip_levels) { cl_image_desc.putInt(cl_image_desc.position() + NUM_MIP_LEVELS, num_mip_levels); }
+	public static void num_samplesSet(ByteBuffer cl_image_desc, int num_samples) { cl_image_desc.putInt(cl_image_desc.position() + NUM_SAMPLES, num_samples); }
+	public static void bufferSet(ByteBuffer cl_image_desc, long buffer) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + BUFFER, buffer); }
 
-	public static int image_typeGet(ByteBuffer struct) { return struct.getInt(struct.position() + IMAGE_TYPE); }
-	public static long image_widthGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_WIDTH); }
-	public static long image_heightGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_HEIGHT); }
-	public static long image_depthGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_DEPTH); }
-	public static long image_array_sizeGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_ARRAY_SIZE); }
-	public static long image_row_pitchGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_ROW_PITCH); }
-	public static long image_slice_pitchGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + IMAGE_SLICE_PITCH); }
-	public static int num_mip_levelsGet(ByteBuffer struct) { return struct.getInt(struct.position() + NUM_MIP_LEVELS); }
-	public static int num_samplesGet(ByteBuffer struct) { return struct.getInt(struct.position() + NUM_SAMPLES); }
-	public static long bufferGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + BUFFER); }
+	public static int image_typeGet(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + IMAGE_TYPE); }
+	public static long image_widthGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_WIDTH); }
+	public static long image_heightGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_HEIGHT); }
+	public static long image_depthGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_DEPTH); }
+	public static long image_array_sizeGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_ARRAY_SIZE); }
+	public static long image_row_pitchGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_ROW_PITCH); }
+	public static long image_slice_pitchGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_SLICE_PITCH); }
+	public static int num_mip_levelsGet(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + NUM_MIP_LEVELS); }
+	public static int num_samplesGet(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + NUM_SAMPLES); }
+	public static long bufferGet(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + BUFFER); }
 
 }

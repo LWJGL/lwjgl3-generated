@@ -43,18 +43,18 @@ public final class cl_buffer_region {
 		long origin,
 		long size
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer cl_buffer_region = malloc();
 
-		originSet(struct, origin);
-		sizeSet(struct, size);
+		originSet(cl_buffer_region, origin);
+		sizeSet(cl_buffer_region, size);
 
-		return struct;
+		return cl_buffer_region;
 	}
 
-	public static void originSet(ByteBuffer struct, long origin) { PointerBuffer.put(struct, struct.position() + ORIGIN, origin); }
-	public static void sizeSet(ByteBuffer struct, long size) { PointerBuffer.put(struct, struct.position() + SIZE, size); }
+	public static void originSet(ByteBuffer cl_buffer_region, long origin) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + ORIGIN, origin); }
+	public static void sizeSet(ByteBuffer cl_buffer_region, long size) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + SIZE, size); }
 
-	public static long originGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + ORIGIN); }
-	public static long sizeGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + SIZE); }
+	public static long originGet(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + ORIGIN); }
+	public static long sizeGet(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + SIZE); }
 
 }

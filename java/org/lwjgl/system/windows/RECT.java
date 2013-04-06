@@ -49,24 +49,24 @@ public final class RECT {
 		int right,
 		int bottom
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer rect = malloc();
 
-		leftSet(struct, left);
-		topSet(struct, top);
-		rightSet(struct, right);
-		bottomSet(struct, bottom);
+		leftSet(rect, left);
+		topSet(rect, top);
+		rightSet(rect, right);
+		bottomSet(rect, bottom);
 
-		return struct;
+		return rect;
 	}
 
-	public static void leftSet(ByteBuffer struct, int left) { struct.putInt(struct.position() + LEFT, left); }
-	public static void topSet(ByteBuffer struct, int top) { struct.putInt(struct.position() + TOP, top); }
-	public static void rightSet(ByteBuffer struct, int right) { struct.putInt(struct.position() + RIGHT, right); }
-	public static void bottomSet(ByteBuffer struct, int bottom) { struct.putInt(struct.position() + BOTTOM, bottom); }
+	public static void leftSet(ByteBuffer rect, int left) { rect.putInt(rect.position() + LEFT, left); }
+	public static void topSet(ByteBuffer rect, int top) { rect.putInt(rect.position() + TOP, top); }
+	public static void rightSet(ByteBuffer rect, int right) { rect.putInt(rect.position() + RIGHT, right); }
+	public static void bottomSet(ByteBuffer rect, int bottom) { rect.putInt(rect.position() + BOTTOM, bottom); }
 
-	public static int leftGet(ByteBuffer struct) { return struct.getInt(struct.position() + LEFT); }
-	public static int topGet(ByteBuffer struct) { return struct.getInt(struct.position() + TOP); }
-	public static int rightGet(ByteBuffer struct) { return struct.getInt(struct.position() + RIGHT); }
-	public static int bottomGet(ByteBuffer struct) { return struct.getInt(struct.position() + BOTTOM); }
+	public static int leftGet(ByteBuffer rect) { return rect.getInt(rect.position() + LEFT); }
+	public static int topGet(ByteBuffer rect) { return rect.getInt(rect.position() + TOP); }
+	public static int rightGet(ByteBuffer rect) { return rect.getInt(rect.position() + RIGHT); }
+	public static int bottomGet(ByteBuffer rect) { return rect.getInt(rect.position() + BOTTOM); }
 
 }

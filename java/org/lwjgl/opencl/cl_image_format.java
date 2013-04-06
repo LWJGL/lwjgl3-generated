@@ -43,18 +43,18 @@ public final class cl_image_format {
 		int image_channel_order,
 		int image_channel_data_type
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer cl_image_format = malloc();
 
-		image_channel_orderSet(struct, image_channel_order);
-		image_channel_data_typeSet(struct, image_channel_data_type);
+		image_channel_orderSet(cl_image_format, image_channel_order);
+		image_channel_data_typeSet(cl_image_format, image_channel_data_type);
 
-		return struct;
+		return cl_image_format;
 	}
 
-	public static void image_channel_orderSet(ByteBuffer struct, int image_channel_order) { struct.putInt(struct.position() + IMAGE_CHANNEL_ORDER, image_channel_order); }
-	public static void image_channel_data_typeSet(ByteBuffer struct, int image_channel_data_type) { struct.putInt(struct.position() + IMAGE_CHANNEL_DATA_TYPE, image_channel_data_type); }
+	public static void image_channel_orderSet(ByteBuffer cl_image_format, int image_channel_order) { cl_image_format.putInt(cl_image_format.position() + IMAGE_CHANNEL_ORDER, image_channel_order); }
+	public static void image_channel_data_typeSet(ByteBuffer cl_image_format, int image_channel_data_type) { cl_image_format.putInt(cl_image_format.position() + IMAGE_CHANNEL_DATA_TYPE, image_channel_data_type); }
 
-	public static int image_channel_orderGet(ByteBuffer struct) { return struct.getInt(struct.position() + IMAGE_CHANNEL_ORDER); }
-	public static int image_channel_data_typeGet(ByteBuffer struct) { return struct.getInt(struct.position() + IMAGE_CHANNEL_DATA_TYPE); }
+	public static int image_channel_orderGet(ByteBuffer cl_image_format) { return cl_image_format.getInt(cl_image_format.position() + IMAGE_CHANNEL_ORDER); }
+	public static int image_channel_data_typeGet(ByteBuffer cl_image_format) { return cl_image_format.getInt(cl_image_format.position() + IMAGE_CHANNEL_DATA_TYPE); }
 
 }

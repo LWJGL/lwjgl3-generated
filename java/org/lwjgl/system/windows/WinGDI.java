@@ -139,36 +139,6 @@ public final class WinGDI {
 
 	private WinGDI() {}
 
-	// --- [ CancelDC ] ---
-
-	/** JNI method for {@link #CancelDC} */
-	public static native int nCancelDC(long hdc);
-
-	/**
-	 * Cancels any pending operation on the specified device context (DC).
-	 *
-	 * @param hdc a handle to the DC
-	 */
-	public static int CancelDC(long hdc) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hdc);
-		return nCancelDC(hdc);
-	}
-
-	// --- [ CreateCompatibleDC ] ---
-
-	/** JNI method for {@link #CreateCompatibleDC} */
-	public static native long nCreateCompatibleDC(long hdc);
-
-	/**
-	 * Creates a memory device context (DC) compatible with the specified device.
-	 *
-	 * @param hdc a handle to an existing DC. If this handle is NULL, the function creates a memory DC compatible with the application's current screen.
-	 */
-	public static long CreateCompatibleDC(long hdc) {
-		return nCreateCompatibleDC(hdc);
-	}
-
 	// --- [ GetStockObject ] ---
 
 	/**
@@ -280,41 +250,92 @@ public final class WinGDI {
 		return nDeleteObject(object);
 	}
 
-	// --- [ GetDCOrgEx ] ---
+	// --- [ CreateDC ] ---
 
-	/** JNI method for {@link #GetDCOrgEx} */
-	public static native int nGetDCOrgEx(long hdc, long point);
+	/** JNI method for {@link #CreateDC} */
+	public static native long nCreateDC(long lpszDriver, long lpszDevice, long lpszOutput, long lpInitData);
 
 	/**
-	 * Retrieves the final translation origin for a specified device context (DC). The final translation origin specifies an offset that the system uses to
-	 * translate device coordinates into client coordinates (for coordinates in an application's window).
+	 * Creates a device context (DC) for a device using the specified name.
 	 *
-	 * @param hdc   a handle to the DC whose final translation origin is to be retrieved
-	 * @param point a {@link POINT} structure that receives the final translation origin, in device coordinates
+	 * @param lpszDriver A pointer to a null-terminated character string that specifies either DISPLAY or the name of a specific display device. For printing, we recommend
+	 *                   that you pass {@code NULL} to {@code lpszDriver} because GDI ignores {@code lpszDriver} for printer devices.
+	 * @param lpszDevice A pointer to a null-terminated character string that specifies the name of the specific output device being used, as shown by the Print Manager (for
+	 *                   example, Epson FX-80). It is not the printer model name. The {@code lpszDevice} parameter must be used.
+	 *                   <p/>
+	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices}.
+	 *                   <p/>
+	 *                   If {@code lpszDriver} is DISPLAY or the device name of a specific display device, then {@code lpszDevice} must be {@code NULL} or that same device name. If
+	 *                   {@code lpszDevice} is {@code NULL}, then a DC is created for the primary display device.
+	 *                   <p/>
+	 *                   If there are multiple monitors on the system, calling {@code CreateDC(TEXT("DISPLAY"),NULL,NULL,NULL)} will create a DC covering all the monitors.
+	 * @param lpszOutput this parameter is ignored and should be set to {@code NULL}
+	 * @param lpInitData A pointer to a {@link #DEVMODE} structure containing device-specific initialization data for the device driver. The {@code DocumentProperties}
+	 *                   function retrieves this structure filled in for a specified device. The {@code lpInitData} parameter must be {@code NULL} if the device driver is to use
+	 *                   the default initialization (if any) specified by the user.
+	 *                   <p/>
+	 *                   If {@code lpszDriver} is DISPLAY, {@code lpInitData} must be {@code NULL}; GDI then uses the display device's current {@link DEVMODE}.
 	 */
-	public static int GetDCOrgEx(long hdc, ByteBuffer point) {
+	public static long CreateDC(ByteBuffer lpszDriver, ByteBuffer lpszDevice, ByteBuffer lpszOutput, ByteBuffer lpInitData) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
-			checkBuffer(point, POINT.SIZEOF);
+			if ( lpszDriver != null ) checkNT2(lpszDriver);
+			if ( lpszDevice != null ) checkNT2(lpszDevice);
+			if ( lpInitData != null ) checkBuffer(lpInitData, DEVMODE.SIZEOF);
 		}
-		return nGetDCOrgEx(hdc, memAddress(point));
+		return nCreateDC(memAddressSafe(lpszDriver), memAddressSafe(lpszDevice), memAddressSafe(lpszOutput), memAddressSafe(lpInitData));
 	}
 
-	// --- [ GetDeviceCaps ] ---
+	/** CharSequence version of: {@link #CreateDC} */
+	public static long CreateDC(CharSequence lpszDriver, CharSequence lpszDevice, CharSequence lpszOutput, ByteBuffer lpInitData) {
+		if ( LWJGLUtil.CHECKS )
+			if ( lpInitData != null ) checkBuffer(lpInitData, DEVMODE.SIZEOF);
+		return nCreateDC(memAddressSafe(memEncodeUTF16(lpszDriver)), memAddressSafe(memEncodeUTF16(lpszDevice)), memAddressSafe(memEncodeUTF16(lpszOutput)), memAddressSafe(lpInitData));
+	}
 
-	/** JNI method for {@link #GetDeviceCaps} */
-	public static native int nGetDeviceCaps(long hdc, int index);
+	// --- [ CreateCompatibleDC ] ---
+
+	/** JNI method for {@link #CreateCompatibleDC} */
+	public static native long nCreateCompatibleDC(long hdc);
 
 	/**
-	 * Retrieves device-specific information for the specified device.
+	 * Creates a memory device context (DC) compatible with the specified device.
 	 *
-	 * @param hdc   a handle to the DC
-	 * @param index the item to be returned
+	 * @param hdc a handle to an existing DC. If this handle is {@code NULL}, the function creates a memory DC compatible with the application's current screen.
 	 */
-	public static int GetDeviceCaps(long hdc, int index) {
+	public static long CreateCompatibleDC(long hdc) {
+		return nCreateCompatibleDC(hdc);
+	}
+
+	// --- [ DeleteDC ] ---
+
+	/** JNI method for {@link #DeleteDC} */
+	public static native int nDeleteDC(long hdc);
+
+	/**
+	 * Deletes the specified device context (DC).
+	 *
+	 * @param hdc a handle to the device context
+	 */
+	public static int DeleteDC(long hdc) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nGetDeviceCaps(hdc, index);
+		return nDeleteDC(hdc);
+	}
+
+	// --- [ CancelDC ] ---
+
+	/** JNI method for {@link #CancelDC} */
+	public static native int nCancelDC(long hdc);
+
+	/**
+	 * Cancels any pending operation on the specified device context (DC).
+	 *
+	 * @param hdc a handle to the DC
+	 */
+	public static int CancelDC(long hdc) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(hdc);
+		return nCancelDC(hdc);
 	}
 
 	// --- [ SaveDC ] ---
@@ -353,6 +374,85 @@ public final class WinGDI {
 		return nRestoreDC(hdc, savedDC);
 	}
 
+	// --- [ GetDCOrgEx ] ---
+
+	/** JNI method for {@link #GetDCOrgEx} */
+	public static native int nGetDCOrgEx(long hdc, long point);
+
+	/**
+	 * Retrieves the final translation origin for a specified device context (DC). The final translation origin specifies an offset that the system uses to
+	 * translate device coordinates into client coordinates (for coordinates in an application's window).
+	 *
+	 * @param hdc   a handle to the DC whose final translation origin is to be retrieved
+	 * @param point a {@link POINT} structure that receives the final translation origin, in device coordinates
+	 */
+	public static int GetDCOrgEx(long hdc, ByteBuffer point) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(hdc);
+			checkBuffer(point, POINT.SIZEOF);
+		}
+		return nGetDCOrgEx(hdc, memAddress(point));
+	}
+
+	// --- [ GetDeviceCaps ] ---
+
+	/** JNI method for {@link #GetDeviceCaps} */
+	public static native int nGetDeviceCaps(long hdc, int index);
+
+	/**
+	 * Retrieves device-specific information for the specified device.
+	 *
+	 * @param hdc   a handle to the DC
+	 * @param index the item to be returned
+	 */
+	public static int GetDeviceCaps(long hdc, int index) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(hdc);
+		return nGetDeviceCaps(hdc, index);
+	}
+
+	// --- [ GetDeviceGammaRamp ] ---
+
+	/** JNI method for {@link #GetDeviceGammaRamp} */
+	public static native int nGetDeviceGammaRamp(long hdc, long lpRamp);
+
+	/**
+	 * Sets the gamma ramp on direct color display boards having drivers that support downloadable gamma ramps in hardware.
+	 *
+	 * @param hdc    the device context of the direct color display board in question
+	 * @param lpRamp pointer to a buffer containing the gamma ramp to be set. The gamma ramp is specified in three arrays of 256 WORD elements each, which contain the
+	 *               mapping between RGB values in the frame buffer and digital-analog-converter (DAC ) values. The sequence of the arrays is red, green, blue. The RGB
+	 *               values must be stored in the most significant bits of each WORD to increase DAC independence.
+	 */
+	public static int GetDeviceGammaRamp(long hdc, long lpRamp) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(hdc);
+			checkPointer(lpRamp);
+		}
+		return nGetDeviceGammaRamp(hdc, lpRamp);
+	}
+
+	// --- [ SetDeviceGammaRamp ] ---
+
+	/** JNI method for {@link #SetDeviceGammaRamp} */
+	public static native int nSetDeviceGammaRamp(long hdc, long lpRamp);
+
+	/**
+	 * Gets the gamma ramp on direct color display boards having drivers that support downloadable gamma ramps in hardware.
+	 *
+	 * @param hdc    the device context of the direct color display board in question
+	 * @param lpRamp points to a buffer where the function can place the current gamma ramp of the color display board. The gamma ramp is specified in three arrays of
+	 *               256 WORD elements each, which contain the mapping between RGB values in the frame buffer and digital-analog-converter (DAC) values. The sequence of
+	 *               the arrays is red, green, blue.
+	 */
+	public static int SetDeviceGammaRamp(long hdc, long lpRamp) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(hdc);
+			checkPointer(lpRamp);
+		}
+		return nSetDeviceGammaRamp(hdc, lpRamp);
+	}
+
 	// --- [ ChoosePixelFormat ] ---
 
 	/** JNI method for {@link #ChoosePixelFormat} */
@@ -387,24 +487,24 @@ public final class WinGDI {
 	 * @param bytes                 the size, in bytes, of the structure pointed to by {@code pixelFormatDescriptor}. The {@code wglDescribePixelFormat} function stores no more than
 	 *                              {@code bytes} bytes of data to that structure. Set this value to {@link PIXELFORMATDESCRIPTOR#SIZEOF}.
 	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure whose members the function sets with pixel format data. The function stores the number of bytes copied to
-	 *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is NULL, the function writes no data to the
+	 *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
 	 *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
 	 */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, int bytes, ByteBuffer pixelFormatDescriptor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hdc);
-			checkBuffer(pixelFormatDescriptor, PIXELFORMATDESCRIPTOR.SIZEOF);
+			if ( pixelFormatDescriptor != null ) checkBuffer(pixelFormatDescriptor, PIXELFORMATDESCRIPTOR.SIZEOF);
 		}
-		return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddress(pixelFormatDescriptor));
+		return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddressSafe(pixelFormatDescriptor));
 	}
 
 	/** Alternative version of: {@link #DescribePixelFormat} */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, ByteBuffer pixelFormatDescriptor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hdc);
-			checkBuffer(pixelFormatDescriptor, PIXELFORMATDESCRIPTOR.SIZEOF);
+			if ( pixelFormatDescriptor != null ) checkBuffer(pixelFormatDescriptor, PIXELFORMATDESCRIPTOR.SIZEOF);
 		}
-		return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, memAddress(pixelFormatDescriptor));
+		return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, memAddressSafe(pixelFormatDescriptor));
 	}
 
 	// --- [ GetPixelFormat ] ---

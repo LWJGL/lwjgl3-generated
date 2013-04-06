@@ -57,33 +57,33 @@ public final class WINDOWPOS {
 		int cy,
 		int flags
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer windowpos = malloc();
 
-		hwndSet(struct, hwnd);
-		hwndInsertAfterSet(struct, hwndInsertAfter);
-		xSet(struct, x);
-		ySet(struct, y);
-		cxSet(struct, cx);
-		cySet(struct, cy);
-		flagsSet(struct, flags);
+		hwndSet(windowpos, hwnd);
+		hwndInsertAfterSet(windowpos, hwndInsertAfter);
+		xSet(windowpos, x);
+		ySet(windowpos, y);
+		cxSet(windowpos, cx);
+		cySet(windowpos, cy);
+		flagsSet(windowpos, flags);
 
-		return struct;
+		return windowpos;
 	}
 
-	public static void hwndSet(ByteBuffer struct, long hwnd) { PointerBuffer.put(struct, struct.position() + HWND, hwnd); }
-	public static void hwndInsertAfterSet(ByteBuffer struct, long hwndInsertAfter) { PointerBuffer.put(struct, struct.position() + HWNDINSERTAFTER, hwndInsertAfter); }
-	public static void xSet(ByteBuffer struct, int x) { struct.putInt(struct.position() + X, x); }
-	public static void ySet(ByteBuffer struct, int y) { struct.putInt(struct.position() + Y, y); }
-	public static void cxSet(ByteBuffer struct, int cx) { struct.putInt(struct.position() + CX, cx); }
-	public static void cySet(ByteBuffer struct, int cy) { struct.putInt(struct.position() + CY, cy); }
-	public static void flagsSet(ByteBuffer struct, int flags) { struct.putInt(struct.position() + FLAGS, flags); }
+	public static void hwndSet(ByteBuffer windowpos, long hwnd) { PointerBuffer.put(windowpos, windowpos.position() + HWND, hwnd); }
+	public static void hwndInsertAfterSet(ByteBuffer windowpos, long hwndInsertAfter) { PointerBuffer.put(windowpos, windowpos.position() + HWNDINSERTAFTER, hwndInsertAfter); }
+	public static void xSet(ByteBuffer windowpos, int x) { windowpos.putInt(windowpos.position() + X, x); }
+	public static void ySet(ByteBuffer windowpos, int y) { windowpos.putInt(windowpos.position() + Y, y); }
+	public static void cxSet(ByteBuffer windowpos, int cx) { windowpos.putInt(windowpos.position() + CX, cx); }
+	public static void cySet(ByteBuffer windowpos, int cy) { windowpos.putInt(windowpos.position() + CY, cy); }
+	public static void flagsSet(ByteBuffer windowpos, int flags) { windowpos.putInt(windowpos.position() + FLAGS, flags); }
 
-	public static long hwndGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + HWND); }
-	public static long hwndInsertAfterGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + HWNDINSERTAFTER); }
-	public static int xGet(ByteBuffer struct) { return struct.getInt(struct.position() + X); }
-	public static int yGet(ByteBuffer struct) { return struct.getInt(struct.position() + Y); }
-	public static int cxGet(ByteBuffer struct) { return struct.getInt(struct.position() + CX); }
-	public static int cyGet(ByteBuffer struct) { return struct.getInt(struct.position() + CY); }
-	public static int flagsGet(ByteBuffer struct) { return struct.getInt(struct.position() + FLAGS); }
+	public static long hwndGet(ByteBuffer windowpos) { return PointerBuffer.get(windowpos, windowpos.position() + HWND); }
+	public static long hwndInsertAfterGet(ByteBuffer windowpos) { return PointerBuffer.get(windowpos, windowpos.position() + HWNDINSERTAFTER); }
+	public static int xGet(ByteBuffer windowpos) { return windowpos.getInt(windowpos.position() + X); }
+	public static int yGet(ByteBuffer windowpos) { return windowpos.getInt(windowpos.position() + Y); }
+	public static int cxGet(ByteBuffer windowpos) { return windowpos.getInt(windowpos.position() + CX); }
+	public static int cyGet(ByteBuffer windowpos) { return windowpos.getInt(windowpos.position() + CY); }
+	public static int flagsGet(ByteBuffer windowpos) { return windowpos.getInt(windowpos.position() + FLAGS); }
 
 }

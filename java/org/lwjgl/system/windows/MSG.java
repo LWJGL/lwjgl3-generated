@@ -60,33 +60,33 @@ public final class MSG {
 		int point_x,
 		int point_y
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer msg = malloc();
 
-		windowSet(struct, window);
-		messageSet(struct, message);
-		wParamSet(struct, wParam);
-		lParamSet(struct, lParam);
-		timeSet(struct, time);
-		pointXSet(struct, point_x);
-		pointYSet(struct, point_y);
+		windowSet(msg, window);
+		messageSet(msg, message);
+		wParamSet(msg, wParam);
+		lParamSet(msg, lParam);
+		timeSet(msg, time);
+		pointXSet(msg, point_x);
+		pointYSet(msg, point_y);
 
-		return struct;
+		return msg;
 	}
 
-	public static void windowSet(ByteBuffer struct, long window) { PointerBuffer.put(struct, struct.position() + WINDOW, window); }
-	public static void messageSet(ByteBuffer struct, int message) { struct.putInt(struct.position() + MESSAGE, message); }
-	public static void wParamSet(ByteBuffer struct, long wParam) { PointerBuffer.put(struct, struct.position() + WPARAM, wParam); }
-	public static void lParamSet(ByteBuffer struct, long lParam) { PointerBuffer.put(struct, struct.position() + LPARAM, lParam); }
-	public static void timeSet(ByteBuffer struct, int time) { struct.putInt(struct.position() + TIME, time); }
-	public static void pointXSet(ByteBuffer struct, int x) { struct.putInt(struct.position() + POINT_X, x); }
-	public static void pointYSet(ByteBuffer struct, int y) { struct.putInt(struct.position() + POINT_Y, y); }
+	public static void windowSet(ByteBuffer msg, long window) { PointerBuffer.put(msg, msg.position() + WINDOW, window); }
+	public static void messageSet(ByteBuffer msg, int message) { msg.putInt(msg.position() + MESSAGE, message); }
+	public static void wParamSet(ByteBuffer msg, long wParam) { PointerBuffer.put(msg, msg.position() + WPARAM, wParam); }
+	public static void lParamSet(ByteBuffer msg, long lParam) { PointerBuffer.put(msg, msg.position() + LPARAM, lParam); }
+	public static void timeSet(ByteBuffer msg, int time) { msg.putInt(msg.position() + TIME, time); }
+	public static void pointXSet(ByteBuffer msg, int x) { msg.putInt(msg.position() + POINT_X, x); }
+	public static void pointYSet(ByteBuffer msg, int y) { msg.putInt(msg.position() + POINT_Y, y); }
 
-	public static long windowGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + WINDOW); }
-	public static int messageGet(ByteBuffer struct) { return struct.getInt(struct.position() + MESSAGE); }
-	public static long wParamGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + WPARAM); }
-	public static long lParamGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + LPARAM); }
-	public static int timeGet(ByteBuffer struct) { return struct.getInt(struct.position() + TIME); }
-	public static int pointXGet(ByteBuffer struct) { return struct.getInt(struct.position() + POINT_X); }
-	public static int pointYGet(ByteBuffer struct) { return struct.getInt(struct.position() + POINT_Y); }
+	public static long windowGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WINDOW); }
+	public static int messageGet(ByteBuffer msg) { return msg.getInt(msg.position() + MESSAGE); }
+	public static long wParamGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WPARAM); }
+	public static long lParamGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + LPARAM); }
+	public static int timeGet(ByteBuffer msg) { return msg.getInt(msg.position() + TIME); }
+	public static int pointXGet(ByteBuffer msg) { return msg.getInt(msg.position() + POINT_X); }
+	public static int pointYGet(ByteBuffer msg) { return msg.getInt(msg.position() + POINT_Y); }
 
 }

@@ -82,7 +82,7 @@ public final class KHRTerminateContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link Functions} instance for the current context. */
+	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
 	public static Functions getInstance(CLObject object) {
 		return object.getCapabilities().__KHRTerminateContext;
 	}

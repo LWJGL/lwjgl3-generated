@@ -57,30 +57,30 @@ public final class GLYPHMETRICSFLOAT {
 		float cellIncX,
 		float cellIncY
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer glyphmetricsfloat = malloc();
 
-		blackBoxXSet(struct, blackBoxX);
-		blockBoxYSet(struct, blockBoxY);
-		glyphOriginXSet(struct, glyphOrigin_x);
-		glyphOriginYSet(struct, glyphOrigin_y);
-		cellIncXSet(struct, cellIncX);
-		cellIncYSet(struct, cellIncY);
+		blackBoxXSet(glyphmetricsfloat, blackBoxX);
+		blockBoxYSet(glyphmetricsfloat, blockBoxY);
+		glyphOriginXSet(glyphmetricsfloat, glyphOrigin_x);
+		glyphOriginYSet(glyphmetricsfloat, glyphOrigin_y);
+		cellIncXSet(glyphmetricsfloat, cellIncX);
+		cellIncYSet(glyphmetricsfloat, cellIncY);
 
-		return struct;
+		return glyphmetricsfloat;
 	}
 
-	public static void blackBoxXSet(ByteBuffer struct, float blackBoxX) { struct.putFloat(struct.position() + BLACKBOXX, blackBoxX); }
-	public static void blockBoxYSet(ByteBuffer struct, float blockBoxY) { struct.putFloat(struct.position() + BLOCKBOXY, blockBoxY); }
-	public static void glyphOriginXSet(ByteBuffer struct, float x) { struct.putFloat(struct.position() + GLYPHORIGIN_X, x); }
-	public static void glyphOriginYSet(ByteBuffer struct, float y) { struct.putFloat(struct.position() + GLYPHORIGIN_Y, y); }
-	public static void cellIncXSet(ByteBuffer struct, float cellIncX) { struct.putFloat(struct.position() + CELLINCX, cellIncX); }
-	public static void cellIncYSet(ByteBuffer struct, float cellIncY) { struct.putFloat(struct.position() + CELLINCY, cellIncY); }
+	public static void blackBoxXSet(ByteBuffer glyphmetricsfloat, float blackBoxX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLACKBOXX, blackBoxX); }
+	public static void blockBoxYSet(ByteBuffer glyphmetricsfloat, float blockBoxY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLOCKBOXY, blockBoxY); }
+	public static void glyphOriginXSet(ByteBuffer glyphmetricsfloat, float x) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN_X, x); }
+	public static void glyphOriginYSet(ByteBuffer glyphmetricsfloat, float y) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN_Y, y); }
+	public static void cellIncXSet(ByteBuffer glyphmetricsfloat, float cellIncX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCX, cellIncX); }
+	public static void cellIncYSet(ByteBuffer glyphmetricsfloat, float cellIncY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCY, cellIncY); }
 
-	public static float blackBoxXGet(ByteBuffer struct) { return struct.getFloat(struct.position() + BLACKBOXX); }
-	public static float blockBoxYGet(ByteBuffer struct) { return struct.getFloat(struct.position() + BLOCKBOXY); }
-	public static float glyphOriginXGet(ByteBuffer struct) { return struct.getFloat(struct.position() + GLYPHORIGIN_X); }
-	public static float glyphOriginYGet(ByteBuffer struct) { return struct.getFloat(struct.position() + GLYPHORIGIN_Y); }
-	public static float cellIncXGet(ByteBuffer struct) { return struct.getFloat(struct.position() + CELLINCX); }
-	public static float cellIncYGet(ByteBuffer struct) { return struct.getFloat(struct.position() + CELLINCY); }
+	public static float blackBoxXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLACKBOXX); }
+	public static float blockBoxYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLOCKBOXY); }
+	public static float glyphOriginXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN_X); }
+	public static float glyphOriginYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN_Y); }
+	public static float cellIncXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCX); }
+	public static float cellIncYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCY); }
 
 }

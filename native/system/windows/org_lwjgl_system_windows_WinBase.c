@@ -35,3 +35,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nFreeLibrary(JNIEnv
 	HMODULE handle = (HMODULE)(intptr_t)handleAddress;
 	return (jint)FreeLibrary(handle);
 }
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceFrequency(JNIEnv *__env, jclass clazz, jlong frequencyAddress) {
+	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
+	return (jint)QueryPerformanceFrequency(frequency);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceCounter(JNIEnv *__env, jclass clazz, jlong frequencyAddress) {
+	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
+	return (jint)QueryPerformanceCounter(frequency);
+}

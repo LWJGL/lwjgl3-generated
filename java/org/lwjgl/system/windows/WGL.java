@@ -175,7 +175,7 @@ public final class WGL {
 	 * the device identified by device. You can also use MakeCurrent to change the calling thread's current rendering context so it's no longer current.
 	 *
 	 * @param hdc     handle to a device context. Subsequent OpenGL calls made by the calling thread are drawn on the device identified by {@code dc}.
-	 * @param context handle to an OpenGL rendering context that the function sets as the calling thread's rendering context. If {@code context} is NULL, the function
+	 * @param context handle to an OpenGL rendering context that the function sets as the calling thread's rendering context. If {@code context} is {@code NULL}, the function
 	 *                makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
 	 *                this case, {@code hdc} is ignored.
 	 */
@@ -253,7 +253,7 @@ public final class WGL {
 	 *                     not extruded.
 	 * @param format       the format to use in the display lists. When format is {@link #WGL_FONT_LINES}, the {@code wglUseFontOutlines} function creates fonts with line
 	 *                     segments. When format is {@link #WGL_FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons. One of:<p/>{@link #WGL_FONT_LINES}, {@link #WGL_FONT_POLYGONS}
-	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is NULL, no
+	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is {@code NULL}, no
 	 *                     glyph metrics are returned.
 	 */
 	public static int wglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, ByteBuffer glyphMetrics) {

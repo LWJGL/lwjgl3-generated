@@ -42,18 +42,18 @@ public final class POINTFLOAT {
 		float x,
 		float y
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer pointfloat = malloc();
 
-		xSet(struct, x);
-		ySet(struct, y);
+		xSet(pointfloat, x);
+		ySet(pointfloat, y);
 
-		return struct;
+		return pointfloat;
 	}
 
-	public static void xSet(ByteBuffer struct, float x) { struct.putFloat(struct.position() + X, x); }
-	public static void ySet(ByteBuffer struct, float y) { struct.putFloat(struct.position() + Y, y); }
+	public static void xSet(ByteBuffer pointfloat, float x) { pointfloat.putFloat(pointfloat.position() + X, x); }
+	public static void ySet(ByteBuffer pointfloat, float y) { pointfloat.putFloat(pointfloat.position() + Y, y); }
 
-	public static float xGet(ByteBuffer struct) { return struct.getFloat(struct.position() + X); }
-	public static float yGet(ByteBuffer struct) { return struct.getFloat(struct.position() + Y); }
+	public static float xGet(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + X); }
+	public static float yGet(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + Y); }
 
 }

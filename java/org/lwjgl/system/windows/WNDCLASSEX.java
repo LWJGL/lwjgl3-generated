@@ -73,22 +73,22 @@ public final class WNDCLASSEX {
 		long className,
 		long iconSm
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer wndclassex = malloc();
 
-		sizeSet(struct, size);
-		styleSet(struct, style);
-		wndProcSet(struct, wndProc);
-		clsExtraSet(struct, clsExtra);
-		wndExtraSet(struct, wndExtra);
-		instanceSet(struct, instance);
-		iconSet(struct, icon);
-		cursorSet(struct, cursor);
-		backgroundSet(struct, background);
-		menuNameSet(struct, menuName);
-		classNameSet(struct, className);
-		iconSmSet(struct, iconSm);
+		sizeSet(wndclassex, size);
+		styleSet(wndclassex, style);
+		wndProcSet(wndclassex, wndProc);
+		clsExtraSet(wndclassex, clsExtra);
+		wndExtraSet(wndclassex, wndExtra);
+		instanceSet(wndclassex, instance);
+		iconSet(wndclassex, icon);
+		cursorSet(wndclassex, cursor);
+		backgroundSet(wndclassex, background);
+		menuNameSet(wndclassex, menuName);
+		classNameSet(wndclassex, className);
+		iconSmSet(wndclassex, iconSm);
 
-		return struct;
+		return wndclassex;
 	}
 
 	/** Alternative virtual constructor. */
@@ -106,22 +106,22 @@ public final class WNDCLASSEX {
 		ByteBuffer className,
 		long iconSm
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer wndclassex = malloc();
 
-		sizeSet(struct, size);
-		styleSet(struct, style);
-		wndProcSet(struct, wndProc);
-		clsExtraSet(struct, clsExtra);
-		wndExtraSet(struct, wndExtra);
-		instanceSet(struct, instance);
-		iconSet(struct, icon);
-		cursorSet(struct, cursor);
-		backgroundSet(struct, background);
-		menuNameSet(struct, menuName);
-		classNameSet(struct, className);
-		iconSmSet(struct, iconSm);
+		sizeSet(wndclassex, size);
+		styleSet(wndclassex, style);
+		wndProcSet(wndclassex, wndProc);
+		clsExtraSet(wndclassex, clsExtra);
+		wndExtraSet(wndclassex, wndExtra);
+		instanceSet(wndclassex, instance);
+		iconSet(wndclassex, icon);
+		cursorSet(wndclassex, cursor);
+		backgroundSet(wndclassex, background);
+		menuNameSet(wndclassex, menuName);
+		classNameSet(wndclassex, className);
+		iconSmSet(wndclassex, iconSm);
 
-		return struct;
+		return wndclassex;
 	}
 
 	/** Alternative virtual constructor. */
@@ -139,56 +139,56 @@ public final class WNDCLASSEX {
 		CharSequence className,
 		long iconSm
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer wndclassex = malloc();
 
-		sizeSet(struct, size);
-		styleSet(struct, style);
-		wndProcSet(struct, wndProc);
-		clsExtraSet(struct, clsExtra);
-		wndExtraSet(struct, wndExtra);
-		instanceSet(struct, instance);
-		iconSet(struct, icon);
-		cursorSet(struct, cursor);
-		backgroundSet(struct, background);
-		menuNameSet(struct, menuName);
-		classNameSet(struct, className);
-		iconSmSet(struct, iconSm);
+		sizeSet(wndclassex, size);
+		styleSet(wndclassex, style);
+		wndProcSet(wndclassex, wndProc);
+		clsExtraSet(wndclassex, clsExtra);
+		wndExtraSet(wndclassex, wndExtra);
+		instanceSet(wndclassex, instance);
+		iconSet(wndclassex, icon);
+		cursorSet(wndclassex, cursor);
+		backgroundSet(wndclassex, background);
+		menuNameSet(wndclassex, menuName);
+		classNameSet(wndclassex, className);
+		iconSmSet(wndclassex, iconSm);
 
-		return struct;
+		return wndclassex;
 	}
 
-	public static void sizeSet(ByteBuffer struct, int size) { struct.putInt(struct.position() + SIZE, size); }
-	public static void styleSet(ByteBuffer struct, int style) { struct.putInt(struct.position() + STYLE, style); }
-	public static void wndProcSet(ByteBuffer struct, long wndProc) { PointerBuffer.put(struct, struct.position() + WNDPROC, wndProc); }
-	public static void clsExtraSet(ByteBuffer struct, int clsExtra) { struct.putInt(struct.position() + CLSEXTRA, clsExtra); }
-	public static void wndExtraSet(ByteBuffer struct, int wndExtra) { struct.putInt(struct.position() + WNDEXTRA, wndExtra); }
-	public static void instanceSet(ByteBuffer struct, long instance) { PointerBuffer.put(struct, struct.position() + INSTANCE, instance); }
-	public static void iconSet(ByteBuffer struct, long icon) { PointerBuffer.put(struct, struct.position() + ICON, icon); }
-	public static void cursorSet(ByteBuffer struct, long cursor) { PointerBuffer.put(struct, struct.position() + CURSOR, cursor); }
-	public static void backgroundSet(ByteBuffer struct, long background) { PointerBuffer.put(struct, struct.position() + BACKGROUND, background); }
-	public static void menuNameSet(ByteBuffer struct, long menuName) { PointerBuffer.put(struct, struct.position() + MENUNAME, menuName); }
-	public static void menuNameSet(ByteBuffer struct, ByteBuffer menuName) { menuNameSet(struct, menuName == null ? 0 : memAddress(checkNT2(menuName))); }
-	public static void menuNameSet(ByteBuffer struct, CharSequence menuName) { menuNameSet(struct, menuName == null ? 0 : memAddress(memEncodeUTF16(menuName))); }
-	public static void classNameSet(ByteBuffer struct, long className) { PointerBuffer.put(struct, struct.position() + CLASSNAME, className); }
-	public static void classNameSet(ByteBuffer struct, ByteBuffer className) { classNameSet(struct, className == null ? 0 : memAddress(checkNT2(className))); }
-	public static void classNameSet(ByteBuffer struct, CharSequence className) { classNameSet(struct, className == null ? 0 : memAddress(memEncodeUTF16(className))); }
-	public static void iconSmSet(ByteBuffer struct, long iconSm) { PointerBuffer.put(struct, struct.position() + ICONSM, iconSm); }
+	public static void sizeSet(ByteBuffer wndclassex, int size) { wndclassex.putInt(wndclassex.position() + SIZE, size); }
+	public static void styleSet(ByteBuffer wndclassex, int style) { wndclassex.putInt(wndclassex.position() + STYLE, style); }
+	public static void wndProcSet(ByteBuffer wndclassex, long wndProc) { PointerBuffer.put(wndclassex, wndclassex.position() + WNDPROC, wndProc); }
+	public static void clsExtraSet(ByteBuffer wndclassex, int clsExtra) { wndclassex.putInt(wndclassex.position() + CLSEXTRA, clsExtra); }
+	public static void wndExtraSet(ByteBuffer wndclassex, int wndExtra) { wndclassex.putInt(wndclassex.position() + WNDEXTRA, wndExtra); }
+	public static void instanceSet(ByteBuffer wndclassex, long instance) { PointerBuffer.put(wndclassex, wndclassex.position() + INSTANCE, instance); }
+	public static void iconSet(ByteBuffer wndclassex, long icon) { PointerBuffer.put(wndclassex, wndclassex.position() + ICON, icon); }
+	public static void cursorSet(ByteBuffer wndclassex, long cursor) { PointerBuffer.put(wndclassex, wndclassex.position() + CURSOR, cursor); }
+	public static void backgroundSet(ByteBuffer wndclassex, long background) { PointerBuffer.put(wndclassex, wndclassex.position() + BACKGROUND, background); }
+	public static void menuNameSet(ByteBuffer wndclassex, long menuName) { PointerBuffer.put(wndclassex, wndclassex.position() + MENUNAME, menuName); }
+	public static void menuNameSet(ByteBuffer wndclassex, ByteBuffer menuName) { menuNameSet(wndclassex, menuName == null ? 0 : memAddress(checkNT2(menuName))); }
+	public static void menuNameSet(ByteBuffer wndclassex, CharSequence menuName) { menuNameSet(wndclassex, menuName == null ? 0 : memAddress(memEncodeUTF16(menuName))); }
+	public static void classNameSet(ByteBuffer wndclassex, long className) { PointerBuffer.put(wndclassex, wndclassex.position() + CLASSNAME, className); }
+	public static void classNameSet(ByteBuffer wndclassex, ByteBuffer className) { classNameSet(wndclassex, className == null ? 0 : memAddress(checkNT2(className))); }
+	public static void classNameSet(ByteBuffer wndclassex, CharSequence className) { classNameSet(wndclassex, className == null ? 0 : memAddress(memEncodeUTF16(className))); }
+	public static void iconSmSet(ByteBuffer wndclassex, long iconSm) { PointerBuffer.put(wndclassex, wndclassex.position() + ICONSM, iconSm); }
 
-	public static int sizeGet(ByteBuffer struct) { return struct.getInt(struct.position() + SIZE); }
-	public static int styleGet(ByteBuffer struct) { return struct.getInt(struct.position() + STYLE); }
-	public static long wndProcGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + WNDPROC); }
-	public static int clsExtraGet(ByteBuffer struct) { return struct.getInt(struct.position() + CLSEXTRA); }
-	public static int wndExtraGet(ByteBuffer struct) { return struct.getInt(struct.position() + WNDEXTRA); }
-	public static long instanceGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + INSTANCE); }
-	public static long iconGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + ICON); }
-	public static long cursorGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + CURSOR); }
-	public static long backgroundGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + BACKGROUND); }
-	public static long menuNameGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + MENUNAME); }
-	public static ByteBuffer menuNameGetb(ByteBuffer struct) { long address = menuNameGet(struct); return address == 0 ? null : memByteBufferNT2(address); }
-	public static String menuNameGets(ByteBuffer struct) { long address = menuNameGet(struct); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
-	public static long classNameGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + CLASSNAME); }
-	public static ByteBuffer classNameGetb(ByteBuffer struct) { long address = classNameGet(struct); return address == 0 ? null : memByteBufferNT2(address); }
-	public static String classNameGets(ByteBuffer struct) { long address = classNameGet(struct); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
-	public static long iconSmGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + ICONSM); }
+	public static int sizeGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + SIZE); }
+	public static int styleGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + STYLE); }
+	public static long wndProcGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + WNDPROC); }
+	public static int clsExtraGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + CLSEXTRA); }
+	public static int wndExtraGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + WNDEXTRA); }
+	public static long instanceGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + INSTANCE); }
+	public static long iconGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICON); }
+	public static long cursorGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CURSOR); }
+	public static long backgroundGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + BACKGROUND); }
+	public static long menuNameGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + MENUNAME); }
+	public static ByteBuffer menuNameGetb(ByteBuffer wndclassex) { long address = menuNameGet(wndclassex); return address == 0 ? null : memByteBufferNT2(address); }
+	public static String menuNameGets(ByteBuffer wndclassex) { long address = menuNameGet(wndclassex); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static long classNameGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CLASSNAME); }
+	public static ByteBuffer classNameGetb(ByteBuffer wndclassex) { long address = classNameGet(wndclassex); return address == 0 ? null : memByteBufferNT2(address); }
+	public static String classNameGets(ByteBuffer wndclassex) { long address = classNameGet(wndclassex); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static long iconSmGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICONSM); }
 
 }

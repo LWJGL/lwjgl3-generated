@@ -45,21 +45,21 @@ public final class LOGBRUSH {
 		int lbColor,
 		long lbHatch
 	) {
-		ByteBuffer struct = malloc();
+		ByteBuffer logbrush = malloc();
 
-		lbStyleSet(struct, lbStyle);
-		lbColorSet(struct, lbColor);
-		lbHatchSet(struct, lbHatch);
+		lbStyleSet(logbrush, lbStyle);
+		lbColorSet(logbrush, lbColor);
+		lbHatchSet(logbrush, lbHatch);
 
-		return struct;
+		return logbrush;
 	}
 
-	public static void lbStyleSet(ByteBuffer struct, int lbStyle) { struct.putInt(struct.position() + LBSTYLE, lbStyle); }
-	public static void lbColorSet(ByteBuffer struct, int lbColor) { struct.putInt(struct.position() + LBCOLOR, lbColor); }
-	public static void lbHatchSet(ByteBuffer struct, long lbHatch) { PointerBuffer.put(struct, struct.position() + LBHATCH, lbHatch); }
+	public static void lbStyleSet(ByteBuffer logbrush, int lbStyle) { logbrush.putInt(logbrush.position() + LBSTYLE, lbStyle); }
+	public static void lbColorSet(ByteBuffer logbrush, int lbColor) { logbrush.putInt(logbrush.position() + LBCOLOR, lbColor); }
+	public static void lbHatchSet(ByteBuffer logbrush, long lbHatch) { PointerBuffer.put(logbrush, logbrush.position() + LBHATCH, lbHatch); }
 
-	public static int lbStyleGet(ByteBuffer struct) { return struct.getInt(struct.position() + LBSTYLE); }
-	public static int lbColorGet(ByteBuffer struct) { return struct.getInt(struct.position() + LBCOLOR); }
-	public static long lbHatchGet(ByteBuffer struct) { return PointerBuffer.get(struct, struct.position() + LBHATCH); }
+	public static int lbStyleGet(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBSTYLE); }
+	public static int lbColorGet(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBCOLOR); }
+	public static long lbHatchGet(ByteBuffer logbrush) { return PointerBuffer.get(logbrush, logbrush.position() + LBHATCH); }
 
 }

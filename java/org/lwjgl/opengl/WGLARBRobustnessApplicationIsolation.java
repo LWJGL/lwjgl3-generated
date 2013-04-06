@@ -18,7 +18,7 @@ public final class WGLARBRobustnessApplicationIsolation {
 	 * {@link WGLARBCreateContext#wglCreateContextAttribsARB}.
 	 */
 	public static final int
-		WGL_WGL_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
+		WGL_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
 
 	private WGLARBRobustnessApplicationIsolation() {}
 

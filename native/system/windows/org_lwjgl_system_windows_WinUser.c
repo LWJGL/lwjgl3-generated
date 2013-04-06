@@ -81,6 +81,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSetWindowPos(JNIEn
 	return (jint)SetWindowPos(window, insertAfter, x, y, width, height, flags);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSetWindowText(JNIEnv *__env, jclass clazz, jlong windowAddress, jlong stringAddress) {
+	HWND window = (HWND)(intptr_t)windowAddress;
+	LPCTSTR string = (LPCTSTR)(intptr_t)stringAddress;
+	return (jint)SetWindowText(window, string);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nGetMessage(JNIEnv *__env, jclass clazz, jlong msgAddress, jlong windowAddress, jint msgFilterMin, jint msgFilterMax) {
 	LPMSG msg = (LPMSG)(intptr_t)msgAddress;
 	HWND window = (HWND)(intptr_t)windowAddress;
@@ -96,6 +102,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nPeekMessage(JNIEnv
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nTranslateMessage(JNIEnv *__env, jclass clazz, jlong msgAddress) {
 	const MSG *msg = (const MSG *)(intptr_t)msgAddress;
 	return (jint)TranslateMessage(msg);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_WaitMessage(JNIEnv *__env, jclass clazz) {
+	return (jint)WaitMessage();
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nDispatchMessage(JNIEnv *__env, jclass clazz, jlong msgAddress) {
@@ -156,4 +166,111 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nChangeDisplaySetti
 	HWND window = (HWND)(intptr_t)windowAddress;
 	LPVOID param = (LPVOID)(intptr_t)paramAddress;
 	return (jint)ChangeDisplaySettingsEx(deviceName, devMode, window, flags, param);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSystemParametersInfo(JNIEnv *__env, jclass clazz, jint uiAction, jint uiParam, jlong pvParamAddress, jint fWinIni) {
+	PVOID pvParam = (PVOID)(intptr_t)pvParamAddress;
+	return (jint)SystemParametersInfo(uiAction, uiParam, pvParam, fWinIni);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nAdjustWindowRectEx(JNIEnv *__env, jclass clazz, jlong rectAddress, jint style, jint menu, jint exStyle) {
+	LPRECT rect = (LPRECT)(intptr_t)rectAddress;
+	return (jint)AdjustWindowRectEx(rect, style, menu, exStyle);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nGetCursorPos(JNIEnv *__env, jclass clazz, jlong pointAddress) {
+	LPPOINT point = (LPPOINT)(intptr_t)pointAddress;
+	return (jint)GetCursorPos(point);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nScreenToClient(JNIEnv *__env, jclass clazz, jlong hWndAddress, jlong pointAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	LPPOINT point = (LPPOINT)(intptr_t)pointAddress;
+	return (jint)ScreenToClient(hWnd, point);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nClientToScreen(JNIEnv *__env, jclass clazz, jlong hWndAddress, jlong pointAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	LPPOINT point = (LPPOINT)(intptr_t)pointAddress;
+	return (jint)ClientToScreen(hWnd, point);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nGetClientRect(JNIEnv *__env, jclass clazz, jlong hWndAddress, jlong rectAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	LPRECT rect = (LPRECT)(intptr_t)rectAddress;
+	return (jint)GetClientRect(hWnd, rect);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nWindowFromPoint(JNIEnv *__env, jclass clazz, jlong pointAddress) {
+	POINT *point = (POINT *)(intptr_t)pointAddress;
+	return (jlong)(intptr_t)WindowFromPoint(*point);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nBringWindowToTop(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jint)BringWindowToTop(hWnd);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSetForegroundWindow(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jint)SetForegroundWindow(hWnd);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSetFocus(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jint)SetFocus(hWnd);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetWindowLongPtr(JNIEnv *__env, jclass clazz, jlong hWndAddress, jint index, jlong newLong) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jlong)SetWindowLongPtr(hWnd, index, (LONG_PTR)newLong);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nGetWindowLongPtr(JNIEnv *__env, jclass clazz, jlong hWndAddress, jint index) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jlong)GetWindowLongPtr(hWnd, index);
+}
+
+JNIEXPORT jshort JNICALL Java_org_lwjgl_system_windows_WinUser_GetAsyncKeyState(JNIEnv *__env, jclass clazz, jint key) {
+	return (jshort)GetAsyncKeyState(key);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_SetCursorPos(JNIEnv *__env, jclass clazz, jint X, jint Y) {
+	return (jint)SetCursorPos(X, Y);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetCapture(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
+	HWND hWnd = (HWND)(intptr_t)hWndAddress;
+	return (jlong)(intptr_t)SetCapture(hWnd);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_ReleaseCapture(JNIEnv *__env, jclass clazz) {
+	return (jint)ReleaseCapture();
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nClipCursor(JNIEnv *__env, jclass clazz, jlong rectAddress) {
+	const RECT *rect = (const RECT *)(intptr_t)rectAddress;
+	return (jint)ClipCursor(rect);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_ShowCursor(JNIEnv *__env, jclass clazz, jint show) {
+	return (jint)ShowCursor(show);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetCursor(JNIEnv *__env, jclass clazz, jlong hCursorAddress) {
+	HCURSOR hCursor = (HCURSOR)(intptr_t)hCursorAddress;
+	return (jlong)(intptr_t)SetCursor(hCursor);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_MapVirtualKey(JNIEnv *__env, jclass clazz, jint code, jint mapType) {
+	return (jint)MapVirtualKey(code, mapType);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nTrackMouseEvent(JNIEnv *__env, jclass clazz, jlong eventTrackAddress) {
+	LPTRACKMOUSEEVENT eventTrack = (LPTRACKMOUSEEVENT)(intptr_t)eventTrackAddress;
+	return (jint)TrackMouseEvent(eventTrack);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_GetForegroundWindow(JNIEnv *__env, jclass clazz) {
+	return (jlong)(intptr_t)GetForegroundWindow();
 }

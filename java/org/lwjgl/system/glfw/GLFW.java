@@ -171,7 +171,8 @@ public final class GLFW {
 		GLFW_KEY_RIGHT_CONTROL = 0x159,
 		GLFW_KEY_RIGHT_ALT     = 0x15A,
 		GLFW_KEY_RIGHT_SUPER   = 0x15B,
-		GLFW_KEY_MENU          = 0x15C;
+		GLFW_KEY_MENU          = 0x15C,
+		GLFW_KEY_LAST          = GLFW_KEY_MENU;
 
 	/** Mouse buttons. */
 	public static final int
@@ -183,28 +184,30 @@ public final class GLFW {
 		GLFW_MOUSE_BUTTON_6      = 0x5,
 		GLFW_MOUSE_BUTTON_7      = 0x6,
 		GLFW_MOUSE_BUTTON_8      = 0x7,
+		GLFW_MOUSE_BUTTON_LAST   = GLFW_MOUSE_BUTTON_8,
 		GLFW_MOUSE_BUTTON_LEFT   = GLFW_MOUSE_BUTTON_1,
 		GLFW_MOUSE_BUTTON_RIGHT  = GLFW_MOUSE_BUTTON_2,
 		GLFW_MOUSE_BUTTON_MIDDLE = GLFW_MOUSE_BUTTON_3;
 
 	/** Joysticks. */
 	public static final int
-		GLFW_JOYSTICK_1  = 0x0,
-		GLFW_JOYSTICK_2  = 0x1,
-		GLFW_JOYSTICK_3  = 0x2,
-		GLFW_JOYSTICK_4  = 0x3,
-		GLFW_JOYSTICK_5  = 0x4,
-		GLFW_JOYSTICK_6  = 0x5,
-		GLFW_JOYSTICK_7  = 0x6,
-		GLFW_JOYSTICK_8  = 0x7,
-		GLFW_JOYSTICK_9  = 0x8,
-		GLFW_JOYSTICK_10 = 0x9,
-		GLFW_JOYSTICK_11 = 0xA,
-		GLFW_JOYSTICK_12 = 0xB,
-		GLFW_JOYSTICK_13 = 0xC,
-		GLFW_JOYSTICK_14 = 0xD,
-		GLFW_JOYSTICK_15 = 0xE,
-		GLFW_JOYSTICK_16 = 0xF;
+		GLFW_JOYSTICK_1    = 0x0,
+		GLFW_JOYSTICK_2    = 0x1,
+		GLFW_JOYSTICK_3    = 0x2,
+		GLFW_JOYSTICK_4    = 0x3,
+		GLFW_JOYSTICK_5    = 0x4,
+		GLFW_JOYSTICK_6    = 0x5,
+		GLFW_JOYSTICK_7    = 0x6,
+		GLFW_JOYSTICK_8    = 0x7,
+		GLFW_JOYSTICK_9    = 0x8,
+		GLFW_JOYSTICK_10   = 0x9,
+		GLFW_JOYSTICK_11   = 0xA,
+		GLFW_JOYSTICK_12   = 0xB,
+		GLFW_JOYSTICK_13   = 0xC,
+		GLFW_JOYSTICK_14   = 0xD,
+		GLFW_JOYSTICK_15   = 0xE,
+		GLFW_JOYSTICK_16   = 0xF,
+		GLFW_JOYSTICK_LAST = GLFW_JOYSTICK_16;
 
 	/** GLFW has not been initialized. */
 	public static final int
@@ -275,6 +278,51 @@ public final class GLFW {
 	public static final int
 		GLFW_CONNECTED    = 0x61000,
 		GLFW_DISCONNECTED = 0x61001;
+
+	/** PixelFormat hints. */
+	public static final int
+		GLFW_RED_BITS         = 0x21000,
+		GLFW_GREEN_BITS       = 0x21001,
+		GLFW_BLUE_BITS        = 0x21002,
+		GLFW_ALPHA_BITS       = 0x21003,
+		GLFW_DEPTH_BITS       = 0x21004,
+		GLFW_STENCIL_BITS     = 0x21005,
+		GLFW_ACCUM_RED_BITS   = 0x21006,
+		GLFW_ACCUM_GREEN_BITS = 0x21007,
+		GLFW_ACCUM_BLUE_BITS  = 0x21008,
+		GLFW_ACCUM_ALPHA_BITS = 0x21009,
+		GLFW_AUX_BUFFERS      = 0x2100A,
+		GLFW_STEREO           = 0x2100B,
+		GLFW_SAMPLES          = 0x2100C,
+		GLFW_SRGB_CAPABLE     = 0x2100D;
+
+	/** Client API hints. */
+	public static final int
+		GLFW_CLIENT_API            = 0x22000,
+		GLFW_CONTEXT_VERSION_MAJOR = 0x22001,
+		GLFW_CONTEXT_VERSION_MINOR = 0x22002,
+		GLFW_CONTEXT_REVISION      = 0x20004,
+		GLFW_CONTEXT_ROBUSTNESS    = 0x22003,
+		GLFW_OPENGL_FORWARD_COMPAT = 0x22004,
+		GLFW_OPENGL_DEBUG_CONTEXT  = 0x22005,
+		GLFW_OPENGL_PROFILE        = 0x22006;
+
+	/** Client API types. */
+	public static final int
+		GLFW_OPENGL_API    = 0x1,
+		GLFW_OPENGL_ES_API = 0x2;
+
+	/** // Robustness values. */
+	public static final int
+		GLFW_NO_ROBUSTNESS         = 0x0,
+		GLFW_NO_RESET_NOTIFICATION = 0x1,
+		GLFW_LOSE_CONTEXT_ON_RESET = 0x2;
+
+	/** OpenGL profiles. */
+	public static final int
+		GLFW_OPENGL_NO_PROFILE     = 0x0,
+		GLFW_OPENGL_CORE_PROFILE   = 0x1,
+		GLFW_OPENGL_COMPAT_PROFILE = 0x2;
 
 	private GLFW() {}
 
@@ -556,13 +604,23 @@ public final class GLFW {
 	 *
 	 * @param monitor monitor to query
 	 */
-	public static PointerBuffer glfwGetVideoModes(long monitor) {
-		if ( LWJGLUtil.CHECKS )
+	public static ByteBuffer glfwGetVideoModes(long monitor, ByteBuffer count) {
+		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
-		APIBuffer __buffer = apiBuffer();
-		int count = __buffer.intParam();
-		long __result = nglfwGetVideoModes(monitor, __buffer.address() + count);
-		return memPointerBuffer(__result, __buffer.intValue(count));
+			checkBuffer(count, 1 << 2);
+		}
+		long __result = nglfwGetVideoModes(monitor, memAddress(count));
+		return memByteBuffer(__result, count.getInt(count.position()) * GLFWvidmode.SIZEOF);
+	}
+
+	/** Alternative version of: {@link #glfwGetVideoModes} */
+	public static ByteBuffer glfwGetVideoModes(long monitor, IntBuffer count) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(monitor);
+			checkBuffer(count, 1);
+		}
+		long __result = nglfwGetVideoModes(monitor, memAddress(count));
+		return memByteBuffer(__result, count.get(count.position()) * GLFWvidmode.SIZEOF);
 	}
 
 	// --- [ glfwGetVideoMode ] ---
@@ -1332,14 +1390,14 @@ public final class GLFW {
 	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
-			checkBuffer(xpos, 1 << 2);
-			checkBuffer(ypos, 1 << 2);
+			checkBuffer(xpos, 1 << 3);
+			checkBuffer(ypos, 1 << 3);
 		}
 		nglfwGetCursorPos(window, memAddress(xpos), memAddress(ypos));
 	}
 
 	/** Alternative version of: {@link #glfwGetCursorPos} */
-	public static void glfwGetCursorPos(long window, IntBuffer xpos, IntBuffer ypos) {
+	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
 			checkBuffer(xpos, 1);
@@ -1351,7 +1409,7 @@ public final class GLFW {
 	// --- [ glfwSetCursorPos ] ---
 
 	/** JNI method for {@link #glfwSetCursorPos} */
-	public static native void nglfwSetCursorPos(long window, int xpos, int ypos);
+	public static native void nglfwSetCursorPos(long window, double xpos, double ypos);
 
 	/**
 	 * This function sets the position of the cursor. The specified window must be
@@ -1362,7 +1420,7 @@ public final class GLFW {
 	 * @param xpos   desired x-coordinate, relative to the left edge of the client area, or null
 	 * @param ypos   desired y-coordinate, relative to the top edge of the client area, or null
 	 */
-	public static void glfwSetCursorPos(long window, int xpos, int ypos) {
+	public static void glfwSetCursorPos(long window, double xpos, double ypos) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
 		nglfwSetCursorPos(window, xpos, ypos);
@@ -1504,15 +1562,13 @@ public final class GLFW {
 	 */
 	public static int glfwGetJoystickAxes(int joy, ByteBuffer axes, int numaxes) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(axes, 1 << 2);
+			checkBuffer(axes, numaxes << 2);
 		return nglfwGetJoystickAxes(joy, memAddress(axes), numaxes);
 	}
 
 	/** Alternative version of: {@link #glfwGetJoystickAxes} */
-	public static int glfwGetJoystickAxes(int joy, FloatBuffer axes, int numaxes) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(axes, 1);
-		return nglfwGetJoystickAxes(joy, memAddress(axes), numaxes);
+	public static int glfwGetJoystickAxes(int joy, FloatBuffer axes) {
+		return nglfwGetJoystickAxes(joy, memAddress(axes), axes.remaining());
 	}
 
 	// --- [ glfwGetJoystickButtons ] ---
@@ -1530,13 +1586,13 @@ public final class GLFW {
 	 */
 	public static int glfwGetJoystickButtons(int joy, ByteBuffer buttons, int numbuttons) {
 		if ( LWJGLUtil.CHECKS )
-			checkNT1(buttons);
+			checkBuffer(buttons, numbuttons);
 		return nglfwGetJoystickButtons(joy, memAddress(buttons), numbuttons);
 	}
 
-	/** CharSequence version of: {@link #glfwGetJoystickButtons} */
-	public static int glfwGetJoystickButtons(int joy, CharSequence buttons, int numbuttons) {
-		return nglfwGetJoystickButtons(joy, memAddress(memEncodeUTF8(buttons)), numbuttons);
+	/** Alternative version of: {@link #glfwGetJoystickButtons} */
+	public static int glfwGetJoystickButtons(int joy, ByteBuffer buttons) {
+		return nglfwGetJoystickButtons(joy, memAddress(buttons), buttons.remaining());
 	}
 
 	// --- [ glfwGetJoystickName ] ---

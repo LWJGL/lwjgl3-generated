@@ -6,16 +6,6 @@
 #include <jni.h>
 #include "WindowsLWJGL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nCancelDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	return (jint)CancelDC(hdc);
-}
-
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_nCreateCompatibleDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	return (jlong)(intptr_t)CreateCompatibleDC(hdc);
-}
-
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_GetStockObject(JNIEnv *__env, jclass clazz, jint object) {
 	return (jlong)(intptr_t)GetStockObject(object);
 }
@@ -47,6 +37,39 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nDeleteObject(JNIEnv
 	return (jint)DeleteObject(object);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_nCreateDC(JNIEnv *__env, jclass clazz, jlong lpszDriverAddress, jlong lpszDeviceAddress, jlong lpszOutputAddress, jlong lpInitDataAddress) {
+	LPCTSTR lpszDriver = (LPCTSTR)(intptr_t)lpszDriverAddress;
+	LPCTSTR lpszDevice = (LPCTSTR)(intptr_t)lpszDeviceAddress;
+	LPCTSTR lpszOutput = (LPCTSTR)(intptr_t)lpszOutputAddress;
+	const DEVMODE *lpInitData = (const DEVMODE *)(intptr_t)lpInitDataAddress;
+	return (jlong)(intptr_t)CreateDC(lpszDriver, lpszDevice, lpszOutput, lpInitData);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_nCreateCompatibleDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	return (jlong)(intptr_t)CreateCompatibleDC(hdc);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nDeleteDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	return (jint)DeleteDC(hdc);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nCancelDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	return (jint)CancelDC(hdc);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nSaveDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	return (jint)SaveDC(hdc);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nRestoreDC(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint savedDC) {
+	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	return (jint)RestoreDC(hdc, savedDC);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nGetDCOrgEx(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong pointAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	LPPOINT point = (LPPOINT)(intptr_t)pointAddress;
@@ -58,14 +81,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nGetDeviceCaps(JNIEn
 	return (jint)GetDeviceCaps(hdc, index);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nSaveDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nGetDeviceGammaRamp(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong lpRampAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	return (jint)SaveDC(hdc);
+	LPVOID lpRamp = (LPVOID)(intptr_t)lpRampAddress;
+	return (jint)GetDeviceGammaRamp(hdc, lpRamp);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nRestoreDC(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint savedDC) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nSetDeviceGammaRamp(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong lpRampAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	return (jint)RestoreDC(hdc, savedDC);
+	LPVOID lpRamp = (LPVOID)(intptr_t)lpRampAddress;
+	return (jint)SetDeviceGammaRamp(hdc, lpRamp);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nChoosePixelFormat(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong pixelFormatDescriptorAddress) {
