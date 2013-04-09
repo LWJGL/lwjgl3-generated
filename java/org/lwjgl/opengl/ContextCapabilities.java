@@ -34,7 +34,7 @@ public final class ContextCapabilities {
 	final GLXAMDGPUAssociation.Functions    __GLXAMDGPUAssociation;
 	final GLXARBCreateContext.Functions     __GLXARBCreateContext;
 	final GLXARBGetProcAddress.Functions    __GLXARBGetProcAddress;
-	final GLXEXTImportcontext.Functions     __GLXEXTImportcontext;
+	final GLXEXTImportContext.Functions     __GLXEXTImportContext;
 	final GLXEXTSwapControl.Functions       __GLXEXTSwapControl;
 	final GLXEXTTextureFromPixmap.Functions __GLXEXTTextureFromPixmap;
 	final GLXNVCopyImage.Functions          __GLXNVCopyImage;
@@ -80,10 +80,10 @@ public final class ContextCapabilities {
 		OpenGL41,
 		OpenGL42,
 		OpenGL43,
-		GLX11,
-		GLX12,
-		GLX13,
-		GLX14,
+		GLX_11,
+		GLX_12,
+		GLX_13,
+		GLX_14,
 		GLX_AMD_gpu_association,
 		GLX_ARB_create_context,
 		GLX_ARB_create_context_profile,
@@ -203,10 +203,10 @@ public final class ContextCapabilities {
 		OpenGL41 = (__GL41 = GL41.create(ext, provider)) != null;
 		OpenGL42 = (__GL42 = GL42.create(ext, provider)) != null;
 		OpenGL43 = (__GL43 = GL43.create(ext, provider)) != null;
-		GLX11 = (__GLX11 = GLX11.create(ext, provider)) != null;
-		GLX12 = (__GLX12 = GLX12.create(ext, provider)) != null;
-		GLX13 = (__GLX13 = GLX13.create(ext, provider)) != null;
-		GLX14 = (__GLX14 = GLX14.create(ext, provider)) != null;
+		GLX_11 = (__GLX11 = GLX11.create(ext, provider)) != null;
+		GLX_12 = (__GLX12 = GLX12.create(ext, provider)) != null;
+		GLX_13 = (__GLX13 = GLX13.create(ext, provider)) != null;
+		GLX_14 = (__GLX14 = GLX14.create(ext, provider)) != null;
 		GLX_AMD_gpu_association = (__GLXAMDGPUAssociation = GLXAMDGPUAssociation.create(ext, provider)) != null;
 		GLX_ARB_create_context = (__GLXARBCreateContext = GLXARBCreateContext.create(ext, provider)) != null;
 		GLX_ARB_create_context_profile = ext.contains("GLX_ARB_create_context_profile");
@@ -221,7 +221,7 @@ public final class ContextCapabilities {
 		GLX_EXT_create_context_es_profile = ext.contains("GLX_EXT_create_context_es_profile");
 		GLX_EXT_fbconfig_packed_float = ext.contains("GLX_EXT_fbconfig_packed_float");
 		GLX_EXT_framebuffer_sRGB = ext.contains("GLX_EXT_framebuffer_sRGB");
-		GLX_EXT_import_context = (__GLXEXTImportcontext = GLXEXTImportcontext.create(ext, provider)) != null;
+		GLX_EXT_import_context = (__GLXEXTImportContext = GLXEXTImportContext.create(ext, provider)) != null;
 		GLX_EXT_swap_control = (__GLXEXTSwapControl = GLXEXTSwapControl.create(ext, provider)) != null;
 		GLX_EXT_swap_control_tear = ext.contains("GLX_EXT_swap_control_tear");
 		GLX_EXT_texture_from_pixmap = (__GLXEXTTextureFromPixmap = GLXEXTTextureFromPixmap.create(ext, provider)) != null;

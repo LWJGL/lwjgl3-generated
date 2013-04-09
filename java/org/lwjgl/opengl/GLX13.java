@@ -97,7 +97,6 @@ public final class GLX13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			checkBuffer(nelements, 1 << 2);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
@@ -123,7 +122,6 @@ public final class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			if ( attrib_list != null ) checkNT4(attrib_list);
-			checkBuffer(nelements, 1 << 2);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
@@ -138,8 +136,9 @@ public final class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			if ( attrib_list != null ) checkNT(attrib_list);
-			checkBuffer(nelements, 1);
 		}
+		APIBuffer __buffer = apiBuffer();
+		int nelements = __buffer.intParam();
 		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
@@ -548,7 +547,7 @@ public final class GLX13 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX13") ) return null;
+		if ( !ext.contains("GLX_13") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -570,7 +569,7 @@ public final class GLX13 {
 			GL.isFunctionSupported(funcs.glXSelectEvent) &&
 			GL.isFunctionSupported(funcs.glXGetSelectedEvent);
 
-		return GL.checkExtension("GLX13", funcs, supported);
+		return GL.checkExtension("GLX_13", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code GLX13}. */

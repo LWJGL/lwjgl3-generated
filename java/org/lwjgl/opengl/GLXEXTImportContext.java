@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p/>
  * Additional convenience procedures to get the current Display* bound to a context as well as other context information are also added.
  */
-public final class GLXEXTImportcontext {
+public final class GLXEXTImportContext {
 
 	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT}: */
 	public static final int
@@ -28,7 +28,7 @@ public final class GLXEXTImportcontext {
 		GLX_GLX_VISUAL_ID_EXT     = 0x800B,
 		GLX_GLX_SCREEN_EXT        = 0x800C;
 
-	private GLXEXTImportcontext() {}
+	private GLXEXTImportContext() {}
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
@@ -124,7 +124,7 @@ public final class GLXEXTImportcontext {
 	public static native void nglXFreeContextEXT(long display, long context, long __functionAddress);
 
 	/**
-	 * Frees the client-side part of a GLXContext that was created  with {@link #glXImportContext}.
+	 * Frees the client-side part of a GLXContext that was created  with {@link #glXImportContextEXT}.
 	 *
 	 * @param display the connection to the X server
 	 * @param context the context to free
@@ -143,7 +143,7 @@ public final class GLXEXTImportcontext {
 
 	/** Returns the {@link Functions} instance for the current context. */
 	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXEXTImportcontext;
+		return GL.getCapabilities().__GLXEXTImportContext;
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -161,7 +161,7 @@ public final class GLXEXTImportcontext {
 		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
 	}
 
-	/** The {@link FunctionMap} class for {@code GLXEXTImportcontext}. */
+	/** The {@link FunctionMap} class for {@code GLXEXTImportContext}. */
 	public static final class Functions implements FunctionMap {
 
 		public final long

@@ -96,7 +96,7 @@ public final class GLX11 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX11") ) return null;
+		if ( !ext.contains("GLX_11") ) return null;
 
 		Functions funcs = new Functions(provider);
 
@@ -105,7 +105,7 @@ public final class GLX11 {
 			GL.isFunctionSupported(funcs.glXGetClientString) &&
 			GL.isFunctionSupported(funcs.glXQueryServerString);
 
-		return GL.checkExtension("GLX11", funcs, supported);
+		return GL.checkExtension("GLX_11", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code GLX11}. */

@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
+import org.lwjgl.system.linux.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/fbconfig.txt">GLX_SGIX_fbconfig</a> extension.
  * <p/>
@@ -31,7 +33,7 @@ public final class GLXSGIXFBConfig {
 
 	/**
 	 * Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX}, the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX},
-	 * by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX} and by the {@code attribute} parameter of
+	 * by the {@code attribute} parameter of {@link GLXSGIXPbuffer#glXQueryGLXPbufferSGIX} and by the {@code attribute} parameter of
 	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT}:
 	 */
 	public static final int
@@ -117,7 +119,6 @@ public final class GLXSGIXFBConfig {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			checkBuffer(nelements, 1 << 2);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
@@ -131,8 +132,9 @@ public final class GLXSGIXFBConfig {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			checkBuffer(nelements, 1);
 		}
+		APIBuffer __buffer = apiBuffer();
+		int nelements = __buffer.intParam();
 		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}

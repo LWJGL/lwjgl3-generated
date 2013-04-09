@@ -36,13 +36,13 @@ public final class GLX12 {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX12") ) return null;
+		if ( !ext.contains("GLX_12") ) return null;
 
 		Functions funcs = new Functions(provider);
 
 		boolean supported =  GL.isFunctionSupported(funcs.glXGetCurrentDisplay);
 
-		return GL.checkExtension("GLX12", funcs, supported);
+		return GL.checkExtension("GLX_12", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code GLX12}. */

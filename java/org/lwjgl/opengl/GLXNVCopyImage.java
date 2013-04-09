@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 
-import org.lwjgl.linux.system;
+import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/copy_image.txt">GLX_NV_copy_image</a> extension.
