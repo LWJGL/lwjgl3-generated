@@ -48,7 +48,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRGetOutputInfo(JNI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRFreeOutputInfo(JNIEnv *__env, jclass clazz, jlong outputInfoAddress) {
-	XRRCrtcInfo *outputInfo = (XRRCrtcInfo *)(intptr_t)outputInfoAddress;
+	XRROutputInfo *outputInfo = (XRROutputInfo *)(intptr_t)outputInfoAddress;
 	XRRFreeOutputInfo(outputInfo);
 }
 

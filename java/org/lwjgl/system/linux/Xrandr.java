@@ -235,7 +235,7 @@ public final class Xrandr {
 			checkBuffer(resources, XRRScreenResources.SIZEOF);
 		}
 		long __result = nXRRGetOutputInfo(display, memAddress(resources), output);
-		return memByteBuffer(__result, XRRCrtcInfo.SIZEOF);
+		return memByteBuffer(__result, XRROutputInfo.SIZEOF);
 	}
 
 	// --- [ XRRFreeOutputInfo ] ---
@@ -250,7 +250,7 @@ public final class Xrandr {
 	 */
 	public static void XRRFreeOutputInfo(ByteBuffer outputInfo) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(outputInfo, XRRCrtcInfo.SIZEOF);
+			checkBuffer(outputInfo, XRROutputInfo.SIZEOF);
 		nXRRFreeOutputInfo(memAddress(outputInfo));
 	}
 

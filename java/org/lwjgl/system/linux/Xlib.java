@@ -1514,8 +1514,8 @@ public final class Xlib {
 	public static long XCreatePixmapCursor(long display, long source, long mask, ByteBuffer foreground_color, ByteBuffer background_color, int x, int y) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(foreground_color, XGCValues.SIZEOF);
-			checkBuffer(background_color, XGCValues.SIZEOF);
+			checkBuffer(foreground_color, XColor.SIZEOF);
+			checkBuffer(background_color, XColor.SIZEOF);
 		}
 		return nXCreatePixmapCursor(display, source, mask, memAddress(foreground_color), memAddress(background_color), x, y);
 	}

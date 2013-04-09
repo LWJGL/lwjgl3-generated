@@ -361,8 +361,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFillRectangle(JNIEnv *
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXCreatePixmapCursor(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong source, jlong mask, jlong foreground_colorAddress, jlong background_colorAddress, jint x, jint y) {
 	Display *display = (Display *)(intptr_t)displayAddress;
-	XGCValues *foreground_color = (XGCValues *)(intptr_t)foreground_colorAddress;
-	XGCValues *background_color = (XGCValues *)(intptr_t)background_colorAddress;
+	XColor *foreground_color = (XColor *)(intptr_t)foreground_colorAddress;
+	XColor *background_color = (XColor *)(intptr_t)background_colorAddress;
 	return (jlong)XCreatePixmapCursor(display, (Pixmap)source, (Pixmap)mask, foreground_color, background_color, x, y);
 }
 
