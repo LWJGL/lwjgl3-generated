@@ -5,7 +5,7 @@
  */
 #include <jni.h>
 
-typedef Display * (APIENTRY *glXGetCurrentDisplayEXTPROC) ();
+typedef Display * (APIENTRY *glXGetCurrentDisplayEXTPROC) (void);
 typedef int (APIENTRY *glXQueryContextInfoEXTPROC) (Display *, GLXContext, int, int *);
 typedef GLXContextID (APIENTRY *glXGetContextIDEXTPROC) (const GLXContext);
 typedef GLXContext (APIENTRY *glXImportContextEXTPROC) (Display *, GLXContextID);

@@ -8,7 +8,7 @@
 #include "GLX.h"
 
 typedef Bool (APIENTRY *glXMakeCurrentReadSGIPROC) (Display *, GLXDrawable, GLXDrawable, GLXContext);
-typedef GLXDrawable (APIENTRY *glXGetCurrentReadDrawableSGIPROC) ();
+typedef GLXDrawable (APIENTRY *glXGetCurrentReadDrawableSGIPROC) (void);
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIMakeCurrentRead_nglXMakeCurrentReadSGI(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawAddress, jlong readAddress, jlong ctxAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;

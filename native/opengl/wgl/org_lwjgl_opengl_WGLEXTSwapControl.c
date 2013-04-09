@@ -7,7 +7,7 @@
 #include "OpenGL.h"
 
 typedef BOOL (APIENTRY *wglSwapIntervalEXTPROC) (int);
-typedef int (APIENTRY *wglGetSwapIntervalEXTPROC) ();
+typedef int (APIENTRY *wglGetSwapIntervalEXTPROC) (void);
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLEXTSwapControl_nwglSwapIntervalEXT(JNIEnv *__env, jclass clazz, jint interval, jlong __functionAddress) {
 	wglSwapIntervalEXTPROC wglSwapIntervalEXT = (wglSwapIntervalEXTPROC)(intptr_t)__functionAddress;

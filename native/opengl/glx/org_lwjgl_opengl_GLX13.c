@@ -19,7 +19,7 @@ typedef void (APIENTRY *glXDestroyPbufferPROC) (Display *, GLXPbuffer);
 typedef void (APIENTRY *glXQueryDrawablePROC) (Display *, GLXDrawable, int, unsigned int *);
 typedef GLXContext (APIENTRY *glXCreateNewContextPROC) (Display *, GLXFBConfig, int, GLXContext, Bool);
 typedef Bool (APIENTRY *glXMakeContextCurrentPROC) (Display *, GLXDrawable, GLXDrawable, GLXContext);
-typedef GLXDrawable (APIENTRY *glXGetCurrentReadDrawablePROC) ();
+typedef GLXDrawable (APIENTRY *glXGetCurrentReadDrawablePROC) (void);
 typedef int (APIENTRY *glXQueryContextPROC) (Display *, GLXContext, int, int *);
 typedef void (APIENTRY *glXSelectEventPROC) (Display *, GLXDrawable, unsigned long);
 typedef void (APIENTRY *glXGetSelectedEventPROC) (Display *, GLXDrawable, unsigned long *);

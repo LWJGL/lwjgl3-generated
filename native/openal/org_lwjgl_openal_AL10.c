@@ -6,7 +6,7 @@
 #include <jni.h>
 #include "OpenAL.h"
 
-typedef ALenum (APIENTRY *alGetErrorPROC) ();
+typedef ALenum (APIENTRY *alGetErrorPROC) (void);
 typedef ALvoid (APIENTRY *alEnablePROC) (ALenum);
 typedef ALvoid (APIENTRY *alDisablePROC) (ALenum);
 typedef ALboolean (APIENTRY *alIsEnabledPROC) (ALenum);

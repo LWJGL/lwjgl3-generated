@@ -12,7 +12,7 @@ typedef GLXContext (APIENTRY *glXCreateAssociatedContextAMDPROC) (unsigned int, 
 typedef GLXContext (APIENTRY *glXCreateAssociatedContextAttribsAMDPROC) (unsigned int, GLXContext, const int *);
 typedef Bool (APIENTRY *glXDeleteAssociatedContextAMDPROC) (GLXContext);
 typedef unsigned int (APIENTRY *glXGetContextGPUIDAMDPROC) (GLXContext);
-typedef GLXContext (APIENTRY *glXGetCurrentAssociatedContextAMDPROC) ();
+typedef GLXContext (APIENTRY *glXGetCurrentAssociatedContextAMDPROC) (void);
 typedef unsigned int (APIENTRY *glXGetGPUIDsAMDPROC) (unsigned int, unsigned int);
 typedef int (APIENTRY *glXGetGPUInfoAMDPROC) (unsigned int, int, GLenum, unsigned int, void *);
 typedef Bool (APIENTRY *glXMakeAssociatedContextCurrentAMDPROC) (GLXContext);

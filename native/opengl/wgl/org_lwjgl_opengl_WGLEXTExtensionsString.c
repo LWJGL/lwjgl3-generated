@@ -6,7 +6,7 @@
 #include <jni.h>
 #include "OpenGL.h"
 
-typedef const char * (APIENTRY *wglGetExtensionsStringEXTPROC) ();
+typedef const char * (APIENTRY *wglGetExtensionsStringEXTPROC) (void);
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLEXTExtensionsString_nwglGetExtensionsStringEXT(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	wglGetExtensionsStringEXTPROC wglGetExtensionsStringEXT = (wglGetExtensionsStringEXTPROC)(intptr_t)__functionAddress;

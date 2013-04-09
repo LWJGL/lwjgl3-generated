@@ -14,7 +14,7 @@ typedef HGLRC (APIENTRY *wglCreateAssociatedContextAMDPROC) (UINT);
 typedef HGLRC (APIENTRY *wglCreateAssociatedContextAttribsAMDPROC) (UINT, HGLRC, const int *);
 typedef BOOL (APIENTRY *wglDeleteAssociatedContextAMDPROC) (HGLRC);
 typedef BOOL (APIENTRY *wglMakeAssociatedContextCurrentAMDPROC) (HGLRC);
-typedef HGLRC (APIENTRY *wglGetCurrentAssociatedContextAMDPROC) ();
+typedef HGLRC (APIENTRY *wglGetCurrentAssociatedContextAMDPROC) (void);
 typedef VOID (APIENTRY *wglBlitContextFramebufferAMDPROC) (HGLRC, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUIDsAMD(JNIEnv *__env, jclass clazz, jint maxCount, jlong idsAddress, jlong __functionAddress) {

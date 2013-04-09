@@ -7,7 +7,7 @@
 #include "OpenGL.h"
 #include "GLX.h"
 
-typedef Display * (APIENTRY *glXGetCurrentDisplayPROC) ();
+typedef Display * (APIENTRY *glXGetCurrentDisplayPROC) (void);
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX12_nglXGetCurrentDisplay(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	glXGetCurrentDisplayPROC glXGetCurrentDisplay = (glXGetCurrentDisplayPROC)(intptr_t)__functionAddress;

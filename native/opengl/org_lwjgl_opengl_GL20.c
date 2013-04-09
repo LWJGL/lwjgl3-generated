@@ -6,7 +6,7 @@
 #include <jni.h>
 #include "OpenGL.h"
 
-typedef GLuint (APIENTRY *glCreateProgramPROC) ();
+typedef GLuint (APIENTRY *glCreateProgramPROC) (void);
 typedef GLvoid (APIENTRY *glDeleteProgramPROC) (GLuint);
 typedef GLuint (APIENTRY *glCreateShaderPROC) (GLenum);
 typedef GLvoid (APIENTRY *glDeleteShaderPROC) (GLuint);

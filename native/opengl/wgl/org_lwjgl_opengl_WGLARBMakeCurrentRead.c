@@ -7,7 +7,7 @@
 #include "OpenGL.h"
 
 typedef BOOL (APIENTRY *wglMakeContextCurrentARBPROC) (HDC, HDC, HGLRC);
-typedef HDC (APIENTRY *wglGetCurrentReadDCARBPROC) ();
+typedef HDC (APIENTRY *wglGetCurrentReadDCARBPROC) (void);
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBMakeCurrentRead_nwglMakeContextCurrentARB(JNIEnv *__env, jclass clazz, jlong drawDCAddress, jlong readDCAddress, jlong hglrcAddress, jlong __functionAddress) {
 	HDC drawDC = (HDC)(intptr_t)drawDCAddress;

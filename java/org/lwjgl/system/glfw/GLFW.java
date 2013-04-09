@@ -250,7 +250,8 @@ public final class GLFW {
 		GLFW_FOCUSED   = 0x20001,
 		GLFW_ICONIFIED = 0x20002,
 		GLFW_RESIZABLE = 0x22007,
-		GLFW_VISIBLE   = 0x22008;
+		GLFW_VISIBLE   = 0x22008,
+		GLFW_DECORATED = 0x22009;
 
 	/** Input options. */
 	public static final int

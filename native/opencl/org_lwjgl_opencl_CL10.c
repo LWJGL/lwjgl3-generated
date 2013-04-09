@@ -47,7 +47,7 @@ typedef cl_program (APIENTRY *clCreateProgramWithBinaryPROC) (cl_context, cl_uin
 typedef cl_int (APIENTRY *clRetainProgramPROC) (cl_program);
 typedef cl_int (APIENTRY *clReleaseProgramPROC) (cl_program);
 typedef cl_int (APIENTRY *clBuildProgramPROC) (cl_program, cl_uint, const cl_device_id *, const cl_char *, cl_program_callback, void *);
-typedef cl_int (APIENTRY *clUnloadCompilerPROC) ();
+typedef cl_int (APIENTRY *clUnloadCompilerPROC) (void);
 typedef cl_int (APIENTRY *clGetProgramInfoPROC) (cl_program, cl_program_info, size_t, cl_void *, size_t *);
 typedef cl_int (APIENTRY *clGetProgramBuildInfoPROC) (cl_program, cl_device_id, cl_program_info, size_t, cl_void *, size_t *);
 typedef cl_kernel (APIENTRY *clCreateKernelPROC) (cl_program, const cl_char *, cl_int *);

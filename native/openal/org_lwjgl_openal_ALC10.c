@@ -13,7 +13,7 @@ typedef ALCboolean (APIENTRY *alcMakeContextCurrentPROC) (ALCcontext *);
 typedef ALCvoid (APIENTRY *alcProcessContextPROC) (ALCcontext *);
 typedef ALCvoid (APIENTRY *alcSuspendContextPROC) (ALCcontext *);
 typedef ALCvoid (APIENTRY *alcDestroyContextPROC) (ALCcontext *);
-typedef ALCcontext * (APIENTRY *alcGetCurrentContextPROC) ();
+typedef ALCcontext * (APIENTRY *alcGetCurrentContextPROC) (void);
 typedef ALCdevice * (APIENTRY *alcGetContextsDevicePROC) (ALCcontext *);
 typedef ALCboolean (APIENTRY *alcIsExtensionPresentPROC) (const ALCdevice *, const ALCchar *);
 typedef void * (APIENTRY *alcGetProcAddressPROC) (const ALCdevice *, const ALchar *);

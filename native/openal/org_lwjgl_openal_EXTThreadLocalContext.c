@@ -7,7 +7,7 @@
 #include "OpenAL.h"
 
 typedef ALCboolean (APIENTRY *alcSetThreadContextPROC) (ALCcontext *);
-typedef ALCcontext * (APIENTRY *alcGetThreadContextPROC) ();
+typedef ALCcontext * (APIENTRY *alcGetThreadContextPROC) (void);
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_EXTThreadLocalContext_nalcSetThreadContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
