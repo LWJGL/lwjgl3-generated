@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
  * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.
  */
-public final class WGLAMDGpuAssociation {
+public final class WGLAMDGPUAssociation {
 
 	/** Accepted by the {@code property} parameter of {@link #wglGetGPUInfoAMD}. */
 	public static final int
@@ -38,7 +38,7 @@ public final class WGLAMDGpuAssociation {
 		WGL_GPU_NUM_RB_AMD                = 0x21A7,
 		WGL_GPU_NUM_SPI_AMD               = 0x21A8;
 
-	private WGLAMDGpuAssociation() {}
+	private WGLAMDGPUAssociation() {}
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
@@ -283,7 +283,7 @@ public final class WGLAMDGpuAssociation {
 
 	/** Returns the {@link Functions} instance for the current context. */
 	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLAMDGpuAssociation;
+		return GL.getCapabilities().__WGLAMDGPUAssociation;
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -305,7 +305,7 @@ public final class WGLAMDGpuAssociation {
 		return GL.checkExtension("WGL_AMD_gpu_association", funcs, supported);
 	}
 
-	/** The {@link FunctionMap} class for {@code WGLAMDGpuAssociation}. */
+	/** The {@link FunctionMap} class for {@code WGLAMDGPUAssociation}. */
 	public static final class Functions implements FunctionMap {
 
 		public final long

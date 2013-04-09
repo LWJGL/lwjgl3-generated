@@ -1,0 +1,77 @@
+/*
+ * Copyright LWJGL. All rights reserved.
+ * License terms: http://lwjgl.org/license.php
+ * MACHINE GENERATED FILE, DO NOT EDIT
+ */
+package org.lwjgl.opengl;
+
+import org.lwjgl.*;
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.Checks.*;
+
+import org.lwjgl.linux.system;
+
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/swap_control.txt">GLX_EXT_swap_control</a> extension.
+ * <p/>
+ * This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods, for a particular drawable.
+ * It also allows an application to query the swap interval and the implementation-dependent maximum swap interval of a drawable.
+ */
+public final class GLXEXTSwapControl {
+
+	private GLXEXTSwapControl() {}
+
+	// --- [ glXSwapIntervalEXT ] ---
+
+	/** JNI method for {@link #glXSwapIntervalEXT} */
+	public static native void nglXSwapIntervalEXT(long display, long drawable, int interval, long __functionAddress);
+
+	/**
+	 * Specifies the minimum number of video frame periods per buffer swap for a particular GLX drawable (e.g. a value of two means that the color buffers will
+	 * be swapped at most every other video frame). The interval takes effect when {@link GLX#glXSwapBuffers} is first called on the drawable subsequent to the
+	 * {@code glXSwapIntervalEXT} call.
+	 *
+	 * @param display  the connection to the X server
+	 * @param drawable the drawable
+	 * @param interval the swap interval
+	 */
+	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
+		long __functionAddress = getInstance().glXSwapIntervalEXT;
+		if ( LWJGLUtil.CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(drawable);
+		}
+		nglXSwapIntervalEXT(display, drawable, interval, __functionAddress);
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link Functions} instance for the current context. */
+	public static Functions getInstance() {
+		return GL.getCapabilities().__GLXEXTSwapControl;
+	}
+
+	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_EXT_swap_control") ) return null;
+
+		Functions funcs = new Functions(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalEXT);
+
+		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
+	}
+
+	/** The {@link FunctionMap} class for {@code GLXEXTSwapControl}. */
+	public static final class Functions implements FunctionMap {
+
+		public final long glXSwapIntervalEXT;
+
+		public Functions(FunctionProvider provider) {
+			glXSwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
+		}
+
+	}
+
+}

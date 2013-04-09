@@ -58,6 +58,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXDisplayHeight(JNIEnv *
 	return (jint)XDisplayHeight(display, screen_number);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXSync(JNIEnv *__env, jclass clazz, jlong displayAddress, jint discard) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	return (jint)XSync(display, discard);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXRootWindow(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen_number) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	return (jlong)XRootWindow(display, screen_number);

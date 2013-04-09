@@ -233,6 +233,29 @@ public final class Xlib {
 		return nXDisplayHeight(display, screen_number);
 	}
 
+	// --- [ XSync ] ---
+
+	/** JNI method for {@link #XSync} */
+	public static native int nXSync(long display, int discard);
+
+	/**
+	 * Flushes the output buffer and then waits until all requests have been received and processed by the X server. Any errors generated must be handled by
+	 * the error handler. For each protocol error received by Xlib, {@code XSync()} calls the client application's error handling routine. Any events generated
+	 * by the server are enqueued into the library's event queue.
+	 * <p/>
+	 * Finally, if you passed {@link X#False}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#True}, {@code XSync()} discards
+	 * all events in the queue, including those events that were on the queue before {@code XSync()} was called. Client applications seldom need to call
+	 * {@code XSync()}.
+	 *
+	 * @param display the connection to the X server
+	 * @param discard whether to discard events in the queue
+	 */
+	public static int XSync(long display, int discard) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXSync(display, discard);
+	}
+
 	// --- [ XRootWindow ] ---
 
 	/** JNI method for {@link #XRootWindow} */
