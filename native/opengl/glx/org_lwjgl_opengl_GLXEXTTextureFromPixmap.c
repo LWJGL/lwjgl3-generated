@@ -3,7 +3,8 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
+#include <GL/glx.h>
 
 typedef void (APIENTRY *glXBindTexImageEXTPROC) (Display *, GLXDrawable, int, const int *);
 typedef void (APIENTRY *glXReleaseTexImageEXTPROC) (Display *, GLXDrawable, int);

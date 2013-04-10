@@ -3,8 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
+#include <X11/Xutil.h>
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xutil_nXLookupString(JNIEnv *__env, jclass clazz, jlong event_structAddress, jlong buffer_returnAddress, jint bytes_buffer, jlong keysym_returnAddress, jlong status_in_outAddress) {
 	XKeyEvent *event_struct = (XKeyEvent *)(intptr_t)event_structAddress;

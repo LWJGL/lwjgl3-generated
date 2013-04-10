@@ -3,9 +3,8 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
-#include "OpenGL.h"
-#include "GLX.h"
+#include "common_tools.h"
+#include <GL/glx.h>
 
 typedef GLXFBConfig * (APIENTRY *glXGetFBConfigsPROC) (Display *, int, int *);
 typedef GLXFBConfig * (APIENTRY *glXChooseFBConfigPROC) (Display *, int, const int *, int *);

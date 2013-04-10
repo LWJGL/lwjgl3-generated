@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clGetPlatformIDsPROC) (cl_uint, cl_platform_id *, cl_uint *);

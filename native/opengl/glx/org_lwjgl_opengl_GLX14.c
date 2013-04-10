@@ -3,9 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenGL.h"
-#include "GLX.h"
+#include <GL/glx.h>
 
 typedef void * (APIENTRY *glXGetProcAddressPROC) (const GLubyte *);
 

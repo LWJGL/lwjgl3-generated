@@ -3,11 +3,10 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
-#include "OpenGL.h"
-#include "GLX.h"
+#include "common_tools.h"
+#include <GL/glx.h>
 
-typedef GLvoid (APIENTRY *glXSwapIntervalEXTPROC) (Display *, GLXDrawable, GLint);
+typedef GLvoid (APIENTRY *glXSwapIntervalEXTPROC) (Display *, GLXDrawable, int);
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTSwapControl_nglXSwapIntervalEXT(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jint interval, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;

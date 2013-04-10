@@ -3,8 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
+#include <X11/extensions/xf86vmode.h>
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong event_baseAddress, jlong error_baseAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;

@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clGetGLContextInfoAPPLEPROC) (cl_context, void *, cl_gl_platform_info, size_t, cl_void *, size_t *);

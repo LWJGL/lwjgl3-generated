@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "glfw3.h"
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwInit(JNIEnv *__env, jclass clazz) {

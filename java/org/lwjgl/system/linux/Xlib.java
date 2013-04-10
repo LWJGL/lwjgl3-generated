@@ -30,28 +30,6 @@ public final class Xlib {
 
 	private Xlib() {}
 
-	// --- [ XErrorHandler ] ---
-
-	/** JNI method for {@link #XErrorHandler} */
-	public static native int nXErrorHandler(long display, long error_event);
-
-	/**
-	 * Invokes an X11 error handler.
-	 *
-	 * @param display           the connection to the X server
-	 * @param error_event       a pointer to an {@link XErrorEvent} struct describing the error that occured
-	 * @param __functionAddress the error handler function address
-	 *
-	 * @return a value that is ignored
-	 */
-	public static int XErrorHandler(long display, ByteBuffer error_event, long __functionAddress) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkBuffer(error_event, XErrorEvent.SIZEOF);
-		}
-		return nXErrorHandler(display, memAddress(error_event));
-	}
-
 	// --- [ XSetErrorHandler ] ---
 
 	/** JNI method for {@link #XSetErrorHandler} */
@@ -463,7 +441,7 @@ public final class Xlib {
 	// --- [ XCreateWindow ] ---
 
 	/** JNI method for {@link #XCreateWindow} */
-	public static native long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int depth, int clazz, long visual, long valuemask, long attributes);
+	public static native long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes);
 
 	/**
 	 * Creates an unmapped subwindow for a specified parent window, returns the window ID of the created window, and causes the X server to generate a
@@ -477,26 +455,27 @@ public final class Xlib {
 	 * <p/>
 	 * The width and height are the created window's inside dimensions and do not include the created window's borders.
 	 *
-	 * @param display    the connection to the X server
-	 * @param parent     the parent window
-	 * @param x          the window x-coordinate
-	 * @param y          the window y-coordinate
-	 * @param width      the window width
-	 * @param height     the window height
-	 * @param depth      the window's depth. A depth of {@link X#CopyFromParent} means the depth is taken from the parent.
-	 * @param clazz      the created window's class. One of:<p/>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
-	 * @param visual     the visual type. A visual of {@link X#CopyFromParent} means the visual type is taken from the parent.
-	 * @param valuemask  which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
-	 *                   {@code valuemask} is zero, the attributes are ignored and are not referenced.
-	 * @param attributes the structure from which the values (as specified by the value mask) are to be taken
+	 * @param display      the connection to the X server
+	 * @param parent       the parent window
+	 * @param x            the window x-coordinate
+	 * @param y            the window y-coordinate
+	 * @param width        the window width
+	 * @param height       the window height
+	 * @param border_width the border width
+	 * @param depth        the window's depth. A depth of {@link X#CopyFromParent} means the depth is taken from the parent.
+	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
+	 * @param visual       the visual type. A visual of {@link X#CopyFromParent} means the visual type is taken from the parent.
+	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
+	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
+	 * @param attributes   the structure from which the values (as specified by the value mask) are to be taken
 	 */
-	public static long XCreateWindow(long display, long parent, int x, int y, int width, int height, int depth, int clazz, ByteBuffer visual, long valuemask, ByteBuffer attributes) {
+	public static long XCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, ByteBuffer visual, long valuemask, ByteBuffer attributes) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkBuffer(visual, Visual.SIZEOF);
 			checkBuffer(attributes, XSetWindowAttributes.SIZEOF);
 		}
-		return nXCreateWindow(display, parent, x, y, width, height, depth, clazz, memAddress(visual), valuemask, memAddress(attributes));
+		return nXCreateWindow(display, parent, x, y, width, height, border_width, depth, windowClass, memAddress(visual), valuemask, memAddress(attributes));
 	}
 
 	// --- [ XChangeWindowAttributes ] ---
@@ -586,7 +565,7 @@ public final class Xlib {
 	public static int XSetSizeHints(long display, long w, ByteBuffer hints, long property) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(hints, XWMHints.SIZEOF);
+			checkBuffer(hints, XSizeHints.SIZEOF);
 		}
 		return nXSetSizeHints(display, w, memAddress(hints), property);
 	}

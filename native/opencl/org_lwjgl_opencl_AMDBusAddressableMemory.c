@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clEnqueueWaitSignalAMDPROC) (cl_command_queue, cl_mem, cl_uint, cl_uint, const cl_event *, cl_event *);

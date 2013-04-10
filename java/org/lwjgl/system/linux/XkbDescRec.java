@@ -19,7 +19,7 @@ public final class XkbDescRec {
 
 	/** The struct member offsets. */
 	public static final int
-		DISPLAY,
+		DPY,
 		DEVICE_SPEC,
 		MIN_KEY_CODE,
 		MAX_KEY_CODE;
@@ -29,7 +29,7 @@ public final class XkbDescRec {
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		DISPLAY = offsets.get(0);
+		DPY = offsets.get(0);
 		DEVICE_SPEC = offsets.get(1);
 		MIN_KEY_CODE = offsets.get(2);
 		MAX_KEY_CODE = offsets.get(3);
@@ -44,14 +44,14 @@ public final class XkbDescRec {
 
 	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
-		long display,
+		long dpy,
 		int device_spec,
 		int min_key_code,
 		int max_key_code
 	) {
 		ByteBuffer xkbdescrec = malloc();
 
-		displaySet(xkbdescrec, display);
+		dpySet(xkbdescrec, dpy);
 		device_specSet(xkbdescrec, device_spec);
 		min_key_codeSet(xkbdescrec, min_key_code);
 		max_key_codeSet(xkbdescrec, max_key_code);
@@ -59,12 +59,12 @@ public final class XkbDescRec {
 		return xkbdescrec;
 	}
 
-	public static void displaySet(ByteBuffer xkbdescrec, long display) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + DISPLAY, display); }
+	public static void dpySet(ByteBuffer xkbdescrec, long dpy) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + DPY, dpy); }
 	public static void device_specSet(ByteBuffer xkbdescrec, int device_spec) { xkbdescrec.putShort(xkbdescrec.position() + DEVICE_SPEC, (short)device_spec); }
 	public static void min_key_codeSet(ByteBuffer xkbdescrec, int min_key_code) { xkbdescrec.put(xkbdescrec.position() + MIN_KEY_CODE, (byte)min_key_code); }
 	public static void max_key_codeSet(ByteBuffer xkbdescrec, int max_key_code) { xkbdescrec.put(xkbdescrec.position() + MAX_KEY_CODE, (byte)max_key_code); }
 
-	public static long displayGet(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + DISPLAY); }
+	public static long dpyGet(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + DPY); }
 	public static int device_specGet(ByteBuffer xkbdescrec) { return xkbdescrec.getShort(xkbdescrec.position() + DEVICE_SPEC); }
 	public static int min_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MIN_KEY_CODE); }
 	public static int max_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MAX_KEY_CODE); }

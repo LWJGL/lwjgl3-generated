@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef void * (APIENTRY *clGetExtensionFunctionAddressForPlatformPROC) (cl_platform_id, const cl_char *);

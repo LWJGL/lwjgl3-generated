@@ -13,7 +13,7 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to Xf86vmode.h. */
+/** Native bindings to &lt;X11/extensions/xf86vmode.h&gt;. */
 public final class Xf86vmode {
 
 	private Xf86vmode() {}

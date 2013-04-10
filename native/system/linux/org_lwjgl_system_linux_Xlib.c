@@ -3,14 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXErrorHandler(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong error_eventAddress) {
-	Display *display = (Display *)(intptr_t)displayAddress;
-	XErrorEvent *error_event = (XErrorEvent *)(intptr_t)error_eventAddress;
-	return (jint)XErrorHandler(display, error_event);
-}
+#include <X11/Xutil.h>
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetErrorHandler(JNIEnv *__env, jclass clazz, jlong handlerAddress) {
 	XErrorHandler handler = (XErrorHandler)(intptr_t)handlerAddress;
@@ -119,11 +114,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXConnectionNumber(JNIEn
 	return (jint)XConnectionNumber(display);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXCreateWindow(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong parent, jint x, jint y, jint width, jint height, jint depth, jint clazz, jlong visualAddress, jlong valuemask, jlong attributesAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXCreateWindow(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong parent, jint x, jint y, jint width, jint height, jint border_width, jint depth, jint windowClass, jlong visualAddress, jlong valuemask, jlong attributesAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	Visual *visual = (Visual *)(intptr_t)visualAddress;
 	XSetWindowAttributes *attributes = (XSetWindowAttributes *)(intptr_t)attributesAddress;
-	return (jlong)XCreateWindow(display, (Window)parent, x, y, width, height, depth, clazz, visual, (unsigned long)valuemask, attributes);
+	return (jlong)XCreateWindow(display, (Window)parent, x, y, width, height, border_width, depth, windowClass, visual, (unsigned long)valuemask, attributes);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXChangeWindowAttributes(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w, jlong valuemask, jlong attributesAddress) {
@@ -146,7 +141,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetWMHints(JNIEnv *__e
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetSizeHints(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w, jlong hintsAddress, jlong property) {
 	Display *display = (Display *)(intptr_t)displayAddress;
-	XWMHints *hints = (XWMHints *)(intptr_t)hintsAddress;
+	XSizeHints *hints = (XSizeHints *)(intptr_t)hintsAddress;
 	return (jint)XSetSizeHints(display, (Window)w, hints, (Atom)property);
 }
 
@@ -355,7 +350,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXCreateGC(JNIEnv *__en
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFillRectangle(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong d, jlong gcAddress, jint x, jint y, jint width, jint height) {
 	Display *display = (Display *)(intptr_t)displayAddress;
-	GC *gc = (GC *)(intptr_t)gcAddress;
+	GC gc = (GC)(intptr_t)gcAddress;
 	return (jint)XFillRectangle(display, (Drawable)d, gc, x, y, width, height);
 }
 
@@ -373,6 +368,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFreePixmap(JNIEnv *__e
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFreeGC(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong gcAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
-	GC *gc = (GC *)(intptr_t)gcAddress;
+	GC gc = (GC)(intptr_t)gcAddress;
 	return (jint)XFreeGC(display, gc);
 }

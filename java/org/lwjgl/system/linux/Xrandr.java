@@ -13,7 +13,7 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to Xrandr.h. */
+/** Native bindings to <X11/extensions/Xrandr.h>. */
 public final class Xrandr {
 
 	/** Event selection bits */

@@ -3,8 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
+#include <GL/glx.h>
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_GLX_nglXQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong error_baseAddress, jlong event_baseAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;

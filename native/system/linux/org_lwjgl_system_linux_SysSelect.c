@@ -3,8 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
+#include <sys/select.h>
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_SysSelect_nFD_1CLR(JNIEnv *__env, jclass clazz, jint fd, jlong setAddress) {
 	fd_set *set = (fd_set *)(intptr_t)setAddress;
@@ -30,6 +31,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_SysSelect_nselect(JNIEnv *__e
 	fd_set *readfds = (fd_set *)(intptr_t)readfdsAddress;
 	fd_set *writefds = (fd_set *)(intptr_t)writefdsAddress;
 	fd_set *exceptfds = (fd_set *)(intptr_t)exceptfdsAddress;
-	timeval *timeout = (timeval *)(intptr_t)timeoutAddress;
+	struct timeval *timeout = (struct timeval *)(intptr_t)timeoutAddress;
 	return (jint)select(nfds, readfds, writefds, exceptfds, timeout);
 }

@@ -3,15 +3,16 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include <stddef.h>
 #include "LinuxLWJGL.h"
+#include <sys/time.h>
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_timespec_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
-	buffer[0] = (jint)(offsetof(timespec, tv_sec));
-	buffer[1] = (jint)(offsetof(timespec, tv_nsec));
+	buffer[0] = (jint)(offsetof(struct timespec, tv_sec));
+	buffer[1] = (jint)(offsetof(struct timespec, tv_nsec));
 
-	return sizeof(timespec);
+	return sizeof(struct timespec);
 }

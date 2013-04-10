@@ -3,7 +3,8 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
+#include <GL/glx.h>
 
 typedef Display * (APIENTRY *glXGetCurrentDisplayEXTPROC) (void);
 typedef int (APIENTRY *glXQueryContextInfoEXTPROC) (Display *, GLXContext, int, int *);

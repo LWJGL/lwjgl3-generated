@@ -153,6 +153,92 @@ public final class X {
 		GXnand         = 0xE,
 		GXset          = 0xF;
 
+	/** LineStyle */
+	public static final int
+		LineSolid      = 0x0,
+		LineOnOffDash  = 0x1,
+		LineDoubleDash = 0x2;
+
+	/** capStyle */
+	public static final int
+		CapNotLast    = 0x0,
+		CapButt       = 0x1,
+		CapRound      = 0x2,
+		CapProjecting = 0x3;
+
+	/** joinStyle */
+	public static final int
+		JoinMiter = 0x0,
+		JoinRound = 0x1,
+		JoinBevel = 0x2;
+
+	/** fillStyle */
+	public static final int
+		FillSolid          = 0x0,
+		FillTiled          = 0x1,
+		FillStippled       = 0x2,
+		FillOpaqueStippled = 0x3;
+
+	/** fillRule */
+	public static final int
+		EvenOddRule = 0x0,
+		WindingRule = 0x1;
+
+	/** subwindow mode */
+	public static final int
+		ClipByChildren   = 0x0,
+		IncludeInferiors = 0x1;
+
+	/** SetClipRectangles ordering */
+	public static final int
+		Unsorted = 0x0,
+		YSorted  = 0x1,
+		YXSorted = 0x2,
+		YXBanded = 0x3;
+
+	/** CoordinateMode for drawing routines */
+	public static final int
+		CoordModeOrigin   = 0x0,
+		CoordModePrevious = 0x1;
+
+	/** Polygon shapes */
+	public static final int
+		Complex   = 0x0,
+		Nonconvex = 0x1,
+		Convex    = 0x2;
+
+	/** Arc modes for PolyFillArc */
+	public static final int
+		ArcChord    = 0x0,
+		ArcPieSlice = 0x1;
+
+	/** GC components: masks used in CreateGC, CopyGC, ChangeGC, OR'ed into GC.stateChanges */
+	public static final int
+		GCFunction          = 1<<0,
+		GCPlaneMask         = 1<<1,
+		GCForeground        = 1<<2,
+		GCBackground        = 1<<3,
+		GCLineWidth         = 1<<4,
+		GCLineStyle         = 1<<5,
+		GCCapStyle          = 1<<6,
+		GCJoinStyle         = 1<<7,
+		GCFillStyle         = 1<<8,
+		GCFillRule          = 1<<9,
+		GCTile              = 1<<10,
+		GCStipple           = 1<<11,
+		GCTileStipXOrigin   = 1<<12,
+		GCTileStipYOrigin   = 1<<13,
+		GCFont              = 1<<14,
+		GCSubwindowMode     = 1<<15,
+		GCGraphicsExposures = 1<<16,
+		GCClipXOrigin       = 1<<17,
+		GCClipYOrigin       = 1<<18,
+		GCClipMask          = 1<<19,
+		GCDashOffset        = 1<<20,
+		GCDashList          = 1<<21,
+		GCArcMode           = 1<<22,
+		GCLastBit           = 0x16;
+
 	private X() {}
 
 }

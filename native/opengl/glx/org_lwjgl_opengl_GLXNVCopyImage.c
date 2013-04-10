@@ -3,7 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
+#include "OpenGL.h"
+#include <GL/glx.h>
 
 typedef GLvoid (APIENTRY *glXCopyImageSubDataNVPROC) (Display *, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
 

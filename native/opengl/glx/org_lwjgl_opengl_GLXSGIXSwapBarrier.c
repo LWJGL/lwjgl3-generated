@@ -3,9 +3,8 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
-#include "OpenGL.h"
-#include "GLX.h"
+#include "common_tools.h"
+#include <GL/glx.h>
 
 typedef void (APIENTRY *glXBindSwapBarrierSGIXPROC) (Display *, GLXDrawable, int);
 typedef Bool (APIENTRY *glXQueryMaxSwapBarriersSGIXPROC) (Display *, int, int *);

@@ -24,9 +24,9 @@ public final class GLXEXTImportContext {
 
 	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT}: */
 	public static final int
-		GLX_GLX_SHARE_CONTEXT_EXT = 0x800A,
-		GLX_GLX_VISUAL_ID_EXT     = 0x800B,
-		GLX_GLX_SCREEN_EXT        = 0x800C;
+		GLX_SHARE_CONTEXT_EXT = 0x800A,
+		GLX_VISUAL_ID_EXT     = 0x800B,
+		GLX_SCREEN_EXT        = 0x800C;
 
 	private GLXEXTImportContext() {}
 

@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "WindowsLWJGL.h"
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_Mmsystem_njoyGetDevCaps(JNIEnv *__env, jclass clazz, jlong joyID, jlong jcAddress, jint bjc) {

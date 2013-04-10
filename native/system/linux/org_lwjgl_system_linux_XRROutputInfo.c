@@ -3,9 +3,10 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include <stddef.h>
 #include "LinuxLWJGL.h"
+#include <X11/extensions/Xrandr.h>
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XRROutputInfo_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;

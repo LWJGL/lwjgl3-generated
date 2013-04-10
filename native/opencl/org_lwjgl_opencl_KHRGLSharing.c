@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef cl_int (APIENTRY *clGetGLContextInfoKHRPROC) (const cl_context_properties *, cl_gl_context_info, size_t, cl_void *, size_t *);

@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include <jni.h>
+#include "common_tools.h"
 #include "OpenCL.h"
 
 typedef cl_mem (APIENTRY *clCreateSubBufferPROC) (cl_mem, cl_mem_flags, cl_buffer_create_type, const cl_void *, cl_int *);
