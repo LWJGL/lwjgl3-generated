@@ -15,6 +15,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XkbDescRec_offsets(JNIEnv *en
 	buffer[1] = (jint)(offsetof(XkbDescRec, device_spec));
 	buffer[2] = (jint)(offsetof(XkbDescRec, min_key_code));
 	buffer[3] = (jint)(offsetof(XkbDescRec, max_key_code));
+	buffer[4] = (jint)(offsetof(XkbDescRec, names));
 
 	return sizeof(XkbDescRec);
 }

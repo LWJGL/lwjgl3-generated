@@ -75,9 +75,9 @@ public final class XColor {
 	public static void padSet(ByteBuffer xcolor, int pad) { xcolor.put(xcolor.position() + PAD, (byte)pad); }
 
 	public static long pixelGet(ByteBuffer xcolor) { return PointerBuffer.get(xcolor, xcolor.position() + PIXEL); }
-	public static int redGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + RED); }
-	public static int greenGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + GREEN); }
-	public static int blueGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + BLUE); }
+	public static int redGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + RED) & 0xFFFF; }
+	public static int greenGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + GREEN) & 0xFFFF; }
+	public static int blueGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + BLUE) & 0xFFFF; }
 	public static int flagsGet(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + FLAGS); }
 	public static int padGet(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + PAD); }
 

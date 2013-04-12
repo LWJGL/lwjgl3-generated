@@ -26,13 +26,6 @@ public final class XWindowAttributes {
 		BORDER_WIDTH,
 		DEPTH,
 		VISUAL,
-			VISUAL_VISUALID,
-			VISUAL_CLAZZ,
-			VISUAL_RED_MASK,
-			VISUAL_GREEN_MASK,
-			VISUAL_BLUE_MASK,
-			VISUAL_BITS_PER_RGB,
-			VISUAL_MAP_ENTRIES,
 		ROOT,
 		CLAZZ,
 		BIT_GRAVITY,
@@ -62,13 +55,6 @@ public final class XWindowAttributes {
 		BORDER_WIDTH = offsets.get(4);
 		DEPTH = offsets.get(5);
 		VISUAL = offsets.get(6);
-			VISUAL_VISUALID = VISUAL + Visual.VISUALID;
-			VISUAL_CLAZZ = VISUAL + Visual.CLAZZ;
-			VISUAL_RED_MASK = VISUAL + Visual.RED_MASK;
-			VISUAL_GREEN_MASK = VISUAL + Visual.GREEN_MASK;
-			VISUAL_BLUE_MASK = VISUAL + Visual.BLUE_MASK;
-			VISUAL_BITS_PER_RGB = VISUAL + Visual.BITS_PER_RGB;
-			VISUAL_MAP_ENTRIES = VISUAL + Visual.MAP_ENTRIES;
 		ROOT = offsets.get(7);
 		CLAZZ = offsets.get(8);
 		BIT_GRAVITY = offsets.get(9);
@@ -102,13 +88,7 @@ public final class XWindowAttributes {
 		int height,
 		int border_width,
 		int depth,
-		long visual_visualid,
-		int visual_clazz,
-		long visual_red_mask,
-		long visual_green_mask,
-		long visual_blue_mask,
-		int visual_bits_per_rgb,
-		int visual_map_entries,
+		long visual,
 		long root,
 		int clazz,
 		int bit_gravity,
@@ -134,13 +114,62 @@ public final class XWindowAttributes {
 		heightSet(xwindowattributes, height);
 		border_widthSet(xwindowattributes, border_width);
 		depthSet(xwindowattributes, depth);
-		visualVisualidSet(xwindowattributes, visual_visualid);
-		visualClazzSet(xwindowattributes, visual_clazz);
-		visualRed_maskSet(xwindowattributes, visual_red_mask);
-		visualGreen_maskSet(xwindowattributes, visual_green_mask);
-		visualBlue_maskSet(xwindowattributes, visual_blue_mask);
-		visualBits_per_rgbSet(xwindowattributes, visual_bits_per_rgb);
-		visualMap_entriesSet(xwindowattributes, visual_map_entries);
+		visualSet(xwindowattributes, visual);
+		rootSet(xwindowattributes, root);
+		clazzSet(xwindowattributes, clazz);
+		bit_gravitySet(xwindowattributes, bit_gravity);
+		win_gravitySet(xwindowattributes, win_gravity);
+		backing_storeSet(xwindowattributes, backing_store);
+		backing_planesSet(xwindowattributes, backing_planes);
+		backing_pixelSet(xwindowattributes, backing_pixel);
+		save_underSet(xwindowattributes, save_under);
+		colormapSet(xwindowattributes, colormap);
+		map_installedSet(xwindowattributes, map_installed);
+		map_stateSet(xwindowattributes, map_state);
+		all_event_masksSet(xwindowattributes, all_event_masks);
+		your_event_maskSet(xwindowattributes, your_event_mask);
+		do_not_propagate_maskSet(xwindowattributes, do_not_propagate_mask);
+		override_redirectSet(xwindowattributes, override_redirect);
+		screenSet(xwindowattributes, screen);
+
+		return xwindowattributes;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int x,
+		int y,
+		int width,
+		int height,
+		int border_width,
+		int depth,
+		ByteBuffer visual,
+		long root,
+		int clazz,
+		int bit_gravity,
+		int win_gravity,
+		int backing_store,
+		long backing_planes,
+		long backing_pixel,
+		int save_under,
+		long colormap,
+		int map_installed,
+		int map_state,
+		long all_event_masks,
+		long your_event_mask,
+		long do_not_propagate_mask,
+		int override_redirect,
+		long screen
+	) {
+		ByteBuffer xwindowattributes = malloc();
+
+		xSet(xwindowattributes, x);
+		ySet(xwindowattributes, y);
+		widthSet(xwindowattributes, width);
+		heightSet(xwindowattributes, height);
+		border_widthSet(xwindowattributes, border_width);
+		depthSet(xwindowattributes, depth);
+		visualSet(xwindowattributes, visual);
 		rootSet(xwindowattributes, root);
 		clazzSet(xwindowattributes, clazz);
 		bit_gravitySet(xwindowattributes, bit_gravity);
@@ -167,13 +196,8 @@ public final class XWindowAttributes {
 	public static void heightSet(ByteBuffer xwindowattributes, int height) { xwindowattributes.putInt(xwindowattributes.position() + HEIGHT, height); }
 	public static void border_widthSet(ByteBuffer xwindowattributes, int border_width) { xwindowattributes.putInt(xwindowattributes.position() + BORDER_WIDTH, border_width); }
 	public static void depthSet(ByteBuffer xwindowattributes, int depth) { xwindowattributes.putInt(xwindowattributes.position() + DEPTH, depth); }
-	public static void visualVisualidSet(ByteBuffer xwindowattributes, long visualid) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL_VISUALID, visualid); }
-	public static void visualClazzSet(ByteBuffer xwindowattributes, int clazz) { xwindowattributes.putInt(xwindowattributes.position() + VISUAL_CLAZZ, clazz); }
-	public static void visualRed_maskSet(ByteBuffer xwindowattributes, long red_mask) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL_RED_MASK, red_mask); }
-	public static void visualGreen_maskSet(ByteBuffer xwindowattributes, long green_mask) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL_GREEN_MASK, green_mask); }
-	public static void visualBlue_maskSet(ByteBuffer xwindowattributes, long blue_mask) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL_BLUE_MASK, blue_mask); }
-	public static void visualBits_per_rgbSet(ByteBuffer xwindowattributes, int bits_per_rgb) { xwindowattributes.putInt(xwindowattributes.position() + VISUAL_BITS_PER_RGB, bits_per_rgb); }
-	public static void visualMap_entriesSet(ByteBuffer xwindowattributes, int map_entries) { xwindowattributes.putInt(xwindowattributes.position() + VISUAL_MAP_ENTRIES, map_entries); }
+	public static void visualSet(ByteBuffer xwindowattributes, long visual) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL, visual); }
+	public static void visualSet(ByteBuffer xwindowattributes, ByteBuffer visual) { visualSet(xwindowattributes, memAddress(visual)); }
 	public static void rootSet(ByteBuffer xwindowattributes, long root) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + ROOT, root); }
 	public static void clazzSet(ByteBuffer xwindowattributes, int clazz) { xwindowattributes.putInt(xwindowattributes.position() + CLAZZ, clazz); }
 	public static void bit_gravitySet(ByteBuffer xwindowattributes, int bit_gravity) { xwindowattributes.putInt(xwindowattributes.position() + BIT_GRAVITY, bit_gravity); }
@@ -197,13 +221,8 @@ public final class XWindowAttributes {
 	public static int heightGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + HEIGHT); }
 	public static int border_widthGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BORDER_WIDTH); }
 	public static int depthGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + DEPTH); }
-	public static long visualVisualidGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL_VISUALID); }
-	public static int visualClazzGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + VISUAL_CLAZZ); }
-	public static long visualRed_maskGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL_RED_MASK); }
-	public static long visualGreen_maskGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL_GREEN_MASK); }
-	public static long visualBlue_maskGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL_BLUE_MASK); }
-	public static int visualBits_per_rgbGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + VISUAL_BITS_PER_RGB); }
-	public static int visualMap_entriesGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + VISUAL_MAP_ENTRIES); }
+	public static long visualGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL); }
+	public static ByteBuffer visualGet(ByteBuffer xwindowattributes, int size) { long address = visualGet(xwindowattributes); return address == 0 ? null : memByteBuffer(address, size); }
 	public static long rootGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + ROOT); }
 	public static int clazzGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + CLAZZ); }
 	public static int bit_gravityGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BIT_GRAVITY); }

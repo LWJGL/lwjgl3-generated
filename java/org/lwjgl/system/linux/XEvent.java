@@ -249,9 +249,9 @@ public final class XEvent {
 	public static int xerrorTypeGet(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XERROR_TYPE); }
 	public static long xerrorDisplayGet(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR_DISPLAY); }
 	public static long xerrorSerialGet(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR_SERIAL); }
-	public static int xerrorError_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_ERROR_CODE); }
-	public static int xerrorRequest_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_REQUEST_CODE); }
-	public static int xerrorMinor_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_MINOR_CODE); }
+	public static int xerrorError_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_ERROR_CODE) & 0xFF; }
+	public static int xerrorRequest_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_REQUEST_CODE) & 0xFF; }
+	public static int xerrorMinor_codeGet(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR_MINOR_CODE) & 0xFF; }
 	public static long xerrorResourceidGet(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR_RESOURCEID); }
 	public static void padGet(ByteBuffer xevent, long pad, int bytes) {
 		memCopy(memAddress(xevent) + PAD, pad, bytes);

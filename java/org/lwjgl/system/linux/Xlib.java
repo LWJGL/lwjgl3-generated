@@ -30,6 +30,19 @@ public final class Xlib {
 
 	private Xlib() {}
 
+	// --- [ XInitThreads ] ---
+
+	/**
+	 * Initializes Xlib support for concurrent threads. This function must be the first Xlib function a multi-threaded program calls, and it must complete
+	 * before any other Xlib call is made. This function returns a nonzero status if initialization was successful; otherwise, it returns zero. On systems that
+	 * do not support threads, this function always returns zero.
+	 * <p/>
+	 * It is only necessary to call this function if multiple threads might use Xlib concurrently. If all calls to Xlib functions are protected by some other
+	 * access mechanism (for example, a mutual exclusion lock in a toolkit or through explicit client programming), Xlib thread initialization is not required.
+	 * It is recommended that single-threaded programs not call this function.
+	 */
+	public static native int XInitThreads();
+
 	// --- [ XSetErrorHandler ] ---
 
 	/** JNI method for {@link #XSetErrorHandler} */
@@ -88,13 +101,13 @@ public final class Xlib {
 	 */
 	public static long XOpenDisplay(ByteBuffer display_name) {
 		if ( LWJGLUtil.CHECKS )
-			checkNT1(display_name);
-		return nXOpenDisplay(memAddress(display_name));
+			if ( display_name != null ) checkNT1(display_name);
+		return nXOpenDisplay(memAddressSafe(display_name));
 	}
 
 	/** CharSequence version of: {@link #XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
-		return nXOpenDisplay(memAddress(memEncodeASCII(display_name)));
+		return nXOpenDisplay(memAddressSafe(memEncodeASCII(display_name)));
 	}
 
 	// --- [ XCloseDisplay ] ---

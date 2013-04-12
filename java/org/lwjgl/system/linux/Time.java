@@ -16,6 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <time.h>. */
 public final class Time {
 
+	/** The IDs of the various system clocks (for POSIX.1b interval timers): */
+	public static final int
+		CLOCK_REALTIME           = 0x0,
+		CLOCK_MONOTONIC          = 0x1,
+		CLOCK_PROCESS_CPUTIME_ID = 0x2,
+		CLOCK_THREAD_CPUTIME_ID  = 0x3,
+		CLOCK_MONOTONIC_RAW      = 0x4,
+		CLOCK_REALTIME_COARSE    = 0x5,
+		CLOCK_MONOTONIC_COARSE   = 0x6,
+		CLOCK_BOOTTIME           = 0x7,
+		CLOCK_REALTIME_ALARM     = 0x8,
+		CLOCK_BOOTTIME_ALARM     = 0x9;
+
 	private Time() {}
 
 	// --- [ clock_getres ] ---

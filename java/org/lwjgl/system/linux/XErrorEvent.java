@@ -82,9 +82,9 @@ public final class XErrorEvent {
 	public static int typeGet(ByteBuffer xerrorevent) { return xerrorevent.getInt(xerrorevent.position() + TYPE); }
 	public static long displayGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + DISPLAY); }
 	public static long serialGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + SERIAL); }
-	public static int error_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + ERROR_CODE); }
-	public static int request_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + REQUEST_CODE); }
-	public static int minor_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + MINOR_CODE); }
+	public static int error_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + ERROR_CODE) & 0xFF; }
+	public static int request_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + REQUEST_CODE) & 0xFF; }
+	public static int minor_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + MINOR_CODE) & 0xFF; }
 	public static long resourceidGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + RESOURCEID); }
 
 }

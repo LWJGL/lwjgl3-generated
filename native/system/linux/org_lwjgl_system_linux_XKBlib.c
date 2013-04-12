@@ -23,7 +23,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XKBlib_nXkbSetDetectableAutoR
 	return (jint)XkbSetDetectableAutoRepeat(display, detectable, supported);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_XKBlib_nXkbKeycodeToKeysym(JNIEnv *__env, jclass clazz, jlong displayAddress, jbyte kc, jint group, jint level) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_XKBlib_nXkbKeycodeToKeysym(JNIEnv *__env, jclass clazz, jlong displayAddress, jint kc, jint group, jint level) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	return (jlong)XkbKeycodeToKeysym(display, kc, group, level);
 }

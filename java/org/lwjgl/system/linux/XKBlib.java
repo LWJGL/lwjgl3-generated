@@ -16,6 +16,51 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to XKBlib.h. */
 public final class XKBlib {
 
+	/**
+	 * XkbUseCoreKbd is used to specify the core keyboard without having to look up its X input extension identifier.
+	 * XkbUseCorePtr is used to specify the core pointer without having to look up its X input extension identifier.
+	 * XkbDfltXIClass is used to specify "don't care" any place that the XKB protocol is looking for an X Input Extension device class.
+	 * XkbDfltXIId is used to specify "don't care" any place that the XKB protocol is looking for an X Input Extension feedback identifier.
+	 * XkbAllXIClasses is used to get information about all device indicators, whether they're part of the indicator feedback class or the keyboard feedback class.
+	 * XkbAllXIIds is used to get information about all device indicator feedbacks without having to list them.
+	 * XkbXINone is used to indicate that no class or id has been specified.
+	 * <p/>
+	 * XkbLegalXILedClass(c) True if 'c' specifies a legal class with LEDs
+	 * XkbLegalXIBellClass(c) True if 'c' specifies a legal class with bells
+	 * XkbExplicitXIDevice(d) True if 'd' explicitly specifies a device
+	 * XkbExplicitXIClass(c) True if 'c' explicitly specifies a device class
+	 * XkbExplicitXIId(c) True if 'i' explicitly specifies a device id
+	 * XkbSingleXIClass(c) True if 'c' specifies exactly one device class, including the default.
+	 * XkbSingleXIId(i) True if 'i' specifies exactly one device identifier, including the default.
+	 */
+	public static final int
+		XkbUseCoreKbd   = 0x100,
+		XkbUseCorePtr   = 0x200,
+		XkbDfltXIClass  = 0x300,
+		XkbDfltXIId     = 0x400,
+		XkbAllXIClasses = 0x500,
+		XkbAllXIIds     = 0x600,
+		XkbXINone       = 0xFF00;
+
+	/**  */
+	public static final int
+		XkbNumKbdGroups = 0x4;
+
+	/** Assorted constants and limits. */
+	public static final int
+		XkbNumModifiers        = 0x8,
+		XkbNumVirtualMods      = 0x10,
+		XkbNumIndicators       = 0x20,
+		XkbAllIndicatorsMask   = 0xffffffff,
+		XkbMaxRadioGroups      = 0x20,
+		XkbAllRadioGroupsMask  = 0xffffffff,
+		XkbMaxShiftLevel       = 0x3F,
+		XkbMaxSymsPerKey       = XkbMaxShiftLevel*XkbNumKbdGroups,
+		XkbRGMaxMembers        = 0xC,
+		XkbActionMessageLength = 0x6,
+		XkbKeyNameLength       = 0x4,
+		XkbMaxRedirectCount    = 0x8;
+
 	/** Mask bits for {@link XkbDescRec}. */
 	public static final int
 		XkbControlsMask      = 1<<0,
@@ -25,7 +70,7 @@ public final class XKBlib {
 		XkbNamesMask         = 1<<4,
 		XkbCompatMapMask     = 1<<5,
 		XkbGeometryMask      = 1<<6,
-		XkbAllComponentsMask = 1<<7;
+		XkbAllComponentsMask = 0x7F;
 
 	private XKBlib() {}
 
@@ -97,7 +142,7 @@ public final class XKBlib {
 	// --- [ XkbKeycodeToKeysym ] ---
 
 	/** JNI method for {@link #XkbKeycodeToKeysym} */
-	public static native long nXkbKeycodeToKeysym(long display, byte kc, int group, int level);
+	public static native long nXkbKeycodeToKeysym(long display, int kc, int group, int level);
 
 	/**
 	 * Finds the keysym bound to a particular key at a specified group and shift level.
@@ -107,7 +152,7 @@ public final class XKBlib {
 	 * @param group   group of interest
 	 * @param level   shift level of interest
 	 */
-	public static long XkbKeycodeToKeysym(long display, byte kc, int group, int level) {
+	public static long XkbKeycodeToKeysym(long display, int kc, int group, int level) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		return nXkbKeycodeToKeysym(display, kc, group, level);

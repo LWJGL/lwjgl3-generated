@@ -7,6 +7,10 @@
 #include "LinuxLWJGL.h"
 #include <X11/Xutil.h>
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_XInitThreads(JNIEnv *__env, jclass clazz) {
+	return (jint)XInitThreads();
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetErrorHandler(JNIEnv *__env, jclass clazz, jlong handlerAddress) {
 	XErrorHandler handler = (XErrorHandler)(intptr_t)handlerAddress;
 	return (jlong)(intptr_t)XSetErrorHandler(handler);

@@ -161,8 +161,8 @@ public final class XRROutputInfo {
 	public static int nameLenGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NAMELEN); }
 	public static long mm_widthGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH); }
 	public static long mm_heightGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT); }
-	public static int connectionGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + CONNECTION); }
-	public static int subpixel_orderGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + SUBPIXEL_ORDER); }
+	public static int connectionGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + CONNECTION) & 0xFFFF; }
+	public static int subpixel_orderGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + SUBPIXEL_ORDER) & 0xFFFF; }
 	public static int ncrtcGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCRTC); }
 	public static long crtcsGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTCS); }
 	public static ByteBuffer crtcsGet(ByteBuffer xrroutputinfo, int size) { long address = crtcsGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
