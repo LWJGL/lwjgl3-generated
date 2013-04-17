@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to Xutil.h. */
+/** Native bindings to &lt;X11/Xutil.h&gt;. */
 public final class Xutil {
 
 	/** Definition for flags of {@link XWMHints} */
@@ -119,6 +119,74 @@ public final class Xutil {
 	public static ByteBuffer XAllocSizeHints() {
 		long __result = nXAllocSizeHints();
 		return memByteBuffer(__result, XSizeHints.SIZEOF);
+	}
+
+	// --- [ XUniqueContext ] ---
+
+	/** Creates a unique context. */
+	public static native int XUniqueContext();
+
+	// --- [ XSaveContext ] ---
+
+	/** JNI method for {@link #XSaveContext} */
+	public static native int nXSaveContext(long display, long rid, int context, long data);
+
+	/**
+	 * Save a data value that corresponds to a resource ID and context type.
+	 *
+	 * @param display the connection to the X server
+	 * @param rid     the resource ID with which the data is associated
+	 * @param context the context type to which the data belongs
+	 * @param data    the data to be associated with the window and type
+	 */
+	public static int XSaveContext(long display, long rid, int context, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXSaveContext(display, rid, context, memAddress(data));
+	}
+
+	// --- [ XFindContext ] ---
+
+	/** JNI method for {@link #XFindContext} */
+	public static native int nXFindContext(long display, long rid, int context, long data_return);
+
+	/**
+	 * Returns the data associated with a resource ID and type.
+	 *
+	 * @param display     the connection to the X server
+	 * @param rid         the resource ID with which the data is associated
+	 * @param context     the context type to which the data belongs
+	 * @param data_return returns the data
+	 */
+	public static int XFindContext(long display, long rid, int context, ByteBuffer data_return) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXFindContext(display, rid, context, memAddress(data_return));
+	}
+
+	/** Alternative version of: {@link #XFindContext} */
+	public static int XFindContext(long display, long rid, int context, PointerBuffer data_return) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXFindContext(display, rid, context, memAddress(data_return));
+	}
+
+	// --- [ XDeleteContext ] ---
+
+	/** JNI method for {@link #XDeleteContext} */
+	public static native int nXDeleteContext(long display, long rid, int context);
+
+	/**
+	 * Deletes an entry for the given resource ID and type.
+	 *
+	 * @param display the connection to the X server
+	 * @param rid     the resource ID with which the data is associated
+	 * @param context the context type to which the data belongs
+	 */
+	public static int XDeleteContext(long display, long rid, int context) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXDeleteContext(display, rid, context);
 	}
 
 }
