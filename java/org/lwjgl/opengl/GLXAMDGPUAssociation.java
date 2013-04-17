@@ -205,13 +205,11 @@ public final class GLXAMDGPUAssociation {
 	 * @param size     
 	 * @param data     
 	 */
-	public static int glXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
+	public static int glXGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
 		long __functionAddress = getInstance().glXGetGPUInfoAMD;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-			checkPointer(data);
-		}
-		return nglXGetGPUInfoAMD(id, property, dataType, size, data, __functionAddress);
+		return nglXGetGPUInfoAMD(id, property, dataType, size, memAddress(data), __functionAddress);
 	}
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---

@@ -31,6 +31,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRFreeScreenResource
 	XRRFreeScreenResources(resources);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRGetOutputPrimary(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	return (jlong)XRRGetOutputPrimary(display, (Window)w);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRGetCrtcInfo(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong resourcesAddress, jlong crtc) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	XRRScreenResources *resources = (XRRScreenResources *)(intptr_t)resourcesAddress;
@@ -56,6 +61,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRFreeOutputInfo(JNI
 JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRSelectInput(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w, jint mask) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	XRRSelectInput(display, (Window)w, mask);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRSetCrtcConfig(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong resourcesAddress, jlong crtc, jlong timestamp, jint x, jint y, jlong mode, jshort rotation, jlong outputsAddress, jint noutputs) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	XRRScreenResources *resources = (XRRScreenResources *)(intptr_t)resourcesAddress;
+	RROutput *outputs = (RROutput *)(intptr_t)outputsAddress;
+	return (jint)XRRSetCrtcConfig(display, resources, (RRCrtc)crtc, (Time)timestamp, x, y, (RRMode)mode, rotation, outputs, noutputs);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRUpdateConfiguration(JNIEnv *__env, jclass clazz, jlong eventAddress) {

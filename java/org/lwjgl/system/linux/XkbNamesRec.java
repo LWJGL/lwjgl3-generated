@@ -203,9 +203,9 @@ public final class XkbNamesRec {
 		groupsGet(xkbnamesrec, memAddress(groups), groups.remaining());
 	}
 	public static long keysGet(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEYS); }
-	public static ByteBuffer keysGet(ByteBuffer xkbnamesrec, int size) { long address = keysGet(xkbnamesrec); return address == 0 ? null : memByteBuffer(address, size); }
+	public static ByteBuffer keysGetb(ByteBuffer xkbnamesrec) { return memByteBuffer(keysGet(xkbnamesrec), XkbKeyNameRec.SIZEOF); }
 	public static long key_aliasesGet(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEY_ALIASES); }
-	public static ByteBuffer key_aliasesGet(ByteBuffer xkbnamesrec, int size) { long address = key_aliasesGet(xkbnamesrec); return address == 0 ? null : memByteBuffer(address, size); }
+	public static ByteBuffer key_aliasesGetb(ByteBuffer xkbnamesrec) { return memByteBuffer(key_aliasesGet(xkbnamesrec), XkbKeyAliasRec.SIZEOF); }
 	public static long radio_groupsGet(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + RADIO_GROUPS); }
 	public static ByteBuffer radio_groupsGet(ByteBuffer xkbnamesrec, int size) { long address = radio_groupsGet(xkbnamesrec); return address == 0 ? null : memByteBuffer(address, size); }
 	public static long phys_symbolsGet(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + PHYS_SYMBOLS); }

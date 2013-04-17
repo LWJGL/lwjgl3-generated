@@ -35,6 +35,19 @@ public final class Xutil {
 		NormalState    = 0x1,
 		IconicState    = 0x3;
 
+	/** flags argument in size hints */
+	public static final int
+		USPosition  = 1 << 0,
+		USSize      = 1 << 1,
+		PPosition   = 1 << 2,
+		PSize       = 1 << 3,
+		PMinSize    = 1 << 4,
+		PMaxSize    = 1 << 5,
+		PResizeInc  = 1 << 6,
+		PAspect     = 1 << 7,
+		PBaseSize   = 1 << 8,
+		PWinGravity = 1 << 9;
+
 	private Xutil() {}
 
 	// --- [ XLookupString ] ---

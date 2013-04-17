@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * This extension also introduces the concept called affinity-DC. An affinity-DC is a device context with a GPU affinity mask embedded in it. This
  * restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the affinity mask.
  */
-public final class WGLNVGpuAffinity {
+public final class WGLNVGPUAffinity {
 
 	/** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB}. */
 	public static final int
@@ -34,7 +34,7 @@ public final class WGLNVGpuAffinity {
 	public static final int
 		WGL_ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
-	private WGLNVGpuAffinity() {}
+	private WGLNVGPUAffinity() {}
 
 	// --- [ wglEnumGpusNV ] ---
 
@@ -180,7 +180,7 @@ public final class WGLNVGpuAffinity {
 
 	/** Returns the {@link Functions} instance for the current context. */
 	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLNVGpuAffinity;
+		return GL.getCapabilities().__WGLNVGPUAffinity;
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -198,7 +198,7 @@ public final class WGLNVGpuAffinity {
 		return GL.checkExtension("WGL_NV_gpu_affinity", funcs, supported);
 	}
 
-	/** The {@link FunctionMap} class for {@code WGLNVGpuAffinity}. */
+	/** The {@link FunctionMap} class for {@code WGLNVGPUAffinity}. */
 	public static final class Functions implements FunctionMap {
 
 		public final long

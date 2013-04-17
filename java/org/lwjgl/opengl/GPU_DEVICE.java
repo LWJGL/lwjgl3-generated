@@ -11,6 +11,8 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+import org.lwjgl.system.windows.*;
+
 /**
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGpuAffinity#wglEnumGpuDevicesNV}
  * function.
@@ -26,11 +28,7 @@ public final class GPU_DEVICE {
 		DEVICENAME,
 		DEVICESTRING,
 		FLAGS,
-		VIRTUALSCREEN,
-			VIRTUALSCREEN_LEFT,
-			VIRTUALSCREEN_TOP,
-			VIRTUALSCREEN_RIGHT,
-			VIRTUALSCREEN_BOTTOM;
+		VIRTUALSCREEN;
 
 	static {
 		IntBuffer offsets = BufferUtils.createIntBuffer(5);
@@ -42,10 +40,6 @@ public final class GPU_DEVICE {
 		DEVICESTRING = offsets.get(2);
 		FLAGS = offsets.get(3);
 		VIRTUALSCREEN = offsets.get(4);
-			VIRTUALSCREEN_LEFT = VIRTUALSCREEN + org.lwjgl.system.windows.RECT.LEFT;
-			VIRTUALSCREEN_TOP = VIRTUALSCREEN + org.lwjgl.system.windows.RECT.TOP;
-			VIRTUALSCREEN_RIGHT = VIRTUALSCREEN + org.lwjgl.system.windows.RECT.RIGHT;
-			VIRTUALSCREEN_BOTTOM = VIRTUALSCREEN + org.lwjgl.system.windows.RECT.BOTTOM;
 	}
 
 	private GPU_DEVICE() {}
@@ -63,10 +57,7 @@ public final class GPU_DEVICE {
 		long DeviceString,
 		int DeviceStringBytes,
 		int Flags,
-		int virtualScreen_left,
-		int virtualScreen_top,
-		int virtualScreen_right,
-		int virtualScreen_bottom
+		long virtualScreen
 	) {
 		ByteBuffer gpu_device = malloc();
 
@@ -74,10 +65,7 @@ public final class GPU_DEVICE {
 		DeviceNameSet(gpu_device, DeviceName, DeviceNameBytes);
 		DeviceStringSet(gpu_device, DeviceString, DeviceStringBytes);
 		FlagsSet(gpu_device, Flags);
-		virtualScreenLeftSet(gpu_device, virtualScreen_left);
-		virtualScreenTopSet(gpu_device, virtualScreen_top);
-		virtualScreenRightSet(gpu_device, virtualScreen_right);
-		virtualScreenBottomSet(gpu_device, virtualScreen_bottom);
+		virtualScreenSet(gpu_device, virtualScreen);
 
 		return gpu_device;
 	}
@@ -88,10 +76,7 @@ public final class GPU_DEVICE {
 		ByteBuffer DeviceName,
 		ByteBuffer DeviceString,
 		int Flags,
-		int virtualScreen_left,
-		int virtualScreen_top,
-		int virtualScreen_right,
-		int virtualScreen_bottom
+		ByteBuffer virtualScreen
 	) {
 		ByteBuffer gpu_device = malloc();
 
@@ -99,10 +84,7 @@ public final class GPU_DEVICE {
 		DeviceNameSet(gpu_device, DeviceName);
 		DeviceStringSet(gpu_device, DeviceString);
 		FlagsSet(gpu_device, Flags);
-		virtualScreenLeftSet(gpu_device, virtualScreen_left);
-		virtualScreenTopSet(gpu_device, virtualScreen_top);
-		virtualScreenRightSet(gpu_device, virtualScreen_right);
-		virtualScreenBottomSet(gpu_device, virtualScreen_bottom);
+		virtualScreenSet(gpu_device, virtualScreen);
 
 		return gpu_device;
 	}
@@ -113,10 +95,7 @@ public final class GPU_DEVICE {
 		CharSequence DeviceName,
 		CharSequence DeviceString,
 		int Flags,
-		int virtualScreen_left,
-		int virtualScreen_top,
-		int virtualScreen_right,
-		int virtualScreen_bottom
+		ByteBuffer virtualScreen
 	) {
 		ByteBuffer gpu_device = malloc();
 
@@ -124,10 +103,7 @@ public final class GPU_DEVICE {
 		DeviceNameSet(gpu_device, DeviceName);
 		DeviceStringSet(gpu_device, DeviceString);
 		FlagsSet(gpu_device, Flags);
-		virtualScreenLeftSet(gpu_device, virtualScreen_left);
-		virtualScreenTopSet(gpu_device, virtualScreen_top);
-		virtualScreenRightSet(gpu_device, virtualScreen_right);
-		virtualScreenBottomSet(gpu_device, virtualScreen_bottom);
+		virtualScreenSet(gpu_device, virtualScreen);
 
 		return gpu_device;
 	}
@@ -148,10 +124,12 @@ public final class GPU_DEVICE {
 	}
 	public static void DeviceStringSet(ByteBuffer gpu_device, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(gpu_device, memAddress(buffer), buffer.capacity()); }
 	public static void FlagsSet(ByteBuffer gpu_device, int Flags) { gpu_device.putInt(gpu_device.position() + FLAGS, Flags); }
-	public static void virtualScreenLeftSet(ByteBuffer gpu_device, int left) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN_LEFT, left); }
-	public static void virtualScreenTopSet(ByteBuffer gpu_device, int top) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN_TOP, top); }
-	public static void virtualScreenRightSet(ByteBuffer gpu_device, int right) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN_RIGHT, right); }
-	public static void virtualScreenBottomSet(ByteBuffer gpu_device, int bottom) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN_BOTTOM, bottom); }
+	public static void virtualScreenSet(ByteBuffer gpu_device, long virtualScreen) { if ( virtualScreen != NULL ) memCopy(virtualScreen, memAddress(gpu_device) + VIRTUALSCREEN, RECT.SIZEOF); }
+	public static void virtualScreenSet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { virtualScreenSet(gpu_device, memAddressSafe(virtualScreen)); }
+	public static void virtualScreenLeftSet(ByteBuffer gpu_device, int left) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN + RECT.LEFT, left); }
+	public static void virtualScreenTopSet(ByteBuffer gpu_device, int top) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN + RECT.TOP, top); }
+	public static void virtualScreenRightSet(ByteBuffer gpu_device, int right) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN + RECT.RIGHT, right); }
+	public static void virtualScreenBottomSet(ByteBuffer gpu_device, int bottom) { gpu_device.putInt(gpu_device.position() + VIRTUALSCREEN + RECT.BOTTOM, bottom); }
 
 	public static int cbGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + CB); }
 	public static void DeviceNameGet(ByteBuffer gpu_device, long DeviceName, int bytes) {
@@ -173,9 +151,11 @@ public final class GPU_DEVICE {
 	public static String DeviceStringGets(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICESTRING), DEVICESTRING); }
 	public static String DeviceStringGets(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICESTRING); }
 	public static int FlagsGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + FLAGS); }
-	public static int virtualScreenLeftGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN_LEFT); }
-	public static int virtualScreenTopGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN_TOP); }
-	public static int virtualScreenRightGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN_RIGHT); }
-	public static int virtualScreenBottomGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN_BOTTOM); }
+	public static void virtualScreenGet(ByteBuffer gpu_device, long virtualScreen) { memCopy(memAddress(gpu_device) + VIRTUALSCREEN, virtualScreen, RECT.SIZEOF); }
+	public static void virtualScreenGet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { checkBuffer(virtualScreen, RECT.SIZEOF); virtualScreenGet(gpu_device, memAddress(virtualScreen)); }
+	public static int virtualScreenLeftGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.LEFT); }
+	public static int virtualScreenTopGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.TOP); }
+	public static int virtualScreenRightGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.RIGHT); }
+	public static int virtualScreenBottomGet(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.BOTTOM); }
 
 }

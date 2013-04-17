@@ -83,7 +83,37 @@ public final class XVisualInfo {
 		return xvisualinfo;
 	}
 
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		ByteBuffer visual,
+		long visualid,
+		int screen,
+		int depth,
+		int clazz,
+		long red_mask,
+		long green_mask,
+		long blue_mask,
+		int colormap_size,
+		int bits_per_rgb
+	) {
+		ByteBuffer xvisualinfo = malloc();
+
+		visualSet(xvisualinfo, visual);
+		visualidSet(xvisualinfo, visualid);
+		screenSet(xvisualinfo, screen);
+		depthSet(xvisualinfo, depth);
+		clazzSet(xvisualinfo, clazz);
+		red_maskSet(xvisualinfo, red_mask);
+		green_maskSet(xvisualinfo, green_mask);
+		blue_maskSet(xvisualinfo, blue_mask);
+		colormap_sizeSet(xvisualinfo, colormap_size);
+		bits_per_rgbSet(xvisualinfo, bits_per_rgb);
+
+		return xvisualinfo;
+	}
+
 	public static void visualSet(ByteBuffer xvisualinfo, long visual) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUAL, visual); }
+	public static void visualSet(ByteBuffer xvisualinfo, ByteBuffer visual) { visualSet(xvisualinfo, memAddress(visual)); }
 	public static void visualidSet(ByteBuffer xvisualinfo, long visualid) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUALID, visualid); }
 	public static void screenSet(ByteBuffer xvisualinfo, int screen) { xvisualinfo.putInt(xvisualinfo.position() + SCREEN, screen); }
 	public static void depthSet(ByteBuffer xvisualinfo, int depth) { xvisualinfo.putInt(xvisualinfo.position() + DEPTH, depth); }
@@ -95,6 +125,7 @@ public final class XVisualInfo {
 	public static void bits_per_rgbSet(ByteBuffer xvisualinfo, int bits_per_rgb) { xvisualinfo.putInt(xvisualinfo.position() + BITS_PER_RGB, bits_per_rgb); }
 
 	public static long visualGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUAL); }
+	public static ByteBuffer visualGetb(ByteBuffer xvisualinfo) { return memByteBuffer(visualGet(xvisualinfo), Visual.SIZEOF); }
 	public static long visualidGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUALID); }
 	public static int screenGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + SCREEN); }
 	public static int depthGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + DEPTH); }

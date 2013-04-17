@@ -91,10 +91,128 @@ public final class X {
 		ColormapChangeMask       = 1 << 23,
 		OwnerGrabButtonMask      = 1 << 24;
 
-	/** Window classes used by {@link Xlib#XCreateWindow}. */
+	/**
+	 * Event names. Used in "type" field in {@link XEvent} structures. Not to be confused with event masks above. They start from 2 because 0 and 1 are
+	 * reserved in the protocol for errors and replies.
+	 */
 	public static final int
-		InputOutput = 0x1,
-		InputOnly   = 0x2;
+		KeyPress         = 0x2,
+		KeyRelease       = 0x3,
+		ButtonPress      = 0x4,
+		ButtonRelease    = 0x5,
+		MotionNotify     = 0x6,
+		EnterNotify      = 0x7,
+		LeaveNotify      = 0x8,
+		FocusIn          = 0x9,
+		FocusOut         = 0xA,
+		KeymapNotify     = 0xB,
+		Expose           = 0xC,
+		GraphicsExpose   = 0xD,
+		NoExpose         = 0xE,
+		VisibilityNotify = 0xF,
+		CreateNotify     = 0x10,
+		DestroyNotify    = 0x11,
+		UnmapNotify      = 0x12,
+		MapNotify        = 0x13,
+		MapRequest       = 0x14,
+		ReparentNotify   = 0x15,
+		ConfigureNotify  = 0x16,
+		ConfigureRequest = 0x17,
+		GravityNotify    = 0x18,
+		ResizeRequest    = 0x19,
+		CirculateNotify  = 0x1A,
+		CirculateRequest = 0x1B,
+		PropertyNotify   = 0x1C,
+		SelectionClear   = 0x1D,
+		SelectionRequest = 0x1E,
+		SelectionNotify  = 0x1F,
+		ColormapNotify   = 0x20,
+		ClientMessage    = 0x21,
+		MappingNotify    = 0x22,
+		GenericEvent     = 0x23,
+		LASTEvent        = 0x24;
+
+	/** Key masks. Used as modifiers to GrabButton and GrabKey, results of QueryPointer, state in various key-, mouse-, and button-related events. */
+	public static final int
+		ShiftMask   = 1<<0,
+		LockMask    = 1<<1,
+		ControlMask = 1<<2,
+		Mod1Mask    = 1<<3,
+		Mod2Mask    = 1<<4,
+		Mod3Mask    = 1<<5,
+		Mod4Mask    = 1<<6,
+		Mod5Mask    = 1<<7;
+
+	/** modifier names. Used to build a SetModifierMapping request or to read a GetModifierMapping request. These correspond to the masks defined above. */
+	public static final int
+		ShiftMapIndex   = 0x0,
+		LockMapIndex    = 0x1,
+		ControlMapIndex = 0x2,
+		Mod1MapIndex    = 0x3,
+		Mod2MapIndex    = 0x4,
+		Mod3MapIndex    = 0x5,
+		Mod4MapIndex    = 0x6,
+		Mod5MapIndex    = 0x7;
+
+	/** button masks. Used in same manner as Key masks above. Not to be confused with button names below. */
+	public static final int
+		Button1Mask = 1<<8,
+		Button2Mask = 1<<9,
+		Button3Mask = 1<<10,
+		Button4Mask = 1<<11,
+		Button5Mask = 1<<12,
+		AnyModifier = 1<<15;
+
+	/**
+	 * button names. Used as arguments to GrabButton and as detail in ButtonPress and ButtonRelease events. Not to be confused with button masks above. Note
+	 * that 0 is already defined above as "AnyButton".
+	 */
+	public static final int
+		Button1 = 0x1,
+		Button2 = 0x2,
+		Button3 = 0x3,
+		Button4 = 0x4,
+		Button5 = 0x5;
+
+	/** Notify modes */
+	public static final int
+		NotifyNormal       = 0x0,
+		NotifyGrab         = 0x1,
+		NotifyUngrab       = 0x2,
+		NotifyWhileGrabbed = 0x3,
+		NotifyHint         = 0x1;
+
+	/** Notify detail */
+	public static final int
+		NotifyAncestor         = 0x0,
+		NotifyVirtual          = 0x1,
+		NotifyInferior         = 0x2,
+		NotifyNonlinear        = 0x3,
+		NotifyNonlinearVirtual = 0x4,
+		NotifyPointer          = 0x5,
+		NotifyPointerRoot      = 0x6,
+		NotifyDetailNone       = 0x7;
+
+	/** Visibility notify */
+	public static final int
+		VisibilityUnobscured        = 0x0,
+		VisibilityPartiallyObscured = 0x1,
+		VisibilityFullyObscured     = 0x2;
+
+	/** Circulation request */
+	public static final int
+		PlaceOnTop    = 0x0,
+		PlaceOnBottom = 0x1;
+
+	/** Property notification */
+	public static final int
+		PropertyNewValue = 0x0,
+		PropertyDelete   = 0x1;
+
+	/** Color Map notification */
+	public static final int
+		ColormapUninstalled = 0x0,
+		ColormapInstalled   = 0x1;
 
 	/** GrabPointer, GrabButton, GrabKeyboard, GrabKey Modes */
 	public static final int
@@ -109,6 +227,33 @@ public final class X {
 		GrabNotViewable = 0x3,
 		GrabFrozen      = 0x4;
 
+	/** AllowEvents modes */
+	public static final int
+		AsyncPointer   = 0x0,
+		SyncPointer    = 0x1,
+		ReplayPointer  = 0x2,
+		AsyncKeyboard  = 0x3,
+		SyncKeyboard   = 0x4,
+		ReplayKeyboard = 0x5,
+		AsyncBoth      = 0x6,
+		SyncBoth       = 0x7;
+
+	/** For {@link Xlib#XCreateColormap}. */
+	public static final int
+		AllocNone = 0x0,
+		AllocAll  = 0x1;
+
+	/** Used in {@link Xlib#XSetInputFocus}, {@link Xlib#XGetInputFocus}. */
+	public static final int
+		RevertToNone        = None,
+		RevertToPointerRoot = PointerRoot,
+		RevertToParent      = 0x2;
+
+	/** Window classes used by {@link Xlib#XCreateWindow}. */
+	public static final int
+		InputOutput = 0x1,
+		InputOnly   = 0x2;
+
 	/** SCREEN SAVER STUFF */
 	public static final int
 		DontPreferBlanking    = 0x0,
@@ -121,12 +266,6 @@ public final class X {
 		DefaultExposures      = 0x2,
 		ScreenSaverReset      = 0x0,
 		ScreenSaverActive     = 0x1;
-
-	/** Used in {@link Xlib#XSetInputFocus}, {@link Xlib#XGetInputFocus}. */
-	public static final int
-		RevertToNone        = None,
-		RevertToPointerRoot = PointerRoot,
-		RevertToParent      = 0x2;
 
 	/** Property modes */
 	public static final int

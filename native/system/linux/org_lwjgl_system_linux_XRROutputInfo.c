@@ -25,6 +25,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XRROutputInfo_offsets(JNIEnv 
 	buffer[11] = (jint)(offsetof(XRROutputInfo, clones));
 	buffer[12] = (jint)(offsetof(XRROutputInfo, nmode));
 	buffer[13] = (jint)(offsetof(XRROutputInfo, npreferred));
+	buffer[14] = (jint)(offsetof(XRROutputInfo, modes));
 
 	return sizeof(XRROutputInfo);
 }

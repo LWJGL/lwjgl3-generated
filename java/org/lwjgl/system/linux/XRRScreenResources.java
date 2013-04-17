@@ -122,6 +122,6 @@ public final class XRRScreenResources {
 	public static ByteBuffer outputsGet(ByteBuffer xrrscreenresources, int size) { long address = outputsGet(xrrscreenresources); return address == 0 ? null : memByteBuffer(address, size); }
 	public static int nmodeGet(ByteBuffer xrrscreenresources) { return xrrscreenresources.getInt(xrrscreenresources.position() + NMODE); }
 	public static long modesGet(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + MODES); }
-	public static ByteBuffer modesGet(ByteBuffer xrrscreenresources, int size) { long address = modesGet(xrrscreenresources); return address == 0 ? null : memByteBuffer(address, size); }
+	public static ByteBuffer modesGetb(ByteBuffer xrrscreenresources) { return memByteBuffer(modesGet(xrrscreenresources), XRRModeInfo.SIZEOF); }
 
 }

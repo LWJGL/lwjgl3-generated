@@ -67,6 +67,36 @@ public final class Xlib {
 		return nXSetErrorHandler(XErrorHandler.register(handler));
 	}
 
+	// --- [ XGetErrorText ] ---
+
+	/** JNI method for {@link #XGetErrorText} */
+	public static native int nXGetErrorText(long display, int code, long buffer_return, int length);
+
+	/**
+	 * Copies a null-terminated string describing the specified error code into the specified buffer. The returned text is in the encoding of the current
+	 * locale. It is recommended that you use this function to obtain an error description because extensions to Xlib may define their own error codes and
+	 * error strings.
+	 *
+	 * @param display       the connection to the X server
+	 * @param code          the error code for which you want to obtain a description
+	 * @param buffer_return returns the error description
+	 * @param length        the size of the buffer
+	 */
+	public static int XGetErrorText(long display, int code, ByteBuffer buffer_return, int length) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(display);
+			checkBuffer(buffer_return, length);
+		}
+		return nXGetErrorText(display, code, memAddress(buffer_return), length);
+	}
+
+	/** Alternative version of: {@link #XGetErrorText} */
+	public static int XGetErrorText(long display, int code, ByteBuffer buffer_return) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXGetErrorText(display, code, memAddress(buffer_return), buffer_return.remaining());
+	}
+
 	// --- [ XFree ] ---
 
 	/** JNI method for {@link #XFree} */
@@ -77,10 +107,13 @@ public final class Xlib {
 	 *
 	 * @param data the data that is to be freed
 	 */
-	public static int XFree(long data) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(data);
-		return nXFree(data);
+	public static int XFree(ByteBuffer data) {
+		return nXFree(memAddress(data));
+	}
+
+	/** PointerBuffer version of: {@link #XFree} */
+	public static int XFree(PointerBuffer data) {
+		return nXFree(memAddress(data));
 	}
 
 	// --- [ XOpenDisplay ] ---
@@ -222,6 +255,40 @@ public final class Xlib {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		return nXDisplayHeight(display, screen_number);
+	}
+
+	// --- [ XDisplayWidthMM ] ---
+
+	/** JNI method for {@link #XDisplayWidthMM} */
+	public static native int nXDisplayWidthMM(long display, int screen_number);
+
+	/**
+	 * Returns an integer that describes the width of the screen in millimeters.
+	 *
+	 * @param display       the connection to the X server
+	 * @param screen_number the appropriate screen number on the host server
+	 */
+	public static int XDisplayWidthMM(long display, int screen_number) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXDisplayWidthMM(display, screen_number);
+	}
+
+	// --- [ XDisplayHeightMM ] ---
+
+	/** JNI method for {@link #XDisplayHeightMM} */
+	public static native int nXDisplayHeightMM(long display, int screen_number);
+
+	/**
+	 * Returns an integer that describes the height of the screen in millimeters.
+	 *
+	 * @param display       the connection to the X server
+	 * @param screen_number the appropriate screen number on the host server
+	 */
+	public static int XDisplayHeightMM(long display, int screen_number) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXDisplayHeightMM(display, screen_number);
 	}
 
 	// --- [ XSync ] ---
@@ -1102,34 +1169,34 @@ public final class Xlib {
 			checkPointer(display);
 			checkNT1(window_name);
 			checkNT1(icon_name);
-			checkBuffer(argv, argc << POINTER_SHIFT);
-			checkBuffer(normal_hints, XSizeHints.SIZEOF);
-			checkBuffer(wm_hints, XWMHints.SIZEOF);
-			checkBuffer(class_hints, XClassHint.SIZEOF);
+			if ( argv != null ) checkBuffer(argv, argc << POINTER_SHIFT);
+			if ( normal_hints != null ) checkBuffer(normal_hints, XSizeHints.SIZEOF);
+			if ( wm_hints != null ) checkBuffer(wm_hints, XWMHints.SIZEOF);
+			if ( class_hints != null ) checkBuffer(class_hints, XClassHint.SIZEOF);
 		}
-		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddress(argv), argc, memAddress(normal_hints), memAddress(wm_hints), memAddress(class_hints));
+		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddressSafe(argv), argc, memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	/** Alternative version of: {@link #Xutf8SetWMProperties} */
 	public static void Xutf8SetWMProperties(long display, long w, ByteBuffer window_name, ByteBuffer icon_name, PointerBuffer argv, ByteBuffer normal_hints, ByteBuffer wm_hints, ByteBuffer class_hints) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(normal_hints, XSizeHints.SIZEOF);
-			checkBuffer(wm_hints, XWMHints.SIZEOF);
-			checkBuffer(class_hints, XClassHint.SIZEOF);
+			if ( normal_hints != null ) checkBuffer(normal_hints, XSizeHints.SIZEOF);
+			if ( wm_hints != null ) checkBuffer(wm_hints, XWMHints.SIZEOF);
+			if ( class_hints != null ) checkBuffer(class_hints, XClassHint.SIZEOF);
 		}
-		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddress(argv), argv.remaining(), memAddress(normal_hints), memAddress(wm_hints), memAddress(class_hints));
+		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	/** CharSequence version of: {@link #Xutf8SetWMProperties} */
 	public static void Xutf8SetWMProperties(long display, long w, CharSequence window_name, CharSequence icon_name, PointerBuffer argv, ByteBuffer normal_hints, ByteBuffer wm_hints, ByteBuffer class_hints) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(normal_hints, XSizeHints.SIZEOF);
-			checkBuffer(wm_hints, XWMHints.SIZEOF);
-			checkBuffer(class_hints, XClassHint.SIZEOF);
+			if ( normal_hints != null ) checkBuffer(normal_hints, XSizeHints.SIZEOF);
+			if ( wm_hints != null ) checkBuffer(wm_hints, XWMHints.SIZEOF);
+			if ( class_hints != null ) checkBuffer(class_hints, XClassHint.SIZEOF);
 		}
-		nXutf8SetWMProperties(display, w, memAddress(memEncodeUTF8(window_name)), memAddress(memEncodeUTF8(icon_name)), memAddress(argv), argv.remaining(), memAddress(normal_hints), memAddress(wm_hints), memAddress(class_hints));
+		nXutf8SetWMProperties(display, w, memAddress(memEncodeUTF8(window_name)), memAddress(memEncodeUTF8(icon_name)), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	// --- [ XChangeProperty ] ---

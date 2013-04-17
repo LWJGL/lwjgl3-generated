@@ -18,6 +18,23 @@ import org.lwjgl.opengl.*;
 /** Native bindings to GLX. */
 public final class GLX {
 
+	/** Errors. */
+	public static final int
+		GLXBadContext                = 0x0,
+		GLXBadContextState           = 0x1,
+		GLXBadDrawable               = 0x2,
+		GLXBadPixmap                 = 0x3,
+		GLXBadContextTag             = 0x4,
+		GLXBadCurrentWindow          = 0x5,
+		GLXBadRenderRequest          = 0x6,
+		GLXBadLargeRequest           = 0x7,
+		GLXUnsupportedPrivateRequest = 0x8,
+		GLXBadFBConfig               = 0x9,
+		GLXBadPbuffer                = 0xA,
+		GLXBadCurrentDrawable        = 0xB,
+		GLXBadWindow                 = 0xC,
+		GLXBadProfileARB             = 0xD;
+
 	/** Names for attributes to {@link #glXGetConfig}. */
 	public static final int
 		GLX_USE_GL           = 0x1,
@@ -195,7 +212,6 @@ public final class GLX {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkBuffer(visual, XVisualInfo.SIZEOF);
-			checkPointer(share_list);
 		}
 		return nglXCreateContext(display, memAddress(visual), share_list, direct);
 	}
@@ -213,11 +229,8 @@ public final class GLX {
 	 * @param ctx     the GLXContext to make current
 	 */
 	public static int glXMakeCurrent(long display, long draw, long ctx) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-			checkPointer(draw);
-			checkPointer(ctx);
-		}
 		return nglXMakeCurrent(display, draw, ctx);
 	}
 

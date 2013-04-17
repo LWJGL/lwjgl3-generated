@@ -61,7 +61,7 @@ public final class ContextCapabilities {
 	final WGLEXTSwapControl.Functions       __WGLEXTSwapControl;
 	final WGLNVDXInterop.Functions          __WGLNVDXInterop;
 	final WGLNVCopyImage.Functions          __WGLNVCopyImage;
-	final WGLNVGpuAffinity.Functions        __WGLNVGpuAffinity;
+	final WGLNVGPUAffinity.Functions        __WGLNVGPUAffinity;
 
 	/** Indicates whether an OpenGL functionality is available or not. */
 	public final boolean
@@ -306,6 +306,6 @@ public final class ContextCapabilities {
 		WGL_NV_DX_interop = (__WGLNVDXInterop = WGLNVDXInterop.create(ext, provider)) != null;
 		WGL_NV_DX_interop2 = ext.contains("WGL_NV_DX_interop2");
 		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
-		WGL_NV_gpu_affinity = (__WGLNVGpuAffinity = WGLNVGpuAffinity.create(ext, provider)) != null;
+		WGL_NV_gpu_affinity = (__WGLNVGPUAffinity = WGLNVGPUAffinity.create(ext, provider)) != null;
 	}
 }

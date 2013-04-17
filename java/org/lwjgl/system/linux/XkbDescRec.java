@@ -94,6 +94,6 @@ public final class XkbDescRec {
 	public static int min_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MIN_KEY_CODE) & 0xFF; }
 	public static int max_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MAX_KEY_CODE) & 0xFF; }
 	public static long namesGet(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + NAMES); }
-	public static ByteBuffer namesGet(ByteBuffer xkbdescrec, int size) { long address = namesGet(xkbdescrec); return address == 0 ? null : memByteBuffer(address, size); }
+	public static ByteBuffer namesGetb(ByteBuffer xkbdescrec) { return memByteBuffer(namesGet(xkbdescrec), XkbNamesRec.SIZEOF); }
 
 }

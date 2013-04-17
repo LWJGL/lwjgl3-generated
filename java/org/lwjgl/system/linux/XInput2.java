@@ -16,6 +16,33 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to XInput2.h. */
 public final class XInput2 {
 
+	/** Event types */
+	public static final int
+		XI_DeviceChanged    = 0x1,
+		XI_KeyPress         = 0x2,
+		XI_KeyRelease       = 0x3,
+		XI_ButtonPress      = 0x4,
+		XI_ButtonRelease    = 0x5,
+		XI_Motion           = 0x6,
+		XI_Enter            = 0x7,
+		XI_Leave            = 0x8,
+		XI_FocusIn          = 0x9,
+		XI_FocusOut         = 0xA,
+		XI_HierarchyChanged = 0xB,
+		XI_PropertyEvent    = 0xC,
+		XI_RawKeyPress      = 0xD,
+		XI_RawKeyRelease    = 0xE,
+		XI_RawButtonPress   = 0xF,
+		XI_RawButtonRelease = 0x10,
+		XI_RawMotion        = 0x11,
+		XI_TouchBegin       = 0x12,
+		XI_TouchUpdate      = 0x13,
+		XI_TouchEnd         = 0x14,
+		XI_TouchOwnership   = 0x15,
+		XI_RawTouchBegin    = 0x16,
+		XI_RawTouchUpdate   = 0x17,
+		XI_RawTouchEnd      = 0x18;
+
 	private XInput2() {}
 
 	// --- [ XIQueryVersion ] ---

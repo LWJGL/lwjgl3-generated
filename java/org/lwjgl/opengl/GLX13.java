@@ -428,9 +428,6 @@ public final class GLX13 {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			checkPointer(draw);
-			checkPointer(read);
-			checkPointer(ctx);
 		}
 		return nglXMakeContextCurrent(display, draw, read, ctx, __functionAddress);
 	}

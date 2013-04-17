@@ -222,7 +222,7 @@ public final class XWindowAttributes {
 	public static int border_widthGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BORDER_WIDTH); }
 	public static int depthGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + DEPTH); }
 	public static long visualGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL); }
-	public static ByteBuffer visualGet(ByteBuffer xwindowattributes, int size) { long address = visualGet(xwindowattributes); return address == 0 ? null : memByteBuffer(address, size); }
+	public static ByteBuffer visualGetb(ByteBuffer xwindowattributes) { return memByteBuffer(visualGet(xwindowattributes), Visual.SIZEOF); }
 	public static long rootGet(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + ROOT); }
 	public static int clazzGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + CLAZZ); }
 	public static int bit_gravityGet(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BIT_GRAVITY); }

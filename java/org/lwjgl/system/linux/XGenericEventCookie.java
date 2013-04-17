@@ -75,6 +75,31 @@ public final class XGenericEventCookie {
 		return xgenericeventcookie;
 	}
 
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int type,
+		long serial,
+		int send_event,
+		long display,
+		int extension,
+		int evtype,
+		int cookie,
+		ByteBuffer data
+	) {
+		ByteBuffer xgenericeventcookie = malloc();
+
+		typeSet(xgenericeventcookie, type);
+		serialSet(xgenericeventcookie, serial);
+		send_eventSet(xgenericeventcookie, send_event);
+		displaySet(xgenericeventcookie, display);
+		extensionSet(xgenericeventcookie, extension);
+		evtypeSet(xgenericeventcookie, evtype);
+		cookieSet(xgenericeventcookie, cookie);
+		dataSet(xgenericeventcookie, data);
+
+		return xgenericeventcookie;
+	}
+
 	public static void typeSet(ByteBuffer xgenericeventcookie, int type) { xgenericeventcookie.putInt(xgenericeventcookie.position() + TYPE, type); }
 	public static void serialSet(ByteBuffer xgenericeventcookie, long serial) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + SERIAL, serial); }
 	public static void send_eventSet(ByteBuffer xgenericeventcookie, int send_event) { xgenericeventcookie.putInt(xgenericeventcookie.position() + SEND_EVENT, send_event); }
@@ -83,6 +108,7 @@ public final class XGenericEventCookie {
 	public static void evtypeSet(ByteBuffer xgenericeventcookie, int evtype) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EVTYPE, evtype); }
 	public static void cookieSet(ByteBuffer xgenericeventcookie, int cookie) { xgenericeventcookie.putInt(xgenericeventcookie.position() + COOKIE, cookie); }
 	public static void dataSet(ByteBuffer xgenericeventcookie, long data) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DATA, data); }
+	public static void dataSet(ByteBuffer xgenericeventcookie, ByteBuffer data) { dataSet(xgenericeventcookie, memAddress(data)); }
 
 	public static int typeGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + TYPE); }
 	public static long serialGet(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + SERIAL); }
@@ -92,5 +118,6 @@ public final class XGenericEventCookie {
 	public static int evtypeGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EVTYPE); }
 	public static int cookieGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + COOKIE); }
 	public static long dataGet(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DATA); }
+	public static ByteBuffer dataGet(ByteBuffer xgenericeventcookie, int size) { long address = dataGet(xgenericeventcookie); return address == 0 ? null : memByteBuffer(address, size); }
 
 }

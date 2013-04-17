@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to <X11/extensions/Xrandr.h>. */
@@ -180,6 +181,23 @@ public final class Xrandr {
 		nXRRFreeScreenResources(memAddress(resources));
 	}
 
+	// --- [ XRRGetOutputPrimary ] ---
+
+	/** JNI method for {@link #XRRGetOutputPrimary} */
+	public static native long nXRRGetOutputPrimary(long display, long w);
+
+	/**
+	 * Returns the primary output for the screen.
+	 *
+	 * @param display the connection to the X server
+	 * @param w       the window
+	 */
+	public static long XRRGetOutputPrimary(long display, long w) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXRRGetOutputPrimary(display, w);
+	}
+
 	// --- [ XRRGetCrtcInfo ] ---
 
 	/** JNI method for {@link #XRRGetCrtcInfo} */
@@ -270,6 +288,43 @@ public final class Xrandr {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		nXRRSelectInput(display, w, mask);
+	}
+
+	// --- [ XRRSetCrtcConfig ] ---
+
+	/** JNI method for {@link #XRRSetCrtcConfig} */
+	public static native int nXRRSetCrtcConfig(long display, long resources, long crtc, long timestamp, int x, int y, long mode, short rotation, long outputs, int noutputs);
+
+	/**
+	 * 
+	 *
+	 * @param display   the connection to the X server
+	 * @param resources 
+	 * @param crtc      
+	 * @param timestamp 
+	 * @param x         
+	 * @param y         
+	 * @param mode      
+	 * @param rotation  
+	 * @param outputs   
+	 * @param noutputs  
+	 */
+	public static int XRRSetCrtcConfig(long display, ByteBuffer resources, long crtc, long timestamp, int x, int y, long mode, short rotation, ByteBuffer outputs, int noutputs) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(display);
+			checkBuffer(resources, XRRScreenResources.SIZEOF);
+			checkBuffer(outputs, noutputs << POINTER_SHIFT);
+		}
+		return nXRRSetCrtcConfig(display, memAddress(resources), crtc, timestamp, x, y, mode, rotation, memAddress(outputs), noutputs);
+	}
+
+	/** Alternative version of: {@link #XRRSetCrtcConfig} */
+	public static int XRRSetCrtcConfig(long display, ByteBuffer resources, long crtc, long timestamp, int x, int y, long mode, short rotation, PointerBuffer outputs) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(display);
+			checkBuffer(resources, XRRScreenResources.SIZEOF);
+		}
+		return nXRRSetCrtcConfig(display, memAddress(resources), crtc, timestamp, x, y, mode, rotation, memAddress(outputs), outputs.remaining());
 	}
 
 	// --- [ XRRUpdateConfiguration ] ---

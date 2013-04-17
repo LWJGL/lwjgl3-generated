@@ -26,8 +26,6 @@ public final class DEVMODE {
 		DRIVEREXTRA,
 		FIELDS,
 		POSITION,
-			POSITION_X,
-			POSITION_Y,
 		LOGPIXELS,
 		BITSPERPEL,
 		PELSWIDTH,
@@ -47,8 +45,6 @@ public final class DEVMODE {
 		DRIVEREXTRA = offsets.get(4);
 		FIELDS = offsets.get(5);
 		POSITION = offsets.get(6);
-			POSITION_X = POSITION + POINTL.X;
-			POSITION_Y = POSITION + POINTL.Y;
 		LOGPIXELS = offsets.get(7);
 		BITSPERPEL = offsets.get(8);
 		PELSWIDTH = offsets.get(9);
@@ -73,8 +69,7 @@ public final class DEVMODE {
 		int size,
 		int driverExtra,
 		int fields,
-		int position_x,
-		int position_y,
+		long position,
 		int logPixels,
 		int bitsPerPel,
 		int pelsWidth,
@@ -90,8 +85,7 @@ public final class DEVMODE {
 		sizeSet(devmode, size);
 		driverExtraSet(devmode, driverExtra);
 		fieldsSet(devmode, fields);
-		positionXSet(devmode, position_x);
-		positionYSet(devmode, position_y);
+		positionSet(devmode, position);
 		logPixelsSet(devmode, logPixels);
 		bitsPerPelSet(devmode, bitsPerPel);
 		pelsWidthSet(devmode, pelsWidth);
@@ -110,8 +104,7 @@ public final class DEVMODE {
 		int size,
 		int driverExtra,
 		int fields,
-		int position_x,
-		int position_y,
+		ByteBuffer position,
 		int logPixels,
 		int bitsPerPel,
 		int pelsWidth,
@@ -127,8 +120,7 @@ public final class DEVMODE {
 		sizeSet(devmode, size);
 		driverExtraSet(devmode, driverExtra);
 		fieldsSet(devmode, fields);
-		positionXSet(devmode, position_x);
-		positionYSet(devmode, position_y);
+		positionSet(devmode, position);
 		logPixelsSet(devmode, logPixels);
 		bitsPerPelSet(devmode, bitsPerPel);
 		pelsWidthSet(devmode, pelsWidth);
@@ -147,8 +139,7 @@ public final class DEVMODE {
 		int size,
 		int driverExtra,
 		int fields,
-		int position_x,
-		int position_y,
+		ByteBuffer position,
 		int logPixels,
 		int bitsPerPel,
 		int pelsWidth,
@@ -164,8 +155,7 @@ public final class DEVMODE {
 		sizeSet(devmode, size);
 		driverExtraSet(devmode, driverExtra);
 		fieldsSet(devmode, fields);
-		positionXSet(devmode, position_x);
-		positionYSet(devmode, position_y);
+		positionSet(devmode, position);
 		logPixelsSet(devmode, logPixels);
 		bitsPerPelSet(devmode, bitsPerPel);
 		pelsWidthSet(devmode, pelsWidth);
@@ -188,8 +178,10 @@ public final class DEVMODE {
 	public static void sizeSet(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
 	public static void driverExtraSet(ByteBuffer devmode, int driverExtra) { devmode.putShort(devmode.position() + DRIVEREXTRA, (short)driverExtra); }
 	public static void fieldsSet(ByteBuffer devmode, int fields) { devmode.putInt(devmode.position() + FIELDS, fields); }
-	public static void positionXSet(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION_X, x); }
-	public static void positionYSet(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION_Y, y); }
+	public static void positionSet(ByteBuffer devmode, long position) { if ( position != NULL ) memCopy(position, memAddress(devmode) + POSITION, POINTL.SIZEOF); }
+	public static void positionSet(ByteBuffer devmode, ByteBuffer position) { positionSet(devmode, memAddressSafe(position)); }
+	public static void positionXSet(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION + POINTL.X, x); }
+	public static void positionYSet(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION + POINTL.Y, y); }
 	public static void logPixelsSet(ByteBuffer devmode, int logPixels) { devmode.putShort(devmode.position() + LOGPIXELS, (short)logPixels); }
 	public static void bitsPerPelSet(ByteBuffer devmode, int bitsPerPel) { devmode.putInt(devmode.position() + BITSPERPEL, bitsPerPel); }
 	public static void pelsWidthSet(ByteBuffer devmode, int pelsWidth) { devmode.putInt(devmode.position() + PELSWIDTH, pelsWidth); }
@@ -211,8 +203,10 @@ public final class DEVMODE {
 	public static int sizeGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
 	public static int driverExtraGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
 	public static int fieldsGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
-	public static int positionXGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION_X); }
-	public static int positionYGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION_Y); }
+	public static void positionGet(ByteBuffer devmode, long position) { memCopy(memAddress(devmode) + POSITION, position, POINTL.SIZEOF); }
+	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { checkBuffer(position, POINTL.SIZEOF); positionGet(devmode, memAddress(position)); }
+	public static int positionXGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.X); }
+	public static int positionYGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.Y); }
 	public static int logPixelsGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }
 	public static int bitsPerPelGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + BITSPERPEL); }
 	public static int pelsWidthGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSWIDTH); }

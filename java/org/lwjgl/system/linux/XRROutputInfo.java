@@ -32,10 +32,11 @@ public final class XRROutputInfo {
 		NCLONE,
 		CLONES,
 		NMODE,
-		NPREFERRED;
+		NPREFERRED,
+		MODES;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(14);
+		IntBuffer offsets = BufferUtils.createIntBuffer(15);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -53,6 +54,7 @@ public final class XRROutputInfo {
 		CLONES = offsets.get(11);
 		NMODE = offsets.get(12);
 		NPREFERRED = offsets.get(13);
+		MODES = offsets.get(14);
 	}
 
 	private XRROutputInfo() {}
@@ -77,7 +79,8 @@ public final class XRROutputInfo {
 		int nclone,
 		long clones,
 		int nmode,
-		int npreferred
+		int npreferred,
+		long modes
 	) {
 		ByteBuffer xrroutputinfo = malloc();
 
@@ -95,6 +98,7 @@ public final class XRROutputInfo {
 		clonesSet(xrroutputinfo, clones);
 		nmodeSet(xrroutputinfo, nmode);
 		npreferredSet(xrroutputinfo, npreferred);
+		modesSet(xrroutputinfo, modes);
 
 		return xrroutputinfo;
 	}
@@ -114,7 +118,8 @@ public final class XRROutputInfo {
 		int nclone,
 		ByteBuffer clones,
 		int nmode,
-		int npreferred
+		int npreferred,
+		ByteBuffer modes
 	) {
 		ByteBuffer xrroutputinfo = malloc();
 
@@ -132,6 +137,7 @@ public final class XRROutputInfo {
 		clonesSet(xrroutputinfo, clones);
 		nmodeSet(xrroutputinfo, nmode);
 		npreferredSet(xrroutputinfo, npreferred);
+		modesSet(xrroutputinfo, modes);
 
 		return xrroutputinfo;
 	}
@@ -153,6 +159,8 @@ public final class XRROutputInfo {
 	public static void clonesSet(ByteBuffer xrroutputinfo, ByteBuffer clones) { clonesSet(xrroutputinfo, memAddress(clones)); }
 	public static void nmodeSet(ByteBuffer xrroutputinfo, int nmode) { xrroutputinfo.putInt(xrroutputinfo.position() + NMODE, nmode); }
 	public static void npreferredSet(ByteBuffer xrroutputinfo, int npreferred) { xrroutputinfo.putInt(xrroutputinfo.position() + NPREFERRED, npreferred); }
+	public static void modesSet(ByteBuffer xrroutputinfo, long modes) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MODES, modes); }
+	public static void modesSet(ByteBuffer xrroutputinfo, ByteBuffer modes) { modesSet(xrroutputinfo, memAddress(modes)); }
 
 	public static long timestampGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP); }
 	public static long crtcGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTC); }
@@ -171,5 +179,7 @@ public final class XRROutputInfo {
 	public static ByteBuffer clonesGet(ByteBuffer xrroutputinfo, int size) { long address = clonesGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
 	public static int nmodeGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NMODE); }
 	public static int npreferredGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NPREFERRED); }
+	public static long modesGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MODES); }
+	public static ByteBuffer modesGet(ByteBuffer xrroutputinfo, int size) { long address = modesGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
 
 }

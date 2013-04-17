@@ -20,8 +20,6 @@ public final class LOGPEN {
 	public static final int
 		LOPNSTYLE,
 		LOPNWIDTH,
-			LOPNWIDTH_X,
-			LOPNWIDTH_Y,
 		LOPNCOLOR;
 
 	static {
@@ -31,8 +29,6 @@ public final class LOGPEN {
 
 		LOPNSTYLE = offsets.get(0);
 		LOPNWIDTH = offsets.get(1);
-			LOPNWIDTH_X = LOPNWIDTH + POINT.X;
-			LOPNWIDTH_Y = LOPNWIDTH + POINT.Y;
 		LOPNCOLOR = offsets.get(2);
 	}
 
@@ -46,28 +42,45 @@ public final class LOGPEN {
 	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		int lopnStyle,
-		int lopnWidth_x,
-		int lopnWidth_y,
+		long lopnWidth,
 		int lopnColor
 	) {
 		ByteBuffer logpen = malloc();
 
 		lopnStyleSet(logpen, lopnStyle);
-		lopnWidthXSet(logpen, lopnWidth_x);
-		lopnWidthYSet(logpen, lopnWidth_y);
+		lopnWidthSet(logpen, lopnWidth);
+		lopnColorSet(logpen, lopnColor);
+
+		return logpen;
+	}
+
+	/** Alternative virtual constructor. */
+	public static ByteBuffer malloc(
+		int lopnStyle,
+		ByteBuffer lopnWidth,
+		int lopnColor
+	) {
+		ByteBuffer logpen = malloc();
+
+		lopnStyleSet(logpen, lopnStyle);
+		lopnWidthSet(logpen, lopnWidth);
 		lopnColorSet(logpen, lopnColor);
 
 		return logpen;
 	}
 
 	public static void lopnStyleSet(ByteBuffer logpen, int lopnStyle) { logpen.putInt(logpen.position() + LOPNSTYLE, lopnStyle); }
-	public static void lopnWidthXSet(ByteBuffer logpen, int x) { logpen.putInt(logpen.position() + LOPNWIDTH_X, x); }
-	public static void lopnWidthYSet(ByteBuffer logpen, int y) { logpen.putInt(logpen.position() + LOPNWIDTH_Y, y); }
+	public static void lopnWidthSet(ByteBuffer logpen, long lopnWidth) { if ( lopnWidth != NULL ) memCopy(lopnWidth, memAddress(logpen) + LOPNWIDTH, POINT.SIZEOF); }
+	public static void lopnWidthSet(ByteBuffer logpen, ByteBuffer lopnWidth) { lopnWidthSet(logpen, memAddressSafe(lopnWidth)); }
+	public static void lopnWidthXSet(ByteBuffer logpen, int x) { logpen.putInt(logpen.position() + LOPNWIDTH + POINT.X, x); }
+	public static void lopnWidthYSet(ByteBuffer logpen, int y) { logpen.putInt(logpen.position() + LOPNWIDTH + POINT.Y, y); }
 	public static void lopnColorSet(ByteBuffer logpen, int lopnColor) { logpen.putInt(logpen.position() + LOPNCOLOR, lopnColor); }
 
 	public static int lopnStyleGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNSTYLE); }
-	public static int lopnWidthXGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH_X); }
-	public static int lopnWidthYGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH_Y); }
+	public static void lopnWidthGet(ByteBuffer logpen, long lopnWidth) { memCopy(memAddress(logpen) + LOPNWIDTH, lopnWidth, POINT.SIZEOF); }
+	public static void lopnWidthGet(ByteBuffer logpen, ByteBuffer lopnWidth) { checkBuffer(lopnWidth, POINT.SIZEOF); lopnWidthGet(logpen, memAddress(lopnWidth)); }
+	public static int lopnWidthXGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH + POINT.X); }
+	public static int lopnWidthYGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH + POINT.Y); }
 	public static int lopnColorGet(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNCOLOR); }
 
 }

@@ -39,9 +39,6 @@ public final class GLXSGIMakeCurrentRead {
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			checkPointer(draw);
-			checkPointer(read);
-			checkPointer(ctx);
 		}
 		return nglXMakeCurrentReadSGI(display, draw, read, ctx, __functionAddress);
 	}

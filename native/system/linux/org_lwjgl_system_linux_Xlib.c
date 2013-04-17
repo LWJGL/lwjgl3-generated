@@ -16,6 +16,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetErrorHandler(JNIEn
 	return (jlong)(intptr_t)XSetErrorHandler(handler);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXGetErrorText(JNIEnv *__env, jclass clazz, jlong displayAddress, jint code, jlong buffer_returnAddress, jint length) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	char *buffer_return = (char *)(intptr_t)buffer_returnAddress;
+	return (jint)XGetErrorText(display, code, buffer_return, length);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFree(JNIEnv *__env, jclass clazz, jlong dataAddress) {
 	void *data = (void *)(intptr_t)dataAddress;
 	return (jint)XFree(data);
@@ -55,6 +61,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXDisplayWidth(JNIEnv *_
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXDisplayHeight(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen_number) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	return (jint)XDisplayHeight(display, screen_number);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXDisplayWidthMM(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen_number) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	return (jint)XDisplayWidthMM(display, screen_number);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXDisplayHeightMM(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen_number) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	return (jint)XDisplayHeightMM(display, screen_number);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXSync(JNIEnv *__env, jclass clazz, jlong displayAddress, jint discard) {
