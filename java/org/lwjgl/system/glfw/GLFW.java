@@ -308,18 +308,18 @@ public final class GLFW {
 		GLFW_OPENGL_DEBUG_CONTEXT  = 0x22005,
 		GLFW_OPENGL_PROFILE        = 0x22006;
 
-	/** Client API types. */
+	/** Values for the {@link #GLFW_CLIENT_API} hint. */
 	public static final int
 		GLFW_OPENGL_API    = 0x1,
 		GLFW_OPENGL_ES_API = 0x2;
 
-	/** // Robustness values. */
+	/** Values for the {@link #GLFW_CONTEXT_ROBUSTNESS} hint. */
 	public static final int
 		GLFW_NO_ROBUSTNESS         = 0x0,
 		GLFW_NO_RESET_NOTIFICATION = 0x1,
 		GLFW_LOSE_CONTEXT_ON_RESET = 0x2;
 
-	/** OpenGL profiles. */
+	/** Values for the {@link #GLFW_OPENGL_PROFILE} hint. */
 	public static final int
 		GLFW_OPENGL_NO_PROFILE     = 0x0,
 		GLFW_OPENGL_CORE_PROFILE   = 0x1,
@@ -439,7 +439,7 @@ public final class GLFW {
 	// --- [ glfwSetErrorCallback ] ---
 
 	/** JNI method for {@link #glfwSetErrorCallback} */
-	public static native void nglfwSetErrorCallback(long cbfun);
+	public static native long nglfwSetErrorCallback(long cbfun);
 
 	/**
 	 * This function sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
@@ -455,13 +455,13 @@ public final class GLFW {
 	 *
 	 * @param cbfun the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetErrorCallback(long cbfun) {
-		nglfwSetErrorCallback(cbfun);
+	public static long glfwSetErrorCallback(long cbfun) {
+		return nglfwSetErrorCallback(cbfun);
 	}
 
 	/** Alternative version of: {@link #glfwSetErrorCallback} */
-	public static void glfwSetErrorCallback(ErrorCallback cbfun) {
-		nglfwSetErrorCallback(ErrorCallback.register(cbfun));
+	public static long glfwSetErrorCallback(ErrorCallback cbfun) {
+		return nglfwSetErrorCallback(ErrorCallback.register(cbfun));
 	}
 
 	// --- [ glfwGetMonitors ] ---
@@ -578,20 +578,20 @@ public final class GLFW {
 	// --- [ glfwSetMonitorCallback ] ---
 
 	/** JNI method for {@link #glfwSetMonitorCallback} */
-	public static native void nglfwSetMonitorCallback(long cbfun);
+	public static native long nglfwSetMonitorCallback(long cbfun);
 
 	/**
 	 * Sets the monitor configuration callback.
 	 *
 	 * @param cbfun the new callback, or NULL to remove the currently set callback
 	 */
-	public static void glfwSetMonitorCallback(long cbfun) {
-		nglfwSetMonitorCallback(cbfun);
+	public static long glfwSetMonitorCallback(long cbfun) {
+		return nglfwSetMonitorCallback(cbfun);
 	}
 
 	/** Alternative version of: {@link #glfwSetMonitorCallback} */
-	public static void glfwSetMonitorCallback(MonitorCallback cbfun) {
-		nglfwSetMonitorCallback(MonitorCallback.register(cbfun));
+	public static long glfwSetMonitorCallback(MonitorCallback cbfun) {
+		return nglfwSetMonitorCallback(MonitorCallback.register(cbfun));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
@@ -1138,7 +1138,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowPosCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowPosCallback} */
-	public static native void nglfwSetWindowPosCallback(long window, long cbfun);
+	public static native long nglfwSetWindowPosCallback(long window, long cbfun);
 
 	/**
 	 * Sets the position callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1146,16 +1146,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowPosCallback(long window, long cbfun) {
+	public static long glfwSetWindowPosCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowPosCallback(window, cbfun);
+		return nglfwSetWindowPosCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetWindowSizeCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowSizeCallback} */
-	public static native void nglfwSetWindowSizeCallback(long window, long cbfun);
+	public static native long nglfwSetWindowSizeCallback(long window, long cbfun);
 
 	/**
 	 * Sets the size callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1163,16 +1163,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowSizeCallback(long window, long cbfun) {
+	public static long glfwSetWindowSizeCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowSizeCallback(window, cbfun);
+		return nglfwSetWindowSizeCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetWindowCloseCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowCloseCallback} */
-	public static native void nglfwSetWindowCloseCallback(long window, long cbfun);
+	public static native long nglfwSetWindowCloseCallback(long window, long cbfun);
 
 	/**
 	 * Sets the close callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1187,16 +1187,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowCloseCallback(long window, long cbfun) {
+	public static long glfwSetWindowCloseCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowCloseCallback(window, cbfun);
+		return nglfwSetWindowCloseCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowRefreshCallback} */
-	public static native void nglfwSetWindowRefreshCallback(long window, long cbfun);
+	public static native long nglfwSetWindowRefreshCallback(long window, long cbfun);
 
 	/**
 	 * Sets the refresh callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1210,16 +1210,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowRefreshCallback(long window, long cbfun) {
+	public static long glfwSetWindowRefreshCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowRefreshCallback(window, cbfun);
+		return nglfwSetWindowRefreshCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetWindowFocusCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowFocusCallback} */
-	public static native void nglfwSetWindowFocusCallback(long window, long cbfun);
+	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
 	 * Sets the focus callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1229,16 +1229,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowFocusCallback(long window, long cbfun) {
+	public static long glfwSetWindowFocusCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowFocusCallback(window, cbfun);
+		return nglfwSetWindowFocusCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowIconifyCallback} */
-	public static native void nglfwSetWindowIconifyCallback(long window, long cbfun);
+	public static native long nglfwSetWindowIconifyCallback(long window, long cbfun);
 
 	/**
 	 * Sets the iconify callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1248,10 +1248,10 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetWindowIconifyCallback(long window, long cbfun) {
+	public static long glfwSetWindowIconifyCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowIconifyCallback(window, cbfun);
+		return nglfwSetWindowIconifyCallback(window, cbfun);
 	}
 
 	// --- [ glfwPollEvents ] ---
@@ -1429,7 +1429,7 @@ public final class GLFW {
 	// --- [ glfwSetKeyCallback ] ---
 
 	/** JNI method for {@link #glfwSetKeyCallback} */
-	public static native void nglfwSetKeyCallback(long window, long cbfun);
+	public static native long nglfwSetKeyCallback(long window, long cbfun);
 
 	/**
 	 * Sets the key callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1440,16 +1440,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetKeyCallback(long window, long cbfun) {
+	public static long glfwSetKeyCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetKeyCallback(window, cbfun);
+		return nglfwSetKeyCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetCharCallback ] ---
 
 	/** JNI method for {@link #glfwSetCharCallback} */
-	public static native void nglfwSetCharCallback(long window, long cbfun);
+	public static native long nglfwSetCharCallback(long window, long cbfun);
 
 	/**
 	 * Sets the Unicode character callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1459,16 +1459,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetCharCallback(long window, long cbfun) {
+	public static long glfwSetCharCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetCharCallback(window, cbfun);
+		return nglfwSetCharCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetMouseButtonCallback ] ---
 
 	/** JNI method for {@link #glfwSetMouseButtonCallback} */
-	public static native void nglfwSetMouseButtonCallback(long window, long cbfun);
+	public static native long nglfwSetMouseButtonCallback(long window, long cbfun);
 
 	/**
 	 * Sets the mouse button callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1476,16 +1476,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetMouseButtonCallback(long window, long cbfun) {
+	public static long glfwSetMouseButtonCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetMouseButtonCallback(window, cbfun);
+		return nglfwSetMouseButtonCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetCursorPosCallback ] ---
 
 	/** JNI method for {@link #glfwSetCursorPosCallback} */
-	public static native void nglfwSetCursorPosCallback(long window, long cbfun);
+	public static native long nglfwSetCursorPosCallback(long window, long cbfun);
 
 	/**
 	 * Sets the cursor position callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1495,16 +1495,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetCursorPosCallback(long window, long cbfun) {
+	public static long glfwSetCursorPosCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetCursorPosCallback(window, cbfun);
+		return nglfwSetCursorPosCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetCursorEnterCallback ] ---
 
 	/** JNI method for {@link #glfwSetCursorEnterCallback} */
-	public static native void nglfwSetCursorEnterCallback(long window, long cbfun);
+	public static native long nglfwSetCursorEnterCallback(long window, long cbfun);
 
 	/**
 	 * Sets the cursor enter/exit callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1512,16 +1512,16 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetCursorEnterCallback(long window, long cbfun) {
+	public static long glfwSetCursorEnterCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetCursorEnterCallback(window, cbfun);
+		return nglfwSetCursorEnterCallback(window, cbfun);
 	}
 
 	// --- [ glfwSetScrollCallback ] ---
 
 	/** JNI method for {@link #glfwSetScrollCallback} */
-	public static native void nglfwSetScrollCallback(long window, long cbfun);
+	public static native long nglfwSetScrollCallback(long window, long cbfun);
 
 	/**
 	 * Sets the scroll callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
@@ -1531,10 +1531,10 @@ public final class GLFW {
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or NULL to remove the currently set callback
 	 */
-	public static void glfwSetScrollCallback(long window, long cbfun) {
+	public static long glfwSetScrollCallback(long window, long cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetScrollCallback(window, cbfun);
+		return nglfwSetScrollCallback(window, cbfun);
 	}
 
 	// --- [ glfwGetJoystickParam ] ---
@@ -1674,5 +1674,89 @@ public final class GLFW {
 	 * @param time new value, in seconds
 	 */
 	public static native void glfwSetTime(double time);
+
+	// --- [ glfwMakeContextCurrent ] ---
+
+	/** JNI method for {@link #glfwMakeContextCurrent} */
+	public static native void nglfwMakeContextCurrent(long window);
+
+	/**
+	 * Makes the context of the specified window current on the calling thread.  A context can only be made current on a single thread at a time and each
+	 * thread can have only a single current context at a time.
+	 *
+	 * @param window the window whose context to make current, or {@code NULL} to detach the current context
+	 */
+	public static void glfwMakeContextCurrent(long window) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		nglfwMakeContextCurrent(window);
+	}
+
+	// --- [ glfwGetCurrentContext ] ---
+
+	/** Returns the window whose context is current on the calling thread. */
+	public static native long glfwGetCurrentContext();
+
+	// --- [ glfwSwapBuffers ] ---
+
+	/** JNI method for {@link #glfwSwapBuffers} */
+	public static native void nglfwSwapBuffers(long window);
+
+	/**
+	 * Swaps the front and back buffers of the specified window.  If the swap interval is greater than zero, the GPU driver waits the specified number of
+	 * screen updates before swapping the buffers.
+	 *
+	 * @param window the window whose buffers to swap
+	 */
+	public static void glfwSwapBuffers(long window) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		nglfwSwapBuffers(window);
+	}
+
+	// --- [ glfwSwapInterval ] ---
+
+	/**
+	 * Sets the swap interval for the current context, i.e. the number of screen updates to wait before swapping the buffers of a window and returning from
+	 * {@link #glfwSwapBuffers}. This is sometimes called 'vertical synchronization', 'vertical retrace synchronization' or 'vsync'.
+	 * <p/>
+	 * This function may be called from secondary threads.
+	 * <p/>
+	 * Contexts that support either of the {@code WGL_EXT_swap_control_tear} and {@code GLX_EXT_swap_control_tear} extensions also accept negative swap
+	 * intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions using
+	 * {@link #glfwExtensionSupported}. For more information about swap tearing, see the extension specifications.
+	 * <p/>
+	 * Some GPU drivers do not honor the requested swap interval, either because of user settings that override the request or due to bugs in the driver.
+	 *
+	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers}
+	 */
+	public static native void glfwSwapInterval(int interval);
+
+	// --- [ glfwExtensionSupported ] ---
+
+	/** JNI method for {@link #glfwExtensionSupported} */
+	public static native int nglfwExtensionSupported(long extension);
+
+	/**
+	 * Returns whether the specified OpenGL or context creation API extension is supported by the current context. For example, on Windows both the OpenGL and
+	 * WGL extension strings are checked.
+	 * <p/>
+	 * This function may be called from secondary threads.
+	 * <p/>
+	 * As this functions searches one or more extension strings on each call, it is recommended that you cache its results if it's going to be used frequently.
+	 * The extension strings will not change during the lifetime of a context, so there is no danger in doing this.
+	 *
+	 * @param extension the ASCII encoded name of the extension
+	 */
+	public static int glfwExtensionSupported(ByteBuffer extension) {
+		if ( LWJGLUtil.CHECKS )
+			checkNT1(extension);
+		return nglfwExtensionSupported(memAddress(extension));
+	}
+
+	/** CharSequence version of: {@link #glfwExtensionSupported} */
+	public static int glfwExtensionSupported(CharSequence extension) {
+		return nglfwExtensionSupported(memAddress(memEncodeASCII(extension)));
+	}
 
 }
