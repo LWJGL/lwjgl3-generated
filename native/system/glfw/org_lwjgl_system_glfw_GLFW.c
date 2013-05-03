@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "glfw3.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwInit(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwInit(JNIEnv *__env, jclass clazz) {
 	return (jint)glfwInit();
 }
 
@@ -228,11 +228,11 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetWindowIconifyCal
 	return (jlong)(intptr_t)glfwSetWindowIconifyCallback(window, cbfun);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwPollEvents(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwPollEvents(JNIEnv *__env, jclass clazz) {
 	glfwPollEvents();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwWaitEvents(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwWaitEvents(JNIEnv *__env, jclass clazz) {
 	glfwWaitEvents();
 }
 

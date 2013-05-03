@@ -329,6 +329,9 @@ public final class GLFW {
 
 	// --- [ glfwInit ] ---
 
+	/** JNI method for {@link #glfwInit} */
+	public static native int nglfwInit();
+
 	/**
 	 * This function initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before a program terminates GLFW
 	 * should be terminated in order to free any resources allocated during or after initialization.
@@ -346,7 +349,10 @@ public final class GLFW {
 	 * application's bundle, if present.</li>
 	 * </ul>
 	 */
-	public static native int glfwInit();
+	public static int glfwInit() {
+		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.initSharedApplication();
+		return nglfwInit();
+	}
 
 	// --- [ glfwTerminate ] ---
 
@@ -763,12 +769,18 @@ public final class GLFW {
 	public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(title);
-		return nglfwCreateWindow(width, height, memAddress(title), monitor, share);
+		long __result = nglfwCreateWindow(width, height, memAddress(title), monitor, share);
+		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
+			WindowCallback.set(__result, new WindowCallbackAdapter());
+		return __result;
 	}
 
 	/** CharSequence version of: {@link #glfwCreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
-		return nglfwCreateWindow(width, height, memAddress(memEncodeUTF8(title)), monitor, share);
+		long __result = nglfwCreateWindow(width, height, memAddress(memEncodeUTF8(title)), monitor, share);
+		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
+			WindowCallback.set(__result, new WindowCallbackAdapter());
+		return __result;
 	}
 
 	// --- [ glfwDestroyWindow ] ---
@@ -1256,19 +1268,31 @@ public final class GLFW {
 
 	// --- [ glfwPollEvents ] ---
 
+	/** JNI method for {@link #glfwPollEvents} */
+	public static native void nglfwPollEvents();
+
 	/**
 	 * This function processes only those events that have already been recevied
 	 * and then returns immediately.
 	 */
-	public static native void glfwPollEvents();
+	public static void glfwPollEvents() {
+		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.pollEvents(); return; }
+		nglfwPollEvents();
+	}
 
 	// --- [ glfwWaitEvents ] ---
+
+	/** JNI method for {@link #glfwWaitEvents} */
+	public static native void nglfwWaitEvents();
 
 	/**
 	 * This function blocks until at least one event has been recevied and then
 	 * processes all received events before returning.
 	 */
-	public static native void glfwWaitEvents();
+	public static void glfwWaitEvents() {
+		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.waitEvents(); return; }
+		nglfwWaitEvents();
+	}
 
 	// --- [ glfwGetInputMode ] ---
 
