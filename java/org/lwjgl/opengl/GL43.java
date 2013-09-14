@@ -758,7 +758,7 @@ public final class GL43 {
 		long __functionAddress = __instance.glDebugMessageCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallback(callback == null ? 0L : DEBUGPROC.CALLBACK, DEBUGPROC.register(__instance, callback), __functionAddress);
+		nglDebugMessageCallback(callback == null ? NULL : DEBUGPROC.Util.CALLBACK, DEBUGPROC.Util.register(__instance, callback), __functionAddress);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---

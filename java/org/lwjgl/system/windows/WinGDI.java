@@ -175,7 +175,7 @@ public final class WinGDI {
 			checkPointer(hdc);
 		long param = memGlobalRefNew(objectFunc);
 		try {
-			return nEnumObjects(hdc, objectType, EnumObjectsProc.CALLBACK, param);
+			return nEnumObjects(hdc, objectType, EnumObjectsProc.Util.CALLBACK, param);
 		} finally {
 			memGlobalRefDelete(param);
 		}

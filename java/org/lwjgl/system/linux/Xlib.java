@@ -64,7 +64,7 @@ public final class Xlib {
 
 	/** Alternative version of: {@link #XSetErrorHandler} */
 	public static long XSetErrorHandler(XErrorHandler handler) {
-		return nXSetErrorHandler(XErrorHandler.register(handler));
+		return nXSetErrorHandler(XErrorHandler.Util.register(handler));
 	}
 
 	// --- [ XGetErrorText ] ---

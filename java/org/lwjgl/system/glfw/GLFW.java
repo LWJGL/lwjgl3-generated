@@ -475,7 +475,7 @@ public final class GLFW {
 
 	/** Alternative version of: {@link #glfwSetErrorCallback} */
 	public static long glfwSetErrorCallback(ErrorCallback cbfun) {
-		return nglfwSetErrorCallback(ErrorCallback.register(cbfun));
+		return nglfwSetErrorCallback(ErrorCallback.Util.register(cbfun));
 	}
 
 	// --- [ glfwGetMonitors ] ---
@@ -601,7 +601,7 @@ public final class GLFW {
 
 	/** Alternative version of: {@link #glfwSetMonitorCallback} */
 	public static long glfwSetMonitorCallback(MonitorCallback cbfun) {
-		return nglfwSetMonitorCallback(MonitorCallback.register(cbfun));
+		return nglfwSetMonitorCallback(MonitorCallback.Util.register(cbfun));
 	}
 
 	// --- [ glfwGetVideoModes ] ---

@@ -629,8 +629,8 @@ public final class CL10 {
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
+		long user_data = CLContextCallback.Util.register(pfn_notify);
+		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Single value version of: {@link #clCreateContext} */
@@ -645,8 +645,8 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int devices = __buffer.pointerParam();
 		__buffer.pointerValue(devices, device);
-		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
+		long user_data = CLContextCallback.Util.register(pfn_notify);
+		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	// --- [ clCreateContextFromType ] ---
@@ -686,8 +686,8 @@ public final class CL10 {
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		long user_data = CLContextCallback.register(pfn_notify);
-		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? 0L : CLContextCallback.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
+		long user_data = CLContextCallback.Util.register(pfn_notify);
+		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	// --- [ clRetainContext ] ---
@@ -3195,33 +3195,39 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLProgramCallbackBuild pfn_notify) {
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		long user_data = CLProgramCallbackBuild.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallback.Util.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	/** CharSequence version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgramCallbackBuild pfn_notify) {
+	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		long user_data = CLProgramCallbackBuild.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallback.Util.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	/** Single value version of: {@link #clBuildProgram} */
-	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLProgramCallbackBuild pfn_notify) {
+	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLProgramCallback pfn_notify) {
 		long __functionAddress = getInstance(program).clBuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int device_list = __buffer.pointerParam();
 		__buffer.pointerValue(device_list, device);
-		long user_data = CLProgramCallbackBuild.register(pfn_notify);
-		return nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? 0L : CLProgramCallbackBuild.CALLBACK, user_data, __functionAddress);
+		long user_data = CLProgramCallback.Util.register(pfn_notify);
+		int __result = nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -3988,9 +3994,8 @@ public final class CL10 {
 	 * Enqueues a command to execute a native C/C++ function not compiled using the OpenCL compiler.
 	 * <p/>
 	 * <strong>LWJGL note</strong>: For the versions of this method that accept a {@link CLNativeKernel}, the {@code args} argument must not be null and must
-	 * have enough extra space at the beginning to store a pointer value (i.e. {@link Pointer#POINTER_SIZE} bytes). The application must not store
-	 * useful information there, as it will be overwritten by <em>LWJGL</em>. The {@code args} pointer in the callback invocation will be the address after
-	 * that pointer value.
+	 * have enough extra space at the beginning to store two pointer values, i.e. 2&times;{@link Pointer#POINTER_SIZE} bytes. The application must not store
+	 * useful information there, as it will be overwritten by <em>LWJGL</em>.
 	 *
 	 * @param command_queue           a valid command-queue. A native user function can only be executed on a command-queue created on a device that has {@link #CL_EXEC_NATIVE_KERNEL}
 	 *                                capability set in {@link #CL_DEVICE_EXECUTION_CAPABILITIES}.
@@ -4042,6 +4047,7 @@ public final class CL10 {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
 			if ( args != null ) checkBuffer(args, cb_args);
 			if ( mem_list != null ) checkBuffer(mem_list, num_mem_objects << POINTER_SHIFT);
 			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, num_mem_objects << POINTER_SHIFT);
@@ -4056,11 +4062,14 @@ public final class CL10 {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
 			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, mem_list.remaining());
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		user_func.register(args);
-		return nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), mem_list == null ? 0 : mem_list.remaining(), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		long user_data = CLNativeKernel.Util.register(user_func, args);
+		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.Util.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), mem_list == null ? 0 : mem_list.remaining(), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	/** Single value version of: {@link #clEnqueueNativeKernel} */
@@ -4068,6 +4077,7 @@ public final class CL10 {
 		long __functionAddress = getInstance(command_queue).clEnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
 			if ( event != null ) checkBuffer(event, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
@@ -4075,8 +4085,10 @@ public final class CL10 {
 		__buffer.pointerValue(mem_list, memobj);
 		int args_mem_loc = __buffer.pointerParam();
 		__buffer.pointerValue(args_mem_loc, memobj_loc);
-		user_func.register(args);
-		return nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		long user_data = CLNativeKernel.Util.register(user_func, args);
+		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.Util.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
+		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
+		return __result;
 	}
 
 	// --- [ clWaitForEvents ] ---

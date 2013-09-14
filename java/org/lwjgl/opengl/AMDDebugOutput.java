@@ -137,7 +137,7 @@ public final class AMDDebugOutput {
 		long __functionAddress = __instance.glDebugMessageCallbackAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallbackAMD(callback == null ? 0L : DEBUGPROCAMD.CALLBACK, DEBUGPROCAMD.register(__instance, callback), __functionAddress);
+		nglDebugMessageCallbackAMD(callback == null ? NULL : DEBUGPROCAMD.Util.CALLBACK, DEBUGPROCAMD.Util.register(__instance, callback), __functionAddress);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---

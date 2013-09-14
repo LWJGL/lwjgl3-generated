@@ -190,7 +190,7 @@ public final class CL11 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetMemObjectDestructorCallback(memobj.getPointer(), CLMemObjectDestructorCallback.CALLBACK, user_data, __functionAddress);
+		int __result = nclSetMemObjectDestructorCallback(memobj.getPointer(), CLMemObjectDestructorCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
 		return __result;
 	}
@@ -756,7 +756,7 @@ public final class CL11 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetEventCallback(event.getPointer(), command_exec_callback_type, CLEventCallback.CALLBACK, user_data, __functionAddress);
+		int __result = nclSetEventCallback(event.getPointer(), command_exec_callback_type, CLEventCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
 		return __result;
 	}
