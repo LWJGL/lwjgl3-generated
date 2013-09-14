@@ -38,13 +38,13 @@ public final class ContextCapabilities {
 	final GLXEXTSwapControl.Functions       __GLXEXTSwapControl;
 	final GLXEXTTextureFromPixmap.Functions __GLXEXTTextureFromPixmap;
 	final GLXNVCopyImage.Functions          __GLXNVCopyImage;
+	final GLXSGIMakeCurrentRead.Functions   __GLXSGIMakeCurrentRead;
+	final GLXSGISwapControl.Functions       __GLXSGISwapControl;
+	final GLXSGIVideoSync.Functions         __GLXSGIVideoSync;
 	final GLXSGIXFBConfig.Functions         __GLXSGIXFBConfig;
 	final GLXSGIXPBuffer.Functions          __GLXSGIXPBuffer;
 	final GLXSGIXSwapBarrier.Functions      __GLXSGIXSwapBarrier;
 	final GLXSGIXSwapGroup.Functions        __GLXSGIXSwapGroup;
-	final GLXSGIMakeCurrentRead.Functions   __GLXSGIMakeCurrentRead;
-	final GLXSGISwapControl.Functions       __GLXSGISwapControl;
-	final GLXSGIVideoSync.Functions         __GLXSGIVideoSync;
 	final AMDDebugOutput.Functions          __AMDDebugOutput;
 	final ARBCLEvent.Functions              __ARBCLEvent;
 	final ARBCopyBuffer.Functions           __ARBCopyBuffer;
@@ -59,8 +59,8 @@ public final class ContextCapabilities {
 	final WGLARBPixelFormat.Functions       __WGLARBPixelFormat;
 	final WGLEXTExtensionsString.Functions  __WGLEXTExtensionsString;
 	final WGLEXTSwapControl.Functions       __WGLEXTSwapControl;
-	final WGLNVDXInterop.Functions          __WGLNVDXInterop;
 	final WGLNVCopyImage.Functions          __WGLNVCopyImage;
+	final WGLNVDXInterop.Functions          __WGLNVDXInterop;
 	final WGLNVGPUAffinity.Functions        __WGLNVGPUAffinity;
 
 	/** Indicates whether an OpenGL functionality is available or not. */
@@ -106,13 +106,13 @@ public final class ContextCapabilities {
 		GLX_EXT_visual_rating,
 		GLX_INTEL_swap_event,
 		GLX_NV_copy_image,
+		GLX_SGI_make_current_read,
+		GLX_SGI_swap_control,
+		GLX_SGI_video_sync,
 		GLX_SGIX_fbconfig,
 		GLX_SGIX_pbuffer,
 		GLX_SGIX_swap_barrier,
 		GLX_SGIX_swap_group,
-		GLX_SGI_make_current_read,
-		GLX_SGI_swap_control,
-		GLX_SGI_video_sync,
 		GL_AMD_conservative_depth,
 		GL_AMD_debug_output,
 		GL_AMD_shader_stencil_export,
@@ -180,9 +180,9 @@ public final class ContextCapabilities {
 		WGL_EXT_pixel_format_packed_float,
 		WGL_EXT_swap_control,
 		WGL_EXT_swap_control_tear,
+		WGL_NV_copy_image,
 		WGL_NV_DX_interop,
 		WGL_NV_DX_interop2,
-		WGL_NV_copy_image,
 		WGL_NV_gpu_affinity;
 
 	ContextCapabilities(Set<String> ext, boolean fc) {
@@ -229,13 +229,13 @@ public final class ContextCapabilities {
 		GLX_EXT_visual_rating = ext.contains("GLX_EXT_visual_rating");
 		GLX_INTEL_swap_event = ext.contains("GLX_INTEL_swap_event");
 		GLX_NV_copy_image = (__GLXNVCopyImage = GLXNVCopyImage.create(ext, provider)) != null;
+		GLX_SGI_make_current_read = (__GLXSGIMakeCurrentRead = GLXSGIMakeCurrentRead.create(ext, provider)) != null;
+		GLX_SGI_swap_control = (__GLXSGISwapControl = GLXSGISwapControl.create(ext, provider)) != null;
+		GLX_SGI_video_sync = (__GLXSGIVideoSync = GLXSGIVideoSync.create(ext, provider)) != null;
 		GLX_SGIX_fbconfig = (__GLXSGIXFBConfig = GLXSGIXFBConfig.create(ext, provider)) != null;
 		GLX_SGIX_pbuffer = (__GLXSGIXPBuffer = GLXSGIXPBuffer.create(ext, provider)) != null;
 		GLX_SGIX_swap_barrier = (__GLXSGIXSwapBarrier = GLXSGIXSwapBarrier.create(ext, provider)) != null;
 		GLX_SGIX_swap_group = (__GLXSGIXSwapGroup = GLXSGIXSwapGroup.create(ext, provider)) != null;
-		GLX_SGI_make_current_read = (__GLXSGIMakeCurrentRead = GLXSGIMakeCurrentRead.create(ext, provider)) != null;
-		GLX_SGI_swap_control = (__GLXSGISwapControl = GLXSGISwapControl.create(ext, provider)) != null;
-		GLX_SGI_video_sync = (__GLXSGIVideoSync = GLXSGIVideoSync.create(ext, provider)) != null;
 		GL_AMD_conservative_depth = ext.contains("GL_AMD_conservative_depth");
 		GL_AMD_debug_output = (__AMDDebugOutput = AMDDebugOutput.create(ext, provider)) != null;
 		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
@@ -303,9 +303,9 @@ public final class ContextCapabilities {
 		WGL_EXT_pixel_format_packed_float = ext.contains("WGL_EXT_pixel_format_packed_float");
 		WGL_EXT_swap_control = (__WGLEXTSwapControl = WGLEXTSwapControl.create(ext, provider)) != null;
 		WGL_EXT_swap_control_tear = ext.contains("WGL_EXT_swap_control_tear");
+		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
 		WGL_NV_DX_interop = (__WGLNVDXInterop = WGLNVDXInterop.create(ext, provider)) != null;
 		WGL_NV_DX_interop2 = ext.contains("WGL_NV_DX_interop2");
-		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
 		WGL_NV_gpu_affinity = (__WGLNVGPUAffinity = WGLNVGPUAffinity.create(ext, provider)) != null;
 	}
 }

@@ -13,6 +13,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFWgammaramp_offsets(JNIEnv *
 	buffer[0] = (jint)(offsetof(GLFWgammaramp, red));
 	buffer[1] = (jint)(offsetof(GLFWgammaramp, green));
 	buffer[2] = (jint)(offsetof(GLFWgammaramp, blue));
+	buffer[3] = (jint)(offsetof(GLFWgammaramp, size));
 
 	return sizeof(GLFWgammaramp);
 }

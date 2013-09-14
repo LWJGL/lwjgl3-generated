@@ -965,7 +965,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(lists, n * GLChecks.translateTypeToBytes(type));
+			checkBuffer(lists, n * GLChecks.typeToBytes(type));
 		}
 		nglCallLists(n, type, memAddress(lists), __functionAddress);
 	}
@@ -975,7 +975,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glCallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCallLists(lists.remaining(), type, memAddress(lists), __functionAddress);
+		nglCallLists(lists.remaining() / GLChecks.typeToBytes(type), type, memAddress(lists), __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glCallLists} */
@@ -2245,7 +2245,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().glDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElements(mode, count, type, memAddress(indices), __functionAddress);
@@ -2268,7 +2268,7 @@ public final class GL11 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawElements(mode, indices.remaining(), type, memAddress(indices), __functionAddress);
+		nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements} */

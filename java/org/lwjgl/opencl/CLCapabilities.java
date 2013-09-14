@@ -62,7 +62,7 @@ public class CLCapabilities {
 		cl_amd_predefined_macros,
 		cl_amd_printf,
 		cl_amd_vec3,
-		cl_apple_gl_sharing,
+		cl_APPLE_gl_sharing,
 		cl_intel_device_partition_by_names,
 		cl_intel_printf,
 		cl_intel_thread_local_exec,
@@ -118,7 +118,7 @@ public class CLCapabilities {
 		cl_amd_predefined_macros = ext.contains("cl_amd_predefined_macros");
 		cl_amd_printf = ext.contains("cl_amd_printf");
 		cl_amd_vec3 = ext.contains("cl_amd_vec3");
-		cl_apple_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(ext, provider, platform)) != null;
+		cl_APPLE_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(ext, provider, platform)) != null;
 		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
 		cl_intel_printf = ext.contains("cl_intel_printf");
 		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
@@ -174,7 +174,7 @@ public class CLCapabilities {
 		cl_amd_predefined_macros = ext.contains("cl_amd_predefined_macros");
 		cl_amd_printf = ext.contains("cl_amd_printf");
 		cl_amd_vec3 = ext.contains("cl_amd_vec3");
-		cl_apple_gl_sharing = (__APPLEGLSharing = ext.contains("cl_apple_gl_sharing") ? caps.__APPLEGLSharing : null) != null;
+		cl_APPLE_gl_sharing = (__APPLEGLSharing = ext.contains("cl_APPLE_gl_sharing") ? caps.__APPLEGLSharing : null) != null;
 		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
 		cl_intel_printf = ext.contains("cl_intel_printf");
 		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
@@ -226,7 +226,7 @@ public class CLCapabilities {
 		if ( cl_amd_predefined_macros ) buf.append("cl_amd_predefined_macros ");
 		if ( cl_amd_printf ) buf.append("cl_amd_printf ");
 		if ( cl_amd_vec3 ) buf.append("cl_amd_vec3 ");
-		if ( cl_apple_gl_sharing ) buf.append("cl_apple_gl_sharing ");
+		if ( cl_APPLE_gl_sharing ) buf.append("cl_APPLE_gl_sharing ");
 		if ( cl_intel_device_partition_by_names ) buf.append("cl_intel_device_partition_by_names ");
 		if ( cl_intel_printf ) buf.append("cl_intel_printf ");
 		if ( cl_intel_thread_local_exec ) buf.append("cl_intel_thread_local_exec ");

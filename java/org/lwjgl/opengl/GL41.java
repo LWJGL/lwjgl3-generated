@@ -1034,7 +1034,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglProgramUniform2iv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1044,7 +1044,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform2iv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform3iv ] ---
@@ -1066,7 +1066,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		}
 		nglProgramUniform3iv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1076,7 +1076,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform3iv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform4iv ] ---
@@ -1098,7 +1098,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglProgramUniform4iv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1108,7 +1108,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform4iv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform1uiv ] ---
@@ -1162,7 +1162,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglProgramUniform2uiv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1172,7 +1172,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform2uiv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform3uiv ] ---
@@ -1194,7 +1194,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		}
 		nglProgramUniform3uiv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1204,7 +1204,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform3uiv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform4uiv ] ---
@@ -1226,7 +1226,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglProgramUniform4uiv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1236,7 +1236,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform4uiv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform1fv ] ---
@@ -1290,7 +1290,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglProgramUniform2fv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1300,7 +1300,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform2fv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform3fv ] ---
@@ -1322,7 +1322,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		}
 		nglProgramUniform3fv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1332,7 +1332,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform3fv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform4fv ] ---
@@ -1354,7 +1354,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglProgramUniform4fv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1364,7 +1364,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform4fv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform1dv ] ---
@@ -1418,7 +1418,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 3);
+			checkBuffer(value, (count << 1) << 3);
 		}
 		nglProgramUniform2dv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1428,7 +1428,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform2dv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform3dv ] ---
@@ -1450,7 +1450,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 3);
+			checkBuffer(value, (count * 9) << 3);
 		}
 		nglProgramUniform3dv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1460,7 +1460,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform3dv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniform4dv ] ---
@@ -1482,7 +1482,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 3);
+			checkBuffer(value, (count << 2) << 3);
 		}
 		nglProgramUniform4dv(program, location, count, memAddress(value), __functionAddress);
 	}
@@ -1492,7 +1492,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniform4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniform4dv(program, location, value.remaining(), memAddress(value), __functionAddress);
+		nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2fv ] ---
@@ -1515,7 +1515,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1525,7 +1525,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3fv ] ---
@@ -1548,7 +1548,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 3)) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		}
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1558,7 +1558,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4fv ] ---
@@ -1581,7 +1581,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 4) << 2);
+			checkBuffer(value, (count << 4) << 2);
 		}
 		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1591,7 +1591,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2dv ] ---
@@ -1614,7 +1614,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 3);
+			checkBuffer(value, (count << 2) << 3);
 		}
 		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1624,7 +1624,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3dv ] ---
@@ -1647,7 +1647,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 3)) << 3);
+			checkBuffer(value, (count * 9) << 3);
 		}
 		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1657,7 +1657,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4dv ] ---
@@ -1680,7 +1680,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 4) << 3);
+			checkBuffer(value, (count << 4) << 3);
 		}
 		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1690,7 +1690,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2x3fv ] ---
@@ -1713,7 +1713,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (2 * 3)) << 2);
+			checkBuffer(value, (count * 6) << 2);
 		}
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1723,7 +1723,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2x3fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3x2fv ] ---
@@ -1746,7 +1746,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 2)) << 2);
+			checkBuffer(value, (count * 6) << 2);
 		}
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1756,7 +1756,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3x2fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2x4fv ] ---
@@ -1779,7 +1779,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 2);
+			checkBuffer(value, (count << 3) << 2);
 		}
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1789,7 +1789,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2x4fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4x2fv ] ---
@@ -1812,7 +1812,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 2);
+			checkBuffer(value, (count << 3) << 2);
 		}
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1822,7 +1822,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4x2fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3x4fv ] ---
@@ -1845,7 +1845,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 4)) << 2);
+			checkBuffer(value, (count * 12) << 2);
 		}
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1855,7 +1855,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3x4fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4x3fv ] ---
@@ -1878,7 +1878,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (4 * 3)) << 2);
+			checkBuffer(value, (count * 12) << 2);
 		}
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1888,7 +1888,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4x3fv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2x3dv ] ---
@@ -1911,7 +1911,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (2 * 3)) << 3);
+			checkBuffer(value, (count * 6) << 3);
 		}
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1921,7 +1921,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2x3dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3x2dv ] ---
@@ -1944,7 +1944,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 2)) << 3);
+			checkBuffer(value, (count * 6) << 3);
 		}
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1954,7 +1954,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3x2dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix2x4dv ] ---
@@ -1977,7 +1977,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 3);
+			checkBuffer(value, (count << 3) << 3);
 		}
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -1987,7 +1987,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix2x4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix2x4dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4x2dv ] ---
@@ -2010,7 +2010,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 3);
+			checkBuffer(value, (count << 3) << 3);
 		}
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -2020,7 +2020,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4x2dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix3x4dv ] ---
@@ -2043,7 +2043,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 4)) << 3);
+			checkBuffer(value, (count * 12) << 3);
 		}
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -2053,7 +2053,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix3x4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix3x4dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glProgramUniformMatrix4x3dv ] ---
@@ -2076,7 +2076,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (4 * 3)) << 3);
+			checkBuffer(value, (count * 12) << 3);
 		}
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -2086,7 +2086,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glProgramUniformMatrix4x3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglProgramUniformMatrix4x3dv(program, location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glValidateProgramPipeline ] ---
@@ -2486,7 +2486,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glViewportArrayv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglViewportArrayv(first, v.remaining(), memAddress(v), __functionAddress);
+		nglViewportArrayv(first, v.remaining() >> 2, memAddress(v), __functionAddress);
 	}
 
 	// --- [ glViewportIndexedf ] ---
@@ -2572,7 +2572,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glScissorArrayv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglScissorArrayv(first, v.remaining(), memAddress(v), __functionAddress);
+		nglScissorArrayv(first, v.remaining() >> 2, memAddress(v), __functionAddress);
 	}
 
 	// --- [ glScissorIndexed ] ---
@@ -2658,7 +2658,7 @@ public final class GL41 {
 		long __functionAddress = getInstance().glDepthRangeArrayv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDepthRangeArrayv(first, v.remaining(), memAddress(v), __functionAddress);
+		nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v), __functionAddress);
 	}
 
 	// --- [ glDepthRangeIndexed ] ---

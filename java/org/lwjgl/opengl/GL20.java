@@ -37,8 +37,8 @@ public final class GL20 {
 		GL_ATTACHED_SHADERS            = 0x8B85,
 		GL_ACTIVE_UNIFORMS             = 0x8B86,
 		GL_ACTIVE_UNIFORM_MAX_LENGTH   = 0x8B87,
-		GL_ACTIVE_ATTRIBUTES           = 0x8B86,
-		GL_ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B87,
+		GL_ACTIVE_ATTRIBUTES           = 0x8B89,
+		GL_ACTIVE_ATTRIBUTE_MAX_LENGTH = 0x8B8A,
 		GL_SHADER_SOURCE_LENGTH        = 0x8B88;
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
@@ -49,6 +49,7 @@ public final class GL20 {
 		GL_INT_VEC2          = 0x8B53,
 		GL_INT_VEC3          = 0x8B54,
 		GL_INT_VEC4          = 0x8B55,
+		GL_BOOL              = 0x8B56,
 		GL_BOOL_VEC2         = 0x8B57,
 		GL_BOOL_VEC3         = 0x8B58,
 		GL_BOOL_VEC4         = 0x8B59,
@@ -661,7 +662,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglUniform2fv(location, count, memAddress(value), __functionAddress);
 	}
@@ -671,7 +672,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform2fv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform2fv(location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform3fv ] ---
@@ -692,7 +693,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		}
 		nglUniform3fv(location, count, memAddress(value), __functionAddress);
 	}
@@ -702,7 +703,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform3fv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform3fv(location, value.remaining() / 3, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform4fv ] ---
@@ -723,7 +724,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglUniform4fv(location, count, memAddress(value), __functionAddress);
 	}
@@ -733,7 +734,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform4fv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform4fv(location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform1iv ] ---
@@ -785,7 +786,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglUniform2iv(location, count, memAddress(value), __functionAddress);
 	}
@@ -795,7 +796,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform2iv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform2iv(location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform3iv ] ---
@@ -816,7 +817,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		}
 		nglUniform3iv(location, count, memAddress(value), __functionAddress);
 	}
@@ -826,7 +827,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform3iv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform3iv(location, value.remaining() / 3, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform4iv ] ---
@@ -847,7 +848,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglUniform4iv(location, count, memAddress(value), __functionAddress);
 	}
@@ -857,7 +858,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniform4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform4iv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform4iv(location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix2fv ] ---
@@ -879,7 +880,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglUniformMatrix2fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -889,7 +890,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix2fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix2fv(location, value.remaining() >> 2, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix3fv ] ---
@@ -911,7 +912,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 3)) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		}
 		nglUniformMatrix3fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -921,7 +922,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix3fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix3fv(location, value.remaining() / 9, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix4fv ] ---
@@ -943,7 +944,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 4) << 2);
+			checkBuffer(value, (count << 4) << 2);
 		}
 		nglUniformMatrix4fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -953,7 +954,7 @@ public final class GL20 {
 		long __functionAddress = getInstance().glUniformMatrix4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix4fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix4fv(location, value.remaining() >> 4, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glGetShaderiv ] ---
@@ -1003,44 +1004,44 @@ public final class GL20 {
 	// --- [ glGetProgramiv ] ---
 
 	/** JNI method for {@link #glGetProgrami(int, int, ByteBuffer)} */
-	public static native void nglGetProgramiv(int shader, int pname, long params, long __functionAddress);
+	public static native void nglGetProgramiv(int program, int pname, long params, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgram.xml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a parameter from a program object.
 	 *
-	 * @param shader the program object to be queried
-	 * @param pname  the object parameter. One of:<p/>{@link #GL_DELETE_STATUS}, {@link #GL_LINK_STATUS}, {@link #GL_VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE}
-	 * @param params the requested object parameter
+	 * @param program the program object to be queried
+	 * @param pname   the object parameter. One of:<p/>{@link #GL_DELETE_STATUS}, {@link #GL_LINK_STATUS}, {@link #GL_VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE}
+	 * @param params  the requested object parameter
 	 */
-	public static void glGetProgrami(int shader, int pname, ByteBuffer params) {
+	public static void glGetProgrami(int program, int pname, ByteBuffer params) {
 		long __functionAddress = getInstance().glGetProgramiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
 		}
-		nglGetProgramiv(shader, pname, memAddress(params), __functionAddress);
+		nglGetProgramiv(program, pname, memAddress(params), __functionAddress);
 	}
 
 	/** Alternative version of: {@link #glGetProgrami(int, int, ByteBuffer)} */
-	public static void glGetProgram(int shader, int pname, IntBuffer params) {
+	public static void glGetProgram(int program, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetProgramiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
 		}
-		nglGetProgramiv(shader, pname, memAddress(params), __functionAddress);
+		nglGetProgramiv(program, pname, memAddress(params), __functionAddress);
 	}
 
 	/** Single return value version of: {@link #glGetProgrami(int, int, ByteBuffer)} */
-	public static int glGetProgrami(int shader, int pname) {
+	public static int glGetProgrami(int program, int pname) {
 		long __functionAddress = getInstance().glGetProgramiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramiv(shader, pname, __buffer.address() + params, __functionAddress);
+		nglGetProgramiv(program, pname, __buffer.address() + params, __functionAddress);
 		return __buffer.intValue(params);
 	}
 

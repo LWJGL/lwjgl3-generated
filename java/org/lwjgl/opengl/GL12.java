@@ -355,7 +355,7 @@ public final class GL12 {
 		long __functionAddress = getInstance().glDrawRangeElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, count, type, memAddress(indices), __functionAddress);
@@ -378,7 +378,7 @@ public final class GL12 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawRangeElements(mode, start, end, indices.remaining(), type, memAddress(indices), __functionAddress);
+		nglDrawRangeElements(mode, start, end, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElements} */

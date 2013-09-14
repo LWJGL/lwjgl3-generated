@@ -356,7 +356,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseInstance(mode, count, type, memAddress(indices), primcount, baseinstance, __functionAddress);
@@ -379,7 +379,7 @@ public final class GL42 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), type, memAddress(indices), primcount, baseinstance, __functionAddress);
+		nglDrawElementsInstancedBaseInstance(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseInstance} */
@@ -434,7 +434,7 @@ public final class GL42 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
@@ -457,7 +457,7 @@ public final class GL42 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
+		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */

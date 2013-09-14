@@ -21,16 +21,18 @@ public final class GLFWgammaramp {
 	public static final int
 		RED,
 		GREEN,
-		BLUE;
+		BLUE,
+		SIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = BufferUtils.createIntBuffer(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		RED = offsets.get(0);
 		GREEN = offsets.get(1);
 		BLUE = offsets.get(2);
+		SIZE = offsets.get(3);
 	}
 
 	private GLFWgammaramp() {}
@@ -43,17 +45,16 @@ public final class GLFWgammaramp {
 	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		long red,
-		int redBytes,
 		long green,
-		int greenBytes,
 		long blue,
-		int blueBytes
+		int size
 	) {
 		ByteBuffer glfwgammaramp = malloc();
 
-		redSet(glfwgammaramp, red, redBytes);
-		greenSet(glfwgammaramp, green, greenBytes);
-		blueSet(glfwgammaramp, blue, blueBytes);
+		red(glfwgammaramp, red);
+		green(glfwgammaramp, green);
+		blue(glfwgammaramp, blue);
+		size(glfwgammaramp, size);
 
 		return glfwgammaramp;
 	}
@@ -62,53 +63,33 @@ public final class GLFWgammaramp {
 	public static ByteBuffer malloc(
 		ByteBuffer red,
 		ByteBuffer green,
-		ByteBuffer blue
+		ByteBuffer blue,
+		int size
 	) {
 		ByteBuffer glfwgammaramp = malloc();
 
-		redSet(glfwgammaramp, red);
-		greenSet(glfwgammaramp, green);
-		blueSet(glfwgammaramp, blue);
+		red(glfwgammaramp, red);
+		green(glfwgammaramp, green);
+		blue(glfwgammaramp, blue);
+		size(glfwgammaramp, size);
 
 		return glfwgammaramp;
 	}
 
-	public static void redSet(ByteBuffer glfwgammaramp, long red, int bytes) { memCopy(red, memAddress(glfwgammaramp) + RED, bytes); }
-	public static void redSet(ByteBuffer glfwgammaramp, ByteBuffer red) {
-		checkBufferGT(red, 256 * 2);
-		redSet(glfwgammaramp, memAddress(red), red.remaining());
-	}
-	public static void greenSet(ByteBuffer glfwgammaramp, long green, int bytes) { memCopy(green, memAddress(glfwgammaramp) + GREEN, bytes); }
-	public static void greenSet(ByteBuffer glfwgammaramp, ByteBuffer green) {
-		checkBufferGT(green, 256 * 2);
-		greenSet(glfwgammaramp, memAddress(green), green.remaining());
-	}
-	public static void blueSet(ByteBuffer glfwgammaramp, long blue, int bytes) { memCopy(blue, memAddress(glfwgammaramp) + BLUE, bytes); }
-	public static void blueSet(ByteBuffer glfwgammaramp, ByteBuffer blue) {
-		checkBufferGT(blue, 256 * 2);
-		blueSet(glfwgammaramp, memAddress(blue), blue.remaining());
-	}
+	public static void red(ByteBuffer glfwgammaramp, long red) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + RED, red); }
+	public static void redSet(ByteBuffer glfwgammaramp, ByteBuffer red) { redSet(glfwgammaramp, memAddress(red)); }
+	public static void green(ByteBuffer glfwgammaramp, long green) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + GREEN, green); }
+	public static void greenSet(ByteBuffer glfwgammaramp, ByteBuffer green) { greenSet(glfwgammaramp, memAddress(green)); }
+	public static void blue(ByteBuffer glfwgammaramp, long blue) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + BLUE, blue); }
+	public static void blueSet(ByteBuffer glfwgammaramp, ByteBuffer blue) { blueSet(glfwgammaramp, memAddress(blue)); }
+	public static void size(ByteBuffer glfwgammaramp, int size) { glfwgammaramp.putInt(glfwgammaramp.position() + SIZE, size); }
 
-	public static void redGet(ByteBuffer glfwgammaramp, long red, int bytes) {
-		memCopy(memAddress(glfwgammaramp) + RED, red, bytes);
-	}
-	public static void redGetb(ByteBuffer glfwgammaramp, ByteBuffer red) {
-		checkBufferGT(red, 256 * 2);
-		redGet(glfwgammaramp, memAddress(red), red.remaining());
-	}
-	public static void greenGet(ByteBuffer glfwgammaramp, long green, int bytes) {
-		memCopy(memAddress(glfwgammaramp) + GREEN, green, bytes);
-	}
-	public static void greenGetb(ByteBuffer glfwgammaramp, ByteBuffer green) {
-		checkBufferGT(green, 256 * 2);
-		greenGet(glfwgammaramp, memAddress(green), green.remaining());
-	}
-	public static void blueGet(ByteBuffer glfwgammaramp, long blue, int bytes) {
-		memCopy(memAddress(glfwgammaramp) + BLUE, blue, bytes);
-	}
-	public static void blueGetb(ByteBuffer glfwgammaramp, ByteBuffer blue) {
-		checkBufferGT(blue, 256 * 2);
-		blueGet(glfwgammaramp, memAddress(blue), blue.remaining());
-	}
+	public static long red(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + RED); }
+	public static ByteBuffer red(ByteBuffer glfwgammaramp, int size) { long address = red(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static long green(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + GREEN); }
+	public static ByteBuffer green(ByteBuffer glfwgammaramp, int size) { long address = green(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static long blue(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + BLUE); }
+	public static ByteBuffer blue(ByteBuffer glfwgammaramp, int size) { long address = blue(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int size(ByteBuffer glfwgammaramp) { return glfwgammaramp.getInt(glfwgammaramp.position() + SIZE); }
 
 }

@@ -216,7 +216,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex, __functionAddress);
@@ -239,7 +239,7 @@ public final class GL32 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawElementsBaseVertex(mode, indices.remaining(), type, memAddress(indices), basevertex, __functionAddress);
+		nglDrawElementsBaseVertex(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex} */
@@ -294,7 +294,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex, __functionAddress);
@@ -317,7 +317,7 @@ public final class GL32 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), type, memAddress(indices), basevertex, __functionAddress);
+		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex} */
@@ -371,7 +371,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count * GLChecks.translateTypeToBytes(type));
+			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), primcount, basevertex, __functionAddress);
@@ -394,7 +394,7 @@ public final class GL32 {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		}
-		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), type, memAddress(indices), primcount, basevertex, __functionAddress);
+		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex} */

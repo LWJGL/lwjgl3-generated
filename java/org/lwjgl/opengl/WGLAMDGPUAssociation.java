@@ -96,7 +96,7 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().wglGetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, size * GLChecks.translateTypeToBytes(dataType));
+			checkBuffer(data, size / GLChecks.typeToBytes(dataType));
 		}
 		return nwglGetGPUInfoAMD(id, property, dataType, size, memAddress(data), __functionAddress);
 	}
@@ -106,7 +106,7 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().wglGetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data), __functionAddress);
+		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() * GLChecks.typeToBytes(dataType), memAddress(data), __functionAddress);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #wglGetGPUInfoAMD} */

@@ -24,8 +24,8 @@ public final class ALCCapabilities {
 		ALC_ENUMERATE_ALL_EXT,
 		ALC_ENUMERATION_EXT,
 		ALC_EXT_DEDICATED,
-		ALC_EXT_EFX,
 		ALC_EXT_disconnect,
+		ALC_EXT_EFX,
 		ALC_EXT_thread_local_context,
 		ALC_SOFT_loopback;
 
@@ -37,8 +37,8 @@ public final class ALCCapabilities {
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");
 		ALC_ENUMERATION_EXT = ext.contains("ALC_ENUMERATION_EXT");
 		ALC_EXT_DEDICATED = ext.contains("ALC_EXT_DEDICATED");
-		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
 		ALC_EXT_disconnect = ext.contains("ALC_EXT_disconnect");
+		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
 		ALC_EXT_thread_local_context = (__EXTThreadLocalContext = EXTThreadLocalContext.create(ext, provider, device)) != null;
 		ALC_SOFT_loopback = (__SOFTLoopback = SOFTLoopback.create(ext, provider, device)) != null;
 	}

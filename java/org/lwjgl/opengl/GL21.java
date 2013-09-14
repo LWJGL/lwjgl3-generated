@@ -78,7 +78,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (2 * 3)) << 2);
+			checkBuffer(value, (count * 6) << 2);
 		}
 		nglUniformMatrix2x3fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -88,7 +88,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix2x3fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix2x3fv(location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix3x2fv ] ---
@@ -110,7 +110,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 2)) << 2);
+			checkBuffer(value, (count * 6) << 2);
 		}
 		nglUniformMatrix3x2fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -120,7 +120,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix3x2fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix3x2fv(location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix2x4fv ] ---
@@ -142,7 +142,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 2);
+			checkBuffer(value, (count << 3) << 2);
 		}
 		nglUniformMatrix2x4fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -152,7 +152,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix2x4fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix2x4fv(location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix4x2fv ] ---
@@ -174,7 +174,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 3) << 2);
+			checkBuffer(value, (count << 3) << 2);
 		}
 		nglUniformMatrix4x2fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -184,7 +184,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix4x2fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix4x2fv(location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix3x4fv ] ---
@@ -206,7 +206,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (3 * 4)) << 2);
+			checkBuffer(value, (count * 12) << 2);
 		}
 		nglUniformMatrix3x4fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -216,7 +216,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix3x4fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix3x4fv(location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniformMatrix4x3fv ] ---
@@ -238,7 +238,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / (4 * 3)) << 2);
+			checkBuffer(value, (count * 12) << 2);
 		}
 		nglUniformMatrix4x3fv(location, count, transpose, memAddress(value), __functionAddress);
 	}
@@ -248,7 +248,7 @@ public final class GL21 {
 		long __functionAddress = getInstance().glUniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniformMatrix4x3fv(location, value.remaining(), transpose, memAddress(value), __functionAddress);
+		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
 	}
 
 	// --- [ Function Addresses ] ---

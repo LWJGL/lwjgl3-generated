@@ -15,6 +15,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFWvidmode_offsets(JNIEnv *en
 	buffer[2] = (jint)(offsetof(GLFWvidmode, redBits));
 	buffer[3] = (jint)(offsetof(GLFWvidmode, greenBits));
 	buffer[4] = (jint)(offsetof(GLFWvidmode, blueBits));
+	buffer[5] = (jint)(offsetof(GLFWvidmode, refreshRate));
 
 	return sizeof(GLFWvidmode);
 }

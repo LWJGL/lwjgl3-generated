@@ -69,9 +69,9 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetVideoModes(JNIEn
 	return (jlong)(intptr_t)glfwGetVideoModes(monitor, count);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetVideoMode(JNIEnv *__env, jclass clazz, jlong monitorAddress, jlong __result) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetVideoMode(JNIEnv *__env, jclass clazz, jlong monitorAddress) {
 	GLFWmonitor *monitor = (GLFWmonitor *)(intptr_t)monitorAddress;
-	*((GLFWvidmode*)(intptr_t)__result) = glfwGetVideoMode(monitor);
+	return (jlong)(intptr_t)glfwGetVideoMode(monitor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetGamma(JNIEnv *__env, jclass clazz, jlong monitorAddress, jfloat gamma) {
@@ -79,10 +79,9 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetGamma(JNIEnv *__e
 	glfwSetGamma(monitor, gamma);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetGammaRamp(JNIEnv *__env, jclass clazz, jlong monitorAddress, jlong rampAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetGammaRamp(JNIEnv *__env, jclass clazz, jlong monitorAddress) {
 	GLFWmonitor *monitor = (GLFWmonitor *)(intptr_t)monitorAddress;
-	GLFWgammaramp *ramp = (GLFWgammaramp *)(intptr_t)rampAddress;
-	glfwGetGammaRamp(monitor, ramp);
+	return (jlong)(intptr_t)glfwGetGammaRamp(monitor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetGammaRamp(JNIEnv *__env, jclass clazz, jlong monitorAddress, jlong rampAddress) {
@@ -151,6 +150,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetWindowSize(JNIEnv
 	glfwSetWindowSize(window, width, height);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetFramebufferSize(JNIEnv *__env, jclass clazz, jlong windowAddress, jlong widthAddress, jlong heightAddress) {
+	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
+	int *width = (int *)(intptr_t)widthAddress;
+	int *height = (int *)(intptr_t)heightAddress;
+	glfwGetFramebufferSize(window, width, height);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwIconifyWindow(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
 	glfwIconifyWindow(window);
@@ -176,9 +182,9 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetWindowMonitor(JN
 	return (jlong)(intptr_t)glfwGetWindowMonitor(window);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetWindowParam(JNIEnv *__env, jclass clazz, jlong windowAddress, jint param) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetWindowAttrib(JNIEnv *__env, jclass clazz, jlong windowAddress, jint attrib) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
-	return (jint)glfwGetWindowParam(window, param);
+	return (jint)glfwGetWindowAttrib(window, attrib);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetWindowUserPointer(JNIEnv *__env, jclass clazz, jlong windowAddress, jlong pointerAddress) {
@@ -226,6 +232,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetWindowIconifyCal
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
 	GLFWwindowiconifyfun cbfun = (GLFWwindowiconifyfun)(intptr_t)cbfunAddress;
 	return (jlong)(intptr_t)glfwSetWindowIconifyCallback(window, cbfun);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetFramebufferSizeCallback(JNIEnv *__env, jclass clazz, jlong windowAddress, jlong cbfunAddress) {
+	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
+	GLFWframebuffersizefun cbfun = (GLFWframebuffersizefun)(intptr_t)cbfunAddress;
+	return (jlong)(intptr_t)glfwSetFramebufferSizeCallback(window, cbfun);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwPollEvents(JNIEnv *__env, jclass clazz) {
@@ -304,18 +316,18 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwSetScrollCallback(J
 	return (jlong)(intptr_t)glfwSetScrollCallback(window, cbfun);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwGetJoystickParam(JNIEnv *__env, jclass clazz, jint joy, jint param) {
-	return (jint)glfwGetJoystickParam(joy, param);
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_glfwJoystickPresent(JNIEnv *__env, jclass clazz, jint joy) {
+	return (jint)glfwJoystickPresent(joy);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickAxes(JNIEnv *__env, jclass clazz, jint joy, jlong axesAddress, jint numaxes) {
-	float *axes = (float *)(intptr_t)axesAddress;
-	return (jint)glfwGetJoystickAxes(joy, axes, numaxes);
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickAxes(JNIEnv *__env, jclass clazz, jint joy, jlong countAddress) {
+	int *count = (int *)(intptr_t)countAddress;
+	return (jlong)(intptr_t)glfwGetJoystickAxes(joy, count);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickButtons(JNIEnv *__env, jclass clazz, jint joy, jlong buttonsAddress, jint numbuttons) {
-	unsigned char *buttons = (unsigned char *)(intptr_t)buttonsAddress;
-	return (jint)glfwGetJoystickButtons(joy, buttons, numbuttons);
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickButtons(JNIEnv *__env, jclass clazz, jint joy, jlong countAddress) {
+	int *count = (int *)(intptr_t)countAddress;
+	return (jlong)(intptr_t)glfwGetJoystickButtons(joy, count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwGetJoystickName(JNIEnv *__env, jclass clazz, jint joy) {

@@ -1310,7 +1310,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform2uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 1) << 2);
+			checkBuffer(value, (count << 1) << 2);
 		}
 		nglUniform2uiv(location, count, memAddress(value), __functionAddress);
 	}
@@ -1320,7 +1320,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform2uiv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform2uiv(location, value.remaining() >> 1, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform3uiv ] ---
@@ -1341,7 +1341,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count / 3) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		}
 		nglUniform3uiv(location, count, memAddress(value), __functionAddress);
 	}
@@ -1351,7 +1351,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform3uiv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform3uiv(location, value.remaining() / 3, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glUniform4uiv ] ---
@@ -1372,7 +1372,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, (count >> 2) << 2);
+			checkBuffer(value, (count << 2) << 2);
 		}
 		nglUniform4uiv(location, count, memAddress(value), __functionAddress);
 	}
@@ -1382,7 +1382,7 @@ public final class GL30 {
 		long __functionAddress = getInstance().glUniform4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglUniform4uiv(location, value.remaining(), memAddress(value), __functionAddress);
+		nglUniform4uiv(location, value.remaining() >> 2, memAddress(value), __functionAddress);
 	}
 
 	// --- [ glGetUniformuiv ] ---

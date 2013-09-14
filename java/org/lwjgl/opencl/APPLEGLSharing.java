@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to the <strong>apple_gl_sharing</strong> extension. */
+/** Native bindings to the <strong>APPLE_gl_sharing</strong> extension. */
 public final class APPLEGLSharing {
 
 	/** Error code returned by {@link #clGetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
@@ -105,13 +105,13 @@ public final class APPLEGLSharing {
 	}
 
 	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_apple_gl_sharing") ) return null;
+		if ( !ext.contains("cl_APPLE_gl_sharing") ) return null;
 
 		Functions funcs = new Functions(provider, platform);
 
 		boolean supported =  funcs.clGetGLContextInfoAPPLE != 0L;
 
-		return CL.checkExtension("cl_apple_gl_sharing", funcs, supported);
+		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
 	}
 
 	/** The {@link FunctionMap} class for {@code APPLEGLSharing}. */

@@ -31,4 +31,20 @@ public final class GLFWWin32 {
 		return nglfwGetWin32Window(window);
 	}
 
+	// --- [ glfwGetWGLContext ] ---
+
+	/** JNI method for {@link #glfwGetWGLContext} */
+	public static native long nglfwGetWGLContext(long window);
+
+	/**
+	 * Returns the <code>HGLRC</code> of the given GLFW window.
+	 *
+	 * @param window the GLFW window
+	 */
+	public static long glfwGetWGLContext(long window) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		return nglfwGetWGLContext(window);
+	}
+
 }

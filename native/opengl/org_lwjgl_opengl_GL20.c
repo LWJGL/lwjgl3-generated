@@ -267,10 +267,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglGetShaderiv(JNIEnv *__env, 
 	glGetShaderiv(shader, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglGetProgramiv(JNIEnv *__env, jclass clazz, jint shader, jint pname, jlong paramsAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglGetProgramiv(JNIEnv *__env, jclass clazz, jint program, jint pname, jlong paramsAddress, jlong __functionAddress) {
 	GLint *params = (GLint *)(intptr_t)paramsAddress;
 	glGetProgramivPROC glGetProgramiv = (glGetProgramivPROC)(intptr_t)__functionAddress;
-	glGetProgramiv(shader, pname, params);
+	glGetProgramiv(program, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglGetShaderInfoLog(JNIEnv *__env, jclass clazz, jint shader, jint maxLength, jlong lengthAddress, jlong infoLogAddress, jlong __functionAddress) {
