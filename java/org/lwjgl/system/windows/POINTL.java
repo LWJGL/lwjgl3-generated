@@ -45,16 +45,16 @@ public final class POINTL {
 	) {
 		ByteBuffer pointl = malloc();
 
-		xSet(pointl, x);
-		ySet(pointl, y);
+		x(pointl, x);
+		y(pointl, y);
 
 		return pointl;
 	}
 
-	public static void xSet(ByteBuffer pointl, int x) { pointl.putInt(pointl.position() + X, x); }
-	public static void ySet(ByteBuffer pointl, int y) { pointl.putInt(pointl.position() + Y, y); }
+	public static void x(ByteBuffer pointl, int x) { pointl.putInt(pointl.position() + X, x); }
+	public static void y(ByteBuffer pointl, int y) { pointl.putInt(pointl.position() + Y, y); }
 
-	public static int xGet(ByteBuffer pointl) { return pointl.getInt(pointl.position() + X); }
-	public static int yGet(ByteBuffer pointl) { return pointl.getInt(pointl.position() + Y); }
+	public static int x(ByteBuffer pointl) { return pointl.getInt(pointl.position() + X); }
+	public static int y(ByteBuffer pointl) { return pointl.getInt(pointl.position() + Y); }
 
 }

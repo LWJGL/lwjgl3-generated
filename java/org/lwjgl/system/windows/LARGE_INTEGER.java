@@ -41,13 +41,13 @@ public final class LARGE_INTEGER {
 	) {
 		ByteBuffer large_integer = malloc();
 
-		QuadPartSet(large_integer, QuadPart);
+		QuadPart(large_integer, QuadPart);
 
 		return large_integer;
 	}
 
-	public static void QuadPartSet(ByteBuffer large_integer, long QuadPart) { large_integer.putLong(large_integer.position() + QUADPART, QuadPart); }
+	public static void QuadPart(ByteBuffer large_integer, long QuadPart) { large_integer.putLong(large_integer.position() + QUADPART, QuadPart); }
 
-	public static long QuadPartGet(ByteBuffer large_integer) { return large_integer.getLong(large_integer.position() + QUADPART); }
+	public static long QuadPart(ByteBuffer large_integer) { return large_integer.getLong(large_integer.position() + QUADPART); }
 
 }

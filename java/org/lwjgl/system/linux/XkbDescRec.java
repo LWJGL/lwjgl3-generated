@@ -54,11 +54,11 @@ public final class XkbDescRec {
 	) {
 		ByteBuffer xkbdescrec = malloc();
 
-		dpySet(xkbdescrec, dpy);
-		device_specSet(xkbdescrec, device_spec);
-		min_key_codeSet(xkbdescrec, min_key_code);
-		max_key_codeSet(xkbdescrec, max_key_code);
-		namesSet(xkbdescrec, names);
+		dpy(xkbdescrec, dpy);
+		device_spec(xkbdescrec, device_spec);
+		min_key_code(xkbdescrec, min_key_code);
+		max_key_code(xkbdescrec, max_key_code);
+		names(xkbdescrec, names);
 
 		return xkbdescrec;
 	}
@@ -73,27 +73,27 @@ public final class XkbDescRec {
 	) {
 		ByteBuffer xkbdescrec = malloc();
 
-		dpySet(xkbdescrec, dpy);
-		device_specSet(xkbdescrec, device_spec);
-		min_key_codeSet(xkbdescrec, min_key_code);
-		max_key_codeSet(xkbdescrec, max_key_code);
-		namesSet(xkbdescrec, names);
+		dpy(xkbdescrec, dpy);
+		device_spec(xkbdescrec, device_spec);
+		min_key_code(xkbdescrec, min_key_code);
+		max_key_code(xkbdescrec, max_key_code);
+		names(xkbdescrec, names);
 
 		return xkbdescrec;
 	}
 
-	public static void dpySet(ByteBuffer xkbdescrec, long dpy) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + DPY, dpy); }
-	public static void device_specSet(ByteBuffer xkbdescrec, int device_spec) { xkbdescrec.putShort(xkbdescrec.position() + DEVICE_SPEC, (short)device_spec); }
-	public static void min_key_codeSet(ByteBuffer xkbdescrec, int min_key_code) { xkbdescrec.put(xkbdescrec.position() + MIN_KEY_CODE, (byte)min_key_code); }
-	public static void max_key_codeSet(ByteBuffer xkbdescrec, int max_key_code) { xkbdescrec.put(xkbdescrec.position() + MAX_KEY_CODE, (byte)max_key_code); }
-	public static void namesSet(ByteBuffer xkbdescrec, long names) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + NAMES, names); }
-	public static void namesSet(ByteBuffer xkbdescrec, ByteBuffer names) { namesSet(xkbdescrec, memAddress(names)); }
+	public static void dpy(ByteBuffer xkbdescrec, long dpy) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + DPY, dpy); }
+	public static void device_spec(ByteBuffer xkbdescrec, int device_spec) { xkbdescrec.putShort(xkbdescrec.position() + DEVICE_SPEC, (short)device_spec); }
+	public static void min_key_code(ByteBuffer xkbdescrec, int min_key_code) { xkbdescrec.put(xkbdescrec.position() + MIN_KEY_CODE, (byte)min_key_code); }
+	public static void max_key_code(ByteBuffer xkbdescrec, int max_key_code) { xkbdescrec.put(xkbdescrec.position() + MAX_KEY_CODE, (byte)max_key_code); }
+	public static void names(ByteBuffer xkbdescrec, long names) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + NAMES, names); }
+	public static void names(ByteBuffer xkbdescrec, ByteBuffer names) { names(xkbdescrec, memAddress(names)); }
 
-	public static long dpyGet(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + DPY); }
-	public static int device_specGet(ByteBuffer xkbdescrec) { return xkbdescrec.getShort(xkbdescrec.position() + DEVICE_SPEC) & 0xFFFF; }
-	public static int min_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MIN_KEY_CODE) & 0xFF; }
-	public static int max_key_codeGet(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MAX_KEY_CODE) & 0xFF; }
-	public static long namesGet(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + NAMES); }
-	public static ByteBuffer namesGetb(ByteBuffer xkbdescrec) { return memByteBuffer(namesGet(xkbdescrec), XkbNamesRec.SIZEOF); }
+	public static long dpy(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + DPY); }
+	public static int device_spec(ByteBuffer xkbdescrec) { return xkbdescrec.getShort(xkbdescrec.position() + DEVICE_SPEC) & 0xFFFF; }
+	public static int min_key_code(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MIN_KEY_CODE) & 0xFF; }
+	public static int max_key_code(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MAX_KEY_CODE) & 0xFF; }
+	public static long names(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + NAMES); }
+	public static ByteBuffer namesb(ByteBuffer xkbdescrec) { return memByteBuffer(names(xkbdescrec), XkbNamesRec.SIZEOF); }
 
 }

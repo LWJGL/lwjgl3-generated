@@ -84,55 +84,55 @@ public final class XMotionEvent {
 	) {
 		ByteBuffer xmotionevent = malloc();
 
-		typeSet(xmotionevent, type);
-		serialSet(xmotionevent, serial);
-		send_eventSet(xmotionevent, send_event);
-		displaySet(xmotionevent, display);
-		windowSet(xmotionevent, window);
-		rootSet(xmotionevent, root);
-		subwindowSet(xmotionevent, subwindow);
-		timeSet(xmotionevent, time);
-		xSet(xmotionevent, x);
-		ySet(xmotionevent, y);
-		x_rootSet(xmotionevent, x_root);
-		y_rootSet(xmotionevent, y_root);
-		stateSet(xmotionevent, state);
-		is_hintSet(xmotionevent, is_hint);
-		same_screenSet(xmotionevent, same_screen);
+		type(xmotionevent, type);
+		serial(xmotionevent, serial);
+		send_event(xmotionevent, send_event);
+		display(xmotionevent, display);
+		window(xmotionevent, window);
+		root(xmotionevent, root);
+		subwindow(xmotionevent, subwindow);
+		time(xmotionevent, time);
+		x(xmotionevent, x);
+		y(xmotionevent, y);
+		x_root(xmotionevent, x_root);
+		y_root(xmotionevent, y_root);
+		state(xmotionevent, state);
+		is_hint(xmotionevent, is_hint);
+		same_screen(xmotionevent, same_screen);
 
 		return xmotionevent;
 	}
 
-	public static void typeSet(ByteBuffer xmotionevent, int type) { xmotionevent.putInt(xmotionevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xmotionevent, long serial) { PointerBuffer.put(xmotionevent, xmotionevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xmotionevent, int send_event) { xmotionevent.putInt(xmotionevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xmotionevent, long display) { PointerBuffer.put(xmotionevent, xmotionevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xmotionevent, long window) { PointerBuffer.put(xmotionevent, xmotionevent.position() + WINDOW, window); }
-	public static void rootSet(ByteBuffer xmotionevent, long root) { PointerBuffer.put(xmotionevent, xmotionevent.position() + ROOT, root); }
-	public static void subwindowSet(ByteBuffer xmotionevent, long subwindow) { PointerBuffer.put(xmotionevent, xmotionevent.position() + SUBWINDOW, subwindow); }
-	public static void timeSet(ByteBuffer xmotionevent, long time) { PointerBuffer.put(xmotionevent, xmotionevent.position() + TIME, time); }
-	public static void xSet(ByteBuffer xmotionevent, int x) { xmotionevent.putInt(xmotionevent.position() + X, x); }
-	public static void ySet(ByteBuffer xmotionevent, int y) { xmotionevent.putInt(xmotionevent.position() + Y, y); }
-	public static void x_rootSet(ByteBuffer xmotionevent, int x_root) { xmotionevent.putInt(xmotionevent.position() + X_ROOT, x_root); }
-	public static void y_rootSet(ByteBuffer xmotionevent, int y_root) { xmotionevent.putInt(xmotionevent.position() + Y_ROOT, y_root); }
-	public static void stateSet(ByteBuffer xmotionevent, int state) { xmotionevent.putInt(xmotionevent.position() + STATE, state); }
-	public static void is_hintSet(ByteBuffer xmotionevent, int is_hint) { xmotionevent.put(xmotionevent.position() + IS_HINT, (byte)is_hint); }
-	public static void same_screenSet(ByteBuffer xmotionevent, int same_screen) { xmotionevent.putInt(xmotionevent.position() + SAME_SCREEN, same_screen); }
+	public static void type(ByteBuffer xmotionevent, int type) { xmotionevent.putInt(xmotionevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xmotionevent, long serial) { PointerBuffer.put(xmotionevent, xmotionevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xmotionevent, int send_event) { xmotionevent.putInt(xmotionevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xmotionevent, long display) { PointerBuffer.put(xmotionevent, xmotionevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xmotionevent, long window) { PointerBuffer.put(xmotionevent, xmotionevent.position() + WINDOW, window); }
+	public static void root(ByteBuffer xmotionevent, long root) { PointerBuffer.put(xmotionevent, xmotionevent.position() + ROOT, root); }
+	public static void subwindow(ByteBuffer xmotionevent, long subwindow) { PointerBuffer.put(xmotionevent, xmotionevent.position() + SUBWINDOW, subwindow); }
+	public static void time(ByteBuffer xmotionevent, long time) { PointerBuffer.put(xmotionevent, xmotionevent.position() + TIME, time); }
+	public static void x(ByteBuffer xmotionevent, int x) { xmotionevent.putInt(xmotionevent.position() + X, x); }
+	public static void y(ByteBuffer xmotionevent, int y) { xmotionevent.putInt(xmotionevent.position() + Y, y); }
+	public static void x_root(ByteBuffer xmotionevent, int x_root) { xmotionevent.putInt(xmotionevent.position() + X_ROOT, x_root); }
+	public static void y_root(ByteBuffer xmotionevent, int y_root) { xmotionevent.putInt(xmotionevent.position() + Y_ROOT, y_root); }
+	public static void state(ByteBuffer xmotionevent, int state) { xmotionevent.putInt(xmotionevent.position() + STATE, state); }
+	public static void is_hint(ByteBuffer xmotionevent, int is_hint) { xmotionevent.put(xmotionevent.position() + IS_HINT, (byte)is_hint); }
+	public static void same_screen(ByteBuffer xmotionevent, int same_screen) { xmotionevent.putInt(xmotionevent.position() + SAME_SCREEN, same_screen); }
 
-	public static int typeGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + WINDOW); }
-	public static long rootGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + ROOT); }
-	public static long subwindowGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + SUBWINDOW); }
-	public static long timeGet(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + TIME); }
-	public static int xGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + X); }
-	public static int yGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + Y); }
-	public static int x_rootGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + X_ROOT); }
-	public static int y_rootGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + Y_ROOT); }
-	public static int stateGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + STATE); }
-	public static int is_hintGet(ByteBuffer xmotionevent) { return xmotionevent.get(xmotionevent.position() + IS_HINT); }
-	public static int same_screenGet(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + SAME_SCREEN); }
+	public static int type(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + TYPE); }
+	public static long serial(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + WINDOW); }
+	public static long root(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + ROOT); }
+	public static long subwindow(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + SUBWINDOW); }
+	public static long time(ByteBuffer xmotionevent) { return PointerBuffer.get(xmotionevent, xmotionevent.position() + TIME); }
+	public static int x(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + X); }
+	public static int y(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + Y); }
+	public static int x_root(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + X_ROOT); }
+	public static int y_root(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + Y_ROOT); }
+	public static int state(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + STATE); }
+	public static int is_hint(ByteBuffer xmotionevent) { return xmotionevent.get(xmotionevent.position() + IS_HINT); }
+	public static int same_screen(ByteBuffer xmotionevent) { return xmotionevent.getInt(xmotionevent.position() + SAME_SCREEN); }
 
 }

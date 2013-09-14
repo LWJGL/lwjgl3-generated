@@ -44,16 +44,16 @@ public final class POINTFLOAT {
 	) {
 		ByteBuffer pointfloat = malloc();
 
-		xSet(pointfloat, x);
-		ySet(pointfloat, y);
+		x(pointfloat, x);
+		y(pointfloat, y);
 
 		return pointfloat;
 	}
 
-	public static void xSet(ByteBuffer pointfloat, float x) { pointfloat.putFloat(pointfloat.position() + X, x); }
-	public static void ySet(ByteBuffer pointfloat, float y) { pointfloat.putFloat(pointfloat.position() + Y, y); }
+	public static void x(ByteBuffer pointfloat, float x) { pointfloat.putFloat(pointfloat.position() + X, x); }
+	public static void y(ByteBuffer pointfloat, float y) { pointfloat.putFloat(pointfloat.position() + Y, y); }
 
-	public static float xGet(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + X); }
-	public static float yGet(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + Y); }
+	public static float x(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + X); }
+	public static float y(ByteBuffer pointfloat) { return pointfloat.getFloat(pointfloat.position() + Y); }
 
 }

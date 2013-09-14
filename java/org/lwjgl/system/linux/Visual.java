@@ -60,31 +60,31 @@ public final class Visual {
 	) {
 		ByteBuffer visual = malloc();
 
-		visualidSet(visual, visualid);
-		clazzSet(visual, clazz);
-		red_maskSet(visual, red_mask);
-		green_maskSet(visual, green_mask);
-		blue_maskSet(visual, blue_mask);
-		bits_per_rgbSet(visual, bits_per_rgb);
-		map_entriesSet(visual, map_entries);
+		visualid(visual, visualid);
+		clazz(visual, clazz);
+		red_mask(visual, red_mask);
+		green_mask(visual, green_mask);
+		blue_mask(visual, blue_mask);
+		bits_per_rgb(visual, bits_per_rgb);
+		map_entries(visual, map_entries);
 
 		return visual;
 	}
 
-	public static void visualidSet(ByteBuffer visual, long visualid) { PointerBuffer.put(visual, visual.position() + VISUALID, visualid); }
-	public static void clazzSet(ByteBuffer visual, int clazz) { visual.putInt(visual.position() + CLAZZ, clazz); }
-	public static void red_maskSet(ByteBuffer visual, long red_mask) { PointerBuffer.put(visual, visual.position() + RED_MASK, red_mask); }
-	public static void green_maskSet(ByteBuffer visual, long green_mask) { PointerBuffer.put(visual, visual.position() + GREEN_MASK, green_mask); }
-	public static void blue_maskSet(ByteBuffer visual, long blue_mask) { PointerBuffer.put(visual, visual.position() + BLUE_MASK, blue_mask); }
-	public static void bits_per_rgbSet(ByteBuffer visual, int bits_per_rgb) { visual.putInt(visual.position() + BITS_PER_RGB, bits_per_rgb); }
-	public static void map_entriesSet(ByteBuffer visual, int map_entries) { visual.putInt(visual.position() + MAP_ENTRIES, map_entries); }
+	public static void visualid(ByteBuffer visual, long visualid) { PointerBuffer.put(visual, visual.position() + VISUALID, visualid); }
+	public static void clazz(ByteBuffer visual, int clazz) { visual.putInt(visual.position() + CLAZZ, clazz); }
+	public static void red_mask(ByteBuffer visual, long red_mask) { PointerBuffer.put(visual, visual.position() + RED_MASK, red_mask); }
+	public static void green_mask(ByteBuffer visual, long green_mask) { PointerBuffer.put(visual, visual.position() + GREEN_MASK, green_mask); }
+	public static void blue_mask(ByteBuffer visual, long blue_mask) { PointerBuffer.put(visual, visual.position() + BLUE_MASK, blue_mask); }
+	public static void bits_per_rgb(ByteBuffer visual, int bits_per_rgb) { visual.putInt(visual.position() + BITS_PER_RGB, bits_per_rgb); }
+	public static void map_entries(ByteBuffer visual, int map_entries) { visual.putInt(visual.position() + MAP_ENTRIES, map_entries); }
 
-	public static long visualidGet(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + VISUALID); }
-	public static int clazzGet(ByteBuffer visual) { return visual.getInt(visual.position() + CLAZZ); }
-	public static long red_maskGet(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + RED_MASK); }
-	public static long green_maskGet(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + GREEN_MASK); }
-	public static long blue_maskGet(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + BLUE_MASK); }
-	public static int bits_per_rgbGet(ByteBuffer visual) { return visual.getInt(visual.position() + BITS_PER_RGB); }
-	public static int map_entriesGet(ByteBuffer visual) { return visual.getInt(visual.position() + MAP_ENTRIES); }
+	public static long visualid(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + VISUALID); }
+	public static int clazz(ByteBuffer visual) { return visual.getInt(visual.position() + CLAZZ); }
+	public static long red_mask(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + RED_MASK); }
+	public static long green_mask(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + GREEN_MASK); }
+	public static long blue_mask(ByteBuffer visual) { return PointerBuffer.get(visual, visual.position() + BLUE_MASK); }
+	public static int bits_per_rgb(ByteBuffer visual) { return visual.getInt(visual.position() + BITS_PER_RGB); }
+	public static int map_entries(ByteBuffer visual) { return visual.getInt(visual.position() + MAP_ENTRIES); }
 
 }

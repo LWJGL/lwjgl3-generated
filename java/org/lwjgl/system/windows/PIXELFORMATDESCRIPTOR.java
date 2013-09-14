@@ -117,88 +117,88 @@ public final class PIXELFORMATDESCRIPTOR {
 	) {
 		ByteBuffer pixelformatdescriptor = malloc();
 
-		sizeSet(pixelformatdescriptor, size);
-		versionSet(pixelformatdescriptor, version);
-		flagsSet(pixelformatdescriptor, flags);
-		pixelTypeSet(pixelformatdescriptor, pixelType);
-		colorBitsSet(pixelformatdescriptor, colorBits);
-		redBitsSet(pixelformatdescriptor, redBits);
-		redShirtSet(pixelformatdescriptor, redShirt);
-		greenBitsSet(pixelformatdescriptor, greenBits);
-		greenShiftSet(pixelformatdescriptor, greenShift);
-		blueBitsSet(pixelformatdescriptor, blueBits);
-		blueShiftSet(pixelformatdescriptor, blueShift);
-		alphaBitsSet(pixelformatdescriptor, alphaBits);
-		alphaShiftSet(pixelformatdescriptor, alphaShift);
-		accumBitsSet(pixelformatdescriptor, accumBits);
-		accumRedBitsSet(pixelformatdescriptor, accumRedBits);
-		accumGreenBitsSet(pixelformatdescriptor, accumGreenBits);
-		accumBlueBitsSet(pixelformatdescriptor, accumBlueBits);
-		accumAlphaBitsSet(pixelformatdescriptor, accumAlphaBits);
-		depthBitsSet(pixelformatdescriptor, depthBits);
-		stencilBitsSet(pixelformatdescriptor, stencilBits);
-		auxBuffersSet(pixelformatdescriptor, auxBuffers);
-		layerTypeSet(pixelformatdescriptor, layerType);
-		reservedSet(pixelformatdescriptor, reserved);
-		layerMaskSet(pixelformatdescriptor, layerMask);
-		visibleMaskSet(pixelformatdescriptor, visibleMask);
-		damageMaskSet(pixelformatdescriptor, damageMask);
+		size(pixelformatdescriptor, size);
+		version(pixelformatdescriptor, version);
+		flags(pixelformatdescriptor, flags);
+		pixelType(pixelformatdescriptor, pixelType);
+		colorBits(pixelformatdescriptor, colorBits);
+		redBits(pixelformatdescriptor, redBits);
+		redShirt(pixelformatdescriptor, redShirt);
+		greenBits(pixelformatdescriptor, greenBits);
+		greenShift(pixelformatdescriptor, greenShift);
+		blueBits(pixelformatdescriptor, blueBits);
+		blueShift(pixelformatdescriptor, blueShift);
+		alphaBits(pixelformatdescriptor, alphaBits);
+		alphaShift(pixelformatdescriptor, alphaShift);
+		accumBits(pixelformatdescriptor, accumBits);
+		accumRedBits(pixelformatdescriptor, accumRedBits);
+		accumGreenBits(pixelformatdescriptor, accumGreenBits);
+		accumBlueBits(pixelformatdescriptor, accumBlueBits);
+		accumAlphaBits(pixelformatdescriptor, accumAlphaBits);
+		depthBits(pixelformatdescriptor, depthBits);
+		stencilBits(pixelformatdescriptor, stencilBits);
+		auxBuffers(pixelformatdescriptor, auxBuffers);
+		layerType(pixelformatdescriptor, layerType);
+		reserved(pixelformatdescriptor, reserved);
+		layerMask(pixelformatdescriptor, layerMask);
+		visibleMask(pixelformatdescriptor, visibleMask);
+		damageMask(pixelformatdescriptor, damageMask);
 
 		return pixelformatdescriptor;
 	}
 
-	public static void sizeSet(ByteBuffer pixelformatdescriptor, int size) { pixelformatdescriptor.putShort(pixelformatdescriptor.position() + SIZE, (short)size); }
-	public static void versionSet(ByteBuffer pixelformatdescriptor, int version) { pixelformatdescriptor.putShort(pixelformatdescriptor.position() + VERSION, (short)version); }
-	public static void flagsSet(ByteBuffer pixelformatdescriptor, int flags) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + FLAGS, flags); }
-	public static void pixelTypeSet(ByteBuffer pixelformatdescriptor, int pixelType) { pixelformatdescriptor.put(pixelformatdescriptor.position() + PIXELTYPE, (byte)pixelType); }
-	public static void colorBitsSet(ByteBuffer pixelformatdescriptor, int colorBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + COLORBITS, (byte)colorBits); }
-	public static void redBitsSet(ByteBuffer pixelformatdescriptor, int redBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + REDBITS, (byte)redBits); }
-	public static void redShirtSet(ByteBuffer pixelformatdescriptor, int redShirt) { pixelformatdescriptor.put(pixelformatdescriptor.position() + REDSHIRT, (byte)redShirt); }
-	public static void greenBitsSet(ByteBuffer pixelformatdescriptor, int greenBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + GREENBITS, (byte)greenBits); }
-	public static void greenShiftSet(ByteBuffer pixelformatdescriptor, int greenShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + GREENSHIFT, (byte)greenShift); }
-	public static void blueBitsSet(ByteBuffer pixelformatdescriptor, int blueBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + BLUEBITS, (byte)blueBits); }
-	public static void blueShiftSet(ByteBuffer pixelformatdescriptor, int blueShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + BLUESHIFT, (byte)blueShift); }
-	public static void alphaBitsSet(ByteBuffer pixelformatdescriptor, int alphaBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ALPHABITS, (byte)alphaBits); }
-	public static void alphaShiftSet(ByteBuffer pixelformatdescriptor, int alphaShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ALPHASHIFT, (byte)alphaShift); }
-	public static void accumBitsSet(ByteBuffer pixelformatdescriptor, int accumBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMBITS, (byte)accumBits); }
-	public static void accumRedBitsSet(ByteBuffer pixelformatdescriptor, int accumRedBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMREDBITS, (byte)accumRedBits); }
-	public static void accumGreenBitsSet(ByteBuffer pixelformatdescriptor, int accumGreenBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMGREENBITS, (byte)accumGreenBits); }
-	public static void accumBlueBitsSet(ByteBuffer pixelformatdescriptor, int accumBlueBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMBLUEBITS, (byte)accumBlueBits); }
-	public static void accumAlphaBitsSet(ByteBuffer pixelformatdescriptor, int accumAlphaBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMALPHABITS, (byte)accumAlphaBits); }
-	public static void depthBitsSet(ByteBuffer pixelformatdescriptor, int depthBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + DEPTHBITS, (byte)depthBits); }
-	public static void stencilBitsSet(ByteBuffer pixelformatdescriptor, int stencilBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + STENCILBITS, (byte)stencilBits); }
-	public static void auxBuffersSet(ByteBuffer pixelformatdescriptor, int auxBuffers) { pixelformatdescriptor.put(pixelformatdescriptor.position() + AUXBUFFERS, (byte)auxBuffers); }
-	public static void layerTypeSet(ByteBuffer pixelformatdescriptor, int layerType) { pixelformatdescriptor.put(pixelformatdescriptor.position() + LAYERTYPE, (byte)layerType); }
-	public static void reservedSet(ByteBuffer pixelformatdescriptor, int reserved) { pixelformatdescriptor.put(pixelformatdescriptor.position() + RESERVED, (byte)reserved); }
-	public static void layerMaskSet(ByteBuffer pixelformatdescriptor, int layerMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + LAYERMASK, layerMask); }
-	public static void visibleMaskSet(ByteBuffer pixelformatdescriptor, int visibleMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + VISIBLEMASK, visibleMask); }
-	public static void damageMaskSet(ByteBuffer pixelformatdescriptor, int damageMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + DAMAGEMASK, damageMask); }
+	public static void size(ByteBuffer pixelformatdescriptor, int size) { pixelformatdescriptor.putShort(pixelformatdescriptor.position() + SIZE, (short)size); }
+	public static void version(ByteBuffer pixelformatdescriptor, int version) { pixelformatdescriptor.putShort(pixelformatdescriptor.position() + VERSION, (short)version); }
+	public static void flags(ByteBuffer pixelformatdescriptor, int flags) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + FLAGS, flags); }
+	public static void pixelType(ByteBuffer pixelformatdescriptor, int pixelType) { pixelformatdescriptor.put(pixelformatdescriptor.position() + PIXELTYPE, (byte)pixelType); }
+	public static void colorBits(ByteBuffer pixelformatdescriptor, int colorBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + COLORBITS, (byte)colorBits); }
+	public static void redBits(ByteBuffer pixelformatdescriptor, int redBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + REDBITS, (byte)redBits); }
+	public static void redShirt(ByteBuffer pixelformatdescriptor, int redShirt) { pixelformatdescriptor.put(pixelformatdescriptor.position() + REDSHIRT, (byte)redShirt); }
+	public static void greenBits(ByteBuffer pixelformatdescriptor, int greenBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + GREENBITS, (byte)greenBits); }
+	public static void greenShift(ByteBuffer pixelformatdescriptor, int greenShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + GREENSHIFT, (byte)greenShift); }
+	public static void blueBits(ByteBuffer pixelformatdescriptor, int blueBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + BLUEBITS, (byte)blueBits); }
+	public static void blueShift(ByteBuffer pixelformatdescriptor, int blueShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + BLUESHIFT, (byte)blueShift); }
+	public static void alphaBits(ByteBuffer pixelformatdescriptor, int alphaBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ALPHABITS, (byte)alphaBits); }
+	public static void alphaShift(ByteBuffer pixelformatdescriptor, int alphaShift) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ALPHASHIFT, (byte)alphaShift); }
+	public static void accumBits(ByteBuffer pixelformatdescriptor, int accumBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMBITS, (byte)accumBits); }
+	public static void accumRedBits(ByteBuffer pixelformatdescriptor, int accumRedBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMREDBITS, (byte)accumRedBits); }
+	public static void accumGreenBits(ByteBuffer pixelformatdescriptor, int accumGreenBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMGREENBITS, (byte)accumGreenBits); }
+	public static void accumBlueBits(ByteBuffer pixelformatdescriptor, int accumBlueBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMBLUEBITS, (byte)accumBlueBits); }
+	public static void accumAlphaBits(ByteBuffer pixelformatdescriptor, int accumAlphaBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + ACCUMALPHABITS, (byte)accumAlphaBits); }
+	public static void depthBits(ByteBuffer pixelformatdescriptor, int depthBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + DEPTHBITS, (byte)depthBits); }
+	public static void stencilBits(ByteBuffer pixelformatdescriptor, int stencilBits) { pixelformatdescriptor.put(pixelformatdescriptor.position() + STENCILBITS, (byte)stencilBits); }
+	public static void auxBuffers(ByteBuffer pixelformatdescriptor, int auxBuffers) { pixelformatdescriptor.put(pixelformatdescriptor.position() + AUXBUFFERS, (byte)auxBuffers); }
+	public static void layerType(ByteBuffer pixelformatdescriptor, int layerType) { pixelformatdescriptor.put(pixelformatdescriptor.position() + LAYERTYPE, (byte)layerType); }
+	public static void reserved(ByteBuffer pixelformatdescriptor, int reserved) { pixelformatdescriptor.put(pixelformatdescriptor.position() + RESERVED, (byte)reserved); }
+	public static void layerMask(ByteBuffer pixelformatdescriptor, int layerMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + LAYERMASK, layerMask); }
+	public static void visibleMask(ByteBuffer pixelformatdescriptor, int visibleMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + VISIBLEMASK, visibleMask); }
+	public static void damageMask(ByteBuffer pixelformatdescriptor, int damageMask) { pixelformatdescriptor.putInt(pixelformatdescriptor.position() + DAMAGEMASK, damageMask); }
 
-	public static int sizeGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getShort(pixelformatdescriptor.position() + SIZE); }
-	public static int versionGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getShort(pixelformatdescriptor.position() + VERSION); }
-	public static int flagsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + FLAGS); }
-	public static int pixelTypeGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + PIXELTYPE); }
-	public static int colorBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + COLORBITS); }
-	public static int redBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + REDBITS); }
-	public static int redShirtGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + REDSHIRT); }
-	public static int greenBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + GREENBITS); }
-	public static int greenShiftGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + GREENSHIFT); }
-	public static int blueBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + BLUEBITS); }
-	public static int blueShiftGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + BLUESHIFT); }
-	public static int alphaBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ALPHABITS); }
-	public static int alphaShiftGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ALPHASHIFT); }
-	public static int accumBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMBITS); }
-	public static int accumRedBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMREDBITS); }
-	public static int accumGreenBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMGREENBITS); }
-	public static int accumBlueBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMBLUEBITS); }
-	public static int accumAlphaBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMALPHABITS); }
-	public static int depthBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + DEPTHBITS); }
-	public static int stencilBitsGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + STENCILBITS); }
-	public static int auxBuffersGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + AUXBUFFERS); }
-	public static int layerTypeGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + LAYERTYPE); }
-	public static int reservedGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + RESERVED); }
-	public static int layerMaskGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + LAYERMASK); }
-	public static int visibleMaskGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + VISIBLEMASK); }
-	public static int damageMaskGet(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + DAMAGEMASK); }
+	public static int size(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getShort(pixelformatdescriptor.position() + SIZE); }
+	public static int version(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getShort(pixelformatdescriptor.position() + VERSION); }
+	public static int flags(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + FLAGS); }
+	public static int pixelType(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + PIXELTYPE); }
+	public static int colorBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + COLORBITS); }
+	public static int redBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + REDBITS); }
+	public static int redShirt(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + REDSHIRT); }
+	public static int greenBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + GREENBITS); }
+	public static int greenShift(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + GREENSHIFT); }
+	public static int blueBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + BLUEBITS); }
+	public static int blueShift(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + BLUESHIFT); }
+	public static int alphaBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ALPHABITS); }
+	public static int alphaShift(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ALPHASHIFT); }
+	public static int accumBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMBITS); }
+	public static int accumRedBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMREDBITS); }
+	public static int accumGreenBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMGREENBITS); }
+	public static int accumBlueBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMBLUEBITS); }
+	public static int accumAlphaBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + ACCUMALPHABITS); }
+	public static int depthBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + DEPTHBITS); }
+	public static int stencilBits(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + STENCILBITS); }
+	public static int auxBuffers(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + AUXBUFFERS); }
+	public static int layerType(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + LAYERTYPE); }
+	public static int reserved(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.get(pixelformatdescriptor.position() + RESERVED); }
+	public static int layerMask(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + LAYERMASK); }
+	public static int visibleMask(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + VISIBLEMASK); }
+	public static int damageMask(ByteBuffer pixelformatdescriptor) { return pixelformatdescriptor.getInt(pixelformatdescriptor.position() + DAMAGEMASK); }
 
 }

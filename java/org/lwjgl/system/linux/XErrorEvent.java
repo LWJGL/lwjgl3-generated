@@ -60,31 +60,31 @@ public final class XErrorEvent {
 	) {
 		ByteBuffer xerrorevent = malloc();
 
-		typeSet(xerrorevent, type);
-		displaySet(xerrorevent, display);
-		serialSet(xerrorevent, serial);
-		error_codeSet(xerrorevent, error_code);
-		request_codeSet(xerrorevent, request_code);
-		minor_codeSet(xerrorevent, minor_code);
-		resourceidSet(xerrorevent, resourceid);
+		type(xerrorevent, type);
+		display(xerrorevent, display);
+		serial(xerrorevent, serial);
+		error_code(xerrorevent, error_code);
+		request_code(xerrorevent, request_code);
+		minor_code(xerrorevent, minor_code);
+		resourceid(xerrorevent, resourceid);
 
 		return xerrorevent;
 	}
 
-	public static void typeSet(ByteBuffer xerrorevent, int type) { xerrorevent.putInt(xerrorevent.position() + TYPE, type); }
-	public static void displaySet(ByteBuffer xerrorevent, long display) { PointerBuffer.put(xerrorevent, xerrorevent.position() + DISPLAY, display); }
-	public static void serialSet(ByteBuffer xerrorevent, long serial) { PointerBuffer.put(xerrorevent, xerrorevent.position() + SERIAL, serial); }
-	public static void error_codeSet(ByteBuffer xerrorevent, int error_code) { xerrorevent.put(xerrorevent.position() + ERROR_CODE, (byte)error_code); }
-	public static void request_codeSet(ByteBuffer xerrorevent, int request_code) { xerrorevent.put(xerrorevent.position() + REQUEST_CODE, (byte)request_code); }
-	public static void minor_codeSet(ByteBuffer xerrorevent, int minor_code) { xerrorevent.put(xerrorevent.position() + MINOR_CODE, (byte)minor_code); }
-	public static void resourceidSet(ByteBuffer xerrorevent, long resourceid) { PointerBuffer.put(xerrorevent, xerrorevent.position() + RESOURCEID, resourceid); }
+	public static void type(ByteBuffer xerrorevent, int type) { xerrorevent.putInt(xerrorevent.position() + TYPE, type); }
+	public static void display(ByteBuffer xerrorevent, long display) { PointerBuffer.put(xerrorevent, xerrorevent.position() + DISPLAY, display); }
+	public static void serial(ByteBuffer xerrorevent, long serial) { PointerBuffer.put(xerrorevent, xerrorevent.position() + SERIAL, serial); }
+	public static void error_code(ByteBuffer xerrorevent, int error_code) { xerrorevent.put(xerrorevent.position() + ERROR_CODE, (byte)error_code); }
+	public static void request_code(ByteBuffer xerrorevent, int request_code) { xerrorevent.put(xerrorevent.position() + REQUEST_CODE, (byte)request_code); }
+	public static void minor_code(ByteBuffer xerrorevent, int minor_code) { xerrorevent.put(xerrorevent.position() + MINOR_CODE, (byte)minor_code); }
+	public static void resourceid(ByteBuffer xerrorevent, long resourceid) { PointerBuffer.put(xerrorevent, xerrorevent.position() + RESOURCEID, resourceid); }
 
-	public static int typeGet(ByteBuffer xerrorevent) { return xerrorevent.getInt(xerrorevent.position() + TYPE); }
-	public static long displayGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + DISPLAY); }
-	public static long serialGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + SERIAL); }
-	public static int error_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + ERROR_CODE) & 0xFF; }
-	public static int request_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + REQUEST_CODE) & 0xFF; }
-	public static int minor_codeGet(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + MINOR_CODE) & 0xFF; }
-	public static long resourceidGet(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + RESOURCEID); }
+	public static int type(ByteBuffer xerrorevent) { return xerrorevent.getInt(xerrorevent.position() + TYPE); }
+	public static long display(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + DISPLAY); }
+	public static long serial(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + SERIAL); }
+	public static int error_code(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + ERROR_CODE) & 0xFF; }
+	public static int request_code(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + REQUEST_CODE) & 0xFF; }
+	public static int minor_code(ByteBuffer xerrorevent) { return xerrorevent.get(xerrorevent.position() + MINOR_CODE) & 0xFF; }
+	public static long resourceid(ByteBuffer xerrorevent) { return PointerBuffer.get(xerrorevent, xerrorevent.position() + RESOURCEID); }
 
 }

@@ -75,18 +75,18 @@ public final class XRRCrtcInfo {
 	) {
 		ByteBuffer xrrcrtcinfo = malloc();
 
-		timestampSet(xrrcrtcinfo, timestamp);
-		xSet(xrrcrtcinfo, x);
-		ySet(xrrcrtcinfo, y);
-		widthSet(xrrcrtcinfo, width);
-		heightSet(xrrcrtcinfo, height);
-		modeSet(xrrcrtcinfo, mode);
-		rotationSet(xrrcrtcinfo, rotation);
-		noutputSet(xrrcrtcinfo, noutput);
-		outputsSet(xrrcrtcinfo, outputs);
-		rotationsSet(xrrcrtcinfo, rotations);
-		npossibleSet(xrrcrtcinfo, npossible);
-		possibleSet(xrrcrtcinfo, possible);
+		timestamp(xrrcrtcinfo, timestamp);
+		x(xrrcrtcinfo, x);
+		y(xrrcrtcinfo, y);
+		width(xrrcrtcinfo, width);
+		height(xrrcrtcinfo, height);
+		mode(xrrcrtcinfo, mode);
+		rotation(xrrcrtcinfo, rotation);
+		noutput(xrrcrtcinfo, noutput);
+		outputs(xrrcrtcinfo, outputs);
+		rotations(xrrcrtcinfo, rotations);
+		npossible(xrrcrtcinfo, npossible);
+		possible(xrrcrtcinfo, possible);
 
 		return xrrcrtcinfo;
 	}
@@ -108,50 +108,50 @@ public final class XRRCrtcInfo {
 	) {
 		ByteBuffer xrrcrtcinfo = malloc();
 
-		timestampSet(xrrcrtcinfo, timestamp);
-		xSet(xrrcrtcinfo, x);
-		ySet(xrrcrtcinfo, y);
-		widthSet(xrrcrtcinfo, width);
-		heightSet(xrrcrtcinfo, height);
-		modeSet(xrrcrtcinfo, mode);
-		rotationSet(xrrcrtcinfo, rotation);
-		noutputSet(xrrcrtcinfo, noutput);
-		outputsSet(xrrcrtcinfo, outputs);
-		rotationsSet(xrrcrtcinfo, rotations);
-		npossibleSet(xrrcrtcinfo, npossible);
-		possibleSet(xrrcrtcinfo, possible);
+		timestamp(xrrcrtcinfo, timestamp);
+		x(xrrcrtcinfo, x);
+		y(xrrcrtcinfo, y);
+		width(xrrcrtcinfo, width);
+		height(xrrcrtcinfo, height);
+		mode(xrrcrtcinfo, mode);
+		rotation(xrrcrtcinfo, rotation);
+		noutput(xrrcrtcinfo, noutput);
+		outputs(xrrcrtcinfo, outputs);
+		rotations(xrrcrtcinfo, rotations);
+		npossible(xrrcrtcinfo, npossible);
+		possible(xrrcrtcinfo, possible);
 
 		return xrrcrtcinfo;
 	}
 
-	public static void timestampSet(ByteBuffer xrrcrtcinfo, long timestamp) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + TIMESTAMP, timestamp); }
-	public static void xSet(ByteBuffer xrrcrtcinfo, int x) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + X, x); }
-	public static void ySet(ByteBuffer xrrcrtcinfo, int y) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + Y, y); }
-	public static void widthSet(ByteBuffer xrrcrtcinfo, int width) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer xrrcrtcinfo, int height) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + HEIGHT, height); }
-	public static void modeSet(ByteBuffer xrrcrtcinfo, long mode) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + MODE, mode); }
-	public static void rotationSet(ByteBuffer xrrcrtcinfo, int rotation) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATION, (short)rotation); }
-	public static void noutputSet(ByteBuffer xrrcrtcinfo, int noutput) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NOUTPUT, noutput); }
-	public static void outputsSet(ByteBuffer xrrcrtcinfo, long outputs) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS, outputs); }
-	public static void outputsSet(ByteBuffer xrrcrtcinfo, ByteBuffer outputs) { outputsSet(xrrcrtcinfo, memAddress(outputs)); }
-	public static void rotationsSet(ByteBuffer xrrcrtcinfo, int rotations) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATIONS, (short)rotations); }
-	public static void npossibleSet(ByteBuffer xrrcrtcinfo, int npossible) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NPOSSIBLE, npossible); }
-	public static void possibleSet(ByteBuffer xrrcrtcinfo, long possible) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE, possible); }
-	public static void possibleSet(ByteBuffer xrrcrtcinfo, ByteBuffer possible) { possibleSet(xrrcrtcinfo, memAddress(possible)); }
+	public static void timestamp(ByteBuffer xrrcrtcinfo, long timestamp) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + TIMESTAMP, timestamp); }
+	public static void x(ByteBuffer xrrcrtcinfo, int x) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + X, x); }
+	public static void y(ByteBuffer xrrcrtcinfo, int y) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + Y, y); }
+	public static void width(ByteBuffer xrrcrtcinfo, int width) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + WIDTH, width); }
+	public static void height(ByteBuffer xrrcrtcinfo, int height) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + HEIGHT, height); }
+	public static void mode(ByteBuffer xrrcrtcinfo, long mode) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + MODE, mode); }
+	public static void rotation(ByteBuffer xrrcrtcinfo, int rotation) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATION, (short)rotation); }
+	public static void noutput(ByteBuffer xrrcrtcinfo, int noutput) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NOUTPUT, noutput); }
+	public static void outputs(ByteBuffer xrrcrtcinfo, long outputs) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS, outputs); }
+	public static void outputs(ByteBuffer xrrcrtcinfo, ByteBuffer outputs) { outputs(xrrcrtcinfo, memAddress(outputs)); }
+	public static void rotations(ByteBuffer xrrcrtcinfo, int rotations) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATIONS, (short)rotations); }
+	public static void npossible(ByteBuffer xrrcrtcinfo, int npossible) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NPOSSIBLE, npossible); }
+	public static void possible(ByteBuffer xrrcrtcinfo, long possible) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE, possible); }
+	public static void possible(ByteBuffer xrrcrtcinfo, ByteBuffer possible) { possible(xrrcrtcinfo, memAddress(possible)); }
 
-	public static long timestampGet(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + TIMESTAMP); }
-	public static int xGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + X); }
-	public static int yGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + Y); }
-	public static int widthGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + WIDTH); }
-	public static int heightGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + HEIGHT); }
-	public static long modeGet(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + MODE); }
-	public static int rotationGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATION) & 0xFFFF; }
-	public static int noutputGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NOUTPUT); }
-	public static long outputsGet(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS); }
-	public static ByteBuffer outputsGet(ByteBuffer xrrcrtcinfo, int size) { long address = outputsGet(xrrcrtcinfo); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int rotationsGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATIONS) & 0xFFFF; }
-	public static int npossibleGet(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NPOSSIBLE); }
-	public static long possibleGet(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE); }
-	public static ByteBuffer possibleGet(ByteBuffer xrrcrtcinfo, int size) { long address = possibleGet(xrrcrtcinfo); return address == 0 ? null : memByteBuffer(address, size); }
+	public static long timestamp(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + TIMESTAMP); }
+	public static int x(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + X); }
+	public static int y(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + Y); }
+	public static int width(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + WIDTH); }
+	public static int height(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + HEIGHT); }
+	public static long mode(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + MODE); }
+	public static int rotation(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATION) & 0xFFFF; }
+	public static int noutput(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NOUTPUT); }
+	public static long outputs(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS); }
+	public static ByteBuffer outputs(ByteBuffer xrrcrtcinfo, int size) { long address = outputs(xrrcrtcinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int rotations(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATIONS) & 0xFFFF; }
+	public static int npossible(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NPOSSIBLE); }
+	public static long possible(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE); }
+	public static ByteBuffer possible(ByteBuffer xrrcrtcinfo, int size) { long address = possible(xrrcrtcinfo); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

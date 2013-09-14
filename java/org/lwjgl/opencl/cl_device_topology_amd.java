@@ -66,13 +66,13 @@ public final class cl_device_topology_amd {
 	) {
 		ByteBuffer cl_device_topology_amd = malloc();
 
-		rawTypeSet(cl_device_topology_amd, raw_type);
+		rawType(cl_device_topology_amd, raw_type);
 		rawDataSet(cl_device_topology_amd, raw_data, raw_dataBytes);
-		pcieTypeSet(cl_device_topology_amd, pcie_type);
+		pcieType(cl_device_topology_amd, pcie_type);
 		pcieUnusedSet(cl_device_topology_amd, pcie_unused, pcie_unusedBytes);
-		pcieBusSet(cl_device_topology_amd, pcie_bus);
-		pcieDeviceSet(cl_device_topology_amd, pcie_device);
-		pcieFunctionSet(cl_device_topology_amd, pcie_function);
+		pcieBus(cl_device_topology_amd, pcie_bus);
+		pcieDevice(cl_device_topology_amd, pcie_device);
+		pcieFunction(cl_device_topology_amd, pcie_function);
 
 		return cl_device_topology_amd;
 	}
@@ -89,51 +89,51 @@ public final class cl_device_topology_amd {
 	) {
 		ByteBuffer cl_device_topology_amd = malloc();
 
-		rawTypeSet(cl_device_topology_amd, raw_type);
+		rawType(cl_device_topology_amd, raw_type);
 		rawDataSet(cl_device_topology_amd, raw_data);
-		pcieTypeSet(cl_device_topology_amd, pcie_type);
+		pcieType(cl_device_topology_amd, pcie_type);
 		pcieUnusedSet(cl_device_topology_amd, pcie_unused);
-		pcieBusSet(cl_device_topology_amd, pcie_bus);
-		pcieDeviceSet(cl_device_topology_amd, pcie_device);
-		pcieFunctionSet(cl_device_topology_amd, pcie_function);
+		pcieBus(cl_device_topology_amd, pcie_bus);
+		pcieDevice(cl_device_topology_amd, pcie_device);
+		pcieFunction(cl_device_topology_amd, pcie_function);
 
 		return cl_device_topology_amd;
 	}
 
-	public static void rawTypeSet(ByteBuffer cl_device_topology_amd, int type) { cl_device_topology_amd.putInt(cl_device_topology_amd.position() + RAW_TYPE, type); }
+	public static void rawType(ByteBuffer cl_device_topology_amd, int type) { cl_device_topology_amd.putInt(cl_device_topology_amd.position() + RAW_TYPE, type); }
 	public static void rawDataSet(ByteBuffer cl_device_topology_amd, long data, int bytes) { memCopy(data, memAddress(cl_device_topology_amd) + RAW_DATA, bytes); }
 	public static void rawDataSet(ByteBuffer cl_device_topology_amd, ByteBuffer data) {
 		checkBufferGT(data, 5 * 4);
 		rawDataSet(cl_device_topology_amd, memAddress(data), data.remaining());
 	}
-	public static void pcieTypeSet(ByteBuffer cl_device_topology_amd, int type) { cl_device_topology_amd.putInt(cl_device_topology_amd.position() + PCIE_TYPE, type); }
+	public static void pcieType(ByteBuffer cl_device_topology_amd, int type) { cl_device_topology_amd.putInt(cl_device_topology_amd.position() + PCIE_TYPE, type); }
 	public static void pcieUnusedSet(ByteBuffer cl_device_topology_amd, long unused, int bytes) { memCopy(unused, memAddress(cl_device_topology_amd) + PCIE_UNUSED, bytes); }
 	public static void pcieUnusedSet(ByteBuffer cl_device_topology_amd, ByteBuffer unused) {
 		checkBufferGT(unused, 17 * 1);
 		pcieUnusedSet(cl_device_topology_amd, memAddress(unused), unused.remaining());
 	}
-	public static void pcieBusSet(ByteBuffer cl_device_topology_amd, int bus) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_BUS, (byte)bus); }
-	public static void pcieDeviceSet(ByteBuffer cl_device_topology_amd, int device) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_DEVICE, (byte)device); }
-	public static void pcieFunctionSet(ByteBuffer cl_device_topology_amd, int function) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_FUNCTION, (byte)function); }
+	public static void pcieBus(ByteBuffer cl_device_topology_amd, int bus) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_BUS, (byte)bus); }
+	public static void pcieDevice(ByteBuffer cl_device_topology_amd, int device) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_DEVICE, (byte)device); }
+	public static void pcieFunction(ByteBuffer cl_device_topology_amd, int function) { cl_device_topology_amd.put(cl_device_topology_amd.position() + PCIE_FUNCTION, (byte)function); }
 
-	public static int rawTypeGet(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.getInt(cl_device_topology_amd.position() + RAW_TYPE); }
+	public static int rawType(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.getInt(cl_device_topology_amd.position() + RAW_TYPE); }
 	public static void rawDataGet(ByteBuffer cl_device_topology_amd, long data, int bytes) {
 		memCopy(memAddress(cl_device_topology_amd) + RAW_DATA, data, bytes);
 	}
-	public static void rawDataGetb(ByteBuffer cl_device_topology_amd, ByteBuffer data) {
+	public static void rawDataGet(ByteBuffer cl_device_topology_amd, ByteBuffer data) {
 		checkBufferGT(data, 5 * 4);
 		rawDataGet(cl_device_topology_amd, memAddress(data), data.remaining());
 	}
-	public static int pcieTypeGet(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.getInt(cl_device_topology_amd.position() + PCIE_TYPE); }
+	public static int pcieType(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.getInt(cl_device_topology_amd.position() + PCIE_TYPE); }
 	public static void pcieUnusedGet(ByteBuffer cl_device_topology_amd, long unused, int bytes) {
 		memCopy(memAddress(cl_device_topology_amd) + PCIE_UNUSED, unused, bytes);
 	}
-	public static void pcieUnusedGetb(ByteBuffer cl_device_topology_amd, ByteBuffer unused) {
+	public static void pcieUnusedGet(ByteBuffer cl_device_topology_amd, ByteBuffer unused) {
 		checkBufferGT(unused, 17 * 1);
 		pcieUnusedGet(cl_device_topology_amd, memAddress(unused), unused.remaining());
 	}
-	public static int pcieBusGet(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_BUS); }
-	public static int pcieDeviceGet(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_DEVICE); }
-	public static int pcieFunctionGet(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_FUNCTION); }
+	public static int pcieBus(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_BUS); }
+	public static int pcieDevice(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_DEVICE); }
+	public static int pcieFunction(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.get(cl_device_topology_amd.position() + PCIE_FUNCTION); }
 
 }

@@ -78,49 +78,49 @@ public final class XConfigureEvent {
 	) {
 		ByteBuffer xconfigureevent = malloc();
 
-		typeSet(xconfigureevent, type);
-		serialSet(xconfigureevent, serial);
-		send_eventSet(xconfigureevent, send_event);
-		displaySet(xconfigureevent, display);
-		eventSet(xconfigureevent, event);
-		windowSet(xconfigureevent, window);
-		xSet(xconfigureevent, x);
-		ySet(xconfigureevent, y);
-		widthSet(xconfigureevent, width);
-		heightSet(xconfigureevent, height);
-		border_widthSet(xconfigureevent, border_width);
-		aboveSet(xconfigureevent, above);
-		override_redirectSet(xconfigureevent, override_redirect);
+		type(xconfigureevent, type);
+		serial(xconfigureevent, serial);
+		send_event(xconfigureevent, send_event);
+		display(xconfigureevent, display);
+		event(xconfigureevent, event);
+		window(xconfigureevent, window);
+		x(xconfigureevent, x);
+		y(xconfigureevent, y);
+		width(xconfigureevent, width);
+		height(xconfigureevent, height);
+		border_width(xconfigureevent, border_width);
+		above(xconfigureevent, above);
+		override_redirect(xconfigureevent, override_redirect);
 
 		return xconfigureevent;
 	}
 
-	public static void typeSet(ByteBuffer xconfigureevent, int type) { xconfigureevent.putInt(xconfigureevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xconfigureevent, long serial) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xconfigureevent, int send_event) { xconfigureevent.putInt(xconfigureevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xconfigureevent, long display) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + DISPLAY, display); }
-	public static void eventSet(ByteBuffer xconfigureevent, long event) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + EVENT, event); }
-	public static void windowSet(ByteBuffer xconfigureevent, long window) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + WINDOW, window); }
-	public static void xSet(ByteBuffer xconfigureevent, int x) { xconfigureevent.putInt(xconfigureevent.position() + X, x); }
-	public static void ySet(ByteBuffer xconfigureevent, int y) { xconfigureevent.putInt(xconfigureevent.position() + Y, y); }
-	public static void widthSet(ByteBuffer xconfigureevent, int width) { xconfigureevent.putInt(xconfigureevent.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer xconfigureevent, int height) { xconfigureevent.putInt(xconfigureevent.position() + HEIGHT, height); }
-	public static void border_widthSet(ByteBuffer xconfigureevent, int border_width) { xconfigureevent.putInt(xconfigureevent.position() + BORDER_WIDTH, border_width); }
-	public static void aboveSet(ByteBuffer xconfigureevent, long above) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + ABOVE, above); }
-	public static void override_redirectSet(ByteBuffer xconfigureevent, int override_redirect) { xconfigureevent.putInt(xconfigureevent.position() + OVERRIDE_REDIRECT, override_redirect); }
+	public static void type(ByteBuffer xconfigureevent, int type) { xconfigureevent.putInt(xconfigureevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xconfigureevent, long serial) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xconfigureevent, int send_event) { xconfigureevent.putInt(xconfigureevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xconfigureevent, long display) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + DISPLAY, display); }
+	public static void event(ByteBuffer xconfigureevent, long event) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + EVENT, event); }
+	public static void window(ByteBuffer xconfigureevent, long window) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + WINDOW, window); }
+	public static void x(ByteBuffer xconfigureevent, int x) { xconfigureevent.putInt(xconfigureevent.position() + X, x); }
+	public static void y(ByteBuffer xconfigureevent, int y) { xconfigureevent.putInt(xconfigureevent.position() + Y, y); }
+	public static void width(ByteBuffer xconfigureevent, int width) { xconfigureevent.putInt(xconfigureevent.position() + WIDTH, width); }
+	public static void height(ByteBuffer xconfigureevent, int height) { xconfigureevent.putInt(xconfigureevent.position() + HEIGHT, height); }
+	public static void border_width(ByteBuffer xconfigureevent, int border_width) { xconfigureevent.putInt(xconfigureevent.position() + BORDER_WIDTH, border_width); }
+	public static void above(ByteBuffer xconfigureevent, long above) { PointerBuffer.put(xconfigureevent, xconfigureevent.position() + ABOVE, above); }
+	public static void override_redirect(ByteBuffer xconfigureevent, int override_redirect) { xconfigureevent.putInt(xconfigureevent.position() + OVERRIDE_REDIRECT, override_redirect); }
 
-	public static int typeGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + DISPLAY); }
-	public static long eventGet(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + EVENT); }
-	public static long windowGet(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + WINDOW); }
-	public static int xGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + X); }
-	public static int yGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + Y); }
-	public static int widthGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + WIDTH); }
-	public static int heightGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + HEIGHT); }
-	public static int border_widthGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + BORDER_WIDTH); }
-	public static long aboveGet(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + ABOVE); }
-	public static int override_redirectGet(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + OVERRIDE_REDIRECT); }
+	public static int type(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + TYPE); }
+	public static long serial(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + DISPLAY); }
+	public static long event(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + EVENT); }
+	public static long window(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + WINDOW); }
+	public static int x(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + X); }
+	public static int y(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + Y); }
+	public static int width(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + WIDTH); }
+	public static int height(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + HEIGHT); }
+	public static int border_width(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + BORDER_WIDTH); }
+	public static long above(ByteBuffer xconfigureevent) { return PointerBuffer.get(xconfigureevent, xconfigureevent.position() + ABOVE); }
+	public static int override_redirect(ByteBuffer xconfigureevent) { return xconfigureevent.getInt(xconfigureevent.position() + OVERRIDE_REDIRECT); }
 
 }

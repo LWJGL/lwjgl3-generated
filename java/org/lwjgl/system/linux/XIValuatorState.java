@@ -48,9 +48,9 @@ public final class XIValuatorState {
 	) {
 		ByteBuffer xivaluatorstate = malloc();
 
-		mask_lenSet(xivaluatorstate, mask_len);
-		maskSet(xivaluatorstate, mask);
-		valuesSet(xivaluatorstate, values);
+		mask_len(xivaluatorstate, mask_len);
+		mask(xivaluatorstate, mask);
+		values(xivaluatorstate, values);
 
 		return xivaluatorstate;
 	}
@@ -63,23 +63,23 @@ public final class XIValuatorState {
 	) {
 		ByteBuffer xivaluatorstate = malloc();
 
-		mask_lenSet(xivaluatorstate, mask_len);
-		maskSet(xivaluatorstate, mask);
-		valuesSet(xivaluatorstate, values);
+		mask_len(xivaluatorstate, mask_len);
+		mask(xivaluatorstate, mask);
+		values(xivaluatorstate, values);
 
 		return xivaluatorstate;
 	}
 
-	public static void mask_lenSet(ByteBuffer xivaluatorstate, int mask_len) { xivaluatorstate.putInt(xivaluatorstate.position() + MASK_LEN, mask_len); }
-	public static void maskSet(ByteBuffer xivaluatorstate, long mask) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + MASK, mask); }
-	public static void maskSet(ByteBuffer xivaluatorstate, ByteBuffer mask) { maskSet(xivaluatorstate, memAddress(mask)); }
-	public static void valuesSet(ByteBuffer xivaluatorstate, long values) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + VALUES, values); }
-	public static void valuesSet(ByteBuffer xivaluatorstate, ByteBuffer values) { valuesSet(xivaluatorstate, memAddress(values)); }
+	public static void mask_len(ByteBuffer xivaluatorstate, int mask_len) { xivaluatorstate.putInt(xivaluatorstate.position() + MASK_LEN, mask_len); }
+	public static void mask(ByteBuffer xivaluatorstate, long mask) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + MASK, mask); }
+	public static void mask(ByteBuffer xivaluatorstate, ByteBuffer mask) { mask(xivaluatorstate, memAddress(mask)); }
+	public static void values(ByteBuffer xivaluatorstate, long values) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + VALUES, values); }
+	public static void values(ByteBuffer xivaluatorstate, ByteBuffer values) { values(xivaluatorstate, memAddress(values)); }
 
-	public static int mask_lenGet(ByteBuffer xivaluatorstate) { return xivaluatorstate.getInt(xivaluatorstate.position() + MASK_LEN); }
-	public static long maskGet(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + MASK); }
-	public static ByteBuffer maskGet(ByteBuffer xivaluatorstate, int size) { long address = maskGet(xivaluatorstate); return address == 0 ? null : memByteBuffer(address, size); }
-	public static long valuesGet(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + VALUES); }
-	public static ByteBuffer valuesGet(ByteBuffer xivaluatorstate, int size) { long address = valuesGet(xivaluatorstate); return address == 0 ? null : memByteBuffer(address, size); }
+	public static int mask_len(ByteBuffer xivaluatorstate) { return xivaluatorstate.getInt(xivaluatorstate.position() + MASK_LEN); }
+	public static long mask(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + MASK); }
+	public static ByteBuffer mask(ByteBuffer xivaluatorstate, int size) { long address = mask(xivaluatorstate); return address == NULL ? null : memByteBuffer(address, size); }
+	public static long values(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + VALUES); }
+	public static ByteBuffer values(ByteBuffer xivaluatorstate, int size) { long address = values(xivaluatorstate); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

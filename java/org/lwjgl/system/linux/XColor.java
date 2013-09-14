@@ -57,28 +57,28 @@ public final class XColor {
 	) {
 		ByteBuffer xcolor = malloc();
 
-		pixelSet(xcolor, pixel);
-		redSet(xcolor, red);
-		greenSet(xcolor, green);
-		blueSet(xcolor, blue);
-		flagsSet(xcolor, flags);
-		padSet(xcolor, pad);
+		pixel(xcolor, pixel);
+		red(xcolor, red);
+		green(xcolor, green);
+		blue(xcolor, blue);
+		flags(xcolor, flags);
+		pad(xcolor, pad);
 
 		return xcolor;
 	}
 
-	public static void pixelSet(ByteBuffer xcolor, long pixel) { PointerBuffer.put(xcolor, xcolor.position() + PIXEL, pixel); }
-	public static void redSet(ByteBuffer xcolor, int red) { xcolor.putShort(xcolor.position() + RED, (short)red); }
-	public static void greenSet(ByteBuffer xcolor, int green) { xcolor.putShort(xcolor.position() + GREEN, (short)green); }
-	public static void blueSet(ByteBuffer xcolor, int blue) { xcolor.putShort(xcolor.position() + BLUE, (short)blue); }
-	public static void flagsSet(ByteBuffer xcolor, int flags) { xcolor.put(xcolor.position() + FLAGS, (byte)flags); }
-	public static void padSet(ByteBuffer xcolor, int pad) { xcolor.put(xcolor.position() + PAD, (byte)pad); }
+	public static void pixel(ByteBuffer xcolor, long pixel) { PointerBuffer.put(xcolor, xcolor.position() + PIXEL, pixel); }
+	public static void red(ByteBuffer xcolor, int red) { xcolor.putShort(xcolor.position() + RED, (short)red); }
+	public static void green(ByteBuffer xcolor, int green) { xcolor.putShort(xcolor.position() + GREEN, (short)green); }
+	public static void blue(ByteBuffer xcolor, int blue) { xcolor.putShort(xcolor.position() + BLUE, (short)blue); }
+	public static void flags(ByteBuffer xcolor, int flags) { xcolor.put(xcolor.position() + FLAGS, (byte)flags); }
+	public static void pad(ByteBuffer xcolor, int pad) { xcolor.put(xcolor.position() + PAD, (byte)pad); }
 
-	public static long pixelGet(ByteBuffer xcolor) { return PointerBuffer.get(xcolor, xcolor.position() + PIXEL); }
-	public static int redGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + RED) & 0xFFFF; }
-	public static int greenGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + GREEN) & 0xFFFF; }
-	public static int blueGet(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + BLUE) & 0xFFFF; }
-	public static int flagsGet(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + FLAGS); }
-	public static int padGet(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + PAD); }
+	public static long pixel(ByteBuffer xcolor) { return PointerBuffer.get(xcolor, xcolor.position() + PIXEL); }
+	public static int red(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + RED) & 0xFFFF; }
+	public static int green(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + GREEN) & 0xFFFF; }
+	public static int blue(ByteBuffer xcolor) { return xcolor.getShort(xcolor.position() + BLUE) & 0xFFFF; }
+	public static int flags(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + FLAGS); }
+	public static int pad(ByteBuffer xcolor) { return xcolor.get(xcolor.position() + PAD); }
 
 }

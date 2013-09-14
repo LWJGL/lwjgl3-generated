@@ -54,25 +54,25 @@ public final class XAnyEvent {
 	) {
 		ByteBuffer xanyevent = malloc();
 
-		typeSet(xanyevent, type);
-		serialSet(xanyevent, serial);
-		send_eventSet(xanyevent, send_event);
-		displaySet(xanyevent, display);
-		windowSet(xanyevent, window);
+		type(xanyevent, type);
+		serial(xanyevent, serial);
+		send_event(xanyevent, send_event);
+		display(xanyevent, display);
+		window(xanyevent, window);
 
 		return xanyevent;
 	}
 
-	public static void typeSet(ByteBuffer xanyevent, int type) { xanyevent.putInt(xanyevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xanyevent, long serial) { PointerBuffer.put(xanyevent, xanyevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xanyevent, int send_event) { xanyevent.putInt(xanyevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xanyevent, long display) { PointerBuffer.put(xanyevent, xanyevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xanyevent, long window) { PointerBuffer.put(xanyevent, xanyevent.position() + WINDOW, window); }
+	public static void type(ByteBuffer xanyevent, int type) { xanyevent.putInt(xanyevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xanyevent, long serial) { PointerBuffer.put(xanyevent, xanyevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xanyevent, int send_event) { xanyevent.putInt(xanyevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xanyevent, long display) { PointerBuffer.put(xanyevent, xanyevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xanyevent, long window) { PointerBuffer.put(xanyevent, xanyevent.position() + WINDOW, window); }
 
-	public static int typeGet(ByteBuffer xanyevent) { return xanyevent.getInt(xanyevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xanyevent) { return xanyevent.getInt(xanyevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + WINDOW); }
+	public static int type(ByteBuffer xanyevent) { return xanyevent.getInt(xanyevent.position() + TYPE); }
+	public static long serial(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xanyevent) { return xanyevent.getInt(xanyevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xanyevent) { return PointerBuffer.get(xanyevent, xanyevent.position() + WINDOW); }
 
 }

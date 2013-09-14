@@ -45,8 +45,8 @@ public final class XIButtonState {
 	) {
 		ByteBuffer xibuttonstate = malloc();
 
-		mask_lenSet(xibuttonstate, mask_len);
-		maskSet(xibuttonstate, mask);
+		mask_len(xibuttonstate, mask_len);
+		mask(xibuttonstate, mask);
 
 		return xibuttonstate;
 	}
@@ -58,18 +58,18 @@ public final class XIButtonState {
 	) {
 		ByteBuffer xibuttonstate = malloc();
 
-		mask_lenSet(xibuttonstate, mask_len);
-		maskSet(xibuttonstate, mask);
+		mask_len(xibuttonstate, mask_len);
+		mask(xibuttonstate, mask);
 
 		return xibuttonstate;
 	}
 
-	public static void mask_lenSet(ByteBuffer xibuttonstate, int mask_len) { xibuttonstate.putInt(xibuttonstate.position() + MASK_LEN, mask_len); }
-	public static void maskSet(ByteBuffer xibuttonstate, long mask) { PointerBuffer.put(xibuttonstate, xibuttonstate.position() + MASK, mask); }
-	public static void maskSet(ByteBuffer xibuttonstate, ByteBuffer mask) { maskSet(xibuttonstate, memAddress(mask)); }
+	public static void mask_len(ByteBuffer xibuttonstate, int mask_len) { xibuttonstate.putInt(xibuttonstate.position() + MASK_LEN, mask_len); }
+	public static void mask(ByteBuffer xibuttonstate, long mask) { PointerBuffer.put(xibuttonstate, xibuttonstate.position() + MASK, mask); }
+	public static void mask(ByteBuffer xibuttonstate, ByteBuffer mask) { mask(xibuttonstate, memAddress(mask)); }
 
-	public static int mask_lenGet(ByteBuffer xibuttonstate) { return xibuttonstate.getInt(xibuttonstate.position() + MASK_LEN); }
-	public static long maskGet(ByteBuffer xibuttonstate) { return PointerBuffer.get(xibuttonstate, xibuttonstate.position() + MASK); }
-	public static ByteBuffer maskGet(ByteBuffer xibuttonstate, int size) { long address = maskGet(xibuttonstate); return address == 0 ? null : memByteBuffer(address, size); }
+	public static int mask_len(ByteBuffer xibuttonstate) { return xibuttonstate.getInt(xibuttonstate.position() + MASK_LEN); }
+	public static long mask(ByteBuffer xibuttonstate) { return PointerBuffer.get(xibuttonstate, xibuttonstate.position() + MASK); }
+	public static ByteBuffer mask(ByteBuffer xibuttonstate, int size) { long address = mask(xibuttonstate); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

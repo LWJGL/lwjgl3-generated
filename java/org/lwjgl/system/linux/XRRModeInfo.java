@@ -81,20 +81,20 @@ public final class XRRModeInfo {
 	) {
 		ByteBuffer xrrmodeinfo = malloc();
 
-		idSet(xrrmodeinfo, id);
-		widthSet(xrrmodeinfo, width);
-		heightSet(xrrmodeinfo, height);
-		dotClockSet(xrrmodeinfo, dotClock);
-		hSyncStartSet(xrrmodeinfo, hSyncStart);
-		hSyncEndSet(xrrmodeinfo, hSyncEnd);
-		hTotalSet(xrrmodeinfo, hTotal);
-		hSkewSet(xrrmodeinfo, hSkew);
-		vSyncStartSet(xrrmodeinfo, vSyncStart);
-		vSyncEndSet(xrrmodeinfo, vSyncEnd);
-		vTotalSet(xrrmodeinfo, vTotal);
-		nameSet(xrrmodeinfo, name);
-		nameLengthSet(xrrmodeinfo, nameLength);
-		modeFlagsSet(xrrmodeinfo, modeFlags);
+		id(xrrmodeinfo, id);
+		width(xrrmodeinfo, width);
+		height(xrrmodeinfo, height);
+		dotClock(xrrmodeinfo, dotClock);
+		hSyncStart(xrrmodeinfo, hSyncStart);
+		hSyncEnd(xrrmodeinfo, hSyncEnd);
+		hTotal(xrrmodeinfo, hTotal);
+		hSkew(xrrmodeinfo, hSkew);
+		vSyncStart(xrrmodeinfo, vSyncStart);
+		vSyncEnd(xrrmodeinfo, vSyncEnd);
+		vTotal(xrrmodeinfo, vTotal);
+		name(xrrmodeinfo, name);
+		nameLength(xrrmodeinfo, nameLength);
+		modeFlags(xrrmodeinfo, modeFlags);
 
 		return xrrmodeinfo;
 	}
@@ -118,54 +118,54 @@ public final class XRRModeInfo {
 	) {
 		ByteBuffer xrrmodeinfo = malloc();
 
-		idSet(xrrmodeinfo, id);
-		widthSet(xrrmodeinfo, width);
-		heightSet(xrrmodeinfo, height);
-		dotClockSet(xrrmodeinfo, dotClock);
-		hSyncStartSet(xrrmodeinfo, hSyncStart);
-		hSyncEndSet(xrrmodeinfo, hSyncEnd);
-		hTotalSet(xrrmodeinfo, hTotal);
-		hSkewSet(xrrmodeinfo, hSkew);
-		vSyncStartSet(xrrmodeinfo, vSyncStart);
-		vSyncEndSet(xrrmodeinfo, vSyncEnd);
-		vTotalSet(xrrmodeinfo, vTotal);
-		nameSet(xrrmodeinfo, name);
-		nameLengthSet(xrrmodeinfo, nameLength);
-		modeFlagsSet(xrrmodeinfo, modeFlags);
+		id(xrrmodeinfo, id);
+		width(xrrmodeinfo, width);
+		height(xrrmodeinfo, height);
+		dotClock(xrrmodeinfo, dotClock);
+		hSyncStart(xrrmodeinfo, hSyncStart);
+		hSyncEnd(xrrmodeinfo, hSyncEnd);
+		hTotal(xrrmodeinfo, hTotal);
+		hSkew(xrrmodeinfo, hSkew);
+		vSyncStart(xrrmodeinfo, vSyncStart);
+		vSyncEnd(xrrmodeinfo, vSyncEnd);
+		vTotal(xrrmodeinfo, vTotal);
+		name(xrrmodeinfo, name);
+		nameLength(xrrmodeinfo, nameLength);
+		modeFlags(xrrmodeinfo, modeFlags);
 
 		return xrrmodeinfo;
 	}
 
-	public static void idSet(ByteBuffer xrrmodeinfo, long id) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + ID, id); }
-	public static void widthSet(ByteBuffer xrrmodeinfo, int width) { xrrmodeinfo.putInt(xrrmodeinfo.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer xrrmodeinfo, int height) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HEIGHT, height); }
-	public static void dotClockSet(ByteBuffer xrrmodeinfo, long dotClock) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + DOTCLOCK, dotClock); }
-	public static void hSyncStartSet(ByteBuffer xrrmodeinfo, int hSyncStart) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSYNCSTART, hSyncStart); }
-	public static void hSyncEndSet(ByteBuffer xrrmodeinfo, int hSyncEnd) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSYNCEND, hSyncEnd); }
-	public static void hTotalSet(ByteBuffer xrrmodeinfo, int hTotal) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HTOTAL, hTotal); }
-	public static void hSkewSet(ByteBuffer xrrmodeinfo, int hSkew) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSKEW, hSkew); }
-	public static void vSyncStartSet(ByteBuffer xrrmodeinfo, int vSyncStart) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VSYNCSTART, vSyncStart); }
-	public static void vSyncEndSet(ByteBuffer xrrmodeinfo, int vSyncEnd) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VSYNCEND, vSyncEnd); }
-	public static void vTotalSet(ByteBuffer xrrmodeinfo, int vTotal) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VTOTAL, vTotal); }
-	public static void nameSet(ByteBuffer xrrmodeinfo, long name) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + NAME, name); }
-	public static void nameSet(ByteBuffer xrrmodeinfo, ByteBuffer name) { nameSet(xrrmodeinfo, memAddress(name)); }
-	public static void nameLengthSet(ByteBuffer xrrmodeinfo, int nameLength) { xrrmodeinfo.putInt(xrrmodeinfo.position() + NAMELENGTH, nameLength); }
-	public static void modeFlagsSet(ByteBuffer xrrmodeinfo, long modeFlags) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS, modeFlags); }
+	public static void id(ByteBuffer xrrmodeinfo, long id) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + ID, id); }
+	public static void width(ByteBuffer xrrmodeinfo, int width) { xrrmodeinfo.putInt(xrrmodeinfo.position() + WIDTH, width); }
+	public static void height(ByteBuffer xrrmodeinfo, int height) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HEIGHT, height); }
+	public static void dotClock(ByteBuffer xrrmodeinfo, long dotClock) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + DOTCLOCK, dotClock); }
+	public static void hSyncStart(ByteBuffer xrrmodeinfo, int hSyncStart) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSYNCSTART, hSyncStart); }
+	public static void hSyncEnd(ByteBuffer xrrmodeinfo, int hSyncEnd) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSYNCEND, hSyncEnd); }
+	public static void hTotal(ByteBuffer xrrmodeinfo, int hTotal) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HTOTAL, hTotal); }
+	public static void hSkew(ByteBuffer xrrmodeinfo, int hSkew) { xrrmodeinfo.putInt(xrrmodeinfo.position() + HSKEW, hSkew); }
+	public static void vSyncStart(ByteBuffer xrrmodeinfo, int vSyncStart) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VSYNCSTART, vSyncStart); }
+	public static void vSyncEnd(ByteBuffer xrrmodeinfo, int vSyncEnd) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VSYNCEND, vSyncEnd); }
+	public static void vTotal(ByteBuffer xrrmodeinfo, int vTotal) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VTOTAL, vTotal); }
+	public static void name(ByteBuffer xrrmodeinfo, long name) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + NAME, name); }
+	public static void name(ByteBuffer xrrmodeinfo, ByteBuffer name) { name(xrrmodeinfo, memAddress(name)); }
+	public static void nameLength(ByteBuffer xrrmodeinfo, int nameLength) { xrrmodeinfo.putInt(xrrmodeinfo.position() + NAMELENGTH, nameLength); }
+	public static void modeFlags(ByteBuffer xrrmodeinfo, long modeFlags) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS, modeFlags); }
 
-	public static long idGet(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + ID); }
-	public static int widthGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + WIDTH); }
-	public static int heightGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HEIGHT); }
-	public static long dotClockGet(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + DOTCLOCK); }
-	public static int hSyncStartGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSYNCSTART); }
-	public static int hSyncEndGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSYNCEND); }
-	public static int hTotalGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HTOTAL); }
-	public static int hSkewGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSKEW); }
-	public static int vSyncStartGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCSTART); }
-	public static int vSyncEndGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCEND); }
-	public static int vTotalGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VTOTAL); }
-	public static long nameGet(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + NAME); }
-	public static ByteBuffer nameGet(ByteBuffer xrrmodeinfo, int size) { long address = nameGet(xrrmodeinfo); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int nameLengthGet(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + NAMELENGTH); }
-	public static long modeFlagsGet(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS); }
+	public static long id(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + ID); }
+	public static int width(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + WIDTH); }
+	public static int height(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HEIGHT); }
+	public static long dotClock(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + DOTCLOCK); }
+	public static int hSyncStart(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSYNCSTART); }
+	public static int hSyncEnd(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSYNCEND); }
+	public static int hTotal(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HTOTAL); }
+	public static int hSkew(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + HSKEW); }
+	public static int vSyncStart(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCSTART); }
+	public static int vSyncEnd(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCEND); }
+	public static int vTotal(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VTOTAL); }
+	public static long name(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + NAME); }
+	public static ByteBuffer name(ByteBuffer xrrmodeinfo, int size) { long address = name(xrrmodeinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int nameLength(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + NAMELENGTH); }
+	public static long modeFlags(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS); }
 
 }

@@ -48,9 +48,9 @@ public final class XIEventMask {
 	) {
 		ByteBuffer xieventmask = malloc();
 
-		deviceidSet(xieventmask, deviceid);
-		maskSet(xieventmask, mask);
-		mask_lenSet(xieventmask, mask_len);
+		deviceid(xieventmask, deviceid);
+		mask(xieventmask, mask);
+		mask_len(xieventmask, mask_len);
 
 		return xieventmask;
 	}
@@ -63,21 +63,21 @@ public final class XIEventMask {
 	) {
 		ByteBuffer xieventmask = malloc();
 
-		deviceidSet(xieventmask, deviceid);
-		maskSet(xieventmask, mask);
-		mask_lenSet(xieventmask, mask_len);
+		deviceid(xieventmask, deviceid);
+		mask(xieventmask, mask);
+		mask_len(xieventmask, mask_len);
 
 		return xieventmask;
 	}
 
-	public static void deviceidSet(ByteBuffer xieventmask, int deviceid) { xieventmask.putInt(xieventmask.position() + DEVICEID, deviceid); }
-	public static void maskSet(ByteBuffer xieventmask, long mask) { PointerBuffer.put(xieventmask, xieventmask.position() + MASK, mask); }
-	public static void maskSet(ByteBuffer xieventmask, ByteBuffer mask) { maskSet(xieventmask, memAddress(mask)); }
-	public static void mask_lenSet(ByteBuffer xieventmask, int mask_len) { xieventmask.putInt(xieventmask.position() + MASK_LEN, mask_len); }
+	public static void deviceid(ByteBuffer xieventmask, int deviceid) { xieventmask.putInt(xieventmask.position() + DEVICEID, deviceid); }
+	public static void mask(ByteBuffer xieventmask, long mask) { PointerBuffer.put(xieventmask, xieventmask.position() + MASK, mask); }
+	public static void mask(ByteBuffer xieventmask, ByteBuffer mask) { mask(xieventmask, memAddress(mask)); }
+	public static void mask_len(ByteBuffer xieventmask, int mask_len) { xieventmask.putInt(xieventmask.position() + MASK_LEN, mask_len); }
 
-	public static int deviceidGet(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + DEVICEID); }
-	public static long maskGet(ByteBuffer xieventmask) { return PointerBuffer.get(xieventmask, xieventmask.position() + MASK); }
-	public static ByteBuffer maskGet(ByteBuffer xieventmask, int size) { long address = maskGet(xieventmask); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int mask_lenGet(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + MASK_LEN); }
+	public static int deviceid(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + DEVICEID); }
+	public static long mask(ByteBuffer xieventmask) { return PointerBuffer.get(xieventmask, xieventmask.position() + MASK); }
+	public static ByteBuffer mask(ByteBuffer xieventmask, int size) { long address = mask(xieventmask); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int mask_len(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + MASK_LEN); }
 
 }

@@ -57,11 +57,11 @@ public final class MSG {
 	) {
 		ByteBuffer msg = malloc();
 
-		windowSet(msg, window);
-		messageSet(msg, message);
-		wParamSet(msg, wParam);
-		lParamSet(msg, lParam);
-		timeSet(msg, time);
+		window(msg, window);
+		message(msg, message);
+		wParam(msg, wParam);
+		lParam(msg, lParam);
+		time(msg, time);
 		pointSet(msg, point);
 
 		return msg;
@@ -78,34 +78,34 @@ public final class MSG {
 	) {
 		ByteBuffer msg = malloc();
 
-		windowSet(msg, window);
-		messageSet(msg, message);
-		wParamSet(msg, wParam);
-		lParamSet(msg, lParam);
-		timeSet(msg, time);
+		window(msg, window);
+		message(msg, message);
+		wParam(msg, wParam);
+		lParam(msg, lParam);
+		time(msg, time);
 		pointSet(msg, point);
 
 		return msg;
 	}
 
-	public static void windowSet(ByteBuffer msg, long window) { PointerBuffer.put(msg, msg.position() + WINDOW, window); }
-	public static void messageSet(ByteBuffer msg, int message) { msg.putInt(msg.position() + MESSAGE, message); }
-	public static void wParamSet(ByteBuffer msg, long wParam) { PointerBuffer.put(msg, msg.position() + WPARAM, wParam); }
-	public static void lParamSet(ByteBuffer msg, long lParam) { PointerBuffer.put(msg, msg.position() + LPARAM, lParam); }
-	public static void timeSet(ByteBuffer msg, int time) { msg.putInt(msg.position() + TIME, time); }
+	public static void window(ByteBuffer msg, long window) { PointerBuffer.put(msg, msg.position() + WINDOW, window); }
+	public static void message(ByteBuffer msg, int message) { msg.putInt(msg.position() + MESSAGE, message); }
+	public static void wParam(ByteBuffer msg, long wParam) { PointerBuffer.put(msg, msg.position() + WPARAM, wParam); }
+	public static void lParam(ByteBuffer msg, long lParam) { PointerBuffer.put(msg, msg.position() + LPARAM, lParam); }
+	public static void time(ByteBuffer msg, int time) { msg.putInt(msg.position() + TIME, time); }
 	public static void pointSet(ByteBuffer msg, long point) { if ( point != NULL ) memCopy(point, memAddress(msg) + POINT, org.lwjgl.system.windows.POINT.SIZEOF); }
 	public static void pointSet(ByteBuffer msg, ByteBuffer point) { pointSet(msg, memAddressSafe(point)); }
-	public static void pointXSet(ByteBuffer msg, int x) { msg.putInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.X, x); }
-	public static void pointYSet(ByteBuffer msg, int y) { msg.putInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.Y, y); }
+	public static void pointX(ByteBuffer msg, int x) { msg.putInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.X, x); }
+	public static void pointY(ByteBuffer msg, int y) { msg.putInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.Y, y); }
 
-	public static long windowGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WINDOW); }
-	public static int messageGet(ByteBuffer msg) { return msg.getInt(msg.position() + MESSAGE); }
-	public static long wParamGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WPARAM); }
-	public static long lParamGet(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + LPARAM); }
-	public static int timeGet(ByteBuffer msg) { return msg.getInt(msg.position() + TIME); }
+	public static long window(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WINDOW); }
+	public static int message(ByteBuffer msg) { return msg.getInt(msg.position() + MESSAGE); }
+	public static long wParam(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WPARAM); }
+	public static long lParam(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + LPARAM); }
+	public static int time(ByteBuffer msg) { return msg.getInt(msg.position() + TIME); }
 	public static void pointGet(ByteBuffer msg, long point) { memCopy(memAddress(msg) + POINT, point, org.lwjgl.system.windows.POINT.SIZEOF); }
 	public static void pointGet(ByteBuffer msg, ByteBuffer point) { checkBuffer(point, org.lwjgl.system.windows.POINT.SIZEOF); pointGet(msg, memAddress(point)); }
-	public static int pointXGet(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.X); }
-	public static int pointYGet(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.Y); }
+	public static int pointX(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.X); }
+	public static int pointY(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.Y); }
 
 }

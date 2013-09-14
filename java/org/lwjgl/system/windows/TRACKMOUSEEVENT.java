@@ -54,22 +54,22 @@ public final class TRACKMOUSEEVENT {
 	) {
 		ByteBuffer trackmouseevent = malloc();
 
-		sizeSet(trackmouseevent, size);
-		flagsSet(trackmouseevent, flags);
-		hwndTrackSet(trackmouseevent, hwndTrack);
-		hoverTimeSet(trackmouseevent, hoverTime);
+		size(trackmouseevent, size);
+		flags(trackmouseevent, flags);
+		hwndTrack(trackmouseevent, hwndTrack);
+		hoverTime(trackmouseevent, hoverTime);
 
 		return trackmouseevent;
 	}
 
-	public static void sizeSet(ByteBuffer trackmouseevent, int size) { trackmouseevent.putInt(trackmouseevent.position() + SIZE, size); }
-	public static void flagsSet(ByteBuffer trackmouseevent, int flags) { trackmouseevent.putInt(trackmouseevent.position() + FLAGS, flags); }
-	public static void hwndTrackSet(ByteBuffer trackmouseevent, long hwndTrack) { PointerBuffer.put(trackmouseevent, trackmouseevent.position() + HWNDTRACK, hwndTrack); }
-	public static void hoverTimeSet(ByteBuffer trackmouseevent, int hoverTime) { trackmouseevent.putInt(trackmouseevent.position() + HOVERTIME, hoverTime); }
+	public static void size(ByteBuffer trackmouseevent, int size) { trackmouseevent.putInt(trackmouseevent.position() + SIZE, size); }
+	public static void flags(ByteBuffer trackmouseevent, int flags) { trackmouseevent.putInt(trackmouseevent.position() + FLAGS, flags); }
+	public static void hwndTrack(ByteBuffer trackmouseevent, long hwndTrack) { PointerBuffer.put(trackmouseevent, trackmouseevent.position() + HWNDTRACK, hwndTrack); }
+	public static void hoverTime(ByteBuffer trackmouseevent, int hoverTime) { trackmouseevent.putInt(trackmouseevent.position() + HOVERTIME, hoverTime); }
 
-	public static int sizeGet(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + SIZE); }
-	public static int flagsGet(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + FLAGS); }
-	public static long hwndTrackGet(ByteBuffer trackmouseevent) { return PointerBuffer.get(trackmouseevent, trackmouseevent.position() + HWNDTRACK); }
-	public static int hoverTimeGet(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + HOVERTIME); }
+	public static int size(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + SIZE); }
+	public static int flags(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + FLAGS); }
+	public static long hwndTrack(ByteBuffer trackmouseevent) { return PointerBuffer.get(trackmouseevent, trackmouseevent.position() + HWNDTRACK); }
+	public static int hoverTime(ByteBuffer trackmouseevent) { return trackmouseevent.getInt(trackmouseevent.position() + HOVERTIME); }
 
 }

@@ -45,16 +45,16 @@ public final class timeval {
 	) {
 		ByteBuffer timeval = malloc();
 
-		secSet(timeval, sec);
-		usecSet(timeval, usec);
+		sec(timeval, sec);
+		usec(timeval, usec);
 
 		return timeval;
 	}
 
-	public static void secSet(ByteBuffer timeval, long sec) { PointerBuffer.put(timeval, timeval.position() + SEC, sec); }
-	public static void usecSet(ByteBuffer timeval, long usec) { PointerBuffer.put(timeval, timeval.position() + USEC, usec); }
+	public static void sec(ByteBuffer timeval, long sec) { PointerBuffer.put(timeval, timeval.position() + SEC, sec); }
+	public static void usec(ByteBuffer timeval, long usec) { PointerBuffer.put(timeval, timeval.position() + USEC, usec); }
 
-	public static long secGet(ByteBuffer timeval) { return PointerBuffer.get(timeval, timeval.position() + SEC); }
-	public static long usecGet(ByteBuffer timeval) { return PointerBuffer.get(timeval, timeval.position() + USEC); }
+	public static long sec(ByteBuffer timeval) { return PointerBuffer.get(timeval, timeval.position() + SEC); }
+	public static long usec(ByteBuffer timeval) { return PointerBuffer.get(timeval, timeval.position() + USEC); }
 
 }

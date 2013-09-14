@@ -45,16 +45,16 @@ public final class cl_buffer_region {
 	) {
 		ByteBuffer cl_buffer_region = malloc();
 
-		originSet(cl_buffer_region, origin);
-		sizeSet(cl_buffer_region, size);
+		origin(cl_buffer_region, origin);
+		size(cl_buffer_region, size);
 
 		return cl_buffer_region;
 	}
 
-	public static void originSet(ByteBuffer cl_buffer_region, long origin) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + ORIGIN, origin); }
-	public static void sizeSet(ByteBuffer cl_buffer_region, long size) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + SIZE, size); }
+	public static void origin(ByteBuffer cl_buffer_region, long origin) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + ORIGIN, origin); }
+	public static void size(ByteBuffer cl_buffer_region, long size) { PointerBuffer.put(cl_buffer_region, cl_buffer_region.position() + SIZE, size); }
 
-	public static long originGet(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + ORIGIN); }
-	public static long sizeGet(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + SIZE); }
+	public static long origin(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + ORIGIN); }
+	public static long size(ByteBuffer cl_buffer_region) { return PointerBuffer.get(cl_buffer_region, cl_buffer_region.position() + SIZE); }
 
 }

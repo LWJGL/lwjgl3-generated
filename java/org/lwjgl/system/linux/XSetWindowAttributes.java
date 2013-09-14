@@ -84,55 +84,55 @@ public final class XSetWindowAttributes {
 	) {
 		ByteBuffer xsetwindowattributes = malloc();
 
-		background_pixmapSet(xsetwindowattributes, background_pixmap);
-		background_pixelSet(xsetwindowattributes, background_pixel);
-		border_pixmapSet(xsetwindowattributes, border_pixmap);
-		border_pixelSet(xsetwindowattributes, border_pixel);
-		bit_gravitySet(xsetwindowattributes, bit_gravity);
-		win_gravitySet(xsetwindowattributes, win_gravity);
-		backing_storeSet(xsetwindowattributes, backing_store);
-		backing_planesSet(xsetwindowattributes, backing_planes);
-		backing_pixelSet(xsetwindowattributes, backing_pixel);
-		save_underSet(xsetwindowattributes, save_under);
-		event_maskSet(xsetwindowattributes, event_mask);
-		do_not_propagate_maskSet(xsetwindowattributes, do_not_propagate_mask);
-		override_redirectSet(xsetwindowattributes, override_redirect);
-		colormapSet(xsetwindowattributes, colormap);
-		cursorSet(xsetwindowattributes, cursor);
+		background_pixmap(xsetwindowattributes, background_pixmap);
+		background_pixel(xsetwindowattributes, background_pixel);
+		border_pixmap(xsetwindowattributes, border_pixmap);
+		border_pixel(xsetwindowattributes, border_pixel);
+		bit_gravity(xsetwindowattributes, bit_gravity);
+		win_gravity(xsetwindowattributes, win_gravity);
+		backing_store(xsetwindowattributes, backing_store);
+		backing_planes(xsetwindowattributes, backing_planes);
+		backing_pixel(xsetwindowattributes, backing_pixel);
+		save_under(xsetwindowattributes, save_under);
+		event_mask(xsetwindowattributes, event_mask);
+		do_not_propagate_mask(xsetwindowattributes, do_not_propagate_mask);
+		override_redirect(xsetwindowattributes, override_redirect);
+		colormap(xsetwindowattributes, colormap);
+		cursor(xsetwindowattributes, cursor);
 
 		return xsetwindowattributes;
 	}
 
-	public static void background_pixmapSet(ByteBuffer xsetwindowattributes, long background_pixmap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXMAP, background_pixmap); }
-	public static void background_pixelSet(ByteBuffer xsetwindowattributes, long background_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXEL, background_pixel); }
-	public static void border_pixmapSet(ByteBuffer xsetwindowattributes, long border_pixmap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXMAP, border_pixmap); }
-	public static void border_pixelSet(ByteBuffer xsetwindowattributes, long border_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXEL, border_pixel); }
-	public static void bit_gravitySet(ByteBuffer xsetwindowattributes, int bit_gravity) { xsetwindowattributes.putInt(xsetwindowattributes.position() + BIT_GRAVITY, bit_gravity); }
-	public static void win_gravitySet(ByteBuffer xsetwindowattributes, int win_gravity) { xsetwindowattributes.putInt(xsetwindowattributes.position() + WIN_GRAVITY, win_gravity); }
-	public static void backing_storeSet(ByteBuffer xsetwindowattributes, int backing_store) { xsetwindowattributes.putInt(xsetwindowattributes.position() + BACKING_STORE, backing_store); }
-	public static void backing_planesSet(ByteBuffer xsetwindowattributes, long backing_planes) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PLANES, backing_planes); }
-	public static void backing_pixelSet(ByteBuffer xsetwindowattributes, long backing_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PIXEL, backing_pixel); }
-	public static void save_underSet(ByteBuffer xsetwindowattributes, int save_under) { xsetwindowattributes.putInt(xsetwindowattributes.position() + SAVE_UNDER, save_under); }
-	public static void event_maskSet(ByteBuffer xsetwindowattributes, long event_mask) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + EVENT_MASK, event_mask); }
-	public static void do_not_propagate_maskSet(ByteBuffer xsetwindowattributes, long do_not_propagate_mask) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + DO_NOT_PROPAGATE_MASK, do_not_propagate_mask); }
-	public static void override_redirectSet(ByteBuffer xsetwindowattributes, int override_redirect) { xsetwindowattributes.putInt(xsetwindowattributes.position() + OVERRIDE_REDIRECT, override_redirect); }
-	public static void colormapSet(ByteBuffer xsetwindowattributes, long colormap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + COLORMAP, colormap); }
-	public static void cursorSet(ByteBuffer xsetwindowattributes, long cursor) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + CURSOR, cursor); }
+	public static void background_pixmap(ByteBuffer xsetwindowattributes, long background_pixmap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXMAP, background_pixmap); }
+	public static void background_pixel(ByteBuffer xsetwindowattributes, long background_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXEL, background_pixel); }
+	public static void border_pixmap(ByteBuffer xsetwindowattributes, long border_pixmap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXMAP, border_pixmap); }
+	public static void border_pixel(ByteBuffer xsetwindowattributes, long border_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXEL, border_pixel); }
+	public static void bit_gravity(ByteBuffer xsetwindowattributes, int bit_gravity) { xsetwindowattributes.putInt(xsetwindowattributes.position() + BIT_GRAVITY, bit_gravity); }
+	public static void win_gravity(ByteBuffer xsetwindowattributes, int win_gravity) { xsetwindowattributes.putInt(xsetwindowattributes.position() + WIN_GRAVITY, win_gravity); }
+	public static void backing_store(ByteBuffer xsetwindowattributes, int backing_store) { xsetwindowattributes.putInt(xsetwindowattributes.position() + BACKING_STORE, backing_store); }
+	public static void backing_planes(ByteBuffer xsetwindowattributes, long backing_planes) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PLANES, backing_planes); }
+	public static void backing_pixel(ByteBuffer xsetwindowattributes, long backing_pixel) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PIXEL, backing_pixel); }
+	public static void save_under(ByteBuffer xsetwindowattributes, int save_under) { xsetwindowattributes.putInt(xsetwindowattributes.position() + SAVE_UNDER, save_under); }
+	public static void event_mask(ByteBuffer xsetwindowattributes, long event_mask) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + EVENT_MASK, event_mask); }
+	public static void do_not_propagate_mask(ByteBuffer xsetwindowattributes, long do_not_propagate_mask) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + DO_NOT_PROPAGATE_MASK, do_not_propagate_mask); }
+	public static void override_redirect(ByteBuffer xsetwindowattributes, int override_redirect) { xsetwindowattributes.putInt(xsetwindowattributes.position() + OVERRIDE_REDIRECT, override_redirect); }
+	public static void colormap(ByteBuffer xsetwindowattributes, long colormap) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + COLORMAP, colormap); }
+	public static void cursor(ByteBuffer xsetwindowattributes, long cursor) { PointerBuffer.put(xsetwindowattributes, xsetwindowattributes.position() + CURSOR, cursor); }
 
-	public static long background_pixmapGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXMAP); }
-	public static long background_pixelGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXEL); }
-	public static long border_pixmapGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXMAP); }
-	public static long border_pixelGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXEL); }
-	public static int bit_gravityGet(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + BIT_GRAVITY); }
-	public static int win_gravityGet(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + WIN_GRAVITY); }
-	public static int backing_storeGet(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + BACKING_STORE); }
-	public static long backing_planesGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PLANES); }
-	public static long backing_pixelGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PIXEL); }
-	public static int save_underGet(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + SAVE_UNDER); }
-	public static long event_maskGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + EVENT_MASK); }
-	public static long do_not_propagate_maskGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + DO_NOT_PROPAGATE_MASK); }
-	public static int override_redirectGet(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + OVERRIDE_REDIRECT); }
-	public static long colormapGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + COLORMAP); }
-	public static long cursorGet(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + CURSOR); }
+	public static long background_pixmap(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXMAP); }
+	public static long background_pixel(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKGROUND_PIXEL); }
+	public static long border_pixmap(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXMAP); }
+	public static long border_pixel(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BORDER_PIXEL); }
+	public static int bit_gravity(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + BIT_GRAVITY); }
+	public static int win_gravity(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + WIN_GRAVITY); }
+	public static int backing_store(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + BACKING_STORE); }
+	public static long backing_planes(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PLANES); }
+	public static long backing_pixel(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + BACKING_PIXEL); }
+	public static int save_under(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + SAVE_UNDER); }
+	public static long event_mask(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + EVENT_MASK); }
+	public static long do_not_propagate_mask(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + DO_NOT_PROPAGATE_MASK); }
+	public static int override_redirect(ByteBuffer xsetwindowattributes) { return xsetwindowattributes.getInt(xsetwindowattributes.position() + OVERRIDE_REDIRECT); }
+	public static long colormap(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + COLORMAP); }
+	public static long cursor(ByteBuffer xsetwindowattributes) { return PointerBuffer.get(xsetwindowattributes, xsetwindowattributes.position() + CURSOR); }
 
 }

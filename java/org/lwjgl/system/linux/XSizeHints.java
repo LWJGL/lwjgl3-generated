@@ -97,64 +97,64 @@ public final class XSizeHints {
 	) {
 		ByteBuffer xsizehints = malloc();
 
-		flagsSet(xsizehints, flags);
-		xSet(xsizehints, x);
-		ySet(xsizehints, y);
-		widthSet(xsizehints, width);
-		heightSet(xsizehints, height);
-		min_widthSet(xsizehints, min_width);
-		min_heightSet(xsizehints, min_height);
-		max_widthSet(xsizehints, max_width);
-		max_heightSet(xsizehints, max_height);
-		width_incSet(xsizehints, width_inc);
-		height_incSet(xsizehints, height_inc);
-		min_aspectXSet(xsizehints, min_aspect_x);
-		min_aspectYSet(xsizehints, min_aspect_y);
-		max_aspectXSet(xsizehints, max_aspect_x);
-		max_aspectYSet(xsizehints, max_aspect_y);
-		base_widthSet(xsizehints, base_width);
-		base_heightSet(xsizehints, base_height);
-		win_gravitySet(xsizehints, win_gravity);
+		flags(xsizehints, flags);
+		x(xsizehints, x);
+		y(xsizehints, y);
+		width(xsizehints, width);
+		height(xsizehints, height);
+		min_width(xsizehints, min_width);
+		min_height(xsizehints, min_height);
+		max_width(xsizehints, max_width);
+		max_height(xsizehints, max_height);
+		width_inc(xsizehints, width_inc);
+		height_inc(xsizehints, height_inc);
+		min_aspectX(xsizehints, min_aspect_x);
+		min_aspectY(xsizehints, min_aspect_y);
+		max_aspectX(xsizehints, max_aspect_x);
+		max_aspectY(xsizehints, max_aspect_y);
+		base_width(xsizehints, base_width);
+		base_height(xsizehints, base_height);
+		win_gravity(xsizehints, win_gravity);
 
 		return xsizehints;
 	}
 
-	public static void flagsSet(ByteBuffer xsizehints, long flags) { PointerBuffer.put(xsizehints, xsizehints.position() + FLAGS, flags); }
-	public static void xSet(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + X, x); }
-	public static void ySet(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + Y, y); }
-	public static void widthSet(ByteBuffer xsizehints, int width) { xsizehints.putInt(xsizehints.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer xsizehints, int height) { xsizehints.putInt(xsizehints.position() + HEIGHT, height); }
-	public static void min_widthSet(ByteBuffer xsizehints, int min_width) { xsizehints.putInt(xsizehints.position() + MIN_WIDTH, min_width); }
-	public static void min_heightSet(ByteBuffer xsizehints, int min_height) { xsizehints.putInt(xsizehints.position() + MIN_HEIGHT, min_height); }
-	public static void max_widthSet(ByteBuffer xsizehints, int max_width) { xsizehints.putInt(xsizehints.position() + MAX_WIDTH, max_width); }
-	public static void max_heightSet(ByteBuffer xsizehints, int max_height) { xsizehints.putInt(xsizehints.position() + MAX_HEIGHT, max_height); }
-	public static void width_incSet(ByteBuffer xsizehints, int width_inc) { xsizehints.putInt(xsizehints.position() + WIDTH_INC, width_inc); }
-	public static void height_incSet(ByteBuffer xsizehints, int height_inc) { xsizehints.putInt(xsizehints.position() + HEIGHT_INC, height_inc); }
-	public static void min_aspectXSet(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + MIN_ASPECT_X, x); }
-	public static void min_aspectYSet(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + MIN_ASPECT_Y, y); }
-	public static void max_aspectXSet(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + MAX_ASPECT_X, x); }
-	public static void max_aspectYSet(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + MAX_ASPECT_Y, y); }
-	public static void base_widthSet(ByteBuffer xsizehints, int base_width) { xsizehints.putInt(xsizehints.position() + BASE_WIDTH, base_width); }
-	public static void base_heightSet(ByteBuffer xsizehints, int base_height) { xsizehints.putInt(xsizehints.position() + BASE_HEIGHT, base_height); }
-	public static void win_gravitySet(ByteBuffer xsizehints, int win_gravity) { xsizehints.putInt(xsizehints.position() + WIN_GRAVITY, win_gravity); }
+	public static void flags(ByteBuffer xsizehints, long flags) { PointerBuffer.put(xsizehints, xsizehints.position() + FLAGS, flags); }
+	public static void x(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + X, x); }
+	public static void y(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + Y, y); }
+	public static void width(ByteBuffer xsizehints, int width) { xsizehints.putInt(xsizehints.position() + WIDTH, width); }
+	public static void height(ByteBuffer xsizehints, int height) { xsizehints.putInt(xsizehints.position() + HEIGHT, height); }
+	public static void min_width(ByteBuffer xsizehints, int min_width) { xsizehints.putInt(xsizehints.position() + MIN_WIDTH, min_width); }
+	public static void min_height(ByteBuffer xsizehints, int min_height) { xsizehints.putInt(xsizehints.position() + MIN_HEIGHT, min_height); }
+	public static void max_width(ByteBuffer xsizehints, int max_width) { xsizehints.putInt(xsizehints.position() + MAX_WIDTH, max_width); }
+	public static void max_height(ByteBuffer xsizehints, int max_height) { xsizehints.putInt(xsizehints.position() + MAX_HEIGHT, max_height); }
+	public static void width_inc(ByteBuffer xsizehints, int width_inc) { xsizehints.putInt(xsizehints.position() + WIDTH_INC, width_inc); }
+	public static void height_inc(ByteBuffer xsizehints, int height_inc) { xsizehints.putInt(xsizehints.position() + HEIGHT_INC, height_inc); }
+	public static void min_aspectX(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + MIN_ASPECT_X, x); }
+	public static void min_aspectY(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + MIN_ASPECT_Y, y); }
+	public static void max_aspectX(ByteBuffer xsizehints, int x) { xsizehints.putInt(xsizehints.position() + MAX_ASPECT_X, x); }
+	public static void max_aspectY(ByteBuffer xsizehints, int y) { xsizehints.putInt(xsizehints.position() + MAX_ASPECT_Y, y); }
+	public static void base_width(ByteBuffer xsizehints, int base_width) { xsizehints.putInt(xsizehints.position() + BASE_WIDTH, base_width); }
+	public static void base_height(ByteBuffer xsizehints, int base_height) { xsizehints.putInt(xsizehints.position() + BASE_HEIGHT, base_height); }
+	public static void win_gravity(ByteBuffer xsizehints, int win_gravity) { xsizehints.putInt(xsizehints.position() + WIN_GRAVITY, win_gravity); }
 
-	public static long flagsGet(ByteBuffer xsizehints) { return PointerBuffer.get(xsizehints, xsizehints.position() + FLAGS); }
-	public static int xGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + X); }
-	public static int yGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + Y); }
-	public static int widthGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIDTH); }
-	public static int heightGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + HEIGHT); }
-	public static int min_widthGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_WIDTH); }
-	public static int min_heightGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_HEIGHT); }
-	public static int max_widthGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_WIDTH); }
-	public static int max_heightGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_HEIGHT); }
-	public static int width_incGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIDTH_INC); }
-	public static int height_incGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + HEIGHT_INC); }
-	public static int min_aspectXGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_ASPECT_X); }
-	public static int min_aspectYGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_ASPECT_Y); }
-	public static int max_aspectXGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_ASPECT_X); }
-	public static int max_aspectYGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_ASPECT_Y); }
-	public static int base_widthGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + BASE_WIDTH); }
-	public static int base_heightGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + BASE_HEIGHT); }
-	public static int win_gravityGet(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIN_GRAVITY); }
+	public static long flags(ByteBuffer xsizehints) { return PointerBuffer.get(xsizehints, xsizehints.position() + FLAGS); }
+	public static int x(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + X); }
+	public static int y(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + Y); }
+	public static int width(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIDTH); }
+	public static int height(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + HEIGHT); }
+	public static int min_width(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_WIDTH); }
+	public static int min_height(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_HEIGHT); }
+	public static int max_width(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_WIDTH); }
+	public static int max_height(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_HEIGHT); }
+	public static int width_inc(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIDTH_INC); }
+	public static int height_inc(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + HEIGHT_INC); }
+	public static int min_aspectX(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_ASPECT_X); }
+	public static int min_aspectY(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MIN_ASPECT_Y); }
+	public static int max_aspectX(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_ASPECT_X); }
+	public static int max_aspectY(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + MAX_ASPECT_Y); }
+	public static int base_width(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + BASE_WIDTH); }
+	public static int base_height(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + BASE_HEIGHT); }
+	public static int win_gravity(ByteBuffer xsizehints) { return xsizehints.getInt(xsizehints.position() + WIN_GRAVITY); }
 
 }

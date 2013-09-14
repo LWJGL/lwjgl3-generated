@@ -45,16 +45,16 @@ public final class POINT {
 	) {
 		ByteBuffer point = malloc();
 
-		xSet(point, x);
-		ySet(point, y);
+		x(point, x);
+		y(point, y);
 
 		return point;
 	}
 
-	public static void xSet(ByteBuffer point, int x) { point.putInt(point.position() + X, x); }
-	public static void ySet(ByteBuffer point, int y) { point.putInt(point.position() + Y, y); }
+	public static void x(ByteBuffer point, int x) { point.putInt(point.position() + X, x); }
+	public static void y(ByteBuffer point, int y) { point.putInt(point.position() + Y, y); }
 
-	public static int xGet(ByteBuffer point) { return point.getInt(point.position() + X); }
-	public static int yGet(ByteBuffer point) { return point.getInt(point.position() + Y); }
+	public static int x(ByteBuffer point) { return point.getInt(point.position() + X); }
+	public static int y(ByteBuffer point) { return point.getInt(point.position() + Y); }
 
 }

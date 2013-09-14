@@ -54,11 +54,11 @@ public final class GLYPHMETRICSFLOAT {
 	) {
 		ByteBuffer glyphmetricsfloat = malloc();
 
-		blackBoxXSet(glyphmetricsfloat, blackBoxX);
-		blockBoxYSet(glyphmetricsfloat, blockBoxY);
+		blackBoxX(glyphmetricsfloat, blackBoxX);
+		blockBoxY(glyphmetricsfloat, blockBoxY);
 		glyphOriginSet(glyphmetricsfloat, glyphOrigin);
-		cellIncXSet(glyphmetricsfloat, cellIncX);
-		cellIncYSet(glyphmetricsfloat, cellIncY);
+		cellIncX(glyphmetricsfloat, cellIncX);
+		cellIncY(glyphmetricsfloat, cellIncY);
 
 		return glyphmetricsfloat;
 	}
@@ -73,31 +73,31 @@ public final class GLYPHMETRICSFLOAT {
 	) {
 		ByteBuffer glyphmetricsfloat = malloc();
 
-		blackBoxXSet(glyphmetricsfloat, blackBoxX);
-		blockBoxYSet(glyphmetricsfloat, blockBoxY);
+		blackBoxX(glyphmetricsfloat, blackBoxX);
+		blockBoxY(glyphmetricsfloat, blockBoxY);
 		glyphOriginSet(glyphmetricsfloat, glyphOrigin);
-		cellIncXSet(glyphmetricsfloat, cellIncX);
-		cellIncYSet(glyphmetricsfloat, cellIncY);
+		cellIncX(glyphmetricsfloat, cellIncX);
+		cellIncY(glyphmetricsfloat, cellIncY);
 
 		return glyphmetricsfloat;
 	}
 
-	public static void blackBoxXSet(ByteBuffer glyphmetricsfloat, float blackBoxX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLACKBOXX, blackBoxX); }
-	public static void blockBoxYSet(ByteBuffer glyphmetricsfloat, float blockBoxY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLOCKBOXY, blockBoxY); }
+	public static void blackBoxX(ByteBuffer glyphmetricsfloat, float blackBoxX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLACKBOXX, blackBoxX); }
+	public static void blockBoxY(ByteBuffer glyphmetricsfloat, float blockBoxY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLOCKBOXY, blockBoxY); }
 	public static void glyphOriginSet(ByteBuffer glyphmetricsfloat, long glyphOrigin) { if ( glyphOrigin != NULL ) memCopy(glyphOrigin, memAddress(glyphmetricsfloat) + GLYPHORIGIN, POINTFLOAT.SIZEOF); }
 	public static void glyphOriginSet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { glyphOriginSet(glyphmetricsfloat, memAddressSafe(glyphOrigin)); }
-	public static void glyphOriginXSet(ByteBuffer glyphmetricsfloat, float x) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X, x); }
-	public static void glyphOriginYSet(ByteBuffer glyphmetricsfloat, float y) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y, y); }
-	public static void cellIncXSet(ByteBuffer glyphmetricsfloat, float cellIncX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCX, cellIncX); }
-	public static void cellIncYSet(ByteBuffer glyphmetricsfloat, float cellIncY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCY, cellIncY); }
+	public static void glyphOriginX(ByteBuffer glyphmetricsfloat, float x) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X, x); }
+	public static void glyphOriginY(ByteBuffer glyphmetricsfloat, float y) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y, y); }
+	public static void cellIncX(ByteBuffer glyphmetricsfloat, float cellIncX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCX, cellIncX); }
+	public static void cellIncY(ByteBuffer glyphmetricsfloat, float cellIncY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCY, cellIncY); }
 
-	public static float blackBoxXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLACKBOXX); }
-	public static float blockBoxYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLOCKBOXY); }
+	public static float blackBoxX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLACKBOXX); }
+	public static float blockBoxY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLOCKBOXY); }
 	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, long glyphOrigin) { memCopy(memAddress(glyphmetricsfloat) + GLYPHORIGIN, glyphOrigin, POINTFLOAT.SIZEOF); }
 	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { checkBuffer(glyphOrigin, POINTFLOAT.SIZEOF); glyphOriginGet(glyphmetricsfloat, memAddress(glyphOrigin)); }
-	public static float glyphOriginXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X); }
-	public static float glyphOriginYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y); }
-	public static float cellIncXGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCX); }
-	public static float cellIncYGet(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCY); }
+	public static float glyphOriginX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X); }
+	public static float glyphOriginY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y); }
+	public static float cellIncX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCX); }
+	public static float cellIncY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCY); }
 
 }

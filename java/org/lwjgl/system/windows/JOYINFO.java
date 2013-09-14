@@ -51,22 +51,22 @@ public final class JOYINFO {
 	) {
 		ByteBuffer joyinfo = malloc();
 
-		xPosSet(joyinfo, xPos);
-		yPosSet(joyinfo, yPos);
-		zPosSet(joyinfo, zPos);
-		buttonsSet(joyinfo, buttons);
+		xPos(joyinfo, xPos);
+		yPos(joyinfo, yPos);
+		zPos(joyinfo, zPos);
+		buttons(joyinfo, buttons);
 
 		return joyinfo;
 	}
 
-	public static void xPosSet(ByteBuffer joyinfo, int xPos) { joyinfo.putInt(joyinfo.position() + XPOS, xPos); }
-	public static void yPosSet(ByteBuffer joyinfo, int yPos) { joyinfo.putInt(joyinfo.position() + YPOS, yPos); }
-	public static void zPosSet(ByteBuffer joyinfo, int zPos) { joyinfo.putInt(joyinfo.position() + ZPOS, zPos); }
-	public static void buttonsSet(ByteBuffer joyinfo, int buttons) { joyinfo.putInt(joyinfo.position() + BUTTONS, buttons); }
+	public static void xPos(ByteBuffer joyinfo, int xPos) { joyinfo.putInt(joyinfo.position() + XPOS, xPos); }
+	public static void yPos(ByteBuffer joyinfo, int yPos) { joyinfo.putInt(joyinfo.position() + YPOS, yPos); }
+	public static void zPos(ByteBuffer joyinfo, int zPos) { joyinfo.putInt(joyinfo.position() + ZPOS, zPos); }
+	public static void buttons(ByteBuffer joyinfo, int buttons) { joyinfo.putInt(joyinfo.position() + BUTTONS, buttons); }
 
-	public static int xPosGet(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + XPOS); }
-	public static int yPosGet(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + YPOS); }
-	public static int zPosGet(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + ZPOS); }
-	public static int buttonsGet(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + BUTTONS); }
+	public static int xPos(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + XPOS); }
+	public static int yPos(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + YPOS); }
+	public static int zPos(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + ZPOS); }
+	public static int buttons(ByteBuffer joyinfo) { return joyinfo.getInt(joyinfo.position() + BUTTONS); }
 
 }

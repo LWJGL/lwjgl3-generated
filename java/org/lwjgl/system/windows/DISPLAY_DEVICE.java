@@ -61,10 +61,10 @@ public final class DISPLAY_DEVICE {
 	) {
 		ByteBuffer display_device = malloc();
 
-		cbSet(display_device, cb);
+		cb(display_device, cb);
 		DeviceNameSet(display_device, DeviceName, DeviceNameBytes);
 		DeviceStringSet(display_device, DeviceString, DeviceStringBytes);
-		StateFlagsSet(display_device, StateFlags);
+		StateFlags(display_device, StateFlags);
 		DeviceIDSet(display_device, DeviceID, DeviceIDBytes);
 		DeviceKeySet(display_device, DeviceKey, DeviceKeyBytes);
 
@@ -82,10 +82,10 @@ public final class DISPLAY_DEVICE {
 	) {
 		ByteBuffer display_device = malloc();
 
-		cbSet(display_device, cb);
+		cb(display_device, cb);
 		DeviceNameSet(display_device, DeviceName);
 		DeviceStringSet(display_device, DeviceString);
-		StateFlagsSet(display_device, StateFlags);
+		StateFlags(display_device, StateFlags);
 		DeviceIDSet(display_device, DeviceID);
 		DeviceKeySet(display_device, DeviceKey);
 
@@ -103,17 +103,17 @@ public final class DISPLAY_DEVICE {
 	) {
 		ByteBuffer display_device = malloc();
 
-		cbSet(display_device, cb);
+		cb(display_device, cb);
 		DeviceNameSet(display_device, DeviceName);
 		DeviceStringSet(display_device, DeviceString);
-		StateFlagsSet(display_device, StateFlags);
+		StateFlags(display_device, StateFlags);
 		DeviceIDSet(display_device, DeviceID);
 		DeviceKeySet(display_device, DeviceKey);
 
 		return display_device;
 	}
 
-	public static void cbSet(ByteBuffer display_device, int cb) { display_device.putInt(display_device.position() + CB, cb); }
+	public static void cb(ByteBuffer display_device, int cb) { display_device.putInt(display_device.position() + CB, cb); }
 	public static void DeviceNameSet(ByteBuffer display_device, long DeviceName, int bytes) { memCopy(DeviceName, memAddress(display_device) + DEVICENAME, bytes); }
 	public static void DeviceNameSet(ByteBuffer display_device, ByteBuffer DeviceName) {
 		checkNT2(DeviceName);
@@ -128,7 +128,7 @@ public final class DISPLAY_DEVICE {
 		DeviceStringSet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static void DeviceStringSet(ByteBuffer display_device, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(display_device, memAddress(buffer), buffer.capacity()); }
-	public static void StateFlagsSet(ByteBuffer display_device, int StateFlags) { display_device.putInt(display_device.position() + STATEFLAGS, StateFlags); }
+	public static void StateFlags(ByteBuffer display_device, int StateFlags) { display_device.putInt(display_device.position() + STATEFLAGS, StateFlags); }
 	public static void DeviceIDSet(ByteBuffer display_device, long DeviceID, int bytes) { memCopy(DeviceID, memAddress(display_device) + DEVICEID, bytes); }
 	public static void DeviceIDSet(ByteBuffer display_device, ByteBuffer DeviceID) {
 		checkNT2(DeviceID);
@@ -144,11 +144,11 @@ public final class DISPLAY_DEVICE {
 	}
 	public static void DeviceKeySet(ByteBuffer display_device, CharSequence DeviceKey) { ByteBuffer buffer = memEncodeUTF16(DeviceKey, true); DeviceKeySet(display_device, memAddress(buffer), buffer.capacity()); }
 
-	public static int cbGet(ByteBuffer display_device) { return display_device.getInt(display_device.position() + CB); }
+	public static int cb(ByteBuffer display_device) { return display_device.getInt(display_device.position() + CB); }
 	public static void DeviceNameGet(ByteBuffer display_device, long DeviceName, int bytes) {
 		memCopy(memAddress(display_device) + DEVICENAME, DeviceName, bytes);
 	}
-	public static void DeviceNameGetb(ByteBuffer display_device, ByteBuffer DeviceName) {
+	public static void DeviceNameGet(ByteBuffer display_device, ByteBuffer DeviceName) {
 		checkBufferGT(DeviceName, 32 * 2);
 		DeviceNameGet(display_device, memAddress(DeviceName), DeviceName.remaining());
 	}
@@ -157,17 +157,17 @@ public final class DISPLAY_DEVICE {
 	public static void DeviceStringGet(ByteBuffer display_device, long DeviceString, int bytes) {
 		memCopy(memAddress(display_device) + DEVICESTRING, DeviceString, bytes);
 	}
-	public static void DeviceStringGetb(ByteBuffer display_device, ByteBuffer DeviceString) {
+	public static void DeviceStringGet(ByteBuffer display_device, ByteBuffer DeviceString) {
 		checkBufferGT(DeviceString, 128 * 2);
 		DeviceStringGet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static String DeviceStringGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
 	public static String DeviceStringGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
-	public static int StateFlagsGet(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
+	public static int StateFlags(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
 	public static void DeviceIDGet(ByteBuffer display_device, long DeviceID, int bytes) {
 		memCopy(memAddress(display_device) + DEVICEID, DeviceID, bytes);
 	}
-	public static void DeviceIDGetb(ByteBuffer display_device, ByteBuffer DeviceID) {
+	public static void DeviceIDGet(ByteBuffer display_device, ByteBuffer DeviceID) {
 		checkBufferGT(DeviceID, 128 * 2);
 		DeviceIDGet(display_device, memAddress(DeviceID), DeviceID.remaining());
 	}
@@ -176,7 +176,7 @@ public final class DISPLAY_DEVICE {
 	public static void DeviceKeyGet(ByteBuffer display_device, long DeviceKey, int bytes) {
 		memCopy(memAddress(display_device) + DEVICEKEY, DeviceKey, bytes);
 	}
-	public static void DeviceKeyGetb(ByteBuffer display_device, ByteBuffer DeviceKey) {
+	public static void DeviceKeyGet(ByteBuffer display_device, ByteBuffer DeviceKey) {
 		checkBufferGT(DeviceKey, 128 * 2);
 		DeviceKeyGet(display_device, memAddress(DeviceKey), DeviceKey.remaining());
 	}

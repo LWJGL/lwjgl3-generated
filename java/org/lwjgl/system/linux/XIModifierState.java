@@ -51,22 +51,22 @@ public final class XIModifierState {
 	) {
 		ByteBuffer ximodifierstate = malloc();
 
-		baseSet(ximodifierstate, base);
-		latchedSet(ximodifierstate, latched);
-		lockedSet(ximodifierstate, locked);
-		effectiveSet(ximodifierstate, effective);
+		base(ximodifierstate, base);
+		latched(ximodifierstate, latched);
+		locked(ximodifierstate, locked);
+		effective(ximodifierstate, effective);
 
 		return ximodifierstate;
 	}
 
-	public static void baseSet(ByteBuffer ximodifierstate, int base) { ximodifierstate.putInt(ximodifierstate.position() + BASE, base); }
-	public static void latchedSet(ByteBuffer ximodifierstate, int latched) { ximodifierstate.putInt(ximodifierstate.position() + LATCHED, latched); }
-	public static void lockedSet(ByteBuffer ximodifierstate, int locked) { ximodifierstate.putInt(ximodifierstate.position() + LOCKED, locked); }
-	public static void effectiveSet(ByteBuffer ximodifierstate, int effective) { ximodifierstate.putInt(ximodifierstate.position() + EFFECTIVE, effective); }
+	public static void base(ByteBuffer ximodifierstate, int base) { ximodifierstate.putInt(ximodifierstate.position() + BASE, base); }
+	public static void latched(ByteBuffer ximodifierstate, int latched) { ximodifierstate.putInt(ximodifierstate.position() + LATCHED, latched); }
+	public static void locked(ByteBuffer ximodifierstate, int locked) { ximodifierstate.putInt(ximodifierstate.position() + LOCKED, locked); }
+	public static void effective(ByteBuffer ximodifierstate, int effective) { ximodifierstate.putInt(ximodifierstate.position() + EFFECTIVE, effective); }
 
-	public static int baseGet(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + BASE); }
-	public static int latchedGet(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + LATCHED); }
-	public static int lockedGet(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + LOCKED); }
-	public static int effectiveGet(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + EFFECTIVE); }
+	public static int base(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + BASE); }
+	public static int latched(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + LATCHED); }
+	public static int locked(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + LOCKED); }
+	public static int effective(ByteBuffer ximodifierstate) { return ximodifierstate.getInt(ximodifierstate.position() + EFFECTIVE); }
 
 }

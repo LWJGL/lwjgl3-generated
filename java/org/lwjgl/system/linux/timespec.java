@@ -45,16 +45,16 @@ public final class timespec {
 	) {
 		ByteBuffer timespec = malloc();
 
-		secSet(timespec, sec);
-		nsecSet(timespec, nsec);
+		sec(timespec, sec);
+		nsec(timespec, nsec);
 
 		return timespec;
 	}
 
-	public static void secSet(ByteBuffer timespec, long sec) { timespec.putLong(timespec.position() + SEC, sec); }
-	public static void nsecSet(ByteBuffer timespec, long nsec) { PointerBuffer.put(timespec, timespec.position() + NSEC, nsec); }
+	public static void sec(ByteBuffer timespec, long sec) { timespec.putLong(timespec.position() + SEC, sec); }
+	public static void nsec(ByteBuffer timespec, long nsec) { PointerBuffer.put(timespec, timespec.position() + NSEC, nsec); }
 
-	public static long secGet(ByteBuffer timespec) { return timespec.getLong(timespec.position() + SEC); }
-	public static long nsecGet(ByteBuffer timespec) { return PointerBuffer.get(timespec, timespec.position() + NSEC); }
+	public static long sec(ByteBuffer timespec) { return timespec.getLong(timespec.position() + SEC); }
+	public static long nsec(ByteBuffer timespec) { return PointerBuffer.get(timespec, timespec.position() + NSEC); }
 
 }

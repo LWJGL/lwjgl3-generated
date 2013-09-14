@@ -108,79 +108,79 @@ public final class XGCValues {
 	) {
 		ByteBuffer xgcvalues = malloc();
 
-		functionSet(xgcvalues, function);
-		plane_maskSet(xgcvalues, plane_mask);
-		foregroundSet(xgcvalues, foreground);
-		backgroundSet(xgcvalues, background);
-		line_widthSet(xgcvalues, line_width);
-		line_styleSet(xgcvalues, line_style);
-		cap_styleSet(xgcvalues, cap_style);
-		join_styleSet(xgcvalues, join_style);
-		fill_styleSet(xgcvalues, fill_style);
-		fill_ruleSet(xgcvalues, fill_rule);
-		arc_modeSet(xgcvalues, arc_mode);
-		tileSet(xgcvalues, tile);
-		stippleSet(xgcvalues, stipple);
-		ts_x_originSet(xgcvalues, ts_x_origin);
-		ts_y_originSet(xgcvalues, ts_y_origin);
-		fontSet(xgcvalues, font);
-		subwindow_modeSet(xgcvalues, subwindow_mode);
-		graphics_exposuresSet(xgcvalues, graphics_exposures);
-		clip_x_originSet(xgcvalues, clip_x_origin);
-		clip_y_originSet(xgcvalues, clip_y_origin);
-		clip_maskSet(xgcvalues, clip_mask);
-		dash_offsetSet(xgcvalues, dash_offset);
-		dashesSet(xgcvalues, dashes);
+		function(xgcvalues, function);
+		plane_mask(xgcvalues, plane_mask);
+		foreground(xgcvalues, foreground);
+		background(xgcvalues, background);
+		line_width(xgcvalues, line_width);
+		line_style(xgcvalues, line_style);
+		cap_style(xgcvalues, cap_style);
+		join_style(xgcvalues, join_style);
+		fill_style(xgcvalues, fill_style);
+		fill_rule(xgcvalues, fill_rule);
+		arc_mode(xgcvalues, arc_mode);
+		tile(xgcvalues, tile);
+		stipple(xgcvalues, stipple);
+		ts_x_origin(xgcvalues, ts_x_origin);
+		ts_y_origin(xgcvalues, ts_y_origin);
+		font(xgcvalues, font);
+		subwindow_mode(xgcvalues, subwindow_mode);
+		graphics_exposures(xgcvalues, graphics_exposures);
+		clip_x_origin(xgcvalues, clip_x_origin);
+		clip_y_origin(xgcvalues, clip_y_origin);
+		clip_mask(xgcvalues, clip_mask);
+		dash_offset(xgcvalues, dash_offset);
+		dashes(xgcvalues, dashes);
 
 		return xgcvalues;
 	}
 
-	public static void functionSet(ByteBuffer xgcvalues, int function) { xgcvalues.putInt(xgcvalues.position() + FUNCTION, function); }
-	public static void plane_maskSet(ByteBuffer xgcvalues, long plane_mask) { PointerBuffer.put(xgcvalues, xgcvalues.position() + PLANE_MASK, plane_mask); }
-	public static void foregroundSet(ByteBuffer xgcvalues, long foreground) { PointerBuffer.put(xgcvalues, xgcvalues.position() + FOREGROUND, foreground); }
-	public static void backgroundSet(ByteBuffer xgcvalues, long background) { PointerBuffer.put(xgcvalues, xgcvalues.position() + BACKGROUND, background); }
-	public static void line_widthSet(ByteBuffer xgcvalues, int line_width) { xgcvalues.putInt(xgcvalues.position() + LINE_WIDTH, line_width); }
-	public static void line_styleSet(ByteBuffer xgcvalues, int line_style) { xgcvalues.putInt(xgcvalues.position() + LINE_STYLE, line_style); }
-	public static void cap_styleSet(ByteBuffer xgcvalues, int cap_style) { xgcvalues.putInt(xgcvalues.position() + CAP_STYLE, cap_style); }
-	public static void join_styleSet(ByteBuffer xgcvalues, int join_style) { xgcvalues.putInt(xgcvalues.position() + JOIN_STYLE, join_style); }
-	public static void fill_styleSet(ByteBuffer xgcvalues, int fill_style) { xgcvalues.putInt(xgcvalues.position() + FILL_STYLE, fill_style); }
-	public static void fill_ruleSet(ByteBuffer xgcvalues, int fill_rule) { xgcvalues.putInt(xgcvalues.position() + FILL_RULE, fill_rule); }
-	public static void arc_modeSet(ByteBuffer xgcvalues, int arc_mode) { xgcvalues.putInt(xgcvalues.position() + ARC_MODE, arc_mode); }
-	public static void tileSet(ByteBuffer xgcvalues, long tile) { PointerBuffer.put(xgcvalues, xgcvalues.position() + TILE, tile); }
-	public static void stippleSet(ByteBuffer xgcvalues, long stipple) { PointerBuffer.put(xgcvalues, xgcvalues.position() + STIPPLE, stipple); }
-	public static void ts_x_originSet(ByteBuffer xgcvalues, int ts_x_origin) { xgcvalues.putInt(xgcvalues.position() + TS_X_ORIGIN, ts_x_origin); }
-	public static void ts_y_originSet(ByteBuffer xgcvalues, int ts_y_origin) { xgcvalues.putInt(xgcvalues.position() + TS_Y_ORIGIN, ts_y_origin); }
-	public static void fontSet(ByteBuffer xgcvalues, long font) { PointerBuffer.put(xgcvalues, xgcvalues.position() + FONT, font); }
-	public static void subwindow_modeSet(ByteBuffer xgcvalues, int subwindow_mode) { xgcvalues.putInt(xgcvalues.position() + SUBWINDOW_MODE, subwindow_mode); }
-	public static void graphics_exposuresSet(ByteBuffer xgcvalues, int graphics_exposures) { xgcvalues.putInt(xgcvalues.position() + GRAPHICS_EXPOSURES, graphics_exposures); }
-	public static void clip_x_originSet(ByteBuffer xgcvalues, int clip_x_origin) { xgcvalues.putInt(xgcvalues.position() + CLIP_X_ORIGIN, clip_x_origin); }
-	public static void clip_y_originSet(ByteBuffer xgcvalues, int clip_y_origin) { xgcvalues.putInt(xgcvalues.position() + CLIP_Y_ORIGIN, clip_y_origin); }
-	public static void clip_maskSet(ByteBuffer xgcvalues, long clip_mask) { PointerBuffer.put(xgcvalues, xgcvalues.position() + CLIP_MASK, clip_mask); }
-	public static void dash_offsetSet(ByteBuffer xgcvalues, int dash_offset) { xgcvalues.putInt(xgcvalues.position() + DASH_OFFSET, dash_offset); }
-	public static void dashesSet(ByteBuffer xgcvalues, int dashes) { xgcvalues.put(xgcvalues.position() + DASHES, (byte)dashes); }
+	public static void function(ByteBuffer xgcvalues, int function) { xgcvalues.putInt(xgcvalues.position() + FUNCTION, function); }
+	public static void plane_mask(ByteBuffer xgcvalues, long plane_mask) { PointerBuffer.put(xgcvalues, xgcvalues.position() + PLANE_MASK, plane_mask); }
+	public static void foreground(ByteBuffer xgcvalues, long foreground) { PointerBuffer.put(xgcvalues, xgcvalues.position() + FOREGROUND, foreground); }
+	public static void background(ByteBuffer xgcvalues, long background) { PointerBuffer.put(xgcvalues, xgcvalues.position() + BACKGROUND, background); }
+	public static void line_width(ByteBuffer xgcvalues, int line_width) { xgcvalues.putInt(xgcvalues.position() + LINE_WIDTH, line_width); }
+	public static void line_style(ByteBuffer xgcvalues, int line_style) { xgcvalues.putInt(xgcvalues.position() + LINE_STYLE, line_style); }
+	public static void cap_style(ByteBuffer xgcvalues, int cap_style) { xgcvalues.putInt(xgcvalues.position() + CAP_STYLE, cap_style); }
+	public static void join_style(ByteBuffer xgcvalues, int join_style) { xgcvalues.putInt(xgcvalues.position() + JOIN_STYLE, join_style); }
+	public static void fill_style(ByteBuffer xgcvalues, int fill_style) { xgcvalues.putInt(xgcvalues.position() + FILL_STYLE, fill_style); }
+	public static void fill_rule(ByteBuffer xgcvalues, int fill_rule) { xgcvalues.putInt(xgcvalues.position() + FILL_RULE, fill_rule); }
+	public static void arc_mode(ByteBuffer xgcvalues, int arc_mode) { xgcvalues.putInt(xgcvalues.position() + ARC_MODE, arc_mode); }
+	public static void tile(ByteBuffer xgcvalues, long tile) { PointerBuffer.put(xgcvalues, xgcvalues.position() + TILE, tile); }
+	public static void stipple(ByteBuffer xgcvalues, long stipple) { PointerBuffer.put(xgcvalues, xgcvalues.position() + STIPPLE, stipple); }
+	public static void ts_x_origin(ByteBuffer xgcvalues, int ts_x_origin) { xgcvalues.putInt(xgcvalues.position() + TS_X_ORIGIN, ts_x_origin); }
+	public static void ts_y_origin(ByteBuffer xgcvalues, int ts_y_origin) { xgcvalues.putInt(xgcvalues.position() + TS_Y_ORIGIN, ts_y_origin); }
+	public static void font(ByteBuffer xgcvalues, long font) { PointerBuffer.put(xgcvalues, xgcvalues.position() + FONT, font); }
+	public static void subwindow_mode(ByteBuffer xgcvalues, int subwindow_mode) { xgcvalues.putInt(xgcvalues.position() + SUBWINDOW_MODE, subwindow_mode); }
+	public static void graphics_exposures(ByteBuffer xgcvalues, int graphics_exposures) { xgcvalues.putInt(xgcvalues.position() + GRAPHICS_EXPOSURES, graphics_exposures); }
+	public static void clip_x_origin(ByteBuffer xgcvalues, int clip_x_origin) { xgcvalues.putInt(xgcvalues.position() + CLIP_X_ORIGIN, clip_x_origin); }
+	public static void clip_y_origin(ByteBuffer xgcvalues, int clip_y_origin) { xgcvalues.putInt(xgcvalues.position() + CLIP_Y_ORIGIN, clip_y_origin); }
+	public static void clip_mask(ByteBuffer xgcvalues, long clip_mask) { PointerBuffer.put(xgcvalues, xgcvalues.position() + CLIP_MASK, clip_mask); }
+	public static void dash_offset(ByteBuffer xgcvalues, int dash_offset) { xgcvalues.putInt(xgcvalues.position() + DASH_OFFSET, dash_offset); }
+	public static void dashes(ByteBuffer xgcvalues, int dashes) { xgcvalues.put(xgcvalues.position() + DASHES, (byte)dashes); }
 
-	public static int functionGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FUNCTION); }
-	public static long plane_maskGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + PLANE_MASK); }
-	public static long foregroundGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + FOREGROUND); }
-	public static long backgroundGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + BACKGROUND); }
-	public static int line_widthGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + LINE_WIDTH); }
-	public static int line_styleGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + LINE_STYLE); }
-	public static int cap_styleGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CAP_STYLE); }
-	public static int join_styleGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + JOIN_STYLE); }
-	public static int fill_styleGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FILL_STYLE); }
-	public static int fill_ruleGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FILL_RULE); }
-	public static int arc_modeGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + ARC_MODE); }
-	public static long tileGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + TILE); }
-	public static long stippleGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + STIPPLE); }
-	public static int ts_x_originGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + TS_X_ORIGIN); }
-	public static int ts_y_originGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + TS_Y_ORIGIN); }
-	public static long fontGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + FONT); }
-	public static int subwindow_modeGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + SUBWINDOW_MODE); }
-	public static int graphics_exposuresGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + GRAPHICS_EXPOSURES); }
-	public static int clip_x_originGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CLIP_X_ORIGIN); }
-	public static int clip_y_originGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CLIP_Y_ORIGIN); }
-	public static long clip_maskGet(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + CLIP_MASK); }
-	public static int dash_offsetGet(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + DASH_OFFSET); }
-	public static int dashesGet(ByteBuffer xgcvalues) { return xgcvalues.get(xgcvalues.position() + DASHES); }
+	public static int function(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FUNCTION); }
+	public static long plane_mask(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + PLANE_MASK); }
+	public static long foreground(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + FOREGROUND); }
+	public static long background(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + BACKGROUND); }
+	public static int line_width(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + LINE_WIDTH); }
+	public static int line_style(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + LINE_STYLE); }
+	public static int cap_style(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CAP_STYLE); }
+	public static int join_style(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + JOIN_STYLE); }
+	public static int fill_style(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FILL_STYLE); }
+	public static int fill_rule(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + FILL_RULE); }
+	public static int arc_mode(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + ARC_MODE); }
+	public static long tile(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + TILE); }
+	public static long stipple(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + STIPPLE); }
+	public static int ts_x_origin(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + TS_X_ORIGIN); }
+	public static int ts_y_origin(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + TS_Y_ORIGIN); }
+	public static long font(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + FONT); }
+	public static int subwindow_mode(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + SUBWINDOW_MODE); }
+	public static int graphics_exposures(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + GRAPHICS_EXPOSURES); }
+	public static int clip_x_origin(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CLIP_X_ORIGIN); }
+	public static int clip_y_origin(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + CLIP_Y_ORIGIN); }
+	public static long clip_mask(ByteBuffer xgcvalues) { return PointerBuffer.get(xgcvalues, xgcvalues.position() + CLIP_MASK); }
+	public static int dash_offset(ByteBuffer xgcvalues) { return xgcvalues.getInt(xgcvalues.position() + DASH_OFFSET); }
+	public static int dashes(ByteBuffer xgcvalues) { return xgcvalues.get(xgcvalues.position() + DASHES); }
 
 }

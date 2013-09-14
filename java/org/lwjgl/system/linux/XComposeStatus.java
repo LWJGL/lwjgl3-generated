@@ -45,8 +45,8 @@ public final class XComposeStatus {
 	) {
 		ByteBuffer xcomposestatus = malloc();
 
-		compose_ptrSet(xcomposestatus, compose_ptr);
-		chars_matchedSet(xcomposestatus, chars_matched);
+		compose_ptr(xcomposestatus, compose_ptr);
+		chars_matched(xcomposestatus, chars_matched);
 
 		return xcomposestatus;
 	}
@@ -58,18 +58,18 @@ public final class XComposeStatus {
 	) {
 		ByteBuffer xcomposestatus = malloc();
 
-		compose_ptrSet(xcomposestatus, compose_ptr);
-		chars_matchedSet(xcomposestatus, chars_matched);
+		compose_ptr(xcomposestatus, compose_ptr);
+		chars_matched(xcomposestatus, chars_matched);
 
 		return xcomposestatus;
 	}
 
-	public static void compose_ptrSet(ByteBuffer xcomposestatus, long compose_ptr) { PointerBuffer.put(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR, compose_ptr); }
-	public static void compose_ptrSet(ByteBuffer xcomposestatus, ByteBuffer compose_ptr) { compose_ptrSet(xcomposestatus, memAddress(compose_ptr)); }
-	public static void chars_matchedSet(ByteBuffer xcomposestatus, int chars_matched) { xcomposestatus.putInt(xcomposestatus.position() + CHARS_MATCHED, chars_matched); }
+	public static void compose_ptr(ByteBuffer xcomposestatus, long compose_ptr) { PointerBuffer.put(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR, compose_ptr); }
+	public static void compose_ptr(ByteBuffer xcomposestatus, ByteBuffer compose_ptr) { compose_ptr(xcomposestatus, memAddress(compose_ptr)); }
+	public static void chars_matched(ByteBuffer xcomposestatus, int chars_matched) { xcomposestatus.putInt(xcomposestatus.position() + CHARS_MATCHED, chars_matched); }
 
-	public static long compose_ptrGet(ByteBuffer xcomposestatus) { return PointerBuffer.get(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR); }
-	public static ByteBuffer compose_ptrGet(ByteBuffer xcomposestatus, int size) { long address = compose_ptrGet(xcomposestatus); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int chars_matchedGet(ByteBuffer xcomposestatus) { return xcomposestatus.getInt(xcomposestatus.position() + CHARS_MATCHED); }
+	public static long compose_ptr(ByteBuffer xcomposestatus) { return PointerBuffer.get(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR); }
+	public static ByteBuffer compose_ptr(ByteBuffer xcomposestatus, int size) { long address = compose_ptr(xcomposestatus); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int chars_matched(ByteBuffer xcomposestatus) { return xcomposestatus.getInt(xcomposestatus.position() + CHARS_MATCHED); }
 
 }

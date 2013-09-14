@@ -69,40 +69,40 @@ public final class XSelectionRequestEvent {
 	) {
 		ByteBuffer xselectionrequestevent = malloc();
 
-		typeSet(xselectionrequestevent, type);
-		serialSet(xselectionrequestevent, serial);
-		send_eventSet(xselectionrequestevent, send_event);
-		displaySet(xselectionrequestevent, display);
-		ownerSet(xselectionrequestevent, owner);
-		requestorSet(xselectionrequestevent, requestor);
-		selectionSet(xselectionrequestevent, selection);
-		targetSet(xselectionrequestevent, target);
-		propertySet(xselectionrequestevent, property);
-		timeSet(xselectionrequestevent, time);
+		type(xselectionrequestevent, type);
+		serial(xselectionrequestevent, serial);
+		send_event(xselectionrequestevent, send_event);
+		display(xselectionrequestevent, display);
+		owner(xselectionrequestevent, owner);
+		requestor(xselectionrequestevent, requestor);
+		selection(xselectionrequestevent, selection);
+		target(xselectionrequestevent, target);
+		property(xselectionrequestevent, property);
+		time(xselectionrequestevent, time);
 
 		return xselectionrequestevent;
 	}
 
-	public static void typeSet(ByteBuffer xselectionrequestevent, int type) { xselectionrequestevent.putInt(xselectionrequestevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xselectionrequestevent, long serial) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xselectionrequestevent, int send_event) { xselectionrequestevent.putInt(xselectionrequestevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xselectionrequestevent, long display) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + DISPLAY, display); }
-	public static void ownerSet(ByteBuffer xselectionrequestevent, long owner) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + OWNER, owner); }
-	public static void requestorSet(ByteBuffer xselectionrequestevent, long requestor) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + REQUESTOR, requestor); }
-	public static void selectionSet(ByteBuffer xselectionrequestevent, long selection) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + SELECTION, selection); }
-	public static void targetSet(ByteBuffer xselectionrequestevent, long target) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + TARGET, target); }
-	public static void propertySet(ByteBuffer xselectionrequestevent, long property) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + PROPERTY, property); }
-	public static void timeSet(ByteBuffer xselectionrequestevent, long time) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + TIME, time); }
+	public static void type(ByteBuffer xselectionrequestevent, int type) { xselectionrequestevent.putInt(xselectionrequestevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xselectionrequestevent, long serial) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xselectionrequestevent, int send_event) { xselectionrequestevent.putInt(xselectionrequestevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xselectionrequestevent, long display) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + DISPLAY, display); }
+	public static void owner(ByteBuffer xselectionrequestevent, long owner) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + OWNER, owner); }
+	public static void requestor(ByteBuffer xselectionrequestevent, long requestor) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + REQUESTOR, requestor); }
+	public static void selection(ByteBuffer xselectionrequestevent, long selection) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + SELECTION, selection); }
+	public static void target(ByteBuffer xselectionrequestevent, long target) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + TARGET, target); }
+	public static void property(ByteBuffer xselectionrequestevent, long property) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + PROPERTY, property); }
+	public static void time(ByteBuffer xselectionrequestevent, long time) { PointerBuffer.put(xselectionrequestevent, xselectionrequestevent.position() + TIME, time); }
 
-	public static int typeGet(ByteBuffer xselectionrequestevent) { return xselectionrequestevent.getInt(xselectionrequestevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xselectionrequestevent) { return xselectionrequestevent.getInt(xselectionrequestevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + DISPLAY); }
-	public static long ownerGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + OWNER); }
-	public static long requestorGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + REQUESTOR); }
-	public static long selectionGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + SELECTION); }
-	public static long targetGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + TARGET); }
-	public static long propertyGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + PROPERTY); }
-	public static long timeGet(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + TIME); }
+	public static int type(ByteBuffer xselectionrequestevent) { return xselectionrequestevent.getInt(xselectionrequestevent.position() + TYPE); }
+	public static long serial(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xselectionrequestevent) { return xselectionrequestevent.getInt(xselectionrequestevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + DISPLAY); }
+	public static long owner(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + OWNER); }
+	public static long requestor(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + REQUESTOR); }
+	public static long selection(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + SELECTION); }
+	public static long target(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + TARGET); }
+	public static long property(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + PROPERTY); }
+	public static long time(ByteBuffer xselectionrequestevent) { return PointerBuffer.get(xselectionrequestevent, xselectionrequestevent.position() + TIME); }
 
 }

@@ -84,55 +84,55 @@ public final class XButtonEvent {
 	) {
 		ByteBuffer xbuttonevent = malloc();
 
-		typeSet(xbuttonevent, type);
-		serialSet(xbuttonevent, serial);
-		send_eventSet(xbuttonevent, send_event);
-		displaySet(xbuttonevent, display);
-		windowSet(xbuttonevent, window);
-		rootSet(xbuttonevent, root);
-		subwindowSet(xbuttonevent, subwindow);
-		timeSet(xbuttonevent, time);
-		xSet(xbuttonevent, x);
-		ySet(xbuttonevent, y);
-		x_rootSet(xbuttonevent, x_root);
-		y_rootSet(xbuttonevent, y_root);
-		stateSet(xbuttonevent, state);
-		buttonSet(xbuttonevent, button);
-		same_screenSet(xbuttonevent, same_screen);
+		type(xbuttonevent, type);
+		serial(xbuttonevent, serial);
+		send_event(xbuttonevent, send_event);
+		display(xbuttonevent, display);
+		window(xbuttonevent, window);
+		root(xbuttonevent, root);
+		subwindow(xbuttonevent, subwindow);
+		time(xbuttonevent, time);
+		x(xbuttonevent, x);
+		y(xbuttonevent, y);
+		x_root(xbuttonevent, x_root);
+		y_root(xbuttonevent, y_root);
+		state(xbuttonevent, state);
+		button(xbuttonevent, button);
+		same_screen(xbuttonevent, same_screen);
 
 		return xbuttonevent;
 	}
 
-	public static void typeSet(ByteBuffer xbuttonevent, int type) { xbuttonevent.putInt(xbuttonevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xbuttonevent, long serial) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xbuttonevent, int send_event) { xbuttonevent.putInt(xbuttonevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xbuttonevent, long display) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xbuttonevent, long window) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + WINDOW, window); }
-	public static void rootSet(ByteBuffer xbuttonevent, long root) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + ROOT, root); }
-	public static void subwindowSet(ByteBuffer xbuttonevent, long subwindow) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + SUBWINDOW, subwindow); }
-	public static void timeSet(ByteBuffer xbuttonevent, long time) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + TIME, time); }
-	public static void xSet(ByteBuffer xbuttonevent, int x) { xbuttonevent.putInt(xbuttonevent.position() + X, x); }
-	public static void ySet(ByteBuffer xbuttonevent, int y) { xbuttonevent.putInt(xbuttonevent.position() + Y, y); }
-	public static void x_rootSet(ByteBuffer xbuttonevent, int x_root) { xbuttonevent.putInt(xbuttonevent.position() + X_ROOT, x_root); }
-	public static void y_rootSet(ByteBuffer xbuttonevent, int y_root) { xbuttonevent.putInt(xbuttonevent.position() + Y_ROOT, y_root); }
-	public static void stateSet(ByteBuffer xbuttonevent, int state) { xbuttonevent.putInt(xbuttonevent.position() + STATE, state); }
-	public static void buttonSet(ByteBuffer xbuttonevent, int button) { xbuttonevent.putInt(xbuttonevent.position() + BUTTON, button); }
-	public static void same_screenSet(ByteBuffer xbuttonevent, int same_screen) { xbuttonevent.putInt(xbuttonevent.position() + SAME_SCREEN, same_screen); }
+	public static void type(ByteBuffer xbuttonevent, int type) { xbuttonevent.putInt(xbuttonevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xbuttonevent, long serial) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xbuttonevent, int send_event) { xbuttonevent.putInt(xbuttonevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xbuttonevent, long display) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xbuttonevent, long window) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + WINDOW, window); }
+	public static void root(ByteBuffer xbuttonevent, long root) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + ROOT, root); }
+	public static void subwindow(ByteBuffer xbuttonevent, long subwindow) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + SUBWINDOW, subwindow); }
+	public static void time(ByteBuffer xbuttonevent, long time) { PointerBuffer.put(xbuttonevent, xbuttonevent.position() + TIME, time); }
+	public static void x(ByteBuffer xbuttonevent, int x) { xbuttonevent.putInt(xbuttonevent.position() + X, x); }
+	public static void y(ByteBuffer xbuttonevent, int y) { xbuttonevent.putInt(xbuttonevent.position() + Y, y); }
+	public static void x_root(ByteBuffer xbuttonevent, int x_root) { xbuttonevent.putInt(xbuttonevent.position() + X_ROOT, x_root); }
+	public static void y_root(ByteBuffer xbuttonevent, int y_root) { xbuttonevent.putInt(xbuttonevent.position() + Y_ROOT, y_root); }
+	public static void state(ByteBuffer xbuttonevent, int state) { xbuttonevent.putInt(xbuttonevent.position() + STATE, state); }
+	public static void button(ByteBuffer xbuttonevent, int button) { xbuttonevent.putInt(xbuttonevent.position() + BUTTON, button); }
+	public static void same_screen(ByteBuffer xbuttonevent, int same_screen) { xbuttonevent.putInt(xbuttonevent.position() + SAME_SCREEN, same_screen); }
 
-	public static int typeGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + WINDOW); }
-	public static long rootGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + ROOT); }
-	public static long subwindowGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + SUBWINDOW); }
-	public static long timeGet(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + TIME); }
-	public static int xGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + X); }
-	public static int yGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + Y); }
-	public static int x_rootGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + X_ROOT); }
-	public static int y_rootGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + Y_ROOT); }
-	public static int stateGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + STATE); }
-	public static int buttonGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + BUTTON); }
-	public static int same_screenGet(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + SAME_SCREEN); }
+	public static int type(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + TYPE); }
+	public static long serial(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + WINDOW); }
+	public static long root(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + ROOT); }
+	public static long subwindow(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + SUBWINDOW); }
+	public static long time(ByteBuffer xbuttonevent) { return PointerBuffer.get(xbuttonevent, xbuttonevent.position() + TIME); }
+	public static int x(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + X); }
+	public static int y(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + Y); }
+	public static int x_root(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + X_ROOT); }
+	public static int y_root(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + Y_ROOT); }
+	public static int state(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + STATE); }
+	public static int button(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + BUTTON); }
+	public static int same_screen(ByteBuffer xbuttonevent) { return xbuttonevent.getInt(xbuttonevent.position() + SAME_SCREEN); }
 
 }

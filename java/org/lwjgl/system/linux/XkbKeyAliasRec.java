@@ -97,7 +97,7 @@ public final class XkbKeyAliasRec {
 	public static void realGet(ByteBuffer xkbkeyaliasrec, long real, int bytes) {
 		memCopy(memAddress(xkbkeyaliasrec) + REAL, real, bytes);
 	}
-	public static void realGetb(ByteBuffer xkbkeyaliasrec, ByteBuffer real) {
+	public static void realGet(ByteBuffer xkbkeyaliasrec, ByteBuffer real) {
 		checkBufferGT(real, 4 * 1);
 		realGet(xkbkeyaliasrec, memAddress(real), real.remaining());
 	}
@@ -105,7 +105,7 @@ public final class XkbKeyAliasRec {
 	public static void aliasGet(ByteBuffer xkbkeyaliasrec, long alias, int bytes) {
 		memCopy(memAddress(xkbkeyaliasrec) + ALIAS, alias, bytes);
 	}
-	public static void aliasGetb(ByteBuffer xkbkeyaliasrec, ByteBuffer alias) {
+	public static void aliasGet(ByteBuffer xkbkeyaliasrec, ByteBuffer alias) {
 		checkBufferGT(alias, 4 * 1);
 		aliasGet(xkbkeyaliasrec, memAddress(alias), alias.remaining());
 	}

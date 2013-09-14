@@ -74,16 +74,16 @@ public final class OSVERSIONINFOEX {
 	) {
 		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
-		majorVersionSet(osversioninfoex, majorVersion);
-		minorVersionSet(osversioninfoex, minorVersion);
-		buildNumberSet(osversioninfoex, buildNumber);
-		platformIdSet(osversioninfoex, platformId);
+		osVersionInfoSize(osversioninfoex, osVersionInfoSize);
+		majorVersion(osversioninfoex, majorVersion);
+		minorVersion(osversioninfoex, minorVersion);
+		buildNumber(osversioninfoex, buildNumber);
+		platformId(osversioninfoex, platformId);
 		csdVersionSet(osversioninfoex, csdVersion, csdVersionBytes);
-		servicePackMajorSet(osversioninfoex, servicePackMajor);
-		servicePackMinorSet(osversioninfoex, servicePackMinor);
-		suiteMaskSet(osversioninfoex, suiteMask);
-		productTypeSet(osversioninfoex, productType);
+		servicePackMajor(osversioninfoex, servicePackMajor);
+		servicePackMinor(osversioninfoex, servicePackMinor);
+		suiteMask(osversioninfoex, suiteMask);
+		productType(osversioninfoex, productType);
 
 		return osversioninfoex;
 	}
@@ -103,16 +103,16 @@ public final class OSVERSIONINFOEX {
 	) {
 		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
-		majorVersionSet(osversioninfoex, majorVersion);
-		minorVersionSet(osversioninfoex, minorVersion);
-		buildNumberSet(osversioninfoex, buildNumber);
-		platformIdSet(osversioninfoex, platformId);
+		osVersionInfoSize(osversioninfoex, osVersionInfoSize);
+		majorVersion(osversioninfoex, majorVersion);
+		minorVersion(osversioninfoex, minorVersion);
+		buildNumber(osversioninfoex, buildNumber);
+		platformId(osversioninfoex, platformId);
 		csdVersionSet(osversioninfoex, csdVersion);
-		servicePackMajorSet(osversioninfoex, servicePackMajor);
-		servicePackMinorSet(osversioninfoex, servicePackMinor);
-		suiteMaskSet(osversioninfoex, suiteMask);
-		productTypeSet(osversioninfoex, productType);
+		servicePackMajor(osversioninfoex, servicePackMajor);
+		servicePackMinor(osversioninfoex, servicePackMinor);
+		suiteMask(osversioninfoex, suiteMask);
+		productType(osversioninfoex, productType);
 
 		return osversioninfoex;
 	}
@@ -132,25 +132,25 @@ public final class OSVERSIONINFOEX {
 	) {
 		ByteBuffer osversioninfoex = malloc();
 
-		osVersionInfoSizeSet(osversioninfoex, osVersionInfoSize);
-		majorVersionSet(osversioninfoex, majorVersion);
-		minorVersionSet(osversioninfoex, minorVersion);
-		buildNumberSet(osversioninfoex, buildNumber);
-		platformIdSet(osversioninfoex, platformId);
+		osVersionInfoSize(osversioninfoex, osVersionInfoSize);
+		majorVersion(osversioninfoex, majorVersion);
+		minorVersion(osversioninfoex, minorVersion);
+		buildNumber(osversioninfoex, buildNumber);
+		platformId(osversioninfoex, platformId);
 		csdVersionSet(osversioninfoex, csdVersion);
-		servicePackMajorSet(osversioninfoex, servicePackMajor);
-		servicePackMinorSet(osversioninfoex, servicePackMinor);
-		suiteMaskSet(osversioninfoex, suiteMask);
-		productTypeSet(osversioninfoex, productType);
+		servicePackMajor(osversioninfoex, servicePackMajor);
+		servicePackMinor(osversioninfoex, servicePackMinor);
+		suiteMask(osversioninfoex, suiteMask);
+		productType(osversioninfoex, productType);
 
 		return osversioninfoex;
 	}
 
-	public static void osVersionInfoSizeSet(ByteBuffer osversioninfoex, int osVersionInfoSize) { osversioninfoex.putInt(osversioninfoex.position() + OSVERSIONINFOSIZE, osVersionInfoSize); }
-	public static void majorVersionSet(ByteBuffer osversioninfoex, int majorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MAJORVERSION, majorVersion); }
-	public static void minorVersionSet(ByteBuffer osversioninfoex, int minorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MINORVERSION, minorVersion); }
-	public static void buildNumberSet(ByteBuffer osversioninfoex, int buildNumber) { osversioninfoex.putInt(osversioninfoex.position() + BUILDNUMBER, buildNumber); }
-	public static void platformIdSet(ByteBuffer osversioninfoex, int platformId) { osversioninfoex.putInt(osversioninfoex.position() + PLATFORMID, platformId); }
+	public static void osVersionInfoSize(ByteBuffer osversioninfoex, int osVersionInfoSize) { osversioninfoex.putInt(osversioninfoex.position() + OSVERSIONINFOSIZE, osVersionInfoSize); }
+	public static void majorVersion(ByteBuffer osversioninfoex, int majorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MAJORVERSION, majorVersion); }
+	public static void minorVersion(ByteBuffer osversioninfoex, int minorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MINORVERSION, minorVersion); }
+	public static void buildNumber(ByteBuffer osversioninfoex, int buildNumber) { osversioninfoex.putInt(osversioninfoex.position() + BUILDNUMBER, buildNumber); }
+	public static void platformId(ByteBuffer osversioninfoex, int platformId) { osversioninfoex.putInt(osversioninfoex.position() + PLATFORMID, platformId); }
 	public static void csdVersionSet(ByteBuffer osversioninfoex, long csdVersion, int bytes) { memCopy(csdVersion, memAddress(osversioninfoex) + CSDVERSION, bytes); }
 	public static void csdVersionSet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkNT2(csdVersion);
@@ -158,28 +158,28 @@ public final class OSVERSIONINFOEX {
 		csdVersionSet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
 	public static void csdVersionSet(ByteBuffer osversioninfoex, CharSequence csdVersion) { ByteBuffer buffer = memEncodeUTF16(csdVersion, true); csdVersionSet(osversioninfoex, memAddress(buffer), buffer.capacity()); }
-	public static void servicePackMajorSet(ByteBuffer osversioninfoex, int servicePackMajor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
-	public static void servicePackMinorSet(ByteBuffer osversioninfoex, int servicePackMinor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMINOR, (short)servicePackMinor); }
-	public static void suiteMaskSet(ByteBuffer osversioninfoex, int suiteMask) { osversioninfoex.putShort(osversioninfoex.position() + SUITEMASK, (short)suiteMask); }
-	public static void productTypeSet(ByteBuffer osversioninfoex, int productType) { osversioninfoex.put(osversioninfoex.position() + PRODUCTTYPE, (byte)productType); }
+	public static void servicePackMajor(ByteBuffer osversioninfoex, int servicePackMajor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
+	public static void servicePackMinor(ByteBuffer osversioninfoex, int servicePackMinor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMINOR, (short)servicePackMinor); }
+	public static void suiteMask(ByteBuffer osversioninfoex, int suiteMask) { osversioninfoex.putShort(osversioninfoex.position() + SUITEMASK, (short)suiteMask); }
+	public static void productType(ByteBuffer osversioninfoex, int productType) { osversioninfoex.put(osversioninfoex.position() + PRODUCTTYPE, (byte)productType); }
 
-	public static int osVersionInfoSizeGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + OSVERSIONINFOSIZE); }
-	public static int majorVersionGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MAJORVERSION); }
-	public static int minorVersionGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MINORVERSION); }
-	public static int buildNumberGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + BUILDNUMBER); }
-	public static int platformIdGet(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + PLATFORMID); }
+	public static int osVersionInfoSize(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + OSVERSIONINFOSIZE); }
+	public static int majorVersion(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MAJORVERSION); }
+	public static int minorVersion(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MINORVERSION); }
+	public static int buildNumber(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + BUILDNUMBER); }
+	public static int platformId(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + PLATFORMID); }
 	public static void csdVersionGet(ByteBuffer osversioninfoex, long csdVersion, int bytes) {
 		memCopy(memAddress(osversioninfoex) + CSDVERSION, csdVersion, bytes);
 	}
-	public static void csdVersionGetb(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
+	public static void csdVersionGet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkBufferGT(csdVersion, 128 * 2);
 		csdVersionGet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
 	public static String csdVersionGets(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }
 	public static String csdVersionGets(ByteBuffer osversioninfoex, int size) { return memDecodeUTF16(osversioninfoex, size, CSDVERSION); }
-	public static int servicePackMajorGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMAJOR); }
-	public static int servicePackMinorGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMINOR); }
-	public static int suiteMaskGet(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SUITEMASK); }
-	public static int productTypeGet(ByteBuffer osversioninfoex) { return osversioninfoex.get(osversioninfoex.position() + PRODUCTTYPE); }
+	public static int servicePackMajor(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMAJOR); }
+	public static int servicePackMinor(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMINOR); }
+	public static int suiteMask(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SUITEMASK); }
+	public static int productType(ByteBuffer osversioninfoex) { return osversioninfoex.get(osversioninfoex.position() + PRODUCTTYPE); }
 
 }

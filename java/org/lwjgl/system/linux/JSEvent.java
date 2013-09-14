@@ -51,22 +51,22 @@ public final class JSEvent {
 	) {
 		ByteBuffer js_event = malloc();
 
-		timeSet(js_event, time);
-		valueSet(js_event, value);
-		typeSet(js_event, type);
-		numberSet(js_event, number);
+		time(js_event, time);
+		value(js_event, value);
+		type(js_event, type);
+		number(js_event, number);
 
 		return js_event;
 	}
 
-	public static void timeSet(ByteBuffer js_event, int time) { js_event.putInt(js_event.position() + TIME, time); }
-	public static void valueSet(ByteBuffer js_event, int value) { js_event.putShort(js_event.position() + VALUE, (short)value); }
-	public static void typeSet(ByteBuffer js_event, int type) { js_event.put(js_event.position() + TYPE, (byte)type); }
-	public static void numberSet(ByteBuffer js_event, int number) { js_event.put(js_event.position() + NUMBER, (byte)number); }
+	public static void time(ByteBuffer js_event, int time) { js_event.putInt(js_event.position() + TIME, time); }
+	public static void value(ByteBuffer js_event, int value) { js_event.putShort(js_event.position() + VALUE, (short)value); }
+	public static void type(ByteBuffer js_event, int type) { js_event.put(js_event.position() + TYPE, (byte)type); }
+	public static void number(ByteBuffer js_event, int number) { js_event.put(js_event.position() + NUMBER, (byte)number); }
 
-	public static int timeGet(ByteBuffer js_event) { return js_event.getInt(js_event.position() + TIME); }
-	public static int valueGet(ByteBuffer js_event) { return js_event.getShort(js_event.position() + VALUE); }
-	public static int typeGet(ByteBuffer js_event) { return js_event.get(js_event.position() + TYPE) & 0xFF; }
-	public static int numberGet(ByteBuffer js_event) { return js_event.get(js_event.position() + NUMBER) & 0xFF; }
+	public static int time(ByteBuffer js_event) { return js_event.getInt(js_event.position() + TIME); }
+	public static int value(ByteBuffer js_event) { return js_event.getShort(js_event.position() + VALUE); }
+	public static int type(ByteBuffer js_event) { return js_event.get(js_event.position() + TYPE) & 0xFF; }
+	public static int number(ByteBuffer js_event) { return js_event.get(js_event.position() + NUMBER) & 0xFF; }
 
 }

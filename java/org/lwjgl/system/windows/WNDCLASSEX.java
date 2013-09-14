@@ -75,18 +75,18 @@ public final class WNDCLASSEX {
 	) {
 		ByteBuffer wndclassex = malloc();
 
-		sizeSet(wndclassex, size);
-		styleSet(wndclassex, style);
-		wndProcSet(wndclassex, wndProc);
-		clsExtraSet(wndclassex, clsExtra);
-		wndExtraSet(wndclassex, wndExtra);
-		instanceSet(wndclassex, instance);
-		iconSet(wndclassex, icon);
-		cursorSet(wndclassex, cursor);
-		backgroundSet(wndclassex, background);
-		menuNameSet(wndclassex, menuName);
-		classNameSet(wndclassex, className);
-		iconSmSet(wndclassex, iconSm);
+		size(wndclassex, size);
+		style(wndclassex, style);
+		wndProc(wndclassex, wndProc);
+		clsExtra(wndclassex, clsExtra);
+		wndExtra(wndclassex, wndExtra);
+		instance(wndclassex, instance);
+		icon(wndclassex, icon);
+		cursor(wndclassex, cursor);
+		background(wndclassex, background);
+		menuName(wndclassex, menuName);
+		className(wndclassex, className);
+		iconSm(wndclassex, iconSm);
 
 		return wndclassex;
 	}
@@ -108,18 +108,18 @@ public final class WNDCLASSEX {
 	) {
 		ByteBuffer wndclassex = malloc();
 
-		sizeSet(wndclassex, size);
-		styleSet(wndclassex, style);
-		wndProcSet(wndclassex, wndProc);
-		clsExtraSet(wndclassex, clsExtra);
-		wndExtraSet(wndclassex, wndExtra);
-		instanceSet(wndclassex, instance);
-		iconSet(wndclassex, icon);
-		cursorSet(wndclassex, cursor);
-		backgroundSet(wndclassex, background);
+		size(wndclassex, size);
+		style(wndclassex, style);
+		wndProc(wndclassex, wndProc);
+		clsExtra(wndclassex, clsExtra);
+		wndExtra(wndclassex, wndExtra);
+		instance(wndclassex, instance);
+		icon(wndclassex, icon);
+		cursor(wndclassex, cursor);
+		background(wndclassex, background);
 		menuNameSet(wndclassex, menuName);
 		classNameSet(wndclassex, className);
-		iconSmSet(wndclassex, iconSm);
+		iconSm(wndclassex, iconSm);
 
 		return wndclassex;
 	}
@@ -141,54 +141,54 @@ public final class WNDCLASSEX {
 	) {
 		ByteBuffer wndclassex = malloc();
 
-		sizeSet(wndclassex, size);
-		styleSet(wndclassex, style);
-		wndProcSet(wndclassex, wndProc);
-		clsExtraSet(wndclassex, clsExtra);
-		wndExtraSet(wndclassex, wndExtra);
-		instanceSet(wndclassex, instance);
-		iconSet(wndclassex, icon);
-		cursorSet(wndclassex, cursor);
-		backgroundSet(wndclassex, background);
+		size(wndclassex, size);
+		style(wndclassex, style);
+		wndProc(wndclassex, wndProc);
+		clsExtra(wndclassex, clsExtra);
+		wndExtra(wndclassex, wndExtra);
+		instance(wndclassex, instance);
+		icon(wndclassex, icon);
+		cursor(wndclassex, cursor);
+		background(wndclassex, background);
 		menuNameSet(wndclassex, menuName);
 		classNameSet(wndclassex, className);
-		iconSmSet(wndclassex, iconSm);
+		iconSm(wndclassex, iconSm);
 
 		return wndclassex;
 	}
 
-	public static void sizeSet(ByteBuffer wndclassex, int size) { wndclassex.putInt(wndclassex.position() + SIZE, size); }
-	public static void styleSet(ByteBuffer wndclassex, int style) { wndclassex.putInt(wndclassex.position() + STYLE, style); }
-	public static void wndProcSet(ByteBuffer wndclassex, long wndProc) { PointerBuffer.put(wndclassex, wndclassex.position() + WNDPROC, wndProc); }
-	public static void clsExtraSet(ByteBuffer wndclassex, int clsExtra) { wndclassex.putInt(wndclassex.position() + CLSEXTRA, clsExtra); }
-	public static void wndExtraSet(ByteBuffer wndclassex, int wndExtra) { wndclassex.putInt(wndclassex.position() + WNDEXTRA, wndExtra); }
-	public static void instanceSet(ByteBuffer wndclassex, long instance) { PointerBuffer.put(wndclassex, wndclassex.position() + INSTANCE, instance); }
-	public static void iconSet(ByteBuffer wndclassex, long icon) { PointerBuffer.put(wndclassex, wndclassex.position() + ICON, icon); }
-	public static void cursorSet(ByteBuffer wndclassex, long cursor) { PointerBuffer.put(wndclassex, wndclassex.position() + CURSOR, cursor); }
-	public static void backgroundSet(ByteBuffer wndclassex, long background) { PointerBuffer.put(wndclassex, wndclassex.position() + BACKGROUND, background); }
-	public static void menuNameSet(ByteBuffer wndclassex, long menuName) { PointerBuffer.put(wndclassex, wndclassex.position() + MENUNAME, menuName); }
-	public static void menuNameSet(ByteBuffer wndclassex, ByteBuffer menuName) { menuNameSet(wndclassex, menuName == null ? 0 : memAddress(checkNT2(menuName))); }
-	public static void menuNameSet(ByteBuffer wndclassex, CharSequence menuName) { menuNameSet(wndclassex, menuName == null ? 0 : memAddress(memEncodeUTF16(menuName))); }
-	public static void classNameSet(ByteBuffer wndclassex, long className) { PointerBuffer.put(wndclassex, wndclassex.position() + CLASSNAME, className); }
-	public static void classNameSet(ByteBuffer wndclassex, ByteBuffer className) { classNameSet(wndclassex, className == null ? 0 : memAddress(checkNT2(className))); }
-	public static void classNameSet(ByteBuffer wndclassex, CharSequence className) { classNameSet(wndclassex, className == null ? 0 : memAddress(memEncodeUTF16(className))); }
-	public static void iconSmSet(ByteBuffer wndclassex, long iconSm) { PointerBuffer.put(wndclassex, wndclassex.position() + ICONSM, iconSm); }
+	public static void size(ByteBuffer wndclassex, int size) { wndclassex.putInt(wndclassex.position() + SIZE, size); }
+	public static void style(ByteBuffer wndclassex, int style) { wndclassex.putInt(wndclassex.position() + STYLE, style); }
+	public static void wndProc(ByteBuffer wndclassex, long wndProc) { PointerBuffer.put(wndclassex, wndclassex.position() + WNDPROC, wndProc); }
+	public static void clsExtra(ByteBuffer wndclassex, int clsExtra) { wndclassex.putInt(wndclassex.position() + CLSEXTRA, clsExtra); }
+	public static void wndExtra(ByteBuffer wndclassex, int wndExtra) { wndclassex.putInt(wndclassex.position() + WNDEXTRA, wndExtra); }
+	public static void instance(ByteBuffer wndclassex, long instance) { PointerBuffer.put(wndclassex, wndclassex.position() + INSTANCE, instance); }
+	public static void icon(ByteBuffer wndclassex, long icon) { PointerBuffer.put(wndclassex, wndclassex.position() + ICON, icon); }
+	public static void cursor(ByteBuffer wndclassex, long cursor) { PointerBuffer.put(wndclassex, wndclassex.position() + CURSOR, cursor); }
+	public static void background(ByteBuffer wndclassex, long background) { PointerBuffer.put(wndclassex, wndclassex.position() + BACKGROUND, background); }
+	public static void menuName(ByteBuffer wndclassex, long menuName) { PointerBuffer.put(wndclassex, wndclassex.position() + MENUNAME, menuName); }
+	public static void menuNameSet(ByteBuffer wndclassex, ByteBuffer menuName) { menuName(wndclassex, menuName == null ? NULL : memAddress(checkNT2(menuName))); }
+	public static void menuNameSet(ByteBuffer wndclassex, CharSequence menuName) { menuName(wndclassex, menuName == null ? NULL : memAddress(memEncodeUTF16(menuName))); }
+	public static void className(ByteBuffer wndclassex, long className) { PointerBuffer.put(wndclassex, wndclassex.position() + CLASSNAME, className); }
+	public static void classNameSet(ByteBuffer wndclassex, ByteBuffer className) { className(wndclassex, className == null ? NULL : memAddress(checkNT2(className))); }
+	public static void classNameSet(ByteBuffer wndclassex, CharSequence className) { className(wndclassex, className == null ? NULL : memAddress(memEncodeUTF16(className))); }
+	public static void iconSm(ByteBuffer wndclassex, long iconSm) { PointerBuffer.put(wndclassex, wndclassex.position() + ICONSM, iconSm); }
 
-	public static int sizeGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + SIZE); }
-	public static int styleGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + STYLE); }
-	public static long wndProcGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + WNDPROC); }
-	public static int clsExtraGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + CLSEXTRA); }
-	public static int wndExtraGet(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + WNDEXTRA); }
-	public static long instanceGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + INSTANCE); }
-	public static long iconGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICON); }
-	public static long cursorGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CURSOR); }
-	public static long backgroundGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + BACKGROUND); }
-	public static long menuNameGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + MENUNAME); }
-	public static ByteBuffer menuNameGetb(ByteBuffer wndclassex) { long address = menuNameGet(wndclassex); return address == 0 ? null : memByteBufferNT2(address); }
-	public static String menuNameGets(ByteBuffer wndclassex) { long address = menuNameGet(wndclassex); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
-	public static long classNameGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CLASSNAME); }
-	public static ByteBuffer classNameGetb(ByteBuffer wndclassex) { long address = classNameGet(wndclassex); return address == 0 ? null : memByteBufferNT2(address); }
-	public static String classNameGets(ByteBuffer wndclassex) { long address = classNameGet(wndclassex); return address == 0 ? null : memDecodeUTF16(memByteBufferNT2(address)); }
-	public static long iconSmGet(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICONSM); }
+	public static int size(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + SIZE); }
+	public static int style(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + STYLE); }
+	public static long wndProc(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + WNDPROC); }
+	public static int clsExtra(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + CLSEXTRA); }
+	public static int wndExtra(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + WNDEXTRA); }
+	public static long instance(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + INSTANCE); }
+	public static long icon(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICON); }
+	public static long cursor(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CURSOR); }
+	public static long background(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + BACKGROUND); }
+	public static long menuName(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + MENUNAME); }
+	public static ByteBuffer menuNameGetb(ByteBuffer wndclassex) { long address = menuName(wndclassex); return address == NULL ? null : memByteBufferNT2(address); }
+	public static String menuNameGets(ByteBuffer wndclassex) { long address = menuName(wndclassex); return address == NULL ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static long className(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CLASSNAME); }
+	public static ByteBuffer classNameGetb(ByteBuffer wndclassex) { long address = className(wndclassex); return address == NULL ? null : memByteBufferNT2(address); }
+	public static String classNameGets(ByteBuffer wndclassex) { long address = className(wndclassex); return address == NULL ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static long iconSm(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICONSM); }
 
 }

@@ -114,28 +114,28 @@ public final class JOYCAPS {
 	) {
 		ByteBuffer joycaps = malloc();
 
-		midSet(joycaps, mid);
-		pidSet(joycaps, pid);
+		mid(joycaps, mid);
+		pid(joycaps, pid);
 		pnameSet(joycaps, pname, pnameBytes);
-		xminSet(joycaps, xmin);
-		xmaxSet(joycaps, xmax);
-		yminSet(joycaps, ymin);
-		ymaxSet(joycaps, ymax);
-		zminSet(joycaps, zmin);
-		zmaxSet(joycaps, zmax);
-		numButtonsSet(joycaps, numButtons);
-		periodMinSet(joycaps, periodMin);
-		periodMaxSet(joycaps, periodMax);
-		rminSet(joycaps, rmin);
-		rmaxSet(joycaps, rmax);
-		uminSet(joycaps, umin);
-		umaxSet(joycaps, umax);
-		vminSet(joycaps, vmin);
-		vmaxSet(joycaps, vmax);
-		capsSet(joycaps, caps);
-		maxAxesSet(joycaps, maxAxes);
-		numAxesSet(joycaps, numAxes);
-		maxButtonsSet(joycaps, maxButtons);
+		xmin(joycaps, xmin);
+		xmax(joycaps, xmax);
+		ymin(joycaps, ymin);
+		ymax(joycaps, ymax);
+		zmin(joycaps, zmin);
+		zmax(joycaps, zmax);
+		numButtons(joycaps, numButtons);
+		periodMin(joycaps, periodMin);
+		periodMax(joycaps, periodMax);
+		rmin(joycaps, rmin);
+		rmax(joycaps, rmax);
+		umin(joycaps, umin);
+		umax(joycaps, umax);
+		vmin(joycaps, vmin);
+		vmax(joycaps, vmax);
+		caps(joycaps, caps);
+		maxAxes(joycaps, maxAxes);
+		numAxes(joycaps, numAxes);
+		maxButtons(joycaps, maxButtons);
 		regKeySet(joycaps, regKey, regKeyBytes);
 		OEMVxDSet(joycaps, OEMVxD, OEMVxDBytes);
 
@@ -171,28 +171,28 @@ public final class JOYCAPS {
 	) {
 		ByteBuffer joycaps = malloc();
 
-		midSet(joycaps, mid);
-		pidSet(joycaps, pid);
+		mid(joycaps, mid);
+		pid(joycaps, pid);
 		pnameSet(joycaps, pname);
-		xminSet(joycaps, xmin);
-		xmaxSet(joycaps, xmax);
-		yminSet(joycaps, ymin);
-		ymaxSet(joycaps, ymax);
-		zminSet(joycaps, zmin);
-		zmaxSet(joycaps, zmax);
-		numButtonsSet(joycaps, numButtons);
-		periodMinSet(joycaps, periodMin);
-		periodMaxSet(joycaps, periodMax);
-		rminSet(joycaps, rmin);
-		rmaxSet(joycaps, rmax);
-		uminSet(joycaps, umin);
-		umaxSet(joycaps, umax);
-		vminSet(joycaps, vmin);
-		vmaxSet(joycaps, vmax);
-		capsSet(joycaps, caps);
-		maxAxesSet(joycaps, maxAxes);
-		numAxesSet(joycaps, numAxes);
-		maxButtonsSet(joycaps, maxButtons);
+		xmin(joycaps, xmin);
+		xmax(joycaps, xmax);
+		ymin(joycaps, ymin);
+		ymax(joycaps, ymax);
+		zmin(joycaps, zmin);
+		zmax(joycaps, zmax);
+		numButtons(joycaps, numButtons);
+		periodMin(joycaps, periodMin);
+		periodMax(joycaps, periodMax);
+		rmin(joycaps, rmin);
+		rmax(joycaps, rmax);
+		umin(joycaps, umin);
+		umax(joycaps, umax);
+		vmin(joycaps, vmin);
+		vmax(joycaps, vmax);
+		caps(joycaps, caps);
+		maxAxes(joycaps, maxAxes);
+		numAxes(joycaps, numAxes);
+		maxButtons(joycaps, maxButtons);
 		regKeySet(joycaps, regKey);
 		OEMVxDSet(joycaps, OEMVxD);
 
@@ -228,36 +228,36 @@ public final class JOYCAPS {
 	) {
 		ByteBuffer joycaps = malloc();
 
-		midSet(joycaps, mid);
-		pidSet(joycaps, pid);
+		mid(joycaps, mid);
+		pid(joycaps, pid);
 		pnameSet(joycaps, pname);
-		xminSet(joycaps, xmin);
-		xmaxSet(joycaps, xmax);
-		yminSet(joycaps, ymin);
-		ymaxSet(joycaps, ymax);
-		zminSet(joycaps, zmin);
-		zmaxSet(joycaps, zmax);
-		numButtonsSet(joycaps, numButtons);
-		periodMinSet(joycaps, periodMin);
-		periodMaxSet(joycaps, periodMax);
-		rminSet(joycaps, rmin);
-		rmaxSet(joycaps, rmax);
-		uminSet(joycaps, umin);
-		umaxSet(joycaps, umax);
-		vminSet(joycaps, vmin);
-		vmaxSet(joycaps, vmax);
-		capsSet(joycaps, caps);
-		maxAxesSet(joycaps, maxAxes);
-		numAxesSet(joycaps, numAxes);
-		maxButtonsSet(joycaps, maxButtons);
+		xmin(joycaps, xmin);
+		xmax(joycaps, xmax);
+		ymin(joycaps, ymin);
+		ymax(joycaps, ymax);
+		zmin(joycaps, zmin);
+		zmax(joycaps, zmax);
+		numButtons(joycaps, numButtons);
+		periodMin(joycaps, periodMin);
+		periodMax(joycaps, periodMax);
+		rmin(joycaps, rmin);
+		rmax(joycaps, rmax);
+		umin(joycaps, umin);
+		umax(joycaps, umax);
+		vmin(joycaps, vmin);
+		vmax(joycaps, vmax);
+		caps(joycaps, caps);
+		maxAxes(joycaps, maxAxes);
+		numAxes(joycaps, numAxes);
+		maxButtons(joycaps, maxButtons);
 		regKeySet(joycaps, regKey);
 		OEMVxDSet(joycaps, OEMVxD);
 
 		return joycaps;
 	}
 
-	public static void midSet(ByteBuffer joycaps, int mid) { joycaps.putShort(joycaps.position() + MID, (short)mid); }
-	public static void pidSet(ByteBuffer joycaps, int pid) { joycaps.putShort(joycaps.position() + PID, (short)pid); }
+	public static void mid(ByteBuffer joycaps, int mid) { joycaps.putShort(joycaps.position() + MID, (short)mid); }
+	public static void pid(ByteBuffer joycaps, int pid) { joycaps.putShort(joycaps.position() + PID, (short)pid); }
 	public static void pnameSet(ByteBuffer joycaps, long pname, int bytes) { memCopy(pname, memAddress(joycaps) + PNAME, bytes); }
 	public static void pnameSet(ByteBuffer joycaps, ByteBuffer pname) {
 		checkNT2(pname);
@@ -265,25 +265,25 @@ public final class JOYCAPS {
 		pnameSet(joycaps, memAddress(pname), pname.remaining());
 	}
 	public static void pnameSet(ByteBuffer joycaps, CharSequence pname) { ByteBuffer buffer = memEncodeUTF16(pname, true); pnameSet(joycaps, memAddress(buffer), buffer.capacity()); }
-	public static void xminSet(ByteBuffer joycaps, int xmin) { joycaps.putInt(joycaps.position() + XMIN, xmin); }
-	public static void xmaxSet(ByteBuffer joycaps, int xmax) { joycaps.putInt(joycaps.position() + XMAX, xmax); }
-	public static void yminSet(ByteBuffer joycaps, int ymin) { joycaps.putInt(joycaps.position() + YMIN, ymin); }
-	public static void ymaxSet(ByteBuffer joycaps, int ymax) { joycaps.putInt(joycaps.position() + YMAX, ymax); }
-	public static void zminSet(ByteBuffer joycaps, int zmin) { joycaps.putInt(joycaps.position() + ZMIN, zmin); }
-	public static void zmaxSet(ByteBuffer joycaps, int zmax) { joycaps.putInt(joycaps.position() + ZMAX, zmax); }
-	public static void numButtonsSet(ByteBuffer joycaps, int numButtons) { joycaps.putInt(joycaps.position() + NUMBUTTONS, numButtons); }
-	public static void periodMinSet(ByteBuffer joycaps, int periodMin) { joycaps.putInt(joycaps.position() + PERIODMIN, periodMin); }
-	public static void periodMaxSet(ByteBuffer joycaps, int periodMax) { joycaps.putInt(joycaps.position() + PERIODMAX, periodMax); }
-	public static void rminSet(ByteBuffer joycaps, int rmin) { joycaps.putInt(joycaps.position() + RMIN, rmin); }
-	public static void rmaxSet(ByteBuffer joycaps, int rmax) { joycaps.putInt(joycaps.position() + RMAX, rmax); }
-	public static void uminSet(ByteBuffer joycaps, int umin) { joycaps.putInt(joycaps.position() + UMIN, umin); }
-	public static void umaxSet(ByteBuffer joycaps, int umax) { joycaps.putInt(joycaps.position() + UMAX, umax); }
-	public static void vminSet(ByteBuffer joycaps, int vmin) { joycaps.putInt(joycaps.position() + VMIN, vmin); }
-	public static void vmaxSet(ByteBuffer joycaps, int vmax) { joycaps.putInt(joycaps.position() + VMAX, vmax); }
-	public static void capsSet(ByteBuffer joycaps, int caps) { joycaps.putInt(joycaps.position() + CAPS, caps); }
-	public static void maxAxesSet(ByteBuffer joycaps, int maxAxes) { joycaps.putInt(joycaps.position() + MAXAXES, maxAxes); }
-	public static void numAxesSet(ByteBuffer joycaps, int numAxes) { joycaps.putInt(joycaps.position() + NUMAXES, numAxes); }
-	public static void maxButtonsSet(ByteBuffer joycaps, int maxButtons) { joycaps.putInt(joycaps.position() + MAXBUTTONS, maxButtons); }
+	public static void xmin(ByteBuffer joycaps, int xmin) { joycaps.putInt(joycaps.position() + XMIN, xmin); }
+	public static void xmax(ByteBuffer joycaps, int xmax) { joycaps.putInt(joycaps.position() + XMAX, xmax); }
+	public static void ymin(ByteBuffer joycaps, int ymin) { joycaps.putInt(joycaps.position() + YMIN, ymin); }
+	public static void ymax(ByteBuffer joycaps, int ymax) { joycaps.putInt(joycaps.position() + YMAX, ymax); }
+	public static void zmin(ByteBuffer joycaps, int zmin) { joycaps.putInt(joycaps.position() + ZMIN, zmin); }
+	public static void zmax(ByteBuffer joycaps, int zmax) { joycaps.putInt(joycaps.position() + ZMAX, zmax); }
+	public static void numButtons(ByteBuffer joycaps, int numButtons) { joycaps.putInt(joycaps.position() + NUMBUTTONS, numButtons); }
+	public static void periodMin(ByteBuffer joycaps, int periodMin) { joycaps.putInt(joycaps.position() + PERIODMIN, periodMin); }
+	public static void periodMax(ByteBuffer joycaps, int periodMax) { joycaps.putInt(joycaps.position() + PERIODMAX, periodMax); }
+	public static void rmin(ByteBuffer joycaps, int rmin) { joycaps.putInt(joycaps.position() + RMIN, rmin); }
+	public static void rmax(ByteBuffer joycaps, int rmax) { joycaps.putInt(joycaps.position() + RMAX, rmax); }
+	public static void umin(ByteBuffer joycaps, int umin) { joycaps.putInt(joycaps.position() + UMIN, umin); }
+	public static void umax(ByteBuffer joycaps, int umax) { joycaps.putInt(joycaps.position() + UMAX, umax); }
+	public static void vmin(ByteBuffer joycaps, int vmin) { joycaps.putInt(joycaps.position() + VMIN, vmin); }
+	public static void vmax(ByteBuffer joycaps, int vmax) { joycaps.putInt(joycaps.position() + VMAX, vmax); }
+	public static void caps(ByteBuffer joycaps, int caps) { joycaps.putInt(joycaps.position() + CAPS, caps); }
+	public static void maxAxes(ByteBuffer joycaps, int maxAxes) { joycaps.putInt(joycaps.position() + MAXAXES, maxAxes); }
+	public static void numAxes(ByteBuffer joycaps, int numAxes) { joycaps.putInt(joycaps.position() + NUMAXES, numAxes); }
+	public static void maxButtons(ByteBuffer joycaps, int maxButtons) { joycaps.putInt(joycaps.position() + MAXBUTTONS, maxButtons); }
 	public static void regKeySet(ByteBuffer joycaps, long regKey, int bytes) { memCopy(regKey, memAddress(joycaps) + REGKEY, bytes); }
 	public static void regKeySet(ByteBuffer joycaps, ByteBuffer regKey) {
 		checkNT2(regKey);
@@ -299,40 +299,40 @@ public final class JOYCAPS {
 	}
 	public static void OEMVxDSet(ByteBuffer joycaps, CharSequence OEMVxD) { ByteBuffer buffer = memEncodeUTF16(OEMVxD, true); OEMVxDSet(joycaps, memAddress(buffer), buffer.capacity()); }
 
-	public static int midGet(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + MID); }
-	public static int pidGet(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + PID); }
+	public static int mid(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + MID); }
+	public static int pid(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + PID); }
 	public static void pnameGet(ByteBuffer joycaps, long pname, int bytes) {
 		memCopy(memAddress(joycaps) + PNAME, pname, bytes);
 	}
-	public static void pnameGetb(ByteBuffer joycaps, ByteBuffer pname) {
+	public static void pnameGet(ByteBuffer joycaps, ByteBuffer pname) {
 		checkBufferGT(pname, 32 * 2);
 		pnameGet(joycaps, memAddress(pname), pname.remaining());
 	}
 	public static String pnameGets(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, PNAME), PNAME); }
 	public static String pnameGets(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, PNAME); }
-	public static int xminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMIN); }
-	public static int xmaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMAX); }
-	public static int yminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + YMIN); }
-	public static int ymaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + YMAX); }
-	public static int zminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + ZMIN); }
-	public static int zmaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + ZMAX); }
-	public static int numButtonsGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + NUMBUTTONS); }
-	public static int periodMinGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + PERIODMIN); }
-	public static int periodMaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + PERIODMAX); }
-	public static int rminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + RMIN); }
-	public static int rmaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + RMAX); }
-	public static int uminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + UMIN); }
-	public static int umaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + UMAX); }
-	public static int vminGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + VMIN); }
-	public static int vmaxGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + VMAX); }
-	public static int capsGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + CAPS); }
-	public static int maxAxesGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + MAXAXES); }
-	public static int numAxesGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + NUMAXES); }
-	public static int maxButtonsGet(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + MAXBUTTONS); }
+	public static int xmin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMIN); }
+	public static int xmax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMAX); }
+	public static int ymin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + YMIN); }
+	public static int ymax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + YMAX); }
+	public static int zmin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + ZMIN); }
+	public static int zmax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + ZMAX); }
+	public static int numButtons(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + NUMBUTTONS); }
+	public static int periodMin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + PERIODMIN); }
+	public static int periodMax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + PERIODMAX); }
+	public static int rmin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + RMIN); }
+	public static int rmax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + RMAX); }
+	public static int umin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + UMIN); }
+	public static int umax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + UMAX); }
+	public static int vmin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + VMIN); }
+	public static int vmax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + VMAX); }
+	public static int caps(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + CAPS); }
+	public static int maxAxes(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + MAXAXES); }
+	public static int numAxes(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + NUMAXES); }
+	public static int maxButtons(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + MAXBUTTONS); }
 	public static void regKeyGet(ByteBuffer joycaps, long regKey, int bytes) {
 		memCopy(memAddress(joycaps) + REGKEY, regKey, bytes);
 	}
-	public static void regKeyGetb(ByteBuffer joycaps, ByteBuffer regKey) {
+	public static void regKeyGet(ByteBuffer joycaps, ByteBuffer regKey) {
 		checkBufferGT(regKey, 32 * 2);
 		regKeyGet(joycaps, memAddress(regKey), regKey.remaining());
 	}
@@ -341,7 +341,7 @@ public final class JOYCAPS {
 	public static void OEMVxDGet(ByteBuffer joycaps, long OEMVxD, int bytes) {
 		memCopy(memAddress(joycaps) + OEMVXD, OEMVxD, bytes);
 	}
-	public static void OEMVxDGetb(ByteBuffer joycaps, ByteBuffer OEMVxD) {
+	public static void OEMVxDGet(ByteBuffer joycaps, ByteBuffer OEMVxD) {
 		checkBufferGT(OEMVxD, 260 * 2);
 		OEMVxDGet(joycaps, memAddress(OEMVxD), OEMVxD.remaining());
 	}

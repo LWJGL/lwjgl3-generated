@@ -77,11 +77,11 @@ public final class GLFWgammaramp {
 	}
 
 	public static void red(ByteBuffer glfwgammaramp, long red) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + RED, red); }
-	public static void redSet(ByteBuffer glfwgammaramp, ByteBuffer red) { redSet(glfwgammaramp, memAddress(red)); }
+	public static void red(ByteBuffer glfwgammaramp, ByteBuffer red) { red(glfwgammaramp, memAddress(red)); }
 	public static void green(ByteBuffer glfwgammaramp, long green) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + GREEN, green); }
-	public static void greenSet(ByteBuffer glfwgammaramp, ByteBuffer green) { greenSet(glfwgammaramp, memAddress(green)); }
+	public static void green(ByteBuffer glfwgammaramp, ByteBuffer green) { green(glfwgammaramp, memAddress(green)); }
 	public static void blue(ByteBuffer glfwgammaramp, long blue) { PointerBuffer.put(glfwgammaramp, glfwgammaramp.position() + BLUE, blue); }
-	public static void blueSet(ByteBuffer glfwgammaramp, ByteBuffer blue) { blueSet(glfwgammaramp, memAddress(blue)); }
+	public static void blue(ByteBuffer glfwgammaramp, ByteBuffer blue) { blue(glfwgammaramp, memAddress(blue)); }
 	public static void size(ByteBuffer glfwgammaramp, int size) { glfwgammaramp.putInt(glfwgammaramp.position() + SIZE, size); }
 
 	public static long red(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + RED); }

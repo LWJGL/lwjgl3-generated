@@ -63,34 +63,34 @@ public final class XPropertyEvent {
 	) {
 		ByteBuffer xpropertyevent = malloc();
 
-		typeSet(xpropertyevent, type);
-		serialSet(xpropertyevent, serial);
-		send_eventSet(xpropertyevent, send_event);
-		displaySet(xpropertyevent, display);
-		windowSet(xpropertyevent, window);
-		atomSet(xpropertyevent, atom);
-		timeSet(xpropertyevent, time);
-		stateSet(xpropertyevent, state);
+		type(xpropertyevent, type);
+		serial(xpropertyevent, serial);
+		send_event(xpropertyevent, send_event);
+		display(xpropertyevent, display);
+		window(xpropertyevent, window);
+		atom(xpropertyevent, atom);
+		time(xpropertyevent, time);
+		state(xpropertyevent, state);
 
 		return xpropertyevent;
 	}
 
-	public static void typeSet(ByteBuffer xpropertyevent, int type) { xpropertyevent.putInt(xpropertyevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xpropertyevent, long serial) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xpropertyevent, int send_event) { xpropertyevent.putInt(xpropertyevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xpropertyevent, long display) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xpropertyevent, long window) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + WINDOW, window); }
-	public static void atomSet(ByteBuffer xpropertyevent, long atom) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + ATOM, atom); }
-	public static void timeSet(ByteBuffer xpropertyevent, long time) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + TIME, time); }
-	public static void stateSet(ByteBuffer xpropertyevent, int state) { xpropertyevent.putInt(xpropertyevent.position() + STATE, state); }
+	public static void type(ByteBuffer xpropertyevent, int type) { xpropertyevent.putInt(xpropertyevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xpropertyevent, long serial) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xpropertyevent, int send_event) { xpropertyevent.putInt(xpropertyevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xpropertyevent, long display) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xpropertyevent, long window) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + WINDOW, window); }
+	public static void atom(ByteBuffer xpropertyevent, long atom) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + ATOM, atom); }
+	public static void time(ByteBuffer xpropertyevent, long time) { PointerBuffer.put(xpropertyevent, xpropertyevent.position() + TIME, time); }
+	public static void state(ByteBuffer xpropertyevent, int state) { xpropertyevent.putInt(xpropertyevent.position() + STATE, state); }
 
-	public static int typeGet(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + WINDOW); }
-	public static long atomGet(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + ATOM); }
-	public static long timeGet(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + TIME); }
-	public static int stateGet(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + STATE); }
+	public static int type(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + TYPE); }
+	public static long serial(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + WINDOW); }
+	public static long atom(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + ATOM); }
+	public static long time(ByteBuffer xpropertyevent) { return PointerBuffer.get(xpropertyevent, xpropertyevent.position() + TIME); }
+	public static int state(ByteBuffer xpropertyevent) { return xpropertyevent.getInt(xpropertyevent.position() + STATE); }
 
 }

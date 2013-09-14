@@ -84,21 +84,21 @@ public final class XRROutputInfo {
 	) {
 		ByteBuffer xrroutputinfo = malloc();
 
-		timestampSet(xrroutputinfo, timestamp);
-		crtcSet(xrroutputinfo, crtc);
-		nameSet(xrroutputinfo, name);
-		nameLenSet(xrroutputinfo, nameLen);
-		mm_widthSet(xrroutputinfo, mm_width);
-		mm_heightSet(xrroutputinfo, mm_height);
-		connectionSet(xrroutputinfo, connection);
-		subpixel_orderSet(xrroutputinfo, subpixel_order);
-		ncrtcSet(xrroutputinfo, ncrtc);
-		crtcsSet(xrroutputinfo, crtcs);
-		ncloneSet(xrroutputinfo, nclone);
-		clonesSet(xrroutputinfo, clones);
-		nmodeSet(xrroutputinfo, nmode);
-		npreferredSet(xrroutputinfo, npreferred);
-		modesSet(xrroutputinfo, modes);
+		timestamp(xrroutputinfo, timestamp);
+		crtc(xrroutputinfo, crtc);
+		name(xrroutputinfo, name);
+		nameLen(xrroutputinfo, nameLen);
+		mm_width(xrroutputinfo, mm_width);
+		mm_height(xrroutputinfo, mm_height);
+		connection(xrroutputinfo, connection);
+		subpixel_order(xrroutputinfo, subpixel_order);
+		ncrtc(xrroutputinfo, ncrtc);
+		crtcs(xrroutputinfo, crtcs);
+		nclone(xrroutputinfo, nclone);
+		clones(xrroutputinfo, clones);
+		nmode(xrroutputinfo, nmode);
+		npreferred(xrroutputinfo, npreferred);
+		modes(xrroutputinfo, modes);
 
 		return xrroutputinfo;
 	}
@@ -123,63 +123,63 @@ public final class XRROutputInfo {
 	) {
 		ByteBuffer xrroutputinfo = malloc();
 
-		timestampSet(xrroutputinfo, timestamp);
-		crtcSet(xrroutputinfo, crtc);
-		nameSet(xrroutputinfo, name);
-		nameLenSet(xrroutputinfo, nameLen);
-		mm_widthSet(xrroutputinfo, mm_width);
-		mm_heightSet(xrroutputinfo, mm_height);
-		connectionSet(xrroutputinfo, connection);
-		subpixel_orderSet(xrroutputinfo, subpixel_order);
-		ncrtcSet(xrroutputinfo, ncrtc);
-		crtcsSet(xrroutputinfo, crtcs);
-		ncloneSet(xrroutputinfo, nclone);
-		clonesSet(xrroutputinfo, clones);
-		nmodeSet(xrroutputinfo, nmode);
-		npreferredSet(xrroutputinfo, npreferred);
-		modesSet(xrroutputinfo, modes);
+		timestamp(xrroutputinfo, timestamp);
+		crtc(xrroutputinfo, crtc);
+		name(xrroutputinfo, name);
+		nameLen(xrroutputinfo, nameLen);
+		mm_width(xrroutputinfo, mm_width);
+		mm_height(xrroutputinfo, mm_height);
+		connection(xrroutputinfo, connection);
+		subpixel_order(xrroutputinfo, subpixel_order);
+		ncrtc(xrroutputinfo, ncrtc);
+		crtcs(xrroutputinfo, crtcs);
+		nclone(xrroutputinfo, nclone);
+		clones(xrroutputinfo, clones);
+		nmode(xrroutputinfo, nmode);
+		npreferred(xrroutputinfo, npreferred);
+		modes(xrroutputinfo, modes);
 
 		return xrroutputinfo;
 	}
 
-	public static void timestampSet(ByteBuffer xrroutputinfo, long timestamp) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP, timestamp); }
-	public static void crtcSet(ByteBuffer xrroutputinfo, long crtc) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTC, crtc); }
-	public static void nameSet(ByteBuffer xrroutputinfo, long name) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + NAME, name); }
-	public static void nameSet(ByteBuffer xrroutputinfo, ByteBuffer name) { nameSet(xrroutputinfo, memAddress(name)); }
-	public static void nameLenSet(ByteBuffer xrroutputinfo, int nameLen) { xrroutputinfo.putInt(xrroutputinfo.position() + NAMELEN, nameLen); }
-	public static void mm_widthSet(ByteBuffer xrroutputinfo, long mm_width) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH, mm_width); }
-	public static void mm_heightSet(ByteBuffer xrroutputinfo, long mm_height) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT, mm_height); }
-	public static void connectionSet(ByteBuffer xrroutputinfo, int connection) { xrroutputinfo.putShort(xrroutputinfo.position() + CONNECTION, (short)connection); }
-	public static void subpixel_orderSet(ByteBuffer xrroutputinfo, int subpixel_order) { xrroutputinfo.putShort(xrroutputinfo.position() + SUBPIXEL_ORDER, (short)subpixel_order); }
-	public static void ncrtcSet(ByteBuffer xrroutputinfo, int ncrtc) { xrroutputinfo.putInt(xrroutputinfo.position() + NCRTC, ncrtc); }
-	public static void crtcsSet(ByteBuffer xrroutputinfo, long crtcs) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTCS, crtcs); }
-	public static void crtcsSet(ByteBuffer xrroutputinfo, ByteBuffer crtcs) { crtcsSet(xrroutputinfo, memAddress(crtcs)); }
-	public static void ncloneSet(ByteBuffer xrroutputinfo, int nclone) { xrroutputinfo.putInt(xrroutputinfo.position() + NCLONE, nclone); }
-	public static void clonesSet(ByteBuffer xrroutputinfo, long clones) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CLONES, clones); }
-	public static void clonesSet(ByteBuffer xrroutputinfo, ByteBuffer clones) { clonesSet(xrroutputinfo, memAddress(clones)); }
-	public static void nmodeSet(ByteBuffer xrroutputinfo, int nmode) { xrroutputinfo.putInt(xrroutputinfo.position() + NMODE, nmode); }
-	public static void npreferredSet(ByteBuffer xrroutputinfo, int npreferred) { xrroutputinfo.putInt(xrroutputinfo.position() + NPREFERRED, npreferred); }
-	public static void modesSet(ByteBuffer xrroutputinfo, long modes) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MODES, modes); }
-	public static void modesSet(ByteBuffer xrroutputinfo, ByteBuffer modes) { modesSet(xrroutputinfo, memAddress(modes)); }
+	public static void timestamp(ByteBuffer xrroutputinfo, long timestamp) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP, timestamp); }
+	public static void crtc(ByteBuffer xrroutputinfo, long crtc) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTC, crtc); }
+	public static void name(ByteBuffer xrroutputinfo, long name) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + NAME, name); }
+	public static void name(ByteBuffer xrroutputinfo, ByteBuffer name) { name(xrroutputinfo, memAddress(name)); }
+	public static void nameLen(ByteBuffer xrroutputinfo, int nameLen) { xrroutputinfo.putInt(xrroutputinfo.position() + NAMELEN, nameLen); }
+	public static void mm_width(ByteBuffer xrroutputinfo, long mm_width) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH, mm_width); }
+	public static void mm_height(ByteBuffer xrroutputinfo, long mm_height) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT, mm_height); }
+	public static void connection(ByteBuffer xrroutputinfo, int connection) { xrroutputinfo.putShort(xrroutputinfo.position() + CONNECTION, (short)connection); }
+	public static void subpixel_order(ByteBuffer xrroutputinfo, int subpixel_order) { xrroutputinfo.putShort(xrroutputinfo.position() + SUBPIXEL_ORDER, (short)subpixel_order); }
+	public static void ncrtc(ByteBuffer xrroutputinfo, int ncrtc) { xrroutputinfo.putInt(xrroutputinfo.position() + NCRTC, ncrtc); }
+	public static void crtcs(ByteBuffer xrroutputinfo, long crtcs) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTCS, crtcs); }
+	public static void crtcs(ByteBuffer xrroutputinfo, ByteBuffer crtcs) { crtcs(xrroutputinfo, memAddress(crtcs)); }
+	public static void nclone(ByteBuffer xrroutputinfo, int nclone) { xrroutputinfo.putInt(xrroutputinfo.position() + NCLONE, nclone); }
+	public static void clones(ByteBuffer xrroutputinfo, long clones) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CLONES, clones); }
+	public static void clones(ByteBuffer xrroutputinfo, ByteBuffer clones) { clones(xrroutputinfo, memAddress(clones)); }
+	public static void nmode(ByteBuffer xrroutputinfo, int nmode) { xrroutputinfo.putInt(xrroutputinfo.position() + NMODE, nmode); }
+	public static void npreferred(ByteBuffer xrroutputinfo, int npreferred) { xrroutputinfo.putInt(xrroutputinfo.position() + NPREFERRED, npreferred); }
+	public static void modes(ByteBuffer xrroutputinfo, long modes) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MODES, modes); }
+	public static void modes(ByteBuffer xrroutputinfo, ByteBuffer modes) { modes(xrroutputinfo, memAddress(modes)); }
 
-	public static long timestampGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP); }
-	public static long crtcGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTC); }
-	public static long nameGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + NAME); }
-	public static ByteBuffer nameGet(ByteBuffer xrroutputinfo, int size) { long address = nameGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int nameLenGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NAMELEN); }
-	public static long mm_widthGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH); }
-	public static long mm_heightGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT); }
-	public static int connectionGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + CONNECTION) & 0xFFFF; }
-	public static int subpixel_orderGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + SUBPIXEL_ORDER) & 0xFFFF; }
-	public static int ncrtcGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCRTC); }
-	public static long crtcsGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTCS); }
-	public static ByteBuffer crtcsGet(ByteBuffer xrroutputinfo, int size) { long address = crtcsGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int ncloneGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCLONE); }
-	public static long clonesGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CLONES); }
-	public static ByteBuffer clonesGet(ByteBuffer xrroutputinfo, int size) { long address = clonesGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
-	public static int nmodeGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NMODE); }
-	public static int npreferredGet(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NPREFERRED); }
-	public static long modesGet(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MODES); }
-	public static ByteBuffer modesGet(ByteBuffer xrroutputinfo, int size) { long address = modesGet(xrroutputinfo); return address == 0 ? null : memByteBuffer(address, size); }
+	public static long timestamp(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP); }
+	public static long crtc(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTC); }
+	public static long name(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + NAME); }
+	public static ByteBuffer name(ByteBuffer xrroutputinfo, int size) { long address = name(xrroutputinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int nameLen(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NAMELEN); }
+	public static long mm_width(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH); }
+	public static long mm_height(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT); }
+	public static int connection(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + CONNECTION) & 0xFFFF; }
+	public static int subpixel_order(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + SUBPIXEL_ORDER) & 0xFFFF; }
+	public static int ncrtc(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCRTC); }
+	public static long crtcs(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTCS); }
+	public static ByteBuffer crtcs(ByteBuffer xrroutputinfo, int size) { long address = crtcs(xrroutputinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int nclone(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCLONE); }
+	public static long clones(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CLONES); }
+	public static ByteBuffer clones(ByteBuffer xrroutputinfo, int size) { long address = clones(xrroutputinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static int nmode(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NMODE); }
+	public static int npreferred(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NPREFERRED); }
+	public static long modes(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MODES); }
+	public static ByteBuffer modes(ByteBuffer xrroutputinfo, int size) { long address = modes(xrroutputinfo); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

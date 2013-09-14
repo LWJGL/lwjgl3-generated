@@ -23,10 +23,11 @@ public final class GLFWvidmode {
 		HEIGHT,
 		REDBITS,
 		GREENBITS,
-		BLUEBITS;
+		BLUEBITS,
+		REFRESHRATE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = BufferUtils.createIntBuffer(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -35,6 +36,7 @@ public final class GLFWvidmode {
 		REDBITS = offsets.get(2);
 		GREENBITS = offsets.get(3);
 		BLUEBITS = offsets.get(4);
+		REFRESHRATE = offsets.get(5);
 	}
 
 	private GLFWvidmode() {}
@@ -50,29 +52,33 @@ public final class GLFWvidmode {
 		int height,
 		int redBits,
 		int greenBits,
-		int blueBits
+		int blueBits,
+		int refreshRate
 	) {
 		ByteBuffer glfwvidmode = malloc();
 
-		widthSet(glfwvidmode, width);
-		heightSet(glfwvidmode, height);
-		redBitsSet(glfwvidmode, redBits);
-		greenBitsSet(glfwvidmode, greenBits);
-		blueBitsSet(glfwvidmode, blueBits);
+		width(glfwvidmode, width);
+		height(glfwvidmode, height);
+		redBits(glfwvidmode, redBits);
+		greenBits(glfwvidmode, greenBits);
+		blueBits(glfwvidmode, blueBits);
+		refreshRate(glfwvidmode, refreshRate);
 
 		return glfwvidmode;
 	}
 
-	public static void widthSet(ByteBuffer glfwvidmode, int width) { glfwvidmode.putInt(glfwvidmode.position() + WIDTH, width); }
-	public static void heightSet(ByteBuffer glfwvidmode, int height) { glfwvidmode.putInt(glfwvidmode.position() + HEIGHT, height); }
-	public static void redBitsSet(ByteBuffer glfwvidmode, int redBits) { glfwvidmode.putInt(glfwvidmode.position() + REDBITS, redBits); }
-	public static void greenBitsSet(ByteBuffer glfwvidmode, int greenBits) { glfwvidmode.putInt(glfwvidmode.position() + GREENBITS, greenBits); }
-	public static void blueBitsSet(ByteBuffer glfwvidmode, int blueBits) { glfwvidmode.putInt(glfwvidmode.position() + BLUEBITS, blueBits); }
+	public static void width(ByteBuffer glfwvidmode, int width) { glfwvidmode.putInt(glfwvidmode.position() + WIDTH, width); }
+	public static void height(ByteBuffer glfwvidmode, int height) { glfwvidmode.putInt(glfwvidmode.position() + HEIGHT, height); }
+	public static void redBits(ByteBuffer glfwvidmode, int redBits) { glfwvidmode.putInt(glfwvidmode.position() + REDBITS, redBits); }
+	public static void greenBits(ByteBuffer glfwvidmode, int greenBits) { glfwvidmode.putInt(glfwvidmode.position() + GREENBITS, greenBits); }
+	public static void blueBits(ByteBuffer glfwvidmode, int blueBits) { glfwvidmode.putInt(glfwvidmode.position() + BLUEBITS, blueBits); }
+	public static void refreshRate(ByteBuffer glfwvidmode, int refreshRate) { glfwvidmode.putInt(glfwvidmode.position() + REFRESHRATE, refreshRate); }
 
-	public static int widthGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + WIDTH); }
-	public static int heightGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + HEIGHT); }
-	public static int redBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REDBITS); }
-	public static int greenBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + GREENBITS); }
-	public static int blueBitsGet(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + BLUEBITS); }
+	public static int width(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + WIDTH); }
+	public static int height(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + HEIGHT); }
+	public static int redBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REDBITS); }
+	public static int greenBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + GREENBITS); }
+	public static int blueBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + BLUEBITS); }
+	public static int refreshRate(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REFRESHRATE); }
 
 }

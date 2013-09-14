@@ -47,19 +47,19 @@ public final class LOGBRUSH {
 	) {
 		ByteBuffer logbrush = malloc();
 
-		lbStyleSet(logbrush, lbStyle);
-		lbColorSet(logbrush, lbColor);
-		lbHatchSet(logbrush, lbHatch);
+		lbStyle(logbrush, lbStyle);
+		lbColor(logbrush, lbColor);
+		lbHatch(logbrush, lbHatch);
 
 		return logbrush;
 	}
 
-	public static void lbStyleSet(ByteBuffer logbrush, int lbStyle) { logbrush.putInt(logbrush.position() + LBSTYLE, lbStyle); }
-	public static void lbColorSet(ByteBuffer logbrush, int lbColor) { logbrush.putInt(logbrush.position() + LBCOLOR, lbColor); }
-	public static void lbHatchSet(ByteBuffer logbrush, long lbHatch) { PointerBuffer.put(logbrush, logbrush.position() + LBHATCH, lbHatch); }
+	public static void lbStyle(ByteBuffer logbrush, int lbStyle) { logbrush.putInt(logbrush.position() + LBSTYLE, lbStyle); }
+	public static void lbColor(ByteBuffer logbrush, int lbColor) { logbrush.putInt(logbrush.position() + LBCOLOR, lbColor); }
+	public static void lbHatch(ByteBuffer logbrush, long lbHatch) { PointerBuffer.put(logbrush, logbrush.position() + LBHATCH, lbHatch); }
 
-	public static int lbStyleGet(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBSTYLE); }
-	public static int lbColorGet(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBCOLOR); }
-	public static long lbHatchGet(ByteBuffer logbrush) { return PointerBuffer.get(logbrush, logbrush.position() + LBHATCH); }
+	public static int lbStyle(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBSTYLE); }
+	public static int lbColor(ByteBuffer logbrush) { return logbrush.getInt(logbrush.position() + LBCOLOR); }
+	public static long lbHatch(ByteBuffer logbrush) { return PointerBuffer.get(logbrush, logbrush.position() + LBHATCH); }
 
 }

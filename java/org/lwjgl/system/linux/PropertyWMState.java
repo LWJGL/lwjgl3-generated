@@ -45,16 +45,16 @@ public final class PropertyWMState {
 	) {
 		ByteBuffer propertywmstate = malloc();
 
-		stateSet(propertywmstate, state);
-		iconSet(propertywmstate, icon);
+		state(propertywmstate, state);
+		icon(propertywmstate, icon);
 
 		return propertywmstate;
 	}
 
-	public static void stateSet(ByteBuffer propertywmstate, int state) { propertywmstate.putInt(propertywmstate.position() + STATE, state); }
-	public static void iconSet(ByteBuffer propertywmstate, long icon) { PointerBuffer.put(propertywmstate, propertywmstate.position() + ICON, icon); }
+	public static void state(ByteBuffer propertywmstate, int state) { propertywmstate.putInt(propertywmstate.position() + STATE, state); }
+	public static void icon(ByteBuffer propertywmstate, long icon) { PointerBuffer.put(propertywmstate, propertywmstate.position() + ICON, icon); }
 
-	public static int stateGet(ByteBuffer propertywmstate) { return propertywmstate.getInt(propertywmstate.position() + STATE); }
-	public static long iconGet(ByteBuffer propertywmstate) { return PointerBuffer.get(propertywmstate, propertywmstate.position() + ICON); }
+	public static int state(ByteBuffer propertywmstate) { return propertywmstate.getInt(propertywmstate.position() + STATE); }
+	public static long icon(ByteBuffer propertywmstate) { return PointerBuffer.get(propertywmstate, propertywmstate.position() + ICON); }
 
 }

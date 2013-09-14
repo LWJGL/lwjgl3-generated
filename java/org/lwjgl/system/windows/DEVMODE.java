@@ -80,18 +80,18 @@ public final class DEVMODE {
 		ByteBuffer devmode = malloc();
 
 		deviceNameSet(devmode, deviceName, deviceNameBytes);
-		specVersionSet(devmode, specVersion);
-		driverVersionSet(devmode, driverVersion);
-		sizeSet(devmode, size);
-		driverExtraSet(devmode, driverExtra);
-		fieldsSet(devmode, fields);
+		specVersion(devmode, specVersion);
+		driverVersion(devmode, driverVersion);
+		size(devmode, size);
+		driverExtra(devmode, driverExtra);
+		fields(devmode, fields);
 		positionSet(devmode, position);
-		logPixelsSet(devmode, logPixels);
-		bitsPerPelSet(devmode, bitsPerPel);
-		pelsWidthSet(devmode, pelsWidth);
-		pelsHeightSet(devmode, pelsHeight);
-		displayFlagsSet(devmode, displayFlags);
-		displayFrequencySet(devmode, displayFrequency);
+		logPixels(devmode, logPixels);
+		bitsPerPel(devmode, bitsPerPel);
+		pelsWidth(devmode, pelsWidth);
+		pelsHeight(devmode, pelsHeight);
+		displayFlags(devmode, displayFlags);
+		displayFrequency(devmode, displayFrequency);
 
 		return devmode;
 	}
@@ -115,18 +115,18 @@ public final class DEVMODE {
 		ByteBuffer devmode = malloc();
 
 		deviceNameSet(devmode, deviceName);
-		specVersionSet(devmode, specVersion);
-		driverVersionSet(devmode, driverVersion);
-		sizeSet(devmode, size);
-		driverExtraSet(devmode, driverExtra);
-		fieldsSet(devmode, fields);
+		specVersion(devmode, specVersion);
+		driverVersion(devmode, driverVersion);
+		size(devmode, size);
+		driverExtra(devmode, driverExtra);
+		fields(devmode, fields);
 		positionSet(devmode, position);
-		logPixelsSet(devmode, logPixels);
-		bitsPerPelSet(devmode, bitsPerPel);
-		pelsWidthSet(devmode, pelsWidth);
-		pelsHeightSet(devmode, pelsHeight);
-		displayFlagsSet(devmode, displayFlags);
-		displayFrequencySet(devmode, displayFrequency);
+		logPixels(devmode, logPixels);
+		bitsPerPel(devmode, bitsPerPel);
+		pelsWidth(devmode, pelsWidth);
+		pelsHeight(devmode, pelsHeight);
+		displayFlags(devmode, displayFlags);
+		displayFrequency(devmode, displayFrequency);
 
 		return devmode;
 	}
@@ -150,18 +150,18 @@ public final class DEVMODE {
 		ByteBuffer devmode = malloc();
 
 		deviceNameSet(devmode, deviceName);
-		specVersionSet(devmode, specVersion);
-		driverVersionSet(devmode, driverVersion);
-		sizeSet(devmode, size);
-		driverExtraSet(devmode, driverExtra);
-		fieldsSet(devmode, fields);
+		specVersion(devmode, specVersion);
+		driverVersion(devmode, driverVersion);
+		size(devmode, size);
+		driverExtra(devmode, driverExtra);
+		fields(devmode, fields);
 		positionSet(devmode, position);
-		logPixelsSet(devmode, logPixels);
-		bitsPerPelSet(devmode, bitsPerPel);
-		pelsWidthSet(devmode, pelsWidth);
-		pelsHeightSet(devmode, pelsHeight);
-		displayFlagsSet(devmode, displayFlags);
-		displayFrequencySet(devmode, displayFrequency);
+		logPixels(devmode, logPixels);
+		bitsPerPel(devmode, bitsPerPel);
+		pelsWidth(devmode, pelsWidth);
+		pelsHeight(devmode, pelsHeight);
+		displayFlags(devmode, displayFlags);
+		displayFrequency(devmode, displayFrequency);
 
 		return devmode;
 	}
@@ -173,45 +173,45 @@ public final class DEVMODE {
 		deviceNameSet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
 	public static void deviceNameSet(ByteBuffer devmode, CharSequence deviceName) { ByteBuffer buffer = memEncodeUTF16(deviceName, true); deviceNameSet(devmode, memAddress(buffer), buffer.capacity()); }
-	public static void specVersionSet(ByteBuffer devmode, int specVersion) { devmode.putShort(devmode.position() + SPECVERSION, (short)specVersion); }
-	public static void driverVersionSet(ByteBuffer devmode, int driverVersion) { devmode.putShort(devmode.position() + DRIVERVERSION, (short)driverVersion); }
-	public static void sizeSet(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
-	public static void driverExtraSet(ByteBuffer devmode, int driverExtra) { devmode.putShort(devmode.position() + DRIVEREXTRA, (short)driverExtra); }
-	public static void fieldsSet(ByteBuffer devmode, int fields) { devmode.putInt(devmode.position() + FIELDS, fields); }
+	public static void specVersion(ByteBuffer devmode, int specVersion) { devmode.putShort(devmode.position() + SPECVERSION, (short)specVersion); }
+	public static void driverVersion(ByteBuffer devmode, int driverVersion) { devmode.putShort(devmode.position() + DRIVERVERSION, (short)driverVersion); }
+	public static void size(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
+	public static void driverExtra(ByteBuffer devmode, int driverExtra) { devmode.putShort(devmode.position() + DRIVEREXTRA, (short)driverExtra); }
+	public static void fields(ByteBuffer devmode, int fields) { devmode.putInt(devmode.position() + FIELDS, fields); }
 	public static void positionSet(ByteBuffer devmode, long position) { if ( position != NULL ) memCopy(position, memAddress(devmode) + POSITION, POINTL.SIZEOF); }
 	public static void positionSet(ByteBuffer devmode, ByteBuffer position) { positionSet(devmode, memAddressSafe(position)); }
-	public static void positionXSet(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION + POINTL.X, x); }
-	public static void positionYSet(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION + POINTL.Y, y); }
-	public static void logPixelsSet(ByteBuffer devmode, int logPixels) { devmode.putShort(devmode.position() + LOGPIXELS, (short)logPixels); }
-	public static void bitsPerPelSet(ByteBuffer devmode, int bitsPerPel) { devmode.putInt(devmode.position() + BITSPERPEL, bitsPerPel); }
-	public static void pelsWidthSet(ByteBuffer devmode, int pelsWidth) { devmode.putInt(devmode.position() + PELSWIDTH, pelsWidth); }
-	public static void pelsHeightSet(ByteBuffer devmode, int pelsHeight) { devmode.putInt(devmode.position() + PELSHEIGHT, pelsHeight); }
-	public static void displayFlagsSet(ByteBuffer devmode, int displayFlags) { devmode.putInt(devmode.position() + DISPLAYFLAGS, displayFlags); }
-	public static void displayFrequencySet(ByteBuffer devmode, int displayFrequency) { devmode.putInt(devmode.position() + DISPLAYFREQUENCY, displayFrequency); }
+	public static void positionX(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION + POINTL.X, x); }
+	public static void positionY(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION + POINTL.Y, y); }
+	public static void logPixels(ByteBuffer devmode, int logPixels) { devmode.putShort(devmode.position() + LOGPIXELS, (short)logPixels); }
+	public static void bitsPerPel(ByteBuffer devmode, int bitsPerPel) { devmode.putInt(devmode.position() + BITSPERPEL, bitsPerPel); }
+	public static void pelsWidth(ByteBuffer devmode, int pelsWidth) { devmode.putInt(devmode.position() + PELSWIDTH, pelsWidth); }
+	public static void pelsHeight(ByteBuffer devmode, int pelsHeight) { devmode.putInt(devmode.position() + PELSHEIGHT, pelsHeight); }
+	public static void displayFlags(ByteBuffer devmode, int displayFlags) { devmode.putInt(devmode.position() + DISPLAYFLAGS, displayFlags); }
+	public static void displayFrequency(ByteBuffer devmode, int displayFrequency) { devmode.putInt(devmode.position() + DISPLAYFREQUENCY, displayFrequency); }
 
 	public static void deviceNameGet(ByteBuffer devmode, long deviceName, int bytes) {
 		memCopy(memAddress(devmode) + DEVICENAME, deviceName, bytes);
 	}
-	public static void deviceNameGetb(ByteBuffer devmode, ByteBuffer deviceName) {
+	public static void deviceNameGet(ByteBuffer devmode, ByteBuffer deviceName) {
 		checkBufferGT(deviceName, 32 * 2);
 		deviceNameGet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
 	public static String deviceNameGets(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
 	public static String deviceNameGets(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
-	public static int specVersionGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SPECVERSION); }
-	public static int driverVersionGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVERVERSION); }
-	public static int sizeGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
-	public static int driverExtraGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
-	public static int fieldsGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
+	public static int specVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SPECVERSION); }
+	public static int driverVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVERVERSION); }
+	public static int size(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
+	public static int driverExtra(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
+	public static int fields(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
 	public static void positionGet(ByteBuffer devmode, long position) { memCopy(memAddress(devmode) + POSITION, position, POINTL.SIZEOF); }
 	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { checkBuffer(position, POINTL.SIZEOF); positionGet(devmode, memAddress(position)); }
-	public static int positionXGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.X); }
-	public static int positionYGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.Y); }
-	public static int logPixelsGet(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }
-	public static int bitsPerPelGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + BITSPERPEL); }
-	public static int pelsWidthGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSWIDTH); }
-	public static int pelsHeightGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSHEIGHT); }
-	public static int displayFlagsGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFLAGS); }
-	public static int displayFrequencyGet(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFREQUENCY); }
+	public static int positionX(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.X); }
+	public static int positionY(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.Y); }
+	public static int logPixels(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }
+	public static int bitsPerPel(ByteBuffer devmode) { return devmode.getInt(devmode.position() + BITSPERPEL); }
+	public static int pelsWidth(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSWIDTH); }
+	public static int pelsHeight(ByteBuffer devmode) { return devmode.getInt(devmode.position() + PELSHEIGHT); }
+	public static int displayFlags(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFLAGS); }
+	public static int displayFrequency(ByteBuffer devmode) { return devmode.getInt(devmode.position() + DISPLAYFREQUENCY); }
 
 }

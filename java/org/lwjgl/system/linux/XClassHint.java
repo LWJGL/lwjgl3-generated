@@ -45,8 +45,8 @@ public final class XClassHint {
 	) {
 		ByteBuffer xclasshint = malloc();
 
-		res_nameSet(xclasshint, res_name);
-		res_classSet(xclasshint, res_class);
+		res_name(xclasshint, res_name);
+		res_class(xclasshint, res_class);
 
 		return xclasshint;
 	}
@@ -77,18 +77,18 @@ public final class XClassHint {
 		return xclasshint;
 	}
 
-	public static void res_nameSet(ByteBuffer xclasshint, long res_name) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_NAME, res_name); }
-	public static void res_nameSet(ByteBuffer xclasshint, ByteBuffer res_name) { res_nameSet(xclasshint, res_name == null ? 0 : memAddress(checkNT1(res_name))); }
-	public static void res_nameSet(ByteBuffer xclasshint, CharSequence res_name) { res_nameSet(xclasshint, res_name == null ? 0 : memAddress(memEncodeASCII(res_name))); }
-	public static void res_classSet(ByteBuffer xclasshint, long res_class) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_CLASS, res_class); }
-	public static void res_classSet(ByteBuffer xclasshint, ByteBuffer res_class) { res_classSet(xclasshint, res_class == null ? 0 : memAddress(checkNT1(res_class))); }
-	public static void res_classSet(ByteBuffer xclasshint, CharSequence res_class) { res_classSet(xclasshint, res_class == null ? 0 : memAddress(memEncodeASCII(res_class))); }
+	public static void res_name(ByteBuffer xclasshint, long res_name) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_NAME, res_name); }
+	public static void res_nameSet(ByteBuffer xclasshint, ByteBuffer res_name) { res_name(xclasshint, res_name == null ? NULL : memAddress(checkNT1(res_name))); }
+	public static void res_nameSet(ByteBuffer xclasshint, CharSequence res_name) { res_name(xclasshint, res_name == null ? NULL : memAddress(memEncodeASCII(res_name))); }
+	public static void res_class(ByteBuffer xclasshint, long res_class) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_CLASS, res_class); }
+	public static void res_classSet(ByteBuffer xclasshint, ByteBuffer res_class) { res_class(xclasshint, res_class == null ? NULL : memAddress(checkNT1(res_class))); }
+	public static void res_classSet(ByteBuffer xclasshint, CharSequence res_class) { res_class(xclasshint, res_class == null ? NULL : memAddress(memEncodeASCII(res_class))); }
 
-	public static long res_nameGet(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_NAME); }
-	public static ByteBuffer res_nameGetb(ByteBuffer xclasshint) { long address = res_nameGet(xclasshint); return address == 0 ? null : memByteBufferNT1(address); }
-	public static String res_nameGets(ByteBuffer xclasshint) { long address = res_nameGet(xclasshint); return address == 0 ? null : memDecodeASCII(memByteBufferNT1(address)); }
-	public static long res_classGet(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_CLASS); }
-	public static ByteBuffer res_classGetb(ByteBuffer xclasshint) { long address = res_classGet(xclasshint); return address == 0 ? null : memByteBufferNT1(address); }
-	public static String res_classGets(ByteBuffer xclasshint) { long address = res_classGet(xclasshint); return address == 0 ? null : memDecodeASCII(memByteBufferNT1(address)); }
+	public static long res_name(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_NAME); }
+	public static ByteBuffer res_nameGetb(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
+	public static String res_nameGets(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memDecodeASCII(memByteBufferNT1(address)); }
+	public static long res_class(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_CLASS); }
+	public static ByteBuffer res_classGetb(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
+	public static String res_classGets(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memDecodeASCII(memByteBufferNT1(address)); }
 
 }

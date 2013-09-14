@@ -74,13 +74,13 @@ public final class XClientMessageEvent {
 	) {
 		ByteBuffer xclientmessageevent = malloc();
 
-		typeSet(xclientmessageevent, type);
-		serialSet(xclientmessageevent, serial);
-		send_eventSet(xclientmessageevent, send_event);
-		displaySet(xclientmessageevent, display);
-		windowSet(xclientmessageevent, window);
-		message_typeSet(xclientmessageevent, message_type);
-		formatSet(xclientmessageevent, format);
+		type(xclientmessageevent, type);
+		serial(xclientmessageevent, serial);
+		send_event(xclientmessageevent, send_event);
+		display(xclientmessageevent, display);
+		window(xclientmessageevent, window);
+		message_type(xclientmessageevent, message_type);
+		format(xclientmessageevent, format);
 		dataBSet(xclientmessageevent, data_b, data_bBytes);
 		dataSSet(xclientmessageevent, data_s, data_sBytes);
 		dataLSet(xclientmessageevent, data_l, data_lBytes);
@@ -103,13 +103,13 @@ public final class XClientMessageEvent {
 	) {
 		ByteBuffer xclientmessageevent = malloc();
 
-		typeSet(xclientmessageevent, type);
-		serialSet(xclientmessageevent, serial);
-		send_eventSet(xclientmessageevent, send_event);
-		displaySet(xclientmessageevent, display);
-		windowSet(xclientmessageevent, window);
-		message_typeSet(xclientmessageevent, message_type);
-		formatSet(xclientmessageevent, format);
+		type(xclientmessageevent, type);
+		serial(xclientmessageevent, serial);
+		send_event(xclientmessageevent, send_event);
+		display(xclientmessageevent, display);
+		window(xclientmessageevent, window);
+		message_type(xclientmessageevent, message_type);
+		format(xclientmessageevent, format);
 		dataBSet(xclientmessageevent, data_b);
 		dataSSet(xclientmessageevent, data_s);
 		dataLSet(xclientmessageevent, data_l);
@@ -117,13 +117,13 @@ public final class XClientMessageEvent {
 		return xclientmessageevent;
 	}
 
-	public static void typeSet(ByteBuffer xclientmessageevent, int type) { xclientmessageevent.putInt(xclientmessageevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xclientmessageevent, long serial) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xclientmessageevent, int send_event) { xclientmessageevent.putInt(xclientmessageevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xclientmessageevent, long display) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xclientmessageevent, long window) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + WINDOW, window); }
-	public static void message_typeSet(ByteBuffer xclientmessageevent, long message_type) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE, message_type); }
-	public static void formatSet(ByteBuffer xclientmessageevent, int format) { xclientmessageevent.putInt(xclientmessageevent.position() + FORMAT, format); }
+	public static void type(ByteBuffer xclientmessageevent, int type) { xclientmessageevent.putInt(xclientmessageevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xclientmessageevent, long serial) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xclientmessageevent, int send_event) { xclientmessageevent.putInt(xclientmessageevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xclientmessageevent, long display) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xclientmessageevent, long window) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + WINDOW, window); }
+	public static void message_type(ByteBuffer xclientmessageevent, long message_type) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE, message_type); }
+	public static void format(ByteBuffer xclientmessageevent, int format) { xclientmessageevent.putInt(xclientmessageevent.position() + FORMAT, format); }
 	public static void dataBSet(ByteBuffer xclientmessageevent, long b, int bytes) { memCopy(b, memAddress(xclientmessageevent) + DATA_B, bytes); }
 	public static void dataBSet(ByteBuffer xclientmessageevent, ByteBuffer b) {
 		checkBufferGT(b, 20 * 1);
@@ -140,31 +140,31 @@ public final class XClientMessageEvent {
 		dataLSet(xclientmessageevent, memAddress(l), l.remaining());
 	}
 
-	public static int typeGet(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + WINDOW); }
-	public static long message_typeGet(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE); }
-	public static int formatGet(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + FORMAT); }
+	public static int type(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + TYPE); }
+	public static long serial(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + WINDOW); }
+	public static long message_type(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE); }
+	public static int format(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + FORMAT); }
 	public static void dataBGet(ByteBuffer xclientmessageevent, long b, int bytes) {
 		memCopy(memAddress(xclientmessageevent) + DATA_B, b, bytes);
 	}
-	public static void dataBGetb(ByteBuffer xclientmessageevent, ByteBuffer b) {
+	public static void dataBGet(ByteBuffer xclientmessageevent, ByteBuffer b) {
 		checkBufferGT(b, 20 * 1);
 		dataBGet(xclientmessageevent, memAddress(b), b.remaining());
 	}
 	public static void dataSGet(ByteBuffer xclientmessageevent, long s, int bytes) {
 		memCopy(memAddress(xclientmessageevent) + DATA_S, s, bytes);
 	}
-	public static void dataSGetb(ByteBuffer xclientmessageevent, ByteBuffer s) {
+	public static void dataSGet(ByteBuffer xclientmessageevent, ByteBuffer s) {
 		checkBufferGT(s, 10 * 2);
 		dataSGet(xclientmessageevent, memAddress(s), s.remaining());
 	}
 	public static void dataLGet(ByteBuffer xclientmessageevent, long l, int bytes) {
 		memCopy(memAddress(xclientmessageevent) + DATA_L, l, bytes);
 	}
-	public static void dataLGetb(ByteBuffer xclientmessageevent, ByteBuffer l) {
+	public static void dataLGet(ByteBuffer xclientmessageevent, ByteBuffer l) {
 		checkBufferGT(l, 5 * 8);
 		dataLGet(xclientmessageevent, memAddress(l), l.remaining());
 	}

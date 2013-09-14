@@ -51,22 +51,22 @@ public final class RECT {
 	) {
 		ByteBuffer rect = malloc();
 
-		leftSet(rect, left);
-		topSet(rect, top);
-		rightSet(rect, right);
-		bottomSet(rect, bottom);
+		left(rect, left);
+		top(rect, top);
+		right(rect, right);
+		bottom(rect, bottom);
 
 		return rect;
 	}
 
-	public static void leftSet(ByteBuffer rect, int left) { rect.putInt(rect.position() + LEFT, left); }
-	public static void topSet(ByteBuffer rect, int top) { rect.putInt(rect.position() + TOP, top); }
-	public static void rightSet(ByteBuffer rect, int right) { rect.putInt(rect.position() + RIGHT, right); }
-	public static void bottomSet(ByteBuffer rect, int bottom) { rect.putInt(rect.position() + BOTTOM, bottom); }
+	public static void left(ByteBuffer rect, int left) { rect.putInt(rect.position() + LEFT, left); }
+	public static void top(ByteBuffer rect, int top) { rect.putInt(rect.position() + TOP, top); }
+	public static void right(ByteBuffer rect, int right) { rect.putInt(rect.position() + RIGHT, right); }
+	public static void bottom(ByteBuffer rect, int bottom) { rect.putInt(rect.position() + BOTTOM, bottom); }
 
-	public static int leftGet(ByteBuffer rect) { return rect.getInt(rect.position() + LEFT); }
-	public static int topGet(ByteBuffer rect) { return rect.getInt(rect.position() + TOP); }
-	public static int rightGet(ByteBuffer rect) { return rect.getInt(rect.position() + RIGHT); }
-	public static int bottomGet(ByteBuffer rect) { return rect.getInt(rect.position() + BOTTOM); }
+	public static int left(ByteBuffer rect) { return rect.getInt(rect.position() + LEFT); }
+	public static int top(ByteBuffer rect) { return rect.getInt(rect.position() + TOP); }
+	public static int right(ByteBuffer rect) { return rect.getInt(rect.position() + RIGHT); }
+	public static int bottom(ByteBuffer rect) { return rect.getInt(rect.position() + BOTTOM); }
 
 }

@@ -69,16 +69,16 @@ public final class XVisualInfo {
 	) {
 		ByteBuffer xvisualinfo = malloc();
 
-		visualSet(xvisualinfo, visual);
-		visualidSet(xvisualinfo, visualid);
-		screenSet(xvisualinfo, screen);
-		depthSet(xvisualinfo, depth);
-		clazzSet(xvisualinfo, clazz);
-		red_maskSet(xvisualinfo, red_mask);
-		green_maskSet(xvisualinfo, green_mask);
-		blue_maskSet(xvisualinfo, blue_mask);
-		colormap_sizeSet(xvisualinfo, colormap_size);
-		bits_per_rgbSet(xvisualinfo, bits_per_rgb);
+		visual(xvisualinfo, visual);
+		visualid(xvisualinfo, visualid);
+		screen(xvisualinfo, screen);
+		depth(xvisualinfo, depth);
+		clazz(xvisualinfo, clazz);
+		red_mask(xvisualinfo, red_mask);
+		green_mask(xvisualinfo, green_mask);
+		blue_mask(xvisualinfo, blue_mask);
+		colormap_size(xvisualinfo, colormap_size);
+		bits_per_rgb(xvisualinfo, bits_per_rgb);
 
 		return xvisualinfo;
 	}
@@ -98,42 +98,42 @@ public final class XVisualInfo {
 	) {
 		ByteBuffer xvisualinfo = malloc();
 
-		visualSet(xvisualinfo, visual);
-		visualidSet(xvisualinfo, visualid);
-		screenSet(xvisualinfo, screen);
-		depthSet(xvisualinfo, depth);
-		clazzSet(xvisualinfo, clazz);
-		red_maskSet(xvisualinfo, red_mask);
-		green_maskSet(xvisualinfo, green_mask);
-		blue_maskSet(xvisualinfo, blue_mask);
-		colormap_sizeSet(xvisualinfo, colormap_size);
-		bits_per_rgbSet(xvisualinfo, bits_per_rgb);
+		visual(xvisualinfo, visual);
+		visualid(xvisualinfo, visualid);
+		screen(xvisualinfo, screen);
+		depth(xvisualinfo, depth);
+		clazz(xvisualinfo, clazz);
+		red_mask(xvisualinfo, red_mask);
+		green_mask(xvisualinfo, green_mask);
+		blue_mask(xvisualinfo, blue_mask);
+		colormap_size(xvisualinfo, colormap_size);
+		bits_per_rgb(xvisualinfo, bits_per_rgb);
 
 		return xvisualinfo;
 	}
 
-	public static void visualSet(ByteBuffer xvisualinfo, long visual) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUAL, visual); }
-	public static void visualSet(ByteBuffer xvisualinfo, ByteBuffer visual) { visualSet(xvisualinfo, memAddress(visual)); }
-	public static void visualidSet(ByteBuffer xvisualinfo, long visualid) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUALID, visualid); }
-	public static void screenSet(ByteBuffer xvisualinfo, int screen) { xvisualinfo.putInt(xvisualinfo.position() + SCREEN, screen); }
-	public static void depthSet(ByteBuffer xvisualinfo, int depth) { xvisualinfo.putInt(xvisualinfo.position() + DEPTH, depth); }
-	public static void clazzSet(ByteBuffer xvisualinfo, int clazz) { xvisualinfo.putInt(xvisualinfo.position() + CLAZZ, clazz); }
-	public static void red_maskSet(ByteBuffer xvisualinfo, long red_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + RED_MASK, red_mask); }
-	public static void green_maskSet(ByteBuffer xvisualinfo, long green_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + GREEN_MASK, green_mask); }
-	public static void blue_maskSet(ByteBuffer xvisualinfo, long blue_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + BLUE_MASK, blue_mask); }
-	public static void colormap_sizeSet(ByteBuffer xvisualinfo, int colormap_size) { xvisualinfo.putInt(xvisualinfo.position() + COLORMAP_SIZE, colormap_size); }
-	public static void bits_per_rgbSet(ByteBuffer xvisualinfo, int bits_per_rgb) { xvisualinfo.putInt(xvisualinfo.position() + BITS_PER_RGB, bits_per_rgb); }
+	public static void visual(ByteBuffer xvisualinfo, long visual) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUAL, visual); }
+	public static void visual(ByteBuffer xvisualinfo, ByteBuffer visual) { visual(xvisualinfo, memAddress(visual)); }
+	public static void visualid(ByteBuffer xvisualinfo, long visualid) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUALID, visualid); }
+	public static void screen(ByteBuffer xvisualinfo, int screen) { xvisualinfo.putInt(xvisualinfo.position() + SCREEN, screen); }
+	public static void depth(ByteBuffer xvisualinfo, int depth) { xvisualinfo.putInt(xvisualinfo.position() + DEPTH, depth); }
+	public static void clazz(ByteBuffer xvisualinfo, int clazz) { xvisualinfo.putInt(xvisualinfo.position() + CLAZZ, clazz); }
+	public static void red_mask(ByteBuffer xvisualinfo, long red_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + RED_MASK, red_mask); }
+	public static void green_mask(ByteBuffer xvisualinfo, long green_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + GREEN_MASK, green_mask); }
+	public static void blue_mask(ByteBuffer xvisualinfo, long blue_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + BLUE_MASK, blue_mask); }
+	public static void colormap_size(ByteBuffer xvisualinfo, int colormap_size) { xvisualinfo.putInt(xvisualinfo.position() + COLORMAP_SIZE, colormap_size); }
+	public static void bits_per_rgb(ByteBuffer xvisualinfo, int bits_per_rgb) { xvisualinfo.putInt(xvisualinfo.position() + BITS_PER_RGB, bits_per_rgb); }
 
-	public static long visualGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUAL); }
-	public static ByteBuffer visualGetb(ByteBuffer xvisualinfo) { return memByteBuffer(visualGet(xvisualinfo), Visual.SIZEOF); }
-	public static long visualidGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUALID); }
-	public static int screenGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + SCREEN); }
-	public static int depthGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + DEPTH); }
-	public static int clazzGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + CLAZZ); }
-	public static long red_maskGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + RED_MASK); }
-	public static long green_maskGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + GREEN_MASK); }
-	public static long blue_maskGet(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + BLUE_MASK); }
-	public static int colormap_sizeGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + COLORMAP_SIZE); }
-	public static int bits_per_rgbGet(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + BITS_PER_RGB); }
+	public static long visual(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUAL); }
+	public static ByteBuffer visualb(ByteBuffer xvisualinfo) { return memByteBuffer(visual(xvisualinfo), Visual.SIZEOF); }
+	public static long visualid(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUALID); }
+	public static int screen(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + SCREEN); }
+	public static int depth(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + DEPTH); }
+	public static int clazz(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + CLAZZ); }
+	public static long red_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + RED_MASK); }
+	public static long green_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + GREEN_MASK); }
+	public static long blue_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + BLUE_MASK); }
+	public static int colormap_size(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + COLORMAP_SIZE); }
+	public static int bits_per_rgb(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + BITS_PER_RGB); }
 
 }

@@ -66,37 +66,37 @@ public final class XWMHints {
 	) {
 		ByteBuffer xwmhints = malloc();
 
-		flagsSet(xwmhints, flags);
-		inputSet(xwmhints, input);
-		initial_stateSet(xwmhints, initial_state);
-		icon_pixmapSet(xwmhints, icon_pixmap);
-		icon_windowSet(xwmhints, icon_window);
-		icon_xSet(xwmhints, icon_x);
-		icon_ySet(xwmhints, icon_y);
-		icon_maskSet(xwmhints, icon_mask);
-		window_groupSet(xwmhints, window_group);
+		flags(xwmhints, flags);
+		input(xwmhints, input);
+		initial_state(xwmhints, initial_state);
+		icon_pixmap(xwmhints, icon_pixmap);
+		icon_window(xwmhints, icon_window);
+		icon_x(xwmhints, icon_x);
+		icon_y(xwmhints, icon_y);
+		icon_mask(xwmhints, icon_mask);
+		window_group(xwmhints, window_group);
 
 		return xwmhints;
 	}
 
-	public static void flagsSet(ByteBuffer xwmhints, long flags) { PointerBuffer.put(xwmhints, xwmhints.position() + FLAGS, flags); }
-	public static void inputSet(ByteBuffer xwmhints, int input) { xwmhints.putInt(xwmhints.position() + INPUT, input); }
-	public static void initial_stateSet(ByteBuffer xwmhints, int initial_state) { xwmhints.putInt(xwmhints.position() + INITIAL_STATE, initial_state); }
-	public static void icon_pixmapSet(ByteBuffer xwmhints, long icon_pixmap) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_PIXMAP, icon_pixmap); }
-	public static void icon_windowSet(ByteBuffer xwmhints, long icon_window) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_WINDOW, icon_window); }
-	public static void icon_xSet(ByteBuffer xwmhints, int icon_x) { xwmhints.putInt(xwmhints.position() + ICON_X, icon_x); }
-	public static void icon_ySet(ByteBuffer xwmhints, int icon_y) { xwmhints.putInt(xwmhints.position() + ICON_Y, icon_y); }
-	public static void icon_maskSet(ByteBuffer xwmhints, long icon_mask) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_MASK, icon_mask); }
-	public static void window_groupSet(ByteBuffer xwmhints, long window_group) { PointerBuffer.put(xwmhints, xwmhints.position() + WINDOW_GROUP, window_group); }
+	public static void flags(ByteBuffer xwmhints, long flags) { PointerBuffer.put(xwmhints, xwmhints.position() + FLAGS, flags); }
+	public static void input(ByteBuffer xwmhints, int input) { xwmhints.putInt(xwmhints.position() + INPUT, input); }
+	public static void initial_state(ByteBuffer xwmhints, int initial_state) { xwmhints.putInt(xwmhints.position() + INITIAL_STATE, initial_state); }
+	public static void icon_pixmap(ByteBuffer xwmhints, long icon_pixmap) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_PIXMAP, icon_pixmap); }
+	public static void icon_window(ByteBuffer xwmhints, long icon_window) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_WINDOW, icon_window); }
+	public static void icon_x(ByteBuffer xwmhints, int icon_x) { xwmhints.putInt(xwmhints.position() + ICON_X, icon_x); }
+	public static void icon_y(ByteBuffer xwmhints, int icon_y) { xwmhints.putInt(xwmhints.position() + ICON_Y, icon_y); }
+	public static void icon_mask(ByteBuffer xwmhints, long icon_mask) { PointerBuffer.put(xwmhints, xwmhints.position() + ICON_MASK, icon_mask); }
+	public static void window_group(ByteBuffer xwmhints, long window_group) { PointerBuffer.put(xwmhints, xwmhints.position() + WINDOW_GROUP, window_group); }
 
-	public static long flagsGet(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + FLAGS); }
-	public static int inputGet(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + INPUT); }
-	public static int initial_stateGet(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + INITIAL_STATE); }
-	public static long icon_pixmapGet(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_PIXMAP); }
-	public static long icon_windowGet(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_WINDOW); }
-	public static int icon_xGet(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + ICON_X); }
-	public static int icon_yGet(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + ICON_Y); }
-	public static long icon_maskGet(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_MASK); }
-	public static long window_groupGet(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + WINDOW_GROUP); }
+	public static long flags(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + FLAGS); }
+	public static int input(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + INPUT); }
+	public static int initial_state(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + INITIAL_STATE); }
+	public static long icon_pixmap(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_PIXMAP); }
+	public static long icon_window(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_WINDOW); }
+	public static int icon_x(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + ICON_X); }
+	public static int icon_y(ByteBuffer xwmhints) { return xwmhints.getInt(xwmhints.position() + ICON_Y); }
+	public static long icon_mask(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + ICON_MASK); }
+	public static long window_group(ByteBuffer xwmhints) { return PointerBuffer.get(xwmhints, xwmhints.position() + WINDOW_GROUP); }
 
 }

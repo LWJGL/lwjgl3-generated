@@ -81,7 +81,7 @@ public final class XkbKeyNameRec {
 	public static void nameGet(ByteBuffer xkbkeynamerec, long name, int bytes) {
 		memCopy(memAddress(xkbkeynamerec) + NAME, name, bytes);
 	}
-	public static void nameGetb(ByteBuffer xkbkeynamerec, ByteBuffer name) {
+	public static void nameGet(ByteBuffer xkbkeynamerec, ByteBuffer name) {
 		checkBufferGT(name, 4 * 1);
 		nameGet(xkbkeynamerec, memAddress(name), name.remaining());
 	}

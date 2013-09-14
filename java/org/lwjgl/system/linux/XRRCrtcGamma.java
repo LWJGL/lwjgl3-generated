@@ -51,10 +51,10 @@ public final class XRRCrtcGamma {
 	) {
 		ByteBuffer xrrcrtcgamma = malloc();
 
-		sizeSet(xrrcrtcgamma, size);
-		redSet(xrrcrtcgamma, red);
-		greenSet(xrrcrtcgamma, green);
-		blueSet(xrrcrtcgamma, blue);
+		size(xrrcrtcgamma, size);
+		red(xrrcrtcgamma, red);
+		green(xrrcrtcgamma, green);
+		blue(xrrcrtcgamma, blue);
 
 		return xrrcrtcgamma;
 	}
@@ -68,28 +68,28 @@ public final class XRRCrtcGamma {
 	) {
 		ByteBuffer xrrcrtcgamma = malloc();
 
-		sizeSet(xrrcrtcgamma, size);
-		redSet(xrrcrtcgamma, red);
-		greenSet(xrrcrtcgamma, green);
-		blueSet(xrrcrtcgamma, blue);
+		size(xrrcrtcgamma, size);
+		red(xrrcrtcgamma, red);
+		green(xrrcrtcgamma, green);
+		blue(xrrcrtcgamma, blue);
 
 		return xrrcrtcgamma;
 	}
 
-	public static void sizeSet(ByteBuffer xrrcrtcgamma, int size) { xrrcrtcgamma.putInt(xrrcrtcgamma.position() + SIZE, size); }
-	public static void redSet(ByteBuffer xrrcrtcgamma, long red) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + RED, red); }
-	public static void redSet(ByteBuffer xrrcrtcgamma, ByteBuffer red) { redSet(xrrcrtcgamma, memAddress(red)); }
-	public static void greenSet(ByteBuffer xrrcrtcgamma, long green) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN, green); }
-	public static void greenSet(ByteBuffer xrrcrtcgamma, ByteBuffer green) { greenSet(xrrcrtcgamma, memAddress(green)); }
-	public static void blueSet(ByteBuffer xrrcrtcgamma, long blue) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE, blue); }
-	public static void blueSet(ByteBuffer xrrcrtcgamma, ByteBuffer blue) { blueSet(xrrcrtcgamma, memAddress(blue)); }
+	public static void size(ByteBuffer xrrcrtcgamma, int size) { xrrcrtcgamma.putInt(xrrcrtcgamma.position() + SIZE, size); }
+	public static void red(ByteBuffer xrrcrtcgamma, long red) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + RED, red); }
+	public static void red(ByteBuffer xrrcrtcgamma, ByteBuffer red) { red(xrrcrtcgamma, memAddress(red)); }
+	public static void green(ByteBuffer xrrcrtcgamma, long green) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN, green); }
+	public static void green(ByteBuffer xrrcrtcgamma, ByteBuffer green) { green(xrrcrtcgamma, memAddress(green)); }
+	public static void blue(ByteBuffer xrrcrtcgamma, long blue) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE, blue); }
+	public static void blue(ByteBuffer xrrcrtcgamma, ByteBuffer blue) { blue(xrrcrtcgamma, memAddress(blue)); }
 
-	public static int sizeGet(ByteBuffer xrrcrtcgamma) { return xrrcrtcgamma.getInt(xrrcrtcgamma.position() + SIZE); }
-	public static long redGet(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + RED); }
-	public static ByteBuffer redGet(ByteBuffer xrrcrtcgamma, int size) { long address = redGet(xrrcrtcgamma); return address == 0 ? null : memByteBuffer(address, size); }
-	public static long greenGet(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN); }
-	public static ByteBuffer greenGet(ByteBuffer xrrcrtcgamma, int size) { long address = greenGet(xrrcrtcgamma); return address == 0 ? null : memByteBuffer(address, size); }
-	public static long blueGet(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE); }
-	public static ByteBuffer blueGet(ByteBuffer xrrcrtcgamma, int size) { long address = blueGet(xrrcrtcgamma); return address == 0 ? null : memByteBuffer(address, size); }
+	public static int size(ByteBuffer xrrcrtcgamma) { return xrrcrtcgamma.getInt(xrrcrtcgamma.position() + SIZE); }
+	public static long red(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + RED); }
+	public static ByteBuffer red(ByteBuffer xrrcrtcgamma, int size) { long address = red(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
+	public static long green(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN); }
+	public static ByteBuffer green(ByteBuffer xrrcrtcgamma, int size) { long address = green(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
+	public static long blue(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE); }
+	public static ByteBuffer blue(ByteBuffer xrrcrtcgamma, int size) { long address = blue(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

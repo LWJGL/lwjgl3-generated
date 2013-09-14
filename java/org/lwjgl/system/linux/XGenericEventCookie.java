@@ -63,14 +63,14 @@ public final class XGenericEventCookie {
 	) {
 		ByteBuffer xgenericeventcookie = malloc();
 
-		typeSet(xgenericeventcookie, type);
-		serialSet(xgenericeventcookie, serial);
-		send_eventSet(xgenericeventcookie, send_event);
-		displaySet(xgenericeventcookie, display);
-		extensionSet(xgenericeventcookie, extension);
-		evtypeSet(xgenericeventcookie, evtype);
-		cookieSet(xgenericeventcookie, cookie);
-		dataSet(xgenericeventcookie, data);
+		type(xgenericeventcookie, type);
+		serial(xgenericeventcookie, serial);
+		send_event(xgenericeventcookie, send_event);
+		display(xgenericeventcookie, display);
+		extension(xgenericeventcookie, extension);
+		evtype(xgenericeventcookie, evtype);
+		cookie(xgenericeventcookie, cookie);
+		data(xgenericeventcookie, data);
 
 		return xgenericeventcookie;
 	}
@@ -88,36 +88,36 @@ public final class XGenericEventCookie {
 	) {
 		ByteBuffer xgenericeventcookie = malloc();
 
-		typeSet(xgenericeventcookie, type);
-		serialSet(xgenericeventcookie, serial);
-		send_eventSet(xgenericeventcookie, send_event);
-		displaySet(xgenericeventcookie, display);
-		extensionSet(xgenericeventcookie, extension);
-		evtypeSet(xgenericeventcookie, evtype);
-		cookieSet(xgenericeventcookie, cookie);
-		dataSet(xgenericeventcookie, data);
+		type(xgenericeventcookie, type);
+		serial(xgenericeventcookie, serial);
+		send_event(xgenericeventcookie, send_event);
+		display(xgenericeventcookie, display);
+		extension(xgenericeventcookie, extension);
+		evtype(xgenericeventcookie, evtype);
+		cookie(xgenericeventcookie, cookie);
+		data(xgenericeventcookie, data);
 
 		return xgenericeventcookie;
 	}
 
-	public static void typeSet(ByteBuffer xgenericeventcookie, int type) { xgenericeventcookie.putInt(xgenericeventcookie.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xgenericeventcookie, long serial) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xgenericeventcookie, int send_event) { xgenericeventcookie.putInt(xgenericeventcookie.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xgenericeventcookie, long display) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DISPLAY, display); }
-	public static void extensionSet(ByteBuffer xgenericeventcookie, int extension) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EXTENSION, extension); }
-	public static void evtypeSet(ByteBuffer xgenericeventcookie, int evtype) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EVTYPE, evtype); }
-	public static void cookieSet(ByteBuffer xgenericeventcookie, int cookie) { xgenericeventcookie.putInt(xgenericeventcookie.position() + COOKIE, cookie); }
-	public static void dataSet(ByteBuffer xgenericeventcookie, long data) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DATA, data); }
-	public static void dataSet(ByteBuffer xgenericeventcookie, ByteBuffer data) { dataSet(xgenericeventcookie, memAddress(data)); }
+	public static void type(ByteBuffer xgenericeventcookie, int type) { xgenericeventcookie.putInt(xgenericeventcookie.position() + TYPE, type); }
+	public static void serial(ByteBuffer xgenericeventcookie, long serial) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xgenericeventcookie, int send_event) { xgenericeventcookie.putInt(xgenericeventcookie.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xgenericeventcookie, long display) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DISPLAY, display); }
+	public static void extension(ByteBuffer xgenericeventcookie, int extension) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EXTENSION, extension); }
+	public static void evtype(ByteBuffer xgenericeventcookie, int evtype) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EVTYPE, evtype); }
+	public static void cookie(ByteBuffer xgenericeventcookie, int cookie) { xgenericeventcookie.putInt(xgenericeventcookie.position() + COOKIE, cookie); }
+	public static void data(ByteBuffer xgenericeventcookie, long data) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DATA, data); }
+	public static void data(ByteBuffer xgenericeventcookie, ByteBuffer data) { data(xgenericeventcookie, memAddress(data)); }
 
-	public static int typeGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + TYPE); }
-	public static long serialGet(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DISPLAY); }
-	public static int extensionGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EXTENSION); }
-	public static int evtypeGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EVTYPE); }
-	public static int cookieGet(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + COOKIE); }
-	public static long dataGet(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DATA); }
-	public static ByteBuffer dataGet(ByteBuffer xgenericeventcookie, int size) { long address = dataGet(xgenericeventcookie); return address == 0 ? null : memByteBuffer(address, size); }
+	public static int type(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + TYPE); }
+	public static long serial(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + SERIAL); }
+	public static int send_event(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DISPLAY); }
+	public static int extension(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EXTENSION); }
+	public static int evtype(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EVTYPE); }
+	public static int cookie(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + COOKIE); }
+	public static long data(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DATA); }
+	public static ByteBuffer data(ByteBuffer xgenericeventcookie, int size) { long address = data(xgenericeventcookie); return address == NULL ? null : memByteBuffer(address, size); }
 
 }

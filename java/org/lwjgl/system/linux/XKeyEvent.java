@@ -84,55 +84,55 @@ public final class XKeyEvent {
 	) {
 		ByteBuffer xkeyevent = malloc();
 
-		typeSet(xkeyevent, type);
-		serialSet(xkeyevent, serial);
-		send_eventSet(xkeyevent, send_event);
-		displaySet(xkeyevent, display);
-		windowSet(xkeyevent, window);
-		rootSet(xkeyevent, root);
-		subwindowSet(xkeyevent, subwindow);
-		timeSet(xkeyevent, time);
-		xSet(xkeyevent, x);
-		ySet(xkeyevent, y);
-		x_rootSet(xkeyevent, x_root);
-		y_rootSet(xkeyevent, y_root);
-		stateSet(xkeyevent, state);
-		keycodeSet(xkeyevent, keycode);
-		same_screenSet(xkeyevent, same_screen);
+		type(xkeyevent, type);
+		serial(xkeyevent, serial);
+		send_event(xkeyevent, send_event);
+		display(xkeyevent, display);
+		window(xkeyevent, window);
+		root(xkeyevent, root);
+		subwindow(xkeyevent, subwindow);
+		time(xkeyevent, time);
+		x(xkeyevent, x);
+		y(xkeyevent, y);
+		x_root(xkeyevent, x_root);
+		y_root(xkeyevent, y_root);
+		state(xkeyevent, state);
+		keycode(xkeyevent, keycode);
+		same_screen(xkeyevent, same_screen);
 
 		return xkeyevent;
 	}
 
-	public static void typeSet(ByteBuffer xkeyevent, int type) { xkeyevent.putInt(xkeyevent.position() + TYPE, type); }
-	public static void serialSet(ByteBuffer xkeyevent, long serial) { PointerBuffer.put(xkeyevent, xkeyevent.position() + SERIAL, serial); }
-	public static void send_eventSet(ByteBuffer xkeyevent, int send_event) { xkeyevent.putInt(xkeyevent.position() + SEND_EVENT, send_event); }
-	public static void displaySet(ByteBuffer xkeyevent, long display) { PointerBuffer.put(xkeyevent, xkeyevent.position() + DISPLAY, display); }
-	public static void windowSet(ByteBuffer xkeyevent, long window) { PointerBuffer.put(xkeyevent, xkeyevent.position() + WINDOW, window); }
-	public static void rootSet(ByteBuffer xkeyevent, long root) { PointerBuffer.put(xkeyevent, xkeyevent.position() + ROOT, root); }
-	public static void subwindowSet(ByteBuffer xkeyevent, long subwindow) { PointerBuffer.put(xkeyevent, xkeyevent.position() + SUBWINDOW, subwindow); }
-	public static void timeSet(ByteBuffer xkeyevent, long time) { PointerBuffer.put(xkeyevent, xkeyevent.position() + TIME, time); }
-	public static void xSet(ByteBuffer xkeyevent, int x) { xkeyevent.putInt(xkeyevent.position() + X, x); }
-	public static void ySet(ByteBuffer xkeyevent, int y) { xkeyevent.putInt(xkeyevent.position() + Y, y); }
-	public static void x_rootSet(ByteBuffer xkeyevent, int x_root) { xkeyevent.putInt(xkeyevent.position() + X_ROOT, x_root); }
-	public static void y_rootSet(ByteBuffer xkeyevent, int y_root) { xkeyevent.putInt(xkeyevent.position() + Y_ROOT, y_root); }
-	public static void stateSet(ByteBuffer xkeyevent, int state) { xkeyevent.putInt(xkeyevent.position() + STATE, state); }
-	public static void keycodeSet(ByteBuffer xkeyevent, int keycode) { xkeyevent.putInt(xkeyevent.position() + KEYCODE, keycode); }
-	public static void same_screenSet(ByteBuffer xkeyevent, int same_screen) { xkeyevent.putInt(xkeyevent.position() + SAME_SCREEN, same_screen); }
+	public static void type(ByteBuffer xkeyevent, int type) { xkeyevent.putInt(xkeyevent.position() + TYPE, type); }
+	public static void serial(ByteBuffer xkeyevent, long serial) { PointerBuffer.put(xkeyevent, xkeyevent.position() + SERIAL, serial); }
+	public static void send_event(ByteBuffer xkeyevent, int send_event) { xkeyevent.putInt(xkeyevent.position() + SEND_EVENT, send_event); }
+	public static void display(ByteBuffer xkeyevent, long display) { PointerBuffer.put(xkeyevent, xkeyevent.position() + DISPLAY, display); }
+	public static void window(ByteBuffer xkeyevent, long window) { PointerBuffer.put(xkeyevent, xkeyevent.position() + WINDOW, window); }
+	public static void root(ByteBuffer xkeyevent, long root) { PointerBuffer.put(xkeyevent, xkeyevent.position() + ROOT, root); }
+	public static void subwindow(ByteBuffer xkeyevent, long subwindow) { PointerBuffer.put(xkeyevent, xkeyevent.position() + SUBWINDOW, subwindow); }
+	public static void time(ByteBuffer xkeyevent, long time) { PointerBuffer.put(xkeyevent, xkeyevent.position() + TIME, time); }
+	public static void x(ByteBuffer xkeyevent, int x) { xkeyevent.putInt(xkeyevent.position() + X, x); }
+	public static void y(ByteBuffer xkeyevent, int y) { xkeyevent.putInt(xkeyevent.position() + Y, y); }
+	public static void x_root(ByteBuffer xkeyevent, int x_root) { xkeyevent.putInt(xkeyevent.position() + X_ROOT, x_root); }
+	public static void y_root(ByteBuffer xkeyevent, int y_root) { xkeyevent.putInt(xkeyevent.position() + Y_ROOT, y_root); }
+	public static void state(ByteBuffer xkeyevent, int state) { xkeyevent.putInt(xkeyevent.position() + STATE, state); }
+	public static void keycode(ByteBuffer xkeyevent, int keycode) { xkeyevent.putInt(xkeyevent.position() + KEYCODE, keycode); }
+	public static void same_screen(ByteBuffer xkeyevent, int same_screen) { xkeyevent.putInt(xkeyevent.position() + SAME_SCREEN, same_screen); }
 
-	public static int typeGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + TYPE); }
-	public static long serialGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + SERIAL); }
-	public static int send_eventGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + SEND_EVENT); }
-	public static long displayGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + DISPLAY); }
-	public static long windowGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + WINDOW); }
-	public static long rootGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + ROOT); }
-	public static long subwindowGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + SUBWINDOW); }
-	public static long timeGet(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + TIME); }
-	public static int xGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + X); }
-	public static int yGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + Y); }
-	public static int x_rootGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + X_ROOT); }
-	public static int y_rootGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + Y_ROOT); }
-	public static int stateGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + STATE); }
-	public static int keycodeGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + KEYCODE); }
-	public static int same_screenGet(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + SAME_SCREEN); }
+	public static int type(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + TYPE); }
+	public static long serial(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + SERIAL); }
+	public static int send_event(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + SEND_EVENT); }
+	public static long display(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + DISPLAY); }
+	public static long window(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + WINDOW); }
+	public static long root(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + ROOT); }
+	public static long subwindow(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + SUBWINDOW); }
+	public static long time(ByteBuffer xkeyevent) { return PointerBuffer.get(xkeyevent, xkeyevent.position() + TIME); }
+	public static int x(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + X); }
+	public static int y(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + Y); }
+	public static int x_root(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + X_ROOT); }
+	public static int y_root(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + Y_ROOT); }
+	public static int state(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + STATE); }
+	public static int keycode(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + KEYCODE); }
+	public static int same_screen(ByteBuffer xkeyevent) { return xkeyevent.getInt(xkeyevent.position() + SAME_SCREEN); }
 
 }

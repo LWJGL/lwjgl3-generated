@@ -45,16 +45,16 @@ public final class timezone {
 	) {
 		ByteBuffer timezone = malloc();
 
-		tz_minuteswestSet(timezone, tz_minuteswest);
-		tz_dsttimeSet(timezone, tz_dsttime);
+		tz_minuteswest(timezone, tz_minuteswest);
+		tz_dsttime(timezone, tz_dsttime);
 
 		return timezone;
 	}
 
-	public static void tz_minuteswestSet(ByteBuffer timezone, int tz_minuteswest) { timezone.putInt(timezone.position() + TZ_MINUTESWEST, tz_minuteswest); }
-	public static void tz_dsttimeSet(ByteBuffer timezone, int tz_dsttime) { timezone.putInt(timezone.position() + TZ_DSTTIME, tz_dsttime); }
+	public static void tz_minuteswest(ByteBuffer timezone, int tz_minuteswest) { timezone.putInt(timezone.position() + TZ_MINUTESWEST, tz_minuteswest); }
+	public static void tz_dsttime(ByteBuffer timezone, int tz_dsttime) { timezone.putInt(timezone.position() + TZ_DSTTIME, tz_dsttime); }
 
-	public static int tz_minuteswestGet(ByteBuffer timezone) { return timezone.getInt(timezone.position() + TZ_MINUTESWEST); }
-	public static int tz_dsttimeGet(ByteBuffer timezone) { return timezone.getInt(timezone.position() + TZ_DSTTIME); }
+	public static int tz_minuteswest(ByteBuffer timezone) { return timezone.getInt(timezone.position() + TZ_MINUTESWEST); }
+	public static int tz_dsttime(ByteBuffer timezone) { return timezone.getInt(timezone.position() + TZ_DSTTIME); }
 
 }
