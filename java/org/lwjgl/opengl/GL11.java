@@ -4709,11 +4709,11 @@ public final class GL11 {
 	 * Sets the current matrix to a 4 &times; 4 matrix in column-major order.
 	 * <p/>
 	 * The matrix is stored as 16 consecutive values, i.e. as:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>a1</td><td>a5</td><td>a9</td><td>a13</td></tr>
-	 * <tr align="center"><td>a2</td><td>a6</td><td>a10</td><td>a14</td></tr>
-	 * <tr align="center"><td>a3</td><td>a7</td><td>a11</td><td>a15</td></tr>
-	 * <tr align="center"><td>a4</td><td>a8</td><td>a12</td><td>a16</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>a1</td><td>a5</td><td>a9</td><td>a13</td></tr>
+	 * <tr align=center><td>a2</td><td>a6</td><td>a10</td><td>a14</td></tr>
+	 * <tr align=center><td>a3</td><td>a7</td><td>a11</td><td>a15</td></tr>
+	 * <tr align=center><td>a4</td><td>a8</td><td>a12</td><td>a16</td></tr>
 	 * </table>
 	 * <p/>
 	 * This differs from the standard row-major ordering for matrix elements. If the standard ordering is used, all of the subsequent transformation equations
@@ -4782,11 +4782,11 @@ public final class GL11 {
 	 * Sets the current matrix to the identity matrix.
 	 * <p/>
 	 * Calling this function is equivalent to calling {@link #glLoadMatrixf} with the following matrix:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>1</td><td>0</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>1</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 */
 	public static void glLoadIdentity() {
@@ -5280,11 +5280,11 @@ public final class GL11 {
 	 * plane.
 	 * <p/>
 	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>- (f + n) / (f - n)</td><td>- (2fn) / (f - n)</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>-1</td><td>0</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>- (f + n) / (f - n)</td><td>- (2fn) / (f - n)</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>-1</td><td>0</td></tr>
 	 * </table>
 	 *
 	 * @param l the left frustum plane
@@ -5666,11 +5666,11 @@ public final class GL11 {
 	 * plane.
 	 * <p/>
 	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
-	 * <tr align="center"><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>- 2 / (f - n)</td><td>- (f + n) / (f - n)</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
+	 * <tr align=center><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>- 2 / (f - n)</td><td>- (f + n) / (f - n)</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 *
 	 * @param l the left frustum plane
@@ -7236,18 +7236,18 @@ public final class GL11 {
 	 * {@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code>v = (x y z)<sup>T</sup></code>. The computed matrix
 	 * is a counter-clockwise rotation about the line through the origin with the specified axis when that axis is pointing up (i.e. the right-hand rule
 	 * determines the sense of the rotation angle). The matrix is thus
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td colspan="3" rowspan="3"><b>R</b></td><td>0</td></tr>
-	 * <tr align="center"><td>0</td></tr>
-	 * <tr align="center"><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td colspan=3 rowspan=3><b>R</b></td><td>0</td></tr>
+	 * <tr align=center><td>0</td></tr>
+	 * <tr align=center><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 * <p/>
 	 * Let <code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>. If <b>S</b> =
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>0</td><td>-z'</td><td>y'</td></tr>
-	 * <tr align="center"><td>z'</td><td>0</td><td>-x'</td></tr>
-	 * <tr align="center"><td>-y'</td><td>x'</td><td>0</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>0</td><td>-z'</td><td>y'</td></tr>
+	 * <tr align=center><td>z'</td><td>0</td><td>-x'</td></tr>
+	 * <tr align=center><td>-y'</td><td>x'</td><td>0</td></tr>
 	 * </table>
 	 * <p/>
 	 * then <code><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code>
@@ -7297,11 +7297,11 @@ public final class GL11 {
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * <p/>
 	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>x</td><td>0</td><td>0</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>y</td><td>0</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>z</td><td>0</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>x</td><td>0</td><td>0</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>y</td><td>0</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>z</td><td>0</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 *
 	 * @param x the x-axis scaling factor
@@ -9194,11 +9194,11 @@ public final class GL11 {
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * <p/>
 	 * Calling this function is equivalent to calling {@link #glMultMatrixf} with the following matrix:
-	 * <table border="1" cellspacing="0" cellpadding="2">
-	 * <tr align="center"><td>1</td><td>0</td><td>0</td><td>x</td></tr>
-	 * <tr align="center"><td>0</td><td>1</td><td>0</td><td>y</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>1</td><td>z</td></tr>
-	 * <tr align="center"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+	 * <table border=1 cellspacing=0 cellpadding=2>
+	 * <tr align=center><td>1</td><td>0</td><td>0</td><td>x</td></tr>
+	 * <tr align=center><td>0</td><td>1</td><td>0</td><td>y</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>1</td><td>z</td></tr>
+	 * <tr align=center><td>0</td><td>0</td><td>0</td><td>1</td></tr>
 	 * </table>
 	 *
 	 * @param x the x-axis translation

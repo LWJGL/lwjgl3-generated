@@ -249,8 +249,8 @@ public final class EXTEfx {
 
 	/** Listener property value ranges and defaults. */
 	public static final float
-		AL_MIN_METERS_PER_UNIT     = 1.4E-45f,
-		AL_MAX_METERS_PER_UNIT     = 3.4028235E38f,
+		AL_MIN_METERS_PER_UNIT     = 0x0.000002P-126f,
+		AL_MAX_METERS_PER_UNIT     = 0x1.fffffeP+127f,
 		AL_DEFAULT_METERS_PER_UNIT = 1.0f;
 
 	/** Reverb effect parameter ranges and defaults */

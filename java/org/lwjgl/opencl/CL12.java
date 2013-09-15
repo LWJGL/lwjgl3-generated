@@ -393,14 +393,14 @@ public final class CL12 {
 	 * @param image_desc   a pointer to a {@link cl_image_desc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
 	 *                     {@code host_ptr} points to must be.
-	 *                     <table border="1" cellspacing="0" cellpadding="2">
-	 *                     <tr align="center"><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
-	 *                     <tr align="center"><td>{@link #CL_MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
-	 *                     <tr align="center"><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
-	 *                     <tr align="center"><td>{@link CL10#CL_MEM_OBJECT_IMAGE2D}</td><td>&#x2265; {@code image_row_pitch * image_height}</td></tr>
-	 *                     <tr align="center"><td>{@link CL10#CL_MEM_OBJECT_IMAGE3D}</td><td>&#x2265; {@code image_slice_pitch * image_depth}</td></tr>
-	 *                     <tr align="center"><td>{@link #CL_MEM_OBJECT_IMAGE1D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
-	 *                     <tr align="center"><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     <table border=1 cellspacing=0 cellpadding=2>
+	 *                     <tr align=center><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
+	 *                     <tr align=center><td>{@link #CL_MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr align=center><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr align=center><td>{@link CL10#CL_MEM_OBJECT_IMAGE2D}</td><td>&#x2265; {@code image_row_pitch * image_height}</td></tr>
+	 *                     <tr align=center><td>{@link CL10#CL_MEM_OBJECT_IMAGE3D}</td><td>&#x2265; {@code image_slice_pitch * image_depth}</td></tr>
+	 *                     <tr align=center><td>{@link #CL_MEM_OBJECT_IMAGE1D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     <tr align=center><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
 	 *                     </table>
 	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
