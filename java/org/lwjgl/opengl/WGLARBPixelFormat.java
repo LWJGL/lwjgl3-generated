@@ -133,8 +133,7 @@ public final class WGLARBPixelFormat {
 			checkBuffer(values, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int attributes = __buffer.intParam();
-		__buffer.intValue(attributes, attribute);
+		int attributes = __buffer.intParam(attribute);
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, 1, __buffer.address() + attributes, memAddress(values), __functionAddress);
 	}
 
@@ -184,8 +183,7 @@ public final class WGLARBPixelFormat {
 			checkBuffer(values, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int attributes = __buffer.intParam();
-		__buffer.intValue(attributes, attribute);
+		int attributes = __buffer.intParam(attribute);
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, 1, __buffer.address() + attributes, memAddress(values), __functionAddress);
 	}
 

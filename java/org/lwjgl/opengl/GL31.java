@@ -365,7 +365,7 @@ public final class GL31 {
 		int uniformNamesAddress = __buffer.bufferParam(uniformNames.length << POINTER_SHIFT);
 		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
 		for ( int i = 0; i < uniformNames.length; i++ )
-			__buffer.pointerValue(uniformNamesAddress + (i << POINTER_SHIFT), memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
+			__buffer.pointerParam(uniformNamesAddress, i, memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
 		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices), __functionAddress);
 	}
 
@@ -375,9 +375,8 @@ public final class GL31 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int uniformNamesAddress = __buffer.pointerParam();
 		ByteBuffer uniformNameBuffers = memEncodeASCII(uniformName, true);
-		__buffer.pointerValue(uniformNamesAddress, memAddress(uniformNameBuffers));
+		int uniformNamesAddress = __buffer.pointerParam(memAddress(uniformNameBuffers));
 		int uniformIndices = __buffer.intParam();
 		nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices, __functionAddress);
 		return __buffer.intValue(uniformIndices);
@@ -425,8 +424,7 @@ public final class GL31 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int uniformIndices = __buffer.intParam();
-		__buffer.intValue(uniformIndices, uniformIndex);
+		int uniformIndices = __buffer.intParam(uniformIndex);
 		int params = __buffer.intParam();
 		nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params, __functionAddress);
 		return __buffer.intValue(params);

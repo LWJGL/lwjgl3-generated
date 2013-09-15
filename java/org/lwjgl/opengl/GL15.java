@@ -162,8 +162,7 @@ public final class GL15 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int buffers = __buffer.intParam();
-		__buffer.intValue(buffers, buffer);
+		int buffers = __buffer.intParam(buffer);
 		nglDeleteBuffers(1, __buffer.address() + buffers, __functionAddress);
 	}
 
@@ -639,8 +638,7 @@ public final class GL15 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		__buffer.intValue(ids, id);
+		int ids = __buffer.intParam(id);
 		nglDeleteQueries(1, __buffer.address() + ids, __functionAddress);
 	}
 

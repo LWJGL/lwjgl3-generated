@@ -531,8 +531,7 @@ public final class CL12 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int device_list = __buffer.pointerParam();
-		__buffer.pointerValue(device_list, device);
+		int device_list = __buffer.pointerParam(device);
 		return CLProgram.create(nclCreateProgramWithBuiltInKernels(context.getPointer(), num_devices, __buffer.address() + device_list, memAddress(memEncodeASCII(kernel_names)), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -635,11 +634,9 @@ public final class CL12 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int input_headers = __buffer.pointerParam();
-		__buffer.pointerValue(input_headers, input_header);
-		int header_include_names = __buffer.pointerParam();
+		int input_headers = __buffer.pointerParam(input_header);
 		ByteBuffer header_include_nameBuffer = memEncodeASCII(header_include_name);
-		__buffer.pointerValue(header_include_names, memAddress(header_include_nameBuffer));
+		int header_include_names = __buffer.pointerParam(memAddress(header_include_nameBuffer));
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
 		int __result = nclCompileProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), 1, __buffer.address() + input_headers, __buffer.address() + header_include_names, pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
@@ -758,8 +755,7 @@ public final class CL12 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int input_programs = __buffer.pointerParam();
-		__buffer.pointerValue(input_programs, input_program);
+		int input_programs = __buffer.pointerParam(input_program);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
 		CLProgram __result = CLProgram.create(nclLinkProgram(context.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), 1, __buffer.address() + input_programs, pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress), context);
 		if ( __result == null && user_data != NULL ) memGlobalRefDelete(user_data);

@@ -219,8 +219,7 @@ public final class GL33 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int samplers = __buffer.intParam();
-		__buffer.intValue(samplers, sampler);
+		int samplers = __buffer.intParam(sampler);
 		nglDeleteSamplers(1, __buffer.address() + samplers, __functionAddress);
 	}
 

@@ -718,8 +718,7 @@ public final class EXTEfx {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int effects = __buffer.intParam();
-		__buffer.intValue(effects, effect);
+		int effects = __buffer.intParam(effect);
 		nalDeleteEffects(1, __buffer.address() + effects, __functionAddress);
 	}
 
@@ -1051,8 +1050,7 @@ public final class EXTEfx {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int filters = __buffer.intParam();
-		__buffer.intValue(filters, filter);
+		int filters = __buffer.intParam(filter);
 		nalDeleteFilters(1, __buffer.address() + filters, __functionAddress);
 	}
 
@@ -1384,8 +1382,7 @@ public final class EXTEfx {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int effectSlots = __buffer.intParam();
-		__buffer.intValue(effectSlots, effectSlot);
+		int effectSlots = __buffer.intParam(effectSlot);
 		nalDeleteAuxiliaryEffectSlots(1, __buffer.address() + effectSlots, __functionAddress);
 	}
 

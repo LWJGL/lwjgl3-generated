@@ -803,8 +803,7 @@ public final class GL11 {
 			checkBuffer(residences, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam();
-		__buffer.intValue(textures, texture);
+		int textures = __buffer.intParam(texture);
 		return nglAreTexturesResident(1, __buffer.address() + textures, memAddress(residences), __functionAddress);
 	}
 
@@ -3046,8 +3045,7 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int textures = __buffer.intParam();
-		__buffer.intValue(textures, texture);
+		int textures = __buffer.intParam(texture);
 		nglDeleteTextures(1, __buffer.address() + textures, __functionAddress);
 	}
 

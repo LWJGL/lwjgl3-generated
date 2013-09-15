@@ -804,8 +804,7 @@ public final class AL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int sources = __buffer.intParam();
-		__buffer.intValue(sources, source);
+		int sources = __buffer.intParam(source);
 		nalDeleteSources(1, __buffer.address() + sources, __functionAddress);
 	}
 
@@ -1103,8 +1102,7 @@ public final class AL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam();
-		__buffer.intValue(bufferNames, bufferName);
+		int bufferNames = __buffer.intParam(bufferName);
 		nalSourceQueueBuffers(sourceName, 1, __buffer.address() + bufferNames, __functionAddress);
 	}
 
@@ -1148,8 +1146,7 @@ public final class AL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam();
-		__buffer.intValue(bufferNames, bufferName);
+		int bufferNames = __buffer.intParam(bufferName);
 		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address() + bufferNames, __functionAddress);
 	}
 
@@ -1419,8 +1416,7 @@ public final class AL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam();
-		__buffer.intValue(bufferNames, bufferName);
+		int bufferNames = __buffer.intParam(bufferName);
 		nalDeleteBuffers(1, __buffer.address() + bufferNames, __functionAddress);
 	}
 

@@ -643,8 +643,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int devices = __buffer.pointerParam();
-		__buffer.pointerValue(devices, device);
+		int devices = __buffer.pointerParam(device);
 		long user_data = CLContextCallback.Util.register(pfn_notify);
 		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
@@ -2948,11 +2947,11 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int stringsLengths = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsLengths + (i << POINTER_SHIFT), strings[i].length());
+			__buffer.pointerParam(stringsLengths, i, strings[i].length());
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
+			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -2964,11 +2963,9 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.pointerParam();
-		__buffer.pointerValue(stringsLengths, string.length());
-		int stringsAddress = __buffer.pointerParam();
+		int stringsLengths = __buffer.pointerParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		__buffer.pointerValue(stringsAddress, memAddress(stringBuffers));
+		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -3061,10 +3058,10 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int binariesAddress = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
 		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerValue(binariesAddress + (i << POINTER_SHIFT), memAddress(binaries[i]));
+			__buffer.pointerParam(binariesAddress, i, memAddress(binaries[i]));
 		int binariesLengths = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
 		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerValue(binariesLengths + (i << POINTER_SHIFT), binaries[i].remaining());
+			__buffer.pointerParam(binariesLengths, i, binaries[i].remaining());
 		return CLProgram.create(nclCreateProgramWithBinary(context.getPointer(), binaries.length, memAddress(device_list), __buffer.address() + binariesLengths, __buffer.address() + binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -3078,10 +3075,8 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int binariesAddress = __buffer.pointerParam();
-		__buffer.pointerValue(binariesAddress, memAddress(binary));
-		int binariesLengths = __buffer.pointerParam();
-		__buffer.pointerValue(binariesLengths, binary.remaining());
+		int binariesAddress = __buffer.pointerParam(memAddress(binary));
+		int binariesLengths = __buffer.pointerParam(binary.remaining());
 		return CLProgram.create(nclCreateProgramWithBinary(context.getPointer(), 1, memAddress(device_list), __buffer.address() + binariesLengths, __buffer.address() + binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -3222,8 +3217,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int device_list = __buffer.pointerParam();
-		__buffer.pointerValue(device_list, device);
+		int device_list = __buffer.pointerParam(device);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
 		int __result = nclBuildProgram(program.getPointer(), 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
@@ -4081,10 +4075,8 @@ public final class CL10 {
 			if ( event != null ) checkBuffer(event, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int mem_list = __buffer.pointerParam();
-		__buffer.pointerValue(mem_list, memobj);
-		int args_mem_loc = __buffer.pointerParam();
-		__buffer.pointerValue(args_mem_loc, memobj_loc);
+		int mem_list = __buffer.pointerParam(memobj);
+		int args_mem_loc = __buffer.pointerParam(memobj_loc);
 		long user_data = CLNativeKernel.Util.register(user_func, args);
 		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.Util.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
@@ -4136,8 +4128,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int event_list = __buffer.pointerParam();
-		__buffer.pointerValue(event_list, event);
+		int event_list = __buffer.pointerParam(event);
 		return nclWaitForEvents(1, __buffer.address() + event_list, __functionAddress);
 	}
 
@@ -4381,8 +4372,7 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int event_list = __buffer.pointerParam();
-		__buffer.pointerValue(event_list, event);
+		int event_list = __buffer.pointerParam(event);
 		return nclEnqueueWaitForEvents(command_queue.getPointer(), 1, __buffer.address() + event_list, __functionAddress);
 	}
 

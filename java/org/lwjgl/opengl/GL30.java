@@ -1681,8 +1681,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int renderbuffers = __buffer.intParam();
-		__buffer.intValue(renderbuffers, renderbuffer);
+		int renderbuffers = __buffer.intParam(renderbuffer);
 		nglDeleteRenderbuffers(1, __buffer.address() + renderbuffers, __functionAddress);
 	}
 
@@ -1893,8 +1892,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int framebuffers = __buffer.intParam();
-		__buffer.intValue(framebuffers, framebuffer);
+		int framebuffers = __buffer.intParam(framebuffer);
 		nglDeleteFramebuffers(1, __buffer.address() + framebuffers, __functionAddress);
 	}
 
@@ -2204,8 +2202,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		__buffer.intValue(params, param);
+		int params = __buffer.intParam(param);
 		nglTexParameterIiv(target, pname, __buffer.address() + params, __functionAddress);
 	}
 
@@ -2248,8 +2245,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int params = __buffer.intParam();
-		__buffer.intValue(params, param);
+		int params = __buffer.intParam(param);
 		nglTexParameterIuiv(target, pname, __buffer.address() + params, __functionAddress);
 	}
 
@@ -2623,7 +2619,7 @@ public final class GL30 {
 		int varyingsAddress = __buffer.bufferParam(varyings.length << POINTER_SHIFT);
 		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
 		for ( int i = 0; i < varyings.length; i++ )
-			__buffer.pointerValue(varyingsAddress + (i << POINTER_SHIFT), memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
+			__buffer.pointerParam(varyingsAddress, i, memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
 		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
@@ -2633,9 +2629,8 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerParam();
 		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
-		__buffer.pointerValue(varyingsAddress, memAddress(varyingBuffers));
+		int varyingsAddress = __buffer.pointerParam(memAddress(varyingBuffers));
 		nglTransformFeedbackVaryings(program, 1, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
@@ -2767,8 +2762,7 @@ public final class GL30 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int arrays = __buffer.intParam();
-		__buffer.intValue(arrays, array);
+		int arrays = __buffer.intParam(array);
 		nglDeleteVertexArrays(1, __buffer.address() + arrays, __functionAddress);
 	}
 

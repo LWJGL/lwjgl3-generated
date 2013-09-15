@@ -343,11 +343,11 @@ public final class GL20 {
 		APIBuffer __buffer = apiBuffer();
 		int stringsLengths = __buffer.bufferParam(strings.length << 2);
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.intValue(stringsLengths + (i << 2), strings[i].length());
+			__buffer.intParam(stringsLengths, i, strings[i].length());
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
+			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
 		nglShaderSource(shader, strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, __functionAddress);
 	}
 
@@ -357,11 +357,9 @@ public final class GL20 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.intParam();
-		__buffer.intValue(stringsLengths, string.length());
-		int stringsAddress = __buffer.pointerParam();
+		int stringsLengths = __buffer.intParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		__buffer.pointerValue(stringsAddress, memAddress(stringBuffers));
+		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
 		nglShaderSource(shader, 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, __functionAddress);
 	}
 
@@ -2855,8 +2853,7 @@ public final class GL20 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int bufs = __buffer.intParam();
-		__buffer.intValue(bufs, buf);
+		int bufs = __buffer.intParam(buf);
 		nglDrawBuffers(1, __buffer.address() + bufs, __functionAddress);
 	}
 

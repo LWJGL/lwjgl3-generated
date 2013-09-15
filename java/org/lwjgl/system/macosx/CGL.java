@@ -13,6 +13,7 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to CGL. */
 public final class CGL {
@@ -771,6 +772,15 @@ public final class CGL {
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
+	/** Single value version of: {@link #CGLSetParameter} */
+	public static int CGLSetParameter(long ctx, int pname, int param) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.intParam(param);
+		return nCGLSetParameter(ctx, pname, __buffer.address() + params);
+	}
+
 	// --- [ CGLGetParameter ] ---
 
 	/** JNI method for {@link #CGLGetParameter} */
@@ -894,6 +904,13 @@ public final class CGL {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetGlobalOption(pname, memAddress(params));
+	}
+
+	/** Single value version of: {@link #CGLSetGlobalOption} */
+	public static int CGLSetGlobalOption(int pname, int param) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.intParam(param);
+		return nCGLSetGlobalOption(pname, __buffer.address() + params);
 	}
 
 	// --- [ CGLGetGlobalOption ] ---

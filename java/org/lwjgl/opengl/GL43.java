@@ -683,8 +683,7 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		__buffer.intValue(ids, id);
+		int ids = __buffer.intParam(id);
 		nglDebugMessageControl(source, type, severity, 1, __buffer.address() + ids, enabled, __functionAddress);
 	}
 
@@ -1308,8 +1307,7 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam();
-		__buffer.intValue(attachments, attachment);
+		int attachments = __buffer.intParam(attachment);
 		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments, __functionAddress);
 	}
 
@@ -1354,8 +1352,7 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int attachments = __buffer.intParam();
-		__buffer.intValue(attachments, attachment);
+		int attachments = __buffer.intParam(attachment);
 		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height, __functionAddress);
 	}
 

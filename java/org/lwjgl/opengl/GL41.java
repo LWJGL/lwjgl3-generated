@@ -443,7 +443,7 @@ public final class GL41 {
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerValue(stringsAddress + (i << POINTER_SHIFT), memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
+			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
 		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress, __functionAddress);
 	}
 
@@ -453,9 +453,8 @@ public final class GL41 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerParam();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
-		__buffer.pointerValue(stringsAddress, memAddress(stringBuffers));
+		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
 		return nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress, __functionAddress);
 	}
 
@@ -514,8 +513,7 @@ public final class GL41 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int pipelines = __buffer.intParam();
-		__buffer.intValue(pipelines, pipeline);
+		int pipelines = __buffer.intParam(pipeline);
 		nglDeleteProgramPipelines(1, __buffer.address() + pipelines, __functionAddress);
 	}
 

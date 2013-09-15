@@ -1231,8 +1231,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int indices = __buffer.intParam();
-		__buffer.intValue(indices, index);
+		int indices = __buffer.intParam(index);
 		nglUniformSubroutinesuiv(shadertype, 1, __buffer.address() + indices, __functionAddress);
 	}
 
@@ -1435,8 +1434,7 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int ids = __buffer.intParam();
-		__buffer.intValue(ids, id);
+		int ids = __buffer.intParam(id);
 		nglDeleteTransformFeedbacks(1, __buffer.address() + ids, __functionAddress);
 	}
 
