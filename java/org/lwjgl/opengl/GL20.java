@@ -336,7 +336,7 @@ public final class GL20 {
 	}
 
 	/** Array version of: {@link #glShaderSource} */
-	public static void glShaderSource(int shader, CharSequence[] strings) {
+	public static void glShaderSource(int shader, CharSequence... strings) {
 		long __functionAddress = getInstance().glShaderSource;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);

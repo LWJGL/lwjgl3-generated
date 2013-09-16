@@ -435,7 +435,7 @@ public final class GL41 {
 	}
 
 	/** Array version of: {@link #glCreateShaderProgram(int, int, ByteBuffer)} */
-	public static int glCreateShaderProgram(int type, CharSequence[] strings) {
+	public static int glCreateShaderProgram(int type, CharSequence... strings) {
 		long __functionAddress = getInstance().glCreateShaderProgramv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
