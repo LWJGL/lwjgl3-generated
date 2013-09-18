@@ -23,11 +23,11 @@ public final class WGLNVCopyImage {
 
 	// --- [ wglCopyImageSubDataNV ] ---
 
-	/** JNI method for {@link #wglCopyImageSubDataNV} */
+	/** JNI method for {@link #wglCopyImageSubDataNV wglCopyImageSubDataNV} */
 	public static native int nwglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
 
 	/**
-	 * Behaves identically to the core function {@link NVCopyImage#glCopyImageSubDataNV}, except that the {@code srcRC} and {@code dstRC} parameters specify
+	 * Behaves identically to the core function {@link NVCopyImage#wglCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcRC} and {@code dstRC} parameters specify
 	 * the contexts in which to look up the source and destination objects, respectively. A value of zero indicates that the currently bound context should be
 	 * used instead.
 	 *

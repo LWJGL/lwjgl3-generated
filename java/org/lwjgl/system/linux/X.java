@@ -238,18 +238,18 @@ public final class X {
 		AsyncBoth      = 0x6,
 		SyncBoth       = 0x7;
 
-	/** For {@link Xlib#XCreateColormap}. */
+	/** For {@link Xlib#XCreateColormap XCreateColormap}. */
 	public static final int
 		AllocNone = 0x0,
 		AllocAll  = 0x1;
 
-	/** Used in {@link Xlib#XSetInputFocus}, {@link Xlib#XGetInputFocus}. */
+	/** Used in {@link Xlib#XSetInputFocus XSetInputFocus}, {@link Xlib#XGetInputFocus XGetInputFocus}. */
 	public static final int
 		RevertToNone        = None,
 		RevertToPointerRoot = PointerRoot,
 		RevertToParent      = 0x2;
 
-	/** Window classes used by {@link Xlib#XCreateWindow}. */
+	/** Window classes used by {@link Xlib#XCreateWindow XCreateWindow}. */
 	public static final int
 		InputOutput = 0x1,
 		InputOnly   = 0x2;

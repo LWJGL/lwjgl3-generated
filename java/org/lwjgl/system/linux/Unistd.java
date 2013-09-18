@@ -30,7 +30,7 @@ public final class Unistd {
 
 	// --- [ read ] ---
 
-	/** JNI method for {@link #read} */
+	/** JNI method for {@link #read read} */
 	public static native long nread(int fd, long buf, long count);
 
 	/**
@@ -46,7 +46,7 @@ public final class Unistd {
 		return nread(fd, memAddress(buf), count);
 	}
 
-	/** Alternative version of: {@link #read} */
+	/** Alternative version of: {@link #read read} */
 	public static long read(int fd, ByteBuffer buf) {
 		return nread(fd, memAddress(buf), buf.remaining());
 	}

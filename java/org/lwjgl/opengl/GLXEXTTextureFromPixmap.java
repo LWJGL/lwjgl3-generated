@@ -22,7 +22,7 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXEXTTextureFromPixmap {
 
-	/** Accepted by the {@code attribute} parameter of {@link GLX13#glXGetFBConfigAttrib} and the {@code attrib_list} parameter of {@link GLX13#glXChooseFBConfig}: */
+	/** Accepted by the {@code attribute} parameter of {@link GLX13#glXGetFBConfigAttrib GetFBConfigAttrib} and the {@code attrib_list} parameter of {@link GLX13#glXChooseFBConfig ChooseFBConfig}: */
 	public static final int
 		GLX_BIND_TO_TEXTURE_RGB_EXT     = 0x20D0,
 		GLX_BIND_TO_TEXTURE_RGBA_EXT    = 0x20D1,
@@ -30,37 +30,37 @@ public final class GLXEXTTextureFromPixmap {
 		GLX_BIND_TO_TEXTURE_TARGETS_EXT = 0x20D3,
 		GLX_Y_INVERTED_EXT              = 0x20D4;
 
-	/** Accepted as an attribute in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap}, and by the {@code attribute} parameter of {@link GLX13#glXQueryDrawable}: */
+	/** Accepted as an attribute in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap CreatePixmap}, and by the {@code attribute} parameter of {@link GLX13#glXQueryDrawable QueryDrawable}: */
 	public static final int
 		GLX_TEXTURE_FORMAT_EXT = 0x20D5,
 		GLX_TEXTURE_TARGET_EXT = 0x20D6,
 		GLX_MIPMAP_TEXTURE_EXT = 0x20D7;
 
 	/**
-	 * Accepted as a value in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap} and returned in the {@code value} parameter of
-	 * {@link GLX13#glXQueryDrawable} when {@code attribute} is {@link #GLX_TEXTURE_FORMAT_EXT}:
+	 * Accepted as a value in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap CreatePixmap} and returned in the {@code value} parameter of
+	 * {@link GLX13#glXQueryDrawable QueryDrawable} when {@code attribute} is {@link #GLX_TEXTURE_FORMAT_EXT TEXTURE_FORMAT_EXT}:
 	 */
 	public static final int
 		GLX_TEXTURE_FORMAT_NONE_EXT = 0x20D8,
 		GLX_TEXTURE_FORMAT_RGB_EXT  = 0x20D9,
 		GLX_TEXTURE_FORMAT_RGBA_EXT = 0x20DA;
 
-	/** Accepted as bits in the {@link #GLX_BIND_TO_TEXTURE_TARGETS_EXT} variable: */
+	/** Accepted as bits in the {@link #GLX_BIND_TO_TEXTURE_TARGETS_EXT BIND_TO_TEXTURE_TARGETS_EXT} variable: */
 	public static final int
 		GLX_TEXTURE_1D_BIT_EXT        = 0x1,
 		GLX_TEXTURE_2D_BIT_EXT        = 0x2,
 		GLX_TEXTURE_RECTANGLE_BIT_EXT = 0x4;
 
 	/**
-	 * Accepted as a value in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap} and returned in the {@code value} parameter of
-	 * {@link GLX13#glXQueryDrawable} when {@code attribute} is {@link #GLX_TEXTURE_TARGET_EXT}:
+	 * Accepted as a value in the {@code attrib_list} parameter of {@link GLX13#glXCreatePixmap CreatePixmap} and returned in the {@code value} parameter of
+	 * {@link GLX13#glXQueryDrawable QueryDrawable} when {@code attribute} is {@link #GLX_TEXTURE_TARGET_EXT TEXTURE_TARGET_EXT}:
 	 */
 	public static final int
 		GLX_TEXTURE_1D_EXT        = 0x20DB,
 		GLX_TEXTURE_2D_EXT        = 0x20DC,
 		GLX_TEXTURE_RECTANGLE_EXT = 0x20DD;
 
-	/** Accepted by the {@code buffer} parameter of {@link #glXBindTexImageEXT} and {@link #glXReleaseTexImageEXT}: */
+	/** Accepted by the {@code buffer} parameter of {@link #glXBindTexImageEXT BindTexImageEXT} and {@link #glXReleaseTexImageEXT ReleaseTexImageEXT}: */
 	public static final int
 		GLX_FRONT_LEFT_EXT  = 0x20DE,
 		GLX_FRONT_RIGHT_EXT = 0x20DF,
@@ -83,7 +83,7 @@ public final class GLXEXTTextureFromPixmap {
 
 	// --- [ glXBindTexImageEXT ] ---
 
-	/** JNI method for {@link #glXBindTexImageEXT} */
+	/** JNI method for {@link #glXBindTexImageEXT glXBindTexImageEXT} */
 	public static native void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list, long __functionAddress);
 
 	/**
@@ -106,7 +106,7 @@ public final class GLXEXTTextureFromPixmap {
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXBindTexImageEXT} */
+	/** Alternative version of: {@link #glXBindTexImageEXT glXBindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
 		long __functionAddress = getInstance().glXBindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
@@ -120,7 +120,7 @@ public final class GLXEXTTextureFromPixmap {
 
 	// --- [ glXReleaseTexImageEXT ] ---
 
-	/** JNI method for {@link #glXReleaseTexImageEXT} */
+	/** JNI method for {@link #glXReleaseTexImageEXT glXReleaseTexImageEXT} */
 	public static native void nglXReleaseTexImageEXT(long display, long drawable, int buffer, long __functionAddress);
 
 	/**

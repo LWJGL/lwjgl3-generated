@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <fcntl.h>. */
 public final class Fcntl {
 
-	/** {@link #open} flags. */
+	/** {@link #open open} flags. */
 	public static final int
 		O_ACCMODE   = 0x3,
 		O_RDONLY    = 0x0,
@@ -41,7 +41,7 @@ public final class Fcntl {
 
 	// --- [ open ] ---
 
-	/** JNI method for {@link #open} */
+	/** JNI method for {@link #open open} */
 	public static native int nopen(long pathname, int flags);
 
 	/**
@@ -57,7 +57,7 @@ public final class Fcntl {
 		return nopen(memAddress(pathname), flags);
 	}
 
-	/** CharSequence version of: {@link #open} */
+	/** CharSequence version of: {@link #open open} */
 	public static int open(CharSequence pathname, int flags) {
 		return nopen(memAddress(memEncodeASCII(pathname)), flags);
 	}

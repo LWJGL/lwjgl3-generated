@@ -83,12 +83,12 @@ public final class CoreFoundation {
 
 	// --- [ kCFAllocatorUseContext ] ---
 
-	/** Special allocator argument to {@link #CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
+	/** Special allocator argument to {@link #CFAllocatorCreate CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
 	public static native long kCFAllocatorUseContext();
 
 	// --- [ CFRetain ] ---
 
-	/** JNI method for {@link #CFRetain} */
+	/** JNI method for {@link #CFRetain CFRetain} */
 	public static native long nCFRetain(long cf);
 
 	/**
@@ -107,14 +107,14 @@ public final class CoreFoundation {
 
 	// --- [ CFRelease ] ---
 
-	/** JNI method for {@link #CFRelease} */
+	/** JNI method for {@link #CFRelease CFRelease} */
 	public static native void nCFRelease(long cf);
 
 	/**
 	 * Releases a Core Foundation object.
 	 * <p/>
 	 * If the retain count of {@code cf} becomes zero the memory allocated to the object is deallocated and the object is destroyed. If you create, copy, or
-	 * explicitly retain (see the {@link #CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.
+	 * explicitly retain (see the {@link #CFRetain CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.
 	 *
 	 * @param cf the CFType object to release
 	 */
@@ -126,7 +126,7 @@ public final class CoreFoundation {
 
 	// --- [ CFBundleCreate ] ---
 
-	/** JNI method for {@link #CFBundleCreate} */
+	/** JNI method for {@link #CFBundleCreate CFBundleCreate} */
 	public static native long nCFBundleCreate(long allocator, long bundleURL);
 
 	/**
@@ -143,7 +143,7 @@ public final class CoreFoundation {
 
 	// --- [ CFBundleGetFunctionPointerForName ] ---
 
-	/** JNI method for {@link #CFBundleGetFunctionPointerForName} */
+	/** JNI method for {@link #CFBundleGetFunctionPointerForName CFBundleGetFunctionPointerForName} */
 	public static native long nCFBundleGetFunctionPointerForName(long bundle, long functionName);
 
 	/**
@@ -162,7 +162,7 @@ public final class CoreFoundation {
 
 	// --- [ CFStringCreateWithCString ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCString} */
+	/** JNI method for {@link #CFStringCreateWithCString CFStringCreateWithCString} */
 	public static native long nCFStringCreateWithCString(long allocator, long cStr, int encoding);
 
 	/**
@@ -178,7 +178,7 @@ public final class CoreFoundation {
 
 	// --- [ CFStringCreateWithCStringNoCopy ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCStringNoCopy} */
+	/** JNI method for {@link #CFStringCreateWithCStringNoCopy CFStringCreateWithCStringNoCopy} */
 	public static native long nCFStringCreateWithCStringNoCopy(long allocator, long cStr, int encoding, long contentsDeallocator);
 
 	/**
@@ -197,7 +197,7 @@ public final class CoreFoundation {
 
 	// --- [ CFURLCreateWithFileSystemPath ] ---
 
-	/** JNI method for {@link #CFURLCreateWithFileSystemPath} */
+	/** JNI method for {@link #CFURLCreateWithFileSystemPath CFURLCreateWithFileSystemPath} */
 	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, byte isDirectory);
 
 	/**

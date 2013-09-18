@@ -24,12 +24,12 @@ public final class GLXEXTSwapControl {
 
 	// --- [ glXSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #glXSwapIntervalEXT} */
+	/** JNI method for {@link #glXSwapIntervalEXT glXSwapIntervalEXT} */
 	public static native void nglXSwapIntervalEXT(long display, long drawable, int interval, long __functionAddress);
 
 	/**
 	 * Specifies the minimum number of video frame periods per buffer swap for a particular GLX drawable (e.g. a value of two means that the color buffers will
-	 * be swapped at most every other video frame). The interval takes effect when {@link GLX#glXSwapBuffers} is first called on the drawable subsequent to the
+	 * be swapped at most every other video frame). The interval takes effect when {@link GLX#glXSwapBuffers SwapBuffers} is first called on the drawable subsequent to the
 	 * {@code glXSwapIntervalEXT} call.
 	 *
 	 * @param display  the connection to the X server

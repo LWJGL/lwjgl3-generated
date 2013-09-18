@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.linux.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">GLX_ARB_fbconfig_float</a> extension.
  * <p/>
@@ -15,7 +17,7 @@ package org.lwjgl.opengl;
  */
 public final class GLXARBFBConfigFloat {
 
-	/** Accepted as values of the {@code render_type} arguments in the {@link GLX13#glXCreateNewContext} and {@link GLX#glXCreateContext} functions: */
+	/** Accepted as values of the {@code render_type} arguments in the {@link GLX13#glXCreateNewContext CreateNewContext} and {@link GLX#glXCreateContext CreateContext} functions: */
 	public static final int
 		GLX_RGBA_FLOAT_TYPE = 0x20B9;
 

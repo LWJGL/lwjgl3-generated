@@ -5,6 +5,9 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.linux.*;
+import org.lwjgl.system.linux.GLX;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">GLX_ARB_multisample</a> extension.
  * <p/>
@@ -12,7 +15,7 @@ package org.lwjgl.opengl;
  */
 public final class GLXARBMultisample {
 
-	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig}: */
+	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}: */
 	public static final int
 		GLX_SAMPLE_BUFFERS_ARB = 0x186A0,
 		GLX_SAMPLES_ARB        = 0x186A1;

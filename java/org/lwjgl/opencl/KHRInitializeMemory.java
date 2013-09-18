@@ -9,7 +9,7 @@ package org.lwjgl.opencl;
 public final class KHRInitializeMemory {
 
 	/**
-	 * Accepted as a property name in the {@code properties} parameter of {@link CL10#clCreateContext}.
+	 * Accepted as a property name in the {@code properties} parameter of {@link CL10#clCreateContext CreateContext}.
 	 * <p/>
 	 * Describes which memory types for the context must be initialized. This is a bit-field, where the following values are currently supported:
 	 * <ul>

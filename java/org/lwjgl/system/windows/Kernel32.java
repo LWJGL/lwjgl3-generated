@@ -22,7 +22,7 @@ public final class Kernel32 {
 
 	// --- [ SetThreadAffinityMask ] ---
 
-	/** JNI method for {@link #SetThreadAffinityMask} */
+	/** JNI method for {@link #SetThreadAffinityMask SetThreadAffinityMask} */
 	public static native long nSetThreadAffinityMask(long thread, long threadAffinityMask, long __functionAddress);
 
 	/**

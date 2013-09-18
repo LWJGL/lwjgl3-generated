@@ -198,7 +198,7 @@ public final class GL32 {
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawElementsBaseVertex} */
+	/** JNI method for {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -206,9 +206,9 @@ public final class GL32 {
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      the number of elements to be rendered
-	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
@@ -222,7 +222,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex} */
+	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -232,7 +232,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsBaseVertex} */
+	/** Alternative version of: {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -242,7 +242,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -252,7 +252,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -262,7 +262,7 @@ public final class GL32 {
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -274,7 +274,7 @@ public final class GL32 {
 
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawRangeElementsBaseVertex} */
+	/** JNI method for {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -282,11 +282,11 @@ public final class GL32 {
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param start      the minimum array index contained in {@code indices}
 	 * @param end        the maximum array index contained in {@code indices}
 	 * @param count      the number of elements to be rendered
-	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
@@ -300,7 +300,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex} */
+	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -310,7 +310,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex} */
+	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -320,7 +320,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -330,7 +330,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -340,7 +340,7 @@ public final class GL32 {
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
 		long __functionAddress = getInstance().glDrawRangeElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -352,7 +352,7 @@ public final class GL32 {
 
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertex} */
+	/** JNI method for {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex, long __functionAddress);
 
 	/**
@@ -360,9 +360,9 @@ public final class GL32 {
 	 * <p/>
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      the number of elements to be rendered
-	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param primcount  the number of instances of the indexed geometry that should be drawn
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
@@ -377,7 +377,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex} */
+	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -387,7 +387,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, primcount, basevertex, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex} */
+	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -397,7 +397,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -407,7 +407,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -417,7 +417,7 @@ public final class GL32 {
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -429,7 +429,7 @@ public final class GL32 {
 
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsBaseVertex} */
+	/** JNI method for {@link #glMultiDrawElementsBaseVertex glMultiDrawElementsBaseVertex} */
 	public static native void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex, long __functionAddress);
 
 	/**
@@ -439,9 +439,9 @@ public final class GL32 {
 	 * <p/>
 	 * <b>LWJGL note</b>: Use {@link MemoryUtil#memAddress} to retrieve pointers to the index buffers.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      an array of the elements counts
-	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
 	 * @param primcount  the size of the {@code count} array
 	 * @param basevertex a pointer to the location where the base vertices are stored
@@ -457,7 +457,7 @@ public final class GL32 {
 		nglMultiDrawElementsBaseVertex(mode, memAddress(count), type, memAddress(indices), primcount, memAddress(basevertex), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex} */
+	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex glMultiDrawElementsBaseVertex} */
 	public static void glMultiDrawElementsBaseVertex(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
 		long __functionAddress = getInstance().glMultiDrawElementsBaseVertex;
 		if ( LWJGLUtil.CHECKS ) {
@@ -470,7 +470,7 @@ public final class GL32 {
 
 	// --- [ glProvokingVertex ] ---
 
-	/** JNI method for {@link #glProvokingVertex} */
+	/** JNI method for {@link #glProvokingVertex glProvokingVertex} */
 	public static native void nglProvokingVertex(int mode, long __functionAddress);
 
 	/**
@@ -478,7 +478,7 @@ public final class GL32 {
 	 * <p/>
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
-	 * @param mode the provoking vertex mode. One of:<p/>{@link #GL_FIRST_VERTEX_CONVENTION}, {@link #GL_LAST_VERTEX_CONVENTION}
+	 * @param mode the provoking vertex mode. One of:<p/>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}, {@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().glProvokingVertex;
@@ -489,7 +489,7 @@ public final class GL32 {
 
 	// --- [ glTexImage2DMultisample ] ---
 
-	/** JNI method for {@link #glTexImage2DMultisample} */
+	/** JNI method for {@link #glTexImage2DMultisample glTexImage2DMultisample} */
 	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -497,7 +497,7 @@ public final class GL32 {
 	 * <p/>
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
-	 * @param target               the target of the operation. One of:<p/>{@link #GL_TEXTURE_2D_MULTISAMPLE}, {@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE}
+	 * @param target               the target of the operation. One of:<p/>{@link #GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}
 	 * @param samples              the number of samples in the multisample texture's image
 	 * @param internalformat       the internal format to be used to store the multisample texture's image. {@code internalformat} must specify a color-renderable, depth-renderable,
 	 *                             or stencil-renderable format.
@@ -515,7 +515,7 @@ public final class GL32 {
 
 	// --- [ glTexImage3DMultisample ] ---
 
-	/** JNI method for {@link #glTexImage3DMultisample} */
+	/** JNI method for {@link #glTexImage3DMultisample glTexImage3DMultisample} */
 	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -523,7 +523,7 @@ public final class GL32 {
 	 * <p/>
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
-	 * @param target               the target of the operation. One of:<p/>{@link #GL_TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param target               the target of the operation. One of:<p/>{@link #GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param samples              the number of samples in the multisample texture's image
 	 * @param internalformat       the internal format to be used to store the multisample texture's image. {@code internalformat} must specify a color-renderable, depth-renderable,
 	 *                             or stencil-renderable format.
@@ -542,7 +542,7 @@ public final class GL32 {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
 	public static native void nglGetMultisamplefv(int pname, int index, long val, long __functionAddress);
 
 	/**
@@ -550,7 +550,7 @@ public final class GL32 {
 	 * <p/>
 	 * Retrieves the location of a sample.
 	 *
-	 * @param pname the sample parameter name. Must be:<p/>{@link #GL_SAMPLE_POSITION}
+	 * @param pname the sample parameter name. Must be:<p/>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
@@ -563,7 +563,7 @@ public final class GL32 {
 		nglGetMultisamplefv(pname, index, memAddress(val), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
 	public static void glGetMultisample(int pname, int index, FloatBuffer val) {
 		long __functionAddress = getInstance().glGetMultisamplefv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -573,7 +573,7 @@ public final class GL32 {
 		nglGetMultisamplefv(pname, index, memAddress(val), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
 	public static float glGetMultisamplef(int pname, int index) {
 		long __functionAddress = getInstance().glGetMultisamplefv;
 		if ( LWJGLUtil.CHECKS )
@@ -586,7 +586,7 @@ public final class GL32 {
 
 	// --- [ glSampleMaski ] ---
 
-	/** JNI method for {@link #glSampleMaski} */
+	/** JNI method for {@link #glSampleMaski glSampleMaski} */
 	public static native void nglSampleMaski(int index, int mask, long __functionAddress);
 
 	/**
@@ -606,7 +606,7 @@ public final class GL32 {
 
 	// --- [ glFramebufferTexture ] ---
 
-	/** JNI method for {@link #glFramebufferTexture} */
+	/** JNI method for {@link #glFramebufferTexture glFramebufferTexture} */
 	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level, long __functionAddress);
 
 	/**
@@ -614,7 +614,7 @@ public final class GL32 {
 	 * <p/>
 	 * Attaches a level of a texture object as a logical buffer to the currently bound framebuffer object.
 	 *
-	 * @param target     the framebuffer target. One of:<p/>{@link GL30#GL_FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER}
+	 * @param target     the framebuffer target. One of:<p/>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
 	 * @param attachment the attachment point of the framebuffer
 	 * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level      the mipmap level of {@code texture} to attach
@@ -628,7 +628,7 @@ public final class GL32 {
 
 	// --- [ glFenceSync ] ---
 
-	/** JNI method for {@link #glFenceSync} */
+	/** JNI method for {@link #glFenceSync glFenceSync} */
 	public static native long nglFenceSync(int condition, int flags, long __functionAddress);
 
 	/**
@@ -636,7 +636,7 @@ public final class GL32 {
 	 * <p/>
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
-	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<p/>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE}
+	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<p/>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
@@ -649,7 +649,7 @@ public final class GL32 {
 
 	// --- [ glIsSync ] ---
 
-	/** JNI method for {@link #glIsSync} */
+	/** JNI method for {@link #glIsSync glIsSync} */
 	public static native boolean nglIsSync(long sync, long __functionAddress);
 
 	/**
@@ -670,7 +670,7 @@ public final class GL32 {
 
 	// --- [ glDeleteSync ] ---
 
-	/** JNI method for {@link #glDeleteSync} */
+	/** JNI method for {@link #glDeleteSync glDeleteSync} */
 	public static native void nglDeleteSync(long sync, long __functionAddress);
 
 	/**
@@ -691,7 +691,7 @@ public final class GL32 {
 
 	// --- [ glClientWaitSync ] ---
 
-	/** JNI method for {@link #glClientWaitSync} */
+	/** JNI method for {@link #glClientWaitSync glClientWaitSync} */
 	public static native int nglClientWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
@@ -702,14 +702,14 @@ public final class GL32 {
 	 * <p/>
 	 * The return value is one of four status values:
 	 * <ul>
-	 * <li>{@link #GL_ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
-	 * <li>{@link #GL_TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
-	 * <li>{@link #GL_CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
-	 * <li>{@link #GL_WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
+	 * <li>{@link #GL_ALREADY_SIGNALED ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
+	 * <li>{@link #GL_TIMEOUT_EXPIRED TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
+	 * <li>{@link #GL_CONDITION_SATISFIED CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
+	 * <li>{@link #GL_WAIT_FAILED WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT}
+	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
@@ -723,7 +723,7 @@ public final class GL32 {
 
 	// --- [ glWaitSync ] ---
 
-	/** JNI method for {@link #glWaitSync} */
+	/** JNI method for {@link #glWaitSync glWaitSync} */
 	public static native void nglWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
@@ -732,14 +732,14 @@ public final class GL32 {
 	 * Causes the GL server to block and wait for a sync object to become signaled.
 	 * <p/>
 	 * {@code glWaitSync} will always wait no longer than an implementation-dependent timeout. The duration of this timeout in nanoseconds may be queried by
-	 * with {@link #GL_MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
+	 * with {@link #GL_MAX_SERVER_WAIT_TIMEOUT MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
 	 * sync object being waited on was signaled.
 	 * <p/>
 	 * If an error occurs, {@code glWaitSync} does not cause the GL server to block.
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0
-	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED}
+	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0
+	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().glWaitSync;
@@ -752,7 +752,7 @@ public final class GL32 {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** JNI method for {@link #glGetInteger64(int, ByteBuffer)} */
+	/** JNI method for {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static native void nglGetInteger64v(int pname, long params, long __functionAddress);
 
 	/**
@@ -770,7 +770,7 @@ public final class GL32 {
 		nglGetInteger64v(pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
 		long __functionAddress = getInstance().glGetInteger64v;
 		if ( LWJGLUtil.CHECKS )
@@ -778,7 +778,7 @@ public final class GL32 {
 		nglGetInteger64v(pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static long glGetInteger64(int pname) {
 		long __functionAddress = getInstance().glGetInteger64v;
 		if ( LWJGLUtil.CHECKS )
@@ -791,7 +791,7 @@ public final class GL32 {
 
 	// --- [ glGetSynciv ] ---
 
-	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer)} */
+	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values, long __functionAddress);
 
 	/**
@@ -800,7 +800,7 @@ public final class GL32 {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<p/>{@link #GL_OBJECT_TYPE}, {@link #GL_SYNC_CONDITION}, {@link #GL_SYNC_STATUS}, {@link #GL_SYNC_FLAGS}
+	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<p/>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
 	 * @param bufSize the size of the buffer whose address is given in {@code values}
 	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values  the address of an array to receive the values of the queried parameter
@@ -816,7 +816,7 @@ public final class GL32 {
 		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
 		long __functionAddress = getInstance().glGetSynciv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -827,7 +827,7 @@ public final class GL32 {
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		long __functionAddress = getInstance().glGetSynciv;
 		if ( LWJGLUtil.CHECKS ) {

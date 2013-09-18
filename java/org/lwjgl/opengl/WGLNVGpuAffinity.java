@@ -26,11 +26,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class WGLNVGPUAffinity {
 
-	/** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB}. */
+	/** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
 	public static final int
 		ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
 
-	/** New error code set by {@link org.lwjgl.system.windows.WGL#wglMakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB}. */
+	/** New error code set by {@link org.lwjgl.system.windows.WGL#wglMakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
 	public static final int
 		WGL_ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
@@ -38,7 +38,7 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpusNV ] ---
 
-	/** JNI method for {@link #wglEnumGpusNV} */
+	/** JNI method for {@link #wglEnumGpusNV wglEnumGpusNV} */
 	public static native int nwglEnumGpusNV(int gpuIndex, long gpu, long __functionAddress);
 
 	/**
@@ -58,7 +58,7 @@ public final class WGLNVGPUAffinity {
 		return nwglEnumGpusNV(gpuIndex, memAddress(gpu), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglEnumGpusNV} */
+	/** Alternative version of: {@link #wglEnumGpusNV wglEnumGpusNV} */
 	public static int wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
 		long __functionAddress = getInstance().wglEnumGpusNV;
 		if ( LWJGLUtil.CHECKS )
@@ -68,7 +68,7 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpuDevicesNV ] ---
 
-	/** JNI method for {@link #wglEnumGpuDevicesNV} */
+	/** JNI method for {@link #wglEnumGpuDevicesNV wglEnumGpuDevicesNV} */
 	public static native int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice, long __functionAddress);
 
 	/**
@@ -90,14 +90,14 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglCreateAffinityDCNV ] ---
 
-	/** JNI method for {@link #wglCreateAffinityDCNV} */
+	/** JNI method for {@link #wglCreateAffinityDCNV wglCreateAffinityDCNV} */
 	public static native long nwglCreateAffinityDCNV(long gpuList, long __functionAddress);
 
 	/**
 	 * Creates an affinity-DC. Affinity-DCs, a new type of DC, can be used to direct OpenGL commands to a specific GPU or set of GPUs. An affinity-DC is a
 	 * device context with a GPU affinity mask embedded in it. This restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the
 	 * affinity mask. An affinity-DC can be created directly, using the new function {@code wglCreateAffinityDCNV} and also indirectly by calling
-	 * {@link WGLARBPbuffer#wglCreatePbufferARB} followed by {@link WGLARBPbuffer#wglGetPbufferDCARB}.
+	 * {@link WGLARBPbuffer#wglCreatePbufferARB CreatePbufferARB} followed by {@link WGLARBPbuffer#wglGetPbufferDCARB GetPbufferDCARB}.
 	 * <p/>
 	 * If successful, the function returns an affinity-DC handle. If it fails, NULL will be returned.
 	 *
@@ -112,7 +112,7 @@ public final class WGLNVGPUAffinity {
 		return nwglCreateAffinityDCNV(memAddress(gpuList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreateAffinityDCNV} */
+	/** Alternative version of: {@link #wglCreateAffinityDCNV wglCreateAffinityDCNV} */
 	public static long wglCreateAffinityDCNV(PointerBuffer gpuList) {
 		long __functionAddress = getInstance().wglCreateAffinityDCNV;
 		if ( LWJGLUtil.CHECKS ) {
@@ -124,7 +124,7 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpusFromAffinityDCNV ] ---
 
-	/** JNI method for {@link #wglEnumGpusFromAffinityDCNV} */
+	/** JNI method for {@link #wglEnumGpusFromAffinityDCNV wglEnumGpusFromAffinityDCNV} */
 	public static native int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu, long __functionAddress);
 
 	/**
@@ -147,7 +147,7 @@ public final class WGLNVGPUAffinity {
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglEnumGpusFromAffinityDCNV} */
+	/** Alternative version of: {@link #wglEnumGpusFromAffinityDCNV wglEnumGpusFromAffinityDCNV} */
 	public static int wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
 		long __functionAddress = getInstance().wglEnumGpusFromAffinityDCNV;
 		if ( LWJGLUtil.CHECKS ) {
@@ -159,7 +159,7 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglDeleteDCNV ] ---
 
-	/** JNI method for {@link #wglDeleteDCNV} */
+	/** JNI method for {@link #wglDeleteDCNV wglDeleteDCNV} */
 	public static native int nwglDeleteDCNV(long hdc, long __functionAddress);
 
 	/**

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Used by the {@link WinUser#TrackMouseEvent} function to track when the mouse pointer leaves a window or hovers over a window for a specified amount
+ * Used by the {@link WinUser#TrackMouseEvent TrackMouseEvent} function to track when the mouse pointer leaves a window or hovers over a window for a specified amount
  * of time.
  */
 public final class TRACKMOUSEEVENT {
@@ -45,7 +45,7 @@ public final class TRACKMOUSEEVENT {
 	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
-	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		int size,
 		int flags,

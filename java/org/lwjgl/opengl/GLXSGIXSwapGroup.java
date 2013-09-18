@@ -26,7 +26,7 @@ public final class GLXSGIXSwapGroup {
 
 	// --- [ glXJoinSwapGroupSGIX ] ---
 
-	/** JNI method for {@link #glXJoinSwapGroupSGIX} */
+	/** JNI method for {@link #glXJoinSwapGroupSGIX glXJoinSwapGroupSGIX} */
 	public static native void nglXJoinSwapGroupSGIX(long display, long drawable, long member, long __functionAddress);
 
 	/**

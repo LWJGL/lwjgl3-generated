@@ -32,7 +32,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXSetResourceShareHandleNV ] ---
 
-	/** JNI method for {@link #wglDXSetResourceShareHandleNV} */
+	/** JNI method for {@link #wglDXSetResourceShareHandleNV wglDXSetResourceShareHandleNV} */
 	public static native int nwglDXSetResourceShareHandleNV(long dxObject, long shareHandle, long __functionAddress);
 
 	/**
@@ -53,7 +53,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXOpenDeviceNV ] ---
 
-	/** JNI method for {@link #wglDXOpenDeviceNV} */
+	/** JNI method for {@link #wglDXOpenDeviceNV wglDXOpenDeviceNV} */
 	public static native long nwglDXOpenDeviceNV(long dxDevice, long __functionAddress);
 
 	/**
@@ -72,7 +72,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXCloseDeviceNV ] ---
 
-	/** JNI method for {@link #wglDXCloseDeviceNV} */
+	/** JNI method for {@link #wglDXCloseDeviceNV wglDXCloseDeviceNV} */
 	public static native int nwglDXCloseDeviceNV(long device, long __functionAddress);
 
 	/**
@@ -91,7 +91,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXRegisterObjectNV ] ---
 
-	/** JNI method for {@link #wglDXRegisterObjectNV} */
+	/** JNI method for {@link #wglDXRegisterObjectNV wglDXRegisterObjectNV} */
 	public static native long nwglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access, long __functionAddress);
 
 	/**
@@ -101,7 +101,7 @@ public final class WGLNVDXInterop {
 	 * @param dxResource a pointer to a DirectX resource to be registered with the GL
 	 * @param name       the GL object name to be assigned to the DirectX resource in the namespace of the objects identified by {@code type} in the current GL context
 	 * @param type       the GL object type that will map to the DirectX resource being shared
-	 * @param access     indicates the intended usage of the resource in GL. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV}
+	 * @param access     indicates the intended usage of the resource in GL. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
 		long __functionAddress = getInstance().wglDXRegisterObjectNV;
@@ -115,7 +115,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXUnregisterObjectNV ] ---
 
-	/** JNI method for {@link #wglDXUnregisterObjectNV} */
+	/** JNI method for {@link #wglDXUnregisterObjectNV wglDXUnregisterObjectNV} */
 	public static native int nwglDXUnregisterObjectNV(long device, long object, long __functionAddress);
 
 	/**
@@ -136,14 +136,14 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXObjectAccessNV ] ---
 
-	/** JNI method for {@link #wglDXObjectAccessNV} */
+	/** JNI method for {@link #wglDXObjectAccessNV wglDXObjectAccessNV} */
 	public static native int nwglDXObjectAccessNV(long object, int access, long __functionAddress);
 
 	/**
 	 * Modifies the access mode of an interop object, if a different access mode is required after the object has been registered.
 	 *
 	 * @param object the GL/DirectX interop object
-	 * @param access the new access mode. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV}
+	 * @param access the new access mode. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static int wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = getInstance().wglDXObjectAccessNV;
@@ -156,7 +156,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXLockObjectsNV ] ---
 
-	/** JNI method for {@link #wglDXLockObjectsNV} */
+	/** JNI method for {@link #wglDXLockObjectsNV wglDXLockObjectsNV} */
 	public static native int nwglDXLockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -183,7 +183,7 @@ public final class WGLNVDXInterop {
 		return nwglDXLockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglDXLockObjectsNV} */
+	/** Alternative version of: {@link #wglDXLockObjectsNV wglDXLockObjectsNV} */
 	public static int wglDXLockObjectsNV(long device, PointerBuffer objects) {
 		long __functionAddress = getInstance().wglDXLockObjectsNV;
 		if ( LWJGLUtil.CHECKS ) {
@@ -195,7 +195,7 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXUnlockObjectsNV ] ---
 
-	/** JNI method for {@link #wglDXUnlockObjectsNV} */
+	/** JNI method for {@link #wglDXUnlockObjectsNV wglDXUnlockObjectsNV} */
 	public static native int nwglDXUnlockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -215,7 +215,7 @@ public final class WGLNVDXInterop {
 		return nwglDXUnlockObjectsNV(device, count, memAddress(objects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglDXUnlockObjectsNV} */
+	/** Alternative version of: {@link #wglDXUnlockObjectsNV wglDXUnlockObjectsNV} */
 	public static int wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
 		long __functionAddress = getInstance().wglDXUnlockObjectsNV;
 		if ( LWJGLUtil.CHECKS ) {

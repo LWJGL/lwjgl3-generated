@@ -13,6 +13,8 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+import org.lwjgl.system.linux.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/get_proc_address.txt">GLX_ARB_get_proc_address</a> extension.
  * <p/>
@@ -26,7 +28,7 @@ public final class GLXARBGetProcAddress {
 
 	// --- [ glXGetProcAddressARB ] ---
 
-	/** JNI method for {@link #glXGetProcAddressARB} */
+	/** JNI method for {@link #glXGetProcAddressARB glXGetProcAddressARB} */
 	public static native long nglXGetProcAddressARB(long procName, long __functionAddress);
 
 	/**
@@ -35,7 +37,7 @@ public final class GLXARBGetProcAddress {
 	 * implementation.
 	 * <p/>
 	 * A non-{@code NULL} return value for {@code glXGetProcAddressARB} does not guarantee that an extension function is actually supported at runtime. The client
-	 * must must also query {@link GL11#glGetString}({@link GL11#GL_EXTENSIONS}) or {@link GLX11#glXQueryExtensionsString} to determine if an extension is
+	 * must must also query {@link GL11#glGetString GetString}({@link GL11#GL_EXTENSIONS EXTENSIONS}) or {@link GLX11#glXQueryExtensionsString QueryExtensionsString} to determine if an extension is
 	 * supported by a particular context.
 	 * <p/>
 	 * GL function pointers returned by {@code glXGetProcAddressARB} are independent of the currently bound context and may be used by any context which
@@ -45,7 +47,7 @@ public final class GLXARBGetProcAddress {
 	 * <ul>
 	 * <li>All GL and GLX extension functions supported by the implementation (whether those extensions are supported by the current context or not).</li>
 	 * <li>All core (non-extension) functions in GL and GLX from version 1.0 up to and including the versions of those specifications supported by the
-	 * implementation, as determined by {@link GL11#glGetString}({@link GL11#GL_VERSION}) and {@link GLX#glXQueryVersion} queries.</li>
+	 * implementation, as determined by {@link GL11#glGetString GetString}({@link GL11#GL_VERSION VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
 	 * </ul>
 	 *
 	 * @param procName the function name to query

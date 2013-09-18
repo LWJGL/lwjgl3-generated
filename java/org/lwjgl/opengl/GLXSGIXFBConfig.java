@@ -25,41 +25,41 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXSGIXFBConfig {
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX}, and by the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, and by the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX}: */
 	public static final int
 		GLX_DRAWABLE_TYPE_SGIX = 0x8010,
 		GLX_RENDER_TYPE_SGIX   = 0x8011,
 		GLX_X_RENDERABLE_SGIX  = 0x8012;
 
 	/**
-	 * Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX}, the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX},
-	 * by the {@code attribute} parameter of {@link GLXSGIXPbuffer#glXQueryGLXPbufferSGIX} and by the {@code attribute} parameter of
-	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT}:
+	 * Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX},
+	 * by the {@code attribute} parameter of {@link GLXSGIXPbuffer#glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} and by the {@code attribute} parameter of
+	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT QueryContextInfoEXT}:
 	 */
 	public static final int
 		GLX_FBCONFIG_ID_SGIX = 0x8013;
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}: */
 	public static final int
 		GLX_SCREEN_EXT = 0x800C;
 
 	/**
-	 * Returned by {@link #glXGetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_DRAWABLE_TYPE_SGIX}) and accepted by the {@code attrib_list}
-	 * parameter of {@link #glXChooseFBConfigSGIX} (following the {@link #GLX_DRAWABLE_TYPE_SGIX} token):
+	 * Returned by {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX}) and accepted by the {@code attrib_list}
+	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX} token):
 	 */
 	public static final int
 		GLX_WINDOW_BIT_SGIX = 0x1,
 		GLX_PIXMAP_BIT_SGIX = 0x2;
 
 	/**
-	 * Returned by {@link #glXGetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_RENDER_TYPE_SGIX}) and accepted by the {@code attrib_list}
-	 * parameter of {@link #glXChooseFBConfigSGIX} (following the {@link #GLX_RENDER_TYPE_SGIX} token):
+	 * Returned by {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_RENDER_TYPE_SGIX RENDER_TYPE_SGIX}) and accepted by the {@code attrib_list}
+	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_RENDER_TYPE_SGIX RENDER_TYPE_SGIX} token):
 	 */
 	public static final int
 		GLX_RGBA_BIT_SGIX        = 0x1,
 		GLX_COLOR_INDEX_BIT_SGIX = 0x2;
 
-	/** Accepted by the {@code render_type} parameter of {@link #glXCreateContextWithConfigSGIX}: */
+	/** Accepted by the {@code render_type} parameter of {@link #glXCreateContextWithConfigSGIX CreateContextWithConfigSGIX}: */
 	public static final int
 		GLX_RGBA_TYPE_SGIX        = 0x8014,
 		GLX_COLOR_INDEX_TYPE_SGIX = 0x8015;
@@ -68,7 +68,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
-	/** JNI method for {@link #glXGetFBConfigAttribSGIX} */
+	/** JNI method for {@link #glXGetFBConfigAttribSGIX glXGetFBConfigAttribSGIX} */
 	public static native int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value, long __functionAddress);
 
 	/**
@@ -90,7 +90,7 @@ public final class GLXSGIXFBConfig {
 		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXGetFBConfigAttribSGIX} */
+	/** Alternative version of: {@link #glXGetFBConfigAttribSGIX glXGetFBConfigAttribSGIX} */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, IntBuffer value) {
 		long __functionAddress = getInstance().glXGetFBConfigAttribSGIX;
 		if ( LWJGLUtil.CHECKS ) {
@@ -104,7 +104,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXChooseFBConfigSGIX ] ---
 
-	/** JNI method for {@link #glXChooseFBConfigSGIX} */
+	/** JNI method for {@link #glXChooseFBConfigSGIX glXChooseFBConfigSGIX} */
 	public static native long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements, long __functionAddress);
 
 	/**
@@ -126,7 +126,7 @@ public final class GLXSGIXFBConfig {
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
-	/** Alternative version of: {@link #glXChooseFBConfigSGIX} */
+	/** Alternative version of: {@link #glXChooseFBConfigSGIX glXChooseFBConfigSGIX} */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, IntBuffer attrib_list) {
 		long __functionAddress = getInstance().glXChooseFBConfigSGIX;
 		if ( LWJGLUtil.CHECKS ) {
@@ -141,7 +141,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXCreateGLXPixmapWithConfigSGIX ] ---
 
-	/** JNI method for {@link #glXCreateGLXPixmapWithConfigSGIX} */
+	/** JNI method for {@link #glXCreateGLXPixmapWithConfigSGIX glXCreateGLXPixmapWithConfigSGIX} */
 	public static native long nglXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap, long __functionAddress);
 
 	/**
@@ -163,7 +163,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXCreateContextWithConfigSGIX ] ---
 
-	/** JNI method for {@link #glXCreateContextWithConfigSGIX} */
+	/** JNI method for {@link #glXCreateContextWithConfigSGIX glXCreateContextWithConfigSGIX} */
 	public static native long nglXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct, long __functionAddress);
 
 	/**
@@ -171,7 +171,7 @@ public final class GLXSGIXFBConfig {
 	 *
 	 * @param display     the connection to the X server
 	 * @param config      the {@code GLXFBConfigSGIX}
-	 * @param render_type the render type. One of:<p/>{@link #GLX_RGBA_TYPE_SGIX}, {@link #GLX_COLOR_INDEX_TYPE_SGIX}
+	 * @param render_type the render type. One of:<p/>{@link #GLX_RGBA_TYPE_SGIX RGBA_TYPE_SGIX}, {@link #GLX_COLOR_INDEX_TYPE_SGIX COLOR_INDEX_TYPE_SGIX}
 	 * @param share_list  the GLX context to share objects with
 	 * @param direct      direct rendering request
 	 */
@@ -188,7 +188,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
 
-	/** JNI method for {@link #glXGetVisualFromFBConfigSGIX} */
+	/** JNI method for {@link #glXGetVisualFromFBConfigSGIX glXGetVisualFromFBConfigSGIX} */
 	public static native long nglXGetVisualFromFBConfigSGIX(long display, long config, long __functionAddress);
 
 	/**
@@ -210,7 +210,7 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
 
-	/** JNI method for {@link #glXGetFBConfigFromVisualSGIX} */
+	/** JNI method for {@link #glXGetFBConfigFromVisualSGIX glXGetFBConfigFromVisualSGIX} */
 	public static native long nglXGetFBConfigFromVisualSGIX(long display, long vis, long __functionAddress);
 
 	/**

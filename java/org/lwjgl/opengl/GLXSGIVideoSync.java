@@ -24,7 +24,7 @@ public final class GLXSGIVideoSync {
 
 	// --- [ glXGetVideoSyncSGI ] ---
 
-	/** JNI method for {@link #glXGetVideoSyncSGI} */
+	/** JNI method for {@link #glXGetVideoSyncSGI glXGetVideoSyncSGI} */
 	public static native int nglXGetVideoSyncSGI(long count, long __functionAddress);
 
 	/**
@@ -41,7 +41,7 @@ public final class GLXSGIVideoSync {
 		return nglXGetVideoSyncSGI(memAddress(count), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXGetVideoSyncSGI} */
+	/** Alternative version of: {@link #glXGetVideoSyncSGI glXGetVideoSyncSGI} */
 	public static int glXGetVideoSyncSGI(IntBuffer count) {
 		long __functionAddress = getInstance().glXGetVideoSyncSGI;
 		if ( LWJGLUtil.CHECKS ) {
@@ -53,7 +53,7 @@ public final class GLXSGIVideoSync {
 
 	// --- [ glXWaitVideoSyncSGI ] ---
 
-	/** JNI method for {@link #glXWaitVideoSyncSGI} */
+	/** JNI method for {@link #glXWaitVideoSyncSGI glXWaitVideoSyncSGI} */
 	public static native int nglXWaitVideoSyncSGI(int divisor, int remainder, long count, long __functionAddress);
 
 	/**
@@ -78,7 +78,7 @@ public final class GLXSGIVideoSync {
 		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXWaitVideoSyncSGI} */
+	/** Alternative version of: {@link #glXWaitVideoSyncSGI glXWaitVideoSyncSGI} */
 	public static int glXWaitVideoSyncSGI(int divisor, int remainder, IntBuffer count) {
 		long __functionAddress = getInstance().glXWaitVideoSyncSGI;
 		if ( LWJGLUtil.CHECKS ) {

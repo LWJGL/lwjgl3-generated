@@ -9,7 +9,7 @@ package org.lwjgl.opencl;
 public final class AMDDeviceTopology {
 
 	/**
-	 * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo}. Returns a description of the topology used to connect the device to the
+	 * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. Returns a description of the topology used to connect the device to the
 	 * host, using the following 32-bytes union of structures:
 	 * <pre>{@code
 	 * typedef union
@@ -20,14 +20,14 @@ public final class AMDDeviceTopology {
 	 * The type of the structure returned can be queried by reading the first unsigned int of the returned data. The developer can use this type to cast the
 	 * returned union into the right structure type.
 	 * <p/>
-	 * Currently, the only supported type in the structure above is {@link #DEVICE_TOPOLOGY_TYPE_PCIE_AMD}. The information returned contains the PCI
+	 * Currently, the only supported type in the structure above is {@link #CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD DEVICE_TOPOLOGY_TYPE_PCIE_AMD}. The information returned contains the PCI
 	 * Bus/Device/Function of the device, and is similar to the result of the lspci command in Linux. It enables the developer to match between the OpenCL
 	 * device ID and the physical PCI connection of the card.
 	 */
 	public static final int
 		CL_DEVICE_TOPOLOGY_AMD = 0x4037;
 
-	/** Indicates the type of the struct returned by {@link #CL_DEVICE_TOPOLOGY_AMD}. */
+	/** Indicates the type of the struct returned by {@link #CL_DEVICE_TOPOLOGY_AMD DEVICE_TOPOLOGY_AMD}. */
 	public static final int
 		CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD = 0x1;
 

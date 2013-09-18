@@ -87,7 +87,7 @@ public final class Xrandr {
 
 	// --- [ XRRQueryExtension ] ---
 
-	/** JNI method for {@link #XRRQueryExtension} */
+	/** JNI method for {@link #XRRQueryExtension XRRQueryExtension} */
 	public static native int nXRRQueryExtension(long display, long event_base_return, long error_base_return);
 
 	/**
@@ -106,7 +106,7 @@ public final class Xrandr {
 		return nXRRQueryExtension(display, memAddress(event_base_return), memAddress(error_base_return));
 	}
 
-	/** Alternative version of: {@link #XRRQueryExtension} */
+	/** Alternative version of: {@link #XRRQueryExtension XRRQueryExtension} */
 	public static int XRRQueryExtension(long display, IntBuffer event_base_return, IntBuffer error_base_return) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -118,7 +118,7 @@ public final class Xrandr {
 
 	// --- [ XRRQueryVersion ] ---
 
-	/** JNI method for {@link #XRRQueryVersion} */
+	/** JNI method for {@link #XRRQueryVersion XRRQueryVersion} */
 	public static native int nXRRQueryVersion(long display, long major_version_return, long minor_version_return);
 
 	/**
@@ -137,7 +137,7 @@ public final class Xrandr {
 		return nXRRQueryVersion(display, memAddress(major_version_return), memAddress(minor_version_return));
 	}
 
-	/** Alternative version of: {@link #XRRQueryVersion} */
+	/** Alternative version of: {@link #XRRQueryVersion XRRQueryVersion} */
 	public static int XRRQueryVersion(long display, IntBuffer major_version_return, IntBuffer minor_version_return) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -149,7 +149,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetScreenResources ] ---
 
-	/** JNI method for {@link #XRRGetScreenResources} */
+	/** JNI method for {@link #XRRGetScreenResources XRRGetScreenResources} */
 	public static native long nXRRGetScreenResources(long display, long w);
 
 	/**
@@ -167,7 +167,7 @@ public final class Xrandr {
 
 	// --- [ XRRFreeScreenResources ] ---
 
-	/** JNI method for {@link #XRRFreeScreenResources} */
+	/** JNI method for {@link #XRRFreeScreenResources XRRFreeScreenResources} */
 	public static native void nXRRFreeScreenResources(long resources);
 
 	/**
@@ -183,7 +183,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetOutputPrimary ] ---
 
-	/** JNI method for {@link #XRRGetOutputPrimary} */
+	/** JNI method for {@link #XRRGetOutputPrimary XRRGetOutputPrimary} */
 	public static native long nXRRGetOutputPrimary(long display, long w);
 
 	/**
@@ -200,7 +200,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetCrtcInfo ] ---
 
-	/** JNI method for {@link #XRRGetCrtcInfo} */
+	/** JNI method for {@link #XRRGetCrtcInfo XRRGetCrtcInfo} */
 	public static native long nXRRGetCrtcInfo(long display, long resources, long crtc);
 
 	/**
@@ -221,7 +221,7 @@ public final class Xrandr {
 
 	// --- [ XRRFreeCrtcInfo ] ---
 
-	/** JNI method for {@link #XRRFreeCrtcInfo} */
+	/** JNI method for {@link #XRRFreeCrtcInfo XRRFreeCrtcInfo} */
 	public static native void nXRRFreeCrtcInfo(long crtcInfo);
 
 	/**
@@ -237,7 +237,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetOutputInfo ] ---
 
-	/** JNI method for {@link #XRRGetOutputInfo} */
+	/** JNI method for {@link #XRRGetOutputInfo XRRGetOutputInfo} */
 	public static native long nXRRGetOutputInfo(long display, long resources, long output);
 
 	/**
@@ -258,7 +258,7 @@ public final class Xrandr {
 
 	// --- [ XRRFreeOutputInfo ] ---
 
-	/** JNI method for {@link #XRRFreeOutputInfo} */
+	/** JNI method for {@link #XRRFreeOutputInfo XRRFreeOutputInfo} */
 	public static native void nXRRFreeOutputInfo(long outputInfo);
 
 	/**
@@ -274,7 +274,7 @@ public final class Xrandr {
 
 	// --- [ XRRSelectInput ] ---
 
-	/** JNI method for {@link #XRRSelectInput} */
+	/** JNI method for {@link #XRRSelectInput XRRSelectInput} */
 	public static native void nXRRSelectInput(long display, long w, int mask);
 
 	/**
@@ -292,7 +292,7 @@ public final class Xrandr {
 
 	// --- [ XRRSetCrtcConfig ] ---
 
-	/** JNI method for {@link #XRRSetCrtcConfig} */
+	/** JNI method for {@link #XRRSetCrtcConfig XRRSetCrtcConfig} */
 	public static native int nXRRSetCrtcConfig(long display, long resources, long crtc, long timestamp, int x, int y, long mode, short rotation, long outputs, int noutputs);
 
 	/**
@@ -318,7 +318,7 @@ public final class Xrandr {
 		return nXRRSetCrtcConfig(display, memAddress(resources), crtc, timestamp, x, y, mode, rotation, memAddress(outputs), noutputs);
 	}
 
-	/** Alternative version of: {@link #XRRSetCrtcConfig} */
+	/** Alternative version of: {@link #XRRSetCrtcConfig XRRSetCrtcConfig} */
 	public static int XRRSetCrtcConfig(long display, ByteBuffer resources, long crtc, long timestamp, int x, int y, long mode, short rotation, PointerBuffer outputs) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -329,7 +329,7 @@ public final class Xrandr {
 
 	// --- [ XRRUpdateConfiguration ] ---
 
-	/** JNI method for {@link #XRRUpdateConfiguration} */
+	/** JNI method for {@link #XRRUpdateConfiguration XRRUpdateConfiguration} */
 	public static native int nXRRUpdateConfiguration(long event);
 
 	/**
@@ -345,7 +345,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetCrtcGammaSize ] ---
 
-	/** JNI method for {@link #XRRGetCrtcGammaSize} */
+	/** JNI method for {@link #XRRGetCrtcGammaSize XRRGetCrtcGammaSize} */
 	public static native int nXRRGetCrtcGammaSize(long display, long crtc);
 
 	/**
@@ -362,7 +362,7 @@ public final class Xrandr {
 
 	// --- [ XRRGetCrtcGamma ] ---
 
-	/** JNI method for {@link #XRRGetCrtcGamma} */
+	/** JNI method for {@link #XRRGetCrtcGamma XRRGetCrtcGamma} */
 	public static native long nXRRGetCrtcGamma(long display, long crtc);
 
 	/**
@@ -380,7 +380,7 @@ public final class Xrandr {
 
 	// --- [ XRRAllocGamma ] ---
 
-	/** JNI method for {@link #XRRAllocGamma} */
+	/** JNI method for {@link #XRRAllocGamma XRRAllocGamma} */
 	public static native long nXRRAllocGamma(int size);
 
 	/**
@@ -395,7 +395,7 @@ public final class Xrandr {
 
 	// --- [ XRRFreeGamma ] ---
 
-	/** JNI method for {@link #XRRFreeGamma} */
+	/** JNI method for {@link #XRRFreeGamma XRRFreeGamma} */
 	public static native void nXRRFreeGamma(long gamma);
 
 	/**
@@ -411,7 +411,7 @@ public final class Xrandr {
 
 	// --- [ XRRSetCrtcGamma ] ---
 
-	/** JNI method for {@link #XRRSetCrtcGamma} */
+	/** JNI method for {@link #XRRSetCrtcGamma XRRSetCrtcGamma} */
 	public static native void nXRRSetCrtcGamma(long display, long crtc, long gamma);
 
 	/**

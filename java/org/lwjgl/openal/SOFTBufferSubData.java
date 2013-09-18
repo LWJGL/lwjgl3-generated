@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** bindings to AL_SOFT_buffer_sub_data extension. */
 public final class SOFTBufferSubData {
 
-	/** Accepted by the @{code paramName} parameter of alGetSourceiv and alGetSourcefv. */
+	/** Accepted by the {@code paramName} parameter of alGetSourceiv and alGetSourcefv. */
 	public static final int
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
@@ -25,25 +25,25 @@ public final class SOFTBufferSubData {
 
 	// --- [ alBufferSubDataSOFT ] ---
 
-	/** JNI method for {@link #alBufferSubDataSOFT} */
+	/** JNI method for {@link #alBufferSubDataSOFT alBufferSubDataSOFT} */
 	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
 
 	/**
 	 * To update a section of buffered sample data, use the function alBufferSubDataSOFT.
-	 * The named @{code buffer} may be attached to a source (either queued or by the
+	 * The named {@code buffer} may be attached to a source (either queued or by the
 	 * AL_BUFFER property), and the source does not need to be stopped, paused,
 	 * or in an initial state to be modified.
 	 * <p/>
-	 * The @{code offset} value is the number of bytes from the start of the original
-	 * data, and @{code length} is the number of bytes of the original data, to modify.
-	 * If either @{code offset} or @{code length} are negative, or if the sum of @{code offset} and
-	 * @{code length} reaches beyond the end of the buffer, an AL_INVALID_VALUE error
-	 * is generated. For compressed formats, @{code length} and @{code offset} must be block
+	 * The {@code offset} value is the number of bytes from the start of the original
+	 * data, and {@code length} is the number of bytes of the original data, to modify.
+	 * If either {@code offset} or {@code length} are negative, or if the sum of {@code offset} and
+	 * {@code length} reaches beyond the end of the buffer, an AL_INVALID_VALUE error
+	 * is generated. For compressed formats, {@code length} and {@code offset} must be block
 	 * aligned. Complex compressed formats (such as those with no constant block
 	 * alignment), may not be modified and will result in an AL_INVALID_ENUM
 	 * error.
 	 * <p/>
-	 * The specified @{code format} is the sample format of the passed @{code data}. The
+	 * The specified {@code format} is the sample format of the passed {@code data}. The
 	 * passed format must exactly match the format passed to alBufferData, or an
 	 * AL_INVALID_ENUM error is generated.
 	 * <p/>

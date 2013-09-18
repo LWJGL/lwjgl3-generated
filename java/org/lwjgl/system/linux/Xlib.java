@@ -45,14 +45,14 @@ public final class Xlib {
 
 	// --- [ XSetErrorHandler ] ---
 
-	/** JNI method for {@link #XSetErrorHandler} */
+	/** JNI method for {@link #XSetErrorHandler XSetErrorHandler} */
 	public static native long nXSetErrorHandler(long handler);
 
 	/**
 	 * Sets the error handler that will be invoked when a X11 protocol error occurs. If {@code handler} is {@code NULL}, the default error handler is used. The action
 	 * of the default handlers is to print an explanatory message and exit.
 	 * <p/>
-	 * If the returned value is non-{@code NULL}, the new error handler must pass the error down to the previous error handler. Use {@link #XErrorHandler} to do that.
+	 * If the returned value is non-{@code NULL}, the new error handler must pass the error down to the previous error handler. Use {@link #XErrorHandler XErrorHandler} to do that.
 	 *
 	 * @param handler the program's supplied error handler.
 	 *
@@ -62,14 +62,14 @@ public final class Xlib {
 		return nXSetErrorHandler(handler);
 	}
 
-	/** Alternative version of: {@link #XSetErrorHandler} */
+	/** Alternative version of: {@link #XSetErrorHandler XSetErrorHandler} */
 	public static long XSetErrorHandler(XErrorHandler handler) {
 		return nXSetErrorHandler(XErrorHandler.Util.register(handler));
 	}
 
 	// --- [ XGetErrorText ] ---
 
-	/** JNI method for {@link #XGetErrorText} */
+	/** JNI method for {@link #XGetErrorText XGetErrorText} */
 	public static native int nXGetErrorText(long display, int code, long buffer_return, int length);
 
 	/**
@@ -90,7 +90,7 @@ public final class Xlib {
 		return nXGetErrorText(display, code, memAddress(buffer_return), length);
 	}
 
-	/** Alternative version of: {@link #XGetErrorText} */
+	/** Alternative version of: {@link #XGetErrorText XGetErrorText} */
 	public static int XGetErrorText(long display, int code, ByteBuffer buffer_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -99,7 +99,7 @@ public final class Xlib {
 
 	// --- [ XFree ] ---
 
-	/** JNI method for {@link #XFree} */
+	/** JNI method for {@link #XFree XFree} */
 	public static native int nXFree(long data);
 
 	/**
@@ -111,14 +111,14 @@ public final class Xlib {
 		return nXFree(memAddress(data));
 	}
 
-	/** PointerBuffer version of: {@link #XFree} */
+	/** PointerBuffer version of: {@link #XFree XFree} */
 	public static int XFree(PointerBuffer data) {
 		return nXFree(memAddress(data));
 	}
 
 	// --- [ XOpenDisplay ] ---
 
-	/** JNI method for {@link #XOpenDisplay} */
+	/** JNI method for {@link #XOpenDisplay XOpenDisplay} */
 	public static native long nXOpenDisplay(long display_name);
 
 	/**
@@ -138,20 +138,20 @@ public final class Xlib {
 		return nXOpenDisplay(memAddressSafe(display_name));
 	}
 
-	/** CharSequence version of: {@link #XOpenDisplay} */
+	/** CharSequence version of: {@link #XOpenDisplay XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
 		return nXOpenDisplay(memAddressSafe(memEncodeASCII(display_name)));
 	}
 
 	// --- [ XCloseDisplay ] ---
 
-	/** JNI method for {@link #XCloseDisplay} */
+	/** JNI method for {@link #XCloseDisplay XCloseDisplay} */
 	public static native int nXCloseDisplay(long display);
 
 	/**
 	 * Closes the connection to the X server for the display specified in the Display structure and destroys all windows, resource IDs (Window, Font, Pixmap,
 	 * Colormap, Cursor, and GContext), or other resources that the client has created on this display, unless the close-down mode of the resource has been
-	 * changed (see {@link #XSetCloseDownMode}). Therefore, these windows, resource IDs, and other resources should never be referenced again or an error will
+	 * changed (see {@link #XSetCloseDownMode XSetCloseDownMode}). Therefore, these windows, resource IDs, and other resources should never be referenced again or an error will
 	 * be generated. Before exiting, you should call {@code XCloseDisplay} explicitly so that any pending errors are reported as {@code XCloseDisplay} performs
 	 * a final {@code XSync} operation.
 	 *
@@ -165,7 +165,7 @@ public final class Xlib {
 
 	// --- [ XInternAtom ] ---
 
-	/** JNI method for {@link #XInternAtom} */
+	/** JNI method for {@link #XInternAtom XInternAtom} */
 	public static native long nXInternAtom(long display, long atom_name, int only_if_exists);
 
 	/**
@@ -183,7 +183,7 @@ public final class Xlib {
 		return nXInternAtom(display, memAddress(atom_name), only_if_exists);
 	}
 
-	/** CharSequence version of: {@link #XInternAtom} */
+	/** CharSequence version of: {@link #XInternAtom XInternAtom} */
 	public static long XInternAtom(long display, CharSequence atom_name, int only_if_exists) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -192,7 +192,7 @@ public final class Xlib {
 
 	// --- [ XDefaultScreen ] ---
 
-	/** JNI method for {@link #XDefaultScreen} */
+	/** JNI method for {@link #XDefaultScreen XDefaultScreen} */
 	public static native int nXDefaultScreen(long display);
 
 	/**
@@ -208,7 +208,7 @@ public final class Xlib {
 
 	// --- [ XDefaultDepth ] ---
 
-	/** JNI method for {@link #XDefaultDepth} */
+	/** JNI method for {@link #XDefaultDepth XDefaultDepth} */
 	public static native int nXDefaultDepth(long display, int screen_number);
 
 	/**
@@ -225,7 +225,7 @@ public final class Xlib {
 
 	// --- [ XDisplayWidth ] ---
 
-	/** JNI method for {@link #XDisplayWidth} */
+	/** JNI method for {@link #XDisplayWidth XDisplayWidth} */
 	public static native int nXDisplayWidth(long display, int screen_number);
 
 	/**
@@ -242,7 +242,7 @@ public final class Xlib {
 
 	// --- [ XDisplayHeight ] ---
 
-	/** JNI method for {@link #XDisplayHeight} */
+	/** JNI method for {@link #XDisplayHeight XDisplayHeight} */
 	public static native int nXDisplayHeight(long display, int screen_number);
 
 	/**
@@ -259,7 +259,7 @@ public final class Xlib {
 
 	// --- [ XDisplayWidthMM ] ---
 
-	/** JNI method for {@link #XDisplayWidthMM} */
+	/** JNI method for {@link #XDisplayWidthMM XDisplayWidthMM} */
 	public static native int nXDisplayWidthMM(long display, int screen_number);
 
 	/**
@@ -276,7 +276,7 @@ public final class Xlib {
 
 	// --- [ XDisplayHeightMM ] ---
 
-	/** JNI method for {@link #XDisplayHeightMM} */
+	/** JNI method for {@link #XDisplayHeightMM XDisplayHeightMM} */
 	public static native int nXDisplayHeightMM(long display, int screen_number);
 
 	/**
@@ -293,7 +293,7 @@ public final class Xlib {
 
 	// --- [ XSync ] ---
 
-	/** JNI method for {@link #XSync} */
+	/** JNI method for {@link #XSync XSync} */
 	public static native int nXSync(long display, int discard);
 
 	/**
@@ -301,7 +301,7 @@ public final class Xlib {
 	 * the error handler. For each protocol error received by Xlib, {@code XSync()} calls the client application's error handling routine. Any events generated
 	 * by the server are enqueued into the library's event queue.
 	 * <p/>
-	 * Finally, if you passed {@link X#False}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#True}, {@code XSync()} discards
+	 * Finally, if you passed {@link X#GrabSuccess GrabSuccess}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#GrabSuccess GrabSuccess}, {@code XSync()} discards
 	 * all events in the queue, including those events that were on the queue before {@code XSync()} was called. Client applications seldom need to call
 	 * {@code XSync()}.
 	 *
@@ -316,7 +316,7 @@ public final class Xlib {
 
 	// --- [ XRootWindow ] ---
 
-	/** JNI method for {@link #XRootWindow} */
+	/** JNI method for {@link #XRootWindow XRootWindow} */
 	public static native long nXRootWindow(long display, int screen_number);
 
 	/**
@@ -333,7 +333,7 @@ public final class Xlib {
 
 	// --- [ XQueryExtension ] ---
 
-	/** JNI method for {@link #XQueryExtension} */
+	/** JNI method for {@link #XQueryExtension XQueryExtension} */
 	public static native int nXQueryExtension(long display, long name, long major_opcode_return, long first_event_return, long first_error_return);
 
 	/**
@@ -358,14 +358,14 @@ public final class Xlib {
 		return nXQueryExtension(display, memAddress(name), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
 	}
 
-	/** Alternative version of: {@link #XQueryExtension} */
+	/** Alternative version of: {@link #XQueryExtension XQueryExtension} */
 	public static int XQueryExtension(long display, ByteBuffer name, IntBuffer major_opcode_return, IntBuffer first_event_return, IntBuffer first_error_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		return nXQueryExtension(display, memAddress(name), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
 	}
 
-	/** CharSequence version of: {@link #XQueryExtension} */
+	/** CharSequence version of: {@link #XQueryExtension XQueryExtension} */
 	public static int XQueryExtension(long display, CharSequence name, IntBuffer major_opcode_return, IntBuffer first_event_return, IntBuffer first_error_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -374,12 +374,12 @@ public final class Xlib {
 
 	// --- [ XFlush ] ---
 
-	/** JNI method for {@link #XFlush} */
+	/** JNI method for {@link #XFlush XFlush} */
 	public static native int nXFlush(long display);
 
 	/**
 	 * Flushes the output buffer. Most client applications need not use this function because the output buffer is automatically flushed as needed by calls to
-	 * {@link #XPending}, {@link #XNextEvent}, and {@link #XWindowEvent}. Events generated by the server may be enqueued into the library's event queue.
+	 * {@link #XPending XPending}, {@link #XNextEvent XNextEvent}, and {@link #XWindowEvent XWindowEvent}. Events generated by the server may be enqueued into the library's event queue.
 	 *
 	 * @param display the connection to the X server
 	 */
@@ -391,12 +391,12 @@ public final class Xlib {
 
 	// --- [ XPending ] ---
 
-	/** JNI method for {@link #XPending} */
+	/** JNI method for {@link #XPending XPending} */
 	public static native int nXPending(long display);
 
 	/**
 	 * Returns the number of events that have been received from the X server but have not been removed from the event queue. {@code XPending()} is identical
-	 * to {@link #XEventsQueued} with the mode {@code QueuedAfterFlush} specified.
+	 * to {@link #XEventsQueued XEventsQueued} with the mode {@code QueuedAfterFlush} specified.
 	 *
 	 * @param display the connection to the X server
 	 */
@@ -408,7 +408,7 @@ public final class Xlib {
 
 	// --- [ XNextEvent ] ---
 
-	/** JNI method for {@link #XNextEvent} */
+	/** JNI method for {@link #XNextEvent XNextEvent} */
 	public static native int nXNextEvent(long display, long event_return);
 
 	/**
@@ -428,7 +428,7 @@ public final class Xlib {
 
 	// --- [ XCreateColormap ] ---
 
-	/** JNI method for {@link #XCreateColormap} */
+	/** JNI method for {@link #XCreateColormap XCreateColormap} */
 	public static native long nXCreateColormap(long display, long w, long visual, int alloc);
 
 	/**
@@ -450,14 +450,14 @@ public final class Xlib {
 
 	// --- [ XFreeColormap ] ---
 
-	/** JNI method for {@link #XFreeColormap} */
+	/** JNI method for {@link #XFreeColormap XFreeColormap} */
 	public static native int nXFreeColormap(long display, long colormap);
 
 	/**
 	 * Deletes the association between the {@code colormap} resource ID and the {@code colormap} and frees the {@code colormap} storage. However, this function
 	 * has no effect on the default colormap for a screen. If the specified {@code colormap} is an installed map for a screen, it is uninstalled. If the
 	 * specified {@code colormap} is defined as the {@code colormap} for a window, {@code XFreeColormap()} changes the colormap associated with the window to
-	 * {@link X#None} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link X#None}.
+	 * {@link X#GrabSuccess GrabSuccess} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link X#GrabSuccess GrabSuccess}.
 	 *
 	 * @param display  the connection to the X server
 	 * @param colormap the colormap to destroy
@@ -470,7 +470,7 @@ public final class Xlib {
 
 	// --- [ XScreenOfDisplay ] ---
 
-	/** JNI method for {@link #XScreenOfDisplay} */
+	/** JNI method for {@link #XScreenOfDisplay XScreenOfDisplay} */
 	public static native long nXScreenOfDisplay(long display, int screen_number);
 
 	/**
@@ -487,7 +487,7 @@ public final class Xlib {
 
 	// --- [ XBlackPixel ] ---
 
-	/** JNI method for {@link #XBlackPixel} */
+	/** JNI method for {@link #XBlackPixel XBlackPixel} */
 	public static native long nXBlackPixel(long display, int screen_number);
 
 	/**
@@ -504,7 +504,7 @@ public final class Xlib {
 
 	// --- [ XConnectionNumber ] ---
 
-	/** JNI method for {@link #XConnectionNumber} */
+	/** JNI method for {@link #XConnectionNumber XConnectionNumber} */
 	public static native int nXConnectionNumber(long display);
 
 	/**
@@ -520,7 +520,7 @@ public final class Xlib {
 
 	// --- [ XCreateWindow ] ---
 
-	/** JNI method for {@link #XCreateWindow} */
+	/** JNI method for {@link #XCreateWindow XCreateWindow} */
 	public static native long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes);
 
 	/**
@@ -542,9 +542,9 @@ public final class Xlib {
 	 * @param width        the window width
 	 * @param height       the window height
 	 * @param border_width the border width
-	 * @param depth        the window's depth. A depth of {@link X#CopyFromParent} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
-	 * @param visual       the visual type. A visual of {@link X#CopyFromParent} means the visual type is taken from the parent.
+	 * @param depth        the window's depth. A depth of {@link X#GrabSuccess GrabSuccess} means the depth is taken from the parent.
+	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput InputOutput}, {@link X#InputOnly InputOnly}, {@link X#CopyFromParent CopyFromParent}
+	 * @param visual       the visual type. A visual of {@link X#GrabSuccess GrabSuccess} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
 	 * @param attributes   the structure from which the values (as specified by the value mask) are to be taken
@@ -560,17 +560,17 @@ public final class Xlib {
 
 	// --- [ XChangeWindowAttributes ] ---
 
-	/** JNI method for {@link #XChangeWindowAttributes} */
+	/** JNI method for {@link #XChangeWindowAttributes XChangeWindowAttributes} */
 	public static native int nXChangeWindowAttributes(long display, long w, long valuemask, long attributes);
 
 	/**
-	 * Depending on the {@code valuemask}, uses the window attributes in the {@link XSetWindowAttributes} structure to change the specified window attributes.
+	 * Depending on the {@code valuemask}, uses the window attributes in the {@link #XSetWindowAttributes} structure to change the specified window attributes.
 	 *
 	 * @param display    the connection to the X server
 	 * @param w          the window
 	 * @param valuemask  specifies which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
-	 *                   valuemask is zero, the attributes are ignored and are not referenced. The values and restrictions are the same as for {@link #XCreateWindow}.
-	 * @param attributes the {@link XSetWindowAttributes} structure from which the values (as specified by the value mask) are to be taken.
+	 *                   valuemask is zero, the attributes are ignored and are not referenced. The values and restrictions are the same as for {@link #XCreateWindow XCreateWindow}.
+	 * @param attributes the {@link #XSetWindowAttributes} structure from which the values (as specified by the value mask) are to be taken.
 	 */
 	public static int XChangeWindowAttributes(long display, long w, long valuemask, ByteBuffer attributes) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -582,7 +582,7 @@ public final class Xlib {
 
 	// --- [ XSetWMProtocols ] ---
 
-	/** JNI method for {@link #XSetWMProtocols} */
+	/** JNI method for {@link #XSetWMProtocols XSetWMProtocols} */
 	public static native int nXSetWMProtocols(long display, long w, long protocols, int count);
 
 	/**
@@ -601,7 +601,7 @@ public final class Xlib {
 		return nXSetWMProtocols(display, w, memAddress(protocols), count);
 	}
 
-	/** Alternative version of: {@link #XSetWMProtocols} */
+	/** Alternative version of: {@link #XSetWMProtocols XSetWMProtocols} */
 	public static int XSetWMProtocols(long display, long w, PointerBuffer protocols) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -610,7 +610,7 @@ public final class Xlib {
 
 	// --- [ XSetWMHints ] ---
 
-	/** JNI method for {@link #XSetWMHints} */
+	/** JNI method for {@link #XSetWMHints XSetWMHints} */
 	public static native int nXSetWMHints(long display, long w, long hints);
 
 	/**
@@ -631,7 +631,7 @@ public final class Xlib {
 
 	// --- [ XSetSizeHints ] ---
 
-	/** JNI method for {@link #XSetSizeHints} */
+	/** JNI method for {@link #XSetSizeHints XSetSizeHints} */
 	public static native int nXSetSizeHints(long display, long w, long hints, long property);
 
 	/**
@@ -652,7 +652,7 @@ public final class Xlib {
 
 	// --- [ XSetWMNormalHints ] ---
 
-	/** JNI method for {@link #XSetWMNormalHints} */
+	/** JNI method for {@link #XSetWMNormalHints XSetWMNormalHints} */
 	public static native void nXSetWMNormalHints(long display, long w, long hints);
 
 	/**
@@ -674,11 +674,11 @@ public final class Xlib {
 
 	// --- [ XGrabPointer ] ---
 
-	/** JNI method for {@link #XGrabPointer} */
+	/** JNI method for {@link #XGrabPointer XGrabPointer} */
 	public static native int nXGrabPointer(long display, long grab_window, int owner_events, int event_mask, int pointer_mode, int keyboard_mode, long confine_to, long cursor, long time);
 
 	/**
-	 * Actively grabs control of the pointer and returns {@link X#GrabSuccess} if the grab was successful. Further pointer events are reported only to the
+	 * Actively grabs control of the pointer and returns {@link X#GrabSuccess GrabSuccess} if the grab was successful. Further pointer events are reported only to the
 	 * grabbing client. {@code XGrabPointer} overrides any active pointer grab by this client. If {@code owner_events} is {@link #False}, all generated pointer
 	 * events are reported with respect to {@code grab_window} and are reported only if selected by {@code event_mask}. If owner_events is True and if a generated pointer event would normally be
 	 * reported to this client, it is reported as usual. Otherwise, the event is reported with respect to the grab_window and is reported only if selected by event_mask. For either value of owner_events, unreported events are discarded.
@@ -688,11 +688,11 @@ public final class Xlib {
 	 * @param owner_events  a Boolean value that indicates whether the pointer events are to be reported as usual or reported with respect to the grab window if selected by the
 	 *                      event mask
 	 * @param event_mask    which pointer events are reported to the client. The mask is the bitwise inclusive OR of the valid pointer event mask bits.
-	 * @param pointer_mode  further processing of pointer events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
-	 * @param keyboard_mode further processing of keyboard events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
-	 * @param confine_to    the window to confine the pointer in or {@link X#None}
-	 * @param cursor        the cursor that is to be displayed during the grab or {@link X#None}
-	 * @param time          the time. You can pass either a timestamp or {@link X#CurrentTime}
+	 * @param pointer_mode  further processing of pointer events. One of:<p/>{@link X#GrabModeSync GrabModeSync}, {@link X#GrabModeAsync GrabModeAsync}
+	 * @param keyboard_mode further processing of keyboard events. One of:<p/>{@link X#GrabModeSync GrabModeSync}, {@link X#GrabModeAsync GrabModeAsync}
+	 * @param confine_to    the window to confine the pointer in or {@link X#None None}
+	 * @param cursor        the cursor that is to be displayed during the grab or {@link X#None None}
+	 * @param time          the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
 	 */
 	public static int XGrabPointer(long display, long grab_window, int owner_events, int event_mask, int pointer_mode, int keyboard_mode, long confine_to, long cursor, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -702,18 +702,18 @@ public final class Xlib {
 
 	// --- [ XUngrabPointer ] ---
 
-	/** JNI method for {@link #XUngrabPointer} */
+	/** JNI method for {@link #XUngrabPointer XUngrabPointer} */
 	public static native int nXUngrabPointer(long display, long time);
 
 	/**
-	 * Releases the pointer and any queued events if this client has actively grabbed the pointer from {@link #XGrabPointer}, {@link #XGrabButton}, or from
+	 * Releases the pointer and any queued events if this client has actively grabbed the pointer from {@link #XGrabPointer XGrabPointer}, {@link #XGrabButton XGrabButton}, or from
 	 * a normal button press. {@code XUngrabPointer} does not release the pointer if the specified time is earlier than the last-pointer-grab time or is later
 	 * than the current X server time. It also generates {@code EnterNotify} and {@code LeaveNotify} events. The X server performs an {@code UngrabPointer}
 	 * request automatically if the event window or {@code confine_to} window for an active pointer grab becomes not viewable or if window reconfiguration
 	 * causes the {@code confine_to} window to lie completely outside the boundaries of the root window.
 	 *
 	 * @param display the connection to the X server
-	 * @param time    specifies the time. You can pass either a timestamp or {@link X#CurrentTime}.
+	 * @param time    specifies the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}.
 	 */
 	public static int XUngrabPointer(long display, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -723,15 +723,15 @@ public final class Xlib {
 
 	// --- [ XDefineCursor ] ---
 
-	/** JNI method for {@link #XDefineCursor} */
+	/** JNI method for {@link #XDefineCursor XDefineCursor} */
 	public static native int nXDefineCursor(long display, long w, long cursor);
 
 	/**
-	 * If a cursor is set, it will be used when the pointer is in the window. If the cursor is {@link X#None}, it is equivalent to {@link #XUndefineCursor}.
+	 * If a cursor is set, it will be used when the pointer is in the window. If the cursor is {@link X#None None}, it is equivalent to {@link #XUndefineCursor XUndefineCursor}.
 	 *
 	 * @param display the connection to the X server
 	 * @param w       the window
-	 * @param cursor  the cursor that is to be displayed or {@link X#None}
+	 * @param cursor  the cursor that is to be displayed or {@link X#None None}
 	 */
 	public static int XDefineCursor(long display, long w, long cursor) {
 		if ( LWJGLUtil.CHECKS )
@@ -741,11 +741,11 @@ public final class Xlib {
 
 	// --- [ XUndefineCursor ] ---
 
-	/** JNI method for {@link #XUndefineCursor} */
+	/** JNI method for {@link #XUndefineCursor XUndefineCursor} */
 	public static native int nXUndefineCursor(long display, long w);
 
 	/**
-	 * Undoes the effect of a previous {@link #XDefineCursor} for this window. When the pointer is in the window, the parent's cursor will now be used. On the
+	 * Undoes the effect of a previous {@link #XDefineCursor XDefineCursor} for this window. When the pointer is in the window, the parent's cursor will now be used. On the
 	 * root window, the default cursor is restored.
 	 *
 	 * @param display the connection to the X server
@@ -759,7 +759,7 @@ public final class Xlib {
 
 	// --- [ XFreeCursor ] ---
 
-	/** JNI method for {@link #XFreeCursor} */
+	/** JNI method for {@link #XFreeCursor XFreeCursor} */
 	public static native int nXFreeCursor(long display, long cursor);
 
 	/**
@@ -777,7 +777,7 @@ public final class Xlib {
 
 	// --- [ XGetScreenSaver ] ---
 
-	/** JNI method for {@link #XGetScreenSaver} */
+	/** JNI method for {@link #XGetScreenSaver XGetScreenSaver} */
 	public static native int nXGetScreenSaver(long display, long timeout_return, long interval_return, long prefer_blanking_return, long allow_exposures_return);
 
 	/**
@@ -800,7 +800,7 @@ public final class Xlib {
 		return nXGetScreenSaver(display, memAddress(timeout_return), memAddress(interval_return), memAddress(prefer_blanking_return), memAddress(allow_exposures_return));
 	}
 
-	/** Alternative version of: {@link #XGetScreenSaver} */
+	/** Alternative version of: {@link #XGetScreenSaver XGetScreenSaver} */
 	public static int XGetScreenSaver(long display, IntBuffer timeout_return, IntBuffer interval_return, IntBuffer prefer_blanking_return, IntBuffer allow_exposures_return) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -814,7 +814,7 @@ public final class Xlib {
 
 	// --- [ XSetScreenSaver ] ---
 
-	/** JNI method for {@link #XSetScreenSaver} */
+	/** JNI method for {@link #XSetScreenSaver XSetScreenSaver} */
 	public static native int nXSetScreenSaver(long display, int timeout_return, int interval_return, int prefer_blanking_return, int allow_exposures_return);
 
 	/**
@@ -834,15 +834,15 @@ public final class Xlib {
 
 	// --- [ XSendEvent ] ---
 
-	/** JNI method for {@link #XSendEvent} */
+	/** JNI method for {@link #XSendEvent XSendEvent} */
 	public static native int nXSendEvent(long display, long w, int propagate, long event_mask, long event_send);
 
 	/**
 	 * Identifies the destination window, determines which clients should receive the specified events, and ignores any active grabs. This function requires
 	 * you to pass an event mask. This function uses the {@code w} argument to identify the destination window as follows:
 	 * <ul>
-	 * <li>If {@code w} is {@link X#PointerWindow}, the destination window is the window that contains the pointer.</li>
-	 * <li>If {@code w} is {@link X#InputFocus} and if the focus window contains the pointer, the destination window is the window that contains the pointer;
+	 * <li>If {@code w} is {@link X#PointerWindow PointerWindow}, the destination window is the window that contains the pointer.</li>
+	 * <li>If {@code w} is {@link X#InputFocus InputFocus} and if the focus window contains the pointer, the destination window is the window that contains the pointer;
 	 * otherwise, the destination window is the focus window.</li>
 	 * </ul>
 	 * <p/>
@@ -853,7 +853,7 @@ public final class Xlib {
 	 * <li>If propagate is {@link #False}, the event is sent to every client selecting on destination any of the event types in the {@code event_mask} argument.</li>
 	 * <li>If propagate is {@link #True} and no clients have selected on destination any of the event types in event-mask, the destination is replaced with the
 	 * closest ancestor of destination for which some client has selected a type in event-mask and for which no intervening window has that type in its
-	 * do-not-propagate-mask. If no such window exists or if the window is an ancestor of the focus window and {@link X#InputFocus} was originally
+	 * do-not-propagate-mask. If no such window exists or if the window is an ancestor of the focus window and {@link X#InputFocus InputFocus} was originally
 	 * specified as the destination, the event is not sent to any clients. Otherwise, the event is reported to every client selecting on the final
 	 * destination any of the types specified in {@code event_mask}.</li>
 	 * </ul>
@@ -861,7 +861,7 @@ public final class Xlib {
 	 * The event in the XEvent structure must be one of the core events or one of the events defined by an extension (or a BadValue error results) so that the X server can correctly byte-swap the contents as necessary. The contents of the event are otherwise unaltered and unchecked by the X server except to force send_event to True in the forwarded event and to set the serial number in the event correctly; therefore these fields and the display field are ignored by XSendEvent().
 	 *
 	 * @param display    the connection to the X server
-	 * @param w          the window the event is to be sent to, or {@link X#PointerWindow}, or {@link X#InputFocus}
+	 * @param w          the window the event is to be sent to, or {@link X#PointerWindow PointerWindow}, or {@link X#InputFocus InputFocus}
 	 * @param propagate  a Boolean value
 	 * @param event_mask the event mask
 	 * @param event_send the event that is to be sent
@@ -876,7 +876,7 @@ public final class Xlib {
 
 	// --- [ XRaiseWindow ] ---
 
-	/** JNI method for {@link #XRaiseWindow} */
+	/** JNI method for {@link #XRaiseWindow XRaiseWindow} */
 	public static native int nXRaiseWindow(long display, long w);
 
 	/**
@@ -895,34 +895,34 @@ public final class Xlib {
 
 	// --- [ XSetInputFocus ] ---
 
-	/** JNI method for {@link #XSetInputFocus} */
+	/** JNI method for {@link #XSetInputFocus XSetInputFocus} */
 	public static native int nXSetInputFocus(long display, long focus, int revert_to, long time);
 
 	/**
 	 * Changes the input focus and the last-focus-change time. It has no effect if the specified time is earlier than the current last-focus-change time or is
-	 * later than the current X server time. Otherwise, the last-focus-change time is set to the specified time ({@link X#CurrentTime} is replaced by the
+	 * later than the current X server time. Otherwise, the last-focus-change time is set to the specified time ({@link X#CurrentTime CurrentTime} is replaced by the
 	 * current X server time). {@code XSetInputFocus} causes the X server to generate {@code FocusIn} and {@code FocusOut} events.
 	 * <p/>
 	 * Depending on the focus argument, the following occurs:
 	 * <ul>
-	 * <li>If focus is {@link X#None}, all keyboard events are discarded until a new focus window is set, and the {@code revert_to} argument is ignored.</li>
+	 * <li>If focus is {@link X#None None}, all keyboard events are discarded until a new focus window is set, and the {@code revert_to} argument is ignored.</li>
 	 * <li>If focus is a window, it becomes the keyboard's focus window. If a generated keyboard event would normally be reported to this window or one of its
 	 * inferiors, the event is reported as usual. Otherwise, the event is reported relative to the focus window.</li>
-	 * <li>If focus is {@link X#PointerRoot}, the focus window is dynamically taken to be the root window of whatever screen the pointer is on at each keyboard
+	 * <li>If focus is {@link X#PointerRoot PointerRoot}, the focus window is dynamically taken to be the root window of whatever screen the pointer is on at each keyboard
 	 * event. In this case, the {@code revert_to} argument is ignored. The specified focus window must be viewable at the time {@code XSetInputFocus} is
-	 * called, or a {@link X#BadMatch} error results. If the focus window later becomes not viewable, the X server evaluates the revert_to argument to
+	 * called, or a {@link X#BadMatch BadMatch} error results. If the focus window later becomes not viewable, the X server evaluates the revert_to argument to
 	 * determine the new focus window as follows:</li>
-	 * <li>If {@code revert_to} is {@link X#RevertToParent}, the focus reverts to the parent (or the closest viewable ancestor), and the new {@code revert_to}
-	 * value is taken to be {@link X#RevertToNone}.</li>
-	 * <li>If {@code revert_to} is {@link X#RevertToPointerRoot} or {@link X#RevertToNone}, the focus reverts to {@link X#PointerRoot} or {@link X#None},
+	 * <li>If {@code revert_to} is {@link X#RevertToParent RevertToParent}, the focus reverts to the parent (or the closest viewable ancestor), and the new {@code revert_to}
+	 * value is taken to be {@link X#RevertToNone RevertToNone}.</li>
+	 * <li>If {@code revert_to} is {@link X#RevertToPointerRoot RevertToPointerRoot} or {@link X#RevertToNone RevertToNone}, the focus reverts to {@link X#PointerRoot PointerRoot} or {@link X#None None},
 	 * respectively. When the focus reverts, the X server generates {@code FocusIn} and {@code FocusOut} events, but the last-focus-change time is not
 	 * affected.</li>
 	 * </ul>
 	 *
 	 * @param display   the connection to the X server
-	 * @param focus     the window, {@link X#PointerRoot} or {@link X#None}
-	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<p/>{@link X#RevertToParent}, {@link X#RevertToPointerRoot}, {@link X#RevertToNone}
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}.
+	 * @param focus     the window, {@link X#PointerRoot PointerRoot} or {@link X#None None}
+	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<p/>{@link X#RevertToParent RevertToParent}, {@link X#RevertToPointerRoot RevertToPointerRoot}, {@link X#RevertToNone RevertToNone}
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}.
 	 */
 	public static int XSetInputFocus(long display, long focus, int revert_to, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -932,7 +932,7 @@ public final class Xlib {
 
 	// --- [ XMoveWindow ] ---
 
-	/** JNI method for {@link #XMoveWindow} */
+	/** JNI method for {@link #XMoveWindow XMoveWindow} */
 	public static native int nXMoveWindow(long display, long w, int x, int y);
 
 	/**
@@ -956,7 +956,7 @@ public final class Xlib {
 
 	// --- [ XResizeWindow ] ---
 
-	/** JNI method for {@link #XResizeWindow} */
+	/** JNI method for {@link #XResizeWindow XResizeWindow} */
 	public static native int nXResizeWindow(long display, long w, int width, int height);
 
 	/**
@@ -977,7 +977,7 @@ public final class Xlib {
 
 	// --- [ XGetEventData ] ---
 
-	/** JNI method for {@link #XGetEventData} */
+	/** JNI method for {@link #XGetEventData XGetEventData} */
 	public static native int nXGetEventData(long display, long cookie);
 
 	/**
@@ -996,7 +996,7 @@ public final class Xlib {
 
 	// --- [ XFreeEventData ] ---
 
-	/** JNI method for {@link #XFreeEventData} */
+	/** JNI method for {@link #XFreeEventData XFreeEventData} */
 	public static native void nXFreeEventData(long display, long cookie);
 
 	/**
@@ -1015,7 +1015,7 @@ public final class Xlib {
 
 	// --- [ XGetWindowProperty ] ---
 
-	/** JNI method for {@link #XGetWindowProperty} */
+	/** JNI method for {@link #XGetWindowProperty XGetWindowProperty} */
 	public static native int nXGetWindowProperty(long display, long w, long property, long long_offset, long long_length, int delete, long req_type, long actual_type_return, long actual_format_return, long nitems_return, long bytes_after_return, long prop_return);
 
 	/**
@@ -1027,7 +1027,7 @@ public final class Xlib {
 	 * @param long_offset          the offset in the specified property (in 32-bit quantities) where the data is to be retrieved
 	 * @param long_length          the length in 32-bit multiples of the data to be retrieved
 	 * @param delete               a Boolean value that determines whether the property is deleted
-	 * @param req_type             the atom identifier associated with the property type or {@link X#AnyPropertyType}.
+	 * @param req_type             the atom identifier associated with the property type or {@link X#AnyPropertyType AnyPropertyType}.
 	 * @param actual_type_return   the atom identifier that defines the actual type of the property
 	 * @param actual_format_return the actual format of the property
 	 * @param nitems_return        the actual number of 8-bit, 16-bit, or 32-bit items stored in the {@code prop_return} data
@@ -1040,7 +1040,7 @@ public final class Xlib {
 		return nXGetWindowProperty(display, w, property, long_offset, long_length, delete, req_type, memAddress(actual_type_return), memAddress(actual_format_return), memAddress(nitems_return), memAddress(bytes_after_return), memAddress(prop_return));
 	}
 
-	/** Alternative version of: {@link #XGetWindowProperty} */
+	/** Alternative version of: {@link #XGetWindowProperty XGetWindowProperty} */
 	public static int XGetWindowProperty(long display, long w, long property, long long_offset, long long_length, int delete, long req_type, PointerBuffer actual_type_return, IntBuffer actual_format_return, PointerBuffer nitems_return, PointerBuffer bytes_after_return, PointerBuffer prop_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -1049,7 +1049,7 @@ public final class Xlib {
 
 	// --- [ XDeleteProperty ] ---
 
-	/** JNI method for {@link #XDeleteProperty} */
+	/** JNI method for {@link #XDeleteProperty XDeleteProperty} */
 	public static native int nXDeleteProperty(long display, long w, long property);
 
 	/**
@@ -1068,15 +1068,15 @@ public final class Xlib {
 
 	// --- [ XQueryPointer ] ---
 
-	/** JNI method for {@link #XQueryPointer} */
+	/** JNI method for {@link #XQueryPointer XQueryPointer} */
 	public static native int nXQueryPointer(long display, long w, long root_return, long child_return, long root_x_return, long root_y_return, long win_x_return, long win_y_return, long mask_return);
 
 	/**
 	 * Returns the root window the pointer is logically on and the pointer coordinates relative to the root window's origin. If {@code XQueryPointer} returns
-	 * {@link #False}, the pointer is not on the same screen as the specified window, and {@code XQueryPointer} returns {@link X#None} to {@code child_return}
+	 * {@link #False}, the pointer is not on the same screen as the specified window, and {@code XQueryPointer} returns {@link X#None None} to {@code child_return}
 	 * and zero to {@code win_x_return} and {@code win_y_return}. If {@code XQueryPointer} returns {@link #True}, the pointer coordinates returned to
 	 * {@code win_x_return} and {@code win_y_return} are relative to the origin of the specified window. In this case, {@code XQueryPointer} returns the child
-	 * that contains the pointer, if any, or else {@link X#None} to {@code child_return}.
+	 * that contains the pointer, if any, or else {@link X#None None} to {@code child_return}.
 	 * <p/>
 	 * Returns the current logical state of the keyboard buttons and the modifier keys in {@code mask_return}. It sets {@code mask_return} to the bitwise
 	 * inclusive OR of one or more of the button or modifier key bitmasks to match the current state of the mouse buttons and the modifier keys.
@@ -1097,7 +1097,7 @@ public final class Xlib {
 		return nXQueryPointer(display, w, memAddress(root_return), memAddress(child_return), memAddress(root_x_return), memAddress(root_y_return), memAddress(win_x_return), memAddress(win_y_return), memAddress(mask_return));
 	}
 
-	/** Alternative version of: {@link #XQueryPointer} */
+	/** Alternative version of: {@link #XQueryPointer XQueryPointer} */
 	public static int XQueryPointer(long display, long w, PointerBuffer root_return, PointerBuffer child_return, IntBuffer root_x_return, IntBuffer root_y_return, IntBuffer win_x_return, IntBuffer win_y_return, IntBuffer mask_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -1106,7 +1106,7 @@ public final class Xlib {
 
 	// --- [ XUnmapWindow ] ---
 
-	/** JNI method for {@link #XUnmapWindow} */
+	/** JNI method for {@link #XUnmapWindow XUnmapWindow} */
 	public static native int nXUnmapWindow(long display, long w);
 
 	/**
@@ -1126,7 +1126,7 @@ public final class Xlib {
 
 	// --- [ XDestroyWindow ] ---
 
-	/** JNI method for {@link #XDestroyWindow} */
+	/** JNI method for {@link #XDestroyWindow XDestroyWindow} */
 	public static native int nXDestroyWindow(long display, long w);
 
 	/**
@@ -1148,7 +1148,7 @@ public final class Xlib {
 
 	// --- [ Xutf8SetWMProperties ] ---
 
-	/** JNI method for {@link #Xutf8SetWMProperties} */
+	/** JNI method for {@link #Xutf8SetWMProperties Xutf8SetWMProperties} */
 	public static native void nXutf8SetWMProperties(long display, long w, long window_name, long icon_name, long argv, int argc, long normal_hints, long wm_hints, long class_hints);
 
 	/**
@@ -1177,7 +1177,7 @@ public final class Xlib {
 		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddressSafe(argv), argc, memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
-	/** Alternative version of: {@link #Xutf8SetWMProperties} */
+	/** Alternative version of: {@link #Xutf8SetWMProperties Xutf8SetWMProperties} */
 	public static void Xutf8SetWMProperties(long display, long w, ByteBuffer window_name, ByteBuffer icon_name, PointerBuffer argv, ByteBuffer normal_hints, ByteBuffer wm_hints, ByteBuffer class_hints) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -1188,7 +1188,7 @@ public final class Xlib {
 		nXutf8SetWMProperties(display, w, memAddress(window_name), memAddress(icon_name), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
-	/** CharSequence version of: {@link #Xutf8SetWMProperties} */
+	/** CharSequence version of: {@link #Xutf8SetWMProperties Xutf8SetWMProperties} */
 	public static void Xutf8SetWMProperties(long display, long w, CharSequence window_name, CharSequence icon_name, PointerBuffer argv, ByteBuffer normal_hints, ByteBuffer wm_hints, ByteBuffer class_hints) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -1201,7 +1201,7 @@ public final class Xlib {
 
 	// --- [ XChangeProperty ] ---
 
-	/** JNI method for {@link #XChangeProperty} */
+	/** JNI method for {@link #XChangeProperty XChangeProperty} */
 	public static native int nXChangeProperty(long display, long w, long property, long type, int format, int mode, long data, int nelements);
 
 	/**
@@ -1212,7 +1212,7 @@ public final class Xlib {
 	 * @param property  the property name
 	 * @param type      the type of the property
 	 * @param format    whether the data should be viewed as a list of 8-bit, 16-bit, or 32-bit quantities. One of:<p/>8, 16, 32
-	 * @param mode      the mode of the operation. One of:<p/>{@link X#PropModeReplace}, {@link X#PropModePrepend}, {@link X#PropModeAppend}
+	 * @param mode      the mode of the operation. One of:<p/>{@link X#PropModeReplace PropModeReplace}, {@link X#PropModePrepend PropModePrepend}, {@link X#PropModeAppend PropModeAppend}
 	 * @param data      the property data
 	 * @param nelements the number of elements of the specified data format
 	 */
@@ -1224,21 +1224,21 @@ public final class Xlib {
 		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), nelements);
 	}
 
-	/** ByteBuffer version of: {@link #XChangeProperty} */
+	/** ByteBuffer version of: {@link #XChangeProperty XChangeProperty} */
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining());
 	}
 
-	/** ShortBuffer version of: {@link #XChangeProperty} */
+	/** ShortBuffer version of: {@link #XChangeProperty XChangeProperty} */
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
 		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining());
 	}
 
-	/** IntBuffer version of: {@link #XChangeProperty} */
+	/** IntBuffer version of: {@link #XChangeProperty XChangeProperty} */
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -1247,7 +1247,7 @@ public final class Xlib {
 
 	// --- [ XTranslateCoordinates ] ---
 
-	/** JNI method for {@link #XTranslateCoordinates} */
+	/** JNI method for {@link #XTranslateCoordinates XTranslateCoordinates} */
 	public static native int nXTranslateCoordinates(long display, long src_w, long dest_w, int src_x, int src_y, long dest_x_return, long dest_y_return, long child_return);
 
 	/**
@@ -1271,7 +1271,7 @@ public final class Xlib {
 		return nXTranslateCoordinates(display, src_w, dest_w, src_x, src_y, memAddress(dest_x_return), memAddress(dest_y_return), memAddress(child_return));
 	}
 
-	/** Alternative version of: {@link #XTranslateCoordinates} */
+	/** Alternative version of: {@link #XTranslateCoordinates XTranslateCoordinates} */
 	public static int XTranslateCoordinates(long display, long src_w, long dest_w, int src_x, int src_y, IntBuffer dest_x_return, IntBuffer dest_y_return, PointerBuffer child_return) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -1283,7 +1283,7 @@ public final class Xlib {
 
 	// --- [ XGetWindowAttributes ] ---
 
-	/** JNI method for {@link #XGetWindowAttributes} */
+	/** JNI method for {@link #XGetWindowAttributes XGetWindowAttributes} */
 	public static native int nXGetWindowAttributes(long display, long w, long window_attributes_return);
 
 	/**
@@ -1303,7 +1303,7 @@ public final class Xlib {
 
 	// --- [ XIconifyWindow ] ---
 
-	/** JNI method for {@link #XIconifyWindow} */
+	/** JNI method for {@link #XIconifyWindow XIconifyWindow} */
 	public static native int nXIconifyWindow(long display, long w, int screen_number);
 
 	/**
@@ -1325,7 +1325,7 @@ public final class Xlib {
 
 	// --- [ XMapWindow ] ---
 
-	/** JNI method for {@link #XMapWindow} */
+	/** JNI method for {@link #XMapWindow XMapWindow} */
 	public static native int nXMapWindow(long display, long w);
 
 	/**
@@ -1344,11 +1344,11 @@ public final class Xlib {
 
 	// --- [ XMapRaised ] ---
 
-	/** JNI method for {@link #XMapRaised} */
+	/** JNI method for {@link #XMapRaised XMapRaised} */
 	public static native int nXMapRaised(long display, long w);
 
 	/**
-	 * Essentially is similar to {@link #XMapWindow} in that it maps the window and all of its subwindows that have had map requests. However, it also raises
+	 * Essentially is similar to {@link #XMapWindow XMapWindow} in that it maps the window and all of its subwindows that have had map requests. However, it also raises
 	 * the specified window to the top of the stack.
 	 *
 	 * @param display the connection to the X server
@@ -1362,7 +1362,7 @@ public final class Xlib {
 
 	// --- [ XWarpPointer ] ---
 
-	/** JNI method for {@link #XWarpPointer} */
+	/** JNI method for {@link #XWarpPointer XWarpPointer} */
 	public static native int nXWarpPointer(long display, long src_w, long dest_w, int src_x, int src_y, int src_width, int src_height, int dest_x, int dest_y);
 
 	/**
@@ -1381,8 +1381,8 @@ public final class Xlib {
 	 * closest edge of the {@code confine_to} window.
 	 *
 	 * @param display    the connection to the X server
-	 * @param src_w      the source window or {@link X#None}
-	 * @param dest_w     the destination window or {@link X#None}
+	 * @param src_w      the source window or {@link X#None None}
+	 * @param dest_w     the destination window or {@link X#None None}
 	 * @param src_x      the source rectangle x-coordinate
 	 * @param src_y      the source rectangle y-coordinate
 	 * @param src_width  the source rectangle width
@@ -1398,25 +1398,25 @@ public final class Xlib {
 
 	// --- [ XSetSelectionOwner ] ---
 
-	/** JNI method for {@link #XSetSelectionOwner} */
+	/** JNI method for {@link #XSetSelectionOwner XSetSelectionOwner} */
 	public static native int nXSetSelectionOwner(long display, long selection, long owner, long time);
 
 	/**
 	 * changes the owner and last-change time for the specified selection and has no effect if the specified time is earlier than the current last-change time
-	 * of the specified selection or is later than the current X server time. Otherwise, the last-change time is set to the specified time, with {@link X#CurrentTime}
-	 * replaced by the current server time. If the owner window is specified as {@link X#None}, then the owner of the selection becomes {@link X#None} (that
+	 * of the specified selection or is later than the current X server time. Otherwise, the last-change time is set to the specified time, with {@link X#CurrentTime CurrentTime}
+	 * replaced by the current server time. If the owner window is specified as {@link X#None None}, then the owner of the selection becomes {@link X#None None} (that
 	 * is, no owner). Otherwise, the owner of the selection becomes the client executing the request.
 	 * <p/>
-	 * If the new owner (whether a client or {@link X#None}) is not the same as the current owner of the selection and the current owner is not {@link X#None},
+	 * If the new owner (whether a client or {@link X#None None}) is not the same as the current owner of the selection and the current owner is not {@link X#None None},
 	 * the current owner is sent a {@code SelectionClear} event. If the client that is the owner of a selection is later terminated (that is, its connection is
-	 * closed) or if the owner window it has specified in the request is later destroyed, the owner of the selection automatically reverts to {@link X#None},
-	 * but the last-change time is not affected. The selection atom is uninterpreted by the X server. {@link #XGetSelectionOwner} returns the owner window,
+	 * closed) or if the owner window it has specified in the request is later destroyed, the owner of the selection automatically reverts to {@link X#None None},
+	 * but the last-change time is not affected. The selection atom is uninterpreted by the X server. {@link #XGetSelectionOwner XGetSelectionOwner} returns the owner window,
 	 * which is reported in {@code SelectionRequest} and {@code SelectionClear} events. Selections are global to the X server.
 	 *
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom
-	 * @param owner     the owner of the specified selection atom. You can pass a window or {@link X#None}.
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}
+	 * @param owner     the owner of the specified selection atom. You can pass a window or {@link X#None None}.
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
 	 */
 	public static int XSetSelectionOwner(long display, long selection, long owner, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -1426,12 +1426,12 @@ public final class Xlib {
 
 	// --- [ XGetSelectionOwner ] ---
 
-	/** JNI method for {@link #XGetSelectionOwner} */
+	/** JNI method for {@link #XGetSelectionOwner XGetSelectionOwner} */
 	public static native long nXGetSelectionOwner(long display, long selection);
 
 	/**
 	 * Returns the window ID associated with the window that currently owns the specified selection. If no selection was specified, the function returns the
-	 * constant {@link X#None}. If {@link X#None} is returned, there is no owner for the selection.
+	 * constant {@link X#None None}. If {@link X#None None} is returned, there is no owner for the selection.
 	 *
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom whose owner you want returned
@@ -1444,7 +1444,7 @@ public final class Xlib {
 
 	// --- [ XConvertSelection ] ---
 
-	/** JNI method for {@link #XConvertSelection} */
+	/** JNI method for {@link #XConvertSelection XConvertSelection} */
 	public static native int nXConvertSelection(long display, long selection, long target, long property, long requestor, long time);
 
 	/**
@@ -1453,9 +1453,9 @@ public final class Xlib {
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom
 	 * @param target    the target atom
-	 * @param property  the property name or {@link X#None}
+	 * @param property  the property name or {@link X#None None}
 	 * @param requestor the requestor window
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
 	 */
 	public static int XConvertSelection(long display, long selection, long target, long property, long requestor, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -1465,7 +1465,7 @@ public final class Xlib {
 
 	// --- [ XCheckTypedEvent ] ---
 
-	/** JNI method for {@link #XCheckTypedEvent} */
+	/** JNI method for {@link #XCheckTypedEvent XCheckTypedEvent} */
 	public static native int nXCheckTypedEvent(long display, int event_type, long event_return);
 
 	/**
@@ -1488,13 +1488,13 @@ public final class Xlib {
 
 	// --- [ XCreatePixmap ] ---
 
-	/** JNI method for {@link #XCreatePixmap} */
+	/** JNI method for {@link #XCreatePixmap XCreatePixmap} */
 	public static native long nXCreatePixmap(long display, long d, int width, int height, int depth);
 
 	/**
-	 * Creates a pixmap of the width, height, and depth you specified and returns a pixmap ID that identifies it. It is valid to pass an {@link X#InputOnly}
-	 * window to the drawable argument. The width and height arguments must be nonzero, or a {@link X#BadValue} error results. The depth argument must be one
-	 * of the depths supported by the screen of the specified drawable, or a {@link X#BadValue} error results.
+	 * Creates a pixmap of the width, height, and depth you specified and returns a pixmap ID that identifies it. It is valid to pass an {@link X#InputOnly InputOnly}
+	 * window to the drawable argument. The width and height arguments must be nonzero, or a {@link X#BadValue BadValue} error results. The depth argument must be one
+	 * of the depths supported by the screen of the specified drawable, or a {@link X#BadValue BadValue} error results.
 	 *
 	 * @param display the connection to the X server
 	 * @param d       which screen the pixmap is created on
@@ -1510,12 +1510,12 @@ public final class Xlib {
 
 	// --- [ XCreateGC ] ---
 
-	/** JNI method for {@link #XCreateGC} */
+	/** JNI method for {@link #XCreateGC XCreateGC} */
 	public static native long nXCreateGC(long display, long d, long valuemask, long values);
 
 	/**
 	 * Creates a graphics context and returns a GC. The GC can be used with any destination drawable having the same root and depth as the specified drawable.
-	 * Use with other drawables results in a {@link X#BadMatch} error.
+	 * Use with other drawables results in a {@link X#BadMatch BadMatch} error.
 	 *
 	 * @param display   
 	 * @param d         
@@ -1532,7 +1532,7 @@ public final class Xlib {
 
 	// --- [ XFillRectangle ] ---
 
-	/** JNI method for {@link #XFillRectangle} */
+	/** JNI method for {@link #XFillRectangle XFillRectangle} */
 	public static native int nXFillRectangle(long display, long d, long gc, int x, int y, int width, int height);
 
 	/**
@@ -1556,7 +1556,7 @@ public final class Xlib {
 
 	// --- [ XCreatePixmapCursor ] ---
 
-	/** JNI method for {@link #XCreatePixmapCursor} */
+	/** JNI method for {@link #XCreatePixmapCursor XCreatePixmapCursor} */
 	public static native long nXCreatePixmapCursor(long display, long source, long mask, long foreground_color, long background_color, int x, int y);
 
 	/**
@@ -1564,7 +1564,7 @@ public final class Xlib {
 	 *
 	 * @param display          the connection to the X server
 	 * @param source           the shape of the source cursor
-	 * @param mask             the cursor's source bits to be displayed or {@link X#None}
+	 * @param mask             the cursor's source bits to be displayed or {@link X#None None}
 	 * @param foreground_color the RGB values for the foreground of the source
 	 * @param background_color the RGB values for the background of the source
 	 * @param x                the hotspot x-coordinate relative to the source's origin
@@ -1581,7 +1581,7 @@ public final class Xlib {
 
 	// --- [ XFreePixmap ] ---
 
-	/** JNI method for {@link #XFreePixmap} */
+	/** JNI method for {@link #XFreePixmap XFreePixmap} */
 	public static native int nXFreePixmap(long display, long pixmap);
 
 	/**
@@ -1599,7 +1599,7 @@ public final class Xlib {
 
 	// --- [ XFreeGC ] ---
 
-	/** JNI method for {@link #XFreeGC} */
+	/** JNI method for {@link #XFreeGC XFreeGC} */
 	public static native int nXFreeGC(long display, long gc);
 
 	/**

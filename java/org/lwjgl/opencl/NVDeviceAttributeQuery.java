@@ -29,15 +29,15 @@ public final class NVDeviceAttributeQuery {
 	public static final int
 		CL_DEVICE_WARP_SIZE_NV = 0x4003;
 
-	/** Returns {@link CL10#CL_TRUE} if the device can concurrently copy memory between host and device while executing a kernel, or {@link CL10#CL_FALSE} if not. */
+	/** Returns {@link CL10#CL_TRUE TRUE} if the device can concurrently copy memory between host and device while executing a kernel, or {@link CL10#CL_FALSE FALSE} if not. */
 	public static final int
 		CL_DEVICE_GPU_OVERLAP_NV = 0x4004;
 
-	/** Returns {@link CL10#CL_TRUE} if there is a run time limit for kernels executed on the device, or {@link CL10#CL_FALSE} if not. */
+	/** Returns {@link CL10#CL_TRUE TRUE} if there is a run time limit for kernels executed on the device, or {@link CL10#CL_FALSE FALSE} if not. */
 	public static final int
 		CL_DEVICE_KERNEL_EXEC_TIMEOUT_NV = 0x4005;
 
-	/** Returns {@link CL10#CL_TRUE} if the device is integrated with the memory subsystem, or {@link CL10#CL_FALSE} if not. */
+	/** Returns {@link CL10#CL_TRUE TRUE} if the device is integrated with the memory subsystem, or {@link CL10#CL_FALSE FALSE} if not. */
 	public static final int
 		CL_DEVICE_INTEGRATED_MEMORY_NV = 0x4006;
 

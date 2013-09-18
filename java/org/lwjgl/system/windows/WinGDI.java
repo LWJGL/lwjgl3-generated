@@ -50,7 +50,7 @@ public final class WinGDI {
 		DC_BRUSH            = 0x12,
 		DC_PEN              = 0x13;
 
-	/** Object types for {@link #EnumObjects} and {@link #GetCurrentObject}. */
+	/** Object types for {@link #EnumObjects EnumObjects} and {@link #GetCurrentObject GetCurrentObject}. */
 	public static final int
 		OBJ_PEN         = 0x1,
 		OBJ_BRUSH       = 0x2,
@@ -67,7 +67,7 @@ public final class WinGDI {
 		OBJ_ENHMETAFILE = 0xD,
 		OBJ_COLORSPACE  = 0xE;
 
-	/** Used by the index parameter of {@link #GetDeviceCaps}. */
+	/** Used by the index parameter of {@link #GetDeviceCaps GetDeviceCaps}. */
 	public static final int
 		DRIVERVERSION  = 0x0,
 		TECHNOLOGY     = 0x2,
@@ -150,7 +150,7 @@ public final class WinGDI {
 
 	// --- [ EnumObjects ] ---
 
-	/** JNI method for {@link #EnumObjects} */
+	/** JNI method for {@link #EnumObjects EnumObjects} */
 	public static native int nEnumObjects(long hdc, int objectType, long objectFunc, long param);
 
 	/**
@@ -159,7 +159,7 @@ public final class WinGDI {
 	 * zero or until all of the objects have been enumerated.
 	 *
 	 * @param hdc        a handle to the DC
-	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
+	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH OBJ_BRUSH}, {@link #OBJ_PEN OBJ_PEN}
 	 * @param objectFunc the application-defined callback function
 	 * @param param      the data passed to the callback function along with the object information.
 	 */
@@ -169,7 +169,7 @@ public final class WinGDI {
 		return nEnumObjects(hdc, objectType, objectFunc, param);
 	}
 
-	/** Alternative version of: {@link #EnumObjects} */
+	/** Alternative version of: {@link #EnumObjects EnumObjects} */
 	public static int EnumObjects(long hdc, int objectType, EnumObjectsProc objectFunc) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
@@ -183,7 +183,7 @@ public final class WinGDI {
 
 	// --- [ SelectObject ] ---
 
-	/** JNI method for {@link #SelectObject} */
+	/** JNI method for {@link #SelectObject SelectObject} */
 	public static native long nSelectObject(long hdc, long object);
 
 	/**
@@ -202,7 +202,7 @@ public final class WinGDI {
 
 	// --- [ GetCurrentObject ] ---
 
-	/** JNI method for {@link #GetCurrentObject} */
+	/** JNI method for {@link #GetCurrentObject GetCurrentObject} */
 	public static native long nGetCurrentObject(long hdc, int objectType);
 
 	/**
@@ -219,7 +219,7 @@ public final class WinGDI {
 
 	// --- [ GetObjectType ] ---
 
-	/** JNI method for {@link #GetObjectType} */
+	/** JNI method for {@link #GetObjectType GetObjectType} */
 	public static native int nGetObjectType(long object);
 
 	/**
@@ -235,7 +235,7 @@ public final class WinGDI {
 
 	// --- [ DeleteObject ] ---
 
-	/** JNI method for {@link #DeleteObject} */
+	/** JNI method for {@link #DeleteObject DeleteObject} */
 	public static native int nDeleteObject(long object);
 
 	/**
@@ -252,7 +252,7 @@ public final class WinGDI {
 
 	// --- [ CreateDC ] ---
 
-	/** JNI method for {@link #CreateDC} */
+	/** JNI method for {@link #CreateDC CreateDC} */
 	public static native long nCreateDC(long lpszDriver, long lpszDevice, long lpszOutput, long lpInitData);
 
 	/**
@@ -263,14 +263,14 @@ public final class WinGDI {
 	 * @param lpszDevice A pointer to a null-terminated character string that specifies the name of the specific output device being used, as shown by the Print Manager (for
 	 *                   example, Epson FX-80). It is not the printer model name. The {@code lpszDevice} parameter must be used.
 	 *                   <p/>
-	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices}.
+	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices EnumDisplayDevices}.
 	 *                   <p/>
 	 *                   If {@code lpszDriver} is DISPLAY or the device name of a specific display device, then {@code lpszDevice} must be {@code NULL} or that same device name. If
 	 *                   {@code lpszDevice} is {@code NULL}, then a DC is created for the primary display device.
 	 *                   <p/>
 	 *                   If there are multiple monitors on the system, calling {@code CreateDC(TEXT("DISPLAY"),NULL,NULL,NULL)} will create a DC covering all the monitors.
 	 * @param lpszOutput this parameter is ignored and should be set to {@code NULL}
-	 * @param lpInitData A pointer to a {@link #DEVMODE} structure containing device-specific initialization data for the device driver. The {@code DocumentProperties}
+	 * @param lpInitData A pointer to a {@link DEVMODE} structure containing device-specific initialization data for the device driver. The {@code DocumentProperties}
 	 *                   function retrieves this structure filled in for a specified device. The {@code lpInitData} parameter must be {@code NULL} if the device driver is to use
 	 *                   the default initialization (if any) specified by the user.
 	 *                   <p/>
@@ -285,7 +285,7 @@ public final class WinGDI {
 		return nCreateDC(memAddressSafe(lpszDriver), memAddressSafe(lpszDevice), memAddressSafe(lpszOutput), memAddressSafe(lpInitData));
 	}
 
-	/** CharSequence version of: {@link #CreateDC} */
+	/** CharSequence version of: {@link #CreateDC CreateDC} */
 	public static long CreateDC(CharSequence lpszDriver, CharSequence lpszDevice, CharSequence lpszOutput, ByteBuffer lpInitData) {
 		if ( LWJGLUtil.CHECKS )
 			if ( lpInitData != null ) checkBuffer(lpInitData, DEVMODE.SIZEOF);
@@ -294,7 +294,7 @@ public final class WinGDI {
 
 	// --- [ CreateCompatibleDC ] ---
 
-	/** JNI method for {@link #CreateCompatibleDC} */
+	/** JNI method for {@link #CreateCompatibleDC CreateCompatibleDC} */
 	public static native long nCreateCompatibleDC(long hdc);
 
 	/**
@@ -308,7 +308,7 @@ public final class WinGDI {
 
 	// --- [ DeleteDC ] ---
 
-	/** JNI method for {@link #DeleteDC} */
+	/** JNI method for {@link #DeleteDC DeleteDC} */
 	public static native int nDeleteDC(long hdc);
 
 	/**
@@ -324,7 +324,7 @@ public final class WinGDI {
 
 	// --- [ CancelDC ] ---
 
-	/** JNI method for {@link #CancelDC} */
+	/** JNI method for {@link #CancelDC CancelDC} */
 	public static native int nCancelDC(long hdc);
 
 	/**
@@ -340,7 +340,7 @@ public final class WinGDI {
 
 	// --- [ SaveDC ] ---
 
-	/** JNI method for {@link #SaveDC} */
+	/** JNI method for {@link #SaveDC SaveDC} */
 	public static native int nSaveDC(long hdc);
 
 	/**
@@ -357,12 +357,12 @@ public final class WinGDI {
 
 	// --- [ RestoreDC ] ---
 
-	/** JNI method for {@link #RestoreDC} */
+	/** JNI method for {@link #RestoreDC RestoreDC} */
 	public static native int nRestoreDC(long hdc, int savedDC);
 
 	/**
 	 * Restores a device context (DC) to the specified state. The DC is restored by popping state information off a stack created by earlier calls to the
-	 * {@link #SaveDC} function.
+	 * {@link #SaveDC SaveDC} function.
 	 *
 	 * @param hdc     a handle to the DC
 	 * @param savedDC the saved state to be restored. If this parameter is positive, {@code savedDC} represents a specific instance of the state to be restored. If this\
@@ -376,7 +376,7 @@ public final class WinGDI {
 
 	// --- [ GetDCOrgEx ] ---
 
-	/** JNI method for {@link #GetDCOrgEx} */
+	/** JNI method for {@link #GetDCOrgEx GetDCOrgEx} */
 	public static native int nGetDCOrgEx(long hdc, long point);
 
 	/**
@@ -396,7 +396,7 @@ public final class WinGDI {
 
 	// --- [ GetDeviceCaps ] ---
 
-	/** JNI method for {@link #GetDeviceCaps} */
+	/** JNI method for {@link #GetDeviceCaps GetDeviceCaps} */
 	public static native int nGetDeviceCaps(long hdc, int index);
 
 	/**
@@ -413,7 +413,7 @@ public final class WinGDI {
 
 	// --- [ GetDeviceGammaRamp ] ---
 
-	/** JNI method for {@link #GetDeviceGammaRamp} */
+	/** JNI method for {@link #GetDeviceGammaRamp GetDeviceGammaRamp} */
 	public static native int nGetDeviceGammaRamp(long hdc, long lpRamp);
 
 	/**
@@ -434,7 +434,7 @@ public final class WinGDI {
 
 	// --- [ SetDeviceGammaRamp ] ---
 
-	/** JNI method for {@link #SetDeviceGammaRamp} */
+	/** JNI method for {@link #SetDeviceGammaRamp SetDeviceGammaRamp} */
 	public static native int nSetDeviceGammaRamp(long hdc, long lpRamp);
 
 	/**
@@ -455,7 +455,7 @@ public final class WinGDI {
 
 	// --- [ ChoosePixelFormat ] ---
 
-	/** JNI method for {@link #ChoosePixelFormat} */
+	/** JNI method for {@link #ChoosePixelFormat ChoosePixelFormat} */
 	public static native int nChoosePixelFormat(long hdc, long pixelFormatDescriptor);
 
 	/**
@@ -474,7 +474,7 @@ public final class WinGDI {
 
 	// --- [ DescribePixelFormat ] ---
 
-	/** JNI method for {@link #DescribePixelFormat} */
+	/** JNI method for {@link #DescribePixelFormat DescribePixelFormat} */
 	public static native int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
 
 	/**
@@ -498,7 +498,7 @@ public final class WinGDI {
 		return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddressSafe(pixelFormatDescriptor));
 	}
 
-	/** Alternative version of: {@link #DescribePixelFormat} */
+	/** Alternative version of: {@link #DescribePixelFormat DescribePixelFormat} */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, ByteBuffer pixelFormatDescriptor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hdc);
@@ -509,7 +509,7 @@ public final class WinGDI {
 
 	// --- [ GetPixelFormat ] ---
 
-	/** JNI method for {@link #GetPixelFormat} */
+	/** JNI method for {@link #GetPixelFormat GetPixelFormat} */
 	public static native int nGetPixelFormat(long hdc);
 
 	/**
@@ -525,7 +525,7 @@ public final class WinGDI {
 
 	// --- [ SetPixelFormat ] ---
 
-	/** JNI method for {@link #SetPixelFormat} */
+	/** JNI method for {@link #SetPixelFormat SetPixelFormat} */
 	public static native int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor);
 
 	/**
@@ -546,7 +546,7 @@ public final class WinGDI {
 
 	// --- [ SwapBuffers ] ---
 
-	/** JNI method for {@link #SwapBuffers} */
+	/** JNI method for {@link #SwapBuffers SwapBuffers} */
 	public static native int nSwapBuffers(long dc);
 
 	/**

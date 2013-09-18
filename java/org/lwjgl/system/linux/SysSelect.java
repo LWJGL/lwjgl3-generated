@@ -20,7 +20,7 @@ public final class SysSelect {
 
 	// --- [ FD_CLR ] ---
 
-	/** JNI method for {@link #FD_CLR} */
+	/** JNI method for {@link #FD_CLR FD_CLR} */
 	public static native void nFD_CLR(int fd, long set);
 
 	/**
@@ -37,7 +37,7 @@ public final class SysSelect {
 
 	// --- [ FD_ISSET ] ---
 
-	/** JNI method for {@link #FD_ISSET} */
+	/** JNI method for {@link #FD_ISSET FD_ISSET} */
 	public static native int nFD_ISSET(int fd, long set);
 
 	/**
@@ -54,7 +54,7 @@ public final class SysSelect {
 
 	// --- [ FD_SET ] ---
 
-	/** JNI method for {@link #FD_SET} */
+	/** JNI method for {@link #FD_SET FD_SET} */
 	public static native void nFD_SET(int fd, long set);
 
 	/**
@@ -71,7 +71,7 @@ public final class SysSelect {
 
 	// --- [ FD_ZERO ] ---
 
-	/** JNI method for {@link #FD_ZERO} */
+	/** JNI method for {@link #FD_ZERO FD_ZERO} */
 	public static native void nFD_ZERO(long set);
 
 	/**
@@ -87,7 +87,7 @@ public final class SysSelect {
 
 	// --- [ select ] ---
 
-	/** JNI method for {@link #select} */
+	/** JNI method for {@link #select select} */
 	public static native int nselect(int nfds, long readfds, long writefds, long exceptfds, long timeout);
 
 	/**

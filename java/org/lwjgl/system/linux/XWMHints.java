@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Used by {@link Xlib#XSetWMHints}. */
+/** Used by {@link Xlib#XSetWMHints XSetWMHints}. */
 public final class XWMHints {
 
 	/** The struct size in bytes. */
@@ -52,7 +52,7 @@ public final class XWMHints {
 	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
-	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		long flags,
 		int input,

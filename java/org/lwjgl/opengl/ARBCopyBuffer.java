@@ -25,7 +25,7 @@ public final class ARBCopyBuffer {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** JNI method for {@link #glCopyBufferSubData} */
+	/** JNI method for {@link #glCopyBufferSubData glCopyBufferSubData} */
 	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
@@ -41,7 +41,7 @@ public final class ARBCopyBuffer {
 	 * <p/>
 	 * An INVALID_OPERATION error is generated if the buffer objects bound to either readtarget or writetarget are mapped.
 	 *
-	 * @param readTarget  the source buffer object target. One of:. One of:<p/>{@link GL15#GL_ARRAY_BUFFER}, {@link #GL_COPY_READ_BUFFER}, {@link #GL_COPY_WRITE_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER}
+	 * @param readTarget  the source buffer object target. One of:. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link #GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}
 	 * @param writeTarget the destination buffer object target
 	 * @param readOffset  the source buffer object offset, in bytes
 	 * @param writeOffset the destination buffer object offset, in bytes

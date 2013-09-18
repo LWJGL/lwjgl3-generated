@@ -5,6 +5,9 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.linux.*;
+import org.lwjgl.system.linux.GLX;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/packed_float.txt">GLX_EXT_fbconfig_packed_float</a> extension.
  * <p/>
@@ -21,13 +24,13 @@ package org.lwjgl.opengl;
  */
 public final class GLXEXTFBConfigPackedFloat {
 
-	/** Accepted as values of the {@code render_type} arguments in the {@link GLX13#glXCreateNewContext} and {@link GLX#glXCreateContext} functions: */
+	/** Accepted as values of the {@code render_type} arguments in the {@link GLX13#glXCreateNewContext CreateNewContext} and {@link GLX#glXCreateContext CreateContext} functions: */
 	public static final int
 		GLX_RGBA_UNSIGNED_FLOAT_TYPE_EXT = 0x20B1;
 
 	/**
-	 * Returned by {@link GLX13#glXGetFBConfigAttrib} (when {@code attribute} is set to GLX_RENDER_TYPE) and accepted by the {@code attrib_list} parameter of
-	 * {@link GLX13#glXChooseFBConfig} (following the GLX_RENDER_TYPE token):
+	 * Returned by {@link GLX13#glXGetFBConfigAttrib GetFBConfigAttrib} (when {@code attribute} is set to GLX_RENDER_TYPE) and accepted by the {@code attrib_list} parameter of
+	 * {@link GLX13#glXChooseFBConfig ChooseFBConfig} (following the GLX_RENDER_TYPE token):
 	 */
 	public static final int
 		GLX_RGBA_UNSIGNED_FLOAT_BIT_EXT = 0x8;

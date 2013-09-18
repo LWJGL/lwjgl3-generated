@@ -16,7 +16,7 @@ public final class WGLARBCreateContextProfile {
 	public static final int
 		WGL_CONTEXT_PROFILE_MASK_ARB = 0x9126;
 
-	/** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_PROFILE_MASK_ARB} in {@code attribList}. */
+	/** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attribList}. */
 	public static final int
 		WGL_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
 		WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;

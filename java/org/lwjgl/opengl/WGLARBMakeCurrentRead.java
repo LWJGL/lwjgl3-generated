@@ -27,7 +27,7 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglMakeContextCurrentARB ] ---
 
-	/** JNI method for {@link #wglMakeContextCurrentARB} */
+	/** JNI method for {@link #wglMakeContextCurrentARB wglMakeContextCurrentARB} */
 	public static native int nwglMakeContextCurrentARB(long drawDC, long readDC, long hglrc, long __functionAddress);
 
 	/**
@@ -43,10 +43,10 @@ public final class WGLARBMakeCurrentRead {
 	 * If {@code wglMakeContextCurrentARB} is used to associate a different device for reads than for draws, the "read" device will be used for the following
 	 * OpenGL operations:
 	 * <ol>
-	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER}. Note, that accumulation operations use the value of READ_BUFFER, but
+	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER READ_BUFFER}. Note, that accumulation operations use the value of READ_BUFFER, but
 	 * are not allowed when a different device context is used for reads.  In this case, the accumulation operation will generate
-	 * {@link GL11#GL_INVALID_OPERATION}.</li>
-	 * <li>Any depth values that are retrieved by {@link GL11#glReadPixels}, {@link GL11#glCopyPixels}, or any OpenGL extension that sources depth images from the
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION}.</li>
+	 * <li>Any depth values that are retrieved by {@link GL11#glReadPixels ReadPixels}, {@link GL11#glCopyPixels CopyPixels}, or any OpenGL extension that sources depth images from the
 	 * frame buffer in the manner of ReadPixels and CopyPixels.</li>
 	 * <li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the manner
 	 * of ReadPixels and CopyPixels.</li>
@@ -71,7 +71,7 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglGetCurrentReadDCARB ] ---
 
-	/** JNI method for {@link #wglGetCurrentReadDCARB} */
+	/** JNI method for {@link #wglGetCurrentReadDCARB wglGetCurrentReadDCARB} */
 	public static native long nwglGetCurrentReadDCARB(long __functionAddress);
 
 	/** Returns the "read" device context for the current OpenGL context. */

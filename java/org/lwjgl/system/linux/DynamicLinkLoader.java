@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <dlfcn.h>. */
 public final class DynamicLinkLoader {
 
-	/** The {@code mode} argument to {@link #dlopen} contains one of the following: */
+	/** The {@code mode} argument to {@link #dlopen dlopen} contains one of the following: */
 	public static final int
 		RTLD_LAZY         = 0x1,
 		RTLD_NOW          = 0x2,
@@ -25,7 +25,7 @@ public final class DynamicLinkLoader {
 		RTLD_DEEPBIND     = 0x8;
 
 	/**
-	 * If the following bit is set in the {@code mode} argument to {@link #dlopen}, the symbols of the loaded object and its dependencies are made visible as
+	 * If the following bit is set in the {@code mode} argument to {@link #dlopen dlopen}, the symbols of the loaded object and its dependencies are made visible as
 	 * if the object were linked directly into the program.
 	 */
 	public static final int
@@ -46,7 +46,7 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlopen ] ---
 
-	/** JNI method for {@link #dlopen} */
+	/** JNI method for {@link #dlopen dlopen} */
 	public static native long ndlopen(long filename, int mode);
 
 	/**
@@ -54,7 +54,7 @@ public final class DynamicLinkLoader {
 	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
 	 *
 	 * @param filename the name of the dynamic library to open, or {@code NULL}
-	 * @param mode     a bitfield. One of:<p/>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
+	 * @param mode     a bitfield. One of:<p/>{@link #RTLD_LAZY RTLD_LAZY}, {@link #RTLD_NOW RTLD_NOW}, {@link #RTLD_BINDING_MASK RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD RTLD_NOLOAD}, {@link #RTLD_DEEPBIND RTLD_DEEPBIND}, {@link #RTLD_GLOBAL RTLD_GLOBAL}, {@link #RTLD_LOCAL RTLD_LOCAL}, {@link #RTLD_NODELETE RTLD_NODELETE}
 	 */
 	public static long dlopen(ByteBuffer filename, int mode) {
 		if ( LWJGLUtil.CHECKS )
@@ -62,19 +62,19 @@ public final class DynamicLinkLoader {
 		return ndlopen(memAddressSafe(filename), mode);
 	}
 
-	/** CharSequence version of: {@link #dlopen} */
+	/** CharSequence version of: {@link #dlopen dlopen} */
 	public static long dlopen(CharSequence filename, int mode) {
 		return ndlopen(memAddressSafe(memEncodeASCII(filename)), mode);
 	}
 
 	// --- [ dlerror ] ---
 
-	/** JNI method for {@link #dlerror} */
+	/** JNI method for {@link #dlerror dlerror} */
 	public static native long ndlerror();
 
 	/**
-	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since the last
-	 * call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
+	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen dlopen}, {@link #dlsym dlsym} or {@link #dlclose dlclose} since
+	 * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
 	 */
 	public static String dlerror() {
 		long __result = ndlerror();
@@ -83,12 +83,12 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlsym ] ---
 
-	/** JNI method for {@link #dlsym} */
+	/** JNI method for {@link #dlsym dlsym} */
 	public static native long ndlsym(long handle, long name);
 
 	/**
-	 * Takes a "handle" of a dynamic library returned by {@link #dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
-	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen} when that
+	 * Takes a "handle" of a dynamic library returned by {@link #dlopen dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
+	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen dlopen} when that
 	 * library was loaded, {@code dlsym()} returns {@code NULL}.
 	 *
 	 * @param handle the dynamic library handle
@@ -102,7 +102,7 @@ public final class DynamicLinkLoader {
 		return ndlsym(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #dlsym} */
+	/** CharSequence version of: {@link #dlsym dlsym} */
 	public static long dlsym(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
@@ -111,7 +111,7 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlclose ] ---
 
-	/** JNI method for {@link #dlclose} */
+	/** JNI method for {@link #dlclose dlclose} */
 	public static native int ndlclose(long handle);
 
 	/**

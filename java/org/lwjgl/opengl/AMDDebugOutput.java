@@ -43,14 +43,14 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageEnableAMD} */
+	/** JNI method for {@link #glDebugMessageEnableAMD glDebugMessageEnableAMD} */
 	public static native void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
 	/**
 	 * Disables or enables generation of subsets of messages.
 	 *
-	 * @param category the message category. One of:<p/>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD}
-	 * @param severity the message severity. One of:<p/>{@link #GL_DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD}
+	 * @param category the message category. One of:<p/>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD DEBUG_CATEGORY_OTHER_AMD}
+	 * @param severity the message severity. One of:<p/>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
 	 * @param count    the number of values in the {@code ids} array
 	 * @param ids      an array of message ids
 	 * @param enabled  whether to enable or disable the referenced subset of messages
@@ -64,7 +64,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageEnableAMD(category, severity, count, memAddressSafe(ids), enabled, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageEnableAMD} */
+	/** Alternative version of: {@link #glDebugMessageEnableAMD glDebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
 		long __functionAddress = getInstance().glDebugMessageEnableAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -74,14 +74,14 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertAMD} */
+	/** JNI method for {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
 	public static native void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf, long __functionAddress);
 
 	/**
 	 * Injects an application-supplied message into the debug message stream.
 	 *
-	 * @param category the message category. One of:<p/>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD}
-	 * @param severity the message severity. One of:<p/>{@link #GL_DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD}
+	 * @param category the message category. One of:<p/>{@link #GL_DEBUG_CATEGORY_API_ERROR_AMD DEBUG_CATEGORY_API_ERROR_AMD}, {@link #GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD DEBUG_CATEGORY_WINDOW_SYSTEM_AMD}, {@link #GL_DEBUG_CATEGORY_DEPRECATION_AMD DEBUG_CATEGORY_DEPRECATION_AMD}, {@link #GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD}, {@link #GL_DEBUG_CATEGORY_PERFORMANCE_AMD DEBUG_CATEGORY_PERFORMANCE_AMD}, {@link #GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD DEBUG_CATEGORY_SHADER_COMPILER_AMD}, {@link #GL_DEBUG_CATEGORY_APPLICATION_AMD DEBUG_CATEGORY_APPLICATION_AMD}, {@link #GL_DEBUG_CATEGORY_OTHER_AMD DEBUG_CATEGORY_OTHER_AMD}
+	 * @param severity the message severity. One of:<p/>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}, {@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}, {@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}
 	 * @param id       the message id
 	 * @param length   the number of character in the message
 	 * @param buf      the message characters
@@ -96,7 +96,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageInsertAMD} */
+	/** Alternative version of: {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, ByteBuffer buf) {
 		long __functionAddress = getInstance().glDebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -104,7 +104,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsertAMD} */
+	/** CharSequence version of: {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
 		long __functionAddress = getInstance().glDebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
@@ -114,7 +114,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageCallbackAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageCallbackAMD} */
+	/** JNI method for {@link #glDebugMessageCallbackAMD glDebugMessageCallbackAMD} */
 	public static native void nglDebugMessageCallbackAMD(long callback, long userParam, long __functionAddress);
 
 	/**
@@ -131,7 +131,7 @@ public final class AMDDebugOutput {
 		nglDebugMessageCallbackAMD(callback, userParam, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageCallbackAMD} */
+	/** Alternative version of: {@link #glDebugMessageCallbackAMD glDebugMessageCallbackAMD} */
 	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback) {
 		Functions __instance = getInstance();
 		long __functionAddress = __instance.glDebugMessageCallbackAMD;
@@ -142,7 +142,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glGetDebugMessageLogAMD ] ---
 
-	/** JNI method for {@link #glGetDebugMessageLogAMD} */
+	/** JNI method for {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
 	public static native int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog, long __functionAddress);
 
 	/**
@@ -170,7 +170,7 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, bufsize, memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLogAMD} */
+	/** Alternative version of: {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {
@@ -183,7 +183,7 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLogAMD} */
+	/** CharSequence version of: {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, CharSequence messageLog) {
 		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {

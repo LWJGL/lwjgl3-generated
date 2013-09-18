@@ -20,12 +20,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * between the two APIs. The companion {@link org.lwjgl.opengl.ARBCLEvent} extension provides the complementary functionality of creating an OpenGL sync
  * object from an OpenCL event object.
  * <p/>
- * In addition, this extension modifies the behavior of {@link CL10GL#clEnqueueAcquireGLObjects} and {@link CL10#clEnqueueReleaseGLObjects} to implicitly
+ * In addition, this extension modifies the behavior of {@link CL10GL#clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} and {@link CL10GL#clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} to implicitly
  * guarantee synchronization with an OpenGL context bound in the same thread as the OpenCL context.
  */
 public final class KHRGLEvent {
 
-	/** Returned by {@link CL10#clGetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE}. */
+	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
 	public static final int
 		CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
 
@@ -33,7 +33,7 @@ public final class KHRGLEvent {
 
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
-	/** JNI method for {@link #clCreateEventFromGLsyncKHR} */
+	/** JNI method for {@link #clCreateEventFromGLsyncKHR clCreateEventFromGLsyncKHR} */
 	public static native long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret, long __functionAddress);
 
 	/**
@@ -53,7 +53,7 @@ public final class KHRGLEvent {
 		return CLEvent.create(nclCreateEventFromGLsyncKHR(context.getPointer(), sync, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR} */
+	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR clCreateEventFromGLsyncKHR} */
 	public static CLEvent clCreateEventFromGLsyncKHR(CLContext context, long sync, IntBuffer errcode_ret) {
 		long __functionAddress = getInstance(context).clCreateEventFromGLsyncKHR;
 		if ( LWJGLUtil.CHECKS ) {

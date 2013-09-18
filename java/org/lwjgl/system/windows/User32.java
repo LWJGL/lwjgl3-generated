@@ -22,7 +22,7 @@ public final class User32 {
 
 	// --- [ SetProcessDPIAware ] ---
 
-	/** JNI method for {@link #SetProcessDPIAware} */
+	/** JNI method for {@link #SetProcessDPIAware SetProcessDPIAware} */
 	public static native int nSetProcessDPIAware(long __functionAddress);
 
 	/**

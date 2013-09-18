@@ -63,7 +63,7 @@ public final class ARBSync {
 	/**
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
-	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<p/>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE}
+	 * @param condition the condition that must be met to set the sync object's state to signaled. Must be:<p/>{@link #GL_SYNC_GPU_COMMANDS_COMPLETE SYNC_GPU_COMMANDS_COMPLETE}
 	 * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
 	 *                  be zero.
 	 */
@@ -114,14 +114,14 @@ public final class ARBSync {
 	 * <p/>
 	 * The return value is one of four status values:
 	 * <ul>
-	 * <li>{@link #GL_ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
-	 * <li>{@link #GL_TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
-	 * <li>{@link #GL_CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
-	 * <li>{@link #GL_WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
+	 * <li>{@link #GL_ALREADY_SIGNALED ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
+	 * <li>{@link #GL_TIMEOUT_EXPIRED TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
+	 * <li>{@link #GL_CONDITION_SATISFIED CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
+	 * <li>{@link #GL_WAIT_FAILED WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT}
+	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
@@ -139,14 +139,14 @@ public final class ARBSync {
 	 * Causes the GL server to block and wait for a sync object to become signaled.
 	 * <p/>
 	 * {@code glWaitSync} will always wait no longer than an implementation-dependent timeout. The duration of this timeout in nanoseconds may be queried by
-	 * with {@link #GL_MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
+	 * with {@link #GL_MAX_SERVER_WAIT_TIMEOUT MAX_SERVER_WAIT_TIMEOUT}. There is currently no way to determine whether glWaitSync unblocked because the timeout expired or because the
 	 * sync object being waited on was signaled.
 	 * <p/>
 	 * If an error occurs, {@code glWaitSync} does not cause the GL server to block.
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0
-	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED}
+	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0
+	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().glWaitSync;
@@ -172,7 +172,7 @@ public final class ARBSync {
 		GL32.nglGetInteger64v(pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
 		long __functionAddress = getInstance().glGetInteger64v;
 		if ( LWJGLUtil.CHECKS )
@@ -180,7 +180,7 @@ public final class ARBSync {
 		GL32.nglGetInteger64v(pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static long glGetInteger64(int pname) {
 		long __functionAddress = getInstance().glGetInteger64v;
 		if ( LWJGLUtil.CHECKS )
@@ -197,7 +197,7 @@ public final class ARBSync {
 	 * Queries the properties of a sync object.
 	 *
 	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<p/>{@link #GL_OBJECT_TYPE}, {@link #GL_SYNC_CONDITION}, {@link #GL_SYNC_STATUS}, {@link #GL_SYNC_FLAGS}
+	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<p/>{@link #GL_OBJECT_TYPE OBJECT_TYPE}, {@link #GL_SYNC_CONDITION SYNC_CONDITION}, {@link #GL_SYNC_STATUS SYNC_STATUS}, {@link #GL_SYNC_FLAGS SYNC_FLAGS}
 	 * @param bufSize the size of the buffer whose address is given in {@code values}
 	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values  the address of an array to receive the values of the queried parameter
@@ -213,7 +213,7 @@ public final class ARBSync {
 		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
 		long __functionAddress = getInstance().glGetSynciv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -224,7 +224,7 @@ public final class ARBSync {
 		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		long __functionAddress = getInstance().glGetSynciv;
 		if ( LWJGLUtil.CHECKS ) {

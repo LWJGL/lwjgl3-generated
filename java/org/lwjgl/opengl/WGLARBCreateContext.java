@@ -29,7 +29,7 @@ public final class WGLARBCreateContext {
 		WGL_CONTEXT_LAYER_PLANE_ARB   = 0x2093,
 		WGL_CONTEXT_FLAGS_ARB         = 0x2094;
 
-	/** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_FLAGS_ARB} in {@code attribList}. */
+	/** Accepted as bits in the attribute value for {@link #WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attribList}. */
 	public static final int
 		WGL_CONTEXT_DEBUG_BIT_ARB              = 0x1,
 		WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
@@ -43,7 +43,7 @@ public final class WGLARBCreateContext {
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #wglCreateContextAttribsARB} */
+	/** JNI method for {@link #wglCreateContextAttribsARB wglCreateContextAttribsARB} */
 	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
 
 	/**
@@ -68,7 +68,7 @@ public final class WGLARBCreateContext {
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreateContextAttribsARB} */
+	/** Alternative version of: {@link #wglCreateContextAttribsARB wglCreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
 		long __functionAddress = getInstance().wglCreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {

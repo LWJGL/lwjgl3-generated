@@ -26,7 +26,7 @@ public final class GLXSGIXSwapBarrier {
 
 	// --- [ glXBindSwapBarrierSGIX ] ---
 
-	/** JNI method for {@link #glXBindSwapBarrierSGIX} */
+	/** JNI method for {@link #glXBindSwapBarrierSGIX glXBindSwapBarrierSGIX} */
 	public static native void nglXBindSwapBarrierSGIX(long display, long drawable, int barrier, long __functionAddress);
 
 	/**
@@ -49,7 +49,7 @@ public final class GLXSGIXSwapBarrier {
 
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
 
-	/** JNI method for {@link #glXQueryMaxSwapBarriersSGIX} */
+	/** JNI method for {@link #glXQueryMaxSwapBarriersSGIX glXQueryMaxSwapBarriersSGIX} */
 	public static native int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max, long __functionAddress);
 
 	/**
@@ -69,7 +69,7 @@ public final class GLXSGIXSwapBarrier {
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXQueryMaxSwapBarriersSGIX} */
+	/** Alternative version of: {@link #glXQueryMaxSwapBarriersSGIX glXQueryMaxSwapBarriersSGIX} */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
 		long __functionAddress = getInstance().glXQueryMaxSwapBarriersSGIX;
 		if ( LWJGLUtil.CHECKS ) {

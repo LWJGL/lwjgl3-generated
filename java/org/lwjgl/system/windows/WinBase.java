@@ -44,7 +44,7 @@ public final class WinBase {
 
 	// --- [ GetVersionEx ] ---
 
-	/** JNI method for {@link #GetVersionEx} */
+	/** JNI method for {@link #GetVersionEx GetVersionEx} */
 	public static native int nGetVersionEx(long versionInfo);
 
 	/**
@@ -69,7 +69,7 @@ public final class WinBase {
 
 	// --- [ GetModuleHandle ] ---
 
-	/** JNI method for {@link #GetModuleHandle} */
+	/** JNI method for {@link #GetModuleHandle GetModuleHandle} */
 	public static native long nGetModuleHandle(long moduleName);
 
 	/**
@@ -88,14 +88,14 @@ public final class WinBase {
 		return nGetModuleHandle(memAddressSafe(moduleName));
 	}
 
-	/** CharSequence version of: {@link #GetModuleHandle} */
+	/** CharSequence version of: {@link #GetModuleHandle GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
 		return nGetModuleHandle(memAddressSafe(memEncodeUTF16(moduleName)));
 	}
 
 	// --- [ LoadLibrary ] ---
 
-	/** JNI method for {@link #LoadLibrary} */
+	/** JNI method for {@link #LoadLibrary LoadLibrary} */
 	public static native long nLoadLibrary(long name);
 
 	/**
@@ -120,14 +120,14 @@ public final class WinBase {
 		return nLoadLibrary(memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #LoadLibrary} */
+	/** CharSequence version of: {@link #LoadLibrary LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
 		return nLoadLibrary(memAddress(memEncodeUTF16(name)));
 	}
 
 	// --- [ GetProcAddress ] ---
 
-	/** JNI method for {@link #GetProcAddress} */
+	/** JNI method for {@link #GetProcAddress GetProcAddress} */
 	public static native long nGetProcAddress(long handle, long name);
 
 	/**
@@ -145,7 +145,7 @@ public final class WinBase {
 		return nGetProcAddress(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #GetProcAddress} */
+	/** CharSequence version of: {@link #GetProcAddress GetProcAddress} */
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
@@ -154,7 +154,7 @@ public final class WinBase {
 
 	// --- [ FreeLibrary ] ---
 
-	/** JNI method for {@link #FreeLibrary} */
+	/** JNI method for {@link #FreeLibrary FreeLibrary} */
 	public static native int nFreeLibrary(long handle);
 
 	/**
@@ -171,7 +171,7 @@ public final class WinBase {
 
 	// --- [ QueryPerformanceFrequency ] ---
 
-	/** JNI method for {@link #QueryPerformanceFrequency} */
+	/** JNI method for {@link #QueryPerformanceFrequency QueryPerformanceFrequency} */
 	public static native int nQueryPerformanceFrequency(long frequency);
 
 	/**
@@ -188,7 +188,7 @@ public final class WinBase {
 
 	// --- [ QueryPerformanceCounter ] ---
 
-	/** JNI method for {@link #QueryPerformanceCounter} */
+	/** JNI method for {@link #QueryPerformanceCounter QueryPerformanceCounter} */
 	public static native int nQueryPerformanceCounter(long frequency);
 
 	/**
@@ -196,7 +196,7 @@ public final class WinBase {
 	 * <p/>
 	 * On a multiprocessor computer, it should not matter which processor is called. However, you can get different results on different processors due to bugs
 	 * in the basic input/output system (BIOS) or the hardware abstraction layer (HAL). To specify processor affinity for a thread, use the
-	 * {@link Kernel32#SetThreadAffinityMask} function.
+	 * {@link Kernel32#SetThreadAffinityMask SetThreadAffinityMask} function.
 	 *
 	 * @param frequency a pointer to a variable that receives the current performance-counter value, in counts.
 	 */
@@ -211,7 +211,7 @@ public final class WinBase {
 	/**
 	 * Allocates the specified number of bytes from the heap.
 	 *
-	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<p/>{@link #GMEM_FIXED}, {@link #GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD}, {@link #GMEM_ZEROINIT}, {@link #GMEM_MODIFY}, {@link #GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED}, {@link #GMEM_SHARE}, {@link #GMEM_DDESHARE}, {@link #GMEM_NOTIFY}, {@link #GMEM_LOWER}, {@link #GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE}, {@link #GHND}, {@link #GPTR}
+	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<p/>{@link #GMEM_FIXED GMEM_FIXED}, {@link #GMEM_MOVEABLE GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD GMEM_NODISCARD}, {@link #GMEM_ZEROINIT GMEM_ZEROINIT}, {@link #GMEM_MODIFY GMEM_MODIFY}, {@link #GMEM_DISCARDABLE GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED GMEM_NOT_BANKED}, {@link #GMEM_SHARE GMEM_SHARE}, {@link #GMEM_DDESHARE GMEM_DDESHARE}, {@link #GMEM_NOTIFY GMEM_NOTIFY}, {@link #GMEM_LOWER GMEM_LOWER}, {@link #GMEM_VALID_FLAGS GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE GMEM_INVALID_HANDLE}, {@link #GHND GHND}, {@link #GPTR GPTR}
 	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
 	 *              handle to a memory object that is marked as discarded.
 	 */
@@ -219,7 +219,7 @@ public final class WinBase {
 
 	// --- [ GlobalLock ] ---
 
-	/** JNI method for {@link #GlobalLock} */
+	/** JNI method for {@link #GlobalLock GlobalLock} */
 	public static native long nGlobalLock(long hMem);
 
 	/**
@@ -235,7 +235,7 @@ public final class WinBase {
 
 	// --- [ GlobalUnlock ] ---
 
-	/** JNI method for {@link #GlobalUnlock} */
+	/** JNI method for {@link #GlobalUnlock GlobalUnlock} */
 	public static native int nGlobalUnlock(long hMem);
 
 	/**
@@ -252,7 +252,7 @@ public final class WinBase {
 
 	// --- [ GlobalFree ] ---
 
-	/** JNI method for {@link #GlobalFree} */
+	/** JNI method for {@link #GlobalFree GlobalFree} */
 	public static native long nGlobalFree(long hMem);
 
 	/**

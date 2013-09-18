@@ -25,7 +25,7 @@ public final class WGLARBExtensionsString {
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringARB} */
+	/** JNI method for {@link #wglGetExtensionsStringARB wglGetExtensionsStringARB} */
 	public static native long nwglGetExtensionsStringARB(long hdc, long __functionAddress);
 
 	/**

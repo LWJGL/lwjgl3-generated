@@ -329,7 +329,7 @@ public final class WinUser {
 		SC_CONTEXTHELP  = 0xF180,
 		SC_SEPARATOR    = 0xF00F;
 
-	/** {@link #GetSystemMetrics} codes. */
+	/** {@link #GetSystemMetrics GetSystemMetrics} codes. */
 	public static final int
 		SM_CXSCREEN                    = 0x0,
 		SM_CYSCREEN                    = 0x1,
@@ -459,7 +459,7 @@ public final class WinUser {
 		WS_EX_COMPOSITED       = 0x2000000,
 		WS_EX_NOACTIVATE       = 0x8000000;
 
-	/** May be used in {@link #CreateWindowEx} for the x, y, width, height parameters. */
+	/** May be used in {@link #CreateWindowEx CreateWindowEx} for the x, y, width, height parameters. */
 	public static final int
 		CW_USEDEFAULT = 0x80000000;
 
@@ -521,7 +521,7 @@ public final class WinUser {
 		CS_IME             = 0x10000,
 		CS_DROPSHADOW      = 0x20000;
 
-	/** Window field offsets for {@link #GetWindowLong}. */
+	/** Window field offsets for {@link #GetWindowLongPtr GetWindowLongPtr}. */
 	public static final int
 		GWL_WNDPROC    = 0xFFFFFFFC,
 		GWL_HINSTANCE  = 0xFFFFFFFA,
@@ -531,7 +531,7 @@ public final class WinUser {
 		GWL_USERDATA   = 0xFFFFFFEB,
 		GWL_ID         = 0xFFFFFFF4;
 
-	/** {@link #ShowWindow} commands. */
+	/** {@link #ShowWindow ShowWindow} commands. */
 	public static final int
 		SW_HIDE            = 0x0,
 		SW_SHOWNORMAL      = 0x1,
@@ -549,14 +549,14 @@ public final class WinUser {
 		SW_FORCEMINIMIZE   = 0xB,
 		SW_MAX             = 0xB;
 
-	/** Virtual window handles used by the {@link #SetWindowPos} insertAfter argument. */
+	/** Virtual window handles used by the {@link #SetWindowPos SetWindowPos} insertAfter argument. */
 	public static final long
 		HWND_TOP       = 0x0L,
 		HWND_BOTTOM    = 0x1L,
 		HWND_TOPMOST   = 0xFFFFFFFFFFFFFFFFL,
 		HWND_NOTOPMOST = 0xFFFFFFFFFFFFFFFEL;
 
-	/** Window sizing and positiong flags used by the {@link #SetWindowPos} flags argument. */
+	/** Window sizing and positiong flags used by the {@link #SetWindowPos SetWindowPos} flags argument. */
 	public static final int
 		SWP_NOSIZE         = 0x1,
 		SWP_NOMOVE         = 0x2,
@@ -606,7 +606,7 @@ public final class WinUser {
 		IDC_APPSTARTING = 0x7F8A,
 		IDC_HELP        = 0x7F8B;
 
-	/** Class field offsets for {@link #GetClassLong}. */
+	/** Class field offsets for {@link #GetClassLongPtr GetClassLongPtr}. */
 	public static final int
 		GCL_MENUNAME      = 0xFFFFFFF8,
 		GCL_HBRBACKGROUND = 0xFFFFFFF6,
@@ -620,7 +620,7 @@ public final class WinUser {
 		GCW_ATOM          = 0xFFFFFFE0,
 		GCL_HICONSM       = 0xFFFFFFDE;
 
-	/** Queue status flags for {@link #GetQueueStatus} and {@link #MsgWaitForMultipleObjects} */
+	/** Queue status flags for {@link #GetQueueStatus GetQueueStatus} and {@link #MsgWaitForMultipleObjects MsgWaitForMultipleObjects} */
 	public static final int
 		QS_KEY            = 0x1,
 		QS_MOUSEMOVE      = 0x2,
@@ -637,7 +637,7 @@ public final class WinUser {
 		QS_ALLEVENTS      = QS_INPUT | QS_POSTMESSAGE | QS_TIMER | QS_PAINT | QS_HOTKEY,
 		QS_ALLINPUT       = QS_INPUT | QS_POSTMESSAGE | QS_TIMER | QS_PAINT | QS_HOTKEY | QS_SENDMESSAGE;
 
-	/** Remove message flags for {@link #PeekMessage}. */
+	/** Remove message flags for {@link #PeekMessage PeekMessage}. */
 	public static final int
 		PM_NOREMOVE       = 0x0,
 		PM_REMOVE         = 0x1,
@@ -652,7 +652,7 @@ public final class WinUser {
 		ENUM_CURRENT_SETTINGS  = -1,
 		ENUM_REGISTRY_SETTINGS = -2;
 
-	/** Flags for {@link #ChangeDisplaySettings}. */
+	/** Flags for {@link #ChangeDisplaySettings ChangeDisplaySettings}. */
 	public static final int
 		CDS_UPDATEREGISTRY       = 0x1,
 		CDS_TEST                 = 0x2,
@@ -666,7 +666,7 @@ public final class WinUser {
 		CDS_RESET_EX             = 0x20000000,
 		CDS_NORESET              = 0x10000000;
 
-	/** Return values for {@link #ChangeDisplaySettings}. */
+	/** Return values for {@link #ChangeDisplaySettings ChangeDisplaySettings}. */
 	public static final int
 		DISP_CHANGE_SUCCESSFUL  = 0x0,
 		DISP_CHANGE_RESTART     = 0x1,
@@ -693,12 +693,12 @@ public final class WinUser {
 		DISPLAY_DEVICE_ACTIVE              = 0x1,
 		DISPLAY_DEVICE_ATTACHED            = 0x2;
 
-	/** Flags for {@link #EnumDisplaySettingsEx}. */
+	/** Flags for {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx}. */
 	public static final int
 		EDS_RAWMODE     = 0x2,
 		EDS_ROTATEDMODE = 0x4;
 
-	/** {@link #SystemParametersInfo} parameters. */
+	/** {@link #SystemParametersInfo SystemParametersInfo} parameters. */
 	public static final int
 		SPI_GETBEEP                      = 0x1,
 		SPI_SETBEEP                      = 0x2,
@@ -936,7 +936,7 @@ public final class WinUser {
 		SPI_GETGESTUREVISUALIZATION      = 0x201A,
 		SPI_SETGESTUREVISUALIZATION      = 0x201B;
 
-	/** {@link #SystemParametersInfo} flags. */
+	/** {@link #SystemParametersInfo SystemParametersInfo} flags. */
 	public static final int
 		SPIF_UPDATEINIFILE    = 0x1,
 		SPIF_SENDWININICHANGE = 0x2,
@@ -1147,11 +1147,11 @@ public final class WinUser {
 
 	// --- [ RegisterClassEx ] ---
 
-	/** JNI method for {@link #RegisterClassEx} */
+	/** JNI method for {@link #RegisterClassEx RegisterClassEx} */
 	public static native short nRegisterClassEx(long wndClassEx);
 
 	/**
-	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx} function.
+	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx CreateWindowEx} function.
 	 *
 	 * @param wndClassEx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
 	 */
@@ -1163,16 +1163,16 @@ public final class WinUser {
 
 	// --- [ UnregisterClass ] ---
 
-	/** JNI method for {@link #UnregisterClass} */
+	/** JNI method for {@link #UnregisterClass UnregisterClass} */
 	public static native int nUnregisterClass(long className, long instance);
 
 	/**
 	 * Unregisters a window class, freeing the memory required for the class.
 	 *
 	 * @param className a null-terminated string or a class atom. If {@code className} is a string, it specifies the window class name. This class name must have been
-	 *                  registered by a previous call to the {@link #RegisterClass} or {@link #RegisterClassEx} function. System classes, such as dialog box controls,
-	 *                  cannot be unregistered. If this parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClass} or
-	 *                  {@link #RegisterClassEx} function. The atom must be in the low-order word of {@code className}; the high-order word must be zero.
+	 *                  registered by a previous call to the {@link #RegisterClassEx RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
+	 *                  parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx RegisterClassEx} function. The atom must be in the low-order
+	 *                  word of {@code className}; the high-order word must be zero.
 	 * @param instance  a handle to the instance of the module that created the class
 	 */
 	public static int UnregisterClass(ByteBuffer className, long instance) {
@@ -1183,7 +1183,7 @@ public final class WinUser {
 		return nUnregisterClass(memAddress(className), instance);
 	}
 
-	/** CharSequence version of: {@link #UnregisterClass} */
+	/** CharSequence version of: {@link #UnregisterClass UnregisterClass} */
 	public static int UnregisterClass(CharSequence className, long instance) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1192,7 +1192,7 @@ public final class WinUser {
 
 	// --- [ GetClassInfoEx ] ---
 
-	/** JNI method for {@link #GetClassInfoEx} */
+	/** JNI method for {@link #GetClassInfoEx GetClassInfoEx} */
 	public static native int nGetClassInfoEx(long instance, long className, long classEx);
 
 	/**
@@ -1200,9 +1200,9 @@ public final class WinUser {
 	 *
 	 * @param instance  a handle to the instance of the application that created the class. To retrieve information about classes defined by the system (such as buttons or
 	 *                  list boxes), set this parameter to {@code NULL}.
-	 * @param className the class name. The name must be that of a preregistered class or a class registered by a previous call to the {@link #RegisterClass} or
-	 *                  {@link #RegisterClassEx} function. Alternatively, this parameter can be a class atom created by a previous call to {@link #RegisterClass} or
-	 *                  {@link #RegisterClassEx}. The atom must be in the low-order word of {@code className}; the high-order word must be zero.
+	 * @param className the class name. The name must be that of a preregistered class or a class registered by a previous call to the {@link #RegisterClassEx RegisterClassEx} function.
+	 *                  Alternatively, this parameter can be a class atom created by a previous call to {@link #RegisterClassEx RegisterClassEx}. The atom must be in the low-order word of
+	 *                  {@code className}; the high-order word must be zero.
 	 * @param classEx   a {@link WNDCLASSEX} structure that receives the information about the class.
 	 */
 	public static int GetClassInfoEx(long instance, ByteBuffer className, ByteBuffer classEx) {
@@ -1213,7 +1213,7 @@ public final class WinUser {
 		return nGetClassInfoEx(instance, memAddress(className), memAddress(classEx));
 	}
 
-	/** CharSequence version of: {@link #GetClassInfoEx} */
+	/** CharSequence version of: {@link #GetClassInfoEx GetClassInfoEx} */
 	public static int GetClassInfoEx(long instance, CharSequence className, ByteBuffer classEx) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(classEx, WNDCLASSEX.SIZEOF);
@@ -1222,7 +1222,7 @@ public final class WinUser {
 
 	// --- [ GetClassLongPtr ] ---
 
-	/** JNI method for {@link #GetClassLongPtr} */
+	/** JNI method for {@link #GetClassLongPtr GetClassLongPtr} */
 	public static native long nGetClassLongPtr(long window, int index);
 
 	/**
@@ -1239,7 +1239,7 @@ public final class WinUser {
 
 	// --- [ SetClassLongPtr ] ---
 
-	/** JNI method for {@link #SetClassLongPtr} */
+	/** JNI method for {@link #SetClassLongPtr SetClassLongPtr} */
 	public static native long nSetClassLongPtr(long window, int index, long newLong);
 
 	/**
@@ -1258,7 +1258,7 @@ public final class WinUser {
 
 	// --- [ LoadIcon ] ---
 
-	/** JNI method for {@link #LoadIcon} */
+	/** JNI method for {@link #LoadIcon LoadIcon} */
 	public static native long nLoadIcon(long instance, long iconName);
 
 	/**
@@ -1274,14 +1274,14 @@ public final class WinUser {
 		return nLoadIcon(instance, memAddress(iconName));
 	}
 
-	/** CharSequence version of: {@link #LoadIcon} */
+	/** CharSequence version of: {@link #LoadIcon LoadIcon} */
 	public static long LoadIcon(long instance, CharSequence iconName) {
 		return nLoadIcon(instance, memAddress(memEncodeUTF16(iconName)));
 	}
 
 	// --- [ LoadCursor ] ---
 
-	/** JNI method for {@link #LoadCursor} */
+	/** JNI method for {@link #LoadCursor LoadCursor} */
 	public static native long nLoadCursor(long instance, long cursorName);
 
 	/**
@@ -1298,7 +1298,7 @@ public final class WinUser {
 		return nLoadCursor(instance, memAddress(cursorName));
 	}
 
-	/** CharSequence version of: {@link #LoadCursor} */
+	/** CharSequence version of: {@link #LoadCursor LoadCursor} */
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1316,14 +1316,14 @@ public final class WinUser {
 
 	// --- [ CreateWindowEx ] ---
 
-	/** JNI method for {@link #CreateWindowEx} */
+	/** JNI method for {@link #CreateWindowEx CreateWindowEx} */
 	public static native long nCreateWindowEx(int exStyle, long className, long windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param);
 
 	/**
 	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
 	 *
 	 * @param exStyle    the extended window style of the window being created
-	 * @param className  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClass} or {@link #RegisterClassEx} function.
+	 * @param className  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx RegisterClassEx} function.
 	 * @param windowName the window name. If the window style specifies a title bar, the window title pointed to by {@code windowName} is displayed in the title bar.
 	 * @param style      the style of the window being created
 	 * @param x          the initial horizontal position of the window
@@ -1344,7 +1344,7 @@ public final class WinUser {
 		return nCreateWindowEx(exStyle, memAddress(className), memAddress(windowName), style, x, y, width, height, parent, menu, instance, param);
 	}
 
-	/** CharSequence version of: {@link #CreateWindowEx} */
+	/** CharSequence version of: {@link #CreateWindowEx CreateWindowEx} */
 	public static long CreateWindowEx(int exStyle, CharSequence className, CharSequence windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1353,7 +1353,7 @@ public final class WinUser {
 
 	// --- [ DestroyWindow ] ---
 
-	/** JNI method for {@link #DestroyWindow} */
+	/** JNI method for {@link #DestroyWindow DestroyWindow} */
 	public static native int nDestroyWindow(long window);
 
 	/**
@@ -1374,7 +1374,7 @@ public final class WinUser {
 
 	// --- [ ShowWindow ] ---
 
-	/** JNI method for {@link #ShowWindow} */
+	/** JNI method for {@link #ShowWindow ShowWindow} */
 	public static native int nShowWindow(long window, int cmdShow);
 
 	/**
@@ -1391,7 +1391,7 @@ public final class WinUser {
 
 	// --- [ UpdateWindow ] ---
 
-	/** JNI method for {@link #UpdateWindow} */
+	/** JNI method for {@link #UpdateWindow UpdateWindow} */
 	public static native int nUpdateWindow(long window);
 
 	/**
@@ -1409,7 +1409,7 @@ public final class WinUser {
 
 	// --- [ SetWindowPos ] ---
 
-	/** JNI method for {@link #SetWindowPos} */
+	/** JNI method for {@link #SetWindowPos SetWindowPos} */
 	public static native int nSetWindowPos(long window, long insertAfter, int x, int y, int width, int height, int flags);
 
 	/**
@@ -1432,7 +1432,7 @@ public final class WinUser {
 
 	// --- [ SetWindowText ] ---
 
-	/** JNI method for {@link #SetWindowText} */
+	/** JNI method for {@link #SetWindowText SetWindowText} */
 	public static native int nSetWindowText(long window, long string);
 
 	/**
@@ -1450,7 +1450,7 @@ public final class WinUser {
 		return nSetWindowText(window, memAddress(string));
 	}
 
-	/** CharSequence version of: {@link #SetWindowText} */
+	/** CharSequence version of: {@link #SetWindowText SetWindowText} */
 	public static int SetWindowText(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
@@ -1459,12 +1459,12 @@ public final class WinUser {
 
 	// --- [ GetMessage ] ---
 
-	/** JNI method for {@link #GetMessage} */
+	/** JNI method for {@link #GetMessage GetMessage} */
 	public static native int nGetMessage(long msg, long window, int msgFilterMin, int msgFilterMax);
 
 	/**
 	 * Retrieves a message from the calling thread's message queue. The function dispatches incoming sent messages until a posted message is available for
-	 * retrieval. Unlike GetMessage, the {@link #PeekMessage} function does not wait for a message to be posted before returning.
+	 * retrieval. Unlike GetMessage, the {@link #PeekMessage PeekMessage} function does not wait for a message to be posted before returning.
 	 *
 	 * @param msg          an {@link MSG} structure that receives message information from the thread's message queue
 	 * @param window       a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
@@ -1479,7 +1479,7 @@ public final class WinUser {
 
 	// --- [ PeekMessage ] ---
 
-	/** JNI method for {@link #PeekMessage} */
+	/** JNI method for {@link #PeekMessage PeekMessage} */
 	public static native int nPeekMessage(long msg, long window, int msgFilterMin, int msgFilterMax, int removeMsg);
 
 	/**
@@ -1489,7 +1489,7 @@ public final class WinUser {
 	 * @param window       a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
 	 * @param msgFilterMin the value of the first message in the range of messages to be examined
 	 * @param msgFilterMax the value of the last message in the range of messages to be examined
-	 * @param removeMsg    specifies how messages are to be handled: One of. One of:<p/>{@link #PM_NOREMOVE}, {@link #PM_REMOVE}, {@link #PM_NOYIELD}
+	 * @param removeMsg    specifies how messages are to be handled: One of. One of:<p/>{@link #PM_NOREMOVE PM_NOREMOVE}, {@link #PM_REMOVE PM_REMOVE}, {@link #PM_NOYIELD PM_NOYIELD}
 	 */
 	public static int PeekMessage(ByteBuffer msg, long window, int msgFilterMin, int msgFilterMax, int removeMsg) {
 		if ( LWJGLUtil.CHECKS )
@@ -1499,15 +1499,15 @@ public final class WinUser {
 
 	// --- [ TranslateMessage ] ---
 
-	/** JNI method for {@link #TranslateMessage} */
+	/** JNI method for {@link #TranslateMessage TranslateMessage} */
 	public static native int nTranslateMessage(long msg);
 
 	/**
 	 * Translates virtual-key messages into character messages. The character messages are posted to the calling thread's message queue, to be read the next
-	 * time the thread calls the {@link #GetMessage} or @{link #PeekMessage} function.
+	 * time the thread calls the {@link #GetMessage GetMessage} or {@link #PeekMessage PeekMessage} function.
 	 *
 	 * @param msg an {@link MSG} structure that contains message information retrieved from the calling thread's message queue by using the
-	 *            {@link #GetMessage} or {@link #PeekMessage} function.
+	 *            {@link #GetMessage GetMessage} or {@link #PeekMessage PeekMessage} function.
 	 */
 	public static int TranslateMessage(ByteBuffer msg) {
 		if ( LWJGLUtil.CHECKS )
@@ -1525,11 +1525,11 @@ public final class WinUser {
 
 	// --- [ DispatchMessage ] ---
 
-	/** JNI method for {@link #DispatchMessage} */
+	/** JNI method for {@link #DispatchMessage DispatchMessage} */
 	public static native long nDispatchMessage(long msg);
 
 	/**
-	 * Dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the {@link #GetMessage} function.
+	 * Dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the {@link #GetMessage GetMessage} function.
 	 *
 	 * @param msg a structure that contains the message
 	 */
@@ -1558,7 +1558,7 @@ public final class WinUser {
 
 	// --- [ DefWindowProc ] ---
 
-	/** JNI method for {@link #DefWindowProc} */
+	/** JNI method for {@link #DefWindowProc DefWindowProc} */
 	public static native long nDefWindowProc(long window, int msg, long wParam, long lParam);
 
 	/**
@@ -1578,7 +1578,7 @@ public final class WinUser {
 
 	// --- [ GetDC ] ---
 
-	/** JNI method for {@link #GetDC} */
+	/** JNI method for {@link #GetDC GetDC} */
 	public static native long nGetDC(long window);
 
 	/**
@@ -1593,7 +1593,7 @@ public final class WinUser {
 
 	// --- [ ReleaseDC ] ---
 
-	/** JNI method for {@link #ReleaseDC} */
+	/** JNI method for {@link #ReleaseDC ReleaseDC} */
 	public static native int nReleaseDC(long window, long hdc);
 
 	/**
@@ -1611,7 +1611,7 @@ public final class WinUser {
 
 	// --- [ EnumDisplayDevices ] ---
 
-	/** JNI method for {@link #EnumDisplayDevices} */
+	/** JNI method for {@link #EnumDisplayDevices EnumDisplayDevices} */
 	public static native int nEnumDisplayDevices(long device, int devNum, long displayDevice, int flags);
 
 	/**
@@ -1633,7 +1633,7 @@ public final class WinUser {
 		return nEnumDisplayDevices(memAddressSafe(device), devNum, memAddress(displayDevice), flags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplayDevices} */
+	/** CharSequence version of: {@link #EnumDisplayDevices EnumDisplayDevices} */
 	public static int EnumDisplayDevices(CharSequence device, int devNum, ByteBuffer displayDevice, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(displayDevice, DISPLAY_DEVICE.SIZEOF);
@@ -1642,7 +1642,7 @@ public final class WinUser {
 
 	// --- [ EnumDisplaySettings ] ---
 
-	/** JNI method for {@link #EnumDisplaySettings} */
+	/** JNI method for {@link #EnumDisplaySettings EnumDisplaySettings} */
 	public static native int nEnumDisplaySettings(long deviceName, int modeNum, long devMode);
 
 	/**
@@ -1650,9 +1650,9 @@ public final class WinUser {
 	 * a series of calls to this function.
 	 *
 	 * @param deviceName a null-terminated string that specifies the display device about whose graphics mode the function will obtain information. This parameter is either
-	 *                   {@code NULL} or a DISPLAY_DEVICE.DeviceName returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display device on the computer on
+	 *                   {@code NULL} or a DISPLAY_DEVICE.DeviceName returned from {@link #EnumDisplayDevices EnumDisplayDevices}. A {@code NULL} value specifies the current display device on the computer on
 	 *                   which the calling thread is running.
-	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}
+	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
 	 * @param devMode    a {@link DEVMODE} structure into which the function stores information about the specified graphics mode
 	 */
 	public static int EnumDisplaySettings(ByteBuffer deviceName, int modeNum, ByteBuffer devMode) {
@@ -1663,7 +1663,7 @@ public final class WinUser {
 		return nEnumDisplaySettings(memAddressSafe(deviceName), modeNum, memAddress(devMode));
 	}
 
-	/** CharSequence version of: {@link #EnumDisplaySettings} */
+	/** CharSequence version of: {@link #EnumDisplaySettings EnumDisplaySettings} */
 	public static int EnumDisplaySettings(CharSequence deviceName, int modeNum, ByteBuffer devMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1672,17 +1672,17 @@ public final class WinUser {
 
 	// --- [ EnumDisplaySettingsEx ] ---
 
-	/** JNI method for {@link #EnumDisplaySettingsEx} */
+	/** JNI method for {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx} */
 	public static native int nEnumDisplaySettingsEx(long deviceName, int modeNum, long devMode, int flags);
 
 	/**
 	 * Retrieves information about one of the graphics modes for a display device. To retrieve information for all the graphics modes for a display device,
-	 * make a series of calls to this function. This function differs from {@link #EnumDisplaySettings} in that there is a {@code flags} parameter.
+	 * make a series of calls to this function. This function differs from {@link #EnumDisplaySettings EnumDisplaySettings} in that there is a {@code flags} parameter.
 	 *
 	 * @param deviceName a null-terminated string that specifies the display device about which graphics mode the function will obtain information
-	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}
+	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
 	 * @param devMode    a {@link DEVMODE} structure into which the function stores information about the specified graphics mode
-	 * @param flags      One of:. One of:<p/>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 * @param flags      One of:. One of:<p/>{@link #EDS_RAWMODE EDS_RAWMODE}, {@link #EDS_ROTATEDMODE EDS_ROTATEDMODE}
 	 */
 	public static int EnumDisplaySettingsEx(ByteBuffer deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1692,7 +1692,7 @@ public final class WinUser {
 		return nEnumDisplaySettingsEx(memAddress(deviceName), modeNum, memAddress(devMode), flags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
+	/** CharSequence version of: {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx} */
 	public static int EnumDisplaySettingsEx(CharSequence deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1701,7 +1701,7 @@ public final class WinUser {
 
 	// --- [ ChangeDisplaySettings ] ---
 
-	/** JNI method for {@link #ChangeDisplaySettings} */
+	/** JNI method for {@link #ChangeDisplaySettings ChangeDisplaySettings} */
 	public static native int nChangeDisplaySettings(long devMode, int flags);
 
 	/**
@@ -1720,7 +1720,7 @@ public final class WinUser {
 
 	// --- [ ChangeDisplaySettingsEx ] ---
 
-	/** JNI method for {@link #ChangeDisplaySettingsEx} */
+	/** JNI method for {@link #ChangeDisplaySettingsEx ChangeDisplaySettingsEx} */
 	public static native int nChangeDisplaySettingsEx(long deviceName, long devMode, long window, int flags, long param);
 
 	/**
@@ -1742,7 +1742,7 @@ public final class WinUser {
 		return nChangeDisplaySettingsEx(memAddress(deviceName), memAddressSafe(devMode), window, flags, param);
 	}
 
-	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
+	/** CharSequence version of: {@link #ChangeDisplaySettingsEx ChangeDisplaySettingsEx} */
 	public static int ChangeDisplaySettingsEx(CharSequence deviceName, ByteBuffer devMode, long window, int flags, long param) {
 		if ( LWJGLUtil.CHECKS )
 			if ( devMode != null ) checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1751,7 +1751,7 @@ public final class WinUser {
 
 	// --- [ SystemParametersInfo ] ---
 
-	/** JNI method for {@link #SystemParametersInfo} */
+	/** JNI method for {@link #SystemParametersInfo SystemParametersInfo} */
 	public static native int nSystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni);
 
 	/**
@@ -1773,12 +1773,12 @@ public final class WinUser {
 
 	// --- [ AdjustWindowRectEx ] ---
 
-	/** JNI method for {@link #AdjustWindowRectEx} */
+	/** JNI method for {@link #AdjustWindowRectEx AdjustWindowRectEx} */
 	public static native int nAdjustWindowRectEx(long rect, int style, int menu, int exStyle);
 
 	/**
 	 * Calculates the required size of the window rectangle, based on the desired size of the client rectangle. The window rectangle can then be passed to the
-	 * {@link #CreateWindowEx} function to create a window whose client area is the desired size.
+	 * {@link #CreateWindowEx CreateWindowEx} function to create a window whose client area is the desired size.
 	 *
 	 * @param rect    a pointer to a {@link RECT} structure that contains the coordinates of the top-left and bottom-right corners of the desired client area. When the
 	 *                function returns, the structure contains the coordinates of the top-left and bottom-right corners of the window to accommodate the desired client
@@ -1795,7 +1795,7 @@ public final class WinUser {
 
 	// --- [ GetCursorPos ] ---
 
-	/** JNI method for {@link #GetCursorPos} */
+	/** JNI method for {@link #GetCursorPos GetCursorPos} */
 	public static native int nGetCursorPos(long point);
 
 	/**
@@ -1811,7 +1811,7 @@ public final class WinUser {
 
 	// --- [ ScreenToClient ] ---
 
-	/** JNI method for {@link #ScreenToClient} */
+	/** JNI method for {@link #ScreenToClient ScreenToClient} */
 	public static native int nScreenToClient(long hWnd, long point);
 
 	/**
@@ -1830,7 +1830,7 @@ public final class WinUser {
 
 	// --- [ ClientToScreen ] ---
 
-	/** JNI method for {@link #ClientToScreen} */
+	/** JNI method for {@link #ClientToScreen ClientToScreen} */
 	public static native int nClientToScreen(long hWnd, long point);
 
 	/**
@@ -1850,7 +1850,7 @@ public final class WinUser {
 
 	// --- [ GetClientRect ] ---
 
-	/** JNI method for {@link #GetClientRect} */
+	/** JNI method for {@link #GetClientRect GetClientRect} */
 	public static native int nGetClientRect(long hWnd, long rect);
 
 	/**
@@ -1871,7 +1871,7 @@ public final class WinUser {
 
 	// --- [ WindowFromPoint ] ---
 
-	/** JNI method for {@link #WindowFromPoint} */
+	/** JNI method for {@link #WindowFromPoint WindowFromPoint} */
 	public static native long nWindowFromPoint(long point);
 
 	/**
@@ -1887,7 +1887,7 @@ public final class WinUser {
 
 	// --- [ BringWindowToTop ] ---
 
-	/** JNI method for {@link #BringWindowToTop} */
+	/** JNI method for {@link #BringWindowToTop BringWindowToTop} */
 	public static native int nBringWindowToTop(long hWnd);
 
 	/**
@@ -1904,7 +1904,7 @@ public final class WinUser {
 
 	// --- [ SetForegroundWindow ] ---
 
-	/** JNI method for {@link #SetForegroundWindow} */
+	/** JNI method for {@link #SetForegroundWindow SetForegroundWindow} */
 	public static native int nSetForegroundWindow(long hWnd);
 
 	/**
@@ -1922,7 +1922,7 @@ public final class WinUser {
 
 	// --- [ SetFocus ] ---
 
-	/** JNI method for {@link #SetFocus} */
+	/** JNI method for {@link #SetFocus SetFocus} */
 	public static native int nSetFocus(long hWnd);
 
 	/**
@@ -1936,7 +1936,7 @@ public final class WinUser {
 
 	// --- [ SetWindowLongPtr ] ---
 
-	/** JNI method for {@link #SetWindowLongPtr} */
+	/** JNI method for {@link #SetWindowLongPtr SetWindowLongPtr} */
 	public static native long nSetWindowLongPtr(long hWnd, int index, long newLong);
 
 	/**
@@ -1944,7 +1944,7 @@ public final class WinUser {
 	 *
 	 * @param hWnd    a handle to the window and, indirectly, the class to which the window belongs
 	 * @param index   the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *                of an integer. To set any other value, specify one of the following values. One of:<p/>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *                of an integer. To set any other value, specify one of the following values. One of:<p/>{@link #GWL_WNDPROC GWL_WNDPROC}, {@link #GWL_HINSTANCE GWL_HINSTANCE}, {@link #GWL_HWNDPARENT GWL_HWNDPARENT}, {@link #GWL_STYLE GWL_STYLE}, {@link #GWL_EXSTYLE GWL_EXSTYLE}, {@link #GWL_USERDATA GWL_USERDATA}, {@link #GWL_ID GWL_ID}
 	 * @param newLong the replacement value
 	 *
 	 * @return the previous value at the given {@code index}
@@ -1957,7 +1957,7 @@ public final class WinUser {
 
 	// --- [ GetWindowLongPtr ] ---
 
-	/** JNI method for {@link #GetWindowLongPtr} */
+	/** JNI method for {@link #GetWindowLongPtr GetWindowLongPtr} */
 	public static native long nGetWindowLongPtr(long hWnd, int index);
 
 	/**
@@ -1965,7 +1965,7 @@ public final class WinUser {
 	 *
 	 * @param hWnd  a handle to the window and, indirectly, the class to which the window belongs
 	 * @param index the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *              of an integer. To set any other value, specify one of the following values. One of:<p/>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
+	 *              of an integer. To set any other value, specify one of the following values. One of:<p/>{@link #GWL_WNDPROC GWL_WNDPROC}, {@link #GWL_HINSTANCE GWL_HINSTANCE}, {@link #GWL_HWNDPARENT GWL_HWNDPARENT}, {@link #GWL_STYLE GWL_STYLE}, {@link #GWL_EXSTYLE GWL_EXSTYLE}, {@link #GWL_USERDATA GWL_USERDATA}, {@link #GWL_ID GWL_ID}
 	 */
 	public static long GetWindowLongPtr(long hWnd, int index) {
 		if ( LWJGLUtil.CHECKS )
@@ -1985,7 +1985,7 @@ public final class WinUser {
 	// --- [ SetCursorPos ] ---
 
 	/**
-	 * Moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent {@link #ClipCursor}
+	 * Moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent {@link #ClipCursor ClipCursor}
 	 * function call, the system automatically adjusts the coordinates so that the cursor stays within the rectangle.
 	 *
 	 * @param X the new x-coordinate of the cursor, in screen coordinates.
@@ -1995,7 +1995,7 @@ public final class WinUser {
 
 	// --- [ SetCapture ] ---
 
-	/** JNI method for {@link #SetCapture} */
+	/** JNI method for {@link #SetCapture SetCapture} */
 	public static native long nSetCapture(long hWnd);
 
 	/**
@@ -2027,7 +2027,7 @@ public final class WinUser {
 
 	// --- [ ClipCursor ] ---
 
-	/** JNI method for {@link #ClipCursor} */
+	/** JNI method for {@link #ClipCursor ClipCursor} */
 	public static native int nClipCursor(long rect);
 
 	/**
@@ -2051,14 +2051,14 @@ public final class WinUser {
 	 * This function sets an internal display counter that determines whether the cursor should be displayed. The cursor is displayed only if the display count
 	 * is greater than or equal to 0. If a mouse is installed, the initial display count is 0. If no mouse is installed, the display count is –1.
 	 *
-	 * @param show If {@code show} is {@link WinBase#TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE}, the display count is
+	 * @param show If {@code show} is {@link WinBase#TRUE TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE FALSE}, the display count is
 	 *             decremented by one.
 	 */
 	public static native int ShowCursor(int show);
 
 	// --- [ SetCursor ] ---
 
-	/** JNI method for {@link #SetCursor} */
+	/** JNI method for {@link #SetCursor SetCursor} */
 	public static native long nSetCursor(long hCursor);
 
 	/**
@@ -2073,11 +2073,11 @@ public final class WinUser {
 	 * If your application must set the cursor while it is in a window, make sure the class cursor for the specified window's class is set to {@code NULL}. If the
 	 * class cursor is not NULL, the system restores the class cursor each time the mouse is moved.
 	 * <p/>
-	 * The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor}
+	 * The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor ShowCursor}
 	 * function to hide the cursor more times than to show the cursor.
 	 *
-	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor} function or loaded by the {@link #LoadCursor} or
-	 *                {@link #LoadImage} function. If this parameter is {@code NULL}, the cursor is removed from the screen.
+	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor CreateCursor} function or loaded by the {@link #LoadCursor LoadCursor} or
+	 *                {@link #LoadImage LoadImage} function. If this parameter is {@code NULL}, the cursor is removed from the screen.
 	 *
 	 * @return the handle to the previous cursor, if there was one
 	 */
@@ -2097,7 +2097,7 @@ public final class WinUser {
 
 	// --- [ TrackMouseEvent ] ---
 
-	/** JNI method for {@link #TrackMouseEvent} */
+	/** JNI method for {@link #TrackMouseEvent TrackMouseEvent} */
 	public static native int nTrackMouseEvent(long eventTrack);
 
 	/**
@@ -2121,7 +2121,7 @@ public final class WinUser {
 
 	// --- [ OpenClipboard ] ---
 
-	/** JNI method for {@link #OpenClipboard} */
+	/** JNI method for {@link #OpenClipboard OpenClipboard} */
 	public static native int nOpenClipboard(long hWndNewOwner);
 
 	/**
@@ -2143,13 +2143,13 @@ public final class WinUser {
 
 	// --- [ SetClipboardData ] ---
 
-	/** JNI method for {@link #SetClipboardData} */
+	/** JNI method for {@link #SetClipboardData SetClipboardData} */
 	public static native long nSetClipboardData(int format, long hMem);
 
 	/**
 	 * Places data on the clipboard in a specified clipboard format. The window must be the current clipboard owner, and the application must have called the
-	 * {@link #OpenClipboard} function. (When responding to the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS} messages, the clipboard owner must
-	 * not call {@link #OpenClipboard} before calling {@link #SetClipboardData}.)
+	 * {@link #OpenClipboard OpenClipboard} function. (When responding to the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS} messages, the clipboard owner must
+	 * not call {@link #OpenClipboard OpenClipboard} before calling {@link #SetClipboardData SetClipboardData}.)
 	 *
 	 * @param format the clipboard format. This parameter can be a registered format or any of the standard clipboard formats.
 	 * @param hMem   a handle to the data in the specified format. This parameter can be {@code NULL}, indicating that the window provides data in the specified clipboard
@@ -2157,8 +2157,8 @@ public final class WinUser {
 	 *               messages.
 	 *               <p/>
 	 *               If {@code SetClipboardData} succeeds, the system owns the object identified by the {@code hMem} parameter. The application may not write to or free
-	 *               the data once ownership has been transferred to the system, but it can lock and read from the data until the {@link #CloseClipboard} function is
-	 *               called. (The memory must be unlocked before the {@link #Clipboard} is closed.) If the {@code hMem} parameter identifies a memory object, the object
+	 *               the data once ownership has been transferred to the system, but it can lock and read from the data until the {@link #CloseClipboard CloseClipboard} function is
+	 *               called. (The memory must be unlocked before the {@link #Clipboard Clipboard} is closed.) If the {@code hMem} parameter identifies a memory object, the object
 	 *               must have been allocated using the function with the {@link #GMEM_MOVEABLE} flag.
 	 *
 	 * @return the handle to the data if the function succeeds. If the function fails, the return value is {@code NULL}.

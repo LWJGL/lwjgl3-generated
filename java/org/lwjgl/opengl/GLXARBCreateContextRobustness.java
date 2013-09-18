@@ -13,19 +13,19 @@ package org.lwjgl.opengl;
 public final class GLXARBCreateContextRobustness {
 
 	/**
-	 * Accepted as a bit in the attribute value for {@link GLXARBCreateContext#GLX_CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
-	 * {@link GLXARBCreateContext#glXCreateContextAttribsARB}:
+	 * Accepted as a bit in the attribute value for {@link GLXARBCreateContext#GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
+	 * {@link GLXARBCreateContext#glXCreateContextAttribsARB CreateContextAttribsARB}:
 	 */
 	public static final int
 		GLX_CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x4;
 
-	/** Accepted as an attribute name in the {@code attrib_list} argument to {@link GLXARBCreateContext#glXCreateContextAttribsARB}: */
+	/** Accepted as an attribute name in the {@code attrib_list} argument to {@link GLXARBCreateContext#glXCreateContextAttribsARB CreateContextAttribsARB}: */
 	public static final int
 		GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
 
 	/**
-	 * Accepted as an attribute value for {@link #GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB} in the {@code attrib_list} argument to
-	 * {@link GLXARBCreateContext#glXCreateContextAttribsARB}:
+	 * Accepted as an attribute value for {@link #GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB} in the {@code attrib_list} argument to
+	 * {@link GLXARBCreateContext#glXCreateContextAttribsARB CreateContextAttribsARB}:
 	 */
 	public static final int
 		GLX_NO_RESET_NOTIFICATION_ARB = 0x8261,

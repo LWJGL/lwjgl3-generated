@@ -21,7 +21,7 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class WGLARBBufferRegion {
 
-	/** Accepted by the {@code type} parameter of {@link #wglCreateBufferRegionARB}. */
+	/** Accepted by the {@code type} parameter of {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB}. */
 	public static final int
 		WGL_FRONT_COLOR_BUFFER_BIT_ARB = 0x1,
 		WGL_BACK_COLOR_BUFFER_BIT_ARB  = 0x2,
@@ -32,7 +32,7 @@ public final class WGLARBBufferRegion {
 
 	// --- [ wglCreateBufferRegionARB ] ---
 
-	/** JNI method for {@link #wglCreateBufferRegionARB} */
+	/** JNI method for {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB} */
 	public static native long nwglCreateBufferRegionARB(long hdc, int layerPlane, int type, long __functionAddress);
 
 	/**
@@ -41,7 +41,7 @@ public final class WGLARBBufferRegion {
 	 * @param hdc        the device context for the device on which the buffer region is created
 	 * @param layerPlane the layer plane. Positive values identify overlay planes, negative values identify underlay planes. A value of 0 identifies the main plane.
 	 * @param type       a bitwise OR of any of the following values indicating which buffers can be saved or restored.  Multiple bits can be set and may result in better
-	 *                   performance if multiple buffers are saved or restored. One of:<p/>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB}
+	 *                   performance if multiple buffers are saved or restored. One of:<p/>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = getInstance().wglCreateBufferRegionARB;
@@ -54,13 +54,13 @@ public final class WGLARBBufferRegion {
 
 	// --- [ wglDeleteBufferRegionARB ] ---
 
-	/** JNI method for {@link #wglDeleteBufferRegionARB} */
+	/** JNI method for {@link #wglDeleteBufferRegionARB wglDeleteBufferRegionARB} */
 	public static native void nwglDeleteBufferRegionARB(long region, long __functionAddress);
 
 	/**
 	 * Deletes a buffer region.
 	 *
-	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB}.
+	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB}.
 	 */
 	public static void wglDeleteBufferRegionARB(long region) {
 		long __functionAddress = getInstance().wglDeleteBufferRegionARB;
@@ -73,7 +73,7 @@ public final class WGLARBBufferRegion {
 
 	// --- [ wglSaveBufferRegionARB ] ---
 
-	/** JNI method for {@link #wglSaveBufferRegionARB} */
+	/** JNI method for {@link #wglSaveBufferRegionARB wglSaveBufferRegionARB} */
 	public static native int nwglSaveBufferRegionARB(long region, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -86,7 +86,7 @@ public final class WGLARBBufferRegion {
 	 * <p/>
 	 * The saved buffer region area can be freed by calling {@code wglSaveBufferRegionARB} with {@code width} or {@code height} set to a value of 0.
 	 *
-	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB}.
+	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB}.
 	 * @param x      the window x-coordinate for the source rectangle
 	 * @param y      the window y-coordinate for the source rectangle
 	 * @param width  the source rectangle width
@@ -103,13 +103,13 @@ public final class WGLARBBufferRegion {
 
 	// --- [ wglRestoreBufferRegionARB ] ---
 
-	/** JNI method for {@link #wglRestoreBufferRegionARB} */
+	/** JNI method for {@link #wglRestoreBufferRegionARB wglRestoreBufferRegionARB} */
 	public static native int nwglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc, long __functionAddress);
 
 	/**
 	 * Restores a previously saved buffer region.
 	 *
-	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB}.
+	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB}.
 	 * @param x      the window x-coordinate for the destination rectangle
 	 * @param y      the window y-coordinate for the destination rectangle
 	 * @param width  the destination rectangle width

@@ -47,7 +47,7 @@ public final class XInput2 {
 
 	// --- [ XIQueryVersion ] ---
 
-	/** JNI method for {@link #XIQueryVersion} */
+	/** JNI method for {@link #XIQueryVersion XIQueryVersion} */
 	public static native int nXIQueryVersion(long display, long major_version_inout, long minor_version_inout);
 
 	/**
@@ -66,7 +66,7 @@ public final class XInput2 {
 		return nXIQueryVersion(display, memAddress(major_version_inout), memAddress(minor_version_inout));
 	}
 
-	/** Alternative version of: {@link #XIQueryVersion} */
+	/** Alternative version of: {@link #XIQueryVersion XIQueryVersion} */
 	public static int XIQueryVersion(long display, IntBuffer major_version_inout, IntBuffer minor_version_inout) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -78,7 +78,7 @@ public final class XInput2 {
 
 	// --- [ XISelectEvents ] ---
 
-	/** JNI method for {@link #XISelectEvents} */
+	/** JNI method for {@link #XISelectEvents XISelectEvents} */
 	public static native int nXISelectEvents(long display, long w, long masks, int num_masks);
 
 	/**
@@ -105,7 +105,7 @@ public final class XInput2 {
 		return nXISelectEvents(display, w, memAddress(masks), num_masks);
 	}
 
-	/** Alternative version of: {@link #XISelectEvents} */
+	/** Alternative version of: {@link #XISelectEvents XISelectEvents} */
 	public static int XISelectEvents(long display, long w, ByteBuffer masks) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);

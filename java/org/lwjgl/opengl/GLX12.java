@@ -17,7 +17,7 @@ public final class GLX12 {
 
 	// --- [ glXGetCurrentDisplay ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplay} */
+	/** JNI method for {@link #glXGetCurrentDisplay glXGetCurrentDisplay} */
 	public static native long nglXGetCurrentDisplay(long __functionAddress);
 
 	/** Returns the display associated with the current context and drawable. */

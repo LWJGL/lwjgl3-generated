@@ -202,7 +202,7 @@ public final class GL42 {
 
 	// --- [ glTexStorage1D ] ---
 
-	/** JNI method for {@link #glTexStorage1D} */
+	/** JNI method for {@link #glTexStorage1D glTexStorage1D} */
 	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width, long __functionAddress);
 
 	/**
@@ -210,7 +210,7 @@ public final class GL42 {
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
-	 * @param target         the target of the operation. One of:<p/>{@link GL11#GL_TEXTURE_1D}, {@link GL11#GL_PROXY_TEXTURE_1D}
+	 * @param target         the target of the operation. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}
 	 * @param levels         the number of texture levels
 	 * @param internalformat the sized internal format to be used to store texture image data
 	 * @param width          the width of the texture, in texels
@@ -224,7 +224,7 @@ public final class GL42 {
 
 	// --- [ glTexStorage2D ] ---
 
-	/** JNI method for {@link #glTexStorage2D} */
+	/** JNI method for {@link #glTexStorage2D glTexStorage2D} */
 	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height, long __functionAddress);
 
 	/**
@@ -232,7 +232,7 @@ public final class GL42 {
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
 	 *
-	 * @param target         the target of the operation. One of:<p/>{@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP}
+	 * @param target         the target of the operation. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
 	 * @param levels         the number of texture levels
 	 * @param internalformat the sized internal format to be used to store texture image data
 	 * @param width          the width of the texture, in texels
@@ -247,7 +247,7 @@ public final class GL42 {
 
 	// --- [ glTexStorage3D ] ---
 
-	/** JNI method for {@link #glTexStorage3D} */
+	/** JNI method for {@link #glTexStorage3D glTexStorage3D} */
 	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -255,7 +255,7 @@ public final class GL42 {
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
 	 *
-	 * @param target         the target of the operation. One of:<p/>{@link GL12#GL_TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY}, {@link GL12#GL_PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY}
+	 * @param target         the target of the operation. One of:<p/>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}
 	 * @param levels         the number of texture levels
 	 * @param internalformat the sized internal format to be used to store texture image data
 	 * @param width          the width of the texture, in texels
@@ -271,7 +271,7 @@ public final class GL42 {
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
-	/** JNI method for {@link #glDrawTransformFeedbackInstanced} */
+	/** JNI method for {@link #glDrawTransformFeedbackInstanced glDrawTransformFeedbackInstanced} */
 	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount, long __functionAddress);
 
 	/**
@@ -279,7 +279,7 @@ public final class GL42 {
 	 * <p/>
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
-	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param id        the name of a transform feedback object from which to retrieve a primitive count
 	 * @param primcount the number of instances of the geometry to render
 	 */
@@ -292,7 +292,7 @@ public final class GL42 {
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
-	/** JNI method for {@link #glDrawTransformFeedbackStreamInstanced} */
+	/** JNI method for {@link #glDrawTransformFeedbackStreamInstanced glDrawTransformFeedbackStreamInstanced} */
 	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount, long __functionAddress);
 
 	/**
@@ -300,7 +300,7 @@ public final class GL42 {
 	 * <p/>
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
-	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param id        the name of a transform feedback object from which to retrieve a primitive count
 	 * @param stream    the index of the transform feedback stream from which to retrieve a primitive count
 	 * @param primcount the number of instances of the geometry to render
@@ -314,7 +314,7 @@ public final class GL42 {
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
-	/** JNI method for {@link #glDrawArraysInstancedBaseInstance} */
+	/** JNI method for {@link #glDrawArraysInstancedBaseInstance glDrawArraysInstancedBaseInstance} */
 	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance, long __functionAddress);
 
 	/**
@@ -322,7 +322,7 @@ public final class GL42 {
 	 * <p/>
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
-	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param first        the starting index in the enabled arrays
 	 * @param count        the number of indices to be rendered
 	 * @param primcount    the number of instances of the specified range of indices to be rendered
@@ -337,7 +337,7 @@ public final class GL42 {
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseInstance} */
+	/** JNI method for {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance, long __functionAddress);
 
 	/**
@@ -345,9 +345,9 @@ public final class GL42 {
 	 * <p/>
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
-	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count        the number of elements to be rendered
-	 * @param type         the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type         the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices      a pointer to the location where the indices are stored
 	 * @param primcount    the number of instances of the specified range of indices to be rendered
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
@@ -362,7 +362,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseInstance(mode, count, type, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseInstance} */
+	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static void glDrawElementsInstancedBaseInstance(int mode, int count, int type, long indicesOffset, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -372,7 +372,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseInstance(mode, count, type, indicesOffset, primcount, baseinstance, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseInstance} */
+	/** Alternative version of: {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -382,7 +382,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseInstance} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -392,7 +392,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseInstance} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -402,7 +402,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseInstance} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
 	public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -414,7 +414,7 @@ public final class GL42 {
 
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstance ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** JNI method for {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance, long __functionAddress);
 
 	/**
@@ -422,9 +422,9 @@ public final class GL42 {
 	 * <p/>
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
-	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS}, {@link GL11#GL_LINE_STRIP}, {@link GL11#GL_LINE_LOOP}, {@link GL11#GL_LINES}, {@link GL11#GL_POLYGON}, {@link GL11#GL_TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES}, {@link GL11#GL_QUAD_STRIP}, {@link GL11#GL_QUADS}, {@link GL32#GL_LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES}
+	 * @param mode         what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count        the number of elements to be rendered
-	 * @param type         the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT}
+	 * @param type         the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices      a pointer to the location where the indices are stored
 	 * @param primcount    the number of instances of the indexed geometry that should be drawn
 	 * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
@@ -440,7 +440,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indicesOffset, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -450,7 +450,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indicesOffset, primcount, basevertex, baseinstance, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -460,7 +460,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -470,7 +470,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -480,7 +480,7 @@ public final class GL42 {
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, baseinstance, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( LWJGLUtil.CHECKS ) {
@@ -492,7 +492,7 @@ public final class GL42 {
 
 	// --- [ glBindImageTexture ] ---
 
-	/** JNI method for {@link #glBindImageTexture} */
+	/** JNI method for {@link #glBindImageTexture glBindImageTexture} */
 	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
 
 	/**
@@ -517,7 +517,7 @@ public final class GL42 {
 
 	// --- [ glMemoryBarrier ] ---
 
-	/** JNI method for {@link #glMemoryBarrier} */
+	/** JNI method for {@link #glMemoryBarrier glMemoryBarrier} */
 	public static native void nglMemoryBarrier(int barriers, long __functionAddress);
 
 	/**
@@ -525,7 +525,7 @@ public final class GL42 {
 	 * <p/>
 	 * Defines a barrier ordering memory transactions.
 	 *
-	 * @param barriers the barriers to insert (bitwise combination). One of:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS}
+	 * @param barriers the barriers to insert (bitwise combination). One of:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().glMemoryBarrier;
@@ -536,7 +536,7 @@ public final class GL42 {
 
 	// --- [ glGetInternalformativ ] ---
 
-	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
 	/**
@@ -544,7 +544,7 @@ public final class GL42 {
 	 * <p/>
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
-	 * @param target         the usage of the internal format. One of:<p/>{@link GL11#GL_TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY}, {@link GL30#GL_RENDERBUFFER}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param target         the usage of the internal format. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param internalformat the internal format about which to retrieve information
 	 * @param pname          the type of information to query
 	 * @param bufSize        the maximum number of values that may be written to params by the function
@@ -559,7 +559,7 @@ public final class GL42 {
 		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
 	public static void glGetInternalformat(int target, int internalformat, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetInternalformativ;
 		if ( LWJGLUtil.CHECKS )
@@ -567,7 +567,7 @@ public final class GL42 {
 		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		long __functionAddress = getInstance().glGetInternalformativ;
 		if ( LWJGLUtil.CHECKS )

@@ -59,7 +59,7 @@ public final class WGL {
 
 	// --- [ wglCreateContext ] ---
 
-	/** JNI method for {@link #wglCreateContext} */
+	/** JNI method for {@link #wglCreateContext wglCreateContext} */
 	public static native long nwglCreateContext(long hdc);
 
 	/**
@@ -76,7 +76,7 @@ public final class WGL {
 
 	// --- [ wglCreateLayerContext ] ---
 
-	/** JNI method for {@link #wglCreateLayerContext} */
+	/** JNI method for {@link #wglCreateLayerContext wglCreateLayerContext} */
 	public static native long nwglCreateLayerContext(long hdc, int layerPlane);
 
 	/**
@@ -97,7 +97,7 @@ public final class WGL {
 
 	// --- [ wglCopyContext ] ---
 
-	/** JNI method for {@link #wglCopyContext} */
+	/** JNI method for {@link #wglCopyContext wglCopyContext} */
 	public static native int nwglCopyContext(long src, long dst, int mask);
 
 	/**
@@ -119,7 +119,7 @@ public final class WGL {
 
 	// --- [ wglDeleteContext ] ---
 
-	/** JNI method for {@link #wglDeleteContext} */
+	/** JNI method for {@link #wglDeleteContext wglDeleteContext} */
 	public static native int nwglDeleteContext(long context);
 
 	/**
@@ -145,7 +145,7 @@ public final class WGL {
 
 	// --- [ wglGetProcAddress ] ---
 
-	/** JNI method for {@link #wglGetProcAddress} */
+	/** JNI method for {@link #wglGetProcAddress wglGetProcAddress} */
 	public static native long nwglGetProcAddress(long proc);
 
 	/**
@@ -160,14 +160,14 @@ public final class WGL {
 		return nwglGetProcAddress(memAddress(proc));
 	}
 
-	/** CharSequence version of: {@link #wglGetProcAddress} */
+	/** CharSequence version of: {@link #wglGetProcAddress wglGetProcAddress} */
 	public static long wglGetProcAddress(CharSequence proc) {
 		return nwglGetProcAddress(memAddress(memEncodeASCII(proc)));
 	}
 
 	// --- [ wglMakeCurrent ] ---
 
-	/** JNI method for {@link #wglMakeCurrent} */
+	/** JNI method for {@link #wglMakeCurrent wglMakeCurrent} */
 	public static native int nwglMakeCurrent(long hdc, long context);
 
 	/**
@@ -185,7 +185,7 @@ public final class WGL {
 
 	// --- [ wglShareLists ] ---
 
-	/** JNI method for {@link #wglShareLists} */
+	/** JNI method for {@link #wglShareLists wglShareLists} */
 	public static native int nwglShareLists(long context1, long context2);
 
 	/**
@@ -205,7 +205,7 @@ public final class WGL {
 
 	// --- [ wglUseFontBitmaps ] ---
 
-	/** JNI method for {@link #wglUseFontBitmaps} */
+	/** JNI method for {@link #wglUseFontBitmaps wglUseFontBitmaps} */
 	public static native int nwglUseFontBitmaps(long hdc, int first, int count, int listBase);
 
 	/**
@@ -227,7 +227,7 @@ public final class WGL {
 
 	// --- [ wglUseFontOutlines ] ---
 
-	/** JNI method for {@link #wglUseFontOutlines} */
+	/** JNI method for {@link #wglUseFontOutlines wglUseFontOutlines} */
 	public static native int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics);
 
 	/**
@@ -251,8 +251,8 @@ public final class WGL {
 	 *                     original font. The value of deviation must be equal to or greater than 0.
 	 * @param extrusion    how much a font is extruded in the negative z direction. The value must be equal to or greater than 0. When extrusion is 0, the display lists are
 	 *                     not extruded.
-	 * @param format       the format to use in the display lists. When format is {@link #WGL_FONT_LINES}, the {@code wglUseFontOutlines} function creates fonts with line
-	 *                     segments. When format is {@link #WGL_FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons. One of:<p/>{@link #WGL_FONT_LINES}, {@link #WGL_FONT_POLYGONS}
+	 * @param format       the format to use in the display lists. When format is {@link #WGL_FONT_LINES FONT_LINES}, the {@code wglUseFontOutlines} function creates fonts with line
+	 *                     segments. When format is {@link #WGL_FONT_POLYGONS FONT_POLYGONS}, {@code wglUseFontOutlines} creates fonts with polygons. One of:<p/>{@link #WGL_FONT_LINES FONT_LINES}, {@link #WGL_FONT_POLYGONS FONT_POLYGONS}
 	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is {@code NULL}, no
 	 *                     glyph metrics are returned.
 	 */

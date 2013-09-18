@@ -44,7 +44,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXglXBlitContextFramebufferAMD ] ---
 
-	/** JNI method for {@link #glXglXBlitContextFramebufferAMD} */
+	/** JNI method for {@link #glXglXBlitContextFramebufferAMD glXglXBlitContextFramebufferAMD} */
 	public static native void nglXglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
@@ -73,7 +73,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXCreateAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXCreateAssociatedContextAMD} */
+	/** JNI method for {@link #glXCreateAssociatedContextAMD glXCreateAssociatedContextAMD} */
 	public static native long nglXCreateAssociatedContextAMD(int id, long share_list, long __functionAddress);
 
 	/**
@@ -93,7 +93,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
 
-	/** JNI method for {@link #glXCreateAssociatedContextAttribsAMD} */
+	/** JNI method for {@link #glXCreateAssociatedContextAttribsAMD glXCreateAssociatedContextAttribsAMD} */
 	public static native long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList, long __functionAddress);
 
 	/**
@@ -112,7 +112,7 @@ public final class GLXAMDGPUAssociation {
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD} */
+	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD glXCreateAssociatedContextAttribsAMD} */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
 		long __functionAddress = getInstance().glXCreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS ) {
@@ -124,7 +124,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXDeleteAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXDeleteAssociatedContextAMD} */
+	/** JNI method for {@link #glXDeleteAssociatedContextAMD glXDeleteAssociatedContextAMD} */
 	public static native int nglXDeleteAssociatedContextAMD(long ctx, long __functionAddress);
 
 	/**
@@ -143,7 +143,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetContextGPUIDAMD ] ---
 
-	/** JNI method for {@link #glXGetContextGPUIDAMD} */
+	/** JNI method for {@link #glXGetContextGPUIDAMD glXGetContextGPUIDAMD} */
 	public static native int nglXGetContextGPUIDAMD(long ctx, long __functionAddress);
 
 	/**
@@ -162,7 +162,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetCurrentAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXGetCurrentAssociatedContextAMD} */
+	/** JNI method for {@link #glXGetCurrentAssociatedContextAMD glXGetCurrentAssociatedContextAMD} */
 	public static native long nglXGetCurrentAssociatedContextAMD(long __functionAddress);
 
 	/** Queries the crrent associated context. */
@@ -175,7 +175,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUIDsAMD ] ---
 
-	/** JNI method for {@link #glXGetGPUIDsAMD} */
+	/** JNI method for {@link #glXGetGPUIDsAMD glXGetGPUIDsAMD} */
 	public static native int nglXGetGPUIDsAMD(int maxCount, int ids, long __functionAddress);
 
 	/**
@@ -193,7 +193,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUInfoAMD ] ---
 
-	/** JNI method for {@link #glXGetGPUInfoAMD} */
+	/** JNI method for {@link #glXGetGPUInfoAMD glXGetGPUInfoAMD} */
 	public static native int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
 	/**
@@ -214,7 +214,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---
 
-	/** JNI method for {@link #glXMakeAssociatedContextCurrentAMD} */
+	/** JNI method for {@link #glXMakeAssociatedContextCurrentAMD glXMakeAssociatedContextCurrentAMD} */
 	public static native int nglXMakeAssociatedContextCurrentAMD(long ctx, long __functionAddress);
 
 	/**

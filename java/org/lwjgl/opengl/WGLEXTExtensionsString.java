@@ -20,7 +20,7 @@ public final class WGLEXTExtensionsString {
 
 	// --- [ wglGetExtensionsStringEXT ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringEXT} */
+	/** JNI method for {@link #wglGetExtensionsStringEXT wglGetExtensionsStringEXT} */
 	public static native long nwglGetExtensionsStringEXT(long __functionAddress);
 
 	/**

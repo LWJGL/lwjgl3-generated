@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GLXEXTImportContext {
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT QueryContextInfoEXT}: */
 	public static final int
 		GLX_SHARE_CONTEXT_EXT = 0x800A,
 		GLX_VISUAL_ID_EXT     = 0x800B,
@@ -32,7 +32,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplayEXT} */
+	/** JNI method for {@link #glXGetCurrentDisplayEXT glXGetCurrentDisplayEXT} */
 	public static native long nglXGetCurrentDisplayEXT(long __functionAddress);
 
 	/** Returns the display associated with the current context. */
@@ -45,7 +45,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXQueryContextInfoEXT ] ---
 
-	/** JNI method for {@link #glXQueryContextInfoEXT} */
+	/** JNI method for {@link #glXQueryContextInfoEXT glXQueryContextInfoEXT} */
 	public static native int nglXQueryContextInfoEXT(long display, long context, int attribute, long value, long __functionAddress);
 
 	/**
@@ -67,7 +67,7 @@ public final class GLXEXTImportContext {
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXQueryContextInfoEXT} */
+	/** Alternative version of: {@link #glXQueryContextInfoEXT glXQueryContextInfoEXT} */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
 		long __functionAddress = getInstance().glXQueryContextInfoEXT;
 		if ( LWJGLUtil.CHECKS ) {
@@ -81,7 +81,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXGetContextIDEXT ] ---
 
-	/** JNI method for {@link #glXGetContextIDEXT} */
+	/** JNI method for {@link #glXGetContextIDEXT glXGetContextIDEXT} */
 	public static native long nglXGetContextIDEXT(long context, long __functionAddress);
 
 	/**
@@ -100,7 +100,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXImportContextEXT ] ---
 
-	/** JNI method for {@link #glXImportContextEXT} */
+	/** JNI method for {@link #glXImportContextEXT glXImportContextEXT} */
 	public static native long nglXImportContextEXT(long display, long contextID, long __functionAddress);
 
 	/**
@@ -120,11 +120,11 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXFreeContextEXT ] ---
 
-	/** JNI method for {@link #glXFreeContextEXT} */
+	/** JNI method for {@link #glXFreeContextEXT glXFreeContextEXT} */
 	public static native void nglXFreeContextEXT(long display, long context, long __functionAddress);
 
 	/**
-	 * Frees the client-side part of a GLXContext that was created  with {@link #glXImportContextEXT}.
+	 * Frees the client-side part of a GLXContext that was created  with {@link #glXImportContextEXT ImportContextEXT}.
 	 *
 	 * @param display the connection to the X server
 	 * @param context the context to free

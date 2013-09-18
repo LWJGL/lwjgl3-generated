@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices} function. */
+/** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices EnumDisplayDevices} function. */
 public final class DISPLAY_DEVICE {
 
 	/** The struct size in bytes. */
@@ -46,7 +46,7 @@ public final class DISPLAY_DEVICE {
 	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
-	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		int cb,
 		long DeviceName,

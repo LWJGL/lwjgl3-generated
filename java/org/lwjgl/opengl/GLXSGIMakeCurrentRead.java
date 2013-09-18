@@ -23,7 +23,7 @@ public final class GLXSGIMakeCurrentRead {
 
 	// --- [ glXMakeCurrentReadSGI ] ---
 
-	/** JNI method for {@link #glXMakeCurrentReadSGI} */
+	/** JNI method for {@link #glXMakeCurrentReadSGI glXMakeCurrentReadSGI} */
 	public static native int nglXMakeCurrentReadSGI(long display, long draw, long read, long ctx, long __functionAddress);
 
 	/**
@@ -45,7 +45,7 @@ public final class GLXSGIMakeCurrentRead {
 
 	// --- [ glXGetCurrentReadDrawableSGI ] ---
 
-	/** JNI method for {@link #glXGetCurrentReadDrawableSGI} */
+	/** JNI method for {@link #glXGetCurrentReadDrawableSGI glXGetCurrentReadDrawableSGI} */
 	public static native long nglXGetCurrentReadDrawableSGI(long __functionAddress);
 
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */

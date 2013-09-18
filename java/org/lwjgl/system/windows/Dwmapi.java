@@ -25,7 +25,7 @@ public final class Dwmapi {
 
 	// --- [ DwmIsCompositionEnabled ] ---
 
-	/** JNI method for {@link #DwmIsCompositionEnabled} */
+	/** JNI method for {@link #DwmIsCompositionEnabled DwmIsCompositionEnabled} */
 	public static native int nDwmIsCompositionEnabled(long enabled, long __functionAddress);
 
 	/**
@@ -40,7 +40,7 @@ public final class Dwmapi {
 		return nDwmIsCompositionEnabled(memAddress(enabled), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #DwmIsCompositionEnabled} */
+	/** Alternative version of: {@link #DwmIsCompositionEnabled DwmIsCompositionEnabled} */
 	public static int DwmIsCompositionEnabled(IntBuffer enabled, long __functionAddress) {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);

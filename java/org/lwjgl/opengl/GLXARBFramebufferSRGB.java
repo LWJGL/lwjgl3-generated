@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.linux.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_sRGB.txt">GLX_ARB_framebuffer_sRGB</a> extension.
  * <p/>
@@ -18,7 +20,7 @@ package org.lwjgl.opengl;
  */
 public final class GLXARBFramebufferSRGB {
 
-	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig}: */
+	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}: */
 	public static final int
 		GLX_FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20B2;
 

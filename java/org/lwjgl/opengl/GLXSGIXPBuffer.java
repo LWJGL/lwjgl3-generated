@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GLXSGIXPBuffer {
 
-	/** Accepted by the {@code attribute} parameter of {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}: */
 	public static final int
 		GLX_MAX_PBUFFER_WIDTH_SGIX      = 0x8016,
 		GLX_MAX_PBUFFER_HEIGHT_SGIX     = 0x8017,
@@ -31,25 +31,25 @@ public final class GLXSGIXPBuffer {
 		GLX_OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;
 
 	/**
-	 * Returned by {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX} (when {@code attribute} is set to {@link GLXSGIXFBConfig#GLX_DRAWABLE_TYPE_SGIX}) and
-	 * accepted by the {@code attrib_list} parameter of {@link GLXSGIXFBConfig#glXChooseFBConfigSGIX} (following the
-	 * {@link GLXSGIXFBConfig#GLX_DRAWABLE_TYPE_SGIX} token):
+	 * Returned by {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link GLXSGIXFBConfig#GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX}) and
+	 * accepted by the {@code attrib_list} parameter of {@link GLXSGIXFBConfig#glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the
+	 * {@link GLXSGIXFBConfig#GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX} token):
 	 */
 	public static final int
 		GLX_PBUFFER_BIT_SGIX = 0x4;
 
-	/** Accepted by the {@code attrib_list} parameter of {@link #glXCreateGLXPbufferSGIX} and by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX}: */
+	/** Accepted by the {@code attrib_list} parameter of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} and by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX}: */
 	public static final int
 		GLX_PRESERVED_CONTENTS_SGIX = 0x801B,
 		GLX_LARGEST_PBUFFER_SGIX    = 0x801C;
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX}: */
 	public static final int
 		GLX_WIDTH_SGIX      = 0x801D,
 		GLX_HEIGHT_SGIX     = 0x801E,
 		GLX_EVENT_MASK_SGIX = 0x801F;
 
-	/** Accepted by the {@code mask} parameter of {@link #glXSelectEventSGIX} and returned in the {@code mask} parameter of #glXGetSelectedEventSGIX}: */
+	/** Accepted by the {@code mask} parameter of {@link #glXSelectEventSGIX SelectEventSGIX} and returned in the {@code mask} parameter of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX}: */
 	public static final int
 		GLX_BUFFER_CLOBBER_MASK_SGIX = 0x8000000;
 
@@ -79,7 +79,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXCreateGLXPbufferSGIX} */
+	/** JNI method for {@link #glXCreateGLXPbufferSGIX glXCreateGLXPbufferSGIX} */
 	public static native long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list, long __functionAddress);
 
 	/**
@@ -102,7 +102,7 @@ public final class GLXSGIXPBuffer {
 		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX} */
+	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX glXCreateGLXPbufferSGIX} */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
 		long __functionAddress = getInstance().glXCreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
@@ -116,7 +116,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXDestroyGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXDestroyGLXPbufferSGIX} */
+	/** JNI method for {@link #glXDestroyGLXPbufferSGIX glXDestroyGLXPbufferSGIX} */
 	public static native void nglXDestroyGLXPbufferSGIX(long display, long pbuf, long __functionAddress);
 
 	/**
@@ -137,7 +137,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXQueryGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXQueryGLXPbufferSGIX} */
+	/** JNI method for {@link #glXQueryGLXPbufferSGIX glXQueryGLXPbufferSGIX} */
 	public static native void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value, long __functionAddress);
 
 	/**
@@ -159,7 +159,7 @@ public final class GLXSGIXPBuffer {
 		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX} */
+	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX glXQueryGLXPbufferSGIX} */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
 		long __functionAddress = getInstance().glXQueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
@@ -173,7 +173,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXSelectEventSGIX ] ---
 
-	/** JNI method for {@link #glXSelectEventSGIX} */
+	/** JNI method for {@link #glXSelectEventSGIX glXSelectEventSGIX} */
 	public static native void nglXSelectEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
 	/**
@@ -195,7 +195,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXGetSelectedEventSGIX ] ---
 
-	/** JNI method for {@link #glXGetSelectedEventSGIX} */
+	/** JNI method for {@link #glXGetSelectedEventSGIX glXGetSelectedEventSGIX} */
 	public static native void nglXGetSelectedEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
 	/**
@@ -216,7 +216,7 @@ public final class GLXSGIXPBuffer {
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXGetSelectedEventSGIX} */
+	/** Alternative version of: {@link #glXGetSelectedEventSGIX glXGetSelectedEventSGIX} */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
 		long __functionAddress = getInstance().glXGetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {

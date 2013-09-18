@@ -35,7 +35,7 @@ public final class GLX {
 		GLXBadWindow                 = 0xC,
 		GLXBadProfileARB             = 0xD;
 
-	/** Names for attributes to {@link #glXGetConfig}. */
+	/** Names for attributes to {@link #glXGetConfig GetConfig}. */
 	public static final int
 		GLX_USE_GL           = 0x1,
 		GLX_BUFFER_SIZE      = 0x2,
@@ -55,7 +55,7 @@ public final class GLX {
 		GLX_ACCUM_BLUE_SIZE  = 0x10,
 		GLX_ACCUM_ALPHA_SIZE = 0x11;
 
-	/** Error return values from {@link #glXGetConfig}. Success is indicated by a value of 0. */
+	/** Error return values from {@link #glXGetConfig GetConfig}. Success is indicated by a value of 0. */
 	public static final int
 		GLX_BAD_SCREEN    = 0x1,
 		GLX_BAD_ATTRIBUTE = 0x2,
@@ -69,7 +69,7 @@ public final class GLX {
 
 	// --- [ glXQueryExtension ] ---
 
-	/** JNI method for {@link #glXQueryExtension} */
+	/** JNI method for {@link #glXQueryExtension glXQueryExtension} */
 	public static native int nglXQueryExtension(long display, long error_base, long event_base);
 
 	/**
@@ -88,7 +88,7 @@ public final class GLX {
 		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base));
 	}
 
-	/** Alternative version of: {@link #glXQueryExtension} */
+	/** Alternative version of: {@link #glXQueryExtension glXQueryExtension} */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -100,7 +100,7 @@ public final class GLX {
 
 	// --- [ glXQueryVersion ] ---
 
-	/** JNI method for {@link #glXQueryVersion} */
+	/** JNI method for {@link #glXQueryVersion glXQueryVersion} */
 	public static native int nglXQueryVersion(long display, long major, long minor);
 
 	/**
@@ -119,7 +119,7 @@ public final class GLX {
 		return nglXQueryVersion(display, memAddress(major), memAddress(minor));
 	}
 
-	/** Alternative version of: {@link #glXQueryVersion} */
+	/** Alternative version of: {@link #glXQueryVersion glXQueryVersion} */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -131,7 +131,7 @@ public final class GLX {
 
 	// --- [ glXGetConfig ] ---
 
-	/** JNI method for {@link #glXGetConfig} */
+	/** JNI method for {@link #glXGetConfig glXGetConfig} */
 	public static native int nglXGetConfig(long display, long visual, int attribute, long value);
 
 	/**
@@ -151,7 +151,7 @@ public final class GLX {
 		return nglXGetConfig(display, memAddress(visual), attribute, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glXGetConfig} */
+	/** Alternative version of: {@link #glXGetConfig glXGetConfig} */
 	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -163,7 +163,7 @@ public final class GLX {
 
 	// --- [ glXChooseVisual ] ---
 
-	/** JNI method for {@link #glXChooseVisual} */
+	/** JNI method for {@link #glXChooseVisual glXChooseVisual} */
 	public static native long nglXChooseVisual(long display, int screen, long attrib_list);
 
 	/**
@@ -171,7 +171,7 @@ public final class GLX {
 	 *
 	 * @param display     the connection to the X server
 	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@link X#None None}
 	 *
 	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
 	 *         returned.
@@ -185,7 +185,7 @@ public final class GLX {
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
-	/** Alternative version of: {@link #glXChooseVisual} */
+	/** Alternative version of: {@link #glXChooseVisual glXChooseVisual} */
 	public static ByteBuffer glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -197,7 +197,7 @@ public final class GLX {
 
 	// --- [ glXCreateContext ] ---
 
-	/** JNI method for {@link #glXCreateContext} */
+	/** JNI method for {@link #glXCreateContext glXCreateContext} */
 	public static native long nglXCreateContext(long display, long visual, long share_list, int direct);
 
 	/**
@@ -218,7 +218,7 @@ public final class GLX {
 
 	// --- [ glXMakeCurrent ] ---
 
-	/** JNI method for {@link #glXMakeCurrent} */
+	/** JNI method for {@link #glXMakeCurrent glXMakeCurrent} */
 	public static native int nglXMakeCurrent(long display, long draw, long ctx);
 
 	/**
@@ -236,7 +236,7 @@ public final class GLX {
 
 	// --- [ glXCopyContext ] ---
 
-	/** JNI method for {@link #glXCopyContext} */
+	/** JNI method for {@link #glXCopyContext glXCopyContext} */
 	public static native void nglXCopyContext(long display, long source, long dest, long mask);
 
 	/**
@@ -258,7 +258,7 @@ public final class GLX {
 
 	// --- [ glXIsDirect ] ---
 
-	/** JNI method for {@link #glXIsDirect} */
+	/** JNI method for {@link #glXIsDirect glXIsDirect} */
 	public static native int nglXIsDirect(long display, long ctx);
 
 	/**
@@ -277,7 +277,7 @@ public final class GLX {
 
 	// --- [ glXDestroyContext ] ---
 
-	/** JNI method for {@link #glXDestroyContext} */
+	/** JNI method for {@link #glXDestroyContext glXDestroyContext} */
 	public static native void nglXDestroyContext(long display, long ctx);
 
 	/**
@@ -313,7 +313,7 @@ public final class GLX {
 	 * Prevents X requests from executing until any outstanding OpenGL rendering is done.
 	 * <p/>
 	 * OpenGL calls made prior to {@code glXWaitGL} are guaranteed to be executed before X rendering calls made after {@code glXWaitGL}. While the same result
-	 * can be achieved using {@link GL11#glFinish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
+	 * can be achieved using {@link GL11#glFinish Finish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
 	 * where the client and server are on separate machines.
 	 */
 	public static native void glXWaitGL();
@@ -324,13 +324,13 @@ public final class GLX {
 	 * Prevents the OpenGL command sequence from executing until any outstanding X requests are completed.
 	 * <p/>
 	 * X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
-	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
+	 * result can be achieved using {@link Xlib#XSync XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
 	 */
 	public static native void glXWaitX();
 
 	// --- [ glXSwapBuffers ] ---
 
-	/** JNI method for {@link #glXSwapBuffers} */
+	/** JNI method for {@link #glXSwapBuffers glXSwapBuffers} */
 	public static native void nglXSwapBuffers(long display, long draw);
 
 	/**
@@ -364,7 +364,7 @@ public final class GLX {
 
 	// --- [ glXCreateGLXPixmap ] ---
 
-	/** JNI method for {@link #glXCreateGLXPixmap} */
+	/** JNI method for {@link #glXCreateGLXPixmap glXCreateGLXPixmap} */
 	public static native long nglXCreateGLXPixmap(long display, long visual, long pixmap);
 
 	/**
@@ -384,7 +384,7 @@ public final class GLX {
 
 	// --- [ glXDestroyGLXPixmap ] ---
 
-	/** JNI method for {@link #glXDestroyGLXPixmap} */
+	/** JNI method for {@link #glXDestroyGLXPixmap glXDestroyGLXPixmap} */
 	public static native void nglXDestroyGLXPixmap(long display, long pixmap);
 
 	/**

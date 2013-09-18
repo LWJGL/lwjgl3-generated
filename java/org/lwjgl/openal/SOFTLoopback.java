@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** bindings to ALC_SOFT_loopback extension. */
 public final class SOFTLoopback {
 
-	/** Accepted by the @{code type} parameter of alcIsRenderFormatSupportedSOFT. */
+	/** Accepted by the {@code type} parameter of alcIsRenderFormatSupportedSOFT. */
 	public static final int
 		ALC_BYTE_SOFT           = 0x1400,
 		ALC_UNSIGNED_BYTE_SOFT  = 0x1401,
@@ -26,7 +26,7 @@ public final class SOFTLoopback {
 		ALC_UNSIGNED_INT_SOFT   = 0x1405,
 		ALC_FLOAT_SOFT          = 0x1406;
 
-	/** Accepted by the @{code channels} parameter of alcIsRenderFormatSupportedSOFT. */
+	/** Accepted by the {@code channels} parameter of alcIsRenderFormatSupportedSOFT. */
 	public static final int
 		ALC_MONO_SOFT    = 0x1500,
 		ALC_STEREO_SOFT  = 0x1501,
@@ -35,7 +35,7 @@ public final class SOFTLoopback {
 		ALC_6POINT1_SOFT = 0x1505,
 		ALC_7POINT1_SOFT = 0x1506;
 
-	/** Accepted as part of the @{code attrList} parameter of alcCreateContext. */
+	/** Accepted as part of the {@code attrList} parameter of alcCreateContext. */
 	public static final int
 		ALC_FORMAT_CHANNELS_SOFT = 0x1990,
 		ALC_FORMAT_TYPE_SOFT     = 0x1991;
@@ -44,7 +44,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
-	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT} */
+	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT alcLoopbackOpenDeviceSOFT} */
 	public static native long nalcLoopbackOpenDeviceSOFT(long deviceName, long __functionAddress);
 
 	/**
@@ -79,7 +79,7 @@ public final class SOFTLoopback {
 		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT} */
+	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT alcLoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
 		long __functionAddress = getInstance().alcLoopbackOpenDeviceSOFT;
 		if ( LWJGLUtil.CHECKS )
@@ -89,7 +89,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT} */
+	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT alcIsRenderFormatSupportedSOFT} */
 	public static native boolean nalcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type, long __functionAddress);
 
 	/**
@@ -100,8 +100,8 @@ public final class SOFTLoopback {
 	 *
 	 * @param device    the loopback device to query
 	 * @param frequency positive sample rate of the rendered audio
-	 * @param channels  channel configuration used for rendering. One of:<p/>{@link #ALC_MONO_SOFT}, {@link #ALC_STEREO_SOFT}, {@link #ALC_QUAD_SOFT}, {@link #ALC_5POINT1_SOFT}, {@link #ALC_6POINT1_SOFT}, {@link #ALC_7POINT1_SOFT}
-	 * @param type      sample type of the written audio. One of:<p/>{@link #ALC_BYTE_SOFT}, {@link #ALC_UNSIGNED_BYTE_SOFT}, {@link #ALC_SHORT_SOFT}, {@link #ALC_UNSIGNED_SHORT_SOFT}, {@link #ALC_INT_SOFT}, {@link #ALC_UNSIGNED_INT_SOFT}, {@link #ALC_FLOAT_SOFT}
+	 * @param channels  channel configuration used for rendering. One of:<p/>{@link #ALC_MONO_SOFT MONO_SOFT}, {@link #ALC_STEREO_SOFT STEREO_SOFT}, {@link #ALC_QUAD_SOFT QUAD_SOFT}, {@link #ALC_5POINT1_SOFT 5POINT1_SOFT}, {@link #ALC_6POINT1_SOFT 6POINT1_SOFT}, {@link #ALC_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type      sample type of the written audio. One of:<p/>{@link #ALC_BYTE_SOFT BYTE_SOFT}, {@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #ALC_SHORT_SOFT SHORT_SOFT}, {@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #ALC_INT_SOFT INT_SOFT}, {@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #ALC_FLOAT_SOFT FLOAT_SOFT}
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
 		long __functionAddress = getInstance().alcIsRenderFormatSupportedSOFT;
@@ -112,7 +112,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcRenderSamplesSOFT ] ---
 
-	/** JNI method for {@link #alcRenderSamplesSOFT} */
+	/** JNI method for {@link #alcRenderSamplesSOFT alcRenderSamplesSOFT} */
 	public static native void nalcRenderSamplesSOFT(long device, long buffer, int samples, long __functionAddress);
 
 	/**

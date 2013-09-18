@@ -52,12 +52,12 @@ public final class Xutil {
 
 	// --- [ XLookupString ] ---
 
-	/** JNI method for {@link #XLookupString} */
+	/** JNI method for {@link #XLookupString XLookupString} */
 	public static native int nXLookupString(long event_struct, long buffer_return, int bytes_buffer, long keysym_return, long status_in_out);
 
 	/**
 	 * Translates a key event to a {@code KeySym} and a string. The {@code KeySym} is obtained by using the standard interpretation of the Shift, Lock, group,
-	 * and numlock modifiers as defined in the X Protocol specification. If the {@code KeySym} has been rebound (see {@link Xlib#XRebindKeysym}), the bound
+	 * and numlock modifiers as defined in the X Protocol specification. If the {@code KeySym} has been rebound (see {@link Xlib#XRebindKeysym XRebindKeysym}), the bound
 	 * string will be stored in the buffer. Otherwise, the {@code KeySym} is mapped, if possible, to an ISO Latin-1 character or (if the Control modifier is
 	 * on) to an ASCII control character, and that character is stored in the buffer. {@code XLookupString} returns the number of characters that are stored
 	 * in the buffer.
@@ -67,7 +67,7 @@ public final class Xutil {
 	 * program must pass {@code NULL} for this argument.
 	 * <p/>
 	 * {@code XLookupString} depends on the cached keyboard information mentioned in the previous section, so it is necessary to use
-	 * {@link Xlib#XRefreshKeyboardMapping} to keep this information up-to-date.
+	 * {@link Xlib#XRefreshKeyboardMapping XRefreshKeyboardMapping} to keep this information up-to-date.
 	 *
 	 * @param event_struct  specifies the {@link XKeyEvent} structure to be used.
 	 * @param buffer_return returns the translated characters
@@ -84,7 +84,7 @@ public final class Xutil {
 		return nXLookupString(memAddress(event_struct), memAddress(buffer_return), bytes_buffer, memAddress(keysym_return), memAddress(status_in_out));
 	}
 
-	/** Alternative version of: {@link #XLookupString} */
+	/** Alternative version of: {@link #XLookupString XLookupString} */
 	public static int XLookupString(ByteBuffer event_struct, ByteBuffer buffer_return, PointerBuffer keysym_return, ByteBuffer status_in_out) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(event_struct, XKeyEvent.SIZEOF);
@@ -95,12 +95,12 @@ public final class Xutil {
 
 	// --- [ XAllocWMHints ] ---
 
-	/** JNI method for {@link #XAllocWMHints} */
+	/** JNI method for {@link #XAllocWMHints XAllocWMHints} */
 	public static native long nXAllocWMHints();
 
 	/**
 	 * Allocates and returns a pointer to a {@link XWMHints} structure. Note that all fields in the {@link XWMHints} structure are initially set to zero. If
-	 * insufficient memory is available, {@code XAllocWMHints} returns {@code NULL}. To free the memory allocated to this structure, use {@link Xlib#XFree}.
+	 * insufficient memory is available, {@code XAllocWMHints} returns {@code NULL}. To free the memory allocated to this structure, use {@link Xlib#XFree XFree}.
 	 */
 	public static ByteBuffer XAllocWMHints() {
 		long __result = nXAllocWMHints();
@@ -109,12 +109,12 @@ public final class Xutil {
 
 	// --- [ XAllocSizeHints ] ---
 
-	/** JNI method for {@link #XAllocSizeHints} */
+	/** JNI method for {@link #XAllocSizeHints XAllocSizeHints} */
 	public static native long nXAllocSizeHints();
 
 	/**
 	 * Allocates and returns a pointer to a {@link XSizeHints} structure. Note that all fields in the {@link XSizeHints} structure are initially set to zero.
-	 * If insufficient memory is available, {@code XAllocSizeHints} returns {@code NULL}. To free the memory allocated to this structure, use {@link Xlib#XFree}.
+	 * If insufficient memory is available, {@code XAllocSizeHints} returns {@code NULL}. To free the memory allocated to this structure, use {@link Xlib#XFree XFree}.
 	 */
 	public static ByteBuffer XAllocSizeHints() {
 		long __result = nXAllocSizeHints();
@@ -128,7 +128,7 @@ public final class Xutil {
 
 	// --- [ XSaveContext ] ---
 
-	/** JNI method for {@link #XSaveContext} */
+	/** JNI method for {@link #XSaveContext XSaveContext} */
 	public static native int nXSaveContext(long display, long rid, int context, long data);
 
 	/**
@@ -147,7 +147,7 @@ public final class Xutil {
 
 	// --- [ XFindContext ] ---
 
-	/** JNI method for {@link #XFindContext} */
+	/** JNI method for {@link #XFindContext XFindContext} */
 	public static native int nXFindContext(long display, long rid, int context, long data_return);
 
 	/**
@@ -164,7 +164,7 @@ public final class Xutil {
 		return nXFindContext(display, rid, context, memAddress(data_return));
 	}
 
-	/** Alternative version of: {@link #XFindContext} */
+	/** Alternative version of: {@link #XFindContext XFindContext} */
 	public static int XFindContext(long display, long rid, int context, PointerBuffer data_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -173,7 +173,7 @@ public final class Xutil {
 
 	// --- [ XDeleteContext ] ---
 
-	/** JNI method for {@link #XDeleteContext} */
+	/** JNI method for {@link #XDeleteContext XDeleteContext} */
 	public static native int nXDeleteContext(long display, long rid, int context);
 
 	/**

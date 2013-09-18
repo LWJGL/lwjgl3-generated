@@ -36,23 +36,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class WGLARBPbuffer {
 
 	/**
-	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB} and the {@code attributes} parameter of
-	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB}.
+	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
+	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}.
 	 */
 	public static final int
 		WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
 
-	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB}. */
+	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}. */
 	public static final int
 		WGL_MAX_PBUFFER_PIXELS_ARB = 0x202E,
 		WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
 		WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
-	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB}. */
+	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB wglCreatePbufferARB}. */
 	public static final int
 		WGL_PBUFFER_LARGEST_ARB = 0x2033;
 
-	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB}. */
+	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB wglQueryPbufferARB}. */
 	public static final int
 		WGL_PBUFFER_WIDTH_ARB  = 0x2034,
 		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
@@ -62,13 +62,13 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglCreatePbufferARB ] ---
 
-	/** JNI method for {@link #wglCreatePbufferARB} */
+	/** JNI method for {@link #wglCreatePbufferARB wglCreatePbufferARB} */
 	public static native long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList, long __functionAddress);
 
 	/**
 	 * Creates a pixel buffer (pbuffer) and returns a handle to it.
 	 * <p/>
-	 * Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB}
+	 * Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
 	 * attribute to determine which pixel formats support the creation of pbuffers.
 	 *
 	 * @param hdc         a device context for the device on which the pbuffer is created
@@ -87,7 +87,7 @@ public final class WGLARBPbuffer {
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreatePbufferARB} */
+	/** Alternative version of: {@link #wglCreatePbufferARB wglCreatePbufferARB} */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
 		long __functionAddress = getInstance().wglCreatePbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
@@ -100,13 +100,13 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglGetPbufferDCARB ] ---
 
-	/** JNI method for {@link #wglGetPbufferDCARB} */
+	/** JNI method for {@link #wglGetPbufferDCARB wglGetPbufferDCARB} */
 	public static native long nwglGetPbufferDCARB(long pbuffer, long __functionAddress);
 
 	/**
 	 * Creates a device context for the pbuffer.
 	 *
-	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB}
+	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB wglCreatePbufferARB}
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
 		long __functionAddress = getInstance().wglGetPbufferDCARB;
@@ -119,11 +119,11 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglReleasePbufferDCARB ] ---
 
-	/** JNI method for {@link #wglReleasePbufferDCARB} */
+	/** JNI method for {@link #wglReleasePbufferDCARB wglReleasePbufferDCARB} */
 	public static native int nwglReleasePbufferDCARB(long pbuffer, long hdc, long __functionAddress);
 
 	/**
-	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB}.
+	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB wglGetPbufferDCARB}.
 	 *
 	 * @param pbuffer a pbuffer handle
 	 * @param hdc     a device context handle
@@ -140,7 +140,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglDestroyPbufferARB ] ---
 
-	/** JNI method for {@link #wglDestroyPbufferARB} */
+	/** JNI method for {@link #wglDestroyPbufferARB wglDestroyPbufferARB} */
 	public static native int nwglDestroyPbufferARB(long pbuffer, long __functionAddress);
 
 	/**
@@ -162,14 +162,14 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglQueryPbufferARB ] ---
 
-	/** JNI method for {@link #wglQueryPbufferARB} */
+	/** JNI method for {@link #wglQueryPbufferARB wglQueryPbufferARB} */
 	public static native int nwglQueryPbufferARB(long pbuffer, int attribute, long value, long __functionAddress);
 
 	/**
 	 * Queries an attribute associated with a specific pbuffer.
 	 *
 	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<p/>{@link #WGL_PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB}
+	 * @param attribute the attribute to query. One of:<p/>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}
 	 * @param value     the attribute value
 	 */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, ByteBuffer value) {
@@ -182,7 +182,7 @@ public final class WGLARBPbuffer {
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglQueryPbufferARB} */
+	/** Alternative version of: {@link #wglQueryPbufferARB wglQueryPbufferARB} */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
 		long __functionAddress = getInstance().wglQueryPbufferARB;
 		if ( LWJGLUtil.CHECKS ) {

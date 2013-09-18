@@ -215,17 +215,17 @@ public final class ARBImaging {
 
 	// --- [ glColorTable ] ---
 
-	/** JNI method for {@link #glColorTable} */
+	/** JNI method for {@link #glColorTable glColorTable} */
 	public static native void nglColorTable(int target, int internalformat, int width, int format, int type, long table, long __functionAddress);
 
 	/**
 	 * Specifies a color lookup table.
 	 *
-	 * @param target         the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}, {@link #GL_PROXY_COLOR_TABLE}, {@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE}
-	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the color table target. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@583384c0, org.lwjgl.generator.ConstantBlock$Links@1e50867d
+	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param width          the color table width
-	 * @param format         the color data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type           the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format         the color data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type           the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param table          the color table data
 	 */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, ByteBuffer table) {
@@ -237,7 +237,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorTable} */
+	/** Buffer object offset version of: {@link #glColorTable glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, long tableOffset) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -247,7 +247,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, tableOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glColorTable} */
+	/** ShortBuffer version of: {@link #glColorTable glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, ShortBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -257,7 +257,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glColorTable} */
+	/** IntBuffer version of: {@link #glColorTable glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, IntBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -267,7 +267,7 @@ public final class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glColorTable} */
+	/** FloatBuffer version of: {@link #glColorTable glColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, FloatBuffer table) {
 		long __functionAddress = getInstance().glColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -279,14 +279,14 @@ public final class ARBImaging {
 
 	// --- [ glCopyColorTable ] ---
 
-	/** JNI method for {@link #glCopyColorTable} */
+	/** JNI method for {@link #glCopyColorTable glCopyColorTable} */
 	public static native void nglCopyColorTable(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
-	 * Defines a color table in exactly the manner of {@link #glColorTable}, except that the image data are taken from the framebuffer rather than from client memory.
+	 * Defines a color table in exactly the manner of {@link #glColorTable glColorTable}, except that the image data are taken from the framebuffer rather than from client memory.
 	 *
-	 * @param target         the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
-	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the color table width
@@ -300,14 +300,14 @@ public final class ARBImaging {
 
 	// --- [ glColorTableParameteriv ] ---
 
-	/** JNI method for {@link #glColorTableParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
 	public static native void nglColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
 	 * Specifies the scale and bias parameters for a color table.
 	 *
-	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
-	 * @param pname  the parameter to set. One of:<p/>{@link #GL_COLOR_TABLE_SCALE}, {@link #GL_COLOR_TABLE_BIAS}
+	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param pname  the parameter to set. One of:<p/>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}, {@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}
 	 * @param params the parameter value
 	 */
 	public static void glColorTableParameteri(int target, int pname, ByteBuffer params) {
@@ -319,7 +319,7 @@ public final class ARBImaging {
 		nglColorTableParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glColorTableParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
 	public static void glColorTableParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glColorTableParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -331,11 +331,11 @@ public final class ARBImaging {
 
 	// --- [ glColorTableParameterfv ] ---
 
-	/** JNI method for {@link #glColorTableParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
 	public static native void nglColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glColorTableParameteri(int, int, ByteBuffer)}.
+	 * Float version of {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to set
@@ -350,7 +350,7 @@ public final class ARBImaging {
 		nglColorTableParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glColorTableParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
 	public static void glColorTableParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glColorTableParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -362,15 +362,15 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTable ] ---
 
-	/** JNI method for {@link #glGetColorTable} */
+	/** JNI method for {@link #glGetColorTable glGetColorTable} */
 	public static native void nglGetColorTable(int target, int format, int type, long table, long __functionAddress);
 
 	/**
 	 * Returns the current contents of a color table.
 	 *
-	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
-	 * @param format the color data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param format the color data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param table  the color table data
 	 */
 	public static void glGetColorTable(int target, int format, int type, ByteBuffer table) {
@@ -382,7 +382,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetColorTable} */
+	/** Buffer object offset version of: {@link #glGetColorTable glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, long tableOffset) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -392,7 +392,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, tableOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetColorTable} */
+	/** ShortBuffer version of: {@link #glGetColorTable glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, ShortBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -402,7 +402,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetColorTable} */
+	/** IntBuffer version of: {@link #glGetColorTable glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, IntBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -412,7 +412,7 @@ public final class ARBImaging {
 		nglGetColorTable(target, format, type, memAddress(table), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetColorTable} */
+	/** FloatBuffer version of: {@link #glGetColorTable glGetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, FloatBuffer table) {
 		long __functionAddress = getInstance().glGetColorTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -424,14 +424,14 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTableParameteriv ] ---
 
-	/** JNI method for {@link #glGetColorTableParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
 	public static native void nglGetColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified color table parameter.
 	 *
-	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}, {@link #GL_PROXY_COLOR_TABLE}, {@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE}
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_COLOR_TABLE_SCALE}, {@link #GL_COLOR_TABLE_BIAS}, {@link #GL_COLOR_TABLE_FORMAT}, {@link #GL_COLOR_TABLE_WIDTH}, {@link #GL_COLOR_TABLE_RED_SIZE}, {@link #GL_COLOR_TABLE_GREEN_SIZE}, {@link #GL_COLOR_TABLE_BLUE_SIZE}, {@link #GL_COLOR_TABLE_ALPHA_SIZE}, {@link #GL_COLOR_TABLE_LUMINANCE_SIZE}, {@link #GL_COLOR_TABLE_INTENSITY_SIZE}
+	 * @param target the color table target. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@583384c0, org.lwjgl.generator.ConstantBlock$Links@1e50867d
+	 * @param pname  the parameter to query. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@38ad8817, org.lwjgl.generator.ConstantBlock$Links@8c1bb13
 	 * @param params an array in which to place the returned value
 	 */
 	public static void glGetColorTableParameteri(int target, int pname, ByteBuffer params) {
@@ -443,7 +443,7 @@ public final class ARBImaging {
 		nglGetColorTableParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
 	public static void glGetColorTableParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetColorTableParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -453,7 +453,7 @@ public final class ARBImaging {
 		nglGetColorTableParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
 	public static int glGetColorTableParameteri(int target, int pname) {
 		long __functionAddress = getInstance().glGetColorTableParameteriv;
 		if ( LWJGLUtil.CHECKS )
@@ -466,11 +466,11 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTableParameterfv ] ---
 
-	/** JNI method for {@link #glGetColorTableParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
 	public static native void nglGetColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glGetColorTableParameteri(int, int, ByteBuffer)}.
+	 * Float version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to query
@@ -485,7 +485,7 @@ public final class ARBImaging {
 		nglGetColorTableParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
 	public static void glGetColorTableParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glGetColorTableParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -495,7 +495,7 @@ public final class ARBImaging {
 		nglGetColorTableParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
 	public static float glGetColorTableParameterf(int target, int pname) {
 		long __functionAddress = getInstance().glGetColorTableParameterfv;
 		if ( LWJGLUtil.CHECKS )
@@ -508,17 +508,17 @@ public final class ARBImaging {
 
 	// --- [ glColorSubTable ] ---
 
-	/** JNI method for {@link #glColorSubTable} */
+	/** JNI method for {@link #glColorSubTable glColorSubTable} */
 	public static native void nglColorSubTable(int target, int start, int count, int format, int type, long data, long __functionAddress);
 
 	/**
 	 * Respecifies a portion of an existing color table.
 	 *
-	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
 	 * @param start  the starting index of the subregion to respecify
 	 * @param count  the number of colors in the subregion to respecify
-	 * @param format the color data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format the color data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the color data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param data   the color table data
 	 */
 	public static void glColorSubTable(int target, int start, int count, int format, int type, ByteBuffer data) {
@@ -530,7 +530,7 @@ public final class ARBImaging {
 		nglColorSubTable(target, start, count, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorSubTable} */
+	/** Buffer object offset version of: {@link #glColorSubTable glColorSubTable} */
 	public static void glColorSubTable(int target, int start, int count, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glColorSubTable;
 		if ( LWJGLUtil.CHECKS ) {
@@ -542,13 +542,13 @@ public final class ARBImaging {
 
 	// --- [ glCopyColorSubTable ] ---
 
-	/** JNI method for {@link #glCopyColorSubTable} */
+	/** JNI method for {@link #glCopyColorSubTable glCopyColorSubTable} */
 	public static native void nglCopyColorSubTable(int target, int start, int x, int y, int width, long __functionAddress);
 
 	/**
 	 * Respecifies a portion of an existing color table using image taken from the framebuffer.
 	 *
-	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
 	 * @param start  the start index of the subregion to respecify
 	 * @param x      the left framebuffer pixel coordinate
 	 * @param y      the lower framebuffer pixel coordinate
@@ -563,17 +563,17 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionFilter1D ] ---
 
-	/** JNI method for {@link #glConvolutionFilter1D} */
+	/** JNI method for {@link #glConvolutionFilter1D glConvolutionFilter1D} */
 	public static native void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data, long __functionAddress);
 
 	/**
 	 * Defines a one-dimensional convolution filter.
 	 *
-	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_1D}
-	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}
+	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param width          the filter width
-	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param data           the filter data
 	 */
 	public static void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, ByteBuffer data) {
@@ -585,7 +585,7 @@ public final class ARBImaging {
 		nglConvolutionFilter1D(target, internalformat, width, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glConvolutionFilter1D} */
+	/** Buffer object offset version of: {@link #glConvolutionFilter1D glConvolutionFilter1D} */
 	public static void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -597,18 +597,18 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionFilter2D ] ---
 
-	/** JNI method for {@link #glConvolutionFilter2D} */
+	/** JNI method for {@link #glConvolutionFilter2D glConvolutionFilter2D} */
 	public static native void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data, long __functionAddress);
 
 	/**
 	 * Defines a two-dimensional convolution filter.
 	 *
-	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_2D}
-	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_2D CONVOLUTION_2D}
+	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param width          the filter width
 	 * @param height         the filter height
-	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param data           the filter data
 	 */
 	public static void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer data) {
@@ -620,7 +620,7 @@ public final class ARBImaging {
 		nglConvolutionFilter2D(target, internalformat, width, height, format, type, memAddress(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glConvolutionFilter2D} */
+	/** Buffer object offset version of: {@link #glConvolutionFilter2D glConvolutionFilter2D} */
 	public static void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long dataOffset) {
 		long __functionAddress = getInstance().glConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -632,15 +632,15 @@ public final class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter1D ] ---
 
-	/** JNI method for {@link #glCopyConvolutionFilter1D} */
+	/** JNI method for {@link #glCopyConvolutionFilter1D glCopyConvolutionFilter1D} */
 	public static native void nglCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
-	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
+	 * Defines a one-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
 	 *
-	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_1D}
-	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}
+	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the filter width
@@ -654,15 +654,15 @@ public final class ARBImaging {
 
 	// --- [ glCopyConvolutionFilter2D ] ---
 
-	/** JNI method for {@link #glCopyConvolutionFilter2D} */
+	/** JNI method for {@link #glCopyConvolutionFilter2D glCopyConvolutionFilter2D} */
 	public static native void nglCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height, long __functionAddress);
 
 	/**
-	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
+	 * Defines a two-dimensional filter in exactly the manner of {@link #glConvolutionFilter1D glConvolutionFilter1D}, except that image data are taken from the framebuffer, rather than from
 	 * client memory.
 	 *
-	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_2D}
-	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the convolution target. Must be:<p/>{@link #GL_CONVOLUTION_2D CONVOLUTION_2D}
+	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the filter width
@@ -677,15 +677,15 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionFilter ] ---
 
-	/** JNI method for {@link #glGetConvolutionFilter} */
+	/** JNI method for {@link #glGetConvolutionFilter glGetConvolutionFilter} */
 	public static native void nglGetConvolutionFilter(int target, int format, int type, long image, long __functionAddress);
 
 	/**
 	 * Returns the contents of a convolution filter.
 	 *
-	 * @param target the convolution target. One of:<p/>{@link #GL_CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D}
-	 * @param format the filter data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param target the convolution target. One of:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D CONVOLUTION_2D}
+	 * @param format the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param image  the filter data
 	 */
 	public static void glGetConvolutionFilter(int target, int format, int type, ByteBuffer image) {
@@ -697,7 +697,7 @@ public final class ARBImaging {
 		nglGetConvolutionFilter(target, format, type, memAddress(image), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetConvolutionFilter} */
+	/** Buffer object offset version of: {@link #glGetConvolutionFilter glGetConvolutionFilter} */
 	public static void glGetConvolutionFilter(int target, int format, int type, long imageOffset) {
 		long __functionAddress = getInstance().glGetConvolutionFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -709,18 +709,18 @@ public final class ARBImaging {
 
 	// --- [ glSeparableFilter2D ] ---
 
-	/** JNI method for {@link #glSeparableFilter2D} */
+	/** JNI method for {@link #glSeparableFilter2D glSeparableFilter2D} */
 	public static native void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column, long __functionAddress);
 
 	/**
 	 * Specifies a two-dimensional separable convolution filter.
 	 *
-	 * @param target         the filter target. Must be:<p/>{@link #GL_SEPARABLE_2D}
-	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
+	 * @param target         the filter target. Must be:<p/>{@link #GL_SEPARABLE_2D SEPARABLE_2D}
+	 * @param internalformat the filter internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param width          the filter width
 	 * @param height         the filter height
-	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format         the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type           the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param row            the horizontal filter data
 	 * @param column         the vertical filter data
 	 */
@@ -734,7 +734,7 @@ public final class ARBImaging {
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), memAddress(column), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSeparableFilter2D} */
+	/** Buffer object offset version of: {@link #glSeparableFilter2D glSeparableFilter2D} */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long rowOffset, ByteBuffer column) {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -744,7 +744,7 @@ public final class ARBImaging {
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, rowOffset, memAddress(column), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSeparableFilter2D} */
+	/** Buffer object offset version of: {@link #glSeparableFilter2D glSeparableFilter2D} */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, long columnOffset) {
 		long __functionAddress = getInstance().glSeparableFilter2D;
 		if ( LWJGLUtil.CHECKS ) {
@@ -757,15 +757,15 @@ public final class ARBImaging {
 
 	// --- [ glGetSeparableFilter ] ---
 
-	/** JNI method for {@link #glGetSeparableFilter} */
+	/** JNI method for {@link #glGetSeparableFilter glGetSeparableFilter} */
 	public static native void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span, long __functionAddress);
 
 	/**
 	 * Returns the current contents of a separable convolution filter.
 	 *
-	 * @param target the filter target. Must be:<p/>{@link #GL_SEPARABLE_2D}
-	 * @param format the filter data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param target the filter target. Must be:<p/>{@link #GL_SEPARABLE_2D SEPARABLE_2D}
+	 * @param format the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param row    an array in which to return the filter row
 	 * @param column an array in which to return the filter column
 	 * @param span   unused
@@ -780,7 +780,7 @@ public final class ARBImaging {
 		nglGetSeparableFilter(target, format, type, memAddress(row), memAddress(column), memAddressSafe(span), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetSeparableFilter} */
+	/** Buffer object offset version of: {@link #glGetSeparableFilter glGetSeparableFilter} */
 	public static void glGetSeparableFilter(int target, int format, int type, long rowOffset, ByteBuffer column, ByteBuffer span) {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -790,7 +790,7 @@ public final class ARBImaging {
 		nglGetSeparableFilter(target, format, type, rowOffset, memAddress(column), memAddressSafe(span), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetSeparableFilter} */
+	/** Buffer object offset version of: {@link #glGetSeparableFilter glGetSeparableFilter} */
 	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, long columnOffset, ByteBuffer span) {
 		long __functionAddress = getInstance().glGetSeparableFilter;
 		if ( LWJGLUtil.CHECKS ) {
@@ -803,14 +803,14 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameteri ] ---
 
-	/** JNI method for {@link #glConvolutionParameteri} */
+	/** JNI method for {@link #glConvolutionParameteri glConvolutionParameteri} */
 	public static native void nglConvolutionParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
 	 * Specifies the scale and bias of a convolution filter.
 	 *
-	 * @param target the filter target. One of:<p/>{@link #GL_CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D}, {@link #GL_SEPARABLE_2D}
-	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_CONVOLUTION_BORDER_MODE}
+	 * @param target the filter target. One of:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D CONVOLUTION_2D}, {@link #GL_SEPARABLE_2D SEPARABLE_2D}
+	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_CONVOLUTION_BORDER_MODE CONVOLUTION_BORDER_MODE}
 	 * @param param  the parameter value
 	 */
 	public static void glConvolutionParameteri(int target, int pname, int param) {
@@ -822,14 +822,14 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameteriv ] ---
 
-	/** JNI method for {@link #glConvolutionParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
 	public static native void nglConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #glConvolutionParameteri}.
+	 * Pointer version of {@link #glConvolutionParameteri glConvolutionParameteri}.
 	 *
 	 * @param target the filter target
-	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR}
+	 * @param pname  the parameter to set. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@66e0e0e2, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glConvolutionParameteri(int target, int pname, ByteBuffer params) {
@@ -841,7 +841,7 @@ public final class ARBImaging {
 		nglConvolutionParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glConvolutionParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
 	public static void glConvolutionParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glConvolutionParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -853,11 +853,11 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameterf ] ---
 
-	/** JNI method for {@link #glConvolutionParameterf} */
+	/** JNI method for {@link #glConvolutionParameterf glConvolutionParameterf} */
 	public static native void nglConvolutionParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glConvolutionParameteri}
+	 * Float version of {@link #glConvolutionParameteri glConvolutionParameteri}
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to set
@@ -872,14 +872,14 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameterfv ] ---
 
-	/** JNI method for {@link #glConvolutionParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
 	public static native void nglConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #glConvolutionParameterf}.
+	 * Pointer version of {@link #glConvolutionParameterf glConvolutionParameterf}.
 	 *
 	 * @param target the filter target
-	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR}
+	 * @param pname  the parameter to set. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@66e0e0e2, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glConvolutionParameterf(int target, int pname, ByteBuffer params) {
@@ -891,7 +891,7 @@ public final class ARBImaging {
 		nglConvolutionParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glConvolutionParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
 	public static void glConvolutionParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glConvolutionParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -903,14 +903,14 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionParameteriv ] ---
 
-	/** JNI method for {@link #glGetConvolutionParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
 	public static native void nglGetConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
 	 * Returns the value of a convolution filter parameter.
 	 *
-	 * @param target the filter target. One of:<p/>{@link #GL_CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D}, {@link #GL_SEPARABLE_2D}
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_CONVOLUTION_FORMAT}, {@link #GL_CONVOLUTION_WIDTH}, {@link #GL_CONVOLUTION_HEIGHT}, {@link #GL_MAX_CONVOLUTION_WIDTH}, {@link #GL_MAX_CONVOLUTION_HEIGHT}
+	 * @param target the filter target. One of:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D CONVOLUTION_2D}, {@link #GL_SEPARABLE_2D SEPARABLE_2D}
+	 * @param pname  the parameter to query. One of:<p/>{@link #GL_CONVOLUTION_FORMAT CONVOLUTION_FORMAT}, {@link #GL_CONVOLUTION_WIDTH CONVOLUTION_WIDTH}, {@link #GL_CONVOLUTION_HEIGHT CONVOLUTION_HEIGHT}, {@link #GL_MAX_CONVOLUTION_WIDTH MAX_CONVOLUTION_WIDTH}, {@link #GL_MAX_CONVOLUTION_HEIGHT MAX_CONVOLUTION_HEIGHT}
 	 * @param params an array in which to return the parameter value
 	 */
 	public static void glGetConvolutionParameteri(int target, int pname, ByteBuffer params) {
@@ -922,7 +922,7 @@ public final class ARBImaging {
 		nglGetConvolutionParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
 	public static void glGetConvolutionParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetConvolutionParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -932,7 +932,7 @@ public final class ARBImaging {
 		nglGetConvolutionParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
 	public static int glGetConvolutionParameteri(int target, int pname) {
 		long __functionAddress = getInstance().glGetConvolutionParameteriv;
 		if ( LWJGLUtil.CHECKS )
@@ -945,11 +945,11 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionParameterfv ] ---
 
-	/** JNI method for {@link #glGetConvolutionParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
 	public static native void nglGetConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer)}.
+	 * Float version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri}.
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to query
@@ -964,7 +964,7 @@ public final class ARBImaging {
 		nglGetConvolutionParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
 	public static void glGetConvolutionParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glGetConvolutionParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -974,7 +974,7 @@ public final class ARBImaging {
 		nglGetConvolutionParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
 	public static float glGetConvolutionParameterf(int target, int pname) {
 		long __functionAddress = getInstance().glGetConvolutionParameterfv;
 		if ( LWJGLUtil.CHECKS )
@@ -987,16 +987,16 @@ public final class ARBImaging {
 
 	// --- [ glHistogram ] ---
 
-	/** JNI method for {@link #glHistogram} */
+	/** JNI method for {@link #glHistogram glHistogram} */
 	public static native void nglHistogram(int target, int width, int internalformat, boolean sink, long __functionAddress);
 
 	/**
 	 * Specifies the histogram table.
 	 *
-	 * @param target         the histogram target. One of:<p/>{@link #GL_HISTOGRAM}, {@link #GL_PROXY_HISTOGRAM}
+	 * @param target         the histogram target. One of:<p/>{@link #GL_HISTOGRAM HISTOGRAM}, {@link #GL_PROXY_HISTOGRAM PROXY_HISTOGRAM}
 	 * @param width          the histogram width
-	 * @param internalformat the histogram internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
-	 * @param sink           whether pixel groups will be consumed by the histogram operation ({@link GL11#GL_TRUE}) or passed on to the minmax operation ({@link GL11#GL_FALSE})
+	 * @param internalformat the histogram internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
+	 * @param sink           whether pixel groups will be consumed by the histogram operation ({@link GL11#GL_TRUE TRUE}) or passed on to the minmax operation ({@link GL11#GL_FALSE FALSE})
 	 */
 	public static void glHistogram(int target, int width, int internalformat, boolean sink) {
 		long __functionAddress = getInstance().glHistogram;
@@ -1007,13 +1007,13 @@ public final class ARBImaging {
 
 	// --- [ glResetHistogram ] ---
 
-	/** JNI method for {@link #glResetHistogram} */
+	/** JNI method for {@link #glResetHistogram glResetHistogram} */
 	public static native void nglResetHistogram(int target, long __functionAddress);
 
 	/**
 	 * Resets all counters of all elements of the histogram table to zero.
 	 *
-	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM}
+	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM HISTOGRAM}
 	 */
 	public static void glResetHistogram(int target) {
 		long __functionAddress = getInstance().glResetHistogram;
@@ -1024,16 +1024,16 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogram ] ---
 
-	/** JNI method for {@link #glGetHistogram} */
+	/** JNI method for {@link #glGetHistogram glGetHistogram} */
 	public static native void nglGetHistogram(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
 	 * Returns the current contents of the histogram table.
 	 *
-	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM}
-	 * @param reset  if {@link GL11#GL_TRUE}, then all counters of all elements of the histogram are reset to zero. Counters are reset whether returned or not.
-	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the pixel data types. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM HISTOGRAM}
+	 * @param reset  if {@link GL11#GL_TRUE TRUE}, then all counters of all elements of the histogram are reset to zero. Counters are reset whether returned or not.
+	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the pixel data types. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param values the pixel data
 	 */
 	public static void glGetHistogram(int target, boolean reset, int format, int type, ByteBuffer values) {
@@ -1045,7 +1045,7 @@ public final class ARBImaging {
 		nglGetHistogram(target, reset, format, type, memAddress(values), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetHistogram} */
+	/** Buffer object offset version of: {@link #glGetHistogram glGetHistogram} */
 	public static void glGetHistogram(int target, boolean reset, int format, int type, long valuesOffset) {
 		long __functionAddress = getInstance().glGetHistogram;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1057,14 +1057,14 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogramParameteriv ] ---
 
-	/** JNI method for {@link #glGetHistogramParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
 	public static native void nglGetHistogramParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
 	 * Returns the integer values of the specified histogram parameter
 	 *
-	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM}
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_HISTOGRAM_WIDTH}, {@link #GL_HISTOGRAM_FORMAT}, {@link #GL_HISTOGRAM_RED_SIZE}, {@link #GL_HISTOGRAM_GREEN_SIZE}, {@link #GL_HISTOGRAM_BLUE_SIZE}, {@link #GL_HISTOGRAM_ALPHA_SIZE}, {@link #GL_HISTOGRAM_LUMINANCE_SIZE}, {@link #GL_HISTOGRAM_SINK}
+	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM HISTOGRAM}
+	 * @param pname  the parameter to query. One of:<p/>{@link #GL_HISTOGRAM_WIDTH HISTOGRAM_WIDTH}, {@link #GL_HISTOGRAM_FORMAT HISTOGRAM_FORMAT}, {@link #GL_HISTOGRAM_RED_SIZE HISTOGRAM_RED_SIZE}, {@link #GL_HISTOGRAM_GREEN_SIZE HISTOGRAM_GREEN_SIZE}, {@link #GL_HISTOGRAM_BLUE_SIZE HISTOGRAM_BLUE_SIZE}, {@link #GL_HISTOGRAM_ALPHA_SIZE HISTOGRAM_ALPHA_SIZE}, {@link #GL_HISTOGRAM_LUMINANCE_SIZE HISTOGRAM_LUMINANCE_SIZE}, {@link #GL_HISTOGRAM_SINK HISTOGRAM_SINK}
 	 * @param params an array in which to return the parameter values
 	 */
 	public static void glGetHistogramParameteri(int target, int pname, ByteBuffer params) {
@@ -1076,7 +1076,7 @@ public final class ARBImaging {
 		nglGetHistogramParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
 	public static void glGetHistogramParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetHistogramParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1086,7 +1086,7 @@ public final class ARBImaging {
 		nglGetHistogramParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
 	public static int glGetHistogramParameteri(int target, int pname) {
 		long __functionAddress = getInstance().glGetHistogramParameteriv;
 		if ( LWJGLUtil.CHECKS )
@@ -1099,11 +1099,11 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogramParameterfv ] ---
 
-	/** JNI method for {@link #glGetHistogramParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
 	public static native void nglGetHistogramParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glGetHistogramParameteri(int, int, ByteBuffer)}.
+	 * Float version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri}.
 	 *
 	 * @param target the histogram target
 	 * @param pname  the parameter to query
@@ -1118,7 +1118,7 @@ public final class ARBImaging {
 		nglGetHistogramParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
 	public static void glGetHistogramParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glGetHistogramParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1128,7 +1128,7 @@ public final class ARBImaging {
 		nglGetHistogramParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
 	public static float glGetHistogramParameterf(int target, int pname) {
 		long __functionAddress = getInstance().glGetHistogramParameterfv;
 		if ( LWJGLUtil.CHECKS )
@@ -1141,15 +1141,15 @@ public final class ARBImaging {
 
 	// --- [ glMinmax ] ---
 
-	/** JNI method for {@link #glMinmax} */
+	/** JNI method for {@link #glMinmax glMinmax} */
 	public static native void nglMinmax(int target, int internalformat, boolean sink, long __functionAddress);
 
 	/**
 	 * Specifies the minmax table.
 	 *
-	 * @param target         the minmax target. Must be:<p/>{@link #GL_MINMAX}
-	 * @param internalformat the minmax table internal format. One of:<p/>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL30#GL_RG8}, {@link GL31#GL_RG8_SNORM}, {@link GL11#GL_R3_G3_B2}, {@link GL11#GL_RGB4}, {@link GL11#GL_RGB5}, {@link GL41#GL_RGB565}, {@link GL11#GL_RGB8}, {@link GL31#GL_RGB8_SNORM}, {@link GL11#GL_RGB10}, {@link GL11#GL_RGB12}, {@link GL11#GL_RGB16}, {@link GL31#GL_RGB16_SNORM}, {@link GL11#GL_RGBA2}, {@link GL11#GL_RGBA4}, {@link GL11#GL_RGB5_A1}, {@link GL11#GL_RGBA8}, {@link GL31#GL_RGBA8_SNORM}, {@link GL11#GL_RGB10_A2}, {@link GL11#GL_RGBA12}, {@link GL11#GL_RGBA16}, {@link GL31#GL_RGBA16_SNORM}, {@link GL21#GL_SRGB8}, {@link GL21#GL_SRGB8_ALPHA8}, {@link GL30#GL_RGB16F}, {@link GL30#GL_RGBA16F}, {@link GL30#GL_RGB32F}, {@link GL30#GL_RGBA32F}, {@link GL30#GL_R11F_G11F_B10F}, {@link GL11#GL_ALPHA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY}, {@link GL11#GL_ALPHA4}, {@link GL11#GL_ALPHA8}, {@link GL11#GL_ALPHA12}, {@link GL11#GL_ALPHA16}, {@link GL11#GL_LUMINANCE4}, {@link GL11#GL_LUMINANCE8}, {@link GL11#GL_LUMINANCE12}, {@link GL11#GL_LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4}, {@link GL11#GL_INTENSITY8}, {@link GL11#GL_INTENSITY12}, {@link GL11#GL_INTENSITY16}, {@link GL21#GL_SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8}
-	 * @param sink           whether pixel groups will be consumed by the minmax operation ({@link GL11#GL_TRUE}) or passed on to final conversion ({@link GL11#GL_FALSE})
+	 * @param target         the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
+	 * @param internalformat the minmax table internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
+	 * @param sink           whether pixel groups will be consumed by the minmax operation ({@link GL11#GL_TRUE TRUE}) or passed on to final conversion ({@link GL11#GL_FALSE FALSE})
 	 */
 	public static void glMinmax(int target, int internalformat, boolean sink) {
 		long __functionAddress = getInstance().glMinmax;
@@ -1160,13 +1160,13 @@ public final class ARBImaging {
 
 	// --- [ glResetMinmax ] ---
 
-	/** JNI method for {@link #glResetMinmax} */
+	/** JNI method for {@link #glResetMinmax glResetMinmax} */
 	public static native void nglResetMinmax(int target, long __functionAddress);
 
 	/**
 	 * Resets all minimum and maximum values of {@code target} to to their maximum and minimum representable values, respectively.
 	 *
-	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX}
+	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 */
 	public static void glResetMinmax(int target) {
 		long __functionAddress = getInstance().glResetMinmax;
@@ -1177,17 +1177,17 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmax ] ---
 
-	/** JNI method for {@link #glGetMinmax} */
+	/** JNI method for {@link #glGetMinmax glGetMinmax} */
 	public static native void nglGetMinmax(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
 	 * Returns the current contents of the minmax table.
 	 *
-	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX}
-	 * @param reset  If {@link GL11#GL_TRUE}, then each minimum value is reset to the maximum representable value, and each maximum value is reset to the minimum
+	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
+	 * @param reset  If {@link GL11#GL_TRUE TRUE}, then each minimum value is reset to the maximum representable value, and each maximum value is reset to the minimum
 	 *               representable value. All values are reset, whether returned or not.
-	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_RED}, {@link GL11#GL_GREEN}, {@link GL11#GL_BLUE}, {@link GL11#GL_ALPHA}, {@link GL11#GL_RGB}, {@link GL11#GL_RGBA}, {@link GL12#GL_BGR}, {@link GL12#GL_BGRA}, {@link GL11#GL_LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA}
-	 * @param type   the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE}, {@link GL11#GL_BYTE}, {@link GL11#GL_UNSIGNED_SHORT}, {@link GL11#GL_SHORT}, {@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV}
+	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type   the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
 	 * @param values an array in which to place the minmax values
 	 */
 	public static void glGetMinmax(int target, boolean reset, int format, int type, ByteBuffer values) {
@@ -1199,7 +1199,7 @@ public final class ARBImaging {
 		nglGetMinmax(target, reset, format, type, memAddress(values), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetMinmax} */
+	/** Buffer object offset version of: {@link #glGetMinmax glGetMinmax} */
 	public static void glGetMinmax(int target, boolean reset, int format, int type, long valuesOffset) {
 		long __functionAddress = getInstance().glGetMinmax;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1211,13 +1211,13 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmaxParameteriv ] ---
 
-	/** JNI method for {@link #glGetMinmaxParameteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
 	public static native void nglGetMinmaxParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified minmax parameter.
 	 *
-	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX}
+	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query
 	 * @param params an array in which to place the returned value
 	 */
@@ -1230,7 +1230,7 @@ public final class ARBImaging {
 		nglGetMinmaxParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
 	public static void glGetMinmaxParameter(int target, int pname, IntBuffer params) {
 		long __functionAddress = getInstance().glGetMinmaxParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1240,7 +1240,7 @@ public final class ARBImaging {
 		nglGetMinmaxParameteriv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
 	public static int glGetMinmaxParameteri(int target, int pname) {
 		long __functionAddress = getInstance().glGetMinmaxParameteriv;
 		if ( LWJGLUtil.CHECKS )
@@ -1253,13 +1253,13 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmaxParameterfv ] ---
 
-	/** JNI method for {@link #glGetMinmaxParameterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
 	public static native void nglGetMinmaxParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
-	 * Float version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer)}.
+	 * Float version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri}.
 	 *
-	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX}
+	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query
 	 * @param params an array in which to place the returned value
 	 */
@@ -1272,7 +1272,7 @@ public final class ARBImaging {
 		nglGetMinmaxParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
 	public static void glGetMinmaxParameter(int target, int pname, FloatBuffer params) {
 		long __functionAddress = getInstance().glGetMinmaxParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1282,7 +1282,7 @@ public final class ARBImaging {
 		nglGetMinmaxParameterfv(target, pname, memAddress(params), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer)} */
+	/** Single return value version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
 	public static float glGetMinmaxParameterf(int target, int pname) {
 		long __functionAddress = getInstance().glGetMinmaxParameterfv;
 		if ( LWJGLUtil.CHECKS )
@@ -1295,7 +1295,7 @@ public final class ARBImaging {
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor} */
+	/** JNI method for {@link #glBlendColor glBlendColor} */
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -1315,13 +1315,13 @@ public final class ARBImaging {
 
 	// --- [ glBlendEquation ] ---
 
-	/** JNI method for {@link #glBlendEquation} */
+	/** JNI method for {@link #glBlendEquation glBlendEquation} */
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
 	 * Controls the blend equations used for per-fragment blending.
 	 *
-	 * @param mode the blend equation. One of:<p/>{@link #GL_FUNC_ADD}, {@link #GL_FUNC_SUBTRACT}, {@link #GL_FUNC_REVERSE_SUBTRACT}, {@link #GL_MIN}, {@link #GL_MAX}
+	 * @param mode the blend equation. One of:<p/>{@link #GL_FUNC_ADD FUNC_ADD}, {@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link #GL_MIN MIN}, {@link #GL_MAX MAX}
 	 */
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().glBlendEquation;

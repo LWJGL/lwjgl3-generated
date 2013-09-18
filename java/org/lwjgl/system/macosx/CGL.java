@@ -15,10 +15,12 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
+import org.lwjgl.opengl.GL11;
+
 /** Native bindings to CGL. */
 public final class CGL {
 
-	/** Attribute names for {@link #CGLChoosePixelFormat} and {@link #CGLDescribePixelFormat}: */
+	/** Attribute names for {@link #CGLChoosePixelFormat ChoosePixelFormat} and {@link #CGLDescribePixelFormat DescribePixelFormat}: */
 	public static final int
 		kCGLPFAAllRenderers                       = 0x1,
 		kCGLPFATripleBuffer                       = 0x3,
@@ -62,7 +64,7 @@ public final class CGL {
 		kCGLPFAMultiScreen                        = 0x51,
 		kCGLPFAFullScreen                         = 0x36;
 
-	/** Property names for {@link #CGLDescribeRenderer}: */
+	/** Property names for {@link #CGLDescribeRenderer DescribeRenderer}: */
 	public static final int
 		kCGLRPOffScreen              = 0x35,
 		kCGLRPRendererID             = 0x46,
@@ -95,7 +97,7 @@ public final class CGL {
 		kCGLRPMultiScreen            = 0x51,
 		kCGLRPFullScreen             = 0x36;
 
-	/** Enable names for {@link #CGLEnable}, {@link #CGLDisable}, and {@link #CGLIsEnabled}: */
+	/** Enable names for {@link #CGLEnable Enable}, {@link #CGLDisable Disable}, and {@link #CGLIsEnabled IsEnabled}: */
 	public static final int
 		kCGLCESwapRectangle           = 0xC9,
 		kCGLCESwapLimit               = 0xCB,
@@ -105,7 +107,7 @@ public final class CGL {
 		kCGLCEDisplayListOptimization = 0x133,
 		kCGLCEMPEngine                = 0x139;
 
-	/** Parameter names for {@link #CGLSetParameter} and {@link #CGLGetParameter}: */
+	/** Parameter names for {@link #CGLSetParameter SetParameter} and {@link #CGLGetParameter GetParameter}: */
 	public static final int
 		kCGLCPSwapRectangle          = 0xC8,
 		kCGLCPSwapInterval           = 0xDE,
@@ -123,7 +125,7 @@ public final class CGL {
 		kCGLCPHasDrawable            = 0x13A,
 		kCGLCPMPSwapsInFlight        = 0x13B;
 
-	/** Option names for {@link #CGLSetGlobalOption} and {@link #CGLGetGlobalOption}: */
+	/** Option names for {@link #CGLSetGlobalOption SetGlobalOption} and {@link #CGLGetGlobalOption GetGlobalOption}: */
 	public static final int
 		kCGLGOFormatCacheSize  = 0x1F5,
 		kCGLGOClearFormatCache = 0x1F6,
@@ -228,7 +230,7 @@ public final class CGL {
 
 	// --- [ CGLSetCurrentContext ] ---
 
-	/** JNI method for {@link #CGLSetCurrentContext} */
+	/** JNI method for {@link #CGLSetCurrentContext CGLSetCurrentContext} */
 	public static native int nCGLSetCurrentContext(long context);
 
 	/**
@@ -251,7 +253,7 @@ public final class CGL {
 
 	// --- [ CGLGetShareGroup ] ---
 
-	/** JNI method for {@link #CGLGetShareGroup} */
+	/** JNI method for {@link #CGLGetShareGroup CGLGetShareGroup} */
 	public static native long nCGLGetShareGroup(long ctx);
 
 	/**
@@ -267,7 +269,7 @@ public final class CGL {
 
 	// --- [ CGLChoosePixelFormat ] ---
 
-	/** JNI method for {@link #CGLChoosePixelFormat} */
+	/** JNI method for {@link #CGLChoosePixelFormat CGLChoosePixelFormat} */
 	public static native int nCGLChoosePixelFormat(long attribs, long pix, long npix);
 
 	/**
@@ -275,7 +277,7 @@ public final class CGL {
 	 *
 	 * @param attribs a 0 terminated array that contains a list of buffer and renderer attributes. Attributes can be Boolean or integer. If an attribute is integer, you
 	 *                must supply the desired value immediately following the attribute. If the attribute is Boolean, do not supply a value because its presence in the
-	 *                attributes array implies a true value. One of:<p/>{@link #kCGLPFAAllRenderers}, {@link #kCGLPFATripleBuffer}, {@link #kCGLPFADoubleBuffer}, {@link #kCGLPFAStereo}, {@link #kCGLPFAColorSize}, {@link #kCGLPFAAlphaSize}, {@link #kCGLPFADepthSize}, {@link #kCGLPFAStencilSize}, {@link #kCGLPFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy}, {@link #kCGLPFASampleBuffers}, {@link #kCGLPFASamples}, {@link #kCGLPFAColorFloat}, {@link #kCGLPFAMultisample}, {@link #kCGLPFASupersample}, {@link #kCGLPFASampleAlpha}, {@link #kCGLPFARendererID}, {@link #kCGLPFASingleRenderer}, {@link #kCGLPFANoRecovery}, {@link #kCGLPFAAccelerated}, {@link #kCGLPFAClosestPolicy}, {@link #kCGLPFABackingStore}, {@link #kCGLPFABackingVolatile}, {@link #kCGLPFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers}, {@link #kCGLPFAAccumSize}, {@link #kCGLPFAOffScreen}, {@link #kCGLPFAAuxDepthStencil}, {@link #kCGLPFAWindow}, {@link #kCGLPFACompliant}, {@link #kCGLPFAPBuffer}, {@link #kCGLPFARemotePBuffer}, {@link #kCGLPFARobust}, {@link #kCGLPFAMPSafe}, {@link #kCGLPFAMultiScreen}, {@link #kCGLPFAFullScreen}
+	 *                attributes array implies a true value. One of:<p/>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
 	 * @param pix     the memory address of a pixel format object. On return, points to a new pixel format object that contains pixel format information and a list of
 	 *                virtual screens. If there are no pixel formats or virtual screens that satisfy the constraints of the buffer and renderer attributes, the value of
 	 *                pix is set to {@code NULL}.
@@ -289,7 +291,7 @@ public final class CGL {
 		return nCGLChoosePixelFormat(memAddress(attribs), memAddressSafe(pix), memAddress(npix));
 	}
 
-	/** Alternative version of: {@link #CGLChoosePixelFormat} */
+	/** Alternative version of: {@link #CGLChoosePixelFormat CGLChoosePixelFormat} */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( pix != null ) checkBuffer(pix, 1);
@@ -300,11 +302,11 @@ public final class CGL {
 
 	// --- [ CGLDestroyPixelFormat ] ---
 
-	/** JNI method for {@link #CGLDestroyPixelFormat} */
+	/** JNI method for {@link #CGLDestroyPixelFormat CGLDestroyPixelFormat} */
 	public static native int nCGLDestroyPixelFormat(long pix);
 
 	/**
-	 * Frees the memory associated with a pixel format object. Calling this function is equivalent to calling {@link #CGLReleasePixelFormat}.
+	 * Frees the memory associated with a pixel format object. Calling this function is equivalent to calling {@link #CGLReleasePixelFormat ReleasePixelFormat}.
 	 *
 	 * @param pix the pixel format object to destroy
 	 */
@@ -316,7 +318,7 @@ public final class CGL {
 
 	// --- [ CGLDescribePixelFormat ] ---
 
-	/** JNI method for {@link #CGLDescribePixelFormat} */
+	/** JNI method for {@link #CGLDescribePixelFormat CGLDescribePixelFormat} */
 	public static native int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value);
 
 	/**
@@ -324,7 +326,7 @@ public final class CGL {
 	 *
 	 * @param pix     the pixel format object to query
 	 * @param pix_num the virtual screen number whose attribute value you want to retrieve. This value must be between 0 and the number of virtual screens minus one.
-	 * @param attrib  the attribute whose value you want to obtain. One of:<p/>{@link #kCGLPFAAllRenderers}, {@link #kCGLPFATripleBuffer}, {@link #kCGLPFADoubleBuffer}, {@link #kCGLPFAStereo}, {@link #kCGLPFAColorSize}, {@link #kCGLPFAAlphaSize}, {@link #kCGLPFADepthSize}, {@link #kCGLPFAStencilSize}, {@link #kCGLPFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy}, {@link #kCGLPFASampleBuffers}, {@link #kCGLPFASamples}, {@link #kCGLPFAColorFloat}, {@link #kCGLPFAMultisample}, {@link #kCGLPFASupersample}, {@link #kCGLPFASampleAlpha}, {@link #kCGLPFARendererID}, {@link #kCGLPFASingleRenderer}, {@link #kCGLPFANoRecovery}, {@link #kCGLPFAAccelerated}, {@link #kCGLPFAClosestPolicy}, {@link #kCGLPFABackingStore}, {@link #kCGLPFABackingVolatile}, {@link #kCGLPFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers}, {@link #kCGLPFAAccumSize}, {@link #kCGLPFAOffScreen}, {@link #kCGLPFAAuxDepthStencil}, {@link #kCGLPFAWindow}, {@link #kCGLPFACompliant}, {@link #kCGLPFAPBuffer}, {@link #kCGLPFARemotePBuffer}, {@link #kCGLPFARobust}, {@link #kCGLPFAMPSafe}, {@link #kCGLPFAMultiScreen}, {@link #kCGLPFAFullScreen}
+	 * @param attrib  the attribute whose value you want to obtain. One of:<p/>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
 	 * @param value   on return, points to the value of the attribute
 	 */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, ByteBuffer value) {
@@ -335,7 +337,7 @@ public final class CGL {
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #CGLDescribePixelFormat} */
+	/** Alternative version of: {@link #CGLDescribePixelFormat CGLDescribePixelFormat} */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(pix);
@@ -346,13 +348,13 @@ public final class CGL {
 
 	// --- [ CGLReleasePixelFormat ] ---
 
-	/** JNI method for {@link #CGLReleasePixelFormat} */
+	/** JNI method for {@link #CGLReleasePixelFormat CGLReleasePixelFormat} */
 	public static native void nCGLReleasePixelFormat(long pix);
 
 	/**
 	 * Decrements the reference count of a pixel format object.
 	 * <p/>
-	 * The system retains the pixel format object when you call the function {@link #CGLCreateContext}, so you can release a pixel format object immediately
+	 * The system retains the pixel format object when you call the function {@link #CGLCreateContext CreateContext}, so you can release a pixel format object immediately
 	 * after passing it to the context creation function.
 	 * <p/>
 	 * Each call to CGLReleasePixelFormat decreases the reference count by 1. If the reference count reaches 0, the pixel format object is destroyed.
@@ -367,14 +369,14 @@ public final class CGL {
 
 	// --- [ CGLRetainPixelFormat ] ---
 
-	/** JNI method for {@link #CGLRetainPixelFormat} */
+	/** JNI method for {@link #CGLRetainPixelFormat CGLRetainPixelFormat} */
 	public static native long nCGLRetainPixelFormat(long pix);
 
 	/**
 	 * Increments the receiver's reference count.
 	 * <p/>
 	 * Each call to CGLRetainPixelFormat increases the reference count by 1. Each call to CGLRetainPixelFormat must be matched with a call to
-	 * {@link #CGLReleasePixelFormat}.
+	 * {@link #CGLReleasePixelFormat ReleasePixelFormat}.
 	 *
 	 * @param pix the pixel format object whose reference count should be incremented
 	 */
@@ -386,7 +388,7 @@ public final class CGL {
 
 	// --- [ CGLGetPixelFormatRetainCount ] ---
 
-	/** JNI method for {@link #CGLGetPixelFormatRetainCount} */
+	/** JNI method for {@link #CGLGetPixelFormatRetainCount CGLGetPixelFormatRetainCount} */
 	public static native int nCGLGetPixelFormatRetainCount(long pix);
 
 	/**
@@ -402,7 +404,7 @@ public final class CGL {
 
 	// --- [ CGLQueryRendererInfo ] ---
 
-	/** JNI method for {@link #CGLQueryRendererInfo} */
+	/** JNI method for {@link #CGLQueryRendererInfo CGLQueryRendererInfo} */
 	public static native int nCGLQueryRendererInfo(int display_mask, long rend, long nrend);
 
 	/**
@@ -413,7 +415,7 @@ public final class CGL {
 	 *                     information for all renderers in the system you must call CGLQueryRendererInfo once for each display bit.
 	 * @param rend         the memory address of a renderer information object. On return, points to a renderer information object that describes all renderers that are able
 	 *                     to drive the displays specified by the {@code display_mask} parameter. If {@code display_mask} does not specify any displays, the value of
-	 *                     {@code rend} is set to {@code NULL}. You must call {@link #CGLDestroyRendererInfo} when you no longer need this object.
+	 *                     {@code rend} is set to {@code NULL}. You must call {@link #CGLDestroyRendererInfo DestroyRendererInfo} when you no longer need this object.
 	 * @param nrend        on return, points to the number of renderers described in the renderer information object. If {@code display_mask} does not specify any displays,
 	 *                     the value of {@code nrend} is set to 0.
 	 */
@@ -425,7 +427,7 @@ public final class CGL {
 		return nCGLQueryRendererInfo(display_mask, memAddress(rend), memAddress(nrend));
 	}
 
-	/** Alternative version of: {@link #CGLQueryRendererInfo} */
+	/** Alternative version of: {@link #CGLQueryRendererInfo CGLQueryRendererInfo} */
 	public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, IntBuffer nrend) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(rend, 1);
@@ -436,7 +438,7 @@ public final class CGL {
 
 	// --- [ CGLDestroyRendererInfo ] ---
 
-	/** JNI method for {@link #CGLDestroyRendererInfo} */
+	/** JNI method for {@link #CGLDestroyRendererInfo CGLDestroyRendererInfo} */
 	public static native int nCGLDestroyRendererInfo(long rend);
 
 	/**
@@ -452,19 +454,19 @@ public final class CGL {
 
 	// --- [ CGLDescribeRenderer ] ---
 
-	/** JNI method for {@link #CGLDescribeRenderer} */
+	/** JNI method for {@link #CGLDescribeRenderer CGLDescribeRenderer} */
 	public static native int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value);
 
 	/**
 	 * Obtains the value associated with a renderer property.
 	 *
 	 * @param rend     an opaque renderer information object that contains a description of the renderer capabilities you want to inspect. You can obtain a renderer
-	 *                 information object by calling the function {@link #CGLQueryRendererInfo}. You must call {@link #CGLDestroyRendererInfo} when you no longer need this
+	 *                 information object by calling the function {@link #CGLQueryRendererInfo QueryRendererInfo}. You must call {@link #CGLDestroyRendererInfo DestroyRendererInfo} when you no longer need this
 	 *                 object.
 	 * @param rend_num the index of the renderer inside the renderer information object — a value between 0 and the number of renderers minus one. The number of renderers
-	 *                 can be obtained by calling {@link #CGLDescribeRenderer}, passing in {@code rend}, renderer number 0, and the renderer property
-	 *                 {@link #kCGLRPRendererCount}.
-	 * @param prop     the renderer property whose value you want to obtain. One of:<p/>{@link #kCGLRPOffScreen}, {@link #kCGLRPRendererID}, {@link #kCGLRPAccelerated}, {@link #kCGLRPBackingStore}, {@link #kCGLRPWindow}, {@link #kCGLRPCompliant}, {@link #kCGLRPDisplayMask}, {@link #kCGLRPBufferModes}, {@link #kCGLRPColorModes}, {@link #kCGLRPAccumModes}, {@link #kCGLRPDepthModes}, {@link #kCGLRPStencilModes}, {@link #kCGLRPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers}, {@link #kCGLRPMaxSamples}, {@link #kCGLRPSampleModes}, {@link #kCGLRPSampleAlpha}, {@link #kCGLRPVideoMemory}, {@link #kCGLRPTextureMemory}, {@link #kCGLRPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable}, {@link #kCGLRPRendererCount}, {@link #kCGLRPOnline}, {@link #kCGLRPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes}, {@link #kCGLRPRobust}, {@link #kCGLRPMPSafe}, {@link #kCGLRPMultiScreen}, {@link #kCGLRPFullScreen}
+	 *                 can be obtained by calling {@link #CGLDescribeRenderer DescribeRenderer}, passing in {@code rend}, renderer number 0, and the renderer property
+	 *                 {@link #kCGLRPRendererCount RPRendererCount}.
+	 * @param prop     the renderer property whose value you want to obtain. One of:<p/>{@link #kCGLRPOffScreen RPOffScreen}, {@link #kCGLRPRendererID RPRendererID}, {@link #kCGLRPAccelerated RPAccelerated}, {@link #kCGLRPBackingStore RPBackingStore}, {@link #kCGLRPWindow RPWindow}, {@link #kCGLRPCompliant RPCompliant}, {@link #kCGLRPDisplayMask RPDisplayMask}, {@link #kCGLRPBufferModes RPBufferModes}, {@link #kCGLRPColorModes RPColorModes}, {@link #kCGLRPAccumModes RPAccumModes}, {@link #kCGLRPDepthModes RPDepthModes}, {@link #kCGLRPStencilModes RPStencilModes}, {@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}, {@link #kCGLRPMaxSamples RPMaxSamples}, {@link #kCGLRPSampleModes RPSampleModes}, {@link #kCGLRPSampleAlpha RPSampleAlpha}, {@link #kCGLRPVideoMemory RPVideoMemory}, {@link #kCGLRPTextureMemory RPTextureMemory}, {@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}, {@link #kCGLRPRendererCount RPRendererCount}, {@link #kCGLRPOnline RPOnline}, {@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}, {@link #kCGLRPRobust RPRobust}, {@link #kCGLRPMPSafe RPMPSafe}, {@link #kCGLRPMultiScreen RPMultiScreen}, {@link #kCGLRPFullScreen RPFullScreen}
 	 * @param value    on return, points to the value of the requested property
 	 */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, ByteBuffer value) {
@@ -475,7 +477,7 @@ public final class CGL {
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #CGLDescribeRenderer} */
+	/** Alternative version of: {@link #CGLDescribeRenderer CGLDescribeRenderer} */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(rend);
@@ -486,13 +488,13 @@ public final class CGL {
 
 	// --- [ CGLCreateContext ] ---
 
-	/** JNI method for {@link #CGLCreateContext} */
+	/** JNI method for {@link #CGLCreateContext CGLCreateContext} */
 	public static native int nCGLCreateContext(long pix, long share, long ctx);
 
 	/**
 	 * Creates a CGL rendering context.
 	 *
-	 * @param pix   a pixel format object created by calling the function {@link #CGLChoosePixelFormat}
+	 * @param pix   a pixel format object created by calling the function {@link #CGLChoosePixelFormat ChoosePixelFormat}
 	 * @param share the rendering context with which to share the OpenGL object state — including texture objects, programs and shader display lists, vertex array
 	 *              objects, vertex buffer objects, pixel buffer objects, and frame buffer objects — and the object state associated which each of these object types.
 	 *              Pass {@code NULL} to indicate that no sharing is to take place.
@@ -508,7 +510,7 @@ public final class CGL {
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
 
-	/** Alternative version of: {@link #CGLCreateContext} */
+	/** Alternative version of: {@link #CGLCreateContext CGLCreateContext} */
 	public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(pix);
@@ -520,15 +522,15 @@ public final class CGL {
 
 	// --- [ CGLDestroyContext ] ---
 
-	/** JNI method for {@link #CGLDestroyContext} */
+	/** JNI method for {@link #CGLDestroyContext CGLDestroyContext} */
 	public static native int nCGLDestroyContext(long ctx);
 
 	/**
 	 * Frees the resources associated with a rendering context.
 	 * <p/>
 	 * Starting in Mac OS 10.5, CGL rendering contexts are reference counted. For compatibility reasons, calling CGLDestroyContext clears the drawable
-	 * associated with the rendering context. Calling CGLDestroyContext is the equivalent of calling both {@link #CGLClearDrawable} and
-	 * {@link #CGLReleaseContext}.
+	 * associated with the rendering context. Calling CGLDestroyContext is the equivalent of calling both {@link #CGLClearDrawable ClearDrawable} and
+	 * {@link #CGLReleaseContext ReleaseContext}.
 	 *
 	 * @param ctx the rendering context to destroy
 	 */
@@ -540,7 +542,7 @@ public final class CGL {
 
 	// --- [ CGLCopyContext ] ---
 
-	/** JNI method for {@link #CGLCopyContext} */
+	/** JNI method for {@link #CGLCopyContext CGLCopyContext} */
 	public static native int nCGLCopyContext(long src, long dst, int mask);
 
 	/**
@@ -549,8 +551,8 @@ public final class CGL {
 	 * @param src  the source rendering context
 	 * @param dst  the destination rendering context
 	 * @param mask a mask that specifies the state variables to copy. Pass a bit field that contains the bitwise OR of the state variable names that you want to copy.
-	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link org.lwjgl.opengl.GL11#glPushAttrib}. To copy as many state variables
-	 *             as possible, supply the constant {@link org.lwjgl.opengl.GL11#GL_ALL_ATTRIB_BITS}.
+	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib PushAttrib}. To copy as many state variables
+	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}.
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -562,14 +564,14 @@ public final class CGL {
 
 	// --- [ CGLRetainContext ] ---
 
-	/** JNI method for {@link #CGLRetainContext} */
+	/** JNI method for {@link #CGLRetainContext CGLRetainContext} */
 	public static native long nCGLRetainContext(long ctx);
 
 	/**
 	 * Increments the retain count on a CGL rendering context.
 	 * <p/>
 	 * Each call to CGLRetainContext increases the retain count by 1. To prevent memory leaks, each retain call must be balanced with a call to
-	 * {@link #CGLReleaseContext}.
+	 * {@link #CGLReleaseContext ReleaseContext}.
 	 *
 	 * @param ctx the rendering context to be retained
 	 *
@@ -583,7 +585,7 @@ public final class CGL {
 
 	// --- [ CGLReleaseContext ] ---
 
-	/** JNI method for {@link #CGLReleaseContext} */
+	/** JNI method for {@link #CGLReleaseContext CGLReleaseContext} */
 	public static native void nCGLReleaseContext(long ctx);
 
 	/**
@@ -606,7 +608,7 @@ public final class CGL {
 
 	// --- [ CGLGetContextRetainCount ] ---
 
-	/** JNI method for {@link #CGLGetContextRetainCount} */
+	/** JNI method for {@link #CGLGetContextRetainCount CGLGetContextRetainCount} */
 	public static native int nCGLGetContextRetainCount(long ctx);
 
 	/**
@@ -622,14 +624,14 @@ public final class CGL {
 
 	// --- [ CGLGetPixelFormat ] ---
 
-	/** JNI method for {@link #CGLGetPixelFormat} */
+	/** JNI method for {@link #CGLGetPixelFormat CGLGetPixelFormat} */
 	public static native long nCGLGetPixelFormat(long ctx);
 
 	/**
 	 * Retrieves the current pixel format associated with a CGL rendering context.
 	 * <p/>
 	 * The pixel format object is not retained before being returned to your application. If your application needs to maintain this object, it should call
-	 * {@link #CGLRetainPixelFormat}.
+	 * {@link #CGLRetainPixelFormat RetainPixelFormat}.
 	 *
 	 * @param ctx the CGL rendering context whose format you want to receive
 	 */
@@ -641,7 +643,7 @@ public final class CGL {
 
 	// --- [ CGLClearDrawable ] ---
 
-	/** JNI method for {@link #CGLClearDrawable} */
+	/** JNI method for {@link #CGLClearDrawable CGLClearDrawable} */
 	public static native int nCGLClearDrawable(long ctx);
 
 	/**
@@ -657,18 +659,18 @@ public final class CGL {
 
 	// --- [ CGLFlushDrawable ] ---
 
-	/** JNI method for {@link #CGLFlushDrawable} */
+	/** JNI method for {@link #CGLFlushDrawable CGLFlushDrawable} */
 	public static native int nCGLFlushDrawable(long ctx);
 
 	/**
 	 * Copies the back buffer of a double-buffered context to the front buffer.
 	 * <p/>
-	 * To create a double-buffered context, specify the {@link #kCGLPFADoubleBuffer} attribute when you create the pixel format object for the rendering
+	 * To create a double-buffered context, specify the {@link #kCGLPFADoubleBuffer PFADoubleBuffer} attribute when you create the pixel format object for the rendering
 	 * context. If the backing store attribute is set to false, the buffers can be exchanged rather than copied. This is often the case in full-screen mode. If
 	 * the receiver is not a double-buffered context, this call does nothing.
 	 * <p/>
-	 * If you set the swap interval attribute ({@link #kCGLCPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
-	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link org.lwjgl.opengl.GL11#glFlush} operation is performed by CGLFlushDrawable
+	 * If you set the swap interval attribute ({@link #kCGLCPSwapInterval CPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
+	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush Flush} operation is performed by CGLFlushDrawable
 	 * before it returns. For optimal performance, an application should not call glFlush immediately before calling CGLFlushDrawable. Subsequent OpenGL
 	 * commands can be issued immediately after calling CGLFlushDrawable, but are not executed until the buffer copy is completed.
 	 *
@@ -682,14 +684,14 @@ public final class CGL {
 
 	// --- [ CGLEnable ] ---
 
-	/** JNI method for {@link #CGLEnable} */
+	/** JNI method for {@link #CGLEnable CGLEnable} */
 	public static native int nCGLEnable(long ctx, int pname);
 
 	/**
 	 * Enables an option for a rendering context.
 	 *
 	 * @param ctx   a rendering context
-	 * @param pname the option to enable. One of:<p/>{@link #kCGLCESwapRectangle}, {@link #kCGLCESwapLimit}, {@link #kCGLCERasterization}, {@link #kCGLCEStateValidation}, {@link #kCGLCESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization}, {@link #kCGLCEMPEngine}
+	 * @param pname the option to enable. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLEnable(long ctx, int pname) {
 		if ( LWJGLUtil.CHECKS )
@@ -699,14 +701,14 @@ public final class CGL {
 
 	// --- [ CGLDisable ] ---
 
-	/** JNI method for {@link #CGLDisable} */
+	/** JNI method for {@link #CGLDisable CGLDisable} */
 	public static native int nCGLDisable(long ctx, int pname);
 
 	/**
 	 * Disables an option for a rendering context.
 	 *
 	 * @param ctx   a rendering context
-	 * @param pname the option to disable. One of:<p/>{@link #kCGLCESwapRectangle}, {@link #kCGLCESwapLimit}, {@link #kCGLCERasterization}, {@link #kCGLCEStateValidation}, {@link #kCGLCESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization}, {@link #kCGLCEMPEngine}
+	 * @param pname the option to disable. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLDisable(long ctx, int pname) {
 		if ( LWJGLUtil.CHECKS )
@@ -716,14 +718,14 @@ public final class CGL {
 
 	// --- [ CGLIsEnabled ] ---
 
-	/** JNI method for {@link #CGLIsEnabled} */
+	/** JNI method for {@link #CGLIsEnabled CGLIsEnabled} */
 	public static native int nCGLIsEnabled(long ctx, int pname, long enable);
 
 	/**
 	 * Reports whether an option is enabled for a rendering context.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the option to query. One of:<p/>{@link #kCGLCESwapRectangle}, {@link #kCGLCESwapLimit}, {@link #kCGLCERasterization}, {@link #kCGLCEStateValidation}, {@link #kCGLCESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization}, {@link #kCGLCEMPEngine}
+	 * @param pname  the option to query. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 * @param enable on return, enable is set to true if the option is enabled
 	 */
 	public static int CGLIsEnabled(long ctx, int pname, ByteBuffer enable) {
@@ -734,7 +736,7 @@ public final class CGL {
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
 
-	/** Alternative version of: {@link #CGLIsEnabled} */
+	/** Alternative version of: {@link #CGLIsEnabled CGLIsEnabled} */
 	public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -745,14 +747,14 @@ public final class CGL {
 
 	// --- [ CGLSetParameter ] ---
 
-	/** JNI method for {@link #CGLSetParameter} */
+	/** JNI method for {@link #CGLSetParameter CGLSetParameter} */
 	public static native int nCGLSetParameter(long ctx, int pname, long params);
 
 	/**
 	 * Sets the value of a rendering context parameter.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the parameter whose value you want to set. One of:<p/>{@link #kCGLCPSwapRectangle}, {@link #kCGLCPSwapInterval}, {@link #kCGLCPDispatchTableSize}, {@link #kCGLCPClientStorage}, {@link #kCGLCPSurfaceTexture}, {@link #kCGLCPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources}, {@link #kCGLCPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable}, {@link #kCGLCPMPSwapsInFlight}
+	 * @param pname  the parameter whose value you want to set. One of:<p/>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params a pointer to the value to set the parameter to
 	 */
 	public static int CGLSetParameter(long ctx, int pname, ByteBuffer params) {
@@ -763,7 +765,7 @@ public final class CGL {
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLSetParameter} */
+	/** Alternative version of: {@link #CGLSetParameter CGLSetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -772,7 +774,7 @@ public final class CGL {
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetParameter} */
+	/** Single value version of: {@link #CGLSetParameter CGLSetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, int param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
@@ -783,14 +785,14 @@ public final class CGL {
 
 	// --- [ CGLGetParameter ] ---
 
-	/** JNI method for {@link #CGLGetParameter} */
+	/** JNI method for {@link #CGLGetParameter CGLGetParameter} */
 	public static native int nCGLGetParameter(long ctx, int pname, long params);
 
 	/**
 	 * Retrieves the value of a rendering context parameter.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the parameter whose value you want to retrieve. One of:<p/>{@link #kCGLCPSwapRectangle}, {@link #kCGLCPSwapInterval}, {@link #kCGLCPDispatchTableSize}, {@link #kCGLCPClientStorage}, {@link #kCGLCPSurfaceTexture}, {@link #kCGLCPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources}, {@link #kCGLCPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable}, {@link #kCGLCPMPSwapsInFlight}
+	 * @param pname  the parameter whose value you want to retrieve. One of:<p/>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params on return, points to the value of the parameter
 	 */
 	public static int CGLGetParameter(long ctx, int pname, ByteBuffer params) {
@@ -801,7 +803,7 @@ public final class CGL {
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLGetParameter} */
+	/** Alternative version of: {@link #CGLGetParameter CGLGetParameter} */
 	public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -812,7 +814,7 @@ public final class CGL {
 
 	// --- [ CGLSetVirtualScreen ] ---
 
-	/** JNI method for {@link #CGLSetVirtualScreen} */
+	/** JNI method for {@link #CGLSetVirtualScreen CGLSetVirtualScreen} */
 	public static native int nCGLSetVirtualScreen(long ctx, int screen);
 
 	/**
@@ -825,8 +827,8 @@ public final class CGL {
 	 *
 	 * @param ctx    a rendering context
 	 * @param screen a virtual screen number, which must be a value between 0 and the number of virtual screens minus one. The number of virtual screens available in a
-	 *               context can be obtained by calling the function {@link #CGLDescribePixelFormat}, passing in the pixel format object used to create the rendering
-	 *               context, 0 for the virtual screen number ({@code pix_num} parameter), and the attribute constant {@link #kCGLPFAVirtualScreenCount}.
+	 *               context can be obtained by calling the function {@link #CGLDescribePixelFormat DescribePixelFormat}, passing in the pixel format object used to create the rendering
+	 *               context, 0 for the virtual screen number ({@code pix_num} parameter), and the attribute constant {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}.
 	 */
 	public static int CGLSetVirtualScreen(long ctx, int screen) {
 		if ( LWJGLUtil.CHECKS )
@@ -836,7 +838,7 @@ public final class CGL {
 
 	// --- [ CGLGetVirtualScreen ] ---
 
-	/** JNI method for {@link #CGLGetVirtualScreen} */
+	/** JNI method for {@link #CGLGetVirtualScreen CGLGetVirtualScreen} */
 	public static native int nCGLGetVirtualScreen(long ctx, long screen);
 
 	/**
@@ -857,7 +859,7 @@ public final class CGL {
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
 
-	/** Alternative version of: {@link #CGLGetVirtualScreen} */
+	/** Alternative version of: {@link #CGLGetVirtualScreen CGLGetVirtualScreen} */
 	public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -868,7 +870,7 @@ public final class CGL {
 
 	// --- [ CGLUpdateContext ] ---
 
-	/** JNI method for {@link #CGLUpdateContext} */
+	/** JNI method for {@link #CGLUpdateContext CGLUpdateContext} */
 	public static native int nCGLUpdateContext(long ctx);
 
 	/**
@@ -884,13 +886,13 @@ public final class CGL {
 
 	// --- [ CGLSetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLSetGlobalOption} */
+	/** JNI method for {@link #CGLSetGlobalOption CGLSetGlobalOption} */
 	public static native int nCGLSetGlobalOption(int pname, long params);
 
 	/**
 	 * Sets the value of a global option.
 	 *
-	 * @param pname  the name of the option whose value you want to set. One of:<p/>{@link #kCGLGOFormatCacheSize}, {@link #kCGLGOClearFormatCache}, {@link #kCGLGORetainRenderers}, {@link #kCGLGOResetLibrary}, {@link #kCGLGOUseErrorHandler}, {@link #kCGLGOUseBuildCache}
+	 * @param pname  the name of the option whose value you want to set. One of:<p/>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params the value to set the option to
 	 */
 	public static int CGLSetGlobalOption(int pname, ByteBuffer params) {
@@ -899,14 +901,14 @@ public final class CGL {
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLSetGlobalOption} */
+	/** Alternative version of: {@link #CGLSetGlobalOption CGLSetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetGlobalOption} */
+	/** Single value version of: {@link #CGLSetGlobalOption CGLSetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -915,13 +917,13 @@ public final class CGL {
 
 	// --- [ CGLGetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLGetGlobalOption} */
+	/** JNI method for {@link #CGLGetGlobalOption CGLGetGlobalOption} */
 	public static native int nCGLGetGlobalOption(int pname, long params);
 
 	/**
 	 * Retrieves the value of a global option.
 	 *
-	 * @param pname  the name of the option whose value you want to get. One of:<p/>{@link #kCGLGOFormatCacheSize}, {@link #kCGLGOClearFormatCache}, {@link #kCGLGORetainRenderers}, {@link #kCGLGOResetLibrary}, {@link #kCGLGOUseErrorHandler}, {@link #kCGLGOUseBuildCache}
+	 * @param pname  the name of the option whose value you want to get. One of:<p/>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params on return, a pointer to the value of the option
 	 */
 	public static int CGLGetGlobalOption(int pname, ByteBuffer params) {
@@ -930,7 +932,7 @@ public final class CGL {
 		return nCGLGetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLGetGlobalOption} */
+	/** Alternative version of: {@link #CGLGetGlobalOption CGLGetGlobalOption} */
 	public static int CGLGetGlobalOption(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -939,14 +941,14 @@ public final class CGL {
 
 	// --- [ CGLLockContext ] ---
 
-	/** JNI method for {@link #CGLLockContext} */
+	/** JNI method for {@link #CGLLockContext CGLLockContext} */
 	public static native int nCGLLockContext(long context);
 
 	/**
 	 * Locks a CGL rendering context.
 	 * <p/>
 	 * The function CGLLockContext blocks the thread it is on until all other threads have unlocked the same context using the function
-	 * {@link #CGLUnlockContext}. You can use CGLLockContext recursively. Context-specific CGL calls by themselves do not require locking, but you can
+	 * {@link #CGLUnlockContext UnlockContext}. You can use CGLLockContext recursively. Context-specific CGL calls by themselves do not require locking, but you can
 	 * guarantee serial processing for a group of calls by surrounding them with CGLLockContext and CGLUnlockContext. Keep in mind that calls from the OpenGL
 	 * API (the API provided by the Architecture Review Board) require locking.
 	 * <p/>
@@ -964,7 +966,7 @@ public final class CGL {
 
 	// --- [ CGLUnlockContext ] ---
 
-	/** JNI method for {@link #CGLUnlockContext} */
+	/** JNI method for {@link #CGLUnlockContext CGLUnlockContext} */
 	public static native int nCGLUnlockContext(long context);
 
 	/**
@@ -980,7 +982,7 @@ public final class CGL {
 
 	// --- [ CGLGetVersion ] ---
 
-	/** JNI method for {@link #CGLGetVersion} */
+	/** JNI method for {@link #CGLGetVersion CGLGetVersion} */
 	public static native void nCGLGetVersion(long majorvers, long minorvers);
 
 	/**
@@ -997,7 +999,7 @@ public final class CGL {
 		nCGLGetVersion(memAddress(majorvers), memAddress(minorvers));
 	}
 
-	/** Alternative version of: {@link #CGLGetVersion} */
+	/** Alternative version of: {@link #CGLGetVersion CGLGetVersion} */
 	public static void CGLGetVersion(IntBuffer majorvers, IntBuffer minorvers) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(majorvers, 1);
@@ -1008,13 +1010,13 @@ public final class CGL {
 
 	// --- [ CGLErrorString ] ---
 
-	/** JNI method for {@link #CGLErrorString} */
+	/** JNI method for {@link #CGLErrorString CGLErrorString} */
 	public static native long nCGLErrorString(int error);
 
 	/**
 	 * Returns a string that describes the specified result code.
 	 *
-	 * @param error the CGL result code constant returned from a CGL function. One of:<p/>{@link #kCGLNoError}, {@link #kCGLBadAttribute}, {@link #kCGLBadProperty}, {@link #kCGLBadPixelFormat}, {@link #kCGLBadRendererInfo}, {@link #kCGLBadContext}, {@link #kCGLBadDrawable}, {@link #kCGLBadDisplay}, {@link #kCGLBadState}, {@link #kCGLBadValue}, {@link #kCGLBadMatch}, {@link #kCGLBadEnumeration}, {@link #kCGLBadOffScreen}, {@link #kCGLBadFullScreen}, {@link #kCGLBadWindow}, {@link #kCGLBadAddress}, {@link #kCGLBadCodeModule}, {@link #kCGLBadAlloc}, {@link #kCGLBadConnection}
+	 * @param error the CGL result code constant returned from a CGL function. One of:<p/>{@link #kCGLNoError NoError}, {@link #kCGLBadAttribute BadAttribute}, {@link #kCGLBadProperty BadProperty}, {@link #kCGLBadPixelFormat BadPixelFormat}, {@link #kCGLBadRendererInfo BadRendererInfo}, {@link #kCGLBadContext BadContext}, {@link #kCGLBadDrawable BadDrawable}, {@link #kCGLBadDisplay BadDisplay}, {@link #kCGLBadState BadState}, {@link #kCGLBadValue BadValue}, {@link #kCGLBadMatch BadMatch}, {@link #kCGLBadEnumeration BadEnumeration}, {@link #kCGLBadOffScreen BadOffScreen}, {@link #kCGLBadFullScreen BadFullScreen}, {@link #kCGLBadWindow BadWindow}, {@link #kCGLBadAddress BadAddress}, {@link #kCGLBadCodeModule BadCodeModule}, {@link #kCGLBadAlloc BadAlloc}, {@link #kCGLBadConnection BadConnection}
 	 */
 	public static String CGLErrorString(int error) {
 		long __result = nCGLErrorString(error);

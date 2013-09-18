@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Compose sequence status structure, used in calling {@link Xutil#XLookupString}. */
+/** Compose sequence status structure, used in calling {@link Xutil#XLookupString XLookupString}. */
 public final class XComposeStatus {
 
 	/** The struct size in bytes. */
@@ -38,7 +38,7 @@ public final class XComposeStatus {
 	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
-	/** Virtual constructor. Calls {@link #malloc()} and initializes the returned {@link ByteBuffer} instance with the given values. */
+	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the given values. */
 	public static ByteBuffer malloc(
 		long compose_ptr,
 		int chars_matched

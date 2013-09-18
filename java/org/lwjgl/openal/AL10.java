@@ -124,7 +124,7 @@ public final class AL10 {
 
 	// --- [ alGetError ] ---
 
-	/** JNI method for {@link #alGetError} */
+	/** JNI method for {@link #alGetError alGetError} */
 	public static native int nalGetError(long __functionAddress);
 
 	/**
@@ -147,7 +147,7 @@ public final class AL10 {
 
 	// --- [ alEnable ] ---
 
-	/** JNI method for {@link #alEnable} */
+	/** JNI method for {@link #alEnable alEnable} */
 	public static native void nalEnable(int target, long __functionAddress);
 
 	/**
@@ -164,7 +164,7 @@ public final class AL10 {
 
 	// --- [ alDisable ] ---
 
-	/** JNI method for {@link #alDisable} */
+	/** JNI method for {@link #alDisable alDisable} */
 	public static native void nalDisable(int target, long __functionAddress);
 
 	/**
@@ -181,7 +181,7 @@ public final class AL10 {
 
 	// --- [ alIsEnabled ] ---
 
-	/** JNI method for {@link #alIsEnabled} */
+	/** JNI method for {@link #alIsEnabled alIsEnabled} */
 	public static native boolean nalIsEnabled(int target, long __functionAddress);
 
 	/**
@@ -198,7 +198,7 @@ public final class AL10 {
 
 	// --- [ alGetBoolean ] ---
 
-	/** JNI method for {@link #alGetBoolean} */
+	/** JNI method for {@link #alGetBoolean alGetBoolean} */
 	public static native boolean nalGetBoolean(int paramName, long __functionAddress);
 
 	/**
@@ -215,13 +215,13 @@ public final class AL10 {
 
 	// --- [ alGetInteger ] ---
 
-	/** JNI method for {@link #alGetInteger} */
+	/** JNI method for {@link #alGetInteger alGetInteger} */
 	public static native int nalGetInteger(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static int alGetInteger(int paramName) {
 		long __functionAddress = getInstance().alGetInteger;
@@ -232,13 +232,13 @@ public final class AL10 {
 
 	// --- [ alGetFloat ] ---
 
-	/** JNI method for {@link #alGetFloat} */
+	/** JNI method for {@link #alGetFloat alGetFloat} */
 	public static native float nalGetFloat(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the float value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static float alGetFloat(int paramName) {
 		long __functionAddress = getInstance().alGetFloat;
@@ -249,13 +249,13 @@ public final class AL10 {
 
 	// --- [ alGetDouble ] ---
 
-	/** JNI method for {@link #alGetDouble} */
+	/** JNI method for {@link #alGetDouble alGetDouble} */
 	public static native double nalGetDouble(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the double value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static double alGetDouble(int paramName) {
 		long __functionAddress = getInstance().alGetDouble;
@@ -266,11 +266,11 @@ public final class AL10 {
 
 	// --- [ alGetBooleanv ] ---
 
-	/** JNI method for {@link #alGetBoolean(int, ByteBuffer)} */
+	/** JNI method for {@link #alGetBoolean(int, ByteBuffer) alGetBoolean} */
 	public static native void nalGetBooleanv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetBoolean}.
+	 * Pointer version of {@link #alGetBoolean alGetBoolean}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
@@ -286,11 +286,11 @@ public final class AL10 {
 
 	// --- [ alGetIntegerv ] ---
 
-	/** JNI method for {@link #alGetInteger(int, ByteBuffer)} */
+	/** JNI method for {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
 	public static native void nalGetIntegerv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetInteger}.
+	 * Pointer version of {@link #alGetInteger alGetInteger}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
@@ -304,7 +304,7 @@ public final class AL10 {
 		nalGetIntegerv(paramName, memAddress(dest), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
 	public static void alGetInteger(int paramName, IntBuffer dest) {
 		long __functionAddress = getInstance().alGetIntegerv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -316,11 +316,11 @@ public final class AL10 {
 
 	// --- [ alGetFloatv ] ---
 
-	/** JNI method for {@link #alGetFloat(int, ByteBuffer)} */
+	/** JNI method for {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
 	public static native void nalGetFloatv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetFloat}.
+	 * Pointer version of {@link #alGetFloat alGetFloat}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
@@ -334,7 +334,7 @@ public final class AL10 {
 		nalGetFloatv(paramName, memAddress(dest), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
 	public static void alGetFloat(int paramName, FloatBuffer dest) {
 		long __functionAddress = getInstance().alGetFloatv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -346,11 +346,11 @@ public final class AL10 {
 
 	// --- [ alGetDoublev ] ---
 
-	/** JNI method for {@link #alGetDouble(int, ByteBuffer)} */
+	/** JNI method for {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
 	public static native void nalGetDoublev(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetDouble}.
+	 * Pointer version of {@link #alGetDouble alGetDouble}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
@@ -364,7 +364,7 @@ public final class AL10 {
 		nalGetDoublev(paramName, memAddress(dest), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
 	public static void alGetDouble(int paramName, DoubleBuffer dest) {
 		long __functionAddress = getInstance().alGetDoublev;
 		if ( LWJGLUtil.CHECKS ) {
@@ -376,13 +376,13 @@ public final class AL10 {
 
 	// --- [ alGetString ] ---
 
-	/** JNI method for {@link #alGetString} */
+	/** JNI method for {@link #alGetString alGetString} */
 	public static native long nalGetString(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the string value of the specified parameter
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_VENDOR}, {@link #AL_VERSION}, {@link #AL_RENDERER}, {@link #AL_EXTENSIONS}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
 	 */
 	public static String alGetString(int paramName) {
 		long __functionAddress = getInstance().alGetString;
@@ -394,7 +394,7 @@ public final class AL10 {
 
 	// --- [ alDistanceModel ] ---
 
-	/** JNI method for {@link #alDistanceModel} */
+	/** JNI method for {@link #alDistanceModel alDistanceModel} */
 	public static native void nalDistanceModel(int modelName, long __functionAddress);
 
 	/**
@@ -410,7 +410,7 @@ public final class AL10 {
 	 * OpenAL currently supports three modes of operation with respect to distance attenuation, including one that is similar to the IASIG I3DL2 model. The
 	 * application can choose one of these models (or chooses to disable distance-dependent attenuation) on a per-context basis.
 	 *
-	 * @param modelName the distance attenuation model to set. One of:<p/>{@link #AL_INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE}
+	 * @param modelName the distance attenuation model to set. One of:<p/>{@link #AL_INVERSE_DISTANCE INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE NONE}
 	 */
 	public static void alDistanceModel(int modelName) {
 		long __functionAddress = getInstance().alDistanceModel;
@@ -421,7 +421,7 @@ public final class AL10 {
 
 	// --- [ alDopplerFactor ] ---
 
-	/** JNI method for {@link #alDopplerFactor} */
+	/** JNI method for {@link #alDopplerFactor alDopplerFactor} */
 	public static native void nalDopplerFactor(float dopplerFactor, long __functionAddress);
 
 	/**
@@ -471,7 +471,7 @@ public final class AL10 {
 
 	// --- [ alDopplerVelocity ] ---
 
-	/** JNI method for {@link #alDopplerVelocity} */
+	/** JNI method for {@link #alDopplerVelocity alDopplerVelocity} */
 	public static native void nalDopplerVelocity(float dopplerVelocity, long __functionAddress);
 
 	/**
@@ -499,13 +499,13 @@ public final class AL10 {
 
 	// --- [ alListenerf ] ---
 
-	/** JNI method for {@link #alListenerf} */
+	/** JNI method for {@link #alListenerf alListenerf} */
 	public static native void nalListenerf(int paramName, float value, long __functionAddress);
 
 	/**
 	 * Sets the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value     the parameter value
 	 */
 	public static void alListenerf(int paramName, float value) {
@@ -517,13 +517,13 @@ public final class AL10 {
 
 	// --- [ alListeneri ] ---
 
-	/** JNI method for {@link #alListeneri} */
+	/** JNI method for {@link #alListeneri alListeneri} */
 	public static native void nalListeneri(int paramName, int values, long __functionAddress);
 
 	/**
-	 * Integer version of {@link #alListenerf}.
+	 * Integer version of {@link #alListenerf alListenerf}.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param values    the parameter value
 	 */
 	public static void alListeneri(int paramName, int values) {
@@ -535,13 +535,13 @@ public final class AL10 {
 
 	// --- [ alListener3f ] ---
 
-	/** JNI method for {@link #alListener3f} */
+	/** JNI method for {@link #alListener3f alListener3f} */
 	public static native void nalListener3f(int paramName, float value1, float value2, float value3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value1    the first value
 	 * @param value2    the second value
 	 * @param value3    the third value
@@ -555,11 +555,11 @@ public final class AL10 {
 
 	// --- [ alListenerfv ] ---
 
-	/** JNI method for {@link #alListenerf(int, ByteBuffer)} */
+	/** JNI method for {@link #alListenerf(int, ByteBuffer) alListenerf} */
 	public static native void nalListenerfv(int paramName, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alListenerf}.
+	 * Pointer version of {@link #alListenerf alListenerf}.
 	 *
 	 * @param paramName the parameter to modify
 	 * @param values    the parameter values
@@ -573,7 +573,7 @@ public final class AL10 {
 		nalListenerfv(paramName, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alListenerf(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alListenerf(int, ByteBuffer) alListenerf} */
 	public static void alListener(int paramName, FloatBuffer values) {
 		long __functionAddress = getInstance().alListenerfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -585,13 +585,13 @@ public final class AL10 {
 
 	// --- [ alGetListenerf ] ---
 
-	/** JNI method for {@link #alGetListenerf} */
+	/** JNI method for {@link #alGetListenerf alGetListenerf} */
 	public static native void nalGetListenerf(int paramName, long value, long __functionAddress);
 
 	/**
 	 * Returns the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value     the parameter value
 	 */
 	public static void alGetListenerf(int paramName, ByteBuffer value) {
@@ -603,7 +603,7 @@ public final class AL10 {
 		nalGetListenerf(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListenerf} */
+	/** Alternative version of: {@link #alGetListenerf alGetListenerf} */
 	public static void alGetListener(int paramName, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetListenerf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -613,7 +613,7 @@ public final class AL10 {
 		nalGetListenerf(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetListenerf} */
+	/** Single return value version of: {@link #alGetListenerf alGetListenerf} */
 	public static float alGetListenerf(int paramName) {
 		long __functionAddress = getInstance().alGetListenerf;
 		if ( LWJGLUtil.CHECKS )
@@ -626,13 +626,13 @@ public final class AL10 {
 
 	// --- [ alGetListeneri ] ---
 
-	/** JNI method for {@link #alGetListeneri} */
+	/** JNI method for {@link #alGetListeneri alGetListeneri} */
 	public static native void nalGetListeneri(int paramName, long value, long __functionAddress);
 
 	/**
 	 * Returns the integer value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value     the parameter value
 	 */
 	public static void alGetListeneri(int paramName, ByteBuffer value) {
@@ -644,7 +644,7 @@ public final class AL10 {
 		nalGetListeneri(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListeneri} */
+	/** Alternative version of: {@link #alGetListeneri alGetListeneri} */
 	public static void alGetListener(int paramName, IntBuffer value) {
 		long __functionAddress = getInstance().alGetListeneri;
 		if ( LWJGLUtil.CHECKS ) {
@@ -654,7 +654,7 @@ public final class AL10 {
 		nalGetListeneri(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetListeneri} */
+	/** Single return value version of: {@link #alGetListeneri alGetListeneri} */
 	public static int alGetListeneri(int paramName) {
 		long __functionAddress = getInstance().alGetListeneri;
 		if ( LWJGLUtil.CHECKS )
@@ -667,13 +667,13 @@ public final class AL10 {
 
 	// --- [ alGetListener3f ] ---
 
-	/** JNI method for {@link #alGetListener3f} */
+	/** JNI method for {@link #alGetListener3f alGetListener3f} */
 	public static native void nalGetListener3f(int paramName, long value1, long value2, long value3, long __functionAddress);
 
 	/**
 	 * Returns the 3 dimensional values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value1    the first parameter value
 	 * @param value2    the second parameter value
 	 * @param value3    the third parameter value
@@ -689,7 +689,7 @@ public final class AL10 {
 		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListener3f} */
+	/** Alternative version of: {@link #alGetListener3f alGetListener3f} */
 	public static void alGetListener3(int paramName, FloatBuffer value1, FloatBuffer value2, FloatBuffer value3) {
 		long __functionAddress = getInstance().alGetListener3f;
 		if ( LWJGLUtil.CHECKS ) {
@@ -703,13 +703,13 @@ public final class AL10 {
 
 	// --- [ alGetListenerfv ] ---
 
-	/** JNI method for {@link #alGetListenerfv} */
+	/** JNI method for {@link #alGetListenerfv alGetListenerfv} */
 	public static native void nalGetListenerfv(int paramName, long values, long __functionAddress);
 
 	/**
 	 * Returns float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param values    the parameter values
 	 */
 	public static void alGetListenerfv(int paramName, ByteBuffer values) {
@@ -721,7 +721,7 @@ public final class AL10 {
 		nalGetListenerfv(paramName, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListenerfv} */
+	/** Alternative version of: {@link #alGetListenerfv alGetListenerfv} */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
 		long __functionAddress = getInstance().alGetListenerfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -733,7 +733,7 @@ public final class AL10 {
 
 	// --- [ alGenSources ] ---
 
-	/** JNI method for {@link #alGenSources} */
+	/** JNI method for {@link #alGenSources alGenSources} */
 	public static native void nalGenSources(int n, long srcNames, long __functionAddress);
 
 	/**
@@ -751,7 +751,7 @@ public final class AL10 {
 		nalGenSources(n, memAddress(srcNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenSources} */
+	/** Alternative version of: {@link #alGenSources alGenSources} */
 	public static void alGenSources(IntBuffer srcNames) {
 		long __functionAddress = getInstance().alGenSources;
 		if ( LWJGLUtil.CHECKS )
@@ -759,7 +759,7 @@ public final class AL10 {
 		nalGenSources(srcNames.remaining(), memAddress(srcNames), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenSources} */
+	/** Single return value version of: {@link #alGenSources alGenSources} */
 	public static int alGenSources() {
 		long __functionAddress = getInstance().alGenSources;
 		if ( LWJGLUtil.CHECKS )
@@ -772,7 +772,7 @@ public final class AL10 {
 
 	// --- [ alDeleteSources ] ---
 
-	/** JNI method for {@link #alDeleteSources} */
+	/** JNI method for {@link #alDeleteSources alDeleteSources} */
 	public static native void nalDeleteSources(int n, long sources, long __functionAddress);
 
 	/**
@@ -790,7 +790,7 @@ public final class AL10 {
 		nalDeleteSources(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteSources} */
+	/** Alternative version of: {@link #alDeleteSources alDeleteSources} */
 	public static void alDeleteSources(IntBuffer sources) {
 		long __functionAddress = getInstance().alDeleteSources;
 		if ( LWJGLUtil.CHECKS )
@@ -798,7 +798,7 @@ public final class AL10 {
 		nalDeleteSources(sources.remaining(), memAddress(sources), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteSources} */
+	/** Single value version of: {@link #alDeleteSources alDeleteSources} */
 	public static void alDeleteSources(int source) {
 		long __functionAddress = getInstance().alDeleteSources;
 		if ( LWJGLUtil.CHECKS )
@@ -810,7 +810,7 @@ public final class AL10 {
 
 	// --- [ alIsSource ] ---
 
-	/** JNI method for {@link #alIsSource} */
+	/** JNI method for {@link #alIsSource alIsSource} */
 	public static native boolean nalIsSource(int sourceName, long __functionAddress);
 
 	/**
@@ -827,14 +827,14 @@ public final class AL10 {
 
 	// --- [ alSourcef ] ---
 
-	/** JNI method for {@link #alSourcef} */
+	/** JNI method for {@link #alSourcef alSourcef} */
 	public static native void nalSourcef(int source, int param, float value, long __functionAddress);
 
 	/**
 	 * Sets the float value of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value  the parameter value
 	 */
 	public static void alSourcef(int source, int param, float value) {
@@ -846,14 +846,14 @@ public final class AL10 {
 
 	// --- [ alSource3f ] ---
 
-	/** JNI method for {@link #alSource3f} */
+	/** JNI method for {@link #alSource3f alSource3f} */
 	public static native void nalSource3f(int source, int param, float v1, float v2, float v3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional values of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -867,11 +867,11 @@ public final class AL10 {
 
 	// --- [ alSourcefv ] ---
 
-	/** JNI method for {@link #alSourcef(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
 	public static native void nalSourcefv(int source, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcef}.
+	 * Pointer version of {@link #alSourcef alSourcef}.
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
@@ -884,7 +884,7 @@ public final class AL10 {
 		nalSourcefv(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
 	public static void alSource(int source, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alSourcefv;
 		if ( LWJGLUtil.CHECKS )
@@ -894,11 +894,11 @@ public final class AL10 {
 
 	// --- [ alSourcei ] ---
 
-	/** JNI method for {@link #alSourcei} */
+	/** JNI method for {@link #alSourcei alSourcei} */
 	public static native void nalSourcei(int source, int param, int value, long __functionAddress);
 
 	/**
-	 * Integer version of {@link #alSourcef}.
+	 * Integer version of {@link #alSourcef alSourcef}.
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
@@ -913,14 +913,14 @@ public final class AL10 {
 
 	// --- [ alGetSourcef ] ---
 
-	/** JNI method for {@link #alGetSourcef} */
+	/** JNI method for {@link #alGetSourcef alGetSourcef} */
 	public static native void nalGetSourcef(int source, int param, long value, long __functionAddress);
 
 	/**
 	 * Returns the float value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcef(int source, int param, ByteBuffer value) {
@@ -932,7 +932,7 @@ public final class AL10 {
 		nalGetSourcef(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcef} */
+	/** Alternative version of: {@link #alGetSourcef alGetSourcef} */
 	public static void alGetSource(int source, int param, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetSourcef;
 		if ( LWJGLUtil.CHECKS ) {
@@ -942,7 +942,7 @@ public final class AL10 {
 		nalGetSourcef(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetSourcef} */
+	/** Single return value version of: {@link #alGetSourcef alGetSourcef} */
 	public static float alGetSourcef(int source, int param) {
 		long __functionAddress = getInstance().alGetSourcef;
 		if ( LWJGLUtil.CHECKS )
@@ -955,14 +955,14 @@ public final class AL10 {
 
 	// --- [ alGetSource3f ] ---
 
-	/** JNI method for {@link #alGetSource3f} */
+	/** JNI method for {@link #alGetSource3f alGetSource3f} */
 	public static native void nalGetSource3f(int source, int param, long v1, long v2, long v3, long __functionAddress);
 
 	/**
 	 * Returns the 3 dimensional values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -978,7 +978,7 @@ public final class AL10 {
 		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSource3f} */
+	/** Alternative version of: {@link #alGetSource3f alGetSource3f} */
 	public static void alGetSource3(int source, int param, FloatBuffer v1, FloatBuffer v2, FloatBuffer v3) {
 		long __functionAddress = getInstance().alGetSource3f;
 		if ( LWJGLUtil.CHECKS ) {
@@ -992,14 +992,14 @@ public final class AL10 {
 
 	// --- [ alGetSourcefv ] ---
 
-	/** JNI method for {@link #alGetSourcefv} */
+	/** JNI method for {@link #alGetSourcefv alGetSourcefv} */
 	public static native void nalGetSourcefv(int source, int param, long values, long __functionAddress);
 
 	/**
 	 * Returns the float values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param values the parameter values
 	 */
 	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
@@ -1011,7 +1011,7 @@ public final class AL10 {
 		nalGetSourcefv(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcefv} */
+	/** Alternative version of: {@link #alGetSourcefv alGetSourcefv} */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alGetSourcefv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1023,14 +1023,14 @@ public final class AL10 {
 
 	// --- [ alGetSourcei ] ---
 
-	/** JNI method for {@link #alGetSourcei} */
+	/** JNI method for {@link #alGetSourcei alGetSourcei} */
 	public static native void nalGetSourcei(int source, int param, long value, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE}, {@link #AL_PITCH}, {@link #AL_DIRECTION}, {@link #AL_LOOPING}, {@link #AL_BUFFER}, {@link #AL_SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE}, {@link #AL_POSITION}, {@link #AL_VELOCITY}, {@link #AL_GAIN}
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcei(int source, int param, ByteBuffer value) {
@@ -1042,7 +1042,7 @@ public final class AL10 {
 		nalGetSourcei(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcei} */
+	/** Alternative version of: {@link #alGetSourcei alGetSourcei} */
 	public static void alGetSource(int source, int param, IntBuffer value) {
 		long __functionAddress = getInstance().alGetSourcei;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1052,7 +1052,7 @@ public final class AL10 {
 		nalGetSourcei(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetSourcei} */
+	/** Single return value version of: {@link #alGetSourcei alGetSourcei} */
 	public static int alGetSourcei(int source, int param) {
 		long __functionAddress = getInstance().alGetSourcei;
 		if ( LWJGLUtil.CHECKS )
@@ -1065,7 +1065,7 @@ public final class AL10 {
 
 	// --- [ alSourceQueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceQueueBuffers} */
+	/** JNI method for {@link #alSourceQueueBuffers alSourceQueueBuffers} */
 	public static native void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames, long __functionAddress);
 
 	/**
@@ -1088,7 +1088,7 @@ public final class AL10 {
 		nalSourceQueueBuffers(sourceName, numBuffers, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceQueueBuffers} */
+	/** Alternative version of: {@link #alSourceQueueBuffers alSourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, IntBuffer bufferNames) {
 		long __functionAddress = getInstance().alSourceQueueBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1096,7 +1096,7 @@ public final class AL10 {
 		nalSourceQueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alSourceQueueBuffers} */
+	/** Single value version of: {@link #alSourceQueueBuffers alSourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
 		long __functionAddress = getInstance().alSourceQueueBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1108,7 +1108,7 @@ public final class AL10 {
 
 	// --- [ alSourceUnqueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceUnqueueBuffers} */
+	/** JNI method for {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
 	public static native void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames, long __functionAddress);
 
 	/**
@@ -1132,7 +1132,7 @@ public final class AL10 {
 		nalSourceUnqueueBuffers(sourceName, numEntries, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceUnqueueBuffers} */
+	/** Alternative version of: {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, IntBuffer bufferNames) {
 		long __functionAddress = getInstance().alSourceUnqueueBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1140,7 +1140,7 @@ public final class AL10 {
 		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alSourceUnqueueBuffers} */
+	/** Single value version of: {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, int bufferName) {
 		long __functionAddress = getInstance().alSourceUnqueueBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1152,7 +1152,7 @@ public final class AL10 {
 
 	// --- [ alSourcePlay ] ---
 
-	/** JNI method for {@link #alSourcePlay} */
+	/** JNI method for {@link #alSourcePlay alSourcePlay} */
 	public static native void nalSourcePlay(int source, long __functionAddress);
 
 	/**
@@ -1175,7 +1175,7 @@ public final class AL10 {
 
 	// --- [ alSourcePause ] ---
 
-	/** JNI method for {@link #alSourcePause} */
+	/** JNI method for {@link #alSourcePause alSourcePause} */
 	public static native void nalSourcePause(int source, long __functionAddress);
 
 	/**
@@ -1196,7 +1196,7 @@ public final class AL10 {
 
 	// --- [ alSourceStop ] ---
 
-	/** JNI method for {@link #alSourceStop} */
+	/** JNI method for {@link #alSourceStop alSourceStop} */
 	public static native void nalSourceStop(int source, long __functionAddress);
 
 	/**
@@ -1217,7 +1217,7 @@ public final class AL10 {
 
 	// --- [ alSourceRewind ] ---
 
-	/** JNI method for {@link #alSourceRewind} */
+	/** JNI method for {@link #alSourceRewind alSourceRewind} */
 	public static native void nalSourceRewind(int source, long __functionAddress);
 
 	/**
@@ -1239,11 +1239,11 @@ public final class AL10 {
 
 	// --- [ alSourcePlayv ] ---
 
-	/** JNI method for {@link #alSourcePlay(int, ByteBuffer)} */
+	/** JNI method for {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
 	public static native void nalSourcePlayv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcePlay}.
+	 * Pointer version of {@link #alSourcePlay alSourcePlay}.
 	 *
 	 * @param n       the number of sources to play
 	 * @param sources the sources to play
@@ -1257,7 +1257,7 @@ public final class AL10 {
 		nalSourcePlayv(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
 	public static void alSourcePlay(IntBuffer sources) {
 		long __functionAddress = getInstance().alSourcePlayv;
 		if ( LWJGLUtil.CHECKS )
@@ -1267,11 +1267,11 @@ public final class AL10 {
 
 	// --- [ alSourcePausev ] ---
 
-	/** JNI method for {@link #alSourcePause(int, ByteBuffer)} */
+	/** JNI method for {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
 	public static native void nalSourcePausev(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcePause}.
+	 * Pointer version of {@link #alSourcePause alSourcePause}.
 	 *
 	 * @param n       the number of sources to pause
 	 * @param sources the sources to pause
@@ -1283,7 +1283,7 @@ public final class AL10 {
 		nalSourcePausev(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
 	public static void alSourcePause(int n, IntBuffer sources) {
 		long __functionAddress = getInstance().alSourcePausev;
 		if ( LWJGLUtil.CHECKS )
@@ -1293,11 +1293,11 @@ public final class AL10 {
 
 	// --- [ alSourceStopv ] ---
 
-	/** JNI method for {@link #alSourceStop(int, ByteBuffer)} */
+	/** JNI method for {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
 	public static native void nalSourceStopv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourceStop}.
+	 * Pointer version of {@link #alSourceStop alSourceStop}.
 	 *
 	 * @param n       the number of sources to stop
 	 * @param sources the sources to stop
@@ -1309,7 +1309,7 @@ public final class AL10 {
 		nalSourceStopv(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
 	public static void alSourceStop(int n, IntBuffer sources) {
 		long __functionAddress = getInstance().alSourceStopv;
 		if ( LWJGLUtil.CHECKS )
@@ -1319,11 +1319,11 @@ public final class AL10 {
 
 	// --- [ alSourceRewindv ] ---
 
-	/** JNI method for {@link #alSourceRewind(int, ByteBuffer)} */
+	/** JNI method for {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
 	public static native void nalSourceRewindv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourceRewind}.
+	 * Pointer version of {@link #alSourceRewind alSourceRewind}.
 	 *
 	 * @param n       the number of sources to rewind
 	 * @param sources the sources to rewind
@@ -1335,7 +1335,7 @@ public final class AL10 {
 		nalSourceRewindv(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer)} */
+	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
 	public static void alSourceRewind(int n, IntBuffer sources) {
 		long __functionAddress = getInstance().alSourceRewindv;
 		if ( LWJGLUtil.CHECKS )
@@ -1345,7 +1345,7 @@ public final class AL10 {
 
 	// --- [ alGenBuffers ] ---
 
-	/** JNI method for {@link #alGenBuffers} */
+	/** JNI method for {@link #alGenBuffers alGenBuffers} */
 	public static native void nalGenBuffers(int n, long bufferNames, long __functionAddress);
 
 	/**
@@ -1363,7 +1363,7 @@ public final class AL10 {
 		nalGenBuffers(n, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenBuffers} */
+	/** Alternative version of: {@link #alGenBuffers alGenBuffers} */
 	public static void alGenBuffers(IntBuffer bufferNames) {
 		long __functionAddress = getInstance().alGenBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1371,7 +1371,7 @@ public final class AL10 {
 		nalGenBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenBuffers} */
+	/** Single return value version of: {@link #alGenBuffers alGenBuffers} */
 	public static int alGenBuffers() {
 		long __functionAddress = getInstance().alGenBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1384,7 +1384,7 @@ public final class AL10 {
 
 	// --- [ alDeleteBuffers ] ---
 
-	/** JNI method for {@link #alDeleteBuffers} */
+	/** JNI method for {@link #alDeleteBuffers alDeleteBuffers} */
 	public static native void nalDeleteBuffers(int n, long bufferNames, long __functionAddress);
 
 	/**
@@ -1402,7 +1402,7 @@ public final class AL10 {
 		nalDeleteBuffers(n, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteBuffers} */
+	/** Alternative version of: {@link #alDeleteBuffers alDeleteBuffers} */
 	public static void alDeleteBuffers(IntBuffer bufferNames) {
 		long __functionAddress = getInstance().alDeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1410,7 +1410,7 @@ public final class AL10 {
 		nalDeleteBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteBuffers} */
+	/** Single value version of: {@link #alDeleteBuffers alDeleteBuffers} */
 	public static void alDeleteBuffers(int bufferName) {
 		long __functionAddress = getInstance().alDeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
@@ -1422,7 +1422,7 @@ public final class AL10 {
 
 	// --- [ alIsBuffer ] ---
 
-	/** JNI method for {@link #alIsBuffer} */
+	/** JNI method for {@link #alIsBuffer alIsBuffer} */
 	public static native boolean nalIsBuffer(int bufferName, long __functionAddress);
 
 	/**
@@ -1439,14 +1439,14 @@ public final class AL10 {
 
 	// --- [ alGetBufferf ] ---
 
-	/** JNI method for {@link #alGetBufferf} */
+	/** JNI method for {@link #alGetBufferf alGetBufferf} */
 	public static native void nalGetBufferf(int bufferName, int paramName, long value, long __functionAddress);
 
 	/**
 	 * Returns the float value of the specified buffer parameter.
 	 *
 	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY}, {@link #AL_BITS}, {@link #AL_CHANNELS}, {@link #AL_SIZE}
+	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferf(int bufferName, int paramName, ByteBuffer value) {
@@ -1458,7 +1458,7 @@ public final class AL10 {
 		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetBufferf} */
+	/** Alternative version of: {@link #alGetBufferf alGetBufferf} */
 	public static void alGetBuffer(int bufferName, int paramName, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetBufferf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1468,7 +1468,7 @@ public final class AL10 {
 		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetBufferf} */
+	/** Single return value version of: {@link #alGetBufferf alGetBufferf} */
 	public static float alGetBufferf(int bufferName, int paramName) {
 		long __functionAddress = getInstance().alGetBufferf;
 		if ( LWJGLUtil.CHECKS )
@@ -1481,14 +1481,14 @@ public final class AL10 {
 
 	// --- [ alGetBufferi ] ---
 
-	/** JNI method for {@link #alGetBufferi} */
+	/** JNI method for {@link #alGetBufferi alGetBufferi} */
 	public static native void nalGetBufferi(int bufferName, int paramName, long value, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified buffer parameter.
 	 *
 	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY}, {@link #AL_BITS}, {@link #AL_CHANNELS}, {@link #AL_SIZE}
+	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferi(int bufferName, int paramName, ByteBuffer value) {
@@ -1500,7 +1500,7 @@ public final class AL10 {
 		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetBufferi} */
+	/** Alternative version of: {@link #alGetBufferi alGetBufferi} */
 	public static void alGetBuffer(int bufferName, int paramName, IntBuffer value) {
 		long __functionAddress = getInstance().alGetBufferi;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1510,7 +1510,7 @@ public final class AL10 {
 		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetBufferi} */
+	/** Single return value version of: {@link #alGetBufferi alGetBufferi} */
 	public static int alGetBufferi(int bufferName, int paramName) {
 		long __functionAddress = getInstance().alGetBufferi;
 		if ( LWJGLUtil.CHECKS )
@@ -1523,7 +1523,7 @@ public final class AL10 {
 
 	// --- [ alBufferData ] ---
 
-	/** JNI method for {@link #alBufferData} */
+	/** JNI method for {@link #alBufferData alBufferData} */
 	public static native void nalBufferData(int bufferName, int format, long data, int size, int frequency, long __functionAddress);
 
 	/**
@@ -1543,7 +1543,7 @@ public final class AL10 {
 	 * background music.
 	 *
 	 * @param bufferName the buffer to modify
-	 * @param format     the data format. One of:<p/>{@link #AL_FORMAT_MONO8}, {@link #AL_FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16}
+	 * @param format     the data format. One of:<p/>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}, {@link #AL_FORMAT_MONO16 FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}
 	 * @param data       the sample data
 	 * @param size       the data buffer size, in bytes
 	 * @param frequency  the data frequency
@@ -1557,7 +1557,7 @@ public final class AL10 {
 		nalBufferData(bufferName, format, memAddress(data), size, frequency, __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #alBufferData} */
+	/** ByteBuffer version of: {@link #alBufferData alBufferData} */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int frequency) {
 		long __functionAddress = getInstance().alBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -1565,7 +1565,7 @@ public final class AL10 {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #alBufferData} */
+	/** ShortBuffer version of: {@link #alBufferData alBufferData} */
 	public static void alBufferData(int bufferName, int format, ShortBuffer data, int frequency) {
 		long __functionAddress = getInstance().alBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -1573,7 +1573,7 @@ public final class AL10 {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 1, frequency, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #alBufferData} */
+	/** IntBuffer version of: {@link #alBufferData alBufferData} */
 	public static void alBufferData(int bufferName, int format, IntBuffer data, int frequency) {
 		long __functionAddress = getInstance().alBufferData;
 		if ( LWJGLUtil.CHECKS )
@@ -1583,7 +1583,7 @@ public final class AL10 {
 
 	// --- [ alGetEnumValue ] ---
 
-	/** JNI method for {@link #alGetEnumValue} */
+	/** JNI method for {@link #alGetEnumValue alGetEnumValue} */
 	public static native int nalGetEnumValue(long enumName, long __functionAddress);
 
 	/**
@@ -1600,7 +1600,7 @@ public final class AL10 {
 		return nalGetEnumValue(memAddress(enumName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alGetEnumValue} */
+	/** CharSequence version of: {@link #alGetEnumValue alGetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
 		long __functionAddress = getInstance().alGetEnumValue;
 		if ( LWJGLUtil.CHECKS )
@@ -1610,7 +1610,7 @@ public final class AL10 {
 
 	// --- [ alGetProcAddress ] ---
 
-	/** JNI method for {@link #alGetProcAddress} */
+	/** JNI method for {@link #alGetProcAddress alGetProcAddress} */
 	public static native long nalGetProcAddress(long funcName, long __functionAddress);
 
 	/**
@@ -1633,7 +1633,7 @@ public final class AL10 {
 		return nalGetProcAddress(memAddress(funcName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alGetProcAddress} */
+	/** CharSequence version of: {@link #alGetProcAddress alGetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
 		long __functionAddress = getInstance().alGetProcAddress;
 		if ( LWJGLUtil.CHECKS )
@@ -1643,7 +1643,7 @@ public final class AL10 {
 
 	// --- [ alIsExtensionPresent ] ---
 
-	/** JNI method for {@link #alIsExtensionPresent} */
+	/** JNI method for {@link #alIsExtensionPresent alIsExtensionPresent} */
 	public static native boolean nalIsExtensionPresent(long extName, long __functionAddress);
 
 	/**
@@ -1663,7 +1663,7 @@ public final class AL10 {
 		return nalIsExtensionPresent(memAddress(extName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alIsExtensionPresent} */
+	/** CharSequence version of: {@link #alIsExtensionPresent alIsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
 		long __functionAddress = getInstance().alIsExtensionPresent;
 		if ( LWJGLUtil.CHECKS )

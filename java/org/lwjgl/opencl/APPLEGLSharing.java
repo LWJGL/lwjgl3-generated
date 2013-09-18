@@ -17,12 +17,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the <strong>APPLE_gl_sharing</strong> extension. */
 public final class APPLEGLSharing {
 
-	/** Error code returned by {@link #clGetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
+	/** Error code returned by {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
 	public static final int
 		CL_INVALID_GL_CONTEXT_APPLE = 0xFFFFFC18;
 
 	/**
-	 * This enumerated value can be specified as part of the {@code properties} argument passed to {@link CL10#clCreateContext} to allow OpenCL compliant
+	 * This enumerated value can be specified as part of the {@code properties} argument passed to {@link CL10#clCreateContext CreateContext} to allow OpenCL compliant
 	 * devices in an existing CGL share group to be used as the devices in the newly created CL context. GL objects that were allocated in the given CGL share
 	 * group can now be shared between CL and GL.
 	 */
@@ -30,14 +30,14 @@ public final class APPLEGLSharing {
 		CL_CONTEXT_PROPERTY_USE_CGL_SHAREGROUP_APPLE = 0x10000000;
 
 	/**
-	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE}. Returns an array of {@code cl_device_ids} for the CL device(s)
+	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns an array of {@code cl_device_ids} for the CL device(s)
 	 * corresponding to the virtual screen(s) for the given CGL context.
 	 */
 	public static final int
 		CL_CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE = 0x10000003;
 
 	/**
-	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE}. Returns a {@code cl_device_id} for the CL device associated with the
+	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE}. Returns a {@code cl_device_id} for the CL device associated with the
 	 * virtual screen for the given CGL context.
 	 */
 	public static final int
@@ -47,7 +47,7 @@ public final class APPLEGLSharing {
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
-	/** JNI method for {@link #clGetGLContextInfoAPPLE} */
+	/** JNI method for {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
 	public static native int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -59,7 +59,7 @@ public final class APPLEGLSharing {
 	 *
 	 * @param context              the context being queried
 	 * @param platform_gl_ctx      the OpenGL context handle
-	 * @param param_name           a constant that specifies the GL context information to query. One of:<p/>{@link #CL_CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE}, {@link #CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE}
+	 * @param param_name           a constant that specifies the GL context information to query. One of:<p/>{@link #CL_CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE}, {@link #CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -75,7 +75,7 @@ public final class APPLEGLSharing {
 		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clGetGLContextInfoAPPLE} */
+	/** Alternative version of: {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(context).clGetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
@@ -86,7 +86,7 @@ public final class APPLEGLSharing {
 		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE} */
+	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = getInstance(context).clGetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {

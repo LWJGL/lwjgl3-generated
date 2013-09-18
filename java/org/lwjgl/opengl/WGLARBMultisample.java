@@ -16,9 +16,9 @@ package org.lwjgl.opengl;
 public final class WGLARBMultisample {
 
 	/**
-	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB},
-	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribfARB}, and the {@code attribIList} and {@code attribFList} of
-	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB}.
+	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB},
+	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribfARB GetPixelFormatAttribfARB}, and the {@code attribIList} and {@code attribFList} of
+	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}.
 	 */
 	public static final int
 		WGL_SAMPLE_BUFFERS_ARB = 0x2041,

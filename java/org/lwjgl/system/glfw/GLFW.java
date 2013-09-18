@@ -316,18 +316,18 @@ public final class GLFW {
 		GLFW_OPENGL_DEBUG_CONTEXT  = 0x22007,
 		GLFW_OPENGL_PROFILE        = 0x22008;
 
-	/** Values for the {@link #GLFW_CLIENT_API} hint. */
+	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int
 		GLFW_OPENGL_API    = 0x30001,
 		GLFW_OPENGL_ES_API = 0x30002;
 
-	/** Values for the {@link #GLFW_CONTEXT_ROBUSTNESS} hint. */
+	/** Values for the {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS} hint. */
 	public static final int
 		GLFW_NO_ROBUSTNESS         = 0x0,
 		GLFW_NO_RESET_NOTIFICATION = 0x31001,
 		GLFW_LOSE_CONTEXT_ON_RESET = 0x31002;
 
-	/** Values for the {@link #GLFW_OPENGL_PROFILE} hint. */
+	/** Values for the {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} hint. */
 	public static final int
 		GLFW_OPENGL_ANY_PROFILE    = 0x0,
 		GLFW_OPENGL_CORE_PROFILE   = 0x32001,
@@ -337,14 +337,14 @@ public final class GLFW {
 
 	// --- [ glfwInit ] ---
 
-	/** JNI method for {@link #glfwInit} */
+	/** JNI method for {@link #glfwInit glfwInit} */
 	public static native int nglfwInit();
 
 	/**
 	 * Initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before a program terminates GLFW should be
 	 * terminated in order to free any resources allocated during or after initialization.
 	 * <p/>
-	 * If this function fails, it calls {@link #glfwTerminate} before returning. If it succeeds, you should call {@link #glfwTerminate} before the program
+	 * If this function fails, it calls {@link #glfwSetGammaRamp SetGammaRamp} before returning. If it succeeds, you should call {@link #glfwSetGammaRamp SetGammaRamp} before the program
 	 * exits.
 	 * <p/>
 	 * Additional calls to this function after successful initialization but before termination will succeed but will do nothing.
@@ -364,19 +364,19 @@ public final class GLFW {
 
 	// --- [ glfwTerminate ] ---
 
-	/** JNI method for {@link #glfwTerminate} */
+	/** JNI method for {@link #glfwTerminate glfwTerminate} */
 	public static native void nglfwTerminate();
 
 	/**
 	 * Destroys all remaining windows, frees any allocated resources and sets the library to an uninitialized state. Once this is called, you must again call
-	 * {@link #glfwInit} successfully before you will be able to use most GLFW functions.
+	 * {@link #glfwInit glfwInit} successfully before you will be able to use most GLFW functions.
 	 * <p/>
 	 * If GLFW has been successfully initialized, this function should be called before the program exits. If initialization fails, there is no need to call
-	 * this function, as it is called by {@link #glfwInit} before it returns failure.
+	 * this function, as it is called by {@link #glfwInit glfwInit} before it returns failure.
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>This function may be called before {@link #glfwInit glfwInit}.</li>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>No window's context may be current on another thread when this function is called.</li>
 	 * </ul>
@@ -388,7 +388,7 @@ public final class GLFW {
 
 	// --- [ glfwGetVersion ] ---
 
-	/** JNI method for {@link #glfwGetVersion} */
+	/** JNI method for {@link #glfwGetVersion glfwGetVersion} */
 	public static native void nglfwGetVersion(long major, long minor, long rev);
 
 	/**
@@ -397,7 +397,7 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>This function may be called before {@link #glfwInit glfwInit}.</li>
 	 * <li>This function may be called from any thread.</li>
 	 * </ul>
 	 *
@@ -414,7 +414,7 @@ public final class GLFW {
 		nglfwGetVersion(memAddress(major), memAddress(minor), memAddress(rev));
 	}
 
-	/** Alternative version of: {@link #glfwGetVersion} */
+	/** Alternative version of: {@link #glfwGetVersion glfwGetVersion} */
 	public static void glfwGetVersion(IntBuffer major, IntBuffer minor, IntBuffer rev) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(major, 1);
@@ -426,7 +426,7 @@ public final class GLFW {
 
 	// --- [ glfwGetVersionString ] ---
 
-	/** JNI method for {@link #glfwGetVersionString} */
+	/** JNI method for {@link #glfwGetVersionString glfwGetVersionString} */
 	public static native long nglfwGetVersionString();
 
 	/**
@@ -452,7 +452,7 @@ public final class GLFW {
 
 	// --- [ glfwSetErrorCallback ] ---
 
-	/** JNI method for {@link #glfwSetErrorCallback} */
+	/** JNI method for {@link #glfwSetErrorCallback glfwSetErrorCallback} */
 	public static native long nglfwSetErrorCallback(long cbfun);
 
 	/**
@@ -460,7 +460,7 @@ public final class GLFW {
 	 * <p/>
 	 * Notes:
 	 * <ul>
-	 * <li>This function may be called before {@link #glfwInit}.</li>
+	 * <li>This function may be called before {@link #glfwInit glfwInit}.</li>
 	 * <li>The error callback is called by the thread where the error was generated. If you are using GLFW from multiple threads, your error callback needs to
 	 * be written accordingly.</li>
 	 * <li>Because the description string provided to the callback may have been generated specifically for that error, it is not guaranteed to be valid after
@@ -473,20 +473,20 @@ public final class GLFW {
 		return nglfwSetErrorCallback(cbfun);
 	}
 
-	/** Alternative version of: {@link #glfwSetErrorCallback} */
+	/** Alternative version of: {@link #glfwSetErrorCallback glfwSetErrorCallback} */
 	public static long glfwSetErrorCallback(ErrorCallback cbfun) {
 		return nglfwSetErrorCallback(ErrorCallback.Util.register(cbfun));
 	}
 
 	// --- [ glfwGetMonitors ] ---
 
-	/** JNI method for {@link #glfwGetMonitors} */
+	/** JNI method for {@link #glfwGetMonitors glfwGetMonitors} */
 	public static native long nglfwGetMonitors(long count);
 
 	/**
 	 * Returns an array of handles for all currently connected monitors. The returned array is valid only until the monitor configuration changes.
 	 * <p/>
-	 * See {@link #glfwSetMonitorCallback} to receive notifications of configuration changes.
+	 * See {@link #glfwSetGammaRamp SetGammaRamp} to receive notifications of configuration changes.
 	 */
 	public static PointerBuffer glfwGetMonitors() {
 		APIBuffer __buffer = apiBuffer();
@@ -502,7 +502,7 @@ public final class GLFW {
 
 	// --- [ glfwGetMonitorPos ] ---
 
-	/** JNI method for {@link #glfwGetMonitorPos} */
+	/** JNI method for {@link #glfwGetMonitorPos glfwGetMonitorPos} */
 	public static native void nglfwGetMonitorPos(long monitor, long xpos, long ypos);
 
 	/**
@@ -521,7 +521,7 @@ public final class GLFW {
 		nglfwGetMonitorPos(monitor, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
 
-	/** Alternative version of: {@link #glfwGetMonitorPos} */
+	/** Alternative version of: {@link #glfwGetMonitorPos glfwGetMonitorPos} */
 	public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
@@ -533,7 +533,7 @@ public final class GLFW {
 
 	// --- [ glfwGetMonitorPhysicalSize ] ---
 
-	/** JNI method for {@link #glfwGetMonitorPhysicalSize} */
+	/** JNI method for {@link #glfwGetMonitorPhysicalSize glfwGetMonitorPhysicalSize} */
 	public static native void nglfwGetMonitorPhysicalSize(long monitor, long width, long height);
 
 	/**
@@ -555,7 +555,7 @@ public final class GLFW {
 		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(width), memAddressSafe(height));
 	}
 
-	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize} */
+	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize glfwGetMonitorPhysicalSize} */
 	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer width, IntBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
@@ -567,7 +567,7 @@ public final class GLFW {
 
 	// --- [ glfwGetMonitorName ] ---
 
-	/** JNI method for {@link #glfwGetMonitorName} */
+	/** JNI method for {@link #glfwGetMonitorName glfwGetMonitorName} */
 	public static native long nglfwGetMonitorName(long monitor);
 
 	/**
@@ -584,7 +584,7 @@ public final class GLFW {
 
 	// --- [ glfwSetMonitorCallback ] ---
 
-	/** JNI method for {@link #glfwSetMonitorCallback} */
+	/** JNI method for {@link #glfwSetMonitorCallback glfwSetMonitorCallback} */
 	public static native long nglfwSetMonitorCallback(long cbfun);
 
 	/**
@@ -599,14 +599,14 @@ public final class GLFW {
 		return nglfwSetMonitorCallback(cbfun);
 	}
 
-	/** Alternative version of: {@link #glfwSetMonitorCallback} */
+	/** Alternative version of: {@link #glfwSetMonitorCallback glfwSetMonitorCallback} */
 	public static long glfwSetMonitorCallback(MonitorCallback cbfun) {
 		return nglfwSetMonitorCallback(MonitorCallback.Util.register(cbfun));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
 
-	/** JNI method for {@link #glfwGetVideoModes} */
+	/** JNI method for {@link #glfwGetVideoModes glfwGetVideoModes} */
 	public static native long nglfwGetVideoModes(long monitor, long count);
 
 	/**
@@ -623,7 +623,7 @@ public final class GLFW {
 		return memByteBuffer(__result, count.getInt(count.position()) * GLFWvidmode.SIZEOF);
 	}
 
-	/** Alternative version of: {@link #glfwGetVideoModes} */
+	/** Alternative version of: {@link #glfwGetVideoModes glfwGetVideoModes} */
 	public static ByteBuffer glfwGetVideoModes(long monitor, IntBuffer count) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
@@ -635,7 +635,7 @@ public final class GLFW {
 
 	// --- [ glfwGetVideoMode ] ---
 
-	/** JNI method for {@link #glfwGetVideoMode} */
+	/** JNI method for {@link #glfwGetVideoMode glfwGetVideoMode} */
 	public static native long nglfwGetVideoMode(long monitor);
 
 	/**
@@ -653,11 +653,11 @@ public final class GLFW {
 
 	// --- [ glfwSetGamma ] ---
 
-	/** JNI method for {@link #glfwSetGamma} */
+	/** JNI method for {@link #glfwSetGamma glfwSetGamma} */
 	public static native void nglfwSetGamma(long monitor, float gamma);
 
 	/**
-	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp} with it.
+	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it.
 	 *
 	 * @param monitor monitor whose gamma ramp to set
 	 * @param gamma   desired exponent
@@ -670,7 +670,7 @@ public final class GLFW {
 
 	// --- [ glfwGetGammaRamp ] ---
 
-	/** JNI method for {@link #glfwGetGammaRamp} */
+	/** JNI method for {@link #glfwGetGammaRamp glfwGetGammaRamp} */
 	public static native long nglfwGetGammaRamp(long monitor);
 
 	/**
@@ -687,7 +687,7 @@ public final class GLFW {
 
 	// --- [ glfwSetGammaRamp ] ---
 
-	/** JNI method for {@link #glfwSetGammaRamp} */
+	/** JNI method for {@link #glfwSetGammaRamp glfwSetGammaRamp} */
 	public static native void nglfwSetGammaRamp(long monitor, long ramp);
 
 	/**
@@ -718,21 +718,21 @@ public final class GLFW {
 	// --- [ glfwWindowHint ] ---
 
 	/**
-	 * Sets hints for the next call to {@link #glfwCreateWindow}. The hints, once set, retain their values until changed by a call to glfwWindowHint or
-	 * {@link #glfwDefaultWindowHints}, or until the library is terminated with {@link #glfwTerminate}.
+	 * Sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to glfwWindowHint or
+	 * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated with {@link #glfwTerminate Terminate}.
 	 * <p/>
 	 * Some window hints are hard constraints. These must match the available capabilities <em>exactly</em> for window creation to succeed. Hints that are not
 	 * hard constraints are matched as closely as possible, but the resulting window may differ from what these hints requested. To find out the actual
-	 * parameters of the created window, use the {@link #glfwGetWindowAttrib} function.
+	 * parameters of the created window, use the {@link #glfwGetWindowAttrib GetWindowAttrib} function.
 	 * <p/>
 	 * Hints that do not apply to a given type of window are ignored.
 	 * <p/>
 	 * Window hints:
 	 * <p/>
-	 * The {@link #GLFW_RESIZABLE} hint specifies whether the window will be resizable by the user. The window will still be resizable using the
-	 * {@link #glfwSetWindowSize} function. This hint is ignored for fullscreen windows.
+	 * The {@link #GLFW_RESIZABLE RESIZABLE} hint specifies whether the window will be resizable by the user. The window will still be resizable using the
+	 * {@link #glfwSetWindowSize SetWindowSize} function. This hint is ignored for fullscreen windows.
 	 * <p/>
-	 * The {@link #GLFW_VISIBLE} hint specifies whether the window will be initially visible. This hint is ignored for fullscreen windows.
+	 * The {@link #GLFW_VISIBLE VISIBLE} hint specifies whether the window will be initially visible. This hint is ignored for fullscreen windows.
 	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
@@ -743,18 +743,18 @@ public final class GLFW {
 
 	// --- [ glfwCreateWindow ] ---
 
-	/** JNI method for {@link #glfwCreateWindow} */
+	/** JNI method for {@link #glfwCreateWindow glfwCreateWindow} */
 	public static native long nglfwCreateWindow(int width, int height, long title, long monitor, long share);
 
 	/**
-	 * Creates a window. Most of the options controlling how the window should be created are specified through {@link #glfwWindowHint}.
+	 * Creates a window. Most of the options controlling how the window should be created are specified through {@link #glfwWindowHint glfwWindowHint}.
 	 * <p/>
 	 * Note that the actual properties of the window may differ from what you requested, as not all parameters and hints are hard constraints.
 	 * <p/>
 	 * To create a full screen window, you need to specify the monitor to use. If no monitor is specified, windowed mode will be used. Unless you have a way
 	 * for the user to choose a specific monitor, it is recommended that you pick the primary monitor.
 	 * <p/>
-	 * To create the window at a specific position, make it initially invisible using the {@link #GLFW_VISIBLE} window hint, set its position and then show it.
+	 * To create the window at a specific position, make it initially invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its position and then show it.
 	 * <p/>
 	 * If a full screen window is active, the screensaver is prohibited from starting.
 	 * <p/>
@@ -775,7 +775,7 @@ public final class GLFW {
 		return __result;
 	}
 
-	/** CharSequence version of: {@link #glfwCreateWindow} */
+	/** CharSequence version of: {@link #glfwCreateWindow glfwCreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
 		long __result = nglfwCreateWindow(width, height, memAddress(memEncodeUTF8(title)), monitor, share);
 		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
@@ -785,7 +785,7 @@ public final class GLFW {
 
 	// --- [ glfwDestroyWindow ] ---
 
-	/** JNI method for {@link #glfwDestroyWindow} */
+	/** JNI method for {@link #glfwDestroyWindow glfwDestroyWindow} */
 	public static native void nglfwDestroyWindow(long window);
 
 	/**
@@ -808,7 +808,7 @@ public final class GLFW {
 
 	// --- [ glfwWindowShouldClose ] ---
 
-	/** JNI method for {@link #glfwWindowShouldClose} */
+	/** JNI method for {@link #glfwWindowShouldClose glfwWindowShouldClose} */
 	public static native int nglfwWindowShouldClose(long window);
 
 	/**
@@ -826,7 +826,7 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowShouldClose ] ---
 
-	/** JNI method for {@link #glfwSetWindowShouldClose} */
+	/** JNI method for {@link #glfwSetWindowShouldClose glfwSetWindowShouldClose} */
 	public static native void nglfwSetWindowShouldClose(long window, int value);
 
 	/**
@@ -846,7 +846,7 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowTitle ] ---
 
-	/** JNI method for {@link #glfwSetWindowTitle} */
+	/** JNI method for {@link #glfwSetWindowTitle glfwSetWindowTitle} */
 	public static native void nglfwSetWindowTitle(long window, long title);
 
 	/**
@@ -863,7 +863,7 @@ public final class GLFW {
 		nglfwSetWindowTitle(window, memAddress(title));
 	}
 
-	/** CharSequence version of: {@link #glfwSetWindowTitle} */
+	/** CharSequence version of: {@link #glfwSetWindowTitle glfwSetWindowTitle} */
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
@@ -872,7 +872,7 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowPos ] ---
 
-	/** JNI method for {@link #glfwGetWindowPos} */
+	/** JNI method for {@link #glfwGetWindowPos glfwGetWindowPos} */
 	public static native void nglfwGetWindowPos(long window, long xpos, long ypos);
 
 	/**
@@ -891,7 +891,7 @@ public final class GLFW {
 		nglfwGetWindowPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
 
-	/** Alternative version of: {@link #glfwGetWindowPos} */
+	/** Alternative version of: {@link #glfwGetWindowPos glfwGetWindowPos} */
 	public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
@@ -903,7 +903,7 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowPos ] ---
 
-	/** JNI method for {@link #glfwSetWindowPos} */
+	/** JNI method for {@link #glfwSetWindowPos glfwSetWindowPos} */
 	public static native void nglfwSetWindowPos(long window, int xpos, int ypos);
 
 	/**
@@ -911,7 +911,7 @@ public final class GLFW {
 	 * <p/>
 	 * If the specified window is a full screen window, this function does nothing.
 	 * <p/>
-	 * If you wish to set an initial window position you should create a hidden window (using {@link #glfwWindowHint} and {@link #GLFW_VISIBLE}, set its
+	 * If you wish to set an initial window position you should create a hidden window (using {@link #glfwWindowHint glfwWindowHint} and {@link #GLFW_VISIBLE VISIBLE}, set its
 	 * position and then show it.
 	 * <p/>
 	 * Notes:
@@ -935,7 +935,7 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowSize ] ---
 
-	/** JNI method for {@link #glfwGetWindowSize} */
+	/** JNI method for {@link #glfwGetWindowSize glfwGetWindowSize} */
 	public static native void nglfwGetWindowSize(long window, long width, long height);
 
 	/**
@@ -954,7 +954,7 @@ public final class GLFW {
 		nglfwGetWindowSize(window, memAddressSafe(width), memAddressSafe(height));
 	}
 
-	/** Alternative version of: {@link #glfwGetWindowSize} */
+	/** Alternative version of: {@link #glfwGetWindowSize glfwGetWindowSize} */
 	public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
@@ -966,7 +966,7 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowSize ] ---
 
-	/** JNI method for {@link #glfwSetWindowSize} */
+	/** JNI method for {@link #glfwSetWindowSize glfwSetWindowSize} */
 	public static native void nglfwSetWindowSize(long window, int width, int height);
 
 	/**
@@ -991,7 +991,7 @@ public final class GLFW {
 
 	// --- [ glfwGetFramebufferSize ] ---
 
-	/** JNI method for {@link #glfwGetFramebufferSize} */
+	/** JNI method for {@link #glfwGetFramebufferSize glfwGetFramebufferSize} */
 	public static native void nglfwGetFramebufferSize(long window, long width, long height);
 
 	/**
@@ -1010,7 +1010,7 @@ public final class GLFW {
 		nglfwGetFramebufferSize(window, memAddressSafe(width), memAddressSafe(height));
 	}
 
-	/** Alternative version of: {@link #glfwGetFramebufferSize} */
+	/** Alternative version of: {@link #glfwGetFramebufferSize glfwGetFramebufferSize} */
 	public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
@@ -1022,7 +1022,7 @@ public final class GLFW {
 
 	// --- [ glfwIconifyWindow ] ---
 
-	/** JNI method for {@link #glfwIconifyWindow} */
+	/** JNI method for {@link #glfwIconifyWindow glfwIconifyWindow} */
 	public static native void nglfwIconifyWindow(long window);
 
 	/**
@@ -1041,7 +1041,7 @@ public final class GLFW {
 
 	// --- [ glfwRestoreWindow ] ---
 
-	/** JNI method for {@link #glfwRestoreWindow} */
+	/** JNI method for {@link #glfwRestoreWindow glfwRestoreWindow} */
 	public static native void nglfwRestoreWindow(long window);
 
 	/**
@@ -1059,7 +1059,7 @@ public final class GLFW {
 
 	// --- [ glfwShowWindow ] ---
 
-	/** JNI method for {@link #glfwShowWindow} */
+	/** JNI method for {@link #glfwShowWindow glfwShowWindow} */
 	public static native void nglfwShowWindow(long window);
 
 	/**
@@ -1077,7 +1077,7 @@ public final class GLFW {
 
 	// --- [ glfwHideWindow ] ---
 
-	/** JNI method for {@link #glfwHideWindow} */
+	/** JNI method for {@link #glfwHideWindow glfwHideWindow} */
 	public static native void nglfwHideWindow(long window);
 
 	/**
@@ -1095,7 +1095,7 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowMonitor ] ---
 
-	/** JNI method for {@link #glfwGetWindowMonitor} */
+	/** JNI method for {@link #glfwGetWindowMonitor glfwGetWindowMonitor} */
 	public static native long nglfwGetWindowMonitor(long window);
 
 	/**
@@ -1111,17 +1111,17 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowAttrib ] ---
 
-	/** JNI method for {@link #glfwGetWindowAttrib} */
+	/** JNI method for {@link #glfwGetWindowAttrib glfwGetWindowAttrib} */
 	public static native int nglfwGetWindowAttrib(long window, int attrib);
 
 	/**
 	 * Returns an attribute of the specified window.
 	 * <ul>
-	 * <li>The {@link #GLFW_FOCUSED} attribute indicates whether the window is focused.</li>
-	 * <li>The {@link #GLFW_ICONIFIED} attribute indicates whether the window is iconified.</li>
-	 * <li>The {@link #GLFW_VISIBLE} attribute indicates whether the window is visible.</li>
-	 * <li>The {@link #GLFW_RESIZABLE} attribute indicates whether the window is resizable by the user.</li>
-	 * <li>The {@link #GLFW_DECORATED} attribute indicates whether the window is decorated.</li>
+	 * <li>The {@link #GLFW_FOCUSED FOCUSED} attribute indicates whether the window is focused.</li>
+	 * <li>The {@link #GLFW_ICONIFIED ICONIFIED} attribute indicates whether the window is iconified.</li>
+	 * <li>The {@link #GLFW_VISIBLE VISIBLE} attribute indicates whether the window is visible.</li>
+	 * <li>The {@link #GLFW_RESIZABLE RESIZABLE} attribute indicates whether the window is resizable by the user.</li>
+	 * <li>The {@link #GLFW_DECORATED DECORATED} attribute indicates whether the window is decorated.</li>
 	 * </ul>
 	 *
 	 * @param window window to query
@@ -1135,7 +1135,7 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowUserPointer ] ---
 
-	/** JNI method for {@link #glfwSetWindowUserPointer} */
+	/** JNI method for {@link #glfwSetWindowUserPointer glfwSetWindowUserPointer} */
 	public static native void nglfwSetWindowUserPointer(long window, long pointer);
 
 	/**
@@ -1152,7 +1152,7 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowUserPointer ] ---
 
-	/** JNI method for {@link #glfwGetWindowUserPointer} */
+	/** JNI method for {@link #glfwGetWindowUserPointer glfwGetWindowUserPointer} */
 	public static native long nglfwGetWindowUserPointer(long window);
 
 	/**
@@ -1168,11 +1168,11 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowPosCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowPosCallback} */
+	/** JNI method for {@link #glfwSetWindowPosCallback glfwSetWindowPosCallback} */
 	public static native long nglfwSetWindowPosCallback(long window, long cbfun);
 
 	/**
-	 * Sets the position callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the position callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1185,11 +1185,11 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowSizeCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowSizeCallback} */
+	/** JNI method for {@link #glfwSetWindowSizeCallback glfwSetWindowSizeCallback} */
 	public static native long nglfwSetWindowSizeCallback(long window, long cbfun);
 
 	/**
-	 * Sets the size callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the size callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1202,16 +1202,16 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowCloseCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowCloseCallback} */
+	/** JNI method for {@link #glfwSetWindowCloseCallback glfwSetWindowCloseCallback} */
 	public static native long nglfwSetWindowCloseCallback(long window, long cbfun);
 
 	/**
 	 * Sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in
-	 * the title bar. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * the title bar. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
-	 * The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose}.
+	 * The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose SetWindowShouldClose}.
 	 * <p/>
-	 * The close callback is not triggered by {@link #glfwDestroyWindow}.
+	 * The close callback is not triggered by {@link #glfwDestroyWindow glfwDestroyWindow}.
 	 * <p/>
 	 * <b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.
 	 *
@@ -1226,11 +1226,11 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowRefreshCallback} */
+	/** JNI method for {@link #glfwSetWindowRefreshCallback glfwSetWindowRefreshCallback} */
 	public static native long nglfwSetWindowRefreshCallback(long window, long cbfun);
 
 	/**
-	 * Sets the refresh callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the refresh callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * This callback is called when the client area of the window needs to be redrawn, for example if the window has been exposed after having been covered by
 	 * another window.
@@ -1249,11 +1249,11 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowFocusCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowFocusCallback} */
+	/** JNI method for {@link #glfwSetWindowFocusCallback glfwSetWindowFocusCallback} */
 	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
-	 * Sets the focus callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the focus callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * This callback is called when the window gains or loses focus.
 	 *
@@ -1268,11 +1268,11 @@ public final class GLFW {
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
 
-	/** JNI method for {@link #glfwSetWindowIconifyCallback} */
+	/** JNI method for {@link #glfwSetWindowIconifyCallback glfwSetWindowIconifyCallback} */
 	public static native long nglfwSetWindowIconifyCallback(long window, long cbfun);
 
 	/**
-	 * Sets the iconify callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the iconify callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * This callback is called when the window is iconified or restored.
 	 *
@@ -1287,13 +1287,13 @@ public final class GLFW {
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
 
-	/** JNI method for {@link #glfwSetFramebufferSizeCallback} */
+	/** JNI method for {@link #glfwSetFramebufferSizeCallback glfwSetFramebufferSizeCallback} */
 	public static native long nglfwSetFramebufferSizeCallback(long window, long cbfun);
 
 	/**
 	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
 	 * <p/>
-	 * See {@link WindowCallback#set(long, WindowCallback, int)}
+	 * See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1306,7 +1306,7 @@ public final class GLFW {
 
 	// --- [ glfwPollEvents ] ---
 
-	/** JNI method for {@link #glfwPollEvents} */
+	/** JNI method for {@link #glfwPollEvents glfwPollEvents} */
 	public static native void nglfwPollEvents();
 
 	/**
@@ -1328,11 +1328,11 @@ public final class GLFW {
 
 	// --- [ glfwWaitEvents ] ---
 
-	/** JNI method for {@link #glfwWaitEvents} */
+	/** JNI method for {@link #glfwWaitEvents glfwWaitEvents} */
 	public static native void nglfwWaitEvents();
 
 	/**
-	 * Puts the calling thread to sleep until at least one event has been received. Once one or more events have been received, it behaves as if {@link #glfwPollEvents}
+	 * Puts the calling thread to sleep until at least one event has been received. Once one or more events have been received, it behaves as if {@link #glfwPollEvents glfwPollEvents}
 	 * was called, i.e. the events are processed and the function then returns immediately. Processing events will cause the window and input callbacks
 	 * associated with those events to be called.
 	 * <p/>
@@ -1354,14 +1354,14 @@ public final class GLFW {
 
 	// --- [ glfwGetInputMode ] ---
 
-	/** JNI method for {@link #glfwGetInputMode} */
+	/** JNI method for {@link #glfwGetInputMode glfwGetInputMode} */
 	public static native int nglfwGetInputMode(long window, int mode);
 
 	/**
 	 * Returns the value of an input option for the specified window
 	 *
 	 * @param window window to query
-	 * @param mode   One of {@link #GLFW_CURSOR}, {@link #GLFW_STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS}
+	 * @param mode   One of {@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		if ( LWJGLUtil.CHECKS )
@@ -1371,30 +1371,30 @@ public final class GLFW {
 
 	// --- [ glfwSetInputMode ] ---
 
-	/** JNI method for {@link #glfwSetInputMode} */
+	/** JNI method for {@link #glfwSetInputMode glfwSetInputMode} */
 	public static native void nglfwSetInputMode(long window, int mode, int value);
 
 	/**
 	 * Sets an input option for the specified window
 	 * <p/>
-	 * If mode is {@link #GLFW_CURSOR}, the value must be one of the supported input modes:
+	 * If mode is {@link #GLFW_CURSOR CURSOR}, the value must be one of the supported input modes:
 	 * <ul>
-	 * <li>{@link #GLFW_CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
-	 * <li>{@link #GLFW_CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window.</li>
-	 * <li>{@link #GLFW_CURSOR_DISABLED} disables the cursor and removes any limitations on cursor movement.</li>
+	 * <li>{@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
+	 * <li>{@link #GLFW_CURSOR_HIDDEN CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window.</li>
+	 * <li>{@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} disables the cursor and removes any limitations on cursor movement.</li>
 	 * </ul>
 	 * <p/>
-	 * If mode is {@link #GLFW_STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE} to enable sticky keys, or {@link GL11#GL_FALSE} to disable it. If
-	 * sticky keys are enabled, a key press will ensure that {@link #glfwGetKey} returns {@link #GLFW_PRESS} the next time it is called even if the key had
+	 * If mode is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE TRUE} to enable sticky keys, or {@link GL11#GL_FALSE FALSE} to disable it. If
+	 * sticky keys are enabled, a key press will ensure that {@link #glfwGetKey GetKey} returns {@link #GLFW_PRESS PRESS} the next time it is called even if the key had
 	 * been released before the call.
 	 * <p/>
-	 * If mode is {@link #GLFW_STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE} to
-	 * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton} returns {@link #GLFW_PRESS} the next
+	 * If mode is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE FALSE} to
+	 * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton GetMouseButton} returns {@link #GLFW_PRESS PRESS} the next
 	 * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
 	 * been pressed but not when or in which order.
 	 *
 	 * @param window window whose input mode to set
-	 * @param mode   One of {@link #GLFW_CURSOR}, {@link #GLFW_STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS}
+	 * @param mode   One of {@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 * @param value  new value of the specified input mode
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
@@ -1405,20 +1405,20 @@ public final class GLFW {
 
 	// --- [ glfwGetKey ] ---
 
-	/** JNI method for {@link #glfwGetKey} */
+	/** JNI method for {@link #glfwGetKey glfwGetKey} */
 	public static native int nglfwGetKey(long window, int key);
 
 	/**
-	 * Returns the last state reported for the specified key to the specified window. The returned state is one of {@link #GLFW_PRESS} or
-	 * {@link #GLFW_RELEASE}. The higher-level state {@link #GLFW_REPEAT} is only reported to the key callback.
+	 * Returns the last state reported for the specified key to the specified window. The returned state is one of {@link #GLFW_PRESS PRESS} or
+	 * {@link #GLFW_RELEASE RELEASE}. The higher-level state {@link #GLFW_REPEAT REPEAT} is only reported to the key callback.
 	 * <p/>
-	 * If the {@link #GLFW_STICKY_KEYS} input mode is enabled, this function returns {@link #GLFW_PRESS} the first time you call this function after a key has
+	 * If the {@link #GLFW_STICKY_KEYS STICKY_KEYS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call this function after a key has
 	 * been pressed, even if the key has already been released.
 	 * <p/>
 	 * The key functions deal with physical keys, with tokens named after their use on the standard US keyboard layout. If you want to input text, use the
 	 * Unicode character callback instead.
 	 * <p/>
-	 * Note: {@link #GLFW_KEY_UNKNOWN} is not a valid key for this function.
+	 * Note: {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} is not a valid key for this function.
 	 *
 	 * @param window desired window
 	 * @param key    desired keyboard key
@@ -1431,14 +1431,14 @@ public final class GLFW {
 
 	// --- [ glfwGetMouseButton ] ---
 
-	/** JNI method for {@link #glfwGetMouseButton} */
+	/** JNI method for {@link #glfwGetMouseButton glfwGetMouseButton} */
 	public static native int nglfwGetMouseButton(long window, int button);
 
 	/**
 	 * Returns the last state reported for the specified mouse button to the specified window.
 	 * <p/>
-	 * If the {@link #GLFW_STICKY_MOUSE_BUTTONS} input mode is enabled, this function
-	 * returns {@link #GLFW_PRESS} the first time you call this function after a mouse
+	 * If the {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS} input mode is enabled, this function
+	 * returns {@link #GLFW_PRESS PRESS} the first time you call this function after a mouse
 	 * button has been pressed, even if the mouse button has already been released.
 	 *
 	 * @param window desired window
@@ -1452,13 +1452,13 @@ public final class GLFW {
 
 	// --- [ glfwGetCursorPos ] ---
 
-	/** JNI method for {@link #glfwGetCursorPos} */
+	/** JNI method for {@link #glfwGetCursorPos glfwGetCursorPos} */
 	public static native void nglfwGetCursorPos(long window, long xpos, long ypos);
 
 	/**
 	 * Returns the last reported position of the cursor to the specified window.
 	 * <p/>
-	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values
+	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values
 	 * of a <strong>double</strong>.
 	 * <p/>
 	 * The coordinate can be converted to their integer equivalents with the {@link Math#floor} function. Casting directly to an integer type works for
@@ -1477,7 +1477,7 @@ public final class GLFW {
 		nglfwGetCursorPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
 
-	/** Alternative version of: {@link #glfwGetCursorPos} */
+	/** Alternative version of: {@link #glfwGetCursorPos glfwGetCursorPos} */
 	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
@@ -1489,14 +1489,14 @@ public final class GLFW {
 
 	// --- [ glfwSetCursorPos ] ---
 
-	/** JNI method for {@link #glfwSetCursorPos} */
+	/** JNI method for {@link #glfwSetCursorPos glfwSetCursorPos} */
 	public static native void nglfwSetCursorPos(long window, double xpos, double ypos);
 
 	/**
 	 * Sets the position of the cursor. The specified window must be focused. If the window does not have focus when this function is called, it fails
 	 * silently.
 	 * <p/>
-	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values
+	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values
 	 * of a <strong>double</strong>.
 	 *
 	 * @param window desired window
@@ -1511,22 +1511,22 @@ public final class GLFW {
 
 	// --- [ glfwSetKeyCallback ] ---
 
-	/** JNI method for {@link #glfwSetKeyCallback} */
+	/** JNI method for {@link #glfwSetKeyCallback glfwSetKeyCallback} */
 	public static native long nglfwSetKeyCallback(long window, long cbfun);
 
 	/**
-	 * Sets the key callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the key callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * The key callback deals with physical keys, with key tokens named after their use on the standard US keyboard layout. If you want to input text, use the
 	 * Unicode character callback instead.
 	 * <p/>
 	 * When a window loses focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by
-	 * the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED} will be false and the focus callback will
+	 * the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED FOCUSED} will be false and the focus callback will
 	 * have already been called.
 	 * <p/>
 	 * The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have
-	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN}, their state is not saved and so it cannot be retrieved with
-	 * {@link #glfwGetKey}.
+	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, their state is not saved and so it cannot be retrieved with
+	 * {@link #glfwGetKey GetKey}.
 	 * <p/>
 	 * Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.
 	 *
@@ -1541,11 +1541,11 @@ public final class GLFW {
 
 	// --- [ glfwSetCharCallback ] ---
 
-	/** JNI method for {@link #glfwSetCharCallback} */
+	/** JNI method for {@link #glfwSetCharCallback glfwSetCharCallback} */
 	public static native long nglfwSetCharCallback(long window, long cbfun);
 
 	/**
-	 * Sets the Unicode character callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the Unicode character callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * The Unicode character callback is for text input. If you want to know whether a specific key was pressed or released, use the key callback.
 	 *
@@ -1560,11 +1560,11 @@ public final class GLFW {
 
 	// --- [ glfwSetMouseButtonCallback ] ---
 
-	/** JNI method for {@link #glfwSetMouseButtonCallback} */
+	/** JNI method for {@link #glfwSetMouseButtonCallback glfwSetMouseButtonCallback} */
 	public static native long nglfwSetMouseButtonCallback(long window, long cbfun);
 
 	/**
-	 * Sets the mouse button callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the mouse button callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1577,11 +1577,11 @@ public final class GLFW {
 
 	// --- [ glfwSetCursorPosCallback ] ---
 
-	/** JNI method for {@link #glfwSetCursorPosCallback} */
+	/** JNI method for {@link #glfwSetCursorPosCallback glfwSetCursorPosCallback} */
 	public static native long nglfwSetCursorPosCallback(long window, long cbfun);
 
 	/**
-	 * Sets the cursor position callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the cursor position callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * The position is relative to the upper-left corner of the client area of the window.
 	 *
@@ -1596,11 +1596,11 @@ public final class GLFW {
 
 	// --- [ glfwSetCursorEnterCallback ] ---
 
-	/** JNI method for {@link #glfwSetCursorEnterCallback} */
+	/** JNI method for {@link #glfwSetCursorEnterCallback glfwSetCursorEnterCallback} */
 	public static native long nglfwSetCursorEnterCallback(long window, long cbfun);
 
 	/**
-	 * Sets the cursor enter/exit callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the cursor enter/exit callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1613,11 +1613,11 @@ public final class GLFW {
 
 	// --- [ glfwSetScrollCallback ] ---
 
-	/** JNI method for {@link #glfwSetScrollCallback} */
+	/** JNI method for {@link #glfwSetScrollCallback glfwSetScrollCallback} */
 	public static native long nglfwSetScrollCallback(long window, long cbfun);
 
 	/**
-	 * Sets the scroll callback. See {@link WindowCallback#set(long, WindowCallback, int)}.
+	 * Sets the scroll callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
 	 * <p/>
 	 * This receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.
 	 *
@@ -1641,7 +1641,7 @@ public final class GLFW {
 
 	// --- [ glfwGetJoystickAxes ] ---
 
-	/** JNI method for {@link #glfwGetJoystickAxes} */
+	/** JNI method for {@link #glfwGetJoystickAxes glfwGetJoystickAxes} */
 	public static native long nglfwGetJoystickAxes(int joy, long count);
 
 	/**
@@ -1660,7 +1660,7 @@ public final class GLFW {
 
 	// --- [ glfwGetJoystickButtons ] ---
 
-	/** JNI method for {@link #glfwGetJoystickButtons} */
+	/** JNI method for {@link #glfwGetJoystickButtons glfwGetJoystickButtons} */
 	public static native long nglfwGetJoystickButtons(int joy, long count);
 
 	/**
@@ -1679,7 +1679,7 @@ public final class GLFW {
 
 	// --- [ glfwGetJoystickName ] ---
 
-	/** JNI method for {@link #glfwGetJoystickName} */
+	/** JNI method for {@link #glfwGetJoystickName glfwGetJoystickName} */
 	public static native long nglfwGetJoystickName(int joy);
 
 	/**
@@ -1694,7 +1694,7 @@ public final class GLFW {
 
 	// --- [ glfwSetClipboardString ] ---
 
-	/** JNI method for {@link #glfwSetClipboardString} */
+	/** JNI method for {@link #glfwSetClipboardString glfwSetClipboardString} */
 	public static native void nglfwSetClipboardString(long window, long string);
 
 	/**
@@ -1711,7 +1711,7 @@ public final class GLFW {
 		nglfwSetClipboardString(window, memAddress(string));
 	}
 
-	/** CharSequence version of: {@link #glfwSetClipboardString} */
+	/** CharSequence version of: {@link #glfwSetClipboardString glfwSetClipboardString} */
 	public static void glfwSetClipboardString(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
@@ -1720,7 +1720,7 @@ public final class GLFW {
 
 	// --- [ glfwGetClipboardString ] ---
 
-	/** JNI method for {@link #glfwGetClipboardString} */
+	/** JNI method for {@link #glfwGetClipboardString glfwGetClipboardString} */
 	public static native long nglfwGetClipboardString(long window);
 
 	/**
@@ -1751,7 +1751,7 @@ public final class GLFW {
 
 	// --- [ glfwMakeContextCurrent ] ---
 
-	/** JNI method for {@link #glfwMakeContextCurrent} */
+	/** JNI method for {@link #glfwMakeContextCurrent glfwMakeContextCurrent} */
 	public static native void nglfwMakeContextCurrent(long window);
 
 	/**
@@ -1773,7 +1773,7 @@ public final class GLFW {
 
 	// --- [ glfwSwapBuffers ] ---
 
-	/** JNI method for {@link #glfwSwapBuffers} */
+	/** JNI method for {@link #glfwSwapBuffers glfwSwapBuffers} */
 	public static native void nglfwSwapBuffers(long window);
 
 	/**
@@ -1792,23 +1792,23 @@ public final class GLFW {
 
 	/**
 	 * Sets the swap interval for the current context, i.e. the number of screen updates to wait before swapping the buffers of a window and returning from
-	 * {@link #glfwSwapBuffers}. This is sometimes called 'vertical synchronization', 'vertical retrace synchronization' or 'vsync'.
+	 * {@link #glfwSwapBuffers glfwSwapBuffers}. This is sometimes called 'vertical synchronization', 'vertical retrace synchronization' or 'vsync'.
 	 * <p/>
 	 * Contexts that support either of the {@code WGL_EXT_swap_control_tear} and {@code GLX_EXT_swap_control_tear} extensions also accept negative swap
 	 * intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions using
-	 * {@link #glfwExtensionSupported}. For more information about swap tearing, see the extension specifications.
+	 * {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.
 	 * <p/>
 	 * Some GPU drivers do not honor the requested swap interval, either because of user settings that override the request or due to bugs in the driver.
 	 * <p/>
 	 * Note: This function may be called from secondary threads.
 	 *
-	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers}
+	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers glfwSwapBuffers}
 	 */
 	public static native void glfwSwapInterval(int interval);
 
 	// --- [ glfwExtensionSupported ] ---
 
-	/** JNI method for {@link #glfwExtensionSupported} */
+	/** JNI method for {@link #glfwExtensionSupported glfwExtensionSupported} */
 	public static native int nglfwExtensionSupported(long extension);
 
 	/**
@@ -1828,7 +1828,7 @@ public final class GLFW {
 		return nglfwExtensionSupported(memAddress(extension));
 	}
 
-	/** CharSequence version of: {@link #glfwExtensionSupported} */
+	/** CharSequence version of: {@link #glfwExtensionSupported glfwExtensionSupported} */
 	public static int glfwExtensionSupported(CharSequence extension) {
 		return nglfwExtensionSupported(memAddress(memEncodeASCII(extension)));
 	}

@@ -647,7 +647,7 @@ public final class EXTEfx {
 
 	// --- [ alGenEffects ] ---
 
-	/** JNI method for {@link #alGenEffects} */
+	/** JNI method for {@link #alGenEffects alGenEffects} */
 	public static native void nalGenEffects(int n, long effects, long __functionAddress);
 
 	/**
@@ -665,7 +665,7 @@ public final class EXTEfx {
 		nalGenEffects(n, memAddress(effects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenEffects} */
+	/** Alternative version of: {@link #alGenEffects alGenEffects} */
 	public static void alGenEffects(IntBuffer effects) {
 		long __functionAddress = getInstance().alGenEffects;
 		if ( LWJGLUtil.CHECKS )
@@ -673,7 +673,7 @@ public final class EXTEfx {
 		nalGenEffects(effects.remaining(), memAddress(effects), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenEffects} */
+	/** Single return value version of: {@link #alGenEffects alGenEffects} */
 	public static int alGenEffects() {
 		long __functionAddress = getInstance().alGenEffects;
 		if ( LWJGLUtil.CHECKS )
@@ -686,7 +686,7 @@ public final class EXTEfx {
 
 	// --- [ alDeleteEffects ] ---
 
-	/** JNI method for {@link #alDeleteEffects} */
+	/** JNI method for {@link #alDeleteEffects alDeleteEffects} */
 	public static native void nalDeleteEffects(int n, long effects, long __functionAddress);
 
 	/**
@@ -704,7 +704,7 @@ public final class EXTEfx {
 		nalDeleteEffects(n, memAddress(effects), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteEffects} */
+	/** Alternative version of: {@link #alDeleteEffects alDeleteEffects} */
 	public static void alDeleteEffects(IntBuffer effects) {
 		long __functionAddress = getInstance().alDeleteEffects;
 		if ( LWJGLUtil.CHECKS )
@@ -712,7 +712,7 @@ public final class EXTEfx {
 		nalDeleteEffects(effects.remaining(), memAddress(effects), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteEffects} */
+	/** Single value version of: {@link #alDeleteEffects alDeleteEffects} */
 	public static void alDeleteEffects(int effect) {
 		long __functionAddress = getInstance().alDeleteEffects;
 		if ( LWJGLUtil.CHECKS )
@@ -724,7 +724,7 @@ public final class EXTEfx {
 
 	// --- [ alIsEffect ] ---
 
-	/** JNI method for {@link #alIsEffect} */
+	/** JNI method for {@link #alIsEffect alIsEffect} */
 	public static native boolean nalIsEffect(int effect, long __functionAddress);
 
 	/**
@@ -741,7 +741,7 @@ public final class EXTEfx {
 
 	// --- [ alEffecti ] ---
 
-	/** JNI method for {@link #alEffecti} */
+	/** JNI method for {@link #alEffecti alEffecti} */
 	public static native void nalEffecti(int effect, int param, int value, long __functionAddress);
 
 	/**
@@ -760,11 +760,11 @@ public final class EXTEfx {
 
 	// --- [ alEffectiv ] ---
 
-	/** JNI method for {@link #alEffecti(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alEffecti(int, int, ByteBuffer) alEffecti} */
 	public static native void nalEffectiv(int effect, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alEffecti}.
+	 * Pointer version of {@link #alEffecti alEffecti}.
 	 *
 	 * @param effect the effect to modify
 	 * @param param  the parameter to modify
@@ -777,7 +777,7 @@ public final class EXTEfx {
 		nalEffectiv(effect, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alEffecti(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alEffecti(int, int, ByteBuffer) alEffecti} */
 	public static void alEffect(int effect, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alEffectiv;
 		if ( LWJGLUtil.CHECKS )
@@ -787,7 +787,7 @@ public final class EXTEfx {
 
 	// --- [ alEffectf ] ---
 
-	/** JNI method for {@link #alEffectf} */
+	/** JNI method for {@link #alEffectf alEffectf} */
 	public static native void nalEffectf(int effect, int param, float value, long __functionAddress);
 
 	/**
@@ -806,11 +806,11 @@ public final class EXTEfx {
 
 	// --- [ alEffectfv ] ---
 
-	/** JNI method for {@link #alEffectf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alEffectf(int, int, ByteBuffer) alEffectf} */
 	public static native void nalEffectfv(int effect, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alEffectf}.
+	 * Pointer version of {@link #alEffectf alEffectf}.
 	 *
 	 * @param effect the effect to modify
 	 * @param param  the parameter to modify
@@ -823,7 +823,7 @@ public final class EXTEfx {
 		nalEffectfv(effect, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alEffectf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alEffectf(int, int, ByteBuffer) alEffectf} */
 	public static void alEffect(int effect, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alEffectfv;
 		if ( LWJGLUtil.CHECKS )
@@ -833,7 +833,7 @@ public final class EXTEfx {
 
 	// --- [ alGetEffecti ] ---
 
-	/** JNI method for {@link #alGetEffecti} */
+	/** JNI method for {@link #alGetEffecti alGetEffecti} */
 	public static native void nalGetEffecti(int effect, int param, long value, long __functionAddress);
 
 	/**
@@ -852,7 +852,7 @@ public final class EXTEfx {
 		nalGetEffecti(effect, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetEffecti} */
+	/** Alternative version of: {@link #alGetEffecti alGetEffecti} */
 	public static void alGetEffect(int effect, int param, IntBuffer value) {
 		long __functionAddress = getInstance().alGetEffecti;
 		if ( LWJGLUtil.CHECKS ) {
@@ -862,7 +862,7 @@ public final class EXTEfx {
 		nalGetEffecti(effect, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetEffecti} */
+	/** Single return value version of: {@link #alGetEffecti alGetEffecti} */
 	public static int alGetEffecti(int effect, int param) {
 		long __functionAddress = getInstance().alGetEffecti;
 		if ( LWJGLUtil.CHECKS )
@@ -875,7 +875,7 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectiv ] ---
 
-	/** JNI method for {@link #alGetEffectiv} */
+	/** JNI method for {@link #alGetEffectiv alGetEffectiv} */
 	public static native void nalGetEffectiv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -894,7 +894,7 @@ public final class EXTEfx {
 		nalGetEffectiv(effect, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetEffectiv} */
+	/** Alternative version of: {@link #alGetEffectiv alGetEffectiv} */
 	public static void alGetEffectiv(int effect, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alGetEffectiv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -906,7 +906,7 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectf ] ---
 
-	/** JNI method for {@link #alGetEffectf} */
+	/** JNI method for {@link #alGetEffectf alGetEffectf} */
 	public static native void nalGetEffectf(int effect, int param, long value, long __functionAddress);
 
 	/**
@@ -925,7 +925,7 @@ public final class EXTEfx {
 		nalGetEffectf(effect, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetEffectf} */
+	/** Alternative version of: {@link #alGetEffectf alGetEffectf} */
 	public static void alGetEffect(int effect, int param, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetEffectf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -935,7 +935,7 @@ public final class EXTEfx {
 		nalGetEffectf(effect, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetEffectf} */
+	/** Single return value version of: {@link #alGetEffectf alGetEffectf} */
 	public static float alGetEffectf(int effect, int param) {
 		long __functionAddress = getInstance().alGetEffectf;
 		if ( LWJGLUtil.CHECKS )
@@ -948,7 +948,7 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectfv ] ---
 
-	/** JNI method for {@link #alGetEffectfv} */
+	/** JNI method for {@link #alGetEffectfv alGetEffectfv} */
 	public static native void nalGetEffectfv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -967,7 +967,7 @@ public final class EXTEfx {
 		nalGetEffectfv(effect, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetEffectfv} */
+	/** Alternative version of: {@link #alGetEffectfv alGetEffectfv} */
 	public static void alGetEffectfv(int effect, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alGetEffectfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -979,7 +979,7 @@ public final class EXTEfx {
 
 	// --- [ alGenFilters ] ---
 
-	/** JNI method for {@link #alGenFilters} */
+	/** JNI method for {@link #alGenFilters alGenFilters} */
 	public static native void nalGenFilters(int n, long filters, long __functionAddress);
 
 	/**
@@ -997,7 +997,7 @@ public final class EXTEfx {
 		nalGenFilters(n, memAddress(filters), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenFilters} */
+	/** Alternative version of: {@link #alGenFilters alGenFilters} */
 	public static void alGenFilters(IntBuffer filters) {
 		long __functionAddress = getInstance().alGenFilters;
 		if ( LWJGLUtil.CHECKS )
@@ -1005,7 +1005,7 @@ public final class EXTEfx {
 		nalGenFilters(filters.remaining(), memAddress(filters), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenFilters} */
+	/** Single return value version of: {@link #alGenFilters alGenFilters} */
 	public static int alGenFilters() {
 		long __functionAddress = getInstance().alGenFilters;
 		if ( LWJGLUtil.CHECKS )
@@ -1018,7 +1018,7 @@ public final class EXTEfx {
 
 	// --- [ alDeleteFilters ] ---
 
-	/** JNI method for {@link #alDeleteFilters} */
+	/** JNI method for {@link #alDeleteFilters alDeleteFilters} */
 	public static native void nalDeleteFilters(int n, long filters, long __functionAddress);
 
 	/**
@@ -1036,7 +1036,7 @@ public final class EXTEfx {
 		nalDeleteFilters(n, memAddress(filters), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteFilters} */
+	/** Alternative version of: {@link #alDeleteFilters alDeleteFilters} */
 	public static void alDeleteFilters(IntBuffer filters) {
 		long __functionAddress = getInstance().alDeleteFilters;
 		if ( LWJGLUtil.CHECKS )
@@ -1044,7 +1044,7 @@ public final class EXTEfx {
 		nalDeleteFilters(filters.remaining(), memAddress(filters), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteFilters} */
+	/** Single value version of: {@link #alDeleteFilters alDeleteFilters} */
 	public static void alDeleteFilters(int filter) {
 		long __functionAddress = getInstance().alDeleteFilters;
 		if ( LWJGLUtil.CHECKS )
@@ -1056,7 +1056,7 @@ public final class EXTEfx {
 
 	// --- [ alIsFilter ] ---
 
-	/** JNI method for {@link #alIsFilter} */
+	/** JNI method for {@link #alIsFilter alIsFilter} */
 	public static native boolean nalIsFilter(int filter, long __functionAddress);
 
 	/**
@@ -1073,7 +1073,7 @@ public final class EXTEfx {
 
 	// --- [ alFilteri ] ---
 
-	/** JNI method for {@link #alFilteri} */
+	/** JNI method for {@link #alFilteri alFilteri} */
 	public static native void nalFilteri(int filter, int param, int value, long __functionAddress);
 
 	/**
@@ -1092,11 +1092,11 @@ public final class EXTEfx {
 
 	// --- [ alFilteriv ] ---
 
-	/** JNI method for {@link #alFilteri(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alFilteri(int, int, ByteBuffer) alFilteri} */
 	public static native void nalFilteriv(int filter, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alFilteri}.
+	 * Pointer version of {@link #alFilteri alFilteri}.
 	 *
 	 * @param filter the filter to modify
 	 * @param param  the parameter to modify
@@ -1109,7 +1109,7 @@ public final class EXTEfx {
 		nalFilteriv(filter, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alFilteri(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alFilteri(int, int, ByteBuffer) alFilteri} */
 	public static void alFilter(int filter, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alFilteriv;
 		if ( LWJGLUtil.CHECKS )
@@ -1119,7 +1119,7 @@ public final class EXTEfx {
 
 	// --- [ alFilterf ] ---
 
-	/** JNI method for {@link #alFilterf} */
+	/** JNI method for {@link #alFilterf alFilterf} */
 	public static native void nalFilterf(int filter, int param, float value, long __functionAddress);
 
 	/**
@@ -1138,11 +1138,11 @@ public final class EXTEfx {
 
 	// --- [ alFilterfv ] ---
 
-	/** JNI method for {@link #alFilterf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alFilterf(int, int, ByteBuffer) alFilterf} */
 	public static native void nalFilterfv(int filter, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alFilterf}.
+	 * Pointer version of {@link #alFilterf alFilterf}.
 	 *
 	 * @param filter the filter to modify
 	 * @param param  the parameter to modify
@@ -1155,7 +1155,7 @@ public final class EXTEfx {
 		nalFilterfv(filter, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alFilterf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alFilterf(int, int, ByteBuffer) alFilterf} */
 	public static void alFilter(int filter, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alFilterfv;
 		if ( LWJGLUtil.CHECKS )
@@ -1165,7 +1165,7 @@ public final class EXTEfx {
 
 	// --- [ alGetFilteri ] ---
 
-	/** JNI method for {@link #alGetFilteri} */
+	/** JNI method for {@link #alGetFilteri alGetFilteri} */
 	public static native void nalGetFilteri(int filter, int param, long value, long __functionAddress);
 
 	/**
@@ -1184,7 +1184,7 @@ public final class EXTEfx {
 		nalGetFilteri(filter, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetFilteri} */
+	/** Alternative version of: {@link #alGetFilteri alGetFilteri} */
 	public static void alGetFilter(int filter, int param, IntBuffer value) {
 		long __functionAddress = getInstance().alGetFilteri;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1194,7 +1194,7 @@ public final class EXTEfx {
 		nalGetFilteri(filter, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetFilteri} */
+	/** Single return value version of: {@link #alGetFilteri alGetFilteri} */
 	public static int alGetFilteri(int filter, int param) {
 		long __functionAddress = getInstance().alGetFilteri;
 		if ( LWJGLUtil.CHECKS )
@@ -1207,7 +1207,7 @@ public final class EXTEfx {
 
 	// --- [ alGetFilteriv ] ---
 
-	/** JNI method for {@link #alGetFilteriv} */
+	/** JNI method for {@link #alGetFilteriv alGetFilteriv} */
 	public static native void nalGetFilteriv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1226,7 +1226,7 @@ public final class EXTEfx {
 		nalGetFilteriv(filter, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetFilteriv} */
+	/** Alternative version of: {@link #alGetFilteriv alGetFilteriv} */
 	public static void alGetFilteriv(int filter, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alGetFilteriv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1238,7 +1238,7 @@ public final class EXTEfx {
 
 	// --- [ alGetFilterf ] ---
 
-	/** JNI method for {@link #alGetFilterf} */
+	/** JNI method for {@link #alGetFilterf alGetFilterf} */
 	public static native void nalGetFilterf(int filter, int param, long value, long __functionAddress);
 
 	/**
@@ -1257,7 +1257,7 @@ public final class EXTEfx {
 		nalGetFilterf(filter, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetFilterf} */
+	/** Alternative version of: {@link #alGetFilterf alGetFilterf} */
 	public static void alGetFilter(int filter, int param, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetFilterf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1267,7 +1267,7 @@ public final class EXTEfx {
 		nalGetFilterf(filter, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetFilterf} */
+	/** Single return value version of: {@link #alGetFilterf alGetFilterf} */
 	public static float alGetFilterf(int filter, int param) {
 		long __functionAddress = getInstance().alGetFilterf;
 		if ( LWJGLUtil.CHECKS )
@@ -1280,7 +1280,7 @@ public final class EXTEfx {
 
 	// --- [ alGetFilterfv ] ---
 
-	/** JNI method for {@link #alGetFilterfv} */
+	/** JNI method for {@link #alGetFilterfv alGetFilterfv} */
 	public static native void nalGetFilterfv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1299,7 +1299,7 @@ public final class EXTEfx {
 		nalGetFilterfv(filter, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetFilterfv} */
+	/** Alternative version of: {@link #alGetFilterfv alGetFilterfv} */
 	public static void alGetFilterfv(int filter, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alGetFilterfv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1311,7 +1311,7 @@ public final class EXTEfx {
 
 	// --- [ alGenAuxiliaryEffectSlots ] ---
 
-	/** JNI method for {@link #alGenAuxiliaryEffectSlots} */
+	/** JNI method for {@link #alGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots} */
 	public static native void nalGenAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
 
 	/**
@@ -1329,7 +1329,7 @@ public final class EXTEfx {
 		nalGenAuxiliaryEffectSlots(n, memAddress(effectSlots), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenAuxiliaryEffectSlots} */
+	/** Alternative version of: {@link #alGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots} */
 	public static void alGenAuxiliaryEffectSlots(IntBuffer effectSlots) {
 		long __functionAddress = getInstance().alGenAuxiliaryEffectSlots;
 		if ( LWJGLUtil.CHECKS )
@@ -1337,7 +1337,7 @@ public final class EXTEfx {
 		nalGenAuxiliaryEffectSlots(effectSlots.remaining(), memAddress(effectSlots), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenAuxiliaryEffectSlots} */
+	/** Single return value version of: {@link #alGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots} */
 	public static int alGenAuxiliaryEffectSlots() {
 		long __functionAddress = getInstance().alGenAuxiliaryEffectSlots;
 		if ( LWJGLUtil.CHECKS )
@@ -1350,7 +1350,7 @@ public final class EXTEfx {
 
 	// --- [ alDeleteAuxiliaryEffectSlots ] ---
 
-	/** JNI method for {@link #alDeleteAuxiliaryEffectSlots} */
+	/** JNI method for {@link #alDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots} */
 	public static native void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
 
 	/**
@@ -1368,7 +1368,7 @@ public final class EXTEfx {
 		nalDeleteAuxiliaryEffectSlots(n, memAddress(effectSlots), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteAuxiliaryEffectSlots} */
+	/** Alternative version of: {@link #alDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots} */
 	public static void alDeleteAuxiliaryEffectSlots(IntBuffer effectSlots) {
 		long __functionAddress = getInstance().alDeleteAuxiliaryEffectSlots;
 		if ( LWJGLUtil.CHECKS )
@@ -1376,7 +1376,7 @@ public final class EXTEfx {
 		nalDeleteAuxiliaryEffectSlots(effectSlots.remaining(), memAddress(effectSlots), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteAuxiliaryEffectSlots} */
+	/** Single value version of: {@link #alDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots} */
 	public static void alDeleteAuxiliaryEffectSlots(int effectSlot) {
 		long __functionAddress = getInstance().alDeleteAuxiliaryEffectSlots;
 		if ( LWJGLUtil.CHECKS )
@@ -1388,7 +1388,7 @@ public final class EXTEfx {
 
 	// --- [ alIsAuxiliaryEffectSlot ] ---
 
-	/** JNI method for {@link #alIsAuxiliaryEffectSlot} */
+	/** JNI method for {@link #alIsAuxiliaryEffectSlot alIsAuxiliaryEffectSlot} */
 	public static native boolean nalIsAuxiliaryEffectSlot(int effectSlot, long __functionAddress);
 
 	/**
@@ -1405,7 +1405,7 @@ public final class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSloti ] ---
 
-	/** JNI method for {@link #alAuxiliaryEffectSloti} */
+	/** JNI method for {@link #alAuxiliaryEffectSloti alAuxiliaryEffectSloti} */
 	public static native void nalAuxiliaryEffectSloti(int effectSlot, int param, int value, long __functionAddress);
 
 	/**
@@ -1424,11 +1424,11 @@ public final class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotiv ] ---
 
-	/** JNI method for {@link #alAuxiliaryEffectSloti(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alAuxiliaryEffectSloti(int, int, ByteBuffer) alAuxiliaryEffectSloti} */
 	public static native void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alAuxiliaryEffectSloti}.
+	 * Pointer version of {@link #alAuxiliaryEffectSloti alAuxiliaryEffectSloti}.
 	 *
 	 * @param effectSlot the effect slot to modify
 	 * @param param      the parameter to modify
@@ -1441,7 +1441,7 @@ public final class EXTEfx {
 		nalAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alAuxiliaryEffectSloti(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alAuxiliaryEffectSloti(int, int, ByteBuffer) alAuxiliaryEffectSloti} */
 	public static void alAuxiliaryEffectSlot(int effectSlot, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alAuxiliaryEffectSlotiv;
 		if ( LWJGLUtil.CHECKS )
@@ -1451,7 +1451,7 @@ public final class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotf ] ---
 
-	/** JNI method for {@link #alAuxiliaryEffectSlotf} */
+	/** JNI method for {@link #alAuxiliaryEffectSlotf alAuxiliaryEffectSlotf} */
 	public static native void nalAuxiliaryEffectSlotf(int effectSlot, int param, float value, long __functionAddress);
 
 	/**
@@ -1470,11 +1470,11 @@ public final class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotfv ] ---
 
-	/** JNI method for {@link #alAuxiliaryEffectSlotf(int, int, ByteBuffer)} */
+	/** JNI method for {@link #alAuxiliaryEffectSlotf(int, int, ByteBuffer) alAuxiliaryEffectSlotf} */
 	public static native void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alAuxiliaryEffectSlotf}.
+	 * Pointer version of {@link #alAuxiliaryEffectSlotf alAuxiliaryEffectSlotf}.
 	 *
 	 * @param effectSlot the effect slot to modify
 	 * @param param      the parameter to modify
@@ -1487,7 +1487,7 @@ public final class EXTEfx {
 		nalAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alAuxiliaryEffectSlotf(int, int, ByteBuffer)} */
+	/** Alternative version of: {@link #alAuxiliaryEffectSlotf(int, int, ByteBuffer) alAuxiliaryEffectSlotf} */
 	public static void alAuxiliaryEffectSlot(int effectSlot, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alAuxiliaryEffectSlotfv;
 		if ( LWJGLUtil.CHECKS )
@@ -1497,7 +1497,7 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSloti ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSloti} */
+	/** JNI method for {@link #alGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti} */
 	public static native void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value, long __functionAddress);
 
 	/**
@@ -1516,7 +1516,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSloti} */
+	/** Alternative version of: {@link #alGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti} */
 	public static void alGetAuxiliaryEffectSlot(int effectSlot, int param, IntBuffer value) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSloti;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1526,7 +1526,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetAuxiliaryEffectSloti} */
+	/** Single return value version of: {@link #alGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti} */
 	public static int alGetAuxiliaryEffectSloti(int effectSlot, int param) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSloti;
 		if ( LWJGLUtil.CHECKS )
@@ -1539,7 +1539,7 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotiv ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotiv} */
+	/** JNI method for {@link #alGetAuxiliaryEffectSlotiv alGetAuxiliaryEffectSlotiv} */
 	public static native void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1558,7 +1558,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotiv} */
+	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotiv alGetAuxiliaryEffectSlotiv} */
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSlotiv;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1570,7 +1570,7 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotf ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotf} */
+	/** JNI method for {@link #alGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf} */
 	public static native void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value, long __functionAddress);
 
 	/**
@@ -1589,7 +1589,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotf} */
+	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf} */
 	public static void alGetAuxiliaryEffectSlot(int effectSlot, int param, FloatBuffer value) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSlotf;
 		if ( LWJGLUtil.CHECKS ) {
@@ -1599,7 +1599,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetAuxiliaryEffectSlotf} */
+	/** Single return value version of: {@link #alGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf} */
 	public static float alGetAuxiliaryEffectSlotf(int effectSlot, int param) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSlotf;
 		if ( LWJGLUtil.CHECKS )
@@ -1612,7 +1612,7 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotfv ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotfv} */
+	/** JNI method for {@link #alGetAuxiliaryEffectSlotfv alGetAuxiliaryEffectSlotfv} */
 	public static native void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1631,7 +1631,7 @@ public final class EXTEfx {
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotfv} */
+	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotfv alGetAuxiliaryEffectSlotfv} */
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
 		long __functionAddress = getInstance().alGetAuxiliaryEffectSlotfv;
 		if ( LWJGLUtil.CHECKS ) {

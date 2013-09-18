@@ -5,19 +5,21 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.linux.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/visual_rating.txt">GLX_EXT_visual_info</a> extension.
  * <p/>
  * This extension allows servers to identify a particular GLX visual as undesirable. A new visual attribute is introduced, providing a way for servers to
- * specify caveats (e.g., slow) for a visual. The attribute  may be queried using {@link glXGetConfig}, and can therefore be used by  application-specific visual
- * selection routines. The new attribute is also used by {@link glXChooseVisual} to discriminate against visuals with caveats.
+ * specify caveats (e.g., slow) for a visual. The attribute  may be queried using {@link GLX#glXGetConfig GetConfig}, and can therefore be used by  application-specific visual
+ * selection routines. The new attribute is also used by {@link GLX#glXChooseVisual ChooseVisual} to discriminate against visuals with caveats.
  * <p/>
  * This extension allows servers to export visuals with improved features or image quality, but lower performance or greater system burden, without having
  * to have these visuals selected preferentially.  It is intended to insure that most applications get the "right" visual, not that all applications do.
  */
 public final class GLXEXTVisualInfo {
 
-	/** Accepted by the {@code attrib} parameter of {@link GLX#glXGetConfig}, and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual}: */
+	/** Accepted by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}, and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual}: */
 	public static final int
 		GLX_X_VISUAL_TYPE_EXT           = 0x22,
 		GLX_TRANSPARENT_TYPE_EXT        = 0x23,
@@ -28,8 +30,8 @@ public final class GLXEXTVisualInfo {
 		GLX_TRANSPARENT_ALPHA_VALUE_EXT = 0x28;
 
 	/**
-	 * Returned by {@link GLX#glXGetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual} (following the
-	 * {@link #GLX_X_VISUAL_TYPE_EXT} token):
+	 * Returned by {@link GLX#glXGetConfig GetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the
+	 * {@link #GLX_X_VISUAL_TYPE_EXT X_VISUAL_TYPE_EXT} token):
 	 */
 	public static final int
 		GLX_TRUE_COLOR_EXT   = 0x8002,
@@ -40,8 +42,8 @@ public final class GLXEXTVisualInfo {
 		GLX_STATIC_GRAY_EXT  = 0x8007;
 
 	/**
-	 * Returned by {@link GLX#glXGetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual} (following the
-	 * {@link #GLX_TRANSPARENT_TYPE_EXT} token):
+	 * Returned by {@link GLX#glXGetConfig GetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the
+	 * {@link #GLX_TRANSPARENT_TYPE_EXT TRANSPARENT_TYPE_EXT} token):
 	 */
 	public static final int
 		GLX_NONE_EXT              = 0x8000,

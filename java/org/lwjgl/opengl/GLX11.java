@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to GLX 1.1. */
 public final class GLX11 {
 
-	/** Names for attributes to {@link #glXGetClientString}. */
+	/** Names for attributes to {@link #glXGetClientString GetClientString}. */
 	public static final int
 		GLX_VENDOR     = 0x1,
 		GLX_VERSION    = 0x2,
@@ -26,7 +26,7 @@ public final class GLX11 {
 
 	// --- [ glXQueryExtensionsString ] ---
 
-	/** JNI method for {@link #glXQueryExtensionsString} */
+	/** JNI method for {@link #glXQueryExtensionsString glXQueryExtensionsString} */
 	public static native long nglXQueryExtensionsString(long display, int screen, long __functionAddress);
 
 	/**
@@ -47,7 +47,7 @@ public final class GLX11 {
 
 	// --- [ glXGetClientString ] ---
 
-	/** JNI method for {@link #glXGetClientString} */
+	/** JNI method for {@link #glXGetClientString glXGetClientString} */
 	public static native long nglXGetClientString(long display, int name, long __functionAddress);
 
 	/**
@@ -68,7 +68,7 @@ public final class GLX11 {
 
 	// --- [ glXQueryServerString ] ---
 
-	/** JNI method for {@link #glXQueryServerString} */
+	/** JNI method for {@link #glXQueryServerString glXQueryServerString} */
 	public static native long nglXQueryServerString(long display, int screen, int name, long __functionAddress);
 
 	/**

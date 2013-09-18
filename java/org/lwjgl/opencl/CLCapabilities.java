@@ -13,10 +13,10 @@ import java.util.Set;
 /**
  * Defines the capabilities of an OpenCL platform or device.
  * <p/>
- * The instance returned by {@link CLPlatform#getCapabilities()} )} exposes the functionality present on either the platform or any of its devices. This is
- * unlike the {@link CL10#CL_PLATFORM_EXTENSIONS} string, which returns only platform functionality, supported across all platform devices.
+ * The instance returned by {@link CLPlatform#getCapabilities} )} exposes the functionality present on either the platform or any of its devices. This is
+ * unlike the {@link CL10#CL_PLATFORM_EXTENSIONS PLATFORM_EXTENSIONS} string, which returns only platform functionality, supported across all platform devices.
  * <p/>
- * The instance returned by {@link CLDevice#getCapabilities()} exposes only the functionality available on that particular device.
+ * The instance returned by {@link CLDevice#getCapabilities} exposes only the functionality available on that particular device.
  * <p/>
  * The instance returned by any other OpenCL object will be the instance of its parent object.
  */

@@ -32,12 +32,12 @@ public final class GLXARBCreateContext {
 		GLX_CONTEXT_FLAGS_ARB         = 0x2094,
 		GLX_CONTEXT_PROFILE_MASK_ARB  = 0x9126;
 
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB} in {@code attrib_list}: */
+	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}: */
 	public static final int
 		GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
 		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}: */
+	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}: */
 	public static final int
 		GLX_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
 		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
@@ -46,7 +46,7 @@ public final class GLXARBCreateContext {
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #glXCreateContextAttribsARB} */
+	/** JNI method for {@link #glXCreateContextAttribsARB glXCreateContextAttribsARB} */
 	public static native long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list, long __functionAddress);
 
 	/**
@@ -72,7 +72,7 @@ public final class GLXARBCreateContext {
 	 *                      <li>{@code display} is not a local X server.</li>
 	 *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
 	 *                      </ul>
-	 *                      Use {@link glXIsDirect} to determine whether or not a request for a direct rendering context succeeded.
+	 *                      Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@link X#None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
@@ -86,7 +86,7 @@ public final class GLXARBCreateContext {
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateContextAttribsARB} */
+	/** Alternative version of: {@link #glXCreateContextAttribsARB glXCreateContextAttribsARB} */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
 		long __functionAddress = getInstance().glXCreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
