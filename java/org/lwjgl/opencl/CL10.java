@@ -2946,13 +2946,13 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
+		int stringsLengths = __buffer.bufferParam(strings.length << POINTER_SHIFT);
+		for ( int i = 0; i < strings.length; i++ )
+			__buffer.pointerParam(stringsLengths, i, strings[i].length());
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
-		int stringsLengths = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsLengths, i, strings[i].length());
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -2964,9 +2964,9 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
+		int stringsLengths = __buffer.pointerParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		int stringsLengths = __buffer.pointerParam(string.length());
 		return CLProgram.create(nclCreateProgramWithSource(context.getPointer(), 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
@@ -4076,8 +4076,8 @@ public final class CL10 {
 			if ( event != null ) checkBuffer(event, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int args_mem_loc = __buffer.pointerParam(memobj_loc);
 		int mem_list = __buffer.pointerParam(memobj);
+		int args_mem_loc = __buffer.pointerParam(memobj_loc);
 		long user_data = CLNativeKernel.Util.register(user_func, args);
 		int __result = nclEnqueueNativeKernel(command_queue.getPointer(), CLNativeKernel.Util.CALLBACK, memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);

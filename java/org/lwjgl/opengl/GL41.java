@@ -265,8 +265,8 @@ public final class GL41 {
 			checkBuffer(binaryFormat, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int binary = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int binary = __buffer.bufferParam(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary, __functionAddress);
 		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
 	}
@@ -280,8 +280,8 @@ public final class GL41 {
 		}
 		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int binary = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int binary = __buffer.bufferParam(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary, __functionAddress);
 		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
 	}

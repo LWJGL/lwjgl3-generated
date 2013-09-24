@@ -634,9 +634,9 @@ public final class CL12 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
+		int input_headers = __buffer.pointerParam(input_header);
 		ByteBuffer header_include_nameBuffer = memEncodeASCII(header_include_name);
 		int header_include_names = __buffer.pointerParam(memAddress(header_include_nameBuffer));
-		int input_headers = __buffer.pointerParam(input_header);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
 		int __result = nclCompileProgram(program.getPointer(), device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), 1, __buffer.address() + input_headers, __buffer.address() + header_include_names, pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);

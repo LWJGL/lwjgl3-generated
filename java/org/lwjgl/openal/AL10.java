@@ -505,7 +505,7 @@ public final class AL10 {
 	/**
 	 * Sets the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alListenerf(int paramName, float value) {
@@ -523,7 +523,7 @@ public final class AL10 {
 	/**
 	 * Integer version of {@link #alListenerf alListenerf}.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter value
 	 */
 	public static void alListeneri(int paramName, int values) {
@@ -541,7 +541,7 @@ public final class AL10 {
 	/**
 	 * Sets the 3 dimensional float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value1    the first value
 	 * @param value2    the second value
 	 * @param value3    the third value
@@ -591,7 +591,7 @@ public final class AL10 {
 	/**
 	 * Returns the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alGetListenerf(int paramName, ByteBuffer value) {
@@ -632,7 +632,7 @@ public final class AL10 {
 	/**
 	 * Returns the integer value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alGetListeneri(int paramName, ByteBuffer value) {
@@ -673,7 +673,7 @@ public final class AL10 {
 	/**
 	 * Returns the 3 dimensional values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value1    the first parameter value
 	 * @param value2    the second parameter value
 	 * @param value3    the third parameter value
@@ -709,7 +709,7 @@ public final class AL10 {
 	/**
 	 * Returns float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter values
 	 */
 	public static void alGetListenerfv(int paramName, ByteBuffer values) {
@@ -834,7 +834,7 @@ public final class AL10 {
 	 * Sets the float value of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alSourcef(int source, int param, float value) {
@@ -853,7 +853,7 @@ public final class AL10 {
 	 * Sets the 3 dimensional values of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -920,7 +920,7 @@ public final class AL10 {
 	 * Returns the float value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcef(int source, int param, ByteBuffer value) {
@@ -962,7 +962,7 @@ public final class AL10 {
 	 * Returns the 3 dimensional values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -999,7 +999,7 @@ public final class AL10 {
 	 * Returns the float values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param values the parameter values
 	 */
 	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
@@ -1030,7 +1030,7 @@ public final class AL10 {
 	 * Returns the integer value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, org.lwjgl.generator.ConstantBlock$Links@33ecb094
+	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcei(int source, int param, ByteBuffer value) {

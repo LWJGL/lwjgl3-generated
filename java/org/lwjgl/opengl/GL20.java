@@ -1279,8 +1279,8 @@ public final class GL20 {
 			checkBuffer(type, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -1295,8 +1295,8 @@ public final class GL20 {
 		}
 		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -1430,8 +1430,8 @@ public final class GL20 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int source = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int source = __buffer.bufferParam(maxLength);
 		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source, __functionAddress);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
 	}
@@ -1443,8 +1443,8 @@ public final class GL20 {
 			checkFunctionAddress(__functionAddress);
 		int maxLength = glGetShaderi(shader, GL_SHADER_SOURCE_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int source = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int source = __buffer.bufferParam(maxLength);
 		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source, __functionAddress);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
 	}
@@ -2614,8 +2614,8 @@ public final class GL20 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -2627,8 +2627,8 @@ public final class GL20 {
 			checkFunctionAddress(__functionAddress);
 		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(maxLength);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -2674,7 +2674,7 @@ public final class GL20 {
 	 * Returns the integer value of a generic vertex attribute parameter.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<p/>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, org.lwjgl.generator.ConstantBlock$Links@19788380, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
+	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<p/>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribi(int index, int pname, ByteBuffer params) {

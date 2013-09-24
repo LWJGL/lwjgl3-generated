@@ -2685,8 +2685,8 @@ public final class GL30 {
 			checkBuffer(type, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -2701,8 +2701,8 @@ public final class GL30 {
 		}
 		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}

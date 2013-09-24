@@ -872,7 +872,7 @@ public final class GL43 {
 	 * <p/>
 	 * Labels a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@59966240, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<p/>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object to label
 	 * @param length     the length of the label to be used for the object
 	 * @param label      a string containing the label to assign to the object
@@ -913,7 +913,7 @@ public final class GL43 {
 	 * <p/>
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
-	 * @param identifier the namespace from which the name of the object is allocated. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@59966240, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param identifier the namespace from which the name of the object is allocated. One of:<p/>{@link #GL_BUFFER BUFFER}, {@link #GL_SHADER SHADER}, {@link #GL_PROGRAM PROGRAM}, {@link #GL_QUERY QUERY}, {@link #GL_PROGRAM_PIPELINE PROGRAM_PIPELINE}, {@link #GL_SAMPLER SAMPLER}, {@link #GL_DISPLAY_LIST DISPLAY_LIST}, {@link GL11#GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link GL11#GL_TEXTURE TEXTURE}, {@link GL30#GL_RENDERBUFFER RENDERBUFFER}, {@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}, {@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param name       the name of the object whose label to retrieve
 	 * @param bufSize    the length of the buffer whose address is in {@code label}
 	 * @param length     the address of a variable to receive the length of the object label
@@ -1565,8 +1565,8 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -1578,8 +1578,8 @@ public final class GL43 {
 			checkFunctionAddress(__functionAddress);
 		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufSize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}

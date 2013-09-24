@@ -221,7 +221,7 @@ public final class ARBImaging {
 	/**
 	 * Specifies a color lookup table.
 	 *
-	 * @param target         the color table target. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@583384c0, org.lwjgl.generator.ConstantBlock$Links@1e50867d
+	 * @param target         the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}, {@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}, {@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}
 	 * @param internalformat the color table internal format. One of:<p/>{@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL11#GL_INTENSITY INTENSITY}, {@link GL11#GL_ALPHA4 ALPHA4}, {@link GL11#GL_ALPHA8 ALPHA8}, {@link GL11#GL_ALPHA12 ALPHA12}, {@link GL11#GL_ALPHA16 ALPHA16}, {@link GL11#GL_LUMINANCE4 LUMINANCE4}, {@link GL11#GL_LUMINANCE8 LUMINANCE8}, {@link GL11#GL_LUMINANCE12 LUMINANCE12}, {@link GL11#GL_LUMINANCE16 LUMINANCE16}, {@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}, {@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}, {@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}, {@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}, {@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}, {@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}, {@link GL11#GL_INTENSITY4 INTENSITY4}, {@link GL11#GL_INTENSITY8 INTENSITY8}, {@link GL11#GL_INTENSITY12 INTENSITY12}, {@link GL11#GL_INTENSITY16 INTENSITY16}, {@link GL21#GL_SLUMINANCE SLUMINANCE}, {@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}
 	 * @param width          the color table width
 	 * @param format         the color data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
@@ -430,8 +430,8 @@ public final class ARBImaging {
 	/**
 	 * Returns the integer value of the specified color table parameter.
 	 *
-	 * @param target the color table target. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@583384c0, org.lwjgl.generator.ConstantBlock$Links@1e50867d
-	 * @param pname  the parameter to query. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@38ad8817, org.lwjgl.generator.ConstantBlock$Links@8c1bb13
+	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}, {@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}, {@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param pname  the parameter to query. One of:<p/>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}, {@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}, {@link #GL_COLOR_TABLE_FORMAT COLOR_TABLE_FORMAT}, {@link #GL_COLOR_TABLE_WIDTH COLOR_TABLE_WIDTH}, {@link #GL_COLOR_TABLE_RED_SIZE COLOR_TABLE_RED_SIZE}, {@link #GL_COLOR_TABLE_GREEN_SIZE COLOR_TABLE_GREEN_SIZE}, {@link #GL_COLOR_TABLE_BLUE_SIZE COLOR_TABLE_BLUE_SIZE}, {@link #GL_COLOR_TABLE_ALPHA_SIZE COLOR_TABLE_ALPHA_SIZE}, {@link #GL_COLOR_TABLE_LUMINANCE_SIZE COLOR_TABLE_LUMINANCE_SIZE}, {@link #GL_COLOR_TABLE_INTENSITY_SIZE COLOR_TABLE_INTENSITY_SIZE}
 	 * @param params an array in which to place the returned value
 	 */
 	public static void glGetColorTableParameteri(int target, int pname, ByteBuffer params) {
@@ -829,7 +829,7 @@ public final class ARBImaging {
 	 * Pointer version of {@link #glConvolutionParameteri glConvolutionParameteri}.
 	 *
 	 * @param target the filter target
-	 * @param pname  the parameter to set. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@66e0e0e2, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
+	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glConvolutionParameteri(int target, int pname, ByteBuffer params) {
@@ -879,7 +879,7 @@ public final class ARBImaging {
 	 * Pointer version of {@link #glConvolutionParameterf glConvolutionParameterf}.
 	 *
 	 * @param target the filter target
-	 * @param pname  the parameter to set. One of:<p/>org.lwjgl.generator.ConstantBlock$Links@66e0e0e2, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
+	 * @param pname  the parameter to set. One of:<p/>{@link #GL_CONVOLUTION_FILTER_SCALE CONVOLUTION_FILTER_SCALE}, {@link #GL_CONVOLUTION_FILTER_BIAS CONVOLUTION_FILTER_BIAS}, {@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glConvolutionParameterf(int target, int pname, ByteBuffer params) {

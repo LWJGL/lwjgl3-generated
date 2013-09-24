@@ -1113,8 +1113,8 @@ public final class GL40 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufsize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
@@ -1126,8 +1126,8 @@ public final class GL40 {
 			checkFunctionAddress(__functionAddress);
 		int bufsize = glGetActiveSubroutineUniformi(program, shadertype, index, GL31.GL_UNIFORM_NAME_LENGTH);
 		APIBuffer __buffer = apiBuffer();
-		int name = __buffer.bufferParam(bufsize);
 		int length = __buffer.intParam();
+		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}

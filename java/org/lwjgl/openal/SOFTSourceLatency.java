@@ -244,7 +244,7 @@ public final class SOFTSourceLatency {
 	public static native void nalSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of alSourcei64SOFT
+	 * Pointer version of {@link #alSourcei64SOFT alSourcei64SOFT}
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
@@ -327,7 +327,7 @@ public final class SOFTSourceLatency {
 	public static native void nalGetSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of alGetSourcei64SOFT
+	 * Pointer version of {@link #alGetSourcei64SOFT alGetSourcei64SOFT}
 	 *
 	 * @param source the source to query
 	 * @param param  the parameter to query
