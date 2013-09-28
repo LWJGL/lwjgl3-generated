@@ -218,6 +218,7 @@ public final class SOFTBufferSamples {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return AL.getCapabilities().__SOFTBufferSamples;
 	}
@@ -237,6 +238,7 @@ public final class SOFTBufferSamples {
 	}
 
 	/** The {@link FunctionMap} class for {@code SOFTBufferSamples}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

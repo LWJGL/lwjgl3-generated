@@ -100,6 +100,7 @@ public final class APPLEGLSharing {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	@JavadocExclude
 	public static Functions getInstance(CLObject object) {
 		return object.getCapabilities().__APPLEGLSharing;
 	}
@@ -115,6 +116,7 @@ public final class APPLEGLSharing {
 	}
 
 	/** The {@link FunctionMap} class for {@code APPLEGLSharing}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long clGetGLContextInfoAPPLE;

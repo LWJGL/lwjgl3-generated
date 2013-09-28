@@ -65,6 +65,7 @@ public final class GLXNVCopyImage {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXNVCopyImage;
 	}
@@ -80,6 +81,7 @@ public final class GLXNVCopyImage {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXNVCopyImage}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glXCopyImageSubDataNV;

@@ -54,6 +54,7 @@ public final class EXTThreadLocalContext {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return ALC.getCapabilities().__EXTThreadLocalContext;
 	}
@@ -70,6 +71,7 @@ public final class EXTThreadLocalContext {
 	}
 
 	/** The {@link FunctionMap} class for {@code EXTThreadLocalContext}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

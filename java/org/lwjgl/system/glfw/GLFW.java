@@ -758,6 +758,9 @@ public final class GLFW {
 	 * <p/>
 	 * If a full screen window is active, the screensaver is prohibited from starting.
 	 * <p/>
+	 * The swap interval is not set during window creation, but is left at the default value for that platform. For more information, see
+	 * {@link #glfwSwapInterval SwapInterval}.
+	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 *
 	 * @param width   desired width, in pixels, of the window

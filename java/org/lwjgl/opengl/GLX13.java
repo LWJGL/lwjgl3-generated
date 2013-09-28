@@ -539,6 +539,7 @@ public final class GLX13 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLX13;
 	}
@@ -570,6 +571,7 @@ public final class GLX13 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLX13}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

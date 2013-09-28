@@ -143,6 +143,7 @@ public final class GLXEXTTextureFromPixmap {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXEXTTextureFromPixmap;
 	}
@@ -160,6 +161,7 @@ public final class GLXEXTTextureFromPixmap {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXEXTTextureFromPixmap}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

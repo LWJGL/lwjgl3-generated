@@ -62,6 +62,7 @@ public final class WGLEXTSwapControl {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLEXTSwapControl;
 	}
@@ -79,6 +80,7 @@ public final class WGLEXTSwapControl {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLEXTSwapControl}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

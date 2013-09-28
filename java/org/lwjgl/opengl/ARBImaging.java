@@ -1333,6 +1333,7 @@ public final class ARBImaging {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__ARBImaging;
 	}
@@ -1382,6 +1383,7 @@ public final class ARBImaging {
 	}
 
 	/** The {@link FunctionMap} class for {@code ARBImaging}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

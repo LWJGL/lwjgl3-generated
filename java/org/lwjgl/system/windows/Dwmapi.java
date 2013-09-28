@@ -48,6 +48,7 @@ public final class Dwmapi {
 	}
 
 	/** The {@link FunctionMap} class for {@code Dwmapi}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long DwmIsCompositionEnabled;

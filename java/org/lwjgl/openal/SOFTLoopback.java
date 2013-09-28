@@ -134,6 +134,7 @@ public final class SOFTLoopback {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return ALC.getCapabilities().__SOFTLoopback;
 	}
@@ -151,6 +152,7 @@ public final class SOFTLoopback {
 	}
 
 	/** The {@link FunctionMap} class for {@code SOFTLoopback}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

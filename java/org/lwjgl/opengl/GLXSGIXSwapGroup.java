@@ -51,6 +51,7 @@ public final class GLXSGIXSwapGroup {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGIXSwapGroup;
 	}
@@ -66,6 +67,7 @@ public final class GLXSGIXSwapGroup {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGIXSwapGroup}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glXJoinSwapGroupSGIX;

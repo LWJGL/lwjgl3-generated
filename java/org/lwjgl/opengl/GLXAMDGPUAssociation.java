@@ -234,6 +234,7 @@ public final class GLXAMDGPUAssociation {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXAMDGPUAssociation;
 	}
@@ -258,6 +259,7 @@ public final class GLXAMDGPUAssociation {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXAMDGPUAssociation}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

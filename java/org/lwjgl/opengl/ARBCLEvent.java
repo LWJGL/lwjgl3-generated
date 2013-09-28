@@ -56,6 +56,7 @@ public final class ARBCLEvent {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__ARBCLEvent;
 	}
@@ -71,6 +72,7 @@ public final class ARBCLEvent {
 	}
 
 	/** The {@link FunctionMap} class for {@code ARBCLEvent}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glCreateSyncFromCLeventARB;

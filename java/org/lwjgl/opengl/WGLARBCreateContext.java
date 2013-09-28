@@ -82,6 +82,7 @@ public final class WGLARBCreateContext {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLARBCreateContext;
 	}
@@ -97,6 +98,7 @@ public final class WGLARBCreateContext {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLARBCreateContext}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long wglCreateContextAttribsARB;

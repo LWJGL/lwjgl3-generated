@@ -75,6 +75,7 @@ public final class SOFTBufferSubData {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return AL.getCapabilities().__SOFTBufferSubData;
 	}
@@ -90,6 +91,7 @@ public final class SOFTBufferSubData {
 	}
 
 	/** The {@link FunctionMap} class for {@code SOFTBufferSubData}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long alBufferSubDataSOFT;

@@ -228,6 +228,7 @@ public final class WGLNVDXInterop {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLNVDXInterop;
 	}
@@ -251,6 +252,7 @@ public final class WGLNVDXInterop {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLNVDXInterop}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

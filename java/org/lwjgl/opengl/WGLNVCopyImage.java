@@ -62,6 +62,7 @@ public final class WGLNVCopyImage {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLNVCopyImage;
 	}
@@ -77,6 +78,7 @@ public final class WGLNVCopyImage {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLNVCopyImage}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long wglCopyImageSubDataNV;

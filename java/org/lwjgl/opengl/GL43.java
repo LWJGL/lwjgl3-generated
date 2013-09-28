@@ -1952,6 +1952,7 @@ public final class GL43 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GL43;
 	}
@@ -2009,6 +2010,7 @@ public final class GL43 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GL43}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

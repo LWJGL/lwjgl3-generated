@@ -231,6 +231,7 @@ public final class GLXSGIXPBuffer {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGIXPBuffer;
 	}
@@ -251,6 +252,7 @@ public final class GLXSGIXPBuffer {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGIXPBuffer}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

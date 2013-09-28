@@ -85,6 +85,7 @@ public final class WGLARBMakeCurrentRead {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLARBMakeCurrentRead;
 	}
@@ -102,6 +103,7 @@ public final class WGLARBMakeCurrentRead {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLARBMakeCurrentRead}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

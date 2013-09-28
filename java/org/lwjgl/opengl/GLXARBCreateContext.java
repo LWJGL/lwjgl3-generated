@@ -101,6 +101,7 @@ public final class GLXARBCreateContext {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXARBCreateContext;
 	}
@@ -116,6 +117,7 @@ public final class GLXARBCreateContext {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXARBCreateContext}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glXCreateContextAttribsARB;

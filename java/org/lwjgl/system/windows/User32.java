@@ -37,6 +37,7 @@ public final class User32 {
 	}
 
 	/** The {@link FunctionMap} class for {@code User32}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long SetProcessDPIAware;

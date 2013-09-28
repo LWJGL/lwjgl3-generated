@@ -544,6 +544,7 @@ public final class CL10GL {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	@JavadocExclude
 	public static Functions getInstance(CLObject object) {
 		return object.getCapabilities().__CL10GL;
 	}
@@ -567,6 +568,7 @@ public final class CL10GL {
 	}
 
 	/** The {@link FunctionMap} class for {@code CL10GL}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

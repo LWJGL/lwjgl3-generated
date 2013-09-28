@@ -39,6 +39,7 @@ public final class WGLEXTExtensionsString {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__WGLEXTExtensionsString;
 	}
@@ -54,6 +55,7 @@ public final class WGLEXTExtensionsString {
 	}
 
 	/** The {@link FunctionMap} class for {@code WGLEXTExtensionsString}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long wglGetExtensionsStringEXT;

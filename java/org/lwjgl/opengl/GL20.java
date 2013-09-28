@@ -2946,6 +2946,7 @@ public final class GL20 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GL20;
 	}
@@ -3052,6 +3053,7 @@ public final class GL20 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GL20}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

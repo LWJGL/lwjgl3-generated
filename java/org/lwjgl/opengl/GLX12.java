@@ -31,6 +31,7 @@ public final class GLX12 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLX12;
 	}
@@ -46,6 +47,7 @@ public final class GLX12 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLX12}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glXGetCurrentDisplay;

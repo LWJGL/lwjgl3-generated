@@ -351,6 +351,7 @@ public final class SOFTSourceLatency {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return AL.getCapabilities().__SOFTSourceLatency;
 	}
@@ -378,6 +379,7 @@ public final class SOFTSourceLatency {
 	}
 
 	/** The {@link FunctionMap} class for {@code SOFTSourceLatency}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

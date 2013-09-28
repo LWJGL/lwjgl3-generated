@@ -83,6 +83,7 @@ public final class GLXSGIXSwapBarrier {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGIXSwapBarrier;
 	}
@@ -100,6 +101,7 @@ public final class GLXSGIXSwapBarrier {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGIXSwapBarrier}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

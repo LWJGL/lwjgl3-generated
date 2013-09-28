@@ -51,6 +51,7 @@ public final class Kernel32 {
 	}
 
 	/** The {@link FunctionMap} class for {@code Kernel32}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long SetThreadAffinityMask;

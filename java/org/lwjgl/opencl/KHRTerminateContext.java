@@ -83,6 +83,7 @@ public final class KHRTerminateContext {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	@JavadocExclude
 	public static Functions getInstance(CLObject object) {
 		return object.getCapabilities().__KHRTerminateContext;
 	}
@@ -98,6 +99,7 @@ public final class KHRTerminateContext {
 	}
 
 	/** The {@link FunctionMap} class for {@code KHRTerminateContext}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long clTerminateContextKHR;

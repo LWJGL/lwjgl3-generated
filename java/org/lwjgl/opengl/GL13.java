@@ -1596,6 +1596,7 @@ public final class GL13 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GL13;
 	}
@@ -1657,6 +1658,7 @@ public final class GL13 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GL13}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

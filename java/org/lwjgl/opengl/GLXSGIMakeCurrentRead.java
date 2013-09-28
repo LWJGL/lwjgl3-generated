@@ -59,6 +59,7 @@ public final class GLXSGIMakeCurrentRead {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGIMakeCurrentRead;
 	}
@@ -76,6 +77,7 @@ public final class GLXSGIMakeCurrentRead {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGIMakeCurrentRead}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

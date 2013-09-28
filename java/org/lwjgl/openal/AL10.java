@@ -1674,6 +1674,7 @@ public final class AL10 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return AL.getCapabilities().__AL10;
 	}
@@ -1743,6 +1744,7 @@ public final class AL10 {
 	}
 
 	/** The {@link FunctionMap} class for {@code AL10}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

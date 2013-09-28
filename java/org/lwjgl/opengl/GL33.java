@@ -1739,6 +1739,7 @@ public final class GL33 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GL33;
 	}
@@ -1812,6 +1813,7 @@ public final class GL33 {
 	}
 
 	/** The {@link FunctionMap} class for {@code GL33}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long

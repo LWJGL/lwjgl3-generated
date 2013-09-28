@@ -145,6 +145,7 @@ public final class KHRGLSharing {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	@JavadocExclude
 	public static Functions getInstance(CLObject object) {
 		return object.getCapabilities().__KHRGLSharing;
 	}
@@ -160,6 +161,7 @@ public final class KHRGLSharing {
 	}
 
 	/** The {@link FunctionMap} class for {@code KHRGLSharing}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long clGetGLContextInfoKHR;

@@ -46,6 +46,7 @@ public final class GLXSGISwapControl {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGISwapControl;
 	}
@@ -61,6 +62,7 @@ public final class GLXSGISwapControl {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGISwapControl}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long glXSwapIntervalSGI;

@@ -91,6 +91,7 @@ public final class GLXSGIVideoSync {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link Functions} instance for the current context. */
+	@JavadocExclude
 	public static Functions getInstance() {
 		return GL.getCapabilities().__GLXSGIVideoSync;
 	}
@@ -108,6 +109,7 @@ public final class GLXSGIVideoSync {
 	}
 
 	/** The {@link FunctionMap} class for {@code GLXSGIVideoSync}. */
+	@JavadocExclude
 	public static final class Functions implements FunctionMap {
 
 		public final long
