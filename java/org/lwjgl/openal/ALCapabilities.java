@@ -12,12 +12,12 @@ import java.util.Set;
 /** Defines the capabilities of an OpenAL context. */
 public final class ALCapabilities {
 
-	final AL10.Functions              __AL10;
-	final AL11.Functions              __AL11;
-	final EXTEfx.Functions            __EXTEfx;
-	final SOFTBufferSamples.Functions __SOFTBufferSamples;
-	final SOFTBufferSubData.Functions __SOFTBufferSubData;
-	final SOFTSourceLatency.Functions __SOFTSourceLatency;
+	final AL10              __AL10;
+	final AL11              __AL11;
+	final EXTEfx            __EXTEfx;
+	final SOFTBufferSamples __SOFTBufferSamples;
+	final SOFTBufferSubData __SOFTBufferSubData;
+	final SOFTSourceLatency __SOFTSourceLatency;
 
 	/** Indicates whether an OpenAL functionality is available or not. */
 	public final boolean

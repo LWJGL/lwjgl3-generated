@@ -23,11 +23,41 @@ public final class WGLARBMakeCurrentRead {
 		ERROR_INVALID_PIXEL_TYPE_ARB           = 0x2043,
 		ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB = 0x2054;
 
-	private WGLARBMakeCurrentRead() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglMakeContextCurrentARB,
+		wglGetCurrentReadDCARB;
+
+	@JavadocExclude
+	public WGLARBMakeCurrentRead(FunctionProvider provider) {
+		wglMakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
+		wglGetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBMakeCurrentRead} instance for the current context. */
+	public static WGLARBMakeCurrentRead getInstance() {
+		return GL.getCapabilities().__WGLARBMakeCurrentRead;
+	}
+
+	static WGLARBMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_make_current_read") ) return null;
+
+		WGLARBMakeCurrentRead funcs = new WGLARBMakeCurrentRead(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglMakeContextCurrentARB) &&
+			GL.isFunctionSupported(funcs.wglGetCurrentReadDCARB);
+
+		return GL.checkExtension("WGL_ARB_make_current_read", funcs, supported);
+	}
 
 	// --- [ wglMakeContextCurrentARB ] ---
 
 	/** JNI method for {@link #wglMakeContextCurrentARB wglMakeContextCurrentARB} */
+	@JavadocExclude
 	public static native int nwglMakeContextCurrentARB(long drawDC, long readDC, long hglrc, long __functionAddress);
 
 	/**
@@ -72,6 +102,7 @@ public final class WGLARBMakeCurrentRead {
 	// --- [ wglGetCurrentReadDCARB ] ---
 
 	/** JNI method for {@link #wglGetCurrentReadDCARB wglGetCurrentReadDCARB} */
+	@JavadocExclude
 	public static native long nwglGetCurrentReadDCARB(long __functionAddress);
 
 	/** Returns the "read" device context for the current OpenGL context. */
@@ -80,41 +111,6 @@ public final class WGLARBMakeCurrentRead {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nwglGetCurrentReadDCARB(__functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBMakeCurrentRead;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_make_current_read") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglMakeContextCurrentARB) &&
-			GL.isFunctionSupported(funcs.wglGetCurrentReadDCARB);
-
-		return GL.checkExtension("WGL_ARB_make_current_read", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBMakeCurrentRead}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglMakeContextCurrentARB,
-			wglGetCurrentReadDCARB;
-
-		public Functions(FunctionProvider provider) {
-			wglMakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
-			wglGetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
-		}
-
 	}
 
 }

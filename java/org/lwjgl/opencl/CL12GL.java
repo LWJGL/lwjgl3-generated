@@ -30,11 +30,36 @@ public final class CL12GL {
 		CL_GL_OBJECT_TEXTURE1D_ARRAY  = 0x2010,
 		CL_GL_OBJECT_TEXTURE_BUFFER   = 0x2011;
 
-	private CL12GL() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long clCreateFromGLTexture;
+
+	@JavadocExclude
+	public CL12GL(FunctionProviderLocal provider) {
+		clCreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CL12GL} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static CL12GL getInstance(CLObject object) {
+		return object.getCapabilities().__CL12GL;
+	}
+
+	static CL12GL create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenCL12GL") ) return null;
+
+		CL12GL funcs = new CL12GL(provider);
+
+		boolean supported =  funcs.clCreateFromGLTexture != 0L;
+
+		return CL.checkExtension("OpenCL12GL", funcs, supported);
+	}
 
 	// --- [ clCreateFromGLTexture ] ---
 
 	/** JNI method for {@link #clCreateFromGLTexture clCreateFromGLTexture} */
+	@JavadocExclude
 	public static native long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
 	/**
@@ -100,36 +125,6 @@ public final class CL12GL {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__CL12GL;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL12GL") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  funcs.clCreateFromGLTexture != 0L;
-
-		return CL.checkExtension("OpenCL12GL", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code CL12GL}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long clCreateFromGLTexture;
-
-		public Functions(FunctionProviderLocal provider) {
-			clCreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
-		}
-
 	}
 
 }

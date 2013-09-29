@@ -21,11 +21,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class Dwmapi {
 
-	private Dwmapi() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long DwmIsCompositionEnabled;
+
+	@JavadocExclude
+	public Dwmapi(FunctionProvider provider) {
+		DwmIsCompositionEnabled = provider.getFunctionAddress("DwmIsCompositionEnabled");
+	}
 
 	// --- [ DwmIsCompositionEnabled ] ---
 
 	/** JNI method for {@link #DwmIsCompositionEnabled DwmIsCompositionEnabled} */
+	@JavadocExclude
 	public static native int nDwmIsCompositionEnabled(long enabled, long __functionAddress);
 
 	/**
@@ -45,18 +53,6 @@ public final class Dwmapi {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nDwmIsCompositionEnabled(memAddress(enabled), __functionAddress);
-	}
-
-	/** The {@link FunctionMap} class for {@code Dwmapi}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long DwmIsCompositionEnabled;
-
-		public Functions(FunctionProvider provider) {
-			DwmIsCompositionEnabled = provider.getFunctionAddress("DwmIsCompositionEnabled");
-		}
-
 	}
 
 }

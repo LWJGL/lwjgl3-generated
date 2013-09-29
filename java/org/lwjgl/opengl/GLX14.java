@@ -23,11 +23,36 @@ public final class GLX14 {
 		GLX_SAMPLE_BUFFERS = 0x186A0,
 		GLX_SAMPLES        = 0x186A1;
 
-	private GLX14() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXGetProcAddress;
+
+	@JavadocExclude
+	public GLX14(FunctionProvider provider) {
+		glXGetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLX14} instance for the current context. */
+	public static GLX14 getInstance() {
+		return GL.getCapabilities().__GLX14;
+	}
+
+	static GLX14 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_14") ) return null;
+
+		GLX14 funcs = new GLX14(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddress);
+
+		return GL.checkExtension("GLX_14", funcs, supported);
+	}
 
 	// --- [ glXGetProcAddress ] ---
 
 	/** JNI method for {@link #glXGetProcAddress glXGetProcAddress} */
+	@JavadocExclude
 	public static native long nglXGetProcAddress(long procName, long __functionAddress);
 
 	/**
@@ -56,36 +81,6 @@ public final class GLX14 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddress(memAddress(procName), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLX14;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_14") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddress);
-
-		return GL.checkExtension("GLX_14", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLX14}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXGetProcAddress;
-
-		public Functions(FunctionProvider provider) {
-			glXGetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
-		}
-
 	}
 
 }

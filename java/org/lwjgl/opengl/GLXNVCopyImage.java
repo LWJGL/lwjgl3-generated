@@ -22,11 +22,36 @@ import org.lwjgl.system.linux.GLX;
  */
 public final class GLXNVCopyImage {
 
-	private GLXNVCopyImage() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXCopyImageSubDataNV;
+
+	@JavadocExclude
+	public GLXNVCopyImage(FunctionProvider provider) {
+		glXCopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXNVCopyImage} instance for the current context. */
+	public static GLXNVCopyImage getInstance() {
+		return GL.getCapabilities().__GLXNVCopyImage;
+	}
+
+	static GLXNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_NV_copy_image") ) return null;
+
+		GLXNVCopyImage funcs = new GLXNVCopyImage(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXCopyImageSubDataNV);
+
+		return GL.checkExtension("GLX_NV_copy_image", funcs, supported);
+	}
 
 	// --- [ glXCopyImageSubDataNV ] ---
 
 	/** JNI method for {@link #glXCopyImageSubDataNV glXCopyImageSubDataNV} */
+	@JavadocExclude
 	public static native void nglXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -60,36 +85,6 @@ public final class GLXNVCopyImage {
 			checkPointer(display);
 		}
 		nglXCopyImageSubDataNV(display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXNVCopyImage;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_NV_copy_image") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXCopyImageSubDataNV);
-
-		return GL.checkExtension("GLX_NV_copy_image", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXNVCopyImage}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXCopyImageSubDataNV;
-
-		public Functions(FunctionProvider provider) {
-			glXCopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
-		}
-
 	}
 
 }

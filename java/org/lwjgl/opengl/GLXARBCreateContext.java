@@ -42,11 +42,36 @@ public final class GLXARBCreateContext {
 		GLX_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
 		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
 
-	private GLXARBCreateContext() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXCreateContextAttribsARB;
+
+	@JavadocExclude
+	public GLXARBCreateContext(FunctionProvider provider) {
+		glXCreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXARBCreateContext} instance for the current context. */
+	public static GLXARBCreateContext getInstance() {
+		return GL.getCapabilities().__GLXARBCreateContext;
+	}
+
+	static GLXARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_ARB_create_context") ) return null;
+
+		GLXARBCreateContext funcs = new GLXARBCreateContext(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXCreateContextAttribsARB);
+
+		return GL.checkExtension("GLX_ARB_create_context", funcs, supported);
+	}
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
 	/** JNI method for {@link #glXCreateContextAttribsARB glXCreateContextAttribsARB} */
+	@JavadocExclude
 	public static native long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list, long __functionAddress);
 
 	/**
@@ -96,36 +121,6 @@ public final class GLXARBCreateContext {
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXARBCreateContext;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_ARB_create_context") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXCreateContextAttribsARB);
-
-		return GL.checkExtension("GLX_ARB_create_context", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXARBCreateContext}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXCreateContextAttribsARB;
-
-		public Functions(FunctionProvider provider) {
-			glXCreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
-		}
-
 	}
 
 }

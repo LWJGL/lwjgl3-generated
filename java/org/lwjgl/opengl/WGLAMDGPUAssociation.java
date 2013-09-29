@@ -38,11 +38,62 @@ public final class WGLAMDGPUAssociation {
 		WGL_GPU_NUM_RB_AMD                = 0x21A7,
 		WGL_GPU_NUM_SPI_AMD               = 0x21A8;
 
-	private WGLAMDGPUAssociation() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglGetGPUIDsAMD,
+		wglGetGPUInfoAMD,
+		wglGetContextGPUIDAMD,
+		wglCreateAssociatedContextAMD,
+		wglCreateAssociatedContextAttribsAMD,
+		wglDeleteAssociatedContextAMD,
+		wglMakeAssociatedContextCurrentAMD,
+		wglGetCurrentAssociatedContextAMD,
+		wglBlitContextFramebufferAMD;
+
+	@JavadocExclude
+	public WGLAMDGPUAssociation(FunctionProvider provider) {
+		wglGetGPUIDsAMD = provider.getFunctionAddress("wglGetGPUIDsAMD");
+		wglGetGPUInfoAMD = provider.getFunctionAddress("wglGetGPUInfoAMD");
+		wglGetContextGPUIDAMD = provider.getFunctionAddress("wglGetContextGPUIDAMD");
+		wglCreateAssociatedContextAMD = provider.getFunctionAddress("wglCreateAssociatedContextAMD");
+		wglCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("wglCreateAssociatedContextAttribsAMD");
+		wglDeleteAssociatedContextAMD = provider.getFunctionAddress("wglDeleteAssociatedContextAMD");
+		wglMakeAssociatedContextCurrentAMD = provider.getFunctionAddress("wglMakeAssociatedContextCurrentAMD");
+		wglGetCurrentAssociatedContextAMD = provider.getFunctionAddress("wglGetCurrentAssociatedContextAMD");
+		wglBlitContextFramebufferAMD = provider.getFunctionAddress("wglBlitContextFramebufferAMD");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLAMDGPUAssociation} instance for the current context. */
+	public static WGLAMDGPUAssociation getInstance() {
+		return GL.getCapabilities().__WGLAMDGPUAssociation;
+	}
+
+	static WGLAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_AMD_gpu_association") ) return null;
+
+		WGLAMDGPUAssociation funcs = new WGLAMDGPUAssociation(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglGetGPUIDsAMD) &&
+			GL.isFunctionSupported(funcs.wglGetGPUInfoAMD) &&
+			GL.isFunctionSupported(funcs.wglGetContextGPUIDAMD) &&
+			GL.isFunctionSupported(funcs.wglCreateAssociatedContextAMD) &&
+			GL.isFunctionSupported(funcs.wglCreateAssociatedContextAttribsAMD) &&
+			GL.isFunctionSupported(funcs.wglDeleteAssociatedContextAMD) &&
+			GL.isFunctionSupported(funcs.wglMakeAssociatedContextCurrentAMD) &&
+			GL.isFunctionSupported(funcs.wglGetCurrentAssociatedContextAMD) &&
+			(!ext.contains("GL_EXT_framebuffer_blit") || GL.isFunctionSupported(funcs.wglBlitContextFramebufferAMD));
+
+		return GL.checkExtension("WGL_AMD_gpu_association", funcs, supported);
+	}
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
 	/** JNI method for {@link #wglGetGPUIDsAMD wglGetGPUIDsAMD} */
+	@JavadocExclude
 	public static native int nwglGetGPUIDsAMD(int maxCount, long ids, long __functionAddress);
 
 	/**
@@ -75,6 +126,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglGetGPUInfoAMD ] ---
 
 	/** JNI method for {@link #wglGetGPUInfoAMD wglGetGPUInfoAMD} */
+	@JavadocExclude
 	public static native int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
 	/**
@@ -128,6 +180,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglGetContextGPUIDAMD ] ---
 
 	/** JNI method for {@link #wglGetContextGPUIDAMD wglGetContextGPUIDAMD} */
+	@JavadocExclude
 	public static native int nwglGetContextGPUIDAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -152,6 +205,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglCreateAssociatedContextAMD ] ---
 
 	/** JNI method for {@link #wglCreateAssociatedContextAMD wglCreateAssociatedContextAMD} */
+	@JavadocExclude
 	public static native long nwglCreateAssociatedContextAMD(int id, long __functionAddress);
 
 	/**
@@ -169,6 +223,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
 
 	/** JNI method for {@link #wglCreateAssociatedContextAttribsAMD wglCreateAssociatedContextAttribsAMD} */
+	@JavadocExclude
 	public static native long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList, long __functionAddress);
 
 	/**
@@ -202,6 +257,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglDeleteAssociatedContextAMD ] ---
 
 	/** JNI method for {@link #wglDeleteAssociatedContextAMD wglDeleteAssociatedContextAMD} */
+	@JavadocExclude
 	public static native int nwglDeleteAssociatedContextAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -221,6 +277,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglMakeAssociatedContextCurrentAMD ] ---
 
 	/** JNI method for {@link #wglMakeAssociatedContextCurrentAMD wglMakeAssociatedContextCurrentAMD} */
+	@JavadocExclude
 	public static native int nwglMakeAssociatedContextCurrentAMD(long hglrc, long __functionAddress);
 
 	/**
@@ -240,6 +297,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglGetCurrentAssociatedContextAMD ] ---
 
 	/** JNI method for {@link #wglGetCurrentAssociatedContextAMD wglGetCurrentAssociatedContextAMD} */
+	@JavadocExclude
 	public static native long nwglGetCurrentAssociatedContextAMD(long __functionAddress);
 
 	/** Returns the current associated context in the current thread. */
@@ -253,6 +311,7 @@ public final class WGLAMDGPUAssociation {
 	// --- [ wglBlitContextFramebufferAMD ] ---
 
 	/** JNI method for {@link #wglBlitContextFramebufferAMD wglBlitContextFramebufferAMD} */
+	@JavadocExclude
 	public static native void nwglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
@@ -277,62 +336,6 @@ public final class WGLAMDGPUAssociation {
 			checkPointer(dstCtx);
 		}
 		nwglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLAMDGPUAssociation;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_AMD_gpu_association") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglGetGPUIDsAMD) &&
-			GL.isFunctionSupported(funcs.wglGetGPUInfoAMD) &&
-			GL.isFunctionSupported(funcs.wglGetContextGPUIDAMD) &&
-			GL.isFunctionSupported(funcs.wglCreateAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.wglCreateAssociatedContextAttribsAMD) &&
-			GL.isFunctionSupported(funcs.wglDeleteAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.wglMakeAssociatedContextCurrentAMD) &&
-			GL.isFunctionSupported(funcs.wglGetCurrentAssociatedContextAMD) &&
-			(!ext.contains("GL_EXT_framebuffer_blit") || GL.isFunctionSupported(funcs.wglBlitContextFramebufferAMD));
-
-		return GL.checkExtension("WGL_AMD_gpu_association", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLAMDGPUAssociation}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglGetGPUIDsAMD,
-			wglGetGPUInfoAMD,
-			wglGetContextGPUIDAMD,
-			wglCreateAssociatedContextAMD,
-			wglCreateAssociatedContextAttribsAMD,
-			wglDeleteAssociatedContextAMD,
-			wglMakeAssociatedContextCurrentAMD,
-			wglGetCurrentAssociatedContextAMD,
-			wglBlitContextFramebufferAMD;
-
-		public Functions(FunctionProvider provider) {
-			wglGetGPUIDsAMD = provider.getFunctionAddress("wglGetGPUIDsAMD");
-			wglGetGPUInfoAMD = provider.getFunctionAddress("wglGetGPUInfoAMD");
-			wglGetContextGPUIDAMD = provider.getFunctionAddress("wglGetContextGPUIDAMD");
-			wglCreateAssociatedContextAMD = provider.getFunctionAddress("wglCreateAssociatedContextAMD");
-			wglCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("wglCreateAssociatedContextAttribsAMD");
-			wglDeleteAssociatedContextAMD = provider.getFunctionAddress("wglDeleteAssociatedContextAMD");
-			wglMakeAssociatedContextCurrentAMD = provider.getFunctionAddress("wglMakeAssociatedContextCurrentAMD");
-			wglGetCurrentAssociatedContextAMD = provider.getFunctionAddress("wglGetCurrentAssociatedContextAMD");
-			wglBlitContextFramebufferAMD = provider.getFunctionAddress("wglBlitContextFramebufferAMD");
-		}
-
 	}
 
 }

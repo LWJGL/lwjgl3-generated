@@ -206,11 +206,80 @@ public final class CL12 {
 		CL_COMMAND_FILL_BUFFER         = 0x1207,
 		CL_COMMAND_FILL_IMAGE          = 0x1208;
 
-	private CL12() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		clGetExtensionFunctionAddressForPlatform,
+		clRetainDevice,
+		clReleaseDevice,
+		clCreateSubDevices,
+		clCreateImage,
+		clCreateProgramWithBuiltInKernels,
+		clCompileProgram,
+		clLinkProgram,
+		clUnloadPlatformCompiler,
+		clGetKernelArgInfo,
+		clEnqueueFillBuffer,
+		clEnqueueFillImage,
+		clEnqueueMigrateMemObjects,
+		clEnqueueMarkerWithWaitList,
+		clEnqueueBarrierWithWaitList;
+
+	@JavadocExclude
+	public CL12(FunctionProviderLocal provider) {
+		clGetExtensionFunctionAddressForPlatform = provider.getFunctionAddress("clGetExtensionFunctionAddressForPlatform");
+		clRetainDevice = provider.getFunctionAddress("clRetainDevice");
+		clReleaseDevice = provider.getFunctionAddress("clReleaseDevice");
+		clCreateSubDevices = provider.getFunctionAddress("clCreateSubDevices");
+		clCreateImage = provider.getFunctionAddress("clCreateImage");
+		clCreateProgramWithBuiltInKernels = provider.getFunctionAddress("clCreateProgramWithBuiltInKernels");
+		clCompileProgram = provider.getFunctionAddress("clCompileProgram");
+		clLinkProgram = provider.getFunctionAddress("clLinkProgram");
+		clUnloadPlatformCompiler = provider.getFunctionAddress("clUnloadPlatformCompiler");
+		clGetKernelArgInfo = provider.getFunctionAddress("clGetKernelArgInfo");
+		clEnqueueFillBuffer = provider.getFunctionAddress("clEnqueueFillBuffer");
+		clEnqueueFillImage = provider.getFunctionAddress("clEnqueueFillImage");
+		clEnqueueMigrateMemObjects = provider.getFunctionAddress("clEnqueueMigrateMemObjects");
+		clEnqueueMarkerWithWaitList = provider.getFunctionAddress("clEnqueueMarkerWithWaitList");
+		clEnqueueBarrierWithWaitList = provider.getFunctionAddress("clEnqueueBarrierWithWaitList");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CL12} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static CL12 getInstance(CLObject object) {
+		return object.getCapabilities().__CL12;
+	}
+
+	static CL12 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenCL12") ) return null;
+
+		CL12 funcs = new CL12(provider);
+
+		boolean supported = 
+			funcs.clGetExtensionFunctionAddressForPlatform != 0L &&
+			funcs.clRetainDevice != 0L &&
+			funcs.clReleaseDevice != 0L &&
+			funcs.clCreateSubDevices != 0L &&
+			funcs.clCreateImage != 0L &&
+			funcs.clCreateProgramWithBuiltInKernels != 0L &&
+			funcs.clCompileProgram != 0L &&
+			funcs.clLinkProgram != 0L &&
+			funcs.clUnloadPlatformCompiler != 0L &&
+			funcs.clGetKernelArgInfo != 0L &&
+			funcs.clEnqueueFillBuffer != 0L &&
+			funcs.clEnqueueFillImage != 0L &&
+			funcs.clEnqueueMigrateMemObjects != 0L &&
+			funcs.clEnqueueMarkerWithWaitList != 0L &&
+			funcs.clEnqueueBarrierWithWaitList != 0L;
+
+		return CL.checkExtension("OpenCL12", funcs, supported);
+	}
 
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
 
 	/** JNI method for {@link #clGetExtensionFunctionAddressForPlatform clGetExtensionFunctionAddressForPlatform} */
+	@JavadocExclude
 	public static native long nclGetExtensionFunctionAddressForPlatform(long platform, long func_name, long __functionAddress);
 
 	/**
@@ -239,6 +308,7 @@ public final class CL12 {
 	// --- [ clRetainDevice ] ---
 
 	/** JNI method for {@link #clRetainDevice clRetainDevice} */
+	@JavadocExclude
 	public static native int nclRetainDevice(long device, long __functionAddress);
 
 	/**
@@ -264,6 +334,7 @@ public final class CL12 {
 	// --- [ clReleaseDevice ] ---
 
 	/** JNI method for {@link #clReleaseDevice clReleaseDevice} */
+	@JavadocExclude
 	public static native int nclReleaseDevice(long device, long __functionAddress);
 
 	/**
@@ -292,6 +363,7 @@ public final class CL12 {
 	// --- [ clCreateSubDevices ] ---
 
 	/** JNI method for {@link #clCreateSubDevices clCreateSubDevices} */
+	@JavadocExclude
 	public static native int nclCreateSubDevices(long in_device, long properties, int num_devices, long out_devices, long num_devices_ret, long __functionAddress);
 
 	/**
@@ -362,6 +434,7 @@ public final class CL12 {
 	// --- [ clCreateImage ] ---
 
 	/** JNI method for {@link #clCreateImage clCreateImage} */
+	@JavadocExclude
 	public static native long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret, long __functionAddress);
 
 	/**
@@ -466,6 +539,7 @@ public final class CL12 {
 	// --- [ clCreateProgramWithBuiltInKernels ] ---
 
 	/** JNI method for {@link #clCreateProgramWithBuiltInKernels clCreateProgramWithBuiltInKernels} */
+	@JavadocExclude
 	public static native long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret, long __functionAddress);
 
 	/**
@@ -538,6 +612,7 @@ public final class CL12 {
 	// --- [ clCompileProgram ] ---
 
 	/** JNI method for {@link #clCompileProgram clCompileProgram} */
+	@JavadocExclude
 	public static native int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -646,6 +721,7 @@ public final class CL12 {
 	// --- [ clLinkProgram ] ---
 
 	/** JNI method for {@link #clLinkProgram clLinkProgram} */
+	@JavadocExclude
 	public static native long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -765,6 +841,7 @@ public final class CL12 {
 	// --- [ clUnloadPlatformCompiler ] ---
 
 	/** JNI method for {@link #clUnloadPlatformCompiler clUnloadPlatformCompiler} */
+	@JavadocExclude
 	public static native int nclUnloadPlatformCompiler(long platform, long __functionAddress);
 
 	/**
@@ -790,6 +867,7 @@ public final class CL12 {
 	// --- [ clGetKernelArgInfo ] ---
 
 	/** JNI method for {@link #clGetKernelArgInfo clGetKernelArgInfo} */
+	@JavadocExclude
 	public static native int nclGetKernelArgInfo(long kernel, int arg_indx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -857,6 +935,7 @@ public final class CL12 {
 	// --- [ clEnqueueFillBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueFillBuffer clEnqueueFillBuffer} */
+	@JavadocExclude
 	public static native int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -926,6 +1005,7 @@ public final class CL12 {
 	// --- [ clEnqueueFillImage ] ---
 
 	/** JNI method for {@link #clEnqueueFillImage clEnqueueFillImage} */
+	@JavadocExclude
 	public static native int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -998,6 +1078,7 @@ public final class CL12 {
 	// --- [ clEnqueueMigrateMemObjects ] ---
 
 	/** JNI method for {@link #clEnqueueMigrateMemObjects clEnqueueMigrateMemObjects} */
+	@JavadocExclude
 	public static native int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1069,6 +1150,7 @@ public final class CL12 {
 	// --- [ clEnqueueMarkerWithWaitList ] ---
 
 	/** JNI method for {@link #clEnqueueMarkerWithWaitList clEnqueueMarkerWithWaitList} */
+	@JavadocExclude
 	public static native int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1120,6 +1202,7 @@ public final class CL12 {
 	// --- [ clEnqueueBarrierWithWaitList ] ---
 
 	/** JNI method for {@link #clEnqueueBarrierWithWaitList clEnqueueBarrierWithWaitList} */
+	@JavadocExclude
 	public static native int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1166,80 +1249,6 @@ public final class CL12 {
 			if ( event != null ) checkBuffer(event, 1);
 		}
 		return nclEnqueueBarrierWithWaitList(command_queue.getPointer(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__CL12;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL12") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.clGetExtensionFunctionAddressForPlatform != 0L &&
-			funcs.clRetainDevice != 0L &&
-			funcs.clReleaseDevice != 0L &&
-			funcs.clCreateSubDevices != 0L &&
-			funcs.clCreateImage != 0L &&
-			funcs.clCreateProgramWithBuiltInKernels != 0L &&
-			funcs.clCompileProgram != 0L &&
-			funcs.clLinkProgram != 0L &&
-			funcs.clUnloadPlatformCompiler != 0L &&
-			funcs.clGetKernelArgInfo != 0L &&
-			funcs.clEnqueueFillBuffer != 0L &&
-			funcs.clEnqueueFillImage != 0L &&
-			funcs.clEnqueueMigrateMemObjects != 0L &&
-			funcs.clEnqueueMarkerWithWaitList != 0L &&
-			funcs.clEnqueueBarrierWithWaitList != 0L;
-
-		return CL.checkExtension("OpenCL12", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code CL12}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			clGetExtensionFunctionAddressForPlatform,
-			clRetainDevice,
-			clReleaseDevice,
-			clCreateSubDevices,
-			clCreateImage,
-			clCreateProgramWithBuiltInKernels,
-			clCompileProgram,
-			clLinkProgram,
-			clUnloadPlatformCompiler,
-			clGetKernelArgInfo,
-			clEnqueueFillBuffer,
-			clEnqueueFillImage,
-			clEnqueueMigrateMemObjects,
-			clEnqueueMarkerWithWaitList,
-			clEnqueueBarrierWithWaitList;
-
-		public Functions(FunctionProviderLocal provider) {
-			clGetExtensionFunctionAddressForPlatform = provider.getFunctionAddress("clGetExtensionFunctionAddressForPlatform");
-			clRetainDevice = provider.getFunctionAddress("clRetainDevice");
-			clReleaseDevice = provider.getFunctionAddress("clReleaseDevice");
-			clCreateSubDevices = provider.getFunctionAddress("clCreateSubDevices");
-			clCreateImage = provider.getFunctionAddress("clCreateImage");
-			clCreateProgramWithBuiltInKernels = provider.getFunctionAddress("clCreateProgramWithBuiltInKernels");
-			clCompileProgram = provider.getFunctionAddress("clCompileProgram");
-			clLinkProgram = provider.getFunctionAddress("clLinkProgram");
-			clUnloadPlatformCompiler = provider.getFunctionAddress("clUnloadPlatformCompiler");
-			clGetKernelArgInfo = provider.getFunctionAddress("clGetKernelArgInfo");
-			clEnqueueFillBuffer = provider.getFunctionAddress("clEnqueueFillBuffer");
-			clEnqueueFillImage = provider.getFunctionAddress("clEnqueueFillImage");
-			clEnqueueMigrateMemObjects = provider.getFunctionAddress("clEnqueueMigrateMemObjects");
-			clEnqueueMarkerWithWaitList = provider.getFunctionAddress("clEnqueueMarkerWithWaitList");
-			clEnqueueBarrierWithWaitList = provider.getFunctionAddress("clEnqueueBarrierWithWaitList");
-		}
-
 	}
 
 }

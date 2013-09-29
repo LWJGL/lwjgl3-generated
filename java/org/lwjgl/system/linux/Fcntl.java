@@ -42,6 +42,7 @@ public final class Fcntl {
 	// --- [ open ] ---
 
 	/** JNI method for {@link #open open} */
+	@JavadocExclude
 	public static native int nopen(long pathname, int flags);
 
 	/**

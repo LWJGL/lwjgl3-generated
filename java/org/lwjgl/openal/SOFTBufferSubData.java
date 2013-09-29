@@ -21,11 +21,36 @@ public final class SOFTBufferSubData {
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
-	private SOFTBufferSubData() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long alBufferSubDataSOFT;
+
+	@JavadocExclude
+	public SOFTBufferSubData(FunctionProvider provider) {
+		alBufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link SOFTBufferSubData} instance for the current context. */
+	public static SOFTBufferSubData getInstance() {
+		return AL.getCapabilities().__SOFTBufferSubData;
+	}
+
+	static SOFTBufferSubData create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("AL_SOFT_buffer_sub_data") ) return null;
+
+		SOFTBufferSubData funcs = new SOFTBufferSubData(provider);
+
+		boolean supported =  funcs.alBufferSubDataSOFT != 0L;
+
+		return AL.checkExtension("AL_SOFT_buffer_sub_data", funcs, supported);
+	}
 
 	// --- [ alBufferSubDataSOFT ] ---
 
 	/** JNI method for {@link #alBufferSubDataSOFT alBufferSubDataSOFT} */
+	@JavadocExclude
 	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
 
 	/**
@@ -70,36 +95,6 @@ public final class SOFTBufferSubData {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalBufferSubDataSOFT(buffer, format, memAddress(data), offset, length, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return AL.getCapabilities().__SOFTBufferSubData;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_buffer_sub_data") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  funcs.alBufferSubDataSOFT != 0L;
-
-		return AL.checkExtension("AL_SOFT_buffer_sub_data", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code SOFTBufferSubData}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long alBufferSubDataSOFT;
-
-		public Functions(FunctionProvider provider) {
-			alBufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
-		}
-
 	}
 
 }

@@ -22,11 +22,36 @@ import org.lwjgl.system.linux.X;
  */
 public final class GLXSGIXSwapGroup {
 
-	private GLXSGIXSwapGroup() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXJoinSwapGroupSGIX;
+
+	@JavadocExclude
+	public GLXSGIXSwapGroup(FunctionProvider provider) {
+		glXJoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIXSwapGroup} instance for the current context. */
+	public static GLXSGIXSwapGroup getInstance() {
+		return GL.getCapabilities().__GLXSGIXSwapGroup;
+	}
+
+	static GLXSGIXSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGIX_swap_group") ) return null;
+
+		GLXSGIXSwapGroup funcs = new GLXSGIXSwapGroup(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXJoinSwapGroupSGIX);
+
+		return GL.checkExtension("GLX_SGIX_swap_group", funcs, supported);
+	}
 
 	// --- [ glXJoinSwapGroupSGIX ] ---
 
 	/** JNI method for {@link #glXJoinSwapGroupSGIX glXJoinSwapGroupSGIX} */
+	@JavadocExclude
 	public static native void nglXJoinSwapGroupSGIX(long display, long drawable, long member, long __functionAddress);
 
 	/**
@@ -46,36 +71,6 @@ public final class GLXSGIXSwapGroup {
 			checkPointer(drawable);
 		}
 		nglXJoinSwapGroupSGIX(display, drawable, member, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIXSwapGroup;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_swap_group") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXJoinSwapGroupSGIX);
-
-		return GL.checkExtension("GLX_SGIX_swap_group", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIXSwapGroup}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXJoinSwapGroupSGIX;
-
-		public Functions(FunctionProvider provider) {
-			glXJoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
-		}
-
 	}
 
 }

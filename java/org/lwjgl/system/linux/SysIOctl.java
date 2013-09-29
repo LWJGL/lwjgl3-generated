@@ -18,6 +18,7 @@ public final class SysIOctl {
 	// --- [ ioctl ] ---
 
 	/** JNI method for {@link #ioctl ioctl} */
+	@JavadocExclude
 	public static native int nioctl(int fd, int request, long arg);
 
 	/**

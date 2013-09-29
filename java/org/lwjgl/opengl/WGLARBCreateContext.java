@@ -39,11 +39,36 @@ public final class WGLARBCreateContext {
 		ERROR_INVALID_VERSION_ARB = 0x2095,
 		ERROR_INVALID_PROFILE_ARB = 0x2096;
 
-	private WGLARBCreateContext() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long wglCreateContextAttribsARB;
+
+	@JavadocExclude
+	public WGLARBCreateContext(FunctionProvider provider) {
+		wglCreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBCreateContext} instance for the current context. */
+	public static WGLARBCreateContext getInstance() {
+		return GL.getCapabilities().__WGLARBCreateContext;
+	}
+
+	static WGLARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_create_context") ) return null;
+
+		WGLARBCreateContext funcs = new WGLARBCreateContext(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.wglCreateContextAttribsARB);
+
+		return GL.checkExtension("WGL_ARB_create_context", funcs, supported);
+	}
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
 	/** JNI method for {@link #wglCreateContextAttribsARB wglCreateContextAttribsARB} */
+	@JavadocExclude
 	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
 
 	/**
@@ -77,36 +102,6 @@ public final class WGLARBCreateContext {
 			if ( attribList != null ) checkNT(attribList);
 		}
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBCreateContext;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_create_context") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.wglCreateContextAttribsARB);
-
-		return GL.checkExtension("WGL_ARB_create_context", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBCreateContext}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long wglCreateContextAttribsARB;
-
-		public Functions(FunctionProvider provider) {
-			wglCreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
-		}
-
 	}
 
 }

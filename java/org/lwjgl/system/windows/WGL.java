@@ -60,6 +60,7 @@ public final class WGL {
 	// --- [ wglCreateContext ] ---
 
 	/** JNI method for {@link #wglCreateContext wglCreateContext} */
+	@JavadocExclude
 	public static native long nwglCreateContext(long hdc);
 
 	/**
@@ -77,6 +78,7 @@ public final class WGL {
 	// --- [ wglCreateLayerContext ] ---
 
 	/** JNI method for {@link #wglCreateLayerContext wglCreateLayerContext} */
+	@JavadocExclude
 	public static native long nwglCreateLayerContext(long hdc, int layerPlane);
 
 	/**
@@ -98,6 +100,7 @@ public final class WGL {
 	// --- [ wglCopyContext ] ---
 
 	/** JNI method for {@link #wglCopyContext wglCopyContext} */
+	@JavadocExclude
 	public static native int nwglCopyContext(long src, long dst, int mask);
 
 	/**
@@ -120,6 +123,7 @@ public final class WGL {
 	// --- [ wglDeleteContext ] ---
 
 	/** JNI method for {@link #wglDeleteContext wglDeleteContext} */
+	@JavadocExclude
 	public static native int nwglDeleteContext(long context);
 
 	/**
@@ -136,16 +140,19 @@ public final class WGL {
 	// --- [ wglGetCurrentContext ] ---
 
 	/** Obtains a handle to the current OpenGL rendering context of the calling thread. */
+	@JavadocExclude
 	public static native long wglGetCurrentContext();
 
 	// --- [ wglGetCurrentDC ] ---
 
 	/** Obtains a handle to the device context that is associated with the current OpenGL rendering context of the calling thread. */
+	@JavadocExclude
 	public static native long wglGetCurrentDC();
 
 	// --- [ wglGetProcAddress ] ---
 
 	/** JNI method for {@link #wglGetProcAddress wglGetProcAddress} */
+	@JavadocExclude
 	public static native long nwglGetProcAddress(long proc);
 
 	/**
@@ -168,6 +175,7 @@ public final class WGL {
 	// --- [ wglMakeCurrent ] ---
 
 	/** JNI method for {@link #wglMakeCurrent wglMakeCurrent} */
+	@JavadocExclude
 	public static native int nwglMakeCurrent(long hdc, long context);
 
 	/**
@@ -186,6 +194,7 @@ public final class WGL {
 	// --- [ wglShareLists ] ---
 
 	/** JNI method for {@link #wglShareLists wglShareLists} */
+	@JavadocExclude
 	public static native int nwglShareLists(long context1, long context2);
 
 	/**
@@ -206,6 +215,7 @@ public final class WGL {
 	// --- [ wglUseFontBitmaps ] ---
 
 	/** JNI method for {@link #wglUseFontBitmaps wglUseFontBitmaps} */
+	@JavadocExclude
 	public static native int nwglUseFontBitmaps(long hdc, int first, int count, int listBase);
 
 	/**
@@ -228,6 +238,7 @@ public final class WGL {
 	// --- [ wglUseFontOutlines ] ---
 
 	/** JNI method for {@link #wglUseFontOutlines wglUseFontOutlines} */
+	@JavadocExclude
 	public static native int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics);
 
 	/**

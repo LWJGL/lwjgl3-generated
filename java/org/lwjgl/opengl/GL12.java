@@ -115,11 +115,47 @@ public final class GL12 {
 		GL_MAX_ELEMENTS_VERTICES = 0x80E8,
 		GL_MAX_ELEMENTS_INDICES  = 0x80E9;
 
-	private GL12() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glTexImage3D,
+		glTexSubImage3D,
+		glCopyTexSubImage3D,
+		glDrawRangeElements;
+
+	@JavadocExclude
+	public GL12(FunctionProvider provider) {
+		glTexImage3D = provider.getFunctionAddress("glTexImage3D");
+		glTexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
+		glCopyTexSubImage3D = provider.getFunctionAddress("glCopyTexSubImage3D");
+		glDrawRangeElements = provider.getFunctionAddress("glDrawRangeElements");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL12} instance for the current context. */
+	public static GL12 getInstance() {
+		return GL.getCapabilities().__GL12;
+	}
+
+	static GL12 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL12") ) return null;
+
+		GL12 funcs = new GL12(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glTexImage3D) &&
+			GL.isFunctionSupported(funcs.glTexSubImage3D) &&
+			GL.isFunctionSupported(funcs.glCopyTexSubImage3D) &&
+			GL.isFunctionSupported(funcs.glDrawRangeElements);
+
+		return GL.checkExtension("OpenGL12", funcs, supported);
+	}
 
 	// --- [ glTexImage3D ] ---
 
 	/** JNI method for {@link #glTexImage3D glTexImage3D} */
+	@JavadocExclude
 	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -200,6 +236,7 @@ public final class GL12 {
 	// --- [ glTexSubImage3D ] ---
 
 	/** JNI method for {@link #glTexSubImage3D glTexSubImage3D} */
+	@JavadocExclude
 	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels, long __functionAddress);
 
 	/**
@@ -282,6 +319,7 @@ public final class GL12 {
 	// --- [ glCopyTexSubImage3D ] ---
 
 	/** JNI method for {@link #glCopyTexSubImage3D glCopyTexSubImage3D} */
+	@JavadocExclude
 	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -311,6 +349,7 @@ public final class GL12 {
 	// --- [ glDrawRangeElements ] ---
 
 	/** JNI method for {@link #glDrawRangeElements glDrawRangeElements} */
+	@JavadocExclude
 	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices, long __functionAddress);
 
 	/**
@@ -409,47 +448,6 @@ public final class GL12 {
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL12;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL12") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glTexImage3D) &&
-			GL.isFunctionSupported(funcs.glTexSubImage3D) &&
-			GL.isFunctionSupported(funcs.glCopyTexSubImage3D) &&
-			GL.isFunctionSupported(funcs.glDrawRangeElements);
-
-		return GL.checkExtension("OpenGL12", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL12}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glTexImage3D,
-			glTexSubImage3D,
-			glCopyTexSubImage3D,
-			glDrawRangeElements;
-
-		public Functions(FunctionProvider provider) {
-			glTexImage3D = provider.getFunctionAddress("glTexImage3D");
-			glTexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
-			glCopyTexSubImage3D = provider.getFunctionAddress("glCopyTexSubImage3D");
-			glDrawRangeElements = provider.getFunctionAddress("glDrawRangeElements");
-		}
-
 	}
 
 }

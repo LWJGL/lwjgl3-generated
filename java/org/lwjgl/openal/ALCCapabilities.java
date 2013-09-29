@@ -12,10 +12,10 @@ import java.util.Set;
 /** Defines the capabilities of the OpenAL Context API. */
 public final class ALCCapabilities {
 
-	final ALC10.Functions                 __ALC10;
-	final ALC11.Functions                 __ALC11;
-	final EXTThreadLocalContext.Functions __EXTThreadLocalContext;
-	final SOFTLoopback.Functions          __SOFTLoopback;
+	final ALC10                 __ALC10;
+	final ALC11                 __ALC11;
+	final EXTThreadLocalContext __EXTThreadLocalContext;
+	final SOFTLoopback          __SOFTLoopback;
 
 	/** Indicates whether an ALC functionality is available or not. */
 	public final boolean

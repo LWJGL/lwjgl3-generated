@@ -24,16 +24,19 @@ public final class Joystick {
 	// --- [ JSIOCGVERSION ] ---
 
 	/** IOCTL command: get driver version. */
+	@JavadocExclude
 	public static native int JSIOCGVERSION();
 
 	// --- [ JSIOCGAXES ] ---
 
 	/** IOCTL command: get number of axes. */
+	@JavadocExclude
 	public static native int JSIOCGAXES();
 
 	// --- [ JSIOCGBUTTONS ] ---
 
 	/** IOCTL command: get number of buttons. */
+	@JavadocExclude
 	public static native int JSIOCGBUTTONS();
 
 	// --- [ JSIOCGNAME ] ---
@@ -43,6 +46,7 @@ public final class Joystick {
 	 *
 	 * @param len the string length
 	 */
+	@JavadocExclude
 	public static native int JSIOCGNAME(int len);
 
 }

@@ -194,11 +194,86 @@ public final class GL32 {
 		GL_CONDITION_SATISFIED = 0x911C,
 		GL_WAIT_FAILED         = 0x911D;
 
-	private GL32() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glDrawElementsBaseVertex,
+		glDrawRangeElementsBaseVertex,
+		glDrawElementsInstancedBaseVertex,
+		glMultiDrawElementsBaseVertex,
+		glProvokingVertex,
+		glTexImage2DMultisample,
+		glTexImage3DMultisample,
+		glGetMultisamplefv,
+		glSampleMaski,
+		glFramebufferTexture,
+		glFenceSync,
+		glIsSync,
+		glDeleteSync,
+		glClientWaitSync,
+		glWaitSync,
+		glGetInteger64v,
+		glGetSynciv;
+
+	@JavadocExclude
+	public GL32(FunctionProvider provider) {
+		glDrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
+		glDrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
+		glDrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
+		glMultiDrawElementsBaseVertex = provider.getFunctionAddress("glMultiDrawElementsBaseVertex");
+		glProvokingVertex = provider.getFunctionAddress("glProvokingVertex");
+		glTexImage2DMultisample = provider.getFunctionAddress("glTexImage2DMultisample");
+		glTexImage3DMultisample = provider.getFunctionAddress("glTexImage3DMultisample");
+		glGetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
+		glSampleMaski = provider.getFunctionAddress("glSampleMaski");
+		glFramebufferTexture = provider.getFunctionAddress("glFramebufferTexture");
+		glFenceSync = provider.getFunctionAddress("glFenceSync");
+		glIsSync = provider.getFunctionAddress("glIsSync");
+		glDeleteSync = provider.getFunctionAddress("glDeleteSync");
+		glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
+		glWaitSync = provider.getFunctionAddress("glWaitSync");
+		glGetInteger64v = provider.getFunctionAddress("glGetInteger64v");
+		glGetSynciv = provider.getFunctionAddress("glGetSynciv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL32} instance for the current context. */
+	public static GL32 getInstance() {
+		return GL.getCapabilities().__GL32;
+	}
+
+	static GL32 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL32") ) return null;
+
+		GL32 funcs = new GL32(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glDrawElementsBaseVertex) &&
+			GL.isFunctionSupported(funcs.glDrawRangeElementsBaseVertex) &&
+			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseVertex) &&
+			GL.isFunctionSupported(funcs.glMultiDrawElementsBaseVertex) &&
+			GL.isFunctionSupported(funcs.glProvokingVertex) &&
+			GL.isFunctionSupported(funcs.glTexImage2DMultisample) &&
+			GL.isFunctionSupported(funcs.glTexImage3DMultisample) &&
+			GL.isFunctionSupported(funcs.glGetMultisamplefv) &&
+			GL.isFunctionSupported(funcs.glSampleMaski) &&
+			GL.isFunctionSupported(funcs.glFramebufferTexture) &&
+			GL.isFunctionSupported(funcs.glFenceSync) &&
+			GL.isFunctionSupported(funcs.glIsSync) &&
+			GL.isFunctionSupported(funcs.glDeleteSync) &&
+			GL.isFunctionSupported(funcs.glClientWaitSync) &&
+			GL.isFunctionSupported(funcs.glWaitSync) &&
+			GL.isFunctionSupported(funcs.glGetInteger64v) &&
+			GL.isFunctionSupported(funcs.glGetSynciv);
+
+		return GL.checkExtension("OpenGL32", funcs, supported);
+	}
 
 	// --- [ glDrawElementsBaseVertex ] ---
 
 	/** JNI method for {@link #glDrawElementsBaseVertex glDrawElementsBaseVertex} */
+	@JavadocExclude
 	public static native void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -275,6 +350,7 @@ public final class GL32 {
 	// --- [ glDrawRangeElementsBaseVertex ] ---
 
 	/** JNI method for {@link #glDrawRangeElementsBaseVertex glDrawRangeElementsBaseVertex} */
+	@JavadocExclude
 	public static native void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex, long __functionAddress);
 
 	/**
@@ -353,6 +429,7 @@ public final class GL32 {
 	// --- [ glDrawElementsInstancedBaseVertex ] ---
 
 	/** JNI method for {@link #glDrawElementsInstancedBaseVertex glDrawElementsInstancedBaseVertex} */
+	@JavadocExclude
 	public static native void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex, long __functionAddress);
 
 	/**
@@ -430,6 +507,7 @@ public final class GL32 {
 	// --- [ glMultiDrawElementsBaseVertex ] ---
 
 	/** JNI method for {@link #glMultiDrawElementsBaseVertex glMultiDrawElementsBaseVertex} */
+	@JavadocExclude
 	public static native void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex, long __functionAddress);
 
 	/**
@@ -471,6 +549,7 @@ public final class GL32 {
 	// --- [ glProvokingVertex ] ---
 
 	/** JNI method for {@link #glProvokingVertex glProvokingVertex} */
+	@JavadocExclude
 	public static native void nglProvokingVertex(int mode, long __functionAddress);
 
 	/**
@@ -490,6 +569,7 @@ public final class GL32 {
 	// --- [ glTexImage2DMultisample ] ---
 
 	/** JNI method for {@link #glTexImage2DMultisample glTexImage2DMultisample} */
+	@JavadocExclude
 	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -516,6 +596,7 @@ public final class GL32 {
 	// --- [ glTexImage3DMultisample ] ---
 
 	/** JNI method for {@link #glTexImage3DMultisample glTexImage3DMultisample} */
+	@JavadocExclude
 	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -543,6 +624,7 @@ public final class GL32 {
 	// --- [ glGetMultisamplefv ] ---
 
 	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
+	@JavadocExclude
 	public static native void nglGetMultisamplefv(int pname, int index, long val, long __functionAddress);
 
 	/**
@@ -587,6 +669,7 @@ public final class GL32 {
 	// --- [ glSampleMaski ] ---
 
 	/** JNI method for {@link #glSampleMaski glSampleMaski} */
+	@JavadocExclude
 	public static native void nglSampleMaski(int index, int mask, long __functionAddress);
 
 	/**
@@ -607,6 +690,7 @@ public final class GL32 {
 	// --- [ glFramebufferTexture ] ---
 
 	/** JNI method for {@link #glFramebufferTexture glFramebufferTexture} */
+	@JavadocExclude
 	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level, long __functionAddress);
 
 	/**
@@ -629,6 +713,7 @@ public final class GL32 {
 	// --- [ glFenceSync ] ---
 
 	/** JNI method for {@link #glFenceSync glFenceSync} */
+	@JavadocExclude
 	public static native long nglFenceSync(int condition, int flags, long __functionAddress);
 
 	/**
@@ -650,6 +735,7 @@ public final class GL32 {
 	// --- [ glIsSync ] ---
 
 	/** JNI method for {@link #glIsSync glIsSync} */
+	@JavadocExclude
 	public static native boolean nglIsSync(long sync, long __functionAddress);
 
 	/**
@@ -671,6 +757,7 @@ public final class GL32 {
 	// --- [ glDeleteSync ] ---
 
 	/** JNI method for {@link #glDeleteSync glDeleteSync} */
+	@JavadocExclude
 	public static native void nglDeleteSync(long sync, long __functionAddress);
 
 	/**
@@ -692,6 +779,7 @@ public final class GL32 {
 	// --- [ glClientWaitSync ] ---
 
 	/** JNI method for {@link #glClientWaitSync glClientWaitSync} */
+	@JavadocExclude
 	public static native int nglClientWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
@@ -724,6 +812,7 @@ public final class GL32 {
 	// --- [ glWaitSync ] ---
 
 	/** JNI method for {@link #glWaitSync glWaitSync} */
+	@JavadocExclude
 	public static native void nglWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
@@ -753,6 +842,7 @@ public final class GL32 {
 	// --- [ glGetInteger64v ] ---
 
 	/** JNI method for {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	@JavadocExclude
 	public static native void nglGetInteger64v(int pname, long params, long __functionAddress);
 
 	/**
@@ -792,6 +882,7 @@ public final class GL32 {
 	// --- [ glGetSynciv ] ---
 
 	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	@JavadocExclude
 	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values, long __functionAddress);
 
 	/**
@@ -839,86 +930,6 @@ public final class GL32 {
 		int values = __buffer.intParam();
 		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values, __functionAddress);
 		return __buffer.intValue(values);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL32;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL32") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glDrawElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.glDrawRangeElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseVertex) &&
-			GL.isFunctionSupported(funcs.glMultiDrawElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.glProvokingVertex) &&
-			GL.isFunctionSupported(funcs.glTexImage2DMultisample) &&
-			GL.isFunctionSupported(funcs.glTexImage3DMultisample) &&
-			GL.isFunctionSupported(funcs.glGetMultisamplefv) &&
-			GL.isFunctionSupported(funcs.glSampleMaski) &&
-			GL.isFunctionSupported(funcs.glFramebufferTexture) &&
-			GL.isFunctionSupported(funcs.glFenceSync) &&
-			GL.isFunctionSupported(funcs.glIsSync) &&
-			GL.isFunctionSupported(funcs.glDeleteSync) &&
-			GL.isFunctionSupported(funcs.glClientWaitSync) &&
-			GL.isFunctionSupported(funcs.glWaitSync) &&
-			GL.isFunctionSupported(funcs.glGetInteger64v) &&
-			GL.isFunctionSupported(funcs.glGetSynciv);
-
-		return GL.checkExtension("OpenGL32", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL32}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glDrawElementsBaseVertex,
-			glDrawRangeElementsBaseVertex,
-			glDrawElementsInstancedBaseVertex,
-			glMultiDrawElementsBaseVertex,
-			glProvokingVertex,
-			glTexImage2DMultisample,
-			glTexImage3DMultisample,
-			glGetMultisamplefv,
-			glSampleMaski,
-			glFramebufferTexture,
-			glFenceSync,
-			glIsSync,
-			glDeleteSync,
-			glClientWaitSync,
-			glWaitSync,
-			glGetInteger64v,
-			glGetSynciv;
-
-		public Functions(FunctionProvider provider) {
-			glDrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
-			glDrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
-			glDrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
-			glMultiDrawElementsBaseVertex = provider.getFunctionAddress("glMultiDrawElementsBaseVertex");
-			glProvokingVertex = provider.getFunctionAddress("glProvokingVertex");
-			glTexImage2DMultisample = provider.getFunctionAddress("glTexImage2DMultisample");
-			glTexImage3DMultisample = provider.getFunctionAddress("glTexImage3DMultisample");
-			glGetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
-			glSampleMaski = provider.getFunctionAddress("glSampleMaski");
-			glFramebufferTexture = provider.getFunctionAddress("glFramebufferTexture");
-			glFenceSync = provider.getFunctionAddress("glFenceSync");
-			glIsSync = provider.getFunctionAddress("glIsSync");
-			glDeleteSync = provider.getFunctionAddress("glDeleteSync");
-			glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
-			glWaitSync = provider.getFunctionAddress("glWaitSync");
-			glGetInteger64v = provider.getFunctionAddress("glGetInteger64v");
-			glGetSynciv = provider.getFunctionAddress("glGetSynciv");
-		}
-
 	}
 
 }

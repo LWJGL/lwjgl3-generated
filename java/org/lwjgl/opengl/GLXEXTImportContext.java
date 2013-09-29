@@ -28,11 +28,50 @@ public final class GLXEXTImportContext {
 		GLX_VISUAL_ID_EXT     = 0x800B,
 		GLX_SCREEN_EXT        = 0x800C;
 
-	private GLXEXTImportContext() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXGetCurrentDisplayEXT,
+		glXQueryContextInfoEXT,
+		glXGetContextIDEXT,
+		glXImportContextEXT,
+		glXFreeContextEXT;
+
+	@JavadocExclude
+	public GLXEXTImportContext(FunctionProvider provider) {
+		glXGetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
+		glXQueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
+		glXGetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
+		glXImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
+		glXFreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXEXTImportContext} instance for the current context. */
+	public static GLXEXTImportContext getInstance() {
+		return GL.getCapabilities().__GLXEXTImportContext;
+	}
+
+	static GLXEXTImportContext create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_EXT_import_context") ) return null;
+
+		GLXEXTImportContext funcs = new GLXEXTImportContext(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXGetCurrentDisplayEXT) &&
+			GL.isFunctionSupported(funcs.glXQueryContextInfoEXT) &&
+			GL.isFunctionSupported(funcs.glXGetContextIDEXT) &&
+			GL.isFunctionSupported(funcs.glXImportContextEXT) &&
+			GL.isFunctionSupported(funcs.glXFreeContextEXT);
+
+		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
+	}
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
 	/** JNI method for {@link #glXGetCurrentDisplayEXT glXGetCurrentDisplayEXT} */
+	@JavadocExclude
 	public static native long nglXGetCurrentDisplayEXT(long __functionAddress);
 
 	/** Returns the display associated with the current context. */
@@ -46,6 +85,7 @@ public final class GLXEXTImportContext {
 	// --- [ glXQueryContextInfoEXT ] ---
 
 	/** JNI method for {@link #glXQueryContextInfoEXT glXQueryContextInfoEXT} */
+	@JavadocExclude
 	public static native int nglXQueryContextInfoEXT(long display, long context, int attribute, long value, long __functionAddress);
 
 	/**
@@ -82,6 +122,7 @@ public final class GLXEXTImportContext {
 	// --- [ glXGetContextIDEXT ] ---
 
 	/** JNI method for {@link #glXGetContextIDEXT glXGetContextIDEXT} */
+	@JavadocExclude
 	public static native long nglXGetContextIDEXT(long context, long __functionAddress);
 
 	/**
@@ -101,6 +142,7 @@ public final class GLXEXTImportContext {
 	// --- [ glXImportContextEXT ] ---
 
 	/** JNI method for {@link #glXImportContextEXT glXImportContextEXT} */
+	@JavadocExclude
 	public static native long nglXImportContextEXT(long display, long contextID, long __functionAddress);
 
 	/**
@@ -121,6 +163,7 @@ public final class GLXEXTImportContext {
 	// --- [ glXFreeContextEXT ] ---
 
 	/** JNI method for {@link #glXFreeContextEXT glXFreeContextEXT} */
+	@JavadocExclude
 	public static native void nglXFreeContextEXT(long display, long context, long __functionAddress);
 
 	/**
@@ -137,50 +180,6 @@ public final class GLXEXTImportContext {
 			checkPointer(context);
 		}
 		nglXFreeContextEXT(display, context, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXEXTImportContext;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_import_context") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXGetCurrentDisplayEXT) &&
-			GL.isFunctionSupported(funcs.glXQueryContextInfoEXT) &&
-			GL.isFunctionSupported(funcs.glXGetContextIDEXT) &&
-			GL.isFunctionSupported(funcs.glXImportContextEXT) &&
-			GL.isFunctionSupported(funcs.glXFreeContextEXT);
-
-		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXEXTImportContext}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXGetCurrentDisplayEXT,
-			glXQueryContextInfoEXT,
-			glXGetContextIDEXT,
-			glXImportContextEXT,
-			glXFreeContextEXT;
-
-		public Functions(FunctionProvider provider) {
-			glXGetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
-			glXQueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
-			glXGetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
-			glXImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
-			glXFreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
-		}
-
 	}
 
 }

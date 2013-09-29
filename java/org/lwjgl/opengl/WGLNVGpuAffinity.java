@@ -34,11 +34,50 @@ public final class WGLNVGPUAffinity {
 	public static final int
 		WGL_ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
-	private WGLNVGPUAffinity() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglEnumGpusNV,
+		wglEnumGpuDevicesNV,
+		wglCreateAffinityDCNV,
+		wglEnumGpusFromAffinityDCNV,
+		wglDeleteDCNV;
+
+	@JavadocExclude
+	public WGLNVGPUAffinity(FunctionProvider provider) {
+		wglEnumGpusNV = provider.getFunctionAddress("wglEnumGpusNV");
+		wglEnumGpuDevicesNV = provider.getFunctionAddress("wglEnumGpuDevicesNV");
+		wglCreateAffinityDCNV = provider.getFunctionAddress("wglCreateAffinityDCNV");
+		wglEnumGpusFromAffinityDCNV = provider.getFunctionAddress("wglEnumGpusFromAffinityDCNV");
+		wglDeleteDCNV = provider.getFunctionAddress("wglDeleteDCNV");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLNVGPUAffinity} instance for the current context. */
+	public static WGLNVGPUAffinity getInstance() {
+		return GL.getCapabilities().__WGLNVGPUAffinity;
+	}
+
+	static WGLNVGPUAffinity create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_NV_gpu_affinity") ) return null;
+
+		WGLNVGPUAffinity funcs = new WGLNVGPUAffinity(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglEnumGpusNV) &&
+			GL.isFunctionSupported(funcs.wglEnumGpuDevicesNV) &&
+			GL.isFunctionSupported(funcs.wglCreateAffinityDCNV) &&
+			GL.isFunctionSupported(funcs.wglEnumGpusFromAffinityDCNV) &&
+			GL.isFunctionSupported(funcs.wglDeleteDCNV);
+
+		return GL.checkExtension("WGL_NV_gpu_affinity", funcs, supported);
+	}
 
 	// --- [ wglEnumGpusNV ] ---
 
 	/** JNI method for {@link #wglEnumGpusNV wglEnumGpusNV} */
+	@JavadocExclude
 	public static native int nwglEnumGpusNV(int gpuIndex, long gpu, long __functionAddress);
 
 	/**
@@ -69,6 +108,7 @@ public final class WGLNVGPUAffinity {
 	// --- [ wglEnumGpuDevicesNV ] ---
 
 	/** JNI method for {@link #wglEnumGpuDevicesNV wglEnumGpuDevicesNV} */
+	@JavadocExclude
 	public static native int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice, long __functionAddress);
 
 	/**
@@ -91,6 +131,7 @@ public final class WGLNVGPUAffinity {
 	// --- [ wglCreateAffinityDCNV ] ---
 
 	/** JNI method for {@link #wglCreateAffinityDCNV wglCreateAffinityDCNV} */
+	@JavadocExclude
 	public static native long nwglCreateAffinityDCNV(long gpuList, long __functionAddress);
 
 	/**
@@ -125,6 +166,7 @@ public final class WGLNVGPUAffinity {
 	// --- [ wglEnumGpusFromAffinityDCNV ] ---
 
 	/** JNI method for {@link #wglEnumGpusFromAffinityDCNV wglEnumGpusFromAffinityDCNV} */
+	@JavadocExclude
 	public static native int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu, long __functionAddress);
 
 	/**
@@ -160,6 +202,7 @@ public final class WGLNVGPUAffinity {
 	// --- [ wglDeleteDCNV ] ---
 
 	/** JNI method for {@link #wglDeleteDCNV wglDeleteDCNV} */
+	@JavadocExclude
 	public static native int nwglDeleteDCNV(long hdc, long __functionAddress);
 
 	/**
@@ -174,50 +217,6 @@ public final class WGLNVGPUAffinity {
 			checkPointer(hdc);
 		}
 		return nwglDeleteDCNV(hdc, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLNVGPUAffinity;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_gpu_affinity") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglEnumGpusNV) &&
-			GL.isFunctionSupported(funcs.wglEnumGpuDevicesNV) &&
-			GL.isFunctionSupported(funcs.wglCreateAffinityDCNV) &&
-			GL.isFunctionSupported(funcs.wglEnumGpusFromAffinityDCNV) &&
-			GL.isFunctionSupported(funcs.wglDeleteDCNV);
-
-		return GL.checkExtension("WGL_NV_gpu_affinity", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLNVGPUAffinity}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglEnumGpusNV,
-			wglEnumGpuDevicesNV,
-			wglCreateAffinityDCNV,
-			wglEnumGpusFromAffinityDCNV,
-			wglDeleteDCNV;
-
-		public Functions(FunctionProvider provider) {
-			wglEnumGpusNV = provider.getFunctionAddress("wglEnumGpusNV");
-			wglEnumGpuDevicesNV = provider.getFunctionAddress("wglEnumGpuDevicesNV");
-			wglCreateAffinityDCNV = provider.getFunctionAddress("wglCreateAffinityDCNV");
-			wglEnumGpusFromAffinityDCNV = provider.getFunctionAddress("wglEnumGpusFromAffinityDCNV");
-			wglDeleteDCNV = provider.getFunctionAddress("wglDeleteDCNV");
-		}
-
 	}
 
 }

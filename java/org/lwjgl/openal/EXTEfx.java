@@ -643,11 +643,134 @@ public final class EXTEfx {
 		AL_BANDPASS_MAX_GAINLF     = 1.0f,
 		AL_BANDPASS_DEFAULT_GAINLF = 1.0f;
 
-	private EXTEfx() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alGenEffects,
+		alDeleteEffects,
+		alIsEffect,
+		alEffecti,
+		alEffectiv,
+		alEffectf,
+		alEffectfv,
+		alGetEffecti,
+		alGetEffectiv,
+		alGetEffectf,
+		alGetEffectfv,
+		alGenFilters,
+		alDeleteFilters,
+		alIsFilter,
+		alFilteri,
+		alFilteriv,
+		alFilterf,
+		alFilterfv,
+		alGetFilteri,
+		alGetFilteriv,
+		alGetFilterf,
+		alGetFilterfv,
+		alGenAuxiliaryEffectSlots,
+		alDeleteAuxiliaryEffectSlots,
+		alIsAuxiliaryEffectSlot,
+		alAuxiliaryEffectSloti,
+		alAuxiliaryEffectSlotiv,
+		alAuxiliaryEffectSlotf,
+		alAuxiliaryEffectSlotfv,
+		alGetAuxiliaryEffectSloti,
+		alGetAuxiliaryEffectSlotiv,
+		alGetAuxiliaryEffectSlotf,
+		alGetAuxiliaryEffectSlotfv;
+
+	@JavadocExclude
+	public EXTEfx(FunctionProvider provider) {
+		alGenEffects = provider.getFunctionAddress("alGenEffects");
+		alDeleteEffects = provider.getFunctionAddress("alDeleteEffects");
+		alIsEffect = provider.getFunctionAddress("alIsEffect");
+		alEffecti = provider.getFunctionAddress("alEffecti");
+		alEffectiv = provider.getFunctionAddress("alEffectiv");
+		alEffectf = provider.getFunctionAddress("alEffectf");
+		alEffectfv = provider.getFunctionAddress("alEffectfv");
+		alGetEffecti = provider.getFunctionAddress("alGetEffecti");
+		alGetEffectiv = provider.getFunctionAddress("alGetEffectiv");
+		alGetEffectf = provider.getFunctionAddress("alGetEffectf");
+		alGetEffectfv = provider.getFunctionAddress("alGetEffectfv");
+		alGenFilters = provider.getFunctionAddress("alGenFilters");
+		alDeleteFilters = provider.getFunctionAddress("alDeleteFilters");
+		alIsFilter = provider.getFunctionAddress("alIsFilter");
+		alFilteri = provider.getFunctionAddress("alFilteri");
+		alFilteriv = provider.getFunctionAddress("alFilteriv");
+		alFilterf = provider.getFunctionAddress("alFilterf");
+		alFilterfv = provider.getFunctionAddress("alFilterfv");
+		alGetFilteri = provider.getFunctionAddress("alGetFilteri");
+		alGetFilteriv = provider.getFunctionAddress("alGetFilteriv");
+		alGetFilterf = provider.getFunctionAddress("alGetFilterf");
+		alGetFilterfv = provider.getFunctionAddress("alGetFilterfv");
+		alGenAuxiliaryEffectSlots = provider.getFunctionAddress("alGenAuxiliaryEffectSlots");
+		alDeleteAuxiliaryEffectSlots = provider.getFunctionAddress("alDeleteAuxiliaryEffectSlots");
+		alIsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
+		alAuxiliaryEffectSloti = provider.getFunctionAddress("alAuxiliaryEffectSloti");
+		alAuxiliaryEffectSlotiv = provider.getFunctionAddress("alAuxiliaryEffectSlotiv");
+		alAuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
+		alAuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
+		alGetAuxiliaryEffectSloti = provider.getFunctionAddress("alGetAuxiliaryEffectSloti");
+		alGetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
+		alGetAuxiliaryEffectSlotf = provider.getFunctionAddress("alGetAuxiliaryEffectSlotf");
+		alGetAuxiliaryEffectSlotfv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotfv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link EXTEfx} instance for the current context. */
+	public static EXTEfx getInstance() {
+		return AL.getCapabilities().__EXTEfx;
+	}
+
+	static EXTEfx create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("ALC_EXT_EFX") ) return null;
+
+		EXTEfx funcs = new EXTEfx(provider);
+
+		boolean supported = 
+			funcs.alGenEffects != 0L &&
+			funcs.alDeleteEffects != 0L &&
+			funcs.alIsEffect != 0L &&
+			funcs.alEffecti != 0L &&
+			funcs.alEffectiv != 0L &&
+			funcs.alEffectf != 0L &&
+			funcs.alEffectfv != 0L &&
+			funcs.alGetEffecti != 0L &&
+			funcs.alGetEffectiv != 0L &&
+			funcs.alGetEffectf != 0L &&
+			funcs.alGetEffectfv != 0L &&
+			funcs.alGenFilters != 0L &&
+			funcs.alDeleteFilters != 0L &&
+			funcs.alIsFilter != 0L &&
+			funcs.alFilteri != 0L &&
+			funcs.alFilteriv != 0L &&
+			funcs.alFilterf != 0L &&
+			funcs.alFilterfv != 0L &&
+			funcs.alGetFilteri != 0L &&
+			funcs.alGetFilteriv != 0L &&
+			funcs.alGetFilterf != 0L &&
+			funcs.alGetFilterfv != 0L &&
+			funcs.alGenAuxiliaryEffectSlots != 0L &&
+			funcs.alDeleteAuxiliaryEffectSlots != 0L &&
+			funcs.alIsAuxiliaryEffectSlot != 0L &&
+			funcs.alAuxiliaryEffectSloti != 0L &&
+			funcs.alAuxiliaryEffectSlotiv != 0L &&
+			funcs.alAuxiliaryEffectSlotf != 0L &&
+			funcs.alAuxiliaryEffectSlotfv != 0L &&
+			funcs.alGetAuxiliaryEffectSloti != 0L &&
+			funcs.alGetAuxiliaryEffectSlotiv != 0L &&
+			funcs.alGetAuxiliaryEffectSlotf != 0L &&
+			funcs.alGetAuxiliaryEffectSlotfv != 0L;
+
+		return AL.checkExtension("ALC_EXT_EFX", funcs, supported);
+	}
 
 	// --- [ alGenEffects ] ---
 
 	/** JNI method for {@link #alGenEffects alGenEffects} */
+	@JavadocExclude
 	public static native void nalGenEffects(int n, long effects, long __functionAddress);
 
 	/**
@@ -687,6 +810,7 @@ public final class EXTEfx {
 	// --- [ alDeleteEffects ] ---
 
 	/** JNI method for {@link #alDeleteEffects alDeleteEffects} */
+	@JavadocExclude
 	public static native void nalDeleteEffects(int n, long effects, long __functionAddress);
 
 	/**
@@ -725,6 +849,7 @@ public final class EXTEfx {
 	// --- [ alIsEffect ] ---
 
 	/** JNI method for {@link #alIsEffect alIsEffect} */
+	@JavadocExclude
 	public static native boolean nalIsEffect(int effect, long __functionAddress);
 
 	/**
@@ -742,6 +867,7 @@ public final class EXTEfx {
 	// --- [ alEffecti ] ---
 
 	/** JNI method for {@link #alEffecti alEffecti} */
+	@JavadocExclude
 	public static native void nalEffecti(int effect, int param, int value, long __functionAddress);
 
 	/**
@@ -761,6 +887,7 @@ public final class EXTEfx {
 	// --- [ alEffectiv ] ---
 
 	/** JNI method for {@link #alEffecti(int, int, ByteBuffer) alEffecti} */
+	@JavadocExclude
 	public static native void nalEffectiv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -788,6 +915,7 @@ public final class EXTEfx {
 	// --- [ alEffectf ] ---
 
 	/** JNI method for {@link #alEffectf alEffectf} */
+	@JavadocExclude
 	public static native void nalEffectf(int effect, int param, float value, long __functionAddress);
 
 	/**
@@ -807,6 +935,7 @@ public final class EXTEfx {
 	// --- [ alEffectfv ] ---
 
 	/** JNI method for {@link #alEffectf(int, int, ByteBuffer) alEffectf} */
+	@JavadocExclude
 	public static native void nalEffectfv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -834,6 +963,7 @@ public final class EXTEfx {
 	// --- [ alGetEffecti ] ---
 
 	/** JNI method for {@link #alGetEffecti alGetEffecti} */
+	@JavadocExclude
 	public static native void nalGetEffecti(int effect, int param, long value, long __functionAddress);
 
 	/**
@@ -876,6 +1006,7 @@ public final class EXTEfx {
 	// --- [ alGetEffectiv ] ---
 
 	/** JNI method for {@link #alGetEffectiv alGetEffectiv} */
+	@JavadocExclude
 	public static native void nalGetEffectiv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -907,6 +1038,7 @@ public final class EXTEfx {
 	// --- [ alGetEffectf ] ---
 
 	/** JNI method for {@link #alGetEffectf alGetEffectf} */
+	@JavadocExclude
 	public static native void nalGetEffectf(int effect, int param, long value, long __functionAddress);
 
 	/**
@@ -949,6 +1081,7 @@ public final class EXTEfx {
 	// --- [ alGetEffectfv ] ---
 
 	/** JNI method for {@link #alGetEffectfv alGetEffectfv} */
+	@JavadocExclude
 	public static native void nalGetEffectfv(int effect, int param, long values, long __functionAddress);
 
 	/**
@@ -980,6 +1113,7 @@ public final class EXTEfx {
 	// --- [ alGenFilters ] ---
 
 	/** JNI method for {@link #alGenFilters alGenFilters} */
+	@JavadocExclude
 	public static native void nalGenFilters(int n, long filters, long __functionAddress);
 
 	/**
@@ -1019,6 +1153,7 @@ public final class EXTEfx {
 	// --- [ alDeleteFilters ] ---
 
 	/** JNI method for {@link #alDeleteFilters alDeleteFilters} */
+	@JavadocExclude
 	public static native void nalDeleteFilters(int n, long filters, long __functionAddress);
 
 	/**
@@ -1057,6 +1192,7 @@ public final class EXTEfx {
 	// --- [ alIsFilter ] ---
 
 	/** JNI method for {@link #alIsFilter alIsFilter} */
+	@JavadocExclude
 	public static native boolean nalIsFilter(int filter, long __functionAddress);
 
 	/**
@@ -1074,6 +1210,7 @@ public final class EXTEfx {
 	// --- [ alFilteri ] ---
 
 	/** JNI method for {@link #alFilteri alFilteri} */
+	@JavadocExclude
 	public static native void nalFilteri(int filter, int param, int value, long __functionAddress);
 
 	/**
@@ -1093,6 +1230,7 @@ public final class EXTEfx {
 	// --- [ alFilteriv ] ---
 
 	/** JNI method for {@link #alFilteri(int, int, ByteBuffer) alFilteri} */
+	@JavadocExclude
 	public static native void nalFilteriv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1120,6 +1258,7 @@ public final class EXTEfx {
 	// --- [ alFilterf ] ---
 
 	/** JNI method for {@link #alFilterf alFilterf} */
+	@JavadocExclude
 	public static native void nalFilterf(int filter, int param, float value, long __functionAddress);
 
 	/**
@@ -1139,6 +1278,7 @@ public final class EXTEfx {
 	// --- [ alFilterfv ] ---
 
 	/** JNI method for {@link #alFilterf(int, int, ByteBuffer) alFilterf} */
+	@JavadocExclude
 	public static native void nalFilterfv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1166,6 +1306,7 @@ public final class EXTEfx {
 	// --- [ alGetFilteri ] ---
 
 	/** JNI method for {@link #alGetFilteri alGetFilteri} */
+	@JavadocExclude
 	public static native void nalGetFilteri(int filter, int param, long value, long __functionAddress);
 
 	/**
@@ -1208,6 +1349,7 @@ public final class EXTEfx {
 	// --- [ alGetFilteriv ] ---
 
 	/** JNI method for {@link #alGetFilteriv alGetFilteriv} */
+	@JavadocExclude
 	public static native void nalGetFilteriv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1239,6 +1381,7 @@ public final class EXTEfx {
 	// --- [ alGetFilterf ] ---
 
 	/** JNI method for {@link #alGetFilterf alGetFilterf} */
+	@JavadocExclude
 	public static native void nalGetFilterf(int filter, int param, long value, long __functionAddress);
 
 	/**
@@ -1281,6 +1424,7 @@ public final class EXTEfx {
 	// --- [ alGetFilterfv ] ---
 
 	/** JNI method for {@link #alGetFilterfv alGetFilterfv} */
+	@JavadocExclude
 	public static native void nalGetFilterfv(int filter, int param, long values, long __functionAddress);
 
 	/**
@@ -1312,6 +1456,7 @@ public final class EXTEfx {
 	// --- [ alGenAuxiliaryEffectSlots ] ---
 
 	/** JNI method for {@link #alGenAuxiliaryEffectSlots alGenAuxiliaryEffectSlots} */
+	@JavadocExclude
 	public static native void nalGenAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
 
 	/**
@@ -1351,6 +1496,7 @@ public final class EXTEfx {
 	// --- [ alDeleteAuxiliaryEffectSlots ] ---
 
 	/** JNI method for {@link #alDeleteAuxiliaryEffectSlots alDeleteAuxiliaryEffectSlots} */
+	@JavadocExclude
 	public static native void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
 
 	/**
@@ -1389,6 +1535,7 @@ public final class EXTEfx {
 	// --- [ alIsAuxiliaryEffectSlot ] ---
 
 	/** JNI method for {@link #alIsAuxiliaryEffectSlot alIsAuxiliaryEffectSlot} */
+	@JavadocExclude
 	public static native boolean nalIsAuxiliaryEffectSlot(int effectSlot, long __functionAddress);
 
 	/**
@@ -1406,6 +1553,7 @@ public final class EXTEfx {
 	// --- [ alAuxiliaryEffectSloti ] ---
 
 	/** JNI method for {@link #alAuxiliaryEffectSloti alAuxiliaryEffectSloti} */
+	@JavadocExclude
 	public static native void nalAuxiliaryEffectSloti(int effectSlot, int param, int value, long __functionAddress);
 
 	/**
@@ -1425,6 +1573,7 @@ public final class EXTEfx {
 	// --- [ alAuxiliaryEffectSlotiv ] ---
 
 	/** JNI method for {@link #alAuxiliaryEffectSloti(int, int, ByteBuffer) alAuxiliaryEffectSloti} */
+	@JavadocExclude
 	public static native void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1452,6 +1601,7 @@ public final class EXTEfx {
 	// --- [ alAuxiliaryEffectSlotf ] ---
 
 	/** JNI method for {@link #alAuxiliaryEffectSlotf alAuxiliaryEffectSlotf} */
+	@JavadocExclude
 	public static native void nalAuxiliaryEffectSlotf(int effectSlot, int param, float value, long __functionAddress);
 
 	/**
@@ -1471,6 +1621,7 @@ public final class EXTEfx {
 	// --- [ alAuxiliaryEffectSlotfv ] ---
 
 	/** JNI method for {@link #alAuxiliaryEffectSlotf(int, int, ByteBuffer) alAuxiliaryEffectSlotf} */
+	@JavadocExclude
 	public static native void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1498,6 +1649,7 @@ public final class EXTEfx {
 	// --- [ alGetAuxiliaryEffectSloti ] ---
 
 	/** JNI method for {@link #alGetAuxiliaryEffectSloti alGetAuxiliaryEffectSloti} */
+	@JavadocExclude
 	public static native void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value, long __functionAddress);
 
 	/**
@@ -1540,6 +1692,7 @@ public final class EXTEfx {
 	// --- [ alGetAuxiliaryEffectSlotiv ] ---
 
 	/** JNI method for {@link #alGetAuxiliaryEffectSlotiv alGetAuxiliaryEffectSlotiv} */
+	@JavadocExclude
 	public static native void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1571,6 +1724,7 @@ public final class EXTEfx {
 	// --- [ alGetAuxiliaryEffectSlotf ] ---
 
 	/** JNI method for {@link #alGetAuxiliaryEffectSlotf alGetAuxiliaryEffectSlotf} */
+	@JavadocExclude
 	public static native void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value, long __functionAddress);
 
 	/**
@@ -1613,6 +1767,7 @@ public final class EXTEfx {
 	// --- [ alGetAuxiliaryEffectSlotfv ] ---
 
 	/** JNI method for {@link #alGetAuxiliaryEffectSlotfv alGetAuxiliaryEffectSlotfv} */
+	@JavadocExclude
 	public static native void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
 
 	/**
@@ -1639,134 +1794,6 @@ public final class EXTEfx {
 			checkBuffer(values, 1);
 		}
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return AL.getCapabilities().__EXTEfx;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("ALC_EXT_EFX") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alGenEffects != 0L &&
-			funcs.alDeleteEffects != 0L &&
-			funcs.alIsEffect != 0L &&
-			funcs.alEffecti != 0L &&
-			funcs.alEffectiv != 0L &&
-			funcs.alEffectf != 0L &&
-			funcs.alEffectfv != 0L &&
-			funcs.alGetEffecti != 0L &&
-			funcs.alGetEffectiv != 0L &&
-			funcs.alGetEffectf != 0L &&
-			funcs.alGetEffectfv != 0L &&
-			funcs.alGenFilters != 0L &&
-			funcs.alDeleteFilters != 0L &&
-			funcs.alIsFilter != 0L &&
-			funcs.alFilteri != 0L &&
-			funcs.alFilteriv != 0L &&
-			funcs.alFilterf != 0L &&
-			funcs.alFilterfv != 0L &&
-			funcs.alGetFilteri != 0L &&
-			funcs.alGetFilteriv != 0L &&
-			funcs.alGetFilterf != 0L &&
-			funcs.alGetFilterfv != 0L &&
-			funcs.alGenAuxiliaryEffectSlots != 0L &&
-			funcs.alDeleteAuxiliaryEffectSlots != 0L &&
-			funcs.alIsAuxiliaryEffectSlot != 0L &&
-			funcs.alAuxiliaryEffectSloti != 0L &&
-			funcs.alAuxiliaryEffectSlotiv != 0L &&
-			funcs.alAuxiliaryEffectSlotf != 0L &&
-			funcs.alAuxiliaryEffectSlotfv != 0L &&
-			funcs.alGetAuxiliaryEffectSloti != 0L &&
-			funcs.alGetAuxiliaryEffectSlotiv != 0L &&
-			funcs.alGetAuxiliaryEffectSlotf != 0L &&
-			funcs.alGetAuxiliaryEffectSlotfv != 0L;
-
-		return AL.checkExtension("ALC_EXT_EFX", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code EXTEfx}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alGenEffects,
-			alDeleteEffects,
-			alIsEffect,
-			alEffecti,
-			alEffectiv,
-			alEffectf,
-			alEffectfv,
-			alGetEffecti,
-			alGetEffectiv,
-			alGetEffectf,
-			alGetEffectfv,
-			alGenFilters,
-			alDeleteFilters,
-			alIsFilter,
-			alFilteri,
-			alFilteriv,
-			alFilterf,
-			alFilterfv,
-			alGetFilteri,
-			alGetFilteriv,
-			alGetFilterf,
-			alGetFilterfv,
-			alGenAuxiliaryEffectSlots,
-			alDeleteAuxiliaryEffectSlots,
-			alIsAuxiliaryEffectSlot,
-			alAuxiliaryEffectSloti,
-			alAuxiliaryEffectSlotiv,
-			alAuxiliaryEffectSlotf,
-			alAuxiliaryEffectSlotfv,
-			alGetAuxiliaryEffectSloti,
-			alGetAuxiliaryEffectSlotiv,
-			alGetAuxiliaryEffectSlotf,
-			alGetAuxiliaryEffectSlotfv;
-
-		public Functions(FunctionProvider provider) {
-			alGenEffects = provider.getFunctionAddress("alGenEffects");
-			alDeleteEffects = provider.getFunctionAddress("alDeleteEffects");
-			alIsEffect = provider.getFunctionAddress("alIsEffect");
-			alEffecti = provider.getFunctionAddress("alEffecti");
-			alEffectiv = provider.getFunctionAddress("alEffectiv");
-			alEffectf = provider.getFunctionAddress("alEffectf");
-			alEffectfv = provider.getFunctionAddress("alEffectfv");
-			alGetEffecti = provider.getFunctionAddress("alGetEffecti");
-			alGetEffectiv = provider.getFunctionAddress("alGetEffectiv");
-			alGetEffectf = provider.getFunctionAddress("alGetEffectf");
-			alGetEffectfv = provider.getFunctionAddress("alGetEffectfv");
-			alGenFilters = provider.getFunctionAddress("alGenFilters");
-			alDeleteFilters = provider.getFunctionAddress("alDeleteFilters");
-			alIsFilter = provider.getFunctionAddress("alIsFilter");
-			alFilteri = provider.getFunctionAddress("alFilteri");
-			alFilteriv = provider.getFunctionAddress("alFilteriv");
-			alFilterf = provider.getFunctionAddress("alFilterf");
-			alFilterfv = provider.getFunctionAddress("alFilterfv");
-			alGetFilteri = provider.getFunctionAddress("alGetFilteri");
-			alGetFilteriv = provider.getFunctionAddress("alGetFilteriv");
-			alGetFilterf = provider.getFunctionAddress("alGetFilterf");
-			alGetFilterfv = provider.getFunctionAddress("alGetFilterfv");
-			alGenAuxiliaryEffectSlots = provider.getFunctionAddress("alGenAuxiliaryEffectSlots");
-			alDeleteAuxiliaryEffectSlots = provider.getFunctionAddress("alDeleteAuxiliaryEffectSlots");
-			alIsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
-			alAuxiliaryEffectSloti = provider.getFunctionAddress("alAuxiliaryEffectSloti");
-			alAuxiliaryEffectSlotiv = provider.getFunctionAddress("alAuxiliaryEffectSlotiv");
-			alAuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
-			alAuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
-			alGetAuxiliaryEffectSloti = provider.getFunctionAddress("alGetAuxiliaryEffectSloti");
-			alGetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
-			alGetAuxiliaryEffectSlotf = provider.getFunctionAddress("alGetAuxiliaryEffectSlotf");
-			alGetAuxiliaryEffectSlotfv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotfv");
-		}
-
 	}
 
 }

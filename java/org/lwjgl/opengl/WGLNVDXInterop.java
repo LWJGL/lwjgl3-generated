@@ -28,11 +28,59 @@ public final class WGLNVDXInterop {
 		WGL_ACCESS_READ_WRITE_NV    = 0x1,
 		WGL_ACCESS_WRITE_DISCARD_NV = 0x2;
 
-	private WGLNVDXInterop() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglDXSetResourceShareHandleNV,
+		wglDXOpenDeviceNV,
+		wglDXCloseDeviceNV,
+		wglDXRegisterObjectNV,
+		wglDXUnregisterObjectNV,
+		wglDXObjectAccessNV,
+		wglDXLockObjectsNV,
+		wglDXUnlockObjectsNV;
+
+	@JavadocExclude
+	public WGLNVDXInterop(FunctionProvider provider) {
+		wglDXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
+		wglDXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
+		wglDXCloseDeviceNV = provider.getFunctionAddress("wglDXCloseDeviceNV");
+		wglDXRegisterObjectNV = provider.getFunctionAddress("wglDXRegisterObjectNV");
+		wglDXUnregisterObjectNV = provider.getFunctionAddress("wglDXUnregisterObjectNV");
+		wglDXObjectAccessNV = provider.getFunctionAddress("wglDXObjectAccessNV");
+		wglDXLockObjectsNV = provider.getFunctionAddress("wglDXLockObjectsNV");
+		wglDXUnlockObjectsNV = provider.getFunctionAddress("wglDXUnlockObjectsNV");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLNVDXInterop} instance for the current context. */
+	public static WGLNVDXInterop getInstance() {
+		return GL.getCapabilities().__WGLNVDXInterop;
+	}
+
+	static WGLNVDXInterop create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_NV_DX_interop") ) return null;
+
+		WGLNVDXInterop funcs = new WGLNVDXInterop(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglDXSetResourceShareHandleNV) &&
+			GL.isFunctionSupported(funcs.wglDXOpenDeviceNV) &&
+			GL.isFunctionSupported(funcs.wglDXCloseDeviceNV) &&
+			GL.isFunctionSupported(funcs.wglDXRegisterObjectNV) &&
+			GL.isFunctionSupported(funcs.wglDXUnregisterObjectNV) &&
+			GL.isFunctionSupported(funcs.wglDXObjectAccessNV) &&
+			GL.isFunctionSupported(funcs.wglDXLockObjectsNV) &&
+			GL.isFunctionSupported(funcs.wglDXUnlockObjectsNV);
+
+		return GL.checkExtension("WGL_NV_DX_interop", funcs, supported);
+	}
 
 	// --- [ wglDXSetResourceShareHandleNV ] ---
 
 	/** JNI method for {@link #wglDXSetResourceShareHandleNV wglDXSetResourceShareHandleNV} */
+	@JavadocExclude
 	public static native int nwglDXSetResourceShareHandleNV(long dxObject, long shareHandle, long __functionAddress);
 
 	/**
@@ -54,6 +102,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXOpenDeviceNV ] ---
 
 	/** JNI method for {@link #wglDXOpenDeviceNV wglDXOpenDeviceNV} */
+	@JavadocExclude
 	public static native long nwglDXOpenDeviceNV(long dxDevice, long __functionAddress);
 
 	/**
@@ -73,6 +122,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXCloseDeviceNV ] ---
 
 	/** JNI method for {@link #wglDXCloseDeviceNV wglDXCloseDeviceNV} */
+	@JavadocExclude
 	public static native int nwglDXCloseDeviceNV(long device, long __functionAddress);
 
 	/**
@@ -92,6 +142,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXRegisterObjectNV ] ---
 
 	/** JNI method for {@link #wglDXRegisterObjectNV wglDXRegisterObjectNV} */
+	@JavadocExclude
 	public static native long nwglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access, long __functionAddress);
 
 	/**
@@ -116,6 +167,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXUnregisterObjectNV ] ---
 
 	/** JNI method for {@link #wglDXUnregisterObjectNV wglDXUnregisterObjectNV} */
+	@JavadocExclude
 	public static native int nwglDXUnregisterObjectNV(long device, long object, long __functionAddress);
 
 	/**
@@ -137,6 +189,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXObjectAccessNV ] ---
 
 	/** JNI method for {@link #wglDXObjectAccessNV wglDXObjectAccessNV} */
+	@JavadocExclude
 	public static native int nwglDXObjectAccessNV(long object, int access, long __functionAddress);
 
 	/**
@@ -157,6 +210,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXLockObjectsNV ] ---
 
 	/** JNI method for {@link #wglDXLockObjectsNV wglDXLockObjectsNV} */
+	@JavadocExclude
 	public static native int nwglDXLockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -196,6 +250,7 @@ public final class WGLNVDXInterop {
 	// --- [ wglDXUnlockObjectsNV ] ---
 
 	/** JNI method for {@link #wglDXUnlockObjectsNV wglDXUnlockObjectsNV} */
+	@JavadocExclude
 	public static native int nwglDXUnlockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/**
@@ -223,59 +278,6 @@ public final class WGLNVDXInterop {
 			checkPointer(device);
 		}
 		return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLNVDXInterop;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_DX_interop") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglDXSetResourceShareHandleNV) &&
-			GL.isFunctionSupported(funcs.wglDXOpenDeviceNV) &&
-			GL.isFunctionSupported(funcs.wglDXCloseDeviceNV) &&
-			GL.isFunctionSupported(funcs.wglDXRegisterObjectNV) &&
-			GL.isFunctionSupported(funcs.wglDXUnregisterObjectNV) &&
-			GL.isFunctionSupported(funcs.wglDXObjectAccessNV) &&
-			GL.isFunctionSupported(funcs.wglDXLockObjectsNV) &&
-			GL.isFunctionSupported(funcs.wglDXUnlockObjectsNV);
-
-		return GL.checkExtension("WGL_NV_DX_interop", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLNVDXInterop}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglDXSetResourceShareHandleNV,
-			wglDXOpenDeviceNV,
-			wglDXCloseDeviceNV,
-			wglDXRegisterObjectNV,
-			wglDXUnregisterObjectNV,
-			wglDXObjectAccessNV,
-			wglDXLockObjectsNV,
-			wglDXUnlockObjectsNV;
-
-		public Functions(FunctionProvider provider) {
-			wglDXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
-			wglDXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
-			wglDXCloseDeviceNV = provider.getFunctionAddress("wglDXCloseDeviceNV");
-			wglDXRegisterObjectNV = provider.getFunctionAddress("wglDXRegisterObjectNV");
-			wglDXUnregisterObjectNV = provider.getFunctionAddress("wglDXUnregisterObjectNV");
-			wglDXObjectAccessNV = provider.getFunctionAddress("wglDXObjectAccessNV");
-			wglDXLockObjectsNV = provider.getFunctionAddress("wglDXLockObjectsNV");
-			wglDXUnlockObjectsNV = provider.getFunctionAddress("wglDXUnlockObjectsNV");
-		}
-
 	}
 
 }

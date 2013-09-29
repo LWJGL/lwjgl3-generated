@@ -64,11 +64,53 @@ public final class GLXSGIXFBConfig {
 		GLX_RGBA_TYPE_SGIX        = 0x8014,
 		GLX_COLOR_INDEX_TYPE_SGIX = 0x8015;
 
-	private GLXSGIXFBConfig() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXGetFBConfigAttribSGIX,
+		glXChooseFBConfigSGIX,
+		glXCreateGLXPixmapWithConfigSGIX,
+		glXCreateContextWithConfigSGIX,
+		glXGetVisualFromFBConfigSGIX,
+		glXGetFBConfigFromVisualSGIX;
+
+	@JavadocExclude
+	public GLXSGIXFBConfig(FunctionProvider provider) {
+		glXGetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
+		glXChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
+		glXCreateGLXPixmapWithConfigSGIX = provider.getFunctionAddress("glXCreateGLXPixmapWithConfigSGIX");
+		glXCreateContextWithConfigSGIX = provider.getFunctionAddress("glXCreateContextWithConfigSGIX");
+		glXGetVisualFromFBConfigSGIX = provider.getFunctionAddress("glXGetVisualFromFBConfigSGIX");
+		glXGetFBConfigFromVisualSGIX = provider.getFunctionAddress("glXGetFBConfigFromVisualSGIX");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIXFBConfig} instance for the current context. */
+	public static GLXSGIXFBConfig getInstance() {
+		return GL.getCapabilities().__GLXSGIXFBConfig;
+	}
+
+	static GLXSGIXFBConfig create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGIX_fbconfig") ) return null;
+
+		GLXSGIXFBConfig funcs = new GLXSGIXFBConfig(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXGetFBConfigAttribSGIX) &&
+			GL.isFunctionSupported(funcs.glXChooseFBConfigSGIX) &&
+			GL.isFunctionSupported(funcs.glXCreateGLXPixmapWithConfigSGIX) &&
+			GL.isFunctionSupported(funcs.glXCreateContextWithConfigSGIX) &&
+			GL.isFunctionSupported(funcs.glXGetVisualFromFBConfigSGIX) &&
+			GL.isFunctionSupported(funcs.glXGetFBConfigFromVisualSGIX);
+
+		return GL.checkExtension("GLX_SGIX_fbconfig", funcs, supported);
+	}
 
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
 	/** JNI method for {@link #glXGetFBConfigAttribSGIX glXGetFBConfigAttribSGIX} */
+	@JavadocExclude
 	public static native int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value, long __functionAddress);
 
 	/**
@@ -105,6 +147,7 @@ public final class GLXSGIXFBConfig {
 	// --- [ glXChooseFBConfigSGIX ] ---
 
 	/** JNI method for {@link #glXChooseFBConfigSGIX glXChooseFBConfigSGIX} */
+	@JavadocExclude
 	public static native long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements, long __functionAddress);
 
 	/**
@@ -142,6 +185,7 @@ public final class GLXSGIXFBConfig {
 	// --- [ glXCreateGLXPixmapWithConfigSGIX ] ---
 
 	/** JNI method for {@link #glXCreateGLXPixmapWithConfigSGIX glXCreateGLXPixmapWithConfigSGIX} */
+	@JavadocExclude
 	public static native long nglXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap, long __functionAddress);
 
 	/**
@@ -164,6 +208,7 @@ public final class GLXSGIXFBConfig {
 	// --- [ glXCreateContextWithConfigSGIX ] ---
 
 	/** JNI method for {@link #glXCreateContextWithConfigSGIX glXCreateContextWithConfigSGIX} */
+	@JavadocExclude
 	public static native long nglXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct, long __functionAddress);
 
 	/**
@@ -189,6 +234,7 @@ public final class GLXSGIXFBConfig {
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
 
 	/** JNI method for {@link #glXGetVisualFromFBConfigSGIX glXGetVisualFromFBConfigSGIX} */
+	@JavadocExclude
 	public static native long nglXGetVisualFromFBConfigSGIX(long display, long config, long __functionAddress);
 
 	/**
@@ -211,6 +257,7 @@ public final class GLXSGIXFBConfig {
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
 
 	/** JNI method for {@link #glXGetFBConfigFromVisualSGIX glXGetFBConfigFromVisualSGIX} */
+	@JavadocExclude
 	public static native long nglXGetFBConfigFromVisualSGIX(long display, long vis, long __functionAddress);
 
 	/**
@@ -227,53 +274,6 @@ public final class GLXSGIXFBConfig {
 			checkBuffer(vis, XVisualInfo.SIZEOF);
 		}
 		return nglXGetFBConfigFromVisualSGIX(display, memAddress(vis), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIXFBConfig;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_fbconfig") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXGetFBConfigAttribSGIX) &&
-			GL.isFunctionSupported(funcs.glXChooseFBConfigSGIX) &&
-			GL.isFunctionSupported(funcs.glXCreateGLXPixmapWithConfigSGIX) &&
-			GL.isFunctionSupported(funcs.glXCreateContextWithConfigSGIX) &&
-			GL.isFunctionSupported(funcs.glXGetVisualFromFBConfigSGIX) &&
-			GL.isFunctionSupported(funcs.glXGetFBConfigFromVisualSGIX);
-
-		return GL.checkExtension("GLX_SGIX_fbconfig", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIXFBConfig}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXGetFBConfigAttribSGIX,
-			glXChooseFBConfigSGIX,
-			glXCreateGLXPixmapWithConfigSGIX,
-			glXCreateContextWithConfigSGIX,
-			glXGetVisualFromFBConfigSGIX,
-			glXGetFBConfigFromVisualSGIX;
-
-		public Functions(FunctionProvider provider) {
-			glXGetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
-			glXChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
-			glXCreateGLXPixmapWithConfigSGIX = provider.getFunctionAddress("glXCreateGLXPixmapWithConfigSGIX");
-			glXCreateContextWithConfigSGIX = provider.getFunctionAddress("glXCreateContextWithConfigSGIX");
-			glXGetVisualFromFBConfigSGIX = provider.getFunctionAddress("glXGetVisualFromFBConfigSGIX");
-			glXGetFBConfigFromVisualSGIX = provider.getFunctionAddress("glXGetFBConfigFromVisualSGIX");
-		}
-
 	}
 
 }

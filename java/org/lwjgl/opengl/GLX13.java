@@ -79,11 +79,83 @@ public final class GLX13 {
 		GLX_PBUFFER_HEIGHT          = 0x8040,
 		GLX_PBUFFER_WIDTH           = 0x8041;
 
-	private GLX13() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXGetFBConfigs,
+		glXChooseFBConfig,
+		glXGetFBConfigAttrib,
+		glXGetVisualFromFBConfig,
+		glXCreateWindow,
+		glXCreatePixmap,
+		glXDestroyPixmap,
+		glXCreatePbuffer,
+		glXDestroyPbuffer,
+		glXQueryDrawable,
+		glXCreateNewContext,
+		glXMakeContextCurrent,
+		glXGetCurrentReadDrawable,
+		glXQueryContext,
+		glXSelectEvent,
+		glXGetSelectedEvent;
+
+	@JavadocExclude
+	public GLX13(FunctionProvider provider) {
+		glXGetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
+		glXChooseFBConfig = provider.getFunctionAddress("glXChooseFBConfig");
+		glXGetFBConfigAttrib = provider.getFunctionAddress("glXGetFBConfigAttrib");
+		glXGetVisualFromFBConfig = provider.getFunctionAddress("glXGetVisualFromFBConfig");
+		glXCreateWindow = provider.getFunctionAddress("glXCreateWindow");
+		glXCreatePixmap = provider.getFunctionAddress("glXCreatePixmap");
+		glXDestroyPixmap = provider.getFunctionAddress("glXDestroyPixmap");
+		glXCreatePbuffer = provider.getFunctionAddress("glXCreatePbuffer");
+		glXDestroyPbuffer = provider.getFunctionAddress("glXDestroyPbuffer");
+		glXQueryDrawable = provider.getFunctionAddress("glXQueryDrawable");
+		glXCreateNewContext = provider.getFunctionAddress("glXCreateNewContext");
+		glXMakeContextCurrent = provider.getFunctionAddress("glXMakeContextCurrent");
+		glXGetCurrentReadDrawable = provider.getFunctionAddress("glXGetCurrentReadDrawable");
+		glXQueryContext = provider.getFunctionAddress("glXQueryContext");
+		glXSelectEvent = provider.getFunctionAddress("glXSelectEvent");
+		glXGetSelectedEvent = provider.getFunctionAddress("glXGetSelectedEvent");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLX13} instance for the current context. */
+	public static GLX13 getInstance() {
+		return GL.getCapabilities().__GLX13;
+	}
+
+	static GLX13 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_13") ) return null;
+
+		GLX13 funcs = new GLX13(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXGetFBConfigs) &&
+			GL.isFunctionSupported(funcs.glXChooseFBConfig) &&
+			GL.isFunctionSupported(funcs.glXGetFBConfigAttrib) &&
+			GL.isFunctionSupported(funcs.glXGetVisualFromFBConfig) &&
+			GL.isFunctionSupported(funcs.glXCreateWindow) &&
+			GL.isFunctionSupported(funcs.glXCreatePixmap) &&
+			GL.isFunctionSupported(funcs.glXDestroyPixmap) &&
+			GL.isFunctionSupported(funcs.glXCreatePbuffer) &&
+			GL.isFunctionSupported(funcs.glXDestroyPbuffer) &&
+			GL.isFunctionSupported(funcs.glXQueryDrawable) &&
+			GL.isFunctionSupported(funcs.glXCreateNewContext) &&
+			GL.isFunctionSupported(funcs.glXMakeContextCurrent) &&
+			GL.isFunctionSupported(funcs.glXGetCurrentReadDrawable) &&
+			GL.isFunctionSupported(funcs.glXQueryContext) &&
+			GL.isFunctionSupported(funcs.glXSelectEvent) &&
+			GL.isFunctionSupported(funcs.glXGetSelectedEvent);
+
+		return GL.checkExtension("GLX_13", funcs, supported);
+	}
 
 	// --- [ glXGetFBConfigs ] ---
 
 	/** JNI method for {@link #glXGetFBConfigs glXGetFBConfigs} */
+	@JavadocExclude
 	public static native long nglXGetFBConfigs(long display, int screen, long nelements, long __functionAddress);
 
 	/**
@@ -107,6 +179,7 @@ public final class GLX13 {
 	// --- [ glXChooseFBConfig ] ---
 
 	/** JNI method for {@link #glXChooseFBConfig glXChooseFBConfig} */
+	@JavadocExclude
 	public static native long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements, long __functionAddress);
 
 	/**
@@ -146,6 +219,7 @@ public final class GLX13 {
 	// --- [ glXGetFBConfigAttrib ] ---
 
 	/** JNI method for {@link #glXGetFBConfigAttrib glXGetFBConfigAttrib} */
+	@JavadocExclude
 	public static native int nglXGetFBConfigAttrib(long display, long config, int attribute, long value, long __functionAddress);
 
 	/**
@@ -182,6 +256,7 @@ public final class GLX13 {
 	// --- [ glXGetVisualFromFBConfig ] ---
 
 	/** JNI method for {@link #glXGetVisualFromFBConfig glXGetVisualFromFBConfig} */
+	@JavadocExclude
 	public static native long nglXGetVisualFromFBConfig(long display, long config, long __functionAddress);
 
 	/**
@@ -204,6 +279,7 @@ public final class GLX13 {
 	// --- [ glXCreateWindow ] ---
 
 	/** JNI method for {@link #glXCreateWindow glXCreateWindow} */
+	@JavadocExclude
 	public static native long nglXCreateWindow(long display, long config, long win, long attrib_list, long __functionAddress);
 
 	/**
@@ -240,6 +316,7 @@ public final class GLX13 {
 	// --- [ glXCreatePixmap ] ---
 
 	/** JNI method for {@link #glXCreatePixmap glXCreatePixmap} */
+	@JavadocExclude
 	public static native long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list, long __functionAddress);
 
 	/**
@@ -276,6 +353,7 @@ public final class GLX13 {
 	// --- [ glXDestroyPixmap ] ---
 
 	/** JNI method for {@link #glXDestroyPixmap glXDestroyPixmap} */
+	@JavadocExclude
 	public static native void nglXDestroyPixmap(long display, long pixmap, long __functionAddress);
 
 	/**
@@ -297,6 +375,7 @@ public final class GLX13 {
 	// --- [ glXCreatePbuffer ] ---
 
 	/** JNI method for {@link #glXCreatePbuffer glXCreatePbuffer} */
+	@JavadocExclude
 	public static native long nglXCreatePbuffer(long display, long config, long attrib_list, long __functionAddress);
 
 	/**
@@ -332,6 +411,7 @@ public final class GLX13 {
 	// --- [ glXDestroyPbuffer ] ---
 
 	/** JNI method for {@link #glXDestroyPbuffer glXDestroyPbuffer} */
+	@JavadocExclude
 	public static native void nglXDestroyPbuffer(long display, long pbuf, long __functionAddress);
 
 	/**
@@ -353,6 +433,7 @@ public final class GLX13 {
 	// --- [ glXQueryDrawable ] ---
 
 	/** JNI method for {@link #glXQueryDrawable glXQueryDrawable} */
+	@JavadocExclude
 	public static native void nglXQueryDrawable(long display, long draw, int attribute, long value, long __functionAddress);
 
 	/**
@@ -389,6 +470,7 @@ public final class GLX13 {
 	// --- [ glXCreateNewContext ] ---
 
 	/** JNI method for {@link #glXCreateNewContext glXCreateNewContext} */
+	@JavadocExclude
 	public static native long nglXCreateNewContext(long display, long config, int render_type, long share_list, int direct, long __functionAddress);
 
 	/**
@@ -413,6 +495,7 @@ public final class GLX13 {
 	// --- [ glXMakeContextCurrent ] ---
 
 	/** JNI method for {@link #glXMakeContextCurrent glXMakeContextCurrent} */
+	@JavadocExclude
 	public static native int nglXMakeContextCurrent(long display, long draw, long read, long ctx, long __functionAddress);
 
 	/**
@@ -435,6 +518,7 @@ public final class GLX13 {
 	// --- [ glXGetCurrentReadDrawable ] ---
 
 	/** JNI method for {@link #glXGetCurrentReadDrawable glXGetCurrentReadDrawable} */
+	@JavadocExclude
 	public static native long nglXGetCurrentReadDrawable(long __functionAddress);
 
 	/** Returns the current GLXDrawable used for reading in the current thread. */
@@ -448,6 +532,7 @@ public final class GLX13 {
 	// --- [ glXQueryContext ] ---
 
 	/** JNI method for {@link #glXQueryContext glXQueryContext} */
+	@JavadocExclude
 	public static native int nglXQueryContext(long display, long ctx, int attribute, long value, long __functionAddress);
 
 	/**
@@ -484,6 +569,7 @@ public final class GLX13 {
 	// --- [ glXSelectEvent ] ---
 
 	/** JNI method for {@link #glXSelectEvent glXSelectEvent} */
+	@JavadocExclude
 	public static native void nglXSelectEvent(long display, long draw, long event_mask, long __functionAddress);
 
 	/**
@@ -506,6 +592,7 @@ public final class GLX13 {
 	// --- [ glXGetSelectedEvent ] ---
 
 	/** JNI method for {@link #glXGetSelectedEvent glXGetSelectedEvent} */
+	@JavadocExclude
 	public static native void nglXGetSelectedEvent(long display, long draw, long event_mask, long __functionAddress);
 
 	/**
@@ -534,83 +621,6 @@ public final class GLX13 {
 			checkPointer(draw);
 		}
 		nglXGetSelectedEvent(display, draw, memAddress(event_mask), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLX13;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_13") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXGetFBConfigs) &&
-			GL.isFunctionSupported(funcs.glXChooseFBConfig) &&
-			GL.isFunctionSupported(funcs.glXGetFBConfigAttrib) &&
-			GL.isFunctionSupported(funcs.glXGetVisualFromFBConfig) &&
-			GL.isFunctionSupported(funcs.glXCreateWindow) &&
-			GL.isFunctionSupported(funcs.glXCreatePixmap) &&
-			GL.isFunctionSupported(funcs.glXDestroyPixmap) &&
-			GL.isFunctionSupported(funcs.glXCreatePbuffer) &&
-			GL.isFunctionSupported(funcs.glXDestroyPbuffer) &&
-			GL.isFunctionSupported(funcs.glXQueryDrawable) &&
-			GL.isFunctionSupported(funcs.glXCreateNewContext) &&
-			GL.isFunctionSupported(funcs.glXMakeContextCurrent) &&
-			GL.isFunctionSupported(funcs.glXGetCurrentReadDrawable) &&
-			GL.isFunctionSupported(funcs.glXQueryContext) &&
-			GL.isFunctionSupported(funcs.glXSelectEvent) &&
-			GL.isFunctionSupported(funcs.glXGetSelectedEvent);
-
-		return GL.checkExtension("GLX_13", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLX13}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXGetFBConfigs,
-			glXChooseFBConfig,
-			glXGetFBConfigAttrib,
-			glXGetVisualFromFBConfig,
-			glXCreateWindow,
-			glXCreatePixmap,
-			glXDestroyPixmap,
-			glXCreatePbuffer,
-			glXDestroyPbuffer,
-			glXQueryDrawable,
-			glXCreateNewContext,
-			glXMakeContextCurrent,
-			glXGetCurrentReadDrawable,
-			glXQueryContext,
-			glXSelectEvent,
-			glXGetSelectedEvent;
-
-		public Functions(FunctionProvider provider) {
-			glXGetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
-			glXChooseFBConfig = provider.getFunctionAddress("glXChooseFBConfig");
-			glXGetFBConfigAttrib = provider.getFunctionAddress("glXGetFBConfigAttrib");
-			glXGetVisualFromFBConfig = provider.getFunctionAddress("glXGetVisualFromFBConfig");
-			glXCreateWindow = provider.getFunctionAddress("glXCreateWindow");
-			glXCreatePixmap = provider.getFunctionAddress("glXCreatePixmap");
-			glXDestroyPixmap = provider.getFunctionAddress("glXDestroyPixmap");
-			glXCreatePbuffer = provider.getFunctionAddress("glXCreatePbuffer");
-			glXDestroyPbuffer = provider.getFunctionAddress("glXDestroyPbuffer");
-			glXQueryDrawable = provider.getFunctionAddress("glXQueryDrawable");
-			glXCreateNewContext = provider.getFunctionAddress("glXCreateNewContext");
-			glXMakeContextCurrent = provider.getFunctionAddress("glXMakeContextCurrent");
-			glXGetCurrentReadDrawable = provider.getFunctionAddress("glXGetCurrentReadDrawable");
-			glXQueryContext = provider.getFunctionAddress("glXQueryContext");
-			glXSelectEvent = provider.getFunctionAddress("glXSelectEvent");
-			glXGetSelectedEvent = provider.getFunctionAddress("glXGetSelectedEvent");
-		}
-
 	}
 
 }

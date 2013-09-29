@@ -19,11 +19,41 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class GLXSGIMakeCurrentRead {
 
-	private GLXSGIMakeCurrentRead() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXMakeCurrentReadSGI,
+		glXGetCurrentReadDrawableSGI;
+
+	@JavadocExclude
+	public GLXSGIMakeCurrentRead(FunctionProvider provider) {
+		glXMakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
+		glXGetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIMakeCurrentRead} instance for the current context. */
+	public static GLXSGIMakeCurrentRead getInstance() {
+		return GL.getCapabilities().__GLXSGIMakeCurrentRead;
+	}
+
+	static GLXSGIMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGI_make_current_read") ) return null;
+
+		GLXSGIMakeCurrentRead funcs = new GLXSGIMakeCurrentRead(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXMakeCurrentReadSGI) &&
+			GL.isFunctionSupported(funcs.glXGetCurrentReadDrawableSGI);
+
+		return GL.checkExtension("GLX_SGI_make_current_read", funcs, supported);
+	}
 
 	// --- [ glXMakeCurrentReadSGI ] ---
 
 	/** JNI method for {@link #glXMakeCurrentReadSGI glXMakeCurrentReadSGI} */
+	@JavadocExclude
 	public static native int nglXMakeCurrentReadSGI(long display, long draw, long read, long ctx, long __functionAddress);
 
 	/**
@@ -46,6 +76,7 @@ public final class GLXSGIMakeCurrentRead {
 	// --- [ glXGetCurrentReadDrawableSGI ] ---
 
 	/** JNI method for {@link #glXGetCurrentReadDrawableSGI glXGetCurrentReadDrawableSGI} */
+	@JavadocExclude
 	public static native long nglXGetCurrentReadDrawableSGI(long __functionAddress);
 
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
@@ -54,41 +85,6 @@ public final class GLXSGIMakeCurrentRead {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentReadDrawableSGI(__functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIMakeCurrentRead;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_make_current_read") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXMakeCurrentReadSGI) &&
-			GL.isFunctionSupported(funcs.glXGetCurrentReadDrawableSGI);
-
-		return GL.checkExtension("GLX_SGI_make_current_read", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIMakeCurrentRead}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXMakeCurrentReadSGI,
-			glXGetCurrentReadDrawableSGI;
-
-		public Functions(FunctionProvider provider) {
-			glXMakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
-			glXGetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
-		}
-
 	}
 
 }

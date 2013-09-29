@@ -88,6 +88,7 @@ public final class Xrandr {
 	// --- [ XRRQueryExtension ] ---
 
 	/** JNI method for {@link #XRRQueryExtension XRRQueryExtension} */
+	@JavadocExclude
 	public static native int nXRRQueryExtension(long display, long event_base_return, long error_base_return);
 
 	/**
@@ -119,6 +120,7 @@ public final class Xrandr {
 	// --- [ XRRQueryVersion ] ---
 
 	/** JNI method for {@link #XRRQueryVersion XRRQueryVersion} */
+	@JavadocExclude
 	public static native int nXRRQueryVersion(long display, long major_version_return, long minor_version_return);
 
 	/**
@@ -150,6 +152,7 @@ public final class Xrandr {
 	// --- [ XRRGetScreenResources ] ---
 
 	/** JNI method for {@link #XRRGetScreenResources XRRGetScreenResources} */
+	@JavadocExclude
 	public static native long nXRRGetScreenResources(long display, long w);
 
 	/**
@@ -168,6 +171,7 @@ public final class Xrandr {
 	// --- [ XRRFreeScreenResources ] ---
 
 	/** JNI method for {@link #XRRFreeScreenResources XRRFreeScreenResources} */
+	@JavadocExclude
 	public static native void nXRRFreeScreenResources(long resources);
 
 	/**
@@ -184,6 +188,7 @@ public final class Xrandr {
 	// --- [ XRRGetOutputPrimary ] ---
 
 	/** JNI method for {@link #XRRGetOutputPrimary XRRGetOutputPrimary} */
+	@JavadocExclude
 	public static native long nXRRGetOutputPrimary(long display, long w);
 
 	/**
@@ -201,6 +206,7 @@ public final class Xrandr {
 	// --- [ XRRGetCrtcInfo ] ---
 
 	/** JNI method for {@link #XRRGetCrtcInfo XRRGetCrtcInfo} */
+	@JavadocExclude
 	public static native long nXRRGetCrtcInfo(long display, long resources, long crtc);
 
 	/**
@@ -222,6 +228,7 @@ public final class Xrandr {
 	// --- [ XRRFreeCrtcInfo ] ---
 
 	/** JNI method for {@link #XRRFreeCrtcInfo XRRFreeCrtcInfo} */
+	@JavadocExclude
 	public static native void nXRRFreeCrtcInfo(long crtcInfo);
 
 	/**
@@ -238,6 +245,7 @@ public final class Xrandr {
 	// --- [ XRRGetOutputInfo ] ---
 
 	/** JNI method for {@link #XRRGetOutputInfo XRRGetOutputInfo} */
+	@JavadocExclude
 	public static native long nXRRGetOutputInfo(long display, long resources, long output);
 
 	/**
@@ -259,6 +267,7 @@ public final class Xrandr {
 	// --- [ XRRFreeOutputInfo ] ---
 
 	/** JNI method for {@link #XRRFreeOutputInfo XRRFreeOutputInfo} */
+	@JavadocExclude
 	public static native void nXRRFreeOutputInfo(long outputInfo);
 
 	/**
@@ -275,6 +284,7 @@ public final class Xrandr {
 	// --- [ XRRSelectInput ] ---
 
 	/** JNI method for {@link #XRRSelectInput XRRSelectInput} */
+	@JavadocExclude
 	public static native void nXRRSelectInput(long display, long w, int mask);
 
 	/**
@@ -293,6 +303,7 @@ public final class Xrandr {
 	// --- [ XRRSetCrtcConfig ] ---
 
 	/** JNI method for {@link #XRRSetCrtcConfig XRRSetCrtcConfig} */
+	@JavadocExclude
 	public static native int nXRRSetCrtcConfig(long display, long resources, long crtc, long timestamp, int x, int y, long mode, short rotation, long outputs, int noutputs);
 
 	/**
@@ -330,6 +341,7 @@ public final class Xrandr {
 	// --- [ XRRUpdateConfiguration ] ---
 
 	/** JNI method for {@link #XRRUpdateConfiguration XRRUpdateConfiguration} */
+	@JavadocExclude
 	public static native int nXRRUpdateConfiguration(long event);
 
 	/**
@@ -346,6 +358,7 @@ public final class Xrandr {
 	// --- [ XRRGetCrtcGammaSize ] ---
 
 	/** JNI method for {@link #XRRGetCrtcGammaSize XRRGetCrtcGammaSize} */
+	@JavadocExclude
 	public static native int nXRRGetCrtcGammaSize(long display, long crtc);
 
 	/**
@@ -363,6 +376,7 @@ public final class Xrandr {
 	// --- [ XRRGetCrtcGamma ] ---
 
 	/** JNI method for {@link #XRRGetCrtcGamma XRRGetCrtcGamma} */
+	@JavadocExclude
 	public static native long nXRRGetCrtcGamma(long display, long crtc);
 
 	/**
@@ -381,6 +395,7 @@ public final class Xrandr {
 	// --- [ XRRAllocGamma ] ---
 
 	/** JNI method for {@link #XRRAllocGamma XRRAllocGamma} */
+	@JavadocExclude
 	public static native long nXRRAllocGamma(int size);
 
 	/**
@@ -396,6 +411,7 @@ public final class Xrandr {
 	// --- [ XRRFreeGamma ] ---
 
 	/** JNI method for {@link #XRRFreeGamma XRRFreeGamma} */
+	@JavadocExclude
 	public static native void nXRRFreeGamma(long gamma);
 
 	/**
@@ -412,6 +428,7 @@ public final class Xrandr {
 	// --- [ XRRSetCrtcGamma ] ---
 
 	/** JNI method for {@link #XRRSetCrtcGamma XRRSetCrtcGamma} */
+	@JavadocExclude
 	public static native void nXRRSetCrtcGamma(long display, long crtc, long gamma);
 
 	/**

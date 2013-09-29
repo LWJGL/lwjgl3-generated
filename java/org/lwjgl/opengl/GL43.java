@@ -456,11 +456,163 @@ public final class GL43 {
 		GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET = 0x82D9,
 		GL_MAX_VERTEX_ATTRIB_BINDINGS        = 0x82DA;
 
-	private GL43() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glClearBufferData,
+		glClearBufferSubData,
+		glDispatchCompute,
+		glDispatchComputeIndirect,
+		glCopyImageSubData,
+		glDebugMessageControl,
+		glDebugMessageInsert,
+		glDebugMessageCallback,
+		glGetDebugMessageLog,
+		glPushDebugGroup,
+		glObjectLabel,
+		glGetObjectLabel,
+		glObjectPtrLabel,
+		glGetObjectPtrLabel,
+		glFramebufferParameteri,
+		glGetFramebufferParameteriv,
+		glGetInternalformati64v,
+		glInvalidateTexSubImage,
+		glInvalidateTexImage,
+		glInvalidateBufferSubData,
+		glInvalidateBufferData,
+		glInvalidateFramebuffer,
+		glInvalidateSubFramebuffer,
+		glMultiDrawArraysIndirect,
+		glMultiDrawElementsIndirect,
+		glGetProgramInterfaceiv,
+		glGetProgramResourceIndex,
+		glGetProgramResourceName,
+		glGetProgramResourceiv,
+		glGetProgramResourceLocation,
+		glGetProgramResourceLocationIndex,
+		glShaderStorageBlockBinding,
+		glTexBufferRange,
+		glTexStorage2DMultisample,
+		glTexStorage3DMultisample,
+		glTextureView,
+		glBindVertexBuffer,
+		glVertexAttribFormat,
+		glVertexAttribIFormat,
+		glVertexAttribLFormat,
+		glVertexAttribBinding,
+		glVertexBindingDivisor;
+
+	long refDEBUGPROC;
+
+	@JavadocExclude
+	public GL43(FunctionProvider provider) {
+		glClearBufferData = provider.getFunctionAddress("glClearBufferData");
+		glClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
+		glDispatchCompute = provider.getFunctionAddress("glDispatchCompute");
+		glDispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
+		glCopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
+		glDebugMessageControl = provider.getFunctionAddress("glDebugMessageControl");
+		glDebugMessageInsert = provider.getFunctionAddress("glDebugMessageInsert");
+		glDebugMessageCallback = provider.getFunctionAddress("glDebugMessageCallback");
+		glGetDebugMessageLog = provider.getFunctionAddress("glGetDebugMessageLog");
+		glPushDebugGroup = provider.getFunctionAddress("glPushDebugGroup");
+		glObjectLabel = provider.getFunctionAddress("glObjectLabel");
+		glGetObjectLabel = provider.getFunctionAddress("glGetObjectLabel");
+		glObjectPtrLabel = provider.getFunctionAddress("glObjectPtrLabel");
+		glGetObjectPtrLabel = provider.getFunctionAddress("glGetObjectPtrLabel");
+		glFramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
+		glGetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
+		glGetInternalformati64v = provider.getFunctionAddress("glGetInternalformati64v");
+		glInvalidateTexSubImage = provider.getFunctionAddress("glInvalidateTexSubImage");
+		glInvalidateTexImage = provider.getFunctionAddress("glInvalidateTexImage");
+		glInvalidateBufferSubData = provider.getFunctionAddress("glInvalidateBufferSubData");
+		glInvalidateBufferData = provider.getFunctionAddress("glInvalidateBufferData");
+		glInvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
+		glInvalidateSubFramebuffer = provider.getFunctionAddress("glInvalidateSubFramebuffer");
+		glMultiDrawArraysIndirect = provider.getFunctionAddress("glMultiDrawArraysIndirect");
+		glMultiDrawElementsIndirect = provider.getFunctionAddress("glMultiDrawElementsIndirect");
+		glGetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
+		glGetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
+		glGetProgramResourceName = provider.getFunctionAddress("glGetProgramResourceName");
+		glGetProgramResourceiv = provider.getFunctionAddress("glGetProgramResourceiv");
+		glGetProgramResourceLocation = provider.getFunctionAddress("glGetProgramResourceLocation");
+		glGetProgramResourceLocationIndex = provider.getFunctionAddress("glGetProgramResourceLocationIndex");
+		glShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
+		glTexBufferRange = provider.getFunctionAddress("glTexBufferRange");
+		glTexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
+		glTexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
+		glTextureView = provider.getFunctionAddress("glTextureView");
+		glBindVertexBuffer = provider.getFunctionAddress("glBindVertexBuffer");
+		glVertexAttribFormat = provider.getFunctionAddress("glVertexAttribFormat");
+		glVertexAttribIFormat = provider.getFunctionAddress("glVertexAttribIFormat");
+		glVertexAttribLFormat = provider.getFunctionAddress("glVertexAttribLFormat");
+		glVertexAttribBinding = provider.getFunctionAddress("glVertexAttribBinding");
+		glVertexBindingDivisor = provider.getFunctionAddress("glVertexBindingDivisor");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL43} instance for the current context. */
+	public static GL43 getInstance() {
+		return GL.getCapabilities().__GL43;
+	}
+
+	static GL43 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL43") ) return null;
+
+		GL43 funcs = new GL43(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glClearBufferData) &&
+			GL.isFunctionSupported(funcs.glClearBufferSubData) &&
+			GL.isFunctionSupported(funcs.glDispatchCompute) &&
+			GL.isFunctionSupported(funcs.glDispatchComputeIndirect) &&
+			GL.isFunctionSupported(funcs.glCopyImageSubData) &&
+			GL.isFunctionSupported(funcs.glDebugMessageControl) &&
+			GL.isFunctionSupported(funcs.glDebugMessageInsert) &&
+			GL.isFunctionSupported(funcs.glDebugMessageCallback) &&
+			GL.isFunctionSupported(funcs.glGetDebugMessageLog) &&
+			GL.isFunctionSupported(funcs.glPushDebugGroup) &&
+			GL.isFunctionSupported(funcs.glObjectLabel) &&
+			GL.isFunctionSupported(funcs.glGetObjectLabel) &&
+			GL.isFunctionSupported(funcs.glObjectPtrLabel) &&
+			GL.isFunctionSupported(funcs.glGetObjectPtrLabel) &&
+			GL.isFunctionSupported(funcs.glFramebufferParameteri) &&
+			GL.isFunctionSupported(funcs.glGetFramebufferParameteriv) &&
+			GL.isFunctionSupported(funcs.glGetInternalformati64v) &&
+			GL.isFunctionSupported(funcs.glInvalidateTexSubImage) &&
+			GL.isFunctionSupported(funcs.glInvalidateTexImage) &&
+			GL.isFunctionSupported(funcs.glInvalidateBufferSubData) &&
+			GL.isFunctionSupported(funcs.glInvalidateBufferData) &&
+			GL.isFunctionSupported(funcs.glInvalidateFramebuffer) &&
+			GL.isFunctionSupported(funcs.glInvalidateSubFramebuffer) &&
+			GL.isFunctionSupported(funcs.glMultiDrawArraysIndirect) &&
+			GL.isFunctionSupported(funcs.glMultiDrawElementsIndirect) &&
+			GL.isFunctionSupported(funcs.glGetProgramInterfaceiv) &&
+			GL.isFunctionSupported(funcs.glGetProgramResourceIndex) &&
+			GL.isFunctionSupported(funcs.glGetProgramResourceName) &&
+			GL.isFunctionSupported(funcs.glGetProgramResourceiv) &&
+			GL.isFunctionSupported(funcs.glGetProgramResourceLocation) &&
+			GL.isFunctionSupported(funcs.glGetProgramResourceLocationIndex) &&
+			GL.isFunctionSupported(funcs.glShaderStorageBlockBinding) &&
+			GL.isFunctionSupported(funcs.glTexBufferRange) &&
+			GL.isFunctionSupported(funcs.glTexStorage2DMultisample) &&
+			GL.isFunctionSupported(funcs.glTexStorage3DMultisample) &&
+			GL.isFunctionSupported(funcs.glTextureView) &&
+			GL.isFunctionSupported(funcs.glBindVertexBuffer) &&
+			GL.isFunctionSupported(funcs.glVertexAttribFormat) &&
+			GL.isFunctionSupported(funcs.glVertexAttribIFormat) &&
+			GL.isFunctionSupported(funcs.glVertexAttribLFormat) &&
+			GL.isFunctionSupported(funcs.glVertexAttribBinding) &&
+			GL.isFunctionSupported(funcs.glVertexBindingDivisor);
+
+		return GL.checkExtension("OpenGL43", funcs, supported);
+	}
 
 	// --- [ glClearBufferData ] ---
 
 	/** JNI method for {@link #glClearBufferData glClearBufferData} */
+	@JavadocExclude
 	public static native void nglClearBufferData(int target, int internalformat, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -508,6 +660,7 @@ public final class GL43 {
 	// --- [ glClearBufferSubData ] ---
 
 	/** JNI method for {@link #glClearBufferSubData glClearBufferSubData} */
+	@JavadocExclude
 	public static native void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -557,6 +710,7 @@ public final class GL43 {
 	// --- [ glDispatchCompute ] ---
 
 	/** JNI method for {@link #glDispatchCompute glDispatchCompute} */
+	@JavadocExclude
 	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z, long __functionAddress);
 
 	/**
@@ -578,6 +732,7 @@ public final class GL43 {
 	// --- [ glDispatchComputeIndirect ] ---
 
 	/** JNI method for {@link #glDispatchComputeIndirect glDispatchComputeIndirect} */
+	@JavadocExclude
 	public static native void nglDispatchComputeIndirect(long indirect, long __functionAddress);
 
 	/**
@@ -613,6 +768,7 @@ public final class GL43 {
 	// --- [ glCopyImageSubData ] ---
 
 	/** JNI method for {@link #glCopyImageSubData glCopyImageSubData} */
+	@JavadocExclude
 	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth, long __functionAddress);
 
 	/**
@@ -646,6 +802,7 @@ public final class GL43 {
 	// --- [ glDebugMessageControl ] ---
 
 	/** JNI method for {@link #glDebugMessageControl glDebugMessageControl} */
+	@JavadocExclude
 	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
 	/**
@@ -690,6 +847,7 @@ public final class GL43 {
 	// --- [ glDebugMessageInsert ] ---
 
 	/** JNI method for {@link #glDebugMessageInsert glDebugMessageInsert} */
+	@JavadocExclude
 	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message, long __functionAddress);
 
 	/**
@@ -733,6 +891,7 @@ public final class GL43 {
 	// --- [ glDebugMessageCallback ] ---
 
 	/** JNI method for {@link #glDebugMessageCallback glDebugMessageCallback} */
+	@JavadocExclude
 	public static native void nglDebugMessageCallback(long callback, long userParam, long __functionAddress);
 
 	/**
@@ -744,7 +903,7 @@ public final class GL43 {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallback(long callback, long userParam) {
-		Functions __instance = getInstance();
+		GL43 __instance = getInstance();
 		long __functionAddress = __instance.glDebugMessageCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -753,7 +912,7 @@ public final class GL43 {
 
 	/** Alternative version of: {@link #glDebugMessageCallback glDebugMessageCallback} */
 	public static void glDebugMessageCallback(DEBUGPROC callback) {
-		Functions __instance = getInstance();
+		GL43 __instance = getInstance();
 		long __functionAddress = __instance.glDebugMessageCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -763,6 +922,7 @@ public final class GL43 {
 	// --- [ glGetDebugMessageLog ] ---
 
 	/** JNI method for {@link #glGetDebugMessageLog glGetDebugMessageLog} */
+	@JavadocExclude
 	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog, long __functionAddress);
 
 	/**
@@ -824,6 +984,7 @@ public final class GL43 {
 	// --- [ glPushDebugGroup ] ---
 
 	/** JNI method for {@link #glPushDebugGroup glPushDebugGroup} */
+	@JavadocExclude
 	public static native void nglPushDebugGroup(int source, int id, int length, long message, long __functionAddress);
 
 	/**
@@ -865,6 +1026,7 @@ public final class GL43 {
 	// --- [ glObjectLabel ] ---
 
 	/** JNI method for {@link #glObjectLabel glObjectLabel} */
+	@JavadocExclude
 	public static native void nglObjectLabel(int identifier, int name, int length, long label, long __functionAddress);
 
 	/**
@@ -906,6 +1068,7 @@ public final class GL43 {
 	// --- [ glGetObjectLabel ] ---
 
 	/** JNI method for {@link #glGetObjectLabel glGetObjectLabel} */
+	@JavadocExclude
 	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label, long __functionAddress);
 
 	/**
@@ -967,6 +1130,7 @@ public final class GL43 {
 	// --- [ glObjectPtrLabel ] ---
 
 	/** JNI method for {@link #glObjectPtrLabel glObjectPtrLabel} */
+	@JavadocExclude
 	public static native void nglObjectPtrLabel(long ptr, int length, long label, long __functionAddress);
 
 	/**
@@ -1012,6 +1176,7 @@ public final class GL43 {
 	// --- [ glGetObjectPtrLabel ] ---
 
 	/** JNI method for {@link #glGetObjectPtrLabel glGetObjectPtrLabel} */
+	@JavadocExclude
 	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label, long __functionAddress);
 
 	/**
@@ -1078,6 +1243,7 @@ public final class GL43 {
 	// --- [ glFramebufferParameteri ] ---
 
 	/** JNI method for {@link #glFramebufferParameteri glFramebufferParameteri} */
+	@JavadocExclude
 	public static native void nglFramebufferParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -1099,6 +1265,7 @@ public final class GL43 {
 	// --- [ glGetFramebufferParameteriv ] ---
 
 	/** JNI method for {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	@JavadocExclude
 	public static native void nglGetFramebufferParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -1143,6 +1310,7 @@ public final class GL43 {
 	// --- [ glGetInternalformati64v ] ---
 
 	/** JNI method for {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	@JavadocExclude
 	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
 	/**
@@ -1187,6 +1355,7 @@ public final class GL43 {
 	// --- [ glInvalidateTexSubImage ] ---
 
 	/** JNI method for {@link #glInvalidateTexSubImage glInvalidateTexSubImage} */
+	@JavadocExclude
 	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -1213,6 +1382,7 @@ public final class GL43 {
 	// --- [ glInvalidateTexImage ] ---
 
 	/** JNI method for {@link #glInvalidateTexImage glInvalidateTexImage} */
+	@JavadocExclude
 	public static native void nglInvalidateTexImage(int texture, int level, long __functionAddress);
 
 	/**
@@ -1233,6 +1403,7 @@ public final class GL43 {
 	// --- [ glInvalidateBufferSubData ] ---
 
 	/** JNI method for {@link #glInvalidateBufferSubData glInvalidateBufferSubData} */
+	@JavadocExclude
 	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length, long __functionAddress);
 
 	/**
@@ -1254,6 +1425,7 @@ public final class GL43 {
 	// --- [ glInvalidateBufferData ] ---
 
 	/** JNI method for {@link #glInvalidateBufferData glInvalidateBufferData} */
+	@JavadocExclude
 	public static native void nglInvalidateBufferData(int buffer, long __functionAddress);
 
 	/**
@@ -1273,6 +1445,7 @@ public final class GL43 {
 	// --- [ glInvalidateFramebuffer ] ---
 
 	/** JNI method for {@link #glInvalidateFramebuffer glInvalidateFramebuffer} */
+	@JavadocExclude
 	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments, long __functionAddress);
 
 	/**
@@ -1314,6 +1487,7 @@ public final class GL43 {
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/** JNI method for {@link #glInvalidateSubFramebuffer glInvalidateSubFramebuffer} */
+	@JavadocExclude
 	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -1359,6 +1533,7 @@ public final class GL43 {
 	// --- [ glMultiDrawArraysIndirect ] ---
 
 	/** JNI method for {@link #glMultiDrawArraysIndirect glMultiDrawArraysIndirect} */
+	@JavadocExclude
 	public static native void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride, long __functionAddress);
 
 	/**
@@ -1403,6 +1578,7 @@ public final class GL43 {
 	// --- [ glMultiDrawElementsIndirect ] ---
 
 	/** JNI method for {@link #glMultiDrawElementsIndirect glMultiDrawElementsIndirect} */
+	@JavadocExclude
 	public static native void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride, long __functionAddress);
 
 	/**
@@ -1449,6 +1625,7 @@ public final class GL43 {
 	// --- [ glGetProgramInterfaceiv ] ---
 
 	/** JNI method for {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	@JavadocExclude
 	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params, long __functionAddress);
 
 	/**
@@ -1494,6 +1671,7 @@ public final class GL43 {
 	// --- [ glGetProgramResourceIndex ] ---
 
 	/** JNI method for {@link #glGetProgramResourceIndex glGetProgramResourceIndex} */
+	@JavadocExclude
 	public static native int nglGetProgramResourceIndex(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1525,6 +1703,7 @@ public final class GL43 {
 	// --- [ glGetProgramResourceName ] ---
 
 	/** JNI method for {@link #glGetProgramResourceName glGetProgramResourceName} */
+	@JavadocExclude
 	public static native void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name, long __functionAddress);
 
 	/**
@@ -1587,6 +1766,7 @@ public final class GL43 {
 	// --- [ glGetProgramResourceiv ] ---
 
 	/** JNI method for {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	@JavadocExclude
 	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params, long __functionAddress);
 
 	/**
@@ -1639,6 +1819,7 @@ public final class GL43 {
 	// --- [ glGetProgramResourceLocation ] ---
 
 	/** JNI method for {@link #glGetProgramResourceLocation glGetProgramResourceLocation} */
+	@JavadocExclude
 	public static native int nglGetProgramResourceLocation(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1670,6 +1851,7 @@ public final class GL43 {
 	// --- [ glGetProgramResourceLocationIndex ] ---
 
 	/** JNI method for {@link #glGetProgramResourceLocationIndex glGetProgramResourceLocationIndex} */
+	@JavadocExclude
 	public static native int nglGetProgramResourceLocationIndex(int program, int programInterface, long name, long __functionAddress);
 
 	/**
@@ -1701,6 +1883,7 @@ public final class GL43 {
 	// --- [ glShaderStorageBlockBinding ] ---
 
 	/** JNI method for {@link #glShaderStorageBlockBinding glShaderStorageBlockBinding} */
+	@JavadocExclude
 	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding, long __functionAddress);
 
 	/**
@@ -1722,6 +1905,7 @@ public final class GL43 {
 	// --- [ glTexBufferRange ] ---
 
 	/** JNI method for {@link #glTexBufferRange glTexBufferRange} */
+	@JavadocExclude
 	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size, long __functionAddress);
 
 	/**
@@ -1745,6 +1929,7 @@ public final class GL43 {
 	// --- [ glTexStorage2DMultisample ] ---
 
 	/** JNI method for {@link #glTexStorage2DMultisample glTexStorage2DMultisample} */
+	@JavadocExclude
 	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -1770,6 +1955,7 @@ public final class GL43 {
 	// --- [ glTexStorage3DMultisample ] ---
 
 	/** JNI method for {@link #glTexStorage3DMultisample glTexStorage3DMultisample} */
+	@JavadocExclude
 	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
@@ -1796,6 +1982,7 @@ public final class GL43 {
 	// --- [ glTextureView ] ---
 
 	/** JNI method for {@link #glTextureView glTextureView} */
+	@JavadocExclude
 	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers, long __functionAddress);
 
 	/**
@@ -1822,6 +2009,7 @@ public final class GL43 {
 	// --- [ glBindVertexBuffer ] ---
 
 	/** JNI method for {@link #glBindVertexBuffer glBindVertexBuffer} */
+	@JavadocExclude
 	public static native void nglBindVertexBuffer(int bindingindex, int buffer, long offset, int stride, long __functionAddress);
 
 	/**
@@ -1844,6 +2032,7 @@ public final class GL43 {
 	// --- [ glVertexAttribFormat ] ---
 
 	/** JNI method for {@link #glVertexAttribFormat glVertexAttribFormat} */
+	@JavadocExclude
 	public static native void nglVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1868,6 +2057,7 @@ public final class GL43 {
 	// --- [ glVertexAttribIFormat ] ---
 
 	/** JNI method for {@link #glVertexAttribIFormat glVertexAttribIFormat} */
+	@JavadocExclude
 	public static native void nglVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1890,6 +2080,7 @@ public final class GL43 {
 	// --- [ glVertexAttribLFormat ] ---
 
 	/** JNI method for {@link #glVertexAttribLFormat glVertexAttribLFormat} */
+	@JavadocExclude
 	public static native void nglVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
@@ -1912,6 +2103,7 @@ public final class GL43 {
 	// --- [ glVertexAttribBinding ] ---
 
 	/** JNI method for {@link #glVertexAttribBinding glVertexAttribBinding} */
+	@JavadocExclude
 	public static native void nglVertexAttribBinding(int attribindex, int bindingindex, long __functionAddress);
 
 	/**
@@ -1932,6 +2124,7 @@ public final class GL43 {
 	// --- [ glVertexBindingDivisor ] ---
 
 	/** JNI method for {@link #glVertexBindingDivisor glVertexBindingDivisor} */
+	@JavadocExclude
 	public static native void nglVertexBindingDivisor(int index, int divisor, long __functionAddress);
 
 	/**
@@ -1947,163 +2140,6 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexBindingDivisor(index, divisor, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL43;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL43") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glClearBufferData) &&
-			GL.isFunctionSupported(funcs.glClearBufferSubData) &&
-			GL.isFunctionSupported(funcs.glDispatchCompute) &&
-			GL.isFunctionSupported(funcs.glDispatchComputeIndirect) &&
-			GL.isFunctionSupported(funcs.glCopyImageSubData) &&
-			GL.isFunctionSupported(funcs.glDebugMessageControl) &&
-			GL.isFunctionSupported(funcs.glDebugMessageInsert) &&
-			GL.isFunctionSupported(funcs.glDebugMessageCallback) &&
-			GL.isFunctionSupported(funcs.glGetDebugMessageLog) &&
-			GL.isFunctionSupported(funcs.glPushDebugGroup) &&
-			GL.isFunctionSupported(funcs.glObjectLabel) &&
-			GL.isFunctionSupported(funcs.glGetObjectLabel) &&
-			GL.isFunctionSupported(funcs.glObjectPtrLabel) &&
-			GL.isFunctionSupported(funcs.glGetObjectPtrLabel) &&
-			GL.isFunctionSupported(funcs.glFramebufferParameteri) &&
-			GL.isFunctionSupported(funcs.glGetFramebufferParameteriv) &&
-			GL.isFunctionSupported(funcs.glGetInternalformati64v) &&
-			GL.isFunctionSupported(funcs.glInvalidateTexSubImage) &&
-			GL.isFunctionSupported(funcs.glInvalidateTexImage) &&
-			GL.isFunctionSupported(funcs.glInvalidateBufferSubData) &&
-			GL.isFunctionSupported(funcs.glInvalidateBufferData) &&
-			GL.isFunctionSupported(funcs.glInvalidateFramebuffer) &&
-			GL.isFunctionSupported(funcs.glInvalidateSubFramebuffer) &&
-			GL.isFunctionSupported(funcs.glMultiDrawArraysIndirect) &&
-			GL.isFunctionSupported(funcs.glMultiDrawElementsIndirect) &&
-			GL.isFunctionSupported(funcs.glGetProgramInterfaceiv) &&
-			GL.isFunctionSupported(funcs.glGetProgramResourceIndex) &&
-			GL.isFunctionSupported(funcs.glGetProgramResourceName) &&
-			GL.isFunctionSupported(funcs.glGetProgramResourceiv) &&
-			GL.isFunctionSupported(funcs.glGetProgramResourceLocation) &&
-			GL.isFunctionSupported(funcs.glGetProgramResourceLocationIndex) &&
-			GL.isFunctionSupported(funcs.glShaderStorageBlockBinding) &&
-			GL.isFunctionSupported(funcs.glTexBufferRange) &&
-			GL.isFunctionSupported(funcs.glTexStorage2DMultisample) &&
-			GL.isFunctionSupported(funcs.glTexStorage3DMultisample) &&
-			GL.isFunctionSupported(funcs.glTextureView) &&
-			GL.isFunctionSupported(funcs.glBindVertexBuffer) &&
-			GL.isFunctionSupported(funcs.glVertexAttribFormat) &&
-			GL.isFunctionSupported(funcs.glVertexAttribIFormat) &&
-			GL.isFunctionSupported(funcs.glVertexAttribLFormat) &&
-			GL.isFunctionSupported(funcs.glVertexAttribBinding) &&
-			GL.isFunctionSupported(funcs.glVertexBindingDivisor);
-
-		return GL.checkExtension("OpenGL43", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL43}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glClearBufferData,
-			glClearBufferSubData,
-			glDispatchCompute,
-			glDispatchComputeIndirect,
-			glCopyImageSubData,
-			glDebugMessageControl,
-			glDebugMessageInsert,
-			glDebugMessageCallback,
-			glGetDebugMessageLog,
-			glPushDebugGroup,
-			glObjectLabel,
-			glGetObjectLabel,
-			glObjectPtrLabel,
-			glGetObjectPtrLabel,
-			glFramebufferParameteri,
-			glGetFramebufferParameteriv,
-			glGetInternalformati64v,
-			glInvalidateTexSubImage,
-			glInvalidateTexImage,
-			glInvalidateBufferSubData,
-			glInvalidateBufferData,
-			glInvalidateFramebuffer,
-			glInvalidateSubFramebuffer,
-			glMultiDrawArraysIndirect,
-			glMultiDrawElementsIndirect,
-			glGetProgramInterfaceiv,
-			glGetProgramResourceIndex,
-			glGetProgramResourceName,
-			glGetProgramResourceiv,
-			glGetProgramResourceLocation,
-			glGetProgramResourceLocationIndex,
-			glShaderStorageBlockBinding,
-			glTexBufferRange,
-			glTexStorage2DMultisample,
-			glTexStorage3DMultisample,
-			glTextureView,
-			glBindVertexBuffer,
-			glVertexAttribFormat,
-			glVertexAttribIFormat,
-			glVertexAttribLFormat,
-			glVertexAttribBinding,
-			glVertexBindingDivisor;
-
-		long DEBUGPROC;
-
-		public Functions(FunctionProvider provider) {
-			glClearBufferData = provider.getFunctionAddress("glClearBufferData");
-			glClearBufferSubData = provider.getFunctionAddress("glClearBufferSubData");
-			glDispatchCompute = provider.getFunctionAddress("glDispatchCompute");
-			glDispatchComputeIndirect = provider.getFunctionAddress("glDispatchComputeIndirect");
-			glCopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
-			glDebugMessageControl = provider.getFunctionAddress("glDebugMessageControl");
-			glDebugMessageInsert = provider.getFunctionAddress("glDebugMessageInsert");
-			glDebugMessageCallback = provider.getFunctionAddress("glDebugMessageCallback");
-			glGetDebugMessageLog = provider.getFunctionAddress("glGetDebugMessageLog");
-			glPushDebugGroup = provider.getFunctionAddress("glPushDebugGroup");
-			glObjectLabel = provider.getFunctionAddress("glObjectLabel");
-			glGetObjectLabel = provider.getFunctionAddress("glGetObjectLabel");
-			glObjectPtrLabel = provider.getFunctionAddress("glObjectPtrLabel");
-			glGetObjectPtrLabel = provider.getFunctionAddress("glGetObjectPtrLabel");
-			glFramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
-			glGetFramebufferParameteriv = provider.getFunctionAddress("glGetFramebufferParameteriv");
-			glGetInternalformati64v = provider.getFunctionAddress("glGetInternalformati64v");
-			glInvalidateTexSubImage = provider.getFunctionAddress("glInvalidateTexSubImage");
-			glInvalidateTexImage = provider.getFunctionAddress("glInvalidateTexImage");
-			glInvalidateBufferSubData = provider.getFunctionAddress("glInvalidateBufferSubData");
-			glInvalidateBufferData = provider.getFunctionAddress("glInvalidateBufferData");
-			glInvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
-			glInvalidateSubFramebuffer = provider.getFunctionAddress("glInvalidateSubFramebuffer");
-			glMultiDrawArraysIndirect = provider.getFunctionAddress("glMultiDrawArraysIndirect");
-			glMultiDrawElementsIndirect = provider.getFunctionAddress("glMultiDrawElementsIndirect");
-			glGetProgramInterfaceiv = provider.getFunctionAddress("glGetProgramInterfaceiv");
-			glGetProgramResourceIndex = provider.getFunctionAddress("glGetProgramResourceIndex");
-			glGetProgramResourceName = provider.getFunctionAddress("glGetProgramResourceName");
-			glGetProgramResourceiv = provider.getFunctionAddress("glGetProgramResourceiv");
-			glGetProgramResourceLocation = provider.getFunctionAddress("glGetProgramResourceLocation");
-			glGetProgramResourceLocationIndex = provider.getFunctionAddress("glGetProgramResourceLocationIndex");
-			glShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
-			glTexBufferRange = provider.getFunctionAddress("glTexBufferRange");
-			glTexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
-			glTexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
-			glTextureView = provider.getFunctionAddress("glTextureView");
-			glBindVertexBuffer = provider.getFunctionAddress("glBindVertexBuffer");
-			glVertexAttribFormat = provider.getFunctionAddress("glVertexAttribFormat");
-			glVertexAttribIFormat = provider.getFunctionAddress("glVertexAttribIFormat");
-			glVertexAttribLFormat = provider.getFunctionAddress("glVertexAttribLFormat");
-			glVertexAttribBinding = provider.getFunctionAddress("glVertexAttribBinding");
-			glVertexBindingDivisor = provider.getFunctionAddress("glVertexBindingDivisor");
-		}
-
 	}
 
 }

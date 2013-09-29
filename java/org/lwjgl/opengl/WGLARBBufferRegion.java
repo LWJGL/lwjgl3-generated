@@ -28,11 +28,47 @@ public final class WGLARBBufferRegion {
 		WGL_DEPTH_BUFFER_BIT_ARB       = 0x4,
 		WGL_STENCIL_BUFFER_BIT_ARB     = 0x8;
 
-	private WGLARBBufferRegion() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglCreateBufferRegionARB,
+		wglDeleteBufferRegionARB,
+		wglSaveBufferRegionARB,
+		wglRestoreBufferRegionARB;
+
+	@JavadocExclude
+	public WGLARBBufferRegion(FunctionProvider provider) {
+		wglCreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
+		wglDeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");
+		wglSaveBufferRegionARB = provider.getFunctionAddress("wglSaveBufferRegionARB");
+		wglRestoreBufferRegionARB = provider.getFunctionAddress("wglRestoreBufferRegionARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBBufferRegion} instance for the current context. */
+	public static WGLARBBufferRegion getInstance() {
+		return GL.getCapabilities().__WGLARBBufferRegion;
+	}
+
+	static WGLARBBufferRegion create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_buffer_region") ) return null;
+
+		WGLARBBufferRegion funcs = new WGLARBBufferRegion(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglCreateBufferRegionARB) &&
+			GL.isFunctionSupported(funcs.wglDeleteBufferRegionARB) &&
+			GL.isFunctionSupported(funcs.wglSaveBufferRegionARB) &&
+			GL.isFunctionSupported(funcs.wglRestoreBufferRegionARB);
+
+		return GL.checkExtension("WGL_ARB_buffer_region", funcs, supported);
+	}
 
 	// --- [ wglCreateBufferRegionARB ] ---
 
 	/** JNI method for {@link #wglCreateBufferRegionARB wglCreateBufferRegionARB} */
+	@JavadocExclude
 	public static native long nwglCreateBufferRegionARB(long hdc, int layerPlane, int type, long __functionAddress);
 
 	/**
@@ -55,6 +91,7 @@ public final class WGLARBBufferRegion {
 	// --- [ wglDeleteBufferRegionARB ] ---
 
 	/** JNI method for {@link #wglDeleteBufferRegionARB wglDeleteBufferRegionARB} */
+	@JavadocExclude
 	public static native void nwglDeleteBufferRegionARB(long region, long __functionAddress);
 
 	/**
@@ -74,6 +111,7 @@ public final class WGLARBBufferRegion {
 	// --- [ wglSaveBufferRegionARB ] ---
 
 	/** JNI method for {@link #wglSaveBufferRegionARB wglSaveBufferRegionARB} */
+	@JavadocExclude
 	public static native int nwglSaveBufferRegionARB(long region, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -104,6 +142,7 @@ public final class WGLARBBufferRegion {
 	// --- [ wglRestoreBufferRegionARB ] ---
 
 	/** JNI method for {@link #wglRestoreBufferRegionARB wglRestoreBufferRegionARB} */
+	@JavadocExclude
 	public static native int nwglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc, long __functionAddress);
 
 	/**
@@ -124,47 +163,6 @@ public final class WGLARBBufferRegion {
 			checkPointer(region);
 		}
 		return nwglRestoreBufferRegionARB(region, x, y, width, height, xSrc, ySrc, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBBufferRegion;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_buffer_region") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglCreateBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.wglDeleteBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.wglSaveBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.wglRestoreBufferRegionARB);
-
-		return GL.checkExtension("WGL_ARB_buffer_region", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBBufferRegion}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglCreateBufferRegionARB,
-			wglDeleteBufferRegionARB,
-			wglSaveBufferRegionARB,
-			wglRestoreBufferRegionARB;
-
-		public Functions(FunctionProvider provider) {
-			wglCreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
-			wglDeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");
-			wglSaveBufferRegionARB = provider.getFunctionAddress("wglSaveBufferRegionARB");
-			wglRestoreBufferRegionARB = provider.getFunctionAddress("wglRestoreBufferRegionARB");
-		}
-
 	}
 
 }

@@ -70,6 +70,7 @@ public final class GLX {
 	// --- [ glXQueryExtension ] ---
 
 	/** JNI method for {@link #glXQueryExtension glXQueryExtension} */
+	@JavadocExclude
 	public static native int nglXQueryExtension(long display, long error_base, long event_base);
 
 	/**
@@ -101,6 +102,7 @@ public final class GLX {
 	// --- [ glXQueryVersion ] ---
 
 	/** JNI method for {@link #glXQueryVersion glXQueryVersion} */
+	@JavadocExclude
 	public static native int nglXQueryVersion(long display, long major, long minor);
 
 	/**
@@ -132,6 +134,7 @@ public final class GLX {
 	// --- [ glXGetConfig ] ---
 
 	/** JNI method for {@link #glXGetConfig glXGetConfig} */
+	@JavadocExclude
 	public static native int nglXGetConfig(long display, long visual, int attribute, long value);
 
 	/**
@@ -164,6 +167,7 @@ public final class GLX {
 	// --- [ glXChooseVisual ] ---
 
 	/** JNI method for {@link #glXChooseVisual glXChooseVisual} */
+	@JavadocExclude
 	public static native long nglXChooseVisual(long display, int screen, long attrib_list);
 
 	/**
@@ -198,6 +202,7 @@ public final class GLX {
 	// --- [ glXCreateContext ] ---
 
 	/** JNI method for {@link #glXCreateContext glXCreateContext} */
+	@JavadocExclude
 	public static native long nglXCreateContext(long display, long visual, long share_list, int direct);
 
 	/**
@@ -219,6 +224,7 @@ public final class GLX {
 	// --- [ glXMakeCurrent ] ---
 
 	/** JNI method for {@link #glXMakeCurrent glXMakeCurrent} */
+	@JavadocExclude
 	public static native int nglXMakeCurrent(long display, long draw, long ctx);
 
 	/**
@@ -237,6 +243,7 @@ public final class GLX {
 	// --- [ glXCopyContext ] ---
 
 	/** JNI method for {@link #glXCopyContext glXCopyContext} */
+	@JavadocExclude
 	public static native void nglXCopyContext(long display, long source, long dest, long mask);
 
 	/**
@@ -259,6 +266,7 @@ public final class GLX {
 	// --- [ glXIsDirect ] ---
 
 	/** JNI method for {@link #glXIsDirect glXIsDirect} */
+	@JavadocExclude
 	public static native int nglXIsDirect(long display, long ctx);
 
 	/**
@@ -278,6 +286,7 @@ public final class GLX {
 	// --- [ glXDestroyContext ] ---
 
 	/** JNI method for {@link #glXDestroyContext glXDestroyContext} */
+	@JavadocExclude
 	public static native void nglXDestroyContext(long display, long ctx);
 
 	/**
@@ -300,11 +309,13 @@ public final class GLX {
 	// --- [ glXGetCurrentContext ] ---
 
 	/** Returns the GLXContext that is current in the current thread. */
+	@JavadocExclude
 	public static native long glXGetCurrentContext();
 
 	// --- [ glXGetCurrentDrawable ] ---
 
 	/** Returns the XID of the current drawable used for rendering. */
+	@JavadocExclude
 	public static native long glXGetCurrentDrawable();
 
 	// --- [ glXWaitGL ] ---
@@ -316,6 +327,7 @@ public final class GLX {
 	 * can be achieved using {@link GL11#glFinish Finish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
 	 * where the client and server are on separate machines.
 	 */
+	@JavadocExclude
 	public static native void glXWaitGL();
 
 	// --- [ glXWaitX ] ---
@@ -326,11 +338,13 @@ public final class GLX {
 	 * X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
 	 * result can be achieved using {@link Xlib#XSync XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
 	 */
+	@JavadocExclude
 	public static native void glXWaitX();
 
 	// --- [ glXSwapBuffers ] ---
 
 	/** JNI method for {@link #glXSwapBuffers glXSwapBuffers} */
+	@JavadocExclude
 	public static native void nglXSwapBuffers(long display, long draw);
 
 	/**
@@ -360,11 +374,13 @@ public final class GLX {
 	 * @param count     the number of display lists to define
 	 * @param list_base the base list number
 	 */
+	@JavadocExclude
 	public static native void glXUseXFont(long font, int first, int count, int list_base);
 
 	// --- [ glXCreateGLXPixmap ] ---
 
 	/** JNI method for {@link #glXCreateGLXPixmap glXCreateGLXPixmap} */
+	@JavadocExclude
 	public static native long nglXCreateGLXPixmap(long display, long visual, long pixmap);
 
 	/**
@@ -385,6 +401,7 @@ public final class GLX {
 	// --- [ glXDestroyGLXPixmap ] ---
 
 	/** JNI method for {@link #glXDestroyGLXPixmap glXDestroyGLXPixmap} */
+	@JavadocExclude
 	public static native void nglXDestroyGLXPixmap(long display, long pixmap);
 
 	/**

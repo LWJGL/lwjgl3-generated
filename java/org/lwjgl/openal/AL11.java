@@ -32,11 +32,83 @@ public final class AL11 {
 		AL_EXPONENT_DISTANCE         = 0xD005,
 		AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;
 
-	private AL11() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alListener3i,
+		alGetListeneriv,
+		alSource3i,
+		alListeneriv,
+		alSourceiv,
+		alBufferf,
+		alBuffer3f,
+		alBufferfv,
+		alBufferi,
+		alBuffer3i,
+		alBufferiv,
+		alGetBufferi,
+		alGetBufferiv,
+		alGetBufferf,
+		alGetBufferfv,
+		alSpeedOfSound;
+
+	@JavadocExclude
+	public AL11(FunctionProvider provider) {
+		alListener3i = provider.getFunctionAddress("alListener3i");
+		alGetListeneriv = provider.getFunctionAddress("alGetListeneriv");
+		alSource3i = provider.getFunctionAddress("alSource3i");
+		alListeneriv = provider.getFunctionAddress("alListeneriv");
+		alSourceiv = provider.getFunctionAddress("alSourceiv");
+		alBufferf = provider.getFunctionAddress("alBufferf");
+		alBuffer3f = provider.getFunctionAddress("alBuffer3f");
+		alBufferfv = provider.getFunctionAddress("alBufferfv");
+		alBufferi = provider.getFunctionAddress("alBufferi");
+		alBuffer3i = provider.getFunctionAddress("alBuffer3i");
+		alBufferiv = provider.getFunctionAddress("alBufferiv");
+		alGetBufferi = provider.getFunctionAddress("alGetBufferi");
+		alGetBufferiv = provider.getFunctionAddress("alGetBufferiv");
+		alGetBufferf = provider.getFunctionAddress("alGetBufferf");
+		alGetBufferfv = provider.getFunctionAddress("alGetBufferfv");
+		alSpeedOfSound = provider.getFunctionAddress("alSpeedOfSound");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link AL11} instance for the current context. */
+	public static AL11 getInstance() {
+		return AL.getCapabilities().__AL11;
+	}
+
+	static AL11 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenAL11") ) return null;
+
+		AL11 funcs = new AL11(provider);
+
+		boolean supported = 
+			funcs.alListener3i != 0L &&
+			funcs.alGetListeneriv != 0L &&
+			funcs.alSource3i != 0L &&
+			funcs.alListeneriv != 0L &&
+			funcs.alSourceiv != 0L &&
+			funcs.alBufferf != 0L &&
+			funcs.alBuffer3f != 0L &&
+			funcs.alBufferfv != 0L &&
+			funcs.alBufferi != 0L &&
+			funcs.alBuffer3i != 0L &&
+			funcs.alBufferiv != 0L &&
+			funcs.alGetBufferi != 0L &&
+			funcs.alGetBufferiv != 0L &&
+			funcs.alGetBufferf != 0L &&
+			funcs.alGetBufferfv != 0L &&
+			funcs.alSpeedOfSound != 0L;
+
+		return AL.checkExtension("OpenAL11", funcs, supported);
+	}
 
 	// --- [ alListener3i ] ---
 
 	/** JNI method for {@link #alListener3i alListener3i} */
+	@JavadocExclude
 	public static native void nalListener3i(int paramName, float value1, float value2, float value3, long __functionAddress);
 
 	/**
@@ -57,6 +129,7 @@ public final class AL11 {
 	// --- [ alGetListeneriv ] ---
 
 	/** JNI method for {@link #alGetListeneriv alGetListeneriv} */
+	@JavadocExclude
 	public static native void nalGetListeneriv(int param, long values, long __functionAddress);
 
 	/**
@@ -87,6 +160,7 @@ public final class AL11 {
 	// --- [ alSource3i ] ---
 
 	/** JNI method for {@link #alSource3i alSource3i} */
+	@JavadocExclude
 	public static native void nalSource3i(int source, int paramName, int value1, int value2, int value3, long __functionAddress);
 
 	/**
@@ -108,6 +182,7 @@ public final class AL11 {
 	// --- [ alListeneriv ] ---
 
 	/** JNI method for {@link #alListeneri(int, ByteBuffer) alListeneri} */
+	@JavadocExclude
 	public static native void nalListeneriv(int listener, long value, long __functionAddress);
 
 	/**
@@ -138,6 +213,7 @@ public final class AL11 {
 	// --- [ alSourceiv ] ---
 
 	/** JNI method for {@link #alSourcei(int, int, ByteBuffer) alSourcei} */
+	@JavadocExclude
 	public static native void nalSourceiv(int source, int paramName, long value, long __functionAddress);
 
 	/**
@@ -169,6 +245,7 @@ public final class AL11 {
 	// --- [ alBufferf ] ---
 
 	/** JNI method for {@link #alBufferf alBufferf} */
+	@JavadocExclude
 	public static native void nalBufferf(int buffer, int paramName, float value, long __functionAddress);
 
 	/**
@@ -188,6 +265,7 @@ public final class AL11 {
 	// --- [ alBuffer3f ] ---
 
 	/** JNI method for {@link #alBuffer3f alBuffer3f} */
+	@JavadocExclude
 	public static native void nalBuffer3f(int buffer, int paramName, float value1, float value2, float value3, long __functionAddress);
 
 	/**
@@ -209,6 +287,7 @@ public final class AL11 {
 	// --- [ alBufferfv ] ---
 
 	/** JNI method for {@link #alBufferf(int, int, ByteBuffer) alBufferf} */
+	@JavadocExclude
 	public static native void nalBufferfv(int buffer, int paramName, long value, long __functionAddress);
 
 	/**
@@ -240,6 +319,7 @@ public final class AL11 {
 	// --- [ alBufferi ] ---
 
 	/** JNI method for {@link #alBufferi alBufferi} */
+	@JavadocExclude
 	public static native void nalBufferi(int buffer, int paramName, int value, long __functionAddress);
 
 	/**
@@ -259,6 +339,7 @@ public final class AL11 {
 	// --- [ alBuffer3i ] ---
 
 	/** JNI method for {@link #alBuffer3i alBuffer3i} */
+	@JavadocExclude
 	public static native void nalBuffer3i(int buffer, int paramName, int value1, int value2, int value3, long __functionAddress);
 
 	/**
@@ -280,6 +361,7 @@ public final class AL11 {
 	// --- [ alBufferiv ] ---
 
 	/** JNI method for {@link #alBufferi(int, int, ByteBuffer) alBufferi} */
+	@JavadocExclude
 	public static native void nalBufferiv(int buffer, int paramName, long value, long __functionAddress);
 
 	/**
@@ -311,6 +393,7 @@ public final class AL11 {
 	// --- [ alGetBufferi ] ---
 
 	/** JNI method for {@link #alGetBufferi alGetBufferi} */
+	@JavadocExclude
 	public static native void nalGetBufferi(int buffer, int param, long value, long __functionAddress);
 
 	/**
@@ -353,6 +436,7 @@ public final class AL11 {
 	// --- [ alGetBufferiv ] ---
 
 	/** JNI method for {@link #alGetBufferiv alGetBufferiv} */
+	@JavadocExclude
 	public static native void nalGetBufferiv(int buffer, int param, long values, long __functionAddress);
 
 	/**
@@ -384,6 +468,7 @@ public final class AL11 {
 	// --- [ alGetBufferf ] ---
 
 	/** JNI method for {@link #alGetBufferf alGetBufferf} */
+	@JavadocExclude
 	public static native void nalGetBufferf(int buffer, int param, long value, long __functionAddress);
 
 	/**
@@ -426,6 +511,7 @@ public final class AL11 {
 	// --- [ alGetBufferfv ] ---
 
 	/** JNI method for {@link #alGetBufferfv alGetBufferfv} */
+	@JavadocExclude
 	public static native void nalGetBufferfv(int buffer, int param, long values, long __functionAddress);
 
 	/**
@@ -457,6 +543,7 @@ public final class AL11 {
 	// --- [ alSpeedOfSound ] ---
 
 	/** JNI method for {@link #alSpeedOfSound alSpeedOfSound} */
+	@JavadocExclude
 	public static native void nalSpeedOfSound(float value, long __functionAddress);
 
 	/**
@@ -469,83 +556,6 @@ public final class AL11 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSpeedOfSound(value, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return AL.getCapabilities().__AL11;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenAL11") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alListener3i != 0L &&
-			funcs.alGetListeneriv != 0L &&
-			funcs.alSource3i != 0L &&
-			funcs.alListeneriv != 0L &&
-			funcs.alSourceiv != 0L &&
-			funcs.alBufferf != 0L &&
-			funcs.alBuffer3f != 0L &&
-			funcs.alBufferfv != 0L &&
-			funcs.alBufferi != 0L &&
-			funcs.alBuffer3i != 0L &&
-			funcs.alBufferiv != 0L &&
-			funcs.alGetBufferi != 0L &&
-			funcs.alGetBufferiv != 0L &&
-			funcs.alGetBufferf != 0L &&
-			funcs.alGetBufferfv != 0L &&
-			funcs.alSpeedOfSound != 0L;
-
-		return AL.checkExtension("OpenAL11", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code AL11}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alListener3i,
-			alGetListeneriv,
-			alSource3i,
-			alListeneriv,
-			alSourceiv,
-			alBufferf,
-			alBuffer3f,
-			alBufferfv,
-			alBufferi,
-			alBuffer3i,
-			alBufferiv,
-			alGetBufferi,
-			alGetBufferiv,
-			alGetBufferf,
-			alGetBufferfv,
-			alSpeedOfSound;
-
-		public Functions(FunctionProvider provider) {
-			alListener3i = provider.getFunctionAddress("alListener3i");
-			alGetListeneriv = provider.getFunctionAddress("alGetListeneriv");
-			alSource3i = provider.getFunctionAddress("alSource3i");
-			alListeneriv = provider.getFunctionAddress("alListeneriv");
-			alSourceiv = provider.getFunctionAddress("alSourceiv");
-			alBufferf = provider.getFunctionAddress("alBufferf");
-			alBuffer3f = provider.getFunctionAddress("alBuffer3f");
-			alBufferfv = provider.getFunctionAddress("alBufferfv");
-			alBufferi = provider.getFunctionAddress("alBufferi");
-			alBuffer3i = provider.getFunctionAddress("alBuffer3i");
-			alBufferiv = provider.getFunctionAddress("alBufferiv");
-			alGetBufferi = provider.getFunctionAddress("alGetBufferi");
-			alGetBufferiv = provider.getFunctionAddress("alGetBufferiv");
-			alGetBufferf = provider.getFunctionAddress("alGetBufferf");
-			alGetBufferfv = provider.getFunctionAddress("alGetBufferfv");
-			alSpeedOfSound = provider.getFunctionAddress("alSpeedOfSound");
-		}
-
 	}
 
 }

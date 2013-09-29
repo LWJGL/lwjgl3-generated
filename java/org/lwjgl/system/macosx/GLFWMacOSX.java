@@ -18,6 +18,7 @@ public final class GLFWMacOSX {
 	// --- [ glfwGetCocoaWindow ] ---
 
 	/** JNI method for {@link #glfwGetCocoaWindow glfwGetCocoaWindow} */
+	@JavadocExclude
 	public static native long nglfwGetCocoaWindow(long window);
 
 	/**
@@ -34,6 +35,7 @@ public final class GLFWMacOSX {
 	// --- [ glfwGetNSGLContext ] ---
 
 	/** JNI method for {@link #glfwGetNSGLContext glfwGetNSGLContext} */
+	@JavadocExclude
 	public static native long nglfwGetNSGLContext(long window);
 
 	/**

@@ -34,6 +34,7 @@ public final class Time {
 	// --- [ clock_getres ] ---
 
 	/** JNI method for {@link #clock_getres clock_getres} */
+	@JavadocExclude
 	public static native int nclock_getres(int clk_id, long res);
 
 	/**
@@ -52,6 +53,7 @@ public final class Time {
 	// --- [ clock_gettime ] ---
 
 	/** JNI method for {@link #clock_gettime clock_gettime} */
+	@JavadocExclude
 	public static native int nclock_gettime(int clk_id, long tp);
 
 	/**
@@ -69,6 +71,7 @@ public final class Time {
 	// --- [ gettimeofday ] ---
 
 	/** JNI method for {@link #gettimeofday gettimeofday} */
+	@JavadocExclude
 	public static native int ngettimeofday(long tv, long tz);
 
 	/**

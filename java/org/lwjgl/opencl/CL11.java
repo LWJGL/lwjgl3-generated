@@ -83,11 +83,59 @@ public final class CL11 {
 	public static final int
 		CL_BUFFER_CREATE_TYPE_REGION = 0x1220;
 
-	private CL11() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		clCreateSubBuffer,
+		clSetMemObjectDestructorCallback,
+		clEnqueueReadBufferRect,
+		clEnqueueWriteBufferRect,
+		clEnqueueCopyBufferRect,
+		clCreateUserEvent,
+		clSetUserEventStatus,
+		clSetEventCallback;
+
+	@JavadocExclude
+	public CL11(FunctionProviderLocal provider) {
+		clCreateSubBuffer = provider.getFunctionAddress("clCreateSubBuffer");
+		clSetMemObjectDestructorCallback = provider.getFunctionAddress("clSetMemObjectDestructorCallback");
+		clEnqueueReadBufferRect = provider.getFunctionAddress("clEnqueueReadBufferRect");
+		clEnqueueWriteBufferRect = provider.getFunctionAddress("clEnqueueWriteBufferRect");
+		clEnqueueCopyBufferRect = provider.getFunctionAddress("clEnqueueCopyBufferRect");
+		clCreateUserEvent = provider.getFunctionAddress("clCreateUserEvent");
+		clSetUserEventStatus = provider.getFunctionAddress("clSetUserEventStatus");
+		clSetEventCallback = provider.getFunctionAddress("clSetEventCallback");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CL11} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static CL11 getInstance(CLObject object) {
+		return object.getCapabilities().__CL11;
+	}
+
+	static CL11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenCL11") ) return null;
+
+		CL11 funcs = new CL11(provider);
+
+		boolean supported = 
+			funcs.clCreateSubBuffer != 0L &&
+			funcs.clSetMemObjectDestructorCallback != 0L &&
+			funcs.clEnqueueReadBufferRect != 0L &&
+			funcs.clEnqueueWriteBufferRect != 0L &&
+			funcs.clEnqueueCopyBufferRect != 0L &&
+			funcs.clCreateUserEvent != 0L &&
+			funcs.clSetUserEventStatus != 0L &&
+			funcs.clSetEventCallback != 0L;
+
+		return CL.checkExtension("OpenCL11", funcs, supported);
+	}
 
 	// --- [ clCreateSubBuffer ] ---
 
 	/** JNI method for {@link #clCreateSubBuffer clCreateSubBuffer} */
+	@JavadocExclude
 	public static native long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret, long __functionAddress);
 
 	/**
@@ -155,6 +203,7 @@ public final class CL11 {
 	// --- [ clSetMemObjectDestructorCallback ] ---
 
 	/** JNI method for {@link #clSetMemObjectDestructorCallback clSetMemObjectDestructorCallback} */
+	@JavadocExclude
 	public static native int nclSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -198,6 +247,7 @@ public final class CL11 {
 	// --- [ clEnqueueReadBufferRect ] ---
 
 	/** JNI method for {@link #clEnqueueReadBufferRect clEnqueueReadBufferRect} */
+	@JavadocExclude
 	public static native int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -354,6 +404,7 @@ public final class CL11 {
 	// --- [ clEnqueueWriteBufferRect ] ---
 
 	/** JNI method for {@link #clEnqueueWriteBufferRect clEnqueueWriteBufferRect} */
+	@JavadocExclude
 	public static native int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -510,6 +561,7 @@ public final class CL11 {
 	// --- [ clEnqueueCopyBufferRect ] ---
 
 	/** JNI method for {@link #clEnqueueCopyBufferRect clEnqueueCopyBufferRect} */
+	@JavadocExclude
 	public static native int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -608,6 +660,7 @@ public final class CL11 {
 	// --- [ clCreateUserEvent ] ---
 
 	/** JNI method for {@link #clCreateUserEvent clCreateUserEvent} */
+	@JavadocExclude
 	public static native long nclCreateUserEvent(long context, long errcode_ret, long __functionAddress);
 
 	/**
@@ -649,6 +702,7 @@ public final class CL11 {
 	// --- [ clSetUserEventStatus ] ---
 
 	/** JNI method for {@link #clSetUserEventStatus clSetUserEventStatus} */
+	@JavadocExclude
 	public static native int nclSetUserEventStatus(long event, int execution_status, long __functionAddress);
 
 	/**
@@ -697,6 +751,7 @@ public final class CL11 {
 	// --- [ clSetEventCallback ] ---
 
 	/** JNI method for {@link #clSetEventCallback clSetEventCallback} */
+	@JavadocExclude
 	public static native int nclSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -759,59 +814,6 @@ public final class CL11 {
 		int __result = nclSetEventCallback(event.getPointer(), command_exec_callback_type, CLEventCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
 		return __result;
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__CL11;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL11") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.clCreateSubBuffer != 0L &&
-			funcs.clSetMemObjectDestructorCallback != 0L &&
-			funcs.clEnqueueReadBufferRect != 0L &&
-			funcs.clEnqueueWriteBufferRect != 0L &&
-			funcs.clEnqueueCopyBufferRect != 0L &&
-			funcs.clCreateUserEvent != 0L &&
-			funcs.clSetUserEventStatus != 0L &&
-			funcs.clSetEventCallback != 0L;
-
-		return CL.checkExtension("OpenCL11", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code CL11}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			clCreateSubBuffer,
-			clSetMemObjectDestructorCallback,
-			clEnqueueReadBufferRect,
-			clEnqueueWriteBufferRect,
-			clEnqueueCopyBufferRect,
-			clCreateUserEvent,
-			clSetUserEventStatus,
-			clSetEventCallback;
-
-		public Functions(FunctionProviderLocal provider) {
-			clCreateSubBuffer = provider.getFunctionAddress("clCreateSubBuffer");
-			clSetMemObjectDestructorCallback = provider.getFunctionAddress("clSetMemObjectDestructorCallback");
-			clEnqueueReadBufferRect = provider.getFunctionAddress("clEnqueueReadBufferRect");
-			clEnqueueWriteBufferRect = provider.getFunctionAddress("clEnqueueWriteBufferRect");
-			clEnqueueCopyBufferRect = provider.getFunctionAddress("clEnqueueCopyBufferRect");
-			clCreateUserEvent = provider.getFunctionAddress("clCreateUserEvent");
-			clSetUserEventStatus = provider.getFunctionAddress("clSetUserEventStatus");
-			clSetEventCallback = provider.getFunctionAddress("clSetEventCallback");
-		}
-
 	}
 
 }

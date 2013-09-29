@@ -74,11 +74,59 @@ public final class CL10GL {
 		CL_GL_TEXTURE_TARGET = 0x2004,
 		CL_GL_MIPMAP_LEVEL   = 0x2005;
 
-	private CL10GL() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		clCreateFromGLBuffer,
+		clCreateFromGLTexture2D,
+		clCreateFromGLTexture3D,
+		clCreateFromGLRenderbuffer,
+		clGetGLObjectInfo,
+		clGetGLTextureInfo,
+		clEnqueueAcquireGLObjects,
+		clEnqueueReleaseGLObjects;
+
+	@JavadocExclude
+	public CL10GL(FunctionProviderLocal provider) {
+		clCreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
+		clCreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
+		clCreateFromGLTexture3D = provider.getFunctionAddress("clCreateFromGLTexture3D");
+		clCreateFromGLRenderbuffer = provider.getFunctionAddress("clCreateFromGLRenderbuffer");
+		clGetGLObjectInfo = provider.getFunctionAddress("clGetGLObjectInfo");
+		clGetGLTextureInfo = provider.getFunctionAddress("clGetGLTextureInfo");
+		clEnqueueAcquireGLObjects = provider.getFunctionAddress("clEnqueueAcquireGLObjects");
+		clEnqueueReleaseGLObjects = provider.getFunctionAddress("clEnqueueReleaseGLObjects");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CL10GL} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static CL10GL getInstance(CLObject object) {
+		return object.getCapabilities().__CL10GL;
+	}
+
+	static CL10GL create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenCL10GL") ) return null;
+
+		CL10GL funcs = new CL10GL(provider);
+
+		boolean supported = 
+			funcs.clCreateFromGLBuffer != 0L &&
+			funcs.clCreateFromGLTexture2D != 0L &&
+			funcs.clCreateFromGLTexture3D != 0L &&
+			funcs.clCreateFromGLRenderbuffer != 0L &&
+			funcs.clGetGLObjectInfo != 0L &&
+			funcs.clGetGLTextureInfo != 0L &&
+			funcs.clEnqueueAcquireGLObjects != 0L &&
+			funcs.clEnqueueReleaseGLObjects != 0L;
+
+		return CL.checkExtension("OpenCL10GL", funcs, supported);
+	}
 
 	// --- [ clCreateFromGLBuffer ] ---
 
 	/** JNI method for {@link #clCreateFromGLBuffer clCreateFromGLBuffer} */
+	@JavadocExclude
 	public static native long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret, long __functionAddress);
 
 	/**
@@ -129,6 +177,7 @@ public final class CL10GL {
 	// --- [ clCreateFromGLTexture2D ] ---
 
 	/** JNI method for {@link #clCreateFromGLTexture2D clCreateFromGLTexture2D} */
+	@JavadocExclude
 	public static native long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
 	/**
@@ -190,6 +239,7 @@ public final class CL10GL {
 	// --- [ clCreateFromGLTexture3D ] ---
 
 	/** JNI method for {@link #clCreateFromGLTexture3D clCreateFromGLTexture3D} */
+	@JavadocExclude
 	public static native long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
 	/**
@@ -250,6 +300,7 @@ public final class CL10GL {
 	// --- [ clCreateFromGLRenderbuffer ] ---
 
 	/** JNI method for {@link #clCreateFromGLRenderbuffer clCreateFromGLRenderbuffer} */
+	@JavadocExclude
 	public static native long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret, long __functionAddress);
 
 	/**
@@ -302,6 +353,7 @@ public final class CL10GL {
 	// --- [ clGetGLObjectInfo ] ---
 
 	/** JNI method for {@link #clGetGLObjectInfo clGetGLObjectInfo} */
+	@JavadocExclude
 	public static native int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name, long __functionAddress);
 
 	/**
@@ -338,6 +390,7 @@ public final class CL10GL {
 	// --- [ clGetGLTextureInfo ] ---
 
 	/** JNI method for {@link #clGetGLTextureInfo clGetGLTextureInfo} */
+	@JavadocExclude
 	public static native int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -392,6 +445,7 @@ public final class CL10GL {
 	// --- [ clEnqueueAcquireGLObjects ] ---
 
 	/** JNI method for {@link #clEnqueueAcquireGLObjects clEnqueueAcquireGLObjects} */
+	@JavadocExclude
 	public static native int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -470,6 +524,7 @@ public final class CL10GL {
 	// --- [ clEnqueueReleaseGLObjects ] ---
 
 	/** JNI method for {@link #clEnqueueReleaseGLObjects clEnqueueReleaseGLObjects} */
+	@JavadocExclude
 	public static native int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -539,59 +594,6 @@ public final class CL10GL {
 		APIBuffer __buffer = apiBuffer();
 		int mem_objects = __buffer.pointerParam(mem_object);
 		return nclEnqueueReleaseGLObjects(command_queue.getPointer(), 1, __buffer.address() + mem_objects, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__CL10GL;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL10GL") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.clCreateFromGLBuffer != 0L &&
-			funcs.clCreateFromGLTexture2D != 0L &&
-			funcs.clCreateFromGLTexture3D != 0L &&
-			funcs.clCreateFromGLRenderbuffer != 0L &&
-			funcs.clGetGLObjectInfo != 0L &&
-			funcs.clGetGLTextureInfo != 0L &&
-			funcs.clEnqueueAcquireGLObjects != 0L &&
-			funcs.clEnqueueReleaseGLObjects != 0L;
-
-		return CL.checkExtension("OpenCL10GL", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code CL10GL}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			clCreateFromGLBuffer,
-			clCreateFromGLTexture2D,
-			clCreateFromGLTexture3D,
-			clCreateFromGLRenderbuffer,
-			clGetGLObjectInfo,
-			clGetGLTextureInfo,
-			clEnqueueAcquireGLObjects,
-			clEnqueueReleaseGLObjects;
-
-		public Functions(FunctionProviderLocal provider) {
-			clCreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
-			clCreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
-			clCreateFromGLTexture3D = provider.getFunctionAddress("clCreateFromGLTexture3D");
-			clCreateFromGLRenderbuffer = provider.getFunctionAddress("clCreateFromGLRenderbuffer");
-			clGetGLObjectInfo = provider.getFunctionAddress("clGetGLObjectInfo");
-			clGetGLTextureInfo = provider.getFunctionAddress("clGetGLTextureInfo");
-			clEnqueueAcquireGLObjects = provider.getFunctionAddress("clEnqueueAcquireGLObjects");
-			clEnqueueReleaseGLObjects = provider.getFunctionAddress("clEnqueueReleaseGLObjects");
-		}
-
 	}
 
 }

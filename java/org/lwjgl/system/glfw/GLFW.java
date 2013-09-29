@@ -338,6 +338,7 @@ public final class GLFW {
 	// --- [ glfwInit ] ---
 
 	/** JNI method for {@link #glfwInit glfwInit} */
+	@JavadocExclude
 	public static native int nglfwInit();
 
 	/**
@@ -365,6 +366,7 @@ public final class GLFW {
 	// --- [ glfwTerminate ] ---
 
 	/** JNI method for {@link #glfwTerminate glfwTerminate} */
+	@JavadocExclude
 	public static native void nglfwTerminate();
 
 	/**
@@ -389,6 +391,7 @@ public final class GLFW {
 	// --- [ glfwGetVersion ] ---
 
 	/** JNI method for {@link #glfwGetVersion glfwGetVersion} */
+	@JavadocExclude
 	public static native void nglfwGetVersion(long major, long minor, long rev);
 
 	/**
@@ -427,6 +430,7 @@ public final class GLFW {
 	// --- [ glfwGetVersionString ] ---
 
 	/** JNI method for {@link #glfwGetVersionString glfwGetVersionString} */
+	@JavadocExclude
 	public static native long nglfwGetVersionString();
 
 	/**
@@ -453,6 +457,7 @@ public final class GLFW {
 	// --- [ glfwSetErrorCallback ] ---
 
 	/** JNI method for {@link #glfwSetErrorCallback glfwSetErrorCallback} */
+	@JavadocExclude
 	public static native long nglfwSetErrorCallback(long cbfun);
 
 	/**
@@ -481,6 +486,7 @@ public final class GLFW {
 	// --- [ glfwGetMonitors ] ---
 
 	/** JNI method for {@link #glfwGetMonitors glfwGetMonitors} */
+	@JavadocExclude
 	public static native long nglfwGetMonitors(long count);
 
 	/**
@@ -498,11 +504,13 @@ public final class GLFW {
 	// --- [ glfwGetPrimaryMonitor ] ---
 
 	/** Returns the primary monitor. This is usually the monitor where elements like the Windows task bar or the OS X menu bar is located. */
+	@JavadocExclude
 	public static native long glfwGetPrimaryMonitor();
 
 	// --- [ glfwGetMonitorPos ] ---
 
 	/** JNI method for {@link #glfwGetMonitorPos glfwGetMonitorPos} */
+	@JavadocExclude
 	public static native void nglfwGetMonitorPos(long monitor, long xpos, long ypos);
 
 	/**
@@ -534,6 +542,7 @@ public final class GLFW {
 	// --- [ glfwGetMonitorPhysicalSize ] ---
 
 	/** JNI method for {@link #glfwGetMonitorPhysicalSize glfwGetMonitorPhysicalSize} */
+	@JavadocExclude
 	public static native void nglfwGetMonitorPhysicalSize(long monitor, long width, long height);
 
 	/**
@@ -568,6 +577,7 @@ public final class GLFW {
 	// --- [ glfwGetMonitorName ] ---
 
 	/** JNI method for {@link #glfwGetMonitorName glfwGetMonitorName} */
+	@JavadocExclude
 	public static native long nglfwGetMonitorName(long monitor);
 
 	/**
@@ -585,6 +595,7 @@ public final class GLFW {
 	// --- [ glfwSetMonitorCallback ] ---
 
 	/** JNI method for {@link #glfwSetMonitorCallback glfwSetMonitorCallback} */
+	@JavadocExclude
 	public static native long nglfwSetMonitorCallback(long cbfun);
 
 	/**
@@ -607,6 +618,7 @@ public final class GLFW {
 	// --- [ glfwGetVideoModes ] ---
 
 	/** JNI method for {@link #glfwGetVideoModes glfwGetVideoModes} */
+	@JavadocExclude
 	public static native long nglfwGetVideoModes(long monitor, long count);
 
 	/**
@@ -636,6 +648,7 @@ public final class GLFW {
 	// --- [ glfwGetVideoMode ] ---
 
 	/** JNI method for {@link #glfwGetVideoMode glfwGetVideoMode} */
+	@JavadocExclude
 	public static native long nglfwGetVideoMode(long monitor);
 
 	/**
@@ -654,6 +667,7 @@ public final class GLFW {
 	// --- [ glfwSetGamma ] ---
 
 	/** JNI method for {@link #glfwSetGamma glfwSetGamma} */
+	@JavadocExclude
 	public static native void nglfwSetGamma(long monitor, float gamma);
 
 	/**
@@ -671,6 +685,7 @@ public final class GLFW {
 	// --- [ glfwGetGammaRamp ] ---
 
 	/** JNI method for {@link #glfwGetGammaRamp glfwGetGammaRamp} */
+	@JavadocExclude
 	public static native long nglfwGetGammaRamp(long monitor);
 
 	/**
@@ -688,6 +703,7 @@ public final class GLFW {
 	// --- [ glfwSetGammaRamp ] ---
 
 	/** JNI method for {@link #glfwSetGammaRamp glfwSetGammaRamp} */
+	@JavadocExclude
 	public static native void nglfwSetGammaRamp(long monitor, long ramp);
 
 	/**
@@ -713,6 +729,7 @@ public final class GLFW {
 	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 */
+	@JavadocExclude
 	public static native void glfwDefaultWindowHints();
 
 	// --- [ glfwWindowHint ] ---
@@ -739,11 +756,13 @@ public final class GLFW {
 	 * @param target The window hint to set
 	 * @param hint   new value of the window hint
 	 */
+	@JavadocExclude
 	public static native void glfwWindowHint(int target, int hint);
 
 	// --- [ glfwCreateWindow ] ---
 
 	/** JNI method for {@link #glfwCreateWindow glfwCreateWindow} */
+	@JavadocExclude
 	public static native long nglfwCreateWindow(int width, int height, long title, long monitor, long share);
 
 	/**
@@ -789,6 +808,7 @@ public final class GLFW {
 	// --- [ glfwDestroyWindow ] ---
 
 	/** JNI method for {@link #glfwDestroyWindow glfwDestroyWindow} */
+	@JavadocExclude
 	public static native void nglfwDestroyWindow(long window);
 
 	/**
@@ -812,6 +832,7 @@ public final class GLFW {
 	// --- [ glfwWindowShouldClose ] ---
 
 	/** JNI method for {@link #glfwWindowShouldClose glfwWindowShouldClose} */
+	@JavadocExclude
 	public static native int nglfwWindowShouldClose(long window);
 
 	/**
@@ -830,6 +851,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowShouldClose ] ---
 
 	/** JNI method for {@link #glfwSetWindowShouldClose glfwSetWindowShouldClose} */
+	@JavadocExclude
 	public static native void nglfwSetWindowShouldClose(long window, int value);
 
 	/**
@@ -850,6 +872,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowTitle ] ---
 
 	/** JNI method for {@link #glfwSetWindowTitle glfwSetWindowTitle} */
+	@JavadocExclude
 	public static native void nglfwSetWindowTitle(long window, long title);
 
 	/**
@@ -876,6 +899,7 @@ public final class GLFW {
 	// --- [ glfwGetWindowPos ] ---
 
 	/** JNI method for {@link #glfwGetWindowPos glfwGetWindowPos} */
+	@JavadocExclude
 	public static native void nglfwGetWindowPos(long window, long xpos, long ypos);
 
 	/**
@@ -907,6 +931,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowPos ] ---
 
 	/** JNI method for {@link #glfwSetWindowPos glfwSetWindowPos} */
+	@JavadocExclude
 	public static native void nglfwSetWindowPos(long window, int xpos, int ypos);
 
 	/**
@@ -939,6 +964,7 @@ public final class GLFW {
 	// --- [ glfwGetWindowSize ] ---
 
 	/** JNI method for {@link #glfwGetWindowSize glfwGetWindowSize} */
+	@JavadocExclude
 	public static native void nglfwGetWindowSize(long window, long width, long height);
 
 	/**
@@ -970,6 +996,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowSize ] ---
 
 	/** JNI method for {@link #glfwSetWindowSize glfwSetWindowSize} */
+	@JavadocExclude
 	public static native void nglfwSetWindowSize(long window, int width, int height);
 
 	/**
@@ -995,6 +1022,7 @@ public final class GLFW {
 	// --- [ glfwGetFramebufferSize ] ---
 
 	/** JNI method for {@link #glfwGetFramebufferSize glfwGetFramebufferSize} */
+	@JavadocExclude
 	public static native void nglfwGetFramebufferSize(long window, long width, long height);
 
 	/**
@@ -1026,6 +1054,7 @@ public final class GLFW {
 	// --- [ glfwIconifyWindow ] ---
 
 	/** JNI method for {@link #glfwIconifyWindow glfwIconifyWindow} */
+	@JavadocExclude
 	public static native void nglfwIconifyWindow(long window);
 
 	/**
@@ -1045,6 +1074,7 @@ public final class GLFW {
 	// --- [ glfwRestoreWindow ] ---
 
 	/** JNI method for {@link #glfwRestoreWindow glfwRestoreWindow} */
+	@JavadocExclude
 	public static native void nglfwRestoreWindow(long window);
 
 	/**
@@ -1063,6 +1093,7 @@ public final class GLFW {
 	// --- [ glfwShowWindow ] ---
 
 	/** JNI method for {@link #glfwShowWindow glfwShowWindow} */
+	@JavadocExclude
 	public static native void nglfwShowWindow(long window);
 
 	/**
@@ -1081,6 +1112,7 @@ public final class GLFW {
 	// --- [ glfwHideWindow ] ---
 
 	/** JNI method for {@link #glfwHideWindow glfwHideWindow} */
+	@JavadocExclude
 	public static native void nglfwHideWindow(long window);
 
 	/**
@@ -1099,6 +1131,7 @@ public final class GLFW {
 	// --- [ glfwGetWindowMonitor ] ---
 
 	/** JNI method for {@link #glfwGetWindowMonitor glfwGetWindowMonitor} */
+	@JavadocExclude
 	public static native long nglfwGetWindowMonitor(long window);
 
 	/**
@@ -1115,6 +1148,7 @@ public final class GLFW {
 	// --- [ glfwGetWindowAttrib ] ---
 
 	/** JNI method for {@link #glfwGetWindowAttrib glfwGetWindowAttrib} */
+	@JavadocExclude
 	public static native int nglfwGetWindowAttrib(long window, int attrib);
 
 	/**
@@ -1139,6 +1173,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowUserPointer ] ---
 
 	/** JNI method for {@link #glfwSetWindowUserPointer glfwSetWindowUserPointer} */
+	@JavadocExclude
 	public static native void nglfwSetWindowUserPointer(long window, long pointer);
 
 	/**
@@ -1156,6 +1191,7 @@ public final class GLFW {
 	// --- [ glfwGetWindowUserPointer ] ---
 
 	/** JNI method for {@link #glfwGetWindowUserPointer glfwGetWindowUserPointer} */
+	@JavadocExclude
 	public static native long nglfwGetWindowUserPointer(long window);
 
 	/**
@@ -1172,6 +1208,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowPosCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowPosCallback glfwSetWindowPosCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowPosCallback(long window, long cbfun);
 
 	/**
@@ -1189,6 +1226,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowSizeCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowSizeCallback glfwSetWindowSizeCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowSizeCallback(long window, long cbfun);
 
 	/**
@@ -1206,6 +1244,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowCloseCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowCloseCallback glfwSetWindowCloseCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowCloseCallback(long window, long cbfun);
 
 	/**
@@ -1230,6 +1269,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowRefreshCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowRefreshCallback glfwSetWindowRefreshCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowRefreshCallback(long window, long cbfun);
 
 	/**
@@ -1253,6 +1293,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowFocusCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowFocusCallback glfwSetWindowFocusCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
@@ -1272,6 +1313,7 @@ public final class GLFW {
 	// --- [ glfwSetWindowIconifyCallback ] ---
 
 	/** JNI method for {@link #glfwSetWindowIconifyCallback glfwSetWindowIconifyCallback} */
+	@JavadocExclude
 	public static native long nglfwSetWindowIconifyCallback(long window, long cbfun);
 
 	/**
@@ -1291,6 +1333,7 @@ public final class GLFW {
 	// --- [ glfwSetFramebufferSizeCallback ] ---
 
 	/** JNI method for {@link #glfwSetFramebufferSizeCallback glfwSetFramebufferSizeCallback} */
+	@JavadocExclude
 	public static native long nglfwSetFramebufferSizeCallback(long window, long cbfun);
 
 	/**
@@ -1310,6 +1353,7 @@ public final class GLFW {
 	// --- [ glfwPollEvents ] ---
 
 	/** JNI method for {@link #glfwPollEvents glfwPollEvents} */
+	@JavadocExclude
 	public static native void nglfwPollEvents();
 
 	/**
@@ -1332,6 +1376,7 @@ public final class GLFW {
 	// --- [ glfwWaitEvents ] ---
 
 	/** JNI method for {@link #glfwWaitEvents glfwWaitEvents} */
+	@JavadocExclude
 	public static native void nglfwWaitEvents();
 
 	/**
@@ -1358,6 +1403,7 @@ public final class GLFW {
 	// --- [ glfwGetInputMode ] ---
 
 	/** JNI method for {@link #glfwGetInputMode glfwGetInputMode} */
+	@JavadocExclude
 	public static native int nglfwGetInputMode(long window, int mode);
 
 	/**
@@ -1375,6 +1421,7 @@ public final class GLFW {
 	// --- [ glfwSetInputMode ] ---
 
 	/** JNI method for {@link #glfwSetInputMode glfwSetInputMode} */
+	@JavadocExclude
 	public static native void nglfwSetInputMode(long window, int mode, int value);
 
 	/**
@@ -1409,6 +1456,7 @@ public final class GLFW {
 	// --- [ glfwGetKey ] ---
 
 	/** JNI method for {@link #glfwGetKey glfwGetKey} */
+	@JavadocExclude
 	public static native int nglfwGetKey(long window, int key);
 
 	/**
@@ -1435,6 +1483,7 @@ public final class GLFW {
 	// --- [ glfwGetMouseButton ] ---
 
 	/** JNI method for {@link #glfwGetMouseButton glfwGetMouseButton} */
+	@JavadocExclude
 	public static native int nglfwGetMouseButton(long window, int button);
 
 	/**
@@ -1456,6 +1505,7 @@ public final class GLFW {
 	// --- [ glfwGetCursorPos ] ---
 
 	/** JNI method for {@link #glfwGetCursorPos glfwGetCursorPos} */
+	@JavadocExclude
 	public static native void nglfwGetCursorPos(long window, long xpos, long ypos);
 
 	/**
@@ -1493,6 +1543,7 @@ public final class GLFW {
 	// --- [ glfwSetCursorPos ] ---
 
 	/** JNI method for {@link #glfwSetCursorPos glfwSetCursorPos} */
+	@JavadocExclude
 	public static native void nglfwSetCursorPos(long window, double xpos, double ypos);
 
 	/**
@@ -1515,6 +1566,7 @@ public final class GLFW {
 	// --- [ glfwSetKeyCallback ] ---
 
 	/** JNI method for {@link #glfwSetKeyCallback glfwSetKeyCallback} */
+	@JavadocExclude
 	public static native long nglfwSetKeyCallback(long window, long cbfun);
 
 	/**
@@ -1545,6 +1597,7 @@ public final class GLFW {
 	// --- [ glfwSetCharCallback ] ---
 
 	/** JNI method for {@link #glfwSetCharCallback glfwSetCharCallback} */
+	@JavadocExclude
 	public static native long nglfwSetCharCallback(long window, long cbfun);
 
 	/**
@@ -1564,6 +1617,7 @@ public final class GLFW {
 	// --- [ glfwSetMouseButtonCallback ] ---
 
 	/** JNI method for {@link #glfwSetMouseButtonCallback glfwSetMouseButtonCallback} */
+	@JavadocExclude
 	public static native long nglfwSetMouseButtonCallback(long window, long cbfun);
 
 	/**
@@ -1581,6 +1635,7 @@ public final class GLFW {
 	// --- [ glfwSetCursorPosCallback ] ---
 
 	/** JNI method for {@link #glfwSetCursorPosCallback glfwSetCursorPosCallback} */
+	@JavadocExclude
 	public static native long nglfwSetCursorPosCallback(long window, long cbfun);
 
 	/**
@@ -1600,6 +1655,7 @@ public final class GLFW {
 	// --- [ glfwSetCursorEnterCallback ] ---
 
 	/** JNI method for {@link #glfwSetCursorEnterCallback glfwSetCursorEnterCallback} */
+	@JavadocExclude
 	public static native long nglfwSetCursorEnterCallback(long window, long cbfun);
 
 	/**
@@ -1617,6 +1673,7 @@ public final class GLFW {
 	// --- [ glfwSetScrollCallback ] ---
 
 	/** JNI method for {@link #glfwSetScrollCallback glfwSetScrollCallback} */
+	@JavadocExclude
 	public static native long nglfwSetScrollCallback(long window, long cbfun);
 
 	/**
@@ -1640,11 +1697,13 @@ public final class GLFW {
 	 *
 	 * @param joy joystick to query
 	 */
+	@JavadocExclude
 	public static native int glfwJoystickPresent(int joy);
 
 	// --- [ glfwGetJoystickAxes ] ---
 
 	/** JNI method for {@link #glfwGetJoystickAxes glfwGetJoystickAxes} */
+	@JavadocExclude
 	public static native long nglfwGetJoystickAxes(int joy, long count);
 
 	/**
@@ -1664,6 +1723,7 @@ public final class GLFW {
 	// --- [ glfwGetJoystickButtons ] ---
 
 	/** JNI method for {@link #glfwGetJoystickButtons glfwGetJoystickButtons} */
+	@JavadocExclude
 	public static native long nglfwGetJoystickButtons(int joy, long count);
 
 	/**
@@ -1683,6 +1743,7 @@ public final class GLFW {
 	// --- [ glfwGetJoystickName ] ---
 
 	/** JNI method for {@link #glfwGetJoystickName glfwGetJoystickName} */
+	@JavadocExclude
 	public static native long nglfwGetJoystickName(int joy);
 
 	/**
@@ -1698,6 +1759,7 @@ public final class GLFW {
 	// --- [ glfwSetClipboardString ] ---
 
 	/** JNI method for {@link #glfwSetClipboardString glfwSetClipboardString} */
+	@JavadocExclude
 	public static native void nglfwSetClipboardString(long window, long string);
 
 	/**
@@ -1724,6 +1786,7 @@ public final class GLFW {
 	// --- [ glfwGetClipboardString ] ---
 
 	/** JNI method for {@link #glfwGetClipboardString glfwGetClipboardString} */
+	@JavadocExclude
 	public static native long nglfwGetClipboardString(long window);
 
 	/**
@@ -1741,6 +1804,7 @@ public final class GLFW {
 	// --- [ glfwGetTime ] ---
 
 	/** Returns the value of the GLFW timer. Unless the timer has been set using glfwSetTime, the timer measures time elapsed since GLFW was initialized. */
+	@JavadocExclude
 	public static native double glfwGetTime();
 
 	// --- [ glfwSetTime ] ---
@@ -1750,11 +1814,13 @@ public final class GLFW {
 	 *
 	 * @param time new value, in seconds
 	 */
+	@JavadocExclude
 	public static native void glfwSetTime(double time);
 
 	// --- [ glfwMakeContextCurrent ] ---
 
 	/** JNI method for {@link #glfwMakeContextCurrent glfwMakeContextCurrent} */
+	@JavadocExclude
 	public static native void nglfwMakeContextCurrent(long window);
 
 	/**
@@ -1772,11 +1838,13 @@ public final class GLFW {
 	// --- [ glfwGetCurrentContext ] ---
 
 	/** Returns the window whose context is current on the calling thread. */
+	@JavadocExclude
 	public static native long glfwGetCurrentContext();
 
 	// --- [ glfwSwapBuffers ] ---
 
 	/** JNI method for {@link #glfwSwapBuffers glfwSwapBuffers} */
+	@JavadocExclude
 	public static native void nglfwSwapBuffers(long window);
 
 	/**
@@ -1807,11 +1875,13 @@ public final class GLFW {
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers glfwSwapBuffers}
 	 */
+	@JavadocExclude
 	public static native void glfwSwapInterval(int interval);
 
 	// --- [ glfwExtensionSupported ] ---
 
 	/** JNI method for {@link #glfwExtensionSupported glfwExtensionSupported} */
+	@JavadocExclude
 	public static native int nglfwExtensionSupported(long extension);
 
 	/**

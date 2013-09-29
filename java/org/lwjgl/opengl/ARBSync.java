@@ -56,7 +56,51 @@ public final class ARBSync {
 		GL_CONDITION_SATISFIED = 0x911C,
 		GL_WAIT_FAILED         = 0x911D;
 
-	private ARBSync() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glFenceSync,
+		glIsSync,
+		glDeleteSync,
+		glClientWaitSync,
+		glWaitSync,
+		glGetInteger64v,
+		glGetSynciv;
+
+	@JavadocExclude
+	public ARBSync(FunctionProvider provider) {
+		glFenceSync = provider.getFunctionAddress("glFenceSync");
+		glIsSync = provider.getFunctionAddress("glIsSync");
+		glDeleteSync = provider.getFunctionAddress("glDeleteSync");
+		glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
+		glWaitSync = provider.getFunctionAddress("glWaitSync");
+		glGetInteger64v = provider.getFunctionAddress("glGetInteger64v");
+		glGetSynciv = provider.getFunctionAddress("glGetSynciv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ARBSync} instance for the current context. */
+	public static ARBSync getInstance() {
+		return GL.getCapabilities().__ARBSync;
+	}
+
+	static ARBSync create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GL_ARB_sync") ) return null;
+
+		ARBSync funcs = new ARBSync(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glFenceSync) &&
+			GL.isFunctionSupported(funcs.glIsSync) &&
+			GL.isFunctionSupported(funcs.glDeleteSync) &&
+			GL.isFunctionSupported(funcs.glClientWaitSync) &&
+			GL.isFunctionSupported(funcs.glWaitSync) &&
+			GL.isFunctionSupported(funcs.glGetInteger64v) &&
+			GL.isFunctionSupported(funcs.glGetSynciv);
+
+		return GL.checkExtension("GL_ARB_sync", funcs, supported);
+	}
 
 	// --- [ glFenceSync ] ---
 
@@ -236,56 +280,6 @@ public final class ARBSync {
 		int values = __buffer.intParam();
 		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values, __functionAddress);
 		return __buffer.intValue(values);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__ARBSync;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_sync") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glFenceSync) &&
-			GL.isFunctionSupported(funcs.glIsSync) &&
-			GL.isFunctionSupported(funcs.glDeleteSync) &&
-			GL.isFunctionSupported(funcs.glClientWaitSync) &&
-			GL.isFunctionSupported(funcs.glWaitSync) &&
-			GL.isFunctionSupported(funcs.glGetInteger64v) &&
-			GL.isFunctionSupported(funcs.glGetSynciv);
-
-		return GL.checkExtension("GL_ARB_sync", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ARBSync}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glFenceSync,
-			glIsSync,
-			glDeleteSync,
-			glClientWaitSync,
-			glWaitSync,
-			glGetInteger64v,
-			glGetSynciv;
-
-		public Functions(FunctionProvider provider) {
-			glFenceSync = provider.getFunctionAddress("glFenceSync");
-			glIsSync = provider.getFunctionAddress("glIsSync");
-			glDeleteSync = provider.getFunctionAddress("glDeleteSync");
-			glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
-			glWaitSync = provider.getFunctionAddress("glWaitSync");
-			glGetInteger64v = provider.getFunctionAddress("glGetInteger64v");
-			glGetSynciv = provider.getFunctionAddress("glGetSynciv");
-		}
-
 	}
 
 }

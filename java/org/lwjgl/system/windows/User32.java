@@ -18,11 +18,19 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class User32 {
 
-	private User32() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long SetProcessDPIAware;
+
+	@JavadocExclude
+	public User32(FunctionProvider provider) {
+		SetProcessDPIAware = provider.getFunctionAddress("SetProcessDPIAware");
+	}
 
 	// --- [ SetProcessDPIAware ] ---
 
 	/** JNI method for {@link #SetProcessDPIAware SetProcessDPIAware} */
+	@JavadocExclude
 	public static native int nSetProcessDPIAware(long __functionAddress);
 
 	/**
@@ -34,18 +42,6 @@ public final class User32 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nSetProcessDPIAware(__functionAddress);
-	}
-
-	/** The {@link FunctionMap} class for {@code User32}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long SetProcessDPIAware;
-
-		public Functions(FunctionProvider provider) {
-			SetProcessDPIAware = provider.getFunctionAddress("SetProcessDPIAware");
-		}
-
 	}
 
 }

@@ -22,16 +22,16 @@ import java.util.Set;
  */
 public class CLCapabilities {
 
-	final CL10.Functions                    __CL10;
-	final CL10GL.Functions                  __CL10GL;
-	final CL11.Functions                    __CL11;
-	final CL12.Functions                    __CL12;
-	final CL12GL.Functions                  __CL12GL;
-	final AMDBusAddressableMemory.Functions __AMDBusAddressableMemory;
-	final APPLEGLSharing.Functions          __APPLEGLSharing;
-	final KHRGLEvent.Functions              __KHRGLEvent;
-	final KHRGLSharing.Functions            __KHRGLSharing;
-	final KHRTerminateContext.Functions     __KHRTerminateContext;
+	final CL10                    __CL10;
+	final CL10GL                  __CL10GL;
+	final CL11                    __CL11;
+	final CL12                    __CL12;
+	final CL12GL                  __CL12GL;
+	final AMDBusAddressableMemory __AMDBusAddressableMemory;
+	final APPLEGLSharing          __APPLEGLSharing;
+	final KHRGLEvent              __KHRGLEvent;
+	final KHRGLSharing            __KHRGLSharing;
+	final KHRTerminateContext     __KHRTerminateContext;
 
 	/** The OpenCL major version. */
 	public final int majorVersion;

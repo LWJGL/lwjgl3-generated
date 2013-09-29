@@ -146,11 +146,13 @@ public final class WinGDI {
 	 *
 	 * @param object the type of stock object
 	 */
+	@JavadocExclude
 	public static native long GetStockObject(int object);
 
 	// --- [ EnumObjects ] ---
 
 	/** JNI method for {@link #EnumObjects EnumObjects} */
+	@JavadocExclude
 	public static native int nEnumObjects(long hdc, int objectType, long objectFunc, long param);
 
 	/**
@@ -184,6 +186,7 @@ public final class WinGDI {
 	// --- [ SelectObject ] ---
 
 	/** JNI method for {@link #SelectObject SelectObject} */
+	@JavadocExclude
 	public static native long nSelectObject(long hdc, long object);
 
 	/**
@@ -203,6 +206,7 @@ public final class WinGDI {
 	// --- [ GetCurrentObject ] ---
 
 	/** JNI method for {@link #GetCurrentObject GetCurrentObject} */
+	@JavadocExclude
 	public static native long nGetCurrentObject(long hdc, int objectType);
 
 	/**
@@ -220,6 +224,7 @@ public final class WinGDI {
 	// --- [ GetObjectType ] ---
 
 	/** JNI method for {@link #GetObjectType GetObjectType} */
+	@JavadocExclude
 	public static native int nGetObjectType(long object);
 
 	/**
@@ -236,6 +241,7 @@ public final class WinGDI {
 	// --- [ DeleteObject ] ---
 
 	/** JNI method for {@link #DeleteObject DeleteObject} */
+	@JavadocExclude
 	public static native int nDeleteObject(long object);
 
 	/**
@@ -253,6 +259,7 @@ public final class WinGDI {
 	// --- [ CreateDC ] ---
 
 	/** JNI method for {@link #CreateDC CreateDC} */
+	@JavadocExclude
 	public static native long nCreateDC(long lpszDriver, long lpszDevice, long lpszOutput, long lpInitData);
 
 	/**
@@ -295,6 +302,7 @@ public final class WinGDI {
 	// --- [ CreateCompatibleDC ] ---
 
 	/** JNI method for {@link #CreateCompatibleDC CreateCompatibleDC} */
+	@JavadocExclude
 	public static native long nCreateCompatibleDC(long hdc);
 
 	/**
@@ -309,6 +317,7 @@ public final class WinGDI {
 	// --- [ DeleteDC ] ---
 
 	/** JNI method for {@link #DeleteDC DeleteDC} */
+	@JavadocExclude
 	public static native int nDeleteDC(long hdc);
 
 	/**
@@ -325,6 +334,7 @@ public final class WinGDI {
 	// --- [ CancelDC ] ---
 
 	/** JNI method for {@link #CancelDC CancelDC} */
+	@JavadocExclude
 	public static native int nCancelDC(long hdc);
 
 	/**
@@ -341,6 +351,7 @@ public final class WinGDI {
 	// --- [ SaveDC ] ---
 
 	/** JNI method for {@link #SaveDC SaveDC} */
+	@JavadocExclude
 	public static native int nSaveDC(long hdc);
 
 	/**
@@ -358,6 +369,7 @@ public final class WinGDI {
 	// --- [ RestoreDC ] ---
 
 	/** JNI method for {@link #RestoreDC RestoreDC} */
+	@JavadocExclude
 	public static native int nRestoreDC(long hdc, int savedDC);
 
 	/**
@@ -377,6 +389,7 @@ public final class WinGDI {
 	// --- [ GetDCOrgEx ] ---
 
 	/** JNI method for {@link #GetDCOrgEx GetDCOrgEx} */
+	@JavadocExclude
 	public static native int nGetDCOrgEx(long hdc, long point);
 
 	/**
@@ -397,6 +410,7 @@ public final class WinGDI {
 	// --- [ GetDeviceCaps ] ---
 
 	/** JNI method for {@link #GetDeviceCaps GetDeviceCaps} */
+	@JavadocExclude
 	public static native int nGetDeviceCaps(long hdc, int index);
 
 	/**
@@ -414,6 +428,7 @@ public final class WinGDI {
 	// --- [ GetDeviceGammaRamp ] ---
 
 	/** JNI method for {@link #GetDeviceGammaRamp GetDeviceGammaRamp} */
+	@JavadocExclude
 	public static native int nGetDeviceGammaRamp(long hdc, long lpRamp);
 
 	/**
@@ -435,6 +450,7 @@ public final class WinGDI {
 	// --- [ SetDeviceGammaRamp ] ---
 
 	/** JNI method for {@link #SetDeviceGammaRamp SetDeviceGammaRamp} */
+	@JavadocExclude
 	public static native int nSetDeviceGammaRamp(long hdc, long lpRamp);
 
 	/**
@@ -456,6 +472,7 @@ public final class WinGDI {
 	// --- [ ChoosePixelFormat ] ---
 
 	/** JNI method for {@link #ChoosePixelFormat ChoosePixelFormat} */
+	@JavadocExclude
 	public static native int nChoosePixelFormat(long hdc, long pixelFormatDescriptor);
 
 	/**
@@ -475,6 +492,7 @@ public final class WinGDI {
 	// --- [ DescribePixelFormat ] ---
 
 	/** JNI method for {@link #DescribePixelFormat DescribePixelFormat} */
+	@JavadocExclude
 	public static native int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
 
 	/**
@@ -510,6 +528,7 @@ public final class WinGDI {
 	// --- [ GetPixelFormat ] ---
 
 	/** JNI method for {@link #GetPixelFormat GetPixelFormat} */
+	@JavadocExclude
 	public static native int nGetPixelFormat(long hdc);
 
 	/**
@@ -526,6 +545,7 @@ public final class WinGDI {
 	// --- [ SetPixelFormat ] ---
 
 	/** JNI method for {@link #SetPixelFormat SetPixelFormat} */
+	@JavadocExclude
 	public static native int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor);
 
 	/**
@@ -547,6 +567,7 @@ public final class WinGDI {
 	// --- [ SwapBuffers ] ---
 
 	/** JNI method for {@link #SwapBuffers SwapBuffers} */
+	@JavadocExclude
 	public static native int nSwapBuffers(long dc);
 
 	/**

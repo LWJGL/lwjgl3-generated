@@ -85,11 +85,44 @@ public final class WGLARBPixelFormat {
 		WGL_TYPE_RGBA_ARB            = 0x202B,
 		WGL_TYPE_COLORINDEX_ARB      = 0x202C;
 
-	private WGLARBPixelFormat() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglGetPixelFormatAttribivARB,
+		wglGetPixelFormatAttribfvARB,
+		wglChoosePixelFormatARB;
+
+	@JavadocExclude
+	public WGLARBPixelFormat(FunctionProvider provider) {
+		wglGetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
+		wglGetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
+		wglChoosePixelFormatARB = provider.getFunctionAddress("wglChoosePixelFormatARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBPixelFormat} instance for the current context. */
+	public static WGLARBPixelFormat getInstance() {
+		return GL.getCapabilities().__WGLARBPixelFormat;
+	}
+
+	static WGLARBPixelFormat create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_pixel_format") ) return null;
+
+		WGLARBPixelFormat funcs = new WGLARBPixelFormat(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglGetPixelFormatAttribivARB) &&
+			GL.isFunctionSupported(funcs.wglGetPixelFormatAttribfvARB) &&
+			GL.isFunctionSupported(funcs.wglChoosePixelFormatARB);
+
+		return GL.checkExtension("WGL_ARB_pixel_format", funcs, supported);
+	}
 
 	// --- [ wglGetPixelFormatAttribivARB ] ---
 
 	/** JNI method for {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
+	@JavadocExclude
 	public static native int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
 
 	/**
@@ -140,6 +173,7 @@ public final class WGLARBPixelFormat {
 	// --- [ wglGetPixelFormatAttribfvARB ] ---
 
 	/** JNI method for {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
+	@JavadocExclude
 	public static native int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
 
 	/**
@@ -190,6 +224,7 @@ public final class WGLARBPixelFormat {
 	// --- [ wglChoosePixelFormatARB ] ---
 
 	/** JNI method for {@link #wglChoosePixelFormatARB wglChoosePixelFormatARB} */
+	@JavadocExclude
 	public static native int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats, long __functionAddress);
 
 	/**
@@ -229,44 +264,6 @@ public final class WGLARBPixelFormat {
 			checkBuffer(numFormats, 1);
 		}
 		return nwglChoosePixelFormatARB(hdc, memAddressSafe(attribIList), memAddressSafe(attribFList), formats.remaining(), memAddress(formats), memAddress(numFormats), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBPixelFormat;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_pixel_format") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglGetPixelFormatAttribivARB) &&
-			GL.isFunctionSupported(funcs.wglGetPixelFormatAttribfvARB) &&
-			GL.isFunctionSupported(funcs.wglChoosePixelFormatARB);
-
-		return GL.checkExtension("WGL_ARB_pixel_format", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBPixelFormat}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglGetPixelFormatAttribivARB,
-			wglGetPixelFormatAttribfvARB,
-			wglChoosePixelFormatARB;
-
-		public Functions(FunctionProvider provider) {
-			wglGetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
-			wglGetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
-			wglChoosePixelFormatARB = provider.getFunctionAddress("wglChoosePixelFormatARB");
-		}
-
 	}
 
 }

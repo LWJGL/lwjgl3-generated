@@ -53,6 +53,7 @@ public final class Xutil {
 	// --- [ XLookupString ] ---
 
 	/** JNI method for {@link #XLookupString XLookupString} */
+	@JavadocExclude
 	public static native int nXLookupString(long event_struct, long buffer_return, int bytes_buffer, long keysym_return, long status_in_out);
 
 	/**
@@ -96,6 +97,7 @@ public final class Xutil {
 	// --- [ XAllocWMHints ] ---
 
 	/** JNI method for {@link #XAllocWMHints XAllocWMHints} */
+	@JavadocExclude
 	public static native long nXAllocWMHints();
 
 	/**
@@ -110,6 +112,7 @@ public final class Xutil {
 	// --- [ XAllocSizeHints ] ---
 
 	/** JNI method for {@link #XAllocSizeHints XAllocSizeHints} */
+	@JavadocExclude
 	public static native long nXAllocSizeHints();
 
 	/**
@@ -124,11 +127,13 @@ public final class Xutil {
 	// --- [ XUniqueContext ] ---
 
 	/** Creates a unique context. */
+	@JavadocExclude
 	public static native int XUniqueContext();
 
 	// --- [ XSaveContext ] ---
 
 	/** JNI method for {@link #XSaveContext XSaveContext} */
+	@JavadocExclude
 	public static native int nXSaveContext(long display, long rid, int context, long data);
 
 	/**
@@ -148,6 +153,7 @@ public final class Xutil {
 	// --- [ XFindContext ] ---
 
 	/** JNI method for {@link #XFindContext XFindContext} */
+	@JavadocExclude
 	public static native int nXFindContext(long display, long rid, int context, long data_return);
 
 	/**
@@ -174,6 +180,7 @@ public final class Xutil {
 	// --- [ XDeleteContext ] ---
 
 	/** JNI method for {@link #XDeleteContext XDeleteContext} */
+	@JavadocExclude
 	public static native int nXDeleteContext(long display, long rid, int context);
 
 	/**

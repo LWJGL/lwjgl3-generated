@@ -198,11 +198,68 @@ public final class GL42 {
 	public static final int
 		GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
-	private GL42() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glTexStorage1D,
+		glTexStorage2D,
+		glTexStorage3D,
+		glDrawTransformFeedbackInstanced,
+		glDrawTransformFeedbackStreamInstanced,
+		glDrawArraysInstancedBaseInstance,
+		glDrawElementsInstancedBaseInstance,
+		glDrawElementsInstancedBaseVertexBaseInstance,
+		glBindImageTexture,
+		glMemoryBarrier,
+		glGetInternalformativ;
+
+	@JavadocExclude
+	public GL42(FunctionProvider provider) {
+		glTexStorage1D = provider.getFunctionAddress("glTexStorage1D");
+		glTexStorage2D = provider.getFunctionAddress("glTexStorage2D");
+		glTexStorage3D = provider.getFunctionAddress("glTexStorage3D");
+		glDrawTransformFeedbackInstanced = provider.getFunctionAddress("glDrawTransformFeedbackInstanced");
+		glDrawTransformFeedbackStreamInstanced = provider.getFunctionAddress("glDrawTransformFeedbackStreamInstanced");
+		glDrawArraysInstancedBaseInstance = provider.getFunctionAddress("glDrawArraysInstancedBaseInstance");
+		glDrawElementsInstancedBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseInstance");
+		glDrawElementsInstancedBaseVertexBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstance");
+		glBindImageTexture = provider.getFunctionAddress("glBindImageTexture");
+		glMemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
+		glGetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL42} instance for the current context. */
+	public static GL42 getInstance() {
+		return GL.getCapabilities().__GL42;
+	}
+
+	static GL42 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL42") ) return null;
+
+		GL42 funcs = new GL42(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glTexStorage1D) &&
+			GL.isFunctionSupported(funcs.glTexStorage2D) &&
+			GL.isFunctionSupported(funcs.glTexStorage3D) &&
+			GL.isFunctionSupported(funcs.glDrawTransformFeedbackInstanced) &&
+			GL.isFunctionSupported(funcs.glDrawTransformFeedbackStreamInstanced) &&
+			GL.isFunctionSupported(funcs.glDrawArraysInstancedBaseInstance) &&
+			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseInstance) &&
+			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseVertexBaseInstance) &&
+			GL.isFunctionSupported(funcs.glBindImageTexture) &&
+			GL.isFunctionSupported(funcs.glMemoryBarrier) &&
+			GL.isFunctionSupported(funcs.glGetInternalformativ);
+
+		return GL.checkExtension("OpenGL42", funcs, supported);
+	}
 
 	// --- [ glTexStorage1D ] ---
 
 	/** JNI method for {@link #glTexStorage1D glTexStorage1D} */
+	@JavadocExclude
 	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width, long __functionAddress);
 
 	/**
@@ -225,6 +282,7 @@ public final class GL42 {
 	// --- [ glTexStorage2D ] ---
 
 	/** JNI method for {@link #glTexStorage2D glTexStorage2D} */
+	@JavadocExclude
 	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height, long __functionAddress);
 
 	/**
@@ -248,6 +306,7 @@ public final class GL42 {
 	// --- [ glTexStorage3D ] ---
 
 	/** JNI method for {@link #glTexStorage3D glTexStorage3D} */
+	@JavadocExclude
 	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -272,6 +331,7 @@ public final class GL42 {
 	// --- [ glDrawTransformFeedbackInstanced ] ---
 
 	/** JNI method for {@link #glDrawTransformFeedbackInstanced glDrawTransformFeedbackInstanced} */
+	@JavadocExclude
 	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount, long __functionAddress);
 
 	/**
@@ -293,6 +353,7 @@ public final class GL42 {
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
 	/** JNI method for {@link #glDrawTransformFeedbackStreamInstanced glDrawTransformFeedbackStreamInstanced} */
+	@JavadocExclude
 	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount, long __functionAddress);
 
 	/**
@@ -315,6 +376,7 @@ public final class GL42 {
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
 
 	/** JNI method for {@link #glDrawArraysInstancedBaseInstance glDrawArraysInstancedBaseInstance} */
+	@JavadocExclude
 	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance, long __functionAddress);
 
 	/**
@@ -338,6 +400,7 @@ public final class GL42 {
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
 
 	/** JNI method for {@link #glDrawElementsInstancedBaseInstance glDrawElementsInstancedBaseInstance} */
+	@JavadocExclude
 	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance, long __functionAddress);
 
 	/**
@@ -415,6 +478,7 @@ public final class GL42 {
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstance ] ---
 
 	/** JNI method for {@link #glDrawElementsInstancedBaseVertexBaseInstance glDrawElementsInstancedBaseVertexBaseInstance} */
+	@JavadocExclude
 	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance, long __functionAddress);
 
 	/**
@@ -493,6 +557,7 @@ public final class GL42 {
 	// --- [ glBindImageTexture ] ---
 
 	/** JNI method for {@link #glBindImageTexture glBindImageTexture} */
+	@JavadocExclude
 	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
 
 	/**
@@ -518,6 +583,7 @@ public final class GL42 {
 	// --- [ glMemoryBarrier ] ---
 
 	/** JNI method for {@link #glMemoryBarrier glMemoryBarrier} */
+	@JavadocExclude
 	public static native void nglMemoryBarrier(int barriers, long __functionAddress);
 
 	/**
@@ -537,6 +603,7 @@ public final class GL42 {
 	// --- [ glGetInternalformativ ] ---
 
 	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
+	@JavadocExclude
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
 	/**
@@ -576,68 +643,6 @@ public final class GL42 {
 		int params = __buffer.intParam();
 		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address() + params, __functionAddress);
 		return __buffer.intValue(params);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL42;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL42") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glTexStorage1D) &&
-			GL.isFunctionSupported(funcs.glTexStorage2D) &&
-			GL.isFunctionSupported(funcs.glTexStorage3D) &&
-			GL.isFunctionSupported(funcs.glDrawTransformFeedbackInstanced) &&
-			GL.isFunctionSupported(funcs.glDrawTransformFeedbackStreamInstanced) &&
-			GL.isFunctionSupported(funcs.glDrawArraysInstancedBaseInstance) &&
-			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseInstance) &&
-			GL.isFunctionSupported(funcs.glDrawElementsInstancedBaseVertexBaseInstance) &&
-			GL.isFunctionSupported(funcs.glBindImageTexture) &&
-			GL.isFunctionSupported(funcs.glMemoryBarrier) &&
-			GL.isFunctionSupported(funcs.glGetInternalformativ);
-
-		return GL.checkExtension("OpenGL42", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL42}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glTexStorage1D,
-			glTexStorage2D,
-			glTexStorage3D,
-			glDrawTransformFeedbackInstanced,
-			glDrawTransformFeedbackStreamInstanced,
-			glDrawArraysInstancedBaseInstance,
-			glDrawElementsInstancedBaseInstance,
-			glDrawElementsInstancedBaseVertexBaseInstance,
-			glBindImageTexture,
-			glMemoryBarrier,
-			glGetInternalformativ;
-
-		public Functions(FunctionProvider provider) {
-			glTexStorage1D = provider.getFunctionAddress("glTexStorage1D");
-			glTexStorage2D = provider.getFunctionAddress("glTexStorage2D");
-			glTexStorage3D = provider.getFunctionAddress("glTexStorage3D");
-			glDrawTransformFeedbackInstanced = provider.getFunctionAddress("glDrawTransformFeedbackInstanced");
-			glDrawTransformFeedbackStreamInstanced = provider.getFunctionAddress("glDrawTransformFeedbackStreamInstanced");
-			glDrawArraysInstancedBaseInstance = provider.getFunctionAddress("glDrawArraysInstancedBaseInstance");
-			glDrawElementsInstancedBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseInstance");
-			glDrawElementsInstancedBaseVertexBaseInstance = provider.getFunctionAddress("glDrawElementsInstancedBaseVertexBaseInstance");
-			glBindImageTexture = provider.getFunctionAddress("glBindImageTexture");
-			glMemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
-			glGetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
-		}
-
 	}
 
 }

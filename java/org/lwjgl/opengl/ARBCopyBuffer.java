@@ -21,11 +21,36 @@ public final class ARBCopyBuffer {
 		GL_COPY_READ_BUFFER  = 0x8F36,
 		GL_COPY_WRITE_BUFFER = 0x8F37;
 
-	private ARBCopyBuffer() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glCopyBufferSubData;
+
+	@JavadocExclude
+	public ARBCopyBuffer(FunctionProvider provider) {
+		glCopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ARBCopyBuffer} instance for the current context. */
+	public static ARBCopyBuffer getInstance() {
+		return GL.getCapabilities().__ARBCopyBuffer;
+	}
+
+	static ARBCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GL_ARB_copy_buffer") ) return null;
+
+		ARBCopyBuffer funcs = new ARBCopyBuffer(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glCopyBufferSubData);
+
+		return GL.checkExtension("GL_ARB_copy_buffer", funcs, supported);
+	}
 
 	// --- [ glCopyBufferSubData ] ---
 
 	/** JNI method for {@link #glCopyBufferSubData glCopyBufferSubData} */
+	@JavadocExclude
 	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
@@ -52,36 +77,6 @@ public final class ARBCopyBuffer {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__ARBCopyBuffer;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_copy_buffer") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glCopyBufferSubData);
-
-		return GL.checkExtension("GL_ARB_copy_buffer", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ARBCopyBuffer}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glCopyBufferSubData;
-
-		public Functions(FunctionProvider provider) {
-			glCopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
-		}
-
 	}
 
 }

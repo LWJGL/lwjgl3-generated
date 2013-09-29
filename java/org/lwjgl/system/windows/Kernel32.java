@@ -18,11 +18,19 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class Kernel32 {
 
-	private Kernel32() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long SetThreadAffinityMask;
+
+	@JavadocExclude
+	public Kernel32(FunctionProvider provider) {
+		SetThreadAffinityMask = provider.getFunctionAddress("SetThreadAffinityMask");
+	}
 
 	// --- [ SetThreadAffinityMask ] ---
 
 	/** JNI method for {@link #SetThreadAffinityMask SetThreadAffinityMask} */
+	@JavadocExclude
 	public static native long nSetThreadAffinityMask(long thread, long threadAffinityMask, long __functionAddress);
 
 	/**
@@ -48,18 +56,6 @@ public final class Kernel32 {
 			checkPointer(thread);
 		}
 		return nSetThreadAffinityMask(thread, threadAffinityMask, __functionAddress);
-	}
-
-	/** The {@link FunctionMap} class for {@code Kernel32}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long SetThreadAffinityMask;
-
-		public Functions(FunctionProvider provider) {
-			SetThreadAffinityMask = provider.getFunctionAddress("SetThreadAffinityMask");
-		}
-
 	}
 
 }

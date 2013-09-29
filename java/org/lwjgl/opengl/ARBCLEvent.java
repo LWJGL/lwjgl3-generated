@@ -23,11 +23,36 @@ public final class ARBCLEvent {
 	public static final int
 		GL_SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
-	private ARBCLEvent() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glCreateSyncFromCLeventARB;
+
+	@JavadocExclude
+	public ARBCLEvent(FunctionProvider provider) {
+		glCreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ARBCLEvent} instance for the current context. */
+	public static ARBCLEvent getInstance() {
+		return GL.getCapabilities().__ARBCLEvent;
+	}
+
+	static ARBCLEvent create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GL_ARB_cl_event") ) return null;
+
+		ARBCLEvent funcs = new ARBCLEvent(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glCreateSyncFromCLeventARB);
+
+		return GL.checkExtension("GL_ARB_cl_event", funcs, supported);
+	}
 
 	// --- [ glCreateSyncFromCLeventARB ] ---
 
 	/** JNI method for {@link #glCreateSyncFromCLeventARB glCreateSyncFromCLeventARB} */
+	@JavadocExclude
 	public static native long nglCreateSyncFromCLeventARB(long context, long event, int flags, long __functionAddress);
 
 	/**
@@ -51,36 +76,6 @@ public final class ARBCLEvent {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglCreateSyncFromCLeventARB(context.getPointer(), event.getPointer(), flags, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__ARBCLEvent;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GL_ARB_cl_event") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glCreateSyncFromCLeventARB);
-
-		return GL.checkExtension("GL_ARB_cl_event", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ARBCLEvent}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glCreateSyncFromCLeventARB;
-
-		public Functions(FunctionProvider provider) {
-			glCreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
-		}
-
 	}
 
 }

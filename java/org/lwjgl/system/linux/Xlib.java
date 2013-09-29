@@ -41,11 +41,13 @@ public final class Xlib {
 	 * access mechanism (for example, a mutual exclusion lock in a toolkit or through explicit client programming), Xlib thread initialization is not required.
 	 * It is recommended that single-threaded programs not call this function.
 	 */
+	@JavadocExclude
 	public static native int XInitThreads();
 
 	// --- [ XSetErrorHandler ] ---
 
 	/** JNI method for {@link #XSetErrorHandler XSetErrorHandler} */
+	@JavadocExclude
 	public static native long nXSetErrorHandler(long handler);
 
 	/**
@@ -70,6 +72,7 @@ public final class Xlib {
 	// --- [ XGetErrorText ] ---
 
 	/** JNI method for {@link #XGetErrorText XGetErrorText} */
+	@JavadocExclude
 	public static native int nXGetErrorText(long display, int code, long buffer_return, int length);
 
 	/**
@@ -100,6 +103,7 @@ public final class Xlib {
 	// --- [ XFree ] ---
 
 	/** JNI method for {@link #XFree XFree} */
+	@JavadocExclude
 	public static native int nXFree(long data);
 
 	/**
@@ -119,6 +123,7 @@ public final class Xlib {
 	// --- [ XOpenDisplay ] ---
 
 	/** JNI method for {@link #XOpenDisplay XOpenDisplay} */
+	@JavadocExclude
 	public static native long nXOpenDisplay(long display_name);
 
 	/**
@@ -146,6 +151,7 @@ public final class Xlib {
 	// --- [ XCloseDisplay ] ---
 
 	/** JNI method for {@link #XCloseDisplay XCloseDisplay} */
+	@JavadocExclude
 	public static native int nXCloseDisplay(long display);
 
 	/**
@@ -166,6 +172,7 @@ public final class Xlib {
 	// --- [ XInternAtom ] ---
 
 	/** JNI method for {@link #XInternAtom XInternAtom} */
+	@JavadocExclude
 	public static native long nXInternAtom(long display, long atom_name, int only_if_exists);
 
 	/**
@@ -193,6 +200,7 @@ public final class Xlib {
 	// --- [ XDefaultScreen ] ---
 
 	/** JNI method for {@link #XDefaultScreen XDefaultScreen} */
+	@JavadocExclude
 	public static native int nXDefaultScreen(long display);
 
 	/**
@@ -209,6 +217,7 @@ public final class Xlib {
 	// --- [ XDefaultDepth ] ---
 
 	/** JNI method for {@link #XDefaultDepth XDefaultDepth} */
+	@JavadocExclude
 	public static native int nXDefaultDepth(long display, int screen_number);
 
 	/**
@@ -226,6 +235,7 @@ public final class Xlib {
 	// --- [ XDisplayWidth ] ---
 
 	/** JNI method for {@link #XDisplayWidth XDisplayWidth} */
+	@JavadocExclude
 	public static native int nXDisplayWidth(long display, int screen_number);
 
 	/**
@@ -243,6 +253,7 @@ public final class Xlib {
 	// --- [ XDisplayHeight ] ---
 
 	/** JNI method for {@link #XDisplayHeight XDisplayHeight} */
+	@JavadocExclude
 	public static native int nXDisplayHeight(long display, int screen_number);
 
 	/**
@@ -260,6 +271,7 @@ public final class Xlib {
 	// --- [ XDisplayWidthMM ] ---
 
 	/** JNI method for {@link #XDisplayWidthMM XDisplayWidthMM} */
+	@JavadocExclude
 	public static native int nXDisplayWidthMM(long display, int screen_number);
 
 	/**
@@ -277,6 +289,7 @@ public final class Xlib {
 	// --- [ XDisplayHeightMM ] ---
 
 	/** JNI method for {@link #XDisplayHeightMM XDisplayHeightMM} */
+	@JavadocExclude
 	public static native int nXDisplayHeightMM(long display, int screen_number);
 
 	/**
@@ -294,6 +307,7 @@ public final class Xlib {
 	// --- [ XSync ] ---
 
 	/** JNI method for {@link #XSync XSync} */
+	@JavadocExclude
 	public static native int nXSync(long display, int discard);
 
 	/**
@@ -317,6 +331,7 @@ public final class Xlib {
 	// --- [ XRootWindow ] ---
 
 	/** JNI method for {@link #XRootWindow XRootWindow} */
+	@JavadocExclude
 	public static native long nXRootWindow(long display, int screen_number);
 
 	/**
@@ -334,6 +349,7 @@ public final class Xlib {
 	// --- [ XQueryExtension ] ---
 
 	/** JNI method for {@link #XQueryExtension XQueryExtension} */
+	@JavadocExclude
 	public static native int nXQueryExtension(long display, long name, long major_opcode_return, long first_event_return, long first_error_return);
 
 	/**
@@ -375,6 +391,7 @@ public final class Xlib {
 	// --- [ XFlush ] ---
 
 	/** JNI method for {@link #XFlush XFlush} */
+	@JavadocExclude
 	public static native int nXFlush(long display);
 
 	/**
@@ -392,6 +409,7 @@ public final class Xlib {
 	// --- [ XPending ] ---
 
 	/** JNI method for {@link #XPending XPending} */
+	@JavadocExclude
 	public static native int nXPending(long display);
 
 	/**
@@ -409,6 +427,7 @@ public final class Xlib {
 	// --- [ XNextEvent ] ---
 
 	/** JNI method for {@link #XNextEvent XNextEvent} */
+	@JavadocExclude
 	public static native int nXNextEvent(long display, long event_return);
 
 	/**
@@ -429,6 +448,7 @@ public final class Xlib {
 	// --- [ XCreateColormap ] ---
 
 	/** JNI method for {@link #XCreateColormap XCreateColormap} */
+	@JavadocExclude
 	public static native long nXCreateColormap(long display, long w, long visual, int alloc);
 
 	/**
@@ -451,6 +471,7 @@ public final class Xlib {
 	// --- [ XFreeColormap ] ---
 
 	/** JNI method for {@link #XFreeColormap XFreeColormap} */
+	@JavadocExclude
 	public static native int nXFreeColormap(long display, long colormap);
 
 	/**
@@ -471,6 +492,7 @@ public final class Xlib {
 	// --- [ XScreenOfDisplay ] ---
 
 	/** JNI method for {@link #XScreenOfDisplay XScreenOfDisplay} */
+	@JavadocExclude
 	public static native long nXScreenOfDisplay(long display, int screen_number);
 
 	/**
@@ -488,6 +510,7 @@ public final class Xlib {
 	// --- [ XBlackPixel ] ---
 
 	/** JNI method for {@link #XBlackPixel XBlackPixel} */
+	@JavadocExclude
 	public static native long nXBlackPixel(long display, int screen_number);
 
 	/**
@@ -505,6 +528,7 @@ public final class Xlib {
 	// --- [ XConnectionNumber ] ---
 
 	/** JNI method for {@link #XConnectionNumber XConnectionNumber} */
+	@JavadocExclude
 	public static native int nXConnectionNumber(long display);
 
 	/**
@@ -521,6 +545,7 @@ public final class Xlib {
 	// --- [ XCreateWindow ] ---
 
 	/** JNI method for {@link #XCreateWindow XCreateWindow} */
+	@JavadocExclude
 	public static native long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes);
 
 	/**
@@ -561,6 +586,7 @@ public final class Xlib {
 	// --- [ XChangeWindowAttributes ] ---
 
 	/** JNI method for {@link #XChangeWindowAttributes XChangeWindowAttributes} */
+	@JavadocExclude
 	public static native int nXChangeWindowAttributes(long display, long w, long valuemask, long attributes);
 
 	/**
@@ -583,6 +609,7 @@ public final class Xlib {
 	// --- [ XSetWMProtocols ] ---
 
 	/** JNI method for {@link #XSetWMProtocols XSetWMProtocols} */
+	@JavadocExclude
 	public static native int nXSetWMProtocols(long display, long w, long protocols, int count);
 
 	/**
@@ -611,6 +638,7 @@ public final class Xlib {
 	// --- [ XSetWMHints ] ---
 
 	/** JNI method for {@link #XSetWMHints XSetWMHints} */
+	@JavadocExclude
 	public static native int nXSetWMHints(long display, long w, long hints);
 
 	/**
@@ -632,6 +660,7 @@ public final class Xlib {
 	// --- [ XSetSizeHints ] ---
 
 	/** JNI method for {@link #XSetSizeHints XSetSizeHints} */
+	@JavadocExclude
 	public static native int nXSetSizeHints(long display, long w, long hints, long property);
 
 	/**
@@ -653,6 +682,7 @@ public final class Xlib {
 	// --- [ XSetWMNormalHints ] ---
 
 	/** JNI method for {@link #XSetWMNormalHints XSetWMNormalHints} */
+	@JavadocExclude
 	public static native void nXSetWMNormalHints(long display, long w, long hints);
 
 	/**
@@ -675,6 +705,7 @@ public final class Xlib {
 	// --- [ XGrabPointer ] ---
 
 	/** JNI method for {@link #XGrabPointer XGrabPointer} */
+	@JavadocExclude
 	public static native int nXGrabPointer(long display, long grab_window, int owner_events, int event_mask, int pointer_mode, int keyboard_mode, long confine_to, long cursor, long time);
 
 	/**
@@ -703,6 +734,7 @@ public final class Xlib {
 	// --- [ XUngrabPointer ] ---
 
 	/** JNI method for {@link #XUngrabPointer XUngrabPointer} */
+	@JavadocExclude
 	public static native int nXUngrabPointer(long display, long time);
 
 	/**
@@ -724,6 +756,7 @@ public final class Xlib {
 	// --- [ XDefineCursor ] ---
 
 	/** JNI method for {@link #XDefineCursor XDefineCursor} */
+	@JavadocExclude
 	public static native int nXDefineCursor(long display, long w, long cursor);
 
 	/**
@@ -742,6 +775,7 @@ public final class Xlib {
 	// --- [ XUndefineCursor ] ---
 
 	/** JNI method for {@link #XUndefineCursor XUndefineCursor} */
+	@JavadocExclude
 	public static native int nXUndefineCursor(long display, long w);
 
 	/**
@@ -760,6 +794,7 @@ public final class Xlib {
 	// --- [ XFreeCursor ] ---
 
 	/** JNI method for {@link #XFreeCursor XFreeCursor} */
+	@JavadocExclude
 	public static native int nXFreeCursor(long display, long cursor);
 
 	/**
@@ -778,6 +813,7 @@ public final class Xlib {
 	// --- [ XGetScreenSaver ] ---
 
 	/** JNI method for {@link #XGetScreenSaver XGetScreenSaver} */
+	@JavadocExclude
 	public static native int nXGetScreenSaver(long display, long timeout_return, long interval_return, long prefer_blanking_return, long allow_exposures_return);
 
 	/**
@@ -815,6 +851,7 @@ public final class Xlib {
 	// --- [ XSetScreenSaver ] ---
 
 	/** JNI method for {@link #XSetScreenSaver XSetScreenSaver} */
+	@JavadocExclude
 	public static native int nXSetScreenSaver(long display, int timeout_return, int interval_return, int prefer_blanking_return, int allow_exposures_return);
 
 	/**
@@ -835,6 +872,7 @@ public final class Xlib {
 	// --- [ XSendEvent ] ---
 
 	/** JNI method for {@link #XSendEvent XSendEvent} */
+	@JavadocExclude
 	public static native int nXSendEvent(long display, long w, int propagate, long event_mask, long event_send);
 
 	/**
@@ -877,6 +915,7 @@ public final class Xlib {
 	// --- [ XRaiseWindow ] ---
 
 	/** JNI method for {@link #XRaiseWindow XRaiseWindow} */
+	@JavadocExclude
 	public static native int nXRaiseWindow(long display, long w);
 
 	/**
@@ -896,6 +935,7 @@ public final class Xlib {
 	// --- [ XSetInputFocus ] ---
 
 	/** JNI method for {@link #XSetInputFocus XSetInputFocus} */
+	@JavadocExclude
 	public static native int nXSetInputFocus(long display, long focus, int revert_to, long time);
 
 	/**
@@ -933,6 +973,7 @@ public final class Xlib {
 	// --- [ XMoveWindow ] ---
 
 	/** JNI method for {@link #XMoveWindow XMoveWindow} */
+	@JavadocExclude
 	public static native int nXMoveWindow(long display, long w, int x, int y);
 
 	/**
@@ -957,6 +998,7 @@ public final class Xlib {
 	// --- [ XResizeWindow ] ---
 
 	/** JNI method for {@link #XResizeWindow XResizeWindow} */
+	@JavadocExclude
 	public static native int nXResizeWindow(long display, long w, int width, int height);
 
 	/**
@@ -978,6 +1020,7 @@ public final class Xlib {
 	// --- [ XGetEventData ] ---
 
 	/** JNI method for {@link #XGetEventData XGetEventData} */
+	@JavadocExclude
 	public static native int nXGetEventData(long display, long cookie);
 
 	/**
@@ -997,6 +1040,7 @@ public final class Xlib {
 	// --- [ XFreeEventData ] ---
 
 	/** JNI method for {@link #XFreeEventData XFreeEventData} */
+	@JavadocExclude
 	public static native void nXFreeEventData(long display, long cookie);
 
 	/**
@@ -1016,6 +1060,7 @@ public final class Xlib {
 	// --- [ XGetWindowProperty ] ---
 
 	/** JNI method for {@link #XGetWindowProperty XGetWindowProperty} */
+	@JavadocExclude
 	public static native int nXGetWindowProperty(long display, long w, long property, long long_offset, long long_length, int delete, long req_type, long actual_type_return, long actual_format_return, long nitems_return, long bytes_after_return, long prop_return);
 
 	/**
@@ -1050,6 +1095,7 @@ public final class Xlib {
 	// --- [ XDeleteProperty ] ---
 
 	/** JNI method for {@link #XDeleteProperty XDeleteProperty} */
+	@JavadocExclude
 	public static native int nXDeleteProperty(long display, long w, long property);
 
 	/**
@@ -1069,6 +1115,7 @@ public final class Xlib {
 	// --- [ XQueryPointer ] ---
 
 	/** JNI method for {@link #XQueryPointer XQueryPointer} */
+	@JavadocExclude
 	public static native int nXQueryPointer(long display, long w, long root_return, long child_return, long root_x_return, long root_y_return, long win_x_return, long win_y_return, long mask_return);
 
 	/**
@@ -1107,6 +1154,7 @@ public final class Xlib {
 	// --- [ XUnmapWindow ] ---
 
 	/** JNI method for {@link #XUnmapWindow XUnmapWindow} */
+	@JavadocExclude
 	public static native int nXUnmapWindow(long display, long w);
 
 	/**
@@ -1127,6 +1175,7 @@ public final class Xlib {
 	// --- [ XDestroyWindow ] ---
 
 	/** JNI method for {@link #XDestroyWindow XDestroyWindow} */
+	@JavadocExclude
 	public static native int nXDestroyWindow(long display, long w);
 
 	/**
@@ -1149,6 +1198,7 @@ public final class Xlib {
 	// --- [ Xutf8SetWMProperties ] ---
 
 	/** JNI method for {@link #Xutf8SetWMProperties Xutf8SetWMProperties} */
+	@JavadocExclude
 	public static native void nXutf8SetWMProperties(long display, long w, long window_name, long icon_name, long argv, int argc, long normal_hints, long wm_hints, long class_hints);
 
 	/**
@@ -1202,6 +1252,7 @@ public final class Xlib {
 	// --- [ XChangeProperty ] ---
 
 	/** JNI method for {@link #XChangeProperty XChangeProperty} */
+	@JavadocExclude
 	public static native int nXChangeProperty(long display, long w, long property, long type, int format, int mode, long data, int nelements);
 
 	/**
@@ -1248,6 +1299,7 @@ public final class Xlib {
 	// --- [ XTranslateCoordinates ] ---
 
 	/** JNI method for {@link #XTranslateCoordinates XTranslateCoordinates} */
+	@JavadocExclude
 	public static native int nXTranslateCoordinates(long display, long src_w, long dest_w, int src_x, int src_y, long dest_x_return, long dest_y_return, long child_return);
 
 	/**
@@ -1284,6 +1336,7 @@ public final class Xlib {
 	// --- [ XGetWindowAttributes ] ---
 
 	/** JNI method for {@link #XGetWindowAttributes XGetWindowAttributes} */
+	@JavadocExclude
 	public static native int nXGetWindowAttributes(long display, long w, long window_attributes_return);
 
 	/**
@@ -1304,6 +1357,7 @@ public final class Xlib {
 	// --- [ XIconifyWindow ] ---
 
 	/** JNI method for {@link #XIconifyWindow XIconifyWindow} */
+	@JavadocExclude
 	public static native int nXIconifyWindow(long display, long w, int screen_number);
 
 	/**
@@ -1326,6 +1380,7 @@ public final class Xlib {
 	// --- [ XMapWindow ] ---
 
 	/** JNI method for {@link #XMapWindow XMapWindow} */
+	@JavadocExclude
 	public static native int nXMapWindow(long display, long w);
 
 	/**
@@ -1345,6 +1400,7 @@ public final class Xlib {
 	// --- [ XMapRaised ] ---
 
 	/** JNI method for {@link #XMapRaised XMapRaised} */
+	@JavadocExclude
 	public static native int nXMapRaised(long display, long w);
 
 	/**
@@ -1363,6 +1419,7 @@ public final class Xlib {
 	// --- [ XWarpPointer ] ---
 
 	/** JNI method for {@link #XWarpPointer XWarpPointer} */
+	@JavadocExclude
 	public static native int nXWarpPointer(long display, long src_w, long dest_w, int src_x, int src_y, int src_width, int src_height, int dest_x, int dest_y);
 
 	/**
@@ -1399,6 +1456,7 @@ public final class Xlib {
 	// --- [ XSetSelectionOwner ] ---
 
 	/** JNI method for {@link #XSetSelectionOwner XSetSelectionOwner} */
+	@JavadocExclude
 	public static native int nXSetSelectionOwner(long display, long selection, long owner, long time);
 
 	/**
@@ -1427,6 +1485,7 @@ public final class Xlib {
 	// --- [ XGetSelectionOwner ] ---
 
 	/** JNI method for {@link #XGetSelectionOwner XGetSelectionOwner} */
+	@JavadocExclude
 	public static native long nXGetSelectionOwner(long display, long selection);
 
 	/**
@@ -1445,6 +1504,7 @@ public final class Xlib {
 	// --- [ XConvertSelection ] ---
 
 	/** JNI method for {@link #XConvertSelection XConvertSelection} */
+	@JavadocExclude
 	public static native int nXConvertSelection(long display, long selection, long target, long property, long requestor, long time);
 
 	/**
@@ -1466,6 +1526,7 @@ public final class Xlib {
 	// --- [ XCheckTypedEvent ] ---
 
 	/** JNI method for {@link #XCheckTypedEvent XCheckTypedEvent} */
+	@JavadocExclude
 	public static native int nXCheckTypedEvent(long display, int event_type, long event_return);
 
 	/**
@@ -1489,6 +1550,7 @@ public final class Xlib {
 	// --- [ XCreatePixmap ] ---
 
 	/** JNI method for {@link #XCreatePixmap XCreatePixmap} */
+	@JavadocExclude
 	public static native long nXCreatePixmap(long display, long d, int width, int height, int depth);
 
 	/**
@@ -1511,6 +1573,7 @@ public final class Xlib {
 	// --- [ XCreateGC ] ---
 
 	/** JNI method for {@link #XCreateGC XCreateGC} */
+	@JavadocExclude
 	public static native long nXCreateGC(long display, long d, long valuemask, long values);
 
 	/**
@@ -1533,6 +1596,7 @@ public final class Xlib {
 	// --- [ XFillRectangle ] ---
 
 	/** JNI method for {@link #XFillRectangle XFillRectangle} */
+	@JavadocExclude
 	public static native int nXFillRectangle(long display, long d, long gc, int x, int y, int width, int height);
 
 	/**
@@ -1557,6 +1621,7 @@ public final class Xlib {
 	// --- [ XCreatePixmapCursor ] ---
 
 	/** JNI method for {@link #XCreatePixmapCursor XCreatePixmapCursor} */
+	@JavadocExclude
 	public static native long nXCreatePixmapCursor(long display, long source, long mask, long foreground_color, long background_color, int x, int y);
 
 	/**
@@ -1582,6 +1647,7 @@ public final class Xlib {
 	// --- [ XFreePixmap ] ---
 
 	/** JNI method for {@link #XFreePixmap XFreePixmap} */
+	@JavadocExclude
 	public static native int nXFreePixmap(long display, long pixmap);
 
 	/**
@@ -1600,6 +1666,7 @@ public final class Xlib {
 	// --- [ XFreeGC ] ---
 
 	/** JNI method for {@link #XFreeGC XFreeGC} */
+	@JavadocExclude
 	public static native int nXFreeGC(long display, long gc);
 
 	/**

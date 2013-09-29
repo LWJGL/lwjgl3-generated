@@ -32,11 +32,49 @@ public final class ALC11 {
 	public static final int
 		ALC_CAPTURE_SAMPLES = 0x312;
 
-	private ALC11() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alcCaptureOpenDevice,
+		alcCaptureCloseDevice,
+		alcCaptureStart,
+		alcCaptureStop,
+		alcCaptureSamples;
+
+	@JavadocExclude
+	public ALC11(FunctionProviderLocal provider) {
+		alcCaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
+		alcCaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
+		alcCaptureStart = provider.getFunctionAddress("alcCaptureStart");
+		alcCaptureStop = provider.getFunctionAddress("alcCaptureStop");
+		alcCaptureSamples = provider.getFunctionAddress("alcCaptureSamples");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ALC11} instance for the current context. */
+	public static ALC11 getInstance() {
+		return ALC.getCapabilities().__ALC11;
+	}
+
+	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC11") ) return null;
+
+		ALC11 funcs = new ALC11(provider);
+
+		boolean supported = 
+			funcs.alcCaptureOpenDevice != 0L &&
+			funcs.alcCaptureCloseDevice != 0L &&
+			funcs.alcCaptureStart != 0L &&
+			funcs.alcCaptureStop != 0L &&
+			funcs.alcCaptureSamples != 0L;
+
+		return ALC.checkExtension("OpenALC11", funcs, supported);
+	}
 
 	// --- [ alcCaptureOpenDevice ] ---
 
 	/** JNI method for {@link #alcCaptureOpenDevice alcCaptureOpenDevice} */
+	@JavadocExclude
 	public static native long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize, long __functionAddress);
 
 	/**
@@ -70,6 +108,7 @@ public final class ALC11 {
 	// --- [ alcCaptureCloseDevice ] ---
 
 	/** JNI method for {@link #alcCaptureCloseDevice alcCaptureCloseDevice} */
+	@JavadocExclude
 	public static native boolean nalcCaptureCloseDevice(long device, long __functionAddress);
 
 	/**
@@ -89,6 +128,7 @@ public final class ALC11 {
 	// --- [ alcCaptureStart ] ---
 
 	/** JNI method for {@link #alcCaptureStart alcCaptureStart} */
+	@JavadocExclude
 	public static native void nalcCaptureStart(long device, long __functionAddress);
 
 	/**
@@ -112,6 +152,7 @@ public final class ALC11 {
 	// --- [ alcCaptureStop ] ---
 
 	/** JNI method for {@link #alcCaptureStop alcCaptureStop} */
+	@JavadocExclude
 	public static native void nalcCaptureStop(long device, long __functionAddress);
 
 	/**
@@ -134,6 +175,7 @@ public final class ALC11 {
 	// --- [ alcCaptureSamples ] ---
 
 	/** JNI method for {@link #alcCaptureSamples alcCaptureSamples} */
+	@JavadocExclude
 	public static native void nalcCaptureSamples(long device, long buffer, int samples, long __functionAddress);
 
 	/**
@@ -163,49 +205,6 @@ public final class ALC11 {
 			checkPointer(device);
 		}
 		nalcCaptureSamples(device, memAddress(buffer), buffer.remaining(), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return ALC.getCapabilities().__ALC11;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC11") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alcCaptureOpenDevice != 0L &&
-			funcs.alcCaptureCloseDevice != 0L &&
-			funcs.alcCaptureStart != 0L &&
-			funcs.alcCaptureStop != 0L &&
-			funcs.alcCaptureSamples != 0L;
-
-		return ALC.checkExtension("OpenALC11", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ALC11}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alcCaptureOpenDevice,
-			alcCaptureCloseDevice,
-			alcCaptureStart,
-			alcCaptureStop,
-			alcCaptureSamples;
-
-		public Functions(FunctionProviderLocal provider) {
-			alcCaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
-			alcCaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
-			alcCaptureStart = provider.getFunctionAddress("alcCaptureStart");
-			alcCaptureStop = provider.getFunctionAddress("alcCaptureStop");
-			alcCaptureSamples = provider.getFunctionAddress("alcCaptureSamples");
-		}
-
 	}
 
 }

@@ -21,11 +21,36 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class WGLARBExtensionsString {
 
-	private WGLARBExtensionsString() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long wglGetExtensionsStringARB;
+
+	@JavadocExclude
+	public WGLARBExtensionsString(FunctionProvider provider) {
+		wglGetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBExtensionsString} instance for the current context. */
+	public static WGLARBExtensionsString getInstance() {
+		return GL.getCapabilities().__WGLARBExtensionsString;
+	}
+
+	static WGLARBExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_extensions_string") ) return null;
+
+		WGLARBExtensionsString funcs = new WGLARBExtensionsString(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringARB);
+
+		return GL.checkExtension("WGL_ARB_extensions_string", funcs, supported);
+	}
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
 	/** JNI method for {@link #wglGetExtensionsStringARB wglGetExtensionsStringARB} */
+	@JavadocExclude
 	public static native long nwglGetExtensionsStringARB(long hdc, long __functionAddress);
 
 	/**
@@ -43,36 +68,6 @@ public final class WGLARBExtensionsString {
 		}
 		long __result = nwglGetExtensionsStringARB(hdc, __functionAddress);
 		return memDecodeASCII(memByteBufferNT1(__result));
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBExtensionsString;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_extensions_string") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringARB);
-
-		return GL.checkExtension("WGL_ARB_extensions_string", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBExtensionsString}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long wglGetExtensionsStringARB;
-
-		public Functions(FunctionProvider provider) {
-			wglGetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
-		}
-
 	}
 
 }

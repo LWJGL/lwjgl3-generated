@@ -48,6 +48,7 @@ public final class XInput2 {
 	// --- [ XIQueryVersion ] ---
 
 	/** JNI method for {@link #XIQueryVersion XIQueryVersion} */
+	@JavadocExclude
 	public static native int nXIQueryVersion(long display, long major_version_inout, long minor_version_inout);
 
 	/**
@@ -79,6 +80,7 @@ public final class XInput2 {
 	// --- [ XISelectEvents ] ---
 
 	/** JNI method for {@link #XISelectEvents XISelectEvents} */
+	@JavadocExclude
 	public static native int nXISelectEvents(long display, long w, long masks, int num_masks);
 
 	/**

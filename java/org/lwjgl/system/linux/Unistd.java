@@ -26,11 +26,13 @@ public final class Unistd {
 	 *
 	 * @param fd the file descriptor to close
 	 */
+	@JavadocExclude
 	public static native int close(int fd);
 
 	// --- [ read ] ---
 
 	/** JNI method for {@link #read read} */
+	@JavadocExclude
 	public static native long nread(int fd, long buf, long count);
 
 	/**

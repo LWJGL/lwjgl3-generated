@@ -104,11 +104,92 @@ public final class GL15 {
 		GL_QUERY_RESULT           = 0x8866,
 		GL_QUERY_RESULT_AVAILABLE = 0x8867;
 
-	private GL15() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glBindBuffer,
+		glDeleteBuffers,
+		glGenBuffers,
+		glIsBuffer,
+		glBufferData,
+		glBufferSubData,
+		glGetBufferSubData,
+		glMapBuffer,
+		glUnmapBuffer,
+		glGetBufferParameteriv,
+		glGetBufferPointerv,
+		glGenQueries,
+		glDeleteQueries,
+		glIsQuery,
+		glBeginQuery,
+		glEndQuery,
+		glGetQueryiv,
+		glGetQueryObjectiv,
+		glGetQueryObjectuiv;
+
+	@JavadocExclude
+	public GL15(FunctionProvider provider) {
+		glBindBuffer = provider.getFunctionAddress("glBindBuffer");
+		glDeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
+		glGenBuffers = provider.getFunctionAddress("glGenBuffers");
+		glIsBuffer = provider.getFunctionAddress("glIsBuffer");
+		glBufferData = provider.getFunctionAddress("glBufferData");
+		glBufferSubData = provider.getFunctionAddress("glBufferSubData");
+		glGetBufferSubData = provider.getFunctionAddress("glGetBufferSubData");
+		glMapBuffer = provider.getFunctionAddress("glMapBuffer");
+		glUnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
+		glGetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
+		glGetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
+		glGenQueries = provider.getFunctionAddress("glGenQueries");
+		glDeleteQueries = provider.getFunctionAddress("glDeleteQueries");
+		glIsQuery = provider.getFunctionAddress("glIsQuery");
+		glBeginQuery = provider.getFunctionAddress("glBeginQuery");
+		glEndQuery = provider.getFunctionAddress("glEndQuery");
+		glGetQueryiv = provider.getFunctionAddress("glGetQueryiv");
+		glGetQueryObjectiv = provider.getFunctionAddress("glGetQueryObjectiv");
+		glGetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL15} instance for the current context. */
+	public static GL15 getInstance() {
+		return GL.getCapabilities().__GL15;
+	}
+
+	static GL15 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL15") ) return null;
+
+		GL15 funcs = new GL15(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glBindBuffer) &&
+			GL.isFunctionSupported(funcs.glDeleteBuffers) &&
+			GL.isFunctionSupported(funcs.glGenBuffers) &&
+			GL.isFunctionSupported(funcs.glIsBuffer) &&
+			GL.isFunctionSupported(funcs.glBufferData) &&
+			GL.isFunctionSupported(funcs.glBufferSubData) &&
+			GL.isFunctionSupported(funcs.glGetBufferSubData) &&
+			GL.isFunctionSupported(funcs.glMapBuffer) &&
+			GL.isFunctionSupported(funcs.glUnmapBuffer) &&
+			GL.isFunctionSupported(funcs.glGetBufferParameteriv) &&
+			GL.isFunctionSupported(funcs.glGetBufferPointerv) &&
+			GL.isFunctionSupported(funcs.glGenQueries) &&
+			GL.isFunctionSupported(funcs.glDeleteQueries) &&
+			GL.isFunctionSupported(funcs.glIsQuery) &&
+			GL.isFunctionSupported(funcs.glBeginQuery) &&
+			GL.isFunctionSupported(funcs.glEndQuery) &&
+			GL.isFunctionSupported(funcs.glGetQueryiv) &&
+			GL.isFunctionSupported(funcs.glGetQueryObjectiv) &&
+			GL.isFunctionSupported(funcs.glGetQueryObjectuiv);
+
+		return GL.checkExtension("OpenGL15", funcs, supported);
+	}
 
 	// --- [ glBindBuffer ] ---
 
 	/** JNI method for {@link #glBindBuffer glBindBuffer} */
+	@JavadocExclude
 	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
 
 	/**
@@ -129,6 +210,7 @@ public final class GL15 {
 	// --- [ glDeleteBuffers ] ---
 
 	/** JNI method for {@link #glDeleteBuffers glDeleteBuffers} */
+	@JavadocExclude
 	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
 	/**
@@ -169,6 +251,7 @@ public final class GL15 {
 	// --- [ glGenBuffers ] ---
 
 	/** JNI method for {@link #glGenBuffers glGenBuffers} */
+	@JavadocExclude
 	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
 
 	/**
@@ -210,6 +293,7 @@ public final class GL15 {
 	// --- [ glIsBuffer ] ---
 
 	/** JNI method for {@link #glIsBuffer glIsBuffer} */
+	@JavadocExclude
 	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
 
 	/**
@@ -229,6 +313,7 @@ public final class GL15 {
 	// --- [ glBufferData ] ---
 
 	/** JNI method for {@link #glBufferData glBufferData} */
+	@JavadocExclude
 	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
 	/**
@@ -317,6 +402,7 @@ public final class GL15 {
 	// --- [ glBufferSubData ] ---
 
 	/** JNI method for {@link #glBufferSubData glBufferSubData} */
+	@JavadocExclude
 	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
 	/**
@@ -349,6 +435,7 @@ public final class GL15 {
 	// --- [ glGetBufferSubData ] ---
 
 	/** JNI method for {@link #glGetBufferSubData glGetBufferSubData} */
+	@JavadocExclude
 	public static native void nglGetBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
 	/**
@@ -413,6 +500,7 @@ public final class GL15 {
 	// --- [ glMapBuffer ] ---
 
 	/** JNI method for {@link #glMapBuffer glMapBuffer} */
+	@JavadocExclude
 	public static native long nglMapBuffer(int target, int access, long __functionAddress);
 
 	/**
@@ -460,6 +548,7 @@ public final class GL15 {
 	// --- [ glUnmapBuffer ] ---
 
 	/** JNI method for {@link #glUnmapBuffer glUnmapBuffer} */
+	@JavadocExclude
 	public static native boolean nglUnmapBuffer(int target, long __functionAddress);
 
 	/**
@@ -484,6 +573,7 @@ public final class GL15 {
 	// --- [ glGetBufferParameteriv ] ---
 
 	/** JNI method for {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	@JavadocExclude
 	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -524,6 +614,7 @@ public final class GL15 {
 	// --- [ glGetBufferPointerv ] ---
 
 	/** JNI method for {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	@JavadocExclude
 	public static native void nglGetBufferPointerv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -564,6 +655,7 @@ public final class GL15 {
 	// --- [ glGenQueries ] ---
 
 	/** JNI method for {@link #glGenQueries glGenQueries} */
+	@JavadocExclude
 	public static native void nglGenQueries(int n, long ids, long __functionAddress);
 
 	/**
@@ -605,6 +697,7 @@ public final class GL15 {
 	// --- [ glDeleteQueries ] ---
 
 	/** JNI method for {@link #glDeleteQueries glDeleteQueries} */
+	@JavadocExclude
 	public static native void nglDeleteQueries(int n, long ids, long __functionAddress);
 
 	/**
@@ -645,6 +738,7 @@ public final class GL15 {
 	// --- [ glIsQuery ] ---
 
 	/** JNI method for {@link #glIsQuery glIsQuery} */
+	@JavadocExclude
 	public static native boolean nglIsQuery(int id, long __functionAddress);
 
 	/**
@@ -664,6 +758,7 @@ public final class GL15 {
 	// --- [ glBeginQuery ] ---
 
 	/** JNI method for {@link #glBeginQuery glBeginQuery} */
+	@JavadocExclude
 	public static native void nglBeginQuery(int target, int id, long __functionAddress);
 
 	/**
@@ -684,6 +779,7 @@ public final class GL15 {
 	// --- [ glEndQuery ] ---
 
 	/** JNI method for {@link #glEndQuery glEndQuery} */
+	@JavadocExclude
 	public static native void nglEndQuery(int target, long __functionAddress);
 
 	/**
@@ -703,6 +799,7 @@ public final class GL15 {
 	// --- [ glGetQueryiv ] ---
 
 	/** JNI method for {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	@JavadocExclude
 	public static native void nglGetQueryiv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -747,6 +844,7 @@ public final class GL15 {
 	// --- [ glGetQueryObjectiv ] ---
 
 	/** JNI method for {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	@JavadocExclude
 	public static native void nglGetQueryObjectiv(int id, int pname, long params, long __functionAddress);
 
 	/**
@@ -791,6 +889,7 @@ public final class GL15 {
 	// --- [ glGetQueryObjectuiv ] ---
 
 	/** JNI method for {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	@JavadocExclude
 	public static native void nglGetQueryObjectuiv(int id, int pname, long params, long __functionAddress);
 
 	/**
@@ -830,92 +929,6 @@ public final class GL15 {
 		int params = __buffer.intParam();
 		nglGetQueryObjectuiv(id, pname, __buffer.address() + params, __functionAddress);
 		return __buffer.intValue(params);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL15;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL15") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glBindBuffer) &&
-			GL.isFunctionSupported(funcs.glDeleteBuffers) &&
-			GL.isFunctionSupported(funcs.glGenBuffers) &&
-			GL.isFunctionSupported(funcs.glIsBuffer) &&
-			GL.isFunctionSupported(funcs.glBufferData) &&
-			GL.isFunctionSupported(funcs.glBufferSubData) &&
-			GL.isFunctionSupported(funcs.glGetBufferSubData) &&
-			GL.isFunctionSupported(funcs.glMapBuffer) &&
-			GL.isFunctionSupported(funcs.glUnmapBuffer) &&
-			GL.isFunctionSupported(funcs.glGetBufferParameteriv) &&
-			GL.isFunctionSupported(funcs.glGetBufferPointerv) &&
-			GL.isFunctionSupported(funcs.glGenQueries) &&
-			GL.isFunctionSupported(funcs.glDeleteQueries) &&
-			GL.isFunctionSupported(funcs.glIsQuery) &&
-			GL.isFunctionSupported(funcs.glBeginQuery) &&
-			GL.isFunctionSupported(funcs.glEndQuery) &&
-			GL.isFunctionSupported(funcs.glGetQueryiv) &&
-			GL.isFunctionSupported(funcs.glGetQueryObjectiv) &&
-			GL.isFunctionSupported(funcs.glGetQueryObjectuiv);
-
-		return GL.checkExtension("OpenGL15", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL15}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glBindBuffer,
-			glDeleteBuffers,
-			glGenBuffers,
-			glIsBuffer,
-			glBufferData,
-			glBufferSubData,
-			glGetBufferSubData,
-			glMapBuffer,
-			glUnmapBuffer,
-			glGetBufferParameteriv,
-			glGetBufferPointerv,
-			glGenQueries,
-			glDeleteQueries,
-			glIsQuery,
-			glBeginQuery,
-			glEndQuery,
-			glGetQueryiv,
-			glGetQueryObjectiv,
-			glGetQueryObjectuiv;
-
-		public Functions(FunctionProvider provider) {
-			glBindBuffer = provider.getFunctionAddress("glBindBuffer");
-			glDeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
-			glGenBuffers = provider.getFunctionAddress("glGenBuffers");
-			glIsBuffer = provider.getFunctionAddress("glIsBuffer");
-			glBufferData = provider.getFunctionAddress("glBufferData");
-			glBufferSubData = provider.getFunctionAddress("glBufferSubData");
-			glGetBufferSubData = provider.getFunctionAddress("glGetBufferSubData");
-			glMapBuffer = provider.getFunctionAddress("glMapBuffer");
-			glUnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
-			glGetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
-			glGetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
-			glGenQueries = provider.getFunctionAddress("glGenQueries");
-			glDeleteQueries = provider.getFunctionAddress("glDeleteQueries");
-			glIsQuery = provider.getFunctionAddress("glIsQuery");
-			glBeginQuery = provider.getFunctionAddress("glBeginQuery");
-			glEndQuery = provider.getFunctionAddress("glEndQuery");
-			glGetQueryiv = provider.getFunctionAddress("glGetQueryiv");
-			glGetQueryObjectiv = provider.getFunctionAddress("glGetQueryObjectiv");
-			glGetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
-		}
-
 	}
 
 }

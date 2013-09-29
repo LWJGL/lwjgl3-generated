@@ -57,11 +57,53 @@ public final class GL21 {
 		GL_COMPRESSED_SLUMINANCE       = 0x8C4A,
 		GL_COMPRESSED_SLUMINANCE_ALPHA = 0x8C4B;
 
-	private GL21() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glUniformMatrix2x3fv,
+		glUniformMatrix3x2fv,
+		glUniformMatrix2x4fv,
+		glUniformMatrix4x2fv,
+		glUniformMatrix3x4fv,
+		glUniformMatrix4x3fv;
+
+	@JavadocExclude
+	public GL21(FunctionProvider provider) {
+		glUniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
+		glUniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
+		glUniformMatrix2x4fv = provider.getFunctionAddress("glUniformMatrix2x4fv");
+		glUniformMatrix4x2fv = provider.getFunctionAddress("glUniformMatrix4x2fv");
+		glUniformMatrix3x4fv = provider.getFunctionAddress("glUniformMatrix3x4fv");
+		glUniformMatrix4x3fv = provider.getFunctionAddress("glUniformMatrix4x3fv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL21} instance for the current context. */
+	public static GL21 getInstance() {
+		return GL.getCapabilities().__GL21;
+	}
+
+	static GL21 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL21") ) return null;
+
+		GL21 funcs = new GL21(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glUniformMatrix2x3fv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix3x2fv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix2x4fv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix4x2fv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix3x4fv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix4x3fv);
+
+		return GL.checkExtension("OpenGL21", funcs, supported);
+	}
 
 	// --- [ glUniformMatrix2x3fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) glUniformMatrix2x3f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -94,6 +136,7 @@ public final class GL21 {
 	// --- [ glUniformMatrix3x2fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) glUniformMatrix3x2f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -126,6 +169,7 @@ public final class GL21 {
 	// --- [ glUniformMatrix2x4fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) glUniformMatrix2x4f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -158,6 +202,7 @@ public final class GL21 {
 	// --- [ glUniformMatrix4x2fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) glUniformMatrix4x2f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -190,6 +235,7 @@ public final class GL21 {
 	// --- [ glUniformMatrix3x4fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) glUniformMatrix3x4f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -222,6 +268,7 @@ public final class GL21 {
 	// --- [ glUniformMatrix4x3fv ] ---
 
 	/** JNI method for {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) glUniformMatrix4x3f} */
+	@JavadocExclude
 	public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -249,53 +296,6 @@ public final class GL21 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL21;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL21") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glUniformMatrix2x3fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x2fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix2x4fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x2fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x4fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x3fv);
-
-		return GL.checkExtension("OpenGL21", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL21}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glUniformMatrix2x3fv,
-			glUniformMatrix3x2fv,
-			glUniformMatrix2x4fv,
-			glUniformMatrix4x2fv,
-			glUniformMatrix3x4fv,
-			glUniformMatrix4x3fv;
-
-		public Functions(FunctionProvider provider) {
-			glUniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
-			glUniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
-			glUniformMatrix2x4fv = provider.getFunctionAddress("glUniformMatrix2x4fv");
-			glUniformMatrix4x2fv = provider.getFunctionAddress("glUniformMatrix4x2fv");
-			glUniformMatrix3x4fv = provider.getFunctionAddress("glUniformMatrix3x4fv");
-			glUniformMatrix4x3fv = provider.getFunctionAddress("glUniformMatrix4x3fv");
-		}
-
 	}
 
 }

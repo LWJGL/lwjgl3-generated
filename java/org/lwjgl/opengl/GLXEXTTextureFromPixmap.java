@@ -79,11 +79,41 @@ public final class GLXEXTTextureFromPixmap {
 		GLX_AUX8_EXT        = 0x20EA,
 		GLX_AUX9_EXT        = 0x20EB;
 
-	private GLXEXTTextureFromPixmap() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXBindTexImageEXT,
+		glXReleaseTexImageEXT;
+
+	@JavadocExclude
+	public GLXEXTTextureFromPixmap(FunctionProvider provider) {
+		glXBindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
+		glXReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXEXTTextureFromPixmap} instance for the current context. */
+	public static GLXEXTTextureFromPixmap getInstance() {
+		return GL.getCapabilities().__GLXEXTTextureFromPixmap;
+	}
+
+	static GLXEXTTextureFromPixmap create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_EXT_texture_from_pixmap") ) return null;
+
+		GLXEXTTextureFromPixmap funcs = new GLXEXTTextureFromPixmap(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXBindTexImageEXT) &&
+			GL.isFunctionSupported(funcs.glXReleaseTexImageEXT);
+
+		return GL.checkExtension("GLX_EXT_texture_from_pixmap", funcs, supported);
+	}
 
 	// --- [ glXBindTexImageEXT ] ---
 
 	/** JNI method for {@link #glXBindTexImageEXT glXBindTexImageEXT} */
+	@JavadocExclude
 	public static native void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list, long __functionAddress);
 
 	/**
@@ -121,6 +151,7 @@ public final class GLXEXTTextureFromPixmap {
 	// --- [ glXReleaseTexImageEXT ] ---
 
 	/** JNI method for {@link #glXReleaseTexImageEXT glXReleaseTexImageEXT} */
+	@JavadocExclude
 	public static native void nglXReleaseTexImageEXT(long display, long drawable, int buffer, long __functionAddress);
 
 	/**
@@ -138,41 +169,6 @@ public final class GLXEXTTextureFromPixmap {
 			checkPointer(drawable);
 		}
 		nglXReleaseTexImageEXT(display, drawable, buffer, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXEXTTextureFromPixmap;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_texture_from_pixmap") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXBindTexImageEXT) &&
-			GL.isFunctionSupported(funcs.glXReleaseTexImageEXT);
-
-		return GL.checkExtension("GLX_EXT_texture_from_pixmap", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXEXTTextureFromPixmap}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXBindTexImageEXT,
-			glXReleaseTexImageEXT;
-
-		public Functions(FunctionProvider provider) {
-			glXBindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
-			glXReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
-		}
-
 	}
 
 }

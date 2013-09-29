@@ -36,11 +36,44 @@ public final class AMDBusAddressableMemory {
 		CL_COMMAND_WRITE_SIGNAL_AMD          = 0x4081,
 		CL_COMMAND_MAKE_BUFFERS_RESIDENT_AMD = 0x4082;
 
-	private AMDBusAddressableMemory() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		clEnqueueWaitSignalAMD,
+		clEnqueueWriteSignalAMD,
+		clEnqueueMakeBuffersResidentAMD;
+
+	@JavadocExclude
+	public AMDBusAddressableMemory(FunctionProviderLocal provider, long platform) {
+		clEnqueueWaitSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWaitSignalAMD");
+		clEnqueueWriteSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWriteSignalAMD");
+		clEnqueueMakeBuffersResidentAMD = provider.getFunctionAddress(platform, "clEnqueueMakeBuffersResidentAMD");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link AMDBusAddressableMemory} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static AMDBusAddressableMemory getInstance(CLObject object) {
+		return object.getCapabilities().__AMDBusAddressableMemory;
+	}
+
+	static AMDBusAddressableMemory create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
+		if ( !ext.contains("cl_amd_bus_addressable_memory") ) return null;
+
+		AMDBusAddressableMemory funcs = new AMDBusAddressableMemory(provider, platform);
+
+		boolean supported = 
+			funcs.clEnqueueWaitSignalAMD != 0L &&
+			funcs.clEnqueueWriteSignalAMD != 0L &&
+			funcs.clEnqueueMakeBuffersResidentAMD != 0L;
+
+		return CL.checkExtension("cl_amd_bus_addressable_memory", funcs, supported);
+	}
 
 	// --- [ clEnqueueWaitSignalAMD ] ---
 
 	/** JNI method for {@link #clEnqueueWaitSignalAMD clEnqueueWaitSignalAMD} */
+	@JavadocExclude
 	public static native int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -81,6 +114,7 @@ public final class AMDBusAddressableMemory {
 	// --- [ clEnqueueWriteSignalAMD ] ---
 
 	/** JNI method for {@link #clEnqueueWriteSignalAMD clEnqueueWriteSignalAMD} */
+	@JavadocExclude
 	public static native int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -122,6 +156,7 @@ public final class AMDBusAddressableMemory {
 	// --- [ clEnqueueMakeBuffersResidentAMD ] ---
 
 	/** JNI method for {@link #clEnqueueMakeBuffersResidentAMD clEnqueueMakeBuffersResidentAMD} */
+	@JavadocExclude
 	public static native int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -162,44 +197,6 @@ public final class AMDBusAddressableMemory {
 			if ( event != null ) checkBuffer(event, 1);
 		}
 		return nclEnqueueMakeBuffersResidentAMD(command_queue.getPointer(), mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, memAddress(bus_addresses), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__AMDBusAddressableMemory;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_amd_bus_addressable_memory") ) return null;
-
-		Functions funcs = new Functions(provider, platform);
-
-		boolean supported = 
-			funcs.clEnqueueWaitSignalAMD != 0L &&
-			funcs.clEnqueueWriteSignalAMD != 0L &&
-			funcs.clEnqueueMakeBuffersResidentAMD != 0L;
-
-		return CL.checkExtension("cl_amd_bus_addressable_memory", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code AMDBusAddressableMemory}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			clEnqueueWaitSignalAMD,
-			clEnqueueWriteSignalAMD,
-			clEnqueueMakeBuffersResidentAMD;
-
-		public Functions(FunctionProviderLocal provider, long platform) {
-			clEnqueueWaitSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWaitSignalAMD");
-			clEnqueueWriteSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWriteSignalAMD");
-			clEnqueueMakeBuffersResidentAMD = provider.getFunctionAddress(platform, "clEnqueueMakeBuffersResidentAMD");
-		}
-
 	}
 
 }

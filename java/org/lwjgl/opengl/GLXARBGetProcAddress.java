@@ -24,11 +24,36 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXARBGetProcAddress {
 
-	private GLXARBGetProcAddress() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXGetProcAddressARB;
+
+	@JavadocExclude
+	public GLXARBGetProcAddress(FunctionProvider provider) {
+		glXGetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXARBGetProcAddress} instance for the current context. */
+	public static GLXARBGetProcAddress getInstance() {
+		return GL.getCapabilities().__GLXARBGetProcAddress;
+	}
+
+	static GLXARBGetProcAddress create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_ARB_get_proc_address") ) return null;
+
+		GLXARBGetProcAddress funcs = new GLXARBGetProcAddress(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddressARB);
+
+		return GL.checkExtension("GLX_ARB_get_proc_address", funcs, supported);
+	}
 
 	// --- [ glXGetProcAddressARB ] ---
 
 	/** JNI method for {@link #glXGetProcAddressARB glXGetProcAddressARB} */
+	@JavadocExclude
 	public static native long nglXGetProcAddressARB(long procName, long __functionAddress);
 
 	/**
@@ -57,36 +82,6 @@ public final class GLXARBGetProcAddress {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddressARB(memAddress(procName), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXARBGetProcAddress;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_ARB_get_proc_address") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddressARB);
-
-		return GL.checkExtension("GLX_ARB_get_proc_address", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXARBGetProcAddress}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXGetProcAddressARB;
-
-		public Functions(FunctionProvider provider) {
-			glXGetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
-		}
-
 	}
 
 }

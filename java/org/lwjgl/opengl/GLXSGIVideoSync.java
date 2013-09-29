@@ -20,11 +20,41 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GLXSGIVideoSync {
 
-	private GLXSGIVideoSync() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXGetVideoSyncSGI,
+		glXWaitVideoSyncSGI;
+
+	@JavadocExclude
+	public GLXSGIVideoSync(FunctionProvider provider) {
+		glXGetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
+		glXWaitVideoSyncSGI = provider.getFunctionAddress("glXWaitVideoSyncSGI");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIVideoSync} instance for the current context. */
+	public static GLXSGIVideoSync getInstance() {
+		return GL.getCapabilities().__GLXSGIVideoSync;
+	}
+
+	static GLXSGIVideoSync create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGI_video_sync") ) return null;
+
+		GLXSGIVideoSync funcs = new GLXSGIVideoSync(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXGetVideoSyncSGI) &&
+			GL.isFunctionSupported(funcs.glXWaitVideoSyncSGI);
+
+		return GL.checkExtension("GLX_SGI_video_sync", funcs, supported);
+	}
 
 	// --- [ glXGetVideoSyncSGI ] ---
 
 	/** JNI method for {@link #glXGetVideoSyncSGI glXGetVideoSyncSGI} */
+	@JavadocExclude
 	public static native int nglXGetVideoSyncSGI(long count, long __functionAddress);
 
 	/**
@@ -54,6 +84,7 @@ public final class GLXSGIVideoSync {
 	// --- [ glXWaitVideoSyncSGI ] ---
 
 	/** JNI method for {@link #glXWaitVideoSyncSGI glXWaitVideoSyncSGI} */
+	@JavadocExclude
 	public static native int nglXWaitVideoSyncSGI(int divisor, int remainder, long count, long __functionAddress);
 
 	/**
@@ -86,41 +117,6 @@ public final class GLXSGIVideoSync {
 			checkBuffer(count, 1);
 		}
 		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIVideoSync;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_video_sync") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXGetVideoSyncSGI) &&
-			GL.isFunctionSupported(funcs.glXWaitVideoSyncSGI);
-
-		return GL.checkExtension("GLX_SGI_video_sync", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIVideoSync}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXGetVideoSyncSGI,
-			glXWaitVideoSyncSGI;
-
-		public Functions(FunctionProvider provider) {
-			glXGetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
-			glXWaitVideoSyncSGI = provider.getFunctionAddress("glXWaitVideoSyncSGI");
-		}
-
 	}
 
 }

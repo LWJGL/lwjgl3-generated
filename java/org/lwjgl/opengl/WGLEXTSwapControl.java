@@ -17,11 +17,41 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class WGLEXTSwapControl {
 
-	private WGLEXTSwapControl() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglSwapIntervalEXT,
+		wglGetSwapIntervalEXT;
+
+	@JavadocExclude
+	public WGLEXTSwapControl(FunctionProvider provider) {
+		wglSwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
+		wglGetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLEXTSwapControl} instance for the current context. */
+	public static WGLEXTSwapControl getInstance() {
+		return GL.getCapabilities().__WGLEXTSwapControl;
+	}
+
+	static WGLEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_EXT_swap_control") ) return null;
+
+		WGLEXTSwapControl funcs = new WGLEXTSwapControl(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglSwapIntervalEXT) &&
+			GL.isFunctionSupported(funcs.wglGetSwapIntervalEXT);
+
+		return GL.checkExtension("WGL_EXT_swap_control", funcs, supported);
+	}
 
 	// --- [ wglSwapIntervalEXT ] ---
 
 	/** JNI method for {@link #wglSwapIntervalEXT wglSwapIntervalEXT} */
+	@JavadocExclude
 	public static native int nwglSwapIntervalEXT(int interval, long __functionAddress);
 
 	/**
@@ -49,6 +79,7 @@ public final class WGLEXTSwapControl {
 	// --- [ wglGetSwapIntervalEXT ] ---
 
 	/** JNI method for {@link #wglGetSwapIntervalEXT wglGetSwapIntervalEXT} */
+	@JavadocExclude
 	public static native int nwglGetSwapIntervalEXT(long __functionAddress);
 
 	/** Returns the current swap interval for the window associated with the current context. */
@@ -57,41 +88,6 @@ public final class WGLEXTSwapControl {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nwglGetSwapIntervalEXT(__functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLEXTSwapControl;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_EXT_swap_control") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglSwapIntervalEXT) &&
-			GL.isFunctionSupported(funcs.wglGetSwapIntervalEXT);
-
-		return GL.checkExtension("WGL_EXT_swap_control", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLEXTSwapControl}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglSwapIntervalEXT,
-			wglGetSwapIntervalEXT;
-
-		public Functions(FunctionProvider provider) {
-			wglSwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
-			wglGetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
-		}
-
 	}
 
 }

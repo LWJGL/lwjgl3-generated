@@ -13,11 +13,36 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to GLX 1.2. */
 public final class GLX12 {
 
-	private GLX12() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXGetCurrentDisplay;
+
+	@JavadocExclude
+	public GLX12(FunctionProvider provider) {
+		glXGetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLX12} instance for the current context. */
+	public static GLX12 getInstance() {
+		return GL.getCapabilities().__GLX12;
+	}
+
+	static GLX12 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_12") ) return null;
+
+		GLX12 funcs = new GLX12(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXGetCurrentDisplay);
+
+		return GL.checkExtension("GLX_12", funcs, supported);
+	}
 
 	// --- [ glXGetCurrentDisplay ] ---
 
 	/** JNI method for {@link #glXGetCurrentDisplay glXGetCurrentDisplay} */
+	@JavadocExclude
 	public static native long nglXGetCurrentDisplay(long __functionAddress);
 
 	/** Returns the display associated with the current context and drawable. */
@@ -26,36 +51,6 @@ public final class GLX12 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentDisplay(__functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLX12;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_12") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetCurrentDisplay);
-
-		return GL.checkExtension("GLX_12", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLX12}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXGetCurrentDisplay;
-
-		public Functions(FunctionProvider provider) {
-			glXGetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
-		}
-
 	}
 
 }

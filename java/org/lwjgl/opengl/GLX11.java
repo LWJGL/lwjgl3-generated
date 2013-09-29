@@ -22,11 +22,44 @@ public final class GLX11 {
 		GLX_VERSION    = 0x2,
 		GLX_EXTENSIONS = 0x3;
 
-	private GLX11() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXQueryExtensionsString,
+		glXGetClientString,
+		glXQueryServerString;
+
+	@JavadocExclude
+	public GLX11(FunctionProvider provider) {
+		glXQueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
+		glXGetClientString = provider.getFunctionAddress("glXGetClientString");
+		glXQueryServerString = provider.getFunctionAddress("glXQueryServerString");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLX11} instance for the current context. */
+	public static GLX11 getInstance() {
+		return GL.getCapabilities().__GLX11;
+	}
+
+	static GLX11 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_11") ) return null;
+
+		GLX11 funcs = new GLX11(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXQueryExtensionsString) &&
+			GL.isFunctionSupported(funcs.glXGetClientString) &&
+			GL.isFunctionSupported(funcs.glXQueryServerString);
+
+		return GL.checkExtension("GLX_11", funcs, supported);
+	}
 
 	// --- [ glXQueryExtensionsString ] ---
 
 	/** JNI method for {@link #glXQueryExtensionsString glXQueryExtensionsString} */
+	@JavadocExclude
 	public static native long nglXQueryExtensionsString(long display, int screen, long __functionAddress);
 
 	/**
@@ -48,6 +81,7 @@ public final class GLX11 {
 	// --- [ glXGetClientString ] ---
 
 	/** JNI method for {@link #glXGetClientString glXGetClientString} */
+	@JavadocExclude
 	public static native long nglXGetClientString(long display, int name, long __functionAddress);
 
 	/**
@@ -69,6 +103,7 @@ public final class GLX11 {
 	// --- [ glXQueryServerString ] ---
 
 	/** JNI method for {@link #glXQueryServerString glXQueryServerString} */
+	@JavadocExclude
 	public static native long nglXQueryServerString(long display, int screen, int name, long __functionAddress);
 
 	/**
@@ -86,44 +121,6 @@ public final class GLX11 {
 		}
 		long __result = nglXQueryServerString(display, screen, name, __functionAddress);
 		return memDecodeASCII(memByteBufferNT1(__result));
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLX11;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_11") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXQueryExtensionsString) &&
-			GL.isFunctionSupported(funcs.glXGetClientString) &&
-			GL.isFunctionSupported(funcs.glXQueryServerString);
-
-		return GL.checkExtension("GLX_11", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLX11}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXQueryExtensionsString,
-			glXGetClientString,
-			glXQueryServerString;
-
-		public Functions(FunctionProvider provider) {
-			glXQueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
-			glXGetClientString = provider.getFunctionAddress("glXGetClientString");
-			glXQueryServerString = provider.getFunctionAddress("glXQueryServerString");
-		}
-
 	}
 
 }

@@ -45,6 +45,7 @@ public final class WinBase {
 	// --- [ GetVersionEx ] ---
 
 	/** JNI method for {@link #GetVersionEx GetVersionEx} */
+	@JavadocExclude
 	public static native int nGetVersionEx(long versionInfo);
 
 	/**
@@ -65,11 +66,13 @@ public final class WinBase {
 	 * Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each
 	 * other's last-error code.
 	 */
+	@JavadocExclude
 	public static native int GetLastError();
 
 	// --- [ GetModuleHandle ] ---
 
 	/** JNI method for {@link #GetModuleHandle GetModuleHandle} */
+	@JavadocExclude
 	public static native long nGetModuleHandle(long moduleName);
 
 	/**
@@ -96,6 +99,7 @@ public final class WinBase {
 	// --- [ LoadLibrary ] ---
 
 	/** JNI method for {@link #LoadLibrary LoadLibrary} */
+	@JavadocExclude
 	public static native long nLoadLibrary(long name);
 
 	/**
@@ -128,6 +132,7 @@ public final class WinBase {
 	// --- [ GetProcAddress ] ---
 
 	/** JNI method for {@link #GetProcAddress GetProcAddress} */
+	@JavadocExclude
 	public static native long nGetProcAddress(long handle, long name);
 
 	/**
@@ -155,6 +160,7 @@ public final class WinBase {
 	// --- [ FreeLibrary ] ---
 
 	/** JNI method for {@link #FreeLibrary FreeLibrary} */
+	@JavadocExclude
 	public static native int nFreeLibrary(long handle);
 
 	/**
@@ -172,6 +178,7 @@ public final class WinBase {
 	// --- [ QueryPerformanceFrequency ] ---
 
 	/** JNI method for {@link #QueryPerformanceFrequency QueryPerformanceFrequency} */
+	@JavadocExclude
 	public static native int nQueryPerformanceFrequency(long frequency);
 
 	/**
@@ -189,6 +196,7 @@ public final class WinBase {
 	// --- [ QueryPerformanceCounter ] ---
 
 	/** JNI method for {@link #QueryPerformanceCounter QueryPerformanceCounter} */
+	@JavadocExclude
 	public static native int nQueryPerformanceCounter(long frequency);
 
 	/**
@@ -215,11 +223,13 @@ public final class WinBase {
 	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
 	 *              handle to a memory object that is marked as discarded.
 	 */
+	@JavadocExclude
 	public static native long GlobalAlloc(int flags, long bytes);
 
 	// --- [ GlobalLock ] ---
 
 	/** JNI method for {@link #GlobalLock GlobalLock} */
+	@JavadocExclude
 	public static native long nGlobalLock(long hMem);
 
 	/**
@@ -236,6 +246,7 @@ public final class WinBase {
 	// --- [ GlobalUnlock ] ---
 
 	/** JNI method for {@link #GlobalUnlock GlobalUnlock} */
+	@JavadocExclude
 	public static native int nGlobalUnlock(long hMem);
 
 	/**
@@ -253,6 +264,7 @@ public final class WinBase {
 	// --- [ GlobalFree ] ---
 
 	/** JNI method for {@link #GlobalFree GlobalFree} */
+	@JavadocExclude
 	public static native long nGlobalFree(long hMem);
 
 	/**

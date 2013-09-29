@@ -143,6 +143,7 @@ public final class Mmsystem {
 	// --- [ joyGetDevCaps ] ---
 
 	/** JNI method for {@link #joyGetDevCaps joyGetDevCaps} */
+	@JavadocExclude
 	public static native int njoyGetDevCaps(long joyID, long jc, int bjc);
 
 	/**
@@ -162,6 +163,7 @@ public final class Mmsystem {
 	// --- [ joyGetPos ] ---
 
 	/** JNI method for {@link #joyGetPos joyGetPos} */
+	@JavadocExclude
 	public static native int njoyGetPos(int joyID, long ji);
 
 	/**
@@ -179,6 +181,7 @@ public final class Mmsystem {
 	// --- [ joyGetPosEx ] ---
 
 	/** JNI method for {@link #joyGetPosEx joyGetPosEx} */
+	@JavadocExclude
 	public static native int njoyGetPosEx(int joyID, long ji);
 
 	/**
@@ -204,6 +207,7 @@ public final class Mmsystem {
 	 * which is about 49.71 days. This can cause problems in code that directly uses the {@code timeGetTime} return value in computations, particularly where
 	 * the value is used to control code execution. You should always use the difference between two {@code timeGetTime} return values in computations.
 	 */
+	@JavadocExclude
 	public static native int timeGetTime();
 
 }

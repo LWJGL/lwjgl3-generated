@@ -46,11 +46,71 @@ public final class SOFTSourceLatency {
 		AL_SAMPLE_OFFSET_LATENCY_SOFT = 0x1200,
 		AL_SEC_OFFSET_LATENCY_SOFT    = 0x1201;
 
-	private SOFTSourceLatency() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alSourcedSOFT,
+		alSource3dSOFT,
+		alSourcedvSOFT,
+		alGetSourcedSOFT,
+		alGetSource3dSOFT,
+		alGetSourcedvSOFT,
+		alSourcei64SOFT,
+		alSource3i64SOFT,
+		alSourcei64vSOFT,
+		alGetSourcei64SOFT,
+		alGetSource3i64SOFT,
+		alGetSourcei64vSOFT;
+
+	@JavadocExclude
+	public SOFTSourceLatency(FunctionProvider provider) {
+		alSourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
+		alSource3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
+		alSourcedvSOFT = provider.getFunctionAddress("alSourcedvSOFT");
+		alGetSourcedSOFT = provider.getFunctionAddress("alGetSourcedSOFT");
+		alGetSource3dSOFT = provider.getFunctionAddress("alGetSource3dSOFT");
+		alGetSourcedvSOFT = provider.getFunctionAddress("alGetSourcedvSOFT");
+		alSourcei64SOFT = provider.getFunctionAddress("alSourcei64SOFT");
+		alSource3i64SOFT = provider.getFunctionAddress("alSource3i64SOFT");
+		alSourcei64vSOFT = provider.getFunctionAddress("alSourcei64vSOFT");
+		alGetSourcei64SOFT = provider.getFunctionAddress("alGetSourcei64SOFT");
+		alGetSource3i64SOFT = provider.getFunctionAddress("alGetSource3i64SOFT");
+		alGetSourcei64vSOFT = provider.getFunctionAddress("alGetSourcei64vSOFT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link SOFTSourceLatency} instance for the current context. */
+	public static SOFTSourceLatency getInstance() {
+		return AL.getCapabilities().__SOFTSourceLatency;
+	}
+
+	static SOFTSourceLatency create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("AL_SOFT_source_latency") ) return null;
+
+		SOFTSourceLatency funcs = new SOFTSourceLatency(provider);
+
+		boolean supported = 
+			funcs.alSourcedSOFT != 0L &&
+			funcs.alSource3dSOFT != 0L &&
+			funcs.alSourcedvSOFT != 0L &&
+			funcs.alGetSourcedSOFT != 0L &&
+			funcs.alGetSource3dSOFT != 0L &&
+			funcs.alGetSourcedvSOFT != 0L &&
+			funcs.alSourcei64SOFT != 0L &&
+			funcs.alSource3i64SOFT != 0L &&
+			funcs.alSourcei64vSOFT != 0L &&
+			funcs.alGetSourcei64SOFT != 0L &&
+			funcs.alGetSource3i64SOFT != 0L &&
+			funcs.alGetSourcei64vSOFT != 0L;
+
+		return AL.checkExtension("AL_SOFT_source_latency", funcs, supported);
+	}
 
 	// --- [ alSourcedSOFT ] ---
 
 	/** JNI method for {@link #alSourcedSOFT alSourcedSOFT} */
+	@JavadocExclude
 	public static native void nalSourcedSOFT(int source, int param, double value, long __functionAddress);
 
 	/**
@@ -70,6 +130,7 @@ public final class SOFTSourceLatency {
 	// --- [ alSource3dSOFT ] ---
 
 	/** JNI method for {@link #alSource3dSOFT alSource3dSOFT} */
+	@JavadocExclude
 	public static native void nalSource3dSOFT(int source, int param, double value1, double value2, double value3, long __functionAddress);
 
 	/**
@@ -91,6 +152,7 @@ public final class SOFTSourceLatency {
 	// --- [ alSourcedvSOFT ] ---
 
 	/** JNI method for {@link #alSourcedvSOFT alSourcedvSOFT} */
+	@JavadocExclude
 	public static native void nalSourcedvSOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -118,6 +180,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSourcedSOFT ] ---
 
 	/** JNI method for {@link #alGetSourcedSOFT alGetSourcedSOFT} */
+	@JavadocExclude
 	public static native void nalGetSourcedSOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -145,6 +208,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSource3dSOFT ] ---
 
 	/** JNI method for {@link #alGetSource3dSOFT alGetSource3dSOFT} */
+	@JavadocExclude
 	public static native void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -174,6 +238,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSourcedvSOFT ] ---
 
 	/** JNI method for {@link #alGetSourcedvSOFT alGetSourcedvSOFT} */
+	@JavadocExclude
 	public static native void nalGetSourcedvSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
@@ -201,6 +266,7 @@ public final class SOFTSourceLatency {
 	// --- [ alSourcei64SOFT ] ---
 
 	/** JNI method for {@link #alSourcei64SOFT alSourcei64SOFT} */
+	@JavadocExclude
 	public static native void nalSourcei64SOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -220,6 +286,7 @@ public final class SOFTSourceLatency {
 	// --- [ alSource3i64SOFT ] ---
 
 	/** JNI method for {@link #alSource3i64SOFT alSource3i64SOFT} */
+	@JavadocExclude
 	public static native void nalSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -241,6 +308,7 @@ public final class SOFTSourceLatency {
 	// --- [ alSourcei64vSOFT ] ---
 
 	/** JNI method for {@link #alSourcei64vSOFT alSourcei64vSOFT} */
+	@JavadocExclude
 	public static native void nalSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
@@ -268,6 +336,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSourcei64SOFT ] ---
 
 	/** JNI method for {@link #alGetSourcei64SOFT alGetSourcei64SOFT} */
+	@JavadocExclude
 	public static native void nalGetSourcei64SOFT(int source, int param, long value, long __functionAddress);
 
 	/**
@@ -295,6 +364,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSource3i64SOFT ] ---
 
 	/** JNI method for {@link #alGetSource3i64SOFT alGetSource3i64SOFT} */
+	@JavadocExclude
 	public static native void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
@@ -324,6 +394,7 @@ public final class SOFTSourceLatency {
 	// --- [ alGetSourcei64vSOFT ] ---
 
 	/** JNI method for {@link #alGetSourcei64vSOFT alGetSourcei64vSOFT} */
+	@JavadocExclude
 	public static native void nalGetSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/**
@@ -346,71 +417,6 @@ public final class SOFTSourceLatency {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalGetSourcei64vSOFT(source, param, memAddress(values), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return AL.getCapabilities().__SOFTSourceLatency;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_source_latency") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alSourcedSOFT != 0L &&
-			funcs.alSource3dSOFT != 0L &&
-			funcs.alSourcedvSOFT != 0L &&
-			funcs.alGetSourcedSOFT != 0L &&
-			funcs.alGetSource3dSOFT != 0L &&
-			funcs.alGetSourcedvSOFT != 0L &&
-			funcs.alSourcei64SOFT != 0L &&
-			funcs.alSource3i64SOFT != 0L &&
-			funcs.alSourcei64vSOFT != 0L &&
-			funcs.alGetSourcei64SOFT != 0L &&
-			funcs.alGetSource3i64SOFT != 0L &&
-			funcs.alGetSourcei64vSOFT != 0L;
-
-		return AL.checkExtension("AL_SOFT_source_latency", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code SOFTSourceLatency}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alSourcedSOFT,
-			alSource3dSOFT,
-			alSourcedvSOFT,
-			alGetSourcedSOFT,
-			alGetSource3dSOFT,
-			alGetSourcedvSOFT,
-			alSourcei64SOFT,
-			alSource3i64SOFT,
-			alSourcei64vSOFT,
-			alGetSourcei64SOFT,
-			alGetSource3i64SOFT,
-			alGetSourcei64vSOFT;
-
-		public Functions(FunctionProvider provider) {
-			alSourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
-			alSource3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
-			alSourcedvSOFT = provider.getFunctionAddress("alSourcedvSOFT");
-			alGetSourcedSOFT = provider.getFunctionAddress("alGetSourcedSOFT");
-			alGetSource3dSOFT = provider.getFunctionAddress("alGetSource3dSOFT");
-			alGetSourcedvSOFT = provider.getFunctionAddress("alGetSourcedvSOFT");
-			alSourcei64SOFT = provider.getFunctionAddress("alSourcei64SOFT");
-			alSource3i64SOFT = provider.getFunctionAddress("alSource3i64SOFT");
-			alSourcei64vSOFT = provider.getFunctionAddress("alSourcei64vSOFT");
-			alGetSourcei64SOFT = provider.getFunctionAddress("alGetSourcei64SOFT");
-			alGetSource3i64SOFT = provider.getFunctionAddress("alGetSource3i64SOFT");
-			alGetSourcei64vSOFT = provider.getFunctionAddress("alGetSourcei64vSOFT");
-		}
-
 	}
 
 }

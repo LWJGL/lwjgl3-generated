@@ -211,11 +211,137 @@ public final class ARBImaging {
 		GL_FUNC_SUBTRACT         = 0x800A,
 		GL_FUNC_REVERSE_SUBTRACT = 0x800B;
 
-	private ARBImaging() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glColorTable,
+		glCopyColorTable,
+		glColorTableParameteriv,
+		glColorTableParameterfv,
+		glGetColorTable,
+		glGetColorTableParameteriv,
+		glGetColorTableParameterfv,
+		glColorSubTable,
+		glCopyColorSubTable,
+		glConvolutionFilter1D,
+		glConvolutionFilter2D,
+		glCopyConvolutionFilter1D,
+		glCopyConvolutionFilter2D,
+		glGetConvolutionFilter,
+		glSeparableFilter2D,
+		glGetSeparableFilter,
+		glConvolutionParameteri,
+		glConvolutionParameteriv,
+		glConvolutionParameterf,
+		glConvolutionParameterfv,
+		glGetConvolutionParameteriv,
+		glGetConvolutionParameterfv,
+		glHistogram,
+		glResetHistogram,
+		glGetHistogram,
+		glGetHistogramParameteriv,
+		glGetHistogramParameterfv,
+		glMinmax,
+		glResetMinmax,
+		glGetMinmax,
+		glGetMinmaxParameteriv,
+		glGetMinmaxParameterfv,
+		glBlendColor,
+		glBlendEquation;
+
+	@JavadocExclude
+	public ARBImaging(FunctionProvider provider, boolean fc) {
+		glColorTable = GL.getFunctionAddress(provider, "glColorTable", fc);
+		glCopyColorTable = GL.getFunctionAddress(provider, "glCopyColorTable", fc);
+		glColorTableParameteriv = GL.getFunctionAddress(provider, "glColorTableParameteriv", fc);
+		glColorTableParameterfv = GL.getFunctionAddress(provider, "glColorTableParameterfv", fc);
+		glGetColorTable = GL.getFunctionAddress(provider, "glGetColorTable", fc);
+		glGetColorTableParameteriv = GL.getFunctionAddress(provider, "glGetColorTableParameteriv", fc);
+		glGetColorTableParameterfv = GL.getFunctionAddress(provider, "glGetColorTableParameterfv", fc);
+		glColorSubTable = GL.getFunctionAddress(provider, "glColorSubTable", fc);
+		glCopyColorSubTable = GL.getFunctionAddress(provider, "glCopyColorSubTable", fc);
+		glConvolutionFilter1D = GL.getFunctionAddress(provider, "glConvolutionFilter1D", fc);
+		glConvolutionFilter2D = GL.getFunctionAddress(provider, "glConvolutionFilter2D", fc);
+		glCopyConvolutionFilter1D = GL.getFunctionAddress(provider, "glCopyConvolutionFilter1D", fc);
+		glCopyConvolutionFilter2D = GL.getFunctionAddress(provider, "glCopyConvolutionFilter2D", fc);
+		glGetConvolutionFilter = GL.getFunctionAddress(provider, "glGetConvolutionFilter", fc);
+		glSeparableFilter2D = GL.getFunctionAddress(provider, "glSeparableFilter2D", fc);
+		glGetSeparableFilter = GL.getFunctionAddress(provider, "glGetSeparableFilter", fc);
+		glConvolutionParameteri = GL.getFunctionAddress(provider, "glConvolutionParameteri", fc);
+		glConvolutionParameteriv = GL.getFunctionAddress(provider, "glConvolutionParameteriv", fc);
+		glConvolutionParameterf = GL.getFunctionAddress(provider, "glConvolutionParameterf", fc);
+		glConvolutionParameterfv = GL.getFunctionAddress(provider, "glConvolutionParameterfv", fc);
+		glGetConvolutionParameteriv = GL.getFunctionAddress(provider, "glGetConvolutionParameteriv", fc);
+		glGetConvolutionParameterfv = GL.getFunctionAddress(provider, "glGetConvolutionParameterfv", fc);
+		glHistogram = GL.getFunctionAddress(provider, "glHistogram", fc);
+		glResetHistogram = GL.getFunctionAddress(provider, "glResetHistogram", fc);
+		glGetHistogram = GL.getFunctionAddress(provider, "glGetHistogram", fc);
+		glGetHistogramParameteriv = GL.getFunctionAddress(provider, "glGetHistogramParameteriv", fc);
+		glGetHistogramParameterfv = GL.getFunctionAddress(provider, "glGetHistogramParameterfv", fc);
+		glMinmax = GL.getFunctionAddress(provider, "glMinmax", fc);
+		glResetMinmax = GL.getFunctionAddress(provider, "glResetMinmax", fc);
+		glGetMinmax = GL.getFunctionAddress(provider, "glGetMinmax", fc);
+		glGetMinmaxParameteriv = GL.getFunctionAddress(provider, "glGetMinmaxParameteriv", fc);
+		glGetMinmaxParameterfv = GL.getFunctionAddress(provider, "glGetMinmaxParameterfv", fc);
+		glBlendColor = provider.getFunctionAddress("glBlendColor");
+		glBlendEquation = provider.getFunctionAddress("glBlendEquation");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ARBImaging} instance for the current context. */
+	public static ARBImaging getInstance() {
+		return GL.getCapabilities().__ARBImaging;
+	}
+
+	static ARBImaging create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
+		if ( !ext.contains("GL_ARB_imaging") ) return null;
+
+		ARBImaging funcs = new ARBImaging(provider, fc);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glColorTable, fc) &&
+			GL.isFunctionSupported(funcs.glCopyColorTable, fc) &&
+			GL.isFunctionSupported(funcs.glColorTableParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glColorTableParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glGetColorTable, fc) &&
+			GL.isFunctionSupported(funcs.glGetColorTableParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glGetColorTableParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glColorSubTable, fc) &&
+			GL.isFunctionSupported(funcs.glCopyColorSubTable, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionFilter1D, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionFilter2D, fc) &&
+			GL.isFunctionSupported(funcs.glCopyConvolutionFilter1D, fc) &&
+			GL.isFunctionSupported(funcs.glCopyConvolutionFilter2D, fc) &&
+			GL.isFunctionSupported(funcs.glGetConvolutionFilter, fc) &&
+			GL.isFunctionSupported(funcs.glSeparableFilter2D, fc) &&
+			GL.isFunctionSupported(funcs.glGetSeparableFilter, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionParameteri, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionParameterf, fc) &&
+			GL.isFunctionSupported(funcs.glConvolutionParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glGetConvolutionParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glGetConvolutionParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glHistogram, fc) &&
+			GL.isFunctionSupported(funcs.glResetHistogram, fc) &&
+			GL.isFunctionSupported(funcs.glGetHistogram, fc) &&
+			GL.isFunctionSupported(funcs.glGetHistogramParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glGetHistogramParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glMinmax, fc) &&
+			GL.isFunctionSupported(funcs.glResetMinmax, fc) &&
+			GL.isFunctionSupported(funcs.glGetMinmax, fc) &&
+			GL.isFunctionSupported(funcs.glGetMinmaxParameteriv, fc) &&
+			GL.isFunctionSupported(funcs.glGetMinmaxParameterfv, fc) &&
+			GL.isFunctionSupported(funcs.glBlendColor) &&
+			GL.isFunctionSupported(funcs.glBlendEquation);
+
+		return GL.checkExtension("GL_ARB_imaging", funcs, supported);
+	}
 
 	// --- [ glColorTable ] ---
 
 	/** JNI method for {@link #glColorTable glColorTable} */
+	@JavadocExclude
 	public static native void nglColorTable(int target, int internalformat, int width, int format, int type, long table, long __functionAddress);
 
 	/**
@@ -280,6 +406,7 @@ public final class ARBImaging {
 	// --- [ glCopyColorTable ] ---
 
 	/** JNI method for {@link #glCopyColorTable glCopyColorTable} */
+	@JavadocExclude
 	public static native void nglCopyColorTable(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
@@ -301,6 +428,7 @@ public final class ARBImaging {
 	// --- [ glColorTableParameteriv ] ---
 
 	/** JNI method for {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
+	@JavadocExclude
 	public static native void nglColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -332,6 +460,7 @@ public final class ARBImaging {
 	// --- [ glColorTableParameterfv ] ---
 
 	/** JNI method for {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
+	@JavadocExclude
 	public static native void nglColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -363,6 +492,7 @@ public final class ARBImaging {
 	// --- [ glGetColorTable ] ---
 
 	/** JNI method for {@link #glGetColorTable glGetColorTable} */
+	@JavadocExclude
 	public static native void nglGetColorTable(int target, int format, int type, long table, long __functionAddress);
 
 	/**
@@ -425,6 +555,7 @@ public final class ARBImaging {
 	// --- [ glGetColorTableParameteriv ] ---
 
 	/** JNI method for {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
+	@JavadocExclude
 	public static native void nglGetColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -467,6 +598,7 @@ public final class ARBImaging {
 	// --- [ glGetColorTableParameterfv ] ---
 
 	/** JNI method for {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
+	@JavadocExclude
 	public static native void nglGetColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -509,6 +641,7 @@ public final class ARBImaging {
 	// --- [ glColorSubTable ] ---
 
 	/** JNI method for {@link #glColorSubTable glColorSubTable} */
+	@JavadocExclude
 	public static native void nglColorSubTable(int target, int start, int count, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -543,6 +676,7 @@ public final class ARBImaging {
 	// --- [ glCopyColorSubTable ] ---
 
 	/** JNI method for {@link #glCopyColorSubTable glCopyColorSubTable} */
+	@JavadocExclude
 	public static native void nglCopyColorSubTable(int target, int start, int x, int y, int width, long __functionAddress);
 
 	/**
@@ -564,6 +698,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionFilter1D ] ---
 
 	/** JNI method for {@link #glConvolutionFilter1D glConvolutionFilter1D} */
+	@JavadocExclude
 	public static native void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -598,6 +733,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionFilter2D ] ---
 
 	/** JNI method for {@link #glConvolutionFilter2D glConvolutionFilter2D} */
+	@JavadocExclude
 	public static native void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data, long __functionAddress);
 
 	/**
@@ -633,6 +769,7 @@ public final class ARBImaging {
 	// --- [ glCopyConvolutionFilter1D ] ---
 
 	/** JNI method for {@link #glCopyConvolutionFilter1D glCopyConvolutionFilter1D} */
+	@JavadocExclude
 	public static native void nglCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width, long __functionAddress);
 
 	/**
@@ -655,6 +792,7 @@ public final class ARBImaging {
 	// --- [ glCopyConvolutionFilter2D ] ---
 
 	/** JNI method for {@link #glCopyConvolutionFilter2D glCopyConvolutionFilter2D} */
+	@JavadocExclude
 	public static native void nglCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height, long __functionAddress);
 
 	/**
@@ -678,6 +816,7 @@ public final class ARBImaging {
 	// --- [ glGetConvolutionFilter ] ---
 
 	/** JNI method for {@link #glGetConvolutionFilter glGetConvolutionFilter} */
+	@JavadocExclude
 	public static native void nglGetConvolutionFilter(int target, int format, int type, long image, long __functionAddress);
 
 	/**
@@ -710,6 +849,7 @@ public final class ARBImaging {
 	// --- [ glSeparableFilter2D ] ---
 
 	/** JNI method for {@link #glSeparableFilter2D glSeparableFilter2D} */
+	@JavadocExclude
 	public static native void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column, long __functionAddress);
 
 	/**
@@ -758,6 +898,7 @@ public final class ARBImaging {
 	// --- [ glGetSeparableFilter ] ---
 
 	/** JNI method for {@link #glGetSeparableFilter glGetSeparableFilter} */
+	@JavadocExclude
 	public static native void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span, long __functionAddress);
 
 	/**
@@ -804,6 +945,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionParameteri ] ---
 
 	/** JNI method for {@link #glConvolutionParameteri glConvolutionParameteri} */
+	@JavadocExclude
 	public static native void nglConvolutionParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
@@ -823,6 +965,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionParameteriv ] ---
 
 	/** JNI method for {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
+	@JavadocExclude
 	public static native void nglConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -854,6 +997,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionParameterf ] ---
 
 	/** JNI method for {@link #glConvolutionParameterf glConvolutionParameterf} */
+	@JavadocExclude
 	public static native void nglConvolutionParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
@@ -873,6 +1017,7 @@ public final class ARBImaging {
 	// --- [ glConvolutionParameterfv ] ---
 
 	/** JNI method for {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
+	@JavadocExclude
 	public static native void nglConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -904,6 +1049,7 @@ public final class ARBImaging {
 	// --- [ glGetConvolutionParameteriv ] ---
 
 	/** JNI method for {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
+	@JavadocExclude
 	public static native void nglGetConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -946,6 +1092,7 @@ public final class ARBImaging {
 	// --- [ glGetConvolutionParameterfv ] ---
 
 	/** JNI method for {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
+	@JavadocExclude
 	public static native void nglGetConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -988,6 +1135,7 @@ public final class ARBImaging {
 	// --- [ glHistogram ] ---
 
 	/** JNI method for {@link #glHistogram glHistogram} */
+	@JavadocExclude
 	public static native void nglHistogram(int target, int width, int internalformat, boolean sink, long __functionAddress);
 
 	/**
@@ -1008,6 +1156,7 @@ public final class ARBImaging {
 	// --- [ glResetHistogram ] ---
 
 	/** JNI method for {@link #glResetHistogram glResetHistogram} */
+	@JavadocExclude
 	public static native void nglResetHistogram(int target, long __functionAddress);
 
 	/**
@@ -1025,6 +1174,7 @@ public final class ARBImaging {
 	// --- [ glGetHistogram ] ---
 
 	/** JNI method for {@link #glGetHistogram glGetHistogram} */
+	@JavadocExclude
 	public static native void nglGetHistogram(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
@@ -1058,6 +1208,7 @@ public final class ARBImaging {
 	// --- [ glGetHistogramParameteriv ] ---
 
 	/** JNI method for {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
+	@JavadocExclude
 	public static native void nglGetHistogramParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -1100,6 +1251,7 @@ public final class ARBImaging {
 	// --- [ glGetHistogramParameterfv ] ---
 
 	/** JNI method for {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
+	@JavadocExclude
 	public static native void nglGetHistogramParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -1142,6 +1294,7 @@ public final class ARBImaging {
 	// --- [ glMinmax ] ---
 
 	/** JNI method for {@link #glMinmax glMinmax} */
+	@JavadocExclude
 	public static native void nglMinmax(int target, int internalformat, boolean sink, long __functionAddress);
 
 	/**
@@ -1161,6 +1314,7 @@ public final class ARBImaging {
 	// --- [ glResetMinmax ] ---
 
 	/** JNI method for {@link #glResetMinmax glResetMinmax} */
+	@JavadocExclude
 	public static native void nglResetMinmax(int target, long __functionAddress);
 
 	/**
@@ -1178,6 +1332,7 @@ public final class ARBImaging {
 	// --- [ glGetMinmax ] ---
 
 	/** JNI method for {@link #glGetMinmax glGetMinmax} */
+	@JavadocExclude
 	public static native void nglGetMinmax(int target, boolean reset, int format, int type, long values, long __functionAddress);
 
 	/**
@@ -1212,6 +1367,7 @@ public final class ARBImaging {
 	// --- [ glGetMinmaxParameteriv ] ---
 
 	/** JNI method for {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
+	@JavadocExclude
 	public static native void nglGetMinmaxParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -1254,6 +1410,7 @@ public final class ARBImaging {
 	// --- [ glGetMinmaxParameterfv ] ---
 
 	/** JNI method for {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
+	@JavadocExclude
 	public static native void nglGetMinmaxParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/**
@@ -1296,6 +1453,7 @@ public final class ARBImaging {
 	// --- [ glBlendColor ] ---
 
 	/** JNI method for {@link #glBlendColor glBlendColor} */
+	@JavadocExclude
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
@@ -1316,6 +1474,7 @@ public final class ARBImaging {
 	// --- [ glBlendEquation ] ---
 
 	/** JNI method for {@link #glBlendEquation glBlendEquation} */
+	@JavadocExclude
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
@@ -1328,137 +1487,6 @@ public final class ARBImaging {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlendEquation(mode, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__ARBImaging;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
-		if ( !ext.contains("GL_ARB_imaging") ) return null;
-
-		Functions funcs = new Functions(provider, fc);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glColorTable, fc) &&
-			GL.isFunctionSupported(funcs.glCopyColorTable, fc) &&
-			GL.isFunctionSupported(funcs.glColorTableParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glColorTableParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetColorTable, fc) &&
-			GL.isFunctionSupported(funcs.glGetColorTableParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glGetColorTableParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glColorSubTable, fc) &&
-			GL.isFunctionSupported(funcs.glCopyColorSubTable, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionFilter1D, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.glCopyConvolutionFilter1D, fc) &&
-			GL.isFunctionSupported(funcs.glCopyConvolutionFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.glGetConvolutionFilter, fc) &&
-			GL.isFunctionSupported(funcs.glSeparableFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.glGetSeparableFilter, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionParameteri, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionParameterf, fc) &&
-			GL.isFunctionSupported(funcs.glConvolutionParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetConvolutionParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glGetConvolutionParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glHistogram, fc) &&
-			GL.isFunctionSupported(funcs.glResetHistogram, fc) &&
-			GL.isFunctionSupported(funcs.glGetHistogram, fc) &&
-			GL.isFunctionSupported(funcs.glGetHistogramParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glGetHistogramParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glMinmax, fc) &&
-			GL.isFunctionSupported(funcs.glResetMinmax, fc) &&
-			GL.isFunctionSupported(funcs.glGetMinmax, fc) &&
-			GL.isFunctionSupported(funcs.glGetMinmaxParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMinmaxParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.glBlendColor) &&
-			GL.isFunctionSupported(funcs.glBlendEquation);
-
-		return GL.checkExtension("GL_ARB_imaging", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ARBImaging}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glColorTable,
-			glCopyColorTable,
-			glColorTableParameteriv,
-			glColorTableParameterfv,
-			glGetColorTable,
-			glGetColorTableParameteriv,
-			glGetColorTableParameterfv,
-			glColorSubTable,
-			glCopyColorSubTable,
-			glConvolutionFilter1D,
-			glConvolutionFilter2D,
-			glCopyConvolutionFilter1D,
-			glCopyConvolutionFilter2D,
-			glGetConvolutionFilter,
-			glSeparableFilter2D,
-			glGetSeparableFilter,
-			glConvolutionParameteri,
-			glConvolutionParameteriv,
-			glConvolutionParameterf,
-			glConvolutionParameterfv,
-			glGetConvolutionParameteriv,
-			glGetConvolutionParameterfv,
-			glHistogram,
-			glResetHistogram,
-			glGetHistogram,
-			glGetHistogramParameteriv,
-			glGetHistogramParameterfv,
-			glMinmax,
-			glResetMinmax,
-			glGetMinmax,
-			glGetMinmaxParameteriv,
-			glGetMinmaxParameterfv,
-			glBlendColor,
-			glBlendEquation;
-
-		public Functions(FunctionProvider provider, boolean fc) {
-			glColorTable = GL.getFunctionAddress(provider, "glColorTable", fc);
-			glCopyColorTable = GL.getFunctionAddress(provider, "glCopyColorTable", fc);
-			glColorTableParameteriv = GL.getFunctionAddress(provider, "glColorTableParameteriv", fc);
-			glColorTableParameterfv = GL.getFunctionAddress(provider, "glColorTableParameterfv", fc);
-			glGetColorTable = GL.getFunctionAddress(provider, "glGetColorTable", fc);
-			glGetColorTableParameteriv = GL.getFunctionAddress(provider, "glGetColorTableParameteriv", fc);
-			glGetColorTableParameterfv = GL.getFunctionAddress(provider, "glGetColorTableParameterfv", fc);
-			glColorSubTable = GL.getFunctionAddress(provider, "glColorSubTable", fc);
-			glCopyColorSubTable = GL.getFunctionAddress(provider, "glCopyColorSubTable", fc);
-			glConvolutionFilter1D = GL.getFunctionAddress(provider, "glConvolutionFilter1D", fc);
-			glConvolutionFilter2D = GL.getFunctionAddress(provider, "glConvolutionFilter2D", fc);
-			glCopyConvolutionFilter1D = GL.getFunctionAddress(provider, "glCopyConvolutionFilter1D", fc);
-			glCopyConvolutionFilter2D = GL.getFunctionAddress(provider, "glCopyConvolutionFilter2D", fc);
-			glGetConvolutionFilter = GL.getFunctionAddress(provider, "glGetConvolutionFilter", fc);
-			glSeparableFilter2D = GL.getFunctionAddress(provider, "glSeparableFilter2D", fc);
-			glGetSeparableFilter = GL.getFunctionAddress(provider, "glGetSeparableFilter", fc);
-			glConvolutionParameteri = GL.getFunctionAddress(provider, "glConvolutionParameteri", fc);
-			glConvolutionParameteriv = GL.getFunctionAddress(provider, "glConvolutionParameteriv", fc);
-			glConvolutionParameterf = GL.getFunctionAddress(provider, "glConvolutionParameterf", fc);
-			glConvolutionParameterfv = GL.getFunctionAddress(provider, "glConvolutionParameterfv", fc);
-			glGetConvolutionParameteriv = GL.getFunctionAddress(provider, "glGetConvolutionParameteriv", fc);
-			glGetConvolutionParameterfv = GL.getFunctionAddress(provider, "glGetConvolutionParameterfv", fc);
-			glHistogram = GL.getFunctionAddress(provider, "glHistogram", fc);
-			glResetHistogram = GL.getFunctionAddress(provider, "glResetHistogram", fc);
-			glGetHistogram = GL.getFunctionAddress(provider, "glGetHistogram", fc);
-			glGetHistogramParameteriv = GL.getFunctionAddress(provider, "glGetHistogramParameteriv", fc);
-			glGetHistogramParameterfv = GL.getFunctionAddress(provider, "glGetHistogramParameterfv", fc);
-			glMinmax = GL.getFunctionAddress(provider, "glMinmax", fc);
-			glResetMinmax = GL.getFunctionAddress(provider, "glResetMinmax", fc);
-			glGetMinmax = GL.getFunctionAddress(provider, "glGetMinmax", fc);
-			glGetMinmaxParameteriv = GL.getFunctionAddress(provider, "glGetMinmaxParameteriv", fc);
-			glGetMinmaxParameterfv = GL.getFunctionAddress(provider, "glGetMinmaxParameterfv", fc);
-			glBlendColor = provider.getFunctionAddress("glBlendColor");
-			glBlendEquation = provider.getFunctionAddress("glBlendEquation");
-		}
-
 	}
 
 }

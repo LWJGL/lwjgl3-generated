@@ -51,11 +51,79 @@ public final class ALC10 {
 		ALC_ATTRIBUTES_SIZE = 0x1002,
 		ALC_ALL_ATTRIBUTES  = 0x1003;
 
-	private ALC10() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alcOpenDevice,
+		alcCloseDevice,
+		alcCreateContext,
+		alcMakeContextCurrent,
+		alcProcessContext,
+		alcSuspendContext,
+		alcDestroyContext,
+		alcGetCurrentContext,
+		alcGetContextsDevice,
+		alcIsExtensionPresent,
+		alcGetProcAddress,
+		alcGetEnumValue,
+		alcGetError,
+		alcGetString,
+		alcGetIntegerv;
+
+	@JavadocExclude
+	public ALC10(FunctionProviderLocal provider) {
+		alcOpenDevice = provider.getFunctionAddress("alcOpenDevice");
+		alcCloseDevice = provider.getFunctionAddress("alcCloseDevice");
+		alcCreateContext = provider.getFunctionAddress("alcCreateContext");
+		alcMakeContextCurrent = provider.getFunctionAddress("alcMakeContextCurrent");
+		alcProcessContext = provider.getFunctionAddress("alcProcessContext");
+		alcSuspendContext = provider.getFunctionAddress("alcSuspendContext");
+		alcDestroyContext = provider.getFunctionAddress("alcDestroyContext");
+		alcGetCurrentContext = provider.getFunctionAddress("alcGetCurrentContext");
+		alcGetContextsDevice = provider.getFunctionAddress("alcGetContextsDevice");
+		alcIsExtensionPresent = provider.getFunctionAddress("alcIsExtensionPresent");
+		alcGetProcAddress = provider.getFunctionAddress("alcGetProcAddress");
+		alcGetEnumValue = provider.getFunctionAddress("alcGetEnumValue");
+		alcGetError = provider.getFunctionAddress("alcGetError");
+		alcGetString = provider.getFunctionAddress("alcGetString");
+		alcGetIntegerv = provider.getFunctionAddress("alcGetIntegerv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link ALC10} instance for the current context. */
+	public static ALC10 getInstance() {
+		return ALC.getCapabilities().__ALC10;
+	}
+
+	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC10") ) return null;
+
+		ALC10 funcs = new ALC10(provider);
+
+		boolean supported = 
+			funcs.alcOpenDevice != 0L &&
+			funcs.alcCloseDevice != 0L &&
+			funcs.alcCreateContext != 0L &&
+			funcs.alcMakeContextCurrent != 0L &&
+			funcs.alcProcessContext != 0L &&
+			funcs.alcSuspendContext != 0L &&
+			funcs.alcDestroyContext != 0L &&
+			funcs.alcGetCurrentContext != 0L &&
+			funcs.alcGetContextsDevice != 0L &&
+			funcs.alcIsExtensionPresent != 0L &&
+			funcs.alcGetProcAddress != 0L &&
+			funcs.alcGetEnumValue != 0L &&
+			funcs.alcGetError != 0L &&
+			funcs.alcGetString != 0L &&
+			funcs.alcGetIntegerv != 0L;
+
+		return ALC.checkExtension("OpenALC10", funcs, supported);
+	}
 
 	// --- [ alcOpenDevice ] ---
 
 	/** JNI method for {@link #alcOpenDevice alcOpenDevice} */
+	@JavadocExclude
 	public static native long nalcOpenDevice(long deviceSpecifier, long __functionAddress);
 
 	/**
@@ -86,6 +154,7 @@ public final class ALC10 {
 	// --- [ alcCloseDevice ] ---
 
 	/** JNI method for {@link #alcCloseDevice alcCloseDevice} */
+	@JavadocExclude
 	public static native boolean nalcCloseDevice(long deviceHandle, long __functionAddress);
 
 	/**
@@ -108,6 +177,7 @@ public final class ALC10 {
 	// --- [ alcCreateContext ] ---
 
 	/** JNI method for {@link #alcCreateContext alcCreateContext} */
+	@JavadocExclude
 	public static native long nalcCreateContext(long deviceHandle, long attrList, long __functionAddress);
 
 	/**
@@ -140,6 +210,7 @@ public final class ALC10 {
 	// --- [ alcMakeContextCurrent ] ---
 
 	/** JNI method for {@link #alcMakeContextCurrent alcMakeContextCurrent} */
+	@JavadocExclude
 	public static native boolean nalcMakeContextCurrent(long context, long __functionAddress);
 
 	/**
@@ -163,6 +234,7 @@ public final class ALC10 {
 	// --- [ alcProcessContext ] ---
 
 	/** JNI method for {@link #alcProcessContext alcProcessContext} */
+	@JavadocExclude
 	public static native void nalcProcessContext(long context, long __functionAddress);
 
 	/**
@@ -187,6 +259,7 @@ public final class ALC10 {
 	// --- [ alcSuspendContext ] ---
 
 	/** JNI method for {@link #alcSuspendContext alcSuspendContext} */
+	@JavadocExclude
 	public static native void nalcSuspendContext(long context, long __functionAddress);
 
 	/**
@@ -209,6 +282,7 @@ public final class ALC10 {
 	// --- [ alcDestroyContext ] ---
 
 	/** JNI method for {@link #alcDestroyContext alcDestroyContext} */
+	@JavadocExclude
 	public static native void nalcDestroyContext(long context, long __functionAddress);
 
 	/**
@@ -232,6 +306,7 @@ public final class ALC10 {
 	// --- [ alcGetCurrentContext ] ---
 
 	/** JNI method for {@link #alcGetCurrentContext alcGetCurrentContext} */
+	@JavadocExclude
 	public static native long nalcGetCurrentContext(long __functionAddress);
 
 	/** Queries for, and obtains a handle to, the current context for the application. If there is no current context, NULL is returned. */
@@ -245,6 +320,7 @@ public final class ALC10 {
 	// --- [ alcGetContextsDevice ] ---
 
 	/** JNI method for {@link #alcGetContextsDevice alcGetContextsDevice} */
+	@JavadocExclude
 	public static native long nalcGetContextsDevice(long context, long __functionAddress);
 
 	/**
@@ -264,6 +340,7 @@ public final class ALC10 {
 	// --- [ alcIsExtensionPresent ] ---
 
 	/** JNI method for {@link #alcIsExtensionPresent alcIsExtensionPresent} */
+	@JavadocExclude
 	public static native boolean nalcIsExtensionPresent(long deviceHandle, long extName, long __functionAddress);
 
 	/**
@@ -295,6 +372,7 @@ public final class ALC10 {
 	// --- [ alcGetProcAddress ] ---
 
 	/** JNI method for {@link #alcGetProcAddress alcGetProcAddress} */
+	@JavadocExclude
 	public static native long nalcGetProcAddress(long deviceHandle, long funcName, long __functionAddress);
 
 	/**
@@ -329,6 +407,7 @@ public final class ALC10 {
 	// --- [ alcGetEnumValue ] ---
 
 	/** JNI method for {@link #alcGetEnumValue alcGetEnumValue} */
+	@JavadocExclude
 	public static native int nalcGetEnumValue(long deviceHandle, long enumName, long __functionAddress);
 
 	/**
@@ -360,6 +439,7 @@ public final class ALC10 {
 	// --- [ alcGetError ] ---
 
 	/** JNI method for {@link #alcGetError alcGetError} */
+	@JavadocExclude
 	public static native int nalcGetError(long deviceHandle, long __functionAddress);
 
 	/**
@@ -384,6 +464,7 @@ public final class ALC10 {
 	// --- [ alcGetString ] ---
 
 	/** JNI method for {@link #alcGetString alcGetString} */
+	@JavadocExclude
 	public static native long nalcGetString(long deviceHandle, int token, long __functionAddress);
 
 	/**
@@ -405,6 +486,7 @@ public final class ALC10 {
 	// --- [ alcGetIntegerv ] ---
 
 	/** JNI method for {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	@JavadocExclude
 	public static native void nalcGetIntegerv(long deviceHandle, int token, int size, long dest, long __functionAddress);
 
 	/**
@@ -441,79 +523,6 @@ public final class ALC10 {
 		int dest = __buffer.intParam();
 		nalcGetIntegerv(deviceHandle, token, 1, __buffer.address() + dest, __functionAddress);
 		return __buffer.intValue(dest);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return ALC.getCapabilities().__ALC10;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC10") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alcOpenDevice != 0L &&
-			funcs.alcCloseDevice != 0L &&
-			funcs.alcCreateContext != 0L &&
-			funcs.alcMakeContextCurrent != 0L &&
-			funcs.alcProcessContext != 0L &&
-			funcs.alcSuspendContext != 0L &&
-			funcs.alcDestroyContext != 0L &&
-			funcs.alcGetCurrentContext != 0L &&
-			funcs.alcGetContextsDevice != 0L &&
-			funcs.alcIsExtensionPresent != 0L &&
-			funcs.alcGetProcAddress != 0L &&
-			funcs.alcGetEnumValue != 0L &&
-			funcs.alcGetError != 0L &&
-			funcs.alcGetString != 0L &&
-			funcs.alcGetIntegerv != 0L;
-
-		return ALC.checkExtension("OpenALC10", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code ALC10}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alcOpenDevice,
-			alcCloseDevice,
-			alcCreateContext,
-			alcMakeContextCurrent,
-			alcProcessContext,
-			alcSuspendContext,
-			alcDestroyContext,
-			alcGetCurrentContext,
-			alcGetContextsDevice,
-			alcIsExtensionPresent,
-			alcGetProcAddress,
-			alcGetEnumValue,
-			alcGetError,
-			alcGetString,
-			alcGetIntegerv;
-
-		public Functions(FunctionProviderLocal provider) {
-			alcOpenDevice = provider.getFunctionAddress("alcOpenDevice");
-			alcCloseDevice = provider.getFunctionAddress("alcCloseDevice");
-			alcCreateContext = provider.getFunctionAddress("alcCreateContext");
-			alcMakeContextCurrent = provider.getFunctionAddress("alcMakeContextCurrent");
-			alcProcessContext = provider.getFunctionAddress("alcProcessContext");
-			alcSuspendContext = provider.getFunctionAddress("alcSuspendContext");
-			alcDestroyContext = provider.getFunctionAddress("alcDestroyContext");
-			alcGetCurrentContext = provider.getFunctionAddress("alcGetCurrentContext");
-			alcGetContextsDevice = provider.getFunctionAddress("alcGetContextsDevice");
-			alcIsExtensionPresent = provider.getFunctionAddress("alcIsExtensionPresent");
-			alcGetProcAddress = provider.getFunctionAddress("alcGetProcAddress");
-			alcGetEnumValue = provider.getFunctionAddress("alcGetEnumValue");
-			alcGetError = provider.getFunctionAddress("alcGetError");
-			alcGetString = provider.getFunctionAddress("alcGetString");
-			alcGetIntegerv = provider.getFunctionAddress("alcGetIntegerv");
-		}
-
 	}
 
 }

@@ -360,11 +360,230 @@ public final class CL10 {
 		CL_PROFILING_COMMAND_START  = 0x1282,
 		CL_PROFILING_COMMAND_END    = 0x1283;
 
-	private CL10() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		clGetPlatformIDs,
+		clGetPlatformInfo,
+		clGetDeviceIDs,
+		clGetDeviceInfo,
+		clCreateContext,
+		clCreateContextFromType,
+		clRetainContext,
+		clReleaseContext,
+		clGetContextInfo,
+		clCreateCommandQueue,
+		clRetainCommandQueue,
+		clReleaseCommandQueue,
+		clGetCommandQueueInfo,
+		clCreateBuffer,
+		clEnqueueReadBuffer,
+		clEnqueueWriteBuffer,
+		clEnqueueCopyBuffer,
+		clEnqueueMapBuffer,
+		clCreateImage2D,
+		clCreateImage3D,
+		clGetSupportedImageFormats,
+		clEnqueueReadImage,
+		clEnqueueWriteImage,
+		clEnqueueCopyImage,
+		clEnqueueCopyImageToBuffer,
+		clEnqueueCopyBufferToImage,
+		clEnqueueMapImage,
+		clGetImageInfo,
+		clRetainMemObject,
+		clReleaseMemObject,
+		clEnqueueUnmapMemObject,
+		clGetMemObjectInfo,
+		clCreateSampler,
+		clRetainSampler,
+		clReleaseSampler,
+		clGetSamplerInfo,
+		clCreateProgramWithSource,
+		clCreateProgramWithBinary,
+		clRetainProgram,
+		clReleaseProgram,
+		clBuildProgram,
+		clUnloadCompiler,
+		clGetProgramInfo,
+		clGetProgramBuildInfo,
+		clCreateKernel,
+		clCreateKernelsInProgram,
+		clRetainKernel,
+		clReleaseKernel,
+		clSetKernelArg,
+		clGetKernelInfo,
+		clGetKernelWorkGroupInfo,
+		clEnqueueNDRangeKernel,
+		clEnqueueTask,
+		clEnqueueNativeKernel,
+		clWaitForEvents,
+		clGetEventInfo,
+		clRetainEvent,
+		clReleaseEvent,
+		clEnqueueMarker,
+		clEnqueueBarrier,
+		clEnqueueWaitForEvents,
+		clGetEventProfilingInfo,
+		clFlush,
+		clFinish,
+		clGetExtensionFunctionAddress;
+
+	@JavadocExclude
+	public CL10(FunctionProviderLocal provider) {
+		clGetPlatformIDs = provider.getFunctionAddress("clGetPlatformIDs");
+		clGetPlatformInfo = provider.getFunctionAddress("clGetPlatformInfo");
+		clGetDeviceIDs = provider.getFunctionAddress("clGetDeviceIDs");
+		clGetDeviceInfo = provider.getFunctionAddress("clGetDeviceInfo");
+		clCreateContext = provider.getFunctionAddress("clCreateContext");
+		clCreateContextFromType = provider.getFunctionAddress("clCreateContextFromType");
+		clRetainContext = provider.getFunctionAddress("clRetainContext");
+		clReleaseContext = provider.getFunctionAddress("clReleaseContext");
+		clGetContextInfo = provider.getFunctionAddress("clGetContextInfo");
+		clCreateCommandQueue = provider.getFunctionAddress("clCreateCommandQueue");
+		clRetainCommandQueue = provider.getFunctionAddress("clRetainCommandQueue");
+		clReleaseCommandQueue = provider.getFunctionAddress("clReleaseCommandQueue");
+		clGetCommandQueueInfo = provider.getFunctionAddress("clGetCommandQueueInfo");
+		clCreateBuffer = provider.getFunctionAddress("clCreateBuffer");
+		clEnqueueReadBuffer = provider.getFunctionAddress("clEnqueueReadBuffer");
+		clEnqueueWriteBuffer = provider.getFunctionAddress("clEnqueueWriteBuffer");
+		clEnqueueCopyBuffer = provider.getFunctionAddress("clEnqueueCopyBuffer");
+		clEnqueueMapBuffer = provider.getFunctionAddress("clEnqueueMapBuffer");
+		clCreateImage2D = provider.getFunctionAddress("clCreateImage2D");
+		clCreateImage3D = provider.getFunctionAddress("clCreateImage3D");
+		clGetSupportedImageFormats = provider.getFunctionAddress("clGetSupportedImageFormats");
+		clEnqueueReadImage = provider.getFunctionAddress("clEnqueueReadImage");
+		clEnqueueWriteImage = provider.getFunctionAddress("clEnqueueWriteImage");
+		clEnqueueCopyImage = provider.getFunctionAddress("clEnqueueCopyImage");
+		clEnqueueCopyImageToBuffer = provider.getFunctionAddress("clEnqueueCopyImageToBuffer");
+		clEnqueueCopyBufferToImage = provider.getFunctionAddress("clEnqueueCopyBufferToImage");
+		clEnqueueMapImage = provider.getFunctionAddress("clEnqueueMapImage");
+		clGetImageInfo = provider.getFunctionAddress("clGetImageInfo");
+		clRetainMemObject = provider.getFunctionAddress("clRetainMemObject");
+		clReleaseMemObject = provider.getFunctionAddress("clReleaseMemObject");
+		clEnqueueUnmapMemObject = provider.getFunctionAddress("clEnqueueUnmapMemObject");
+		clGetMemObjectInfo = provider.getFunctionAddress("clGetMemObjectInfo");
+		clCreateSampler = provider.getFunctionAddress("clCreateSampler");
+		clRetainSampler = provider.getFunctionAddress("clRetainSampler");
+		clReleaseSampler = provider.getFunctionAddress("clReleaseSampler");
+		clGetSamplerInfo = provider.getFunctionAddress("clGetSamplerInfo");
+		clCreateProgramWithSource = provider.getFunctionAddress("clCreateProgramWithSource");
+		clCreateProgramWithBinary = provider.getFunctionAddress("clCreateProgramWithBinary");
+		clRetainProgram = provider.getFunctionAddress("clRetainProgram");
+		clReleaseProgram = provider.getFunctionAddress("clReleaseProgram");
+		clBuildProgram = provider.getFunctionAddress("clBuildProgram");
+		clUnloadCompiler = provider.getFunctionAddress("clUnloadCompiler");
+		clGetProgramInfo = provider.getFunctionAddress("clGetProgramInfo");
+		clGetProgramBuildInfo = provider.getFunctionAddress("clGetProgramBuildInfo");
+		clCreateKernel = provider.getFunctionAddress("clCreateKernel");
+		clCreateKernelsInProgram = provider.getFunctionAddress("clCreateKernelsInProgram");
+		clRetainKernel = provider.getFunctionAddress("clRetainKernel");
+		clReleaseKernel = provider.getFunctionAddress("clReleaseKernel");
+		clSetKernelArg = provider.getFunctionAddress("clSetKernelArg");
+		clGetKernelInfo = provider.getFunctionAddress("clGetKernelInfo");
+		clGetKernelWorkGroupInfo = provider.getFunctionAddress("clGetKernelWorkGroupInfo");
+		clEnqueueNDRangeKernel = provider.getFunctionAddress("clEnqueueNDRangeKernel");
+		clEnqueueTask = provider.getFunctionAddress("clEnqueueTask");
+		clEnqueueNativeKernel = provider.getFunctionAddress("clEnqueueNativeKernel");
+		clWaitForEvents = provider.getFunctionAddress("clWaitForEvents");
+		clGetEventInfo = provider.getFunctionAddress("clGetEventInfo");
+		clRetainEvent = provider.getFunctionAddress("clRetainEvent");
+		clReleaseEvent = provider.getFunctionAddress("clReleaseEvent");
+		clEnqueueMarker = provider.getFunctionAddress("clEnqueueMarker");
+		clEnqueueBarrier = provider.getFunctionAddress("clEnqueueBarrier");
+		clEnqueueWaitForEvents = provider.getFunctionAddress("clEnqueueWaitForEvents");
+		clGetEventProfilingInfo = provider.getFunctionAddress("clGetEventProfilingInfo");
+		clFlush = provider.getFunctionAddress("clFlush");
+		clFinish = provider.getFunctionAddress("clFinish");
+		clGetExtensionFunctionAddress = provider.getFunctionAddress("clGetExtensionFunctionAddress");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CL10} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static CL10 getInstance(CLObject object) {
+		return object.getCapabilities().__CL10;
+	}
+
+	static CL10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenCL10") ) return null;
+
+		CL10 funcs = new CL10(provider);
+
+		boolean supported = 
+			funcs.clGetPlatformIDs != 0L &&
+			funcs.clGetPlatformInfo != 0L &&
+			funcs.clGetDeviceIDs != 0L &&
+			funcs.clGetDeviceInfo != 0L &&
+			funcs.clCreateContext != 0L &&
+			funcs.clCreateContextFromType != 0L &&
+			funcs.clRetainContext != 0L &&
+			funcs.clReleaseContext != 0L &&
+			funcs.clGetContextInfo != 0L &&
+			funcs.clCreateCommandQueue != 0L &&
+			funcs.clRetainCommandQueue != 0L &&
+			funcs.clReleaseCommandQueue != 0L &&
+			funcs.clGetCommandQueueInfo != 0L &&
+			funcs.clCreateBuffer != 0L &&
+			funcs.clEnqueueReadBuffer != 0L &&
+			funcs.clEnqueueWriteBuffer != 0L &&
+			funcs.clEnqueueCopyBuffer != 0L &&
+			funcs.clEnqueueMapBuffer != 0L &&
+			funcs.clCreateImage2D != 0L &&
+			funcs.clCreateImage3D != 0L &&
+			funcs.clGetSupportedImageFormats != 0L &&
+			funcs.clEnqueueReadImage != 0L &&
+			funcs.clEnqueueWriteImage != 0L &&
+			funcs.clEnqueueCopyImage != 0L &&
+			funcs.clEnqueueCopyImageToBuffer != 0L &&
+			funcs.clEnqueueCopyBufferToImage != 0L &&
+			funcs.clEnqueueMapImage != 0L &&
+			funcs.clGetImageInfo != 0L &&
+			funcs.clRetainMemObject != 0L &&
+			funcs.clReleaseMemObject != 0L &&
+			funcs.clEnqueueUnmapMemObject != 0L &&
+			funcs.clGetMemObjectInfo != 0L &&
+			funcs.clCreateSampler != 0L &&
+			funcs.clRetainSampler != 0L &&
+			funcs.clReleaseSampler != 0L &&
+			funcs.clGetSamplerInfo != 0L &&
+			funcs.clCreateProgramWithSource != 0L &&
+			funcs.clCreateProgramWithBinary != 0L &&
+			funcs.clRetainProgram != 0L &&
+			funcs.clReleaseProgram != 0L &&
+			funcs.clBuildProgram != 0L &&
+			funcs.clUnloadCompiler != 0L &&
+			funcs.clGetProgramInfo != 0L &&
+			funcs.clGetProgramBuildInfo != 0L &&
+			funcs.clCreateKernel != 0L &&
+			funcs.clCreateKernelsInProgram != 0L &&
+			funcs.clRetainKernel != 0L &&
+			funcs.clReleaseKernel != 0L &&
+			funcs.clSetKernelArg != 0L &&
+			funcs.clGetKernelInfo != 0L &&
+			funcs.clGetKernelWorkGroupInfo != 0L &&
+			funcs.clEnqueueNDRangeKernel != 0L &&
+			funcs.clEnqueueTask != 0L &&
+			funcs.clEnqueueNativeKernel != 0L &&
+			funcs.clWaitForEvents != 0L &&
+			funcs.clGetEventInfo != 0L &&
+			funcs.clRetainEvent != 0L &&
+			funcs.clReleaseEvent != 0L &&
+			funcs.clEnqueueMarker != 0L &&
+			funcs.clEnqueueBarrier != 0L &&
+			funcs.clEnqueueWaitForEvents != 0L &&
+			funcs.clGetEventProfilingInfo != 0L &&
+			funcs.clFlush != 0L &&
+			funcs.clFinish != 0L &&
+			funcs.clGetExtensionFunctionAddress != 0L;
+
+		return CL.checkExtension("OpenCL10", funcs, supported);
+	}
 
 	// --- [ clGetPlatformIDs ] ---
 
 	/** JNI method for {@link #clGetPlatformIDs clGetPlatformIDs} */
+	@JavadocExclude
 	public static native int nclGetPlatformIDs(int num_entries, long platforms, long num_platforms, long __functionAddress);
 
 	/**
@@ -407,6 +626,7 @@ public final class CL10 {
 	// --- [ clGetPlatformInfo ] ---
 
 	/** JNI method for {@link #clGetPlatformInfo clGetPlatformInfo} */
+	@JavadocExclude
 	public static native int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -449,6 +669,7 @@ public final class CL10 {
 	// --- [ clGetDeviceIDs ] ---
 
 	/** JNI method for {@link #clGetDeviceIDs clGetDeviceIDs} */
+	@JavadocExclude
 	public static native int nclGetDeviceIDs(long platform, long device_type, int num_entries, long devices, long num_devices, long __functionAddress);
 
 	/**
@@ -497,6 +718,7 @@ public final class CL10 {
 	// --- [ clGetDeviceInfo ] ---
 
 	/** JNI method for {@link #clGetDeviceInfo clGetDeviceInfo} */
+	@JavadocExclude
 	public static native int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -572,6 +794,7 @@ public final class CL10 {
 	// --- [ clCreateContext ] ---
 
 	/** JNI method for {@link #clCreateContext clCreateContext} */
+	@JavadocExclude
 	public static native long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
 
 	/**
@@ -651,6 +874,7 @@ public final class CL10 {
 	// --- [ clCreateContextFromType ] ---
 
 	/** JNI method for {@link #clCreateContextFromType clCreateContextFromType} */
+	@JavadocExclude
 	public static native long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
 
 	/**
@@ -692,6 +916,7 @@ public final class CL10 {
 	// --- [ clRetainContext ] ---
 
 	/** JNI method for {@link #clRetainContext clRetainContext} */
+	@JavadocExclude
 	public static native int nclRetainContext(long context, long __functionAddress);
 
 	/**
@@ -720,6 +945,7 @@ public final class CL10 {
 	// --- [ clReleaseContext ] ---
 
 	/** JNI method for {@link #clReleaseContext clReleaseContext} */
+	@JavadocExclude
 	public static native int nclReleaseContext(long context, long __functionAddress);
 
 	/**
@@ -747,6 +973,7 @@ public final class CL10 {
 	// --- [ clGetContextInfo ] ---
 
 	/** JNI method for {@link #clGetContextInfo clGetContextInfo} */
+	@JavadocExclude
 	public static native int nclGetContextInfo(long context, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -810,6 +1037,7 @@ public final class CL10 {
 	// --- [ clCreateCommandQueue ] ---
 
 	/** JNI method for {@link #clCreateCommandQueue clCreateCommandQueue} */
+	@JavadocExclude
 	public static native long nclCreateCommandQueue(long context, long device, long properties, long errcode_ret, long __functionAddress);
 
 	/**
@@ -859,6 +1087,7 @@ public final class CL10 {
 	// --- [ clRetainCommandQueue ] ---
 
 	/** JNI method for {@link #clRetainCommandQueue clRetainCommandQueue} */
+	@JavadocExclude
 	public static native int nclRetainCommandQueue(long command_queue, long __functionAddress);
 
 	/**
@@ -887,6 +1116,7 @@ public final class CL10 {
 	// --- [ clReleaseCommandQueue ] ---
 
 	/** JNI method for {@link #clReleaseCommandQueue clReleaseCommandQueue} */
+	@JavadocExclude
 	public static native int nclReleaseCommandQueue(long command_queue, long __functionAddress);
 
 	/**
@@ -916,6 +1146,7 @@ public final class CL10 {
 	// --- [ clGetCommandQueueInfo ] ---
 
 	/** JNI method for {@link #clGetCommandQueueInfo clGetCommandQueueInfo} */
+	@JavadocExclude
 	public static native int nclGetCommandQueueInfo(long command_queue, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -989,6 +1220,7 @@ public final class CL10 {
 	// --- [ clCreateBuffer ] ---
 
 	/** JNI method for {@link #clCreateBuffer clCreateBuffer} */
+	@JavadocExclude
 	public static native long nclCreateBuffer(long context, long flags, long size, long host_ptr, long errcode_ret, long __functionAddress);
 
 	/**
@@ -1089,6 +1321,7 @@ public final class CL10 {
 	// --- [ clEnqueueReadBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueReadBuffer clEnqueueReadBuffer} */
+	@JavadocExclude
 	public static native int nclEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1222,6 +1455,7 @@ public final class CL10 {
 	// --- [ clEnqueueWriteBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueWriteBuffer clEnqueueWriteBuffer} */
+	@JavadocExclude
 	public static native int nclEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1354,6 +1588,7 @@ public final class CL10 {
 	// --- [ clEnqueueCopyBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueCopyBuffer clEnqueueCopyBuffer} */
+	@JavadocExclude
 	public static native int nclEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1422,6 +1657,7 @@ public final class CL10 {
 	// --- [ clEnqueueMapBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueMapBuffer clEnqueueMapBuffer} */
+	@JavadocExclude
 	public static native long nclEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret, long __functionAddress);
 
 	/**
@@ -1516,6 +1752,7 @@ public final class CL10 {
 	// --- [ clCreateImage2D ] ---
 
 	/** JNI method for {@link #clCreateImage2D clCreateImage2D} */
+	@JavadocExclude
 	public static native long nclCreateImage2D(long context, long flags, long image_format, long image_width, long image_height, long image_row_pitch, long host_ptr, long errcode_ret, long __functionAddress);
 
 	/**
@@ -1610,6 +1847,7 @@ public final class CL10 {
 	// --- [ clCreateImage3D ] ---
 
 	/** JNI method for {@link #clCreateImage3D clCreateImage3D} */
+	@JavadocExclude
 	public static native long nclCreateImage3D(long context, long flags, long image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, long host_ptr, long errcode_ret, long __functionAddress);
 
 	/**
@@ -1711,6 +1949,7 @@ public final class CL10 {
 	// --- [ clGetSupportedImageFormats ] ---
 
 	/** JNI method for {@link #clGetSupportedImageFormats clGetSupportedImageFormats} */
+	@JavadocExclude
 	public static native int nclGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, long image_formats, long num_image_formats, long __functionAddress);
 
 	/**
@@ -1766,6 +2005,7 @@ public final class CL10 {
 	// --- [ clEnqueueReadImage ] ---
 
 	/** JNI method for {@link #clEnqueueReadImage clEnqueueReadImage} */
+	@JavadocExclude
 	public static native int nclEnqueueReadImage(long command_queue, long image, int blocking_read, long origin, long region, long row_pitch, long slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -1921,6 +2161,7 @@ public final class CL10 {
 	// --- [ clEnqueueWriteImage ] ---
 
 	/** JNI method for {@link #clEnqueueWriteImage clEnqueueWriteImage} */
+	@JavadocExclude
 	public static native int nclEnqueueWriteImage(long command_queue, long image, int blocking_write, long origin, long region, long input_row_pitch, long input_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2076,6 +2317,7 @@ public final class CL10 {
 	// --- [ clEnqueueCopyImage ] ---
 
 	/** JNI method for {@link #clEnqueueCopyImage clEnqueueCopyImage} */
+	@JavadocExclude
 	public static native int nclEnqueueCopyImage(long command_queue, long src_image, long dst_image, long src_origin, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2177,6 +2419,7 @@ public final class CL10 {
 	// --- [ clEnqueueCopyImageToBuffer ] ---
 
 	/** JNI method for {@link #clEnqueueCopyImageToBuffer clEnqueueCopyImageToBuffer} */
+	@JavadocExclude
 	public static native int nclEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, long src_origin, long region, long dst_offset, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2263,6 +2506,7 @@ public final class CL10 {
 	// --- [ clEnqueueCopyBufferToImage ] ---
 
 	/** JNI method for {@link #clEnqueueCopyBufferToImage clEnqueueCopyBufferToImage} */
+	@JavadocExclude
 	public static native int nclEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2345,6 +2589,7 @@ public final class CL10 {
 	// --- [ clEnqueueMapImage ] ---
 
 	/** JNI method for {@link #clEnqueueMapImage clEnqueueMapImage} */
+	@JavadocExclude
 	public static native long nclEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, long origin, long region, long image_row_pitch, long image_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret, long __functionAddress);
 
 	/**
@@ -2482,6 +2727,7 @@ public final class CL10 {
 	// --- [ clGetImageInfo ] ---
 
 	/** JNI method for {@link #clGetImageInfo clGetImageInfo} */
+	@JavadocExclude
 	public static native int nclGetImageInfo(long image, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -2545,6 +2791,7 @@ public final class CL10 {
 	// --- [ clRetainMemObject ] ---
 
 	/** JNI method for {@link #clRetainMemObject clRetainMemObject} */
+	@JavadocExclude
 	public static native int nclRetainMemObject(long memobj, long __functionAddress);
 
 	/**
@@ -2571,6 +2818,7 @@ public final class CL10 {
 	// --- [ clReleaseMemObject ] ---
 
 	/** JNI method for {@link #clReleaseMemObject clReleaseMemObject} */
+	@JavadocExclude
 	public static native int nclReleaseMemObject(long memobj, long __functionAddress);
 
 	/**
@@ -2599,6 +2847,7 @@ public final class CL10 {
 	// --- [ clEnqueueUnmapMemObject ] ---
 
 	/** JNI method for {@link #clEnqueueUnmapMemObject clEnqueueUnmapMemObject} */
+	@JavadocExclude
 	public static native int nclEnqueueUnmapMemObject(long command_queue, long memobj, long mapped_ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -2658,6 +2907,7 @@ public final class CL10 {
 	// --- [ clGetMemObjectInfo ] ---
 
 	/** JNI method for {@link #clGetMemObjectInfo clGetMemObjectInfo} */
+	@JavadocExclude
 	public static native int nclGetMemObjectInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -2731,6 +2981,7 @@ public final class CL10 {
 	// --- [ clCreateSampler ] ---
 
 	/** JNI method for {@link #clCreateSampler clCreateSampler} */
+	@JavadocExclude
 	public static native long nclCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, long errcode_ret, long __functionAddress);
 
 	/**
@@ -2780,6 +3031,7 @@ public final class CL10 {
 	// --- [ clRetainSampler ] ---
 
 	/** JNI method for {@link #clRetainSampler clRetainSampler} */
+	@JavadocExclude
 	public static native int nclRetainSampler(long sampler, long __functionAddress);
 
 	/**
@@ -2804,6 +3056,7 @@ public final class CL10 {
 	// --- [ clReleaseSampler ] ---
 
 	/** JNI method for {@link #clReleaseSampler clReleaseSampler} */
+	@JavadocExclude
 	public static native int nclReleaseSampler(long sampler, long __functionAddress);
 
 	/**
@@ -2829,6 +3082,7 @@ public final class CL10 {
 	// --- [ clGetSamplerInfo ] ---
 
 	/** JNI method for {@link #clGetSamplerInfo clGetSamplerInfo} */
+	@JavadocExclude
 	public static native int nclGetSamplerInfo(long sampler, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -2892,6 +3146,7 @@ public final class CL10 {
 	// --- [ clCreateProgramWithSource ] ---
 
 	/** JNI method for {@link #clCreateProgramWithSource clCreateProgramWithSource} */
+	@JavadocExclude
 	public static native long nclCreateProgramWithSource(long context, int count, long strings, long lengths, long errcode_ret, long __functionAddress);
 
 	/**
@@ -2973,6 +3228,7 @@ public final class CL10 {
 	// --- [ clCreateProgramWithBinary ] ---
 
 	/** JNI method for {@link #clCreateProgramWithBinary clCreateProgramWithBinary} */
+	@JavadocExclude
 	public static native long nclCreateProgramWithBinary(long context, int num_devices, long device_list, long lengths, long binaries, long binary_status, long errcode_ret, long __functionAddress);
 
 	/**
@@ -3084,6 +3340,7 @@ public final class CL10 {
 	// --- [ clRetainProgram ] ---
 
 	/** JNI method for {@link #clRetainProgram clRetainProgram} */
+	@JavadocExclude
 	public static native int nclRetainProgram(long program, long __functionAddress);
 
 	/**
@@ -3108,6 +3365,7 @@ public final class CL10 {
 	// --- [ clReleaseProgram ] ---
 
 	/** JNI method for {@link #clReleaseProgram clReleaseProgram} */
+	@JavadocExclude
 	public static native int nclReleaseProgram(long program, long __functionAddress);
 
 	/**
@@ -3133,6 +3391,7 @@ public final class CL10 {
 	// --- [ clBuildProgram ] ---
 
 	/** JNI method for {@link #clBuildProgram clBuildProgram} */
+	@JavadocExclude
 	public static native int nclBuildProgram(long program, int num_devices, long device_list, long options, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
@@ -3228,6 +3487,7 @@ public final class CL10 {
 	// --- [ clUnloadCompiler ] ---
 
 	/** JNI method for {@link #clUnloadCompiler clUnloadCompiler} */
+	@JavadocExclude
 	public static native int nclUnloadCompiler(long __functionAddress);
 
 	/**
@@ -3248,6 +3508,7 @@ public final class CL10 {
 	// --- [ clGetProgramInfo ] ---
 
 	/** JNI method for {@link #clGetProgramInfo clGetProgramInfo} */
+	@JavadocExclude
 	public static native int nclGetProgramInfo(long program, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -3313,6 +3574,7 @@ public final class CL10 {
 	// --- [ clGetProgramBuildInfo ] ---
 
 	/** JNI method for {@link #clGetProgramBuildInfo clGetProgramBuildInfo} */
+	@JavadocExclude
 	public static native int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -3378,6 +3640,7 @@ public final class CL10 {
 	// --- [ clCreateKernel ] ---
 
 	/** JNI method for {@link #clCreateKernel clCreateKernel} */
+	@JavadocExclude
 	public static native long nclCreateKernel(long program, long kernel_name, long errcode_ret, long __functionAddress);
 
 	/**
@@ -3444,6 +3707,7 @@ public final class CL10 {
 	// --- [ clCreateKernelsInProgram ] ---
 
 	/** JNI method for {@link #clCreateKernelsInProgram clCreateKernelsInProgram} */
+	@JavadocExclude
 	public static native int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret, long __functionAddress);
 
 	/**
@@ -3490,6 +3754,7 @@ public final class CL10 {
 	// --- [ clRetainKernel ] ---
 
 	/** JNI method for {@link #clRetainKernel clRetainKernel} */
+	@JavadocExclude
 	public static native int nclRetainKernel(long kernel, long __functionAddress);
 
 	/**
@@ -3514,6 +3779,7 @@ public final class CL10 {
 	// --- [ clReleaseKernel ] ---
 
 	/** JNI method for {@link #clReleaseKernel clReleaseKernel} */
+	@JavadocExclude
 	public static native int nclReleaseKernel(long kernel, long __functionAddress);
 
 	/**
@@ -3541,6 +3807,7 @@ public final class CL10 {
 	// --- [ clSetKernelArg ] ---
 
 	/** JNI method for {@link #clSetKernelArg clSetKernelArg} */
+	@JavadocExclude
 	public static native int nclSetKernelArg(long kernel, int arg_index, long arg_size, long arg_value, long __functionAddress);
 
 	/**
@@ -3688,6 +3955,7 @@ public final class CL10 {
 	// --- [ clGetKernelInfo ] ---
 
 	/** JNI method for {@link #clGetKernelInfo clGetKernelInfo} */
+	@JavadocExclude
 	public static native int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -3751,6 +4019,7 @@ public final class CL10 {
 	// --- [ clGetKernelWorkGroupInfo ] ---
 
 	/** JNI method for {@link #clGetKernelWorkGroupInfo clGetKernelWorkGroupInfo} */
+	@JavadocExclude
 	public static native int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -3830,6 +4099,7 @@ public final class CL10 {
 	// --- [ clEnqueueNDRangeKernel ] ---
 
 	/** JNI method for {@link #clEnqueueNDRangeKernel clEnqueueNDRangeKernel} */
+	@JavadocExclude
 	public static native int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -3939,6 +4209,7 @@ public final class CL10 {
 	// --- [ clEnqueueTask ] ---
 
 	/** JNI method for {@link #clEnqueueTask clEnqueueTask} */
+	@JavadocExclude
 	public static native int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -3983,6 +4254,7 @@ public final class CL10 {
 	// --- [ clEnqueueNativeKernel ] ---
 
 	/** JNI method for {@link #clEnqueueNativeKernel clEnqueueNativeKernel} */
+	@JavadocExclude
 	public static native int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/**
@@ -4087,6 +4359,7 @@ public final class CL10 {
 	// --- [ clWaitForEvents ] ---
 
 	/** JNI method for {@link #clWaitForEvents clWaitForEvents} */
+	@JavadocExclude
 	public static native int nclWaitForEvents(int num_events, long event_list, long __functionAddress);
 
 	/**
@@ -4136,6 +4409,7 @@ public final class CL10 {
 	// --- [ clGetEventInfo ] ---
 
 	/** JNI method for {@link #clGetEventInfo clGetEventInfo} */
+	@JavadocExclude
 	public static native int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -4204,6 +4478,7 @@ public final class CL10 {
 	// --- [ clRetainEvent ] ---
 
 	/** JNI method for {@link #clRetainEvent clRetainEvent} */
+	@JavadocExclude
 	public static native int nclRetainEvent(long event, long __functionAddress);
 
 	/**
@@ -4228,6 +4503,7 @@ public final class CL10 {
 	// --- [ clReleaseEvent ] ---
 
 	/** JNI method for {@link #clReleaseEvent clReleaseEvent} */
+	@JavadocExclude
 	public static native int nclReleaseEvent(long event, long __functionAddress);
 
 	/**
@@ -4263,6 +4539,7 @@ public final class CL10 {
 	// --- [ clEnqueueMarker ] ---
 
 	/** JNI method for {@link #clEnqueueMarker clEnqueueMarker} */
+	@JavadocExclude
 	public static native int nclEnqueueMarker(long command_queue, long event, long __functionAddress);
 
 	/**
@@ -4306,6 +4583,7 @@ public final class CL10 {
 	// --- [ clEnqueueBarrier ] ---
 
 	/** JNI method for {@link #clEnqueueBarrier clEnqueueBarrier} */
+	@JavadocExclude
 	public static native int nclEnqueueBarrier(long command_queue, long __functionAddress);
 
 	/**
@@ -4331,6 +4609,7 @@ public final class CL10 {
 	// --- [ clEnqueueWaitForEvents ] ---
 
 	/** JNI method for {@link #clEnqueueWaitForEvents clEnqueueWaitForEvents} */
+	@JavadocExclude
 	public static native int nclEnqueueWaitForEvents(long command_queue, int num_events, long event_list, long __functionAddress);
 
 	/**
@@ -4380,6 +4659,7 @@ public final class CL10 {
 	// --- [ clGetEventProfilingInfo ] ---
 
 	/** JNI method for {@link #clGetEventProfilingInfo clGetEventProfilingInfo} */
+	@JavadocExclude
 	public static native int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -4435,6 +4715,7 @@ public final class CL10 {
 	// --- [ clFlush ] ---
 
 	/** JNI method for {@link #clFlush clFlush} */
+	@JavadocExclude
 	public static native int nclFlush(long command_queue, long __functionAddress);
 
 	/**
@@ -4470,6 +4751,7 @@ public final class CL10 {
 	// --- [ clFinish ] ---
 
 	/** JNI method for {@link #clFinish clFinish} */
+	@JavadocExclude
 	public static native int nclFinish(long command_queue, long __functionAddress);
 
 	/**
@@ -4489,6 +4771,7 @@ public final class CL10 {
 	// --- [ clGetExtensionFunctionAddress ] ---
 
 	/** JNI method for {@link #clGetExtensionFunctionAddress clGetExtensionFunctionAddress} */
+	@JavadocExclude
 	public static native long nclGetExtensionFunctionAddress(long funcname, long __functionAddress);
 
 	/**
@@ -4521,230 +4804,6 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclGetExtensionFunctionAddress(memAddress(memEncodeASCII(funcname)), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__CL10;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL10") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.clGetPlatformIDs != 0L &&
-			funcs.clGetPlatformInfo != 0L &&
-			funcs.clGetDeviceIDs != 0L &&
-			funcs.clGetDeviceInfo != 0L &&
-			funcs.clCreateContext != 0L &&
-			funcs.clCreateContextFromType != 0L &&
-			funcs.clRetainContext != 0L &&
-			funcs.clReleaseContext != 0L &&
-			funcs.clGetContextInfo != 0L &&
-			funcs.clCreateCommandQueue != 0L &&
-			funcs.clRetainCommandQueue != 0L &&
-			funcs.clReleaseCommandQueue != 0L &&
-			funcs.clGetCommandQueueInfo != 0L &&
-			funcs.clCreateBuffer != 0L &&
-			funcs.clEnqueueReadBuffer != 0L &&
-			funcs.clEnqueueWriteBuffer != 0L &&
-			funcs.clEnqueueCopyBuffer != 0L &&
-			funcs.clEnqueueMapBuffer != 0L &&
-			funcs.clCreateImage2D != 0L &&
-			funcs.clCreateImage3D != 0L &&
-			funcs.clGetSupportedImageFormats != 0L &&
-			funcs.clEnqueueReadImage != 0L &&
-			funcs.clEnqueueWriteImage != 0L &&
-			funcs.clEnqueueCopyImage != 0L &&
-			funcs.clEnqueueCopyImageToBuffer != 0L &&
-			funcs.clEnqueueCopyBufferToImage != 0L &&
-			funcs.clEnqueueMapImage != 0L &&
-			funcs.clGetImageInfo != 0L &&
-			funcs.clRetainMemObject != 0L &&
-			funcs.clReleaseMemObject != 0L &&
-			funcs.clEnqueueUnmapMemObject != 0L &&
-			funcs.clGetMemObjectInfo != 0L &&
-			funcs.clCreateSampler != 0L &&
-			funcs.clRetainSampler != 0L &&
-			funcs.clReleaseSampler != 0L &&
-			funcs.clGetSamplerInfo != 0L &&
-			funcs.clCreateProgramWithSource != 0L &&
-			funcs.clCreateProgramWithBinary != 0L &&
-			funcs.clRetainProgram != 0L &&
-			funcs.clReleaseProgram != 0L &&
-			funcs.clBuildProgram != 0L &&
-			funcs.clUnloadCompiler != 0L &&
-			funcs.clGetProgramInfo != 0L &&
-			funcs.clGetProgramBuildInfo != 0L &&
-			funcs.clCreateKernel != 0L &&
-			funcs.clCreateKernelsInProgram != 0L &&
-			funcs.clRetainKernel != 0L &&
-			funcs.clReleaseKernel != 0L &&
-			funcs.clSetKernelArg != 0L &&
-			funcs.clGetKernelInfo != 0L &&
-			funcs.clGetKernelWorkGroupInfo != 0L &&
-			funcs.clEnqueueNDRangeKernel != 0L &&
-			funcs.clEnqueueTask != 0L &&
-			funcs.clEnqueueNativeKernel != 0L &&
-			funcs.clWaitForEvents != 0L &&
-			funcs.clGetEventInfo != 0L &&
-			funcs.clRetainEvent != 0L &&
-			funcs.clReleaseEvent != 0L &&
-			funcs.clEnqueueMarker != 0L &&
-			funcs.clEnqueueBarrier != 0L &&
-			funcs.clEnqueueWaitForEvents != 0L &&
-			funcs.clGetEventProfilingInfo != 0L &&
-			funcs.clFlush != 0L &&
-			funcs.clFinish != 0L &&
-			funcs.clGetExtensionFunctionAddress != 0L;
-
-		return CL.checkExtension("OpenCL10", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code CL10}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			clGetPlatformIDs,
-			clGetPlatformInfo,
-			clGetDeviceIDs,
-			clGetDeviceInfo,
-			clCreateContext,
-			clCreateContextFromType,
-			clRetainContext,
-			clReleaseContext,
-			clGetContextInfo,
-			clCreateCommandQueue,
-			clRetainCommandQueue,
-			clReleaseCommandQueue,
-			clGetCommandQueueInfo,
-			clCreateBuffer,
-			clEnqueueReadBuffer,
-			clEnqueueWriteBuffer,
-			clEnqueueCopyBuffer,
-			clEnqueueMapBuffer,
-			clCreateImage2D,
-			clCreateImage3D,
-			clGetSupportedImageFormats,
-			clEnqueueReadImage,
-			clEnqueueWriteImage,
-			clEnqueueCopyImage,
-			clEnqueueCopyImageToBuffer,
-			clEnqueueCopyBufferToImage,
-			clEnqueueMapImage,
-			clGetImageInfo,
-			clRetainMemObject,
-			clReleaseMemObject,
-			clEnqueueUnmapMemObject,
-			clGetMemObjectInfo,
-			clCreateSampler,
-			clRetainSampler,
-			clReleaseSampler,
-			clGetSamplerInfo,
-			clCreateProgramWithSource,
-			clCreateProgramWithBinary,
-			clRetainProgram,
-			clReleaseProgram,
-			clBuildProgram,
-			clUnloadCompiler,
-			clGetProgramInfo,
-			clGetProgramBuildInfo,
-			clCreateKernel,
-			clCreateKernelsInProgram,
-			clRetainKernel,
-			clReleaseKernel,
-			clSetKernelArg,
-			clGetKernelInfo,
-			clGetKernelWorkGroupInfo,
-			clEnqueueNDRangeKernel,
-			clEnqueueTask,
-			clEnqueueNativeKernel,
-			clWaitForEvents,
-			clGetEventInfo,
-			clRetainEvent,
-			clReleaseEvent,
-			clEnqueueMarker,
-			clEnqueueBarrier,
-			clEnqueueWaitForEvents,
-			clGetEventProfilingInfo,
-			clFlush,
-			clFinish,
-			clGetExtensionFunctionAddress;
-
-		public Functions(FunctionProviderLocal provider) {
-			clGetPlatformIDs = provider.getFunctionAddress("clGetPlatformIDs");
-			clGetPlatformInfo = provider.getFunctionAddress("clGetPlatformInfo");
-			clGetDeviceIDs = provider.getFunctionAddress("clGetDeviceIDs");
-			clGetDeviceInfo = provider.getFunctionAddress("clGetDeviceInfo");
-			clCreateContext = provider.getFunctionAddress("clCreateContext");
-			clCreateContextFromType = provider.getFunctionAddress("clCreateContextFromType");
-			clRetainContext = provider.getFunctionAddress("clRetainContext");
-			clReleaseContext = provider.getFunctionAddress("clReleaseContext");
-			clGetContextInfo = provider.getFunctionAddress("clGetContextInfo");
-			clCreateCommandQueue = provider.getFunctionAddress("clCreateCommandQueue");
-			clRetainCommandQueue = provider.getFunctionAddress("clRetainCommandQueue");
-			clReleaseCommandQueue = provider.getFunctionAddress("clReleaseCommandQueue");
-			clGetCommandQueueInfo = provider.getFunctionAddress("clGetCommandQueueInfo");
-			clCreateBuffer = provider.getFunctionAddress("clCreateBuffer");
-			clEnqueueReadBuffer = provider.getFunctionAddress("clEnqueueReadBuffer");
-			clEnqueueWriteBuffer = provider.getFunctionAddress("clEnqueueWriteBuffer");
-			clEnqueueCopyBuffer = provider.getFunctionAddress("clEnqueueCopyBuffer");
-			clEnqueueMapBuffer = provider.getFunctionAddress("clEnqueueMapBuffer");
-			clCreateImage2D = provider.getFunctionAddress("clCreateImage2D");
-			clCreateImage3D = provider.getFunctionAddress("clCreateImage3D");
-			clGetSupportedImageFormats = provider.getFunctionAddress("clGetSupportedImageFormats");
-			clEnqueueReadImage = provider.getFunctionAddress("clEnqueueReadImage");
-			clEnqueueWriteImage = provider.getFunctionAddress("clEnqueueWriteImage");
-			clEnqueueCopyImage = provider.getFunctionAddress("clEnqueueCopyImage");
-			clEnqueueCopyImageToBuffer = provider.getFunctionAddress("clEnqueueCopyImageToBuffer");
-			clEnqueueCopyBufferToImage = provider.getFunctionAddress("clEnqueueCopyBufferToImage");
-			clEnqueueMapImage = provider.getFunctionAddress("clEnqueueMapImage");
-			clGetImageInfo = provider.getFunctionAddress("clGetImageInfo");
-			clRetainMemObject = provider.getFunctionAddress("clRetainMemObject");
-			clReleaseMemObject = provider.getFunctionAddress("clReleaseMemObject");
-			clEnqueueUnmapMemObject = provider.getFunctionAddress("clEnqueueUnmapMemObject");
-			clGetMemObjectInfo = provider.getFunctionAddress("clGetMemObjectInfo");
-			clCreateSampler = provider.getFunctionAddress("clCreateSampler");
-			clRetainSampler = provider.getFunctionAddress("clRetainSampler");
-			clReleaseSampler = provider.getFunctionAddress("clReleaseSampler");
-			clGetSamplerInfo = provider.getFunctionAddress("clGetSamplerInfo");
-			clCreateProgramWithSource = provider.getFunctionAddress("clCreateProgramWithSource");
-			clCreateProgramWithBinary = provider.getFunctionAddress("clCreateProgramWithBinary");
-			clRetainProgram = provider.getFunctionAddress("clRetainProgram");
-			clReleaseProgram = provider.getFunctionAddress("clReleaseProgram");
-			clBuildProgram = provider.getFunctionAddress("clBuildProgram");
-			clUnloadCompiler = provider.getFunctionAddress("clUnloadCompiler");
-			clGetProgramInfo = provider.getFunctionAddress("clGetProgramInfo");
-			clGetProgramBuildInfo = provider.getFunctionAddress("clGetProgramBuildInfo");
-			clCreateKernel = provider.getFunctionAddress("clCreateKernel");
-			clCreateKernelsInProgram = provider.getFunctionAddress("clCreateKernelsInProgram");
-			clRetainKernel = provider.getFunctionAddress("clRetainKernel");
-			clReleaseKernel = provider.getFunctionAddress("clReleaseKernel");
-			clSetKernelArg = provider.getFunctionAddress("clSetKernelArg");
-			clGetKernelInfo = provider.getFunctionAddress("clGetKernelInfo");
-			clGetKernelWorkGroupInfo = provider.getFunctionAddress("clGetKernelWorkGroupInfo");
-			clEnqueueNDRangeKernel = provider.getFunctionAddress("clEnqueueNDRangeKernel");
-			clEnqueueTask = provider.getFunctionAddress("clEnqueueTask");
-			clEnqueueNativeKernel = provider.getFunctionAddress("clEnqueueNativeKernel");
-			clWaitForEvents = provider.getFunctionAddress("clWaitForEvents");
-			clGetEventInfo = provider.getFunctionAddress("clGetEventInfo");
-			clRetainEvent = provider.getFunctionAddress("clRetainEvent");
-			clReleaseEvent = provider.getFunctionAddress("clReleaseEvent");
-			clEnqueueMarker = provider.getFunctionAddress("clEnqueueMarker");
-			clEnqueueBarrier = provider.getFunctionAddress("clEnqueueBarrier");
-			clEnqueueWaitForEvents = provider.getFunctionAddress("clEnqueueWaitForEvents");
-			clGetEventProfilingInfo = provider.getFunctionAddress("clGetEventProfilingInfo");
-			clFlush = provider.getFunctionAddress("clFlush");
-			clFinish = provider.getFunctionAddress("clFinish");
-			clGetExtensionFunctionAddress = provider.getFunctionAddress("clGetExtensionFunctionAddress");
-		}
-
 	}
 
 }

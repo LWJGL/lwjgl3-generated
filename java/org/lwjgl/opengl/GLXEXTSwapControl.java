@@ -20,11 +20,36 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXEXTSwapControl {
 
-	private GLXEXTSwapControl() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXSwapIntervalEXT;
+
+	@JavadocExclude
+	public GLXEXTSwapControl(FunctionProvider provider) {
+		glXSwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXEXTSwapControl} instance for the current context. */
+	public static GLXEXTSwapControl getInstance() {
+		return GL.getCapabilities().__GLXEXTSwapControl;
+	}
+
+	static GLXEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_EXT_swap_control") ) return null;
+
+		GLXEXTSwapControl funcs = new GLXEXTSwapControl(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalEXT);
+
+		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
+	}
 
 	// --- [ glXSwapIntervalEXT ] ---
 
 	/** JNI method for {@link #glXSwapIntervalEXT glXSwapIntervalEXT} */
+	@JavadocExclude
 	public static native void nglXSwapIntervalEXT(long display, long drawable, int interval, long __functionAddress);
 
 	/**
@@ -44,36 +69,6 @@ public final class GLXEXTSwapControl {
 			checkPointer(drawable);
 		}
 		nglXSwapIntervalEXT(display, drawable, interval, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXEXTSwapControl;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_EXT_swap_control") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalEXT);
-
-		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXEXTSwapControl}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXSwapIntervalEXT;
-
-		public Functions(FunctionProvider provider) {
-			glXSwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
-		}
-
 	}
 
 }

@@ -16,11 +16,36 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/wgl_extensions_string.txt">WGL_EXT_extensions_string</a> extension. */
 public final class WGLEXTExtensionsString {
 
-	private WGLEXTExtensionsString() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long wglGetExtensionsStringEXT;
+
+	@JavadocExclude
+	public WGLEXTExtensionsString(FunctionProvider provider) {
+		wglGetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLEXTExtensionsString} instance for the current context. */
+	public static WGLEXTExtensionsString getInstance() {
+		return GL.getCapabilities().__WGLEXTExtensionsString;
+	}
+
+	static WGLEXTExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_EXT_extensions_string") ) return null;
+
+		WGLEXTExtensionsString funcs = new WGLEXTExtensionsString(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringEXT);
+
+		return GL.checkExtension("WGL_EXT_extensions_string", funcs, supported);
+	}
 
 	// --- [ wglGetExtensionsStringEXT ] ---
 
 	/** JNI method for {@link #wglGetExtensionsStringEXT wglGetExtensionsStringEXT} */
+	@JavadocExclude
 	public static native long nwglGetExtensionsStringEXT(long __functionAddress);
 
 	/**
@@ -34,36 +59,6 @@ public final class WGLEXTExtensionsString {
 			checkFunctionAddress(__functionAddress);
 		long __result = nwglGetExtensionsStringEXT(__functionAddress);
 		return memDecodeASCII(memByteBufferNT1(__result));
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLEXTExtensionsString;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_EXT_extensions_string") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringEXT);
-
-		return GL.checkExtension("WGL_EXT_extensions_string", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLEXTExtensionsString}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long wglGetExtensionsStringEXT;
-
-		public Functions(FunctionProvider provider) {
-			wglGetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
-		}
-
 	}
 
 }

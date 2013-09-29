@@ -75,11 +75,50 @@ public final class GLXSGIXPBuffer {
 		GLX_ACCUM_BUFFER_BIT_SGIX       = 0x80,
 		GLX_SAMPLE_BUFFERS_BIT_SGIX     = 0x100;
 
-	private GLXSGIXPBuffer() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXCreateGLXPbufferSGIX,
+		glXDestroyGLXPbufferSGIX,
+		glXQueryGLXPbufferSGIX,
+		glXSelectEventSGIX,
+		glXGetSelectedEventSGIX;
+
+	@JavadocExclude
+	public GLXSGIXPBuffer(FunctionProvider provider) {
+		glXCreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
+		glXDestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
+		glXQueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
+		glXSelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
+		glXGetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIXPBuffer} instance for the current context. */
+	public static GLXSGIXPBuffer getInstance() {
+		return GL.getCapabilities().__GLXSGIXPBuffer;
+	}
+
+	static GLXSGIXPBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGIX_pbuffer") ) return null;
+
+		GLXSGIXPBuffer funcs = new GLXSGIXPBuffer(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXCreateGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.glXDestroyGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.glXQueryGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.glXSelectEventSGIX) &&
+			GL.isFunctionSupported(funcs.glXGetSelectedEventSGIX);
+
+		return GL.checkExtension("GLX_SGIX_pbuffer", funcs, supported);
+	}
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
 	/** JNI method for {@link #glXCreateGLXPbufferSGIX glXCreateGLXPbufferSGIX} */
+	@JavadocExclude
 	public static native long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list, long __functionAddress);
 
 	/**
@@ -117,6 +156,7 @@ public final class GLXSGIXPBuffer {
 	// --- [ glXDestroyGLXPbufferSGIX ] ---
 
 	/** JNI method for {@link #glXDestroyGLXPbufferSGIX glXDestroyGLXPbufferSGIX} */
+	@JavadocExclude
 	public static native void nglXDestroyGLXPbufferSGIX(long display, long pbuf, long __functionAddress);
 
 	/**
@@ -138,6 +178,7 @@ public final class GLXSGIXPBuffer {
 	// --- [ glXQueryGLXPbufferSGIX ] ---
 
 	/** JNI method for {@link #glXQueryGLXPbufferSGIX glXQueryGLXPbufferSGIX} */
+	@JavadocExclude
 	public static native void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value, long __functionAddress);
 
 	/**
@@ -174,6 +215,7 @@ public final class GLXSGIXPBuffer {
 	// --- [ glXSelectEventSGIX ] ---
 
 	/** JNI method for {@link #glXSelectEventSGIX glXSelectEventSGIX} */
+	@JavadocExclude
 	public static native void nglXSelectEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
 	/**
@@ -196,6 +238,7 @@ public final class GLXSGIXPBuffer {
 	// --- [ glXGetSelectedEventSGIX ] ---
 
 	/** JNI method for {@link #glXGetSelectedEventSGIX glXGetSelectedEventSGIX} */
+	@JavadocExclude
 	public static native void nglXGetSelectedEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
 	/**
@@ -226,50 +269,6 @@ public final class GLXSGIXPBuffer {
 			checkBuffer(mask, 1);
 		}
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIXPBuffer;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_pbuffer") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXCreateGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXDestroyGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXQueryGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXSelectEventSGIX) &&
-			GL.isFunctionSupported(funcs.glXGetSelectedEventSGIX);
-
-		return GL.checkExtension("GLX_SGIX_pbuffer", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIXPBuffer}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXCreateGLXPbufferSGIX,
-			glXDestroyGLXPbufferSGIX,
-			glXQueryGLXPbufferSGIX,
-			glXSelectEventSGIX,
-			glXGetSelectedEventSGIX;
-
-		public Functions(FunctionProvider provider) {
-			glXCreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
-			glXDestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
-			glXQueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
-			glXSelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
-			glXGetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
-		}
-
 	}
 
 }

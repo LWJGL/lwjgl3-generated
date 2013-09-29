@@ -1148,6 +1148,7 @@ public final class WinUser {
 	// --- [ RegisterClassEx ] ---
 
 	/** JNI method for {@link #RegisterClassEx RegisterClassEx} */
+	@JavadocExclude
 	public static native short nRegisterClassEx(long wndClassEx);
 
 	/**
@@ -1164,6 +1165,7 @@ public final class WinUser {
 	// --- [ UnregisterClass ] ---
 
 	/** JNI method for {@link #UnregisterClass UnregisterClass} */
+	@JavadocExclude
 	public static native int nUnregisterClass(long className, long instance);
 
 	/**
@@ -1193,6 +1195,7 @@ public final class WinUser {
 	// --- [ GetClassInfoEx ] ---
 
 	/** JNI method for {@link #GetClassInfoEx GetClassInfoEx} */
+	@JavadocExclude
 	public static native int nGetClassInfoEx(long instance, long className, long classEx);
 
 	/**
@@ -1223,6 +1226,7 @@ public final class WinUser {
 	// --- [ GetClassLongPtr ] ---
 
 	/** JNI method for {@link #GetClassLongPtr GetClassLongPtr} */
+	@JavadocExclude
 	public static native long nGetClassLongPtr(long window, int index);
 
 	/**
@@ -1240,6 +1244,7 @@ public final class WinUser {
 	// --- [ SetClassLongPtr ] ---
 
 	/** JNI method for {@link #SetClassLongPtr SetClassLongPtr} */
+	@JavadocExclude
 	public static native long nSetClassLongPtr(long window, int index, long newLong);
 
 	/**
@@ -1259,6 +1264,7 @@ public final class WinUser {
 	// --- [ LoadIcon ] ---
 
 	/** JNI method for {@link #LoadIcon LoadIcon} */
+	@JavadocExclude
 	public static native long nLoadIcon(long instance, long iconName);
 
 	/**
@@ -1282,6 +1288,7 @@ public final class WinUser {
 	// --- [ LoadCursor ] ---
 
 	/** JNI method for {@link #LoadCursor LoadCursor} */
+	@JavadocExclude
 	public static native long nLoadCursor(long instance, long cursorName);
 
 	/**
@@ -1312,11 +1319,13 @@ public final class WinUser {
 	 *
 	 * @param index the system metric or configuration setting to be retrieved
 	 */
+	@JavadocExclude
 	public static native int GetSystemMetrics(int index);
 
 	// --- [ CreateWindowEx ] ---
 
 	/** JNI method for {@link #CreateWindowEx CreateWindowEx} */
+	@JavadocExclude
 	public static native long nCreateWindowEx(int exStyle, long className, long windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param);
 
 	/**
@@ -1354,6 +1363,7 @@ public final class WinUser {
 	// --- [ DestroyWindow ] ---
 
 	/** JNI method for {@link #DestroyWindow DestroyWindow} */
+	@JavadocExclude
 	public static native int nDestroyWindow(long window);
 
 	/**
@@ -1375,6 +1385,7 @@ public final class WinUser {
 	// --- [ ShowWindow ] ---
 
 	/** JNI method for {@link #ShowWindow ShowWindow} */
+	@JavadocExclude
 	public static native int nShowWindow(long window, int cmdShow);
 
 	/**
@@ -1392,6 +1403,7 @@ public final class WinUser {
 	// --- [ UpdateWindow ] ---
 
 	/** JNI method for {@link #UpdateWindow UpdateWindow} */
+	@JavadocExclude
 	public static native int nUpdateWindow(long window);
 
 	/**
@@ -1410,6 +1422,7 @@ public final class WinUser {
 	// --- [ SetWindowPos ] ---
 
 	/** JNI method for {@link #SetWindowPos SetWindowPos} */
+	@JavadocExclude
 	public static native int nSetWindowPos(long window, long insertAfter, int x, int y, int width, int height, int flags);
 
 	/**
@@ -1433,6 +1446,7 @@ public final class WinUser {
 	// --- [ SetWindowText ] ---
 
 	/** JNI method for {@link #SetWindowText SetWindowText} */
+	@JavadocExclude
 	public static native int nSetWindowText(long window, long string);
 
 	/**
@@ -1460,6 +1474,7 @@ public final class WinUser {
 	// --- [ GetMessage ] ---
 
 	/** JNI method for {@link #GetMessage GetMessage} */
+	@JavadocExclude
 	public static native int nGetMessage(long msg, long window, int msgFilterMin, int msgFilterMax);
 
 	/**
@@ -1480,6 +1495,7 @@ public final class WinUser {
 	// --- [ PeekMessage ] ---
 
 	/** JNI method for {@link #PeekMessage PeekMessage} */
+	@JavadocExclude
 	public static native int nPeekMessage(long msg, long window, int msgFilterMin, int msgFilterMax, int removeMsg);
 
 	/**
@@ -1500,6 +1516,7 @@ public final class WinUser {
 	// --- [ TranslateMessage ] ---
 
 	/** JNI method for {@link #TranslateMessage TranslateMessage} */
+	@JavadocExclude
 	public static native int nTranslateMessage(long msg);
 
 	/**
@@ -1521,11 +1538,13 @@ public final class WinUser {
 	 * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
 	 * return until a new message is placed in the thread's message queue.
 	 */
+	@JavadocExclude
 	public static native int WaitMessage();
 
 	// --- [ DispatchMessage ] ---
 
 	/** JNI method for {@link #DispatchMessage DispatchMessage} */
+	@JavadocExclude
 	public static native long nDispatchMessage(long msg);
 
 	/**
@@ -1546,6 +1565,7 @@ public final class WinUser {
 	 *
 	 * @param flags the types of messages for which to check
 	 */
+	@JavadocExclude
 	public static native int GetQueueStatus(int flags);
 
 	// --- [ GetMessageTime ] ---
@@ -1554,11 +1574,13 @@ public final class WinUser {
 	 * Retrieves the message time for the last message retrieved by the GetMessage function. The time is a long integer that specifies the elapsed time, in
 	 * milliseconds, from the time the system was started to the time the message was created (that is, placed in the thread's message queue).
 	 */
+	@JavadocExclude
 	public static native int GetMessageTime();
 
 	// --- [ DefWindowProc ] ---
 
 	/** JNI method for {@link #DefWindowProc DefWindowProc} */
+	@JavadocExclude
 	public static native long nDefWindowProc(long window, int msg, long wParam, long lParam);
 
 	/**
@@ -1579,6 +1601,7 @@ public final class WinUser {
 	// --- [ GetDC ] ---
 
 	/** JNI method for {@link #GetDC GetDC} */
+	@JavadocExclude
 	public static native long nGetDC(long window);
 
 	/**
@@ -1594,6 +1617,7 @@ public final class WinUser {
 	// --- [ ReleaseDC ] ---
 
 	/** JNI method for {@link #ReleaseDC ReleaseDC} */
+	@JavadocExclude
 	public static native int nReleaseDC(long window, long hdc);
 
 	/**
@@ -1612,6 +1636,7 @@ public final class WinUser {
 	// --- [ EnumDisplayDevices ] ---
 
 	/** JNI method for {@link #EnumDisplayDevices EnumDisplayDevices} */
+	@JavadocExclude
 	public static native int nEnumDisplayDevices(long device, int devNum, long displayDevice, int flags);
 
 	/**
@@ -1643,6 +1668,7 @@ public final class WinUser {
 	// --- [ EnumDisplaySettings ] ---
 
 	/** JNI method for {@link #EnumDisplaySettings EnumDisplaySettings} */
+	@JavadocExclude
 	public static native int nEnumDisplaySettings(long deviceName, int modeNum, long devMode);
 
 	/**
@@ -1673,6 +1699,7 @@ public final class WinUser {
 	// --- [ EnumDisplaySettingsEx ] ---
 
 	/** JNI method for {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx} */
+	@JavadocExclude
 	public static native int nEnumDisplaySettingsEx(long deviceName, int modeNum, long devMode, int flags);
 
 	/**
@@ -1702,6 +1729,7 @@ public final class WinUser {
 	// --- [ ChangeDisplaySettings ] ---
 
 	/** JNI method for {@link #ChangeDisplaySettings ChangeDisplaySettings} */
+	@JavadocExclude
 	public static native int nChangeDisplaySettings(long devMode, int flags);
 
 	/**
@@ -1721,6 +1749,7 @@ public final class WinUser {
 	// --- [ ChangeDisplaySettingsEx ] ---
 
 	/** JNI method for {@link #ChangeDisplaySettingsEx ChangeDisplaySettingsEx} */
+	@JavadocExclude
 	public static native int nChangeDisplaySettingsEx(long deviceName, long devMode, long window, int flags, long param);
 
 	/**
@@ -1752,6 +1781,7 @@ public final class WinUser {
 	// --- [ SystemParametersInfo ] ---
 
 	/** JNI method for {@link #SystemParametersInfo SystemParametersInfo} */
+	@JavadocExclude
 	public static native int nSystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni);
 
 	/**
@@ -1774,6 +1804,7 @@ public final class WinUser {
 	// --- [ AdjustWindowRectEx ] ---
 
 	/** JNI method for {@link #AdjustWindowRectEx AdjustWindowRectEx} */
+	@JavadocExclude
 	public static native int nAdjustWindowRectEx(long rect, int style, int menu, int exStyle);
 
 	/**
@@ -1796,6 +1827,7 @@ public final class WinUser {
 	// --- [ GetCursorPos ] ---
 
 	/** JNI method for {@link #GetCursorPos GetCursorPos} */
+	@JavadocExclude
 	public static native int nGetCursorPos(long point);
 
 	/**
@@ -1812,6 +1844,7 @@ public final class WinUser {
 	// --- [ ScreenToClient ] ---
 
 	/** JNI method for {@link #ScreenToClient ScreenToClient} */
+	@JavadocExclude
 	public static native int nScreenToClient(long hWnd, long point);
 
 	/**
@@ -1831,6 +1864,7 @@ public final class WinUser {
 	// --- [ ClientToScreen ] ---
 
 	/** JNI method for {@link #ClientToScreen ClientToScreen} */
+	@JavadocExclude
 	public static native int nClientToScreen(long hWnd, long point);
 
 	/**
@@ -1851,6 +1885,7 @@ public final class WinUser {
 	// --- [ GetClientRect ] ---
 
 	/** JNI method for {@link #GetClientRect GetClientRect} */
+	@JavadocExclude
 	public static native int nGetClientRect(long hWnd, long rect);
 
 	/**
@@ -1872,6 +1907,7 @@ public final class WinUser {
 	// --- [ WindowFromPoint ] ---
 
 	/** JNI method for {@link #WindowFromPoint WindowFromPoint} */
+	@JavadocExclude
 	public static native long nWindowFromPoint(long point);
 
 	/**
@@ -1888,6 +1924,7 @@ public final class WinUser {
 	// --- [ BringWindowToTop ] ---
 
 	/** JNI method for {@link #BringWindowToTop BringWindowToTop} */
+	@JavadocExclude
 	public static native int nBringWindowToTop(long hWnd);
 
 	/**
@@ -1905,6 +1942,7 @@ public final class WinUser {
 	// --- [ SetForegroundWindow ] ---
 
 	/** JNI method for {@link #SetForegroundWindow SetForegroundWindow} */
+	@JavadocExclude
 	public static native int nSetForegroundWindow(long hWnd);
 
 	/**
@@ -1923,6 +1961,7 @@ public final class WinUser {
 	// --- [ SetFocus ] ---
 
 	/** JNI method for {@link #SetFocus SetFocus} */
+	@JavadocExclude
 	public static native int nSetFocus(long hWnd);
 
 	/**
@@ -1937,6 +1976,7 @@ public final class WinUser {
 	// --- [ SetWindowLongPtr ] ---
 
 	/** JNI method for {@link #SetWindowLongPtr SetWindowLongPtr} */
+	@JavadocExclude
 	public static native long nSetWindowLongPtr(long hWnd, int index, long newLong);
 
 	/**
@@ -1958,6 +1998,7 @@ public final class WinUser {
 	// --- [ GetWindowLongPtr ] ---
 
 	/** JNI method for {@link #GetWindowLongPtr GetWindowLongPtr} */
+	@JavadocExclude
 	public static native long nGetWindowLongPtr(long hWnd, int index);
 
 	/**
@@ -1980,6 +2021,7 @@ public final class WinUser {
 	 *
 	 * @param key the virtual-key code
 	 */
+	@JavadocExclude
 	public static native short GetAsyncKeyState(int key);
 
 	// --- [ SetCursorPos ] ---
@@ -1991,11 +2033,13 @@ public final class WinUser {
 	 * @param X the new x-coordinate of the cursor, in screen coordinates.
 	 * @param Y the new y-coordinate of the cursor, in screen coordinates.
 	 */
+	@JavadocExclude
 	public static native int SetCursorPos(int X, int Y);
 
 	// --- [ SetCapture ] ---
 
 	/** JNI method for {@link #SetCapture SetCapture} */
+	@JavadocExclude
 	public static native long nSetCapture(long hWnd);
 
 	/**
@@ -2023,11 +2067,13 @@ public final class WinUser {
 	 * all mouse input, regardless of the position of the cursor, except when a mouse button is clicked while the cursor hot spot is in the window of another
 	 * thread.
 	 */
+	@JavadocExclude
 	public static native int ReleaseCapture();
 
 	// --- [ ClipCursor ] ---
 
 	/** JNI method for {@link #ClipCursor ClipCursor} */
+	@JavadocExclude
 	public static native int nClipCursor(long rect);
 
 	/**
@@ -2054,11 +2100,13 @@ public final class WinUser {
 	 * @param show If {@code show} is {@link WinBase#TRUE TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE FALSE}, the display count is
 	 *             decremented by one.
 	 */
+	@JavadocExclude
 	public static native int ShowCursor(int show);
 
 	// --- [ SetCursor ] ---
 
 	/** JNI method for {@link #SetCursor SetCursor} */
+	@JavadocExclude
 	public static native long nSetCursor(long hCursor);
 
 	/**
@@ -2093,11 +2141,13 @@ public final class WinUser {
 	 * @param code    the virtual key code or scan code for a key. How this value is interpreted depends on the value of the {@code mapType} parameter.
 	 * @param mapType the translation to be performed. The value of this parameter depends on the value of the {@code code} parameter.
 	 */
+	@JavadocExclude
 	public static native int MapVirtualKey(int code, int mapType);
 
 	// --- [ TrackMouseEvent ] ---
 
 	/** JNI method for {@link #TrackMouseEvent TrackMouseEvent} */
+	@JavadocExclude
 	public static native int nTrackMouseEvent(long eventTrack);
 
 	/**
@@ -2117,11 +2167,13 @@ public final class WinUser {
 	 * Retrieves a handle to the foreground window (the window with which the user is currently working). The system assigns a slightly higher priority to the
 	 * thread that creates the foreground window than it does to other threads.
 	 */
+	@JavadocExclude
 	public static native long GetForegroundWindow();
 
 	// --- [ OpenClipboard ] ---
 
 	/** JNI method for {@link #OpenClipboard OpenClipboard} */
+	@JavadocExclude
 	public static native int nOpenClipboard(long hWndNewOwner);
 
 	/**
@@ -2139,11 +2191,13 @@ public final class WinUser {
 	 * Empties the clipboard and frees handles to data in the clipboard. The function then assigns ownership of the clipboard to the window that currently has
 	 * the clipboard open.
 	 */
+	@JavadocExclude
 	public static native int EmptyClipboard();
 
 	// --- [ SetClipboardData ] ---
 
 	/** JNI method for {@link #SetClipboardData SetClipboardData} */
+	@JavadocExclude
 	public static native long nSetClipboardData(int format, long hMem);
 
 	/**
@@ -2176,6 +2230,7 @@ public final class WinUser {
 	 *
 	 * @param format a standard or registered clipboard format
 	 */
+	@JavadocExclude
 	public static native int IsClipboardFormatAvailable(int format);
 
 	// --- [ GetClipboardData ] ---
@@ -2187,11 +2242,13 @@ public final class WinUser {
 	 *
 	 * @return the handle to a clipboard object in the specified format if the function succeeds. If the function fails, the return value is {@code NULL}.
 	 */
+	@JavadocExclude
 	public static native long GetClipboardData(int format);
 
 	// --- [ CloseClipboard ] ---
 
 	/** Closes the clipboard. */
+	@JavadocExclude
 	public static native int CloseClipboard();
 
 }

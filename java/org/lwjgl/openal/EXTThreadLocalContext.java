@@ -13,11 +13,40 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to the EXT_thread_local_context ALC extension. */
 public final class EXTThreadLocalContext {
 
-	private EXTThreadLocalContext() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alcSetThreadContext,
+		alcGetThreadContext;
+
+	@JavadocExclude
+	public EXTThreadLocalContext(FunctionProviderLocal provider, long device) {
+		alcSetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
+		alcGetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link EXTThreadLocalContext} instance for the current context. */
+	public static EXTThreadLocalContext getInstance() {
+		return ALC.getCapabilities().__EXTThreadLocalContext;
+	}
+
+	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {		if ( !ext.contains("ALC_EXT_thread_local_context") ) return null;
+
+		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
+
+		boolean supported = 
+			funcs.alcSetThreadContext != 0L &&
+			funcs.alcGetThreadContext != 0L;
+
+		return ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
+	}
 
 	// --- [ alcSetThreadContext ] ---
 
 	/** JNI method for {@link #alcSetThreadContext alcSetThreadContext} */
+	@JavadocExclude
 	public static native boolean nalcSetThreadContext(long context, long __functionAddress);
 
 	/**
@@ -38,6 +67,7 @@ public final class EXTThreadLocalContext {
 	// --- [ alcGetThreadContext ] ---
 
 	/** JNI method for {@link #alcGetThreadContext alcGetThreadContext} */
+	@JavadocExclude
 	public static native long nalcGetThreadContext(long __functionAddress);
 
 	/**
@@ -49,40 +79,6 @@ public final class EXTThreadLocalContext {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalcGetThreadContext(__functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return ALC.getCapabilities().__EXTThreadLocalContext;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {		if ( !ext.contains("ALC_EXT_thread_local_context") ) return null;
-
-		Functions funcs = new Functions(provider, device);
-
-		boolean supported = 
-			funcs.alcSetThreadContext != 0L &&
-			funcs.alcGetThreadContext != 0L;
-
-		return ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code EXTThreadLocalContext}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alcSetThreadContext,
-			alcGetThreadContext;
-
-		public Functions(FunctionProviderLocal provider, long device) {
-			alcSetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
-			alcGetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");
-		}
-
 	}
 
 }

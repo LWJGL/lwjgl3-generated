@@ -22,11 +22,41 @@ import org.lwjgl.system.linux.X;
  */
 public final class GLXSGIXSwapBarrier {
 
-	private GLXSGIXSwapBarrier() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glXBindSwapBarrierSGIX,
+		glXQueryMaxSwapBarriersSGIX;
+
+	@JavadocExclude
+	public GLXSGIXSwapBarrier(FunctionProvider provider) {
+		glXBindSwapBarrierSGIX = provider.getFunctionAddress("glXBindSwapBarrierSGIX");
+		glXQueryMaxSwapBarriersSGIX = provider.getFunctionAddress("glXQueryMaxSwapBarriersSGIX");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGIXSwapBarrier} instance for the current context. */
+	public static GLXSGIXSwapBarrier getInstance() {
+		return GL.getCapabilities().__GLXSGIXSwapBarrier;
+	}
+
+	static GLXSGIXSwapBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGIX_swap_barrier") ) return null;
+
+		GLXSGIXSwapBarrier funcs = new GLXSGIXSwapBarrier(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glXBindSwapBarrierSGIX) &&
+			GL.isFunctionSupported(funcs.glXQueryMaxSwapBarriersSGIX);
+
+		return GL.checkExtension("GLX_SGIX_swap_barrier", funcs, supported);
+	}
 
 	// --- [ glXBindSwapBarrierSGIX ] ---
 
 	/** JNI method for {@link #glXBindSwapBarrierSGIX glXBindSwapBarrierSGIX} */
+	@JavadocExclude
 	public static native void nglXBindSwapBarrierSGIX(long display, long drawable, int barrier, long __functionAddress);
 
 	/**
@@ -50,6 +80,7 @@ public final class GLXSGIXSwapBarrier {
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
 
 	/** JNI method for {@link #glXQueryMaxSwapBarriersSGIX glXQueryMaxSwapBarriersSGIX} */
+	@JavadocExclude
 	public static native int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max, long __functionAddress);
 
 	/**
@@ -78,41 +109,6 @@ public final class GLXSGIXSwapBarrier {
 			checkBuffer(max, 1);
 		}
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGIXSwapBarrier;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGIX_swap_barrier") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glXBindSwapBarrierSGIX) &&
-			GL.isFunctionSupported(funcs.glXQueryMaxSwapBarriersSGIX);
-
-		return GL.checkExtension("GLX_SGIX_swap_barrier", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGIXSwapBarrier}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glXBindSwapBarrierSGIX,
-			glXQueryMaxSwapBarriersSGIX;
-
-		public Functions(FunctionProvider provider) {
-			glXBindSwapBarrierSGIX = provider.getFunctionAddress("glXBindSwapBarrierSGIX");
-			glXQueryMaxSwapBarriersSGIX = provider.getFunctionAddress("glXQueryMaxSwapBarriersSGIX");
-		}
-
 	}
 
 }

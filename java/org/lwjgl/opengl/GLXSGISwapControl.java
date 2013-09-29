@@ -19,11 +19,36 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXSGISwapControl {
 
-	private GLXSGISwapControl() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long glXSwapIntervalSGI;
+
+	@JavadocExclude
+	public GLXSGISwapControl(FunctionProvider provider) {
+		glXSwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLXSGISwapControl} instance for the current context. */
+	public static GLXSGISwapControl getInstance() {
+		return GL.getCapabilities().__GLXSGISwapControl;
+	}
+
+	static GLXSGISwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX_SGI_swap_control") ) return null;
+
+		GLXSGISwapControl funcs = new GLXSGISwapControl(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalSGI);
+
+		return GL.checkExtension("GLX_SGI_swap_control", funcs, supported);
+	}
 
 	// --- [ glXSwapIntervalSGI ] ---
 
 	/** JNI method for {@link #glXSwapIntervalSGI glXSwapIntervalSGI} */
+	@JavadocExclude
 	public static native int nglXSwapIntervalSGI(int interval, long __functionAddress);
 
 	/**
@@ -41,36 +66,6 @@ public final class GLXSGISwapControl {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXSwapIntervalSGI(interval, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GLXSGISwapControl;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_SGI_swap_control") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalSGI);
-
-		return GL.checkExtension("GLX_SGI_swap_control", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GLXSGISwapControl}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long glXSwapIntervalSGI;
-
-		public Functions(FunctionProvider provider) {
-			glXSwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
-		}
-
 	}
 
 }

@@ -77,6 +77,7 @@ public final class XKBlib {
 	// --- [ XkbQueryExtension ] ---
 
 	/** JNI method for {@link #XkbQueryExtension XkbQueryExtension} */
+	@JavadocExclude
 	public static native int nXkbQueryExtension(long display, long opcodeReturn, long eventBaseReturn, long errorBaseReturn, long majorRtrn, long minorRtrn);
 
 	/**
@@ -117,6 +118,7 @@ public final class XKBlib {
 	// --- [ XkbSetDetectableAutoRepeat ] ---
 
 	/** JNI method for {@link #XkbSetDetectableAutoRepeat XkbSetDetectableAutoRepeat} */
+	@JavadocExclude
 	public static native int nXkbSetDetectableAutoRepeat(long display, int detectable, long supported);
 
 	/**
@@ -142,6 +144,7 @@ public final class XKBlib {
 	// --- [ XkbKeycodeToKeysym ] ---
 
 	/** JNI method for {@link #XkbKeycodeToKeysym XkbKeycodeToKeysym} */
+	@JavadocExclude
 	public static native long nXkbKeycodeToKeysym(long display, int kc, int group, int level);
 
 	/**
@@ -161,6 +164,7 @@ public final class XKBlib {
 	// --- [ XkbGetKeyboard ] ---
 
 	/** JNI method for {@link #XkbGetKeyboard XkbGetKeyboard} */
+	@JavadocExclude
 	public static native long nXkbGetKeyboard(long display, int which, int deviceSpec);
 
 	/**
@@ -180,6 +184,7 @@ public final class XKBlib {
 	// --- [ XkbFreeKeyboard ] ---
 
 	/** JNI method for {@link #XkbFreeKeyboard XkbFreeKeyboard} */
+	@JavadocExclude
 	public static native void nXkbFreeKeyboard(long xkb, int which, int freeDesc);
 
 	/**

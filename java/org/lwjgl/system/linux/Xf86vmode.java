@@ -21,6 +21,7 @@ public final class Xf86vmode {
 	// --- [ XF86VidModeQueryExtension ] ---
 
 	/** JNI method for {@link #XF86VidModeQueryExtension XF86VidModeQueryExtension} */
+	@JavadocExclude
 	public static native int nXF86VidModeQueryExtension(long display, long event_base, long error_base);
 
 	/**
@@ -52,6 +53,7 @@ public final class Xf86vmode {
 	// --- [ XF86VidModeGetGammaRampSize ] ---
 
 	/** JNI method for {@link #XF86VidModeGetGammaRampSize XF86VidModeGetGammaRampSize} */
+	@JavadocExclude
 	public static native int nXF86VidModeGetGammaRampSize(long display, int screen, long size);
 
 	/**
@@ -77,6 +79,7 @@ public final class Xf86vmode {
 	// --- [ XF86VidModeGetGammaRamp ] ---
 
 	/** JNI method for {@link #XF86VidModeGetGammaRamp XF86VidModeGetGammaRamp} */
+	@JavadocExclude
 	public static native int nXF86VidModeGetGammaRamp(long display, int screen, int size, long red_array, long green_array, long blue_array);
 
 	/**
@@ -112,6 +115,7 @@ public final class Xf86vmode {
 	// --- [ XF86VidModeSetGammaRamp ] ---
 
 	/** JNI method for {@link #XF86VidModeSetGammaRamp XF86VidModeSetGammaRamp} */
+	@JavadocExclude
 	public static native int nXF86VidModeSetGammaRamp(long display, int screen, int size, long red_array, long green_array, long blue_array);
 
 	/**

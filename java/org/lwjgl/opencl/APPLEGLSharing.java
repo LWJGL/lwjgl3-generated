@@ -43,11 +43,36 @@ public final class APPLEGLSharing {
 	public static final int
 		CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE = 0x10000002;
 
-	private APPLEGLSharing() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long clGetGLContextInfoAPPLE;
+
+	@JavadocExclude
+	public APPLEGLSharing(FunctionProviderLocal provider, long platform) {
+		clGetGLContextInfoAPPLE = provider.getFunctionAddress(platform, "clGetGLContextInfoAPPLE");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link APPLEGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static APPLEGLSharing getInstance(CLObject object) {
+		return object.getCapabilities().__APPLEGLSharing;
+	}
+
+	static APPLEGLSharing create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
+		if ( !ext.contains("cl_APPLE_gl_sharing") ) return null;
+
+		APPLEGLSharing funcs = new APPLEGLSharing(provider, platform);
+
+		boolean supported =  funcs.clGetGLContextInfoAPPLE != 0L;
+
+		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
+	}
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
 	/** JNI method for {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
+	@JavadocExclude
 	public static native int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -95,36 +120,6 @@ public final class APPLEGLSharing {
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__APPLEGLSharing;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_APPLE_gl_sharing") ) return null;
-
-		Functions funcs = new Functions(provider, platform);
-
-		boolean supported =  funcs.clGetGLContextInfoAPPLE != 0L;
-
-		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code APPLEGLSharing}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long clGetGLContextInfoAPPLE;
-
-		public Functions(FunctionProviderLocal provider, long platform) {
-			clGetGLContextInfoAPPLE = provider.getFunctionAddress(platform, "clGetGLContextInfoAPPLE");
-		}
-
 	}
 
 }

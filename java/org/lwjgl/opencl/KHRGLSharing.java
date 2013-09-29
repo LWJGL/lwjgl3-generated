@@ -46,11 +46,36 @@ public final class KHRGLSharing {
 		CL_WGL_HDC_KHR        = 0x200B,
 		CL_CGL_SHAREGROUP_KHR = 0x200C;
 
-	private KHRGLSharing() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long clGetGLContextInfoKHR;
+
+	@JavadocExclude
+	public KHRGLSharing(FunctionProviderLocal provider, long platform) {
+		clGetGLContextInfoKHR = provider.getFunctionAddress(platform, "clGetGLContextInfoKHR");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link KHRGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static KHRGLSharing getInstance(CLObject object) {
+		return object.getCapabilities().__KHRGLSharing;
+	}
+
+	static KHRGLSharing create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
+		if ( !ext.contains("cl_khr_gl_sharing") ) return null;
+
+		KHRGLSharing funcs = new KHRGLSharing(provider, platform);
+
+		boolean supported =  funcs.clGetGLContextInfoKHR != 0L;
+
+		return CL.checkExtension("cl_khr_gl_sharing", funcs, supported);
+	}
 
 	// --- [ clGetGLContextInfoKHR ] ---
 
 	/** JNI method for {@link #clGetGLContextInfoKHR clGetGLContextInfoKHR} */
+	@JavadocExclude
 	public static native int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/**
@@ -140,36 +165,6 @@ public final class KHRGLSharing {
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__KHRGLSharing;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_khr_gl_sharing") ) return null;
-
-		Functions funcs = new Functions(provider, platform);
-
-		boolean supported =  funcs.clGetGLContextInfoKHR != 0L;
-
-		return CL.checkExtension("cl_khr_gl_sharing", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code KHRGLSharing}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long clGetGLContextInfoKHR;
-
-		public Functions(FunctionProviderLocal provider, long platform) {
-			clGetGLContextInfoKHR = provider.getFunctionAddress(platform, "clGetGLContextInfoKHR");
-		}
-
 	}
 
 }

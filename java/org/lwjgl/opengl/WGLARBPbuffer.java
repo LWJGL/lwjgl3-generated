@@ -58,11 +58,50 @@ public final class WGLARBPbuffer {
 		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
 		WGL_PBUFFER_LOST_ARB   = 0x2036;
 
-	private WGLARBPbuffer() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		wglCreatePbufferARB,
+		wglGetPbufferDCARB,
+		wglReleasePbufferDCARB,
+		wglDestroyPbufferARB,
+		wglQueryPbufferARB;
+
+	@JavadocExclude
+	public WGLARBPbuffer(FunctionProvider provider) {
+		wglCreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
+		wglGetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
+		wglReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
+		wglDestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
+		wglQueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLARBPbuffer} instance for the current context. */
+	public static WGLARBPbuffer getInstance() {
+		return GL.getCapabilities().__WGLARBPbuffer;
+	}
+
+	static WGLARBPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_ARB_pbuffer") ) return null;
+
+		WGLARBPbuffer funcs = new WGLARBPbuffer(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.wglCreatePbufferARB) &&
+			GL.isFunctionSupported(funcs.wglGetPbufferDCARB) &&
+			GL.isFunctionSupported(funcs.wglReleasePbufferDCARB) &&
+			GL.isFunctionSupported(funcs.wglDestroyPbufferARB) &&
+			GL.isFunctionSupported(funcs.wglQueryPbufferARB);
+
+		return GL.checkExtension("WGL_ARB_pbuffer", funcs, supported);
+	}
 
 	// --- [ wglCreatePbufferARB ] ---
 
 	/** JNI method for {@link #wglCreatePbufferARB wglCreatePbufferARB} */
+	@JavadocExclude
 	public static native long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList, long __functionAddress);
 
 	/**
@@ -101,6 +140,7 @@ public final class WGLARBPbuffer {
 	// --- [ wglGetPbufferDCARB ] ---
 
 	/** JNI method for {@link #wglGetPbufferDCARB wglGetPbufferDCARB} */
+	@JavadocExclude
 	public static native long nwglGetPbufferDCARB(long pbuffer, long __functionAddress);
 
 	/**
@@ -120,6 +160,7 @@ public final class WGLARBPbuffer {
 	// --- [ wglReleasePbufferDCARB ] ---
 
 	/** JNI method for {@link #wglReleasePbufferDCARB wglReleasePbufferDCARB} */
+	@JavadocExclude
 	public static native int nwglReleasePbufferDCARB(long pbuffer, long hdc, long __functionAddress);
 
 	/**
@@ -141,6 +182,7 @@ public final class WGLARBPbuffer {
 	// --- [ wglDestroyPbufferARB ] ---
 
 	/** JNI method for {@link #wglDestroyPbufferARB wglDestroyPbufferARB} */
+	@JavadocExclude
 	public static native int nwglDestroyPbufferARB(long pbuffer, long __functionAddress);
 
 	/**
@@ -163,6 +205,7 @@ public final class WGLARBPbuffer {
 	// --- [ wglQueryPbufferARB ] ---
 
 	/** JNI method for {@link #wglQueryPbufferARB wglQueryPbufferARB} */
+	@JavadocExclude
 	public static native int nwglQueryPbufferARB(long pbuffer, int attribute, long value, long __functionAddress);
 
 	/**
@@ -191,50 +234,6 @@ public final class WGLARBPbuffer {
 			checkBuffer(value, 1);
 		}
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLARBPbuffer;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_ARB_pbuffer") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.wglCreatePbufferARB) &&
-			GL.isFunctionSupported(funcs.wglGetPbufferDCARB) &&
-			GL.isFunctionSupported(funcs.wglReleasePbufferDCARB) &&
-			GL.isFunctionSupported(funcs.wglDestroyPbufferARB) &&
-			GL.isFunctionSupported(funcs.wglQueryPbufferARB);
-
-		return GL.checkExtension("WGL_ARB_pbuffer", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLARBPbuffer}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			wglCreatePbufferARB,
-			wglGetPbufferDCARB,
-			wglReleasePbufferDCARB,
-			wglDestroyPbufferARB,
-			wglQueryPbufferARB;
-
-		public Functions(FunctionProvider provider) {
-			wglCreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
-			wglGetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
-			wglReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
-			wglDestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
-			wglQueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
-		}
-
 	}
 
 }

@@ -29,11 +29,36 @@ public final class KHRGLEvent {
 	public static final int
 		CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
 
-	private KHRGLEvent() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long clCreateEventFromGLsyncKHR;
+
+	@JavadocExclude
+	public KHRGLEvent(FunctionProviderLocal provider, long platform) {
+		clCreateEventFromGLsyncKHR = provider.getFunctionAddress(platform, "clCreateEventFromGLsyncKHR");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link KHRGLEvent} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	public static KHRGLEvent getInstance(CLObject object) {
+		return object.getCapabilities().__KHRGLEvent;
+	}
+
+	static KHRGLEvent create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
+		if ( !ext.contains("cl_khr_gl_event") ) return null;
+
+		KHRGLEvent funcs = new KHRGLEvent(provider, platform);
+
+		boolean supported =  funcs.clCreateEventFromGLsyncKHR != 0L;
+
+		return CL.checkExtension("cl_khr_gl_event", funcs, supported);
+	}
 
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
 	/** JNI method for {@link #clCreateEventFromGLsyncKHR clCreateEventFromGLsyncKHR} */
+	@JavadocExclude
 	public static native long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret, long __functionAddress);
 
 	/**
@@ -62,36 +87,6 @@ public final class KHRGLEvent {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return CLEvent.create(nclCreateEventFromGLsyncKHR(context.getPointer(), sync, memAddressSafe(errcode_ret), __functionAddress), context);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	@JavadocExclude
-	public static Functions getInstance(CLObject object) {
-		return object.getCapabilities().__KHRGLEvent;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_khr_gl_event") ) return null;
-
-		Functions funcs = new Functions(provider, platform);
-
-		boolean supported =  funcs.clCreateEventFromGLsyncKHR != 0L;
-
-		return CL.checkExtension("cl_khr_gl_event", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code KHRGLEvent}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long clCreateEventFromGLsyncKHR;
-
-		public Functions(FunctionProviderLocal provider, long platform) {
-			clCreateEventFromGLsyncKHR = provider.getFunctionAddress(platform, "clCreateEventFromGLsyncKHR");
-		}
-
 	}
 
 }

@@ -182,11 +182,167 @@ public final class GL40 {
 		GL_MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70,
 		GL_MAX_VERTEX_STREAMS             = 0x8E71;
 
-	private GL40() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		glBlendEquationi,
+		glBlendEquationSeparatei,
+		glBlendFunci,
+		glBlendFuncSeparatei,
+		glDrawArraysIndirect,
+		glDrawElementsIndirect,
+		glUniform1d,
+		glUniform2d,
+		glUniform3d,
+		glUniform4d,
+		glUniform1dv,
+		glUniform2dv,
+		glUniform3dv,
+		glUniform4dv,
+		glUniformMatrix2dv,
+		glUniformMatrix3dv,
+		glUniformMatrix4dv,
+		glUniformMatrix2x3dv,
+		glUniformMatrix2x4dv,
+		glUniformMatrix3x2dv,
+		glUniformMatrix3x4dv,
+		glUniformMatrix4x2dv,
+		glUniformMatrix4x3dv,
+		glGetUniformdv,
+		glMinSampleShading,
+		glGetSubroutineUniformLocation,
+		glGetSubroutineIndex,
+		glGetActiveSubroutineUniformiv,
+		glGetActiveSubroutineUniformName,
+		glGetActiveSubroutineName,
+		glUniformSubroutinesuiv,
+		glGetUniformSubroutineuiv,
+		glGetProgramStageiv,
+		glPatchParameteri,
+		glPatchParameterfv,
+		glBindTransformFeedback,
+		glDeleteTransformFeedbacks,
+		glGenTransformFeedbacks,
+		glIsTransformFeedback,
+		glDrawTransformFeedback,
+		glDrawTransformFeedbackStream,
+		glBeginQueryIndexed,
+		glEndQueryIndexed,
+		glGetQueryIndexediv;
+
+	@JavadocExclude
+	public GL40(FunctionProvider provider) {
+		glBlendEquationi = provider.getFunctionAddress("glBlendEquationi");
+		glBlendEquationSeparatei = provider.getFunctionAddress("glBlendEquationSeparatei");
+		glBlendFunci = provider.getFunctionAddress("glBlendFunci");
+		glBlendFuncSeparatei = provider.getFunctionAddress("glBlendFuncSeparatei");
+		glDrawArraysIndirect = provider.getFunctionAddress("glDrawArraysIndirect");
+		glDrawElementsIndirect = provider.getFunctionAddress("glDrawElementsIndirect");
+		glUniform1d = provider.getFunctionAddress("glUniform1d");
+		glUniform2d = provider.getFunctionAddress("glUniform2d");
+		glUniform3d = provider.getFunctionAddress("glUniform3d");
+		glUniform4d = provider.getFunctionAddress("glUniform4d");
+		glUniform1dv = provider.getFunctionAddress("glUniform1dv");
+		glUniform2dv = provider.getFunctionAddress("glUniform2dv");
+		glUniform3dv = provider.getFunctionAddress("glUniform3dv");
+		glUniform4dv = provider.getFunctionAddress("glUniform4dv");
+		glUniformMatrix2dv = provider.getFunctionAddress("glUniformMatrix2dv");
+		glUniformMatrix3dv = provider.getFunctionAddress("glUniformMatrix3dv");
+		glUniformMatrix4dv = provider.getFunctionAddress("glUniformMatrix4dv");
+		glUniformMatrix2x3dv = provider.getFunctionAddress("glUniformMatrix2x3dv");
+		glUniformMatrix2x4dv = provider.getFunctionAddress("glUniformMatrix2x4dv");
+		glUniformMatrix3x2dv = provider.getFunctionAddress("glUniformMatrix3x2dv");
+		glUniformMatrix3x4dv = provider.getFunctionAddress("glUniformMatrix3x4dv");
+		glUniformMatrix4x2dv = provider.getFunctionAddress("glUniformMatrix4x2dv");
+		glUniformMatrix4x3dv = provider.getFunctionAddress("glUniformMatrix4x3dv");
+		glGetUniformdv = provider.getFunctionAddress("glGetUniformdv");
+		glMinSampleShading = provider.getFunctionAddress("glMinSampleShading");
+		glGetSubroutineUniformLocation = provider.getFunctionAddress("glGetSubroutineUniformLocation");
+		glGetSubroutineIndex = provider.getFunctionAddress("glGetSubroutineIndex");
+		glGetActiveSubroutineUniformiv = provider.getFunctionAddress("glGetActiveSubroutineUniformiv");
+		glGetActiveSubroutineUniformName = provider.getFunctionAddress("glGetActiveSubroutineUniformName");
+		glGetActiveSubroutineName = provider.getFunctionAddress("glGetActiveSubroutineName");
+		glUniformSubroutinesuiv = provider.getFunctionAddress("glUniformSubroutinesuiv");
+		glGetUniformSubroutineuiv = provider.getFunctionAddress("glGetUniformSubroutineuiv");
+		glGetProgramStageiv = provider.getFunctionAddress("glGetProgramStageiv");
+		glPatchParameteri = provider.getFunctionAddress("glPatchParameteri");
+		glPatchParameterfv = provider.getFunctionAddress("glPatchParameterfv");
+		glBindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
+		glDeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
+		glGenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
+		glIsTransformFeedback = provider.getFunctionAddress("glIsTransformFeedback");
+		glDrawTransformFeedback = provider.getFunctionAddress("glDrawTransformFeedback");
+		glDrawTransformFeedbackStream = provider.getFunctionAddress("glDrawTransformFeedbackStream");
+		glBeginQueryIndexed = provider.getFunctionAddress("glBeginQueryIndexed");
+		glEndQueryIndexed = provider.getFunctionAddress("glEndQueryIndexed");
+		glGetQueryIndexediv = provider.getFunctionAddress("glGetQueryIndexediv");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GL40} instance for the current context. */
+	public static GL40 getInstance() {
+		return GL.getCapabilities().__GL40;
+	}
+
+	static GL40 create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("OpenGL40") ) return null;
+
+		GL40 funcs = new GL40(provider);
+
+		boolean supported = 
+			GL.isFunctionSupported(funcs.glBlendEquationi) &&
+			GL.isFunctionSupported(funcs.glBlendEquationSeparatei) &&
+			GL.isFunctionSupported(funcs.glBlendFunci) &&
+			GL.isFunctionSupported(funcs.glBlendFuncSeparatei) &&
+			GL.isFunctionSupported(funcs.glDrawArraysIndirect) &&
+			GL.isFunctionSupported(funcs.glDrawElementsIndirect) &&
+			GL.isFunctionSupported(funcs.glUniform1d) &&
+			GL.isFunctionSupported(funcs.glUniform2d) &&
+			GL.isFunctionSupported(funcs.glUniform3d) &&
+			GL.isFunctionSupported(funcs.glUniform4d) &&
+			GL.isFunctionSupported(funcs.glUniform1dv) &&
+			GL.isFunctionSupported(funcs.glUniform2dv) &&
+			GL.isFunctionSupported(funcs.glUniform3dv) &&
+			GL.isFunctionSupported(funcs.glUniform4dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix2dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix3dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix4dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix2x3dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix2x4dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix3x2dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix3x4dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix4x2dv) &&
+			GL.isFunctionSupported(funcs.glUniformMatrix4x3dv) &&
+			GL.isFunctionSupported(funcs.glGetUniformdv) &&
+			GL.isFunctionSupported(funcs.glMinSampleShading) &&
+			GL.isFunctionSupported(funcs.glGetSubroutineUniformLocation) &&
+			GL.isFunctionSupported(funcs.glGetSubroutineIndex) &&
+			GL.isFunctionSupported(funcs.glGetActiveSubroutineUniformiv) &&
+			GL.isFunctionSupported(funcs.glGetActiveSubroutineUniformName) &&
+			GL.isFunctionSupported(funcs.glGetActiveSubroutineName) &&
+			GL.isFunctionSupported(funcs.glUniformSubroutinesuiv) &&
+			GL.isFunctionSupported(funcs.glGetUniformSubroutineuiv) &&
+			GL.isFunctionSupported(funcs.glGetProgramStageiv) &&
+			GL.isFunctionSupported(funcs.glPatchParameteri) &&
+			GL.isFunctionSupported(funcs.glPatchParameterfv) &&
+			GL.isFunctionSupported(funcs.glBindTransformFeedback) &&
+			GL.isFunctionSupported(funcs.glDeleteTransformFeedbacks) &&
+			GL.isFunctionSupported(funcs.glGenTransformFeedbacks) &&
+			GL.isFunctionSupported(funcs.glIsTransformFeedback) &&
+			GL.isFunctionSupported(funcs.glDrawTransformFeedback) &&
+			GL.isFunctionSupported(funcs.glDrawTransformFeedbackStream) &&
+			GL.isFunctionSupported(funcs.glBeginQueryIndexed) &&
+			GL.isFunctionSupported(funcs.glEndQueryIndexed) &&
+			GL.isFunctionSupported(funcs.glGetQueryIndexediv);
+
+		return GL.checkExtension("OpenGL40", funcs, supported);
+	}
 
 	// --- [ glBlendEquationi ] ---
 
 	/** JNI method for {@link #glBlendEquationi glBlendEquationi} */
+	@JavadocExclude
 	public static native void nglBlendEquationi(int buf, int mode, long __functionAddress);
 
 	/**
@@ -207,6 +363,7 @@ public final class GL40 {
 	// --- [ glBlendEquationSeparatei ] ---
 
 	/** JNI method for {@link #glBlendEquationSeparatei glBlendEquationSeparatei} */
+	@JavadocExclude
 	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
@@ -228,6 +385,7 @@ public final class GL40 {
 	// --- [ glBlendFunci ] ---
 
 	/** JNI method for {@link #glBlendFunci glBlendFunci} */
+	@JavadocExclude
 	public static native void nglBlendFunci(int buf, int sfactor, int dfactor, long __functionAddress);
 
 	/**
@@ -249,6 +407,7 @@ public final class GL40 {
 	// --- [ glBlendFuncSeparatei ] ---
 
 	/** JNI method for {@link #glBlendFuncSeparatei glBlendFuncSeparatei} */
+	@JavadocExclude
 	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
@@ -272,6 +431,7 @@ public final class GL40 {
 	// --- [ glDrawArraysIndirect ] ---
 
 	/** JNI method for {@link #glDrawArraysIndirect glDrawArraysIndirect} */
+	@JavadocExclude
 	public static native void nglDrawArraysIndirect(int mode, long indirect, long __functionAddress);
 
 	/**
@@ -331,6 +491,7 @@ public final class GL40 {
 	// --- [ glDrawElementsIndirect ] ---
 
 	/** JNI method for {@link #glDrawElementsIndirect glDrawElementsIndirect} */
+	@JavadocExclude
 	public static native void nglDrawElementsIndirect(int mode, int type, long indirect, long __functionAddress);
 
 	/**
@@ -404,6 +565,7 @@ public final class GL40 {
 	// --- [ glUniform1d ] ---
 
 	/** JNI method for {@link #glUniform1d glUniform1d} */
+	@JavadocExclude
 	public static native void nglUniform1d(int location, double x, long __functionAddress);
 
 	/**
@@ -424,6 +586,7 @@ public final class GL40 {
 	// --- [ glUniform2d ] ---
 
 	/** JNI method for {@link #glUniform2d glUniform2d} */
+	@JavadocExclude
 	public static native void nglUniform2d(int location, double x, double y, long __functionAddress);
 
 	/**
@@ -445,6 +608,7 @@ public final class GL40 {
 	// --- [ glUniform3d ] ---
 
 	/** JNI method for {@link #glUniform3d glUniform3d} */
+	@JavadocExclude
 	public static native void nglUniform3d(int location, double x, double y, double z, long __functionAddress);
 
 	/**
@@ -467,6 +631,7 @@ public final class GL40 {
 	// --- [ glUniform4d ] ---
 
 	/** JNI method for {@link #glUniform4d glUniform4d} */
+	@JavadocExclude
 	public static native void nglUniform4d(int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
@@ -490,6 +655,7 @@ public final class GL40 {
 	// --- [ glUniform1dv ] ---
 
 	/** JNI method for {@link #glUniform1d(int, int, ByteBuffer) glUniform1d} */
+	@JavadocExclude
 	public static native void nglUniform1dv(int location, int count, long value, long __functionAddress);
 
 	/**
@@ -521,6 +687,7 @@ public final class GL40 {
 	// --- [ glUniform2dv ] ---
 
 	/** JNI method for {@link #glUniform2d(int, int, ByteBuffer) glUniform2d} */
+	@JavadocExclude
 	public static native void nglUniform2dv(int location, int count, long value, long __functionAddress);
 
 	/**
@@ -552,6 +719,7 @@ public final class GL40 {
 	// --- [ glUniform3dv ] ---
 
 	/** JNI method for {@link #glUniform3d(int, int, ByteBuffer) glUniform3d} */
+	@JavadocExclude
 	public static native void nglUniform3dv(int location, int count, long value, long __functionAddress);
 
 	/**
@@ -583,6 +751,7 @@ public final class GL40 {
 	// --- [ glUniform4dv ] ---
 
 	/** JNI method for {@link #glUniform4d(int, int, ByteBuffer) glUniform4d} */
+	@JavadocExclude
 	public static native void nglUniform4dv(int location, int count, long value, long __functionAddress);
 
 	/**
@@ -614,6 +783,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix2dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) glUniformMatrix2d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -646,6 +816,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix3dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) glUniformMatrix3d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -678,6 +849,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix4dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) glUniformMatrix4d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -710,6 +882,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix2x3dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) glUniformMatrix2x3d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -742,6 +915,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix2x4dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) glUniformMatrix2x4d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -774,6 +948,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix3x2dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) glUniformMatrix3x2d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -806,6 +981,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix3x4dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) glUniformMatrix3x4d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -838,6 +1014,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix4x2dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) glUniformMatrix4x2d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -870,6 +1047,7 @@ public final class GL40 {
 	// --- [ glUniformMatrix4x3dv ] ---
 
 	/** JNI method for {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) glUniformMatrix4x3d} */
+	@JavadocExclude
 	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
 	/**
@@ -902,6 +1080,7 @@ public final class GL40 {
 	// --- [ glGetUniformdv ] ---
 
 	/** JNI method for {@link #glGetUniformd(int, int, ByteBuffer) glGetUniformd} */
+	@JavadocExclude
 	public static native void nglGetUniformdv(int program, int location, long params, long __functionAddress);
 
 	/**
@@ -946,6 +1125,7 @@ public final class GL40 {
 	// --- [ glMinSampleShading ] ---
 
 	/** JNI method for {@link #glMinSampleShading glMinSampleShading} */
+	@JavadocExclude
 	public static native void nglMinSampleShading(float value, long __functionAddress);
 
 	/**
@@ -965,6 +1145,7 @@ public final class GL40 {
 	// --- [ glGetSubroutineUniformLocation ] ---
 
 	/** JNI method for {@link #glGetSubroutineUniformLocation glGetSubroutineUniformLocation} */
+	@JavadocExclude
 	public static native int nglGetSubroutineUniformLocation(int program, int shadertype, long name, long __functionAddress);
 
 	/**
@@ -996,6 +1177,7 @@ public final class GL40 {
 	// --- [ glGetSubroutineIndex ] ---
 
 	/** JNI method for {@link #glGetSubroutineIndex glGetSubroutineIndex} */
+	@JavadocExclude
 	public static native int nglGetSubroutineIndex(int program, int shadertype, long name, long __functionAddress);
 
 	/**
@@ -1027,6 +1209,7 @@ public final class GL40 {
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
 	/** JNI method for {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer) glGetActiveSubroutineUniformi} */
+	@JavadocExclude
 	public static native void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values, long __functionAddress);
 
 	/**
@@ -1073,6 +1256,7 @@ public final class GL40 {
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
 	/** JNI method for {@link #glGetActiveSubroutineUniformName glGetActiveSubroutineUniformName} */
+	@JavadocExclude
 	public static native void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
 
 	/**
@@ -1135,6 +1319,7 @@ public final class GL40 {
 	// --- [ glGetActiveSubroutineName ] ---
 
 	/** JNI method for {@link #glGetActiveSubroutineName glGetActiveSubroutineName} */
+	@JavadocExclude
 	public static native void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
 
 	/**
@@ -1197,6 +1382,7 @@ public final class GL40 {
 	// --- [ glUniformSubroutinesuiv ] ---
 
 	/** JNI method for {@link #glUniformSubroutinesui(int, int, ByteBuffer) glUniformSubroutinesui} */
+	@JavadocExclude
 	public static native void nglUniformSubroutinesuiv(int shadertype, int count, long indices, long __functionAddress);
 
 	/**
@@ -1238,6 +1424,7 @@ public final class GL40 {
 	// --- [ glGetUniformSubroutineuiv ] ---
 
 	/** JNI method for {@link #glGetUniformSubroutineui(int, int, ByteBuffer) glGetUniformSubroutineui} */
+	@JavadocExclude
 	public static native void nglGetUniformSubroutineuiv(int shadertype, int location, long params, long __functionAddress);
 
 	/**
@@ -1282,6 +1469,7 @@ public final class GL40 {
 	// --- [ glGetProgramStageiv ] ---
 
 	/** JNI method for {@link #glGetProgramStagei(int, int, int, ByteBuffer) glGetProgramStagei} */
+	@JavadocExclude
 	public static native void nglGetProgramStageiv(int program, int shadertype, int pname, long values, long __functionAddress);
 
 	/**
@@ -1327,6 +1515,7 @@ public final class GL40 {
 	// --- [ glPatchParameteri ] ---
 
 	/** JNI method for {@link #glPatchParameteri glPatchParameteri} */
+	@JavadocExclude
 	public static native void nglPatchParameteri(int pname, int value, long __functionAddress);
 
 	/**
@@ -1347,6 +1536,7 @@ public final class GL40 {
 	// --- [ glPatchParameterfv ] ---
 
 	/** JNI method for {@link #glPatchParameterf(int, ByteBuffer) glPatchParameterf} */
+	@JavadocExclude
 	public static native void nglPatchParameterfv(int pname, long values, long __functionAddress);
 
 	/**
@@ -1381,6 +1571,7 @@ public final class GL40 {
 	// --- [ glBindTransformFeedback ] ---
 
 	/** JNI method for {@link #glBindTransformFeedback glBindTransformFeedback} */
+	@JavadocExclude
 	public static native void nglBindTransformFeedback(int target, int id, long __functionAddress);
 
 	/**
@@ -1401,6 +1592,7 @@ public final class GL40 {
 	// --- [ glDeleteTransformFeedbacks ] ---
 
 	/** JNI method for {@link #glDeleteTransformFeedbacks glDeleteTransformFeedbacks} */
+	@JavadocExclude
 	public static native void nglDeleteTransformFeedbacks(int n, long ids, long __functionAddress);
 
 	/**
@@ -1441,6 +1633,7 @@ public final class GL40 {
 	// --- [ glGenTransformFeedbacks ] ---
 
 	/** JNI method for {@link #glGenTransformFeedbacks glGenTransformFeedbacks} */
+	@JavadocExclude
 	public static native void nglGenTransformFeedbacks(int n, long ids, long __functionAddress);
 
 	/**
@@ -1482,6 +1675,7 @@ public final class GL40 {
 	// --- [ glIsTransformFeedback ] ---
 
 	/** JNI method for {@link #glIsTransformFeedback glIsTransformFeedback} */
+	@JavadocExclude
 	public static native boolean nglIsTransformFeedback(int id, long __functionAddress);
 
 	/**
@@ -1501,6 +1695,7 @@ public final class GL40 {
 	// --- [ glDrawTransformFeedback ] ---
 
 	/** JNI method for {@link #glDrawTransformFeedback glDrawTransformFeedback} */
+	@JavadocExclude
 	public static native void nglDrawTransformFeedback(int mode, int id, long __functionAddress);
 
 	/**
@@ -1521,6 +1716,7 @@ public final class GL40 {
 	// --- [ glDrawTransformFeedbackStream ] ---
 
 	/** JNI method for {@link #glDrawTransformFeedbackStream glDrawTransformFeedbackStream} */
+	@JavadocExclude
 	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream, long __functionAddress);
 
 	/**
@@ -1542,6 +1738,7 @@ public final class GL40 {
 	// --- [ glBeginQueryIndexed ] ---
 
 	/** JNI method for {@link #glBeginQueryIndexed glBeginQueryIndexed} */
+	@JavadocExclude
 	public static native void nglBeginQueryIndexed(int target, int index, int id, long __functionAddress);
 
 	/**
@@ -1563,6 +1760,7 @@ public final class GL40 {
 	// --- [ glEndQueryIndexed ] ---
 
 	/** JNI method for {@link #glEndQueryIndexed glEndQueryIndexed} */
+	@JavadocExclude
 	public static native void nglEndQueryIndexed(int target, int index, long __functionAddress);
 
 	/**
@@ -1583,6 +1781,7 @@ public final class GL40 {
 	// --- [ glGetQueryIndexediv ] ---
 
 	/** JNI method for {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) glGetQueryIndexedi} */
+	@JavadocExclude
 	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params, long __functionAddress);
 
 	/**
@@ -1623,167 +1822,6 @@ public final class GL40 {
 		int params = __buffer.intParam();
 		nglGetQueryIndexediv(target, index, pname, __buffer.address() + params, __functionAddress);
 		return __buffer.intValue(params);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__GL40;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("OpenGL40") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			GL.isFunctionSupported(funcs.glBlendEquationi) &&
-			GL.isFunctionSupported(funcs.glBlendEquationSeparatei) &&
-			GL.isFunctionSupported(funcs.glBlendFunci) &&
-			GL.isFunctionSupported(funcs.glBlendFuncSeparatei) &&
-			GL.isFunctionSupported(funcs.glDrawArraysIndirect) &&
-			GL.isFunctionSupported(funcs.glDrawElementsIndirect) &&
-			GL.isFunctionSupported(funcs.glUniform1d) &&
-			GL.isFunctionSupported(funcs.glUniform2d) &&
-			GL.isFunctionSupported(funcs.glUniform3d) &&
-			GL.isFunctionSupported(funcs.glUniform4d) &&
-			GL.isFunctionSupported(funcs.glUniform1dv) &&
-			GL.isFunctionSupported(funcs.glUniform2dv) &&
-			GL.isFunctionSupported(funcs.glUniform3dv) &&
-			GL.isFunctionSupported(funcs.glUniform4dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix2dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix2x3dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix2x4dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x2dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x4dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x2dv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x3dv) &&
-			GL.isFunctionSupported(funcs.glGetUniformdv) &&
-			GL.isFunctionSupported(funcs.glMinSampleShading) &&
-			GL.isFunctionSupported(funcs.glGetSubroutineUniformLocation) &&
-			GL.isFunctionSupported(funcs.glGetSubroutineIndex) &&
-			GL.isFunctionSupported(funcs.glGetActiveSubroutineUniformiv) &&
-			GL.isFunctionSupported(funcs.glGetActiveSubroutineUniformName) &&
-			GL.isFunctionSupported(funcs.glGetActiveSubroutineName) &&
-			GL.isFunctionSupported(funcs.glUniformSubroutinesuiv) &&
-			GL.isFunctionSupported(funcs.glGetUniformSubroutineuiv) &&
-			GL.isFunctionSupported(funcs.glGetProgramStageiv) &&
-			GL.isFunctionSupported(funcs.glPatchParameteri) &&
-			GL.isFunctionSupported(funcs.glPatchParameterfv) &&
-			GL.isFunctionSupported(funcs.glBindTransformFeedback) &&
-			GL.isFunctionSupported(funcs.glDeleteTransformFeedbacks) &&
-			GL.isFunctionSupported(funcs.glGenTransformFeedbacks) &&
-			GL.isFunctionSupported(funcs.glIsTransformFeedback) &&
-			GL.isFunctionSupported(funcs.glDrawTransformFeedback) &&
-			GL.isFunctionSupported(funcs.glDrawTransformFeedbackStream) &&
-			GL.isFunctionSupported(funcs.glBeginQueryIndexed) &&
-			GL.isFunctionSupported(funcs.glEndQueryIndexed) &&
-			GL.isFunctionSupported(funcs.glGetQueryIndexediv);
-
-		return GL.checkExtension("OpenGL40", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code GL40}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			glBlendEquationi,
-			glBlendEquationSeparatei,
-			glBlendFunci,
-			glBlendFuncSeparatei,
-			glDrawArraysIndirect,
-			glDrawElementsIndirect,
-			glUniform1d,
-			glUniform2d,
-			glUniform3d,
-			glUniform4d,
-			glUniform1dv,
-			glUniform2dv,
-			glUniform3dv,
-			glUniform4dv,
-			glUniformMatrix2dv,
-			glUniformMatrix3dv,
-			glUniformMatrix4dv,
-			glUniformMatrix2x3dv,
-			glUniformMatrix2x4dv,
-			glUniformMatrix3x2dv,
-			glUniformMatrix3x4dv,
-			glUniformMatrix4x2dv,
-			glUniformMatrix4x3dv,
-			glGetUniformdv,
-			glMinSampleShading,
-			glGetSubroutineUniformLocation,
-			glGetSubroutineIndex,
-			glGetActiveSubroutineUniformiv,
-			glGetActiveSubroutineUniformName,
-			glGetActiveSubroutineName,
-			glUniformSubroutinesuiv,
-			glGetUniformSubroutineuiv,
-			glGetProgramStageiv,
-			glPatchParameteri,
-			glPatchParameterfv,
-			glBindTransformFeedback,
-			glDeleteTransformFeedbacks,
-			glGenTransformFeedbacks,
-			glIsTransformFeedback,
-			glDrawTransformFeedback,
-			glDrawTransformFeedbackStream,
-			glBeginQueryIndexed,
-			glEndQueryIndexed,
-			glGetQueryIndexediv;
-
-		public Functions(FunctionProvider provider) {
-			glBlendEquationi = provider.getFunctionAddress("glBlendEquationi");
-			glBlendEquationSeparatei = provider.getFunctionAddress("glBlendEquationSeparatei");
-			glBlendFunci = provider.getFunctionAddress("glBlendFunci");
-			glBlendFuncSeparatei = provider.getFunctionAddress("glBlendFuncSeparatei");
-			glDrawArraysIndirect = provider.getFunctionAddress("glDrawArraysIndirect");
-			glDrawElementsIndirect = provider.getFunctionAddress("glDrawElementsIndirect");
-			glUniform1d = provider.getFunctionAddress("glUniform1d");
-			glUniform2d = provider.getFunctionAddress("glUniform2d");
-			glUniform3d = provider.getFunctionAddress("glUniform3d");
-			glUniform4d = provider.getFunctionAddress("glUniform4d");
-			glUniform1dv = provider.getFunctionAddress("glUniform1dv");
-			glUniform2dv = provider.getFunctionAddress("glUniform2dv");
-			glUniform3dv = provider.getFunctionAddress("glUniform3dv");
-			glUniform4dv = provider.getFunctionAddress("glUniform4dv");
-			glUniformMatrix2dv = provider.getFunctionAddress("glUniformMatrix2dv");
-			glUniformMatrix3dv = provider.getFunctionAddress("glUniformMatrix3dv");
-			glUniformMatrix4dv = provider.getFunctionAddress("glUniformMatrix4dv");
-			glUniformMatrix2x3dv = provider.getFunctionAddress("glUniformMatrix2x3dv");
-			glUniformMatrix2x4dv = provider.getFunctionAddress("glUniformMatrix2x4dv");
-			glUniformMatrix3x2dv = provider.getFunctionAddress("glUniformMatrix3x2dv");
-			glUniformMatrix3x4dv = provider.getFunctionAddress("glUniformMatrix3x4dv");
-			glUniformMatrix4x2dv = provider.getFunctionAddress("glUniformMatrix4x2dv");
-			glUniformMatrix4x3dv = provider.getFunctionAddress("glUniformMatrix4x3dv");
-			glGetUniformdv = provider.getFunctionAddress("glGetUniformdv");
-			glMinSampleShading = provider.getFunctionAddress("glMinSampleShading");
-			glGetSubroutineUniformLocation = provider.getFunctionAddress("glGetSubroutineUniformLocation");
-			glGetSubroutineIndex = provider.getFunctionAddress("glGetSubroutineIndex");
-			glGetActiveSubroutineUniformiv = provider.getFunctionAddress("glGetActiveSubroutineUniformiv");
-			glGetActiveSubroutineUniformName = provider.getFunctionAddress("glGetActiveSubroutineUniformName");
-			glGetActiveSubroutineName = provider.getFunctionAddress("glGetActiveSubroutineName");
-			glUniformSubroutinesuiv = provider.getFunctionAddress("glUniformSubroutinesuiv");
-			glGetUniformSubroutineuiv = provider.getFunctionAddress("glGetUniformSubroutineuiv");
-			glGetProgramStageiv = provider.getFunctionAddress("glGetProgramStageiv");
-			glPatchParameteri = provider.getFunctionAddress("glPatchParameteri");
-			glPatchParameterfv = provider.getFunctionAddress("glPatchParameterfv");
-			glBindTransformFeedback = provider.getFunctionAddress("glBindTransformFeedback");
-			glDeleteTransformFeedbacks = provider.getFunctionAddress("glDeleteTransformFeedbacks");
-			glGenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
-			glIsTransformFeedback = provider.getFunctionAddress("glIsTransformFeedback");
-			glDrawTransformFeedback = provider.getFunctionAddress("glDrawTransformFeedback");
-			glDrawTransformFeedbackStream = provider.getFunctionAddress("glDrawTransformFeedbackStream");
-			glBeginQueryIndexed = provider.getFunctionAddress("glBeginQueryIndexed");
-			glEndQueryIndexed = provider.getFunctionAddress("glEndQueryIndexed");
-			glGetQueryIndexediv = provider.getFunctionAddress("glGetQueryIndexediv");
-		}
-
 	}
 
 }

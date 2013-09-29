@@ -35,6 +35,7 @@ public final class DynamicLinkLoader {
 	// --- [ dlopen ] ---
 
 	/** JNI method for {@link #dlopen dlopen} */
+	@JavadocExclude
 	public static native long ndlopen(long path, int mode);
 
 	/**
@@ -104,6 +105,7 @@ public final class DynamicLinkLoader {
 	// --- [ dlerror ] ---
 
 	/** JNI method for {@link #dlerror dlerror} */
+	@JavadocExclude
 	public static native long ndlerror();
 
 	/**
@@ -123,6 +125,7 @@ public final class DynamicLinkLoader {
 	// --- [ dlsym ] ---
 
 	/** JNI method for {@link #dlsym dlsym} */
+	@JavadocExclude
 	public static native long ndlsym(long handle, long name);
 
 	/**
@@ -161,6 +164,7 @@ public final class DynamicLinkLoader {
 	// --- [ dlclose ] ---
 
 	/** JNI method for {@link #dlclose dlclose} */
+	@JavadocExclude
 	public static native int ndlclose(long handle);
 
 	/**

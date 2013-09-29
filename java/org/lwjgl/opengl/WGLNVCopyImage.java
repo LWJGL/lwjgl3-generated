@@ -19,11 +19,36 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class WGLNVCopyImage {
 
-	private WGLNVCopyImage() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long wglCopyImageSubDataNV;
+
+	@JavadocExclude
+	public WGLNVCopyImage(FunctionProvider provider) {
+		wglCopyImageSubDataNV = provider.getFunctionAddress("wglCopyImageSubDataNV");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link WGLNVCopyImage} instance for the current context. */
+	public static WGLNVCopyImage getInstance() {
+		return GL.getCapabilities().__WGLNVCopyImage;
+	}
+
+	static WGLNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("WGL_NV_copy_image") ) return null;
+
+		WGLNVCopyImage funcs = new WGLNVCopyImage(provider);
+
+		boolean supported =  GL.isFunctionSupported(funcs.wglCopyImageSubDataNV);
+
+		return GL.checkExtension("WGL_NV_copy_image", funcs, supported);
+	}
 
 	// --- [ wglCopyImageSubDataNV ] ---
 
 	/** JNI method for {@link #wglCopyImageSubDataNV wglCopyImageSubDataNV} */
+	@JavadocExclude
 	public static native int nwglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
 
 	/**
@@ -57,36 +82,6 @@ public final class WGLNVCopyImage {
 			checkPointer(dstRC);
 		}
 		return nwglCopyImageSubDataNV(srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return GL.getCapabilities().__WGLNVCopyImage;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("WGL_NV_copy_image") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported =  GL.isFunctionSupported(funcs.wglCopyImageSubDataNV);
-
-		return GL.checkExtension("WGL_NV_copy_image", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code WGLNVCopyImage}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long wglCopyImageSubDataNV;
-
-		public Functions(FunctionProvider provider) {
-			wglCopyImageSubDataNV = provider.getFunctionAddress("wglCopyImageSubDataNV");
-		}
-
 	}
 
 }

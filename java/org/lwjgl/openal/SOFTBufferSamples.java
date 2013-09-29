@@ -78,11 +78,47 @@ public final class SOFTBufferSamples {
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
 
-	private SOFTBufferSamples() {}
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		alBufferSamplesSOFT,
+		alIsBufferFormatSupportedSOFT,
+		alBufferSubSamplesSOFT,
+		alGetBufferSamplesSOFT;
+
+	@JavadocExclude
+	public SOFTBufferSamples(FunctionProvider provider) {
+		alBufferSamplesSOFT = provider.getFunctionAddress("alBufferSamplesSOFT");
+		alIsBufferFormatSupportedSOFT = provider.getFunctionAddress("alIsBufferFormatSupportedSOFT");
+		alBufferSubSamplesSOFT = provider.getFunctionAddress("alBufferSubSamplesSOFT");
+		alGetBufferSamplesSOFT = provider.getFunctionAddress("alGetBufferSamplesSOFT");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link SOFTBufferSamples} instance for the current context. */
+	public static SOFTBufferSamples getInstance() {
+		return AL.getCapabilities().__SOFTBufferSamples;
+	}
+
+	static SOFTBufferSamples create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("AL_SOFT_buffer_samples") ) return null;
+
+		SOFTBufferSamples funcs = new SOFTBufferSamples(provider);
+
+		boolean supported = 
+			funcs.alBufferSamplesSOFT != 0L &&
+			funcs.alIsBufferFormatSupportedSOFT != 0L &&
+			funcs.alBufferSubSamplesSOFT != 0L &&
+			funcs.alGetBufferSamplesSOFT != 0L;
+
+		return AL.checkExtension("AL_SOFT_buffer_samples", funcs, supported);
+	}
 
 	// --- [ alBufferSamplesSOFT ] ---
 
 	/** JNI method for {@link #alBufferSamplesSOFT alBufferSamplesSOFT} */
+	@JavadocExclude
 	public static native void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**
@@ -127,6 +163,7 @@ public final class SOFTBufferSamples {
 	// --- [ alIsBufferFormatSupportedSOFT ] ---
 
 	/** JNI method for {@link #alIsBufferFormatSupportedSOFT alIsBufferFormatSupportedSOFT} */
+	@JavadocExclude
 	public static native boolean nalIsBufferFormatSupportedSOFT(int format, long __functionAddress);
 
 	/**
@@ -147,6 +184,7 @@ public final class SOFTBufferSamples {
 	// --- [ alBufferSubSamplesSOFT ] ---
 
 	/** JNI method for {@link #alBufferSubSamplesSOFT alBufferSubSamplesSOFT} */
+	@JavadocExclude
 	public static native void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**
@@ -189,6 +227,7 @@ public final class SOFTBufferSamples {
 	// --- [ alGetBufferSamplesSOFT ] ---
 
 	/** JNI method for {@link #alGetBufferSamplesSOFT alGetBufferSamplesSOFT} */
+	@JavadocExclude
 	public static native void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
 
 	/**
@@ -213,47 +252,6 @@ public final class SOFTBufferSamples {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data), __functionAddress);
-	}
-
-	// --- [ Function Addresses ] ---
-
-	/** Returns the {@link Functions} instance for the current context. */
-	@JavadocExclude
-	public static Functions getInstance() {
-		return AL.getCapabilities().__SOFTBufferSamples;
-	}
-
-	static Functions create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("AL_SOFT_buffer_samples") ) return null;
-
-		Functions funcs = new Functions(provider);
-
-		boolean supported = 
-			funcs.alBufferSamplesSOFT != 0L &&
-			funcs.alIsBufferFormatSupportedSOFT != 0L &&
-			funcs.alBufferSubSamplesSOFT != 0L &&
-			funcs.alGetBufferSamplesSOFT != 0L;
-
-		return AL.checkExtension("AL_SOFT_buffer_samples", funcs, supported);
-	}
-
-	/** The {@link FunctionMap} class for {@code SOFTBufferSamples}. */
-	@JavadocExclude
-	public static final class Functions implements FunctionMap {
-
-		public final long
-			alBufferSamplesSOFT,
-			alIsBufferFormatSupportedSOFT,
-			alBufferSubSamplesSOFT,
-			alGetBufferSamplesSOFT;
-
-		public Functions(FunctionProvider provider) {
-			alBufferSamplesSOFT = provider.getFunctionAddress("alBufferSamplesSOFT");
-			alIsBufferFormatSupportedSOFT = provider.getFunctionAddress("alIsBufferFormatSupportedSOFT");
-			alBufferSubSamplesSOFT = provider.getFunctionAddress("alBufferSubSamplesSOFT");
-			alGetBufferSamplesSOFT = provider.getFunctionAddress("alGetBufferSamplesSOFT");
-		}
-
 	}
 
 }
