@@ -11,11 +11,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XInput2_nXIQueryVersion(JNIEn
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *major_version_inout = (int *)(intptr_t)major_version_inoutAddress;
 	int *minor_version_inout = (int *)(intptr_t)minor_version_inoutAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XIQueryVersion(display, major_version_inout, minor_version_inout);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XInput2_nXISelectEvents(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w, jlong masksAddress, jint num_masks) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	XIEventMask *masks = (XIEventMask *)(intptr_t)masksAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XISelectEvents(display, (Window)w, masks, num_masks);
 }

@@ -7,8 +7,10 @@
 #include <stddef.h>
 #include "WindowsLWJGL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGBRUSH_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGBRUSH_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(LOGBRUSH, lbStyle));
 	buffer[1] = (jint)(offsetof(LOGBRUSH, lbColor));

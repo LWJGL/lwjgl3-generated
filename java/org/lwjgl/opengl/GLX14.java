@@ -25,11 +25,11 @@ public final class GLX14 {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXGetProcAddress;
+	public final long GetProcAddress;
 
 	@JavadocExclude
 	public GLX14(FunctionProvider provider) {
-		glXGetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
+		GetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -44,14 +44,14 @@ public final class GLX14 {
 
 		GLX14 funcs = new GLX14(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddress);
+		boolean supported =  GL.isFunctionSupported(funcs.GetProcAddress);
 
 		return GL.checkExtension("GLX_14", funcs, supported);
 	}
 
 	// --- [ glXGetProcAddress ] ---
 
-	/** JNI method for {@link #glXGetProcAddress glXGetProcAddress} */
+	/** JNI method for {@link #glXGetProcAddress GetProcAddress} */
 	@JavadocExclude
 	public static native long nglXGetProcAddress(long procName, long __functionAddress);
 
@@ -77,7 +77,7 @@ public final class GLX14 {
 	 * @param procName the function name to query
 	 */
 	public static long glXGetProcAddress(ByteBuffer procName) {
-		long __functionAddress = getInstance().glXGetProcAddress;
+		long __functionAddress = getInstance().GetProcAddress;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddress(memAddress(procName), __functionAddress);

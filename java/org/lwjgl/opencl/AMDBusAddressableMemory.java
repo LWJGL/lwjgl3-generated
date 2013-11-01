@@ -39,15 +39,15 @@ public final class AMDBusAddressableMemory {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		clEnqueueWaitSignalAMD,
-		clEnqueueWriteSignalAMD,
-		clEnqueueMakeBuffersResidentAMD;
+		EnqueueWaitSignalAMD,
+		EnqueueWriteSignalAMD,
+		EnqueueMakeBuffersResidentAMD;
 
 	@JavadocExclude
 	public AMDBusAddressableMemory(FunctionProviderLocal provider, long platform) {
-		clEnqueueWaitSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWaitSignalAMD");
-		clEnqueueWriteSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWriteSignalAMD");
-		clEnqueueMakeBuffersResidentAMD = provider.getFunctionAddress(platform, "clEnqueueMakeBuffersResidentAMD");
+		EnqueueWaitSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWaitSignalAMD");
+		EnqueueWriteSignalAMD = provider.getFunctionAddress(platform, "clEnqueueWriteSignalAMD");
+		EnqueueMakeBuffersResidentAMD = provider.getFunctionAddress(platform, "clEnqueueMakeBuffersResidentAMD");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -63,16 +63,16 @@ public final class AMDBusAddressableMemory {
 		AMDBusAddressableMemory funcs = new AMDBusAddressableMemory(provider, platform);
 
 		boolean supported = 
-			funcs.clEnqueueWaitSignalAMD != 0L &&
-			funcs.clEnqueueWriteSignalAMD != 0L &&
-			funcs.clEnqueueMakeBuffersResidentAMD != 0L;
+			funcs.EnqueueWaitSignalAMD != 0L &&
+			funcs.EnqueueWriteSignalAMD != 0L &&
+			funcs.EnqueueMakeBuffersResidentAMD != 0L;
 
 		return CL.checkExtension("cl_amd_bus_addressable_memory", funcs, supported);
 	}
 
 	// --- [ clEnqueueWaitSignalAMD ] ---
 
-	/** JNI method for {@link #clEnqueueWaitSignalAMD clEnqueueWaitSignalAMD} */
+	/** JNI method for {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
 	@JavadocExclude
 	public static native int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
@@ -92,7 +92,7 @@ public final class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 */
 	public static int clEnqueueWaitSignalAMD(CLCommandQueue command_queue, CLMem mem_object, int value, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueWaitSignalAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueWaitSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -101,9 +101,9 @@ public final class AMDBusAddressableMemory {
 		return nclEnqueueWaitSignalAMD(command_queue.getPointer(), mem_object.getPointer(), value, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueWaitSignalAMD clEnqueueWaitSignalAMD} */
+	/** Alternative version of: {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
 	public static int clEnqueueWaitSignalAMD(CLCommandQueue command_queue, CLMem mem_object, int value, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueWaitSignalAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueWaitSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -113,7 +113,7 @@ public final class AMDBusAddressableMemory {
 
 	// --- [ clEnqueueWriteSignalAMD ] ---
 
-	/** JNI method for {@link #clEnqueueWriteSignalAMD clEnqueueWriteSignalAMD} */
+	/** JNI method for {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
 	@JavadocExclude
 	public static native int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
@@ -134,7 +134,7 @@ public final class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 */
 	public static int clEnqueueWriteSignalAMD(CLCommandQueue command_queue, CLMem mem_object, int value, long offset, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueWriteSignalAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueWriteSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -143,9 +143,9 @@ public final class AMDBusAddressableMemory {
 		return nclEnqueueWriteSignalAMD(command_queue.getPointer(), mem_object.getPointer(), value, offset, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueWriteSignalAMD clEnqueueWriteSignalAMD} */
+	/** Alternative version of: {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
 	public static int clEnqueueWriteSignalAMD(CLCommandQueue command_queue, CLMem mem_object, int value, long offset, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueWriteSignalAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueWriteSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -155,7 +155,7 @@ public final class AMDBusAddressableMemory {
 
 	// --- [ clEnqueueMakeBuffersResidentAMD ] ---
 
-	/** JNI method for {@link #clEnqueueMakeBuffersResidentAMD clEnqueueMakeBuffersResidentAMD} */
+	/** JNI method for {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
 	@JavadocExclude
 	public static native int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
@@ -177,7 +177,7 @@ public final class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 */
 	public static int clEnqueueMakeBuffersResidentAMD(CLCommandQueue command_queue, int num_mem_objs, ByteBuffer mem_objects, int blocking_make_resident, ByteBuffer bus_addresses, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueMakeBuffersResidentAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueMakeBuffersResidentAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(mem_objects, num_mem_objs << POINTER_SHIFT);
@@ -188,9 +188,9 @@ public final class AMDBusAddressableMemory {
 		return nclEnqueueMakeBuffersResidentAMD(command_queue.getPointer(), num_mem_objs, memAddress(mem_objects), blocking_make_resident, memAddress(bus_addresses), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueMakeBuffersResidentAMD clEnqueueMakeBuffersResidentAMD} */
+	/** Alternative version of: {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
 	public static int clEnqueueMakeBuffersResidentAMD(CLCommandQueue command_queue, PointerBuffer mem_objects, int blocking_make_resident, ByteBuffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueMakeBuffersResidentAMD;
+		long __functionAddress = getInstance(command_queue).EnqueueMakeBuffersResidentAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(bus_addresses, cl_bus_address_amd.SIZEOF);

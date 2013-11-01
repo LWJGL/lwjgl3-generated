@@ -52,7 +52,7 @@ public final class Xutil {
 
 	// --- [ XLookupString ] ---
 
-	/** JNI method for {@link #XLookupString XLookupString} */
+	/** JNI method for {@link #XLookupString} */
 	@JavadocExclude
 	public static native int nXLookupString(long event_struct, long buffer_return, int bytes_buffer, long keysym_return, long status_in_out);
 
@@ -85,7 +85,7 @@ public final class Xutil {
 		return nXLookupString(memAddress(event_struct), memAddress(buffer_return), bytes_buffer, memAddress(keysym_return), memAddress(status_in_out));
 	}
 
-	/** Alternative version of: {@link #XLookupString XLookupString} */
+	/** Alternative version of: {@link #XLookupString} */
 	public static int XLookupString(ByteBuffer event_struct, ByteBuffer buffer_return, PointerBuffer keysym_return, ByteBuffer status_in_out) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(event_struct, XKeyEvent.SIZEOF);
@@ -96,7 +96,7 @@ public final class Xutil {
 
 	// --- [ XAllocWMHints ] ---
 
-	/** JNI method for {@link #XAllocWMHints XAllocWMHints} */
+	/** JNI method for {@link #XAllocWMHints} */
 	@JavadocExclude
 	public static native long nXAllocWMHints();
 
@@ -111,7 +111,7 @@ public final class Xutil {
 
 	// --- [ XAllocSizeHints ] ---
 
-	/** JNI method for {@link #XAllocSizeHints XAllocSizeHints} */
+	/** JNI method for {@link #XAllocSizeHints} */
 	@JavadocExclude
 	public static native long nXAllocSizeHints();
 
@@ -132,7 +132,7 @@ public final class Xutil {
 
 	// --- [ XSaveContext ] ---
 
-	/** JNI method for {@link #XSaveContext XSaveContext} */
+	/** JNI method for {@link #XSaveContext} */
 	@JavadocExclude
 	public static native int nXSaveContext(long display, long rid, int context, long data);
 
@@ -152,7 +152,7 @@ public final class Xutil {
 
 	// --- [ XFindContext ] ---
 
-	/** JNI method for {@link #XFindContext XFindContext} */
+	/** JNI method for {@link #XFindContext} */
 	@JavadocExclude
 	public static native int nXFindContext(long display, long rid, int context, long data_return);
 
@@ -170,7 +170,7 @@ public final class Xutil {
 		return nXFindContext(display, rid, context, memAddress(data_return));
 	}
 
-	/** Alternative version of: {@link #XFindContext XFindContext} */
+	/** Alternative version of: {@link #XFindContext} */
 	public static int XFindContext(long display, long rid, int context, PointerBuffer data_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -179,7 +179,7 @@ public final class Xutil {
 
 	// --- [ XDeleteContext ] ---
 
-	/** JNI method for {@link #XDeleteContext XDeleteContext} */
+	/** JNI method for {@link #XDeleteContext} */
 	@JavadocExclude
 	public static native int nXDeleteContext(long display, long rid, int context);
 

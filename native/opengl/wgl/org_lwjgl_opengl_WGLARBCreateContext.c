@@ -13,5 +13,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBCreateContext_nwglCreateCont
 	HGLRC shareContext = (HGLRC)(intptr_t)shareContextAddress;
 	const int *attribList = (const int *)(intptr_t)attribListAddress;
 	wglCreateContextAttribsARBPROC wglCreateContextAttribsARB = (wglCreateContextAttribsARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglCreateContextAttribsARB(hdc, shareContext, attribList);
 }

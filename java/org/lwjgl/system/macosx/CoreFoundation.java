@@ -94,7 +94,7 @@ public final class CoreFoundation {
 
 	// --- [ CFRetain ] ---
 
-	/** JNI method for {@link #CFRetain CFRetain} */
+	/** JNI method for {@link #CFRetain} */
 	@JavadocExclude
 	public static native long nCFRetain(long cf);
 
@@ -114,7 +114,7 @@ public final class CoreFoundation {
 
 	// --- [ CFRelease ] ---
 
-	/** JNI method for {@link #CFRelease CFRelease} */
+	/** JNI method for {@link #CFRelease} */
 	@JavadocExclude
 	public static native void nCFRelease(long cf);
 
@@ -134,7 +134,7 @@ public final class CoreFoundation {
 
 	// --- [ CFBundleCreate ] ---
 
-	/** JNI method for {@link #CFBundleCreate CFBundleCreate} */
+	/** JNI method for {@link #CFBundleCreate} */
 	@JavadocExclude
 	public static native long nCFBundleCreate(long allocator, long bundleURL);
 
@@ -152,7 +152,7 @@ public final class CoreFoundation {
 
 	// --- [ CFBundleGetFunctionPointerForName ] ---
 
-	/** JNI method for {@link #CFBundleGetFunctionPointerForName CFBundleGetFunctionPointerForName} */
+	/** JNI method for {@link #CFBundleGetFunctionPointerForName} */
 	@JavadocExclude
 	public static native long nCFBundleGetFunctionPointerForName(long bundle, long functionName);
 
@@ -172,7 +172,7 @@ public final class CoreFoundation {
 
 	// --- [ CFStringCreateWithCString ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCString CFStringCreateWithCString} */
+	/** JNI method for {@link #CFStringCreateWithCString} */
 	@JavadocExclude
 	public static native long nCFStringCreateWithCString(long allocator, long cStr, int encoding);
 
@@ -189,7 +189,7 @@ public final class CoreFoundation {
 
 	// --- [ CFStringCreateWithCStringNoCopy ] ---
 
-	/** JNI method for {@link #CFStringCreateWithCStringNoCopy CFStringCreateWithCStringNoCopy} */
+	/** JNI method for {@link #CFStringCreateWithCStringNoCopy} */
 	@JavadocExclude
 	public static native long nCFStringCreateWithCStringNoCopy(long allocator, long cStr, int encoding, long contentsDeallocator);
 
@@ -209,7 +209,7 @@ public final class CoreFoundation {
 
 	// --- [ CFURLCreateWithFileSystemPath ] ---
 
-	/** JNI method for {@link #CFURLCreateWithFileSystemPath CFURLCreateWithFileSystemPath} */
+	/** JNI method for {@link #CFURLCreateWithFileSystemPath} */
 	@JavadocExclude
 	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, byte isDirectory);
 

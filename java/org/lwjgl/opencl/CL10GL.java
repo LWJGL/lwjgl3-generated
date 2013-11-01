@@ -77,25 +77,25 @@ public final class CL10GL {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		clCreateFromGLBuffer,
-		clCreateFromGLTexture2D,
-		clCreateFromGLTexture3D,
-		clCreateFromGLRenderbuffer,
-		clGetGLObjectInfo,
-		clGetGLTextureInfo,
-		clEnqueueAcquireGLObjects,
-		clEnqueueReleaseGLObjects;
+		CreateFromGLBuffer,
+		CreateFromGLTexture2D,
+		CreateFromGLTexture3D,
+		CreateFromGLRenderbuffer,
+		GetGLObjectInfo,
+		GetGLTextureInfo,
+		EnqueueAcquireGLObjects,
+		EnqueueReleaseGLObjects;
 
 	@JavadocExclude
 	public CL10GL(FunctionProviderLocal provider) {
-		clCreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
-		clCreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
-		clCreateFromGLTexture3D = provider.getFunctionAddress("clCreateFromGLTexture3D");
-		clCreateFromGLRenderbuffer = provider.getFunctionAddress("clCreateFromGLRenderbuffer");
-		clGetGLObjectInfo = provider.getFunctionAddress("clGetGLObjectInfo");
-		clGetGLTextureInfo = provider.getFunctionAddress("clGetGLTextureInfo");
-		clEnqueueAcquireGLObjects = provider.getFunctionAddress("clEnqueueAcquireGLObjects");
-		clEnqueueReleaseGLObjects = provider.getFunctionAddress("clEnqueueReleaseGLObjects");
+		CreateFromGLBuffer = provider.getFunctionAddress("clCreateFromGLBuffer");
+		CreateFromGLTexture2D = provider.getFunctionAddress("clCreateFromGLTexture2D");
+		CreateFromGLTexture3D = provider.getFunctionAddress("clCreateFromGLTexture3D");
+		CreateFromGLRenderbuffer = provider.getFunctionAddress("clCreateFromGLRenderbuffer");
+		GetGLObjectInfo = provider.getFunctionAddress("clGetGLObjectInfo");
+		GetGLTextureInfo = provider.getFunctionAddress("clGetGLTextureInfo");
+		EnqueueAcquireGLObjects = provider.getFunctionAddress("clEnqueueAcquireGLObjects");
+		EnqueueReleaseGLObjects = provider.getFunctionAddress("clEnqueueReleaseGLObjects");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -111,21 +111,21 @@ public final class CL10GL {
 		CL10GL funcs = new CL10GL(provider);
 
 		boolean supported = 
-			funcs.clCreateFromGLBuffer != 0L &&
-			funcs.clCreateFromGLTexture2D != 0L &&
-			funcs.clCreateFromGLTexture3D != 0L &&
-			funcs.clCreateFromGLRenderbuffer != 0L &&
-			funcs.clGetGLObjectInfo != 0L &&
-			funcs.clGetGLTextureInfo != 0L &&
-			funcs.clEnqueueAcquireGLObjects != 0L &&
-			funcs.clEnqueueReleaseGLObjects != 0L;
+			funcs.CreateFromGLBuffer != 0L &&
+			funcs.CreateFromGLTexture2D != 0L &&
+			funcs.CreateFromGLTexture3D != 0L &&
+			funcs.CreateFromGLRenderbuffer != 0L &&
+			funcs.GetGLObjectInfo != 0L &&
+			funcs.GetGLTextureInfo != 0L &&
+			funcs.EnqueueAcquireGLObjects != 0L &&
+			funcs.EnqueueReleaseGLObjects != 0L;
 
 		return CL.checkExtension("OpenCL10GL", funcs, supported);
 	}
 
 	// --- [ clCreateFromGLBuffer ] ---
 
-	/** JNI method for {@link #clCreateFromGLBuffer clCreateFromGLBuffer} */
+	/** JNI method for {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
 	@JavadocExclude
 	public static native long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret, long __functionAddress);
 
@@ -156,7 +156,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLBuffer(CLContext context, long flags, int bufobj, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLBuffer;
+		long __functionAddress = getInstance(context).CreateFromGLBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -164,9 +164,9 @@ public final class CL10GL {
 		return CLMem.create(nclCreateFromGLBuffer(context.getPointer(), flags, bufobj, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateFromGLBuffer clCreateFromGLBuffer} */
+	/** Alternative version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
 	public static CLMem clCreateFromGLBuffer(CLContext context, long flags, int bufobj, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLBuffer;
+		long __functionAddress = getInstance(context).CreateFromGLBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -176,7 +176,7 @@ public final class CL10GL {
 
 	// --- [ clCreateFromGLTexture2D ] ---
 
-	/** JNI method for {@link #clCreateFromGLTexture2D clCreateFromGLTexture2D} */
+	/** JNI method for {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
 	@JavadocExclude
 	public static native long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
@@ -218,7 +218,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLTexture2D(CLContext context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture2D;
+		long __functionAddress = getInstance(context).CreateFromGLTexture2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -226,9 +226,9 @@ public final class CL10GL {
 		return CLMem.create(nclCreateFromGLTexture2D(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateFromGLTexture2D clCreateFromGLTexture2D} */
+	/** Alternative version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
 	public static CLMem clCreateFromGLTexture2D(CLContext context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture2D;
+		long __functionAddress = getInstance(context).CreateFromGLTexture2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -238,7 +238,7 @@ public final class CL10GL {
 
 	// --- [ clCreateFromGLTexture3D ] ---
 
-	/** JNI method for {@link #clCreateFromGLTexture3D clCreateFromGLTexture3D} */
+	/** JNI method for {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
 	@JavadocExclude
 	public static native long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
@@ -279,7 +279,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLTexture3D(CLContext context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture3D;
+		long __functionAddress = getInstance(context).CreateFromGLTexture3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -287,9 +287,9 @@ public final class CL10GL {
 		return CLMem.create(nclCreateFromGLTexture3D(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateFromGLTexture3D clCreateFromGLTexture3D} */
+	/** Alternative version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
 	public static CLMem clCreateFromGLTexture3D(CLContext context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture3D;
+		long __functionAddress = getInstance(context).CreateFromGLTexture3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -299,7 +299,7 @@ public final class CL10GL {
 
 	// --- [ clCreateFromGLRenderbuffer ] ---
 
-	/** JNI method for {@link #clCreateFromGLRenderbuffer clCreateFromGLRenderbuffer} */
+	/** JNI method for {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
 	@JavadocExclude
 	public static native long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret, long __functionAddress);
 
@@ -332,7 +332,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLRenderbuffer(CLContext context, long flags, int renderbuffer, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLRenderbuffer;
+		long __functionAddress = getInstance(context).CreateFromGLRenderbuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -340,9 +340,9 @@ public final class CL10GL {
 		return CLMem.create(nclCreateFromGLRenderbuffer(context.getPointer(), flags, renderbuffer, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateFromGLRenderbuffer clCreateFromGLRenderbuffer} */
+	/** Alternative version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
 	public static CLMem clCreateFromGLRenderbuffer(CLContext context, long flags, int renderbuffer, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLRenderbuffer;
+		long __functionAddress = getInstance(context).CreateFromGLRenderbuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -352,7 +352,7 @@ public final class CL10GL {
 
 	// --- [ clGetGLObjectInfo ] ---
 
-	/** JNI method for {@link #clGetGLObjectInfo clGetGLObjectInfo} */
+	/** JNI method for {@link #clGetGLObjectInfo GetGLObjectInfo} */
 	@JavadocExclude
 	public static native int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name, long __functionAddress);
 
@@ -373,15 +373,15 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static int clGetGLObjectInfo(CLMem memobj, ByteBuffer gl_object_type, ByteBuffer gl_object_name) {
-		long __functionAddress = getInstance(memobj).clGetGLObjectInfo;
+		long __functionAddress = getInstance(memobj).GetGLObjectInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclGetGLObjectInfo(memobj.getPointer(), memAddressSafe(gl_object_type), memAddressSafe(gl_object_name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clGetGLObjectInfo clGetGLObjectInfo} */
+	/** Alternative version of: {@link #clGetGLObjectInfo GetGLObjectInfo} */
 	public static int clGetGLObjectInfo(CLMem memobj, IntBuffer gl_object_type, IntBuffer gl_object_name) {
-		long __functionAddress = getInstance(memobj).clGetGLObjectInfo;
+		long __functionAddress = getInstance(memobj).GetGLObjectInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclGetGLObjectInfo(memobj.getPointer(), memAddressSafe(gl_object_type), memAddressSafe(gl_object_name), __functionAddress);
@@ -389,7 +389,7 @@ public final class CL10GL {
 
 	// --- [ clGetGLTextureInfo ] ---
 
-	/** JNI method for {@link #clGetGLTextureInfo clGetGLTextureInfo} */
+	/** JNI method for {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	@JavadocExclude
 	public static native int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
@@ -413,7 +413,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static int clGetGLTextureInfo(CLMem memobj, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).clGetGLTextureInfo;
+		long __functionAddress = getInstance(memobj).GetGLTextureInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -422,9 +422,9 @@ public final class CL10GL {
 		return nclGetGLTextureInfo(memobj.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clGetGLTextureInfo clGetGLTextureInfo} */
+	/** Alternative version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(CLMem memobj, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).clGetGLTextureInfo;
+		long __functionAddress = getInstance(memobj).GetGLTextureInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -432,9 +432,9 @@ public final class CL10GL {
 		return nclGetGLTextureInfo(memobj.getPointer(), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #clGetGLTextureInfo clGetGLTextureInfo} */
+	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(CLMem memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).clGetGLTextureInfo;
+		long __functionAddress = getInstance(memobj).GetGLTextureInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -444,7 +444,7 @@ public final class CL10GL {
 
 	// --- [ clEnqueueAcquireGLObjects ] ---
 
-	/** JNI method for {@link #clEnqueueAcquireGLObjects clEnqueueAcquireGLObjects} */
+	/** JNI method for {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	@JavadocExclude
 	public static native int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
@@ -489,7 +489,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static int clEnqueueAcquireGLObjects(CLCommandQueue command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueAcquireGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueAcquireGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(mem_objects, num_objects << POINTER_SHIFT);
@@ -499,9 +499,9 @@ public final class CL10GL {
 		return nclEnqueueAcquireGLObjects(command_queue.getPointer(), num_objects, memAddress(mem_objects), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueAcquireGLObjects clEnqueueAcquireGLObjects} */
+	/** Alternative version of: {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	public static int clEnqueueAcquireGLObjects(CLCommandQueue command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueAcquireGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueAcquireGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -509,9 +509,9 @@ public final class CL10GL {
 		return nclEnqueueAcquireGLObjects(command_queue.getPointer(), mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Single value version of: {@link #clEnqueueAcquireGLObjects clEnqueueAcquireGLObjects} */
+	/** Single value version of: {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	public static int clEnqueueAcquireGLObjects(CLCommandQueue command_queue, CLMem mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueAcquireGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueAcquireGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -523,7 +523,7 @@ public final class CL10GL {
 
 	// --- [ clEnqueueReleaseGLObjects ] ---
 
-	/** JNI method for {@link #clEnqueueReleaseGLObjects clEnqueueReleaseGLObjects} */
+	/** JNI method for {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	@JavadocExclude
 	public static native int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
@@ -564,7 +564,7 @@ public final class CL10GL {
 	 *         </ul>
 	 */
 	public static int clEnqueueReleaseGLObjects(CLCommandQueue command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueReleaseGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueReleaseGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(mem_objects, num_objects << POINTER_SHIFT);
@@ -574,9 +574,9 @@ public final class CL10GL {
 		return nclEnqueueReleaseGLObjects(command_queue.getPointer(), num_objects, memAddress(mem_objects), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clEnqueueReleaseGLObjects clEnqueueReleaseGLObjects} */
+	/** Alternative version of: {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	public static int clEnqueueReleaseGLObjects(CLCommandQueue command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueReleaseGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueReleaseGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -584,9 +584,9 @@ public final class CL10GL {
 		return nclEnqueueReleaseGLObjects(command_queue.getPointer(), mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), __functionAddress);
 	}
 
-	/** Single value version of: {@link #clEnqueueReleaseGLObjects clEnqueueReleaseGLObjects} */
+	/** Single value version of: {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	public static int clEnqueueReleaseGLObjects(CLCommandQueue command_queue, CLMem mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).clEnqueueReleaseGLObjects;
+		long __functionAddress = getInstance(command_queue).EnqueueReleaseGLObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);

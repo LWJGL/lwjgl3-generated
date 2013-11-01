@@ -4,8 +4,8 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "OpenGL.h"
 #include "OpenCL.h"
+#include "OpenGL.h"
 
 typedef GLsync (APIENTRY *glCreateSyncFromCLeventARBPROC) (cl_context, cl_event, GLbitfield);
 
@@ -13,5 +13,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBCLEvent_nglCreateSyncFromCLeven
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_event event = (cl_event)(intptr_t)eventAddress;
 	glCreateSyncFromCLeventARBPROC glCreateSyncFromCLeventARB = (glCreateSyncFromCLeventARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glCreateSyncFromCLeventARB(context, event, flags);
 }

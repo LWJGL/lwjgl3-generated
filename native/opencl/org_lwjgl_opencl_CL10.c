@@ -76,6 +76,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetPlatformIDs(JNIEnv *__en
 	cl_platform_id *platforms = (cl_platform_id *)(intptr_t)platformsAddress;
 	cl_uint *num_platforms = (cl_uint *)(intptr_t)num_platformsAddress;
 	clGetPlatformIDsPROC clGetPlatformIDs = (clGetPlatformIDsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetPlatformIDs(num_entries, platforms, num_platforms);
 }
 
@@ -84,6 +85,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetPlatformInfo(JNIEnv *__e
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetPlatformInfoPROC clGetPlatformInfo = (clGetPlatformInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetPlatformInfo(platform, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -92,6 +94,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetDeviceIDs(JNIEnv *__env,
 	cl_device_id *devices = (cl_device_id *)(intptr_t)devicesAddress;
 	cl_uint *num_devices = (cl_uint *)(intptr_t)num_devicesAddress;
 	clGetDeviceIDsPROC clGetDeviceIDs = (clGetDeviceIDsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetDeviceIDs(platform, device_type, num_entries, devices, num_devices);
 }
 
@@ -100,6 +103,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetDeviceInfo(JNIEnv *__env
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetDeviceInfoPROC clGetDeviceInfo = (clGetDeviceInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetDeviceInfo(device, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -110,6 +114,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateContext(JNIEnv *__en
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateContextPROC clCreateContext = (clCreateContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateContext(properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
 }
 
@@ -119,18 +124,21 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateContextFromType(JNIE
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateContextFromTypePROC clCreateContextFromType = (clCreateContextFromTypePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateContextFromType(properties, device_type, pfn_notify, user_data, errcode_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	clRetainContextPROC clRetainContext = (clRetainContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainContext(context);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	clReleaseContextPROC clReleaseContext = (clReleaseContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseContext(context);
 }
 
@@ -139,6 +147,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetContextInfo(JNIEnv *__en
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetContextInfoPROC clGetContextInfo = (clGetContextInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetContextInfo(context, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -147,18 +156,21 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateCommandQueue(JNIEnv 
 	cl_device_id device = (cl_device_id)(intptr_t)deviceAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateCommandQueuePROC clCreateCommandQueue = (clCreateCommandQueuePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateCommandQueue(context, device, properties, errcode_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainCommandQueue(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	clRetainCommandQueuePROC clRetainCommandQueue = (clRetainCommandQueuePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainCommandQueue(command_queue);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseCommandQueue(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	clReleaseCommandQueuePROC clReleaseCommandQueue = (clReleaseCommandQueuePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseCommandQueue(command_queue);
 }
 
@@ -167,6 +179,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetCommandQueueInfo(JNIEnv 
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetCommandQueueInfoPROC clGetCommandQueueInfo = (clGetCommandQueueInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetCommandQueueInfo(command_queue, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -175,6 +188,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateBuffer(JNIEnv *__env
 	cl_void *host_ptr = (cl_void *)(intptr_t)host_ptrAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateBufferPROC clCreateBuffer = (clCreateBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateBuffer(context, flags, (size_t)size, host_ptr, errcode_ret);
 }
 
@@ -185,6 +199,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueReadBuffer(JNIEnv *_
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueReadBufferPROC clEnqueueReadBuffer = (clEnqueueReadBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueReadBuffer(command_queue, buffer, blocking_read, (size_t)offset, (size_t)size, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -195,6 +210,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueWriteBuffer(JNIEnv *
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWriteBufferPROC clEnqueueWriteBuffer = (clEnqueueWriteBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWriteBuffer(command_queue, buffer, blocking_write, (size_t)offset, (size_t)size, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -205,6 +221,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueCopyBuffer(JNIEnv *_
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueCopyBufferPROC clEnqueueCopyBuffer = (clEnqueueCopyBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueCopyBuffer(command_queue, src_buffer, dst_buffer, (size_t)src_offset, (size_t)dst_offset, (size_t)size, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -215,6 +232,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueMapBuffer(JNIEnv *_
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clEnqueueMapBufferPROC clEnqueueMapBuffer = (clEnqueueMapBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, (size_t)offset, (size_t)size, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 }
 
@@ -224,6 +242,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateImage2D(JNIEnv *__en
 	cl_void *host_ptr = (cl_void *)(intptr_t)host_ptrAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateImage2DPROC clCreateImage2D = (clCreateImage2DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateImage2D(context, flags, image_format, (size_t)image_width, (size_t)image_height, (size_t)image_row_pitch, host_ptr, errcode_ret);
 }
 
@@ -233,6 +252,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateImage3D(JNIEnv *__en
 	cl_void *host_ptr = (cl_void *)(intptr_t)host_ptrAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateImage3DPROC clCreateImage3D = (clCreateImage3DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateImage3D(context, flags, image_format, (size_t)image_width, (size_t)image_height, (size_t)image_depth, (size_t)image_row_pitch, (size_t)image_slice_pitch, host_ptr, errcode_ret);
 }
 
@@ -241,6 +261,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetSupportedImageFormats(JN
 	cl_image_format *image_formats = (cl_image_format *)(intptr_t)image_formatsAddress;
 	cl_uint *num_image_formats = (cl_uint *)(intptr_t)num_image_formatsAddress;
 	clGetSupportedImageFormatsPROC clGetSupportedImageFormats = (clGetSupportedImageFormatsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetSupportedImageFormats(context, flags, image_type, num_entries, image_formats, num_image_formats);
 }
 
@@ -253,6 +274,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueReadImage(JNIEnv *__
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueReadImagePROC clEnqueueReadImage = (clEnqueueReadImagePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueReadImage(command_queue, image, blocking_read, origin, region, (size_t)row_pitch, (size_t)slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -265,6 +287,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueWriteImage(JNIEnv *_
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWriteImagePROC clEnqueueWriteImage = (clEnqueueWriteImagePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWriteImage(command_queue, image, blocking_write, origin, region, (size_t)input_row_pitch, (size_t)input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -278,6 +301,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueCopyImage(JNIEnv *__
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueCopyImagePROC clEnqueueCopyImage = (clEnqueueCopyImagePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueCopyImage(command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -290,6 +314,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueCopyImageToBuffer(JN
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueCopyImageToBufferPROC clEnqueueCopyImageToBuffer = (clEnqueueCopyImageToBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueCopyImageToBuffer(command_queue, src_image, dst_buffer, src_origin, region, (size_t)dst_offset, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -302,6 +327,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueCopyBufferToImage(JN
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueCopyBufferToImagePROC clEnqueueCopyBufferToImage = (clEnqueueCopyBufferToImagePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueCopyBufferToImage(command_queue, src_buffer, dst_image, (size_t)src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -316,6 +342,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueMapImage(JNIEnv *__
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clEnqueueMapImagePROC clEnqueueMapImage = (clEnqueueMapImagePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clEnqueueMapImage(command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 }
 
@@ -324,18 +351,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetImageInfo(JNIEnv *__env,
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetImageInfoPROC clGetImageInfo = (clGetImageInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetImageInfo(image, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainMemObject(JNIEnv *__env, jclass clazz, jlong memobjAddress, jlong __functionAddress) {
 	cl_mem memobj = (cl_mem)(intptr_t)memobjAddress;
 	clRetainMemObjectPROC clRetainMemObject = (clRetainMemObjectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainMemObject(memobj);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseMemObject(JNIEnv *__env, jclass clazz, jlong memobjAddress, jlong __functionAddress) {
 	cl_mem memobj = (cl_mem)(intptr_t)memobjAddress;
 	clReleaseMemObjectPROC clReleaseMemObject = (clReleaseMemObjectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseMemObject(memobj);
 }
 
@@ -346,6 +376,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueUnmapMemObject(JNIEn
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueUnmapMemObjectPROC clEnqueueUnmapMemObject = (clEnqueueUnmapMemObjectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueUnmapMemObject(command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -354,6 +385,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetMemObjectInfo(JNIEnv *__
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetMemObjectInfoPROC clGetMemObjectInfo = (clGetMemObjectInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetMemObjectInfo(memobj, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -361,18 +393,21 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateSampler(JNIEnv *__en
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateSamplerPROC clCreateSampler = (clCreateSamplerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateSampler(context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainSampler(JNIEnv *__env, jclass clazz, jlong samplerAddress, jlong __functionAddress) {
 	cl_sampler sampler = (cl_sampler)(intptr_t)samplerAddress;
 	clRetainSamplerPROC clRetainSampler = (clRetainSamplerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainSampler(sampler);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseSampler(JNIEnv *__env, jclass clazz, jlong samplerAddress, jlong __functionAddress) {
 	cl_sampler sampler = (cl_sampler)(intptr_t)samplerAddress;
 	clReleaseSamplerPROC clReleaseSampler = (clReleaseSamplerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseSampler(sampler);
 }
 
@@ -381,6 +416,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetSamplerInfo(JNIEnv *__en
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetSamplerInfoPROC clGetSamplerInfo = (clGetSamplerInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetSamplerInfo(sampler, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -390,6 +426,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateProgramWithSource(JN
 	const size_t *lengths = (const size_t *)(intptr_t)lengthsAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateProgramWithSourcePROC clCreateProgramWithSource = (clCreateProgramWithSourcePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateProgramWithSource(context, count, strings, lengths, errcode_ret);
 }
 
@@ -401,18 +438,21 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateProgramWithBinary(JN
 	cl_int *binary_status = (cl_int *)(intptr_t)binary_statusAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateProgramWithBinaryPROC clCreateProgramWithBinary = (clCreateProgramWithBinaryPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateProgramWithBinary(context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainProgram(JNIEnv *__env, jclass clazz, jlong programAddress, jlong __functionAddress) {
 	cl_program program = (cl_program)(intptr_t)programAddress;
 	clRetainProgramPROC clRetainProgram = (clRetainProgramPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainProgram(program);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseProgram(JNIEnv *__env, jclass clazz, jlong programAddress, jlong __functionAddress) {
 	cl_program program = (cl_program)(intptr_t)programAddress;
 	clReleaseProgramPROC clReleaseProgram = (clReleaseProgramPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseProgram(program);
 }
 
@@ -423,11 +463,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclBuildProgram(JNIEnv *__env,
 	cl_program_callback pfn_notify = (cl_program_callback)(intptr_t)pfn_notifyAddress;
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	clBuildProgramPROC clBuildProgram = (clBuildProgramPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clBuildProgram(program, num_devices, device_list, options, pfn_notify, user_data);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclUnloadCompiler(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	clUnloadCompilerPROC clUnloadCompiler = (clUnloadCompilerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clUnloadCompiler();
 }
 
@@ -436,6 +478,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetProgramInfo(JNIEnv *__en
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetProgramInfoPROC clGetProgramInfo = (clGetProgramInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetProgramInfo(program, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -445,6 +488,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetProgramBuildInfo(JNIEnv 
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetProgramBuildInfoPROC clGetProgramBuildInfo = (clGetProgramBuildInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetProgramBuildInfo(program, device, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -453,6 +497,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclCreateKernel(JNIEnv *__env
 	const cl_char *kernel_name = (const cl_char *)(intptr_t)kernel_nameAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateKernelPROC clCreateKernel = (clCreateKernelPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateKernel(program, kernel_name, errcode_ret);
 }
 
@@ -461,18 +506,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclCreateKernelsInProgram(JNIE
 	cl_kernel *kernels = (cl_kernel *)(intptr_t)kernelsAddress;
 	cl_uint *num_kernels_ret = (cl_uint *)(intptr_t)num_kernels_retAddress;
 	clCreateKernelsInProgramPROC clCreateKernelsInProgram = (clCreateKernelsInProgramPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clCreateKernelsInProgram(program, num_kernels, kernels, num_kernels_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainKernel(JNIEnv *__env, jclass clazz, jlong kernelAddress, jlong __functionAddress) {
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
 	clRetainKernelPROC clRetainKernel = (clRetainKernelPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainKernel(kernel);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseKernel(JNIEnv *__env, jclass clazz, jlong kernelAddress, jlong __functionAddress) {
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
 	clReleaseKernelPROC clReleaseKernel = (clReleaseKernelPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseKernel(kernel);
 }
 
@@ -480,6 +528,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclSetKernelArg(JNIEnv *__env,
 	cl_kernel kernel = (cl_kernel)(intptr_t)kernelAddress;
 	const cl_void *arg_value = (const cl_void *)(intptr_t)arg_valueAddress;
 	clSetKernelArgPROC clSetKernelArg = (clSetKernelArgPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clSetKernelArg(kernel, arg_index, (size_t)arg_size, arg_value);
 }
 
@@ -488,6 +537,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetKernelInfo(JNIEnv *__env
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetKernelInfoPROC clGetKernelInfo = (clGetKernelInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetKernelInfo(kernel, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -497,6 +547,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetKernelWorkGroupInfo(JNIE
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetKernelWorkGroupInfoPROC clGetKernelWorkGroupInfo = (clGetKernelWorkGroupInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetKernelWorkGroupInfo(kernel, device, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -509,6 +560,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNDRangeKernel(JNIEnv
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueNDRangeKernelPROC clEnqueueNDRangeKernel = (clEnqueueNDRangeKernelPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueNDRangeKernel(command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -518,6 +570,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueTask(JNIEnv *__env, 
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueTaskPROC clEnqueueTask = (clEnqueueTaskPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueTask(command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -530,12 +583,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNativeKernel(JNIEnv 
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueNativeKernelPROC clEnqueueNativeKernel = (clEnqueueNativeKernelPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueNativeKernel(command_queue, user_func, args, (size_t)cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclWaitForEvents(JNIEnv *__env, jclass clazz, jint num_events, jlong event_listAddress, jlong __functionAddress) {
 	const cl_event *event_list = (const cl_event *)(intptr_t)event_listAddress;
 	clWaitForEventsPROC clWaitForEvents = (clWaitForEventsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clWaitForEvents(num_events, event_list);
 }
 
@@ -544,18 +599,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetEventInfo(JNIEnv *__env,
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetEventInfoPROC clGetEventInfo = (clGetEventInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetEventInfo(event, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclRetainEvent(JNIEnv *__env, jclass clazz, jlong eventAddress, jlong __functionAddress) {
 	cl_event event = (cl_event)(intptr_t)eventAddress;
 	clRetainEventPROC clRetainEvent = (clRetainEventPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clRetainEvent(event);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclReleaseEvent(JNIEnv *__env, jclass clazz, jlong eventAddress, jlong __functionAddress) {
 	cl_event event = (cl_event)(intptr_t)eventAddress;
 	clReleaseEventPROC clReleaseEvent = (clReleaseEventPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clReleaseEvent(event);
 }
 
@@ -563,12 +621,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueMarker(JNIEnv *__env
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueMarkerPROC clEnqueueMarker = (clEnqueueMarkerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueMarker(command_queue, event);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueBarrier(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	clEnqueueBarrierPROC clEnqueueBarrier = (clEnqueueBarrierPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueBarrier(command_queue);
 }
 
@@ -576,6 +636,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueWaitForEvents(JNIEnv
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	const cl_event *event_list = (const cl_event *)(intptr_t)event_listAddress;
 	clEnqueueWaitForEventsPROC clEnqueueWaitForEvents = (clEnqueueWaitForEventsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWaitForEvents(command_queue, num_events, event_list);
 }
 
@@ -584,23 +645,27 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetEventProfilingInfo(JNIEn
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetEventProfilingInfoPROC clGetEventProfilingInfo = (clGetEventProfilingInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetEventProfilingInfo(event, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclFlush(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	clFlushPROC clFlush = (clFlushPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clFlush(command_queue);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclFinish(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	clFinishPROC clFinish = (clFinishPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clFinish(command_queue);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclGetExtensionFunctionAddress(JNIEnv *__env, jclass clazz, jlong funcnameAddress, jlong __functionAddress) {
 	const cl_char *funcname = (const cl_char *)(intptr_t)funcnameAddress;
 	clGetExtensionFunctionAddressPROC clGetExtensionFunctionAddress = (clGetExtensionFunctionAddressPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clGetExtensionFunctionAddress(funcname);
 }

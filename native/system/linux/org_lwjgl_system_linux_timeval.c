@@ -8,8 +8,10 @@
 #include "LinuxLWJGL.h"
 #include <sys/time.h>
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_timeval_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_timeval_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(struct timeval, tv_sec));
 	buffer[1] = (jint)(offsetof(struct timeval, tv_usec));

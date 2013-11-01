@@ -34,7 +34,7 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlopen ] ---
 
-	/** JNI method for {@link #dlopen dlopen} */
+	/** JNI method for {@link #dlopen} */
 	@JavadocExclude
 	public static native long ndlopen(long path, int mode);
 
@@ -97,14 +97,14 @@ public final class DynamicLinkLoader {
 		return ndlopen(memAddressSafe(path), mode);
 	}
 
-	/** CharSequence version of: {@link #dlopen dlopen} */
+	/** CharSequence version of: {@link #dlopen} */
 	public static long dlopen(CharSequence path, int mode) {
 		return ndlopen(memAddressSafe(memEncodeASCII(path)), mode);
 	}
 
 	// --- [ dlerror ] ---
 
-	/** JNI method for {@link #dlerror dlerror} */
+	/** JNI method for {@link #dlerror} */
 	@JavadocExclude
 	public static native long ndlerror();
 
@@ -124,7 +124,7 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlsym ] ---
 
-	/** JNI method for {@link #dlsym dlsym} */
+	/** JNI method for {@link #dlsym} */
 	@JavadocExclude
 	public static native long ndlsym(long handle, long name);
 
@@ -154,7 +154,7 @@ public final class DynamicLinkLoader {
 		return ndlsym(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #dlsym dlsym} */
+	/** CharSequence version of: {@link #dlsym} */
 	public static long dlsym(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
@@ -163,7 +163,7 @@ public final class DynamicLinkLoader {
 
 	// --- [ dlclose ] ---
 
-	/** JNI method for {@link #dlclose dlclose} */
+	/** JNI method for {@link #dlclose} */
 	@JavadocExclude
 	public static native int ndlclose(long handle);
 

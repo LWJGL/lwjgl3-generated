@@ -17,6 +17,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXCreateGLXPbuffe
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	int *attrib_list = (int *)(intptr_t)attrib_listAddress;
 	glXCreateGLXPbufferSGIXPROC glXCreateGLXPbufferSGIX = (glXCreateGLXPbufferSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateGLXPbufferSGIX(display, config, width, height, attrib_list);
 }
 
@@ -24,6 +25,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXDestroyGLXPbuffe
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXPbuffer pbuf = (GLXPbuffer)(intptr_t)pbufAddress;
 	glXDestroyGLXPbufferSGIXPROC glXDestroyGLXPbufferSGIX = (glXDestroyGLXPbufferSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXDestroyGLXPbufferSGIX(display, pbuf);
 }
 
@@ -32,6 +34,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXQueryGLXPbufferS
 	GLXPbuffer pbuf = (GLXPbuffer)(intptr_t)pbufAddress;
 	unsigned int *value = (unsigned int *)(intptr_t)valueAddress;
 	glXQueryGLXPbufferSGIXPROC glXQueryGLXPbufferSGIX = (glXQueryGLXPbufferSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXQueryGLXPbufferSGIX(display, pbuf, attribute, value);
 }
 
@@ -39,6 +42,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXSelectEventSGIX(
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	glXSelectEventSGIXPROC glXSelectEventSGIX = (glXSelectEventSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXSelectEventSGIX(display, drawable, (unsigned long)mask);
 }
 
@@ -47,5 +51,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXGetSelectedEvent
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	unsigned long *mask = (unsigned long *)(intptr_t)maskAddress;
 	glXGetSelectedEventSGIXPROC glXGetSelectedEventSGIX = (glXGetSelectedEventSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXGetSelectedEventSGIX(display, drawable, mask);
 }

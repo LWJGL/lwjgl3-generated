@@ -166,103 +166,103 @@ public final class GL14 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glBlendColor,
-		glBlendEquation,
-		glFogCoordf,
-		glFogCoordd,
-		glFogCoordfv,
-		glFogCoorddv,
-		glFogCoordPointer,
-		glMultiDrawArrays,
-		glMultiDrawElements,
-		glPointParameterf,
-		glPointParameteri,
-		glPointParameterfv,
-		glPointParameteriv,
-		glSecondaryColor3b,
-		glSecondaryColor3s,
-		glSecondaryColor3i,
-		glSecondaryColor3f,
-		glSecondaryColor3d,
-		glSecondaryColor3ub,
-		glSecondaryColor3us,
-		glSecondaryColor3ui,
-		glSecondaryColor3bv,
-		glSecondaryColor3sv,
-		glSecondaryColor3iv,
-		glSecondaryColor3fv,
-		glSecondaryColor3dv,
-		glSecondaryColor3ubv,
-		glSecondaryColor3usv,
-		glSecondaryColor3uiv,
-		glSecondaryColorPointer,
-		glBlendFuncSeparate,
-		glWindowPos2i,
-		glWindowPos2s,
-		glWindowPos2f,
-		glWindowPos2d,
-		glWindowPos2iv,
-		glWindowPos2sv,
-		glWindowPos2fv,
-		glWindowPos2dv,
-		glWindowPos3i,
-		glWindowPos3s,
-		glWindowPos3f,
-		glWindowPos3d,
-		glWindowPos3iv,
-		glWindowPos3sv,
-		glWindowPos3fv,
-		glWindowPos3dv;
+		BlendColor,
+		BlendEquation,
+		FogCoordf,
+		FogCoordd,
+		FogCoordfv,
+		FogCoorddv,
+		FogCoordPointer,
+		MultiDrawArrays,
+		MultiDrawElements,
+		PointParameterf,
+		PointParameteri,
+		PointParameterfv,
+		PointParameteriv,
+		SecondaryColor3b,
+		SecondaryColor3s,
+		SecondaryColor3i,
+		SecondaryColor3f,
+		SecondaryColor3d,
+		SecondaryColor3ub,
+		SecondaryColor3us,
+		SecondaryColor3ui,
+		SecondaryColor3bv,
+		SecondaryColor3sv,
+		SecondaryColor3iv,
+		SecondaryColor3fv,
+		SecondaryColor3dv,
+		SecondaryColor3ubv,
+		SecondaryColor3usv,
+		SecondaryColor3uiv,
+		SecondaryColorPointer,
+		BlendFuncSeparate,
+		WindowPos2i,
+		WindowPos2s,
+		WindowPos2f,
+		WindowPos2d,
+		WindowPos2iv,
+		WindowPos2sv,
+		WindowPos2fv,
+		WindowPos2dv,
+		WindowPos3i,
+		WindowPos3s,
+		WindowPos3f,
+		WindowPos3d,
+		WindowPos3iv,
+		WindowPos3sv,
+		WindowPos3fv,
+		WindowPos3dv;
 
 	@JavadocExclude
 	public GL14(FunctionProvider provider, boolean fc) {
-		glBlendColor = provider.getFunctionAddress("glBlendColor");
-		glBlendEquation = provider.getFunctionAddress("glBlendEquation");
-		glFogCoordf = GL.getFunctionAddress(provider, "glFogCoordf", fc);
-		glFogCoordd = GL.getFunctionAddress(provider, "glFogCoordd", fc);
-		glFogCoordfv = GL.getFunctionAddress(provider, "glFogCoordfv", fc);
-		glFogCoorddv = GL.getFunctionAddress(provider, "glFogCoorddv", fc);
-		glFogCoordPointer = GL.getFunctionAddress(provider, "glFogCoordPointer", fc);
-		glMultiDrawArrays = provider.getFunctionAddress("glMultiDrawArrays");
-		glMultiDrawElements = provider.getFunctionAddress("glMultiDrawElements");
-		glPointParameterf = provider.getFunctionAddress("glPointParameterf");
-		glPointParameteri = provider.getFunctionAddress("glPointParameteri");
-		glPointParameterfv = provider.getFunctionAddress("glPointParameterfv");
-		glPointParameteriv = provider.getFunctionAddress("glPointParameteriv");
-		glSecondaryColor3b = GL.getFunctionAddress(provider, "glSecondaryColor3b", fc);
-		glSecondaryColor3s = GL.getFunctionAddress(provider, "glSecondaryColor3s", fc);
-		glSecondaryColor3i = GL.getFunctionAddress(provider, "glSecondaryColor3i", fc);
-		glSecondaryColor3f = GL.getFunctionAddress(provider, "glSecondaryColor3f", fc);
-		glSecondaryColor3d = GL.getFunctionAddress(provider, "glSecondaryColor3d", fc);
-		glSecondaryColor3ub = GL.getFunctionAddress(provider, "glSecondaryColor3ub", fc);
-		glSecondaryColor3us = GL.getFunctionAddress(provider, "glSecondaryColor3us", fc);
-		glSecondaryColor3ui = GL.getFunctionAddress(provider, "glSecondaryColor3ui", fc);
-		glSecondaryColor3bv = GL.getFunctionAddress(provider, "glSecondaryColor3bv", fc);
-		glSecondaryColor3sv = GL.getFunctionAddress(provider, "glSecondaryColor3sv", fc);
-		glSecondaryColor3iv = GL.getFunctionAddress(provider, "glSecondaryColor3iv", fc);
-		glSecondaryColor3fv = GL.getFunctionAddress(provider, "glSecondaryColor3fv", fc);
-		glSecondaryColor3dv = GL.getFunctionAddress(provider, "glSecondaryColor3dv", fc);
-		glSecondaryColor3ubv = GL.getFunctionAddress(provider, "glSecondaryColor3ubv", fc);
-		glSecondaryColor3usv = GL.getFunctionAddress(provider, "glSecondaryColor3usv", fc);
-		glSecondaryColor3uiv = GL.getFunctionAddress(provider, "glSecondaryColor3uiv", fc);
-		glSecondaryColorPointer = GL.getFunctionAddress(provider, "glSecondaryColorPointer", fc);
-		glBlendFuncSeparate = provider.getFunctionAddress("glBlendFuncSeparate");
-		glWindowPos2i = GL.getFunctionAddress(provider, "glWindowPos2i", fc);
-		glWindowPos2s = GL.getFunctionAddress(provider, "glWindowPos2s", fc);
-		glWindowPos2f = GL.getFunctionAddress(provider, "glWindowPos2f", fc);
-		glWindowPos2d = GL.getFunctionAddress(provider, "glWindowPos2d", fc);
-		glWindowPos2iv = GL.getFunctionAddress(provider, "glWindowPos2iv", fc);
-		glWindowPos2sv = GL.getFunctionAddress(provider, "glWindowPos2sv", fc);
-		glWindowPos2fv = GL.getFunctionAddress(provider, "glWindowPos2fv", fc);
-		glWindowPos2dv = GL.getFunctionAddress(provider, "glWindowPos2dv", fc);
-		glWindowPos3i = GL.getFunctionAddress(provider, "glWindowPos3i", fc);
-		glWindowPos3s = GL.getFunctionAddress(provider, "glWindowPos3s", fc);
-		glWindowPos3f = GL.getFunctionAddress(provider, "glWindowPos3f", fc);
-		glWindowPos3d = GL.getFunctionAddress(provider, "glWindowPos3d", fc);
-		glWindowPos3iv = GL.getFunctionAddress(provider, "glWindowPos3iv", fc);
-		glWindowPos3sv = GL.getFunctionAddress(provider, "glWindowPos3sv", fc);
-		glWindowPos3fv = GL.getFunctionAddress(provider, "glWindowPos3fv", fc);
-		glWindowPos3dv = GL.getFunctionAddress(provider, "glWindowPos3dv", fc);
+		BlendColor = provider.getFunctionAddress("glBlendColor");
+		BlendEquation = provider.getFunctionAddress("glBlendEquation");
+		FogCoordf = GL.getFunctionAddress(provider, "glFogCoordf", fc);
+		FogCoordd = GL.getFunctionAddress(provider, "glFogCoordd", fc);
+		FogCoordfv = GL.getFunctionAddress(provider, "glFogCoordfv", fc);
+		FogCoorddv = GL.getFunctionAddress(provider, "glFogCoorddv", fc);
+		FogCoordPointer = GL.getFunctionAddress(provider, "glFogCoordPointer", fc);
+		MultiDrawArrays = provider.getFunctionAddress("glMultiDrawArrays");
+		MultiDrawElements = provider.getFunctionAddress("glMultiDrawElements");
+		PointParameterf = provider.getFunctionAddress("glPointParameterf");
+		PointParameteri = provider.getFunctionAddress("glPointParameteri");
+		PointParameterfv = provider.getFunctionAddress("glPointParameterfv");
+		PointParameteriv = provider.getFunctionAddress("glPointParameteriv");
+		SecondaryColor3b = GL.getFunctionAddress(provider, "glSecondaryColor3b", fc);
+		SecondaryColor3s = GL.getFunctionAddress(provider, "glSecondaryColor3s", fc);
+		SecondaryColor3i = GL.getFunctionAddress(provider, "glSecondaryColor3i", fc);
+		SecondaryColor3f = GL.getFunctionAddress(provider, "glSecondaryColor3f", fc);
+		SecondaryColor3d = GL.getFunctionAddress(provider, "glSecondaryColor3d", fc);
+		SecondaryColor3ub = GL.getFunctionAddress(provider, "glSecondaryColor3ub", fc);
+		SecondaryColor3us = GL.getFunctionAddress(provider, "glSecondaryColor3us", fc);
+		SecondaryColor3ui = GL.getFunctionAddress(provider, "glSecondaryColor3ui", fc);
+		SecondaryColor3bv = GL.getFunctionAddress(provider, "glSecondaryColor3bv", fc);
+		SecondaryColor3sv = GL.getFunctionAddress(provider, "glSecondaryColor3sv", fc);
+		SecondaryColor3iv = GL.getFunctionAddress(provider, "glSecondaryColor3iv", fc);
+		SecondaryColor3fv = GL.getFunctionAddress(provider, "glSecondaryColor3fv", fc);
+		SecondaryColor3dv = GL.getFunctionAddress(provider, "glSecondaryColor3dv", fc);
+		SecondaryColor3ubv = GL.getFunctionAddress(provider, "glSecondaryColor3ubv", fc);
+		SecondaryColor3usv = GL.getFunctionAddress(provider, "glSecondaryColor3usv", fc);
+		SecondaryColor3uiv = GL.getFunctionAddress(provider, "glSecondaryColor3uiv", fc);
+		SecondaryColorPointer = GL.getFunctionAddress(provider, "glSecondaryColorPointer", fc);
+		BlendFuncSeparate = provider.getFunctionAddress("glBlendFuncSeparate");
+		WindowPos2i = GL.getFunctionAddress(provider, "glWindowPos2i", fc);
+		WindowPos2s = GL.getFunctionAddress(provider, "glWindowPos2s", fc);
+		WindowPos2f = GL.getFunctionAddress(provider, "glWindowPos2f", fc);
+		WindowPos2d = GL.getFunctionAddress(provider, "glWindowPos2d", fc);
+		WindowPos2iv = GL.getFunctionAddress(provider, "glWindowPos2iv", fc);
+		WindowPos2sv = GL.getFunctionAddress(provider, "glWindowPos2sv", fc);
+		WindowPos2fv = GL.getFunctionAddress(provider, "glWindowPos2fv", fc);
+		WindowPos2dv = GL.getFunctionAddress(provider, "glWindowPos2dv", fc);
+		WindowPos3i = GL.getFunctionAddress(provider, "glWindowPos3i", fc);
+		WindowPos3s = GL.getFunctionAddress(provider, "glWindowPos3s", fc);
+		WindowPos3f = GL.getFunctionAddress(provider, "glWindowPos3f", fc);
+		WindowPos3d = GL.getFunctionAddress(provider, "glWindowPos3d", fc);
+		WindowPos3iv = GL.getFunctionAddress(provider, "glWindowPos3iv", fc);
+		WindowPos3sv = GL.getFunctionAddress(provider, "glWindowPos3sv", fc);
+		WindowPos3fv = GL.getFunctionAddress(provider, "glWindowPos3fv", fc);
+		WindowPos3dv = GL.getFunctionAddress(provider, "glWindowPos3dv", fc);
 	}
 
 	// --- [ Function Addresses ] ---
@@ -278,60 +278,60 @@ public final class GL14 {
 		GL14 funcs = new GL14(provider, fc);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glBlendColor) &&
-			GL.isFunctionSupported(funcs.glBlendEquation) &&
-			GL.isFunctionSupported(funcs.glFogCoordf, fc) &&
-			GL.isFunctionSupported(funcs.glFogCoordd, fc) &&
-			GL.isFunctionSupported(funcs.glFogCoordfv, fc) &&
-			GL.isFunctionSupported(funcs.glFogCoorddv, fc) &&
-			GL.isFunctionSupported(funcs.glFogCoordPointer, fc) &&
-			GL.isFunctionSupported(funcs.glMultiDrawArrays) &&
-			GL.isFunctionSupported(funcs.glMultiDrawElements) &&
-			GL.isFunctionSupported(funcs.glPointParameterf) &&
-			GL.isFunctionSupported(funcs.glPointParameteri) &&
-			GL.isFunctionSupported(funcs.glPointParameterfv) &&
-			GL.isFunctionSupported(funcs.glPointParameteriv) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3b, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3s, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3i, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3f, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3d, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3ub, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3us, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3ui, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3bv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3sv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3iv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3fv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3dv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3ubv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3usv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColor3uiv, fc) &&
-			GL.isFunctionSupported(funcs.glSecondaryColorPointer, fc) &&
-			GL.isFunctionSupported(funcs.glBlendFuncSeparate) &&
-			GL.isFunctionSupported(funcs.glWindowPos2i, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2s, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2f, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2d, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2iv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2sv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2fv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos2dv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3i, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3s, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3f, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3d, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3iv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3sv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3fv, fc) &&
-			GL.isFunctionSupported(funcs.glWindowPos3dv, fc);
+			GL.isFunctionSupported(funcs.BlendColor) &&
+			GL.isFunctionSupported(funcs.BlendEquation) &&
+			GL.isFunctionSupported(funcs.FogCoordf, fc) &&
+			GL.isFunctionSupported(funcs.FogCoordd, fc) &&
+			GL.isFunctionSupported(funcs.FogCoordfv, fc) &&
+			GL.isFunctionSupported(funcs.FogCoorddv, fc) &&
+			GL.isFunctionSupported(funcs.FogCoordPointer, fc) &&
+			GL.isFunctionSupported(funcs.MultiDrawArrays) &&
+			GL.isFunctionSupported(funcs.MultiDrawElements) &&
+			GL.isFunctionSupported(funcs.PointParameterf) &&
+			GL.isFunctionSupported(funcs.PointParameteri) &&
+			GL.isFunctionSupported(funcs.PointParameterfv) &&
+			GL.isFunctionSupported(funcs.PointParameteriv) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3b, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3s, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3i, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3f, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3d, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3ub, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3us, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3ui, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3bv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3sv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3iv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3fv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3dv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3ubv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3usv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColor3uiv, fc) &&
+			GL.isFunctionSupported(funcs.SecondaryColorPointer, fc) &&
+			GL.isFunctionSupported(funcs.BlendFuncSeparate) &&
+			GL.isFunctionSupported(funcs.WindowPos2i, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2s, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2f, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2d, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2iv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2sv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2fv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos2dv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3i, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3s, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3f, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3d, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3iv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3sv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3fv, fc) &&
+			GL.isFunctionSupported(funcs.WindowPos3dv, fc);
 
 		return GL.checkExtension("OpenGL14", funcs, supported);
 	}
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor glBlendColor} */
+	/** JNI method for {@link #glBlendColor BlendColor} */
 	@JavadocExclude
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
@@ -346,7 +346,7 @@ public final class GL14 {
 	 * @param alpha the alpha color component
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().glBlendColor;
+		long __functionAddress = getInstance().BlendColor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlendColor(red, green, blue, alpha, __functionAddress);
@@ -354,7 +354,7 @@ public final class GL14 {
 
 	// --- [ glBlendEquation ] ---
 
-	/** JNI method for {@link #glBlendEquation glBlendEquation} */
+	/** JNI method for {@link #glBlendEquation BlendEquation} */
 	@JavadocExclude
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
@@ -366,7 +366,7 @@ public final class GL14 {
 	 * @param mode the blend equation. One of:<p/>{@link #GL_FUNC_ADD FUNC_ADD}, {@link #GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link #GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link #GL_MIN MIN}, {@link #GL_MAX MAX}
 	 */
 	public static void glBlendEquation(int mode) {
-		long __functionAddress = getInstance().glBlendEquation;
+		long __functionAddress = getInstance().BlendEquation;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlendEquation(mode, __functionAddress);
@@ -374,7 +374,7 @@ public final class GL14 {
 
 	// --- [ glFogCoordf ] ---
 
-	/** JNI method for {@link #glFogCoordf glFogCoordf} */
+	/** JNI method for {@link #glFogCoordf FogCoordf} */
 	@JavadocExclude
 	public static native void nglFogCoordf(float coord, long __functionAddress);
 
@@ -386,7 +386,7 @@ public final class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordf(float coord) {
-		long __functionAddress = getInstance().glFogCoordf;
+		long __functionAddress = getInstance().FogCoordf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFogCoordf(coord, __functionAddress);
@@ -394,19 +394,19 @@ public final class GL14 {
 
 	// --- [ glFogCoordd ] ---
 
-	/** JNI method for {@link #glFogCoordd glFogCoordd} */
+	/** JNI method for {@link #glFogCoordd FogCoordd} */
 	@JavadocExclude
 	public static native void nglFogCoordd(double coord, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoordd.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glFogCoordf glFogCoordf}.
+	 * Double version of {@link #glFogCoordf FogCoordf}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordd(double coord) {
-		long __functionAddress = getInstance().glFogCoordd;
+		long __functionAddress = getInstance().FogCoordd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFogCoordd(coord, __functionAddress);
@@ -421,12 +421,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogCoordf glFogCoordf}.
+	 * Pointer version of {@link #glFogCoordf FogCoordf}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordf(ByteBuffer coord) {
-		long __functionAddress = getInstance().glFogCoordfv;
+		long __functionAddress = getInstance().FogCoordfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coord, 1 << 2);
@@ -436,7 +436,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glFogCoordf(ByteBuffer) glFogCoordf} */
 	public static void glFogCoord(FloatBuffer coord) {
-		long __functionAddress = getInstance().glFogCoordfv;
+		long __functionAddress = getInstance().FogCoordfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coord, 1);
@@ -453,12 +453,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogCoordd glFogCoordd}.
+	 * Pointer version of {@link #glFogCoordd FogCoordd}.
 	 *
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordd(ByteBuffer coord) {
-		long __functionAddress = getInstance().glFogCoorddv;
+		long __functionAddress = getInstance().FogCoorddv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coord, 1 << 3);
@@ -468,7 +468,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glFogCoordd(ByteBuffer) glFogCoordd} */
 	public static void glFogCoord(DoubleBuffer coord) {
-		long __functionAddress = getInstance().glFogCoorddv;
+		long __functionAddress = getInstance().FogCoorddv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coord, 1);
@@ -478,7 +478,7 @@ public final class GL14 {
 
 	// --- [ glFogCoordPointer ] ---
 
-	/** JNI method for {@link #glFogCoordPointer glFogCoordPointer} */
+	/** JNI method for {@link #glFogCoordPointer FogCoordPointer} */
 	@JavadocExclude
 	public static native void nglFogCoordPointer(int type, int stride, long pointer, long __functionAddress);
 
@@ -492,7 +492,7 @@ public final class GL14 {
 	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glFogCoordPointer;
+		long __functionAddress = getInstance().FogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -500,9 +500,9 @@ public final class GL14 {
 		nglFogCoordPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glFogCoordPointer glFogCoordPointer} */
+	/** Buffer object offset version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void glFogCoordPointer(int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glFogCoordPointer;
+		long __functionAddress = getInstance().FogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -510,9 +510,9 @@ public final class GL14 {
 		nglFogCoordPointer(type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glFogCoordPointer glFogCoordPointer} */
+	/** GL_FLOAT version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void glFogCoordPointer(int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glFogCoordPointer;
+		long __functionAddress = getInstance().FogCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -522,7 +522,7 @@ public final class GL14 {
 
 	// --- [ glMultiDrawArrays ] ---
 
-	/** JNI method for {@link #glMultiDrawArrays glMultiDrawArrays} */
+	/** JNI method for {@link #glMultiDrawArrays MultiDrawArrays} */
 	@JavadocExclude
 	public static native void nglMultiDrawArrays(int mode, long first, long count, int primcount, long __functionAddress);
 
@@ -537,7 +537,7 @@ public final class GL14 {
 	 * @param primcount the size of {@code first} and {@code count}
 	 */
 	public static void glMultiDrawArrays(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
-		long __functionAddress = getInstance().glMultiDrawArrays;
+		long __functionAddress = getInstance().MultiDrawArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(first, primcount << 2);
@@ -546,9 +546,9 @@ public final class GL14 {
 		nglMultiDrawArrays(mode, memAddress(first), memAddress(count), primcount, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawArrays glMultiDrawArrays} */
+	/** Alternative version of: {@link #glMultiDrawArrays MultiDrawArrays} */
 	public static void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
-		long __functionAddress = getInstance().glMultiDrawArrays;
+		long __functionAddress = getInstance().MultiDrawArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(count, first.remaining());
@@ -558,7 +558,7 @@ public final class GL14 {
 
 	// --- [ glMultiDrawElements ] ---
 
-	/** JNI method for {@link #glMultiDrawElements glMultiDrawElements} */
+	/** JNI method for {@link #glMultiDrawElements MultiDrawElements} */
 	@JavadocExclude
 	public static native void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount, long __functionAddress);
 
@@ -576,7 +576,7 @@ public final class GL14 {
 	 * @param primcount the size of the {@code count} array
 	 */
 	public static void glMultiDrawElements(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {
-		long __functionAddress = getInstance().glMultiDrawElements;
+		long __functionAddress = getInstance().MultiDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(count, primcount << 2);
@@ -585,9 +585,9 @@ public final class GL14 {
 		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), primcount, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultiDrawElements glMultiDrawElements} */
+	/** Alternative version of: {@link #glMultiDrawElements MultiDrawElements} */
 	public static void glMultiDrawElements(int mode, IntBuffer count, int type, PointerBuffer indices) {
-		long __functionAddress = getInstance().glMultiDrawElements;
+		long __functionAddress = getInstance().MultiDrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count.remaining());
@@ -597,7 +597,7 @@ public final class GL14 {
 
 	// --- [ glPointParameterf ] ---
 
-	/** JNI method for {@link #glPointParameterf glPointParameterf} */
+	/** JNI method for {@link #glPointParameterf PointParameterf} */
 	@JavadocExclude
 	public static native void nglPointParameterf(int pname, float param, long __functionAddress);
 
@@ -610,7 +610,7 @@ public final class GL14 {
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterf(int pname, float param) {
-		long __functionAddress = getInstance().glPointParameterf;
+		long __functionAddress = getInstance().PointParameterf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPointParameterf(pname, param, __functionAddress);
@@ -618,20 +618,20 @@ public final class GL14 {
 
 	// --- [ glPointParameteri ] ---
 
-	/** JNI method for {@link #glPointParameteri glPointParameteri} */
+	/** JNI method for {@link #glPointParameteri PointParameteri} */
 	@JavadocExclude
 	public static native void nglPointParameteri(int pname, int param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameteri.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Integer version of {@link #glPointParameterf glPointParameterf}.
+	 * Integer version of {@link #glPointParameterf PointParameterf}.
 	 *
 	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}, {@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
 	 * @param param the parameter value
 	 */
 	public static void glPointParameteri(int pname, int param) {
-		long __functionAddress = getInstance().glPointParameteri;
+		long __functionAddress = getInstance().PointParameteri;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPointParameteri(pname, param, __functionAddress);
@@ -646,13 +646,13 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glPointParameterf glPointParameterf}.
+	 * Pointer version of {@link #glPointParameterf PointParameterf}.
 	 *
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glPointParameterf(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glPointParameterfv;
+		long __functionAddress = getInstance().PointParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -662,7 +662,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glPointParameterf(int, ByteBuffer) glPointParameterf} */
 	public static void glPointParameter(int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glPointParameterfv;
+		long __functionAddress = getInstance().PointParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -679,13 +679,13 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glPointParameteri glPointParameteri}.
+	 * Pointer version of {@link #glPointParameteri PointParameteri}.
 	 *
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glPointParameteri(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glPointParameteriv;
+		long __functionAddress = getInstance().PointParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -695,7 +695,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glPointParameteri(int, ByteBuffer) glPointParameteri} */
 	public static void glPointParameter(int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glPointParameteriv;
+		long __functionAddress = getInstance().PointParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -705,7 +705,7 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3b ] ---
 
-	/** JNI method for {@link #glSecondaryColor3b glSecondaryColor3b} */
+	/** JNI method for {@link #glSecondaryColor3b SecondaryColor3b} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3b(byte red, byte green, byte blue, long __functionAddress);
 
@@ -719,7 +719,7 @@ public final class GL14 {
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().glSecondaryColor3b;
+		long __functionAddress = getInstance().SecondaryColor3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3b(red, green, blue, __functionAddress);
@@ -727,21 +727,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3s ] ---
 
-	/** JNI method for {@link #glSecondaryColor3s glSecondaryColor3s} */
+	/** JNI method for {@link #glSecondaryColor3s SecondaryColor3s} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3s(short red, short green, short blue) {
-		long __functionAddress = getInstance().glSecondaryColor3s;
+		long __functionAddress = getInstance().SecondaryColor3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3s(red, green, blue, __functionAddress);
@@ -749,21 +749,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3i ] ---
 
-	/** JNI method for {@link #glSecondaryColor3i glSecondaryColor3i} */
+	/** JNI method for {@link #glSecondaryColor3i SecondaryColor3i} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Integer version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3i(int red, int green, int blue) {
-		long __functionAddress = getInstance().glSecondaryColor3i;
+		long __functionAddress = getInstance().SecondaryColor3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3i(red, green, blue, __functionAddress);
@@ -771,21 +771,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3f ] ---
 
-	/** JNI method for {@link #glSecondaryColor3f glSecondaryColor3f} */
+	/** JNI method for {@link #glSecondaryColor3f SecondaryColor3f} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Float version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3f(float red, float green, float blue) {
-		long __functionAddress = getInstance().glSecondaryColor3f;
+		long __functionAddress = getInstance().SecondaryColor3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3f(red, green, blue, __functionAddress);
@@ -793,21 +793,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3d ] ---
 
-	/** JNI method for {@link #glSecondaryColor3d glSecondaryColor3d} */
+	/** JNI method for {@link #glSecondaryColor3d SecondaryColor3d} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Double version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3d(double red, double green, double blue) {
-		long __functionAddress = getInstance().glSecondaryColor3d;
+		long __functionAddress = getInstance().SecondaryColor3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3d(red, green, blue, __functionAddress);
@@ -815,21 +815,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ub ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ub glSecondaryColor3ub} */
+	/** JNI method for {@link #glSecondaryColor3ub SecondaryColor3ub} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Unsigned version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().glSecondaryColor3ub;
+		long __functionAddress = getInstance().SecondaryColor3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ub(red, green, blue, __functionAddress);
@@ -837,21 +837,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3us ] ---
 
-	/** JNI method for {@link #glSecondaryColor3us glSecondaryColor3us} */
+	/** JNI method for {@link #glSecondaryColor3us SecondaryColor3us} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Unsigned short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3us(short red, short green, short blue) {
-		long __functionAddress = getInstance().glSecondaryColor3us;
+		long __functionAddress = getInstance().SecondaryColor3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3us(red, green, blue, __functionAddress);
@@ -859,21 +859,21 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ui ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ui glSecondaryColor3ui} */
+	/** JNI method for {@link #glSecondaryColor3ui SecondaryColor3ui} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glSecondaryColor3b glSecondaryColor3b}
+	 * Unsigned int version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
 	 * @param red   the red component of the current secondary color
 	 * @param green the green component of the current secondary color
 	 * @param blue  the blue component of the current secondary color
 	 */
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
-		long __functionAddress = getInstance().glSecondaryColor3ui;
+		long __functionAddress = getInstance().SecondaryColor3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ui(red, green, blue, __functionAddress);
@@ -888,12 +888,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Byte pointer version of {@link #glSecondaryColor3b glSecondaryColor3b}.
+	 * Byte pointer version of {@link #glSecondaryColor3b SecondaryColor3b}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3b(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3bv;
+		long __functionAddress = getInstance().SecondaryColor3bv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -910,12 +910,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3s glSecondaryColor3s}.
+	 * Pointer version of {@link #glSecondaryColor3s SecondaryColor3s}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3s(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3sv;
+		long __functionAddress = getInstance().SecondaryColor3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -925,7 +925,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3s(ByteBuffer) glSecondaryColor3s} */
 	public static void glSecondaryColor3(ShortBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3sv;
+		long __functionAddress = getInstance().SecondaryColor3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -942,12 +942,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3i glSecondaryColor3i}.
+	 * Pointer version of {@link #glSecondaryColor3i SecondaryColor3i}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3i(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3iv;
+		long __functionAddress = getInstance().SecondaryColor3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -957,7 +957,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3i(ByteBuffer) glSecondaryColor3i} */
 	public static void glSecondaryColor3(IntBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3iv;
+		long __functionAddress = getInstance().SecondaryColor3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -974,12 +974,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3f glSecondaryColor3f}.
+	 * Pointer version of {@link #glSecondaryColor3f SecondaryColor3f}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3f(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3fv;
+		long __functionAddress = getInstance().SecondaryColor3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -989,7 +989,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3f(ByteBuffer) glSecondaryColor3f} */
 	public static void glSecondaryColor3(FloatBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3fv;
+		long __functionAddress = getInstance().SecondaryColor3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1006,12 +1006,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3d glSecondaryColor3d}.
+	 * Pointer version of {@link #glSecondaryColor3d SecondaryColor3d}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3d(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3dv;
+		long __functionAddress = getInstance().SecondaryColor3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 3);
@@ -1021,7 +1021,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3d(ByteBuffer) glSecondaryColor3d} */
 	public static void glSecondaryColor3(DoubleBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3dv;
+		long __functionAddress = getInstance().SecondaryColor3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1038,12 +1038,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3ub glSecondaryColor3ub}.
+	 * Pointer version of {@link #glSecondaryColor3ub SecondaryColor3ub}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3ub(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3ubv;
+		long __functionAddress = getInstance().SecondaryColor3ubv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1060,12 +1060,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3us glSecondaryColor3us}.
+	 * Pointer version of {@link #glSecondaryColor3us SecondaryColor3us}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3us(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3usv;
+		long __functionAddress = getInstance().SecondaryColor3usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -1075,7 +1075,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3us(ByteBuffer) glSecondaryColor3us} */
 	public static void glSecondaryColor3u(ShortBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3usv;
+		long __functionAddress = getInstance().SecondaryColor3usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1092,12 +1092,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glSecondaryColor3ui glSecondaryColor3ui}.
+	 * Pointer version of {@link #glSecondaryColor3ui SecondaryColor3ui}.
 	 *
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3ui(ByteBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3uiv;
+		long __functionAddress = getInstance().SecondaryColor3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -1107,7 +1107,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glSecondaryColor3ui(ByteBuffer) glSecondaryColor3ui} */
 	public static void glSecondaryColor3u(IntBuffer v) {
-		long __functionAddress = getInstance().glSecondaryColor3uiv;
+		long __functionAddress = getInstance().SecondaryColor3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1117,7 +1117,7 @@ public final class GL14 {
 
 	// --- [ glSecondaryColorPointer ] ---
 
-	/** JNI method for {@link #glSecondaryColorPointer glSecondaryColorPointer} */
+	/** JNI method for {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	@JavadocExclude
 	public static native void nglSecondaryColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
@@ -1132,7 +1132,7 @@ public final class GL14 {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glSecondaryColorPointer;
+		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1140,9 +1140,9 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glSecondaryColorPointer glSecondaryColorPointer} */
+	/** Buffer object offset version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glSecondaryColorPointer;
+		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -1150,9 +1150,9 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointer glSecondaryColorPointer} */
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glSecondaryColorPointer;
+		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1160,9 +1160,9 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glSecondaryColorPointer glSecondaryColorPointer} */
+	/** GL_FLOAT version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glSecondaryColorPointer;
+		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1172,7 +1172,7 @@ public final class GL14 {
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparate glBlendFuncSeparate} */
+	/** JNI method for {@link #glBlendFuncSeparate BlendFuncSeparate} */
 	@JavadocExclude
 	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
 
@@ -1187,7 +1187,7 @@ public final class GL14 {
 	 * @param dfactorAlpha how the alpha destination blending factor is computed. The initial value is GL_ZERO.
 	 */
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
-		long __functionAddress = getInstance().glBlendFuncSeparate;
+		long __functionAddress = getInstance().BlendFuncSeparate;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);
@@ -1195,7 +1195,7 @@ public final class GL14 {
 
 	// --- [ glWindowPos2i ] ---
 
-	/** JNI method for {@link #glWindowPos2i glWindowPos2i} */
+	/** JNI method for {@link #glWindowPos2i WindowPos2i} */
 	@JavadocExclude
 	public static native void nglWindowPos2i(int x, int y, long __functionAddress);
 
@@ -1208,7 +1208,7 @@ public final class GL14 {
 	 * @param y the y value
 	 */
 	public static void glWindowPos2i(int x, int y) {
-		long __functionAddress = getInstance().glWindowPos2i;
+		long __functionAddress = getInstance().WindowPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos2i(x, y, __functionAddress);
@@ -1216,20 +1216,20 @@ public final class GL14 {
 
 	// --- [ glWindowPos2s ] ---
 
-	/** JNI method for {@link #glWindowPos2s glWindowPos2s} */
+	/** JNI method for {@link #glWindowPos2s WindowPos2s} */
 	@JavadocExclude
 	public static native void nglWindowPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glWindowPos2i glWindowPos2i}.
+	 * Short version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
 	public static void glWindowPos2s(short x, short y) {
-		long __functionAddress = getInstance().glWindowPos2s;
+		long __functionAddress = getInstance().WindowPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos2s(x, y, __functionAddress);
@@ -1237,20 +1237,20 @@ public final class GL14 {
 
 	// --- [ glWindowPos2f ] ---
 
-	/** JNI method for {@link #glWindowPos2f glWindowPos2f} */
+	/** JNI method for {@link #glWindowPos2f WindowPos2f} */
 	@JavadocExclude
 	public static native void nglWindowPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glWindowPos2i glWindowPos2i}.
+	 * Float version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
 	public static void glWindowPos2f(float x, float y) {
-		long __functionAddress = getInstance().glWindowPos2f;
+		long __functionAddress = getInstance().WindowPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos2f(x, y, __functionAddress);
@@ -1258,20 +1258,20 @@ public final class GL14 {
 
 	// --- [ glWindowPos2d ] ---
 
-	/** JNI method for {@link #glWindowPos2d glWindowPos2d} */
+	/** JNI method for {@link #glWindowPos2d WindowPos2d} */
 	@JavadocExclude
 	public static native void nglWindowPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glWindowPos2i glWindowPos2i}.
+	 * Double version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 */
 	public static void glWindowPos2d(double x, double y) {
-		long __functionAddress = getInstance().glWindowPos2d;
+		long __functionAddress = getInstance().WindowPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos2d(x, y, __functionAddress);
@@ -1286,12 +1286,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2i glWindowPos2i}.
+	 * Pointer version of {@link #glWindowPos2i WindowPos2i}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos2i(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2iv;
+		long __functionAddress = getInstance().WindowPos2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2 << 2);
@@ -1301,7 +1301,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos2i(ByteBuffer) glWindowPos2i} */
 	public static void glWindowPos2(IntBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2iv;
+		long __functionAddress = getInstance().WindowPos2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2);
@@ -1318,12 +1318,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2s glWindowPos2s}.
+	 * Pointer version of {@link #glWindowPos2s WindowPos2s}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos2s(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2sv;
+		long __functionAddress = getInstance().WindowPos2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2 << 1);
@@ -1333,7 +1333,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos2s(ByteBuffer) glWindowPos2s} */
 	public static void glWindowPos2(ShortBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2sv;
+		long __functionAddress = getInstance().WindowPos2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2);
@@ -1350,12 +1350,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2f glWindowPos2f}.
+	 * Pointer version of {@link #glWindowPos2f WindowPos2f}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos2f(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2fv;
+		long __functionAddress = getInstance().WindowPos2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2 << 2);
@@ -1365,7 +1365,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos2f(ByteBuffer) glWindowPos2f} */
 	public static void glWindowPos2(FloatBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2fv;
+		long __functionAddress = getInstance().WindowPos2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2);
@@ -1382,12 +1382,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos2d glWindowPos2d}.
+	 * Pointer version of {@link #glWindowPos2d WindowPos2d}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos2d(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2dv;
+		long __functionAddress = getInstance().WindowPos2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2 << 3);
@@ -1397,7 +1397,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos2d(ByteBuffer) glWindowPos2d} */
 	public static void glWindowPos2(DoubleBuffer p) {
-		long __functionAddress = getInstance().glWindowPos2dv;
+		long __functionAddress = getInstance().WindowPos2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 2);
@@ -1407,7 +1407,7 @@ public final class GL14 {
 
 	// --- [ glWindowPos3i ] ---
 
-	/** JNI method for {@link #glWindowPos3i glWindowPos3i} */
+	/** JNI method for {@link #glWindowPos3i WindowPos3i} */
 	@JavadocExclude
 	public static native void nglWindowPos3i(int x, int y, int z, long __functionAddress);
 
@@ -1421,7 +1421,7 @@ public final class GL14 {
 	 * @param z the z value
 	 */
 	public static void glWindowPos3i(int x, int y, int z) {
-		long __functionAddress = getInstance().glWindowPos3i;
+		long __functionAddress = getInstance().WindowPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos3i(x, y, z, __functionAddress);
@@ -1429,21 +1429,21 @@ public final class GL14 {
 
 	// --- [ glWindowPos3s ] ---
 
-	/** JNI method for {@link #glWindowPos3s glWindowPos3s} */
+	/** JNI method for {@link #glWindowPos3s WindowPos3s} */
 	@JavadocExclude
 	public static native void nglWindowPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glWindowPos3i glWindowPos3i}.
+	 * Short version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
 	public static void glWindowPos3s(short x, short y, short z) {
-		long __functionAddress = getInstance().glWindowPos3s;
+		long __functionAddress = getInstance().WindowPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos3s(x, y, z, __functionAddress);
@@ -1451,21 +1451,21 @@ public final class GL14 {
 
 	// --- [ glWindowPos3f ] ---
 
-	/** JNI method for {@link #glWindowPos3f glWindowPos3f} */
+	/** JNI method for {@link #glWindowPos3f WindowPos3f} */
 	@JavadocExclude
 	public static native void nglWindowPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glWindowPos3i glWindowPos3i}.
+	 * Float version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
 	public static void glWindowPos3f(float x, float y, float z) {
-		long __functionAddress = getInstance().glWindowPos3f;
+		long __functionAddress = getInstance().WindowPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos3f(x, y, z, __functionAddress);
@@ -1473,21 +1473,21 @@ public final class GL14 {
 
 	// --- [ glWindowPos3d ] ---
 
-	/** JNI method for {@link #glWindowPos3d glWindowPos3d} */
+	/** JNI method for {@link #glWindowPos3d WindowPos3d} */
 	@JavadocExclude
 	public static native void nglWindowPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glWindowPos3i glWindowPos3i}.
+	 * Double version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param x the x value
 	 * @param y the y value
 	 * @param z the z value
 	 */
 	public static void glWindowPos3d(double x, double y, double z) {
-		long __functionAddress = getInstance().glWindowPos3d;
+		long __functionAddress = getInstance().WindowPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglWindowPos3d(x, y, z, __functionAddress);
@@ -1502,12 +1502,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3i glWindowPos3i}.
+	 * Pointer version of {@link #glWindowPos3i WindowPos3i}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos3i(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3iv;
+		long __functionAddress = getInstance().WindowPos3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3 << 2);
@@ -1517,7 +1517,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos3i(ByteBuffer) glWindowPos3i} */
 	public static void glWindowPos3(IntBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3iv;
+		long __functionAddress = getInstance().WindowPos3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3);
@@ -1534,12 +1534,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3s glWindowPos3s}.
+	 * Pointer version of {@link #glWindowPos3s WindowPos3s}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos3s(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3sv;
+		long __functionAddress = getInstance().WindowPos3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3 << 1);
@@ -1549,7 +1549,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos3s(ByteBuffer) glWindowPos3s} */
 	public static void glWindowPos3(ShortBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3sv;
+		long __functionAddress = getInstance().WindowPos3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3);
@@ -1566,12 +1566,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3f glWindowPos3f}.
+	 * Pointer version of {@link #glWindowPos3f WindowPos3f}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos3f(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3fv;
+		long __functionAddress = getInstance().WindowPos3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3 << 2);
@@ -1581,7 +1581,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos3f(ByteBuffer) glWindowPos3f} */
 	public static void glWindowPos3(FloatBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3fv;
+		long __functionAddress = getInstance().WindowPos3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3);
@@ -1598,12 +1598,12 @@ public final class GL14 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glWindowPos3d glWindowPos3d}.
+	 * Pointer version of {@link #glWindowPos3d WindowPos3d}.
 	 *
 	 * @param p the position value
 	 */
 	public static void glWindowPos3d(ByteBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3dv;
+		long __functionAddress = getInstance().WindowPos3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3 << 3);
@@ -1613,7 +1613,7 @@ public final class GL14 {
 
 	/** Alternative version of: {@link #glWindowPos3d(ByteBuffer) glWindowPos3d} */
 	public static void glWindowPos3(DoubleBuffer p) {
-		long __functionAddress = getInstance().glWindowPos3dv;
+		long __functionAddress = getInstance().WindowPos3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(p, 3);

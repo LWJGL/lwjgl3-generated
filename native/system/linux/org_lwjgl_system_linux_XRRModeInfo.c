@@ -8,8 +8,10 @@
 #include "LinuxLWJGL.h"
 #include <X11/extensions/Xrandr.h>
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XRRModeInfo_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XRRModeInfo_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(XRRModeInfo, id));
 	buffer[1] = (jint)(offsetof(XRRModeInfo, width));

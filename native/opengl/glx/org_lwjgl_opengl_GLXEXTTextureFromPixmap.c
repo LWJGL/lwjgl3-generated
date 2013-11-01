@@ -14,6 +14,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTTextureFromPixmap_nglXBindTex
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	glXBindTexImageEXTPROC glXBindTexImageEXT = (glXBindTexImageEXTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXBindTexImageEXT(display, drawable, buffer, attrib_list);
 }
 
@@ -21,5 +22,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTTextureFromPixmap_nglXRelease
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	glXReleaseTexImageEXTPROC glXReleaseTexImageEXT = (glXReleaseTexImageEXTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXReleaseTexImageEXT(display, drawable, buffer);
 }

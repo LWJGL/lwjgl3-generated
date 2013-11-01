@@ -31,19 +31,19 @@ public final class GLXEXTImportContext {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXGetCurrentDisplayEXT,
-		glXQueryContextInfoEXT,
-		glXGetContextIDEXT,
-		glXImportContextEXT,
-		glXFreeContextEXT;
+		GetCurrentDisplayEXT,
+		QueryContextInfoEXT,
+		GetContextIDEXT,
+		ImportContextEXT,
+		FreeContextEXT;
 
 	@JavadocExclude
 	public GLXEXTImportContext(FunctionProvider provider) {
-		glXGetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
-		glXQueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
-		glXGetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
-		glXImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
-		glXFreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
+		GetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
+		QueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
+		GetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
+		ImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
+		FreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -59,24 +59,24 @@ public final class GLXEXTImportContext {
 		GLXEXTImportContext funcs = new GLXEXTImportContext(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXGetCurrentDisplayEXT) &&
-			GL.isFunctionSupported(funcs.glXQueryContextInfoEXT) &&
-			GL.isFunctionSupported(funcs.glXGetContextIDEXT) &&
-			GL.isFunctionSupported(funcs.glXImportContextEXT) &&
-			GL.isFunctionSupported(funcs.glXFreeContextEXT);
+			GL.isFunctionSupported(funcs.GetCurrentDisplayEXT) &&
+			GL.isFunctionSupported(funcs.QueryContextInfoEXT) &&
+			GL.isFunctionSupported(funcs.GetContextIDEXT) &&
+			GL.isFunctionSupported(funcs.ImportContextEXT) &&
+			GL.isFunctionSupported(funcs.FreeContextEXT);
 
 		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
 	}
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplayEXT glXGetCurrentDisplayEXT} */
+	/** JNI method for {@link #glXGetCurrentDisplayEXT GetCurrentDisplayEXT} */
 	@JavadocExclude
 	public static native long nglXGetCurrentDisplayEXT(long __functionAddress);
 
 	/** Returns the display associated with the current context. */
 	public static long glXGetCurrentDisplayEXT() {
-		long __functionAddress = getInstance().glXGetCurrentDisplayEXT;
+		long __functionAddress = getInstance().GetCurrentDisplayEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentDisplayEXT(__functionAddress);
@@ -84,7 +84,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXQueryContextInfoEXT ] ---
 
-	/** JNI method for {@link #glXQueryContextInfoEXT glXQueryContextInfoEXT} */
+	/** JNI method for {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	@JavadocExclude
 	public static native int nglXQueryContextInfoEXT(long display, long context, int attribute, long value, long __functionAddress);
 
@@ -97,7 +97,7 @@ public final class GLXEXTImportContext {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().glXQueryContextInfoEXT;
+		long __functionAddress = getInstance().QueryContextInfoEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -107,9 +107,9 @@ public final class GLXEXTImportContext {
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXQueryContextInfoEXT glXQueryContextInfoEXT} */
+	/** Alternative version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().glXQueryContextInfoEXT;
+		long __functionAddress = getInstance().QueryContextInfoEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -121,7 +121,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXGetContextIDEXT ] ---
 
-	/** JNI method for {@link #glXGetContextIDEXT glXGetContextIDEXT} */
+	/** JNI method for {@link #glXGetContextIDEXT GetContextIDEXT} */
 	@JavadocExclude
 	public static native long nglXGetContextIDEXT(long context, long __functionAddress);
 
@@ -131,7 +131,7 @@ public final class GLXEXTImportContext {
 	 * @param context the context
 	 */
 	public static long glXGetContextIDEXT(long context) {
-		long __functionAddress = getInstance().glXGetContextIDEXT;
+		long __functionAddress = getInstance().GetContextIDEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
@@ -141,7 +141,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXImportContextEXT ] ---
 
-	/** JNI method for {@link #glXImportContextEXT glXImportContextEXT} */
+	/** JNI method for {@link #glXImportContextEXT ImportContextEXT} */
 	@JavadocExclude
 	public static native long nglXImportContextEXT(long display, long contextID, long __functionAddress);
 
@@ -152,7 +152,7 @@ public final class GLXEXTImportContext {
 	 * @param contextID the context XID
 	 */
 	public static long glXImportContextEXT(long display, long contextID) {
-		long __functionAddress = getInstance().glXImportContextEXT;
+		long __functionAddress = getInstance().ImportContextEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -162,7 +162,7 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXFreeContextEXT ] ---
 
-	/** JNI method for {@link #glXFreeContextEXT glXFreeContextEXT} */
+	/** JNI method for {@link #glXFreeContextEXT FreeContextEXT} */
 	@JavadocExclude
 	public static native void nglXFreeContextEXT(long display, long context, long __functionAddress);
 
@@ -173,7 +173,7 @@ public final class GLXEXTImportContext {
 	 * @param context the context to free
 	 */
 	public static void glXFreeContextEXT(long display, long context) {
-		long __functionAddress = getInstance().glXFreeContextEXT;
+		long __functionAddress = getInstance().FreeContextEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

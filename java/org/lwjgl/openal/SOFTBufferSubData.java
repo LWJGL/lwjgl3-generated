@@ -23,11 +23,11 @@ public final class SOFTBufferSubData {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long alBufferSubDataSOFT;
+	public final long BufferSubDataSOFT;
 
 	@JavadocExclude
 	public SOFTBufferSubData(FunctionProvider provider) {
-		alBufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
+		BufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -42,14 +42,14 @@ public final class SOFTBufferSubData {
 
 		SOFTBufferSubData funcs = new SOFTBufferSubData(provider);
 
-		boolean supported =  funcs.alBufferSubDataSOFT != 0L;
+		boolean supported =  funcs.BufferSubDataSOFT != 0L;
 
 		return AL.checkExtension("AL_SOFT_buffer_sub_data", funcs, supported);
 	}
 
 	// --- [ alBufferSubDataSOFT ] ---
 
-	/** JNI method for {@link #alBufferSubDataSOFT alBufferSubDataSOFT} */
+	/** JNI method for {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
 	@JavadocExclude
 	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
 
@@ -91,7 +91,7 @@ public final class SOFTBufferSubData {
 	 * @param length number of bytes of the original data, to modify
 	 */
 	public static void alBufferSubDataSOFT(int buffer, int format, ByteBuffer data, int offset, int length) {
-		long __functionAddress = getInstance().alBufferSubDataSOFT;
+		long __functionAddress = getInstance().BufferSubDataSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalBufferSubDataSOFT(buffer, format, memAddress(data), offset, length, __functionAddress);

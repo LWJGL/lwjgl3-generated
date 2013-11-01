@@ -78,19 +78,19 @@ public final class GLXSGIXPBuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXCreateGLXPbufferSGIX,
-		glXDestroyGLXPbufferSGIX,
-		glXQueryGLXPbufferSGIX,
-		glXSelectEventSGIX,
-		glXGetSelectedEventSGIX;
+		CreateGLXPbufferSGIX,
+		DestroyGLXPbufferSGIX,
+		QueryGLXPbufferSGIX,
+		SelectEventSGIX,
+		GetSelectedEventSGIX;
 
 	@JavadocExclude
 	public GLXSGIXPBuffer(FunctionProvider provider) {
-		glXCreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
-		glXDestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
-		glXQueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
-		glXSelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
-		glXGetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
+		CreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
+		DestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
+		QueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
+		SelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
+		GetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -106,18 +106,18 @@ public final class GLXSGIXPBuffer {
 		GLXSGIXPBuffer funcs = new GLXSGIXPBuffer(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXCreateGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXDestroyGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXQueryGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.glXSelectEventSGIX) &&
-			GL.isFunctionSupported(funcs.glXGetSelectedEventSGIX);
+			GL.isFunctionSupported(funcs.CreateGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.DestroyGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.QueryGLXPbufferSGIX) &&
+			GL.isFunctionSupported(funcs.SelectEventSGIX) &&
+			GL.isFunctionSupported(funcs.GetSelectedEventSGIX);
 
 		return GL.checkExtension("GLX_SGIX_pbuffer", funcs, supported);
 	}
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXCreateGLXPbufferSGIX glXCreateGLXPbufferSGIX} */
+	/** JNI method for {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	@JavadocExclude
 	public static native long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list, long __functionAddress);
 
@@ -131,7 +131,7 @@ public final class GLXSGIXPBuffer {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().glXCreateGLXPbufferSGIX;
+		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -141,9 +141,9 @@ public final class GLXSGIXPBuffer {
 		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX glXCreateGLXPbufferSGIX} */
+	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().glXCreateGLXPbufferSGIX;
+		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -155,7 +155,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXDestroyGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXDestroyGLXPbufferSGIX glXDestroyGLXPbufferSGIX} */
+	/** JNI method for {@link #glXDestroyGLXPbufferSGIX DestroyGLXPbufferSGIX} */
 	@JavadocExclude
 	public static native void nglXDestroyGLXPbufferSGIX(long display, long pbuf, long __functionAddress);
 
@@ -166,7 +166,7 @@ public final class GLXSGIXPBuffer {
 	 * @param pbuf    the pbuffer to destroy
 	 */
 	public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
-		long __functionAddress = getInstance().glXDestroyGLXPbufferSGIX;
+		long __functionAddress = getInstance().DestroyGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -177,7 +177,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXQueryGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXQueryGLXPbufferSGIX glXQueryGLXPbufferSGIX} */
+	/** JNI method for {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	@JavadocExclude
 	public static native void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value, long __functionAddress);
 
@@ -190,7 +190,7 @@ public final class GLXSGIXPBuffer {
 	 * @param value     returns the attribute value
 	 */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().glXQueryGLXPbufferSGIX;
+		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -200,9 +200,9 @@ public final class GLXSGIXPBuffer {
 		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX glXQueryGLXPbufferSGIX} */
+	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().glXQueryGLXPbufferSGIX;
+		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -214,7 +214,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXSelectEventSGIX ] ---
 
-	/** JNI method for {@link #glXSelectEventSGIX glXSelectEventSGIX} */
+	/** JNI method for {@link #glXSelectEventSGIX SelectEventSGIX} */
 	@JavadocExclude
 	public static native void nglXSelectEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
@@ -226,7 +226,7 @@ public final class GLXSGIXPBuffer {
 	 * @param mask     the selection mask
 	 */
 	public static void glXSelectEventSGIX(long display, long drawable, long mask) {
-		long __functionAddress = getInstance().glXSelectEventSGIX;
+		long __functionAddress = getInstance().SelectEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -237,7 +237,7 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ glXGetSelectedEventSGIX ] ---
 
-	/** JNI method for {@link #glXGetSelectedEventSGIX glXGetSelectedEventSGIX} */
+	/** JNI method for {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	@JavadocExclude
 	public static native void nglXGetSelectedEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
@@ -249,7 +249,7 @@ public final class GLXSGIXPBuffer {
 	 * @param mask     returns the selection mask
 	 */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, ByteBuffer mask) {
-		long __functionAddress = getInstance().glXGetSelectedEventSGIX;
+		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -259,9 +259,9 @@ public final class GLXSGIXPBuffer {
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXGetSelectedEventSGIX glXGetSelectedEventSGIX} */
+	/** Alternative version of: {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
-		long __functionAddress = getInstance().glXGetSelectedEventSGIX;
+		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

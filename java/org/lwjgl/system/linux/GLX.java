@@ -69,7 +69,7 @@ public final class GLX {
 
 	// --- [ glXQueryExtension ] ---
 
-	/** JNI method for {@link #glXQueryExtension glXQueryExtension} */
+	/** JNI method for {@link #glXQueryExtension QueryExtension} */
 	@JavadocExclude
 	public static native int nglXQueryExtension(long display, long error_base, long event_base);
 
@@ -89,7 +89,7 @@ public final class GLX {
 		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base));
 	}
 
-	/** Alternative version of: {@link #glXQueryExtension glXQueryExtension} */
+	/** Alternative version of: {@link #glXQueryExtension QueryExtension} */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -101,7 +101,7 @@ public final class GLX {
 
 	// --- [ glXQueryVersion ] ---
 
-	/** JNI method for {@link #glXQueryVersion glXQueryVersion} */
+	/** JNI method for {@link #glXQueryVersion QueryVersion} */
 	@JavadocExclude
 	public static native int nglXQueryVersion(long display, long major, long minor);
 
@@ -121,7 +121,7 @@ public final class GLX {
 		return nglXQueryVersion(display, memAddress(major), memAddress(minor));
 	}
 
-	/** Alternative version of: {@link #glXQueryVersion glXQueryVersion} */
+	/** Alternative version of: {@link #glXQueryVersion QueryVersion} */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -133,7 +133,7 @@ public final class GLX {
 
 	// --- [ glXGetConfig ] ---
 
-	/** JNI method for {@link #glXGetConfig glXGetConfig} */
+	/** JNI method for {@link #glXGetConfig GetConfig} */
 	@JavadocExclude
 	public static native int nglXGetConfig(long display, long visual, int attribute, long value);
 
@@ -154,7 +154,7 @@ public final class GLX {
 		return nglXGetConfig(display, memAddress(visual), attribute, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glXGetConfig glXGetConfig} */
+	/** Alternative version of: {@link #glXGetConfig GetConfig} */
 	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -166,7 +166,7 @@ public final class GLX {
 
 	// --- [ glXChooseVisual ] ---
 
-	/** JNI method for {@link #glXChooseVisual glXChooseVisual} */
+	/** JNI method for {@link #glXChooseVisual ChooseVisual} */
 	@JavadocExclude
 	public static native long nglXChooseVisual(long display, int screen, long attrib_list);
 
@@ -189,7 +189,7 @@ public final class GLX {
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
-	/** Alternative version of: {@link #glXChooseVisual glXChooseVisual} */
+	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
 	public static ByteBuffer glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -201,7 +201,7 @@ public final class GLX {
 
 	// --- [ glXCreateContext ] ---
 
-	/** JNI method for {@link #glXCreateContext glXCreateContext} */
+	/** JNI method for {@link #glXCreateContext CreateContext} */
 	@JavadocExclude
 	public static native long nglXCreateContext(long display, long visual, long share_list, int direct);
 
@@ -223,7 +223,7 @@ public final class GLX {
 
 	// --- [ glXMakeCurrent ] ---
 
-	/** JNI method for {@link #glXMakeCurrent glXMakeCurrent} */
+	/** JNI method for {@link #glXMakeCurrent MakeCurrent} */
 	@JavadocExclude
 	public static native int nglXMakeCurrent(long display, long draw, long ctx);
 
@@ -242,7 +242,7 @@ public final class GLX {
 
 	// --- [ glXCopyContext ] ---
 
-	/** JNI method for {@link #glXCopyContext glXCopyContext} */
+	/** JNI method for {@link #glXCopyContext CopyContext} */
 	@JavadocExclude
 	public static native void nglXCopyContext(long display, long source, long dest, long mask);
 
@@ -265,7 +265,7 @@ public final class GLX {
 
 	// --- [ glXIsDirect ] ---
 
-	/** JNI method for {@link #glXIsDirect glXIsDirect} */
+	/** JNI method for {@link #glXIsDirect IsDirect} */
 	@JavadocExclude
 	public static native int nglXIsDirect(long display, long ctx);
 
@@ -285,7 +285,7 @@ public final class GLX {
 
 	// --- [ glXDestroyContext ] ---
 
-	/** JNI method for {@link #glXDestroyContext glXDestroyContext} */
+	/** JNI method for {@link #glXDestroyContext DestroyContext} */
 	@JavadocExclude
 	public static native void nglXDestroyContext(long display, long ctx);
 
@@ -343,7 +343,7 @@ public final class GLX {
 
 	// --- [ glXSwapBuffers ] ---
 
-	/** JNI method for {@link #glXSwapBuffers glXSwapBuffers} */
+	/** JNI method for {@link #glXSwapBuffers SwapBuffers} */
 	@JavadocExclude
 	public static native void nglXSwapBuffers(long display, long draw);
 
@@ -379,7 +379,7 @@ public final class GLX {
 
 	// --- [ glXCreateGLXPixmap ] ---
 
-	/** JNI method for {@link #glXCreateGLXPixmap glXCreateGLXPixmap} */
+	/** JNI method for {@link #glXCreateGLXPixmap CreateGLXPixmap} */
 	@JavadocExclude
 	public static native long nglXCreateGLXPixmap(long display, long visual, long pixmap);
 
@@ -400,7 +400,7 @@ public final class GLX {
 
 	// --- [ glXDestroyGLXPixmap ] ---
 
-	/** JNI method for {@link #glXDestroyGLXPixmap glXDestroyGLXPixmap} */
+	/** JNI method for {@link #glXDestroyGLXPixmap DestroyGLXPixmap} */
 	@JavadocExclude
 	public static native void nglXDestroyGLXPixmap(long display, long pixmap);
 

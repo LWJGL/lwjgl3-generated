@@ -13,17 +13,20 @@ typedef const char * (APIENTRY *glXQueryServerStringPROC) (Display *, int, int);
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX11_nglXQueryExtensionsString(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	glXQueryExtensionsStringPROC glXQueryExtensionsString = (glXQueryExtensionsStringPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXQueryExtensionsString(display, screen);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX11_nglXGetClientString(JNIEnv *__env, jclass clazz, jlong displayAddress, jint name, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	glXGetClientStringPROC glXGetClientString = (glXGetClientStringPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetClientString(display, name);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX11_nglXQueryServerString(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen, jint name, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	glXQueryServerStringPROC glXQueryServerString = (glXQueryServerStringPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXQueryServerString(display, screen, name);
 }

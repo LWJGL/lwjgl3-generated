@@ -14,12 +14,14 @@ typedef GLuint (APIENTRY *glGetDebugMessageLogAMDPROC) (GLuint, GLsizei, GLenum 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDebugOutput_nglDebugMessageEnableAMD(JNIEnv *__env, jclass clazz, jint category, jint severity, jint count, jlong idsAddress, jboolean enabled, jlong __functionAddress) {
 	const GLuint *ids = (const GLuint *)(intptr_t)idsAddress;
 	glDebugMessageEnableAMDPROC glDebugMessageEnableAMD = (glDebugMessageEnableAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDebugMessageEnableAMD(category, severity, count, ids, enabled);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDebugOutput_nglDebugMessageInsertAMD(JNIEnv *__env, jclass clazz, jint category, jint severity, jint id, jint length, jlong bufAddress, jlong __functionAddress) {
 	const GLchar *buf = (const GLchar *)(intptr_t)bufAddress;
 	glDebugMessageInsertAMDPROC glDebugMessageInsertAMD = (glDebugMessageInsertAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDebugMessageInsertAMD(category, severity, id, length, buf);
 }
 
@@ -27,6 +29,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDebugOutput_nglDebugMessageCallb
 	GLDEBUGPROCAMD callback = (GLDEBUGPROCAMD)(intptr_t)callbackAddress;
 	void *userParam = (void *)(intptr_t)userParamAddress;
 	glDebugMessageCallbackAMDPROC glDebugMessageCallbackAMD = (glDebugMessageCallbackAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDebugMessageCallbackAMD(callback, userParam);
 }
 
@@ -37,5 +40,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_AMDDebugOutput_nglGetDebugMessageLo
 	GLsizei *lengths = (GLsizei *)(intptr_t)lengthsAddress;
 	GLchar *messageLog = (GLchar *)(intptr_t)messageLogAddress;
 	glGetDebugMessageLogAMDPROC glGetDebugMessageLogAMD = (glGetDebugMessageLogAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glGetDebugMessageLogAMD(count, bufsize, categories, severities, ids, lengths, messageLog);
 }

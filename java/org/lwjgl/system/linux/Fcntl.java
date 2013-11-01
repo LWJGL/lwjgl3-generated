@@ -41,7 +41,7 @@ public final class Fcntl {
 
 	// --- [ open ] ---
 
-	/** JNI method for {@link #open open} */
+	/** JNI method for {@link #open} */
 	@JavadocExclude
 	public static native int nopen(long pathname, int flags);
 
@@ -58,7 +58,7 @@ public final class Fcntl {
 		return nopen(memAddress(pathname), flags);
 	}
 
-	/** CharSequence version of: {@link #open open} */
+	/** CharSequence version of: {@link #open} */
 	public static int open(CharSequence pathname, int flags) {
 		return nopen(memAddress(memEncodeASCII(pathname)), flags);
 	}

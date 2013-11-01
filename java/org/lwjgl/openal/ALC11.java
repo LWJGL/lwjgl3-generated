@@ -35,19 +35,19 @@ public final class ALC11 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		alcCaptureOpenDevice,
-		alcCaptureCloseDevice,
-		alcCaptureStart,
-		alcCaptureStop,
-		alcCaptureSamples;
+		CaptureOpenDevice,
+		CaptureCloseDevice,
+		CaptureStart,
+		CaptureStop,
+		CaptureSamples;
 
 	@JavadocExclude
 	public ALC11(FunctionProviderLocal provider) {
-		alcCaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
-		alcCaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
-		alcCaptureStart = provider.getFunctionAddress("alcCaptureStart");
-		alcCaptureStop = provider.getFunctionAddress("alcCaptureStop");
-		alcCaptureSamples = provider.getFunctionAddress("alcCaptureSamples");
+		CaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
+		CaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
+		CaptureStart = provider.getFunctionAddress("alcCaptureStart");
+		CaptureStop = provider.getFunctionAddress("alcCaptureStop");
+		CaptureSamples = provider.getFunctionAddress("alcCaptureSamples");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -62,18 +62,18 @@ public final class ALC11 {
 		ALC11 funcs = new ALC11(provider);
 
 		boolean supported = 
-			funcs.alcCaptureOpenDevice != 0L &&
-			funcs.alcCaptureCloseDevice != 0L &&
-			funcs.alcCaptureStart != 0L &&
-			funcs.alcCaptureStop != 0L &&
-			funcs.alcCaptureSamples != 0L;
+			funcs.CaptureOpenDevice != 0L &&
+			funcs.CaptureCloseDevice != 0L &&
+			funcs.CaptureStart != 0L &&
+			funcs.CaptureStop != 0L &&
+			funcs.CaptureSamples != 0L;
 
 		return ALC.checkExtension("OpenALC11", funcs, supported);
 	}
 
 	// --- [ alcCaptureOpenDevice ] ---
 
-	/** JNI method for {@link #alcCaptureOpenDevice alcCaptureOpenDevice} */
+	/** JNI method for {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	@JavadocExclude
 	public static native long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize, long __functionAddress);
 
@@ -89,7 +89,7 @@ public final class ALC11 {
 	 * @param buffersize the number of sample frame to buffer in the AL
 	 */
 	public static long alcCaptureOpenDevice(ByteBuffer devicename, int frequency, int format, int buffersize) {
-		long __functionAddress = getInstance().alcCaptureOpenDevice;
+		long __functionAddress = getInstance().CaptureOpenDevice;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( devicename != null ) checkNT1(devicename);
@@ -97,9 +97,9 @@ public final class ALC11 {
 		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize, __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcCaptureOpenDevice alcCaptureOpenDevice} */
+	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
-		long __functionAddress = getInstance().alcCaptureOpenDevice;
+		long __functionAddress = getInstance().CaptureOpenDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalcCaptureOpenDevice(memAddressSafe(memEncodeUTF8(devicename)), frequency, format, buffersize, __functionAddress);
@@ -107,7 +107,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureCloseDevice ] ---
 
-	/** JNI method for {@link #alcCaptureCloseDevice alcCaptureCloseDevice} */
+	/** JNI method for {@link #alcCaptureCloseDevice CaptureCloseDevice} */
 	@JavadocExclude
 	public static native boolean nalcCaptureCloseDevice(long device, long __functionAddress);
 
@@ -117,7 +117,7 @@ public final class ALC11 {
 	 * @param device the capture device to close
 	 */
 	public static boolean alcCaptureCloseDevice(long device) {
-		long __functionAddress = getInstance().alcCaptureCloseDevice;
+		long __functionAddress = getInstance().CaptureCloseDevice;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
@@ -127,7 +127,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureStart ] ---
 
-	/** JNI method for {@link #alcCaptureStart alcCaptureStart} */
+	/** JNI method for {@link #alcCaptureStart CaptureStart} */
 	@JavadocExclude
 	public static native void nalcCaptureStart(long device, long __functionAddress);
 
@@ -141,7 +141,7 @@ public final class ALC11 {
 	 * @param device the capture device
 	 */
 	public static void alcCaptureStart(long device) {
-		long __functionAddress = getInstance().alcCaptureStart;
+		long __functionAddress = getInstance().CaptureStart;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
@@ -151,7 +151,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureStop ] ---
 
-	/** JNI method for {@link #alcCaptureStop alcCaptureStop} */
+	/** JNI method for {@link #alcCaptureStop CaptureStop} */
 	@JavadocExclude
 	public static native void nalcCaptureStop(long device, long __functionAddress);
 
@@ -164,7 +164,7 @@ public final class ALC11 {
 	 * @param device the capture device
 	 */
 	public static void alcCaptureStop(long device) {
-		long __functionAddress = getInstance().alcCaptureStop;
+		long __functionAddress = getInstance().CaptureStop;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
@@ -174,7 +174,7 @@ public final class ALC11 {
 
 	// --- [ alcCaptureSamples ] ---
 
-	/** JNI method for {@link #alcCaptureSamples alcCaptureSamples} */
+	/** JNI method for {@link #alcCaptureSamples CaptureSamples} */
 	@JavadocExclude
 	public static native void nalcCaptureSamples(long device, long buffer, int samples, long __functionAddress);
 
@@ -188,7 +188,7 @@ public final class ALC11 {
 	 * @param samples the buffer size
 	 */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
-		long __functionAddress = getInstance().alcCaptureSamples;
+		long __functionAddress = getInstance().CaptureSamples;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
@@ -197,9 +197,9 @@ public final class ALC11 {
 		nalcCaptureSamples(device, memAddress(buffer), samples, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alcCaptureSamples alcCaptureSamples} */
+	/** Alternative version of: {@link #alcCaptureSamples CaptureSamples} */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer) {
-		long __functionAddress = getInstance().alcCaptureSamples;
+		long __functionAddress = getInstance().CaptureSamples;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);

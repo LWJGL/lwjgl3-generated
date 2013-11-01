@@ -20,7 +20,7 @@ public final class Xf86vmode {
 
 	// --- [ XF86VidModeQueryExtension ] ---
 
-	/** JNI method for {@link #XF86VidModeQueryExtension XF86VidModeQueryExtension} */
+	/** JNI method for {@link #XF86VidModeQueryExtension} */
 	@JavadocExclude
 	public static native int nXF86VidModeQueryExtension(long display, long event_base, long error_base);
 
@@ -40,7 +40,7 @@ public final class Xf86vmode {
 		return nXF86VidModeQueryExtension(display, memAddress(event_base), memAddress(error_base));
 	}
 
-	/** Alternative version of: {@link #XF86VidModeQueryExtension XF86VidModeQueryExtension} */
+	/** Alternative version of: {@link #XF86VidModeQueryExtension} */
 	public static int XF86VidModeQueryExtension(long display, IntBuffer event_base, IntBuffer error_base) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -52,7 +52,7 @@ public final class Xf86vmode {
 
 	// --- [ XF86VidModeGetGammaRampSize ] ---
 
-	/** JNI method for {@link #XF86VidModeGetGammaRampSize XF86VidModeGetGammaRampSize} */
+	/** JNI method for {@link #XF86VidModeGetGammaRampSize} */
 	@JavadocExclude
 	public static native int nXF86VidModeGetGammaRampSize(long display, int screen, long size);
 
@@ -69,7 +69,7 @@ public final class Xf86vmode {
 		return nXF86VidModeGetGammaRampSize(display, screen, memAddress(size));
 	}
 
-	/** Alternative version of: {@link #XF86VidModeGetGammaRampSize XF86VidModeGetGammaRampSize} */
+	/** Alternative version of: {@link #XF86VidModeGetGammaRampSize} */
 	public static int XF86VidModeGetGammaRampSize(long display, int screen, IntBuffer size) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -78,7 +78,7 @@ public final class Xf86vmode {
 
 	// --- [ XF86VidModeGetGammaRamp ] ---
 
-	/** JNI method for {@link #XF86VidModeGetGammaRamp XF86VidModeGetGammaRamp} */
+	/** JNI method for {@link #XF86VidModeGetGammaRamp} */
 	@JavadocExclude
 	public static native int nXF86VidModeGetGammaRamp(long display, int screen, int size, long red_array, long green_array, long blue_array);
 
@@ -102,7 +102,7 @@ public final class Xf86vmode {
 		return nXF86VidModeGetGammaRamp(display, screen, size, memAddress(red_array), memAddress(green_array), memAddress(blue_array));
 	}
 
-	/** Alternative version of: {@link #XF86VidModeGetGammaRamp XF86VidModeGetGammaRamp} */
+	/** Alternative version of: {@link #XF86VidModeGetGammaRamp} */
 	public static int XF86VidModeGetGammaRamp(long display, int screen, ShortBuffer red_array, ShortBuffer green_array, ShortBuffer blue_array) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -114,7 +114,7 @@ public final class Xf86vmode {
 
 	// --- [ XF86VidModeSetGammaRamp ] ---
 
-	/** JNI method for {@link #XF86VidModeSetGammaRamp XF86VidModeSetGammaRamp} */
+	/** JNI method for {@link #XF86VidModeSetGammaRamp} */
 	@JavadocExclude
 	public static native int nXF86VidModeSetGammaRamp(long display, int screen, int size, long red_array, long green_array, long blue_array);
 
@@ -138,7 +138,7 @@ public final class Xf86vmode {
 		return nXF86VidModeSetGammaRamp(display, screen, size, memAddress(red_array), memAddress(green_array), memAddress(blue_array));
 	}
 
-	/** Alternative version of: {@link #XF86VidModeSetGammaRamp XF86VidModeSetGammaRamp} */
+	/** Alternative version of: {@link #XF86VidModeSetGammaRamp} */
 	public static int XF86VidModeSetGammaRamp(long display, int screen, ShortBuffer red_array, ShortBuffer green_array, ShortBuffer blue_array) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);

@@ -20,58 +20,69 @@ typedef GLvoid (APIENTRY *glGetInternalformativPROC) (GLenum, GLenum, GLenum, GL
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglTexStorage1D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jlong __functionAddress) {
 	glTexStorage1DPROC glTexStorage1D = (glTexStorage1DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glTexStorage1D(target, levels, internalformat, width);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglTexStorage2D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jint height, jlong __functionAddress) {
 	glTexStorage2DPROC glTexStorage2D = (glTexStorage2DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glTexStorage2D(target, levels, internalformat, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglTexStorage3D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jint height, jint depth, jlong __functionAddress) {
 	glTexStorage3DPROC glTexStorage3D = (glTexStorage3DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glTexStorage3D(target, levels, internalformat, width, height, depth);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawTransformFeedbackInstanced(JNIEnv *__env, jclass clazz, jint mode, jint id, jint primcount, jlong __functionAddress) {
 	glDrawTransformFeedbackInstancedPROC glDrawTransformFeedbackInstanced = (glDrawTransformFeedbackInstancedPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDrawTransformFeedbackInstanced(mode, id, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawTransformFeedbackStreamInstanced(JNIEnv *__env, jclass clazz, jint mode, jint id, jint stream, jint primcount, jlong __functionAddress) {
 	glDrawTransformFeedbackStreamInstancedPROC glDrawTransformFeedbackStreamInstanced = (glDrawTransformFeedbackStreamInstancedPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawArraysInstancedBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount, jint baseinstance, jlong __functionAddress) {
 	glDrawArraysInstancedBaseInstancePROC glDrawArraysInstancedBaseInstance = (glDrawArraysInstancedBaseInstancePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawElementsInstancedBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint baseinstance, jlong __functionAddress) {
 	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
 	glDrawElementsInstancedBaseInstancePROC glDrawElementsInstancedBaseInstance = (glDrawElementsInstancedBaseInstancePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawElementsInstancedBaseVertexBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint basevertex, jint baseinstance, jlong __functionAddress) {
 	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
 	glDrawElementsInstancedBaseVertexBaseInstancePROC glDrawElementsInstancedBaseVertexBaseInstance = (glDrawElementsInstancedBaseVertexBaseInstancePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglBindImageTexture(JNIEnv *__env, jclass clazz, jint unit, jint texture, jint level, jboolean layered, jint layer, jint access, jint format, jlong __functionAddress) {
 	glBindImageTexturePROC glBindImageTexture = (glBindImageTexturePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glBindImageTexture(unit, texture, level, layered, layer, access, format);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglMemoryBarrier(JNIEnv *__env, jclass clazz, jint barriers, jlong __functionAddress) {
 	glMemoryBarrierPROC glMemoryBarrier = (glMemoryBarrierPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glMemoryBarrier(barriers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglGetInternalformativ(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint pname, jint bufSize, jlong paramsAddress, jlong __functionAddress) {
 	GLint *params = (GLint *)(intptr_t)paramsAddress;
 	glGetInternalformativPROC glGetInternalformativ = (glGetInternalformativPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glGetInternalformativ(target, internalformat, pname, bufSize, params);
 }

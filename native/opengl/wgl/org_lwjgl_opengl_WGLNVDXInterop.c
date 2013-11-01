@@ -19,18 +19,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXSetResourceSha
 	void *dxObject = (void *)(intptr_t)dxObjectAddress;
 	HANDLE shareHandle = (HANDLE)(intptr_t)shareHandleAddress;
 	wglDXSetResourceShareHandleNVPROC wglDXSetResourceShareHandleNV = (wglDXSetResourceShareHandleNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXSetResourceShareHandleNV(dxObject, shareHandle);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXOpenDeviceNV(JNIEnv *__env, jclass clazz, jlong dxDeviceAddress, jlong __functionAddress) {
 	void *dxDevice = (void *)(intptr_t)dxDeviceAddress;
 	wglDXOpenDeviceNVPROC wglDXOpenDeviceNV = (wglDXOpenDeviceNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglDXOpenDeviceNV(dxDevice);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXCloseDeviceNV(JNIEnv *__env, jclass clazz, jlong deviceAddress, jlong __functionAddress) {
 	HANDLE device = (HANDLE)(intptr_t)deviceAddress;
 	wglDXCloseDeviceNVPROC wglDXCloseDeviceNV = (wglDXCloseDeviceNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXCloseDeviceNV(device);
 }
 
@@ -38,6 +41,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXRegisterObjec
 	HANDLE device = (HANDLE)(intptr_t)deviceAddress;
 	void *dxResource = (void *)(intptr_t)dxResourceAddress;
 	wglDXRegisterObjectNVPROC wglDXRegisterObjectNV = (wglDXRegisterObjectNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglDXRegisterObjectNV(device, dxResource, name, type, access);
 }
 
@@ -45,12 +49,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXUnregisterObje
 	HANDLE device = (HANDLE)(intptr_t)deviceAddress;
 	HANDLE object = (HANDLE)(intptr_t)objectAddress;
 	wglDXUnregisterObjectNVPROC wglDXUnregisterObjectNV = (wglDXUnregisterObjectNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXUnregisterObjectNV(device, object);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXObjectAccessNV(JNIEnv *__env, jclass clazz, jlong objectAddress, jint access, jlong __functionAddress) {
 	HANDLE object = (HANDLE)(intptr_t)objectAddress;
 	wglDXObjectAccessNVPROC wglDXObjectAccessNV = (wglDXObjectAccessNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXObjectAccessNV(object, access);
 }
 
@@ -58,6 +64,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXLockObjectsNV(
 	HANDLE device = (HANDLE)(intptr_t)deviceAddress;
 	HANDLE *objects = (HANDLE *)(intptr_t)objectsAddress;
 	wglDXLockObjectsNVPROC wglDXLockObjectsNV = (wglDXLockObjectsNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXLockObjectsNV(device, count, objects);
 }
 
@@ -65,5 +72,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXUnlockObjectsN
 	HANDLE device = (HANDLE)(intptr_t)deviceAddress;
 	HANDLE *objects = (HANDLE *)(intptr_t)objectsAddress;
 	wglDXUnlockObjectsNVPROC wglDXUnlockObjectsNV = (wglDXUnlockObjectsNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXUnlockObjectsNV(device, count, objects);
 }

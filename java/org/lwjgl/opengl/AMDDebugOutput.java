@@ -42,19 +42,19 @@ public final class AMDDebugOutput {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glDebugMessageEnableAMD,
-		glDebugMessageInsertAMD,
-		glDebugMessageCallbackAMD,
-		glGetDebugMessageLogAMD;
+		DebugMessageEnableAMD,
+		DebugMessageInsertAMD,
+		DebugMessageCallbackAMD,
+		GetDebugMessageLogAMD;
 
 	long refDEBUGPROCAMD;
 
 	@JavadocExclude
 	public AMDDebugOutput(FunctionProvider provider) {
-		glDebugMessageEnableAMD = provider.getFunctionAddress("glDebugMessageEnableAMD");
-		glDebugMessageInsertAMD = provider.getFunctionAddress("glDebugMessageInsertAMD");
-		glDebugMessageCallbackAMD = provider.getFunctionAddress("glDebugMessageCallbackAMD");
-		glGetDebugMessageLogAMD = provider.getFunctionAddress("glGetDebugMessageLogAMD");
+		DebugMessageEnableAMD = provider.getFunctionAddress("glDebugMessageEnableAMD");
+		DebugMessageInsertAMD = provider.getFunctionAddress("glDebugMessageInsertAMD");
+		DebugMessageCallbackAMD = provider.getFunctionAddress("glDebugMessageCallbackAMD");
+		GetDebugMessageLogAMD = provider.getFunctionAddress("glGetDebugMessageLogAMD");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -70,17 +70,17 @@ public final class AMDDebugOutput {
 		AMDDebugOutput funcs = new AMDDebugOutput(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glDebugMessageEnableAMD) &&
-			GL.isFunctionSupported(funcs.glDebugMessageInsertAMD) &&
-			GL.isFunctionSupported(funcs.glDebugMessageCallbackAMD) &&
-			GL.isFunctionSupported(funcs.glGetDebugMessageLogAMD);
+			GL.isFunctionSupported(funcs.DebugMessageEnableAMD) &&
+			GL.isFunctionSupported(funcs.DebugMessageInsertAMD) &&
+			GL.isFunctionSupported(funcs.DebugMessageCallbackAMD) &&
+			GL.isFunctionSupported(funcs.GetDebugMessageLogAMD);
 
 		return GL.checkExtension("GL_AMD_debug_output", funcs, supported);
 	}
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageEnableAMD glDebugMessageEnableAMD} */
+	/** JNI method for {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	@JavadocExclude
 	public static native void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
@@ -94,7 +94,7 @@ public final class AMDDebugOutput {
 	 * @param enabled  whether to enable or disable the referenced subset of messages
 	 */
 	public static void glDebugMessageEnableAMD(int category, int severity, int count, ByteBuffer ids, boolean enabled) {
-		long __functionAddress = getInstance().glDebugMessageEnableAMD;
+		long __functionAddress = getInstance().DebugMessageEnableAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( ids != null ) checkBuffer(ids, count << 2);
@@ -102,9 +102,9 @@ public final class AMDDebugOutput {
 		nglDebugMessageEnableAMD(category, severity, count, memAddressSafe(ids), enabled, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageEnableAMD glDebugMessageEnableAMD} */
+	/** Alternative version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
-		long __functionAddress = getInstance().glDebugMessageEnableAMD;
+		long __functionAddress = getInstance().DebugMessageEnableAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDebugMessageEnableAMD(category, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled, __functionAddress);
@@ -112,7 +112,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
+	/** JNI method for {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	@JavadocExclude
 	public static native void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf, long __functionAddress);
 
@@ -126,7 +126,7 @@ public final class AMDDebugOutput {
 	 * @param buf      the message characters
 	 */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, int length, ByteBuffer buf) {
-		long __functionAddress = getInstance().glDebugMessageInsertAMD;
+		long __functionAddress = getInstance().DebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buf, length);
@@ -135,17 +135,17 @@ public final class AMDDebugOutput {
 		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
+	/** Alternative version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, ByteBuffer buf) {
-		long __functionAddress = getInstance().glDebugMessageInsertAMD;
+		long __functionAddress = getInstance().DebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glDebugMessageInsertAMD glDebugMessageInsertAMD} */
+	/** CharSequence version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
-		long __functionAddress = getInstance().glDebugMessageInsertAMD;
+		long __functionAddress = getInstance().DebugMessageInsertAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDebugMessageInsertAMD(category, severity, id, buf.length(), memAddress(memEncodeUTF8(buf)), __functionAddress);
@@ -153,7 +153,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageCallbackAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageCallbackAMD glDebugMessageCallbackAMD} */
+	/** JNI method for {@link #glDebugMessageCallbackAMD DebugMessageCallbackAMD} */
 	@JavadocExclude
 	public static native void nglDebugMessageCallbackAMD(long callback, long userParam, long __functionAddress);
 
@@ -165,16 +165,16 @@ public final class AMDDebugOutput {
 	 */
 	public static void glDebugMessageCallbackAMD(long callback, long userParam) {
 		AMDDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.glDebugMessageCallbackAMD;
+		long __functionAddress = __instance.DebugMessageCallbackAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDebugMessageCallbackAMD(callback, userParam, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDebugMessageCallbackAMD glDebugMessageCallbackAMD} */
+	/** Alternative version of: {@link #glDebugMessageCallbackAMD DebugMessageCallbackAMD} */
 	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback) {
 		AMDDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.glDebugMessageCallbackAMD;
+		long __functionAddress = __instance.DebugMessageCallbackAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDebugMessageCallbackAMD(callback == null ? NULL : DEBUGPROCAMD.Util.CALLBACK, DEBUGPROCAMD.Util.register(__instance, callback), __functionAddress);
@@ -182,7 +182,7 @@ public final class AMDDebugOutput {
 
 	// --- [ glGetDebugMessageLogAMD ] ---
 
-	/** JNI method for {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
+	/** JNI method for {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	@JavadocExclude
 	public static native int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog, long __functionAddress);
 
@@ -198,7 +198,7 @@ public final class AMDDebugOutput {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLogAMD(int count, int bufsize, ByteBuffer categories, ByteBuffer severities, ByteBuffer ids, ByteBuffer lengths, ByteBuffer messageLog) {
-		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
+		long __functionAddress = getInstance().GetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(messageLog, bufsize);
@@ -211,9 +211,9 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, bufsize, memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
+	/** Alternative version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
-		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
+		long __functionAddress = getInstance().GetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( categories != null ) checkBuffer(categories, count);
@@ -224,9 +224,9 @@ public final class AMDDebugOutput {
 		return nglGetDebugMessageLogAMD(count, messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLog), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLogAMD glGetDebugMessageLogAMD} */
+	/** CharSequence version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, CharSequence messageLog) {
-		long __functionAddress = getInstance().glGetDebugMessageLogAMD;
+		long __functionAddress = getInstance().GetDebugMessageLogAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( categories != null ) checkBuffer(categories, count);

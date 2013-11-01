@@ -17,12 +17,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglCreatePbufferARB
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	const int *attribList = (const int *)(intptr_t)attribListAddress;
 	wglCreatePbufferARBPROC wglCreatePbufferARB = (wglCreatePbufferARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglCreatePbufferARB(hdc, pixelFormat, width, height, attribList);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglGetPbufferDCARB(JNIEnv *__env, jclass clazz, jlong pbufferAddress, jlong __functionAddress) {
 	HPBUFFERARB pbuffer = (HPBUFFERARB)(intptr_t)pbufferAddress;
 	wglGetPbufferDCARBPROC wglGetPbufferDCARB = (wglGetPbufferDCARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglGetPbufferDCARB(pbuffer);
 }
 
@@ -30,12 +32,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglReleasePbufferDCA
 	HPBUFFERARB pbuffer = (HPBUFFERARB)(intptr_t)pbufferAddress;
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	wglReleasePbufferDCARBPROC wglReleasePbufferDCARB = (wglReleasePbufferDCARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglReleasePbufferDCARB(pbuffer, hdc);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglDestroyPbufferARB(JNIEnv *__env, jclass clazz, jlong pbufferAddress, jlong __functionAddress) {
 	HPBUFFERARB pbuffer = (HPBUFFERARB)(intptr_t)pbufferAddress;
 	wglDestroyPbufferARBPROC wglDestroyPbufferARB = (wglDestroyPbufferARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDestroyPbufferARB(pbuffer);
 }
 
@@ -43,5 +47,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglQueryPbufferARB(J
 	HPBUFFERARB pbuffer = (HPBUFFERARB)(intptr_t)pbufferAddress;
 	int *value = (int *)(intptr_t)valueAddress;
 	wglQueryPbufferARBPROC wglQueryPbufferARB = (wglQueryPbufferARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglQueryPbufferARB(pbuffer, attribute, value);
 }

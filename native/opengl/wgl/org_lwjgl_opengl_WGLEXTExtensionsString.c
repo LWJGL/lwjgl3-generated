@@ -10,5 +10,6 @@ typedef const char * (APIENTRY *wglGetExtensionsStringEXTPROC) (void);
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLEXTExtensionsString_nwglGetExtensionsStringEXT(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	wglGetExtensionsStringEXTPROC wglGetExtensionsStringEXT = (wglGetExtensionsStringEXTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglGetExtensionsStringEXT();
 }

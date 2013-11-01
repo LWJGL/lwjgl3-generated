@@ -48,6 +48,7 @@ public final class ContextCapabilities {
 	final AMDDebugOutput          __AMDDebugOutput;
 	final ARBCLEvent              __ARBCLEvent;
 	final ARBCopyBuffer           __ARBCopyBuffer;
+	final ARBDrawBuffersBlend     __ARBDrawBuffersBlend;
 	final ARBImaging              __ARBImaging;
 	final ARBSync                 __ARBSync;
 	final WGLAMDGPUAssociation    __WGLAMDGPUAssociation;
@@ -126,6 +127,7 @@ public final class ContextCapabilities {
 		GL_ARB_compatibility,
 		GL_ARB_conservative_depth,
 		GL_ARB_copy_buffer,
+		GL_ARB_draw_buffers_blend,
 		GL_ARB_explicit_attrib_location,
 		GL_ARB_fragment_coord_conventions,
 		GL_ARB_fragment_layer_viewport,
@@ -249,6 +251,7 @@ public final class ContextCapabilities {
 		GL_ARB_compatibility = ext.contains("GL_ARB_compatibility");
 		GL_ARB_conservative_depth = ext.contains("GL_ARB_conservative_depth");
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
+		GL_ARB_draw_buffers_blend = (__ARBDrawBuffersBlend = ARBDrawBuffersBlend.create(ext, provider)) != null;
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
 		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
 		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");

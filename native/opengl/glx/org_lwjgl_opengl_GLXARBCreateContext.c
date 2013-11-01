@@ -14,5 +14,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXARBCreateContext_nglXCreateCont
 	GLXContext share_context = (GLXContext)(intptr_t)share_contextAddress;
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	glXCreateContextAttribsARBPROC glXCreateContextAttribsARB = (glXCreateContextAttribsARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateContextAttribsARB(display, config, share_context, direct, attrib_list);
 }

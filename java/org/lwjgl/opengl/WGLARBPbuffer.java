@@ -48,11 +48,11 @@ public final class WGLARBPbuffer {
 		WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
 		WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
-	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB wglCreatePbufferARB}. */
+	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB CreatePbufferARB}. */
 	public static final int
 		WGL_PBUFFER_LARGEST_ARB = 0x2033;
 
-	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB wglQueryPbufferARB}. */
+	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB QueryPbufferARB}. */
 	public static final int
 		WGL_PBUFFER_WIDTH_ARB  = 0x2034,
 		WGL_PBUFFER_HEIGHT_ARB = 0x2035,
@@ -61,19 +61,19 @@ public final class WGLARBPbuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		wglCreatePbufferARB,
-		wglGetPbufferDCARB,
-		wglReleasePbufferDCARB,
-		wglDestroyPbufferARB,
-		wglQueryPbufferARB;
+		CreatePbufferARB,
+		GetPbufferDCARB,
+		ReleasePbufferDCARB,
+		DestroyPbufferARB,
+		QueryPbufferARB;
 
 	@JavadocExclude
 	public WGLARBPbuffer(FunctionProvider provider) {
-		wglCreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
-		wglGetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
-		wglReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
-		wglDestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
-		wglQueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
+		CreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
+		GetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
+		ReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
+		DestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
+		QueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -89,18 +89,18 @@ public final class WGLARBPbuffer {
 		WGLARBPbuffer funcs = new WGLARBPbuffer(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.wglCreatePbufferARB) &&
-			GL.isFunctionSupported(funcs.wglGetPbufferDCARB) &&
-			GL.isFunctionSupported(funcs.wglReleasePbufferDCARB) &&
-			GL.isFunctionSupported(funcs.wglDestroyPbufferARB) &&
-			GL.isFunctionSupported(funcs.wglQueryPbufferARB);
+			GL.isFunctionSupported(funcs.CreatePbufferARB) &&
+			GL.isFunctionSupported(funcs.GetPbufferDCARB) &&
+			GL.isFunctionSupported(funcs.ReleasePbufferDCARB) &&
+			GL.isFunctionSupported(funcs.DestroyPbufferARB) &&
+			GL.isFunctionSupported(funcs.QueryPbufferARB);
 
 		return GL.checkExtension("WGL_ARB_pbuffer", funcs, supported);
 	}
 
 	// --- [ wglCreatePbufferARB ] ---
 
-	/** JNI method for {@link #wglCreatePbufferARB wglCreatePbufferARB} */
+	/** JNI method for {@link #wglCreatePbufferARB CreatePbufferARB} */
 	@JavadocExclude
 	public static native long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList, long __functionAddress);
 
@@ -117,7 +117,7 @@ public final class WGLARBPbuffer {
 	 * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
 	 */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, ByteBuffer attribList) {
-		long __functionAddress = getInstance().wglCreatePbufferARB;
+		long __functionAddress = getInstance().CreatePbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
@@ -126,9 +126,9 @@ public final class WGLARBPbuffer {
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreatePbufferARB wglCreatePbufferARB} */
+	/** Alternative version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
-		long __functionAddress = getInstance().wglCreatePbufferARB;
+		long __functionAddress = getInstance().CreatePbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
@@ -139,17 +139,17 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglGetPbufferDCARB ] ---
 
-	/** JNI method for {@link #wglGetPbufferDCARB wglGetPbufferDCARB} */
+	/** JNI method for {@link #wglGetPbufferDCARB GetPbufferDCARB} */
 	@JavadocExclude
 	public static native long nwglGetPbufferDCARB(long pbuffer, long __functionAddress);
 
 	/**
 	 * Creates a device context for the pbuffer.
 	 *
-	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB wglCreatePbufferARB}
+	 * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB CreatePbufferARB}
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
-		long __functionAddress = getInstance().wglGetPbufferDCARB;
+		long __functionAddress = getInstance().GetPbufferDCARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
@@ -159,18 +159,18 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglReleasePbufferDCARB ] ---
 
-	/** JNI method for {@link #wglReleasePbufferDCARB wglReleasePbufferDCARB} */
+	/** JNI method for {@link #wglReleasePbufferDCARB ReleasePbufferDCARB} */
 	@JavadocExclude
 	public static native int nwglReleasePbufferDCARB(long pbuffer, long hdc, long __functionAddress);
 
 	/**
-	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB wglGetPbufferDCARB}.
+	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB GetPbufferDCARB}.
 	 *
 	 * @param pbuffer a pbuffer handle
 	 * @param hdc     a device context handle
 	 */
 	public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
-		long __functionAddress = getInstance().wglReleasePbufferDCARB;
+		long __functionAddress = getInstance().ReleasePbufferDCARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
@@ -181,7 +181,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglDestroyPbufferARB ] ---
 
-	/** JNI method for {@link #wglDestroyPbufferARB wglDestroyPbufferARB} */
+	/** JNI method for {@link #wglDestroyPbufferARB DestroyPbufferARB} */
 	@JavadocExclude
 	public static native int nwglDestroyPbufferARB(long pbuffer, long __functionAddress);
 
@@ -194,7 +194,7 @@ public final class WGLARBPbuffer {
 	 * @param pbuffer a pbuffer handle
 	 */
 	public static int wglDestroyPbufferARB(long pbuffer) {
-		long __functionAddress = getInstance().wglDestroyPbufferARB;
+		long __functionAddress = getInstance().DestroyPbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
@@ -204,7 +204,7 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglQueryPbufferARB ] ---
 
-	/** JNI method for {@link #wglQueryPbufferARB wglQueryPbufferARB} */
+	/** JNI method for {@link #wglQueryPbufferARB QueryPbufferARB} */
 	@JavadocExclude
 	public static native int nwglQueryPbufferARB(long pbuffer, int attribute, long value, long __functionAddress);
 
@@ -216,7 +216,7 @@ public final class WGLARBPbuffer {
 	 * @param value     the attribute value
 	 */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().wglQueryPbufferARB;
+		long __functionAddress = getInstance().QueryPbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
@@ -225,9 +225,9 @@ public final class WGLARBPbuffer {
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglQueryPbufferARB wglQueryPbufferARB} */
+	/** Alternative version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().wglQueryPbufferARB;
+		long __functionAddress = getInstance().QueryPbufferARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);

@@ -15,24 +15,28 @@ typedef ALCvoid (APIENTRY *alcCaptureSamplesPROC) (ALCdevice *, ALCvoid *, ALCsi
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureOpenDevice(JNIEnv *__env, jclass clazz, jlong devicenameAddress, jint frequency, jint format, jint buffersize, jlong __functionAddress) {
 	const ALCchar *devicename = (const ALCchar *)(intptr_t)devicenameAddress;
 	alcCaptureOpenDevicePROC alcCaptureOpenDevice = (alcCaptureOpenDevicePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcCaptureOpenDevice(devicename, frequency, format, buffersize);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureCloseDevice(JNIEnv *__env, jclass clazz, jlong deviceAddress, jlong __functionAddress) {
 	ALCdevice *device = (ALCdevice *)(intptr_t)deviceAddress;
 	alcCaptureCloseDevicePROC alcCaptureCloseDevice = (alcCaptureCloseDevicePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)alcCaptureCloseDevice(device);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureStart(JNIEnv *__env, jclass clazz, jlong deviceAddress, jlong __functionAddress) {
 	ALCdevice *device = (ALCdevice *)(intptr_t)deviceAddress;
 	alcCaptureStartPROC alcCaptureStart = (alcCaptureStartPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcCaptureStart(device);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureStop(JNIEnv *__env, jclass clazz, jlong deviceAddress, jlong __functionAddress) {
 	ALCdevice *device = (ALCdevice *)(intptr_t)deviceAddress;
 	alcCaptureStopPROC alcCaptureStop = (alcCaptureStopPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcCaptureStop(device);
 }
 
@@ -40,5 +44,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureSamples(JNIEnv *__
 	ALCdevice *device = (ALCdevice *)(intptr_t)deviceAddress;
 	ALCvoid *buffer = (ALCvoid *)(intptr_t)bufferAddress;
 	alcCaptureSamplesPROC alcCaptureSamples = (alcCaptureSamplesPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcCaptureSamples(device, buffer, samples);
 }

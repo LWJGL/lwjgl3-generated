@@ -18,6 +18,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXGetFBConfigAttr
 	GLXFBConfigSGIX config = (GLXFBConfigSGIX)(intptr_t)configAddress;
 	int *value = (int *)(intptr_t)valueAddress;
 	glXGetFBConfigAttribSGIXPROC glXGetFBConfigAttribSGIX = (glXGetFBConfigAttribSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXGetFBConfigAttribSGIX(display, config, attribute, value);
 }
 
@@ -26,6 +27,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXChooseFBConfig
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	int *nelements = (int *)(intptr_t)nelementsAddress;
 	glXChooseFBConfigSGIXPROC glXChooseFBConfigSGIX = (glXChooseFBConfigSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXChooseFBConfigSGIX(display, screen, attrib_list, nelements);
 }
 
@@ -33,6 +35,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXCreateGLXPixma
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	glXCreateGLXPixmapWithConfigSGIXPROC glXCreateGLXPixmapWithConfigSGIX = (glXCreateGLXPixmapWithConfigSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateGLXPixmapWithConfigSGIX(display, config, (Pixmap)pixmap);
 }
 
@@ -41,6 +44,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXCreateContextW
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	GLXContext share_list = (GLXContext)(intptr_t)share_listAddress;
 	glXCreateContextWithConfigSGIXPROC glXCreateContextWithConfigSGIX = (glXCreateContextWithConfigSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateContextWithConfigSGIX(display, config, render_type, share_list, direct);
 }
 
@@ -48,6 +52,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXGetVisualFromF
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	glXGetVisualFromFBConfigSGIXPROC glXGetVisualFromFBConfigSGIX = (glXGetVisualFromFBConfigSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetVisualFromFBConfigSGIX(display, config);
 }
 
@@ -55,5 +60,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXGetFBConfigFro
 	Display *display = (Display *)(intptr_t)displayAddress;
 	XVisualInfo *vis = (XVisualInfo *)(intptr_t)visAddress;
 	glXGetFBConfigFromVisualSGIXPROC glXGetFBConfigFromVisualSGIX = (glXGetFBConfigFromVisualSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetFBConfigFromVisualSGIX(display, vis);
 }

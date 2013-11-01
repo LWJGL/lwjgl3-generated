@@ -11,12 +11,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeQueryEx
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *event_base = (int *)(intptr_t)event_baseAddress;
 	int *error_base = (int *)(intptr_t)error_baseAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XF86VidModeQueryExtension(display, event_base, error_base);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeGetGammaRampSize(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen, jlong sizeAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *size = (int *)(intptr_t)sizeAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XF86VidModeGetGammaRampSize(display, screen, size);
 }
 
@@ -25,6 +27,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeGetGamm
 	unsigned short *red_array = (unsigned short *)(intptr_t)red_arrayAddress;
 	unsigned short *green_array = (unsigned short *)(intptr_t)green_arrayAddress;
 	unsigned short *blue_array = (unsigned short *)(intptr_t)blue_arrayAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XF86VidModeGetGammaRamp(display, screen, size, red_array, green_array, blue_array);
 }
 
@@ -33,5 +36,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeSetGamm
 	unsigned short *red_array = (unsigned short *)(intptr_t)red_arrayAddress;
 	unsigned short *green_array = (unsigned short *)(intptr_t)green_arrayAddress;
 	unsigned short *blue_array = (unsigned short *)(intptr_t)blue_arrayAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)XF86VidModeSetGammaRamp(display, screen, size, red_array, green_array, blue_array);
 }

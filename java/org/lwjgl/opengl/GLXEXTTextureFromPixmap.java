@@ -82,13 +82,13 @@ public final class GLXEXTTextureFromPixmap {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXBindTexImageEXT,
-		glXReleaseTexImageEXT;
+		BindTexImageEXT,
+		ReleaseTexImageEXT;
 
 	@JavadocExclude
 	public GLXEXTTextureFromPixmap(FunctionProvider provider) {
-		glXBindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
-		glXReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
+		BindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
+		ReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -104,15 +104,15 @@ public final class GLXEXTTextureFromPixmap {
 		GLXEXTTextureFromPixmap funcs = new GLXEXTTextureFromPixmap(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXBindTexImageEXT) &&
-			GL.isFunctionSupported(funcs.glXReleaseTexImageEXT);
+			GL.isFunctionSupported(funcs.BindTexImageEXT) &&
+			GL.isFunctionSupported(funcs.ReleaseTexImageEXT);
 
 		return GL.checkExtension("GLX_EXT_texture_from_pixmap", funcs, supported);
 	}
 
 	// --- [ glXBindTexImageEXT ] ---
 
-	/** JNI method for {@link #glXBindTexImageEXT glXBindTexImageEXT} */
+	/** JNI method for {@link #glXBindTexImageEXT BindTexImageEXT} */
 	@JavadocExclude
 	public static native void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list, long __functionAddress);
 
@@ -126,7 +126,7 @@ public final class GLXEXTTextureFromPixmap {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().glXBindTexImageEXT;
+		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -136,9 +136,9 @@ public final class GLXEXTTextureFromPixmap {
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXBindTexImageEXT glXBindTexImageEXT} */
+	/** Alternative version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().glXBindTexImageEXT;
+		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -150,7 +150,7 @@ public final class GLXEXTTextureFromPixmap {
 
 	// --- [ glXReleaseTexImageEXT ] ---
 
-	/** JNI method for {@link #glXReleaseTexImageEXT glXReleaseTexImageEXT} */
+	/** JNI method for {@link #glXReleaseTexImageEXT ReleaseTexImageEXT} */
 	@JavadocExclude
 	public static native void nglXReleaseTexImageEXT(long display, long drawable, int buffer, long __functionAddress);
 
@@ -162,7 +162,7 @@ public final class GLXEXTTextureFromPixmap {
 	 * @param buffer   the buffer
 	 */
 	public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
-		long __functionAddress = getInstance().glXReleaseTexImageEXT;
+		long __functionAddress = getInstance().ReleaseTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

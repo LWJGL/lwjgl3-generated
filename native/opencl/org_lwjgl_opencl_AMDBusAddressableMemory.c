@@ -16,6 +16,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_AMDBusAddressableMemory_nclEnqueueW
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWaitSignalAMDPROC clEnqueueWaitSignalAMD = (clEnqueueWaitSignalAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWaitSignalAMD(command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -25,6 +26,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_AMDBusAddressableMemory_nclEnqueueW
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWriteSignalAMDPROC clEnqueueWriteSignalAMD = (clEnqueueWriteSignalAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWriteSignalAMD(command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -35,5 +37,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_AMDBusAddressableMemory_nclEnqueueM
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueMakeBuffersResidentAMDPROC clEnqueueMakeBuffersResidentAMD = (clEnqueueMakeBuffersResidentAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 }

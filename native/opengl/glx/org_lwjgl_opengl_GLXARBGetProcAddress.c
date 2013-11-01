@@ -12,5 +12,6 @@ typedef void * (APIENTRY *glXGetProcAddressARBPROC) (const GLubyte *);
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXARBGetProcAddress_nglXGetProcAddressARB(JNIEnv *__env, jclass clazz, jlong procNameAddress, jlong __functionAddress) {
 	const GLubyte *procName = (const GLubyte *)(intptr_t)procNameAddress;
 	glXGetProcAddressARBPROC glXGetProcAddressARB = (glXGetProcAddressARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetProcAddressARB(procName);
 }

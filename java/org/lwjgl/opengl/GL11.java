@@ -679,655 +679,655 @@ public final class GL11 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glEnable,
-		glDisable,
-		glAccum,
-		glAlphaFunc,
-		glAreTexturesResident,
-		glArrayElement,
-		glBegin,
-		glBindTexture,
-		glBitmap,
-		glBlendFunc,
-		glCallList,
-		glCallLists,
-		glClear,
-		glClearAccum,
-		glClearColor,
-		glClearDepth,
-		glClearStencil,
-		glClipPlane,
-		glColor3b,
-		glColor3s,
-		glColor3i,
-		glColor3f,
-		glColor3d,
-		glColor3ub,
-		glColor3us,
-		glColor3ui,
-		glColor3bv,
-		glColor3sv,
-		glColor3iv,
-		glColor3fv,
-		glColor3dv,
-		glColor3ubv,
-		glColor3usv,
-		glColor3uiv,
-		glColor4b,
-		glColor4s,
-		glColor4i,
-		glColor4f,
-		glColor4d,
-		glColor4ub,
-		glColor4us,
-		glColor4ui,
-		glColor4bv,
-		glColor4sv,
-		glColor4iv,
-		glColor4fv,
-		glColor4dv,
-		glColor4ubv,
-		glColor4usv,
-		glColor4uiv,
-		glColorMask,
-		glColorMaterial,
-		glColorPointer,
-		glCopyPixels,
-		glCullFace,
-		glDeleteLists,
-		glDepthFunc,
-		glDepthMask,
-		glDepthRange,
-		glDisableClientState,
-		glDrawArrays,
-		glDrawBuffer,
-		glDrawElements,
-		glDrawPixels,
-		glEdgeFlag,
-		glEdgeFlagv,
-		glEdgeFlagPointer,
-		glEnableClientState,
-		glEnd,
-		glEvalCoord1f,
-		glEvalCoord1fv,
-		glEvalCoord1d,
-		glEvalCoord1dv,
-		glEvalCoord2f,
-		glEvalCoord2fv,
-		glEvalCoord2d,
-		glEvalCoord2dv,
-		glEvalMesh1,
-		glEvalMesh2,
-		glEvalPoint1,
-		glEvalPoint2,
-		glFeedbackBuffer,
-		glFinish,
-		glFlush,
-		glFogi,
-		glFogiv,
-		glFogf,
-		glFogfv,
-		glFrontFace,
-		glGenLists,
-		glGenTextures,
-		glDeleteTextures,
-		glGetClipPlane,
-		glGetBooleanv,
-		glGetFloatv,
-		glGetIntegerv,
-		glGetDoublev,
-		glGetError,
-		glGetLightiv,
-		glGetLightfv,
-		glGetMapiv,
-		glGetMapfv,
-		glGetMapdv,
-		glGetMaterialiv,
-		glGetMaterialfv,
-		glGetPixelMapfv,
-		glGetPixelMapusv,
-		glGetPixelMapuiv,
-		glGetPointerv,
-		glGetPolygonStipple,
-		glGetString,
-		glGetTexEnviv,
-		glGetTexEnvfv,
-		glGetTexGeniv,
-		glGetTexGenfv,
-		glGetTexGendv,
-		glGetTexImage,
-		glGetTexLevelParameteriv,
-		glGetTexLevelParameterfv,
-		glGetTexParameteriv,
-		glGetTexParameterfv,
-		glHint,
-		glInitNames,
-		glInterleavedArrays,
-		glIsEnabled,
-		glIsList,
-		glIsTexture,
-		glLightModeli,
-		glLightModelf,
-		glLightModeliv,
-		glLightModelfv,
-		glLighti,
-		glLightf,
-		glLightiv,
-		glLightfv,
-		glLineStipple,
-		glLineWidth,
-		glListBase,
-		glLoadMatrixf,
-		glLoadMatrixd,
-		glLoadIdentity,
-		glLoadName,
-		glLogicOp,
-		glMap1f,
-		glMap1d,
-		glMap2f,
-		glMap2d,
-		glMapGrid1f,
-		glMapGrid1d,
-		glMapGrid2f,
-		glMapGrid2d,
-		glMateriali,
-		glMaterialf,
-		glMaterialiv,
-		glMaterialfv,
-		glMatrixMode,
-		glMultMatrixf,
-		glMultMatrixd,
-		glFrustum,
-		glNewList,
-		glEndList,
-		glNormal3f,
-		glNormal3b,
-		glNormal3s,
-		glNormal3i,
-		glNormal3d,
-		glNormal3fv,
-		glNormal3bv,
-		glNormal3sv,
-		glNormal3iv,
-		glNormal3dv,
-		glNormalPointer,
-		glOrtho,
-		glPassThrough,
-		glPixelMapfv,
-		glPixelMapusv,
-		glPixelMapuiv,
-		glPixelStorei,
-		glPixelStoref,
-		glPixelTransferi,
-		glPixelTransferf,
-		glPixelZoom,
-		glPointSize,
-		glPolygonMode,
-		glPolygonOffset,
-		glPolygonStipple,
-		glPushAttrib,
-		glPushClientAttrib,
-		glPopAttrib,
-		glPopClientAttrib,
-		glPopMatrix,
-		glPopName,
-		glPrioritizeTextures,
-		glPushMatrix,
-		glPushName,
-		glRasterPos2i,
-		glRasterPos2s,
-		glRasterPos2f,
-		glRasterPos2d,
-		glRasterPos2iv,
-		glRasterPos2sv,
-		glRasterPos2fv,
-		glRasterPos2dv,
-		glRasterPos3i,
-		glRasterPos3s,
-		glRasterPos3f,
-		glRasterPos3d,
-		glRasterPos3iv,
-		glRasterPos3sv,
-		glRasterPos3fv,
-		glRasterPos3dv,
-		glRasterPos4i,
-		glRasterPos4s,
-		glRasterPos4f,
-		glRasterPos4d,
-		glRasterPos4iv,
-		glRasterPos4sv,
-		glRasterPos4fv,
-		glRasterPos4dv,
-		glReadBuffer,
-		glReadPixels,
-		glRecti,
-		glRects,
-		glRectf,
-		glRectd,
-		glRectiv,
-		glRectsv,
-		glRectfv,
-		glRectdv,
-		glRenderMode,
-		glRotatef,
-		glRotated,
-		glScalef,
-		glScaled,
-		glScissor,
-		glSelectBuffer,
-		glShadeModel,
-		glStencilFunc,
-		glStencilMask,
-		glStencilOp,
-		glTexCoord1f,
-		glTexCoord1s,
-		glTexCoord1i,
-		glTexCoord1d,
-		glTexCoord1fv,
-		glTexCoord1sv,
-		glTexCoord1iv,
-		glTexCoord1dv,
-		glTexCoord2f,
-		glTexCoord2s,
-		glTexCoord2i,
-		glTexCoord2d,
-		glTexCoord2fv,
-		glTexCoord2sv,
-		glTexCoord2iv,
-		glTexCoord2dv,
-		glTexCoord3f,
-		glTexCoord3s,
-		glTexCoord3i,
-		glTexCoord3d,
-		glTexCoord3fv,
-		glTexCoord3sv,
-		glTexCoord3iv,
-		glTexCoord3dv,
-		glTexCoord4f,
-		glTexCoord4s,
-		glTexCoord4i,
-		glTexCoord4d,
-		glTexCoord4fv,
-		glTexCoord4sv,
-		glTexCoord4iv,
-		glTexCoord4dv,
-		glTexCoordPointer,
-		glTexEnvi,
-		glTexEnviv,
-		glTexEnvf,
-		glTexEnvfv,
-		glTexGeni,
-		glTexGeniv,
-		glTexGenf,
-		glTexGenfv,
-		glTexGend,
-		glTexGendv,
-		glTexImage2D,
-		glTexImage1D,
-		glCopyTexImage2D,
-		glCopyTexImage1D,
-		glCopyTexSubImage1D,
-		glCopyTexSubImage2D,
-		glTexParameteri,
-		glTexParameteriv,
-		glTexParameterf,
-		glTexParameterfv,
-		glTexSubImage1D,
-		glTexSubImage2D,
-		glTranslatef,
-		glTranslated,
-		glVertex2f,
-		glVertex2s,
-		glVertex2i,
-		glVertex2d,
-		glVertex2fv,
-		glVertex2sv,
-		glVertex2iv,
-		glVertex2dv,
-		glVertex3f,
-		glVertex3s,
-		glVertex3i,
-		glVertex3d,
-		glVertex3fv,
-		glVertex3sv,
-		glVertex3iv,
-		glVertex3dv,
-		glVertex4f,
-		glVertex4s,
-		glVertex4i,
-		glVertex4d,
-		glVertex4fv,
-		glVertex4sv,
-		glVertex4iv,
-		glVertex4dv,
-		glVertexPointer,
-		glViewport;
+		Enable,
+		Disable,
+		Accum,
+		AlphaFunc,
+		AreTexturesResident,
+		ArrayElement,
+		Begin,
+		BindTexture,
+		Bitmap,
+		BlendFunc,
+		CallList,
+		CallLists,
+		Clear,
+		ClearAccum,
+		ClearColor,
+		ClearDepth,
+		ClearStencil,
+		ClipPlane,
+		Color3b,
+		Color3s,
+		Color3i,
+		Color3f,
+		Color3d,
+		Color3ub,
+		Color3us,
+		Color3ui,
+		Color3bv,
+		Color3sv,
+		Color3iv,
+		Color3fv,
+		Color3dv,
+		Color3ubv,
+		Color3usv,
+		Color3uiv,
+		Color4b,
+		Color4s,
+		Color4i,
+		Color4f,
+		Color4d,
+		Color4ub,
+		Color4us,
+		Color4ui,
+		Color4bv,
+		Color4sv,
+		Color4iv,
+		Color4fv,
+		Color4dv,
+		Color4ubv,
+		Color4usv,
+		Color4uiv,
+		ColorMask,
+		ColorMaterial,
+		ColorPointer,
+		CopyPixels,
+		CullFace,
+		DeleteLists,
+		DepthFunc,
+		DepthMask,
+		DepthRange,
+		DisableClientState,
+		DrawArrays,
+		DrawBuffer,
+		DrawElements,
+		DrawPixels,
+		EdgeFlag,
+		EdgeFlagv,
+		EdgeFlagPointer,
+		EnableClientState,
+		End,
+		EvalCoord1f,
+		EvalCoord1fv,
+		EvalCoord1d,
+		EvalCoord1dv,
+		EvalCoord2f,
+		EvalCoord2fv,
+		EvalCoord2d,
+		EvalCoord2dv,
+		EvalMesh1,
+		EvalMesh2,
+		EvalPoint1,
+		EvalPoint2,
+		FeedbackBuffer,
+		Finish,
+		Flush,
+		Fogi,
+		Fogiv,
+		Fogf,
+		Fogfv,
+		FrontFace,
+		GenLists,
+		GenTextures,
+		DeleteTextures,
+		GetClipPlane,
+		GetBooleanv,
+		GetFloatv,
+		GetIntegerv,
+		GetDoublev,
+		GetError,
+		GetLightiv,
+		GetLightfv,
+		GetMapiv,
+		GetMapfv,
+		GetMapdv,
+		GetMaterialiv,
+		GetMaterialfv,
+		GetPixelMapfv,
+		GetPixelMapusv,
+		GetPixelMapuiv,
+		GetPointerv,
+		GetPolygonStipple,
+		GetString,
+		GetTexEnviv,
+		GetTexEnvfv,
+		GetTexGeniv,
+		GetTexGenfv,
+		GetTexGendv,
+		GetTexImage,
+		GetTexLevelParameteriv,
+		GetTexLevelParameterfv,
+		GetTexParameteriv,
+		GetTexParameterfv,
+		Hint,
+		InitNames,
+		InterleavedArrays,
+		IsEnabled,
+		IsList,
+		IsTexture,
+		LightModeli,
+		LightModelf,
+		LightModeliv,
+		LightModelfv,
+		Lighti,
+		Lightf,
+		Lightiv,
+		Lightfv,
+		LineStipple,
+		LineWidth,
+		ListBase,
+		LoadMatrixf,
+		LoadMatrixd,
+		LoadIdentity,
+		LoadName,
+		LogicOp,
+		Map1f,
+		Map1d,
+		Map2f,
+		Map2d,
+		MapGrid1f,
+		MapGrid1d,
+		MapGrid2f,
+		MapGrid2d,
+		Materiali,
+		Materialf,
+		Materialiv,
+		Materialfv,
+		MatrixMode,
+		MultMatrixf,
+		MultMatrixd,
+		Frustum,
+		NewList,
+		EndList,
+		Normal3f,
+		Normal3b,
+		Normal3s,
+		Normal3i,
+		Normal3d,
+		Normal3fv,
+		Normal3bv,
+		Normal3sv,
+		Normal3iv,
+		Normal3dv,
+		NormalPointer,
+		Ortho,
+		PassThrough,
+		PixelMapfv,
+		PixelMapusv,
+		PixelMapuiv,
+		PixelStorei,
+		PixelStoref,
+		PixelTransferi,
+		PixelTransferf,
+		PixelZoom,
+		PointSize,
+		PolygonMode,
+		PolygonOffset,
+		PolygonStipple,
+		PushAttrib,
+		PushClientAttrib,
+		PopAttrib,
+		PopClientAttrib,
+		PopMatrix,
+		PopName,
+		PrioritizeTextures,
+		PushMatrix,
+		PushName,
+		RasterPos2i,
+		RasterPos2s,
+		RasterPos2f,
+		RasterPos2d,
+		RasterPos2iv,
+		RasterPos2sv,
+		RasterPos2fv,
+		RasterPos2dv,
+		RasterPos3i,
+		RasterPos3s,
+		RasterPos3f,
+		RasterPos3d,
+		RasterPos3iv,
+		RasterPos3sv,
+		RasterPos3fv,
+		RasterPos3dv,
+		RasterPos4i,
+		RasterPos4s,
+		RasterPos4f,
+		RasterPos4d,
+		RasterPos4iv,
+		RasterPos4sv,
+		RasterPos4fv,
+		RasterPos4dv,
+		ReadBuffer,
+		ReadPixels,
+		Recti,
+		Rects,
+		Rectf,
+		Rectd,
+		Rectiv,
+		Rectsv,
+		Rectfv,
+		Rectdv,
+		RenderMode,
+		Rotatef,
+		Rotated,
+		Scalef,
+		Scaled,
+		Scissor,
+		SelectBuffer,
+		ShadeModel,
+		StencilFunc,
+		StencilMask,
+		StencilOp,
+		TexCoord1f,
+		TexCoord1s,
+		TexCoord1i,
+		TexCoord1d,
+		TexCoord1fv,
+		TexCoord1sv,
+		TexCoord1iv,
+		TexCoord1dv,
+		TexCoord2f,
+		TexCoord2s,
+		TexCoord2i,
+		TexCoord2d,
+		TexCoord2fv,
+		TexCoord2sv,
+		TexCoord2iv,
+		TexCoord2dv,
+		TexCoord3f,
+		TexCoord3s,
+		TexCoord3i,
+		TexCoord3d,
+		TexCoord3fv,
+		TexCoord3sv,
+		TexCoord3iv,
+		TexCoord3dv,
+		TexCoord4f,
+		TexCoord4s,
+		TexCoord4i,
+		TexCoord4d,
+		TexCoord4fv,
+		TexCoord4sv,
+		TexCoord4iv,
+		TexCoord4dv,
+		TexCoordPointer,
+		TexEnvi,
+		TexEnviv,
+		TexEnvf,
+		TexEnvfv,
+		TexGeni,
+		TexGeniv,
+		TexGenf,
+		TexGenfv,
+		TexGend,
+		TexGendv,
+		TexImage2D,
+		TexImage1D,
+		CopyTexImage2D,
+		CopyTexImage1D,
+		CopyTexSubImage1D,
+		CopyTexSubImage2D,
+		TexParameteri,
+		TexParameteriv,
+		TexParameterf,
+		TexParameterfv,
+		TexSubImage1D,
+		TexSubImage2D,
+		Translatef,
+		Translated,
+		Vertex2f,
+		Vertex2s,
+		Vertex2i,
+		Vertex2d,
+		Vertex2fv,
+		Vertex2sv,
+		Vertex2iv,
+		Vertex2dv,
+		Vertex3f,
+		Vertex3s,
+		Vertex3i,
+		Vertex3d,
+		Vertex3fv,
+		Vertex3sv,
+		Vertex3iv,
+		Vertex3dv,
+		Vertex4f,
+		Vertex4s,
+		Vertex4i,
+		Vertex4d,
+		Vertex4fv,
+		Vertex4sv,
+		Vertex4iv,
+		Vertex4dv,
+		VertexPointer,
+		Viewport;
 
 	@JavadocExclude
 	public GL11(FunctionProvider provider, boolean fc) {
-		glEnable = provider.getFunctionAddress("glEnable");
-		glDisable = provider.getFunctionAddress("glDisable");
-		glAccum = GL.getFunctionAddress(provider, "glAccum", fc);
-		glAlphaFunc = GL.getFunctionAddress(provider, "glAlphaFunc", fc);
-		glAreTexturesResident = GL.getFunctionAddress(provider, "glAreTexturesResident", fc);
-		glArrayElement = provider.getFunctionAddress("glArrayElement");
-		glBegin = GL.getFunctionAddress(provider, "glBegin", fc);
-		glBindTexture = provider.getFunctionAddress("glBindTexture");
-		glBitmap = GL.getFunctionAddress(provider, "glBitmap", fc);
-		glBlendFunc = provider.getFunctionAddress("glBlendFunc");
-		glCallList = GL.getFunctionAddress(provider, "glCallList", fc);
-		glCallLists = GL.getFunctionAddress(provider, "glCallLists", fc);
-		glClear = provider.getFunctionAddress("glClear");
-		glClearAccum = GL.getFunctionAddress(provider, "glClearAccum", fc);
-		glClearColor = provider.getFunctionAddress("glClearColor");
-		glClearDepth = provider.getFunctionAddress("glClearDepth");
-		glClearStencil = provider.getFunctionAddress("glClearStencil");
-		glClipPlane = provider.getFunctionAddress("glClipPlane");
-		glColor3b = GL.getFunctionAddress(provider, "glColor3b", fc);
-		glColor3s = GL.getFunctionAddress(provider, "glColor3s", fc);
-		glColor3i = GL.getFunctionAddress(provider, "glColor3i", fc);
-		glColor3f = GL.getFunctionAddress(provider, "glColor3f", fc);
-		glColor3d = GL.getFunctionAddress(provider, "glColor3d", fc);
-		glColor3ub = GL.getFunctionAddress(provider, "glColor3ub", fc);
-		glColor3us = GL.getFunctionAddress(provider, "glColor3us", fc);
-		glColor3ui = GL.getFunctionAddress(provider, "glColor3ui", fc);
-		glColor3bv = GL.getFunctionAddress(provider, "glColor3bv", fc);
-		glColor3sv = GL.getFunctionAddress(provider, "glColor3sv", fc);
-		glColor3iv = GL.getFunctionAddress(provider, "glColor3iv", fc);
-		glColor3fv = GL.getFunctionAddress(provider, "glColor3fv", fc);
-		glColor3dv = GL.getFunctionAddress(provider, "glColor3dv", fc);
-		glColor3ubv = GL.getFunctionAddress(provider, "glColor3ubv", fc);
-		glColor3usv = GL.getFunctionAddress(provider, "glColor3usv", fc);
-		glColor3uiv = GL.getFunctionAddress(provider, "glColor3uiv", fc);
-		glColor4b = GL.getFunctionAddress(provider, "glColor4b", fc);
-		glColor4s = GL.getFunctionAddress(provider, "glColor4s", fc);
-		glColor4i = GL.getFunctionAddress(provider, "glColor4i", fc);
-		glColor4f = GL.getFunctionAddress(provider, "glColor4f", fc);
-		glColor4d = GL.getFunctionAddress(provider, "glColor4d", fc);
-		glColor4ub = GL.getFunctionAddress(provider, "glColor4ub", fc);
-		glColor4us = GL.getFunctionAddress(provider, "glColor4us", fc);
-		glColor4ui = GL.getFunctionAddress(provider, "glColor4ui", fc);
-		glColor4bv = GL.getFunctionAddress(provider, "glColor4bv", fc);
-		glColor4sv = GL.getFunctionAddress(provider, "glColor4sv", fc);
-		glColor4iv = GL.getFunctionAddress(provider, "glColor4iv", fc);
-		glColor4fv = GL.getFunctionAddress(provider, "glColor4fv", fc);
-		glColor4dv = GL.getFunctionAddress(provider, "glColor4dv", fc);
-		glColor4ubv = GL.getFunctionAddress(provider, "glColor4ubv", fc);
-		glColor4usv = GL.getFunctionAddress(provider, "glColor4usv", fc);
-		glColor4uiv = GL.getFunctionAddress(provider, "glColor4uiv", fc);
-		glColorMask = provider.getFunctionAddress("glColorMask");
-		glColorMaterial = GL.getFunctionAddress(provider, "glColorMaterial", fc);
-		glColorPointer = GL.getFunctionAddress(provider, "glColorPointer", fc);
-		glCopyPixels = provider.getFunctionAddress("glCopyPixels");
-		glCullFace = provider.getFunctionAddress("glCullFace");
-		glDeleteLists = GL.getFunctionAddress(provider, "glDeleteLists", fc);
-		glDepthFunc = provider.getFunctionAddress("glDepthFunc");
-		glDepthMask = provider.getFunctionAddress("glDepthMask");
-		glDepthRange = provider.getFunctionAddress("glDepthRange");
-		glDisableClientState = GL.getFunctionAddress(provider, "glDisableClientState", fc);
-		glDrawArrays = provider.getFunctionAddress("glDrawArrays");
-		glDrawBuffer = provider.getFunctionAddress("glDrawBuffer");
-		glDrawElements = provider.getFunctionAddress("glDrawElements");
-		glDrawPixels = GL.getFunctionAddress(provider, "glDrawPixels", fc);
-		glEdgeFlag = GL.getFunctionAddress(provider, "glEdgeFlag", fc);
-		glEdgeFlagv = GL.getFunctionAddress(provider, "glEdgeFlagv", fc);
-		glEdgeFlagPointer = GL.getFunctionAddress(provider, "glEdgeFlagPointer", fc);
-		glEnableClientState = GL.getFunctionAddress(provider, "glEnableClientState", fc);
-		glEnd = GL.getFunctionAddress(provider, "glEnd", fc);
-		glEvalCoord1f = GL.getFunctionAddress(provider, "glEvalCoord1f", fc);
-		glEvalCoord1fv = GL.getFunctionAddress(provider, "glEvalCoord1fv", fc);
-		glEvalCoord1d = GL.getFunctionAddress(provider, "glEvalCoord1d", fc);
-		glEvalCoord1dv = GL.getFunctionAddress(provider, "glEvalCoord1dv", fc);
-		glEvalCoord2f = GL.getFunctionAddress(provider, "glEvalCoord2f", fc);
-		glEvalCoord2fv = GL.getFunctionAddress(provider, "glEvalCoord2fv", fc);
-		glEvalCoord2d = GL.getFunctionAddress(provider, "glEvalCoord2d", fc);
-		glEvalCoord2dv = GL.getFunctionAddress(provider, "glEvalCoord2dv", fc);
-		glEvalMesh1 = GL.getFunctionAddress(provider, "glEvalMesh1", fc);
-		glEvalMesh2 = GL.getFunctionAddress(provider, "glEvalMesh2", fc);
-		glEvalPoint1 = GL.getFunctionAddress(provider, "glEvalPoint1", fc);
-		glEvalPoint2 = GL.getFunctionAddress(provider, "glEvalPoint2", fc);
-		glFeedbackBuffer = GL.getFunctionAddress(provider, "glFeedbackBuffer", fc);
-		glFinish = provider.getFunctionAddress("glFinish");
-		glFlush = provider.getFunctionAddress("glFlush");
-		glFogi = GL.getFunctionAddress(provider, "glFogi", fc);
-		glFogiv = GL.getFunctionAddress(provider, "glFogiv", fc);
-		glFogf = GL.getFunctionAddress(provider, "glFogf", fc);
-		glFogfv = GL.getFunctionAddress(provider, "glFogfv", fc);
-		glFrontFace = provider.getFunctionAddress("glFrontFace");
-		glGenLists = GL.getFunctionAddress(provider, "glGenLists", fc);
-		glGenTextures = provider.getFunctionAddress("glGenTextures");
-		glDeleteTextures = provider.getFunctionAddress("glDeleteTextures");
-		glGetClipPlane = provider.getFunctionAddress("glGetClipPlane");
-		glGetBooleanv = provider.getFunctionAddress("glGetBooleanv");
-		glGetFloatv = provider.getFunctionAddress("glGetFloatv");
-		glGetIntegerv = provider.getFunctionAddress("glGetIntegerv");
-		glGetDoublev = provider.getFunctionAddress("glGetDoublev");
-		glGetError = provider.getFunctionAddress("glGetError");
-		glGetLightiv = GL.getFunctionAddress(provider, "glGetLightiv", fc);
-		glGetLightfv = GL.getFunctionAddress(provider, "glGetLightfv", fc);
-		glGetMapiv = GL.getFunctionAddress(provider, "glGetMapiv", fc);
-		glGetMapfv = GL.getFunctionAddress(provider, "glGetMapfv", fc);
-		glGetMapdv = GL.getFunctionAddress(provider, "glGetMapdv", fc);
-		glGetMaterialiv = GL.getFunctionAddress(provider, "glGetMaterialiv", fc);
-		glGetMaterialfv = GL.getFunctionAddress(provider, "glGetMaterialfv", fc);
-		glGetPixelMapfv = GL.getFunctionAddress(provider, "glGetPixelMapfv", fc);
-		glGetPixelMapusv = GL.getFunctionAddress(provider, "glGetPixelMapusv", fc);
-		glGetPixelMapuiv = GL.getFunctionAddress(provider, "glGetPixelMapuiv", fc);
-		glGetPointerv = provider.getFunctionAddress("glGetPointerv");
-		glGetPolygonStipple = GL.getFunctionAddress(provider, "glGetPolygonStipple", fc);
-		glGetString = provider.getFunctionAddress("glGetString");
-		glGetTexEnviv = provider.getFunctionAddress("glGetTexEnviv");
-		glGetTexEnvfv = provider.getFunctionAddress("glGetTexEnvfv");
-		glGetTexGeniv = GL.getFunctionAddress(provider, "glGetTexGeniv", fc);
-		glGetTexGenfv = GL.getFunctionAddress(provider, "glGetTexGenfv", fc);
-		glGetTexGendv = GL.getFunctionAddress(provider, "glGetTexGendv", fc);
-		glGetTexImage = provider.getFunctionAddress("glGetTexImage");
-		glGetTexLevelParameteriv = provider.getFunctionAddress("glGetTexLevelParameteriv");
-		glGetTexLevelParameterfv = provider.getFunctionAddress("glGetTexLevelParameterfv");
-		glGetTexParameteriv = provider.getFunctionAddress("glGetTexParameteriv");
-		glGetTexParameterfv = provider.getFunctionAddress("glGetTexParameterfv");
-		glHint = provider.getFunctionAddress("glHint");
-		glInitNames = GL.getFunctionAddress(provider, "glInitNames", fc);
-		glInterleavedArrays = provider.getFunctionAddress("glInterleavedArrays");
-		glIsEnabled = provider.getFunctionAddress("glIsEnabled");
-		glIsList = GL.getFunctionAddress(provider, "glIsList", fc);
-		glIsTexture = provider.getFunctionAddress("glIsTexture");
-		glLightModeli = GL.getFunctionAddress(provider, "glLightModeli", fc);
-		glLightModelf = GL.getFunctionAddress(provider, "glLightModelf", fc);
-		glLightModeliv = GL.getFunctionAddress(provider, "glLightModeliv", fc);
-		glLightModelfv = GL.getFunctionAddress(provider, "glLightModelfv", fc);
-		glLighti = GL.getFunctionAddress(provider, "glLighti", fc);
-		glLightf = GL.getFunctionAddress(provider, "glLightf", fc);
-		glLightiv = GL.getFunctionAddress(provider, "glLightiv", fc);
-		glLightfv = GL.getFunctionAddress(provider, "glLightfv", fc);
-		glLineStipple = GL.getFunctionAddress(provider, "glLineStipple", fc);
-		glLineWidth = provider.getFunctionAddress("glLineWidth");
-		glListBase = GL.getFunctionAddress(provider, "glListBase", fc);
-		glLoadMatrixf = GL.getFunctionAddress(provider, "glLoadMatrixf", fc);
-		glLoadMatrixd = GL.getFunctionAddress(provider, "glLoadMatrixd", fc);
-		glLoadIdentity = GL.getFunctionAddress(provider, "glLoadIdentity", fc);
-		glLoadName = GL.getFunctionAddress(provider, "glLoadName", fc);
-		glLogicOp = provider.getFunctionAddress("glLogicOp");
-		glMap1f = GL.getFunctionAddress(provider, "glMap1f", fc);
-		glMap1d = GL.getFunctionAddress(provider, "glMap1d", fc);
-		glMap2f = GL.getFunctionAddress(provider, "glMap2f", fc);
-		glMap2d = GL.getFunctionAddress(provider, "glMap2d", fc);
-		glMapGrid1f = GL.getFunctionAddress(provider, "glMapGrid1f", fc);
-		glMapGrid1d = GL.getFunctionAddress(provider, "glMapGrid1d", fc);
-		glMapGrid2f = GL.getFunctionAddress(provider, "glMapGrid2f", fc);
-		glMapGrid2d = GL.getFunctionAddress(provider, "glMapGrid2d", fc);
-		glMateriali = GL.getFunctionAddress(provider, "glMateriali", fc);
-		glMaterialf = GL.getFunctionAddress(provider, "glMaterialf", fc);
-		glMaterialiv = GL.getFunctionAddress(provider, "glMaterialiv", fc);
-		glMaterialfv = GL.getFunctionAddress(provider, "glMaterialfv", fc);
-		glMatrixMode = GL.getFunctionAddress(provider, "glMatrixMode", fc);
-		glMultMatrixf = GL.getFunctionAddress(provider, "glMultMatrixf", fc);
-		glMultMatrixd = GL.getFunctionAddress(provider, "glMultMatrixd", fc);
-		glFrustum = GL.getFunctionAddress(provider, "glFrustum", fc);
-		glNewList = GL.getFunctionAddress(provider, "glNewList", fc);
-		glEndList = GL.getFunctionAddress(provider, "glEndList", fc);
-		glNormal3f = GL.getFunctionAddress(provider, "glNormal3f", fc);
-		glNormal3b = GL.getFunctionAddress(provider, "glNormal3b", fc);
-		glNormal3s = GL.getFunctionAddress(provider, "glNormal3s", fc);
-		glNormal3i = GL.getFunctionAddress(provider, "glNormal3i", fc);
-		glNormal3d = GL.getFunctionAddress(provider, "glNormal3d", fc);
-		glNormal3fv = GL.getFunctionAddress(provider, "glNormal3fv", fc);
-		glNormal3bv = GL.getFunctionAddress(provider, "glNormal3bv", fc);
-		glNormal3sv = GL.getFunctionAddress(provider, "glNormal3sv", fc);
-		glNormal3iv = GL.getFunctionAddress(provider, "glNormal3iv", fc);
-		glNormal3dv = GL.getFunctionAddress(provider, "glNormal3dv", fc);
-		glNormalPointer = GL.getFunctionAddress(provider, "glNormalPointer", fc);
-		glOrtho = GL.getFunctionAddress(provider, "glOrtho", fc);
-		glPassThrough = GL.getFunctionAddress(provider, "glPassThrough", fc);
-		glPixelMapfv = GL.getFunctionAddress(provider, "glPixelMapfv", fc);
-		glPixelMapusv = GL.getFunctionAddress(provider, "glPixelMapusv", fc);
-		glPixelMapuiv = GL.getFunctionAddress(provider, "glPixelMapuiv", fc);
-		glPixelStorei = provider.getFunctionAddress("glPixelStorei");
-		glPixelStoref = provider.getFunctionAddress("glPixelStoref");
-		glPixelTransferi = GL.getFunctionAddress(provider, "glPixelTransferi", fc);
-		glPixelTransferf = GL.getFunctionAddress(provider, "glPixelTransferf", fc);
-		glPixelZoom = GL.getFunctionAddress(provider, "glPixelZoom", fc);
-		glPointSize = provider.getFunctionAddress("glPointSize");
-		glPolygonMode = provider.getFunctionAddress("glPolygonMode");
-		glPolygonOffset = provider.getFunctionAddress("glPolygonOffset");
-		glPolygonStipple = GL.getFunctionAddress(provider, "glPolygonStipple", fc);
-		glPushAttrib = GL.getFunctionAddress(provider, "glPushAttrib", fc);
-		glPushClientAttrib = GL.getFunctionAddress(provider, "glPushClientAttrib", fc);
-		glPopAttrib = GL.getFunctionAddress(provider, "glPopAttrib", fc);
-		glPopClientAttrib = GL.getFunctionAddress(provider, "glPopClientAttrib", fc);
-		glPopMatrix = GL.getFunctionAddress(provider, "glPopMatrix", fc);
-		glPopName = GL.getFunctionAddress(provider, "glPopName", fc);
-		glPrioritizeTextures = GL.getFunctionAddress(provider, "glPrioritizeTextures", fc);
-		glPushMatrix = GL.getFunctionAddress(provider, "glPushMatrix", fc);
-		glPushName = GL.getFunctionAddress(provider, "glPushName", fc);
-		glRasterPos2i = GL.getFunctionAddress(provider, "glRasterPos2i", fc);
-		glRasterPos2s = GL.getFunctionAddress(provider, "glRasterPos2s", fc);
-		glRasterPos2f = GL.getFunctionAddress(provider, "glRasterPos2f", fc);
-		glRasterPos2d = GL.getFunctionAddress(provider, "glRasterPos2d", fc);
-		glRasterPos2iv = GL.getFunctionAddress(provider, "glRasterPos2iv", fc);
-		glRasterPos2sv = GL.getFunctionAddress(provider, "glRasterPos2sv", fc);
-		glRasterPos2fv = GL.getFunctionAddress(provider, "glRasterPos2fv", fc);
-		glRasterPos2dv = GL.getFunctionAddress(provider, "glRasterPos2dv", fc);
-		glRasterPos3i = GL.getFunctionAddress(provider, "glRasterPos3i", fc);
-		glRasterPos3s = GL.getFunctionAddress(provider, "glRasterPos3s", fc);
-		glRasterPos3f = GL.getFunctionAddress(provider, "glRasterPos3f", fc);
-		glRasterPos3d = GL.getFunctionAddress(provider, "glRasterPos3d", fc);
-		glRasterPos3iv = GL.getFunctionAddress(provider, "glRasterPos3iv", fc);
-		glRasterPos3sv = GL.getFunctionAddress(provider, "glRasterPos3sv", fc);
-		glRasterPos3fv = GL.getFunctionAddress(provider, "glRasterPos3fv", fc);
-		glRasterPos3dv = GL.getFunctionAddress(provider, "glRasterPos3dv", fc);
-		glRasterPos4i = GL.getFunctionAddress(provider, "glRasterPos4i", fc);
-		glRasterPos4s = GL.getFunctionAddress(provider, "glRasterPos4s", fc);
-		glRasterPos4f = GL.getFunctionAddress(provider, "glRasterPos4f", fc);
-		glRasterPos4d = GL.getFunctionAddress(provider, "glRasterPos4d", fc);
-		glRasterPos4iv = GL.getFunctionAddress(provider, "glRasterPos4iv", fc);
-		glRasterPos4sv = GL.getFunctionAddress(provider, "glRasterPos4sv", fc);
-		glRasterPos4fv = GL.getFunctionAddress(provider, "glRasterPos4fv", fc);
-		glRasterPos4dv = GL.getFunctionAddress(provider, "glRasterPos4dv", fc);
-		glReadBuffer = provider.getFunctionAddress("glReadBuffer");
-		glReadPixels = provider.getFunctionAddress("glReadPixels");
-		glRecti = GL.getFunctionAddress(provider, "glRecti", fc);
-		glRects = GL.getFunctionAddress(provider, "glRects", fc);
-		glRectf = GL.getFunctionAddress(provider, "glRectf", fc);
-		glRectd = GL.getFunctionAddress(provider, "glRectd", fc);
-		glRectiv = GL.getFunctionAddress(provider, "glRectiv", fc);
-		glRectsv = GL.getFunctionAddress(provider, "glRectsv", fc);
-		glRectfv = GL.getFunctionAddress(provider, "glRectfv", fc);
-		glRectdv = GL.getFunctionAddress(provider, "glRectdv", fc);
-		glRenderMode = GL.getFunctionAddress(provider, "glRenderMode", fc);
-		glRotatef = GL.getFunctionAddress(provider, "glRotatef", fc);
-		glRotated = GL.getFunctionAddress(provider, "glRotated", fc);
-		glScalef = GL.getFunctionAddress(provider, "glScalef", fc);
-		glScaled = GL.getFunctionAddress(provider, "glScaled", fc);
-		glScissor = provider.getFunctionAddress("glScissor");
-		glSelectBuffer = GL.getFunctionAddress(provider, "glSelectBuffer", fc);
-		glShadeModel = GL.getFunctionAddress(provider, "glShadeModel", fc);
-		glStencilFunc = provider.getFunctionAddress("glStencilFunc");
-		glStencilMask = provider.getFunctionAddress("glStencilMask");
-		glStencilOp = provider.getFunctionAddress("glStencilOp");
-		glTexCoord1f = GL.getFunctionAddress(provider, "glTexCoord1f", fc);
-		glTexCoord1s = GL.getFunctionAddress(provider, "glTexCoord1s", fc);
-		glTexCoord1i = GL.getFunctionAddress(provider, "glTexCoord1i", fc);
-		glTexCoord1d = GL.getFunctionAddress(provider, "glTexCoord1d", fc);
-		glTexCoord1fv = GL.getFunctionAddress(provider, "glTexCoord1fv", fc);
-		glTexCoord1sv = GL.getFunctionAddress(provider, "glTexCoord1sv", fc);
-		glTexCoord1iv = GL.getFunctionAddress(provider, "glTexCoord1iv", fc);
-		glTexCoord1dv = GL.getFunctionAddress(provider, "glTexCoord1dv", fc);
-		glTexCoord2f = GL.getFunctionAddress(provider, "glTexCoord2f", fc);
-		glTexCoord2s = GL.getFunctionAddress(provider, "glTexCoord2s", fc);
-		glTexCoord2i = GL.getFunctionAddress(provider, "glTexCoord2i", fc);
-		glTexCoord2d = GL.getFunctionAddress(provider, "glTexCoord2d", fc);
-		glTexCoord2fv = GL.getFunctionAddress(provider, "glTexCoord2fv", fc);
-		glTexCoord2sv = GL.getFunctionAddress(provider, "glTexCoord2sv", fc);
-		glTexCoord2iv = GL.getFunctionAddress(provider, "glTexCoord2iv", fc);
-		glTexCoord2dv = GL.getFunctionAddress(provider, "glTexCoord2dv", fc);
-		glTexCoord3f = GL.getFunctionAddress(provider, "glTexCoord3f", fc);
-		glTexCoord3s = GL.getFunctionAddress(provider, "glTexCoord3s", fc);
-		glTexCoord3i = GL.getFunctionAddress(provider, "glTexCoord3i", fc);
-		glTexCoord3d = GL.getFunctionAddress(provider, "glTexCoord3d", fc);
-		glTexCoord3fv = GL.getFunctionAddress(provider, "glTexCoord3fv", fc);
-		glTexCoord3sv = GL.getFunctionAddress(provider, "glTexCoord3sv", fc);
-		glTexCoord3iv = GL.getFunctionAddress(provider, "glTexCoord3iv", fc);
-		glTexCoord3dv = GL.getFunctionAddress(provider, "glTexCoord3dv", fc);
-		glTexCoord4f = GL.getFunctionAddress(provider, "glTexCoord4f", fc);
-		glTexCoord4s = GL.getFunctionAddress(provider, "glTexCoord4s", fc);
-		glTexCoord4i = GL.getFunctionAddress(provider, "glTexCoord4i", fc);
-		glTexCoord4d = GL.getFunctionAddress(provider, "glTexCoord4d", fc);
-		glTexCoord4fv = GL.getFunctionAddress(provider, "glTexCoord4fv", fc);
-		glTexCoord4sv = GL.getFunctionAddress(provider, "glTexCoord4sv", fc);
-		glTexCoord4iv = GL.getFunctionAddress(provider, "glTexCoord4iv", fc);
-		glTexCoord4dv = GL.getFunctionAddress(provider, "glTexCoord4dv", fc);
-		glTexCoordPointer = GL.getFunctionAddress(provider, "glTexCoordPointer", fc);
-		glTexEnvi = provider.getFunctionAddress("glTexEnvi");
-		glTexEnviv = provider.getFunctionAddress("glTexEnviv");
-		glTexEnvf = provider.getFunctionAddress("glTexEnvf");
-		glTexEnvfv = provider.getFunctionAddress("glTexEnvfv");
-		glTexGeni = GL.getFunctionAddress(provider, "glTexGeni", fc);
-		glTexGeniv = GL.getFunctionAddress(provider, "glTexGeniv", fc);
-		glTexGenf = GL.getFunctionAddress(provider, "glTexGenf", fc);
-		glTexGenfv = GL.getFunctionAddress(provider, "glTexGenfv", fc);
-		glTexGend = GL.getFunctionAddress(provider, "glTexGend", fc);
-		glTexGendv = GL.getFunctionAddress(provider, "glTexGendv", fc);
-		glTexImage2D = provider.getFunctionAddress("glTexImage2D");
-		glTexImage1D = provider.getFunctionAddress("glTexImage1D");
-		glCopyTexImage2D = provider.getFunctionAddress("glCopyTexImage2D");
-		glCopyTexImage1D = provider.getFunctionAddress("glCopyTexImage1D");
-		glCopyTexSubImage1D = provider.getFunctionAddress("glCopyTexSubImage1D");
-		glCopyTexSubImage2D = provider.getFunctionAddress("glCopyTexSubImage2D");
-		glTexParameteri = provider.getFunctionAddress("glTexParameteri");
-		glTexParameteriv = provider.getFunctionAddress("glTexParameteriv");
-		glTexParameterf = provider.getFunctionAddress("glTexParameterf");
-		glTexParameterfv = provider.getFunctionAddress("glTexParameterfv");
-		glTexSubImage1D = provider.getFunctionAddress("glTexSubImage1D");
-		glTexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
-		glTranslatef = GL.getFunctionAddress(provider, "glTranslatef", fc);
-		glTranslated = GL.getFunctionAddress(provider, "glTranslated", fc);
-		glVertex2f = GL.getFunctionAddress(provider, "glVertex2f", fc);
-		glVertex2s = GL.getFunctionAddress(provider, "glVertex2s", fc);
-		glVertex2i = GL.getFunctionAddress(provider, "glVertex2i", fc);
-		glVertex2d = GL.getFunctionAddress(provider, "glVertex2d", fc);
-		glVertex2fv = GL.getFunctionAddress(provider, "glVertex2fv", fc);
-		glVertex2sv = GL.getFunctionAddress(provider, "glVertex2sv", fc);
-		glVertex2iv = GL.getFunctionAddress(provider, "glVertex2iv", fc);
-		glVertex2dv = GL.getFunctionAddress(provider, "glVertex2dv", fc);
-		glVertex3f = GL.getFunctionAddress(provider, "glVertex3f", fc);
-		glVertex3s = GL.getFunctionAddress(provider, "glVertex3s", fc);
-		glVertex3i = GL.getFunctionAddress(provider, "glVertex3i", fc);
-		glVertex3d = GL.getFunctionAddress(provider, "glVertex3d", fc);
-		glVertex3fv = GL.getFunctionAddress(provider, "glVertex3fv", fc);
-		glVertex3sv = GL.getFunctionAddress(provider, "glVertex3sv", fc);
-		glVertex3iv = GL.getFunctionAddress(provider, "glVertex3iv", fc);
-		glVertex3dv = GL.getFunctionAddress(provider, "glVertex3dv", fc);
-		glVertex4f = GL.getFunctionAddress(provider, "glVertex4f", fc);
-		glVertex4s = GL.getFunctionAddress(provider, "glVertex4s", fc);
-		glVertex4i = GL.getFunctionAddress(provider, "glVertex4i", fc);
-		glVertex4d = GL.getFunctionAddress(provider, "glVertex4d", fc);
-		glVertex4fv = GL.getFunctionAddress(provider, "glVertex4fv", fc);
-		glVertex4sv = GL.getFunctionAddress(provider, "glVertex4sv", fc);
-		glVertex4iv = GL.getFunctionAddress(provider, "glVertex4iv", fc);
-		glVertex4dv = GL.getFunctionAddress(provider, "glVertex4dv", fc);
-		glVertexPointer = GL.getFunctionAddress(provider, "glVertexPointer", fc);
-		glViewport = provider.getFunctionAddress("glViewport");
+		Enable = provider.getFunctionAddress("glEnable");
+		Disable = provider.getFunctionAddress("glDisable");
+		Accum = GL.getFunctionAddress(provider, "glAccum", fc);
+		AlphaFunc = GL.getFunctionAddress(provider, "glAlphaFunc", fc);
+		AreTexturesResident = GL.getFunctionAddress(provider, "glAreTexturesResident", fc);
+		ArrayElement = provider.getFunctionAddress("glArrayElement");
+		Begin = GL.getFunctionAddress(provider, "glBegin", fc);
+		BindTexture = provider.getFunctionAddress("glBindTexture");
+		Bitmap = GL.getFunctionAddress(provider, "glBitmap", fc);
+		BlendFunc = provider.getFunctionAddress("glBlendFunc");
+		CallList = GL.getFunctionAddress(provider, "glCallList", fc);
+		CallLists = GL.getFunctionAddress(provider, "glCallLists", fc);
+		Clear = provider.getFunctionAddress("glClear");
+		ClearAccum = GL.getFunctionAddress(provider, "glClearAccum", fc);
+		ClearColor = provider.getFunctionAddress("glClearColor");
+		ClearDepth = provider.getFunctionAddress("glClearDepth");
+		ClearStencil = provider.getFunctionAddress("glClearStencil");
+		ClipPlane = provider.getFunctionAddress("glClipPlane");
+		Color3b = GL.getFunctionAddress(provider, "glColor3b", fc);
+		Color3s = GL.getFunctionAddress(provider, "glColor3s", fc);
+		Color3i = GL.getFunctionAddress(provider, "glColor3i", fc);
+		Color3f = GL.getFunctionAddress(provider, "glColor3f", fc);
+		Color3d = GL.getFunctionAddress(provider, "glColor3d", fc);
+		Color3ub = GL.getFunctionAddress(provider, "glColor3ub", fc);
+		Color3us = GL.getFunctionAddress(provider, "glColor3us", fc);
+		Color3ui = GL.getFunctionAddress(provider, "glColor3ui", fc);
+		Color3bv = GL.getFunctionAddress(provider, "glColor3bv", fc);
+		Color3sv = GL.getFunctionAddress(provider, "glColor3sv", fc);
+		Color3iv = GL.getFunctionAddress(provider, "glColor3iv", fc);
+		Color3fv = GL.getFunctionAddress(provider, "glColor3fv", fc);
+		Color3dv = GL.getFunctionAddress(provider, "glColor3dv", fc);
+		Color3ubv = GL.getFunctionAddress(provider, "glColor3ubv", fc);
+		Color3usv = GL.getFunctionAddress(provider, "glColor3usv", fc);
+		Color3uiv = GL.getFunctionAddress(provider, "glColor3uiv", fc);
+		Color4b = GL.getFunctionAddress(provider, "glColor4b", fc);
+		Color4s = GL.getFunctionAddress(provider, "glColor4s", fc);
+		Color4i = GL.getFunctionAddress(provider, "glColor4i", fc);
+		Color4f = GL.getFunctionAddress(provider, "glColor4f", fc);
+		Color4d = GL.getFunctionAddress(provider, "glColor4d", fc);
+		Color4ub = GL.getFunctionAddress(provider, "glColor4ub", fc);
+		Color4us = GL.getFunctionAddress(provider, "glColor4us", fc);
+		Color4ui = GL.getFunctionAddress(provider, "glColor4ui", fc);
+		Color4bv = GL.getFunctionAddress(provider, "glColor4bv", fc);
+		Color4sv = GL.getFunctionAddress(provider, "glColor4sv", fc);
+		Color4iv = GL.getFunctionAddress(provider, "glColor4iv", fc);
+		Color4fv = GL.getFunctionAddress(provider, "glColor4fv", fc);
+		Color4dv = GL.getFunctionAddress(provider, "glColor4dv", fc);
+		Color4ubv = GL.getFunctionAddress(provider, "glColor4ubv", fc);
+		Color4usv = GL.getFunctionAddress(provider, "glColor4usv", fc);
+		Color4uiv = GL.getFunctionAddress(provider, "glColor4uiv", fc);
+		ColorMask = provider.getFunctionAddress("glColorMask");
+		ColorMaterial = GL.getFunctionAddress(provider, "glColorMaterial", fc);
+		ColorPointer = GL.getFunctionAddress(provider, "glColorPointer", fc);
+		CopyPixels = provider.getFunctionAddress("glCopyPixels");
+		CullFace = provider.getFunctionAddress("glCullFace");
+		DeleteLists = GL.getFunctionAddress(provider, "glDeleteLists", fc);
+		DepthFunc = provider.getFunctionAddress("glDepthFunc");
+		DepthMask = provider.getFunctionAddress("glDepthMask");
+		DepthRange = provider.getFunctionAddress("glDepthRange");
+		DisableClientState = GL.getFunctionAddress(provider, "glDisableClientState", fc);
+		DrawArrays = provider.getFunctionAddress("glDrawArrays");
+		DrawBuffer = provider.getFunctionAddress("glDrawBuffer");
+		DrawElements = provider.getFunctionAddress("glDrawElements");
+		DrawPixels = GL.getFunctionAddress(provider, "glDrawPixels", fc);
+		EdgeFlag = GL.getFunctionAddress(provider, "glEdgeFlag", fc);
+		EdgeFlagv = GL.getFunctionAddress(provider, "glEdgeFlagv", fc);
+		EdgeFlagPointer = GL.getFunctionAddress(provider, "glEdgeFlagPointer", fc);
+		EnableClientState = GL.getFunctionAddress(provider, "glEnableClientState", fc);
+		End = GL.getFunctionAddress(provider, "glEnd", fc);
+		EvalCoord1f = GL.getFunctionAddress(provider, "glEvalCoord1f", fc);
+		EvalCoord1fv = GL.getFunctionAddress(provider, "glEvalCoord1fv", fc);
+		EvalCoord1d = GL.getFunctionAddress(provider, "glEvalCoord1d", fc);
+		EvalCoord1dv = GL.getFunctionAddress(provider, "glEvalCoord1dv", fc);
+		EvalCoord2f = GL.getFunctionAddress(provider, "glEvalCoord2f", fc);
+		EvalCoord2fv = GL.getFunctionAddress(provider, "glEvalCoord2fv", fc);
+		EvalCoord2d = GL.getFunctionAddress(provider, "glEvalCoord2d", fc);
+		EvalCoord2dv = GL.getFunctionAddress(provider, "glEvalCoord2dv", fc);
+		EvalMesh1 = GL.getFunctionAddress(provider, "glEvalMesh1", fc);
+		EvalMesh2 = GL.getFunctionAddress(provider, "glEvalMesh2", fc);
+		EvalPoint1 = GL.getFunctionAddress(provider, "glEvalPoint1", fc);
+		EvalPoint2 = GL.getFunctionAddress(provider, "glEvalPoint2", fc);
+		FeedbackBuffer = GL.getFunctionAddress(provider, "glFeedbackBuffer", fc);
+		Finish = provider.getFunctionAddress("glFinish");
+		Flush = provider.getFunctionAddress("glFlush");
+		Fogi = GL.getFunctionAddress(provider, "glFogi", fc);
+		Fogiv = GL.getFunctionAddress(provider, "glFogiv", fc);
+		Fogf = GL.getFunctionAddress(provider, "glFogf", fc);
+		Fogfv = GL.getFunctionAddress(provider, "glFogfv", fc);
+		FrontFace = provider.getFunctionAddress("glFrontFace");
+		GenLists = GL.getFunctionAddress(provider, "glGenLists", fc);
+		GenTextures = provider.getFunctionAddress("glGenTextures");
+		DeleteTextures = provider.getFunctionAddress("glDeleteTextures");
+		GetClipPlane = provider.getFunctionAddress("glGetClipPlane");
+		GetBooleanv = provider.getFunctionAddress("glGetBooleanv");
+		GetFloatv = provider.getFunctionAddress("glGetFloatv");
+		GetIntegerv = provider.getFunctionAddress("glGetIntegerv");
+		GetDoublev = provider.getFunctionAddress("glGetDoublev");
+		GetError = provider.getFunctionAddress("glGetError");
+		GetLightiv = GL.getFunctionAddress(provider, "glGetLightiv", fc);
+		GetLightfv = GL.getFunctionAddress(provider, "glGetLightfv", fc);
+		GetMapiv = GL.getFunctionAddress(provider, "glGetMapiv", fc);
+		GetMapfv = GL.getFunctionAddress(provider, "glGetMapfv", fc);
+		GetMapdv = GL.getFunctionAddress(provider, "glGetMapdv", fc);
+		GetMaterialiv = GL.getFunctionAddress(provider, "glGetMaterialiv", fc);
+		GetMaterialfv = GL.getFunctionAddress(provider, "glGetMaterialfv", fc);
+		GetPixelMapfv = GL.getFunctionAddress(provider, "glGetPixelMapfv", fc);
+		GetPixelMapusv = GL.getFunctionAddress(provider, "glGetPixelMapusv", fc);
+		GetPixelMapuiv = GL.getFunctionAddress(provider, "glGetPixelMapuiv", fc);
+		GetPointerv = provider.getFunctionAddress("glGetPointerv");
+		GetPolygonStipple = GL.getFunctionAddress(provider, "glGetPolygonStipple", fc);
+		GetString = provider.getFunctionAddress("glGetString");
+		GetTexEnviv = provider.getFunctionAddress("glGetTexEnviv");
+		GetTexEnvfv = provider.getFunctionAddress("glGetTexEnvfv");
+		GetTexGeniv = GL.getFunctionAddress(provider, "glGetTexGeniv", fc);
+		GetTexGenfv = GL.getFunctionAddress(provider, "glGetTexGenfv", fc);
+		GetTexGendv = GL.getFunctionAddress(provider, "glGetTexGendv", fc);
+		GetTexImage = provider.getFunctionAddress("glGetTexImage");
+		GetTexLevelParameteriv = provider.getFunctionAddress("glGetTexLevelParameteriv");
+		GetTexLevelParameterfv = provider.getFunctionAddress("glGetTexLevelParameterfv");
+		GetTexParameteriv = provider.getFunctionAddress("glGetTexParameteriv");
+		GetTexParameterfv = provider.getFunctionAddress("glGetTexParameterfv");
+		Hint = provider.getFunctionAddress("glHint");
+		InitNames = GL.getFunctionAddress(provider, "glInitNames", fc);
+		InterleavedArrays = provider.getFunctionAddress("glInterleavedArrays");
+		IsEnabled = provider.getFunctionAddress("glIsEnabled");
+		IsList = GL.getFunctionAddress(provider, "glIsList", fc);
+		IsTexture = provider.getFunctionAddress("glIsTexture");
+		LightModeli = GL.getFunctionAddress(provider, "glLightModeli", fc);
+		LightModelf = GL.getFunctionAddress(provider, "glLightModelf", fc);
+		LightModeliv = GL.getFunctionAddress(provider, "glLightModeliv", fc);
+		LightModelfv = GL.getFunctionAddress(provider, "glLightModelfv", fc);
+		Lighti = GL.getFunctionAddress(provider, "glLighti", fc);
+		Lightf = GL.getFunctionAddress(provider, "glLightf", fc);
+		Lightiv = GL.getFunctionAddress(provider, "glLightiv", fc);
+		Lightfv = GL.getFunctionAddress(provider, "glLightfv", fc);
+		LineStipple = GL.getFunctionAddress(provider, "glLineStipple", fc);
+		LineWidth = provider.getFunctionAddress("glLineWidth");
+		ListBase = GL.getFunctionAddress(provider, "glListBase", fc);
+		LoadMatrixf = GL.getFunctionAddress(provider, "glLoadMatrixf", fc);
+		LoadMatrixd = GL.getFunctionAddress(provider, "glLoadMatrixd", fc);
+		LoadIdentity = GL.getFunctionAddress(provider, "glLoadIdentity", fc);
+		LoadName = GL.getFunctionAddress(provider, "glLoadName", fc);
+		LogicOp = provider.getFunctionAddress("glLogicOp");
+		Map1f = GL.getFunctionAddress(provider, "glMap1f", fc);
+		Map1d = GL.getFunctionAddress(provider, "glMap1d", fc);
+		Map2f = GL.getFunctionAddress(provider, "glMap2f", fc);
+		Map2d = GL.getFunctionAddress(provider, "glMap2d", fc);
+		MapGrid1f = GL.getFunctionAddress(provider, "glMapGrid1f", fc);
+		MapGrid1d = GL.getFunctionAddress(provider, "glMapGrid1d", fc);
+		MapGrid2f = GL.getFunctionAddress(provider, "glMapGrid2f", fc);
+		MapGrid2d = GL.getFunctionAddress(provider, "glMapGrid2d", fc);
+		Materiali = GL.getFunctionAddress(provider, "glMateriali", fc);
+		Materialf = GL.getFunctionAddress(provider, "glMaterialf", fc);
+		Materialiv = GL.getFunctionAddress(provider, "glMaterialiv", fc);
+		Materialfv = GL.getFunctionAddress(provider, "glMaterialfv", fc);
+		MatrixMode = GL.getFunctionAddress(provider, "glMatrixMode", fc);
+		MultMatrixf = GL.getFunctionAddress(provider, "glMultMatrixf", fc);
+		MultMatrixd = GL.getFunctionAddress(provider, "glMultMatrixd", fc);
+		Frustum = GL.getFunctionAddress(provider, "glFrustum", fc);
+		NewList = GL.getFunctionAddress(provider, "glNewList", fc);
+		EndList = GL.getFunctionAddress(provider, "glEndList", fc);
+		Normal3f = GL.getFunctionAddress(provider, "glNormal3f", fc);
+		Normal3b = GL.getFunctionAddress(provider, "glNormal3b", fc);
+		Normal3s = GL.getFunctionAddress(provider, "glNormal3s", fc);
+		Normal3i = GL.getFunctionAddress(provider, "glNormal3i", fc);
+		Normal3d = GL.getFunctionAddress(provider, "glNormal3d", fc);
+		Normal3fv = GL.getFunctionAddress(provider, "glNormal3fv", fc);
+		Normal3bv = GL.getFunctionAddress(provider, "glNormal3bv", fc);
+		Normal3sv = GL.getFunctionAddress(provider, "glNormal3sv", fc);
+		Normal3iv = GL.getFunctionAddress(provider, "glNormal3iv", fc);
+		Normal3dv = GL.getFunctionAddress(provider, "glNormal3dv", fc);
+		NormalPointer = GL.getFunctionAddress(provider, "glNormalPointer", fc);
+		Ortho = GL.getFunctionAddress(provider, "glOrtho", fc);
+		PassThrough = GL.getFunctionAddress(provider, "glPassThrough", fc);
+		PixelMapfv = GL.getFunctionAddress(provider, "glPixelMapfv", fc);
+		PixelMapusv = GL.getFunctionAddress(provider, "glPixelMapusv", fc);
+		PixelMapuiv = GL.getFunctionAddress(provider, "glPixelMapuiv", fc);
+		PixelStorei = provider.getFunctionAddress("glPixelStorei");
+		PixelStoref = provider.getFunctionAddress("glPixelStoref");
+		PixelTransferi = GL.getFunctionAddress(provider, "glPixelTransferi", fc);
+		PixelTransferf = GL.getFunctionAddress(provider, "glPixelTransferf", fc);
+		PixelZoom = GL.getFunctionAddress(provider, "glPixelZoom", fc);
+		PointSize = provider.getFunctionAddress("glPointSize");
+		PolygonMode = provider.getFunctionAddress("glPolygonMode");
+		PolygonOffset = provider.getFunctionAddress("glPolygonOffset");
+		PolygonStipple = GL.getFunctionAddress(provider, "glPolygonStipple", fc);
+		PushAttrib = GL.getFunctionAddress(provider, "glPushAttrib", fc);
+		PushClientAttrib = GL.getFunctionAddress(provider, "glPushClientAttrib", fc);
+		PopAttrib = GL.getFunctionAddress(provider, "glPopAttrib", fc);
+		PopClientAttrib = GL.getFunctionAddress(provider, "glPopClientAttrib", fc);
+		PopMatrix = GL.getFunctionAddress(provider, "glPopMatrix", fc);
+		PopName = GL.getFunctionAddress(provider, "glPopName", fc);
+		PrioritizeTextures = GL.getFunctionAddress(provider, "glPrioritizeTextures", fc);
+		PushMatrix = GL.getFunctionAddress(provider, "glPushMatrix", fc);
+		PushName = GL.getFunctionAddress(provider, "glPushName", fc);
+		RasterPos2i = GL.getFunctionAddress(provider, "glRasterPos2i", fc);
+		RasterPos2s = GL.getFunctionAddress(provider, "glRasterPos2s", fc);
+		RasterPos2f = GL.getFunctionAddress(provider, "glRasterPos2f", fc);
+		RasterPos2d = GL.getFunctionAddress(provider, "glRasterPos2d", fc);
+		RasterPos2iv = GL.getFunctionAddress(provider, "glRasterPos2iv", fc);
+		RasterPos2sv = GL.getFunctionAddress(provider, "glRasterPos2sv", fc);
+		RasterPos2fv = GL.getFunctionAddress(provider, "glRasterPos2fv", fc);
+		RasterPos2dv = GL.getFunctionAddress(provider, "glRasterPos2dv", fc);
+		RasterPos3i = GL.getFunctionAddress(provider, "glRasterPos3i", fc);
+		RasterPos3s = GL.getFunctionAddress(provider, "glRasterPos3s", fc);
+		RasterPos3f = GL.getFunctionAddress(provider, "glRasterPos3f", fc);
+		RasterPos3d = GL.getFunctionAddress(provider, "glRasterPos3d", fc);
+		RasterPos3iv = GL.getFunctionAddress(provider, "glRasterPos3iv", fc);
+		RasterPos3sv = GL.getFunctionAddress(provider, "glRasterPos3sv", fc);
+		RasterPos3fv = GL.getFunctionAddress(provider, "glRasterPos3fv", fc);
+		RasterPos3dv = GL.getFunctionAddress(provider, "glRasterPos3dv", fc);
+		RasterPos4i = GL.getFunctionAddress(provider, "glRasterPos4i", fc);
+		RasterPos4s = GL.getFunctionAddress(provider, "glRasterPos4s", fc);
+		RasterPos4f = GL.getFunctionAddress(provider, "glRasterPos4f", fc);
+		RasterPos4d = GL.getFunctionAddress(provider, "glRasterPos4d", fc);
+		RasterPos4iv = GL.getFunctionAddress(provider, "glRasterPos4iv", fc);
+		RasterPos4sv = GL.getFunctionAddress(provider, "glRasterPos4sv", fc);
+		RasterPos4fv = GL.getFunctionAddress(provider, "glRasterPos4fv", fc);
+		RasterPos4dv = GL.getFunctionAddress(provider, "glRasterPos4dv", fc);
+		ReadBuffer = provider.getFunctionAddress("glReadBuffer");
+		ReadPixels = provider.getFunctionAddress("glReadPixels");
+		Recti = GL.getFunctionAddress(provider, "glRecti", fc);
+		Rects = GL.getFunctionAddress(provider, "glRects", fc);
+		Rectf = GL.getFunctionAddress(provider, "glRectf", fc);
+		Rectd = GL.getFunctionAddress(provider, "glRectd", fc);
+		Rectiv = GL.getFunctionAddress(provider, "glRectiv", fc);
+		Rectsv = GL.getFunctionAddress(provider, "glRectsv", fc);
+		Rectfv = GL.getFunctionAddress(provider, "glRectfv", fc);
+		Rectdv = GL.getFunctionAddress(provider, "glRectdv", fc);
+		RenderMode = GL.getFunctionAddress(provider, "glRenderMode", fc);
+		Rotatef = GL.getFunctionAddress(provider, "glRotatef", fc);
+		Rotated = GL.getFunctionAddress(provider, "glRotated", fc);
+		Scalef = GL.getFunctionAddress(provider, "glScalef", fc);
+		Scaled = GL.getFunctionAddress(provider, "glScaled", fc);
+		Scissor = provider.getFunctionAddress("glScissor");
+		SelectBuffer = GL.getFunctionAddress(provider, "glSelectBuffer", fc);
+		ShadeModel = GL.getFunctionAddress(provider, "glShadeModel", fc);
+		StencilFunc = provider.getFunctionAddress("glStencilFunc");
+		StencilMask = provider.getFunctionAddress("glStencilMask");
+		StencilOp = provider.getFunctionAddress("glStencilOp");
+		TexCoord1f = GL.getFunctionAddress(provider, "glTexCoord1f", fc);
+		TexCoord1s = GL.getFunctionAddress(provider, "glTexCoord1s", fc);
+		TexCoord1i = GL.getFunctionAddress(provider, "glTexCoord1i", fc);
+		TexCoord1d = GL.getFunctionAddress(provider, "glTexCoord1d", fc);
+		TexCoord1fv = GL.getFunctionAddress(provider, "glTexCoord1fv", fc);
+		TexCoord1sv = GL.getFunctionAddress(provider, "glTexCoord1sv", fc);
+		TexCoord1iv = GL.getFunctionAddress(provider, "glTexCoord1iv", fc);
+		TexCoord1dv = GL.getFunctionAddress(provider, "glTexCoord1dv", fc);
+		TexCoord2f = GL.getFunctionAddress(provider, "glTexCoord2f", fc);
+		TexCoord2s = GL.getFunctionAddress(provider, "glTexCoord2s", fc);
+		TexCoord2i = GL.getFunctionAddress(provider, "glTexCoord2i", fc);
+		TexCoord2d = GL.getFunctionAddress(provider, "glTexCoord2d", fc);
+		TexCoord2fv = GL.getFunctionAddress(provider, "glTexCoord2fv", fc);
+		TexCoord2sv = GL.getFunctionAddress(provider, "glTexCoord2sv", fc);
+		TexCoord2iv = GL.getFunctionAddress(provider, "glTexCoord2iv", fc);
+		TexCoord2dv = GL.getFunctionAddress(provider, "glTexCoord2dv", fc);
+		TexCoord3f = GL.getFunctionAddress(provider, "glTexCoord3f", fc);
+		TexCoord3s = GL.getFunctionAddress(provider, "glTexCoord3s", fc);
+		TexCoord3i = GL.getFunctionAddress(provider, "glTexCoord3i", fc);
+		TexCoord3d = GL.getFunctionAddress(provider, "glTexCoord3d", fc);
+		TexCoord3fv = GL.getFunctionAddress(provider, "glTexCoord3fv", fc);
+		TexCoord3sv = GL.getFunctionAddress(provider, "glTexCoord3sv", fc);
+		TexCoord3iv = GL.getFunctionAddress(provider, "glTexCoord3iv", fc);
+		TexCoord3dv = GL.getFunctionAddress(provider, "glTexCoord3dv", fc);
+		TexCoord4f = GL.getFunctionAddress(provider, "glTexCoord4f", fc);
+		TexCoord4s = GL.getFunctionAddress(provider, "glTexCoord4s", fc);
+		TexCoord4i = GL.getFunctionAddress(provider, "glTexCoord4i", fc);
+		TexCoord4d = GL.getFunctionAddress(provider, "glTexCoord4d", fc);
+		TexCoord4fv = GL.getFunctionAddress(provider, "glTexCoord4fv", fc);
+		TexCoord4sv = GL.getFunctionAddress(provider, "glTexCoord4sv", fc);
+		TexCoord4iv = GL.getFunctionAddress(provider, "glTexCoord4iv", fc);
+		TexCoord4dv = GL.getFunctionAddress(provider, "glTexCoord4dv", fc);
+		TexCoordPointer = GL.getFunctionAddress(provider, "glTexCoordPointer", fc);
+		TexEnvi = provider.getFunctionAddress("glTexEnvi");
+		TexEnviv = provider.getFunctionAddress("glTexEnviv");
+		TexEnvf = provider.getFunctionAddress("glTexEnvf");
+		TexEnvfv = provider.getFunctionAddress("glTexEnvfv");
+		TexGeni = GL.getFunctionAddress(provider, "glTexGeni", fc);
+		TexGeniv = GL.getFunctionAddress(provider, "glTexGeniv", fc);
+		TexGenf = GL.getFunctionAddress(provider, "glTexGenf", fc);
+		TexGenfv = GL.getFunctionAddress(provider, "glTexGenfv", fc);
+		TexGend = GL.getFunctionAddress(provider, "glTexGend", fc);
+		TexGendv = GL.getFunctionAddress(provider, "glTexGendv", fc);
+		TexImage2D = provider.getFunctionAddress("glTexImage2D");
+		TexImage1D = provider.getFunctionAddress("glTexImage1D");
+		CopyTexImage2D = provider.getFunctionAddress("glCopyTexImage2D");
+		CopyTexImage1D = provider.getFunctionAddress("glCopyTexImage1D");
+		CopyTexSubImage1D = provider.getFunctionAddress("glCopyTexSubImage1D");
+		CopyTexSubImage2D = provider.getFunctionAddress("glCopyTexSubImage2D");
+		TexParameteri = provider.getFunctionAddress("glTexParameteri");
+		TexParameteriv = provider.getFunctionAddress("glTexParameteriv");
+		TexParameterf = provider.getFunctionAddress("glTexParameterf");
+		TexParameterfv = provider.getFunctionAddress("glTexParameterfv");
+		TexSubImage1D = provider.getFunctionAddress("glTexSubImage1D");
+		TexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
+		Translatef = GL.getFunctionAddress(provider, "glTranslatef", fc);
+		Translated = GL.getFunctionAddress(provider, "glTranslated", fc);
+		Vertex2f = GL.getFunctionAddress(provider, "glVertex2f", fc);
+		Vertex2s = GL.getFunctionAddress(provider, "glVertex2s", fc);
+		Vertex2i = GL.getFunctionAddress(provider, "glVertex2i", fc);
+		Vertex2d = GL.getFunctionAddress(provider, "glVertex2d", fc);
+		Vertex2fv = GL.getFunctionAddress(provider, "glVertex2fv", fc);
+		Vertex2sv = GL.getFunctionAddress(provider, "glVertex2sv", fc);
+		Vertex2iv = GL.getFunctionAddress(provider, "glVertex2iv", fc);
+		Vertex2dv = GL.getFunctionAddress(provider, "glVertex2dv", fc);
+		Vertex3f = GL.getFunctionAddress(provider, "glVertex3f", fc);
+		Vertex3s = GL.getFunctionAddress(provider, "glVertex3s", fc);
+		Vertex3i = GL.getFunctionAddress(provider, "glVertex3i", fc);
+		Vertex3d = GL.getFunctionAddress(provider, "glVertex3d", fc);
+		Vertex3fv = GL.getFunctionAddress(provider, "glVertex3fv", fc);
+		Vertex3sv = GL.getFunctionAddress(provider, "glVertex3sv", fc);
+		Vertex3iv = GL.getFunctionAddress(provider, "glVertex3iv", fc);
+		Vertex3dv = GL.getFunctionAddress(provider, "glVertex3dv", fc);
+		Vertex4f = GL.getFunctionAddress(provider, "glVertex4f", fc);
+		Vertex4s = GL.getFunctionAddress(provider, "glVertex4s", fc);
+		Vertex4i = GL.getFunctionAddress(provider, "glVertex4i", fc);
+		Vertex4d = GL.getFunctionAddress(provider, "glVertex4d", fc);
+		Vertex4fv = GL.getFunctionAddress(provider, "glVertex4fv", fc);
+		Vertex4sv = GL.getFunctionAddress(provider, "glVertex4sv", fc);
+		Vertex4iv = GL.getFunctionAddress(provider, "glVertex4iv", fc);
+		Vertex4dv = GL.getFunctionAddress(provider, "glVertex4dv", fc);
+		VertexPointer = GL.getFunctionAddress(provider, "glVertexPointer", fc);
+		Viewport = provider.getFunctionAddress("glViewport");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -1343,336 +1343,336 @@ public final class GL11 {
 		GL11 funcs = new GL11(provider, fc);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glEnable) &&
-			GL.isFunctionSupported(funcs.glDisable) &&
-			GL.isFunctionSupported(funcs.glAccum, fc) &&
-			GL.isFunctionSupported(funcs.glAlphaFunc, fc) &&
-			GL.isFunctionSupported(funcs.glAreTexturesResident, fc) &&
-			GL.isFunctionSupported(funcs.glArrayElement) &&
-			GL.isFunctionSupported(funcs.glBegin, fc) &&
-			GL.isFunctionSupported(funcs.glBindTexture) &&
-			GL.isFunctionSupported(funcs.glBitmap, fc) &&
-			GL.isFunctionSupported(funcs.glBlendFunc) &&
-			GL.isFunctionSupported(funcs.glCallList, fc) &&
-			GL.isFunctionSupported(funcs.glCallLists, fc) &&
-			GL.isFunctionSupported(funcs.glClear) &&
-			GL.isFunctionSupported(funcs.glClearAccum, fc) &&
-			GL.isFunctionSupported(funcs.glClearColor) &&
-			GL.isFunctionSupported(funcs.glClearDepth) &&
-			GL.isFunctionSupported(funcs.glClearStencil) &&
-			GL.isFunctionSupported(funcs.glClipPlane) &&
-			GL.isFunctionSupported(funcs.glColor3b, fc) &&
-			GL.isFunctionSupported(funcs.glColor3s, fc) &&
-			GL.isFunctionSupported(funcs.glColor3i, fc) &&
-			GL.isFunctionSupported(funcs.glColor3f, fc) &&
-			GL.isFunctionSupported(funcs.glColor3d, fc) &&
-			GL.isFunctionSupported(funcs.glColor3ub, fc) &&
-			GL.isFunctionSupported(funcs.glColor3us, fc) &&
-			GL.isFunctionSupported(funcs.glColor3ui, fc) &&
-			GL.isFunctionSupported(funcs.glColor3bv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3sv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3iv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3fv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3dv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3ubv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3usv, fc) &&
-			GL.isFunctionSupported(funcs.glColor3uiv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4b, fc) &&
-			GL.isFunctionSupported(funcs.glColor4s, fc) &&
-			GL.isFunctionSupported(funcs.glColor4i, fc) &&
-			GL.isFunctionSupported(funcs.glColor4f, fc) &&
-			GL.isFunctionSupported(funcs.glColor4d, fc) &&
-			GL.isFunctionSupported(funcs.glColor4ub, fc) &&
-			GL.isFunctionSupported(funcs.glColor4us, fc) &&
-			GL.isFunctionSupported(funcs.glColor4ui, fc) &&
-			GL.isFunctionSupported(funcs.glColor4bv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4sv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4iv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4fv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4dv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4ubv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4usv, fc) &&
-			GL.isFunctionSupported(funcs.glColor4uiv, fc) &&
-			GL.isFunctionSupported(funcs.glColorMask) &&
-			GL.isFunctionSupported(funcs.glColorMaterial, fc) &&
-			GL.isFunctionSupported(funcs.glColorPointer, fc) &&
-			GL.isFunctionSupported(funcs.glCopyPixels) &&
-			GL.isFunctionSupported(funcs.glCullFace) &&
-			GL.isFunctionSupported(funcs.glDeleteLists, fc) &&
-			GL.isFunctionSupported(funcs.glDepthFunc) &&
-			GL.isFunctionSupported(funcs.glDepthMask) &&
-			GL.isFunctionSupported(funcs.glDepthRange) &&
-			GL.isFunctionSupported(funcs.glDisableClientState, fc) &&
-			GL.isFunctionSupported(funcs.glDrawArrays) &&
-			GL.isFunctionSupported(funcs.glDrawBuffer) &&
-			GL.isFunctionSupported(funcs.glDrawElements) &&
-			GL.isFunctionSupported(funcs.glDrawPixels, fc) &&
-			GL.isFunctionSupported(funcs.glEdgeFlag, fc) &&
-			GL.isFunctionSupported(funcs.glEdgeFlagv, fc) &&
-			GL.isFunctionSupported(funcs.glEdgeFlagPointer, fc) &&
-			GL.isFunctionSupported(funcs.glEnableClientState, fc) &&
-			GL.isFunctionSupported(funcs.glEnd, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord1f, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord1fv, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord1d, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord1dv, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord2f, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord2fv, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord2d, fc) &&
-			GL.isFunctionSupported(funcs.glEvalCoord2dv, fc) &&
-			GL.isFunctionSupported(funcs.glEvalMesh1, fc) &&
-			GL.isFunctionSupported(funcs.glEvalMesh2, fc) &&
-			GL.isFunctionSupported(funcs.glEvalPoint1, fc) &&
-			GL.isFunctionSupported(funcs.glEvalPoint2, fc) &&
-			GL.isFunctionSupported(funcs.glFeedbackBuffer, fc) &&
-			GL.isFunctionSupported(funcs.glFinish) &&
-			GL.isFunctionSupported(funcs.glFlush) &&
-			GL.isFunctionSupported(funcs.glFogi, fc) &&
-			GL.isFunctionSupported(funcs.glFogiv, fc) &&
-			GL.isFunctionSupported(funcs.glFogf, fc) &&
-			GL.isFunctionSupported(funcs.glFogfv, fc) &&
-			GL.isFunctionSupported(funcs.glFrontFace) &&
-			GL.isFunctionSupported(funcs.glGenLists, fc) &&
-			GL.isFunctionSupported(funcs.glGenTextures) &&
-			GL.isFunctionSupported(funcs.glDeleteTextures) &&
-			GL.isFunctionSupported(funcs.glGetClipPlane) &&
-			GL.isFunctionSupported(funcs.glGetBooleanv) &&
-			GL.isFunctionSupported(funcs.glGetFloatv) &&
-			GL.isFunctionSupported(funcs.glGetIntegerv) &&
-			GL.isFunctionSupported(funcs.glGetDoublev) &&
-			GL.isFunctionSupported(funcs.glGetError) &&
-			GL.isFunctionSupported(funcs.glGetLightiv, fc) &&
-			GL.isFunctionSupported(funcs.glGetLightfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMapiv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMapfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMapdv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMaterialiv, fc) &&
-			GL.isFunctionSupported(funcs.glGetMaterialfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetPixelMapfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetPixelMapusv, fc) &&
-			GL.isFunctionSupported(funcs.glGetPixelMapuiv, fc) &&
-			GL.isFunctionSupported(funcs.glGetPointerv) &&
-			GL.isFunctionSupported(funcs.glGetPolygonStipple, fc) &&
-			GL.isFunctionSupported(funcs.glGetString) &&
-			GL.isFunctionSupported(funcs.glGetTexEnviv) &&
-			GL.isFunctionSupported(funcs.glGetTexEnvfv) &&
-			GL.isFunctionSupported(funcs.glGetTexGeniv, fc) &&
-			GL.isFunctionSupported(funcs.glGetTexGenfv, fc) &&
-			GL.isFunctionSupported(funcs.glGetTexGendv, fc) &&
-			GL.isFunctionSupported(funcs.glGetTexImage) &&
-			GL.isFunctionSupported(funcs.glGetTexLevelParameteriv) &&
-			GL.isFunctionSupported(funcs.glGetTexLevelParameterfv) &&
-			GL.isFunctionSupported(funcs.glGetTexParameteriv) &&
-			GL.isFunctionSupported(funcs.glGetTexParameterfv) &&
-			GL.isFunctionSupported(funcs.glHint) &&
-			GL.isFunctionSupported(funcs.glInitNames, fc) &&
-			GL.isFunctionSupported(funcs.glInterleavedArrays) &&
-			GL.isFunctionSupported(funcs.glIsEnabled) &&
-			GL.isFunctionSupported(funcs.glIsList, fc) &&
-			GL.isFunctionSupported(funcs.glIsTexture) &&
-			GL.isFunctionSupported(funcs.glLightModeli, fc) &&
-			GL.isFunctionSupported(funcs.glLightModelf, fc) &&
-			GL.isFunctionSupported(funcs.glLightModeliv, fc) &&
-			GL.isFunctionSupported(funcs.glLightModelfv, fc) &&
-			GL.isFunctionSupported(funcs.glLighti, fc) &&
-			GL.isFunctionSupported(funcs.glLightf, fc) &&
-			GL.isFunctionSupported(funcs.glLightiv, fc) &&
-			GL.isFunctionSupported(funcs.glLightfv, fc) &&
-			GL.isFunctionSupported(funcs.glLineStipple, fc) &&
-			GL.isFunctionSupported(funcs.glLineWidth) &&
-			GL.isFunctionSupported(funcs.glListBase, fc) &&
-			GL.isFunctionSupported(funcs.glLoadMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.glLoadMatrixd, fc) &&
-			GL.isFunctionSupported(funcs.glLoadIdentity, fc) &&
-			GL.isFunctionSupported(funcs.glLoadName, fc) &&
-			GL.isFunctionSupported(funcs.glLogicOp) &&
-			GL.isFunctionSupported(funcs.glMap1f, fc) &&
-			GL.isFunctionSupported(funcs.glMap1d, fc) &&
-			GL.isFunctionSupported(funcs.glMap2f, fc) &&
-			GL.isFunctionSupported(funcs.glMap2d, fc) &&
-			GL.isFunctionSupported(funcs.glMapGrid1f, fc) &&
-			GL.isFunctionSupported(funcs.glMapGrid1d, fc) &&
-			GL.isFunctionSupported(funcs.glMapGrid2f, fc) &&
-			GL.isFunctionSupported(funcs.glMapGrid2d, fc) &&
-			GL.isFunctionSupported(funcs.glMateriali, fc) &&
-			GL.isFunctionSupported(funcs.glMaterialf, fc) &&
-			GL.isFunctionSupported(funcs.glMaterialiv, fc) &&
-			GL.isFunctionSupported(funcs.glMaterialfv, fc) &&
-			GL.isFunctionSupported(funcs.glMatrixMode, fc) &&
-			GL.isFunctionSupported(funcs.glMultMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.glMultMatrixd, fc) &&
-			GL.isFunctionSupported(funcs.glFrustum, fc) &&
-			GL.isFunctionSupported(funcs.glNewList, fc) &&
-			GL.isFunctionSupported(funcs.glEndList, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3f, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3b, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3s, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3i, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3d, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3fv, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3bv, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3sv, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3iv, fc) &&
-			GL.isFunctionSupported(funcs.glNormal3dv, fc) &&
-			GL.isFunctionSupported(funcs.glNormalPointer, fc) &&
-			GL.isFunctionSupported(funcs.glOrtho, fc) &&
-			GL.isFunctionSupported(funcs.glPassThrough, fc) &&
-			GL.isFunctionSupported(funcs.glPixelMapfv, fc) &&
-			GL.isFunctionSupported(funcs.glPixelMapusv, fc) &&
-			GL.isFunctionSupported(funcs.glPixelMapuiv, fc) &&
-			GL.isFunctionSupported(funcs.glPixelStorei) &&
-			GL.isFunctionSupported(funcs.glPixelStoref) &&
-			GL.isFunctionSupported(funcs.glPixelTransferi, fc) &&
-			GL.isFunctionSupported(funcs.glPixelTransferf, fc) &&
-			GL.isFunctionSupported(funcs.glPixelZoom, fc) &&
-			GL.isFunctionSupported(funcs.glPointSize) &&
-			GL.isFunctionSupported(funcs.glPolygonMode) &&
-			GL.isFunctionSupported(funcs.glPolygonOffset) &&
-			GL.isFunctionSupported(funcs.glPolygonStipple, fc) &&
-			GL.isFunctionSupported(funcs.glPushAttrib, fc) &&
-			GL.isFunctionSupported(funcs.glPushClientAttrib, fc) &&
-			GL.isFunctionSupported(funcs.glPopAttrib, fc) &&
-			GL.isFunctionSupported(funcs.glPopClientAttrib, fc) &&
-			GL.isFunctionSupported(funcs.glPopMatrix, fc) &&
-			GL.isFunctionSupported(funcs.glPopName, fc) &&
-			GL.isFunctionSupported(funcs.glPrioritizeTextures, fc) &&
-			GL.isFunctionSupported(funcs.glPushMatrix, fc) &&
-			GL.isFunctionSupported(funcs.glPushName, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2i, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2s, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2f, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2d, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2iv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2sv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2fv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos2dv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3i, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3s, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3f, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3d, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3iv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3sv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3fv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos3dv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4i, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4s, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4f, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4d, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4iv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4sv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4fv, fc) &&
-			GL.isFunctionSupported(funcs.glRasterPos4dv, fc) &&
-			GL.isFunctionSupported(funcs.glReadBuffer) &&
-			GL.isFunctionSupported(funcs.glReadPixels) &&
-			GL.isFunctionSupported(funcs.glRecti, fc) &&
-			GL.isFunctionSupported(funcs.glRects, fc) &&
-			GL.isFunctionSupported(funcs.glRectf, fc) &&
-			GL.isFunctionSupported(funcs.glRectd, fc) &&
-			GL.isFunctionSupported(funcs.glRectiv, fc) &&
-			GL.isFunctionSupported(funcs.glRectsv, fc) &&
-			GL.isFunctionSupported(funcs.glRectfv, fc) &&
-			GL.isFunctionSupported(funcs.glRectdv, fc) &&
-			GL.isFunctionSupported(funcs.glRenderMode, fc) &&
-			GL.isFunctionSupported(funcs.glRotatef, fc) &&
-			GL.isFunctionSupported(funcs.glRotated, fc) &&
-			GL.isFunctionSupported(funcs.glScalef, fc) &&
-			GL.isFunctionSupported(funcs.glScaled, fc) &&
-			GL.isFunctionSupported(funcs.glScissor) &&
-			GL.isFunctionSupported(funcs.glSelectBuffer, fc) &&
-			GL.isFunctionSupported(funcs.glShadeModel, fc) &&
-			GL.isFunctionSupported(funcs.glStencilFunc) &&
-			GL.isFunctionSupported(funcs.glStencilMask) &&
-			GL.isFunctionSupported(funcs.glStencilOp) &&
-			GL.isFunctionSupported(funcs.glTexCoord1f, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1s, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1i, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1d, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1fv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1sv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1iv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord1dv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2f, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2s, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2i, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2d, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2fv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2sv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2iv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord2dv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3f, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3s, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3i, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3d, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3fv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3sv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3iv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord3dv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4f, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4s, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4i, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4d, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4fv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4sv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4iv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoord4dv, fc) &&
-			GL.isFunctionSupported(funcs.glTexCoordPointer, fc) &&
-			GL.isFunctionSupported(funcs.glTexEnvi) &&
-			GL.isFunctionSupported(funcs.glTexEnviv) &&
-			GL.isFunctionSupported(funcs.glTexEnvf) &&
-			GL.isFunctionSupported(funcs.glTexEnvfv) &&
-			GL.isFunctionSupported(funcs.glTexGeni, fc) &&
-			GL.isFunctionSupported(funcs.glTexGeniv, fc) &&
-			GL.isFunctionSupported(funcs.glTexGenf, fc) &&
-			GL.isFunctionSupported(funcs.glTexGenfv, fc) &&
-			GL.isFunctionSupported(funcs.glTexGend, fc) &&
-			GL.isFunctionSupported(funcs.glTexGendv, fc) &&
-			GL.isFunctionSupported(funcs.glTexImage2D) &&
-			GL.isFunctionSupported(funcs.glTexImage1D) &&
-			GL.isFunctionSupported(funcs.glCopyTexImage2D) &&
-			GL.isFunctionSupported(funcs.glCopyTexImage1D) &&
-			GL.isFunctionSupported(funcs.glCopyTexSubImage1D) &&
-			GL.isFunctionSupported(funcs.glCopyTexSubImage2D) &&
-			GL.isFunctionSupported(funcs.glTexParameteri) &&
-			GL.isFunctionSupported(funcs.glTexParameteriv) &&
-			GL.isFunctionSupported(funcs.glTexParameterf) &&
-			GL.isFunctionSupported(funcs.glTexParameterfv) &&
-			GL.isFunctionSupported(funcs.glTexSubImage1D) &&
-			GL.isFunctionSupported(funcs.glTexSubImage2D) &&
-			GL.isFunctionSupported(funcs.glTranslatef, fc) &&
-			GL.isFunctionSupported(funcs.glTranslated, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2f, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2s, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2i, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2d, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2fv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2sv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2iv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex2dv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3f, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3s, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3i, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3d, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3fv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3sv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3iv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex3dv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4f, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4s, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4i, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4d, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4fv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4sv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4iv, fc) &&
-			GL.isFunctionSupported(funcs.glVertex4dv, fc) &&
-			GL.isFunctionSupported(funcs.glVertexPointer, fc) &&
-			GL.isFunctionSupported(funcs.glViewport);
+			GL.isFunctionSupported(funcs.Enable) &&
+			GL.isFunctionSupported(funcs.Disable) &&
+			GL.isFunctionSupported(funcs.Accum, fc) &&
+			GL.isFunctionSupported(funcs.AlphaFunc, fc) &&
+			GL.isFunctionSupported(funcs.AreTexturesResident, fc) &&
+			GL.isFunctionSupported(funcs.ArrayElement) &&
+			GL.isFunctionSupported(funcs.Begin, fc) &&
+			GL.isFunctionSupported(funcs.BindTexture) &&
+			GL.isFunctionSupported(funcs.Bitmap, fc) &&
+			GL.isFunctionSupported(funcs.BlendFunc) &&
+			GL.isFunctionSupported(funcs.CallList, fc) &&
+			GL.isFunctionSupported(funcs.CallLists, fc) &&
+			GL.isFunctionSupported(funcs.Clear) &&
+			GL.isFunctionSupported(funcs.ClearAccum, fc) &&
+			GL.isFunctionSupported(funcs.ClearColor) &&
+			GL.isFunctionSupported(funcs.ClearDepth) &&
+			GL.isFunctionSupported(funcs.ClearStencil) &&
+			GL.isFunctionSupported(funcs.ClipPlane) &&
+			GL.isFunctionSupported(funcs.Color3b, fc) &&
+			GL.isFunctionSupported(funcs.Color3s, fc) &&
+			GL.isFunctionSupported(funcs.Color3i, fc) &&
+			GL.isFunctionSupported(funcs.Color3f, fc) &&
+			GL.isFunctionSupported(funcs.Color3d, fc) &&
+			GL.isFunctionSupported(funcs.Color3ub, fc) &&
+			GL.isFunctionSupported(funcs.Color3us, fc) &&
+			GL.isFunctionSupported(funcs.Color3ui, fc) &&
+			GL.isFunctionSupported(funcs.Color3bv, fc) &&
+			GL.isFunctionSupported(funcs.Color3sv, fc) &&
+			GL.isFunctionSupported(funcs.Color3iv, fc) &&
+			GL.isFunctionSupported(funcs.Color3fv, fc) &&
+			GL.isFunctionSupported(funcs.Color3dv, fc) &&
+			GL.isFunctionSupported(funcs.Color3ubv, fc) &&
+			GL.isFunctionSupported(funcs.Color3usv, fc) &&
+			GL.isFunctionSupported(funcs.Color3uiv, fc) &&
+			GL.isFunctionSupported(funcs.Color4b, fc) &&
+			GL.isFunctionSupported(funcs.Color4s, fc) &&
+			GL.isFunctionSupported(funcs.Color4i, fc) &&
+			GL.isFunctionSupported(funcs.Color4f, fc) &&
+			GL.isFunctionSupported(funcs.Color4d, fc) &&
+			GL.isFunctionSupported(funcs.Color4ub, fc) &&
+			GL.isFunctionSupported(funcs.Color4us, fc) &&
+			GL.isFunctionSupported(funcs.Color4ui, fc) &&
+			GL.isFunctionSupported(funcs.Color4bv, fc) &&
+			GL.isFunctionSupported(funcs.Color4sv, fc) &&
+			GL.isFunctionSupported(funcs.Color4iv, fc) &&
+			GL.isFunctionSupported(funcs.Color4fv, fc) &&
+			GL.isFunctionSupported(funcs.Color4dv, fc) &&
+			GL.isFunctionSupported(funcs.Color4ubv, fc) &&
+			GL.isFunctionSupported(funcs.Color4usv, fc) &&
+			GL.isFunctionSupported(funcs.Color4uiv, fc) &&
+			GL.isFunctionSupported(funcs.ColorMask) &&
+			GL.isFunctionSupported(funcs.ColorMaterial, fc) &&
+			GL.isFunctionSupported(funcs.ColorPointer, fc) &&
+			GL.isFunctionSupported(funcs.CopyPixels) &&
+			GL.isFunctionSupported(funcs.CullFace) &&
+			GL.isFunctionSupported(funcs.DeleteLists, fc) &&
+			GL.isFunctionSupported(funcs.DepthFunc) &&
+			GL.isFunctionSupported(funcs.DepthMask) &&
+			GL.isFunctionSupported(funcs.DepthRange) &&
+			GL.isFunctionSupported(funcs.DisableClientState, fc) &&
+			GL.isFunctionSupported(funcs.DrawArrays) &&
+			GL.isFunctionSupported(funcs.DrawBuffer) &&
+			GL.isFunctionSupported(funcs.DrawElements) &&
+			GL.isFunctionSupported(funcs.DrawPixels, fc) &&
+			GL.isFunctionSupported(funcs.EdgeFlag, fc) &&
+			GL.isFunctionSupported(funcs.EdgeFlagv, fc) &&
+			GL.isFunctionSupported(funcs.EdgeFlagPointer, fc) &&
+			GL.isFunctionSupported(funcs.EnableClientState, fc) &&
+			GL.isFunctionSupported(funcs.End, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord1f, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord1fv, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord1d, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord1dv, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord2f, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord2fv, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord2d, fc) &&
+			GL.isFunctionSupported(funcs.EvalCoord2dv, fc) &&
+			GL.isFunctionSupported(funcs.EvalMesh1, fc) &&
+			GL.isFunctionSupported(funcs.EvalMesh2, fc) &&
+			GL.isFunctionSupported(funcs.EvalPoint1, fc) &&
+			GL.isFunctionSupported(funcs.EvalPoint2, fc) &&
+			GL.isFunctionSupported(funcs.FeedbackBuffer, fc) &&
+			GL.isFunctionSupported(funcs.Finish) &&
+			GL.isFunctionSupported(funcs.Flush) &&
+			GL.isFunctionSupported(funcs.Fogi, fc) &&
+			GL.isFunctionSupported(funcs.Fogiv, fc) &&
+			GL.isFunctionSupported(funcs.Fogf, fc) &&
+			GL.isFunctionSupported(funcs.Fogfv, fc) &&
+			GL.isFunctionSupported(funcs.FrontFace) &&
+			GL.isFunctionSupported(funcs.GenLists, fc) &&
+			GL.isFunctionSupported(funcs.GenTextures) &&
+			GL.isFunctionSupported(funcs.DeleteTextures) &&
+			GL.isFunctionSupported(funcs.GetClipPlane) &&
+			GL.isFunctionSupported(funcs.GetBooleanv) &&
+			GL.isFunctionSupported(funcs.GetFloatv) &&
+			GL.isFunctionSupported(funcs.GetIntegerv) &&
+			GL.isFunctionSupported(funcs.GetDoublev) &&
+			GL.isFunctionSupported(funcs.GetError) &&
+			GL.isFunctionSupported(funcs.GetLightiv, fc) &&
+			GL.isFunctionSupported(funcs.GetLightfv, fc) &&
+			GL.isFunctionSupported(funcs.GetMapiv, fc) &&
+			GL.isFunctionSupported(funcs.GetMapfv, fc) &&
+			GL.isFunctionSupported(funcs.GetMapdv, fc) &&
+			GL.isFunctionSupported(funcs.GetMaterialiv, fc) &&
+			GL.isFunctionSupported(funcs.GetMaterialfv, fc) &&
+			GL.isFunctionSupported(funcs.GetPixelMapfv, fc) &&
+			GL.isFunctionSupported(funcs.GetPixelMapusv, fc) &&
+			GL.isFunctionSupported(funcs.GetPixelMapuiv, fc) &&
+			GL.isFunctionSupported(funcs.GetPointerv) &&
+			GL.isFunctionSupported(funcs.GetPolygonStipple, fc) &&
+			GL.isFunctionSupported(funcs.GetString) &&
+			GL.isFunctionSupported(funcs.GetTexEnviv) &&
+			GL.isFunctionSupported(funcs.GetTexEnvfv) &&
+			GL.isFunctionSupported(funcs.GetTexGeniv, fc) &&
+			GL.isFunctionSupported(funcs.GetTexGenfv, fc) &&
+			GL.isFunctionSupported(funcs.GetTexGendv, fc) &&
+			GL.isFunctionSupported(funcs.GetTexImage) &&
+			GL.isFunctionSupported(funcs.GetTexLevelParameteriv) &&
+			GL.isFunctionSupported(funcs.GetTexLevelParameterfv) &&
+			GL.isFunctionSupported(funcs.GetTexParameteriv) &&
+			GL.isFunctionSupported(funcs.GetTexParameterfv) &&
+			GL.isFunctionSupported(funcs.Hint) &&
+			GL.isFunctionSupported(funcs.InitNames, fc) &&
+			GL.isFunctionSupported(funcs.InterleavedArrays) &&
+			GL.isFunctionSupported(funcs.IsEnabled) &&
+			GL.isFunctionSupported(funcs.IsList, fc) &&
+			GL.isFunctionSupported(funcs.IsTexture) &&
+			GL.isFunctionSupported(funcs.LightModeli, fc) &&
+			GL.isFunctionSupported(funcs.LightModelf, fc) &&
+			GL.isFunctionSupported(funcs.LightModeliv, fc) &&
+			GL.isFunctionSupported(funcs.LightModelfv, fc) &&
+			GL.isFunctionSupported(funcs.Lighti, fc) &&
+			GL.isFunctionSupported(funcs.Lightf, fc) &&
+			GL.isFunctionSupported(funcs.Lightiv, fc) &&
+			GL.isFunctionSupported(funcs.Lightfv, fc) &&
+			GL.isFunctionSupported(funcs.LineStipple, fc) &&
+			GL.isFunctionSupported(funcs.LineWidth) &&
+			GL.isFunctionSupported(funcs.ListBase, fc) &&
+			GL.isFunctionSupported(funcs.LoadMatrixf, fc) &&
+			GL.isFunctionSupported(funcs.LoadMatrixd, fc) &&
+			GL.isFunctionSupported(funcs.LoadIdentity, fc) &&
+			GL.isFunctionSupported(funcs.LoadName, fc) &&
+			GL.isFunctionSupported(funcs.LogicOp) &&
+			GL.isFunctionSupported(funcs.Map1f, fc) &&
+			GL.isFunctionSupported(funcs.Map1d, fc) &&
+			GL.isFunctionSupported(funcs.Map2f, fc) &&
+			GL.isFunctionSupported(funcs.Map2d, fc) &&
+			GL.isFunctionSupported(funcs.MapGrid1f, fc) &&
+			GL.isFunctionSupported(funcs.MapGrid1d, fc) &&
+			GL.isFunctionSupported(funcs.MapGrid2f, fc) &&
+			GL.isFunctionSupported(funcs.MapGrid2d, fc) &&
+			GL.isFunctionSupported(funcs.Materiali, fc) &&
+			GL.isFunctionSupported(funcs.Materialf, fc) &&
+			GL.isFunctionSupported(funcs.Materialiv, fc) &&
+			GL.isFunctionSupported(funcs.Materialfv, fc) &&
+			GL.isFunctionSupported(funcs.MatrixMode, fc) &&
+			GL.isFunctionSupported(funcs.MultMatrixf, fc) &&
+			GL.isFunctionSupported(funcs.MultMatrixd, fc) &&
+			GL.isFunctionSupported(funcs.Frustum, fc) &&
+			GL.isFunctionSupported(funcs.NewList, fc) &&
+			GL.isFunctionSupported(funcs.EndList, fc) &&
+			GL.isFunctionSupported(funcs.Normal3f, fc) &&
+			GL.isFunctionSupported(funcs.Normal3b, fc) &&
+			GL.isFunctionSupported(funcs.Normal3s, fc) &&
+			GL.isFunctionSupported(funcs.Normal3i, fc) &&
+			GL.isFunctionSupported(funcs.Normal3d, fc) &&
+			GL.isFunctionSupported(funcs.Normal3fv, fc) &&
+			GL.isFunctionSupported(funcs.Normal3bv, fc) &&
+			GL.isFunctionSupported(funcs.Normal3sv, fc) &&
+			GL.isFunctionSupported(funcs.Normal3iv, fc) &&
+			GL.isFunctionSupported(funcs.Normal3dv, fc) &&
+			GL.isFunctionSupported(funcs.NormalPointer, fc) &&
+			GL.isFunctionSupported(funcs.Ortho, fc) &&
+			GL.isFunctionSupported(funcs.PassThrough, fc) &&
+			GL.isFunctionSupported(funcs.PixelMapfv, fc) &&
+			GL.isFunctionSupported(funcs.PixelMapusv, fc) &&
+			GL.isFunctionSupported(funcs.PixelMapuiv, fc) &&
+			GL.isFunctionSupported(funcs.PixelStorei) &&
+			GL.isFunctionSupported(funcs.PixelStoref) &&
+			GL.isFunctionSupported(funcs.PixelTransferi, fc) &&
+			GL.isFunctionSupported(funcs.PixelTransferf, fc) &&
+			GL.isFunctionSupported(funcs.PixelZoom, fc) &&
+			GL.isFunctionSupported(funcs.PointSize) &&
+			GL.isFunctionSupported(funcs.PolygonMode) &&
+			GL.isFunctionSupported(funcs.PolygonOffset) &&
+			GL.isFunctionSupported(funcs.PolygonStipple, fc) &&
+			GL.isFunctionSupported(funcs.PushAttrib, fc) &&
+			GL.isFunctionSupported(funcs.PushClientAttrib, fc) &&
+			GL.isFunctionSupported(funcs.PopAttrib, fc) &&
+			GL.isFunctionSupported(funcs.PopClientAttrib, fc) &&
+			GL.isFunctionSupported(funcs.PopMatrix, fc) &&
+			GL.isFunctionSupported(funcs.PopName, fc) &&
+			GL.isFunctionSupported(funcs.PrioritizeTextures, fc) &&
+			GL.isFunctionSupported(funcs.PushMatrix, fc) &&
+			GL.isFunctionSupported(funcs.PushName, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2i, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2s, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2f, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2d, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2iv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2sv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2fv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos2dv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3i, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3s, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3f, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3d, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3iv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3sv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3fv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos3dv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4i, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4s, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4f, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4d, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4iv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4sv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4fv, fc) &&
+			GL.isFunctionSupported(funcs.RasterPos4dv, fc) &&
+			GL.isFunctionSupported(funcs.ReadBuffer) &&
+			GL.isFunctionSupported(funcs.ReadPixels) &&
+			GL.isFunctionSupported(funcs.Recti, fc) &&
+			GL.isFunctionSupported(funcs.Rects, fc) &&
+			GL.isFunctionSupported(funcs.Rectf, fc) &&
+			GL.isFunctionSupported(funcs.Rectd, fc) &&
+			GL.isFunctionSupported(funcs.Rectiv, fc) &&
+			GL.isFunctionSupported(funcs.Rectsv, fc) &&
+			GL.isFunctionSupported(funcs.Rectfv, fc) &&
+			GL.isFunctionSupported(funcs.Rectdv, fc) &&
+			GL.isFunctionSupported(funcs.RenderMode, fc) &&
+			GL.isFunctionSupported(funcs.Rotatef, fc) &&
+			GL.isFunctionSupported(funcs.Rotated, fc) &&
+			GL.isFunctionSupported(funcs.Scalef, fc) &&
+			GL.isFunctionSupported(funcs.Scaled, fc) &&
+			GL.isFunctionSupported(funcs.Scissor) &&
+			GL.isFunctionSupported(funcs.SelectBuffer, fc) &&
+			GL.isFunctionSupported(funcs.ShadeModel, fc) &&
+			GL.isFunctionSupported(funcs.StencilFunc) &&
+			GL.isFunctionSupported(funcs.StencilMask) &&
+			GL.isFunctionSupported(funcs.StencilOp) &&
+			GL.isFunctionSupported(funcs.TexCoord1f, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1s, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1i, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1d, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1fv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1sv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1iv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord1dv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2f, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2s, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2i, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2d, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2fv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2sv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2iv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord2dv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3f, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3s, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3i, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3d, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3fv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3sv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3iv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord3dv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4f, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4s, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4i, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4d, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4fv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4sv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4iv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoord4dv, fc) &&
+			GL.isFunctionSupported(funcs.TexCoordPointer, fc) &&
+			GL.isFunctionSupported(funcs.TexEnvi) &&
+			GL.isFunctionSupported(funcs.TexEnviv) &&
+			GL.isFunctionSupported(funcs.TexEnvf) &&
+			GL.isFunctionSupported(funcs.TexEnvfv) &&
+			GL.isFunctionSupported(funcs.TexGeni, fc) &&
+			GL.isFunctionSupported(funcs.TexGeniv, fc) &&
+			GL.isFunctionSupported(funcs.TexGenf, fc) &&
+			GL.isFunctionSupported(funcs.TexGenfv, fc) &&
+			GL.isFunctionSupported(funcs.TexGend, fc) &&
+			GL.isFunctionSupported(funcs.TexGendv, fc) &&
+			GL.isFunctionSupported(funcs.TexImage2D) &&
+			GL.isFunctionSupported(funcs.TexImage1D) &&
+			GL.isFunctionSupported(funcs.CopyTexImage2D) &&
+			GL.isFunctionSupported(funcs.CopyTexImage1D) &&
+			GL.isFunctionSupported(funcs.CopyTexSubImage1D) &&
+			GL.isFunctionSupported(funcs.CopyTexSubImage2D) &&
+			GL.isFunctionSupported(funcs.TexParameteri) &&
+			GL.isFunctionSupported(funcs.TexParameteriv) &&
+			GL.isFunctionSupported(funcs.TexParameterf) &&
+			GL.isFunctionSupported(funcs.TexParameterfv) &&
+			GL.isFunctionSupported(funcs.TexSubImage1D) &&
+			GL.isFunctionSupported(funcs.TexSubImage2D) &&
+			GL.isFunctionSupported(funcs.Translatef, fc) &&
+			GL.isFunctionSupported(funcs.Translated, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2f, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2s, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2i, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2d, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2fv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2sv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2iv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex2dv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3f, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3s, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3i, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3d, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3fv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3sv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3iv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex3dv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4f, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4s, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4i, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4d, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4fv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4sv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4iv, fc) &&
+			GL.isFunctionSupported(funcs.Vertex4dv, fc) &&
+			GL.isFunctionSupported(funcs.VertexPointer, fc) &&
+			GL.isFunctionSupported(funcs.Viewport);
 
 		return GL.checkExtension("OpenGL11", funcs, supported);
 	}
 
 	// --- [ glEnable ] ---
 
-	/** JNI method for {@link #glEnable glEnable} */
+	/** JNI method for {@link #glEnable Enable} */
 	@JavadocExclude
 	public static native void nglEnable(int target, long __functionAddress);
 
@@ -1684,7 +1684,7 @@ public final class GL11 {
 	 * @param target the OpenGL state to enable
 	 */
 	public static void glEnable(int target) {
-		long __functionAddress = getInstance().glEnable;
+		long __functionAddress = getInstance().Enable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEnable(target, __functionAddress);
@@ -1692,7 +1692,7 @@ public final class GL11 {
 
 	// --- [ glDisable ] ---
 
-	/** JNI method for {@link #glDisable glDisable} */
+	/** JNI method for {@link #glDisable Disable} */
 	@JavadocExclude
 	public static native void nglDisable(int target, long __functionAddress);
 
@@ -1704,7 +1704,7 @@ public final class GL11 {
 	 * @param target the OpenGL state to disable
 	 */
 	public static void glDisable(int target) {
-		long __functionAddress = getInstance().glDisable;
+		long __functionAddress = getInstance().Disable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDisable(target, __functionAddress);
@@ -1712,7 +1712,7 @@ public final class GL11 {
 
 	// --- [ glAccum ] ---
 
-	/** JNI method for {@link #glAccum glAccum} */
+	/** JNI method for {@link #glAccum Accum} */
 	@JavadocExclude
 	public static native void nglAccum(int op, float value, long __functionAddress);
 
@@ -1726,7 +1726,7 @@ public final class GL11 {
 	 * @param value a floating-point value to be used in that operation. The possible operations are:. One of:<p/>{@link #GL_ACCUM ACCUM}, {@link #GL_LOAD LOAD}, {@link #GL_RETURN RETURN}, {@link #GL_MULT MULT}, {@link #GL_ADD ADD}
 	 */
 	public static void glAccum(int op, float value) {
-		long __functionAddress = getInstance().glAccum;
+		long __functionAddress = getInstance().Accum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglAccum(op, value, __functionAddress);
@@ -1734,7 +1734,7 @@ public final class GL11 {
 
 	// --- [ glAlphaFunc ] ---
 
-	/** JNI method for {@link #glAlphaFunc glAlphaFunc} */
+	/** JNI method for {@link #glAlphaFunc AlphaFunc} */
 	@JavadocExclude
 	public static native void nglAlphaFunc(int func, float ref, long __functionAddress);
 
@@ -1742,14 +1742,14 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glAlphaFunc.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * The alpha test discards a fragment conditionally based on the outcome of a comparison between the incoming fragment’s alpha value and a constant value.
-	 * The comparison is enabled or disabled with the generic {@link #glEnable glEnable} and {@link #glDisable glDisable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
+	 * The comparison is enabled or disabled with the generic {@link #glEnable Enable} and {@link #glDisable Disable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
 	 * When disabled, it is as if the comparison always passes. The test is controlled with this method.
 	 *
 	 * @param func a symbolic constant indicating the alpha test function. The possible constants are:. One of:<p/>{@link #GL_NEVER NEVER}, {@link #GL_ALWAYS ALWAYS}, {@link #GL_LESS LESS}, {@link #GL_LEQUAL LEQUAL}, {@link #GL_EQUAL EQUAL}, {@link #GL_GEQUAL GEQUAL}, {@link #GL_GREATER GREATER}, {@link #GL_NOTEQUAL NOTEQUAL}
 	 * @param ref  a reference value clamped to the range [0, 1]. When performing the alpha test, the GL will convert the reference value to the same representation as the fragment's alpha value (floating-point or fixed-point).
 	 */
 	public static void glAlphaFunc(int func, float ref) {
-		long __functionAddress = getInstance().glAlphaFunc;
+		long __functionAddress = getInstance().AlphaFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglAlphaFunc(func, ref, __functionAddress);
@@ -1757,7 +1757,7 @@ public final class GL11 {
 
 	// --- [ glAreTexturesResident ] ---
 
-	/** JNI method for {@link #glAreTexturesResident glAreTexturesResident} */
+	/** JNI method for {@link #glAreTexturesResident AreTexturesResident} */
 	@JavadocExclude
 	public static native boolean nglAreTexturesResident(int n, long textures, long residences, long __functionAddress);
 
@@ -1773,7 +1773,7 @@ public final class GL11 {
 	 * @param residences returns the residences of each texture object
 	 */
 	public static boolean glAreTexturesResident(int n, ByteBuffer textures, ByteBuffer residences) {
-		long __functionAddress = getInstance().glAreTexturesResident;
+		long __functionAddress = getInstance().AreTexturesResident;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(textures, n << 2);
@@ -1782,9 +1782,9 @@ public final class GL11 {
 		return nglAreTexturesResident(n, memAddress(textures), memAddress(residences), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glAreTexturesResident glAreTexturesResident} */
+	/** Alternative version of: {@link #glAreTexturesResident AreTexturesResident} */
 	public static boolean glAreTexturesResident(IntBuffer textures, ByteBuffer residences) {
-		long __functionAddress = getInstance().glAreTexturesResident;
+		long __functionAddress = getInstance().AreTexturesResident;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(residences, textures.remaining());
@@ -1792,9 +1792,9 @@ public final class GL11 {
 		return nglAreTexturesResident(textures.remaining(), memAddress(textures), memAddress(residences), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glAreTexturesResident glAreTexturesResident} */
+	/** Single value version of: {@link #glAreTexturesResident AreTexturesResident} */
 	public static boolean glAreTexturesResident(int texture, ByteBuffer residences) {
-		long __functionAddress = getInstance().glAreTexturesResident;
+		long __functionAddress = getInstance().AreTexturesResident;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(residences, 1);
@@ -1806,7 +1806,7 @@ public final class GL11 {
 
 	// --- [ glArrayElement ] ---
 
-	/** JNI method for {@link #glArrayElement glArrayElement} */
+	/** JNI method for {@link #glArrayElement ArrayElement} */
 	@JavadocExclude
 	public static native void nglArrayElement(int i, long __functionAddress);
 
@@ -1818,7 +1818,7 @@ public final class GL11 {
 	 * @param i the element to transfer
 	 */
 	public static void glArrayElement(int i) {
-		long __functionAddress = getInstance().glArrayElement;
+		long __functionAddress = getInstance().ArrayElement;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglArrayElement(i, __functionAddress);
@@ -1826,7 +1826,7 @@ public final class GL11 {
 
 	// --- [ glBegin ] ---
 
-	/** JNI method for {@link #glBegin glBegin} */
+	/** JNI method for {@link #glBegin Begin} */
 	@JavadocExclude
 	public static native void nglBegin(int mode, long __functionAddress);
 
@@ -1838,7 +1838,7 @@ public final class GL11 {
 	 * @param mode the primitive type being defined. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 */
 	public static void glBegin(int mode) {
-		long __functionAddress = getInstance().glBegin;
+		long __functionAddress = getInstance().Begin;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBegin(mode, __functionAddress);
@@ -1846,7 +1846,7 @@ public final class GL11 {
 
 	// --- [ glBindTexture ] ---
 
-	/** JNI method for {@link #glBindTexture glBindTexture} */
+	/** JNI method for {@link #glBindTexture BindTexture} */
 	@JavadocExclude
 	public static native void nglBindTexture(int target, int texture, long __functionAddress);
 
@@ -1863,7 +1863,7 @@ public final class GL11 {
 	 * @param texture the texture object to bind
 	 */
 	public static void glBindTexture(int target, int texture) {
-		long __functionAddress = getInstance().glBindTexture;
+		long __functionAddress = getInstance().BindTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindTexture(target, texture, __functionAddress);
@@ -1871,7 +1871,7 @@ public final class GL11 {
 
 	// --- [ glBitmap ] ---
 
-	/** JNI method for {@link #glBitmap glBitmap} */
+	/** JNI method for {@link #glBitmap Bitmap} */
 	@JavadocExclude
 	public static native void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data, long __functionAddress);
 
@@ -1890,7 +1890,7 @@ public final class GL11 {
 	 * @param data  the buffer containing the bitmap data.
 	 */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, ByteBuffer data) {
-		long __functionAddress = getInstance().glBitmap;
+		long __functionAddress = getInstance().Bitmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -1898,9 +1898,9 @@ public final class GL11 {
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glBitmap glBitmap} */
+	/** Buffer object offset version of: {@link #glBitmap Bitmap} */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long dataOffset) {
-		long __functionAddress = getInstance().glBitmap;
+		long __functionAddress = getInstance().Bitmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -1910,7 +1910,7 @@ public final class GL11 {
 
 	// --- [ glBlendFunc ] ---
 
-	/** JNI method for {@link #glBlendFunc glBlendFunc} */
+	/** JNI method for {@link #glBlendFunc BlendFunc} */
 	@JavadocExclude
 	public static native void nglBlendFunc(int sfactor, int dfactor, long __functionAddress);
 
@@ -1923,7 +1923,7 @@ public final class GL11 {
 	 * @param dfactor the destination weighting factor
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
-		long __functionAddress = getInstance().glBlendFunc;
+		long __functionAddress = getInstance().BlendFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlendFunc(sfactor, dfactor, __functionAddress);
@@ -1931,7 +1931,7 @@ public final class GL11 {
 
 	// --- [ glCallList ] ---
 
-	/** JNI method for {@link #glCallList glCallList} */
+	/** JNI method for {@link #glCallList CallList} */
 	@JavadocExclude
 	public static native void nglCallList(int list, long __functionAddress);
 
@@ -1943,7 +1943,7 @@ public final class GL11 {
 	 * @param list the index of the display list to be called
 	 */
 	public static void glCallList(int list) {
-		long __functionAddress = getInstance().glCallList;
+		long __functionAddress = getInstance().CallList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCallList(list, __functionAddress);
@@ -1951,7 +1951,7 @@ public final class GL11 {
 
 	// --- [ glCallLists ] ---
 
-	/** JNI method for {@link #glCallLists glCallLists} */
+	/** JNI method for {@link #glCallLists CallLists} */
 	@JavadocExclude
 	public static native void nglCallLists(int n, int type, long lists, long __functionAddress);
 
@@ -1965,7 +1965,7 @@ public final class GL11 {
 	 * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
 	 */
 	public static void glCallLists(int n, int type, ByteBuffer lists) {
-		long __functionAddress = getInstance().glCallLists;
+		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(lists, n * GLChecks.typeToBytes(type));
@@ -1973,33 +1973,33 @@ public final class GL11 {
 		nglCallLists(n, type, memAddress(lists), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glCallLists glCallLists} */
+	/** Alternative version of: {@link #glCallLists CallLists} */
 	public static void glCallLists(int type, ByteBuffer lists) {
-		long __functionAddress = getInstance().glCallLists;
+		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCallLists(lists.remaining() / GLChecks.typeToBytes(type), type, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glCallLists glCallLists} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glCallLists CallLists} */
 	public static void glCallLists(ByteBuffer lists) {
-		long __functionAddress = getInstance().glCallLists;
+		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glCallLists glCallLists} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glCallLists CallLists} */
 	public static void glCallLists(ShortBuffer lists) {
-		long __functionAddress = getInstance().glCallLists;
+		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(lists), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glCallLists glCallLists} */
+	/** GL_UNSIGNED_INT version of: {@link #glCallLists CallLists} */
 	public static void glCallLists(IntBuffer lists) {
-		long __functionAddress = getInstance().glCallLists;
+		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_INT, memAddress(lists), __functionAddress);
@@ -2007,7 +2007,7 @@ public final class GL11 {
 
 	// --- [ glClear ] ---
 
-	/** JNI method for {@link #glClear glClear} */
+	/** JNI method for {@link #glClear Clear} */
 	@JavadocExclude
 	public static native void nglClear(int mask, long __functionAddress);
 
@@ -2020,7 +2020,7 @@ public final class GL11 {
 	 * @param mask Zero or the bitwise OR of one or more values indicating which buffers are to be cleared. Valid values:. One of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}
 	 */
 	public static void glClear(int mask) {
-		long __functionAddress = getInstance().glClear;
+		long __functionAddress = getInstance().Clear;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClear(mask, __functionAddress);
@@ -2028,7 +2028,7 @@ public final class GL11 {
 
 	// --- [ glClearAccum ] ---
 
-	/** JNI method for {@link #glClearAccum glClearAccum} */
+	/** JNI method for {@link #glClearAccum ClearAccum} */
 	@JavadocExclude
 	public static native void nglClearAccum(float red, float green, float blue, float alpha, long __functionAddress);
 
@@ -2043,7 +2043,7 @@ public final class GL11 {
 	 * @param alpha the value to which to clear the A values of the accumulation buffer
 	 */
 	public static void glClearAccum(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().glClearAccum;
+		long __functionAddress = getInstance().ClearAccum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClearAccum(red, green, blue, alpha, __functionAddress);
@@ -2051,7 +2051,7 @@ public final class GL11 {
 
 	// --- [ glClearColor ] ---
 
-	/** JNI method for {@link #glClearColor glClearColor} */
+	/** JNI method for {@link #glClearColor ClearColor} */
 	@JavadocExclude
 	public static native void nglClearColor(float red, float green, float blue, float alpha, long __functionAddress);
 
@@ -2066,7 +2066,7 @@ public final class GL11 {
 	 * @param alpha the value to which to clear the A channel of the color buffer
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().glClearColor;
+		long __functionAddress = getInstance().ClearColor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClearColor(red, green, blue, alpha, __functionAddress);
@@ -2074,7 +2074,7 @@ public final class GL11 {
 
 	// --- [ glClearDepth ] ---
 
-	/** JNI method for {@link #glClearDepth glClearDepth} */
+	/** JNI method for {@link #glClearDepth ClearDepth} */
 	@JavadocExclude
 	public static native void nglClearDepth(double depth, long __functionAddress);
 
@@ -2087,7 +2087,7 @@ public final class GL11 {
 	 * @param depth the value to which to clear the depth buffer
 	 */
 	public static void glClearDepth(double depth) {
-		long __functionAddress = getInstance().glClearDepth;
+		long __functionAddress = getInstance().ClearDepth;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClearDepth(depth, __functionAddress);
@@ -2095,7 +2095,7 @@ public final class GL11 {
 
 	// --- [ glClearStencil ] ---
 
-	/** JNI method for {@link #glClearStencil glClearStencil} */
+	/** JNI method for {@link #glClearStencil ClearStencil} */
 	@JavadocExclude
 	public static native void nglClearStencil(int s, long __functionAddress);
 
@@ -2107,7 +2107,7 @@ public final class GL11 {
 	 * @param s the value to which to clear the stencil buffer
 	 */
 	public static void glClearStencil(int s) {
-		long __functionAddress = getInstance().glClearStencil;
+		long __functionAddress = getInstance().ClearStencil;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClearStencil(s, __functionAddress);
@@ -2115,7 +2115,7 @@ public final class GL11 {
 
 	// --- [ glClipPlane ] ---
 
-	/** JNI method for {@link #glClipPlane glClipPlane} */
+	/** JNI method for {@link #glClipPlane ClipPlane} */
 	@JavadocExclude
 	public static native void nglClipPlane(int plane, long equation, long __functionAddress);
 
@@ -2132,15 +2132,15 @@ public final class GL11 {
 	 * @param equation the clip plane coefficients
 	 */
 	public static void glClipPlane(int plane, ByteBuffer equation) {
-		long __functionAddress = getInstance().glClipPlane;
+		long __functionAddress = getInstance().ClipPlane;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClipPlane(plane, memAddress(equation), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glClipPlane glClipPlane} */
+	/** Alternative version of: {@link #glClipPlane ClipPlane} */
 	public static void glClipPlane(int plane, DoubleBuffer equation) {
-		long __functionAddress = getInstance().glClipPlane;
+		long __functionAddress = getInstance().ClipPlane;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClipPlane(plane, memAddress(equation), __functionAddress);
@@ -2148,7 +2148,7 @@ public final class GL11 {
 
 	// --- [ glColor3b ] ---
 
-	/** JNI method for {@link #glColor3b glColor3b} */
+	/** JNI method for {@link #glColor3b Color3b} */
 	@JavadocExclude
 	public static native void nglColor3b(byte red, byte green, byte blue, long __functionAddress);
 
@@ -2162,7 +2162,7 @@ public final class GL11 {
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3b(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().glColor3b;
+		long __functionAddress = getInstance().Color3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3b(red, green, blue, __functionAddress);
@@ -2170,21 +2170,21 @@ public final class GL11 {
 
 	// --- [ glColor3s ] ---
 
-	/** JNI method for {@link #glColor3s glColor3s} */
+	/** JNI method for {@link #glColor3s Color3s} */
 	@JavadocExclude
 	public static native void nglColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glColor3b glColor3b}
+	 * Short version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3s(short red, short green, short blue) {
-		long __functionAddress = getInstance().glColor3s;
+		long __functionAddress = getInstance().Color3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3s(red, green, blue, __functionAddress);
@@ -2192,21 +2192,21 @@ public final class GL11 {
 
 	// --- [ glColor3i ] ---
 
-	/** JNI method for {@link #glColor3i glColor3i} */
+	/** JNI method for {@link #glColor3i Color3i} */
 	@JavadocExclude
 	public static native void nglColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glColor3b glColor3b}
+	 * Integer version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3i(int red, int green, int blue) {
-		long __functionAddress = getInstance().glColor3i;
+		long __functionAddress = getInstance().Color3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3i(red, green, blue, __functionAddress);
@@ -2214,21 +2214,21 @@ public final class GL11 {
 
 	// --- [ glColor3f ] ---
 
-	/** JNI method for {@link #glColor3f glColor3f} */
+	/** JNI method for {@link #glColor3f Color3f} */
 	@JavadocExclude
 	public static native void nglColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glColor3b glColor3b}
+	 * Float version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3f(float red, float green, float blue) {
-		long __functionAddress = getInstance().glColor3f;
+		long __functionAddress = getInstance().Color3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3f(red, green, blue, __functionAddress);
@@ -2236,21 +2236,21 @@ public final class GL11 {
 
 	// --- [ glColor3d ] ---
 
-	/** JNI method for {@link #glColor3d glColor3d} */
+	/** JNI method for {@link #glColor3d Color3d} */
 	@JavadocExclude
 	public static native void nglColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glColor3b glColor3b}
+	 * Double version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3d(double red, double green, double blue) {
-		long __functionAddress = getInstance().glColor3d;
+		long __functionAddress = getInstance().Color3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3d(red, green, blue, __functionAddress);
@@ -2258,21 +2258,21 @@ public final class GL11 {
 
 	// --- [ glColor3ub ] ---
 
-	/** JNI method for {@link #glColor3ub glColor3ub} */
+	/** JNI method for {@link #glColor3ub Color3ub} */
 	@JavadocExclude
 	public static native void nglColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned version of {@link #glColor3b glColor3b}
+	 * Unsigned version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3ub(byte red, byte green, byte blue) {
-		long __functionAddress = getInstance().glColor3ub;
+		long __functionAddress = getInstance().Color3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3ub(red, green, blue, __functionAddress);
@@ -2280,21 +2280,21 @@ public final class GL11 {
 
 	// --- [ glColor3us ] ---
 
-	/** JNI method for {@link #glColor3us glColor3us} */
+	/** JNI method for {@link #glColor3us Color3us} */
 	@JavadocExclude
 	public static native void nglColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glColor3b glColor3b}
+	 * Unsigned short version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3us(short red, short green, short blue) {
-		long __functionAddress = getInstance().glColor3us;
+		long __functionAddress = getInstance().Color3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3us(red, green, blue, __functionAddress);
@@ -2302,21 +2302,21 @@ public final class GL11 {
 
 	// --- [ glColor3ui ] ---
 
-	/** JNI method for {@link #glColor3ui glColor3ui} */
+	/** JNI method for {@link #glColor3ui Color3ui} */
 	@JavadocExclude
 	public static native void nglColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glColor3b glColor3b}
+	 * Unsigned int version of {@link #glColor3b Color3b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
 	 * @param blue  the blue component of the current color
 	 */
 	public static void glColor3ui(int red, int green, int blue) {
-		long __functionAddress = getInstance().glColor3ui;
+		long __functionAddress = getInstance().Color3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor3ui(red, green, blue, __functionAddress);
@@ -2331,12 +2331,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Byte pointer version of {@link #glColor3b glColor3b}.
+	 * Byte pointer version of {@link #glColor3b Color3b}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3b(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3bv;
+		long __functionAddress = getInstance().Color3bv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2353,12 +2353,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3s glColor3s}.
+	 * Pointer version of {@link #glColor3s Color3s}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3s(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3sv;
+		long __functionAddress = getInstance().Color3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -2368,7 +2368,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3s(ByteBuffer) glColor3s} */
 	public static void glColor3(ShortBuffer v) {
-		long __functionAddress = getInstance().glColor3sv;
+		long __functionAddress = getInstance().Color3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2385,12 +2385,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3i glColor3i}.
+	 * Pointer version of {@link #glColor3i Color3i}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3i(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3iv;
+		long __functionAddress = getInstance().Color3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -2400,7 +2400,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3i(ByteBuffer) glColor3i} */
 	public static void glColor3(IntBuffer v) {
-		long __functionAddress = getInstance().glColor3iv;
+		long __functionAddress = getInstance().Color3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2417,12 +2417,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3f glColor3f}.
+	 * Pointer version of {@link #glColor3f Color3f}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3f(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3fv;
+		long __functionAddress = getInstance().Color3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -2432,7 +2432,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3f(ByteBuffer) glColor3f} */
 	public static void glColor3(FloatBuffer v) {
-		long __functionAddress = getInstance().glColor3fv;
+		long __functionAddress = getInstance().Color3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2449,12 +2449,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3d glColor3d}.
+	 * Pointer version of {@link #glColor3d Color3d}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3d(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3dv;
+		long __functionAddress = getInstance().Color3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 3);
@@ -2464,7 +2464,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3d(ByteBuffer) glColor3d} */
 	public static void glColor3(DoubleBuffer v) {
-		long __functionAddress = getInstance().glColor3dv;
+		long __functionAddress = getInstance().Color3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2481,12 +2481,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3ub glColor3ub}.
+	 * Pointer version of {@link #glColor3ub Color3ub}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3ub(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3ubv;
+		long __functionAddress = getInstance().Color3ubv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2503,12 +2503,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3us glColor3us}.
+	 * Pointer version of {@link #glColor3us Color3us}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3us(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3usv;
+		long __functionAddress = getInstance().Color3usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -2518,7 +2518,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3us(ByteBuffer) glColor3us} */
 	public static void glColor3u(ShortBuffer v) {
-		long __functionAddress = getInstance().glColor3usv;
+		long __functionAddress = getInstance().Color3usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2535,12 +2535,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor3ui glColor3ui}.
+	 * Pointer version of {@link #glColor3ui Color3ui}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor3ui(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor3uiv;
+		long __functionAddress = getInstance().Color3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -2550,7 +2550,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor3ui(ByteBuffer) glColor3ui} */
 	public static void glColor3u(IntBuffer v) {
-		long __functionAddress = getInstance().glColor3uiv;
+		long __functionAddress = getInstance().Color3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -2560,7 +2560,7 @@ public final class GL11 {
 
 	// --- [ glColor4b ] ---
 
-	/** JNI method for {@link #glColor4b glColor4b} */
+	/** JNI method for {@link #glColor4b Color4b} */
 	@JavadocExclude
 	public static native void nglColor4b(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
@@ -2575,7 +2575,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
-		long __functionAddress = getInstance().glColor4b;
+		long __functionAddress = getInstance().Color4b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4b(red, green, blue, alpha, __functionAddress);
@@ -2583,14 +2583,14 @@ public final class GL11 {
 
 	// --- [ glColor4s ] ---
 
-	/** JNI method for {@link #glColor4s glColor4s} */
+	/** JNI method for {@link #glColor4s Color4s} */
 	@JavadocExclude
 	public static native void nglColor4s(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glColor4b glColor4b}
+	 * Short version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2598,7 +2598,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4s(short red, short green, short blue, short alpha) {
-		long __functionAddress = getInstance().glColor4s;
+		long __functionAddress = getInstance().Color4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4s(red, green, blue, alpha, __functionAddress);
@@ -2606,14 +2606,14 @@ public final class GL11 {
 
 	// --- [ glColor4i ] ---
 
-	/** JNI method for {@link #glColor4i glColor4i} */
+	/** JNI method for {@link #glColor4i Color4i} */
 	@JavadocExclude
 	public static native void nglColor4i(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glColor4b glColor4b}
+	 * Integer version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2621,7 +2621,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4i(int red, int green, int blue, int alpha) {
-		long __functionAddress = getInstance().glColor4i;
+		long __functionAddress = getInstance().Color4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4i(red, green, blue, alpha, __functionAddress);
@@ -2629,14 +2629,14 @@ public final class GL11 {
 
 	// --- [ glColor4f ] ---
 
-	/** JNI method for {@link #glColor4f glColor4f} */
+	/** JNI method for {@link #glColor4f Color4f} */
 	@JavadocExclude
 	public static native void nglColor4f(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glColor4b glColor4b}
+	 * Float version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2644,7 +2644,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4f(float red, float green, float blue, float alpha) {
-		long __functionAddress = getInstance().glColor4f;
+		long __functionAddress = getInstance().Color4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4f(red, green, blue, alpha, __functionAddress);
@@ -2652,14 +2652,14 @@ public final class GL11 {
 
 	// --- [ glColor4d ] ---
 
-	/** JNI method for {@link #glColor4d glColor4d} */
+	/** JNI method for {@link #glColor4d Color4d} */
 	@JavadocExclude
 	public static native void nglColor4d(double red, double green, double blue, double alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glColor4b glColor4b}
+	 * Double version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2667,7 +2667,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4d(double red, double green, double blue, double alpha) {
-		long __functionAddress = getInstance().glColor4d;
+		long __functionAddress = getInstance().Color4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4d(red, green, blue, alpha, __functionAddress);
@@ -2675,14 +2675,14 @@ public final class GL11 {
 
 	// --- [ glColor4ub ] ---
 
-	/** JNI method for {@link #glColor4ub glColor4ub} */
+	/** JNI method for {@link #glColor4ub Color4ub} */
 	@JavadocExclude
 	public static native void nglColor4ub(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned version of {@link #glColor4b glColor4b}
+	 * Unsigned version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2690,7 +2690,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
-		long __functionAddress = getInstance().glColor4ub;
+		long __functionAddress = getInstance().Color4ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4ub(red, green, blue, alpha, __functionAddress);
@@ -2698,14 +2698,14 @@ public final class GL11 {
 
 	// --- [ glColor4us ] ---
 
-	/** JNI method for {@link #glColor4us glColor4us} */
+	/** JNI method for {@link #glColor4us Color4us} */
 	@JavadocExclude
 	public static native void nglColor4us(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glColor4b glColor4b}
+	 * Unsigned short version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2713,7 +2713,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4us(short red, short green, short blue, short alpha) {
-		long __functionAddress = getInstance().glColor4us;
+		long __functionAddress = getInstance().Color4us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4us(red, green, blue, alpha, __functionAddress);
@@ -2721,14 +2721,14 @@ public final class GL11 {
 
 	// --- [ glColor4ui ] ---
 
-	/** JNI method for {@link #glColor4ui glColor4ui} */
+	/** JNI method for {@link #glColor4ui Color4ui} */
 	@JavadocExclude
 	public static native void nglColor4ui(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned int version of {@link #glColor4b glColor4b}
+	 * Unsigned int version of {@link #glColor4b Color4b}
 	 *
 	 * @param red   the red component of the current color
 	 * @param green the green component of the current color
@@ -2736,7 +2736,7 @@ public final class GL11 {
 	 * @param alpha the alpha component of the current color
 	 */
 	public static void glColor4ui(int red, int green, int blue, int alpha) {
-		long __functionAddress = getInstance().glColor4ui;
+		long __functionAddress = getInstance().Color4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColor4ui(red, green, blue, alpha, __functionAddress);
@@ -2751,12 +2751,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4b glColor4b}.
+	 * Pointer version of {@link #glColor4b Color4b}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4b(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4bv;
+		long __functionAddress = getInstance().Color4bv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2773,12 +2773,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4s glColor4s}.
+	 * Pointer version of {@link #glColor4s Color4s}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4s(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4sv;
+		long __functionAddress = getInstance().Color4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 1);
@@ -2788,7 +2788,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4s(ByteBuffer) glColor4s} */
 	public static void glColor4(ShortBuffer v) {
-		long __functionAddress = getInstance().glColor4sv;
+		long __functionAddress = getInstance().Color4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2805,12 +2805,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4i glColor4i}.
+	 * Pointer version of {@link #glColor4i Color4i}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4i(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4iv;
+		long __functionAddress = getInstance().Color4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -2820,7 +2820,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4i(ByteBuffer) glColor4i} */
 	public static void glColor4(IntBuffer v) {
-		long __functionAddress = getInstance().glColor4iv;
+		long __functionAddress = getInstance().Color4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2837,12 +2837,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4f glColor4f}.
+	 * Pointer version of {@link #glColor4f Color4f}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4f(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4fv;
+		long __functionAddress = getInstance().Color4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -2852,7 +2852,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4f(ByteBuffer) glColor4f} */
 	public static void glColor4(FloatBuffer v) {
-		long __functionAddress = getInstance().glColor4fv;
+		long __functionAddress = getInstance().Color4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2869,12 +2869,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4d glColor4d}.
+	 * Pointer version of {@link #glColor4d Color4d}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4d(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4dv;
+		long __functionAddress = getInstance().Color4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 3);
@@ -2884,7 +2884,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4d(ByteBuffer) glColor4d} */
 	public static void glColor4(DoubleBuffer v) {
-		long __functionAddress = getInstance().glColor4dv;
+		long __functionAddress = getInstance().Color4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2901,12 +2901,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4ub glColor4ub}.
+	 * Pointer version of {@link #glColor4ub Color4ub}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4ub(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4ubv;
+		long __functionAddress = getInstance().Color4ubv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2923,12 +2923,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4us glColor4us}.
+	 * Pointer version of {@link #glColor4us Color4us}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4us(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4usv;
+		long __functionAddress = getInstance().Color4usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 1);
@@ -2938,7 +2938,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4us(ByteBuffer) glColor4us} */
 	public static void glColor4u(ShortBuffer v) {
-		long __functionAddress = getInstance().glColor4usv;
+		long __functionAddress = getInstance().Color4usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2955,12 +2955,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glColor4ui glColor4ui}.
+	 * Pointer version of {@link #glColor4ui Color4ui}.
 	 *
 	 * @param v the color buffer
 	 */
 	public static void glColor4ui(ByteBuffer v) {
-		long __functionAddress = getInstance().glColor4uiv;
+		long __functionAddress = getInstance().Color4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -2970,7 +2970,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glColor4ui(ByteBuffer) glColor4ui} */
 	public static void glColor4u(IntBuffer v) {
-		long __functionAddress = getInstance().glColor4uiv;
+		long __functionAddress = getInstance().Color4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -2980,7 +2980,7 @@ public final class GL11 {
 
 	// --- [ glColorMask ] ---
 
-	/** JNI method for {@link #glColorMask glColorMask} */
+	/** JNI method for {@link #glColorMask ColorMask} */
 	@JavadocExclude
 	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha, long __functionAddress);
 
@@ -2995,7 +2995,7 @@ public final class GL11 {
 	 * @param alpha whether A values are written or not
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
-		long __functionAddress = getInstance().glColorMask;
+		long __functionAddress = getInstance().ColorMask;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColorMask(red, green, blue, alpha, __functionAddress);
@@ -3003,7 +3003,7 @@ public final class GL11 {
 
 	// --- [ glColorMaterial ] ---
 
-	/** JNI method for {@link #glColorMaterial glColorMaterial} */
+	/** JNI method for {@link #glColorMaterial ColorMaterial} */
 	@JavadocExclude
 	public static native void nglColorMaterial(int face, int mode, long __functionAddress);
 
@@ -3011,14 +3011,14 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * It is possible to attach one or more material properties to the current color, so that they continuously track its component values. This behavior is
-	 * enabled and disabled by calling {@link #glEnable glEnable} or {@link #glDisable glDisable} with the symbolic value {@link #GL_COLOR_MATERIAL COLOR_MATERIAL}. This function controls which
+	 * enabled and disabled by calling {@link #glEnable Enable} or {@link #glDisable Disable} with the symbolic value {@link #GL_COLOR_MATERIAL COLOR_MATERIAL}. This function controls which
 	 * of these modes is selected.
 	 *
 	 * @param face specifies which material face is affected by the current color. One of:<p/>{@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}
 	 * @param mode specifies which material property or properties track the current color. One of:<p/>{@link #GL_EMISSION EMISSION}, {@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}
 	 */
 	public static void glColorMaterial(int face, int mode) {
-		long __functionAddress = getInstance().glColorMaterial;
+		long __functionAddress = getInstance().ColorMaterial;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColorMaterial(face, mode, __functionAddress);
@@ -3026,7 +3026,7 @@ public final class GL11 {
 
 	// --- [ glColorPointer ] ---
 
-	/** JNI method for {@link #glColorPointer glColorPointer} */
+	/** JNI method for {@link #glColorPointer ColorPointer} */
 	@JavadocExclude
 	public static native void nglColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
@@ -3041,7 +3041,7 @@ public final class GL11 {
 	 * @param pointer the color array data
 	 */
 	public static void glColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glColorPointer;
+		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -3049,9 +3049,9 @@ public final class GL11 {
 		nglColorPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glColorPointer glColorPointer} */
+	/** Buffer object offset version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glColorPointer;
+		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -3059,9 +3059,9 @@ public final class GL11 {
 		nglColorPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glColorPointer glColorPointer} */
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glColorPointer;
+		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -3069,9 +3069,9 @@ public final class GL11 {
 		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glColorPointer glColorPointer} */
+	/** GL_FLOAT version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glColorPointer;
+		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -3081,7 +3081,7 @@ public final class GL11 {
 
 	// --- [ glCopyPixels ] ---
 
-	/** JNI method for {@link #glCopyPixels glCopyPixels} */
+	/** JNI method for {@link #glCopyPixels CopyPixels} */
 	@JavadocExclude
 	public static native void nglCopyPixels(int x, int y, int width, int height, int type, long __functionAddress);
 
@@ -3097,7 +3097,7 @@ public final class GL11 {
 	 * @param type   Indicates the type of values to be transfered. One of:<p/>{@link #GL_COLOR COLOR}, {@link #GL_STENCIL STENCIL}, {@link #GL_DEPTH DEPTH}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
-		long __functionAddress = getInstance().glCopyPixels;
+		long __functionAddress = getInstance().CopyPixels;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyPixels(x, y, width, height, type, __functionAddress);
@@ -3105,7 +3105,7 @@ public final class GL11 {
 
 	// --- [ glCullFace ] ---
 
-	/** JNI method for {@link #glCullFace glCullFace} */
+	/** JNI method for {@link #glCullFace CullFace} */
 	@JavadocExclude
 	public static native void nglCullFace(int mode, long __functionAddress);
 
@@ -3119,7 +3119,7 @@ public final class GL11 {
 	 * @param mode the CullFace mode. One of:<p/>{@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}
 	 */
 	public static void glCullFace(int mode) {
-		long __functionAddress = getInstance().glCullFace;
+		long __functionAddress = getInstance().CullFace;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCullFace(mode, __functionAddress);
@@ -3127,7 +3127,7 @@ public final class GL11 {
 
 	// --- [ glDeleteLists ] ---
 
-	/** JNI method for {@link #glDeleteLists glDeleteLists} */
+	/** JNI method for {@link #glDeleteLists DeleteLists} */
 	@JavadocExclude
 	public static native void nglDeleteLists(int list, int range, long __functionAddress);
 
@@ -3141,7 +3141,7 @@ public final class GL11 {
 	 * @param range the number of display lists to be deleted
 	 */
 	public static void glDeleteLists(int list, int range) {
-		long __functionAddress = getInstance().glDeleteLists;
+		long __functionAddress = getInstance().DeleteLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteLists(list, range, __functionAddress);
@@ -3149,7 +3149,7 @@ public final class GL11 {
 
 	// --- [ glDepthFunc ] ---
 
-	/** JNI method for {@link #glDepthFunc glDepthFunc} */
+	/** JNI method for {@link #glDepthFunc DepthFunc} */
 	@JavadocExclude
 	public static native void nglDepthFunc(int func, long __functionAddress);
 
@@ -3161,7 +3161,7 @@ public final class GL11 {
 	 * @param func the depth test comparison. One of:<p/>{@link #GL_NEVER NEVER}, {@link #GL_ALWAYS ALWAYS}, {@link #GL_LESS LESS}, {@link #GL_LEQUAL LEQUAL}, {@link #GL_EQUAL EQUAL}, {@link #GL_GREATER GREATER}, {@link #GL_GEQUAL GEQUAL}, {@link #GL_NOTEQUAL NOTEQUAL}
 	 */
 	public static void glDepthFunc(int func) {
-		long __functionAddress = getInstance().glDepthFunc;
+		long __functionAddress = getInstance().DepthFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDepthFunc(func, __functionAddress);
@@ -3169,7 +3169,7 @@ public final class GL11 {
 
 	// --- [ glDepthMask ] ---
 
-	/** JNI method for {@link #glDepthMask glDepthMask} */
+	/** JNI method for {@link #glDepthMask DepthMask} */
 	@JavadocExclude
 	public static native void nglDepthMask(boolean flag, long __functionAddress);
 
@@ -3181,7 +3181,7 @@ public final class GL11 {
 	 * @param flag whether depth values are written or not.
 	 */
 	public static void glDepthMask(boolean flag) {
-		long __functionAddress = getInstance().glDepthMask;
+		long __functionAddress = getInstance().DepthMask;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDepthMask(flag, __functionAddress);
@@ -3189,7 +3189,7 @@ public final class GL11 {
 
 	// --- [ glDepthRange ] ---
 
-	/** JNI method for {@link #glDepthRange glDepthRange} */
+	/** JNI method for {@link #glDepthRange DepthRange} */
 	@JavadocExclude
 	public static native void nglDepthRange(double zNear, double zFar, long __functionAddress);
 
@@ -3202,7 +3202,7 @@ public final class GL11 {
 	 * @param zFar  the far depth range
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
-		long __functionAddress = getInstance().glDepthRange;
+		long __functionAddress = getInstance().DepthRange;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDepthRange(zNear, zFar, __functionAddress);
@@ -3210,7 +3210,7 @@ public final class GL11 {
 
 	// --- [ glDisableClientState ] ---
 
-	/** JNI method for {@link #glDisableClientState glDisableClientState} */
+	/** JNI method for {@link #glDisableClientState DisableClientState} */
 	@JavadocExclude
 	public static native void nglDisableClientState(int array, long __functionAddress);
 
@@ -3222,7 +3222,7 @@ public final class GL11 {
 	 * @param array the attribute array to disable. One of:<p/>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link #GL_NORMAL_ARRAY NORMAL_ARRAY}, {@link #GL_COLOR_ARRAY COLOR_ARRAY}, {@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}, {@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}, {@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}, {@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}
 	 */
 	public static void glDisableClientState(int array) {
-		long __functionAddress = getInstance().glDisableClientState;
+		long __functionAddress = getInstance().DisableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDisableClientState(array, __functionAddress);
@@ -3230,7 +3230,7 @@ public final class GL11 {
 
 	// --- [ glDrawArrays ] ---
 
-	/** JNI method for {@link #glDrawArrays glDrawArrays} */
+	/** JNI method for {@link #glDrawArrays DrawArrays} */
 	@JavadocExclude
 	public static native void nglDrawArrays(int mode, int first, int count, long __functionAddress);
 
@@ -3248,7 +3248,7 @@ public final class GL11 {
 	 * @param count the number of vertices after {@code first} to transfer to the GL
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
-		long __functionAddress = getInstance().glDrawArrays;
+		long __functionAddress = getInstance().DrawArrays;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDrawArrays(mode, first, count, __functionAddress);
@@ -3256,7 +3256,7 @@ public final class GL11 {
 
 	// --- [ glDrawBuffer ] ---
 
-	/** JNI method for {@link #glDrawBuffer glDrawBuffer} */
+	/** JNI method for {@link #glDrawBuffer DrawBuffer} */
 	@JavadocExclude
 	public static native void nglDrawBuffer(int buf, long __functionAddress);
 
@@ -3271,7 +3271,7 @@ public final class GL11 {
 	 * @param buf the color buffer to draw to. One of:<p/>{@link #GL_NONE NONE}, {@link #GL_FRONT_LEFT FRONT_LEFT}, {@link #GL_FRONT_RIGHT FRONT_RIGHT}, {@link #GL_BACK_LEFT BACK_LEFT}, {@link #GL_BACK_RIGHT BACK_RIGHT}, {@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_LEFT LEFT}, {@link #GL_RIGHT RIGHT}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link #GL_AUX0 AUX0}, {@link #GL_AUX1 AUX1}, {@link #GL_AUX2 AUX2}, {@link #GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glDrawBuffer(int buf) {
-		long __functionAddress = getInstance().glDrawBuffer;
+		long __functionAddress = getInstance().DrawBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDrawBuffer(buf, __functionAddress);
@@ -3279,7 +3279,7 @@ public final class GL11 {
 
 	// --- [ glDrawElements ] ---
 
-	/** JNI method for {@link #glDrawElements glDrawElements} */
+	/** JNI method for {@link #glDrawElements DrawElements} */
 	@JavadocExclude
 	public static native void nglDrawElements(int mode, int count, int type, long indices, long __functionAddress);
 
@@ -3296,7 +3296,7 @@ public final class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
@@ -3305,9 +3305,9 @@ public final class GL11 {
 		nglDrawElements(mode, count, type, memAddress(indices), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawElements glDrawElements} */
+	/** Buffer object offset version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, int count, int type, long indicesOffset) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
@@ -3315,9 +3315,9 @@ public final class GL11 {
 		nglDrawElements(mode, count, type, indicesOffset, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDrawElements glDrawElements} */
+	/** Alternative version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
@@ -3325,9 +3325,9 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements glDrawElements} */
+	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, ByteBuffer indices) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -3335,9 +3335,9 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElements glDrawElements} */
+	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, ShortBuffer indices) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -3345,9 +3345,9 @@ public final class GL11 {
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), __functionAddress);
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #glDrawElements glDrawElements} */
+	/** GL_UNSIGNED_INT version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, IntBuffer indices) {
-		long __functionAddress = getInstance().glDrawElements;
+		long __functionAddress = getInstance().DrawElements;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
@@ -3357,7 +3357,7 @@ public final class GL11 {
 
 	// --- [ glDrawPixels ] ---
 
-	/** JNI method for {@link #glDrawPixels glDrawPixels} */
+	/** JNI method for {@link #glDrawPixels DrawPixels} */
 	@JavadocExclude
 	public static native void nglDrawPixels(int width, int height, int format, int type, long pixels, long __functionAddress);
 
@@ -3373,7 +3373,7 @@ public final class GL11 {
 	 * @param pixels the pixel data
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glDrawPixels;
+		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -3381,9 +3381,9 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glDrawPixels glDrawPixels} */
+	/** Buffer object offset version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glDrawPixels;
+		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -3391,9 +3391,9 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glDrawPixels glDrawPixels} */
+	/** ShortBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glDrawPixels;
+		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -3401,9 +3401,9 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glDrawPixels glDrawPixels} */
+	/** IntBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glDrawPixels;
+		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -3411,9 +3411,9 @@ public final class GL11 {
 		nglDrawPixels(width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glDrawPixels glDrawPixels} */
+	/** FloatBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glDrawPixels;
+		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -3423,7 +3423,7 @@ public final class GL11 {
 
 	// --- [ glEdgeFlag ] ---
 
-	/** JNI method for {@link #glEdgeFlag glEdgeFlag} */
+	/** JNI method for {@link #glEdgeFlag EdgeFlag} */
 	@JavadocExclude
 	public static native void nglEdgeFlag(boolean flag, long __functionAddress);
 
@@ -3441,7 +3441,7 @@ public final class GL11 {
 	 * @param flag the edge flag bit
 	 */
 	public static void glEdgeFlag(boolean flag) {
-		long __functionAddress = getInstance().glEdgeFlag;
+		long __functionAddress = getInstance().EdgeFlag;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEdgeFlag(flag, __functionAddress);
@@ -3456,12 +3456,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlag.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glEdgeFlag glEdgeFlag}.
+	 * Pointer version of {@link #glEdgeFlag EdgeFlag}.
 	 *
 	 * @param flag the edge flag buffer
 	 */
 	public static void glEdgeFlag(ByteBuffer flag) {
-		long __functionAddress = getInstance().glEdgeFlagv;
+		long __functionAddress = getInstance().EdgeFlagv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(flag, 1);
@@ -3471,7 +3471,7 @@ public final class GL11 {
 
 	// --- [ glEdgeFlagPointer ] ---
 
-	/** JNI method for {@link #glEdgeFlagPointer glEdgeFlagPointer} */
+	/** JNI method for {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	@JavadocExclude
 	public static native void nglEdgeFlagPointer(int stride, long pointer, long __functionAddress);
 
@@ -3484,7 +3484,7 @@ public final class GL11 {
 	 * @param pointer the edge flag array data
 	 */
 	public static void glEdgeFlagPointer(int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glEdgeFlagPointer;
+		long __functionAddress = getInstance().EdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -3492,9 +3492,9 @@ public final class GL11 {
 		nglEdgeFlagPointer(stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glEdgeFlagPointer glEdgeFlagPointer} */
+	/** Buffer object offset version of: {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	public static void glEdgeFlagPointer(int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glEdgeFlagPointer;
+		long __functionAddress = getInstance().EdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -3504,7 +3504,7 @@ public final class GL11 {
 
 	// --- [ glEnableClientState ] ---
 
-	/** JNI method for {@link #glEnableClientState glEnableClientState} */
+	/** JNI method for {@link #glEnableClientState EnableClientState} */
 	@JavadocExclude
 	public static native void nglEnableClientState(int array, long __functionAddress);
 
@@ -3516,7 +3516,7 @@ public final class GL11 {
 	 * @param array the attribute array to enable. One of:<p/>{@link #GL_VERTEX_ARRAY VERTEX_ARRAY}, {@link #GL_NORMAL_ARRAY NORMAL_ARRAY}, {@link #GL_COLOR_ARRAY COLOR_ARRAY}, {@link GL14#GL_SECONDARY_COLOR_ARRAY SECONDARY_COLOR_ARRAY}, {@link #GL_EDGE_FLAG_ARRAY EDGE_FLAG_ARRAY}, {@link GL15#GL_FOG_COORD_ARRAY FOG_COORD_ARRAY}, {@link #GL_TEXTURE_COORD_ARRAY TEXTURE_COORD_ARRAY}
 	 */
 	public static void glEnableClientState(int array) {
-		long __functionAddress = getInstance().glEnableClientState;
+		long __functionAddress = getInstance().EnableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEnableClientState(array, __functionAddress);
@@ -3524,7 +3524,7 @@ public final class GL11 {
 
 	// --- [ glEnd ] ---
 
-	/** JNI method for {@link #glEnd glEnd} */
+	/** JNI method for {@link #glEnd End} */
 	@JavadocExclude
 	public static native void nglEnd(long __functionAddress);
 
@@ -3534,7 +3534,7 @@ public final class GL11 {
 	 * Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 */
 	public static void glEnd() {
-		long __functionAddress = getInstance().glEnd;
+		long __functionAddress = getInstance().End;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEnd(__functionAddress);
@@ -3542,7 +3542,7 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1f ] ---
 
-	/** JNI method for {@link #glEvalCoord1f glEvalCoord1f} */
+	/** JNI method for {@link #glEvalCoord1f EvalCoord1f} */
 	@JavadocExclude
 	public static native void nglEvalCoord1f(float u, long __functionAddress);
 
@@ -3554,7 +3554,7 @@ public final class GL11 {
 	 * @param u the domain coordinate u
 	 */
 	public static void glEvalCoord1f(float u) {
-		long __functionAddress = getInstance().glEvalCoord1f;
+		long __functionAddress = getInstance().EvalCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1f(u, __functionAddress);
@@ -3569,12 +3569,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord1f glEvalCoord1f}.
+	 * Pointer version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord1f(ByteBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord1fv;
+		long __functionAddress = getInstance().EvalCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1fv(memAddress(u), __functionAddress);
@@ -3582,7 +3582,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glEvalCoord1f(ByteBuffer) glEvalCoord1f} */
 	public static void glEvalCoord1(FloatBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord1fv;
+		long __functionAddress = getInstance().EvalCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1fv(memAddress(u), __functionAddress);
@@ -3590,19 +3590,19 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1d ] ---
 
-	/** JNI method for {@link #glEvalCoord1d glEvalCoord1d} */
+	/** JNI method for {@link #glEvalCoord1d EvalCoord1d} */
 	@JavadocExclude
 	public static native void nglEvalCoord1d(double u, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glEvalCoord1f glEvalCoord1f}.
+	 * Double version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
 	 * @param u the domain coordinate u
 	 */
 	public static void glEvalCoord1d(double u) {
-		long __functionAddress = getInstance().glEvalCoord1d;
+		long __functionAddress = getInstance().EvalCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1d(u, __functionAddress);
@@ -3617,12 +3617,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord1d glEvalCoord1d}.
+	 * Pointer version of {@link #glEvalCoord1d EvalCoord1d}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord1d(ByteBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord1dv;
+		long __functionAddress = getInstance().EvalCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1dv(memAddress(u), __functionAddress);
@@ -3630,7 +3630,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glEvalCoord1d(ByteBuffer) glEvalCoord1d} */
 	public static void glEvalCoord1(DoubleBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord1dv;
+		long __functionAddress = getInstance().EvalCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1dv(memAddress(u), __functionAddress);
@@ -3638,7 +3638,7 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2f ] ---
 
-	/** JNI method for {@link #glEvalCoord2f glEvalCoord2f} */
+	/** JNI method for {@link #glEvalCoord2f EvalCoord2f} */
 	@JavadocExclude
 	public static native void nglEvalCoord2f(float u, float v, long __functionAddress);
 
@@ -3651,7 +3651,7 @@ public final class GL11 {
 	 * @param v the domain coordinate v
 	 */
 	public static void glEvalCoord2f(float u, float v) {
-		long __functionAddress = getInstance().glEvalCoord2f;
+		long __functionAddress = getInstance().EvalCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2f(u, v, __functionAddress);
@@ -3666,12 +3666,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord2f glEvalCoord2f}.
+	 * Pointer version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord2f(ByteBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord2fv;
+		long __functionAddress = getInstance().EvalCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2fv(memAddress(u), __functionAddress);
@@ -3679,7 +3679,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glEvalCoord2f(ByteBuffer) glEvalCoord2f} */
 	public static void glEvalCoord2(FloatBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord2fv;
+		long __functionAddress = getInstance().EvalCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2fv(memAddress(u), __functionAddress);
@@ -3687,20 +3687,20 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2d ] ---
 
-	/** JNI method for {@link #glEvalCoord2d glEvalCoord2d} */
+	/** JNI method for {@link #glEvalCoord2d EvalCoord2d} */
 	@JavadocExclude
 	public static native void nglEvalCoord2d(double u, double v, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glEvalCoord2f glEvalCoord2f}.
+	 * Double version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
 	 * @param u the domain coordinate u
 	 * @param v the domain coordinate v
 	 */
 	public static void glEvalCoord2d(double u, double v) {
-		long __functionAddress = getInstance().glEvalCoord2d;
+		long __functionAddress = getInstance().EvalCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2d(u, v, __functionAddress);
@@ -3715,12 +3715,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glEvalCoord2d glEvalCoord2d}.
+	 * Pointer version of {@link #glEvalCoord2d EvalCoord2d}.
 	 *
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord2d(ByteBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord2dv;
+		long __functionAddress = getInstance().EvalCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2dv(memAddress(u), __functionAddress);
@@ -3728,7 +3728,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glEvalCoord2d(ByteBuffer) glEvalCoord2d} */
 	public static void glEvalCoord2(DoubleBuffer u) {
-		long __functionAddress = getInstance().glEvalCoord2dv;
+		long __functionAddress = getInstance().EvalCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2dv(memAddress(u), __functionAddress);
@@ -3736,7 +3736,7 @@ public final class GL11 {
 
 	// --- [ glEvalMesh1 ] ---
 
-	/** JNI method for {@link #glEvalMesh1 glEvalMesh1} */
+	/** JNI method for {@link #glEvalMesh1 EvalMesh1} */
 	@JavadocExclude
 	public static native void nglEvalMesh1(int mode, int i1, int i2, long __functionAddress);
 
@@ -3750,7 +3750,7 @@ public final class GL11 {
 	 * @param i2   the end index
 	 */
 	public static void glEvalMesh1(int mode, int i1, int i2) {
-		long __functionAddress = getInstance().glEvalMesh1;
+		long __functionAddress = getInstance().EvalMesh1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalMesh1(mode, i1, i2, __functionAddress);
@@ -3758,7 +3758,7 @@ public final class GL11 {
 
 	// --- [ glEvalMesh2 ] ---
 
-	/** JNI method for {@link #glEvalMesh2 glEvalMesh2} */
+	/** JNI method for {@link #glEvalMesh2 EvalMesh2} */
 	@JavadocExclude
 	public static native void nglEvalMesh2(int mode, int i1, int i2, int j1, int j2, long __functionAddress);
 
@@ -3774,7 +3774,7 @@ public final class GL11 {
 	 * @param j2   the v-dimension end index
 	 */
 	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
-		long __functionAddress = getInstance().glEvalMesh2;
+		long __functionAddress = getInstance().EvalMesh2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalMesh2(mode, i1, i2, j1, j2, __functionAddress);
@@ -3782,7 +3782,7 @@ public final class GL11 {
 
 	// --- [ glEvalPoint1 ] ---
 
-	/** JNI method for {@link #glEvalPoint1 glEvalPoint1} */
+	/** JNI method for {@link #glEvalPoint1 EvalPoint1} */
 	@JavadocExclude
 	public static native void nglEvalPoint1(int i, long __functionAddress);
 
@@ -3794,7 +3794,7 @@ public final class GL11 {
 	 * @param i the grid index
 	 */
 	public static void glEvalPoint1(int i) {
-		long __functionAddress = getInstance().glEvalPoint1;
+		long __functionAddress = getInstance().EvalPoint1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalPoint1(i, __functionAddress);
@@ -3802,7 +3802,7 @@ public final class GL11 {
 
 	// --- [ glEvalPoint2 ] ---
 
-	/** JNI method for {@link #glEvalPoint2 glEvalPoint2} */
+	/** JNI method for {@link #glEvalPoint2 EvalPoint2} */
 	@JavadocExclude
 	public static native void nglEvalPoint2(int i, int j, long __functionAddress);
 
@@ -3815,7 +3815,7 @@ public final class GL11 {
 	 * @param j the v-dimension grid index
 	 */
 	public static void glEvalPoint2(int i, int j) {
-		long __functionAddress = getInstance().glEvalPoint2;
+		long __functionAddress = getInstance().EvalPoint2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEvalPoint2(i, j, __functionAddress);
@@ -3823,7 +3823,7 @@ public final class GL11 {
 
 	// --- [ glFeedbackBuffer ] ---
 
-	/** JNI method for {@link #glFeedbackBuffer glFeedbackBuffer} */
+	/** JNI method for {@link #glFeedbackBuffer FeedbackBuffer} */
 	@JavadocExclude
 	public static native void nglFeedbackBuffer(int size, int type, long buffer, long __functionAddress);
 
@@ -3837,7 +3837,7 @@ public final class GL11 {
 	 * @param buffer an array of floating-point values into which feedback information will be placed
 	 */
 	public static void glFeedbackBuffer(int size, int type, ByteBuffer buffer) {
-		long __functionAddress = getInstance().glFeedbackBuffer;
+		long __functionAddress = getInstance().FeedbackBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer, size << 2);
@@ -3845,9 +3845,9 @@ public final class GL11 {
 		nglFeedbackBuffer(size, type, memAddress(buffer), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glFeedbackBuffer glFeedbackBuffer} */
+	/** Alternative version of: {@link #glFeedbackBuffer FeedbackBuffer} */
 	public static void glFeedbackBuffer(int type, FloatBuffer buffer) {
-		long __functionAddress = getInstance().glFeedbackBuffer;
+		long __functionAddress = getInstance().FeedbackBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFeedbackBuffer(buffer.remaining(), type, memAddress(buffer), __functionAddress);
@@ -3855,7 +3855,7 @@ public final class GL11 {
 
 	// --- [ glFinish ] ---
 
-	/** JNI method for {@link #glFinish glFinish} */
+	/** JNI method for {@link #glFinish Finish} */
 	@JavadocExclude
 	public static native void nglFinish(long __functionAddress);
 
@@ -3866,7 +3866,7 @@ public final class GL11 {
 	 * state and the framebuffer are fully realized.
 	 */
 	public static void glFinish() {
-		long __functionAddress = getInstance().glFinish;
+		long __functionAddress = getInstance().Finish;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFinish(__functionAddress);
@@ -3874,7 +3874,7 @@ public final class GL11 {
 
 	// --- [ glFlush ] ---
 
-	/** JNI method for {@link #glFlush glFlush} */
+	/** JNI method for {@link #glFlush Flush} */
 	@JavadocExclude
 	public static native void nglFlush(long __functionAddress);
 
@@ -3884,7 +3884,7 @@ public final class GL11 {
 	 * Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns).
 	 */
 	public static void glFlush() {
-		long __functionAddress = getInstance().glFlush;
+		long __functionAddress = getInstance().Flush;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFlush(__functionAddress);
@@ -3892,7 +3892,7 @@ public final class GL11 {
 
 	// --- [ glFogi ] ---
 
-	/** JNI method for {@link #glFogi glFogi} */
+	/** JNI method for {@link #glFogi Fogi} */
 	@JavadocExclude
 	public static native void nglFogi(int pname, int param, long __functionAddress);
 
@@ -3905,7 +3905,7 @@ public final class GL11 {
 	 * @param param the fog parameter value. One of:<p/>{@link #GL_EXP EXP}, {@link #GL_EXP2 EXP2}, {@link #GL_LINEAR LINEAR}, {@link GL14#GL_FRAGMENT_DEPTH FRAGMENT_DEPTH}, {@link GL15#GL_FOG_COORD FOG_COORD}
 	 */
 	public static void glFogi(int pname, int param) {
-		long __functionAddress = getInstance().glFogi;
+		long __functionAddress = getInstance().Fogi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFogi(pname, param, __functionAddress);
@@ -3920,13 +3920,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogi glFogi}.
+	 * Pointer version of {@link #glFogi Fogi}.
 	 *
 	 * @param pname  the fog parameter. One of:<p/>{@link #GL_FOG_MODE FOG_MODE}, {@link GL15#GL_FOG_COORD_SRC FOG_COORD_SRC}
 	 * @param params the fog parameter buffer
 	 */
 	public static void glFogi(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glFogiv;
+		long __functionAddress = getInstance().Fogiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -3936,7 +3936,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glFogi(int, ByteBuffer) glFogi} */
 	public static void glFog(int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glFogiv;
+		long __functionAddress = getInstance().Fogiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -3946,7 +3946,7 @@ public final class GL11 {
 
 	// --- [ glFogf ] ---
 
-	/** JNI method for {@link #glFogf glFogf} */
+	/** JNI method for {@link #glFogf Fogf} */
 	@JavadocExclude
 	public static native void nglFogf(int pname, float param, long __functionAddress);
 
@@ -3959,7 +3959,7 @@ public final class GL11 {
 	 * @param param the fog parameter value
 	 */
 	public static void glFogf(int pname, float param) {
-		long __functionAddress = getInstance().glFogf;
+		long __functionAddress = getInstance().Fogf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFogf(pname, param, __functionAddress);
@@ -3974,13 +3974,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glFogf glFogf}.
+	 * Pointer version of {@link #glFogf Fogf}.
 	 *
 	 * @param pname  the fog parameter. One of:<p/>{@link #GL_FOG_DENSITY FOG_DENSITY}, {@link #GL_FOG_START FOG_START}, {@link #GL_FOG_END FOG_END}
 	 * @param params the fog parameter buffer
 	 */
 	public static void glFogf(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glFogfv;
+		long __functionAddress = getInstance().Fogfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -3990,7 +3990,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glFogf(int, ByteBuffer) glFogf} */
 	public static void glFog(int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glFogfv;
+		long __functionAddress = getInstance().Fogfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4000,7 +4000,7 @@ public final class GL11 {
 
 	// --- [ glFrontFace ] ---
 
-	/** JNI method for {@link #glFrontFace glFrontFace} */
+	/** JNI method for {@link #glFrontFace FrontFace} */
 	@JavadocExclude
 	public static native void nglFrontFace(int dir, long __functionAddress);
 
@@ -4014,7 +4014,7 @@ public final class GL11 {
 	 * @param dir the front face direction. One of:<p/>{@link #GL_CCW CCW}, {@link #GL_CW CW}
 	 */
 	public static void glFrontFace(int dir) {
-		long __functionAddress = getInstance().glFrontFace;
+		long __functionAddress = getInstance().FrontFace;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFrontFace(dir, __functionAddress);
@@ -4022,7 +4022,7 @@ public final class GL11 {
 
 	// --- [ glGenLists ] ---
 
-	/** JNI method for {@link #glGenLists glGenLists} */
+	/** JNI method for {@link #glGenLists GenLists} */
 	@JavadocExclude
 	public static native int nglGenLists(int s, long __functionAddress);
 
@@ -4037,7 +4037,7 @@ public final class GL11 {
 	 * @param s the number of display lists to create
 	 */
 	public static int glGenLists(int s) {
-		long __functionAddress = getInstance().glGenLists;
+		long __functionAddress = getInstance().GenLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglGenLists(s, __functionAddress);
@@ -4045,7 +4045,7 @@ public final class GL11 {
 
 	// --- [ glGenTextures ] ---
 
-	/** JNI method for {@link #glGenTextures glGenTextures} */
+	/** JNI method for {@link #glGenTextures GenTextures} */
 	@JavadocExclude
 	public static native void nglGenTextures(int n, long textures, long __functionAddress);
 
@@ -4059,7 +4059,7 @@ public final class GL11 {
 	 * @param textures a scalar or array in which to place the returned texture names
 	 */
 	public static void glGenTextures(int n, ByteBuffer textures) {
-		long __functionAddress = getInstance().glGenTextures;
+		long __functionAddress = getInstance().GenTextures;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(textures, n << 2);
@@ -4067,17 +4067,17 @@ public final class GL11 {
 		nglGenTextures(n, memAddress(textures), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenTextures glGenTextures} */
+	/** Alternative version of: {@link #glGenTextures GenTextures} */
 	public static void glGenTextures(IntBuffer textures) {
-		long __functionAddress = getInstance().glGenTextures;
+		long __functionAddress = getInstance().GenTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenTextures(textures.remaining(), memAddress(textures), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenTextures glGenTextures} */
+	/** Single return value version of: {@link #glGenTextures GenTextures} */
 	public static int glGenTextures() {
-		long __functionAddress = getInstance().glGenTextures;
+		long __functionAddress = getInstance().GenTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4088,7 +4088,7 @@ public final class GL11 {
 
 	// --- [ glDeleteTextures ] ---
 
-	/** JNI method for {@link #glDeleteTextures glDeleteTextures} */
+	/** JNI method for {@link #glDeleteTextures DeleteTextures} */
 	@JavadocExclude
 	public static native void nglDeleteTextures(int n, long textures, long __functionAddress);
 
@@ -4096,18 +4096,18 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTextures.xml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
-	 * currently bound to any of the target bindings of {@link #glBindTexture glBindTexture} is deleted, it is as though {@link #glBindTexture glBindTexture} had been executed with the
+	 * currently bound to any of the target bindings of {@link #glBindTexture BindTexture} is deleted, it is as though {@link #glBindTexture BindTexture} had been executed with the
 	 * same target and texture zero. Additionally, special care must be taken when deleting a texture if any of the images of the texture are attached to a
 	 * framebuffer object.
 	 * <p/>
-	 * Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures glGenTextures} are marked as unused again. Unused names in textures are
+	 * Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures GenTextures} are marked as unused again. Unused names in textures are
 	 * silently ignored, as is the name zero.
 	 *
 	 * @param n        the number of texture names in the {@code textures} parameter
 	 * @param textures contains {@code n} names of texture objects to be deleted
 	 */
 	public static void glDeleteTextures(int n, ByteBuffer textures) {
-		long __functionAddress = getInstance().glDeleteTextures;
+		long __functionAddress = getInstance().DeleteTextures;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(textures, n << 2);
@@ -4115,17 +4115,17 @@ public final class GL11 {
 		nglDeleteTextures(n, memAddress(textures), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteTextures glDeleteTextures} */
+	/** Alternative version of: {@link #glDeleteTextures DeleteTextures} */
 	public static void glDeleteTextures(IntBuffer textures) {
-		long __functionAddress = getInstance().glDeleteTextures;
+		long __functionAddress = getInstance().DeleteTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteTextures(textures.remaining(), memAddress(textures), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteTextures glDeleteTextures} */
+	/** Single value version of: {@link #glDeleteTextures DeleteTextures} */
 	public static void glDeleteTextures(int texture) {
-		long __functionAddress = getInstance().glDeleteTextures;
+		long __functionAddress = getInstance().DeleteTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4135,7 +4135,7 @@ public final class GL11 {
 
 	// --- [ glGetClipPlane ] ---
 
-	/** JNI method for {@link #glGetClipPlane glGetClipPlane} */
+	/** JNI method for {@link #glGetClipPlane GetClipPlane} */
 	@JavadocExclude
 	public static native void nglGetClipPlane(int plane, long equation, long __functionAddress);
 
@@ -4149,7 +4149,7 @@ public final class GL11 {
 	 * @param equation an array in which to place the returned values
 	 */
 	public static void glGetClipPlane(int plane, ByteBuffer equation) {
-		long __functionAddress = getInstance().glGetClipPlane;
+		long __functionAddress = getInstance().GetClipPlane;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(equation, 4 << 3);
@@ -4157,9 +4157,9 @@ public final class GL11 {
 		nglGetClipPlane(plane, memAddress(equation), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetClipPlane glGetClipPlane} */
+	/** Alternative version of: {@link #glGetClipPlane GetClipPlane} */
 	public static void glGetClipPlane(int plane, DoubleBuffer equation) {
-		long __functionAddress = getInstance().glGetClipPlane;
+		long __functionAddress = getInstance().GetClipPlane;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(equation, 4);
@@ -4186,7 +4186,7 @@ public final class GL11 {
 	 * @param params a scalar or array in which to place the returned data
 	 */
 	public static void glGetBoolean(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetBooleanv;
+		long __functionAddress = getInstance().GetBooleanv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4196,7 +4196,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetBoolean(int, ByteBuffer) glGetBoolean} */
 	public static boolean glGetBoolean(int pname) {
-		long __functionAddress = getInstance().glGetBooleanv;
+		long __functionAddress = getInstance().GetBooleanv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4224,7 +4224,7 @@ public final class GL11 {
 	 * @param params a scalar or array in which to place the returned data
 	 */
 	public static void glGetFloat(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetFloatv;
+		long __functionAddress = getInstance().GetFloatv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -4234,7 +4234,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
 	public static void glGetFloat(int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glGetFloatv;
+		long __functionAddress = getInstance().GetFloatv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4244,7 +4244,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
 	public static float glGetFloat(int pname) {
-		long __functionAddress = getInstance().glGetFloatv;
+		long __functionAddress = getInstance().GetFloatv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4272,7 +4272,7 @@ public final class GL11 {
 	 * @param params a scalar or array in which to place the returned data
 	 */
 	public static void glGetInteger(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetIntegerv;
+		long __functionAddress = getInstance().GetIntegerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -4282,7 +4282,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
 	public static void glGetInteger(int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetIntegerv;
+		long __functionAddress = getInstance().GetIntegerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4292,7 +4292,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
 	public static int glGetInteger(int pname) {
-		long __functionAddress = getInstance().glGetIntegerv;
+		long __functionAddress = getInstance().GetIntegerv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4320,7 +4320,7 @@ public final class GL11 {
 	 * @param params a scalar or array in which to place the returned data
 	 */
 	public static void glGetDouble(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetDoublev;
+		long __functionAddress = getInstance().GetDoublev;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 3);
@@ -4330,7 +4330,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
 	public static void glGetDouble(int pname, DoubleBuffer params) {
-		long __functionAddress = getInstance().glGetDoublev;
+		long __functionAddress = getInstance().GetDoublev;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4340,7 +4340,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
 	public static double glGetDouble(int pname) {
-		long __functionAddress = getInstance().glGetDoublev;
+		long __functionAddress = getInstance().GetDoublev;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4351,7 +4351,7 @@ public final class GL11 {
 
 	// --- [ glGetError ] ---
 
-	/** JNI method for {@link #glGetError glGetError} */
+	/** JNI method for {@link #glGetError GetError} */
 	@JavadocExclude
 	public static native int nglGetError(long __functionAddress);
 
@@ -4364,7 +4364,7 @@ public final class GL11 {
 	 * the last call to {@code GetError} (or since the GL was initialized).
 	 */
 	public static int glGetError() {
-		long __functionAddress = getInstance().glGetError;
+		long __functionAddress = getInstance().GetError;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglGetError(__functionAddress);
@@ -4386,7 +4386,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetLighti(int light, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetLightiv;
+		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -4396,7 +4396,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
 	public static void glGetLight(int light, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetLightiv;
+		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -4406,7 +4406,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
 	public static int glGetLighti(int light, int value) {
-		long __functionAddress = getInstance().glGetLightiv;
+		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4431,7 +4431,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetLightf(int light, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetLightfv;
+		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -4441,7 +4441,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
 	public static void glGetLight(int light, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetLightfv;
+		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -4451,7 +4451,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
 	public static float glGetLightf(int light, int value) {
-		long __functionAddress = getInstance().glGetLightfv;
+		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4476,7 +4476,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetMapi(int target, int query, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetMapiv;
+		long __functionAddress = getInstance().GetMapiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -4486,7 +4486,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
 	public static void glGetMap(int target, int query, IntBuffer data) {
-		long __functionAddress = getInstance().glGetMapiv;
+		long __functionAddress = getInstance().GetMapiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -4496,7 +4496,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
 	public static int glGetMapi(int target, int query) {
-		long __functionAddress = getInstance().glGetMapiv;
+		long __functionAddress = getInstance().GetMapiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4521,7 +4521,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetMapf(int target, int query, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetMapfv;
+		long __functionAddress = getInstance().GetMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -4531,7 +4531,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
 	public static void glGetMap(int target, int query, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetMapfv;
+		long __functionAddress = getInstance().GetMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -4541,7 +4541,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
 	public static float glGetMapf(int target, int query) {
-		long __functionAddress = getInstance().glGetMapfv;
+		long __functionAddress = getInstance().GetMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4566,7 +4566,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetMapd(int target, int query, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetMapdv;
+		long __functionAddress = getInstance().GetMapdv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 3);
@@ -4576,7 +4576,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
 	public static void glGetMap(int target, int query, DoubleBuffer data) {
-		long __functionAddress = getInstance().glGetMapdv;
+		long __functionAddress = getInstance().GetMapdv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -4586,7 +4586,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
 	public static double glGetMapd(int target, int query) {
-		long __functionAddress = getInstance().glGetMapdv;
+		long __functionAddress = getInstance().GetMapdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4611,7 +4611,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetMateriali(int face, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetMaterialiv;
+		long __functionAddress = getInstance().GetMaterialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetMaterialiv(face, value, memAddress(data), __functionAddress);
@@ -4619,7 +4619,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali} */
 	public static void glGetMaterial(int face, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetMaterialiv;
+		long __functionAddress = getInstance().GetMaterialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetMaterialiv(face, value, memAddress(data), __functionAddress);
@@ -4641,7 +4641,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetMaterialf(int face, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetMaterialfv;
+		long __functionAddress = getInstance().GetMaterialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetMaterialfv(face, value, memAddress(data), __functionAddress);
@@ -4649,7 +4649,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetMaterialf(int, int, ByteBuffer) glGetMaterialf} */
 	public static void glGetMaterial(int face, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetMaterialfv;
+		long __functionAddress = getInstance().GetMaterialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetMaterialfv(face, value, memAddress(data), __functionAddress);
@@ -4670,7 +4670,7 @@ public final class GL11 {
 	 * @param data an array in which to place the returned data
 	 */
 	public static void glGetPixelMapf(int map, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapfv;
+		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 2);
@@ -4681,7 +4681,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
 	public static void glGetPixelMapf(int map, long dataOffset) {
-		long __functionAddress = getInstance().glGetPixelMapfv;
+		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -4691,7 +4691,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
 	public static void glGetPixelMap(int map, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapfv;
+		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
@@ -4715,7 +4715,7 @@ public final class GL11 {
 	 * @param data an array in which to place the returned data
 	 */
 	public static void glGetPixelMapus(int map, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapusv;
+		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 1);
@@ -4726,7 +4726,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
 	public static void glGetPixelMapus(int map, long dataOffset) {
-		long __functionAddress = getInstance().glGetPixelMapusv;
+		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -4736,7 +4736,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
 	public static void glGetPixelMapu(int map, ShortBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapusv;
+		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
@@ -4760,7 +4760,7 @@ public final class GL11 {
 	 * @param data an array in which to place the returned data
 	 */
 	public static void glGetPixelMapui(int map, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapuiv;
+		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32 << 2);
@@ -4771,7 +4771,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
 	public static void glGetPixelMapui(int map, long dataOffset) {
-		long __functionAddress = getInstance().glGetPixelMapuiv;
+		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -4781,7 +4781,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
 	public static void glGetPixelMapu(int map, IntBuffer data) {
-		long __functionAddress = getInstance().glGetPixelMapuiv;
+		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
@@ -4805,7 +4805,7 @@ public final class GL11 {
 	 * @param params an array in which to place the returned pointer
 	 */
 	public static void glGetPointer(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetPointerv;
+		long __functionAddress = getInstance().GetPointerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << POINTER_SHIFT);
@@ -4815,7 +4815,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
 	public static void glGetPointer(int pname, PointerBuffer params) {
-		long __functionAddress = getInstance().glGetPointerv;
+		long __functionAddress = getInstance().GetPointerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -4825,7 +4825,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
 	public static long glGetPointer(int pname) {
-		long __functionAddress = getInstance().glGetPointerv;
+		long __functionAddress = getInstance().GetPointerv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4836,7 +4836,7 @@ public final class GL11 {
 
 	// --- [ glGetPolygonStipple ] ---
 
-	/** JNI method for {@link #glGetPolygonStipple glGetPolygonStipple} */
+	/** JNI method for {@link #glGetPolygonStipple GetPolygonStipple} */
 	@JavadocExclude
 	public static native void nglGetPolygonStipple(long pattern, long __functionAddress);
 
@@ -4848,7 +4848,7 @@ public final class GL11 {
 	 * @param pattern an array in which to place the returned data
 	 */
 	public static void glGetPolygonStipple(ByteBuffer pattern) {
-		long __functionAddress = getInstance().glGetPolygonStipple;
+		long __functionAddress = getInstance().GetPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pattern, 128);
@@ -4857,9 +4857,9 @@ public final class GL11 {
 		nglGetPolygonStipple(memAddress(pattern), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetPolygonStipple glGetPolygonStipple} */
+	/** Buffer object offset version of: {@link #glGetPolygonStipple GetPolygonStipple} */
 	public static void glGetPolygonStipple(long patternOffset) {
-		long __functionAddress = getInstance().glGetPolygonStipple;
+		long __functionAddress = getInstance().GetPolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -4869,7 +4869,7 @@ public final class GL11 {
 
 	// --- [ glGetString ] ---
 
-	/** JNI method for {@link #glGetString glGetString} */
+	/** JNI method for {@link #glGetString GetString} */
 	@JavadocExclude
 	public static native long nglGetString(int name, long __functionAddress);
 
@@ -4879,7 +4879,7 @@ public final class GL11 {
 	 * @param name the property to query. One of:<p/>{@link #GL_RENDERER RENDERER}, {@link #GL_VENDOR VENDOR}, {@link #GL_EXTENSIONS EXTENSIONS}, {@link #GL_VERSION VERSION}, {@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}
 	 */
 	public static String glGetString(int name) {
-		long __functionAddress = getInstance().glGetString;
+		long __functionAddress = getInstance().GetString;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglGetString(name, __functionAddress);
@@ -4902,7 +4902,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexEnvi(int env, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexEnviv;
+		long __functionAddress = getInstance().GetTexEnviv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -4912,7 +4912,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
 	public static void glGetTexEnv(int env, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetTexEnviv;
+		long __functionAddress = getInstance().GetTexEnviv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -4922,7 +4922,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
 	public static int glGetTexEnvi(int env, int value) {
-		long __functionAddress = getInstance().glGetTexEnviv;
+		long __functionAddress = getInstance().GetTexEnviv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4947,7 +4947,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexEnvf(int env, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexEnvfv;
+		long __functionAddress = getInstance().GetTexEnvfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -4957,7 +4957,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
 	public static void glGetTexEnv(int env, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetTexEnvfv;
+		long __functionAddress = getInstance().GetTexEnvfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -4967,7 +4967,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
 	public static float glGetTexEnvf(int env, int value) {
-		long __functionAddress = getInstance().glGetTexEnvfv;
+		long __functionAddress = getInstance().GetTexEnvfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4992,7 +4992,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexGeni(int coord, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexGeniv;
+		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -5002,7 +5002,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
 	public static void glGetTexGen(int coord, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetTexGeniv;
+		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -5012,7 +5012,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
 	public static int glGetTexGeni(int coord, int value) {
-		long __functionAddress = getInstance().glGetTexGeniv;
+		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5037,7 +5037,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexGenf(int coord, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexGenfv;
+		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -5047,7 +5047,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
 	public static void glGetTexGen(int coord, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetTexGenfv;
+		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -5057,7 +5057,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
 	public static float glGetTexGenf(int coord, int value) {
-		long __functionAddress = getInstance().glGetTexGenfv;
+		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5082,7 +5082,7 @@ public final class GL11 {
 	 * @param data  a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexGend(int coord, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexGendv;
+		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 3);
@@ -5092,7 +5092,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
 	public static void glGetTexGen(int coord, int value, DoubleBuffer data) {
-		long __functionAddress = getInstance().glGetTexGendv;
+		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -5102,7 +5102,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
 	public static double glGetTexGend(int coord, int value) {
-		long __functionAddress = getInstance().glGetTexGendv;
+		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5113,7 +5113,7 @@ public final class GL11 {
 
 	// --- [ glGetTexImage ] ---
 
-	/** JNI method for {@link #glGetTexImage glGetTexImage} */
+	/** JNI method for {@link #glGetTexImage GetTexImage} */
 	@JavadocExclude
 	public static native void nglGetTexImage(int tex, int lod, int format, int type, long img, long __functionAddress);
 
@@ -5129,7 +5129,7 @@ public final class GL11 {
 	 * @param img    the array in which to place the returned data
 	 */
 	public static void glGetTexImage(int tex, int lod, int format, int type, ByteBuffer img) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -5137,9 +5137,9 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glGetTexImage glGetTexImage} */
+	/** Buffer object offset version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, long imgOffset) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -5147,9 +5147,9 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, imgOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetTexImage glGetTexImage} */
+	/** ShortBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, ShortBuffer img) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -5157,9 +5157,9 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetTexImage glGetTexImage} */
+	/** IntBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, IntBuffer img) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -5167,9 +5167,9 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetTexImage glGetTexImage} */
+	/** FloatBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, FloatBuffer img) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -5177,9 +5177,9 @@ public final class GL11 {
 		nglGetTexImage(tex, lod, format, type, memAddress(img), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTexImage glGetTexImage} */
+	/** DoubleBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int lod, int format, int type, DoubleBuffer img) {
-		long __functionAddress = getInstance().glGetTexImage;
+		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -5204,7 +5204,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexLevelParameteri(int target, int lod, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexLevelParameteriv;
+		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -5214,7 +5214,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
 	public static void glGetTexLevelParameter(int target, int lod, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetTexLevelParameteriv;
+		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -5224,7 +5224,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
 	public static int glGetTexLevelParameteri(int target, int lod, int value) {
-		long __functionAddress = getInstance().glGetTexLevelParameteriv;
+		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5250,7 +5250,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexLevelParameterf(int target, int lod, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexLevelParameterfv;
+		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4 << 2);
@@ -5260,7 +5260,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
 	public static void glGetTexLevelParameter(int target, int lod, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetTexLevelParameterfv;
+		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 4);
@@ -5270,7 +5270,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
 	public static float glGetTexLevelParameterf(int target, int lod, int value) {
-		long __functionAddress = getInstance().glGetTexLevelParameterfv;
+		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5295,7 +5295,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexParameteri(int target, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexParameteriv;
+		long __functionAddress = getInstance().GetTexParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -5305,7 +5305,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
 	public static void glGetTexParameter(int target, int value, IntBuffer data) {
-		long __functionAddress = getInstance().glGetTexParameteriv;
+		long __functionAddress = getInstance().GetTexParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -5315,7 +5315,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
 	public static int glGetTexParameteri(int target, int value) {
-		long __functionAddress = getInstance().glGetTexParameteriv;
+		long __functionAddress = getInstance().GetTexParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5340,7 +5340,7 @@ public final class GL11 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetTexParameterf(int target, int value, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetTexParameterfv;
+		long __functionAddress = getInstance().GetTexParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -5350,7 +5350,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
 	public static void glGetTexParameter(int target, int value, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetTexParameterfv;
+		long __functionAddress = getInstance().GetTexParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -5360,7 +5360,7 @@ public final class GL11 {
 
 	/** Single return value version of: {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
 	public static float glGetTexParameterf(int target, int value) {
-		long __functionAddress = getInstance().glGetTexParameterfv;
+		long __functionAddress = getInstance().GetTexParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -5371,7 +5371,7 @@ public final class GL11 {
 
 	// --- [ glHint ] ---
 
-	/** JNI method for {@link #glHint glHint} */
+	/** JNI method for {@link #glHint Hint} */
 	@JavadocExclude
 	public static native void nglHint(int target, int hint, long __functionAddress);
 
@@ -5385,7 +5385,7 @@ public final class GL11 {
 	 * @param hint   the behavior hint. One of:<p/>{@link #GL_FASTEST FASTEST}, {@link #GL_NICEST NICEST}, {@link #GL_DONT_CARE DONT_CARE}
 	 */
 	public static void glHint(int target, int hint) {
-		long __functionAddress = getInstance().glHint;
+		long __functionAddress = getInstance().Hint;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglHint(target, hint, __functionAddress);
@@ -5393,7 +5393,7 @@ public final class GL11 {
 
 	// --- [ glInitNames ] ---
 
-	/** JNI method for {@link #glInitNames glInitNames} */
+	/** JNI method for {@link #glInitNames InitNames} */
 	@JavadocExclude
 	public static native void nglInitNames(long __functionAddress);
 
@@ -5403,7 +5403,7 @@ public final class GL11 {
 	 * Clears the selection name stack.
 	 */
 	public static void glInitNames() {
-		long __functionAddress = getInstance().glInitNames;
+		long __functionAddress = getInstance().InitNames;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglInitNames(__functionAddress);
@@ -5411,7 +5411,7 @@ public final class GL11 {
 
 	// --- [ glInterleavedArrays ] ---
 
-	/** JNI method for {@link #glInterleavedArrays glInterleavedArrays} */
+	/** JNI method for {@link #glInterleavedArrays InterleavedArrays} */
 	@JavadocExclude
 	public static native void nglInterleavedArrays(int format, int stride, long pointer, long __functionAddress);
 
@@ -5425,7 +5425,7 @@ public final class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glInterleavedArrays(int format, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -5433,9 +5433,9 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glInterleavedArrays glInterleavedArrays} */
+	/** Buffer object offset version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -5443,9 +5443,9 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, pointerOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glInterleavedArrays glInterleavedArrays} */
+	/** ShortBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, ShortBuffer pointer) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -5453,9 +5453,9 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glInterleavedArrays glInterleavedArrays} */
+	/** IntBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, IntBuffer pointer) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -5463,9 +5463,9 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glInterleavedArrays glInterleavedArrays} */
+	/** FloatBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -5473,9 +5473,9 @@ public final class GL11 {
 		nglInterleavedArrays(format, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glInterleavedArrays glInterleavedArrays} */
+	/** DoubleBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, DoubleBuffer pointer) {
-		long __functionAddress = getInstance().glInterleavedArrays;
+		long __functionAddress = getInstance().InterleavedArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -5485,19 +5485,19 @@ public final class GL11 {
 
 	// --- [ glIsEnabled ] ---
 
-	/** JNI method for {@link #glIsEnabled glIsEnabled} */
+	/** JNI method for {@link #glIsEnabled IsEnabled} */
 	@JavadocExclude
 	public static native boolean nglIsEnabled(int cap, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabled.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable glEnable}) or disabled.
+	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable Enable}) or disabled.
 	 *
 	 * @param cap the enable state to query
 	 */
 	public static boolean glIsEnabled(int cap) {
-		long __functionAddress = getInstance().glIsEnabled;
+		long __functionAddress = getInstance().IsEnabled;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsEnabled(cap, __functionAddress);
@@ -5505,7 +5505,7 @@ public final class GL11 {
 
 	// --- [ glIsList ] ---
 
-	/** JNI method for {@link #glIsList glIsList} */
+	/** JNI method for {@link #glIsList IsList} */
 	@JavadocExclude
 	public static native boolean nglIsList(int list, long __functionAddress);
 
@@ -5517,7 +5517,7 @@ public final class GL11 {
 	 * @param list the list index to query
 	 */
 	public static boolean glIsList(int list) {
-		long __functionAddress = getInstance().glIsList;
+		long __functionAddress = getInstance().IsList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsList(list, __functionAddress);
@@ -5525,7 +5525,7 @@ public final class GL11 {
 
 	// --- [ glIsTexture ] ---
 
-	/** JNI method for {@link #glIsTexture glIsTexture} */
+	/** JNI method for {@link #glIsTexture IsTexture} */
 	@JavadocExclude
 	public static native boolean nglIsTexture(int texture, long __functionAddress);
 
@@ -5537,7 +5537,7 @@ public final class GL11 {
 	 * @param texture the texture name to query
 	 */
 	public static boolean glIsTexture(int texture) {
-		long __functionAddress = getInstance().glIsTexture;
+		long __functionAddress = getInstance().IsTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsTexture(texture, __functionAddress);
@@ -5545,7 +5545,7 @@ public final class GL11 {
 
 	// --- [ glLightModeli ] ---
 
-	/** JNI method for {@link #glLightModeli glLightModeli} */
+	/** JNI method for {@link #glLightModeli LightModeli} */
 	@JavadocExclude
 	public static native void nglLightModeli(int pname, int param, long __functionAddress);
 
@@ -5558,7 +5558,7 @@ public final class GL11 {
 	 * @param param the parameter value
 	 */
 	public static void glLightModeli(int pname, int param) {
-		long __functionAddress = getInstance().glLightModeli;
+		long __functionAddress = getInstance().LightModeli;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLightModeli(pname, param, __functionAddress);
@@ -5566,20 +5566,20 @@ public final class GL11 {
 
 	// --- [ glLightModelf ] ---
 
-	/** JNI method for {@link #glLightModelf glLightModelf} */
+	/** JNI method for {@link #glLightModelf LightModelf} */
 	@JavadocExclude
 	public static native void nglLightModelf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModelf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glLightModeli glLightModeli}.
+	 * Float version of {@link #glLightModeli LightModeli}.
 	 *
 	 * @param pname the lighting model parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glLightModelf(int pname, float param) {
-		long __functionAddress = getInstance().glLightModelf;
+		long __functionAddress = getInstance().LightModelf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLightModelf(pname, param, __functionAddress);
@@ -5594,13 +5594,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightModeli glLightModeli}.
+	 * Pointer version of {@link #glLightModeli LightModeli}.
 	 *
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glLightModeli(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glLightModeliv;
+		long __functionAddress = getInstance().LightModeliv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -5610,7 +5610,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glLightModeli(int, ByteBuffer) glLightModeli} */
 	public static void glLightModel(int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glLightModeliv;
+		long __functionAddress = getInstance().LightModeliv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -5627,13 +5627,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightModelf glLightModelf}.
+	 * Pointer version of {@link #glLightModelf LightModelf}.
 	 *
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glLightModelf(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glLightModelfv;
+		long __functionAddress = getInstance().LightModelfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -5643,7 +5643,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glLightModelf(int, ByteBuffer) glLightModelf} */
 	public static void glLightModel(int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glLightModelfv;
+		long __functionAddress = getInstance().LightModelfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -5653,7 +5653,7 @@ public final class GL11 {
 
 	// --- [ glLighti ] ---
 
-	/** JNI method for {@link #glLighti glLighti} */
+	/** JNI method for {@link #glLighti Lighti} */
 	@JavadocExclude
 	public static native void nglLighti(int light, int pname, int param, long __functionAddress);
 
@@ -5667,7 +5667,7 @@ public final class GL11 {
 	 * @param param the parameter value
 	 */
 	public static void glLighti(int light, int pname, int param) {
-		long __functionAddress = getInstance().glLighti;
+		long __functionAddress = getInstance().Lighti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLighti(light, pname, param, __functionAddress);
@@ -5675,21 +5675,21 @@ public final class GL11 {
 
 	// --- [ glLightf ] ---
 
-	/** JNI method for {@link #glLightf glLightf} */
+	/** JNI method for {@link #glLightf Lightf} */
 	@JavadocExclude
 	public static native void nglLightf(int light, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glLighti glLighti}.
+	 * Float version of {@link #glLighti Lighti}.
 	 *
 	 * @param light the light for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glLightf(int light, int pname, float param) {
-		long __functionAddress = getInstance().glLightf;
+		long __functionAddress = getInstance().Lightf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLightf(light, pname, param, __functionAddress);
@@ -5704,14 +5704,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glLighti glLighti}.
+	 * Pointer version of {@link #glLighti Lighti}.
 	 *
 	 * @param light  the light for which to set the parameter
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glLighti(int light, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glLightiv;
+		long __functionAddress = getInstance().Lightiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -5721,7 +5721,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glLighti(int, int, ByteBuffer) glLighti} */
 	public static void glLight(int light, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glLightiv;
+		long __functionAddress = getInstance().Lightiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -5738,14 +5738,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glLightf glLightf}.
+	 * Pointer version of {@link #glLightf Lightf}.
 	 *
 	 * @param light  the light for which to set the parameter
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glLightf(int light, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glLightfv;
+		long __functionAddress = getInstance().Lightfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -5755,7 +5755,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glLightf(int, int, ByteBuffer) glLightf} */
 	public static void glLight(int light, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glLightfv;
+		long __functionAddress = getInstance().Lightfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -5765,7 +5765,7 @@ public final class GL11 {
 
 	// --- [ glLineStipple ] ---
 
-	/** JNI method for {@link #glLineStipple glLineStipple} */
+	/** JNI method for {@link #glLineStipple LineStipple} */
 	@JavadocExclude
 	public static native void nglLineStipple(int factor, short pattern, long __functionAddress);
 
@@ -5773,14 +5773,14 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLineStipple.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a line stipple. It determines those fragments that are to be drawn when the line is rasterized. Line stippling may be enabled or disabled using
-	 * {@link #glEnable glEnable} or {@link #glDisable glDisable} with the constant {@link #GL_LINE_STIPPLE LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
+	 * {@link #glEnable Enable} or {@link #glDisable Disable} with the constant {@link #GL_LINE_STIPPLE LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
 	 *
 	 * @param factor  a count that is used to modify the effective line stipple by causing each bit in pattern to be used {@code factor} times. {@code factor} is clamped
 	 *                to the range [1, 256].
 	 * @param pattern an unsigned short integer whose 16 bits define the stipple pattern
 	 */
 	public static void glLineStipple(int factor, short pattern) {
-		long __functionAddress = getInstance().glLineStipple;
+		long __functionAddress = getInstance().LineStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLineStipple(factor, pattern, __functionAddress);
@@ -5788,7 +5788,7 @@ public final class GL11 {
 
 	// --- [ glLineWidth ] ---
 
-	/** JNI method for {@link #glLineWidth glLineWidth} */
+	/** JNI method for {@link #glLineWidth LineWidth} */
 	@JavadocExclude
 	public static native void nglLineWidth(float width, long __functionAddress);
 
@@ -5800,7 +5800,7 @@ public final class GL11 {
 	 * @param width the line width
 	 */
 	public static void glLineWidth(float width) {
-		long __functionAddress = getInstance().glLineWidth;
+		long __functionAddress = getInstance().LineWidth;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLineWidth(width, __functionAddress);
@@ -5808,7 +5808,7 @@ public final class GL11 {
 
 	// --- [ glListBase ] ---
 
-	/** JNI method for {@link #glListBase glListBase} */
+	/** JNI method for {@link #glListBase ListBase} */
 	@JavadocExclude
 	public static native void nglListBase(int base, long __functionAddress);
 
@@ -5820,7 +5820,7 @@ public final class GL11 {
 	 * @param base the display list base offset
 	 */
 	public static void glListBase(int base) {
-		long __functionAddress = getInstance().glListBase;
+		long __functionAddress = getInstance().ListBase;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglListBase(base, __functionAddress);
@@ -5828,7 +5828,7 @@ public final class GL11 {
 
 	// --- [ glLoadMatrixf ] ---
 
-	/** JNI method for {@link #glLoadMatrixf glLoadMatrixf} */
+	/** JNI method for {@link #glLoadMatrixf LoadMatrixf} */
 	@JavadocExclude
 	public static native void nglLoadMatrixf(long m, long __functionAddress);
 
@@ -5851,7 +5851,7 @@ public final class GL11 {
 	 * @param m the matrix data
 	 */
 	public static void glLoadMatrixf(ByteBuffer m) {
-		long __functionAddress = getInstance().glLoadMatrixf;
+		long __functionAddress = getInstance().LoadMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16 << 2);
@@ -5859,9 +5859,9 @@ public final class GL11 {
 		nglLoadMatrixf(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glLoadMatrixf glLoadMatrixf} */
+	/** Alternative version of: {@link #glLoadMatrixf LoadMatrixf} */
 	public static void glLoadMatrix(FloatBuffer m) {
-		long __functionAddress = getInstance().glLoadMatrixf;
+		long __functionAddress = getInstance().LoadMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16);
@@ -5871,19 +5871,19 @@ public final class GL11 {
 
 	// --- [ glLoadMatrixd ] ---
 
-	/** JNI method for {@link #glLoadMatrixd glLoadMatrixd} */
+	/** JNI method for {@link #glLoadMatrixd LoadMatrixd} */
 	@JavadocExclude
 	public static native void nglLoadMatrixd(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glLoadMatrixf glLoadMatrixf}.
+	 * Double version of {@link #glLoadMatrixf LoadMatrixf}.
 	 *
 	 * @param m the matrix data
 	 */
 	public static void glLoadMatrixd(ByteBuffer m) {
-		long __functionAddress = getInstance().glLoadMatrixd;
+		long __functionAddress = getInstance().LoadMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16 << 3);
@@ -5891,9 +5891,9 @@ public final class GL11 {
 		nglLoadMatrixd(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glLoadMatrixd glLoadMatrixd} */
+	/** Alternative version of: {@link #glLoadMatrixd LoadMatrixd} */
 	public static void glLoadMatrix(DoubleBuffer m) {
-		long __functionAddress = getInstance().glLoadMatrixd;
+		long __functionAddress = getInstance().LoadMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16);
@@ -5903,7 +5903,7 @@ public final class GL11 {
 
 	// --- [ glLoadIdentity ] ---
 
-	/** JNI method for {@link #glLoadIdentity glLoadIdentity} */
+	/** JNI method for {@link #glLoadIdentity LoadIdentity} */
 	@JavadocExclude
 	public static native void nglLoadIdentity(long __functionAddress);
 
@@ -5912,7 +5912,7 @@ public final class GL11 {
 	 * <p/>
 	 * Sets the current matrix to the identity matrix.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glLoadMatrixf glLoadMatrixf} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glLoadMatrixf LoadMatrixf} with the following matrix:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
@@ -5921,7 +5921,7 @@ public final class GL11 {
 	 * </table>
 	 */
 	public static void glLoadIdentity() {
-		long __functionAddress = getInstance().glLoadIdentity;
+		long __functionAddress = getInstance().LoadIdentity;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLoadIdentity(__functionAddress);
@@ -5929,7 +5929,7 @@ public final class GL11 {
 
 	// --- [ glLoadName ] ---
 
-	/** JNI method for {@link #glLoadName glLoadName} */
+	/** JNI method for {@link #glLoadName LoadName} */
 	@JavadocExclude
 	public static native void nglLoadName(int name, long __functionAddress);
 
@@ -5941,7 +5941,7 @@ public final class GL11 {
 	 * @param name the name to load
 	 */
 	public static void glLoadName(int name) {
-		long __functionAddress = getInstance().glLoadName;
+		long __functionAddress = getInstance().LoadName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLoadName(name, __functionAddress);
@@ -5949,7 +5949,7 @@ public final class GL11 {
 
 	// --- [ glLogicOp ] ---
 
-	/** JNI method for {@link #glLogicOp glLogicOp} */
+	/** JNI method for {@link #glLogicOp LogicOp} */
 	@JavadocExclude
 	public static native void nglLogicOp(int op, long __functionAddress);
 
@@ -5961,7 +5961,7 @@ public final class GL11 {
 	 * @param op the operation to set. One of:<p/>{@link #GL_CLEAR CLEAR}, {@link #GL_AND AND}, {@link #GL_AND_REVERSE AND_REVERSE}, {@link #GL_COPY COPY}, {@link #GL_AND_INVERTED AND_INVERTED}, {@link #GL_NOOP NOOP}, {@link #GL_XOR XOR}, {@link #GL_OR OR}, {@link #GL_NOR NOR}, {@link #GL_EQUIV EQUIV}, {@link #GL_INVERT INVERT}, {@link #GL_OR_REVERSE OR_REVERSE}, {@link #GL_COPY_INVERTED COPY_INVERTED}, {@link #GL_OR_INVERTED OR_INVERTED}, {@link #GL_NAND NAND}, {@link #GL_SET SET}
 	 */
 	public static void glLogicOp(int op) {
-		long __functionAddress = getInstance().glLogicOp;
+		long __functionAddress = getInstance().LogicOp;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglLogicOp(op, __functionAddress);
@@ -5969,7 +5969,7 @@ public final class GL11 {
 
 	// --- [ glMap1f ] ---
 
-	/** JNI method for {@link #glMap1f glMap1f} */
+	/** JNI method for {@link #glMap1f Map1f} */
 	@JavadocExclude
 	public static native void nglMap1f(int target, float u1, float u2, int stride, int order, long points, long __functionAddress);
 
@@ -5987,7 +5987,7 @@ public final class GL11 {
 	 * @param points a set of {@code order} blocks of storage containing control points
 	 */
 	public static void glMap1f(int target, float u1, float u2, int stride, int order, ByteBuffer points) {
-		long __functionAddress = getInstance().glMap1f;
+		long __functionAddress = getInstance().Map1f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, (order * stride) << 2);
@@ -5995,9 +5995,9 @@ public final class GL11 {
 		nglMap1f(target, u1, u2, stride, order, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap1f glMap1f} */
+	/** Alternative version of: {@link #glMap1f Map1f} */
 	public static void glMap1(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
-		long __functionAddress = getInstance().glMap1f;
+		long __functionAddress = getInstance().Map1f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, order * stride);
@@ -6007,14 +6007,14 @@ public final class GL11 {
 
 	// --- [ glMap1d ] ---
 
-	/** JNI method for {@link #glMap1d glMap1d} */
+	/** JNI method for {@link #glMap1d Map1d} */
 	@JavadocExclude
 	public static native void nglMap1d(int target, double u1, double u2, int stride, int order, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glMap1f glMap1f}.
+	 * Double version of {@link #glMap1f Map1f}.
 	 *
 	 * @param target the evaluator target
 	 * @param u1     the first endpoint of the pre-image of the map
@@ -6024,7 +6024,7 @@ public final class GL11 {
 	 * @param points a set of {@code order} blocks of storage containing control points
 	 */
 	public static void glMap1d(int target, double u1, double u2, int stride, int order, ByteBuffer points) {
-		long __functionAddress = getInstance().glMap1d;
+		long __functionAddress = getInstance().Map1d;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, (stride * order) << 3);
@@ -6032,9 +6032,9 @@ public final class GL11 {
 		nglMap1d(target, u1, u2, stride, order, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap1d glMap1d} */
+	/** Alternative version of: {@link #glMap1d Map1d} */
 	public static void glMap1(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
-		long __functionAddress = getInstance().glMap1d;
+		long __functionAddress = getInstance().Map1d;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, stride * order);
@@ -6044,14 +6044,14 @@ public final class GL11 {
 
 	// --- [ glMap2f ] ---
 
-	/** JNI method for {@link #glMap2f glMap2f} */
+	/** JNI method for {@link #glMap2f Map2f} */
 	@JavadocExclude
 	public static native void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Bivariate version of {@link #glMap1f glMap1f}.
+	 * Bivariate version of {@link #glMap1f Map1f}.
 	 *
 	 * @param target  the evaluator target
 	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
@@ -6065,7 +6065,7 @@ public final class GL11 {
 	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, ByteBuffer points) {
-		long __functionAddress = getInstance().glMap2f;
+		long __functionAddress = getInstance().Map2f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, (ustride * uorder * vstride * vorder) << 2);
@@ -6073,9 +6073,9 @@ public final class GL11 {
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap2f glMap2f} */
+	/** Alternative version of: {@link #glMap2f Map2f} */
 	public static void glMap2(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
-		long __functionAddress = getInstance().glMap2f;
+		long __functionAddress = getInstance().Map2f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, ustride * uorder * vstride * vorder);
@@ -6085,14 +6085,14 @@ public final class GL11 {
 
 	// --- [ glMap2d ] ---
 
-	/** JNI method for {@link #glMap2d glMap2d} */
+	/** JNI method for {@link #glMap2d Map2d} */
 	@JavadocExclude
 	public static native void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glMap2f glMap2f}.
+	 * Double version of {@link #glMap2f Map2f}.
 	 *
 	 * @param target  the evaluator target
 	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
@@ -6106,7 +6106,7 @@ public final class GL11 {
 	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, ByteBuffer points) {
-		long __functionAddress = getInstance().glMap2d;
+		long __functionAddress = getInstance().Map2d;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, (ustride * uorder * vstride * vorder) << 3);
@@ -6114,9 +6114,9 @@ public final class GL11 {
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMap2d glMap2d} */
+	/** Alternative version of: {@link #glMap2d Map2d} */
 	public static void glMap2(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
-		long __functionAddress = getInstance().glMap2d;
+		long __functionAddress = getInstance().Map2d;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(points, ustride * uorder * vstride * vorder);
@@ -6126,7 +6126,7 @@ public final class GL11 {
 
 	// --- [ glMapGrid1f ] ---
 
-	/** JNI method for {@link #glMapGrid1f glMapGrid1f} */
+	/** JNI method for {@link #glMapGrid1f MapGrid1f} */
 	@JavadocExclude
 	public static native void nglMapGrid1f(int n, float u1, float u2, long __functionAddress);
 
@@ -6140,7 +6140,7 @@ public final class GL11 {
 	 * @param u2 the second interval endpoint
 	 */
 	public static void glMapGrid1f(int n, float u1, float u2) {
-		long __functionAddress = getInstance().glMapGrid1f;
+		long __functionAddress = getInstance().MapGrid1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMapGrid1f(n, u1, u2, __functionAddress);
@@ -6148,21 +6148,21 @@ public final class GL11 {
 
 	// --- [ glMapGrid1d ] ---
 
-	/** JNI method for {@link #glMapGrid1d glMapGrid1d} */
+	/** JNI method for {@link #glMapGrid1d MapGrid1d} */
 	@JavadocExclude
 	public static native void nglMapGrid1d(int n, double u1, double u2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glMapGrid1f glMapGrid1f}.
+	 * Double version of {@link #glMapGrid1f MapGrid1f}.
 	 *
 	 * @param n  the number of partitions of the interval
 	 * @param u1 the first interval endpoint
 	 * @param u2 the second interval endpoint
 	 */
 	public static void glMapGrid1d(int n, double u1, double u2) {
-		long __functionAddress = getInstance().glMapGrid1d;
+		long __functionAddress = getInstance().MapGrid1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMapGrid1d(n, u1, u2, __functionAddress);
@@ -6170,7 +6170,7 @@ public final class GL11 {
 
 	// --- [ glMapGrid2f ] ---
 
-	/** JNI method for {@link #glMapGrid2f glMapGrid2f} */
+	/** JNI method for {@link #glMapGrid2f MapGrid2f} */
 	@JavadocExclude
 	public static native void nglMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2, long __functionAddress);
 
@@ -6187,7 +6187,7 @@ public final class GL11 {
 	 * @param v2 the second v-dimension interval endpoint
 	 */
 	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
-		long __functionAddress = getInstance().glMapGrid2f;
+		long __functionAddress = getInstance().MapGrid2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMapGrid2f(un, u1, u2, vn, v1, v2, __functionAddress);
@@ -6195,14 +6195,14 @@ public final class GL11 {
 
 	// --- [ glMapGrid2d ] ---
 
-	/** JNI method for {@link #glMapGrid2d glMapGrid2d} */
+	/** JNI method for {@link #glMapGrid2d MapGrid2d} */
 	@JavadocExclude
 	public static native void nglMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glMapGrid2f glMapGrid2f}.
+	 * Double version of {@link #glMapGrid2f MapGrid2f}.
 	 *
 	 * @param un the number of partitions of the interval in the u-dimension
 	 * @param u1 the first u-dimension interval endpoint
@@ -6212,7 +6212,7 @@ public final class GL11 {
 	 * @param v2 the second v-dimension interval endpoint
 	 */
 	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
-		long __functionAddress = getInstance().glMapGrid2d;
+		long __functionAddress = getInstance().MapGrid2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMapGrid2d(un, u1, u2, vn, v1, v2, __functionAddress);
@@ -6220,7 +6220,7 @@ public final class GL11 {
 
 	// --- [ glMateriali ] ---
 
-	/** JNI method for {@link #glMateriali glMateriali} */
+	/** JNI method for {@link #glMateriali Materiali} */
 	@JavadocExclude
 	public static native void nglMateriali(int face, int pname, int param, long __functionAddress);
 
@@ -6234,7 +6234,7 @@ public final class GL11 {
 	 * @param param the parameter value
 	 */
 	public static void glMateriali(int face, int pname, int param) {
-		long __functionAddress = getInstance().glMateriali;
+		long __functionAddress = getInstance().Materiali;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMateriali(face, pname, param, __functionAddress);
@@ -6242,21 +6242,21 @@ public final class GL11 {
 
 	// --- [ glMaterialf ] ---
 
-	/** JNI method for {@link #glMaterialf glMaterialf} */
+	/** JNI method for {@link #glMaterialf Materialf} */
 	@JavadocExclude
 	public static native void nglMaterialf(int face, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterialf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glMateriali glMateriali}.
+	 * Float version of {@link #glMateriali Materiali}.
 	 *
 	 * @param face  the material face for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glMaterialf(int face, int pname, float param) {
-		long __functionAddress = getInstance().glMaterialf;
+		long __functionAddress = getInstance().Materialf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMaterialf(face, pname, param, __functionAddress);
@@ -6271,14 +6271,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glMateriali glMateriali}.
+	 * Pointer version of {@link #glMateriali Materiali}.
 	 *
 	 * @param face   the material face for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}
 	 * @param params the parameter value
 	 */
 	public static void glMateriali(int face, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glMaterialiv;
+		long __functionAddress = getInstance().Materialiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -6288,7 +6288,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glMateriali(int, int, ByteBuffer) glMateriali} */
 	public static void glMaterial(int face, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glMaterialiv;
+		long __functionAddress = getInstance().Materialiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -6305,14 +6305,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glMaterialf glMaterialf}.
+	 * Pointer version of {@link #glMaterialf Materialf}.
 	 *
 	 * @param face   the material face for which to set the parameter
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glMaterialf(int face, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glMaterialfv;
+		long __functionAddress = getInstance().Materialfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -6322,7 +6322,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glMaterialf(int, int, ByteBuffer) glMaterialf} */
 	public static void glMaterial(int face, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glMaterialfv;
+		long __functionAddress = getInstance().Materialfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -6332,7 +6332,7 @@ public final class GL11 {
 
 	// --- [ glMatrixMode ] ---
 
-	/** JNI method for {@link #glMatrixMode glMatrixMode} */
+	/** JNI method for {@link #glMatrixMode MatrixMode} */
 	@JavadocExclude
 	public static native void nglMatrixMode(int mode, long __functionAddress);
 
@@ -6344,7 +6344,7 @@ public final class GL11 {
 	 * @param mode the matrix mode. One of:<p/>{@link #GL_MODELVIEW MODELVIEW}, {@link #GL_PROJECTION PROJECTION}, {@link #GL_TEXTURE TEXTURE}, {@link #GL_COLOR COLOR}
 	 */
 	public static void glMatrixMode(int mode) {
-		long __functionAddress = getInstance().glMatrixMode;
+		long __functionAddress = getInstance().MatrixMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglMatrixMode(mode, __functionAddress);
@@ -6352,19 +6352,19 @@ public final class GL11 {
 
 	// --- [ glMultMatrixf ] ---
 
-	/** JNI method for {@link #glMultMatrixf glMultMatrixf} */
+	/** JNI method for {@link #glMultMatrixf MultMatrixf} */
 	@JavadocExclude
 	public static native void nglMultMatrixf(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf glLoadMatrixf} for details.
+	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf LoadMatrixf} for details.
 	 *
 	 * @param m the matrix data
 	 */
 	public static void glMultMatrixf(ByteBuffer m) {
-		long __functionAddress = getInstance().glMultMatrixf;
+		long __functionAddress = getInstance().MultMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16 << 2);
@@ -6372,9 +6372,9 @@ public final class GL11 {
 		nglMultMatrixf(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultMatrixf glMultMatrixf} */
+	/** Alternative version of: {@link #glMultMatrixf MultMatrixf} */
 	public static void glMultMatrix(FloatBuffer m) {
-		long __functionAddress = getInstance().glMultMatrixf;
+		long __functionAddress = getInstance().MultMatrixf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16);
@@ -6384,19 +6384,19 @@ public final class GL11 {
 
 	// --- [ glMultMatrixd ] ---
 
-	/** JNI method for {@link #glMultMatrixd glMultMatrixd} */
+	/** JNI method for {@link #glMultMatrixd MultMatrixd} */
 	@JavadocExclude
 	public static native void nglMultMatrixd(long m, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glMultMatrixf glMultMatrixf}.
+	 * Double version of {@link #glMultMatrixf MultMatrixf}.
 	 *
 	 * @param m the matrix data
 	 */
 	public static void glMultMatrixd(ByteBuffer m) {
-		long __functionAddress = getInstance().glMultMatrixd;
+		long __functionAddress = getInstance().MultMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16 << 3);
@@ -6404,9 +6404,9 @@ public final class GL11 {
 		nglMultMatrixd(memAddress(m), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glMultMatrixd glMultMatrixd} */
+	/** Alternative version of: {@link #glMultMatrixd MultMatrixd} */
 	public static void glMultMatrix(DoubleBuffer m) {
-		long __functionAddress = getInstance().glMultMatrixd;
+		long __functionAddress = getInstance().MultMatrixd;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(m, 16);
@@ -6416,7 +6416,7 @@ public final class GL11 {
 
 	// --- [ glFrustum ] ---
 
-	/** JNI method for {@link #glFrustum glFrustum} */
+	/** JNI method for {@link #glFrustum Frustum} */
 	@JavadocExclude
 	public static native void nglFrustum(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
@@ -6428,7 +6428,7 @@ public final class GL11 {
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf glMultMatrixf} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
 	 * <tr><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
@@ -6444,7 +6444,7 @@ public final class GL11 {
 	 * @param f the far frustum plane
 	 */
 	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = getInstance().glFrustum;
+		long __functionAddress = getInstance().Frustum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFrustum(l, r, b, t, n, f, __functionAddress);
@@ -6452,7 +6452,7 @@ public final class GL11 {
 
 	// --- [ glNewList ] ---
 
-	/** JNI method for {@link #glNewList glNewList} */
+	/** JNI method for {@link #glNewList NewList} */
 	@JavadocExclude
 	public static native void nglNewList(int n, int mode, long __functionAddress);
 
@@ -6465,7 +6465,7 @@ public final class GL11 {
 	 * @param mode a symbolic constant that controls the behavior of the GL during display list creation. One of:<p/>{@link #GL_COMPILE COMPILE}, {@link #GL_COMPILE_AND_EXECUTE COMPILE_AND_EXECUTE}
 	 */
 	public static void glNewList(int n, int mode) {
-		long __functionAddress = getInstance().glNewList;
+		long __functionAddress = getInstance().NewList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNewList(n, mode, __functionAddress);
@@ -6473,7 +6473,7 @@ public final class GL11 {
 
 	// --- [ glEndList ] ---
 
-	/** JNI method for {@link #glEndList glEndList} */
+	/** JNI method for {@link #glEndList EndList} */
 	@JavadocExclude
 	public static native void nglEndList(long __functionAddress);
 
@@ -6481,10 +6481,10 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEndList.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
-	 * associated with the index indicated with {@link #glNewList glNewList}.
+	 * associated with the index indicated with {@link #glNewList NewList}.
 	 */
 	public static void glEndList() {
-		long __functionAddress = getInstance().glEndList;
+		long __functionAddress = getInstance().EndList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEndList(__functionAddress);
@@ -6492,7 +6492,7 @@ public final class GL11 {
 
 	// --- [ glNormal3f ] ---
 
-	/** JNI method for {@link #glNormal3f glNormal3f} */
+	/** JNI method for {@link #glNormal3f Normal3f} */
 	@JavadocExclude
 	public static native void nglNormal3f(float nx, float ny, float nz, long __functionAddress);
 
@@ -6506,7 +6506,7 @@ public final class GL11 {
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3f(float nx, float ny, float nz) {
-		long __functionAddress = getInstance().glNormal3f;
+		long __functionAddress = getInstance().Normal3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNormal3f(nx, ny, nz, __functionAddress);
@@ -6514,21 +6514,21 @@ public final class GL11 {
 
 	// --- [ glNormal3b ] ---
 
-	/** JNI method for {@link #glNormal3b glNormal3b} */
+	/** JNI method for {@link #glNormal3b Normal3b} */
 	@JavadocExclude
 	public static native void nglNormal3b(byte nx, byte ny, byte nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Byte version of {@link #glNormal3f glNormal3f}.
+	 * Byte version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3b(byte nx, byte ny, byte nz) {
-		long __functionAddress = getInstance().glNormal3b;
+		long __functionAddress = getInstance().Normal3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNormal3b(nx, ny, nz, __functionAddress);
@@ -6536,21 +6536,21 @@ public final class GL11 {
 
 	// --- [ glNormal3s ] ---
 
-	/** JNI method for {@link #glNormal3s glNormal3s} */
+	/** JNI method for {@link #glNormal3s Normal3s} */
 	@JavadocExclude
 	public static native void nglNormal3s(short nx, short ny, short nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glNormal3f glNormal3f}.
+	 * Short version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3s(short nx, short ny, short nz) {
-		long __functionAddress = getInstance().glNormal3s;
+		long __functionAddress = getInstance().Normal3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNormal3s(nx, ny, nz, __functionAddress);
@@ -6558,21 +6558,21 @@ public final class GL11 {
 
 	// --- [ glNormal3i ] ---
 
-	/** JNI method for {@link #glNormal3i glNormal3i} */
+	/** JNI method for {@link #glNormal3i Normal3i} */
 	@JavadocExclude
 	public static native void nglNormal3i(int nx, int ny, int nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glNormal3f glNormal3f}.
+	 * Integer version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3i(int nx, int ny, int nz) {
-		long __functionAddress = getInstance().glNormal3i;
+		long __functionAddress = getInstance().Normal3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNormal3i(nx, ny, nz, __functionAddress);
@@ -6580,21 +6580,21 @@ public final class GL11 {
 
 	// --- [ glNormal3d ] ---
 
-	/** JNI method for {@link #glNormal3d glNormal3d} */
+	/** JNI method for {@link #glNormal3d Normal3d} */
 	@JavadocExclude
 	public static native void nglNormal3d(double nx, double ny, double nz, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glNormal3f glNormal3f}.
+	 * Double version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param nx the x coordinate of the current normal
 	 * @param ny the y coordinate of the current normal
 	 * @param nz the z coordinate of the current normal
 	 */
 	public static void glNormal3d(double nx, double ny, double nz) {
-		long __functionAddress = getInstance().glNormal3d;
+		long __functionAddress = getInstance().Normal3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglNormal3d(nx, ny, nz, __functionAddress);
@@ -6609,12 +6609,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3f glNormal3f}.
+	 * Pointer version of {@link #glNormal3f Normal3f}.
 	 *
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3f(ByteBuffer v) {
-		long __functionAddress = getInstance().glNormal3fv;
+		long __functionAddress = getInstance().Normal3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -6624,7 +6624,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glNormal3f(ByteBuffer) glNormal3f} */
 	public static void glNormal3(FloatBuffer v) {
-		long __functionAddress = getInstance().glNormal3fv;
+		long __functionAddress = getInstance().Normal3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -6641,12 +6641,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3b glNormal3b}.
+	 * Pointer version of {@link #glNormal3b Normal3b}.
 	 *
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3b(ByteBuffer v) {
-		long __functionAddress = getInstance().glNormal3bv;
+		long __functionAddress = getInstance().Normal3bv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -6663,12 +6663,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3s glNormal3s}.
+	 * Pointer version of {@link #glNormal3s Normal3s}.
 	 *
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3s(ByteBuffer v) {
-		long __functionAddress = getInstance().glNormal3sv;
+		long __functionAddress = getInstance().Normal3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -6678,7 +6678,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glNormal3s(ByteBuffer) glNormal3s} */
 	public static void glNormal3(ShortBuffer v) {
-		long __functionAddress = getInstance().glNormal3sv;
+		long __functionAddress = getInstance().Normal3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -6695,12 +6695,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3i glNormal3i}.
+	 * Pointer version of {@link #glNormal3i Normal3i}.
 	 *
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3i(ByteBuffer v) {
-		long __functionAddress = getInstance().glNormal3iv;
+		long __functionAddress = getInstance().Normal3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -6710,7 +6710,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glNormal3i(ByteBuffer) glNormal3i} */
 	public static void glNormal3(IntBuffer v) {
-		long __functionAddress = getInstance().glNormal3iv;
+		long __functionAddress = getInstance().Normal3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -6727,12 +6727,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glNormal3d glNormal3d}.
+	 * Pointer version of {@link #glNormal3d Normal3d}.
 	 *
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3d(ByteBuffer v) {
-		long __functionAddress = getInstance().glNormal3dv;
+		long __functionAddress = getInstance().Normal3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 3);
@@ -6742,7 +6742,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glNormal3d(ByteBuffer) glNormal3d} */
 	public static void glNormal3(DoubleBuffer v) {
-		long __functionAddress = getInstance().glNormal3dv;
+		long __functionAddress = getInstance().Normal3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -6752,7 +6752,7 @@ public final class GL11 {
 
 	// --- [ glNormalPointer ] ---
 
-	/** JNI method for {@link #glNormalPointer glNormalPointer} */
+	/** JNI method for {@link #glNormalPointer NormalPointer} */
 	@JavadocExclude
 	public static native void nglNormalPointer(int type, int stride, long pointer, long __functionAddress);
 
@@ -6766,7 +6766,7 @@ public final class GL11 {
 	 * @param pointer the normal array data
 	 */
 	public static void glNormalPointer(int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glNormalPointer;
+		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -6774,9 +6774,9 @@ public final class GL11 {
 		nglNormalPointer(type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glNormalPointer glNormalPointer} */
+	/** Buffer object offset version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glNormalPointer;
+		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -6784,9 +6784,9 @@ public final class GL11 {
 		nglNormalPointer(type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_BYTE version of: {@link #glNormalPointer glNormalPointer} */
+	/** GL_BYTE version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glNormalPointer;
+		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -6794,9 +6794,9 @@ public final class GL11 {
 		nglNormalPointer(GL11.GL_BYTE, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_SHORT version of: {@link #glNormalPointer glNormalPointer} */
+	/** GL_SHORT version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int stride, ShortBuffer pointer) {
-		long __functionAddress = getInstance().glNormalPointer;
+		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -6804,9 +6804,9 @@ public final class GL11 {
 		nglNormalPointer(GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glNormalPointer glNormalPointer} */
+	/** GL_FLOAT version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glNormalPointer;
+		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -6816,7 +6816,7 @@ public final class GL11 {
 
 	// --- [ glOrtho ] ---
 
-	/** JNI method for {@link #glOrtho glOrtho} */
+	/** JNI method for {@link #glOrtho Ortho} */
 	@JavadocExclude
 	public static native void nglOrtho(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
@@ -6828,7 +6828,7 @@ public final class GL11 {
 	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf glMultMatrixf} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
 	 * <tr><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
@@ -6844,7 +6844,7 @@ public final class GL11 {
 	 * @param f the far frustum plane
 	 */
 	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
-		long __functionAddress = getInstance().glOrtho;
+		long __functionAddress = getInstance().Ortho;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglOrtho(l, r, b, t, n, f, __functionAddress);
@@ -6852,7 +6852,7 @@ public final class GL11 {
 
 	// --- [ glPassThrough ] ---
 
-	/** JNI method for {@link #glPassThrough glPassThrough} */
+	/** JNI method for {@link #glPassThrough PassThrough} */
 	@JavadocExclude
 	public static native void nglPassThrough(float token, long __functionAddress);
 
@@ -6861,12 +6861,12 @@ public final class GL11 {
 	 * <p/>
 	 * Inserts a marker when the GL is in feeback mode. {@code token} is returned as if it were a primitive; it is indicated with its own unique identifying
 	 * value. The ordering of any {@code PassThrough} commands with respect to primitive specification is maintained by feedback. {@code PassThrough} may
-	 * not occur between {@link #glBegin glBegin} and {@link #glEnd glEnd}.
+	 * not occur between {@link #glBegin Begin} and {@link #glEnd End}.
 	 *
 	 * @param token the marker value to insert
 	 */
 	public static void glPassThrough(float token) {
-		long __functionAddress = getInstance().glPassThrough;
+		long __functionAddress = getInstance().PassThrough;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPassThrough(token, __functionAddress);
@@ -6888,7 +6888,7 @@ public final class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapf(int map, int size, ByteBuffer values) {
-		long __functionAddress = getInstance().glPixelMapfv;
+		long __functionAddress = getInstance().PixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 2);
@@ -6899,7 +6899,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
 	public static void glPixelMapf(int map, int size, long valuesOffset) {
-		long __functionAddress = getInstance().glPixelMapfv;
+		long __functionAddress = getInstance().PixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6909,7 +6909,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
 	public static void glPixelMap(int map, FloatBuffer values) {
-		long __functionAddress = getInstance().glPixelMapfv;
+		long __functionAddress = getInstance().PixelMapfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6933,7 +6933,7 @@ public final class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapus(int map, int size, ByteBuffer values) {
-		long __functionAddress = getInstance().glPixelMapusv;
+		long __functionAddress = getInstance().PixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 1);
@@ -6944,7 +6944,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
 	public static void glPixelMapus(int map, int size, long valuesOffset) {
-		long __functionAddress = getInstance().glPixelMapusv;
+		long __functionAddress = getInstance().PixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6954,7 +6954,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
 	public static void glPixelMapu(int map, ShortBuffer values) {
-		long __functionAddress = getInstance().glPixelMapusv;
+		long __functionAddress = getInstance().PixelMapusv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6978,7 +6978,7 @@ public final class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapui(int map, int size, ByteBuffer values) {
-		long __functionAddress = getInstance().glPixelMapuiv;
+		long __functionAddress = getInstance().PixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, size << 2);
@@ -6989,7 +6989,7 @@ public final class GL11 {
 
 	/** Buffer object offset version of: {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
 	public static void glPixelMapui(int map, int size, long valuesOffset) {
-		long __functionAddress = getInstance().glPixelMapuiv;
+		long __functionAddress = getInstance().PixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6999,7 +6999,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
 	public static void glPixelMapu(int map, IntBuffer values) {
-		long __functionAddress = getInstance().glPixelMapuiv;
+		long __functionAddress = getInstance().PixelMapuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -7009,7 +7009,7 @@ public final class GL11 {
 
 	// --- [ glPixelStorei ] ---
 
-	/** JNI method for {@link #glPixelStorei glPixelStorei} */
+	/** JNI method for {@link #glPixelStorei PixelStorei} */
 	@JavadocExclude
 	public static native void nglPixelStorei(int pname, int param, long __functionAddress);
 
@@ -7022,7 +7022,7 @@ public final class GL11 {
 	 * @param param the parameter value
 	 */
 	public static void glPixelStorei(int pname, int param) {
-		long __functionAddress = getInstance().glPixelStorei;
+		long __functionAddress = getInstance().PixelStorei;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPixelStorei(pname, param, __functionAddress);
@@ -7030,20 +7030,20 @@ public final class GL11 {
 
 	// --- [ glPixelStoref ] ---
 
-	/** JNI method for {@link #glPixelStoref glPixelStoref} */
+	/** JNI method for {@link #glPixelStoref PixelStoref} */
 	@JavadocExclude
 	public static native void nglPixelStoref(int pname, int param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStoref.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glPixelStorei glPixelStorei}.
+	 * Float version of {@link #glPixelStorei PixelStorei}.
 	 *
 	 * @param pname the pixel store parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glPixelStoref(int pname, int param) {
-		long __functionAddress = getInstance().glPixelStoref;
+		long __functionAddress = getInstance().PixelStoref;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPixelStoref(pname, param, __functionAddress);
@@ -7051,7 +7051,7 @@ public final class GL11 {
 
 	// --- [ glPixelTransferi ] ---
 
-	/** JNI method for {@link #glPixelTransferi glPixelTransferi} */
+	/** JNI method for {@link #glPixelTransferi PixelTransferi} */
 	@JavadocExclude
 	public static native void nglPixelTransferi(int pname, int param, long __functionAddress);
 
@@ -7064,7 +7064,7 @@ public final class GL11 {
 	 * @param param the parameter value
 	 */
 	public static void glPixelTransferi(int pname, int param) {
-		long __functionAddress = getInstance().glPixelTransferi;
+		long __functionAddress = getInstance().PixelTransferi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPixelTransferi(pname, param, __functionAddress);
@@ -7072,20 +7072,20 @@ public final class GL11 {
 
 	// --- [ glPixelTransferf ] ---
 
-	/** JNI method for {@link #glPixelTransferf glPixelTransferf} */
+	/** JNI method for {@link #glPixelTransferf PixelTransferf} */
 	@JavadocExclude
 	public static native void nglPixelTransferf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelTransferf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glPixelTransferi glPixelTransferi}.
+	 * Float version of {@link #glPixelTransferi PixelTransferi}.
 	 *
 	 * @param pname the pixel transfer parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glPixelTransferf(int pname, float param) {
-		long __functionAddress = getInstance().glPixelTransferf;
+		long __functionAddress = getInstance().PixelTransferf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPixelTransferf(pname, param, __functionAddress);
@@ -7093,7 +7093,7 @@ public final class GL11 {
 
 	// --- [ glPixelZoom ] ---
 
-	/** JNI method for {@link #glPixelZoom glPixelZoom} */
+	/** JNI method for {@link #glPixelZoom PixelZoom} */
 	@JavadocExclude
 	public static native void nglPixelZoom(float xfactor, float yfactor, long __functionAddress);
 
@@ -7114,7 +7114,7 @@ public final class GL11 {
 	 * @param yfactor the z<sub>y</sub> factor
 	 */
 	public static void glPixelZoom(float xfactor, float yfactor) {
-		long __functionAddress = getInstance().glPixelZoom;
+		long __functionAddress = getInstance().PixelZoom;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPixelZoom(xfactor, yfactor, __functionAddress);
@@ -7122,7 +7122,7 @@ public final class GL11 {
 
 	// --- [ glPointSize ] ---
 
-	/** JNI method for {@link #glPointSize glPointSize} */
+	/** JNI method for {@link #glPointSize PointSize} */
 	@JavadocExclude
 	public static native void nglPointSize(float size, long __functionAddress);
 
@@ -7134,7 +7134,7 @@ public final class GL11 {
 	 * @param size the request size of a point
 	 */
 	public static void glPointSize(float size) {
-		long __functionAddress = getInstance().glPointSize;
+		long __functionAddress = getInstance().PointSize;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPointSize(size, __functionAddress);
@@ -7142,7 +7142,7 @@ public final class GL11 {
 
 	// --- [ glPolygonMode ] ---
 
-	/** JNI method for {@link #glPolygonMode glPolygonMode} */
+	/** JNI method for {@link #glPolygonMode PolygonMode} */
 	@JavadocExclude
 	public static native void nglPolygonMode(int face, int mode, long __functionAddress);
 
@@ -7159,7 +7159,7 @@ public final class GL11 {
 	 * @param mode the rasterization mode. One of:<p/>{@link #GL_POINT POINT}, {@link #GL_LINE LINE}, {@link #GL_FILL FILL}
 	 */
 	public static void glPolygonMode(int face, int mode) {
-		long __functionAddress = getInstance().glPolygonMode;
+		long __functionAddress = getInstance().PolygonMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPolygonMode(face, mode, __functionAddress);
@@ -7167,7 +7167,7 @@ public final class GL11 {
 
 	// --- [ glPolygonOffset ] ---
 
-	/** JNI method for {@link #glPolygonOffset glPolygonOffset} */
+	/** JNI method for {@link #glPolygonOffset PolygonOffset} */
 	@JavadocExclude
 	public static native void nglPolygonOffset(float factor, float units, long __functionAddress);
 
@@ -7184,7 +7184,7 @@ public final class GL11 {
 	 * @param units  the constant scale
 	 */
 	public static void glPolygonOffset(float factor, float units) {
-		long __functionAddress = getInstance().glPolygonOffset;
+		long __functionAddress = getInstance().PolygonOffset;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPolygonOffset(factor, units, __functionAddress);
@@ -7192,26 +7192,26 @@ public final class GL11 {
 
 	// --- [ glPolygonStipple ] ---
 
-	/** JNI method for {@link #glPolygonStipple glPolygonStipple} */
+	/** JNI method for {@link #glPolygonStipple PolygonStipple} */
 	@JavadocExclude
 	public static native void nglPolygonStipple(long pattern, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonStipple.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple glLineStipple}, masking out certain fragments produced by rasterization so that they
+	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple LineStipple}, masking out certain fragments produced by rasterization so that they
 	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
 	 * <p/>
 	 * If x<sub>w</sub> and y<sub>w</sub> are the window coordinates of a rasterized polygon fragment, then that fragment is sent to the next stage of the GL
 	 * if and only if the bit of the pattern (x<sub>w</sub> mod 32, y<sub>w</sub> mod 32) is 1.
 	 * <p/>
-	 * Polygon stippling may be enabled or disabled with {@link #glEnable glEnable} or {@link #glDisable glDisable} using the constant {@link #GL_POLYGON_STIPPLE POLYGON_STIPPLE}. When disabled,
+	 * Polygon stippling may be enabled or disabled with {@link #glEnable Enable} or {@link #glDisable Disable} using the constant {@link #GL_POLYGON_STIPPLE POLYGON_STIPPLE}. When disabled,
 	 * it is as if the stipple pattern were all ones.
 	 *
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
 	 */
 	public static void glPolygonStipple(ByteBuffer pattern) {
-		long __functionAddress = getInstance().glPolygonStipple;
+		long __functionAddress = getInstance().PolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -7219,9 +7219,9 @@ public final class GL11 {
 		nglPolygonStipple(memAddress(pattern), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glPolygonStipple glPolygonStipple} */
+	/** Buffer object offset version of: {@link #glPolygonStipple PolygonStipple} */
 	public static void glPolygonStipple(long patternOffset) {
-		long __functionAddress = getInstance().glPolygonStipple;
+		long __functionAddress = getInstance().PolygonStipple;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -7231,7 +7231,7 @@ public final class GL11 {
 
 	// --- [ glPushAttrib ] ---
 
-	/** JNI method for {@link #glPushAttrib glPushAttrib} */
+	/** JNI method for {@link #glPushAttrib PushAttrib} */
 	@JavadocExclude
 	public static native void nglPushAttrib(int mask, long __functionAddress);
 
@@ -7250,7 +7250,7 @@ public final class GL11 {
 	 * @param mask the state variables to push. One of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_CURRENT_BIT CURRENT_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_ENABLE_BIT ENABLE_BIT}, {@link #GL_EVAL_BIT EVAL_BIT}, {@link #GL_FOG_BIT FOG_BIT}, {@link #GL_HINT_BIT HINT_BIT}, {@link #GL_LIGHTING_BIT LIGHTING_BIT}, {@link #GL_LINE_BIT LINE_BIT}, {@link #GL_LIST_BIT LIST_BIT}, {@link GL13#GL_MULTISAMPLE_BIT MULTISAMPLE_BIT}, {@link #GL_PIXEL_MODE_BIT PIXEL_MODE_BIT}, {@link #GL_POINT_BIT POINT_BIT}, {@link #GL_POLYGON_BIT POLYGON_BIT}, {@link #GL_POLYGON_STIPPLE_BIT POLYGON_STIPPLE_BIT}, {@link #GL_SCISSOR_BIT SCISSOR_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}, {@link #GL_TEXTURE_BIT TEXTURE_BIT}, {@link #GL_TRANSFORM_BIT TRANSFORM_BIT}, {@link #GL_VIEWPORT_BIT VIEWPORT_BIT}, {@link #GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}
 	 */
 	public static void glPushAttrib(int mask) {
-		long __functionAddress = getInstance().glPushAttrib;
+		long __functionAddress = getInstance().PushAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPushAttrib(mask, __functionAddress);
@@ -7258,7 +7258,7 @@ public final class GL11 {
 
 	// --- [ glPushClientAttrib ] ---
 
-	/** JNI method for {@link #glPushClientAttrib glPushClientAttrib} */
+	/** JNI method for {@link #glPushClientAttrib PushClientAttrib} */
 	@JavadocExclude
 	public static native void nglPushClientAttrib(int mask, long __functionAddress);
 
@@ -7277,7 +7277,7 @@ public final class GL11 {
 	 * @param mask the state variables to push. One of:<p/>{@link #GL_CLIENT_VERTEX_ARRAY_BIT CLIENT_VERTEX_ARRAY_BIT}, {@link #GL_CLIENT_PIXEL_STORE_BIT CLIENT_PIXEL_STORE_BIT}, {@link #GL_CLIENT_ALL_ATTRIB_BITS CLIENT_ALL_ATTRIB_BITS}
 	 */
 	public static void glPushClientAttrib(int mask) {
-		long __functionAddress = getInstance().glPushClientAttrib;
+		long __functionAddress = getInstance().PushClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPushClientAttrib(mask, __functionAddress);
@@ -7285,17 +7285,17 @@ public final class GL11 {
 
 	// --- [ glPopAttrib ] ---
 
-	/** JNI method for {@link #glPopAttrib glPopAttrib} */
+	/** JNI method for {@link #glPopAttrib PopAttrib} */
 	@JavadocExclude
 	public static native void nglPopAttrib(long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib glPushAttrib}. Those not saved remain unchanged.
+	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopAttrib() {
-		long __functionAddress = getInstance().glPopAttrib;
+		long __functionAddress = getInstance().PopAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPopAttrib(__functionAddress);
@@ -7303,17 +7303,17 @@ public final class GL11 {
 
 	// --- [ glPopClientAttrib ] ---
 
-	/** JNI method for {@link #glPopClientAttrib glPopClientAttrib} */
+	/** JNI method for {@link #glPopClientAttrib PopClientAttrib} */
 	@JavadocExclude
 	public static native void nglPopClientAttrib(long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopClientAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib glPushClientAttrib}. Those not saved remain unchanged.
+	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged.
 	 */
 	public static void glPopClientAttrib() {
-		long __functionAddress = getInstance().glPopClientAttrib;
+		long __functionAddress = getInstance().PopClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPopClientAttrib(__functionAddress);
@@ -7321,7 +7321,7 @@ public final class GL11 {
 
 	// --- [ glPopMatrix ] ---
 
-	/** JNI method for {@link #glPopMatrix glPopMatrix} */
+	/** JNI method for {@link #glPopMatrix PopMatrix} */
 	@JavadocExclude
 	public static native void nglPopMatrix(long __functionAddress);
 
@@ -7331,7 +7331,7 @@ public final class GL11 {
 	 * Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack.
 	 */
 	public static void glPopMatrix() {
-		long __functionAddress = getInstance().glPopMatrix;
+		long __functionAddress = getInstance().PopMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPopMatrix(__functionAddress);
@@ -7339,7 +7339,7 @@ public final class GL11 {
 
 	// --- [ glPopName ] ---
 
-	/** JNI method for {@link #glPopName glPopName} */
+	/** JNI method for {@link #glPopName PopName} */
 	@JavadocExclude
 	public static native void nglPopName(long __functionAddress);
 
@@ -7349,7 +7349,7 @@ public final class GL11 {
 	 * Pops one name off the top of the selection name stack.
 	 */
 	public static void glPopName() {
-		long __functionAddress = getInstance().glPopName;
+		long __functionAddress = getInstance().PopName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPopName(__functionAddress);
@@ -7357,7 +7357,7 @@ public final class GL11 {
 
 	// --- [ glPrioritizeTextures ] ---
 
-	/** JNI method for {@link #glPrioritizeTextures glPrioritizeTextures} */
+	/** JNI method for {@link #glPrioritizeTextures PrioritizeTextures} */
 	@JavadocExclude
 	public static native void nglPrioritizeTextures(int n, long textures, long priorities, long __functionAddress);
 
@@ -7372,7 +7372,7 @@ public final class GL11 {
 	 * @param priorities an array of texture object priorities
 	 */
 	public static void glPrioritizeTextures(int n, ByteBuffer textures, ByteBuffer priorities) {
-		long __functionAddress = getInstance().glPrioritizeTextures;
+		long __functionAddress = getInstance().PrioritizeTextures;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(textures, n << 2);
@@ -7381,9 +7381,9 @@ public final class GL11 {
 		nglPrioritizeTextures(n, memAddress(textures), memAddress(priorities), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glPrioritizeTextures glPrioritizeTextures} */
+	/** Alternative version of: {@link #glPrioritizeTextures PrioritizeTextures} */
 	public static void glPrioritizeTextures(IntBuffer textures, FloatBuffer priorities) {
-		long __functionAddress = getInstance().glPrioritizeTextures;
+		long __functionAddress = getInstance().PrioritizeTextures;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(priorities, textures.remaining());
@@ -7393,7 +7393,7 @@ public final class GL11 {
 
 	// --- [ glPushMatrix ] ---
 
-	/** JNI method for {@link #glPushMatrix glPushMatrix} */
+	/** JNI method for {@link #glPushMatrix PushMatrix} */
 	@JavadocExclude
 	public static native void nglPushMatrix(long __functionAddress);
 
@@ -7403,7 +7403,7 @@ public final class GL11 {
 	 * Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it.
 	 */
 	public static void glPushMatrix() {
-		long __functionAddress = getInstance().glPushMatrix;
+		long __functionAddress = getInstance().PushMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPushMatrix(__functionAddress);
@@ -7411,7 +7411,7 @@ public final class GL11 {
 
 	// --- [ glPushName ] ---
 
-	/** JNI method for {@link #glPushName glPushName} */
+	/** JNI method for {@link #glPushName PushName} */
 	@JavadocExclude
 	public static native void nglPushName(int name, long __functionAddress);
 
@@ -7423,7 +7423,7 @@ public final class GL11 {
 	 * @param name the name to push
 	 */
 	public static void glPushName(int name) {
-		long __functionAddress = getInstance().glPushName;
+		long __functionAddress = getInstance().PushName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglPushName(name, __functionAddress);
@@ -7431,7 +7431,7 @@ public final class GL11 {
 
 	// --- [ glRasterPos2i ] ---
 
-	/** JNI method for {@link #glRasterPos2i glRasterPos2i} */
+	/** JNI method for {@link #glRasterPos2i RasterPos2i} */
 	@JavadocExclude
 	public static native void nglRasterPos2i(int x, int y, long __functionAddress);
 
@@ -7450,7 +7450,7 @@ public final class GL11 {
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2i(int x, int y) {
-		long __functionAddress = getInstance().glRasterPos2i;
+		long __functionAddress = getInstance().RasterPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos2i(x, y, __functionAddress);
@@ -7458,20 +7458,20 @@ public final class GL11 {
 
 	// --- [ glRasterPos2s ] ---
 
-	/** JNI method for {@link #glRasterPos2s glRasterPos2s} */
+	/** JNI method for {@link #glRasterPos2s RasterPos2s} */
 	@JavadocExclude
 	public static native void nglRasterPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos2i glRasterPos2i}.
+	 * Short version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2s(short x, short y) {
-		long __functionAddress = getInstance().glRasterPos2s;
+		long __functionAddress = getInstance().RasterPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos2s(x, y, __functionAddress);
@@ -7479,20 +7479,20 @@ public final class GL11 {
 
 	// --- [ glRasterPos2f ] ---
 
-	/** JNI method for {@link #glRasterPos2f glRasterPos2f} */
+	/** JNI method for {@link #glRasterPos2f RasterPos2f} */
 	@JavadocExclude
 	public static native void nglRasterPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glRasterPos2i glRasterPos2i}.
+	 * Float version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2f(float x, float y) {
-		long __functionAddress = getInstance().glRasterPos2f;
+		long __functionAddress = getInstance().RasterPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos2f(x, y, __functionAddress);
@@ -7500,20 +7500,20 @@ public final class GL11 {
 
 	// --- [ glRasterPos2d ] ---
 
-	/** JNI method for {@link #glRasterPos2d glRasterPos2d} */
+	/** JNI method for {@link #glRasterPos2d RasterPos2d} */
 	@JavadocExclude
 	public static native void nglRasterPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos2i glRasterPos2i}.
+	 * Double version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 */
 	public static void glRasterPos2d(double x, double y) {
-		long __functionAddress = getInstance().glRasterPos2d;
+		long __functionAddress = getInstance().RasterPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos2d(x, y, __functionAddress);
@@ -7528,12 +7528,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2i glRasterPos2i}.
+	 * Pointer version of {@link #glRasterPos2i RasterPos2i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2iv;
+		long __functionAddress = getInstance().RasterPos2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 2);
@@ -7543,7 +7543,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos2i(ByteBuffer) glRasterPos2i} */
 	public static void glRasterPos2(IntBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2iv;
+		long __functionAddress = getInstance().RasterPos2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -7560,12 +7560,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2s glRasterPos2s}.
+	 * Pointer version of {@link #glRasterPos2s RasterPos2s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2sv;
+		long __functionAddress = getInstance().RasterPos2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 1);
@@ -7575,7 +7575,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos2s(ByteBuffer) glRasterPos2s} */
 	public static void glRasterPos2(ShortBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2sv;
+		long __functionAddress = getInstance().RasterPos2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -7592,12 +7592,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2f glRasterPos2f}.
+	 * Pointer version of {@link #glRasterPos2f RasterPos2f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2fv;
+		long __functionAddress = getInstance().RasterPos2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 2);
@@ -7607,7 +7607,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos2f(ByteBuffer) glRasterPos2f} */
 	public static void glRasterPos2(FloatBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2fv;
+		long __functionAddress = getInstance().RasterPos2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -7624,12 +7624,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos2d glRasterPos2d}.
+	 * Pointer version of {@link #glRasterPos2d RasterPos2d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2dv;
+		long __functionAddress = getInstance().RasterPos2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 3);
@@ -7639,7 +7639,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos2d(ByteBuffer) glRasterPos2d} */
 	public static void glRasterPos2(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos2dv;
+		long __functionAddress = getInstance().RasterPos2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -7649,21 +7649,21 @@ public final class GL11 {
 
 	// --- [ glRasterPos3i ] ---
 
-	/** JNI method for {@link #glRasterPos3i glRasterPos3i} */
+	/** JNI method for {@link #glRasterPos3i RasterPos3i} */
 	@JavadocExclude
 	public static native void nglRasterPos3i(int x, int y, int z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i glRasterPos2i} for more details.
+	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3i(int x, int y, int z) {
-		long __functionAddress = getInstance().glRasterPos3i;
+		long __functionAddress = getInstance().RasterPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos3i(x, y, z, __functionAddress);
@@ -7671,21 +7671,21 @@ public final class GL11 {
 
 	// --- [ glRasterPos3s ] ---
 
-	/** JNI method for {@link #glRasterPos3s glRasterPos3s} */
+	/** JNI method for {@link #glRasterPos3s RasterPos3s} */
 	@JavadocExclude
 	public static native void nglRasterPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos3i glRasterPos3i}.
+	 * Short version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3s(short x, short y, short z) {
-		long __functionAddress = getInstance().glRasterPos3s;
+		long __functionAddress = getInstance().RasterPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos3s(x, y, z, __functionAddress);
@@ -7693,21 +7693,21 @@ public final class GL11 {
 
 	// --- [ glRasterPos3f ] ---
 
-	/** JNI method for {@link #glRasterPos3f glRasterPos3f} */
+	/** JNI method for {@link #glRasterPos3f RasterPos3f} */
 	@JavadocExclude
 	public static native void nglRasterPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glRasterPos3i glRasterPos3i}.
+	 * Float version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3f(float x, float y, float z) {
-		long __functionAddress = getInstance().glRasterPos3f;
+		long __functionAddress = getInstance().RasterPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos3f(x, y, z, __functionAddress);
@@ -7715,21 +7715,21 @@ public final class GL11 {
 
 	// --- [ glRasterPos3d ] ---
 
-	/** JNI method for {@link #glRasterPos3d glRasterPos3d} */
+	/** JNI method for {@link #glRasterPos3d RasterPos3d} */
 	@JavadocExclude
 	public static native void nglRasterPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos3i glRasterPos3i}.
+	 * Double version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
 	 * @param z the {@code z} raster coordinate
 	 */
 	public static void glRasterPos3d(double x, double y, double z) {
-		long __functionAddress = getInstance().glRasterPos3d;
+		long __functionAddress = getInstance().RasterPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos3d(x, y, z, __functionAddress);
@@ -7744,12 +7744,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3i glRasterPos3i}.
+	 * Pointer version of {@link #glRasterPos3i RasterPos3i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3iv;
+		long __functionAddress = getInstance().RasterPos3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 2);
@@ -7759,7 +7759,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos3i(ByteBuffer) glRasterPos3i} */
 	public static void glRasterPos3(IntBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3iv;
+		long __functionAddress = getInstance().RasterPos3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -7776,12 +7776,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3s glRasterPos3s}.
+	 * Pointer version of {@link #glRasterPos3s RasterPos3s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3sv;
+		long __functionAddress = getInstance().RasterPos3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 1);
@@ -7791,7 +7791,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos3s(ByteBuffer) glRasterPos3s} */
 	public static void glRasterPos3(ShortBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3sv;
+		long __functionAddress = getInstance().RasterPos3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -7808,12 +7808,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3f glRasterPos3f}.
+	 * Pointer version of {@link #glRasterPos3f RasterPos3f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3fv;
+		long __functionAddress = getInstance().RasterPos3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 2);
@@ -7823,7 +7823,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos3f(ByteBuffer) glRasterPos3f} */
 	public static void glRasterPos3(FloatBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3fv;
+		long __functionAddress = getInstance().RasterPos3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -7840,12 +7840,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos3d glRasterPos3d}.
+	 * Pointer version of {@link #glRasterPos3d RasterPos3d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3dv;
+		long __functionAddress = getInstance().RasterPos3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 3);
@@ -7855,7 +7855,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos3d(ByteBuffer) glRasterPos3d} */
 	public static void glRasterPos3(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos3dv;
+		long __functionAddress = getInstance().RasterPos3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -7865,14 +7865,14 @@ public final class GL11 {
 
 	// --- [ glRasterPos4i ] ---
 
-	/** JNI method for {@link #glRasterPos4i glRasterPos4i} */
+	/** JNI method for {@link #glRasterPos4i RasterPos4i} */
 	@JavadocExclude
 	public static native void nglRasterPos4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i glRasterPos2i} for more details.
+	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -7880,7 +7880,7 @@ public final class GL11 {
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4i(int x, int y, int z, int w) {
-		long __functionAddress = getInstance().glRasterPos4i;
+		long __functionAddress = getInstance().RasterPos4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos4i(x, y, z, w, __functionAddress);
@@ -7888,14 +7888,14 @@ public final class GL11 {
 
 	// --- [ glRasterPos4s ] ---
 
-	/** JNI method for {@link #glRasterPos4s glRasterPos4s} */
+	/** JNI method for {@link #glRasterPos4s RasterPos4s} */
 	@JavadocExclude
 	public static native void nglRasterPos4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glRasterPos4i glRasterPos4i}.
+	 * Short version of {@link #glRasterPos4i RasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -7903,7 +7903,7 @@ public final class GL11 {
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4s(short x, short y, short z, short w) {
-		long __functionAddress = getInstance().glRasterPos4s;
+		long __functionAddress = getInstance().RasterPos4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos4s(x, y, z, w, __functionAddress);
@@ -7911,7 +7911,7 @@ public final class GL11 {
 
 	// --- [ glRasterPos4f ] ---
 
-	/** JNI method for {@link #glRasterPos4f glRasterPos4f} */
+	/** JNI method for {@link #glRasterPos4f RasterPos4f} */
 	@JavadocExclude
 	public static native void nglRasterPos4f(float x, float y, float z, float w, long __functionAddress);
 
@@ -7926,7 +7926,7 @@ public final class GL11 {
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4f(float x, float y, float z, float w) {
-		long __functionAddress = getInstance().glRasterPos4f;
+		long __functionAddress = getInstance().RasterPos4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos4f(x, y, z, w, __functionAddress);
@@ -7934,14 +7934,14 @@ public final class GL11 {
 
 	// --- [ glRasterPos4d ] ---
 
-	/** JNI method for {@link #glRasterPos4d glRasterPos4d} */
+	/** JNI method for {@link #glRasterPos4d RasterPos4d} */
 	@JavadocExclude
 	public static native void nglRasterPos4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glRasterPos4i glRasterPos4i}.
+	 * Double version of {@link #glRasterPos4i RasterPos4i}.
 	 *
 	 * @param x the {@code x} raster coordinate
 	 * @param y the {@code y} raster coordinate
@@ -7949,7 +7949,7 @@ public final class GL11 {
 	 * @param w the {@code w} raster coordinate
 	 */
 	public static void glRasterPos4d(double x, double y, double z, double w) {
-		long __functionAddress = getInstance().glRasterPos4d;
+		long __functionAddress = getInstance().RasterPos4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRasterPos4d(x, y, z, w, __functionAddress);
@@ -7964,12 +7964,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4i glRasterPos4i}.
+	 * Pointer version of {@link #glRasterPos4i RasterPos4i}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4iv;
+		long __functionAddress = getInstance().RasterPos4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 2);
@@ -7979,7 +7979,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos4i(ByteBuffer) glRasterPos4i} */
 	public static void glRasterPos4(IntBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4iv;
+		long __functionAddress = getInstance().RasterPos4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -7996,12 +7996,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4s glRasterPos4s}.
+	 * Pointer version of {@link #glRasterPos4s RasterPos4s}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4sv;
+		long __functionAddress = getInstance().RasterPos4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 1);
@@ -8011,7 +8011,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos4s(ByteBuffer) glRasterPos4s} */
 	public static void glRasterPos4(ShortBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4sv;
+		long __functionAddress = getInstance().RasterPos4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -8028,12 +8028,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4f glRasterPos4f}.
+	 * Pointer version of {@link #glRasterPos4f RasterPos4f}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4fv;
+		long __functionAddress = getInstance().RasterPos4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 2);
@@ -8043,7 +8043,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos4f(ByteBuffer) glRasterPos4f} */
 	public static void glRasterPos4(FloatBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4fv;
+		long __functionAddress = getInstance().RasterPos4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -8060,12 +8060,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRasterPos4d glRasterPos4d}.
+	 * Pointer version of {@link #glRasterPos4d RasterPos4d}.
 	 *
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4dv;
+		long __functionAddress = getInstance().RasterPos4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 3);
@@ -8075,7 +8075,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRasterPos4d(ByteBuffer) glRasterPos4d} */
 	public static void glRasterPos4(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glRasterPos4dv;
+		long __functionAddress = getInstance().RasterPos4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -8085,7 +8085,7 @@ public final class GL11 {
 
 	// --- [ glReadBuffer ] ---
 
-	/** JNI method for {@link #glReadBuffer glReadBuffer} */
+	/** JNI method for {@link #glReadBuffer ReadBuffer} */
 	@JavadocExclude
 	public static native void nglReadBuffer(int src, long __functionAddress);
 
@@ -8100,7 +8100,7 @@ public final class GL11 {
 	 * @param src the color buffer to read from. One of:<p/>{@link #GL_NONE NONE}, {@link #GL_FRONT_LEFT FRONT_LEFT}, {@link #GL_FRONT_RIGHT FRONT_RIGHT}, {@link #GL_BACK_LEFT BACK_LEFT}, {@link #GL_BACK_RIGHT BACK_RIGHT}, {@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}, {@link #GL_LEFT LEFT}, {@link #GL_RIGHT RIGHT}, {@link #GL_FRONT_AND_BACK FRONT_AND_BACK}, {@link #GL_AUX0 AUX0}, {@link #GL_AUX1 AUX1}, {@link #GL_AUX2 AUX2}, {@link #GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glReadBuffer(int src) {
-		long __functionAddress = getInstance().glReadBuffer;
+		long __functionAddress = getInstance().ReadBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglReadBuffer(src, __functionAddress);
@@ -8108,7 +8108,7 @@ public final class GL11 {
 
 	// --- [ glReadPixels ] ---
 
-	/** JNI method for {@link #glReadPixels glReadPixels} */
+	/** JNI method for {@link #glReadPixels ReadPixels} */
 	@JavadocExclude
 	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels, long __functionAddress);
 
@@ -8130,7 +8130,7 @@ public final class GL11 {
 	 * @param pixels an array in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glReadPixels;
+		long __functionAddress = getInstance().ReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -8138,9 +8138,9 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glReadPixels glReadPixels} */
+	/** Buffer object offset version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glReadPixels;
+		long __functionAddress = getInstance().ReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
@@ -8148,9 +8148,9 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glReadPixels glReadPixels} */
+	/** ShortBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glReadPixels;
+		long __functionAddress = getInstance().ReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -8158,9 +8158,9 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glReadPixels glReadPixels} */
+	/** IntBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glReadPixels;
+		long __functionAddress = getInstance().ReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -8168,9 +8168,9 @@ public final class GL11 {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glReadPixels glReadPixels} */
+	/** FloatBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glReadPixels;
+		long __functionAddress = getInstance().ReadPixels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -8180,7 +8180,7 @@ public final class GL11 {
 
 	// --- [ glRecti ] ---
 
-	/** JNI method for {@link #glRecti glRecti} */
+	/** JNI method for {@link #glRecti Recti} */
 	@JavadocExclude
 	public static native void nglRecti(int x1, int y1, int x2, int y2, long __functionAddress);
 
@@ -8208,7 +8208,7 @@ public final class GL11 {
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRecti(int x1, int y1, int x2, int y2) {
-		long __functionAddress = getInstance().glRecti;
+		long __functionAddress = getInstance().Recti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRecti(x1, y1, x2, y2, __functionAddress);
@@ -8216,14 +8216,14 @@ public final class GL11 {
 
 	// --- [ glRects ] ---
 
-	/** JNI method for {@link #glRects glRects} */
+	/** JNI method for {@link #glRects Rects} */
 	@JavadocExclude
 	public static native void nglRects(short x1, short y1, short x2, short y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRects.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glRecti glRecti}.
+	 * Short version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -8231,7 +8231,7 @@ public final class GL11 {
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRects(short x1, short y1, short x2, short y2) {
-		long __functionAddress = getInstance().glRects;
+		long __functionAddress = getInstance().Rects;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRects(x1, y1, x2, y2, __functionAddress);
@@ -8239,14 +8239,14 @@ public final class GL11 {
 
 	// --- [ glRectf ] ---
 
-	/** JNI method for {@link #glRectf glRectf} */
+	/** JNI method for {@link #glRectf Rectf} */
 	@JavadocExclude
 	public static native void nglRectf(float x1, float y1, float x2, float y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glRecti glRecti}.
+	 * Float version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -8254,7 +8254,7 @@ public final class GL11 {
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRectf(float x1, float y1, float x2, float y2) {
-		long __functionAddress = getInstance().glRectf;
+		long __functionAddress = getInstance().Rectf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRectf(x1, y1, x2, y2, __functionAddress);
@@ -8262,14 +8262,14 @@ public final class GL11 {
 
 	// --- [ glRectd ] ---
 
-	/** JNI method for {@link #glRectd glRectd} */
+	/** JNI method for {@link #glRectd Rectd} */
 	@JavadocExclude
 	public static native void nglRectd(double x1, double y1, double x2, double y2, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectd.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glRecti glRecti}.
+	 * Double version of {@link #glRecti Recti}.
 	 *
 	 * @param x1 the x coordinate of the first corner vertex
 	 * @param y1 the y coordinate of the first corner vertex
@@ -8277,7 +8277,7 @@ public final class GL11 {
 	 * @param y2 the y coordinate of the second corner vertex
 	 */
 	public static void glRectd(double x1, double y1, double x2, double y2) {
-		long __functionAddress = getInstance().glRectd;
+		long __functionAddress = getInstance().Rectd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRectd(x1, y1, x2, y2, __functionAddress);
@@ -8292,13 +8292,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRecti glRecti}.
+	 * Pointer version of {@link #glRecti Recti}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRecti(ByteBuffer v1, ByteBuffer v2) {
-		long __functionAddress = getInstance().glRectiv;
+		long __functionAddress = getInstance().Rectiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2 << 2);
@@ -8309,7 +8309,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRecti(ByteBuffer, ByteBuffer) glRecti} */
 	public static void glRect(IntBuffer v1, IntBuffer v2) {
-		long __functionAddress = getInstance().glRectiv;
+		long __functionAddress = getInstance().Rectiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2);
@@ -8327,13 +8327,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRects glRects}.
+	 * Pointer version of {@link #glRects Rects}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRects(ByteBuffer v1, ByteBuffer v2) {
-		long __functionAddress = getInstance().glRectsv;
+		long __functionAddress = getInstance().Rectsv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2 << 1);
@@ -8344,7 +8344,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRects(ByteBuffer, ByteBuffer) glRects} */
 	public static void glRect(ShortBuffer v1, ShortBuffer v2) {
-		long __functionAddress = getInstance().glRectsv;
+		long __functionAddress = getInstance().Rectsv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2);
@@ -8362,13 +8362,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRectf glRectf}.
+	 * Pointer version of {@link #glRectf Rectf}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectf(ByteBuffer v1, ByteBuffer v2) {
-		long __functionAddress = getInstance().glRectfv;
+		long __functionAddress = getInstance().Rectfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2 << 2);
@@ -8379,7 +8379,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRectf(ByteBuffer, ByteBuffer) glRectf} */
 	public static void glRect(FloatBuffer v1, FloatBuffer v2) {
-		long __functionAddress = getInstance().glRectfv;
+		long __functionAddress = getInstance().Rectfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2);
@@ -8397,13 +8397,13 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glRectd glRectd}.
+	 * Pointer version of {@link #glRectd Rectd}.
 	 *
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectd(ByteBuffer v1, ByteBuffer v2) {
-		long __functionAddress = getInstance().glRectdv;
+		long __functionAddress = getInstance().Rectdv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2 << 3);
@@ -8414,7 +8414,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glRectd(ByteBuffer, ByteBuffer) glRectd} */
 	public static void glRect(DoubleBuffer v1, DoubleBuffer v2) {
-		long __functionAddress = getInstance().glRectdv;
+		long __functionAddress = getInstance().Rectdv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 2);
@@ -8425,7 +8425,7 @@ public final class GL11 {
 
 	// --- [ glRenderMode ] ---
 
-	/** JNI method for {@link #glRenderMode glRenderMode} */
+	/** JNI method for {@link #glRenderMode RenderMode} */
 	@JavadocExclude
 	public static native int nglRenderMode(int mode, long __functionAddress);
 
@@ -8437,7 +8437,7 @@ public final class GL11 {
 	 * @param mode the render mode. One of:<p/>{@link #GL_RENDER RENDER}, {@link #GL_SELECT SELECT}, {@link #GL_FEEDBACK FEEDBACK}
 	 */
 	public static int glRenderMode(int mode) {
-		long __functionAddress = getInstance().glRenderMode;
+		long __functionAddress = getInstance().RenderMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglRenderMode(mode, __functionAddress);
@@ -8445,7 +8445,7 @@ public final class GL11 {
 
 	// --- [ glRotatef ] ---
 
-	/** JNI method for {@link #glRotatef glRotatef} */
+	/** JNI method for {@link #glRotatef Rotatef} */
 	@JavadocExclude
 	public static native void nglRotatef(float angle, float x, float y, float z, long __functionAddress);
 
@@ -8479,7 +8479,7 @@ public final class GL11 {
 	 * @param z     the z coordinate of the rotation vector
 	 */
 	public static void glRotatef(float angle, float x, float y, float z) {
-		long __functionAddress = getInstance().glRotatef;
+		long __functionAddress = getInstance().Rotatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRotatef(angle, x, y, z, __functionAddress);
@@ -8487,14 +8487,14 @@ public final class GL11 {
 
 	// --- [ glRotated ] ---
 
-	/** JNI method for {@link #glRotated glRotated} */
+	/** JNI method for {@link #glRotated Rotated} */
 	@JavadocExclude
 	public static native void nglRotated(double angle, double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRotated.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glRotatef glRotatef}.
+	 * Double version of {@link #glRotatef Rotatef}.
 	 *
 	 * @param angle the angle of rotation in degrees
 	 * @param x     the x coordinate of the rotation vector
@@ -8502,7 +8502,7 @@ public final class GL11 {
 	 * @param z     the z coordinate of the rotation vector
 	 */
 	public static void glRotated(double angle, double x, double y, double z) {
-		long __functionAddress = getInstance().glRotated;
+		long __functionAddress = getInstance().Rotated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRotated(angle, x, y, z, __functionAddress);
@@ -8510,7 +8510,7 @@ public final class GL11 {
 
 	// --- [ glScalef ] ---
 
-	/** JNI method for {@link #glScalef glScalef} */
+	/** JNI method for {@link #glScalef Scalef} */
 	@JavadocExclude
 	public static native void nglScalef(float x, float y, float z, long __functionAddress);
 
@@ -8519,7 +8519,7 @@ public final class GL11 {
 	 * <p/>
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf glMultMatrixf} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>x</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>y</td><td>0</td><td>0</td></tr>
@@ -8532,7 +8532,7 @@ public final class GL11 {
 	 * @param z the z-axis scaling factor
 	 */
 	public static void glScalef(float x, float y, float z) {
-		long __functionAddress = getInstance().glScalef;
+		long __functionAddress = getInstance().Scalef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglScalef(x, y, z, __functionAddress);
@@ -8540,21 +8540,21 @@ public final class GL11 {
 
 	// --- [ glScaled ] ---
 
-	/** JNI method for {@link #glScaled glScaled} */
+	/** JNI method for {@link #glScaled Scaled} */
 	@JavadocExclude
 	public static native void nglScaled(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glScaled.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glScalef glScalef}.
+	 * Double version of {@link #glScalef Scalef}.
 	 *
 	 * @param x the x-axis scaling factor
 	 * @param y the y-axis scaling factor
 	 * @param z the z-axis scaling factor
 	 */
 	public static void glScaled(double x, double y, double z) {
-		long __functionAddress = getInstance().glScaled;
+		long __functionAddress = getInstance().Scaled;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglScaled(x, y, z, __functionAddress);
@@ -8562,14 +8562,14 @@ public final class GL11 {
 
 	// --- [ glScissor ] ---
 
-	/** JNI method for {@link #glScissor glScissor} */
+	/** JNI method for {@link #glScissor Scissor} */
 	@JavadocExclude
 	public static native void nglScissor(int x, int y, int width, int height, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissor.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable glEnable} or {@link #glDisable glDisable}
+	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
 	 * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
 	 * test passes. Otherwise, the test fails and the fragment is discarded.
@@ -8580,7 +8580,7 @@ public final class GL11 {
 	 * @param height the scissor rectangle height
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
-		long __functionAddress = getInstance().glScissor;
+		long __functionAddress = getInstance().Scissor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglScissor(x, y, width, height, __functionAddress);
@@ -8588,7 +8588,7 @@ public final class GL11 {
 
 	// --- [ glSelectBuffer ] ---
 
-	/** JNI method for {@link #glSelectBuffer glSelectBuffer} */
+	/** JNI method for {@link #glSelectBuffer SelectBuffer} */
 	@JavadocExclude
 	public static native void nglSelectBuffer(int size, long buffer, long __functionAddress);
 
@@ -8601,7 +8601,7 @@ public final class GL11 {
 	 * @param buffer an array of unsigned integers to be potentially filled names
 	 */
 	public static void glSelectBuffer(int size, ByteBuffer buffer) {
-		long __functionAddress = getInstance().glSelectBuffer;
+		long __functionAddress = getInstance().SelectBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer, size << 2);
@@ -8609,9 +8609,9 @@ public final class GL11 {
 		nglSelectBuffer(size, memAddress(buffer), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glSelectBuffer glSelectBuffer} */
+	/** Alternative version of: {@link #glSelectBuffer SelectBuffer} */
 	public static void glSelectBuffer(IntBuffer buffer) {
-		long __functionAddress = getInstance().glSelectBuffer;
+		long __functionAddress = getInstance().SelectBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglSelectBuffer(buffer.remaining(), memAddress(buffer), __functionAddress);
@@ -8619,7 +8619,7 @@ public final class GL11 {
 
 	// --- [ glShadeModel ] ---
 
-	/** JNI method for {@link #glShadeModel glShadeModel} */
+	/** JNI method for {@link #glShadeModel ShadeModel} */
 	@JavadocExclude
 	public static native void nglShadeModel(int mode, long __functionAddress);
 
@@ -8635,7 +8635,7 @@ public final class GL11 {
 	 * @param mode the shade mode. One of:<p/>{@link #GL_SMOOTH SMOOTH}, {@link #GL_FLAT FLAT}
 	 */
 	public static void glShadeModel(int mode) {
-		long __functionAddress = getInstance().glShadeModel;
+		long __functionAddress = getInstance().ShadeModel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglShadeModel(mode, __functionAddress);
@@ -8643,7 +8643,7 @@ public final class GL11 {
 
 	// --- [ glStencilFunc ] ---
 
-	/** JNI method for {@link #glStencilFunc glStencilFunc} */
+	/** JNI method for {@link #glStencilFunc StencilFunc} */
 	@JavadocExclude
 	public static native void nglStencilFunc(int func, int ref, int mask, long __functionAddress);
 
@@ -8662,7 +8662,7 @@ public final class GL11 {
 	 * @param mask the stencil comparison mask
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
-		long __functionAddress = getInstance().glStencilFunc;
+		long __functionAddress = getInstance().StencilFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglStencilFunc(func, ref, mask, __functionAddress);
@@ -8670,7 +8670,7 @@ public final class GL11 {
 
 	// --- [ glStencilMask ] ---
 
-	/** JNI method for {@link #glStencilMask glStencilMask} */
+	/** JNI method for {@link #glStencilMask StencilMask} */
 	@JavadocExclude
 	public static native void nglStencilMask(int mask, long __functionAddress);
 
@@ -8685,7 +8685,7 @@ public final class GL11 {
 	 * @param mask the stencil mask
 	 */
 	public static void glStencilMask(int mask) {
-		long __functionAddress = getInstance().glStencilMask;
+		long __functionAddress = getInstance().StencilMask;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglStencilMask(mask, __functionAddress);
@@ -8693,7 +8693,7 @@ public final class GL11 {
 
 	// --- [ glStencilOp ] ---
 
-	/** JNI method for {@link #glStencilOp glStencilOp} */
+	/** JNI method for {@link #glStencilOp StencilOp} */
 	@JavadocExclude
 	public static native void nglStencilOp(int sfail, int dpfail, int dppass, long __functionAddress);
 
@@ -8715,7 +8715,7 @@ public final class GL11 {
 	 * @param dppass the action to take if the depth buffer test passes
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
-		long __functionAddress = getInstance().glStencilOp;
+		long __functionAddress = getInstance().StencilOp;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglStencilOp(sfail, dpfail, dppass, __functionAddress);
@@ -8723,7 +8723,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord1f ] ---
 
-	/** JNI method for {@link #glTexCoord1f glTexCoord1f} */
+	/** JNI method for {@link #glTexCoord1f TexCoord1f} */
 	@JavadocExclude
 	public static native void nglTexCoord1f(float s, long __functionAddress);
 
@@ -8735,7 +8735,7 @@ public final class GL11 {
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1f(float s) {
-		long __functionAddress = getInstance().glTexCoord1f;
+		long __functionAddress = getInstance().TexCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord1f(s, __functionAddress);
@@ -8743,19 +8743,19 @@ public final class GL11 {
 
 	// --- [ glTexCoord1s ] ---
 
-	/** JNI method for {@link #glTexCoord1s glTexCoord1s} */
+	/** JNI method for {@link #glTexCoord1s TexCoord1s} */
 	@JavadocExclude
 	public static native void nglTexCoord1s(short s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord1f glTexCoord1f}.
+	 * Short version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1s(short s) {
-		long __functionAddress = getInstance().glTexCoord1s;
+		long __functionAddress = getInstance().TexCoord1s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord1s(s, __functionAddress);
@@ -8763,19 +8763,19 @@ public final class GL11 {
 
 	// --- [ glTexCoord1i ] ---
 
-	/** JNI method for {@link #glTexCoord1i glTexCoord1i} */
+	/** JNI method for {@link #glTexCoord1i TexCoord1i} */
 	@JavadocExclude
 	public static native void nglTexCoord1i(int s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord1f glTexCoord1f}.
+	 * Integer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1i(int s) {
-		long __functionAddress = getInstance().glTexCoord1i;
+		long __functionAddress = getInstance().TexCoord1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord1i(s, __functionAddress);
@@ -8783,19 +8783,19 @@ public final class GL11 {
 
 	// --- [ glTexCoord1d ] ---
 
-	/** JNI method for {@link #glTexCoord1d glTexCoord1d} */
+	/** JNI method for {@link #glTexCoord1d TexCoord1d} */
 	@JavadocExclude
 	public static native void nglTexCoord1d(double s, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord1f glTexCoord1f}.
+	 * Double version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 */
 	public static void glTexCoord1d(double s) {
-		long __functionAddress = getInstance().glTexCoord1d;
+		long __functionAddress = getInstance().TexCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord1d(s, __functionAddress);
@@ -8810,12 +8810,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1f glTexCoord1f}.
+	 * Pointer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1f(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1fv;
+		long __functionAddress = getInstance().TexCoord1fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 2);
@@ -8825,7 +8825,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord1f(ByteBuffer) glTexCoord1f} */
 	public static void glTexCoord1(FloatBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1fv;
+		long __functionAddress = getInstance().TexCoord1fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -8842,12 +8842,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1s glTexCoord1s}.
+	 * Pointer version of {@link #glTexCoord1s TexCoord1s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1s(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1sv;
+		long __functionAddress = getInstance().TexCoord1sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 1);
@@ -8857,7 +8857,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord1s(ByteBuffer) glTexCoord1s} */
 	public static void glTexCoord1(ShortBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1sv;
+		long __functionAddress = getInstance().TexCoord1sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -8874,12 +8874,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1i glTexCoord1i}.
+	 * Pointer version of {@link #glTexCoord1i TexCoord1i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1i(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1iv;
+		long __functionAddress = getInstance().TexCoord1iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 2);
@@ -8889,7 +8889,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord1i(ByteBuffer) glTexCoord1i} */
 	public static void glTexCoord1(IntBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1iv;
+		long __functionAddress = getInstance().TexCoord1iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -8906,12 +8906,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord1d glTexCoord1d}.
+	 * Pointer version of {@link #glTexCoord1d TexCoord1d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1d(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1dv;
+		long __functionAddress = getInstance().TexCoord1dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 3);
@@ -8921,7 +8921,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord1d(ByteBuffer) glTexCoord1d} */
 	public static void glTexCoord1(DoubleBuffer v) {
-		long __functionAddress = getInstance().glTexCoord1dv;
+		long __functionAddress = getInstance().TexCoord1dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -8931,7 +8931,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord2f ] ---
 
-	/** JNI method for {@link #glTexCoord2f glTexCoord2f} */
+	/** JNI method for {@link #glTexCoord2f TexCoord2f} */
 	@JavadocExclude
 	public static native void nglTexCoord2f(float s, float t, long __functionAddress);
 
@@ -8944,7 +8944,7 @@ public final class GL11 {
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2f(float s, float t) {
-		long __functionAddress = getInstance().glTexCoord2f;
+		long __functionAddress = getInstance().TexCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord2f(s, t, __functionAddress);
@@ -8952,20 +8952,20 @@ public final class GL11 {
 
 	// --- [ glTexCoord2s ] ---
 
-	/** JNI method for {@link #glTexCoord2s glTexCoord2s} */
+	/** JNI method for {@link #glTexCoord2s TexCoord2s} */
 	@JavadocExclude
 	public static native void nglTexCoord2s(short s, short t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord2f glTexCoord2f}.
+	 * Short version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2s(short s, short t) {
-		long __functionAddress = getInstance().glTexCoord2s;
+		long __functionAddress = getInstance().TexCoord2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord2s(s, t, __functionAddress);
@@ -8973,20 +8973,20 @@ public final class GL11 {
 
 	// --- [ glTexCoord2i ] ---
 
-	/** JNI method for {@link #glTexCoord2i glTexCoord2i} */
+	/** JNI method for {@link #glTexCoord2i TexCoord2i} */
 	@JavadocExclude
 	public static native void nglTexCoord2i(int s, int t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord2f glTexCoord2f}.
+	 * Integer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2i(int s, int t) {
-		long __functionAddress = getInstance().glTexCoord2i;
+		long __functionAddress = getInstance().TexCoord2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord2i(s, t, __functionAddress);
@@ -8994,20 +8994,20 @@ public final class GL11 {
 
 	// --- [ glTexCoord2d ] ---
 
-	/** JNI method for {@link #glTexCoord2d glTexCoord2d} */
+	/** JNI method for {@link #glTexCoord2d TexCoord2d} */
 	@JavadocExclude
 	public static native void nglTexCoord2d(double s, double t, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord2f glTexCoord2f}.
+	 * Double version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 */
 	public static void glTexCoord2d(double s, double t) {
-		long __functionAddress = getInstance().glTexCoord2d;
+		long __functionAddress = getInstance().TexCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord2d(s, t, __functionAddress);
@@ -9022,12 +9022,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2f glTexCoord2f}.
+	 * Pointer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2f(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2fv;
+		long __functionAddress = getInstance().TexCoord2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 2);
@@ -9037,7 +9037,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord2f(ByteBuffer) glTexCoord2f} */
 	public static void glTexCoord2(FloatBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2fv;
+		long __functionAddress = getInstance().TexCoord2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -9054,12 +9054,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2s glTexCoord2s}.
+	 * Pointer version of {@link #glTexCoord2s TexCoord2s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2s(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2sv;
+		long __functionAddress = getInstance().TexCoord2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 1);
@@ -9069,7 +9069,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord2s(ByteBuffer) glTexCoord2s} */
 	public static void glTexCoord2(ShortBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2sv;
+		long __functionAddress = getInstance().TexCoord2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -9086,12 +9086,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2i glTexCoord2i}.
+	 * Pointer version of {@link #glTexCoord2i TexCoord2i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2i(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2iv;
+		long __functionAddress = getInstance().TexCoord2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 2);
@@ -9101,7 +9101,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord2i(ByteBuffer) glTexCoord2i} */
 	public static void glTexCoord2(IntBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2iv;
+		long __functionAddress = getInstance().TexCoord2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -9118,12 +9118,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord2d glTexCoord2d}.
+	 * Pointer version of {@link #glTexCoord2d TexCoord2d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2d(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2dv;
+		long __functionAddress = getInstance().TexCoord2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 3);
@@ -9133,7 +9133,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord2d(ByteBuffer) glTexCoord2d} */
 	public static void glTexCoord2(DoubleBuffer v) {
-		long __functionAddress = getInstance().glTexCoord2dv;
+		long __functionAddress = getInstance().TexCoord2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -9143,7 +9143,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord3f ] ---
 
-	/** JNI method for {@link #glTexCoord3f glTexCoord3f} */
+	/** JNI method for {@link #glTexCoord3f TexCoord3f} */
 	@JavadocExclude
 	public static native void nglTexCoord3f(float s, float t, float r, long __functionAddress);
 
@@ -9157,7 +9157,7 @@ public final class GL11 {
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3f(float s, float t, float r) {
-		long __functionAddress = getInstance().glTexCoord3f;
+		long __functionAddress = getInstance().TexCoord3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord3f(s, t, r, __functionAddress);
@@ -9165,21 +9165,21 @@ public final class GL11 {
 
 	// --- [ glTexCoord3s ] ---
 
-	/** JNI method for {@link #glTexCoord3s glTexCoord3s} */
+	/** JNI method for {@link #glTexCoord3s TexCoord3s} */
 	@JavadocExclude
 	public static native void nglTexCoord3s(short s, short t, short r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord3f glTexCoord3f}.
+	 * Short version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3s(short s, short t, short r) {
-		long __functionAddress = getInstance().glTexCoord3s;
+		long __functionAddress = getInstance().TexCoord3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord3s(s, t, r, __functionAddress);
@@ -9187,21 +9187,21 @@ public final class GL11 {
 
 	// --- [ glTexCoord3i ] ---
 
-	/** JNI method for {@link #glTexCoord3i glTexCoord3i} */
+	/** JNI method for {@link #glTexCoord3i TexCoord3i} */
 	@JavadocExclude
 	public static native void nglTexCoord3i(int s, int t, int r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord3f glTexCoord3f}.
+	 * Integer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3i(int s, int t, int r) {
-		long __functionAddress = getInstance().glTexCoord3i;
+		long __functionAddress = getInstance().TexCoord3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord3i(s, t, r, __functionAddress);
@@ -9209,21 +9209,21 @@ public final class GL11 {
 
 	// --- [ glTexCoord3d ] ---
 
-	/** JNI method for {@link #glTexCoord3d glTexCoord3d} */
+	/** JNI method for {@link #glTexCoord3d TexCoord3d} */
 	@JavadocExclude
 	public static native void nglTexCoord3d(double s, double t, double r, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord3f glTexCoord3f}.
+	 * Double version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
 	 * @param r the r component of the current texture coordinates
 	 */
 	public static void glTexCoord3d(double s, double t, double r) {
-		long __functionAddress = getInstance().glTexCoord3d;
+		long __functionAddress = getInstance().TexCoord3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord3d(s, t, r, __functionAddress);
@@ -9238,12 +9238,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3f glTexCoord3f}.
+	 * Pointer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3f(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3fv;
+		long __functionAddress = getInstance().TexCoord3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -9253,7 +9253,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord3f(ByteBuffer) glTexCoord3f} */
 	public static void glTexCoord3(FloatBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3fv;
+		long __functionAddress = getInstance().TexCoord3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -9270,12 +9270,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3s glTexCoord3s}.
+	 * Pointer version of {@link #glTexCoord3s TexCoord3s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3s(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3sv;
+		long __functionAddress = getInstance().TexCoord3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 1);
@@ -9285,7 +9285,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord3s(ByteBuffer) glTexCoord3s} */
 	public static void glTexCoord3(ShortBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3sv;
+		long __functionAddress = getInstance().TexCoord3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -9302,12 +9302,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3i glTexCoord3i}.
+	 * Pointer version of {@link #glTexCoord3i TexCoord3i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3i(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3iv;
+		long __functionAddress = getInstance().TexCoord3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -9317,7 +9317,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord3i(ByteBuffer) glTexCoord3i} */
 	public static void glTexCoord3(IntBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3iv;
+		long __functionAddress = getInstance().TexCoord3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -9334,12 +9334,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord3d glTexCoord3d}.
+	 * Pointer version of {@link #glTexCoord3d TexCoord3d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3d(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3dv;
+		long __functionAddress = getInstance().TexCoord3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 3);
@@ -9349,7 +9349,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord3d(ByteBuffer) glTexCoord3d} */
 	public static void glTexCoord3(DoubleBuffer v) {
-		long __functionAddress = getInstance().glTexCoord3dv;
+		long __functionAddress = getInstance().TexCoord3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -9359,7 +9359,7 @@ public final class GL11 {
 
 	// --- [ glTexCoord4f ] ---
 
-	/** JNI method for {@link #glTexCoord4f glTexCoord4f} */
+	/** JNI method for {@link #glTexCoord4f TexCoord4f} */
 	@JavadocExclude
 	public static native void nglTexCoord4f(float s, float t, float r, float q, long __functionAddress);
 
@@ -9374,7 +9374,7 @@ public final class GL11 {
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4f(float s, float t, float r, float q) {
-		long __functionAddress = getInstance().glTexCoord4f;
+		long __functionAddress = getInstance().TexCoord4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord4f(s, t, r, q, __functionAddress);
@@ -9382,14 +9382,14 @@ public final class GL11 {
 
 	// --- [ glTexCoord4s ] ---
 
-	/** JNI method for {@link #glTexCoord4s glTexCoord4s} */
+	/** JNI method for {@link #glTexCoord4s TexCoord4s} */
 	@JavadocExclude
 	public static native void nglTexCoord4s(short s, short t, short r, short q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glTexCoord4f glTexCoord4f}.
+	 * Short version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -9397,7 +9397,7 @@ public final class GL11 {
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4s(short s, short t, short r, short q) {
-		long __functionAddress = getInstance().glTexCoord4s;
+		long __functionAddress = getInstance().TexCoord4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord4s(s, t, r, q, __functionAddress);
@@ -9405,14 +9405,14 @@ public final class GL11 {
 
 	// --- [ glTexCoord4i ] ---
 
-	/** JNI method for {@link #glTexCoord4i glTexCoord4i} */
+	/** JNI method for {@link #glTexCoord4i TexCoord4i} */
 	@JavadocExclude
 	public static native void nglTexCoord4i(int s, int t, int r, int q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glTexCoord4f glTexCoord4f}.
+	 * Integer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -9420,7 +9420,7 @@ public final class GL11 {
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4i(int s, int t, int r, int q) {
-		long __functionAddress = getInstance().glTexCoord4i;
+		long __functionAddress = getInstance().TexCoord4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord4i(s, t, r, q, __functionAddress);
@@ -9428,14 +9428,14 @@ public final class GL11 {
 
 	// --- [ glTexCoord4d ] ---
 
-	/** JNI method for {@link #glTexCoord4d glTexCoord4d} */
+	/** JNI method for {@link #glTexCoord4d TexCoord4d} */
 	@JavadocExclude
 	public static native void nglTexCoord4d(double s, double t, double r, double q, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTexCoord4f glTexCoord4f}.
+	 * Double version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param s the s component of the current texture coordinates
 	 * @param t the t component of the current texture coordinates
@@ -9443,7 +9443,7 @@ public final class GL11 {
 	 * @param q the q component of the current texture coordinates
 	 */
 	public static void glTexCoord4d(double s, double t, double r, double q) {
-		long __functionAddress = getInstance().glTexCoord4d;
+		long __functionAddress = getInstance().TexCoord4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexCoord4d(s, t, r, q, __functionAddress);
@@ -9458,12 +9458,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4f glTexCoord4f}.
+	 * Pointer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4f(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4fv;
+		long __functionAddress = getInstance().TexCoord4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -9473,7 +9473,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord4f(ByteBuffer) glTexCoord4f} */
 	public static void glTexCoord4(FloatBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4fv;
+		long __functionAddress = getInstance().TexCoord4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -9490,12 +9490,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4s glTexCoord4s}.
+	 * Pointer version of {@link #glTexCoord4s TexCoord4s}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4s(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4sv;
+		long __functionAddress = getInstance().TexCoord4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 1);
@@ -9505,7 +9505,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord4s(ByteBuffer) glTexCoord4s} */
 	public static void glTexCoord4(ShortBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4sv;
+		long __functionAddress = getInstance().TexCoord4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -9522,12 +9522,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4i glTexCoord4i}.
+	 * Pointer version of {@link #glTexCoord4i TexCoord4i}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4i(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4iv;
+		long __functionAddress = getInstance().TexCoord4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -9537,7 +9537,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord4i(ByteBuffer) glTexCoord4i} */
 	public static void glTexCoord4(IntBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4iv;
+		long __functionAddress = getInstance().TexCoord4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -9554,12 +9554,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexCoord4d glTexCoord4d}.
+	 * Pointer version of {@link #glTexCoord4d TexCoord4d}.
 	 *
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4d(ByteBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4dv;
+		long __functionAddress = getInstance().TexCoord4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 3);
@@ -9569,7 +9569,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexCoord4d(ByteBuffer) glTexCoord4d} */
 	public static void glTexCoord4(DoubleBuffer v) {
-		long __functionAddress = getInstance().glTexCoord4dv;
+		long __functionAddress = getInstance().TexCoord4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -9579,7 +9579,7 @@ public final class GL11 {
 
 	// --- [ glTexCoordPointer ] ---
 
-	/** JNI method for {@link #glTexCoordPointer glTexCoordPointer} */
+	/** JNI method for {@link #glTexCoordPointer TexCoordPointer} */
 	@JavadocExclude
 	public static native void nglTexCoordPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
@@ -9594,7 +9594,7 @@ public final class GL11 {
 	 * @param pointer the texture coordinate array data
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glTexCoordPointer;
+		long __functionAddress = getInstance().TexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -9602,9 +9602,9 @@ public final class GL11 {
 		nglTexCoordPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexCoordPointer glTexCoordPointer} */
+	/** Buffer object offset version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glTexCoordPointer;
+		long __functionAddress = getInstance().TexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -9612,9 +9612,9 @@ public final class GL11 {
 		nglTexCoordPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glTexCoordPointer glTexCoordPointer} */
+	/** GL_FLOAT version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glTexCoordPointer;
+		long __functionAddress = getInstance().TexCoordPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -9624,7 +9624,7 @@ public final class GL11 {
 
 	// --- [ glTexEnvi ] ---
 
-	/** JNI method for {@link #glTexEnvi glTexEnvi} */
+	/** JNI method for {@link #glTexEnvi TexEnvi} */
 	@JavadocExclude
 	public static native void nglTexEnvi(int target, int pname, int param, long __functionAddress);
 
@@ -9639,7 +9639,7 @@ public final class GL11 {
 	 * @param param  the parameter value. Scalar value or one of:. One of:<p/>{@link #GL_REPLACE REPLACE}, {@link #GL_MODULATE MODULATE}, {@link #GL_DECAL DECAL}, {@link #GL_BLEND BLEND}, {@link #GL_ADD ADD}, {@link GL13#GL_COMBINE COMBINE}, {@link GL13#GL_ADD_SIGNED ADD_SIGNED}, {@link GL13#GL_INTERPOLATE INTERPOLATE}, {@link GL13#GL_SUBTRACT SUBTRACT}, {@link GL13#GL_DOT3_RGB DOT3_RGB}, {@link GL13#GL_DOT3_RGBA DOT3_RGBA}, {@link #GL_TEXTURE TEXTURE}, {@link GL13#GL_TEXTURE0 TEXTURE0}, GL13.GL_TEXTURE[1-31], {@link GL13#GL_CONSTANT CONSTANT}, {@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link GL13#GL_PREVIOUS PREVIOUS}
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
-		long __functionAddress = getInstance().glTexEnvi;
+		long __functionAddress = getInstance().TexEnvi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexEnvi(target, pname, param, __functionAddress);
@@ -9654,14 +9654,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexEnvi glTexEnvi}.
+	 * Pointer version of {@link #glTexEnvi TexEnvi}.
 	 *
 	 * @param target the texture environment target. Must be:<p/>{@link #GL_TEXTURE_ENV TEXTURE_ENV}
 	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glTexEnvi(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexEnviv;
+		long __functionAddress = getInstance().TexEnviv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -9671,7 +9671,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexEnvi(int, int, ByteBuffer) glTexEnvi} */
 	public static void glTexEnv(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glTexEnviv;
+		long __functionAddress = getInstance().TexEnviv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -9681,21 +9681,21 @@ public final class GL11 {
 
 	// --- [ glTexEnvf ] ---
 
-	/** JNI method for {@link #glTexEnvf glTexEnvf} */
+	/** JNI method for {@link #glTexEnvf TexEnvf} */
 	@JavadocExclude
 	public static native void nglTexEnvf(int target, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnvf.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glTexEnvi glTexEnvi}.
+	 * Float version of {@link #glTexEnvi TexEnvi}.
 	 *
 	 * @param target the texture environment target
 	 * @param pname  the parameter to set
 	 * @param param  the parameter value
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
-		long __functionAddress = getInstance().glTexEnvf;
+		long __functionAddress = getInstance().TexEnvf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexEnvf(target, pname, param, __functionAddress);
@@ -9710,14 +9710,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexEnvf glTexEnvf}.
+	 * Pointer version of {@link #glTexEnvf TexEnvf}.
 	 *
 	 * @param target the texture environment target. Must be:<p/>{@link #GL_TEXTURE_ENV TEXTURE_ENV}
 	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}
 	 * @param params the parameter value
 	 */
 	public static void glTexEnvf(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexEnvfv;
+		long __functionAddress = getInstance().TexEnvfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -9727,7 +9727,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexEnvf(int, int, ByteBuffer) glTexEnvf} */
 	public static void glTexEnv(int target, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glTexEnvfv;
+		long __functionAddress = getInstance().TexEnvfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -9737,7 +9737,7 @@ public final class GL11 {
 
 	// --- [ glTexGeni ] ---
 
-	/** JNI method for {@link #glTexGeni glTexGeni} */
+	/** JNI method for {@link #glTexGeni TexGeni} */
 	@JavadocExclude
 	public static native void nglTexGeni(int coord, int pname, int param, long __functionAddress);
 
@@ -9746,7 +9746,7 @@ public final class GL11 {
 	 * <p/>
 	 * Sets an integer texture coordinate generation parameter.
 	 * <p/>
-	 * A texture coordinate generation function is enabled or disabled using {@link #glEnable glEnable} and {@link #glDisable glDisable} with an argument of
+	 * A texture coordinate generation function is enabled or disabled using {@link #glEnable Enable} and {@link #glDisable Disable} with an argument of
 	 * {@link #GL_TEXTURE_GEN_S TEXTURE_GEN_S}, {@link #GL_TEXTURE_GEN_T TEXTURE_GEN_T}, {@link #GL_TEXTURE_GEN_R TEXTURE_GEN_R}, or {@link #GL_TEXTURE_GEN_Q TEXTURE_GEN_Q} (each indicates the corresponding texture
 	 * coordinate). When enabled, the specified texture coordinate is computed according to the current {@link #GL_EYE_LINEAR EYE_LINEAR}, {@link #GL_OBJECT_LINEAR OBJECT_LINEAR} or
 	 * {@link #GL_SPHERE_MAP SPHERE_MAP} specification, depending on the current setting of {@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE} for that coordinate. When disabled, subsequent
@@ -9759,7 +9759,7 @@ public final class GL11 {
 	 * @param param the parameter value. One of:<p/>{@link #GL_OBJECT_LINEAR OBJECT_LINEAR}, {@link #GL_EYE_LINEAR EYE_LINEAR}, {@link #GL_SPHERE_MAP SPHERE_MAP}, {@link GL13#GL_REFLECTION_MAP REFLECTION_MAP}, {@link GL13#GL_NORMAL_MAP NORMAL_MAP}
 	 */
 	public static void glTexGeni(int coord, int pname, int param) {
-		long __functionAddress = getInstance().glTexGeni;
+		long __functionAddress = getInstance().TexGeni;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexGeni(coord, pname, param, __functionAddress);
@@ -9774,14 +9774,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGeni glTexGeni}.
+	 * Pointer version of {@link #glTexGeni TexGeni}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_EYE_PLANE EYE_PLANE}
 	 * @param params the parameter value
 	 */
 	public static void glTexGeni(int coord, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexGeniv;
+		long __functionAddress = getInstance().TexGeniv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -9791,7 +9791,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexGeni(int, int, ByteBuffer) glTexGeni} */
 	public static void glTexGen(int coord, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glTexGeniv;
+		long __functionAddress = getInstance().TexGeniv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -9801,21 +9801,21 @@ public final class GL11 {
 
 	// --- [ glTexGenf ] ---
 
-	/** JNI method for {@link #glTexGenf glTexGenf} */
+	/** JNI method for {@link #glTexGenf TexGenf} */
 	@JavadocExclude
 	public static native void nglTexGenf(int coord, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGenf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glTexGeni glTexGeni}.
+	 * Float version of {@link #glTexGeni TexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glTexGenf(int coord, int pname, float param) {
-		long __functionAddress = getInstance().glTexGenf;
+		long __functionAddress = getInstance().TexGenf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexGenf(coord, pname, param, __functionAddress);
@@ -9830,14 +9830,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGenf glTexGenf}.
+	 * Pointer version of {@link #glTexGenf TexGenf}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set. One of:<p/>{@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_EYE_PLANE EYE_PLANE}
 	 * @param params the parameter value
 	 */
 	public static void glTexGenf(int coord, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexGenfv;
+		long __functionAddress = getInstance().TexGenfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -9847,7 +9847,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexGenf(int, int, ByteBuffer) glTexGenf} */
 	public static void glTexGen(int coord, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glTexGenfv;
+		long __functionAddress = getInstance().TexGenfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -9857,21 +9857,21 @@ public final class GL11 {
 
 	// --- [ glTexGend ] ---
 
-	/** JNI method for {@link #glTexGend glTexGend} */
+	/** JNI method for {@link #glTexGend TexGend} */
 	@JavadocExclude
 	public static native void nglTexGend(int coord, int pname, double param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGend.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTexGeni glTexGeni}.
+	 * Double version of {@link #glTexGeni TexGeni}.
 	 *
 	 * @param coord the coordinate for which to set the parameter
 	 * @param pname the parameter to set
 	 * @param param the parameter value
 	 */
 	public static void glTexGend(int coord, int pname, double param) {
-		long __functionAddress = getInstance().glTexGend;
+		long __functionAddress = getInstance().TexGend;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexGend(coord, pname, param, __functionAddress);
@@ -9886,14 +9886,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glTexGend glTexGend}.
+	 * Pointer version of {@link #glTexGend TexGend}.
 	 *
 	 * @param coord  the coordinate for which to set the parameter
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glTexGend(int coord, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexGendv;
+		long __functionAddress = getInstance().TexGendv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 3);
@@ -9903,7 +9903,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexGend(int, int, ByteBuffer) glTexGend} */
 	public static void glTexGen(int coord, int pname, DoubleBuffer params) {
-		long __functionAddress = getInstance().glTexGendv;
+		long __functionAddress = getInstance().TexGendv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -9913,7 +9913,7 @@ public final class GL11 {
 
 	// --- [ glTexImage2D ] ---
 
-	/** JNI method for {@link #glTexImage2D glTexImage2D} */
+	/** JNI method for {@link #glTexImage2D TexImage2D} */
 	@JavadocExclude
 	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels, long __functionAddress);
 
@@ -9933,7 +9933,7 @@ public final class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9941,9 +9941,9 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage2D glTexImage2D} */
+	/** Buffer object offset version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -9951,9 +9951,9 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage2D glTexImage2D} */
+	/** ShortBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9961,9 +9961,9 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexImage2D glTexImage2D} */
+	/** IntBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9971,9 +9971,9 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage2D glTexImage2D} */
+	/** FloatBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9981,9 +9981,9 @@ public final class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage2D glTexImage2D} */
+	/** DoubleBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage2D;
+		long __functionAddress = getInstance().TexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9993,14 +9993,14 @@ public final class GL11 {
 
 	// --- [ glTexImage1D ] ---
 
-	/** JNI method for {@link #glTexImage1D glTexImage1D} */
+	/** JNI method for {@link #glTexImage1D TexImage1D} */
 	@JavadocExclude
 	public static native void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * One-dimensional version of {@link #glTexImage2D glTexImage2D}}.
+	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
 	 * @param target         the texture target. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}
 	 * @param level          the level-of-detail number
@@ -10012,7 +10012,7 @@ public final class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10020,9 +10020,9 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexImage1D glTexImage1D} */
+	/** Buffer object offset version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -10030,9 +10030,9 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage1D glTexImage1D} */
+	/** ShortBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10040,9 +10040,9 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexImage1D glTexImage1D} */
+	/** IntBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10050,9 +10050,9 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage1D glTexImage1D} */
+	/** FloatBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10060,9 +10060,9 @@ public final class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage1D glTexImage1D} */
+	/** DoubleBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
-		long __functionAddress = getInstance().glTexImage1D;
+		long __functionAddress = getInstance().TexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10072,32 +10072,32 @@ public final class GL11 {
 
 	// --- [ glCopyTexImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexImage2D glCopyTexImage2D} */
+	/** JNI method for {@link #glCopyTexImage2D CopyTexImage2D} */
 	@JavadocExclude
 	public static native void nglCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage2D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D glTexImage2D}, except that the image data are taken from the framebuffer rather
+	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D TexImage2D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory.
 	 * <p/>
-	 * {@code x}, {@code y}, {@code width}, and {@code height} correspond precisely to the corresponding arguments to {@link #glReadPixels glReadPixels}; they specify the
+	 * {@code x}, {@code y}, {@code width}, and {@code height} correspond precisely to the corresponding arguments to {@link #glReadPixels ReadPixels}; they specify the
 	 * image's width and height, and the lower left (x, y) coordinates of the framebuffer region to be copied.
 	 * <p/>
-	 * The image is taken from the framebuffer exactly as if these arguments were passed to {@link #glCopyPixels glCopyPixels} with argument type set to {@link #GL_COLOR COLOR},
+	 * The image is taken from the framebuffer exactly as if these arguments were passed to {@link #glCopyPixels CopyPixels} with argument type set to {@link #GL_COLOR COLOR},
 	 * {@link #GL_DEPTH DEPTH}, or {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, depending on {@code internalformat}. RGBA data is taken from the current color buffer, while depth
 	 * component and stencil index data are taken from the depth and stencil buffers, respectively.
 	 * <p/>
-	 * Subsequent processing is identical to that described for {@link #glTexImage2D glTexImage2D}, beginning with clamping of the R, G, B, A, or depth values, and masking
+	 * Subsequent processing is identical to that described for {@link #glTexImage2D TexImage2D}, beginning with clamping of the R, G, B, A, or depth values, and masking
 	 * of the stencil index values from the resulting pixel groups. Parameters {@code level}, {@code internalformat}, and {@code border} are specified using
-	 * the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage2D glTexImage2D}.
+	 * the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage2D TexImage2D}.
 	 * <p/>
-	 * The constraints on width, height, and border are exactly those for the corresponding arguments of {@link #glTexImage2D glTexImage2D}.
+	 * The constraints on width, height, and border are exactly those for the corresponding arguments of {@link #glTexImage2D TexImage2D}.
 	 *
 	 * @param target         the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level          the level-of-detail number
-	 * @param internalFormat the texture internal format. See {@link #glTexImage2D glTexImage2D} for a list of supported formats.
+	 * @param internalFormat the texture internal format. See {@link #glTexImage2D TexImage2D} for a list of supported formats.
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the texture width
@@ -10105,7 +10105,7 @@ public final class GL11 {
 	 * @param border         the texture border width
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
-		long __functionAddress = getInstance().glCopyTexImage2D;
+		long __functionAddress = getInstance().CopyTexImage2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyTexImage2D(target, level, internalFormat, x, y, width, height, border, __functionAddress);
@@ -10113,29 +10113,29 @@ public final class GL11 {
 
 	// --- [ glCopyTexImage1D ] ---
 
-	/** JNI method for {@link #glCopyTexImage1D glCopyTexImage1D} */
+	/** JNI method for {@link #glCopyTexImage1D CopyTexImage1D} */
 	@JavadocExclude
 	public static native void nglCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D glTexImage1D}, except that the image data are taken from the framebuffer rather
-	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D glCopyTexImage2D}
+	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D TexImage1D}, except that the image data are taken from the framebuffer rather
+	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D CopyTexImage2D}
 	 * with corresponding arguments and height of 1, except that the height of the image is always 1, regardless of the value of border. level, internalformat,
-	 * and border are specified using the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage1D glTexImage1D}. The constraints on
-	 * width and border are exactly those of the corresponding arguments of {@link #glTexImage1D glTexImage1D}.
+	 * and border are specified using the same values, with the same meanings, as the corresponding arguments of {@link #glTexImage1D TexImage1D}. The constraints on
+	 * width and border are exactly those of the corresponding arguments of {@link #glTexImage1D TexImage1D}.
 	 *
 	 * @param target         the texture target. Must be:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}
 	 * @param level          the level-of-detail number
-	 * @param internalFormat the texture internal format. See {@link #glTexImage2D glTexImage2D} for a list of supported formats.
+	 * @param internalFormat the texture internal format. See {@link #glTexImage2D TexImage2D} for a list of supported formats.
 	 * @param x              the left framebuffer pixel coordinate
 	 * @param y              the lower framebuffer pixel coordinate
 	 * @param width          the texture width
 	 * @param border         the texture border width
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
-		long __functionAddress = getInstance().glCopyTexImage1D;
+		long __functionAddress = getInstance().CopyTexImage1D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyTexImage1D(target, level, internalFormat, x, y, width, border, __functionAddress);
@@ -10143,7 +10143,7 @@ public final class GL11 {
 
 	// --- [ glCopyTexSubImage1D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage1D glCopyTexSubImage1D} */
+	/** JNI method for {@link #glCopyTexSubImage1D CopyTexSubImage1D} */
 	@JavadocExclude
 	public static native void nglCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width, long __functionAddress);
 
@@ -10151,7 +10151,7 @@ public final class GL11 {
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexSubImage1D.xml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width} or {@code border}
-	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D glCopyTexImage1D} for more
+	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D CopyTexImage1D} for more
 	 * details.
 	 *
 	 * @param target  the texture target. Must be:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}
@@ -10162,7 +10162,7 @@ public final class GL11 {
 	 * @param width   the texture subregion width
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
-		long __functionAddress = getInstance().glCopyTexSubImage1D;
+		long __functionAddress = getInstance().CopyTexSubImage1D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyTexSubImage1D(target, level, xoffset, x, y, width, __functionAddress);
@@ -10170,7 +10170,7 @@ public final class GL11 {
 
 	// --- [ glCopyTexSubImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage2D glCopyTexSubImage2D} */
+	/** JNI method for {@link #glCopyTexSubImage2D CopyTexSubImage2D} */
 	@JavadocExclude
 	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height, long __functionAddress);
 
@@ -10179,7 +10179,7 @@ public final class GL11 {
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width}, {@code height},
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
-	 * {@link #glCopyTexImage2D glCopyTexImage2D} for more details.
+	 * {@link #glCopyTexImage2D CopyTexImage2D} for more details.
 	 *
 	 * @param target  the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level   the level-of-detail number
@@ -10191,7 +10191,7 @@ public final class GL11 {
 	 * @param height  the texture subregion height
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().glCopyTexSubImage2D;
+		long __functionAddress = getInstance().CopyTexSubImage2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, __functionAddress);
@@ -10199,7 +10199,7 @@ public final class GL11 {
 
 	// --- [ glTexParameteri ] ---
 
-	/** JNI method for {@link #glTexParameteri glTexParameteri} */
+	/** JNI method for {@link #glTexParameteri TexParameteri} */
 	@JavadocExclude
 	public static native void nglTexParameteri(int target, int pname, int param, long __functionAddress);
 
@@ -10213,7 +10213,7 @@ public final class GL11 {
 	 * @param param  the parameter value
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
-		long __functionAddress = getInstance().glTexParameteri;
+		long __functionAddress = getInstance().TexParameteri;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexParameteri(target, pname, param, __functionAddress);
@@ -10228,14 +10228,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexParameteri glTexParameteri}.
+	 * Pointer version of {@link #glTexParameteri TexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glTexParameteri(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexParameteriv;
+		long __functionAddress = getInstance().TexParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -10245,7 +10245,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexParameteri(int, int, ByteBuffer) glTexParameteri} */
 	public static void glTexParameter(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glTexParameteriv;
+		long __functionAddress = getInstance().TexParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -10255,21 +10255,21 @@ public final class GL11 {
 
 	// --- [ glTexParameterf ] ---
 
-	/** JNI method for {@link #glTexParameterf glTexParameterf} */
+	/** JNI method for {@link #glTexParameterf TexParameterf} */
 	@JavadocExclude
 	public static native void nglTexParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameterf.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glTexParameteri glTexParameteri}.
+	 * Float version of {@link #glTexParameteri TexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
 	 * @param param  the parameter value
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
-		long __functionAddress = getInstance().glTexParameterf;
+		long __functionAddress = getInstance().TexParameterf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTexParameterf(target, pname, param, __functionAddress);
@@ -10284,14 +10284,14 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glTexParameterf glTexParameterf}.
+	 * Pointer version of {@link #glTexParameterf TexParameterf}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
 	public static void glTexParameterf(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexParameterfv;
+		long __functionAddress = getInstance().TexParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -10301,7 +10301,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glTexParameterf(int, int, ByteBuffer) glTexParameterf} */
 	public static void glTexParameter(int target, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().glTexParameterfv;
+		long __functionAddress = getInstance().TexParameterfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -10311,7 +10311,7 @@ public final class GL11 {
 
 	// --- [ glTexSubImage1D ] ---
 
-	/** JNI method for {@link #glTexSubImage1D glTexSubImage1D} */
+	/** JNI method for {@link #glTexSubImage1D TexSubImage1D} */
 	@JavadocExclude
 	public static native void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels, long __functionAddress);
 
@@ -10329,7 +10329,7 @@ public final class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10337,9 +10337,9 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage1D glTexSubImage1D} */
+	/** Buffer object offset version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -10347,9 +10347,9 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage1D glTexSubImage1D} */
+	/** ShortBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10357,9 +10357,9 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage1D glTexSubImage1D} */
+	/** IntBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10367,9 +10367,9 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage1D glTexSubImage1D} */
+	/** FloatBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10377,9 +10377,9 @@ public final class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage1D glTexSubImage1D} */
+	/** DoubleBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage1D;
+		long __functionAddress = getInstance().TexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10389,7 +10389,7 @@ public final class GL11 {
 
 	// --- [ glTexSubImage2D ] ---
 
-	/** JNI method for {@link #glTexSubImage2D glTexSubImage2D} */
+	/** JNI method for {@link #glTexSubImage2D TexSubImage2D} */
 	@JavadocExclude
 	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels, long __functionAddress);
 
@@ -10410,7 +10410,7 @@ public final class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10418,9 +10418,9 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glTexSubImage2D glTexSubImage2D} */
+	/** Buffer object offset version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -10428,9 +10428,9 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixelsOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage2D glTexSubImage2D} */
+	/** ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10438,9 +10438,9 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage2D glTexSubImage2D} */
+	/** IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10448,9 +10448,9 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage2D glTexSubImage2D} */
+	/** FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10458,9 +10458,9 @@ public final class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage2D glTexSubImage2D} */
+	/** DoubleBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		long __functionAddress = getInstance().glTexSubImage2D;
+		long __functionAddress = getInstance().TexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -10470,7 +10470,7 @@ public final class GL11 {
 
 	// --- [ glTranslatef ] ---
 
-	/** JNI method for {@link #glTranslatef glTranslatef} */
+	/** JNI method for {@link #glTranslatef Translatef} */
 	@JavadocExclude
 	public static native void nglTranslatef(float x, float y, float z, long __functionAddress);
 
@@ -10479,7 +10479,7 @@ public final class GL11 {
 	 * <p/>
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * <p/>
-	 * Calling this function is equivalent to calling {@link #glMultMatrixf glMultMatrixf} with the following matrix:
+	 * Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>x</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>y</td></tr>
@@ -10492,7 +10492,7 @@ public final class GL11 {
 	 * @param z the z-axis translation
 	 */
 	public static void glTranslatef(float x, float y, float z) {
-		long __functionAddress = getInstance().glTranslatef;
+		long __functionAddress = getInstance().Translatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTranslatef(x, y, z, __functionAddress);
@@ -10500,21 +10500,21 @@ public final class GL11 {
 
 	// --- [ glTranslated ] ---
 
-	/** JNI method for {@link #glTranslated glTranslated} */
+	/** JNI method for {@link #glTranslated Translated} */
 	@JavadocExclude
 	public static native void nglTranslated(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTranslated.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glTranslatef glTranslatef}.
+	 * Double version of {@link #glTranslatef Translatef}.
 	 *
 	 * @param x the x-axis translation
 	 * @param y the y-axis translation
 	 * @param z the z-axis translation
 	 */
 	public static void glTranslated(double x, double y, double z) {
-		long __functionAddress = getInstance().glTranslated;
+		long __functionAddress = getInstance().Translated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTranslated(x, y, z, __functionAddress);
@@ -10522,21 +10522,21 @@ public final class GL11 {
 
 	// --- [ glVertex2f ] ---
 
-	/** JNI method for {@link #glVertex2f glVertex2f} */
+	/** JNI method for {@link #glVertex2f Vertex2f} */
 	@JavadocExclude
 	public static native void nglVertex2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin glBegin} and {@link #glEnd glEnd} by giving its coordinates in two dimensions. The z coordinate is implicitly set
+	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in two dimensions. The z coordinate is implicitly set
 	 * to zero and the w coordinate to one.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2f(float x, float y) {
-		long __functionAddress = getInstance().glVertex2f;
+		long __functionAddress = getInstance().Vertex2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex2f(x, y, __functionAddress);
@@ -10544,20 +10544,20 @@ public final class GL11 {
 
 	// --- [ glVertex2s ] ---
 
-	/** JNI method for {@link #glVertex2s glVertex2s} */
+	/** JNI method for {@link #glVertex2s Vertex2s} */
 	@JavadocExclude
 	public static native void nglVertex2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glVertex2f glVertex2f}.
+	 * Short version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2s(short x, short y) {
-		long __functionAddress = getInstance().glVertex2s;
+		long __functionAddress = getInstance().Vertex2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex2s(x, y, __functionAddress);
@@ -10565,20 +10565,20 @@ public final class GL11 {
 
 	// --- [ glVertex2i ] ---
 
-	/** JNI method for {@link #glVertex2i glVertex2i} */
+	/** JNI method for {@link #glVertex2i Vertex2i} */
 	@JavadocExclude
 	public static native void nglVertex2i(int x, int y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex2f glVertex2f}.
+	 * Integer version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2i(int x, int y) {
-		long __functionAddress = getInstance().glVertex2i;
+		long __functionAddress = getInstance().Vertex2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex2i(x, y, __functionAddress);
@@ -10586,20 +10586,20 @@ public final class GL11 {
 
 	// --- [ glVertex2d ] ---
 
-	/** JNI method for {@link #glVertex2d glVertex2d} */
+	/** JNI method for {@link #glVertex2d Vertex2d} */
 	@JavadocExclude
 	public static native void nglVertex2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glVertex2f glVertex2f}.
+	 * Double version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 */
 	public static void glVertex2d(double x, double y) {
-		long __functionAddress = getInstance().glVertex2d;
+		long __functionAddress = getInstance().Vertex2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex2d(x, y, __functionAddress);
@@ -10614,12 +10614,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2f glVertex2f}.
+	 * Pointer version of {@link #glVertex2f Vertex2f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex2fv;
+		long __functionAddress = getInstance().Vertex2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 2);
@@ -10629,7 +10629,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex2f(ByteBuffer) glVertex2f} */
 	public static void glVertex2(FloatBuffer coords) {
-		long __functionAddress = getInstance().glVertex2fv;
+		long __functionAddress = getInstance().Vertex2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -10646,12 +10646,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2s glVertex2s}.
+	 * Pointer version of {@link #glVertex2s Vertex2s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex2sv;
+		long __functionAddress = getInstance().Vertex2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 1);
@@ -10661,7 +10661,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex2s(ByteBuffer) glVertex2s} */
 	public static void glVertex2(ShortBuffer coords) {
-		long __functionAddress = getInstance().glVertex2sv;
+		long __functionAddress = getInstance().Vertex2sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -10678,12 +10678,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2i glVertex2i}.
+	 * Pointer version of {@link #glVertex2i Vertex2i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex2iv;
+		long __functionAddress = getInstance().Vertex2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 2);
@@ -10693,7 +10693,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex2i(ByteBuffer) glVertex2i} */
 	public static void glVertex2(IntBuffer coords) {
-		long __functionAddress = getInstance().glVertex2iv;
+		long __functionAddress = getInstance().Vertex2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -10710,12 +10710,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex2d glVertex2d}.
+	 * Pointer version of {@link #glVertex2d Vertex2d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex2dv;
+		long __functionAddress = getInstance().Vertex2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2 << 3);
@@ -10725,7 +10725,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex2d(ByteBuffer) glVertex2d} */
 	public static void glVertex2(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glVertex2dv;
+		long __functionAddress = getInstance().Vertex2dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 2);
@@ -10735,14 +10735,14 @@ public final class GL11 {
 
 	// --- [ glVertex3f ] ---
 
-	/** JNI method for {@link #glVertex3f glVertex3f} */
+	/** JNI method for {@link #glVertex3f Vertex3f} */
 	@JavadocExclude
 	public static native void nglVertex3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin glBegin} and {@link #glEnd glEnd} by giving its coordinates in three dimensions. The w coordinate is implicitly set
+	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in three dimensions. The w coordinate is implicitly set
 	 * to one.
 	 *
 	 * @param x the vertex x coordinate
@@ -10750,7 +10750,7 @@ public final class GL11 {
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3f(float x, float y, float z) {
-		long __functionAddress = getInstance().glVertex3f;
+		long __functionAddress = getInstance().Vertex3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex3f(x, y, z, __functionAddress);
@@ -10758,21 +10758,21 @@ public final class GL11 {
 
 	// --- [ glVertex3s ] ---
 
-	/** JNI method for {@link #glVertex3s glVertex3s} */
+	/** JNI method for {@link #glVertex3s Vertex3s} */
 	@JavadocExclude
 	public static native void nglVertex3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glVertex3f glVertex3f}.
+	 * Short version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3s(short x, short y, short z) {
-		long __functionAddress = getInstance().glVertex3s;
+		long __functionAddress = getInstance().Vertex3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex3s(x, y, z, __functionAddress);
@@ -10780,21 +10780,21 @@ public final class GL11 {
 
 	// --- [ glVertex3i ] ---
 
-	/** JNI method for {@link #glVertex3i glVertex3i} */
+	/** JNI method for {@link #glVertex3i Vertex3i} */
 	@JavadocExclude
 	public static native void nglVertex3i(int x, int y, int z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex3f glVertex3f}.
+	 * Integer version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3i(int x, int y, int z) {
-		long __functionAddress = getInstance().glVertex3i;
+		long __functionAddress = getInstance().Vertex3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex3i(x, y, z, __functionAddress);
@@ -10802,21 +10802,21 @@ public final class GL11 {
 
 	// --- [ glVertex3d ] ---
 
-	/** JNI method for {@link #glVertex3d glVertex3d} */
+	/** JNI method for {@link #glVertex3d Vertex3d} */
 	@JavadocExclude
 	public static native void nglVertex3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glVertex3f glVertex3f}.
+	 * Double version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
 	 * @param z the vertex z coordinate
 	 */
 	public static void glVertex3d(double x, double y, double z) {
-		long __functionAddress = getInstance().glVertex3d;
+		long __functionAddress = getInstance().Vertex3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex3d(x, y, z, __functionAddress);
@@ -10831,12 +10831,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3f glVertex3f}.
+	 * Pointer version of {@link #glVertex3f Vertex3f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex3fv;
+		long __functionAddress = getInstance().Vertex3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 2);
@@ -10846,7 +10846,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex3f(ByteBuffer) glVertex3f} */
 	public static void glVertex3(FloatBuffer coords) {
-		long __functionAddress = getInstance().glVertex3fv;
+		long __functionAddress = getInstance().Vertex3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -10863,12 +10863,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3s glVertex3s}.
+	 * Pointer version of {@link #glVertex3s Vertex3s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex3sv;
+		long __functionAddress = getInstance().Vertex3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 1);
@@ -10878,7 +10878,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex3s(ByteBuffer) glVertex3s} */
 	public static void glVertex3(ShortBuffer coords) {
-		long __functionAddress = getInstance().glVertex3sv;
+		long __functionAddress = getInstance().Vertex3sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -10895,12 +10895,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3i glVertex3i}.
+	 * Pointer version of {@link #glVertex3i Vertex3i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex3iv;
+		long __functionAddress = getInstance().Vertex3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 2);
@@ -10910,7 +10910,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex3i(ByteBuffer) glVertex3i} */
 	public static void glVertex3(IntBuffer coords) {
-		long __functionAddress = getInstance().glVertex3iv;
+		long __functionAddress = getInstance().Vertex3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -10927,12 +10927,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex3d glVertex3d}.
+	 * Pointer version of {@link #glVertex3d Vertex3d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex3dv;
+		long __functionAddress = getInstance().Vertex3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3 << 3);
@@ -10942,7 +10942,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex3d(ByteBuffer) glVertex3d} */
 	public static void glVertex3(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glVertex3dv;
+		long __functionAddress = getInstance().Vertex3dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 3);
@@ -10952,14 +10952,14 @@ public final class GL11 {
 
 	// --- [ glVertex4f ] ---
 
-	/** JNI method for {@link #glVertex4f glVertex4f} */
+	/** JNI method for {@link #glVertex4f Vertex4f} */
 	@JavadocExclude
 	public static native void nglVertex4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Specifies a single vertex between {@link #glBegin glBegin} and {@link #glEnd glEnd} by giving its coordinates in four dimensions.
+	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in four dimensions.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -10967,7 +10967,7 @@ public final class GL11 {
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4f(float x, float y, float z, float w) {
-		long __functionAddress = getInstance().glVertex4f;
+		long __functionAddress = getInstance().Vertex4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex4f(x, y, z, w, __functionAddress);
@@ -10975,14 +10975,14 @@ public final class GL11 {
 
 	// --- [ glVertex4s ] ---
 
-	/** JNI method for {@link #glVertex4s glVertex4s} */
+	/** JNI method for {@link #glVertex4s Vertex4s} */
 	@JavadocExclude
 	public static native void nglVertex4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Short version of {@link #glVertex4f glVertex4f}.
+	 * Short version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -10990,7 +10990,7 @@ public final class GL11 {
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4s(short x, short y, short z, short w) {
-		long __functionAddress = getInstance().glVertex4s;
+		long __functionAddress = getInstance().Vertex4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex4s(x, y, z, w, __functionAddress);
@@ -10998,14 +10998,14 @@ public final class GL11 {
 
 	// --- [ glVertex4i ] ---
 
-	/** JNI method for {@link #glVertex4i glVertex4i} */
+	/** JNI method for {@link #glVertex4i Vertex4i} */
 	@JavadocExclude
 	public static native void nglVertex4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Integer version of {@link #glVertex4f glVertex4f}.
+	 * Integer version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -11013,7 +11013,7 @@ public final class GL11 {
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4i(int x, int y, int z, int w) {
-		long __functionAddress = getInstance().glVertex4i;
+		long __functionAddress = getInstance().Vertex4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex4i(x, y, z, w, __functionAddress);
@@ -11021,14 +11021,14 @@ public final class GL11 {
 
 	// --- [ glVertex4d ] ---
 
-	/** JNI method for {@link #glVertex4d glVertex4d} */
+	/** JNI method for {@link #glVertex4d Vertex4d} */
 	@JavadocExclude
 	public static native void nglVertex4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glVertex4f glVertex4f}.
+	 * Double version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param x the vertex x coordinate
 	 * @param y the vertex y coordinate
@@ -11036,7 +11036,7 @@ public final class GL11 {
 	 * @param w the vertex w coordinate
 	 */
 	public static void glVertex4d(double x, double y, double z, double w) {
-		long __functionAddress = getInstance().glVertex4d;
+		long __functionAddress = getInstance().Vertex4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertex4d(x, y, z, w, __functionAddress);
@@ -11051,12 +11051,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4f glVertex4f}.
+	 * Pointer version of {@link #glVertex4f Vertex4f}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4f(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex4fv;
+		long __functionAddress = getInstance().Vertex4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 2);
@@ -11066,7 +11066,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex4f(ByteBuffer) glVertex4f} */
 	public static void glVertex4(FloatBuffer coords) {
-		long __functionAddress = getInstance().glVertex4fv;
+		long __functionAddress = getInstance().Vertex4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -11083,12 +11083,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4s glVertex4s}.
+	 * Pointer version of {@link #glVertex4s Vertex4s}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4s(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex4sv;
+		long __functionAddress = getInstance().Vertex4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 1);
@@ -11098,7 +11098,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex4s(ByteBuffer) glVertex4s} */
 	public static void glVertex4(ShortBuffer coords) {
-		long __functionAddress = getInstance().glVertex4sv;
+		long __functionAddress = getInstance().Vertex4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -11115,12 +11115,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4i glVertex4i}.
+	 * Pointer version of {@link #glVertex4i Vertex4i}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4i(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex4iv;
+		long __functionAddress = getInstance().Vertex4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 2);
@@ -11130,7 +11130,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex4i(ByteBuffer) glVertex4i} */
 	public static void glVertex4(IntBuffer coords) {
-		long __functionAddress = getInstance().glVertex4iv;
+		long __functionAddress = getInstance().Vertex4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -11147,12 +11147,12 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Pointer version of {@link #glVertex4d glVertex4d}.
+	 * Pointer version of {@link #glVertex4d Vertex4d}.
 	 *
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4d(ByteBuffer coords) {
-		long __functionAddress = getInstance().glVertex4dv;
+		long __functionAddress = getInstance().Vertex4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4 << 3);
@@ -11162,7 +11162,7 @@ public final class GL11 {
 
 	/** Alternative version of: {@link #glVertex4d(ByteBuffer) glVertex4d} */
 	public static void glVertex4(DoubleBuffer coords) {
-		long __functionAddress = getInstance().glVertex4dv;
+		long __functionAddress = getInstance().Vertex4dv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(coords, 4);
@@ -11172,7 +11172,7 @@ public final class GL11 {
 
 	// --- [ glVertexPointer ] ---
 
-	/** JNI method for {@link #glVertexPointer glVertexPointer} */
+	/** JNI method for {@link #glVertexPointer VertexPointer} */
 	@JavadocExclude
 	public static native void nglVertexPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
@@ -11187,7 +11187,7 @@ public final class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glVertexPointer(int size, int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -11195,9 +11195,9 @@ public final class GL11 {
 		nglVertexPointer(size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexPointer glVertexPointer} */
+	/** Buffer object offset version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -11205,9 +11205,9 @@ public final class GL11 {
 		nglVertexPointer(size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** GL_SHORT version of: {@link #glVertexPointer glVertexPointer} */
+	/** GL_SHORT version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int stride, ShortBuffer pointer) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -11215,9 +11215,9 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_SHORT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_INT version of: {@link #glVertexPointer glVertexPointer} */
+	/** GL_INT version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int stride, IntBuffer pointer) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -11225,9 +11225,9 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_INT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_FLOAT version of: {@link #glVertexPointer glVertexPointer} */
+	/** GL_FLOAT version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int stride, FloatBuffer pointer) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -11235,9 +11235,9 @@ public final class GL11 {
 		nglVertexPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexPointer glVertexPointer} */
+	/** GL_DOUBLE version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int stride, DoubleBuffer pointer) {
-		long __functionAddress = getInstance().glVertexPointer;
+		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -11247,7 +11247,7 @@ public final class GL11 {
 
 	// --- [ glViewport ] ---
 
-	/** JNI method for {@link #glViewport glViewport} */
+	/** JNI method for {@link #glViewport Viewport} */
 	@JavadocExclude
 	public static native void nglViewport(int x, int y, int w, int h, long __functionAddress);
 
@@ -11273,7 +11273,7 @@ public final class GL11 {
 	 * @param h the viewport height
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
-		long __functionAddress = getInstance().glViewport;
+		long __functionAddress = getInstance().Viewport;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglViewport(x, y, w, h, __functionAddress);

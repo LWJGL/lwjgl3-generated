@@ -22,11 +22,11 @@ public final class GLXEXTSwapControl {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXSwapIntervalEXT;
+	public final long SwapIntervalEXT;
 
 	@JavadocExclude
 	public GLXEXTSwapControl(FunctionProvider provider) {
-		glXSwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
+		SwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -41,14 +41,14 @@ public final class GLXEXTSwapControl {
 
 		GLXEXTSwapControl funcs = new GLXEXTSwapControl(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalEXT);
+		boolean supported =  GL.isFunctionSupported(funcs.SwapIntervalEXT);
 
 		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
 	}
 
 	// --- [ glXSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #glXSwapIntervalEXT glXSwapIntervalEXT} */
+	/** JNI method for {@link #glXSwapIntervalEXT SwapIntervalEXT} */
 	@JavadocExclude
 	public static native void nglXSwapIntervalEXT(long display, long drawable, int interval, long __functionAddress);
 
@@ -62,7 +62,7 @@ public final class GLXEXTSwapControl {
 	 * @param interval the swap interval
 	 */
 	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
-		long __functionAddress = getInstance().glXSwapIntervalEXT;
+		long __functionAddress = getInstance().SwapIntervalEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

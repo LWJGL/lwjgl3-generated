@@ -14,5 +14,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_KHRGLEvent_nclCreateEventFromGLsyn
 	GLsync sync = (GLsync)(intptr_t)syncAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateEventFromGLsyncKHRPROC clCreateEventFromGLsyncKHR = (clCreateEventFromGLsyncKHRPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateEventFromGLsyncKHR(context, sync, errcode_ret);
 }

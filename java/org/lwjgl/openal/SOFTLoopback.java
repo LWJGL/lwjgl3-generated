@@ -43,15 +43,15 @@ public final class SOFTLoopback {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		alcLoopbackOpenDeviceSOFT,
-		alcIsRenderFormatSupportedSOFT,
-		alcRenderSamplesSOFT;
+		LoopbackOpenDeviceSOFT,
+		IsRenderFormatSupportedSOFT,
+		RenderSamplesSOFT;
 
 	@JavadocExclude
 	public SOFTLoopback(FunctionProviderLocal provider, long device) {
-		alcLoopbackOpenDeviceSOFT = provider.getFunctionAddress(device, "alcLoopbackOpenDeviceSOFT");
-		alcIsRenderFormatSupportedSOFT = provider.getFunctionAddress(device, "alcIsRenderFormatSupportedSOFT");
-		alcRenderSamplesSOFT = provider.getFunctionAddress(device, "alcRenderSamplesSOFT");
+		LoopbackOpenDeviceSOFT = provider.getFunctionAddress(device, "alcLoopbackOpenDeviceSOFT");
+		IsRenderFormatSupportedSOFT = provider.getFunctionAddress(device, "alcIsRenderFormatSupportedSOFT");
+		RenderSamplesSOFT = provider.getFunctionAddress(device, "alcRenderSamplesSOFT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -66,16 +66,16 @@ public final class SOFTLoopback {
 		SOFTLoopback funcs = new SOFTLoopback(provider, device);
 
 		boolean supported = 
-			funcs.alcLoopbackOpenDeviceSOFT != 0L &&
-			funcs.alcIsRenderFormatSupportedSOFT != 0L &&
-			funcs.alcRenderSamplesSOFT != 0L;
+			funcs.LoopbackOpenDeviceSOFT != 0L &&
+			funcs.IsRenderFormatSupportedSOFT != 0L &&
+			funcs.RenderSamplesSOFT != 0L;
 
 		return ALC.checkExtension("ALC_SOFT_loopback", funcs, supported);
 	}
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
-	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT alcLoopbackOpenDeviceSOFT} */
+	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	@JavadocExclude
 	public static native long nalcLoopbackOpenDeviceSOFT(long deviceName, long __functionAddress);
 
@@ -103,7 +103,7 @@ public final class SOFTLoopback {
 	 * @param deviceName name of the device to open
 	 */
 	public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
-		long __functionAddress = getInstance().alcLoopbackOpenDeviceSOFT;
+		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(deviceName);
@@ -111,9 +111,9 @@ public final class SOFTLoopback {
 		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT alcLoopbackOpenDeviceSOFT} */
+	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
-		long __functionAddress = getInstance().alcLoopbackOpenDeviceSOFT;
+		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalcLoopbackOpenDeviceSOFT(memAddress(memEncodeUTF8(deviceName)), __functionAddress);
@@ -121,7 +121,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT alcIsRenderFormatSupportedSOFT} */
+	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT IsRenderFormatSupportedSOFT} */
 	@JavadocExclude
 	public static native boolean nalcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type, long __functionAddress);
 
@@ -137,7 +137,7 @@ public final class SOFTLoopback {
 	 * @param type      sample type of the written audio. One of:<p/>{@link #ALC_BYTE_SOFT BYTE_SOFT}, {@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #ALC_SHORT_SOFT SHORT_SOFT}, {@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #ALC_INT_SOFT INT_SOFT}, {@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #ALC_FLOAT_SOFT FLOAT_SOFT}
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
-		long __functionAddress = getInstance().alcIsRenderFormatSupportedSOFT;
+		long __functionAddress = getInstance().IsRenderFormatSupportedSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalcIsRenderFormatSupportedSOFT(device, frequency, channels, type, __functionAddress);
@@ -145,7 +145,7 @@ public final class SOFTLoopback {
 
 	// --- [ alcRenderSamplesSOFT ] ---
 
-	/** JNI method for {@link #alcRenderSamplesSOFT alcRenderSamplesSOFT} */
+	/** JNI method for {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	@JavadocExclude
 	public static native void nalcRenderSamplesSOFT(long device, long buffer, int samples, long __functionAddress);
 
@@ -159,7 +159,7 @@ public final class SOFTLoopback {
 	 * @param samples number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, ByteBuffer buffer, int samples) {
-		long __functionAddress = getInstance().alcRenderSamplesSOFT;
+		long __functionAddress = getInstance().RenderSamplesSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples, __functionAddress);

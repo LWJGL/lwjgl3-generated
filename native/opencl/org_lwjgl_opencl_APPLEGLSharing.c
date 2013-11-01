@@ -14,5 +14,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_APPLEGLSharing_nclGetGLContextInfoA
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetGLContextInfoAPPLEPROC clGetGLContextInfoAPPLE = (clGetGLContextInfoAPPLEPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }

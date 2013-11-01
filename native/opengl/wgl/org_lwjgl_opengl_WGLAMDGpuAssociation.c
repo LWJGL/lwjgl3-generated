@@ -20,23 +20,27 @@ typedef VOID (APIENTRY *wglBlitContextFramebufferAMDPROC) (HGLRC, GLint, GLint, 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUIDsAMD(JNIEnv *__env, jclass clazz, jint maxCount, jlong idsAddress, jlong __functionAddress) {
 	UINT *ids = (UINT *)(intptr_t)idsAddress;
 	wglGetGPUIDsAMDPROC wglGetGPUIDsAMD = (wglGetGPUIDsAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetGPUIDsAMD(maxCount, ids);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUInfoAMD(JNIEnv *__env, jclass clazz, jint id, jint property, jint dataType, jint size, jlong dataAddress, jlong __functionAddress) {
 	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
 	wglGetGPUInfoAMDPROC wglGetGPUInfoAMD = (wglGetGPUInfoAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetGPUInfoAMD(id, property, dataType, size, data);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetContextGPUIDAMD(JNIEnv *__env, jclass clazz, jlong hglrcAddress, jlong __functionAddress) {
 	HGLRC hglrc = (HGLRC)(intptr_t)hglrcAddress;
 	wglGetContextGPUIDAMDPROC wglGetContextGPUIDAMD = (wglGetContextGPUIDAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetContextGPUIDAMD(hglrc);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglCreateAssociatedContextAMD(JNIEnv *__env, jclass clazz, jint id, jlong __functionAddress) {
 	wglCreateAssociatedContextAMDPROC wglCreateAssociatedContextAMD = (wglCreateAssociatedContextAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglCreateAssociatedContextAMD(id);
 }
 
@@ -44,28 +48,33 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglCreateAss
 	HGLRC shareContext = (HGLRC)(intptr_t)shareContextAddress;
 	const int *attribList = (const int *)(intptr_t)attribListAddress;
 	wglCreateAssociatedContextAttribsAMDPROC wglCreateAssociatedContextAttribsAMD = (wglCreateAssociatedContextAttribsAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglCreateAssociatedContextAttribsAMD(id, shareContext, attribList);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglDeleteAssociatedContextAMD(JNIEnv *__env, jclass clazz, jlong hglrcAddress, jlong __functionAddress) {
 	HGLRC hglrc = (HGLRC)(intptr_t)hglrcAddress;
 	wglDeleteAssociatedContextAMDPROC wglDeleteAssociatedContextAMD = (wglDeleteAssociatedContextAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDeleteAssociatedContextAMD(hglrc);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglMakeAssociatedContextCurrentAMD(JNIEnv *__env, jclass clazz, jlong hglrcAddress, jlong __functionAddress) {
 	HGLRC hglrc = (HGLRC)(intptr_t)hglrcAddress;
 	wglMakeAssociatedContextCurrentAMDPROC wglMakeAssociatedContextCurrentAMD = (wglMakeAssociatedContextCurrentAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglMakeAssociatedContextCurrentAMD(hglrc);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetCurrentAssociatedContextAMD(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	wglGetCurrentAssociatedContextAMDPROC wglGetCurrentAssociatedContextAMD = (wglGetCurrentAssociatedContextAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglGetCurrentAssociatedContextAMD();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglBlitContextFramebufferAMD(JNIEnv *__env, jclass clazz, jlong dstCtxAddress, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter, jlong __functionAddress) {
 	HGLRC dstCtx = (HGLRC)(intptr_t)dstCtxAddress;
 	wglBlitContextFramebufferAMDPROC wglBlitContextFramebufferAMD = (wglBlitContextFramebufferAMDPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	wglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }

@@ -16,13 +16,13 @@ public final class EXTThreadLocalContext {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		alcSetThreadContext,
-		alcGetThreadContext;
+		SetThreadContext,
+		GetThreadContext;
 
 	@JavadocExclude
 	public EXTThreadLocalContext(FunctionProviderLocal provider, long device) {
-		alcSetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
-		alcGetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");
+		SetThreadContext = provider.getFunctionAddress(device, "alcSetThreadContext");
+		GetThreadContext = provider.getFunctionAddress(device, "alcGetThreadContext");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -37,15 +37,15 @@ public final class EXTThreadLocalContext {
 		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
 
 		boolean supported = 
-			funcs.alcSetThreadContext != 0L &&
-			funcs.alcGetThreadContext != 0L;
+			funcs.SetThreadContext != 0L &&
+			funcs.GetThreadContext != 0L;
 
 		return ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
 	}
 
 	// --- [ alcSetThreadContext ] ---
 
-	/** JNI method for {@link #alcSetThreadContext alcSetThreadContext} */
+	/** JNI method for {@link #alcSetThreadContext SetThreadContext} */
 	@JavadocExclude
 	public static native boolean nalcSetThreadContext(long context, long __functionAddress);
 
@@ -56,7 +56,7 @@ public final class EXTThreadLocalContext {
 	 * @param context the context to make current
 	 */
 	public static boolean alcSetThreadContext(long context) {
-		long __functionAddress = getInstance().alcSetThreadContext;
+		long __functionAddress = getInstance().SetThreadContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
@@ -66,7 +66,7 @@ public final class EXTThreadLocalContext {
 
 	// --- [ alcGetThreadContext ] ---
 
-	/** JNI method for {@link #alcGetThreadContext alcGetThreadContext} */
+	/** JNI method for {@link #alcGetThreadContext GetThreadContext} */
 	@JavadocExclude
 	public static native long nalcGetThreadContext(long __functionAddress);
 
@@ -75,7 +75,7 @@ public final class EXTThreadLocalContext {
 	 * NULL, otherwise it will return the last set process-wide context.
 	 */
 	public static long alcGetThreadContext() {
-		long __functionAddress = getInstance().alcGetThreadContext;
+		long __functionAddress = getInstance().GetThreadContext;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalcGetThreadContext(__functionAddress);

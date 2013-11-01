@@ -23,11 +23,11 @@ public final class ARBCopyBuffer {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glCopyBufferSubData;
+	public final long CopyBufferSubData;
 
 	@JavadocExclude
 	public ARBCopyBuffer(FunctionProvider provider) {
-		glCopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
+		CopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -42,14 +42,14 @@ public final class ARBCopyBuffer {
 
 		ARBCopyBuffer funcs = new ARBCopyBuffer(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glCopyBufferSubData);
+		boolean supported =  GL.isFunctionSupported(funcs.CopyBufferSubData);
 
 		return GL.checkExtension("GL_ARB_copy_buffer", funcs, supported);
 	}
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** JNI method for {@link #glCopyBufferSubData glCopyBufferSubData} */
+	/** JNI method for {@link #glCopyBufferSubData CopyBufferSubData} */
 	@JavadocExclude
 	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
@@ -73,7 +73,7 @@ public final class ARBCopyBuffer {
 	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
-		long __functionAddress = getInstance().glCopyBufferSubData;
+		long __functionAddress = getInstance().CopyBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);

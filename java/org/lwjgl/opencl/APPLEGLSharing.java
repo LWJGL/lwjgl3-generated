@@ -45,11 +45,11 @@ public final class APPLEGLSharing {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long clGetGLContextInfoAPPLE;
+	public final long GetGLContextInfoAPPLE;
 
 	@JavadocExclude
 	public APPLEGLSharing(FunctionProviderLocal provider, long platform) {
-		clGetGLContextInfoAPPLE = provider.getFunctionAddress(platform, "clGetGLContextInfoAPPLE");
+		GetGLContextInfoAPPLE = provider.getFunctionAddress(platform, "clGetGLContextInfoAPPLE");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -64,14 +64,14 @@ public final class APPLEGLSharing {
 
 		APPLEGLSharing funcs = new APPLEGLSharing(provider, platform);
 
-		boolean supported =  funcs.clGetGLContextInfoAPPLE != 0L;
+		boolean supported =  funcs.GetGLContextInfoAPPLE != 0L;
 
 		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
 	}
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
-	/** JNI method for {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
+	/** JNI method for {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	@JavadocExclude
 	public static native int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
@@ -90,7 +90,7 @@ public final class APPLEGLSharing {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).clGetGLContextInfoAPPLE;
+		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);
@@ -100,9 +100,9 @@ public final class APPLEGLSharing {
 		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
+	/** Alternative version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).clGetGLContextInfoAPPLE;
+		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);
@@ -111,9 +111,9 @@ public final class APPLEGLSharing {
 		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE clGetGLContextInfoAPPLE} */
+	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).clGetGLContextInfoAPPLE;
+		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);

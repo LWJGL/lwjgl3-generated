@@ -13,23 +13,23 @@ import static org.lwjgl.system.Checks.*;
 /**
  * Optional functionality loaded dynamically from <strong>user32.dll</strong>.
  * <p/>
- * Features must be detected on a function-by-function basis. The pointers in the {@link Functions} instance will have a zero (0L) value when a particular
+ * Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
  * function is not supported in the Windows version we're running.
  */
 public final class User32 {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long SetProcessDPIAware;
+	public final long SetProcessDPIAwareAddress;
 
 	@JavadocExclude
 	public User32(FunctionProvider provider) {
-		SetProcessDPIAware = provider.getFunctionAddress("SetProcessDPIAware");
+		SetProcessDPIAwareAddress = provider.getFunctionAddress("SetProcessDPIAware");
 	}
 
 	// --- [ SetProcessDPIAware ] ---
 
-	/** JNI method for {@link #SetProcessDPIAware SetProcessDPIAware} */
+	/** JNI method for {@link #SetProcessDPIAware} */
 	@JavadocExclude
 	public static native int nSetProcessDPIAware(long __functionAddress);
 

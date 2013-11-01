@@ -26,13 +26,13 @@ public final class WGLARBMakeCurrentRead {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		wglMakeContextCurrentARB,
-		wglGetCurrentReadDCARB;
+		MakeContextCurrentARB,
+		GetCurrentReadDCARB;
 
 	@JavadocExclude
 	public WGLARBMakeCurrentRead(FunctionProvider provider) {
-		wglMakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
-		wglGetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
+		MakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
+		GetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -48,15 +48,15 @@ public final class WGLARBMakeCurrentRead {
 		WGLARBMakeCurrentRead funcs = new WGLARBMakeCurrentRead(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.wglMakeContextCurrentARB) &&
-			GL.isFunctionSupported(funcs.wglGetCurrentReadDCARB);
+			GL.isFunctionSupported(funcs.MakeContextCurrentARB) &&
+			GL.isFunctionSupported(funcs.GetCurrentReadDCARB);
 
 		return GL.checkExtension("WGL_ARB_make_current_read", funcs, supported);
 	}
 
 	// --- [ wglMakeContextCurrentARB ] ---
 
-	/** JNI method for {@link #wglMakeContextCurrentARB wglMakeContextCurrentARB} */
+	/** JNI method for {@link #wglMakeContextCurrentARB MakeContextCurrentARB} */
 	@JavadocExclude
 	public static native int nwglMakeContextCurrentARB(long drawDC, long readDC, long hglrc, long __functionAddress);
 
@@ -89,7 +89,7 @@ public final class WGLARBMakeCurrentRead {
 	 * @param hglrc  the OpenGL context
 	 */
 	public static int wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
-		long __functionAddress = getInstance().wglMakeContextCurrentARB;
+		long __functionAddress = getInstance().MakeContextCurrentARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(drawDC);
@@ -101,13 +101,13 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglGetCurrentReadDCARB ] ---
 
-	/** JNI method for {@link #wglGetCurrentReadDCARB wglGetCurrentReadDCARB} */
+	/** JNI method for {@link #wglGetCurrentReadDCARB GetCurrentReadDCARB} */
 	@JavadocExclude
 	public static native long nwglGetCurrentReadDCARB(long __functionAddress);
 
 	/** Returns the "read" device context for the current OpenGL context. */
 	public static long wglGetCurrentReadDCARB() {
-		long __functionAddress = getInstance().wglGetCurrentReadDCARB;
+		long __functionAddress = getInstance().GetCurrentReadDCARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nwglGetCurrentReadDCARB(__functionAddress);

@@ -107,47 +107,47 @@ public final class GL15 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glBindBuffer,
-		glDeleteBuffers,
-		glGenBuffers,
-		glIsBuffer,
-		glBufferData,
-		glBufferSubData,
-		glGetBufferSubData,
-		glMapBuffer,
-		glUnmapBuffer,
-		glGetBufferParameteriv,
-		glGetBufferPointerv,
-		glGenQueries,
-		glDeleteQueries,
-		glIsQuery,
-		glBeginQuery,
-		glEndQuery,
-		glGetQueryiv,
-		glGetQueryObjectiv,
-		glGetQueryObjectuiv;
+		BindBuffer,
+		DeleteBuffers,
+		GenBuffers,
+		IsBuffer,
+		BufferData,
+		BufferSubData,
+		GetBufferSubData,
+		MapBuffer,
+		UnmapBuffer,
+		GetBufferParameteriv,
+		GetBufferPointerv,
+		GenQueries,
+		DeleteQueries,
+		IsQuery,
+		BeginQuery,
+		EndQuery,
+		GetQueryiv,
+		GetQueryObjectiv,
+		GetQueryObjectuiv;
 
 	@JavadocExclude
 	public GL15(FunctionProvider provider) {
-		glBindBuffer = provider.getFunctionAddress("glBindBuffer");
-		glDeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
-		glGenBuffers = provider.getFunctionAddress("glGenBuffers");
-		glIsBuffer = provider.getFunctionAddress("glIsBuffer");
-		glBufferData = provider.getFunctionAddress("glBufferData");
-		glBufferSubData = provider.getFunctionAddress("glBufferSubData");
-		glGetBufferSubData = provider.getFunctionAddress("glGetBufferSubData");
-		glMapBuffer = provider.getFunctionAddress("glMapBuffer");
-		glUnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
-		glGetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
-		glGetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
-		glGenQueries = provider.getFunctionAddress("glGenQueries");
-		glDeleteQueries = provider.getFunctionAddress("glDeleteQueries");
-		glIsQuery = provider.getFunctionAddress("glIsQuery");
-		glBeginQuery = provider.getFunctionAddress("glBeginQuery");
-		glEndQuery = provider.getFunctionAddress("glEndQuery");
-		glGetQueryiv = provider.getFunctionAddress("glGetQueryiv");
-		glGetQueryObjectiv = provider.getFunctionAddress("glGetQueryObjectiv");
-		glGetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
+		BindBuffer = provider.getFunctionAddress("glBindBuffer");
+		DeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
+		GenBuffers = provider.getFunctionAddress("glGenBuffers");
+		IsBuffer = provider.getFunctionAddress("glIsBuffer");
+		BufferData = provider.getFunctionAddress("glBufferData");
+		BufferSubData = provider.getFunctionAddress("glBufferSubData");
+		GetBufferSubData = provider.getFunctionAddress("glGetBufferSubData");
+		MapBuffer = provider.getFunctionAddress("glMapBuffer");
+		UnmapBuffer = provider.getFunctionAddress("glUnmapBuffer");
+		GetBufferParameteriv = provider.getFunctionAddress("glGetBufferParameteriv");
+		GetBufferPointerv = provider.getFunctionAddress("glGetBufferPointerv");
+		GenQueries = provider.getFunctionAddress("glGenQueries");
+		DeleteQueries = provider.getFunctionAddress("glDeleteQueries");
+		IsQuery = provider.getFunctionAddress("glIsQuery");
+		BeginQuery = provider.getFunctionAddress("glBeginQuery");
+		EndQuery = provider.getFunctionAddress("glEndQuery");
+		GetQueryiv = provider.getFunctionAddress("glGetQueryiv");
+		GetQueryObjectiv = provider.getFunctionAddress("glGetQueryObjectiv");
+		GetQueryObjectuiv = provider.getFunctionAddress("glGetQueryObjectuiv");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -163,32 +163,32 @@ public final class GL15 {
 		GL15 funcs = new GL15(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glBindBuffer) &&
-			GL.isFunctionSupported(funcs.glDeleteBuffers) &&
-			GL.isFunctionSupported(funcs.glGenBuffers) &&
-			GL.isFunctionSupported(funcs.glIsBuffer) &&
-			GL.isFunctionSupported(funcs.glBufferData) &&
-			GL.isFunctionSupported(funcs.glBufferSubData) &&
-			GL.isFunctionSupported(funcs.glGetBufferSubData) &&
-			GL.isFunctionSupported(funcs.glMapBuffer) &&
-			GL.isFunctionSupported(funcs.glUnmapBuffer) &&
-			GL.isFunctionSupported(funcs.glGetBufferParameteriv) &&
-			GL.isFunctionSupported(funcs.glGetBufferPointerv) &&
-			GL.isFunctionSupported(funcs.glGenQueries) &&
-			GL.isFunctionSupported(funcs.glDeleteQueries) &&
-			GL.isFunctionSupported(funcs.glIsQuery) &&
-			GL.isFunctionSupported(funcs.glBeginQuery) &&
-			GL.isFunctionSupported(funcs.glEndQuery) &&
-			GL.isFunctionSupported(funcs.glGetQueryiv) &&
-			GL.isFunctionSupported(funcs.glGetQueryObjectiv) &&
-			GL.isFunctionSupported(funcs.glGetQueryObjectuiv);
+			GL.isFunctionSupported(funcs.BindBuffer) &&
+			GL.isFunctionSupported(funcs.DeleteBuffers) &&
+			GL.isFunctionSupported(funcs.GenBuffers) &&
+			GL.isFunctionSupported(funcs.IsBuffer) &&
+			GL.isFunctionSupported(funcs.BufferData) &&
+			GL.isFunctionSupported(funcs.BufferSubData) &&
+			GL.isFunctionSupported(funcs.GetBufferSubData) &&
+			GL.isFunctionSupported(funcs.MapBuffer) &&
+			GL.isFunctionSupported(funcs.UnmapBuffer) &&
+			GL.isFunctionSupported(funcs.GetBufferParameteriv) &&
+			GL.isFunctionSupported(funcs.GetBufferPointerv) &&
+			GL.isFunctionSupported(funcs.GenQueries) &&
+			GL.isFunctionSupported(funcs.DeleteQueries) &&
+			GL.isFunctionSupported(funcs.IsQuery) &&
+			GL.isFunctionSupported(funcs.BeginQuery) &&
+			GL.isFunctionSupported(funcs.EndQuery) &&
+			GL.isFunctionSupported(funcs.GetQueryiv) &&
+			GL.isFunctionSupported(funcs.GetQueryObjectiv) &&
+			GL.isFunctionSupported(funcs.GetQueryObjectuiv);
 
 		return GL.checkExtension("OpenGL15", funcs, supported);
 	}
 
 	// --- [ glBindBuffer ] ---
 
-	/** JNI method for {@link #glBindBuffer glBindBuffer} */
+	/** JNI method for {@link #glBindBuffer BindBuffer} */
 	@JavadocExclude
 	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
 
@@ -201,7 +201,7 @@ public final class GL15 {
 	 * @param buffer the name of a buffer object
 	 */
 	public static void glBindBuffer(int target, int buffer) {
-		long __functionAddress = getInstance().glBindBuffer;
+		long __functionAddress = getInstance().BindBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindBuffer(target, buffer, __functionAddress);
@@ -209,7 +209,7 @@ public final class GL15 {
 
 	// --- [ glDeleteBuffers ] ---
 
-	/** JNI method for {@link #glDeleteBuffers glDeleteBuffers} */
+	/** JNI method for {@link #glDeleteBuffers DeleteBuffers} */
 	@JavadocExclude
 	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
@@ -222,7 +222,7 @@ public final class GL15 {
 	 * @param buffers an array of buffer objects to be deleted
 	 */
 	public static void glDeleteBuffers(int n, ByteBuffer buffers) {
-		long __functionAddress = getInstance().glDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffers, n << 2);
@@ -230,17 +230,17 @@ public final class GL15 {
 		nglDeleteBuffers(n, memAddress(buffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteBuffers glDeleteBuffers} */
+	/** Alternative version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(IntBuffer buffers) {
-		long __functionAddress = getInstance().glDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteBuffers glDeleteBuffers} */
+	/** Single value version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(int buffer) {
-		long __functionAddress = getInstance().glDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -250,7 +250,7 @@ public final class GL15 {
 
 	// --- [ glGenBuffers ] ---
 
-	/** JNI method for {@link #glGenBuffers glGenBuffers} */
+	/** JNI method for {@link #glGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
 
@@ -263,7 +263,7 @@ public final class GL15 {
 	 * @param buffers an array in which the generated buffer object names are stored
 	 */
 	public static void glGenBuffers(int n, ByteBuffer buffers) {
-		long __functionAddress = getInstance().glGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffers, n << 2);
@@ -271,17 +271,17 @@ public final class GL15 {
 		nglGenBuffers(n, memAddress(buffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenBuffers glGenBuffers} */
+	/** Alternative version of: {@link #glGenBuffers GenBuffers} */
 	public static void glGenBuffers(IntBuffer buffers) {
-		long __functionAddress = getInstance().glGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenBuffers glGenBuffers} */
+	/** Single return value version of: {@link #glGenBuffers GenBuffers} */
 	public static int glGenBuffers() {
-		long __functionAddress = getInstance().glGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -292,7 +292,7 @@ public final class GL15 {
 
 	// --- [ glIsBuffer ] ---
 
-	/** JNI method for {@link #glIsBuffer glIsBuffer} */
+	/** JNI method for {@link #glIsBuffer IsBuffer} */
 	@JavadocExclude
 	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
 
@@ -304,7 +304,7 @@ public final class GL15 {
 	 * @param buffer a value that may be the name of a buffer object
 	 */
 	public static boolean glIsBuffer(int buffer) {
-		long __functionAddress = getInstance().glIsBuffer;
+		long __functionAddress = getInstance().IsBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsBuffer(buffer, __functionAddress);
@@ -312,7 +312,7 @@ public final class GL15 {
 
 	// --- [ glBufferData ] ---
 
-	/** JNI method for {@link #glBufferData glBufferData} */
+	/** JNI method for {@link #glBufferData BufferData} */
 	@JavadocExclude
 	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
@@ -343,7 +343,7 @@ public final class GL15 {
 	 * @param usage  the expected usage pattern of the data store. One of:<p/>{@link #GL_STREAM_DRAW STREAM_DRAW}, {@link #GL_STREAM_READ STREAM_READ}, {@link #GL_STREAM_COPY STREAM_COPY}, {@link #GL_STATIC_DRAW STATIC_DRAW}, {@link #GL_STATIC_READ STATIC_READ}, {@link #GL_STATIC_COPY STATIC_COPY}, {@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link #GL_DYNAMIC_READ DYNAMIC_READ}, {@link #GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glBufferData(int target, long size, ByteBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( data != null ) checkBuffer(data, size);
@@ -351,49 +351,49 @@ public final class GL15 {
 		nglBufferData(target, size, memAddressSafe(data), usage, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glBufferData glBufferData} */
+	/** Alternative version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, long size, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, size, 0L, usage, __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #glBufferData glBufferData} */
+	/** ByteBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, data.remaining(), memAddress(data), usage, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glBufferData glBufferData} */
+	/** ShortBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ShortBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, data.remaining() << 1, memAddress(data), usage, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glBufferData glBufferData} */
+	/** IntBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, IntBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glBufferData glBufferData} */
+	/** FloatBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, FloatBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glBufferData glBufferData} */
+	/** DoubleBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, DoubleBuffer data, int usage) {
-		long __functionAddress = getInstance().glBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, data.remaining() << 3, memAddress(data), usage, __functionAddress);
@@ -401,7 +401,7 @@ public final class GL15 {
 
 	// --- [ glBufferSubData ] ---
 
-	/** JNI method for {@link #glBufferSubData glBufferSubData} */
+	/** JNI method for {@link #glBufferSubData BufferSubData} */
 	@JavadocExclude
 	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
@@ -416,7 +416,7 @@ public final class GL15 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		long __functionAddress = getInstance().glBufferSubData;
+		long __functionAddress = getInstance().BufferSubData;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, size);
@@ -424,9 +424,9 @@ public final class GL15 {
 		nglBufferSubData(target, offset, size, memAddress(data), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glBufferSubData glBufferSubData} */
+	/** Alternative version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
-		long __functionAddress = getInstance().glBufferSubData;
+		long __functionAddress = getInstance().BufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBufferSubData(target, offset, data.remaining(), memAddress(data), __functionAddress);
@@ -434,7 +434,7 @@ public final class GL15 {
 
 	// --- [ glGetBufferSubData ] ---
 
-	/** JNI method for {@link #glGetBufferSubData glGetBufferSubData} */
+	/** JNI method for {@link #glGetBufferSubData GetBufferSubData} */
 	@JavadocExclude
 	public static native void nglGetBufferSubData(int target, long offset, long size, long data, long __functionAddress);
 
@@ -449,7 +449,7 @@ public final class GL15 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, size);
@@ -457,41 +457,41 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, size, memAddress(data), __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #glGetBufferSubData glGetBufferSubData} */
+	/** ByteBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data), __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glGetBufferSubData glGetBufferSubData} */
+	/** ShortBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ShortBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glGetBufferSubData glGetBufferSubData} */
+	/** IntBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, IntBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
 	}
 
-	/** FloatBuffer version of: {@link #glGetBufferSubData glGetBufferSubData} */
+	/** FloatBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, FloatBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
 	}
 
-	/** DoubleBuffer version of: {@link #glGetBufferSubData glGetBufferSubData} */
+	/** DoubleBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, DoubleBuffer data) {
-		long __functionAddress = getInstance().glGetBufferSubData;
+		long __functionAddress = getInstance().GetBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data), __functionAddress);
@@ -499,7 +499,7 @@ public final class GL15 {
 
 	// --- [ glMapBuffer ] ---
 
-	/** JNI method for {@link #glMapBuffer glMapBuffer} */
+	/** JNI method for {@link #glMapBuffer MapBuffer} */
 	@JavadocExclude
 	public static native long nglMapBuffer(int target, int access, long __functionAddress);
 
@@ -519,16 +519,16 @@ public final class GL15 {
 	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<p/>{@link #GL_READ_ONLY READ_ONLY}, {@link #GL_WRITE_ONLY WRITE_ONLY}, {@link #GL_READ_WRITE READ_WRITE}
 	 */
 	public static ByteBuffer glMapBuffer(int target, int access) {
-		long __functionAddress = getInstance().glMapBuffer;
+		long __functionAddress = getInstance().MapBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBuffer(target, access, __functionAddress);
 		return memByteBuffer(__result, glGetBufferParameteri(target, GL_BUFFER_SIZE));
 	}
 
-	/** Alternative version of: {@link #glMapBuffer glMapBuffer} */
+	/** Alternative version of: {@link #glMapBuffer MapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance().glMapBuffer;
+		long __functionAddress = getInstance().MapBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBuffer(target, access, __functionAddress);
@@ -536,9 +536,9 @@ public final class GL15 {
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
-	/** Explicit size alternative version of: {@link #glMapBuffer glMapBuffer} */
+	/** Explicit size alternative version of: {@link #glMapBuffer MapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, int length, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance().glMapBuffer;
+		long __functionAddress = getInstance().MapBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBuffer(target, access, __functionAddress);
@@ -547,7 +547,7 @@ public final class GL15 {
 
 	// --- [ glUnmapBuffer ] ---
 
-	/** JNI method for {@link #glUnmapBuffer glUnmapBuffer} */
+	/** JNI method for {@link #glUnmapBuffer UnmapBuffer} */
 	@JavadocExclude
 	public static native boolean nglUnmapBuffer(int target, long __functionAddress);
 
@@ -564,7 +564,7 @@ public final class GL15 {
 	 * @param target the target buffer object being unmapped. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 */
 	public static boolean glUnmapBuffer(int target) {
-		long __functionAddress = getInstance().glUnmapBuffer;
+		long __functionAddress = getInstance().UnmapBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglUnmapBuffer(target, __functionAddress);
@@ -586,7 +586,7 @@ public final class GL15 {
 	 * @param params the request parameter
 	 */
 	public static void glGetBufferParameteri(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetBufferParameteriv;
+		long __functionAddress = getInstance().GetBufferParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameteriv(target, pname, memAddress(params), __functionAddress);
@@ -594,7 +594,7 @@ public final class GL15 {
 
 	/** Alternative version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
 	public static void glGetBufferParameter(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetBufferParameteriv;
+		long __functionAddress = getInstance().GetBufferParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameteriv(target, pname, memAddress(params), __functionAddress);
@@ -602,7 +602,7 @@ public final class GL15 {
 
 	/** Single return value version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
 	public static int glGetBufferParameteri(int target, int pname) {
-		long __functionAddress = getInstance().glGetBufferParameteriv;
+		long __functionAddress = getInstance().GetBufferParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -627,7 +627,7 @@ public final class GL15 {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetBufferPointer(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetBufferPointerv;
+		long __functionAddress = getInstance().GetBufferPointerv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferPointerv(target, pname, memAddress(params), __functionAddress);
@@ -635,7 +635,7 @@ public final class GL15 {
 
 	/** Alternative version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
 	public static void glGetBufferPointer(int target, int pname, PointerBuffer params) {
-		long __functionAddress = getInstance().glGetBufferPointerv;
+		long __functionAddress = getInstance().GetBufferPointerv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGetBufferPointerv(target, pname, memAddress(params), __functionAddress);
@@ -643,7 +643,7 @@ public final class GL15 {
 
 	/** Single return value version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
 	public static long glGetBufferPointer(int target, int pname) {
-		long __functionAddress = getInstance().glGetBufferPointerv;
+		long __functionAddress = getInstance().GetBufferPointerv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -654,7 +654,7 @@ public final class GL15 {
 
 	// --- [ glGenQueries ] ---
 
-	/** JNI method for {@link #glGenQueries glGenQueries} */
+	/** JNI method for {@link #glGenQueries GenQueries} */
 	@JavadocExclude
 	public static native void nglGenQueries(int n, long ids, long __functionAddress);
 
@@ -667,7 +667,7 @@ public final class GL15 {
 	 * @param ids an array in which the generated query object names are stored
 	 */
 	public static void glGenQueries(int n, ByteBuffer ids) {
-		long __functionAddress = getInstance().glGenQueries;
+		long __functionAddress = getInstance().GenQueries;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ids, n << 2);
@@ -675,17 +675,17 @@ public final class GL15 {
 		nglGenQueries(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenQueries glGenQueries} */
+	/** Alternative version of: {@link #glGenQueries GenQueries} */
 	public static void glGenQueries(IntBuffer ids) {
-		long __functionAddress = getInstance().glGenQueries;
+		long __functionAddress = getInstance().GenQueries;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenQueries(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenQueries glGenQueries} */
+	/** Single return value version of: {@link #glGenQueries GenQueries} */
 	public static int glGenQueries() {
-		long __functionAddress = getInstance().glGenQueries;
+		long __functionAddress = getInstance().GenQueries;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -696,7 +696,7 @@ public final class GL15 {
 
 	// --- [ glDeleteQueries ] ---
 
-	/** JNI method for {@link #glDeleteQueries glDeleteQueries} */
+	/** JNI method for {@link #glDeleteQueries DeleteQueries} */
 	@JavadocExclude
 	public static native void nglDeleteQueries(int n, long ids, long __functionAddress);
 
@@ -709,7 +709,7 @@ public final class GL15 {
 	 * @param ids an array of query objects to be deleted
 	 */
 	public static void glDeleteQueries(int n, ByteBuffer ids) {
-		long __functionAddress = getInstance().glDeleteQueries;
+		long __functionAddress = getInstance().DeleteQueries;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ids, n << 2);
@@ -717,17 +717,17 @@ public final class GL15 {
 		nglDeleteQueries(n, memAddress(ids), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteQueries glDeleteQueries} */
+	/** Alternative version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(IntBuffer ids) {
-		long __functionAddress = getInstance().glDeleteQueries;
+		long __functionAddress = getInstance().DeleteQueries;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteQueries(ids.remaining(), memAddress(ids), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteQueries glDeleteQueries} */
+	/** Single value version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(int id) {
-		long __functionAddress = getInstance().glDeleteQueries;
+		long __functionAddress = getInstance().DeleteQueries;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -737,7 +737,7 @@ public final class GL15 {
 
 	// --- [ glIsQuery ] ---
 
-	/** JNI method for {@link #glIsQuery glIsQuery} */
+	/** JNI method for {@link #glIsQuery IsQuery} */
 	@JavadocExclude
 	public static native boolean nglIsQuery(int id, long __functionAddress);
 
@@ -749,7 +749,7 @@ public final class GL15 {
 	 * @param id a value that may be the name of a query object
 	 */
 	public static boolean glIsQuery(int id) {
-		long __functionAddress = getInstance().glIsQuery;
+		long __functionAddress = getInstance().IsQuery;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsQuery(id, __functionAddress);
@@ -757,7 +757,7 @@ public final class GL15 {
 
 	// --- [ glBeginQuery ] ---
 
-	/** JNI method for {@link #glBeginQuery glBeginQuery} */
+	/** JNI method for {@link #glBeginQuery BeginQuery} */
 	@JavadocExclude
 	public static native void nglBeginQuery(int target, int id, long __functionAddress);
 
@@ -770,7 +770,7 @@ public final class GL15 {
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQuery(int target, int id) {
-		long __functionAddress = getInstance().glBeginQuery;
+		long __functionAddress = getInstance().BeginQuery;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBeginQuery(target, id, __functionAddress);
@@ -778,7 +778,7 @@ public final class GL15 {
 
 	// --- [ glEndQuery ] ---
 
-	/** JNI method for {@link #glEndQuery glEndQuery} */
+	/** JNI method for {@link #glEndQuery EndQuery} */
 	@JavadocExclude
 	public static native void nglEndQuery(int target, long __functionAddress);
 
@@ -790,7 +790,7 @@ public final class GL15 {
 	 * @param target the query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 */
 	public static void glEndQuery(int target) {
-		long __functionAddress = getInstance().glEndQuery;
+		long __functionAddress = getInstance().EndQuery;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEndQuery(target, __functionAddress);
@@ -812,7 +812,7 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryi(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetQueryiv;
+		long __functionAddress = getInstance().GetQueryiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -822,7 +822,7 @@ public final class GL15 {
 
 	/** Alternative version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
 	public static void glGetQuery(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetQueryiv;
+		long __functionAddress = getInstance().GetQueryiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -832,7 +832,7 @@ public final class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
 	public static int glGetQueryi(int target, int pname) {
-		long __functionAddress = getInstance().glGetQueryiv;
+		long __functionAddress = getInstance().GetQueryiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -857,7 +857,7 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjecti(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetQueryObjectiv;
+		long __functionAddress = getInstance().GetQueryObjectiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -867,7 +867,7 @@ public final class GL15 {
 
 	/** Alternative version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
 	public static void glGetQueryObject(int id, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetQueryObjectiv;
+		long __functionAddress = getInstance().GetQueryObjectiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -877,7 +877,7 @@ public final class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
 	public static int glGetQueryObjecti(int id, int pname) {
-		long __functionAddress = getInstance().glGetQueryObjectiv;
+		long __functionAddress = getInstance().GetQueryObjectiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -902,7 +902,7 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectui(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetQueryObjectuiv;
+		long __functionAddress = getInstance().GetQueryObjectuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -912,7 +912,7 @@ public final class GL15 {
 
 	/** Alternative version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
 	public static void glGetQueryObjectu(int id, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetQueryObjectuiv;
+		long __functionAddress = getInstance().GetQueryObjectuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -922,7 +922,7 @@ public final class GL15 {
 
 	/** Single return value version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
 	public static int glGetQueryObjectui(int id, int pname) {
-		long __functionAddress = getInstance().glGetQueryObjectuiv;
+		long __functionAddress = getInstance().GetQueryObjectuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();

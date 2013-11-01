@@ -44,7 +44,7 @@ public final class WinBase {
 
 	// --- [ GetVersionEx ] ---
 
-	/** JNI method for {@link #GetVersionEx GetVersionEx} */
+	/** JNI method for {@link #GetVersionEx} */
 	@JavadocExclude
 	public static native int nGetVersionEx(long versionInfo);
 
@@ -71,7 +71,7 @@ public final class WinBase {
 
 	// --- [ GetModuleHandle ] ---
 
-	/** JNI method for {@link #GetModuleHandle GetModuleHandle} */
+	/** JNI method for {@link #GetModuleHandle} */
 	@JavadocExclude
 	public static native long nGetModuleHandle(long moduleName);
 
@@ -91,14 +91,14 @@ public final class WinBase {
 		return nGetModuleHandle(memAddressSafe(moduleName));
 	}
 
-	/** CharSequence version of: {@link #GetModuleHandle GetModuleHandle} */
+	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
 		return nGetModuleHandle(memAddressSafe(memEncodeUTF16(moduleName)));
 	}
 
 	// --- [ LoadLibrary ] ---
 
-	/** JNI method for {@link #LoadLibrary LoadLibrary} */
+	/** JNI method for {@link #LoadLibrary} */
 	@JavadocExclude
 	public static native long nLoadLibrary(long name);
 
@@ -124,14 +124,14 @@ public final class WinBase {
 		return nLoadLibrary(memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #LoadLibrary LoadLibrary} */
+	/** CharSequence version of: {@link #LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
 		return nLoadLibrary(memAddress(memEncodeUTF16(name)));
 	}
 
 	// --- [ GetProcAddress ] ---
 
-	/** JNI method for {@link #GetProcAddress GetProcAddress} */
+	/** JNI method for {@link #GetProcAddress} */
 	@JavadocExclude
 	public static native long nGetProcAddress(long handle, long name);
 
@@ -150,7 +150,7 @@ public final class WinBase {
 		return nGetProcAddress(handle, memAddress(name));
 	}
 
-	/** CharSequence version of: {@link #GetProcAddress GetProcAddress} */
+	/** CharSequence version of: {@link #GetProcAddress} */
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
@@ -159,7 +159,7 @@ public final class WinBase {
 
 	// --- [ FreeLibrary ] ---
 
-	/** JNI method for {@link #FreeLibrary FreeLibrary} */
+	/** JNI method for {@link #FreeLibrary} */
 	@JavadocExclude
 	public static native int nFreeLibrary(long handle);
 
@@ -177,7 +177,7 @@ public final class WinBase {
 
 	// --- [ QueryPerformanceFrequency ] ---
 
-	/** JNI method for {@link #QueryPerformanceFrequency QueryPerformanceFrequency} */
+	/** JNI method for {@link #QueryPerformanceFrequency} */
 	@JavadocExclude
 	public static native int nQueryPerformanceFrequency(long frequency);
 
@@ -195,7 +195,7 @@ public final class WinBase {
 
 	// --- [ QueryPerformanceCounter ] ---
 
-	/** JNI method for {@link #QueryPerformanceCounter QueryPerformanceCounter} */
+	/** JNI method for {@link #QueryPerformanceCounter} */
 	@JavadocExclude
 	public static native int nQueryPerformanceCounter(long frequency);
 
@@ -228,7 +228,7 @@ public final class WinBase {
 
 	// --- [ GlobalLock ] ---
 
-	/** JNI method for {@link #GlobalLock GlobalLock} */
+	/** JNI method for {@link #GlobalLock} */
 	@JavadocExclude
 	public static native long nGlobalLock(long hMem);
 
@@ -245,7 +245,7 @@ public final class WinBase {
 
 	// --- [ GlobalUnlock ] ---
 
-	/** JNI method for {@link #GlobalUnlock GlobalUnlock} */
+	/** JNI method for {@link #GlobalUnlock} */
 	@JavadocExclude
 	public static native int nGlobalUnlock(long hMem);
 
@@ -263,7 +263,7 @@ public final class WinBase {
 
 	// --- [ GlobalFree ] ---
 
-	/** JNI method for {@link #GlobalFree GlobalFree} */
+	/** JNI method for {@link #GlobalFree} */
 	@JavadocExclude
 	public static native long nGlobalFree(long hMem);
 

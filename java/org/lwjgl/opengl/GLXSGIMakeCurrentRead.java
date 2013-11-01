@@ -22,13 +22,13 @@ public final class GLXSGIMakeCurrentRead {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXMakeCurrentReadSGI,
-		glXGetCurrentReadDrawableSGI;
+		MakeCurrentReadSGI,
+		GetCurrentReadDrawableSGI;
 
 	@JavadocExclude
 	public GLXSGIMakeCurrentRead(FunctionProvider provider) {
-		glXMakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
-		glXGetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
+		MakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
+		GetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -44,15 +44,15 @@ public final class GLXSGIMakeCurrentRead {
 		GLXSGIMakeCurrentRead funcs = new GLXSGIMakeCurrentRead(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXMakeCurrentReadSGI) &&
-			GL.isFunctionSupported(funcs.glXGetCurrentReadDrawableSGI);
+			GL.isFunctionSupported(funcs.MakeCurrentReadSGI) &&
+			GL.isFunctionSupported(funcs.GetCurrentReadDrawableSGI);
 
 		return GL.checkExtension("GLX_SGI_make_current_read", funcs, supported);
 	}
 
 	// --- [ glXMakeCurrentReadSGI ] ---
 
-	/** JNI method for {@link #glXMakeCurrentReadSGI glXMakeCurrentReadSGI} */
+	/** JNI method for {@link #glXMakeCurrentReadSGI MakeCurrentReadSGI} */
 	@JavadocExclude
 	public static native int nglXMakeCurrentReadSGI(long display, long draw, long read, long ctx, long __functionAddress);
 
@@ -65,7 +65,7 @@ public final class GLXSGIMakeCurrentRead {
 	 * @param ctx     the current context
 	 */
 	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
-		long __functionAddress = getInstance().glXMakeCurrentReadSGI;
+		long __functionAddress = getInstance().MakeCurrentReadSGI;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -75,13 +75,13 @@ public final class GLXSGIMakeCurrentRead {
 
 	// --- [ glXGetCurrentReadDrawableSGI ] ---
 
-	/** JNI method for {@link #glXGetCurrentReadDrawableSGI glXGetCurrentReadDrawableSGI} */
+	/** JNI method for {@link #glXGetCurrentReadDrawableSGI GetCurrentReadDrawableSGI} */
 	@JavadocExclude
 	public static native long nglXGetCurrentReadDrawableSGI(long __functionAddress);
 
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
 	public static long glXGetCurrentReadDrawableSGI() {
-		long __functionAddress = getInstance().glXGetCurrentReadDrawableSGI;
+		long __functionAddress = getInstance().GetCurrentReadDrawableSGI;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentReadDrawableSGI(__functionAddress);

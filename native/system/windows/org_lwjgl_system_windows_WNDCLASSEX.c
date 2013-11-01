@@ -7,8 +7,10 @@
 #include <stddef.h>
 #include "WindowsLWJGL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WNDCLASSEX_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WNDCLASSEX_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(WNDCLASSEX, cbSize));
 	buffer[1] = (jint)(offsetof(WNDCLASSEX, style));

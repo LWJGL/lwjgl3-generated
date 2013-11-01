@@ -123,117 +123,117 @@ public final class AL10 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		alGetError,
-		alEnable,
-		alDisable,
-		alIsEnabled,
-		alGetBoolean,
-		alGetInteger,
-		alGetFloat,
-		alGetDouble,
-		alGetBooleanv,
-		alGetIntegerv,
-		alGetFloatv,
-		alGetDoublev,
-		alGetString,
-		alDistanceModel,
-		alDopplerFactor,
-		alDopplerVelocity,
-		alListenerf,
-		alListeneri,
-		alListener3f,
-		alListenerfv,
-		alGetListenerf,
-		alGetListeneri,
-		alGetListener3f,
-		alGetListenerfv,
-		alGenSources,
-		alDeleteSources,
-		alIsSource,
-		alSourcef,
-		alSource3f,
-		alSourcefv,
-		alSourcei,
-		alGetSourcef,
-		alGetSource3f,
-		alGetSourcefv,
-		alGetSourcei,
-		alSourceQueueBuffers,
-		alSourceUnqueueBuffers,
-		alSourcePlay,
-		alSourcePause,
-		alSourceStop,
-		alSourceRewind,
-		alSourcePlayv,
-		alSourcePausev,
-		alSourceStopv,
-		alSourceRewindv,
-		alGenBuffers,
-		alDeleteBuffers,
-		alIsBuffer,
-		alGetBufferf,
-		alGetBufferi,
-		alBufferData,
-		alGetEnumValue,
-		alGetProcAddress,
-		alIsExtensionPresent;
+		GetError,
+		Enable,
+		Disable,
+		IsEnabled,
+		GetBoolean,
+		GetInteger,
+		GetFloat,
+		GetDouble,
+		GetBooleanv,
+		GetIntegerv,
+		GetFloatv,
+		GetDoublev,
+		GetString,
+		DistanceModel,
+		DopplerFactor,
+		DopplerVelocity,
+		Listenerf,
+		Listeneri,
+		Listener3f,
+		Listenerfv,
+		GetListenerf,
+		GetListeneri,
+		GetListener3f,
+		GetListenerfv,
+		GenSources,
+		DeleteSources,
+		IsSource,
+		Sourcef,
+		Source3f,
+		Sourcefv,
+		Sourcei,
+		GetSourcef,
+		GetSource3f,
+		GetSourcefv,
+		GetSourcei,
+		SourceQueueBuffers,
+		SourceUnqueueBuffers,
+		SourcePlay,
+		SourcePause,
+		SourceStop,
+		SourceRewind,
+		SourcePlayv,
+		SourcePausev,
+		SourceStopv,
+		SourceRewindv,
+		GenBuffers,
+		DeleteBuffers,
+		IsBuffer,
+		GetBufferf,
+		GetBufferi,
+		BufferData,
+		GetEnumValue,
+		GetProcAddress,
+		IsExtensionPresent;
 
 	@JavadocExclude
 	public AL10(FunctionProvider provider) {
-		alGetError = provider.getFunctionAddress("alGetError");
-		alEnable = provider.getFunctionAddress("alEnable");
-		alDisable = provider.getFunctionAddress("alDisable");
-		alIsEnabled = provider.getFunctionAddress("alIsEnabled");
-		alGetBoolean = provider.getFunctionAddress("alGetBoolean");
-		alGetInteger = provider.getFunctionAddress("alGetInteger");
-		alGetFloat = provider.getFunctionAddress("alGetFloat");
-		alGetDouble = provider.getFunctionAddress("alGetDouble");
-		alGetBooleanv = provider.getFunctionAddress("alGetBooleanv");
-		alGetIntegerv = provider.getFunctionAddress("alGetIntegerv");
-		alGetFloatv = provider.getFunctionAddress("alGetFloatv");
-		alGetDoublev = provider.getFunctionAddress("alGetDoublev");
-		alGetString = provider.getFunctionAddress("alGetString");
-		alDistanceModel = provider.getFunctionAddress("alDistanceModel");
-		alDopplerFactor = provider.getFunctionAddress("alDopplerFactor");
-		alDopplerVelocity = provider.getFunctionAddress("alDopplerVelocity");
-		alListenerf = provider.getFunctionAddress("alListenerf");
-		alListeneri = provider.getFunctionAddress("alListeneri");
-		alListener3f = provider.getFunctionAddress("alListener3f");
-		alListenerfv = provider.getFunctionAddress("alListenerfv");
-		alGetListenerf = provider.getFunctionAddress("alGetListenerf");
-		alGetListeneri = provider.getFunctionAddress("alGetListeneri");
-		alGetListener3f = provider.getFunctionAddress("alGetListener3f");
-		alGetListenerfv = provider.getFunctionAddress("alGetListenerfv");
-		alGenSources = provider.getFunctionAddress("alGenSources");
-		alDeleteSources = provider.getFunctionAddress("alDeleteSources");
-		alIsSource = provider.getFunctionAddress("alIsSource");
-		alSourcef = provider.getFunctionAddress("alSourcef");
-		alSource3f = provider.getFunctionAddress("alSource3f");
-		alSourcefv = provider.getFunctionAddress("alSourcefv");
-		alSourcei = provider.getFunctionAddress("alSourcei");
-		alGetSourcef = provider.getFunctionAddress("alGetSourcef");
-		alGetSource3f = provider.getFunctionAddress("alGetSource3f");
-		alGetSourcefv = provider.getFunctionAddress("alGetSourcefv");
-		alGetSourcei = provider.getFunctionAddress("alGetSourcei");
-		alSourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
-		alSourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
-		alSourcePlay = provider.getFunctionAddress("alSourcePlay");
-		alSourcePause = provider.getFunctionAddress("alSourcePause");
-		alSourceStop = provider.getFunctionAddress("alSourceStop");
-		alSourceRewind = provider.getFunctionAddress("alSourceRewind");
-		alSourcePlayv = provider.getFunctionAddress("alSourcePlayv");
-		alSourcePausev = provider.getFunctionAddress("alSourcePausev");
-		alSourceStopv = provider.getFunctionAddress("alSourceStopv");
-		alSourceRewindv = provider.getFunctionAddress("alSourceRewindv");
-		alGenBuffers = provider.getFunctionAddress("alGenBuffers");
-		alDeleteBuffers = provider.getFunctionAddress("alDeleteBuffers");
-		alIsBuffer = provider.getFunctionAddress("alIsBuffer");
-		alGetBufferf = provider.getFunctionAddress("alGetBufferf");
-		alGetBufferi = provider.getFunctionAddress("alGetBufferi");
-		alBufferData = provider.getFunctionAddress("alBufferData");
-		alGetEnumValue = provider.getFunctionAddress("alGetEnumValue");
-		alGetProcAddress = provider.getFunctionAddress("alGetProcAddress");
-		alIsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
+		GetError = provider.getFunctionAddress("alGetError");
+		Enable = provider.getFunctionAddress("alEnable");
+		Disable = provider.getFunctionAddress("alDisable");
+		IsEnabled = provider.getFunctionAddress("alIsEnabled");
+		GetBoolean = provider.getFunctionAddress("alGetBoolean");
+		GetInteger = provider.getFunctionAddress("alGetInteger");
+		GetFloat = provider.getFunctionAddress("alGetFloat");
+		GetDouble = provider.getFunctionAddress("alGetDouble");
+		GetBooleanv = provider.getFunctionAddress("alGetBooleanv");
+		GetIntegerv = provider.getFunctionAddress("alGetIntegerv");
+		GetFloatv = provider.getFunctionAddress("alGetFloatv");
+		GetDoublev = provider.getFunctionAddress("alGetDoublev");
+		GetString = provider.getFunctionAddress("alGetString");
+		DistanceModel = provider.getFunctionAddress("alDistanceModel");
+		DopplerFactor = provider.getFunctionAddress("alDopplerFactor");
+		DopplerVelocity = provider.getFunctionAddress("alDopplerVelocity");
+		Listenerf = provider.getFunctionAddress("alListenerf");
+		Listeneri = provider.getFunctionAddress("alListeneri");
+		Listener3f = provider.getFunctionAddress("alListener3f");
+		Listenerfv = provider.getFunctionAddress("alListenerfv");
+		GetListenerf = provider.getFunctionAddress("alGetListenerf");
+		GetListeneri = provider.getFunctionAddress("alGetListeneri");
+		GetListener3f = provider.getFunctionAddress("alGetListener3f");
+		GetListenerfv = provider.getFunctionAddress("alGetListenerfv");
+		GenSources = provider.getFunctionAddress("alGenSources");
+		DeleteSources = provider.getFunctionAddress("alDeleteSources");
+		IsSource = provider.getFunctionAddress("alIsSource");
+		Sourcef = provider.getFunctionAddress("alSourcef");
+		Source3f = provider.getFunctionAddress("alSource3f");
+		Sourcefv = provider.getFunctionAddress("alSourcefv");
+		Sourcei = provider.getFunctionAddress("alSourcei");
+		GetSourcef = provider.getFunctionAddress("alGetSourcef");
+		GetSource3f = provider.getFunctionAddress("alGetSource3f");
+		GetSourcefv = provider.getFunctionAddress("alGetSourcefv");
+		GetSourcei = provider.getFunctionAddress("alGetSourcei");
+		SourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
+		SourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
+		SourcePlay = provider.getFunctionAddress("alSourcePlay");
+		SourcePause = provider.getFunctionAddress("alSourcePause");
+		SourceStop = provider.getFunctionAddress("alSourceStop");
+		SourceRewind = provider.getFunctionAddress("alSourceRewind");
+		SourcePlayv = provider.getFunctionAddress("alSourcePlayv");
+		SourcePausev = provider.getFunctionAddress("alSourcePausev");
+		SourceStopv = provider.getFunctionAddress("alSourceStopv");
+		SourceRewindv = provider.getFunctionAddress("alSourceRewindv");
+		GenBuffers = provider.getFunctionAddress("alGenBuffers");
+		DeleteBuffers = provider.getFunctionAddress("alDeleteBuffers");
+		IsBuffer = provider.getFunctionAddress("alIsBuffer");
+		GetBufferf = provider.getFunctionAddress("alGetBufferf");
+		GetBufferi = provider.getFunctionAddress("alGetBufferi");
+		BufferData = provider.getFunctionAddress("alBufferData");
+		GetEnumValue = provider.getFunctionAddress("alGetEnumValue");
+		GetProcAddress = provider.getFunctionAddress("alGetProcAddress");
+		IsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -249,67 +249,67 @@ public final class AL10 {
 		AL10 funcs = new AL10(provider);
 
 		boolean supported = 
-			funcs.alGetError != 0L &&
-			funcs.alEnable != 0L &&
-			funcs.alDisable != 0L &&
-			funcs.alIsEnabled != 0L &&
-			funcs.alGetBoolean != 0L &&
-			funcs.alGetInteger != 0L &&
-			funcs.alGetFloat != 0L &&
-			funcs.alGetDouble != 0L &&
-			funcs.alGetBooleanv != 0L &&
-			funcs.alGetIntegerv != 0L &&
-			funcs.alGetFloatv != 0L &&
-			funcs.alGetDoublev != 0L &&
-			funcs.alGetString != 0L &&
-			funcs.alDistanceModel != 0L &&
-			funcs.alDopplerFactor != 0L &&
-			funcs.alDopplerVelocity != 0L &&
-			funcs.alListenerf != 0L &&
-			funcs.alListeneri != 0L &&
-			funcs.alListener3f != 0L &&
-			funcs.alListenerfv != 0L &&
-			funcs.alGetListenerf != 0L &&
-			funcs.alGetListeneri != 0L &&
-			funcs.alGetListener3f != 0L &&
-			funcs.alGetListenerfv != 0L &&
-			funcs.alGenSources != 0L &&
-			funcs.alDeleteSources != 0L &&
-			funcs.alIsSource != 0L &&
-			funcs.alSourcef != 0L &&
-			funcs.alSource3f != 0L &&
-			funcs.alSourcefv != 0L &&
-			funcs.alSourcei != 0L &&
-			funcs.alGetSourcef != 0L &&
-			funcs.alGetSource3f != 0L &&
-			funcs.alGetSourcefv != 0L &&
-			funcs.alGetSourcei != 0L &&
-			funcs.alSourceQueueBuffers != 0L &&
-			funcs.alSourceUnqueueBuffers != 0L &&
-			funcs.alSourcePlay != 0L &&
-			funcs.alSourcePause != 0L &&
-			funcs.alSourceStop != 0L &&
-			funcs.alSourceRewind != 0L &&
-			funcs.alSourcePlayv != 0L &&
-			funcs.alSourcePausev != 0L &&
-			funcs.alSourceStopv != 0L &&
-			funcs.alSourceRewindv != 0L &&
-			funcs.alGenBuffers != 0L &&
-			funcs.alDeleteBuffers != 0L &&
-			funcs.alIsBuffer != 0L &&
-			funcs.alGetBufferf != 0L &&
-			funcs.alGetBufferi != 0L &&
-			funcs.alBufferData != 0L &&
-			funcs.alGetEnumValue != 0L &&
-			funcs.alGetProcAddress != 0L &&
-			funcs.alIsExtensionPresent != 0L;
+			funcs.GetError != 0L &&
+			funcs.Enable != 0L &&
+			funcs.Disable != 0L &&
+			funcs.IsEnabled != 0L &&
+			funcs.GetBoolean != 0L &&
+			funcs.GetInteger != 0L &&
+			funcs.GetFloat != 0L &&
+			funcs.GetDouble != 0L &&
+			funcs.GetBooleanv != 0L &&
+			funcs.GetIntegerv != 0L &&
+			funcs.GetFloatv != 0L &&
+			funcs.GetDoublev != 0L &&
+			funcs.GetString != 0L &&
+			funcs.DistanceModel != 0L &&
+			funcs.DopplerFactor != 0L &&
+			funcs.DopplerVelocity != 0L &&
+			funcs.Listenerf != 0L &&
+			funcs.Listeneri != 0L &&
+			funcs.Listener3f != 0L &&
+			funcs.Listenerfv != 0L &&
+			funcs.GetListenerf != 0L &&
+			funcs.GetListeneri != 0L &&
+			funcs.GetListener3f != 0L &&
+			funcs.GetListenerfv != 0L &&
+			funcs.GenSources != 0L &&
+			funcs.DeleteSources != 0L &&
+			funcs.IsSource != 0L &&
+			funcs.Sourcef != 0L &&
+			funcs.Source3f != 0L &&
+			funcs.Sourcefv != 0L &&
+			funcs.Sourcei != 0L &&
+			funcs.GetSourcef != 0L &&
+			funcs.GetSource3f != 0L &&
+			funcs.GetSourcefv != 0L &&
+			funcs.GetSourcei != 0L &&
+			funcs.SourceQueueBuffers != 0L &&
+			funcs.SourceUnqueueBuffers != 0L &&
+			funcs.SourcePlay != 0L &&
+			funcs.SourcePause != 0L &&
+			funcs.SourceStop != 0L &&
+			funcs.SourceRewind != 0L &&
+			funcs.SourcePlayv != 0L &&
+			funcs.SourcePausev != 0L &&
+			funcs.SourceStopv != 0L &&
+			funcs.SourceRewindv != 0L &&
+			funcs.GenBuffers != 0L &&
+			funcs.DeleteBuffers != 0L &&
+			funcs.IsBuffer != 0L &&
+			funcs.GetBufferf != 0L &&
+			funcs.GetBufferi != 0L &&
+			funcs.BufferData != 0L &&
+			funcs.GetEnumValue != 0L &&
+			funcs.GetProcAddress != 0L &&
+			funcs.IsExtensionPresent != 0L;
 
 		return AL.checkExtension("OpenAL10", funcs, supported);
 	}
 
 	// --- [ alGetError ] ---
 
-	/** JNI method for {@link #alGetError alGetError} */
+	/** JNI method for {@link #alGetError GetError} */
 	@JavadocExclude
 	public static native int nalGetError(long __functionAddress);
 
@@ -325,7 +325,7 @@ public final class AL10 {
 	 * for the enumeration value, as defined in the specification.
 	 */
 	public static int alGetError() {
-		long __functionAddress = getInstance().alGetError;
+		long __functionAddress = getInstance().GetError;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetError(__functionAddress);
@@ -333,7 +333,7 @@ public final class AL10 {
 
 	// --- [ alEnable ] ---
 
-	/** JNI method for {@link #alEnable alEnable} */
+	/** JNI method for {@link #alEnable Enable} */
 	@JavadocExclude
 	public static native void nalEnable(int target, long __functionAddress);
 
@@ -343,7 +343,7 @@ public final class AL10 {
 	 * @param target the capability to enable
 	 */
 	public static void alEnable(int target) {
-		long __functionAddress = getInstance().alEnable;
+		long __functionAddress = getInstance().Enable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalEnable(target, __functionAddress);
@@ -351,7 +351,7 @@ public final class AL10 {
 
 	// --- [ alDisable ] ---
 
-	/** JNI method for {@link #alDisable alDisable} */
+	/** JNI method for {@link #alDisable Disable} */
 	@JavadocExclude
 	public static native void nalDisable(int target, long __functionAddress);
 
@@ -361,7 +361,7 @@ public final class AL10 {
 	 * @param target the capability to disable
 	 */
 	public static void alDisable(int target) {
-		long __functionAddress = getInstance().alDisable;
+		long __functionAddress = getInstance().Disable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDisable(target, __functionAddress);
@@ -369,7 +369,7 @@ public final class AL10 {
 
 	// --- [ alIsEnabled ] ---
 
-	/** JNI method for {@link #alIsEnabled alIsEnabled} */
+	/** JNI method for {@link #alIsEnabled IsEnabled} */
 	@JavadocExclude
 	public static native boolean nalIsEnabled(int target, long __functionAddress);
 
@@ -379,7 +379,7 @@ public final class AL10 {
 	 * @param target the capability to query
 	 */
 	public static boolean alIsEnabled(int target) {
-		long __functionAddress = getInstance().alIsEnabled;
+		long __functionAddress = getInstance().IsEnabled;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalIsEnabled(target, __functionAddress);
@@ -387,7 +387,7 @@ public final class AL10 {
 
 	// --- [ alGetBoolean ] ---
 
-	/** JNI method for {@link #alGetBoolean alGetBoolean} */
+	/** JNI method for {@link #alGetBoolean GetBoolean} */
 	@JavadocExclude
 	public static native boolean nalGetBoolean(int paramName, long __functionAddress);
 
@@ -397,7 +397,7 @@ public final class AL10 {
 	 * @param paramName the parameter to query
 	 */
 	public static boolean alGetBoolean(int paramName) {
-		long __functionAddress = getInstance().alGetBoolean;
+		long __functionAddress = getInstance().GetBoolean;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetBoolean(paramName, __functionAddress);
@@ -405,7 +405,7 @@ public final class AL10 {
 
 	// --- [ alGetInteger ] ---
 
-	/** JNI method for {@link #alGetInteger alGetInteger} */
+	/** JNI method for {@link #alGetInteger GetInteger} */
 	@JavadocExclude
 	public static native int nalGetInteger(int paramName, long __functionAddress);
 
@@ -415,7 +415,7 @@ public final class AL10 {
 	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static int alGetInteger(int paramName) {
-		long __functionAddress = getInstance().alGetInteger;
+		long __functionAddress = getInstance().GetInteger;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetInteger(paramName, __functionAddress);
@@ -423,7 +423,7 @@ public final class AL10 {
 
 	// --- [ alGetFloat ] ---
 
-	/** JNI method for {@link #alGetFloat alGetFloat} */
+	/** JNI method for {@link #alGetFloat GetFloat} */
 	@JavadocExclude
 	public static native float nalGetFloat(int paramName, long __functionAddress);
 
@@ -433,7 +433,7 @@ public final class AL10 {
 	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static float alGetFloat(int paramName) {
-		long __functionAddress = getInstance().alGetFloat;
+		long __functionAddress = getInstance().GetFloat;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetFloat(paramName, __functionAddress);
@@ -441,7 +441,7 @@ public final class AL10 {
 
 	// --- [ alGetDouble ] ---
 
-	/** JNI method for {@link #alGetDouble alGetDouble} */
+	/** JNI method for {@link #alGetDouble GetDouble} */
 	@JavadocExclude
 	public static native double nalGetDouble(int paramName, long __functionAddress);
 
@@ -451,7 +451,7 @@ public final class AL10 {
 	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static double alGetDouble(int paramName) {
-		long __functionAddress = getInstance().alGetDouble;
+		long __functionAddress = getInstance().GetDouble;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetDouble(paramName, __functionAddress);
@@ -464,13 +464,13 @@ public final class AL10 {
 	public static native void nalGetBooleanv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetBoolean alGetBoolean}.
+	 * Pointer version of {@link #alGetBoolean GetBoolean}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetBoolean(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().alGetBooleanv;
+		long __functionAddress = getInstance().GetBooleanv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1);
@@ -485,13 +485,13 @@ public final class AL10 {
 	public static native void nalGetIntegerv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetInteger alGetInteger}.
+	 * Pointer version of {@link #alGetInteger GetInteger}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetInteger(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().alGetIntegerv;
+		long __functionAddress = getInstance().GetIntegerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1 << 2);
@@ -501,7 +501,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
 	public static void alGetInteger(int paramName, IntBuffer dest) {
-		long __functionAddress = getInstance().alGetIntegerv;
+		long __functionAddress = getInstance().GetIntegerv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1);
@@ -516,13 +516,13 @@ public final class AL10 {
 	public static native void nalGetFloatv(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetFloat alGetFloat}.
+	 * Pointer version of {@link #alGetFloat GetFloat}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetFloat(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().alGetFloatv;
+		long __functionAddress = getInstance().GetFloatv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1 << 2);
@@ -532,7 +532,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
 	public static void alGetFloat(int paramName, FloatBuffer dest) {
-		long __functionAddress = getInstance().alGetFloatv;
+		long __functionAddress = getInstance().GetFloatv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1);
@@ -547,13 +547,13 @@ public final class AL10 {
 	public static native void nalGetDoublev(int paramName, long dest, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alGetDouble alGetDouble}.
+	 * Pointer version of {@link #alGetDouble GetDouble}.
 	 *
 	 * @param paramName the parameter to query
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetDouble(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().alGetDoublev;
+		long __functionAddress = getInstance().GetDoublev;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1 << 3);
@@ -563,7 +563,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
 	public static void alGetDouble(int paramName, DoubleBuffer dest) {
-		long __functionAddress = getInstance().alGetDoublev;
+		long __functionAddress = getInstance().GetDoublev;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dest, 1);
@@ -573,7 +573,7 @@ public final class AL10 {
 
 	// --- [ alGetString ] ---
 
-	/** JNI method for {@link #alGetString alGetString} */
+	/** JNI method for {@link #alGetString GetString} */
 	@JavadocExclude
 	public static native long nalGetString(int paramName, long __functionAddress);
 
@@ -583,7 +583,7 @@ public final class AL10 {
 	 * @param paramName the parameter to query. One of:<p/>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
 	 */
 	public static String alGetString(int paramName) {
-		long __functionAddress = getInstance().alGetString;
+		long __functionAddress = getInstance().GetString;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nalGetString(paramName, __functionAddress);
@@ -592,7 +592,7 @@ public final class AL10 {
 
 	// --- [ alDistanceModel ] ---
 
-	/** JNI method for {@link #alDistanceModel alDistanceModel} */
+	/** JNI method for {@link #alDistanceModel DistanceModel} */
 	@JavadocExclude
 	public static native void nalDistanceModel(int modelName, long __functionAddress);
 
@@ -612,7 +612,7 @@ public final class AL10 {
 	 * @param modelName the distance attenuation model to set. One of:<p/>{@link #AL_INVERSE_DISTANCE INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE NONE}
 	 */
 	public static void alDistanceModel(int modelName) {
-		long __functionAddress = getInstance().alDistanceModel;
+		long __functionAddress = getInstance().DistanceModel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDistanceModel(modelName, __functionAddress);
@@ -620,7 +620,7 @@ public final class AL10 {
 
 	// --- [ alDopplerFactor ] ---
 
-	/** JNI method for {@link #alDopplerFactor alDopplerFactor} */
+	/** JNI method for {@link #alDopplerFactor DopplerFactor} */
 	@JavadocExclude
 	public static native void nalDopplerFactor(float dopplerFactor, long __functionAddress);
 
@@ -663,7 +663,7 @@ public final class AL10 {
 	 * @param dopplerFactor the doppler factor
 	 */
 	public static void alDopplerFactor(float dopplerFactor) {
-		long __functionAddress = getInstance().alDopplerFactor;
+		long __functionAddress = getInstance().DopplerFactor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDopplerFactor(dopplerFactor, __functionAddress);
@@ -671,7 +671,7 @@ public final class AL10 {
 
 	// --- [ alDopplerVelocity ] ---
 
-	/** JNI method for {@link #alDopplerVelocity alDopplerVelocity} */
+	/** JNI method for {@link #alDopplerVelocity DopplerVelocity} */
 	@JavadocExclude
 	public static native void nalDopplerVelocity(float dopplerVelocity, long __functionAddress);
 
@@ -692,7 +692,7 @@ public final class AL10 {
 	 * @param dopplerVelocity the doppler velocity
 	 */
 	public static void alDopplerVelocity(float dopplerVelocity) {
-		long __functionAddress = getInstance().alDopplerVelocity;
+		long __functionAddress = getInstance().DopplerVelocity;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDopplerVelocity(dopplerVelocity, __functionAddress);
@@ -700,7 +700,7 @@ public final class AL10 {
 
 	// --- [ alListenerf ] ---
 
-	/** JNI method for {@link #alListenerf alListenerf} */
+	/** JNI method for {@link #alListenerf Listenerf} */
 	@JavadocExclude
 	public static native void nalListenerf(int paramName, float value, long __functionAddress);
 
@@ -711,7 +711,7 @@ public final class AL10 {
 	 * @param value     the parameter value
 	 */
 	public static void alListenerf(int paramName, float value) {
-		long __functionAddress = getInstance().alListenerf;
+		long __functionAddress = getInstance().Listenerf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalListenerf(paramName, value, __functionAddress);
@@ -719,18 +719,18 @@ public final class AL10 {
 
 	// --- [ alListeneri ] ---
 
-	/** JNI method for {@link #alListeneri alListeneri} */
+	/** JNI method for {@link #alListeneri Listeneri} */
 	@JavadocExclude
 	public static native void nalListeneri(int paramName, int values, long __functionAddress);
 
 	/**
-	 * Integer version of {@link #alListenerf alListenerf}.
+	 * Integer version of {@link #alListenerf Listenerf}.
 	 *
 	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter value
 	 */
 	public static void alListeneri(int paramName, int values) {
-		long __functionAddress = getInstance().alListeneri;
+		long __functionAddress = getInstance().Listeneri;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalListeneri(paramName, values, __functionAddress);
@@ -738,7 +738,7 @@ public final class AL10 {
 
 	// --- [ alListener3f ] ---
 
-	/** JNI method for {@link #alListener3f alListener3f} */
+	/** JNI method for {@link #alListener3f Listener3f} */
 	@JavadocExclude
 	public static native void nalListener3f(int paramName, float value1, float value2, float value3, long __functionAddress);
 
@@ -751,7 +751,7 @@ public final class AL10 {
 	 * @param value3    the third value
 	 */
 	public static void alListener3f(int paramName, float value1, float value2, float value3) {
-		long __functionAddress = getInstance().alListener3f;
+		long __functionAddress = getInstance().Listener3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalListener3f(paramName, value1, value2, value3, __functionAddress);
@@ -764,13 +764,13 @@ public final class AL10 {
 	public static native void nalListenerfv(int paramName, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alListenerf alListenerf}.
+	 * Pointer version of {@link #alListenerf Listenerf}.
 	 *
 	 * @param paramName the parameter to modify
 	 * @param values    the parameter values
 	 */
 	public static void alListenerf(int paramName, ByteBuffer values) {
-		long __functionAddress = getInstance().alListenerfv;
+		long __functionAddress = getInstance().Listenerfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1 << 2);
@@ -780,7 +780,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alListenerf(int, ByteBuffer) alListenerf} */
 	public static void alListener(int paramName, FloatBuffer values) {
-		long __functionAddress = getInstance().alListenerfv;
+		long __functionAddress = getInstance().Listenerfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1);
@@ -790,7 +790,7 @@ public final class AL10 {
 
 	// --- [ alGetListenerf ] ---
 
-	/** JNI method for {@link #alGetListenerf alGetListenerf} */
+	/** JNI method for {@link #alGetListenerf GetListenerf} */
 	@JavadocExclude
 	public static native void nalGetListenerf(int paramName, long value, long __functionAddress);
 
@@ -801,7 +801,7 @@ public final class AL10 {
 	 * @param value     the parameter value
 	 */
 	public static void alGetListenerf(int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetListenerf;
+		long __functionAddress = getInstance().GetListenerf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -809,9 +809,9 @@ public final class AL10 {
 		nalGetListenerf(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListenerf alGetListenerf} */
+	/** Alternative version of: {@link #alGetListenerf GetListenerf} */
 	public static void alGetListener(int paramName, FloatBuffer value) {
-		long __functionAddress = getInstance().alGetListenerf;
+		long __functionAddress = getInstance().GetListenerf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -819,9 +819,9 @@ public final class AL10 {
 		nalGetListenerf(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetListenerf alGetListenerf} */
+	/** Single return value version of: {@link #alGetListenerf GetListenerf} */
 	public static float alGetListenerf(int paramName) {
-		long __functionAddress = getInstance().alGetListenerf;
+		long __functionAddress = getInstance().GetListenerf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -832,7 +832,7 @@ public final class AL10 {
 
 	// --- [ alGetListeneri ] ---
 
-	/** JNI method for {@link #alGetListeneri alGetListeneri} */
+	/** JNI method for {@link #alGetListeneri GetListeneri} */
 	@JavadocExclude
 	public static native void nalGetListeneri(int paramName, long value, long __functionAddress);
 
@@ -843,7 +843,7 @@ public final class AL10 {
 	 * @param value     the parameter value
 	 */
 	public static void alGetListeneri(int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetListeneri;
+		long __functionAddress = getInstance().GetListeneri;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -851,9 +851,9 @@ public final class AL10 {
 		nalGetListeneri(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListeneri alGetListeneri} */
+	/** Alternative version of: {@link #alGetListeneri GetListeneri} */
 	public static void alGetListener(int paramName, IntBuffer value) {
-		long __functionAddress = getInstance().alGetListeneri;
+		long __functionAddress = getInstance().GetListeneri;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -861,9 +861,9 @@ public final class AL10 {
 		nalGetListeneri(paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetListeneri alGetListeneri} */
+	/** Single return value version of: {@link #alGetListeneri GetListeneri} */
 	public static int alGetListeneri(int paramName) {
-		long __functionAddress = getInstance().alGetListeneri;
+		long __functionAddress = getInstance().GetListeneri;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -874,7 +874,7 @@ public final class AL10 {
 
 	// --- [ alGetListener3f ] ---
 
-	/** JNI method for {@link #alGetListener3f alGetListener3f} */
+	/** JNI method for {@link #alGetListener3f GetListener3f} */
 	@JavadocExclude
 	public static native void nalGetListener3f(int paramName, long value1, long value2, long value3, long __functionAddress);
 
@@ -887,7 +887,7 @@ public final class AL10 {
 	 * @param value3    the third parameter value
 	 */
 	public static void alGetListener3f(int paramName, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
-		long __functionAddress = getInstance().alGetListener3f;
+		long __functionAddress = getInstance().GetListener3f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value1, 1 << 2);
@@ -897,9 +897,9 @@ public final class AL10 {
 		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListener3f alGetListener3f} */
+	/** Alternative version of: {@link #alGetListener3f GetListener3f} */
 	public static void alGetListener3(int paramName, FloatBuffer value1, FloatBuffer value2, FloatBuffer value3) {
-		long __functionAddress = getInstance().alGetListener3f;
+		long __functionAddress = getInstance().GetListener3f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value1, 1);
@@ -911,7 +911,7 @@ public final class AL10 {
 
 	// --- [ alGetListenerfv ] ---
 
-	/** JNI method for {@link #alGetListenerfv alGetListenerfv} */
+	/** JNI method for {@link #alGetListenerfv GetListenerfv} */
 	@JavadocExclude
 	public static native void nalGetListenerfv(int paramName, long values, long __functionAddress);
 
@@ -922,7 +922,7 @@ public final class AL10 {
 	 * @param values    the parameter values
 	 */
 	public static void alGetListenerfv(int paramName, ByteBuffer values) {
-		long __functionAddress = getInstance().alGetListenerfv;
+		long __functionAddress = getInstance().GetListenerfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1 << 2);
@@ -930,9 +930,9 @@ public final class AL10 {
 		nalGetListenerfv(paramName, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetListenerfv alGetListenerfv} */
+	/** Alternative version of: {@link #alGetListenerfv GetListenerfv} */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
-		long __functionAddress = getInstance().alGetListenerfv;
+		long __functionAddress = getInstance().GetListenerfv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1);
@@ -942,7 +942,7 @@ public final class AL10 {
 
 	// --- [ alGenSources ] ---
 
-	/** JNI method for {@link #alGenSources alGenSources} */
+	/** JNI method for {@link #alGenSources GenSources} */
 	@JavadocExclude
 	public static native void nalGenSources(int n, long srcNames, long __functionAddress);
 
@@ -953,7 +953,7 @@ public final class AL10 {
 	 * @param srcNames the buffer that will receive the source names
 	 */
 	public static void alGenSources(int n, ByteBuffer srcNames) {
-		long __functionAddress = getInstance().alGenSources;
+		long __functionAddress = getInstance().GenSources;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(srcNames, n << 2);
@@ -961,17 +961,17 @@ public final class AL10 {
 		nalGenSources(n, memAddress(srcNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenSources alGenSources} */
+	/** Alternative version of: {@link #alGenSources GenSources} */
 	public static void alGenSources(IntBuffer srcNames) {
-		long __functionAddress = getInstance().alGenSources;
+		long __functionAddress = getInstance().GenSources;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalGenSources(srcNames.remaining(), memAddress(srcNames), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenSources alGenSources} */
+	/** Single return value version of: {@link #alGenSources GenSources} */
 	public static int alGenSources() {
-		long __functionAddress = getInstance().alGenSources;
+		long __functionAddress = getInstance().GenSources;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -982,7 +982,7 @@ public final class AL10 {
 
 	// --- [ alDeleteSources ] ---
 
-	/** JNI method for {@link #alDeleteSources alDeleteSources} */
+	/** JNI method for {@link #alDeleteSources DeleteSources} */
 	@JavadocExclude
 	public static native void nalDeleteSources(int n, long sources, long __functionAddress);
 
@@ -993,7 +993,7 @@ public final class AL10 {
 	 * @param sources the sources to delete
 	 */
 	public static void alDeleteSources(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().alDeleteSources;
+		long __functionAddress = getInstance().DeleteSources;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(sources, n << 2);
@@ -1001,17 +1001,17 @@ public final class AL10 {
 		nalDeleteSources(n, memAddress(sources), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteSources alDeleteSources} */
+	/** Alternative version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(IntBuffer sources) {
-		long __functionAddress = getInstance().alDeleteSources;
+		long __functionAddress = getInstance().DeleteSources;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDeleteSources(sources.remaining(), memAddress(sources), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteSources alDeleteSources} */
+	/** Single value version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(int source) {
-		long __functionAddress = getInstance().alDeleteSources;
+		long __functionAddress = getInstance().DeleteSources;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1021,7 +1021,7 @@ public final class AL10 {
 
 	// --- [ alIsSource ] ---
 
-	/** JNI method for {@link #alIsSource alIsSource} */
+	/** JNI method for {@link #alIsSource IsSource} */
 	@JavadocExclude
 	public static native boolean nalIsSource(int sourceName, long __functionAddress);
 
@@ -1031,7 +1031,7 @@ public final class AL10 {
 	 * @param sourceName a value that may be a source name
 	 */
 	public static boolean alIsSource(int sourceName) {
-		long __functionAddress = getInstance().alIsSource;
+		long __functionAddress = getInstance().IsSource;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalIsSource(sourceName, __functionAddress);
@@ -1039,7 +1039,7 @@ public final class AL10 {
 
 	// --- [ alSourcef ] ---
 
-	/** JNI method for {@link #alSourcef alSourcef} */
+	/** JNI method for {@link #alSourcef Sourcef} */
 	@JavadocExclude
 	public static native void nalSourcef(int source, int param, float value, long __functionAddress);
 
@@ -1051,7 +1051,7 @@ public final class AL10 {
 	 * @param value  the parameter value
 	 */
 	public static void alSourcef(int source, int param, float value) {
-		long __functionAddress = getInstance().alSourcef;
+		long __functionAddress = getInstance().Sourcef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcef(source, param, value, __functionAddress);
@@ -1059,7 +1059,7 @@ public final class AL10 {
 
 	// --- [ alSource3f ] ---
 
-	/** JNI method for {@link #alSource3f alSource3f} */
+	/** JNI method for {@link #alSource3f Source3f} */
 	@JavadocExclude
 	public static native void nalSource3f(int source, int param, float v1, float v2, float v3, long __functionAddress);
 
@@ -1073,7 +1073,7 @@ public final class AL10 {
 	 * @param v3     the third parameter value
 	 */
 	public static void alSource3f(int source, int param, float v1, float v2, float v3) {
-		long __functionAddress = getInstance().alSource3f;
+		long __functionAddress = getInstance().Source3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSource3f(source, param, v1, v2, v3, __functionAddress);
@@ -1086,14 +1086,14 @@ public final class AL10 {
 	public static native void nalSourcefv(int source, int param, long values, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcef alSourcef}.
+	 * Pointer version of {@link #alSourcef Sourcef}.
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
 	 * @param values the parameter values
 	 */
 	public static void alSourcef(int source, int param, ByteBuffer values) {
-		long __functionAddress = getInstance().alSourcefv;
+		long __functionAddress = getInstance().Sourcefv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcefv(source, param, memAddress(values), __functionAddress);
@@ -1101,7 +1101,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
 	public static void alSource(int source, int param, FloatBuffer values) {
-		long __functionAddress = getInstance().alSourcefv;
+		long __functionAddress = getInstance().Sourcefv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcefv(source, param, memAddress(values), __functionAddress);
@@ -1109,19 +1109,19 @@ public final class AL10 {
 
 	// --- [ alSourcei ] ---
 
-	/** JNI method for {@link #alSourcei alSourcei} */
+	/** JNI method for {@link #alSourcei Sourcei} */
 	@JavadocExclude
 	public static native void nalSourcei(int source, int param, int value, long __functionAddress);
 
 	/**
-	 * Integer version of {@link #alSourcef alSourcef}.
+	 * Integer version of {@link #alSourcef Sourcef}.
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
 	 * @param value  the parameter value
 	 */
 	public static void alSourcei(int source, int param, int value) {
-		long __functionAddress = getInstance().alSourcei;
+		long __functionAddress = getInstance().Sourcei;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcei(source, param, value, __functionAddress);
@@ -1129,7 +1129,7 @@ public final class AL10 {
 
 	// --- [ alGetSourcef ] ---
 
-	/** JNI method for {@link #alGetSourcef alGetSourcef} */
+	/** JNI method for {@link #alGetSourcef GetSourcef} */
 	@JavadocExclude
 	public static native void nalGetSourcef(int source, int param, long value, long __functionAddress);
 
@@ -1141,7 +1141,7 @@ public final class AL10 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcef(int source, int param, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetSourcef;
+		long __functionAddress = getInstance().GetSourcef;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -1149,9 +1149,9 @@ public final class AL10 {
 		nalGetSourcef(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcef alGetSourcef} */
+	/** Alternative version of: {@link #alGetSourcef GetSourcef} */
 	public static void alGetSource(int source, int param, FloatBuffer value) {
-		long __functionAddress = getInstance().alGetSourcef;
+		long __functionAddress = getInstance().GetSourcef;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -1159,9 +1159,9 @@ public final class AL10 {
 		nalGetSourcef(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetSourcef alGetSourcef} */
+	/** Single return value version of: {@link #alGetSourcef GetSourcef} */
 	public static float alGetSourcef(int source, int param) {
-		long __functionAddress = getInstance().alGetSourcef;
+		long __functionAddress = getInstance().GetSourcef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1172,7 +1172,7 @@ public final class AL10 {
 
 	// --- [ alGetSource3f ] ---
 
-	/** JNI method for {@link #alGetSource3f alGetSource3f} */
+	/** JNI method for {@link #alGetSource3f GetSource3f} */
 	@JavadocExclude
 	public static native void nalGetSource3f(int source, int param, long v1, long v2, long v3, long __functionAddress);
 
@@ -1186,7 +1186,7 @@ public final class AL10 {
 	 * @param v3     the third parameter value
 	 */
 	public static void alGetSource3f(int source, int param, ByteBuffer v1, ByteBuffer v2, ByteBuffer v3) {
-		long __functionAddress = getInstance().alGetSource3f;
+		long __functionAddress = getInstance().GetSource3f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 1 << 2);
@@ -1196,9 +1196,9 @@ public final class AL10 {
 		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSource3f alGetSource3f} */
+	/** Alternative version of: {@link #alGetSource3f GetSource3f} */
 	public static void alGetSource3(int source, int param, FloatBuffer v1, FloatBuffer v2, FloatBuffer v3) {
-		long __functionAddress = getInstance().alGetSource3f;
+		long __functionAddress = getInstance().GetSource3f;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 1);
@@ -1210,7 +1210,7 @@ public final class AL10 {
 
 	// --- [ alGetSourcefv ] ---
 
-	/** JNI method for {@link #alGetSourcefv alGetSourcefv} */
+	/** JNI method for {@link #alGetSourcefv GetSourcefv} */
 	@JavadocExclude
 	public static native void nalGetSourcefv(int source, int param, long values, long __functionAddress);
 
@@ -1222,7 +1222,7 @@ public final class AL10 {
 	 * @param values the parameter values
 	 */
 	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
-		long __functionAddress = getInstance().alGetSourcefv;
+		long __functionAddress = getInstance().GetSourcefv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1 << 2);
@@ -1230,9 +1230,9 @@ public final class AL10 {
 		nalGetSourcefv(source, param, memAddress(values), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcefv alGetSourcefv} */
+	/** Alternative version of: {@link #alGetSourcefv GetSourcefv} */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
-		long __functionAddress = getInstance().alGetSourcefv;
+		long __functionAddress = getInstance().GetSourcefv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(values, 1);
@@ -1242,7 +1242,7 @@ public final class AL10 {
 
 	// --- [ alGetSourcei ] ---
 
-	/** JNI method for {@link #alGetSourcei alGetSourcei} */
+	/** JNI method for {@link #alGetSourcei GetSourcei} */
 	@JavadocExclude
 	public static native void nalGetSourcei(int source, int param, long value, long __functionAddress);
 
@@ -1254,7 +1254,7 @@ public final class AL10 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcei(int source, int param, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetSourcei;
+		long __functionAddress = getInstance().GetSourcei;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -1262,9 +1262,9 @@ public final class AL10 {
 		nalGetSourcei(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetSourcei alGetSourcei} */
+	/** Alternative version of: {@link #alGetSourcei GetSourcei} */
 	public static void alGetSource(int source, int param, IntBuffer value) {
-		long __functionAddress = getInstance().alGetSourcei;
+		long __functionAddress = getInstance().GetSourcei;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -1272,9 +1272,9 @@ public final class AL10 {
 		nalGetSourcei(source, param, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetSourcei alGetSourcei} */
+	/** Single return value version of: {@link #alGetSourcei GetSourcei} */
 	public static int alGetSourcei(int source, int param) {
-		long __functionAddress = getInstance().alGetSourcei;
+		long __functionAddress = getInstance().GetSourcei;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1285,7 +1285,7 @@ public final class AL10 {
 
 	// --- [ alSourceQueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceQueueBuffers alSourceQueueBuffers} */
+	/** JNI method for {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	@JavadocExclude
 	public static native void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames, long __functionAddress);
 
@@ -1301,7 +1301,7 @@ public final class AL10 {
 	 * @param bufferNames the buffer names
 	 */
 	public static void alSourceQueueBuffers(int sourceName, int numBuffers, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().alSourceQueueBuffers;
+		long __functionAddress = getInstance().SourceQueueBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(bufferNames, numBuffers << 2);
@@ -1309,17 +1309,17 @@ public final class AL10 {
 		nalSourceQueueBuffers(sourceName, numBuffers, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceQueueBuffers alSourceQueueBuffers} */
+	/** Alternative version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, IntBuffer bufferNames) {
-		long __functionAddress = getInstance().alSourceQueueBuffers;
+		long __functionAddress = getInstance().SourceQueueBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceQueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alSourceQueueBuffers alSourceQueueBuffers} */
+	/** Single value version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
-		long __functionAddress = getInstance().alSourceQueueBuffers;
+		long __functionAddress = getInstance().SourceQueueBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1329,7 +1329,7 @@ public final class AL10 {
 
 	// --- [ alSourceUnqueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
+	/** JNI method for {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	@JavadocExclude
 	public static native void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames, long __functionAddress);
 
@@ -1346,7 +1346,7 @@ public final class AL10 {
 	 * @param bufferNames the buffer names
 	 */
 	public static void alSourceUnqueueBuffers(int sourceName, int numEntries, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().alSourceUnqueueBuffers;
+		long __functionAddress = getInstance().SourceUnqueueBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(bufferNames, numEntries << 2);
@@ -1354,17 +1354,17 @@ public final class AL10 {
 		nalSourceUnqueueBuffers(sourceName, numEntries, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
+	/** Alternative version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, IntBuffer bufferNames) {
-		long __functionAddress = getInstance().alSourceUnqueueBuffers;
+		long __functionAddress = getInstance().SourceUnqueueBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alSourceUnqueueBuffers alSourceUnqueueBuffers} */
+	/** Single value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, int bufferName) {
-		long __functionAddress = getInstance().alSourceUnqueueBuffers;
+		long __functionAddress = getInstance().SourceUnqueueBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1374,7 +1374,7 @@ public final class AL10 {
 
 	// --- [ alSourcePlay ] ---
 
-	/** JNI method for {@link #alSourcePlay alSourcePlay} */
+	/** JNI method for {@link #alSourcePlay SourcePlay} */
 	@JavadocExclude
 	public static native void nalSourcePlay(int source, long __functionAddress);
 
@@ -1390,7 +1390,7 @@ public final class AL10 {
 	 * @param source the source to play
 	 */
 	public static void alSourcePlay(int source) {
-		long __functionAddress = getInstance().alSourcePlay;
+		long __functionAddress = getInstance().SourcePlay;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcePlay(source, __functionAddress);
@@ -1398,7 +1398,7 @@ public final class AL10 {
 
 	// --- [ alSourcePause ] ---
 
-	/** JNI method for {@link #alSourcePause alSourcePause} */
+	/** JNI method for {@link #alSourcePause SourcePause} */
 	@JavadocExclude
 	public static native void nalSourcePause(int source, long __functionAddress);
 
@@ -1412,7 +1412,7 @@ public final class AL10 {
 	 * @param source the source to pause
 	 */
 	public static void alSourcePause(int source) {
-		long __functionAddress = getInstance().alSourcePause;
+		long __functionAddress = getInstance().SourcePause;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcePause(source, __functionAddress);
@@ -1420,7 +1420,7 @@ public final class AL10 {
 
 	// --- [ alSourceStop ] ---
 
-	/** JNI method for {@link #alSourceStop alSourceStop} */
+	/** JNI method for {@link #alSourceStop SourceStop} */
 	@JavadocExclude
 	public static native void nalSourceStop(int source, long __functionAddress);
 
@@ -1434,7 +1434,7 @@ public final class AL10 {
 	 * @param source the source to stop
 	 */
 	public static void alSourceStop(int source) {
-		long __functionAddress = getInstance().alSourceStop;
+		long __functionAddress = getInstance().SourceStop;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceStop(source, __functionAddress);
@@ -1442,7 +1442,7 @@ public final class AL10 {
 
 	// --- [ alSourceRewind ] ---
 
-	/** JNI method for {@link #alSourceRewind alSourceRewind} */
+	/** JNI method for {@link #alSourceRewind SourceRewind} */
 	@JavadocExclude
 	public static native void nalSourceRewind(int source, long __functionAddress);
 
@@ -1457,7 +1457,7 @@ public final class AL10 {
 	 * @param source the source to rewind
 	 */
 	public static void alSourceRewind(int source) {
-		long __functionAddress = getInstance().alSourceRewind;
+		long __functionAddress = getInstance().SourceRewind;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceRewind(source, __functionAddress);
@@ -1470,13 +1470,13 @@ public final class AL10 {
 	public static native void nalSourcePlayv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcePlay alSourcePlay}.
+	 * Pointer version of {@link #alSourcePlay SourcePlay}.
 	 *
 	 * @param n       the number of sources to play
 	 * @param sources the sources to play
 	 */
 	public static void alSourcePlay(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().alSourcePlayv;
+		long __functionAddress = getInstance().SourcePlayv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(sources, n << 2);
@@ -1486,7 +1486,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
 	public static void alSourcePlay(IntBuffer sources) {
-		long __functionAddress = getInstance().alSourcePlayv;
+		long __functionAddress = getInstance().SourcePlayv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcePlayv(sources.remaining(), memAddress(sources), __functionAddress);
@@ -1499,13 +1499,13 @@ public final class AL10 {
 	public static native void nalSourcePausev(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourcePause alSourcePause}.
+	 * Pointer version of {@link #alSourcePause SourcePause}.
 	 *
 	 * @param n       the number of sources to pause
 	 * @param sources the sources to pause
 	 */
 	public static void alSourcePause(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().alSourcePausev;
+		long __functionAddress = getInstance().SourcePausev;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcePausev(n, memAddress(sources), __functionAddress);
@@ -1513,7 +1513,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
 	public static void alSourcePause(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().alSourcePausev;
+		long __functionAddress = getInstance().SourcePausev;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourcePausev(n, memAddress(sources), __functionAddress);
@@ -1526,13 +1526,13 @@ public final class AL10 {
 	public static native void nalSourceStopv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourceStop alSourceStop}.
+	 * Pointer version of {@link #alSourceStop SourceStop}.
 	 *
 	 * @param n       the number of sources to stop
 	 * @param sources the sources to stop
 	 */
 	public static void alSourceStop(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().alSourceStopv;
+		long __functionAddress = getInstance().SourceStopv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceStopv(n, memAddress(sources), __functionAddress);
@@ -1540,7 +1540,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
 	public static void alSourceStop(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().alSourceStopv;
+		long __functionAddress = getInstance().SourceStopv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceStopv(n, memAddress(sources), __functionAddress);
@@ -1553,13 +1553,13 @@ public final class AL10 {
 	public static native void nalSourceRewindv(int n, long sources, long __functionAddress);
 
 	/**
-	 * Pointer version of {@link #alSourceRewind alSourceRewind}.
+	 * Pointer version of {@link #alSourceRewind SourceRewind}.
 	 *
 	 * @param n       the number of sources to rewind
 	 * @param sources the sources to rewind
 	 */
 	public static void alSourceRewind(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().alSourceRewindv;
+		long __functionAddress = getInstance().SourceRewindv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceRewindv(n, memAddress(sources), __functionAddress);
@@ -1567,7 +1567,7 @@ public final class AL10 {
 
 	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
 	public static void alSourceRewind(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().alSourceRewindv;
+		long __functionAddress = getInstance().SourceRewindv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalSourceRewindv(n, memAddress(sources), __functionAddress);
@@ -1575,7 +1575,7 @@ public final class AL10 {
 
 	// --- [ alGenBuffers ] ---
 
-	/** JNI method for {@link #alGenBuffers alGenBuffers} */
+	/** JNI method for {@link #alGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static native void nalGenBuffers(int n, long bufferNames, long __functionAddress);
 
@@ -1586,7 +1586,7 @@ public final class AL10 {
 	 * @param bufferNames the buffer that will receive the buffer names
 	 */
 	public static void alGenBuffers(int n, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().alGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(bufferNames, n << 2);
@@ -1594,17 +1594,17 @@ public final class AL10 {
 		nalGenBuffers(n, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGenBuffers alGenBuffers} */
+	/** Alternative version of: {@link #alGenBuffers GenBuffers} */
 	public static void alGenBuffers(IntBuffer bufferNames) {
-		long __functionAddress = getInstance().alGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalGenBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGenBuffers alGenBuffers} */
+	/** Single return value version of: {@link #alGenBuffers GenBuffers} */
 	public static int alGenBuffers() {
-		long __functionAddress = getInstance().alGenBuffers;
+		long __functionAddress = getInstance().GenBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1615,7 +1615,7 @@ public final class AL10 {
 
 	// --- [ alDeleteBuffers ] ---
 
-	/** JNI method for {@link #alDeleteBuffers alDeleteBuffers} */
+	/** JNI method for {@link #alDeleteBuffers DeleteBuffers} */
 	@JavadocExclude
 	public static native void nalDeleteBuffers(int n, long bufferNames, long __functionAddress);
 
@@ -1626,7 +1626,7 @@ public final class AL10 {
 	 * @param bufferNames the buffers to delete
 	 */
 	public static void alDeleteBuffers(int n, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().alDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(bufferNames, n << 2);
@@ -1634,17 +1634,17 @@ public final class AL10 {
 		nalDeleteBuffers(n, memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alDeleteBuffers alDeleteBuffers} */
+	/** Alternative version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(IntBuffer bufferNames) {
-		long __functionAddress = getInstance().alDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalDeleteBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
 	}
 
-	/** Single value version of: {@link #alDeleteBuffers alDeleteBuffers} */
+	/** Single value version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(int bufferName) {
-		long __functionAddress = getInstance().alDeleteBuffers;
+		long __functionAddress = getInstance().DeleteBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1654,7 +1654,7 @@ public final class AL10 {
 
 	// --- [ alIsBuffer ] ---
 
-	/** JNI method for {@link #alIsBuffer alIsBuffer} */
+	/** JNI method for {@link #alIsBuffer IsBuffer} */
 	@JavadocExclude
 	public static native boolean nalIsBuffer(int bufferName, long __functionAddress);
 
@@ -1664,7 +1664,7 @@ public final class AL10 {
 	 * @param bufferName a value that may be a buffer name
 	 */
 	public static boolean alIsBuffer(int bufferName) {
-		long __functionAddress = getInstance().alIsBuffer;
+		long __functionAddress = getInstance().IsBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalIsBuffer(bufferName, __functionAddress);
@@ -1672,7 +1672,7 @@ public final class AL10 {
 
 	// --- [ alGetBufferf ] ---
 
-	/** JNI method for {@link #alGetBufferf alGetBufferf} */
+	/** JNI method for {@link #alGetBufferf GetBufferf} */
 	@JavadocExclude
 	public static native void nalGetBufferf(int bufferName, int paramName, long value, long __functionAddress);
 
@@ -1684,7 +1684,7 @@ public final class AL10 {
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferf(int bufferName, int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetBufferf;
+		long __functionAddress = getInstance().GetBufferf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -1692,9 +1692,9 @@ public final class AL10 {
 		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetBufferf alGetBufferf} */
+	/** Alternative version of: {@link #alGetBufferf GetBufferf} */
 	public static void alGetBuffer(int bufferName, int paramName, FloatBuffer value) {
-		long __functionAddress = getInstance().alGetBufferf;
+		long __functionAddress = getInstance().GetBufferf;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -1702,9 +1702,9 @@ public final class AL10 {
 		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetBufferf alGetBufferf} */
+	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
 	public static float alGetBufferf(int bufferName, int paramName) {
-		long __functionAddress = getInstance().alGetBufferf;
+		long __functionAddress = getInstance().GetBufferf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1715,7 +1715,7 @@ public final class AL10 {
 
 	// --- [ alGetBufferi ] ---
 
-	/** JNI method for {@link #alGetBufferi alGetBufferi} */
+	/** JNI method for {@link #alGetBufferi GetBufferi} */
 	@JavadocExclude
 	public static native void nalGetBufferi(int bufferName, int paramName, long value, long __functionAddress);
 
@@ -1727,7 +1727,7 @@ public final class AL10 {
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferi(int bufferName, int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().alGetBufferi;
+		long __functionAddress = getInstance().GetBufferi;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1 << 2);
@@ -1735,9 +1735,9 @@ public final class AL10 {
 		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #alGetBufferi alGetBufferi} */
+	/** Alternative version of: {@link #alGetBufferi GetBufferi} */
 	public static void alGetBuffer(int bufferName, int paramName, IntBuffer value) {
-		long __functionAddress = getInstance().alGetBufferi;
+		long __functionAddress = getInstance().GetBufferi;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, 1);
@@ -1745,9 +1745,9 @@ public final class AL10 {
 		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #alGetBufferi alGetBufferi} */
+	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
 	public static int alGetBufferi(int bufferName, int paramName) {
-		long __functionAddress = getInstance().alGetBufferi;
+		long __functionAddress = getInstance().GetBufferi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1758,7 +1758,7 @@ public final class AL10 {
 
 	// --- [ alBufferData ] ---
 
-	/** JNI method for {@link #alBufferData alBufferData} */
+	/** JNI method for {@link #alBufferData BufferData} */
 	@JavadocExclude
 	public static native void nalBufferData(int bufferName, int format, long data, int size, int frequency, long __functionAddress);
 
@@ -1785,7 +1785,7 @@ public final class AL10 {
 	 * @param frequency  the data frequency
 	 */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int size, int frequency) {
-		long __functionAddress = getInstance().alBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, size);
@@ -1793,25 +1793,25 @@ public final class AL10 {
 		nalBufferData(bufferName, format, memAddress(data), size, frequency, __functionAddress);
 	}
 
-	/** ByteBuffer version of: {@link #alBufferData alBufferData} */
+	/** ByteBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int frequency) {
-		long __functionAddress = getInstance().alBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #alBufferData alBufferData} */
+	/** ShortBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ShortBuffer data, int frequency) {
-		long __functionAddress = getInstance().alBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 1, frequency, __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #alBufferData alBufferData} */
+	/** IntBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, IntBuffer data, int frequency) {
-		long __functionAddress = getInstance().alBufferData;
+		long __functionAddress = getInstance().BufferData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency, __functionAddress);
@@ -1819,7 +1819,7 @@ public final class AL10 {
 
 	// --- [ alGetEnumValue ] ---
 
-	/** JNI method for {@link #alGetEnumValue alGetEnumValue} */
+	/** JNI method for {@link #alGetEnumValue GetEnumValue} */
 	@JavadocExclude
 	public static native int nalGetEnumValue(long enumName, long __functionAddress);
 
@@ -1829,7 +1829,7 @@ public final class AL10 {
 	 * @param enumName the enum name
 	 */
 	public static int alGetEnumValue(ByteBuffer enumName) {
-		long __functionAddress = getInstance().alGetEnumValue;
+		long __functionAddress = getInstance().GetEnumValue;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(enumName);
@@ -1837,9 +1837,9 @@ public final class AL10 {
 		return nalGetEnumValue(memAddress(enumName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alGetEnumValue alGetEnumValue} */
+	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
-		long __functionAddress = getInstance().alGetEnumValue;
+		long __functionAddress = getInstance().GetEnumValue;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetEnumValue(memAddress(memEncodeASCII(enumName)), __functionAddress);
@@ -1847,7 +1847,7 @@ public final class AL10 {
 
 	// --- [ alGetProcAddress ] ---
 
-	/** JNI method for {@link #alGetProcAddress alGetProcAddress} */
+	/** JNI method for {@link #alGetProcAddress GetProcAddress} */
 	@JavadocExclude
 	public static native long nalGetProcAddress(long funcName, long __functionAddress);
 
@@ -1863,7 +1863,7 @@ public final class AL10 {
 	 * @param funcName the function name
 	 */
 	public static long alGetProcAddress(ByteBuffer funcName) {
-		long __functionAddress = getInstance().alGetProcAddress;
+		long __functionAddress = getInstance().GetProcAddress;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(funcName);
@@ -1871,9 +1871,9 @@ public final class AL10 {
 		return nalGetProcAddress(memAddress(funcName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alGetProcAddress alGetProcAddress} */
+	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
-		long __functionAddress = getInstance().alGetProcAddress;
+		long __functionAddress = getInstance().GetProcAddress;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalGetProcAddress(memAddress(memEncodeASCII(funcName)), __functionAddress);
@@ -1881,7 +1881,7 @@ public final class AL10 {
 
 	// --- [ alIsExtensionPresent ] ---
 
-	/** JNI method for {@link #alIsExtensionPresent alIsExtensionPresent} */
+	/** JNI method for {@link #alIsExtensionPresent IsExtensionPresent} */
 	@JavadocExclude
 	public static native boolean nalIsExtensionPresent(long extName, long __functionAddress);
 
@@ -1894,7 +1894,7 @@ public final class AL10 {
 	 * @param extName the extension name
 	 */
 	public static boolean alIsExtensionPresent(ByteBuffer extName) {
-		long __functionAddress = getInstance().alIsExtensionPresent;
+		long __functionAddress = getInstance().IsExtensionPresent;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(extName);
@@ -1902,9 +1902,9 @@ public final class AL10 {
 		return nalIsExtensionPresent(memAddress(extName), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #alIsExtensionPresent alIsExtensionPresent} */
+	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
-		long __functionAddress = getInstance().alIsExtensionPresent;
+		long __functionAddress = getInstance().IsExtensionPresent;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nalIsExtensionPresent(memAddress(memEncodeASCII(extName)), __functionAddress);

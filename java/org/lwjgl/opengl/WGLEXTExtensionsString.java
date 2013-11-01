@@ -18,11 +18,11 @@ public final class WGLEXTExtensionsString {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long wglGetExtensionsStringEXT;
+	public final long GetExtensionsStringEXT;
 
 	@JavadocExclude
 	public WGLEXTExtensionsString(FunctionProvider provider) {
-		wglGetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
+		GetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -37,14 +37,14 @@ public final class WGLEXTExtensionsString {
 
 		WGLEXTExtensionsString funcs = new WGLEXTExtensionsString(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringEXT);
+		boolean supported =  GL.isFunctionSupported(funcs.GetExtensionsStringEXT);
 
 		return GL.checkExtension("WGL_EXT_extensions_string", funcs, supported);
 	}
 
 	// --- [ wglGetExtensionsStringEXT ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringEXT wglGetExtensionsStringEXT} */
+	/** JNI method for {@link #wglGetExtensionsStringEXT GetExtensionsStringEXT} */
 	@JavadocExclude
 	public static native long nwglGetExtensionsStringEXT(long __functionAddress);
 
@@ -54,7 +54,7 @@ public final class WGLEXTExtensionsString {
 	 * empty string is returned.
 	 */
 	public static String wglGetExtensionsStringEXT() {
-		long __functionAddress = getInstance().wglGetExtensionsStringEXT;
+		long __functionAddress = getInstance().GetExtensionsStringEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nwglGetExtensionsStringEXT(__functionAddress);

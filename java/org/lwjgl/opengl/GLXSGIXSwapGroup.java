@@ -24,11 +24,11 @@ public final class GLXSGIXSwapGroup {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXJoinSwapGroupSGIX;
+	public final long JoinSwapGroupSGIX;
 
 	@JavadocExclude
 	public GLXSGIXSwapGroup(FunctionProvider provider) {
-		glXJoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
+		JoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -43,14 +43,14 @@ public final class GLXSGIXSwapGroup {
 
 		GLXSGIXSwapGroup funcs = new GLXSGIXSwapGroup(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXJoinSwapGroupSGIX);
+		boolean supported =  GL.isFunctionSupported(funcs.JoinSwapGroupSGIX);
 
 		return GL.checkExtension("GLX_SGIX_swap_group", funcs, supported);
 	}
 
 	// --- [ glXJoinSwapGroupSGIX ] ---
 
-	/** JNI method for {@link #glXJoinSwapGroupSGIX glXJoinSwapGroupSGIX} */
+	/** JNI method for {@link #glXJoinSwapGroupSGIX JoinSwapGroupSGIX} */
 	@JavadocExclude
 	public static native void nglXJoinSwapGroupSGIX(long display, long drawable, long member, long __functionAddress);
 
@@ -64,7 +64,7 @@ public final class GLXSGIXSwapGroup {
 	 * @param member   a member of the swap group or {@link X#None}
 	 */
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
-		long __functionAddress = getInstance().glXJoinSwapGroupSGIX;
+		long __functionAddress = getInstance().JoinSwapGroupSGIX;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

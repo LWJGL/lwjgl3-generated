@@ -1147,7 +1147,7 @@ public final class WinUser {
 
 	// --- [ RegisterClassEx ] ---
 
-	/** JNI method for {@link #RegisterClassEx RegisterClassEx} */
+	/** JNI method for {@link #RegisterClassEx} */
 	@JavadocExclude
 	public static native short nRegisterClassEx(long wndClassEx);
 
@@ -1164,7 +1164,7 @@ public final class WinUser {
 
 	// --- [ UnregisterClass ] ---
 
-	/** JNI method for {@link #UnregisterClass UnregisterClass} */
+	/** JNI method for {@link #UnregisterClass} */
 	@JavadocExclude
 	public static native int nUnregisterClass(long className, long instance);
 
@@ -1185,7 +1185,7 @@ public final class WinUser {
 		return nUnregisterClass(memAddress(className), instance);
 	}
 
-	/** CharSequence version of: {@link #UnregisterClass UnregisterClass} */
+	/** CharSequence version of: {@link #UnregisterClass} */
 	public static int UnregisterClass(CharSequence className, long instance) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1194,7 +1194,7 @@ public final class WinUser {
 
 	// --- [ GetClassInfoEx ] ---
 
-	/** JNI method for {@link #GetClassInfoEx GetClassInfoEx} */
+	/** JNI method for {@link #GetClassInfoEx} */
 	@JavadocExclude
 	public static native int nGetClassInfoEx(long instance, long className, long classEx);
 
@@ -1216,7 +1216,7 @@ public final class WinUser {
 		return nGetClassInfoEx(instance, memAddress(className), memAddress(classEx));
 	}
 
-	/** CharSequence version of: {@link #GetClassInfoEx GetClassInfoEx} */
+	/** CharSequence version of: {@link #GetClassInfoEx} */
 	public static int GetClassInfoEx(long instance, CharSequence className, ByteBuffer classEx) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(classEx, WNDCLASSEX.SIZEOF);
@@ -1225,7 +1225,7 @@ public final class WinUser {
 
 	// --- [ GetClassLongPtr ] ---
 
-	/** JNI method for {@link #GetClassLongPtr GetClassLongPtr} */
+	/** JNI method for {@link #GetClassLongPtr} */
 	@JavadocExclude
 	public static native long nGetClassLongPtr(long window, int index);
 
@@ -1243,7 +1243,7 @@ public final class WinUser {
 
 	// --- [ SetClassLongPtr ] ---
 
-	/** JNI method for {@link #SetClassLongPtr SetClassLongPtr} */
+	/** JNI method for {@link #SetClassLongPtr} */
 	@JavadocExclude
 	public static native long nSetClassLongPtr(long window, int index, long newLong);
 
@@ -1263,7 +1263,7 @@ public final class WinUser {
 
 	// --- [ LoadIcon ] ---
 
-	/** JNI method for {@link #LoadIcon LoadIcon} */
+	/** JNI method for {@link #LoadIcon} */
 	@JavadocExclude
 	public static native long nLoadIcon(long instance, long iconName);
 
@@ -1280,14 +1280,14 @@ public final class WinUser {
 		return nLoadIcon(instance, memAddress(iconName));
 	}
 
-	/** CharSequence version of: {@link #LoadIcon LoadIcon} */
+	/** CharSequence version of: {@link #LoadIcon} */
 	public static long LoadIcon(long instance, CharSequence iconName) {
 		return nLoadIcon(instance, memAddress(memEncodeUTF16(iconName)));
 	}
 
 	// --- [ LoadCursor ] ---
 
-	/** JNI method for {@link #LoadCursor LoadCursor} */
+	/** JNI method for {@link #LoadCursor} */
 	@JavadocExclude
 	public static native long nLoadCursor(long instance, long cursorName);
 
@@ -1305,7 +1305,7 @@ public final class WinUser {
 		return nLoadCursor(instance, memAddress(cursorName));
 	}
 
-	/** CharSequence version of: {@link #LoadCursor LoadCursor} */
+	/** CharSequence version of: {@link #LoadCursor} */
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1324,7 +1324,7 @@ public final class WinUser {
 
 	// --- [ CreateWindowEx ] ---
 
-	/** JNI method for {@link #CreateWindowEx CreateWindowEx} */
+	/** JNI method for {@link #CreateWindowEx} */
 	@JavadocExclude
 	public static native long nCreateWindowEx(int exStyle, long className, long windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param);
 
@@ -1353,7 +1353,7 @@ public final class WinUser {
 		return nCreateWindowEx(exStyle, memAddress(className), memAddress(windowName), style, x, y, width, height, parent, menu, instance, param);
 	}
 
-	/** CharSequence version of: {@link #CreateWindowEx CreateWindowEx} */
+	/** CharSequence version of: {@link #CreateWindowEx} */
 	public static long CreateWindowEx(int exStyle, CharSequence className, CharSequence windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
@@ -1362,7 +1362,7 @@ public final class WinUser {
 
 	// --- [ DestroyWindow ] ---
 
-	/** JNI method for {@link #DestroyWindow DestroyWindow} */
+	/** JNI method for {@link #DestroyWindow} */
 	@JavadocExclude
 	public static native int nDestroyWindow(long window);
 
@@ -1384,7 +1384,7 @@ public final class WinUser {
 
 	// --- [ ShowWindow ] ---
 
-	/** JNI method for {@link #ShowWindow ShowWindow} */
+	/** JNI method for {@link #ShowWindow} */
 	@JavadocExclude
 	public static native int nShowWindow(long window, int cmdShow);
 
@@ -1402,7 +1402,7 @@ public final class WinUser {
 
 	// --- [ UpdateWindow ] ---
 
-	/** JNI method for {@link #UpdateWindow UpdateWindow} */
+	/** JNI method for {@link #UpdateWindow} */
 	@JavadocExclude
 	public static native int nUpdateWindow(long window);
 
@@ -1421,7 +1421,7 @@ public final class WinUser {
 
 	// --- [ SetWindowPos ] ---
 
-	/** JNI method for {@link #SetWindowPos SetWindowPos} */
+	/** JNI method for {@link #SetWindowPos} */
 	@JavadocExclude
 	public static native int nSetWindowPos(long window, long insertAfter, int x, int y, int width, int height, int flags);
 
@@ -1445,7 +1445,7 @@ public final class WinUser {
 
 	// --- [ SetWindowText ] ---
 
-	/** JNI method for {@link #SetWindowText SetWindowText} */
+	/** JNI method for {@link #SetWindowText} */
 	@JavadocExclude
 	public static native int nSetWindowText(long window, long string);
 
@@ -1464,7 +1464,7 @@ public final class WinUser {
 		return nSetWindowText(window, memAddress(string));
 	}
 
-	/** CharSequence version of: {@link #SetWindowText SetWindowText} */
+	/** CharSequence version of: {@link #SetWindowText} */
 	public static int SetWindowText(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
@@ -1473,7 +1473,7 @@ public final class WinUser {
 
 	// --- [ GetMessage ] ---
 
-	/** JNI method for {@link #GetMessage GetMessage} */
+	/** JNI method for {@link #GetMessage} */
 	@JavadocExclude
 	public static native int nGetMessage(long msg, long window, int msgFilterMin, int msgFilterMax);
 
@@ -1494,7 +1494,7 @@ public final class WinUser {
 
 	// --- [ PeekMessage ] ---
 
-	/** JNI method for {@link #PeekMessage PeekMessage} */
+	/** JNI method for {@link #PeekMessage} */
 	@JavadocExclude
 	public static native int nPeekMessage(long msg, long window, int msgFilterMin, int msgFilterMax, int removeMsg);
 
@@ -1515,7 +1515,7 @@ public final class WinUser {
 
 	// --- [ TranslateMessage ] ---
 
-	/** JNI method for {@link #TranslateMessage TranslateMessage} */
+	/** JNI method for {@link #TranslateMessage} */
 	@JavadocExclude
 	public static native int nTranslateMessage(long msg);
 
@@ -1543,7 +1543,7 @@ public final class WinUser {
 
 	// --- [ DispatchMessage ] ---
 
-	/** JNI method for {@link #DispatchMessage DispatchMessage} */
+	/** JNI method for {@link #DispatchMessage} */
 	@JavadocExclude
 	public static native long nDispatchMessage(long msg);
 
@@ -1579,7 +1579,7 @@ public final class WinUser {
 
 	// --- [ DefWindowProc ] ---
 
-	/** JNI method for {@link #DefWindowProc DefWindowProc} */
+	/** JNI method for {@link #DefWindowProc} */
 	@JavadocExclude
 	public static native long nDefWindowProc(long window, int msg, long wParam, long lParam);
 
@@ -1600,7 +1600,7 @@ public final class WinUser {
 
 	// --- [ GetDC ] ---
 
-	/** JNI method for {@link #GetDC GetDC} */
+	/** JNI method for {@link #GetDC} */
 	@JavadocExclude
 	public static native long nGetDC(long window);
 
@@ -1616,7 +1616,7 @@ public final class WinUser {
 
 	// --- [ ReleaseDC ] ---
 
-	/** JNI method for {@link #ReleaseDC ReleaseDC} */
+	/** JNI method for {@link #ReleaseDC} */
 	@JavadocExclude
 	public static native int nReleaseDC(long window, long hdc);
 
@@ -1635,7 +1635,7 @@ public final class WinUser {
 
 	// --- [ EnumDisplayDevices ] ---
 
-	/** JNI method for {@link #EnumDisplayDevices EnumDisplayDevices} */
+	/** JNI method for {@link #EnumDisplayDevices} */
 	@JavadocExclude
 	public static native int nEnumDisplayDevices(long device, int devNum, long displayDevice, int flags);
 
@@ -1658,7 +1658,7 @@ public final class WinUser {
 		return nEnumDisplayDevices(memAddressSafe(device), devNum, memAddress(displayDevice), flags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplayDevices EnumDisplayDevices} */
+	/** CharSequence version of: {@link #EnumDisplayDevices} */
 	public static int EnumDisplayDevices(CharSequence device, int devNum, ByteBuffer displayDevice, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(displayDevice, DISPLAY_DEVICE.SIZEOF);
@@ -1667,7 +1667,7 @@ public final class WinUser {
 
 	// --- [ EnumDisplaySettings ] ---
 
-	/** JNI method for {@link #EnumDisplaySettings EnumDisplaySettings} */
+	/** JNI method for {@link #EnumDisplaySettings} */
 	@JavadocExclude
 	public static native int nEnumDisplaySettings(long deviceName, int modeNum, long devMode);
 
@@ -1689,7 +1689,7 @@ public final class WinUser {
 		return nEnumDisplaySettings(memAddressSafe(deviceName), modeNum, memAddress(devMode));
 	}
 
-	/** CharSequence version of: {@link #EnumDisplaySettings EnumDisplaySettings} */
+	/** CharSequence version of: {@link #EnumDisplaySettings} */
 	public static int EnumDisplaySettings(CharSequence deviceName, int modeNum, ByteBuffer devMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1698,7 +1698,7 @@ public final class WinUser {
 
 	// --- [ EnumDisplaySettingsEx ] ---
 
-	/** JNI method for {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx} */
+	/** JNI method for {@link #EnumDisplaySettingsEx} */
 	@JavadocExclude
 	public static native int nEnumDisplaySettingsEx(long deviceName, int modeNum, long devMode, int flags);
 
@@ -1719,7 +1719,7 @@ public final class WinUser {
 		return nEnumDisplaySettingsEx(memAddress(deviceName), modeNum, memAddress(devMode), flags);
 	}
 
-	/** CharSequence version of: {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx} */
+	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
 	public static int EnumDisplaySettingsEx(CharSequence deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1728,7 +1728,7 @@ public final class WinUser {
 
 	// --- [ ChangeDisplaySettings ] ---
 
-	/** JNI method for {@link #ChangeDisplaySettings ChangeDisplaySettings} */
+	/** JNI method for {@link #ChangeDisplaySettings} */
 	@JavadocExclude
 	public static native int nChangeDisplaySettings(long devMode, int flags);
 
@@ -1748,7 +1748,7 @@ public final class WinUser {
 
 	// --- [ ChangeDisplaySettingsEx ] ---
 
-	/** JNI method for {@link #ChangeDisplaySettingsEx ChangeDisplaySettingsEx} */
+	/** JNI method for {@link #ChangeDisplaySettingsEx} */
 	@JavadocExclude
 	public static native int nChangeDisplaySettingsEx(long deviceName, long devMode, long window, int flags, long param);
 
@@ -1771,7 +1771,7 @@ public final class WinUser {
 		return nChangeDisplaySettingsEx(memAddress(deviceName), memAddressSafe(devMode), window, flags, param);
 	}
 
-	/** CharSequence version of: {@link #ChangeDisplaySettingsEx ChangeDisplaySettingsEx} */
+	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
 	public static int ChangeDisplaySettingsEx(CharSequence deviceName, ByteBuffer devMode, long window, int flags, long param) {
 		if ( LWJGLUtil.CHECKS )
 			if ( devMode != null ) checkBuffer(devMode, DEVMODE.SIZEOF);
@@ -1780,7 +1780,7 @@ public final class WinUser {
 
 	// --- [ SystemParametersInfo ] ---
 
-	/** JNI method for {@link #SystemParametersInfo SystemParametersInfo} */
+	/** JNI method for {@link #SystemParametersInfo} */
 	@JavadocExclude
 	public static native int nSystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni);
 
@@ -1803,7 +1803,7 @@ public final class WinUser {
 
 	// --- [ AdjustWindowRectEx ] ---
 
-	/** JNI method for {@link #AdjustWindowRectEx AdjustWindowRectEx} */
+	/** JNI method for {@link #AdjustWindowRectEx} */
 	@JavadocExclude
 	public static native int nAdjustWindowRectEx(long rect, int style, int menu, int exStyle);
 
@@ -1826,7 +1826,7 @@ public final class WinUser {
 
 	// --- [ GetCursorPos ] ---
 
-	/** JNI method for {@link #GetCursorPos GetCursorPos} */
+	/** JNI method for {@link #GetCursorPos} */
 	@JavadocExclude
 	public static native int nGetCursorPos(long point);
 
@@ -1843,7 +1843,7 @@ public final class WinUser {
 
 	// --- [ ScreenToClient ] ---
 
-	/** JNI method for {@link #ScreenToClient ScreenToClient} */
+	/** JNI method for {@link #ScreenToClient} */
 	@JavadocExclude
 	public static native int nScreenToClient(long hWnd, long point);
 
@@ -1863,7 +1863,7 @@ public final class WinUser {
 
 	// --- [ ClientToScreen ] ---
 
-	/** JNI method for {@link #ClientToScreen ClientToScreen} */
+	/** JNI method for {@link #ClientToScreen} */
 	@JavadocExclude
 	public static native int nClientToScreen(long hWnd, long point);
 
@@ -1884,7 +1884,7 @@ public final class WinUser {
 
 	// --- [ GetClientRect ] ---
 
-	/** JNI method for {@link #GetClientRect GetClientRect} */
+	/** JNI method for {@link #GetClientRect} */
 	@JavadocExclude
 	public static native int nGetClientRect(long hWnd, long rect);
 
@@ -1906,7 +1906,7 @@ public final class WinUser {
 
 	// --- [ WindowFromPoint ] ---
 
-	/** JNI method for {@link #WindowFromPoint WindowFromPoint} */
+	/** JNI method for {@link #WindowFromPoint} */
 	@JavadocExclude
 	public static native long nWindowFromPoint(long point);
 
@@ -1923,7 +1923,7 @@ public final class WinUser {
 
 	// --- [ BringWindowToTop ] ---
 
-	/** JNI method for {@link #BringWindowToTop BringWindowToTop} */
+	/** JNI method for {@link #BringWindowToTop} */
 	@JavadocExclude
 	public static native int nBringWindowToTop(long hWnd);
 
@@ -1941,7 +1941,7 @@ public final class WinUser {
 
 	// --- [ SetForegroundWindow ] ---
 
-	/** JNI method for {@link #SetForegroundWindow SetForegroundWindow} */
+	/** JNI method for {@link #SetForegroundWindow} */
 	@JavadocExclude
 	public static native int nSetForegroundWindow(long hWnd);
 
@@ -1960,22 +1960,25 @@ public final class WinUser {
 
 	// --- [ SetFocus ] ---
 
-	/** JNI method for {@link #SetFocus SetFocus} */
+	/** JNI method for {@link #SetFocus} */
 	@JavadocExclude
-	public static native int nSetFocus(long hWnd);
+	public static native long nSetFocus(long hWnd);
 
 	/**
 	 * Sets the keyboard focus to the specified window. The window must be attached to the calling thread's message queue.
 	 *
 	 * @param hWnd a handle to the window that will receive the keyboard input. If this parameter is {@code NULL}, keystrokes are ignored.
+	 *
+	 * @return the handle to the window that previously had the keyboard focus. If the {@code hWnd} parameter is invalid or the window is not attached to the calling
+	 *         thread's message queue, the return value is {@code NULL}.
 	 */
-	public static int SetFocus(long hWnd) {
+	public static long SetFocus(long hWnd) {
 		return nSetFocus(hWnd);
 	}
 
 	// --- [ SetWindowLongPtr ] ---
 
-	/** JNI method for {@link #SetWindowLongPtr SetWindowLongPtr} */
+	/** JNI method for {@link #SetWindowLongPtr} */
 	@JavadocExclude
 	public static native long nSetWindowLongPtr(long hWnd, int index, long newLong);
 
@@ -1997,7 +2000,7 @@ public final class WinUser {
 
 	// --- [ GetWindowLongPtr ] ---
 
-	/** JNI method for {@link #GetWindowLongPtr GetWindowLongPtr} */
+	/** JNI method for {@link #GetWindowLongPtr} */
 	@JavadocExclude
 	public static native long nGetWindowLongPtr(long hWnd, int index);
 
@@ -2038,7 +2041,7 @@ public final class WinUser {
 
 	// --- [ SetCapture ] ---
 
-	/** JNI method for {@link #SetCapture SetCapture} */
+	/** JNI method for {@link #SetCapture} */
 	@JavadocExclude
 	public static native long nSetCapture(long hWnd);
 
@@ -2072,7 +2075,7 @@ public final class WinUser {
 
 	// --- [ ClipCursor ] ---
 
-	/** JNI method for {@link #ClipCursor ClipCursor} */
+	/** JNI method for {@link #ClipCursor} */
 	@JavadocExclude
 	public static native int nClipCursor(long rect);
 
@@ -2105,7 +2108,7 @@ public final class WinUser {
 
 	// --- [ SetCursor ] ---
 
-	/** JNI method for {@link #SetCursor SetCursor} */
+	/** JNI method for {@link #SetCursor} */
 	@JavadocExclude
 	public static native long nSetCursor(long hCursor);
 
@@ -2146,7 +2149,7 @@ public final class WinUser {
 
 	// --- [ TrackMouseEvent ] ---
 
-	/** JNI method for {@link #TrackMouseEvent TrackMouseEvent} */
+	/** JNI method for {@link #TrackMouseEvent} */
 	@JavadocExclude
 	public static native int nTrackMouseEvent(long eventTrack);
 
@@ -2172,7 +2175,7 @@ public final class WinUser {
 
 	// --- [ OpenClipboard ] ---
 
-	/** JNI method for {@link #OpenClipboard OpenClipboard} */
+	/** JNI method for {@link #OpenClipboard} */
 	@JavadocExclude
 	public static native int nOpenClipboard(long hWndNewOwner);
 
@@ -2196,7 +2199,7 @@ public final class WinUser {
 
 	// --- [ SetClipboardData ] ---
 
-	/** JNI method for {@link #SetClipboardData SetClipboardData} */
+	/** JNI method for {@link #SetClipboardData} */
 	@JavadocExclude
 	public static native long nSetClipboardData(int format, long hMem);
 

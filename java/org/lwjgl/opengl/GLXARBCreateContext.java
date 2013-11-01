@@ -44,11 +44,11 @@ public final class GLXARBCreateContext {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXCreateContextAttribsARB;
+	public final long CreateContextAttribsARB;
 
 	@JavadocExclude
 	public GLXARBCreateContext(FunctionProvider provider) {
-		glXCreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
+		CreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -63,14 +63,14 @@ public final class GLXARBCreateContext {
 
 		GLXARBCreateContext funcs = new GLXARBCreateContext(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXCreateContextAttribsARB);
+		boolean supported =  GL.isFunctionSupported(funcs.CreateContextAttribsARB);
 
 		return GL.checkExtension("GLX_ARB_create_context", funcs, supported);
 	}
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #glXCreateContextAttribsARB glXCreateContextAttribsARB} */
+	/** JNI method for {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	@JavadocExclude
 	public static native long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list, long __functionAddress);
 
@@ -101,7 +101,7 @@ public final class GLXARBCreateContext {
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@link X#None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().glXCreateContextAttribsARB;
+		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -111,9 +111,9 @@ public final class GLXARBCreateContext {
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateContextAttribsARB glXCreateContextAttribsARB} */
+	/** Alternative version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().glXCreateContextAttribsARB;
+		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

@@ -26,11 +26,11 @@ public final class GLXARBGetProcAddress {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXGetProcAddressARB;
+	public final long GetProcAddressARB;
 
 	@JavadocExclude
 	public GLXARBGetProcAddress(FunctionProvider provider) {
-		glXGetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
+		GetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -45,14 +45,14 @@ public final class GLXARBGetProcAddress {
 
 		GLXARBGetProcAddress funcs = new GLXARBGetProcAddress(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetProcAddressARB);
+		boolean supported =  GL.isFunctionSupported(funcs.GetProcAddressARB);
 
 		return GL.checkExtension("GLX_ARB_get_proc_address", funcs, supported);
 	}
 
 	// --- [ glXGetProcAddressARB ] ---
 
-	/** JNI method for {@link #glXGetProcAddressARB glXGetProcAddressARB} */
+	/** JNI method for {@link #glXGetProcAddressARB GetProcAddressARB} */
 	@JavadocExclude
 	public static native long nglXGetProcAddressARB(long procName, long __functionAddress);
 
@@ -78,7 +78,7 @@ public final class GLXARBGetProcAddress {
 	 * @param procName the function name to query
 	 */
 	public static long glXGetProcAddressARB(ByteBuffer procName) {
-		long __functionAddress = getInstance().glXGetProcAddressARB;
+		long __functionAddress = getInstance().GetProcAddressARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddressARB(memAddress(procName), __functionAddress);

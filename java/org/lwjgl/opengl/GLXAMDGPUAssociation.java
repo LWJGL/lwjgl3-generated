@@ -27,7 +27,7 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXAMDGPUAssociation {
 
-	/** Accepted by the {@code property} parameter of glXGetGPUInfo: */
+	/** Accepted by the {@code property} parameter of {@link #glXGetGPUInfoAMD GetGPUInfoAMD}: */
 	public static final int
 		GLX_GPU_VENDOR_AMD                = 0x1F00,
 		GLX_GPU_RENDERER_STRING_AMD       = 0x1F01,
@@ -43,27 +43,27 @@ public final class GLXAMDGPUAssociation {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXglXBlitContextFramebufferAMD,
-		glXCreateAssociatedContextAMD,
-		glXCreateAssociatedContextAttribsAMD,
-		glXDeleteAssociatedContextAMD,
-		glXGetContextGPUIDAMD,
-		glXGetCurrentAssociatedContextAMD,
-		glXGetGPUIDsAMD,
-		glXGetGPUInfoAMD,
-		glXMakeAssociatedContextCurrentAMD;
+		BlitContextFramebufferAMD,
+		CreateAssociatedContextAMD,
+		CreateAssociatedContextAttribsAMD,
+		DeleteAssociatedContextAMD,
+		GetContextGPUIDAMD,
+		GetCurrentAssociatedContextAMD,
+		GetGPUIDsAMD,
+		GetGPUInfoAMD,
+		MakeAssociatedContextCurrentAMD;
 
 	@JavadocExclude
 	public GLXAMDGPUAssociation(FunctionProvider provider) {
-		glXglXBlitContextFramebufferAMD = provider.getFunctionAddress("glXglXBlitContextFramebufferAMD");
-		glXCreateAssociatedContextAMD = provider.getFunctionAddress("glXCreateAssociatedContextAMD");
-		glXCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("glXCreateAssociatedContextAttribsAMD");
-		glXDeleteAssociatedContextAMD = provider.getFunctionAddress("glXDeleteAssociatedContextAMD");
-		glXGetContextGPUIDAMD = provider.getFunctionAddress("glXGetContextGPUIDAMD");
-		glXGetCurrentAssociatedContextAMD = provider.getFunctionAddress("glXGetCurrentAssociatedContextAMD");
-		glXGetGPUIDsAMD = provider.getFunctionAddress("glXGetGPUIDsAMD");
-		glXGetGPUInfoAMD = provider.getFunctionAddress("glXGetGPUInfoAMD");
-		glXMakeAssociatedContextCurrentAMD = provider.getFunctionAddress("glXMakeAssociatedContextCurrentAMD");
+		BlitContextFramebufferAMD = provider.getFunctionAddress("glXBlitContextFramebufferAMD");
+		CreateAssociatedContextAMD = provider.getFunctionAddress("glXCreateAssociatedContextAMD");
+		CreateAssociatedContextAttribsAMD = provider.getFunctionAddress("glXCreateAssociatedContextAttribsAMD");
+		DeleteAssociatedContextAMD = provider.getFunctionAddress("glXDeleteAssociatedContextAMD");
+		GetContextGPUIDAMD = provider.getFunctionAddress("glXGetContextGPUIDAMD");
+		GetCurrentAssociatedContextAMD = provider.getFunctionAddress("glXGetCurrentAssociatedContextAMD");
+		GetGPUIDsAMD = provider.getFunctionAddress("glXGetGPUIDsAMD");
+		GetGPUInfoAMD = provider.getFunctionAddress("glXGetGPUInfoAMD");
+		MakeAssociatedContextCurrentAMD = provider.getFunctionAddress("glXMakeAssociatedContextCurrentAMD");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -79,24 +79,24 @@ public final class GLXAMDGPUAssociation {
 		GLXAMDGPUAssociation funcs = new GLXAMDGPUAssociation(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXglXBlitContextFramebufferAMD) &&
-			GL.isFunctionSupported(funcs.glXCreateAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.glXCreateAssociatedContextAttribsAMD) &&
-			GL.isFunctionSupported(funcs.glXDeleteAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.glXGetContextGPUIDAMD) &&
-			GL.isFunctionSupported(funcs.glXGetCurrentAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.glXGetGPUIDsAMD) &&
-			GL.isFunctionSupported(funcs.glXGetGPUInfoAMD) &&
-			GL.isFunctionSupported(funcs.glXMakeAssociatedContextCurrentAMD);
+			GL.isFunctionSupported(funcs.BlitContextFramebufferAMD) &&
+			GL.isFunctionSupported(funcs.CreateAssociatedContextAMD) &&
+			GL.isFunctionSupported(funcs.CreateAssociatedContextAttribsAMD) &&
+			GL.isFunctionSupported(funcs.DeleteAssociatedContextAMD) &&
+			GL.isFunctionSupported(funcs.GetContextGPUIDAMD) &&
+			GL.isFunctionSupported(funcs.GetCurrentAssociatedContextAMD) &&
+			GL.isFunctionSupported(funcs.GetGPUIDsAMD) &&
+			GL.isFunctionSupported(funcs.GetGPUInfoAMD) &&
+			GL.isFunctionSupported(funcs.MakeAssociatedContextCurrentAMD);
 
 		return GL.checkExtension("GLX_AMD_gpu_association", funcs, supported);
 	}
 
-	// --- [ glXglXBlitContextFramebufferAMD ] ---
+	// --- [ glXBlitContextFramebufferAMD ] ---
 
-	/** JNI method for {@link #glXglXBlitContextFramebufferAMD glXglXBlitContextFramebufferAMD} */
+	/** JNI method for {@link #glXBlitContextFramebufferAMD BlitContextFramebufferAMD} */
 	@JavadocExclude
-	public static native void nglXglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
+	public static native void nglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
 	 * 
@@ -113,18 +113,18 @@ public final class GLXAMDGPUAssociation {
 	 * @param mask   
 	 * @param filter 
 	 */
-	public static void glXglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().glXglXBlitContextFramebufferAMD;
+	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
+		long __functionAddress = getInstance().BlitContextFramebufferAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);
 		}
-		nglXglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
+		nglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
 	}
 
 	// --- [ glXCreateAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXCreateAssociatedContextAMD glXCreateAssociatedContextAMD} */
+	/** JNI method for {@link #glXCreateAssociatedContextAMD CreateAssociatedContextAMD} */
 	@JavadocExclude
 	public static native long nglXCreateAssociatedContextAMD(int id, long share_list, long __functionAddress);
 
@@ -135,7 +135,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param share_list 
 	 */
 	public static long glXCreateAssociatedContextAMD(int id, long share_list) {
-		long __functionAddress = getInstance().glXCreateAssociatedContextAMD;
+		long __functionAddress = getInstance().CreateAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(share_list);
@@ -145,7 +145,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
 
-	/** JNI method for {@link #glXCreateAssociatedContextAttribsAMD glXCreateAssociatedContextAttribsAMD} */
+	/** JNI method for {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	@JavadocExclude
 	public static native long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList, long __functionAddress);
 
@@ -157,7 +157,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param attribList    
 	 */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, ByteBuffer attribList) {
-		long __functionAddress = getInstance().glXCreateAssociatedContextAttribsAMD;
+		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(share_context);
@@ -165,9 +165,9 @@ public final class GLXAMDGPUAssociation {
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD glXCreateAssociatedContextAttribsAMD} */
+	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
-		long __functionAddress = getInstance().glXCreateAssociatedContextAttribsAMD;
+		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(share_context);
@@ -177,7 +177,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXDeleteAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXDeleteAssociatedContextAMD glXDeleteAssociatedContextAMD} */
+	/** JNI method for {@link #glXDeleteAssociatedContextAMD DeleteAssociatedContextAMD} */
 	@JavadocExclude
 	public static native int nglXDeleteAssociatedContextAMD(long ctx, long __functionAddress);
 
@@ -187,7 +187,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXDeleteAssociatedContextAMD(long ctx) {
-		long __functionAddress = getInstance().glXDeleteAssociatedContextAMD;
+		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);
@@ -197,7 +197,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetContextGPUIDAMD ] ---
 
-	/** JNI method for {@link #glXGetContextGPUIDAMD glXGetContextGPUIDAMD} */
+	/** JNI method for {@link #glXGetContextGPUIDAMD GetContextGPUIDAMD} */
 	@JavadocExclude
 	public static native int nglXGetContextGPUIDAMD(long ctx, long __functionAddress);
 
@@ -207,7 +207,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXGetContextGPUIDAMD(long ctx) {
-		long __functionAddress = getInstance().glXGetContextGPUIDAMD;
+		long __functionAddress = getInstance().GetContextGPUIDAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);
@@ -217,13 +217,13 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetCurrentAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXGetCurrentAssociatedContextAMD glXGetCurrentAssociatedContextAMD} */
+	/** JNI method for {@link #glXGetCurrentAssociatedContextAMD GetCurrentAssociatedContextAMD} */
 	@JavadocExclude
 	public static native long nglXGetCurrentAssociatedContextAMD(long __functionAddress);
 
 	/** Queries the crrent associated context. */
 	public static long glXGetCurrentAssociatedContextAMD() {
-		long __functionAddress = getInstance().glXGetCurrentAssociatedContextAMD;
+		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentAssociatedContextAMD(__functionAddress);
@@ -231,7 +231,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUIDsAMD ] ---
 
-	/** JNI method for {@link #glXGetGPUIDsAMD glXGetGPUIDsAMD} */
+	/** JNI method for {@link #glXGetGPUIDsAMD GetGPUIDsAMD} */
 	@JavadocExclude
 	public static native int nglXGetGPUIDsAMD(int maxCount, int ids, long __functionAddress);
 
@@ -242,7 +242,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param ids      
 	 */
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
-		long __functionAddress = getInstance().glXGetGPUIDsAMD;
+		long __functionAddress = getInstance().GetGPUIDsAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetGPUIDsAMD(maxCount, ids, __functionAddress);
@@ -250,7 +250,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUInfoAMD ] ---
 
-	/** JNI method for {@link #glXGetGPUInfoAMD glXGetGPUInfoAMD} */
+	/** JNI method for {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
 	@JavadocExclude
 	public static native int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
@@ -258,13 +258,13 @@ public final class GLXAMDGPUAssociation {
 	 * Queries GPU properties.
 	 *
 	 * @param id       
-	 * @param property 
+	 * @param property . One of:<p/>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}, {@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
 	 * @param dataType 
 	 * @param size     
 	 * @param data     
 	 */
 	public static int glXGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
-		long __functionAddress = getInstance().glXGetGPUInfoAMD;
+		long __functionAddress = getInstance().GetGPUInfoAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetGPUInfoAMD(id, property, dataType, size, memAddress(data), __functionAddress);
@@ -272,7 +272,7 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---
 
-	/** JNI method for {@link #glXMakeAssociatedContextCurrentAMD glXMakeAssociatedContextCurrentAMD} */
+	/** JNI method for {@link #glXMakeAssociatedContextCurrentAMD MakeAssociatedContextCurrentAMD} */
 	@JavadocExclude
 	public static native int nglXMakeAssociatedContextCurrentAMD(long ctx, long __functionAddress);
 
@@ -282,7 +282,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param ctx the GLXContext
 	 */
 	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
-		long __functionAddress = getInstance().glXMakeAssociatedContextCurrentAMD;
+		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ctx);

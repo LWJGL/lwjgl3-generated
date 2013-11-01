@@ -27,6 +27,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetFBConfigs(JNIEnv *__e
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *nelements = (int *)(intptr_t)nelementsAddress;
 	glXGetFBConfigsPROC glXGetFBConfigs = (glXGetFBConfigsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetFBConfigs(display, screen, nelements);
 }
 
@@ -35,6 +36,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXChooseFBConfig(JNIEnv *_
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	int *nelements = (int *)(intptr_t)nelementsAddress;
 	glXChooseFBConfigPROC glXChooseFBConfig = (glXChooseFBConfigPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXChooseFBConfig(display, screen, attrib_list, nelements);
 }
 
@@ -43,6 +45,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetFBConfigAttrib(JNIEnv 
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	int *value = (int *)(intptr_t)valueAddress;
 	glXGetFBConfigAttribPROC glXGetFBConfigAttrib = (glXGetFBConfigAttribPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXGetFBConfigAttrib(display, config, attribute, value);
 }
 
@@ -50,6 +53,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetVisualFromFBConfig(JN
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	glXGetVisualFromFBConfigPROC glXGetVisualFromFBConfig = (glXGetVisualFromFBConfigPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetVisualFromFBConfig(display, config);
 }
 
@@ -58,6 +62,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXCreateWindow(JNIEnv *__e
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	glXCreateWindowPROC glXCreateWindow = (glXCreateWindowPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateWindow(display, config, (Window)win, attrib_list);
 }
 
@@ -66,6 +71,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXCreatePixmap(JNIEnv *__e
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	glXCreatePixmapPROC glXCreatePixmap = (glXCreatePixmapPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreatePixmap(display, config, (Pixmap)pixmap, attrib_list);
 }
 
@@ -73,6 +79,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXDestroyPixmap(JNIEnv *__e
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXPixmap pixmap = (GLXPixmap)(intptr_t)pixmapAddress;
 	glXDestroyPixmapPROC glXDestroyPixmap = (glXDestroyPixmapPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXDestroyPixmap(display, pixmap);
 }
 
@@ -81,6 +88,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXCreatePbuffer(JNIEnv *__
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	const int *attrib_list = (const int *)(intptr_t)attrib_listAddress;
 	glXCreatePbufferPROC glXCreatePbuffer = (glXCreatePbufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreatePbuffer(display, config, attrib_list);
 }
 
@@ -88,6 +96,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXDestroyPbuffer(JNIEnv *__
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXPbuffer pbuf = (GLXPbuffer)(intptr_t)pbufAddress;
 	glXDestroyPbufferPROC glXDestroyPbuffer = (glXDestroyPbufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXDestroyPbuffer(display, pbuf);
 }
 
@@ -96,6 +105,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXQueryDrawable(JNIEnv *__e
 	GLXDrawable draw = (GLXDrawable)(intptr_t)drawAddress;
 	unsigned int *value = (unsigned int *)(intptr_t)valueAddress;
 	glXQueryDrawablePROC glXQueryDrawable = (glXQueryDrawablePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXQueryDrawable(display, draw, attribute, value);
 }
 
@@ -104,6 +114,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXCreateNewContext(JNIEnv 
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	GLXContext share_list = (GLXContext)(intptr_t)share_listAddress;
 	glXCreateNewContextPROC glXCreateNewContext = (glXCreateNewContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateNewContext(display, config, render_type, share_list, direct);
 }
 
@@ -113,11 +124,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLX13_nglXMakeContextCurrent(JNIEnv
 	GLXDrawable read = (GLXDrawable)(intptr_t)readAddress;
 	GLXContext ctx = (GLXContext)(intptr_t)ctxAddress;
 	glXMakeContextCurrentPROC glXMakeContextCurrent = (glXMakeContextCurrentPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXMakeContextCurrent(display, draw, read, ctx);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetCurrentReadDrawable(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	glXGetCurrentReadDrawablePROC glXGetCurrentReadDrawable = (glXGetCurrentReadDrawablePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetCurrentReadDrawable();
 }
 
@@ -126,6 +139,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLX13_nglXQueryContext(JNIEnv *__en
 	GLXContext ctx = (GLXContext)(intptr_t)ctxAddress;
 	int *value = (int *)(intptr_t)valueAddress;
 	glXQueryContextPROC glXQueryContext = (glXQueryContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXQueryContext(display, ctx, attribute, value);
 }
 
@@ -133,6 +147,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXSelectEvent(JNIEnv *__env
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable draw = (GLXDrawable)(intptr_t)drawAddress;
 	glXSelectEventPROC glXSelectEvent = (glXSelectEventPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXSelectEvent(display, draw, (unsigned long)event_mask);
 }
 
@@ -141,5 +156,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetSelectedEvent(JNIEnv *
 	GLXDrawable draw = (GLXDrawable)(intptr_t)drawAddress;
 	unsigned long *event_mask = (unsigned long *)(intptr_t)event_maskAddress;
 	glXGetSelectedEventPROC glXGetSelectedEvent = (glXGetSelectedEventPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXGetSelectedEvent(display, draw, event_mask);
 }

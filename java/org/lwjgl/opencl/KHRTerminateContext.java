@@ -39,11 +39,11 @@ public final class KHRTerminateContext {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long clTerminateContextKHR;
+	public final long TerminateContextKHR;
 
 	@JavadocExclude
 	public KHRTerminateContext(FunctionProviderLocal provider, long platform) {
-		clTerminateContextKHR = provider.getFunctionAddress(platform, "clTerminateContextKHR");
+		TerminateContextKHR = provider.getFunctionAddress(platform, "clTerminateContextKHR");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -58,14 +58,14 @@ public final class KHRTerminateContext {
 
 		KHRTerminateContext funcs = new KHRTerminateContext(provider, platform);
 
-		boolean supported =  funcs.clTerminateContextKHR != 0L;
+		boolean supported =  funcs.TerminateContextKHR != 0L;
 
 		return CL.checkExtension("cl_khr_terminate_context", funcs, supported);
 	}
 
 	// --- [ clTerminateContextKHR ] ---
 
-	/** JNI method for {@link #clTerminateContextKHR clTerminateContextKHR} */
+	/** JNI method for {@link #clTerminateContextKHR TerminateContextKHR} */
 	@JavadocExclude
 	public static native int nclTerminateContextKHR(long context, long __functionAddress);
 
@@ -99,7 +99,7 @@ public final class KHRTerminateContext {
 	 *         OOHME
 	 */
 	public static int clTerminateContextKHR(CLContext context) {
-		long __functionAddress = getInstance(context).clTerminateContextKHR;
+		long __functionAddress = getInstance(context).TerminateContextKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclTerminateContextKHR(context.getPointer(), __functionAddress);

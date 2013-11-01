@@ -15,11 +15,11 @@ public final class GLX12 {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXGetCurrentDisplay;
+	public final long GetCurrentDisplay;
 
 	@JavadocExclude
 	public GLX12(FunctionProvider provider) {
-		glXGetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
+		GetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -34,20 +34,20 @@ public final class GLX12 {
 
 		GLX12 funcs = new GLX12(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXGetCurrentDisplay);
+		boolean supported =  GL.isFunctionSupported(funcs.GetCurrentDisplay);
 
 		return GL.checkExtension("GLX_12", funcs, supported);
 	}
 
 	// --- [ glXGetCurrentDisplay ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplay glXGetCurrentDisplay} */
+	/** JNI method for {@link #glXGetCurrentDisplay GetCurrentDisplay} */
 	@JavadocExclude
 	public static native long nglXGetCurrentDisplay(long __functionAddress);
 
 	/** Returns the display associated with the current context and drawable. */
 	public static long glXGetCurrentDisplay() {
-		long __functionAddress = getInstance().glXGetCurrentDisplay;
+		long __functionAddress = getInstance().GetCurrentDisplay;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentDisplay(__functionAddress);

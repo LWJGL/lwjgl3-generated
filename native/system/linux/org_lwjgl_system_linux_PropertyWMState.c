@@ -8,8 +8,10 @@
 #include "LinuxLWJGL.h"
 #include <X11/Xmd.h>
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_PropertyWMState_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_PropertyWMState_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	typedef struct PropertyWMState {
 		CARD32 state;

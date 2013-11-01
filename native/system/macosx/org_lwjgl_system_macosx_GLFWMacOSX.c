@@ -11,10 +11,12 @@
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_GLFWMacOSX_nglfwGetCocoaWindow(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glfwGetCocoaWindow(window);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_GLFWMacOSX_nglfwGetNSGLContext(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glfwGetNSGLContext(window);
 }

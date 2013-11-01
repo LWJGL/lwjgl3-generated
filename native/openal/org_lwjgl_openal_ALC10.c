@@ -25,12 +25,14 @@ typedef ALCvoid (APIENTRY *alcGetIntegervPROC) (ALCdevice *, ALCenum, ALCsizei, 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcOpenDevice(JNIEnv *__env, jclass clazz, jlong deviceSpecifierAddress, jlong __functionAddress) {
 	const ALCchar *deviceSpecifier = (const ALCchar *)(intptr_t)deviceSpecifierAddress;
 	alcOpenDevicePROC alcOpenDevice = (alcOpenDevicePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcOpenDevice(deviceSpecifier);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_ALC10_nalcCloseDevice(JNIEnv *__env, jclass clazz, jlong deviceHandleAddress, jlong __functionAddress) {
 	const ALCdevice *deviceHandle = (const ALCdevice *)(intptr_t)deviceHandleAddress;
 	alcCloseDevicePROC alcCloseDevice = (alcCloseDevicePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)alcCloseDevice(deviceHandle);
 }
 
@@ -38,41 +40,48 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcCreateContext(JNIEnv *__
 	const ALCdevice *deviceHandle = (const ALCdevice *)(intptr_t)deviceHandleAddress;
 	const ALCint *attrList = (const ALCint *)(intptr_t)attrListAddress;
 	alcCreateContextPROC alcCreateContext = (alcCreateContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcCreateContext(deviceHandle, attrList);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_ALC10_nalcMakeContextCurrent(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcMakeContextCurrentPROC alcMakeContextCurrent = (alcMakeContextCurrentPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)alcMakeContextCurrent(context);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC10_nalcProcessContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcProcessContextPROC alcProcessContext = (alcProcessContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcProcessContext(context);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC10_nalcSuspendContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcSuspendContextPROC alcSuspendContext = (alcSuspendContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcSuspendContext(context);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC10_nalcDestroyContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcDestroyContextPROC alcDestroyContext = (alcDestroyContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcDestroyContext(context);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcGetCurrentContext(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	alcGetCurrentContextPROC alcGetCurrentContext = (alcGetCurrentContextPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcGetCurrentContext();
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcGetContextsDevice(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcGetContextsDevicePROC alcGetContextsDevice = (alcGetContextsDevicePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcGetContextsDevice(context);
 }
 
@@ -80,6 +89,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_ALC10_nalcIsExtensionPresent(JN
 	const ALCdevice *deviceHandle = (const ALCdevice *)(intptr_t)deviceHandleAddress;
 	const ALCchar *extName = (const ALCchar *)(intptr_t)extNameAddress;
 	alcIsExtensionPresentPROC alcIsExtensionPresent = (alcIsExtensionPresentPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)alcIsExtensionPresent(deviceHandle, extName);
 }
 
@@ -87,6 +97,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcGetProcAddress(JNIEnv *_
 	const ALCdevice *deviceHandle = (const ALCdevice *)(intptr_t)deviceHandleAddress;
 	const ALchar *funcName = (const ALchar *)(intptr_t)funcNameAddress;
 	alcGetProcAddressPROC alcGetProcAddress = (alcGetProcAddressPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcGetProcAddress(deviceHandle, funcName);
 }
 
@@ -94,18 +105,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_openal_ALC10_nalcGetEnumValue(JNIEnv *__en
 	const ALCdevice *deviceHandle = (const ALCdevice *)(intptr_t)deviceHandleAddress;
 	const ALCchar *enumName = (const ALCchar *)(intptr_t)enumNameAddress;
 	alcGetEnumValuePROC alcGetEnumValue = (alcGetEnumValuePROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)alcGetEnumValue(deviceHandle, enumName);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_openal_ALC10_nalcGetError(JNIEnv *__env, jclass clazz, jlong deviceHandleAddress, jlong __functionAddress) {
 	ALCdevice *deviceHandle = (ALCdevice *)(intptr_t)deviceHandleAddress;
 	alcGetErrorPROC alcGetError = (alcGetErrorPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)alcGetError(deviceHandle);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcGetString(JNIEnv *__env, jclass clazz, jlong deviceHandleAddress, jint token, jlong __functionAddress) {
 	ALCdevice *deviceHandle = (ALCdevice *)(intptr_t)deviceHandleAddress;
 	alcGetStringPROC alcGetString = (alcGetStringPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcGetString(deviceHandle, token);
 }
 
@@ -113,5 +127,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC10_nalcGetIntegerv(JNIEnv *__env
 	ALCdevice *deviceHandle = (ALCdevice *)(intptr_t)deviceHandleAddress;
 	ALCint *dest = (ALCint *)(intptr_t)destAddress;
 	alcGetIntegervPROC alcGetIntegerv = (alcGetIntegervPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alcGetIntegerv(deviceHandle, token, size, dest);
 }

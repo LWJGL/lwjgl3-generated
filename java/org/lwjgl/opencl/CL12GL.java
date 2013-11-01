@@ -32,11 +32,11 @@ public final class CL12GL {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long clCreateFromGLTexture;
+	public final long CreateFromGLTexture;
 
 	@JavadocExclude
 	public CL12GL(FunctionProviderLocal provider) {
-		clCreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
+		CreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -51,14 +51,14 @@ public final class CL12GL {
 
 		CL12GL funcs = new CL12GL(provider);
 
-		boolean supported =  funcs.clCreateFromGLTexture != 0L;
+		boolean supported =  funcs.CreateFromGLTexture != 0L;
 
 		return CL.checkExtension("OpenCL12GL", funcs, supported);
 	}
 
 	// --- [ clCreateFromGLTexture ] ---
 
-	/** JNI method for {@link #clCreateFromGLTexture clCreateFromGLTexture} */
+	/** JNI method for {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	@JavadocExclude
 	public static native long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
@@ -109,7 +109,7 @@ public final class CL12GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture;
+		long __functionAddress = getInstance(context).CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -117,9 +117,9 @@ public final class CL12GL {
 		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateFromGLTexture clCreateFromGLTexture} */
+	/** Alternative version of: {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateFromGLTexture;
+		long __functionAddress = getInstance(context).CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);

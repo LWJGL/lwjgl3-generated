@@ -7,8 +7,10 @@
 #include <stddef.h>
 #include "OpenCL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1image_1desc_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1image_1desc_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(cl_image_desc, image_type));
 	buffer[1] = (jint)(offsetof(cl_image_desc, image_width));

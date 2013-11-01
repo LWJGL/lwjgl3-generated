@@ -20,6 +20,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL11_nclCreateSubBuffer(JNIEnv *__
 	const cl_void *buffer_create_info = (const cl_void *)(intptr_t)buffer_create_infoAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateSubBufferPROC clCreateSubBuffer = (clCreateSubBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateSubBuffer(buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
 }
 
@@ -28,6 +29,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclSetMemObjectDestructorCallb
 	cl_mem_object_destructor_callback pfn_notify = (cl_mem_object_destructor_callback)(intptr_t)pfn_notifyAddress;
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	clSetMemObjectDestructorCallbackPROC clSetMemObjectDestructorCallback = (clSetMemObjectDestructorCallbackPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clSetMemObjectDestructorCallback(memobj, pfn_notify, user_data);
 }
 
@@ -41,6 +43,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclEnqueueReadBufferRect(JNIEn
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueReadBufferRectPROC clEnqueueReadBufferRect = (clEnqueueReadBufferRectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueReadBufferRect(command_queue, buffer, blocking_read, buffer_offset, host_offset, region, (size_t)buffer_row_pitch, (size_t)buffer_slice_pitch, (size_t)host_row_pitch, (size_t)host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -54,6 +57,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclEnqueueWriteBufferRect(JNIE
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueWriteBufferRectPROC clEnqueueWriteBufferRect = (clEnqueueWriteBufferRectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueWriteBufferRect(command_queue, buffer, blocking_write, buffer_offset, host_offset, region, (size_t)buffer_row_pitch, (size_t)buffer_slice_pitch, (size_t)host_row_pitch, (size_t)host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -67,6 +71,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclEnqueueCopyBufferRect(JNIEn
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueCopyBufferRectPROC clEnqueueCopyBufferRect = (clEnqueueCopyBufferRectPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, (size_t)src_row_pitch, (size_t)src_slice_pitch, (size_t)dst_row_pitch, (size_t)dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -74,12 +79,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL11_nclCreateUserEvent(JNIEnv *__
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateUserEventPROC clCreateUserEvent = (clCreateUserEventPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateUserEvent(context, errcode_ret);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclSetUserEventStatus(JNIEnv *__env, jclass clazz, jlong eventAddress, jint execution_status, jlong __functionAddress) {
 	cl_event event = (cl_event)(intptr_t)eventAddress;
 	clSetUserEventStatusPROC clSetUserEventStatus = (clSetUserEventStatusPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clSetUserEventStatus(event, execution_status);
 }
 
@@ -88,5 +95,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclSetEventCallback(JNIEnv *__
 	cl_event_callback pfn_notify = (cl_event_callback)(intptr_t)pfn_notifyAddress;
 	void *user_data = (void *)(intptr_t)user_dataAddress;
 	clSetEventCallbackPROC clSetEventCallback = (clSetEventCallbackPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clSetEventCallback(event, command_exec_callback_type, pfn_notify, user_data);
 }

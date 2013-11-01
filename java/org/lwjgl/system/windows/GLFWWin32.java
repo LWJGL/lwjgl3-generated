@@ -17,7 +17,7 @@ public final class GLFWWin32 {
 
 	// --- [ glfwGetWin32Window ] ---
 
-	/** JNI method for {@link #glfwGetWin32Window glfwGetWin32Window} */
+	/** JNI method for {@link #glfwGetWin32Window GetWin32Window} */
 	@JavadocExclude
 	public static native long nglfwGetWin32Window(long window);
 
@@ -34,7 +34,7 @@ public final class GLFWWin32 {
 
 	// --- [ glfwGetWGLContext ] ---
 
-	/** JNI method for {@link #glfwGetWGLContext glfwGetWGLContext} */
+	/** JNI method for {@link #glfwGetWGLContext GetWGLContext} */
 	@JavadocExclude
 	public static native long nglfwGetWGLContext(long window);
 

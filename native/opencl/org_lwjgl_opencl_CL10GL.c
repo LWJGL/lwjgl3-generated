@@ -20,6 +20,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10GL_nclCreateFromGLBuffer(JNIEn
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateFromGLBufferPROC clCreateFromGLBuffer = (clCreateFromGLBufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateFromGLBuffer(context, flags, bufobj, errcode_ret);
 }
 
@@ -27,6 +28,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10GL_nclCreateFromGLTexture2D(JN
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateFromGLTexture2DPROC clCreateFromGLTexture2D = (clCreateFromGLTexture2DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, errcode_ret);
 }
 
@@ -34,6 +36,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10GL_nclCreateFromGLTexture3D(JN
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateFromGLTexture3DPROC clCreateFromGLTexture3D = (clCreateFromGLTexture3DPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, errcode_ret);
 }
 
@@ -41,6 +44,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10GL_nclCreateFromGLRenderbuffer
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
 	clCreateFromGLRenderbufferPROC clCreateFromGLRenderbuffer = (clCreateFromGLRenderbufferPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateFromGLRenderbuffer(context, flags, renderbuffer, errcode_ret);
 }
 
@@ -49,6 +53,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclGetGLObjectInfo(JNIEnv *_
 	cl_gl_object_type *gl_object_type = (cl_gl_object_type *)(intptr_t)gl_object_typeAddress;
 	GLuint *gl_object_name = (GLuint *)(intptr_t)gl_object_nameAddress;
 	clGetGLObjectInfoPROC clGetGLObjectInfo = (clGetGLObjectInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetGLObjectInfo(memobj, gl_object_type, gl_object_name);
 }
 
@@ -57,6 +62,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclGetGLTextureInfo(JNIEnv *
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetGLTextureInfoPROC clGetGLTextureInfo = (clGetGLTextureInfoPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetGLTextureInfo(memobj, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
 
@@ -66,6 +72,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclEnqueueAcquireGLObjects(J
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueAcquireGLObjectsPROC clEnqueueAcquireGLObjects = (clEnqueueAcquireGLObjectsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueAcquireGLObjects(command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 }
 
@@ -75,5 +82,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclEnqueueReleaseGLObjects(J
 	const cl_event *event_wait_list = (const cl_event *)(intptr_t)event_wait_listAddress;
 	cl_event *event = (cl_event *)(intptr_t)eventAddress;
 	clEnqueueReleaseGLObjectsPROC clEnqueueReleaseGLObjects = (clEnqueueReleaseGLObjectsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueReleaseGLObjects(command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 }

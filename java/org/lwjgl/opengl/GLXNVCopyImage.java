@@ -24,11 +24,11 @@ public final class GLXNVCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXCopyImageSubDataNV;
+	public final long CopyImageSubDataNV;
 
 	@JavadocExclude
 	public GLXNVCopyImage(FunctionProvider provider) {
-		glXCopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
+		CopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -43,14 +43,14 @@ public final class GLXNVCopyImage {
 
 		GLXNVCopyImage funcs = new GLXNVCopyImage(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXCopyImageSubDataNV);
+		boolean supported =  GL.isFunctionSupported(funcs.CopyImageSubDataNV);
 
 		return GL.checkExtension("GLX_NV_copy_image", funcs, supported);
 	}
 
 	// --- [ glXCopyImageSubDataNV ] ---
 
-	/** JNI method for {@link #glXCopyImageSubDataNV glXCopyImageSubDataNV} */
+	/** JNI method for {@link #glXCopyImageSubDataNV CopyImageSubDataNV} */
 	@JavadocExclude
 	public static native void nglXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
 
@@ -79,7 +79,7 @@ public final class GLXNVCopyImage {
 	 * @param depth     
 	 */
 	public static void glXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
-		long __functionAddress = getInstance().glXCopyImageSubDataNV;
+		long __functionAddress = getInstance().CopyImageSubDataNV;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

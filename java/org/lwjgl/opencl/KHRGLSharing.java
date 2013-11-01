@@ -48,11 +48,11 @@ public final class KHRGLSharing {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long clGetGLContextInfoKHR;
+	public final long GetGLContextInfoKHR;
 
 	@JavadocExclude
 	public KHRGLSharing(FunctionProviderLocal provider, long platform) {
-		clGetGLContextInfoKHR = provider.getFunctionAddress(platform, "clGetGLContextInfoKHR");
+		GetGLContextInfoKHR = provider.getFunctionAddress(platform, "clGetGLContextInfoKHR");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -67,14 +67,14 @@ public final class KHRGLSharing {
 
 		KHRGLSharing funcs = new KHRGLSharing(provider, platform);
 
-		boolean supported =  funcs.clGetGLContextInfoKHR != 0L;
+		boolean supported =  funcs.GetGLContextInfoKHR != 0L;
 
 		return CL.checkExtension("cl_khr_gl_sharing", funcs, supported);
 	}
 
 	// --- [ clGetGLContextInfoKHR ] ---
 
-	/** JNI method for {@link #clGetGLContextInfoKHR clGetGLContextInfoKHR} */
+	/** JNI method for {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	@JavadocExclude
 	public static native int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
@@ -133,7 +133,7 @@ public final class KHRGLSharing {
 	 */
 	public static int clGetGLContextInfoKHR(ByteBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).clGetGLContextInfoKHR;
+		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5 << POINTER_SHIFT);
@@ -143,10 +143,10 @@ public final class KHRGLSharing {
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clGetGLContextInfoKHR clGetGLContextInfoKHR} */
+	/** Alternative version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).clGetGLContextInfoKHR;
+		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);
@@ -155,10 +155,10 @@ public final class KHRGLSharing {
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
 	}
 
-	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR clGetGLContextInfoKHR} */
+	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).clGetGLContextInfoKHR;
+		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);

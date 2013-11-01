@@ -20,13 +20,13 @@ public final class WGLEXTSwapControl {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		wglSwapIntervalEXT,
-		wglGetSwapIntervalEXT;
+		SwapIntervalEXT,
+		GetSwapIntervalEXT;
 
 	@JavadocExclude
 	public WGLEXTSwapControl(FunctionProvider provider) {
-		wglSwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
-		wglGetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
+		SwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
+		GetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -42,15 +42,15 @@ public final class WGLEXTSwapControl {
 		WGLEXTSwapControl funcs = new WGLEXTSwapControl(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.wglSwapIntervalEXT) &&
-			GL.isFunctionSupported(funcs.wglGetSwapIntervalEXT);
+			GL.isFunctionSupported(funcs.SwapIntervalEXT) &&
+			GL.isFunctionSupported(funcs.GetSwapIntervalEXT);
 
 		return GL.checkExtension("WGL_EXT_swap_control", funcs, supported);
 	}
 
 	// --- [ wglSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglSwapIntervalEXT wglSwapIntervalEXT} */
+	/** JNI method for {@link #wglSwapIntervalEXT SwapIntervalEXT} */
 	@JavadocExclude
 	public static native int nwglSwapIntervalEXT(int interval, long __functionAddress);
 
@@ -70,7 +70,7 @@ public final class WGLEXTSwapControl {
 	 * @param interval the minimum number of video frames that are displayed before a buffer swap will occur
 	 */
 	public static int wglSwapIntervalEXT(int interval) {
-		long __functionAddress = getInstance().wglSwapIntervalEXT;
+		long __functionAddress = getInstance().SwapIntervalEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nwglSwapIntervalEXT(interval, __functionAddress);
@@ -78,13 +78,13 @@ public final class WGLEXTSwapControl {
 
 	// --- [ wglGetSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglGetSwapIntervalEXT wglGetSwapIntervalEXT} */
+	/** JNI method for {@link #wglGetSwapIntervalEXT GetSwapIntervalEXT} */
 	@JavadocExclude
 	public static native int nwglGetSwapIntervalEXT(long __functionAddress);
 
 	/** Returns the current swap interval for the window associated with the current context. */
 	public static int wglGetSwapIntervalEXT() {
-		long __functionAddress = getInstance().wglGetSwapIntervalEXT;
+		long __functionAddress = getInstance().GetSwapIntervalEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nwglGetSwapIntervalEXT(__functionAddress);

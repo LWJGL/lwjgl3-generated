@@ -12,5 +12,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTSwapControl_nglXSwapIntervalE
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	glXSwapIntervalEXTPROC glXSwapIntervalEXT = (glXSwapIntervalEXTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXSwapIntervalEXT(display, drawable, interval);
 }

@@ -25,11 +25,11 @@ public final class ARBCLEvent {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glCreateSyncFromCLeventARB;
+	public final long CreateSyncFromCLeventARB;
 
 	@JavadocExclude
 	public ARBCLEvent(FunctionProvider provider) {
-		glCreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
+		CreateSyncFromCLeventARB = provider.getFunctionAddress("glCreateSyncFromCLeventARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -44,14 +44,14 @@ public final class ARBCLEvent {
 
 		ARBCLEvent funcs = new ARBCLEvent(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glCreateSyncFromCLeventARB);
+		boolean supported =  GL.isFunctionSupported(funcs.CreateSyncFromCLeventARB);
 
 		return GL.checkExtension("GL_ARB_cl_event", funcs, supported);
 	}
 
 	// --- [ glCreateSyncFromCLeventARB ] ---
 
-	/** JNI method for {@link #glCreateSyncFromCLeventARB glCreateSyncFromCLeventARB} */
+	/** JNI method for {@link #glCreateSyncFromCLeventARB CreateSyncFromCLeventARB} */
 	@JavadocExclude
 	public static native long nglCreateSyncFromCLeventARB(long context, long event, int flags, long __functionAddress);
 
@@ -72,7 +72,7 @@ public final class ARBCLEvent {
 	 * @param flags   must be 0 (placeholder for anticipated future extensions of sync object capabilities)
 	 */
 	public static long glCreateSyncFromCLeventARB(CLContext context, CLEvent event, int flags) {
-		long __functionAddress = getInstance().glCreateSyncFromCLeventARB;
+		long __functionAddress = getInstance().CreateSyncFromCLeventARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglCreateSyncFromCLeventARB(context.getPointer(), event.getPointer(), flags, __functionAddress);

@@ -12,5 +12,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVCopyImage_nwglCopyImageSubData
 	HGLRC srcRC = (HGLRC)(intptr_t)srcRCAddress;
 	HGLRC dstRC = (HGLRC)(intptr_t)dstRCAddress;
 	wglCopyImageSubDataNVPROC wglCopyImageSubDataNV = (wglCopyImageSubDataNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglCopyImageSubDataNV(srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 }

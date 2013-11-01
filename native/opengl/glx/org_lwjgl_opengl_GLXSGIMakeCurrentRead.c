@@ -15,10 +15,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIMakeCurrentRead_nglXMakeCurre
 	GLXDrawable read = (GLXDrawable)(intptr_t)readAddress;
 	GLXContext ctx = (GLXContext)(intptr_t)ctxAddress;
 	glXMakeCurrentReadSGIPROC glXMakeCurrentReadSGI = (glXMakeCurrentReadSGIPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXMakeCurrentReadSGI(display, draw, read, ctx);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIMakeCurrentRead_nglXGetCurrentReadDrawableSGI(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	glXGetCurrentReadDrawableSGIPROC glXGetCurrentReadDrawableSGI = (glXGetCurrentReadDrawableSGIPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetCurrentReadDrawableSGI();
 }

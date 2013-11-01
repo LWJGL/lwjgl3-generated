@@ -13,5 +13,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapGroup_nglXJoinSwapGroupS
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	GLXDrawable member = (GLXDrawable)(intptr_t)memberAddress;
 	glXJoinSwapGroupSGIXPROC glXJoinSwapGroupSGIX = (glXJoinSwapGroupSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXJoinSwapGroupSGIX(display, drawable, member);
 }

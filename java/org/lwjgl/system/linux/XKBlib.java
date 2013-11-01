@@ -76,7 +76,7 @@ public final class XKBlib {
 
 	// --- [ XkbQueryExtension ] ---
 
-	/** JNI method for {@link #XkbQueryExtension XkbQueryExtension} */
+	/** JNI method for {@link #XkbQueryExtension} */
 	@JavadocExclude
 	public static native int nXkbQueryExtension(long display, long opcodeReturn, long eventBaseReturn, long errorBaseReturn, long majorRtrn, long minorRtrn);
 
@@ -102,7 +102,7 @@ public final class XKBlib {
 		return nXkbQueryExtension(display, memAddress(opcodeReturn), memAddress(eventBaseReturn), memAddress(errorBaseReturn), memAddress(majorRtrn), memAddress(minorRtrn));
 	}
 
-	/** Alternative version of: {@link #XkbQueryExtension XkbQueryExtension} */
+	/** Alternative version of: {@link #XkbQueryExtension} */
 	public static int XkbQueryExtension(long display, IntBuffer opcodeReturn, IntBuffer eventBaseReturn, IntBuffer errorBaseReturn, IntBuffer majorRtrn, IntBuffer minorRtrn) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
@@ -117,7 +117,7 @@ public final class XKBlib {
 
 	// --- [ XkbSetDetectableAutoRepeat ] ---
 
-	/** JNI method for {@link #XkbSetDetectableAutoRepeat XkbSetDetectableAutoRepeat} */
+	/** JNI method for {@link #XkbSetDetectableAutoRepeat} */
 	@JavadocExclude
 	public static native int nXkbSetDetectableAutoRepeat(long display, int detectable, long supported);
 
@@ -134,7 +134,7 @@ public final class XKBlib {
 		return nXkbSetDetectableAutoRepeat(display, detectable, memAddress(supported));
 	}
 
-	/** Alternative version of: {@link #XkbSetDetectableAutoRepeat XkbSetDetectableAutoRepeat} */
+	/** Alternative version of: {@link #XkbSetDetectableAutoRepeat} */
 	public static int XkbSetDetectableAutoRepeat(long display, int detectable, IntBuffer supported) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
@@ -143,7 +143,7 @@ public final class XKBlib {
 
 	// --- [ XkbKeycodeToKeysym ] ---
 
-	/** JNI method for {@link #XkbKeycodeToKeysym XkbKeycodeToKeysym} */
+	/** JNI method for {@link #XkbKeycodeToKeysym} */
 	@JavadocExclude
 	public static native long nXkbKeycodeToKeysym(long display, int kc, int group, int level);
 
@@ -163,7 +163,7 @@ public final class XKBlib {
 
 	// --- [ XkbGetKeyboard ] ---
 
-	/** JNI method for {@link #XkbGetKeyboard XkbGetKeyboard} */
+	/** JNI method for {@link #XkbGetKeyboard} */
 	@JavadocExclude
 	public static native long nXkbGetKeyboard(long display, int which, int deviceSpec);
 
@@ -183,7 +183,7 @@ public final class XKBlib {
 
 	// --- [ XkbFreeKeyboard ] ---
 
-	/** JNI method for {@link #XkbFreeKeyboard XkbFreeKeyboard} */
+	/** JNI method for {@link #XkbFreeKeyboard} */
 	@JavadocExclude
 	public static native void nXkbFreeKeyboard(long xkb, int which, int freeDesc);
 

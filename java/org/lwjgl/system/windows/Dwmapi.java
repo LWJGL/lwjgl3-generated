@@ -16,23 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Optional functionality loaded dynamically from <strong>dwmapi.dll</strong>.
  * <p/>
- * Features must be detected on a function-by-function basis. The pointers in the {@link Functions} instance will have a zero (0L) value when a particular
+ * Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
  * function is not supported in the Windows version we're running.
  */
 public final class Dwmapi {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long DwmIsCompositionEnabled;
+	public final long DwmIsCompositionEnabledAddress;
 
 	@JavadocExclude
 	public Dwmapi(FunctionProvider provider) {
-		DwmIsCompositionEnabled = provider.getFunctionAddress("DwmIsCompositionEnabled");
+		DwmIsCompositionEnabledAddress = provider.getFunctionAddress("DwmIsCompositionEnabled");
 	}
 
 	// --- [ DwmIsCompositionEnabled ] ---
 
-	/** JNI method for {@link #DwmIsCompositionEnabled DwmIsCompositionEnabled} */
+	/** JNI method for {@link #DwmIsCompositionEnabled} */
 	@JavadocExclude
 	public static native int nDwmIsCompositionEnabled(long enabled, long __functionAddress);
 
@@ -48,7 +48,7 @@ public final class Dwmapi {
 		return nDwmIsCompositionEnabled(memAddress(enabled), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #DwmIsCompositionEnabled DwmIsCompositionEnabled} */
+	/** Alternative version of: {@link #DwmIsCompositionEnabled} */
 	public static int DwmIsCompositionEnabled(IntBuffer enabled, long __functionAddress) {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);

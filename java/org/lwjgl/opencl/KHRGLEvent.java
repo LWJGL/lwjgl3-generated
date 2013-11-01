@@ -31,11 +31,11 @@ public final class KHRGLEvent {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long clCreateEventFromGLsyncKHR;
+	public final long CreateEventFromGLsyncKHR;
 
 	@JavadocExclude
 	public KHRGLEvent(FunctionProviderLocal provider, long platform) {
-		clCreateEventFromGLsyncKHR = provider.getFunctionAddress(platform, "clCreateEventFromGLsyncKHR");
+		CreateEventFromGLsyncKHR = provider.getFunctionAddress(platform, "clCreateEventFromGLsyncKHR");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -50,14 +50,14 @@ public final class KHRGLEvent {
 
 		KHRGLEvent funcs = new KHRGLEvent(provider, platform);
 
-		boolean supported =  funcs.clCreateEventFromGLsyncKHR != 0L;
+		boolean supported =  funcs.CreateEventFromGLsyncKHR != 0L;
 
 		return CL.checkExtension("cl_khr_gl_event", funcs, supported);
 	}
 
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
-	/** JNI method for {@link #clCreateEventFromGLsyncKHR clCreateEventFromGLsyncKHR} */
+	/** JNI method for {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
 	@JavadocExclude
 	public static native long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret, long __functionAddress);
 
@@ -69,7 +69,7 @@ public final class KHRGLEvent {
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static CLEvent clCreateEventFromGLsyncKHR(CLContext context, long sync, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateEventFromGLsyncKHR;
+		long __functionAddress = getInstance(context).CreateEventFromGLsyncKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
@@ -78,9 +78,9 @@ public final class KHRGLEvent {
 		return CLEvent.create(nclCreateEventFromGLsyncKHR(context.getPointer(), sync, memAddressSafe(errcode_ret), __functionAddress), context);
 	}
 
-	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR clCreateEventFromGLsyncKHR} */
+	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
 	public static CLEvent clCreateEventFromGLsyncKHR(CLContext context, long sync, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).clCreateEventFromGLsyncKHR;
+		long __functionAddress = getInstance(context).CreateEventFromGLsyncKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);

@@ -231,7 +231,7 @@ public final class CGL {
 
 	// --- [ CGLSetCurrentContext ] ---
 
-	/** JNI method for {@link #CGLSetCurrentContext CGLSetCurrentContext} */
+	/** JNI method for {@link #CGLSetCurrentContext SetCurrentContext} */
 	@JavadocExclude
 	public static native int nCGLSetCurrentContext(long context);
 
@@ -255,7 +255,7 @@ public final class CGL {
 
 	// --- [ CGLGetShareGroup ] ---
 
-	/** JNI method for {@link #CGLGetShareGroup CGLGetShareGroup} */
+	/** JNI method for {@link #CGLGetShareGroup GetShareGroup} */
 	@JavadocExclude
 	public static native long nCGLGetShareGroup(long ctx);
 
@@ -272,7 +272,7 @@ public final class CGL {
 
 	// --- [ CGLChoosePixelFormat ] ---
 
-	/** JNI method for {@link #CGLChoosePixelFormat CGLChoosePixelFormat} */
+	/** JNI method for {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	@JavadocExclude
 	public static native int nCGLChoosePixelFormat(long attribs, long pix, long npix);
 
@@ -295,7 +295,7 @@ public final class CGL {
 		return nCGLChoosePixelFormat(memAddress(attribs), memAddressSafe(pix), memAddress(npix));
 	}
 
-	/** Alternative version of: {@link #CGLChoosePixelFormat CGLChoosePixelFormat} */
+	/** Alternative version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( pix != null ) checkBuffer(pix, 1);
@@ -306,7 +306,7 @@ public final class CGL {
 
 	// --- [ CGLDestroyPixelFormat ] ---
 
-	/** JNI method for {@link #CGLDestroyPixelFormat CGLDestroyPixelFormat} */
+	/** JNI method for {@link #CGLDestroyPixelFormat DestroyPixelFormat} */
 	@JavadocExclude
 	public static native int nCGLDestroyPixelFormat(long pix);
 
@@ -323,7 +323,7 @@ public final class CGL {
 
 	// --- [ CGLDescribePixelFormat ] ---
 
-	/** JNI method for {@link #CGLDescribePixelFormat CGLDescribePixelFormat} */
+	/** JNI method for {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	@JavadocExclude
 	public static native int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value);
 
@@ -343,7 +343,7 @@ public final class CGL {
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #CGLDescribePixelFormat CGLDescribePixelFormat} */
+	/** Alternative version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(pix);
@@ -354,7 +354,7 @@ public final class CGL {
 
 	// --- [ CGLReleasePixelFormat ] ---
 
-	/** JNI method for {@link #CGLReleasePixelFormat CGLReleasePixelFormat} */
+	/** JNI method for {@link #CGLReleasePixelFormat ReleasePixelFormat} */
 	@JavadocExclude
 	public static native void nCGLReleasePixelFormat(long pix);
 
@@ -376,7 +376,7 @@ public final class CGL {
 
 	// --- [ CGLRetainPixelFormat ] ---
 
-	/** JNI method for {@link #CGLRetainPixelFormat CGLRetainPixelFormat} */
+	/** JNI method for {@link #CGLRetainPixelFormat RetainPixelFormat} */
 	@JavadocExclude
 	public static native long nCGLRetainPixelFormat(long pix);
 
@@ -396,7 +396,7 @@ public final class CGL {
 
 	// --- [ CGLGetPixelFormatRetainCount ] ---
 
-	/** JNI method for {@link #CGLGetPixelFormatRetainCount CGLGetPixelFormatRetainCount} */
+	/** JNI method for {@link #CGLGetPixelFormatRetainCount GetPixelFormatRetainCount} */
 	@JavadocExclude
 	public static native int nCGLGetPixelFormatRetainCount(long pix);
 
@@ -413,7 +413,7 @@ public final class CGL {
 
 	// --- [ CGLQueryRendererInfo ] ---
 
-	/** JNI method for {@link #CGLQueryRendererInfo CGLQueryRendererInfo} */
+	/** JNI method for {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	@JavadocExclude
 	public static native int nCGLQueryRendererInfo(int display_mask, long rend, long nrend);
 
@@ -437,7 +437,7 @@ public final class CGL {
 		return nCGLQueryRendererInfo(display_mask, memAddress(rend), memAddress(nrend));
 	}
 
-	/** Alternative version of: {@link #CGLQueryRendererInfo CGLQueryRendererInfo} */
+	/** Alternative version of: {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, IntBuffer nrend) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(rend, 1);
@@ -448,7 +448,7 @@ public final class CGL {
 
 	// --- [ CGLDestroyRendererInfo ] ---
 
-	/** JNI method for {@link #CGLDestroyRendererInfo CGLDestroyRendererInfo} */
+	/** JNI method for {@link #CGLDestroyRendererInfo DestroyRendererInfo} */
 	@JavadocExclude
 	public static native int nCGLDestroyRendererInfo(long rend);
 
@@ -465,7 +465,7 @@ public final class CGL {
 
 	// --- [ CGLDescribeRenderer ] ---
 
-	/** JNI method for {@link #CGLDescribeRenderer CGLDescribeRenderer} */
+	/** JNI method for {@link #CGLDescribeRenderer DescribeRenderer} */
 	@JavadocExclude
 	public static native int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value);
 
@@ -489,7 +489,7 @@ public final class CGL {
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #CGLDescribeRenderer CGLDescribeRenderer} */
+	/** Alternative version of: {@link #CGLDescribeRenderer DescribeRenderer} */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(rend);
@@ -500,7 +500,7 @@ public final class CGL {
 
 	// --- [ CGLCreateContext ] ---
 
-	/** JNI method for {@link #CGLCreateContext CGLCreateContext} */
+	/** JNI method for {@link #CGLCreateContext CreateContext} */
 	@JavadocExclude
 	public static native int nCGLCreateContext(long pix, long share, long ctx);
 
@@ -523,7 +523,7 @@ public final class CGL {
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
 
-	/** Alternative version of: {@link #CGLCreateContext CGLCreateContext} */
+	/** Alternative version of: {@link #CGLCreateContext CreateContext} */
 	public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(pix);
@@ -535,7 +535,7 @@ public final class CGL {
 
 	// --- [ CGLDestroyContext ] ---
 
-	/** JNI method for {@link #CGLDestroyContext CGLDestroyContext} */
+	/** JNI method for {@link #CGLDestroyContext DestroyContext} */
 	@JavadocExclude
 	public static native int nCGLDestroyContext(long ctx);
 
@@ -556,7 +556,7 @@ public final class CGL {
 
 	// --- [ CGLCopyContext ] ---
 
-	/** JNI method for {@link #CGLCopyContext CGLCopyContext} */
+	/** JNI method for {@link #CGLCopyContext CopyContext} */
 	@JavadocExclude
 	public static native int nCGLCopyContext(long src, long dst, int mask);
 
@@ -579,7 +579,7 @@ public final class CGL {
 
 	// --- [ CGLRetainContext ] ---
 
-	/** JNI method for {@link #CGLRetainContext CGLRetainContext} */
+	/** JNI method for {@link #CGLRetainContext RetainContext} */
 	@JavadocExclude
 	public static native long nCGLRetainContext(long ctx);
 
@@ -601,7 +601,7 @@ public final class CGL {
 
 	// --- [ CGLReleaseContext ] ---
 
-	/** JNI method for {@link #CGLReleaseContext CGLReleaseContext} */
+	/** JNI method for {@link #CGLReleaseContext ReleaseContext} */
 	@JavadocExclude
 	public static native void nCGLReleaseContext(long ctx);
 
@@ -625,7 +625,7 @@ public final class CGL {
 
 	// --- [ CGLGetContextRetainCount ] ---
 
-	/** JNI method for {@link #CGLGetContextRetainCount CGLGetContextRetainCount} */
+	/** JNI method for {@link #CGLGetContextRetainCount GetContextRetainCount} */
 	@JavadocExclude
 	public static native int nCGLGetContextRetainCount(long ctx);
 
@@ -642,7 +642,7 @@ public final class CGL {
 
 	// --- [ CGLGetPixelFormat ] ---
 
-	/** JNI method for {@link #CGLGetPixelFormat CGLGetPixelFormat} */
+	/** JNI method for {@link #CGLGetPixelFormat GetPixelFormat} */
 	@JavadocExclude
 	public static native long nCGLGetPixelFormat(long ctx);
 
@@ -662,7 +662,7 @@ public final class CGL {
 
 	// --- [ CGLClearDrawable ] ---
 
-	/** JNI method for {@link #CGLClearDrawable CGLClearDrawable} */
+	/** JNI method for {@link #CGLClearDrawable ClearDrawable} */
 	@JavadocExclude
 	public static native int nCGLClearDrawable(long ctx);
 
@@ -679,7 +679,7 @@ public final class CGL {
 
 	// --- [ CGLFlushDrawable ] ---
 
-	/** JNI method for {@link #CGLFlushDrawable CGLFlushDrawable} */
+	/** JNI method for {@link #CGLFlushDrawable FlushDrawable} */
 	@JavadocExclude
 	public static native int nCGLFlushDrawable(long ctx);
 
@@ -705,7 +705,7 @@ public final class CGL {
 
 	// --- [ CGLEnable ] ---
 
-	/** JNI method for {@link #CGLEnable CGLEnable} */
+	/** JNI method for {@link #CGLEnable Enable} */
 	@JavadocExclude
 	public static native int nCGLEnable(long ctx, int pname);
 
@@ -723,7 +723,7 @@ public final class CGL {
 
 	// --- [ CGLDisable ] ---
 
-	/** JNI method for {@link #CGLDisable CGLDisable} */
+	/** JNI method for {@link #CGLDisable Disable} */
 	@JavadocExclude
 	public static native int nCGLDisable(long ctx, int pname);
 
@@ -741,7 +741,7 @@ public final class CGL {
 
 	// --- [ CGLIsEnabled ] ---
 
-	/** JNI method for {@link #CGLIsEnabled CGLIsEnabled} */
+	/** JNI method for {@link #CGLIsEnabled IsEnabled} */
 	@JavadocExclude
 	public static native int nCGLIsEnabled(long ctx, int pname, long enable);
 
@@ -760,7 +760,7 @@ public final class CGL {
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
 
-	/** Alternative version of: {@link #CGLIsEnabled CGLIsEnabled} */
+	/** Alternative version of: {@link #CGLIsEnabled IsEnabled} */
 	public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -771,7 +771,7 @@ public final class CGL {
 
 	// --- [ CGLSetParameter ] ---
 
-	/** JNI method for {@link #CGLSetParameter CGLSetParameter} */
+	/** JNI method for {@link #CGLSetParameter SetParameter} */
 	@JavadocExclude
 	public static native int nCGLSetParameter(long ctx, int pname, long params);
 
@@ -790,7 +790,7 @@ public final class CGL {
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLSetParameter CGLSetParameter} */
+	/** Alternative version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -799,7 +799,7 @@ public final class CGL {
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetParameter CGLSetParameter} */
+	/** Single value version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, int param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
@@ -810,7 +810,7 @@ public final class CGL {
 
 	// --- [ CGLGetParameter ] ---
 
-	/** JNI method for {@link #CGLGetParameter CGLGetParameter} */
+	/** JNI method for {@link #CGLGetParameter GetParameter} */
 	@JavadocExclude
 	public static native int nCGLGetParameter(long ctx, int pname, long params);
 
@@ -829,7 +829,7 @@ public final class CGL {
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLGetParameter CGLGetParameter} */
+	/** Alternative version of: {@link #CGLGetParameter GetParameter} */
 	public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -840,7 +840,7 @@ public final class CGL {
 
 	// --- [ CGLSetVirtualScreen ] ---
 
-	/** JNI method for {@link #CGLSetVirtualScreen CGLSetVirtualScreen} */
+	/** JNI method for {@link #CGLSetVirtualScreen SetVirtualScreen} */
 	@JavadocExclude
 	public static native int nCGLSetVirtualScreen(long ctx, int screen);
 
@@ -865,7 +865,7 @@ public final class CGL {
 
 	// --- [ CGLGetVirtualScreen ] ---
 
-	/** JNI method for {@link #CGLGetVirtualScreen CGLGetVirtualScreen} */
+	/** JNI method for {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	@JavadocExclude
 	public static native int nCGLGetVirtualScreen(long ctx, long screen);
 
@@ -887,7 +887,7 @@ public final class CGL {
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
 
-	/** Alternative version of: {@link #CGLGetVirtualScreen CGLGetVirtualScreen} */
+	/** Alternative version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
@@ -898,7 +898,7 @@ public final class CGL {
 
 	// --- [ CGLUpdateContext ] ---
 
-	/** JNI method for {@link #CGLUpdateContext CGLUpdateContext} */
+	/** JNI method for {@link #CGLUpdateContext UpdateContext} */
 	@JavadocExclude
 	public static native int nCGLUpdateContext(long ctx);
 
@@ -915,7 +915,7 @@ public final class CGL {
 
 	// --- [ CGLSetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLSetGlobalOption CGLSetGlobalOption} */
+	/** JNI method for {@link #CGLSetGlobalOption SetGlobalOption} */
 	@JavadocExclude
 	public static native int nCGLSetGlobalOption(int pname, long params);
 
@@ -931,14 +931,14 @@ public final class CGL {
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLSetGlobalOption CGLSetGlobalOption} */
+	/** Alternative version of: {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #CGLSetGlobalOption CGLSetGlobalOption} */
+	/** Single value version of: {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -947,7 +947,7 @@ public final class CGL {
 
 	// --- [ CGLGetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLGetGlobalOption CGLGetGlobalOption} */
+	/** JNI method for {@link #CGLGetGlobalOption GetGlobalOption} */
 	@JavadocExclude
 	public static native int nCGLGetGlobalOption(int pname, long params);
 
@@ -963,7 +963,7 @@ public final class CGL {
 		return nCGLGetGlobalOption(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #CGLGetGlobalOption CGLGetGlobalOption} */
+	/** Alternative version of: {@link #CGLGetGlobalOption GetGlobalOption} */
 	public static int CGLGetGlobalOption(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -972,7 +972,7 @@ public final class CGL {
 
 	// --- [ CGLLockContext ] ---
 
-	/** JNI method for {@link #CGLLockContext CGLLockContext} */
+	/** JNI method for {@link #CGLLockContext LockContext} */
 	@JavadocExclude
 	public static native int nCGLLockContext(long context);
 
@@ -998,7 +998,7 @@ public final class CGL {
 
 	// --- [ CGLUnlockContext ] ---
 
-	/** JNI method for {@link #CGLUnlockContext CGLUnlockContext} */
+	/** JNI method for {@link #CGLUnlockContext UnlockContext} */
 	@JavadocExclude
 	public static native int nCGLUnlockContext(long context);
 
@@ -1015,7 +1015,7 @@ public final class CGL {
 
 	// --- [ CGLGetVersion ] ---
 
-	/** JNI method for {@link #CGLGetVersion CGLGetVersion} */
+	/** JNI method for {@link #CGLGetVersion GetVersion} */
 	@JavadocExclude
 	public static native void nCGLGetVersion(long majorvers, long minorvers);
 
@@ -1033,7 +1033,7 @@ public final class CGL {
 		nCGLGetVersion(memAddress(majorvers), memAddress(minorvers));
 	}
 
-	/** Alternative version of: {@link #CGLGetVersion CGLGetVersion} */
+	/** Alternative version of: {@link #CGLGetVersion GetVersion} */
 	public static void CGLGetVersion(IntBuffer majorvers, IntBuffer minorvers) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(majorvers, 1);
@@ -1044,7 +1044,7 @@ public final class CGL {
 
 	// --- [ CGLErrorString ] ---
 
-	/** JNI method for {@link #CGLErrorString CGLErrorString} */
+	/** JNI method for {@link #CGLErrorString ErrorString} */
 	@JavadocExclude
 	public static native long nCGLErrorString(int error);
 

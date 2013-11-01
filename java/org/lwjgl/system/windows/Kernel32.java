@@ -13,23 +13,23 @@ import static org.lwjgl.system.Checks.*;
 /**
  * Optional functionality loaded dynamically from <strong>kernel32.dll</strong>.
  * <p/>
- * Features must be detected on a function-by-function basis. The pointers in the {@link Functions} instance will have a zero (0L) value when a particular
+ * Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
  * function is not supported in the Windows version we're running.
  */
 public final class Kernel32 {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long SetThreadAffinityMask;
+	public final long SetThreadAffinityMaskAddress;
 
 	@JavadocExclude
 	public Kernel32(FunctionProvider provider) {
-		SetThreadAffinityMask = provider.getFunctionAddress("SetThreadAffinityMask");
+		SetThreadAffinityMaskAddress = provider.getFunctionAddress("SetThreadAffinityMask");
 	}
 
 	// --- [ SetThreadAffinityMask ] ---
 
-	/** JNI method for {@link #SetThreadAffinityMask SetThreadAffinityMask} */
+	/** JNI method for {@link #SetThreadAffinityMask} */
 	@JavadocExclude
 	public static native long nSetThreadAffinityMask(long thread, long threadAffinityMask, long __functionAddress);
 

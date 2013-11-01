@@ -21,23 +21,27 @@ typedef ALvoid (APIENTRY *alGetSourcei64vSOFTPROC) (ALuint, ALenum, ALint64SOFT 
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSourcedSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jdouble value, jlong __functionAddress) {
 	alSourcedSOFTPROC alSourcedSOFT = (alSourcedSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSourcedSOFT(source, param, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSource3dSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jdouble value1, jdouble value2, jdouble value3, jlong __functionAddress) {
 	alSource3dSOFTPROC alSource3dSOFT = (alSource3dSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSource3dSOFT(source, param, value1, value2, value3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSourcedvSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valueAddress, jlong __functionAddress) {
 	const ALdouble *value = (const ALdouble *)(intptr_t)valueAddress;
 	alSourcedvSOFTPROC alSourcedvSOFT = (alSourcedvSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSourcedvSOFT(source, param, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSourcedSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valueAddress, jlong __functionAddress) {
 	ALdouble *value = (ALdouble *)(intptr_t)valueAddress;
 	alGetSourcedSOFTPROC alGetSourcedSOFT = (alGetSourcedSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSourcedSOFT(source, param, value);
 }
 
@@ -46,34 +50,40 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSource3dSOF
 	ALdouble *value2 = (ALdouble *)(intptr_t)value2Address;
 	ALdouble *value3 = (ALdouble *)(intptr_t)value3Address;
 	alGetSource3dSOFTPROC alGetSource3dSOFT = (alGetSource3dSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSource3dSOFT(source, param, value1, value2, value3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSourcedvSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valuesAddress, jlong __functionAddress) {
 	ALdouble *values = (ALdouble *)(intptr_t)valuesAddress;
 	alGetSourcedvSOFTPROC alGetSourcedvSOFT = (alGetSourcedvSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSourcedvSOFT(source, param, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSourcei64SOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong value, jlong __functionAddress) {
 	alSourcei64SOFTPROC alSourcei64SOFT = (alSourcei64SOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSourcei64SOFT(source, param, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSource3i64SOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong value1, jlong value2, jlong value3, jlong __functionAddress) {
 	alSource3i64SOFTPROC alSource3i64SOFT = (alSource3i64SOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSource3i64SOFT(source, param, value1, value2, value3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSourcei64vSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valuesAddress, jlong __functionAddress) {
 	const ALint64SOFT *values = (const ALint64SOFT *)(intptr_t)valuesAddress;
 	alSourcei64vSOFTPROC alSourcei64vSOFT = (alSourcei64vSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alSourcei64vSOFT(source, param, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSourcei64SOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valueAddress, jlong __functionAddress) {
 	ALint64SOFT *value = (ALint64SOFT *)(intptr_t)valueAddress;
 	alGetSourcei64SOFTPROC alGetSourcei64SOFT = (alGetSourcei64SOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSourcei64SOFT(source, param, value);
 }
 
@@ -82,11 +92,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSource3i64S
 	ALint64SOFT *value2 = (ALint64SOFT *)(intptr_t)value2Address;
 	ALint64SOFT *value3 = (ALint64SOFT *)(intptr_t)value3Address;
 	alGetSource3i64SOFTPROC alGetSource3i64SOFT = (alGetSource3i64SOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSource3i64SOFT(source, param, value1, value2, value3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSourcei64vSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jlong valuesAddress, jlong __functionAddress) {
 	ALint64SOFT *values = (ALint64SOFT *)(intptr_t)valuesAddress;
 	alGetSourcei64vSOFTPROC alGetSourcei64vSOFT = (alGetSourcei64vSOFTPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	alGetSourcei64vSOFT(source, param, values);
 }

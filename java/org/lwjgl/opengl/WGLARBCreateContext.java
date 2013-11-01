@@ -41,11 +41,11 @@ public final class WGLARBCreateContext {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long wglCreateContextAttribsARB;
+	public final long CreateContextAttribsARB;
 
 	@JavadocExclude
 	public WGLARBCreateContext(FunctionProvider provider) {
-		wglCreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
+		CreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -60,14 +60,14 @@ public final class WGLARBCreateContext {
 
 		WGLARBCreateContext funcs = new WGLARBCreateContext(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.wglCreateContextAttribsARB);
+		boolean supported =  GL.isFunctionSupported(funcs.CreateContextAttribsARB);
 
 		return GL.checkExtension("WGL_ARB_create_context", funcs, supported);
 	}
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #wglCreateContextAttribsARB wglCreateContextAttribsARB} */
+	/** JNI method for {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	@JavadocExclude
 	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
 
@@ -84,7 +84,7 @@ public final class WGLARBCreateContext {
 	 *                     is used.
 	 */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, ByteBuffer attribList) {
-		long __functionAddress = getInstance().wglCreateContextAttribsARB;
+		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
@@ -93,9 +93,9 @@ public final class WGLARBCreateContext {
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #wglCreateContextAttribsARB wglCreateContextAttribsARB} */
+	/** Alternative version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
-		long __functionAddress = getInstance().wglCreateContextAttribsARB;
+		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);

@@ -13,6 +13,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapBarrier_nglXBindSwapBarr
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	glXBindSwapBarrierSGIXPROC glXBindSwapBarrierSGIX = (glXBindSwapBarrierSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXBindSwapBarrierSGIX(display, drawable, barrier);
 }
 
@@ -20,5 +21,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapBarrier_nglXQueryMaxSwap
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *max = (int *)(intptr_t)maxAddress;
 	glXQueryMaxSwapBarriersSGIXPROC glXQueryMaxSwapBarriersSGIX = (glXQueryMaxSwapBarriersSGIXPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXQueryMaxSwapBarriersSGIX(display, screen, max);
 }

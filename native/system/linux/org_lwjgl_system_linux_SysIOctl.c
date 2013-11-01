@@ -9,5 +9,6 @@
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_SysIOctl_nioctl(JNIEnv *__env, jclass clazz, jint fd, jint request, jlong argAddress) {
 	void *arg = (void *)(intptr_t)argAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)ioctl(fd, request, arg);
 }

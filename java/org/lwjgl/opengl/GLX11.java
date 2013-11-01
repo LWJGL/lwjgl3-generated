@@ -25,15 +25,15 @@ public final class GLX11 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glXQueryExtensionsString,
-		glXGetClientString,
-		glXQueryServerString;
+		QueryExtensionsString,
+		GetClientString,
+		QueryServerString;
 
 	@JavadocExclude
 	public GLX11(FunctionProvider provider) {
-		glXQueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
-		glXGetClientString = provider.getFunctionAddress("glXGetClientString");
-		glXQueryServerString = provider.getFunctionAddress("glXQueryServerString");
+		QueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
+		GetClientString = provider.getFunctionAddress("glXGetClientString");
+		QueryServerString = provider.getFunctionAddress("glXQueryServerString");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -49,16 +49,16 @@ public final class GLX11 {
 		GLX11 funcs = new GLX11(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glXQueryExtensionsString) &&
-			GL.isFunctionSupported(funcs.glXGetClientString) &&
-			GL.isFunctionSupported(funcs.glXQueryServerString);
+			GL.isFunctionSupported(funcs.QueryExtensionsString) &&
+			GL.isFunctionSupported(funcs.GetClientString) &&
+			GL.isFunctionSupported(funcs.QueryServerString);
 
 		return GL.checkExtension("GLX_11", funcs, supported);
 	}
 
 	// --- [ glXQueryExtensionsString ] ---
 
-	/** JNI method for {@link #glXQueryExtensionsString glXQueryExtensionsString} */
+	/** JNI method for {@link #glXQueryExtensionsString QueryExtensionsString} */
 	@JavadocExclude
 	public static native long nglXQueryExtensionsString(long display, int screen, long __functionAddress);
 
@@ -69,7 +69,7 @@ public final class GLX11 {
 	 * @param screen  the screen number
 	 */
 	public static String glXQueryExtensionsString(long display, int screen) {
-		long __functionAddress = getInstance().glXQueryExtensionsString;
+		long __functionAddress = getInstance().QueryExtensionsString;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -80,7 +80,7 @@ public final class GLX11 {
 
 	// --- [ glXGetClientString ] ---
 
-	/** JNI method for {@link #glXGetClientString glXGetClientString} */
+	/** JNI method for {@link #glXGetClientString GetClientString} */
 	@JavadocExclude
 	public static native long nglXGetClientString(long display, int name, long __functionAddress);
 
@@ -91,7 +91,7 @@ public final class GLX11 {
 	 * @param name    the string to query
 	 */
 	public static String glXGetClientString(long display, int name) {
-		long __functionAddress = getInstance().glXGetClientString;
+		long __functionAddress = getInstance().GetClientString;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
@@ -102,7 +102,7 @@ public final class GLX11 {
 
 	// --- [ glXQueryServerString ] ---
 
-	/** JNI method for {@link #glXQueryServerString glXQueryServerString} */
+	/** JNI method for {@link #glXQueryServerString QueryServerString} */
 	@JavadocExclude
 	public static native long nglXQueryServerString(long display, int screen, int name, long __functionAddress);
 
@@ -114,7 +114,7 @@ public final class GLX11 {
 	 * @param name    the string to query
 	 */
 	public static String glXQueryServerString(long display, int screen, int name) {
-		long __functionAddress = getInstance().glXQueryServerString;
+		long __functionAddress = getInstance().QueryServerString;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);

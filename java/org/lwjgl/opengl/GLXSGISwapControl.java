@@ -21,11 +21,11 @@ public final class GLXSGISwapControl {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long glXSwapIntervalSGI;
+	public final long SwapIntervalSGI;
 
 	@JavadocExclude
 	public GLXSGISwapControl(FunctionProvider provider) {
-		glXSwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
+		SwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -40,14 +40,14 @@ public final class GLXSGISwapControl {
 
 		GLXSGISwapControl funcs = new GLXSGISwapControl(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.glXSwapIntervalSGI);
+		boolean supported =  GL.isFunctionSupported(funcs.SwapIntervalSGI);
 
 		return GL.checkExtension("GLX_SGI_swap_control", funcs, supported);
 	}
 
 	// --- [ glXSwapIntervalSGI ] ---
 
-	/** JNI method for {@link #glXSwapIntervalSGI glXSwapIntervalSGI} */
+	/** JNI method for {@link #glXSwapIntervalSGI SwapIntervalSGI} */
 	@JavadocExclude
 	public static native int nglXSwapIntervalSGI(int interval, long __functionAddress);
 
@@ -62,7 +62,7 @@ public final class GLXSGISwapControl {
 	 * @param interval the swap interval
 	 */
 	public static int glXSwapIntervalSGI(int interval) {
-		long __functionAddress = getInstance().glXSwapIntervalSGI;
+		long __functionAddress = getInstance().SwapIntervalSGI;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglXSwapIntervalSGI(interval, __functionAddress);

@@ -13,5 +13,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_KHRGLSharing_nclGetGLContextInfoKHR
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetGLContextInfoKHRPROC clGetGLContextInfoKHR = (clGetGLContextInfoKHRPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetGLContextInfoKHR(properties, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }

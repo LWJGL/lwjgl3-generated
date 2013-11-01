@@ -23,11 +23,11 @@ public final class WGLARBExtensionsString {
 
 	/** Function address. */
 	@JavadocExclude
-	public final long wglGetExtensionsStringARB;
+	public final long GetExtensionsStringARB;
 
 	@JavadocExclude
 	public WGLARBExtensionsString(FunctionProvider provider) {
-		wglGetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
+		GetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -42,14 +42,14 @@ public final class WGLARBExtensionsString {
 
 		WGLARBExtensionsString funcs = new WGLARBExtensionsString(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.wglGetExtensionsStringARB);
+		boolean supported =  GL.isFunctionSupported(funcs.GetExtensionsStringARB);
 
 		return GL.checkExtension("WGL_ARB_extensions_string", funcs, supported);
 	}
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringARB wglGetExtensionsStringARB} */
+	/** JNI method for {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
 	@JavadocExclude
 	public static native long nwglGetExtensionsStringARB(long hdc, long __functionAddress);
 
@@ -61,7 +61,7 @@ public final class WGLARBExtensionsString {
 	 * @param hdc the device context to query extensions for
 	 */
 	public static String wglGetExtensionsStringARB(long hdc) {
-		long __functionAddress = getInstance().wglGetExtensionsStringARB;
+		long __functionAddress = getInstance().GetExtensionsStringARB;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);

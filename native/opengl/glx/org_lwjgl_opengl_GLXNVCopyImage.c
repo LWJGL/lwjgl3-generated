@@ -14,5 +14,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXNVCopyImage_nglXCopyImageSubData
 	GLXContext srcCtx = (GLXContext)(intptr_t)srcCtxAddress;
 	GLXContext dstCtx = (GLXContext)(intptr_t)dstCtxAddress;
 	glXCopyImageSubDataNVPROC glXCopyImageSubDataNV = (glXCopyImageSubDataNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	glXCopyImageSubDataNV(display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 }

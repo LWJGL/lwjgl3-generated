@@ -142,7 +142,7 @@ public final class Mmsystem {
 
 	// --- [ joyGetDevCaps ] ---
 
-	/** JNI method for {@link #joyGetDevCaps joyGetDevCaps} */
+	/** JNI method for {@link #joyGetDevCaps} */
 	@JavadocExclude
 	public static native int njoyGetDevCaps(long joyID, long jc, int bjc);
 
@@ -162,7 +162,7 @@ public final class Mmsystem {
 
 	// --- [ joyGetPos ] ---
 
-	/** JNI method for {@link #joyGetPos joyGetPos} */
+	/** JNI method for {@link #joyGetPos} */
 	@JavadocExclude
 	public static native int njoyGetPos(int joyID, long ji);
 
@@ -180,7 +180,7 @@ public final class Mmsystem {
 
 	// --- [ joyGetPosEx ] ---
 
-	/** JNI method for {@link #joyGetPosEx joyGetPosEx} */
+	/** JNI method for {@link #joyGetPosEx} */
 	@JavadocExclude
 	public static native int njoyGetPosEx(int joyID, long ji);
 

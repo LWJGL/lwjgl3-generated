@@ -476,169 +476,169 @@ public final class GL30 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glGetStringi,
-		glVertexAttribI1i,
-		glVertexAttribI2i,
-		glVertexAttribI3i,
-		glVertexAttribI4i,
-		glVertexAttribI1ui,
-		glVertexAttribI2ui,
-		glVertexAttribI3ui,
-		glVertexAttribI4ui,
-		glVertexAttribI1iv,
-		glVertexAttribI2iv,
-		glVertexAttribI3iv,
-		glVertexAttribI4iv,
-		glVertexAttribI1uiv,
-		glVertexAttribI2uiv,
-		glVertexAttribI3uiv,
-		glVertexAttribI4uiv,
-		glVertexAttribI4bv,
-		glVertexAttribI4sv,
-		glVertexAttribI4ubv,
-		glVertexAttribI4usv,
-		glVertexAttribIPointer,
-		glGetVertexAttribIiv,
-		glGetVertexAttribIuiv,
-		glUniform1ui,
-		glUniform2ui,
-		glUniform3ui,
-		glUniform4ui,
-		glUniform1uiv,
-		glUniform2uiv,
-		glUniform3uiv,
-		glUniform4uiv,
-		glGetUniformuiv,
-		glBindFragDataLocation,
-		glGetFragDataLocation,
-		glBeginConditionalRender,
-		glEndConditionalRender,
-		glMapBufferRange,
-		glFlushMappedBufferRange,
-		glClampColor,
-		glIsRenderbuffer,
-		glBindRenderbuffer,
-		glDeleteRenderbuffers,
-		glGenRenderbuffers,
-		glRenderbufferStorage,
-		glRenderbufferStorageMultisample,
-		glGetRenderbufferParameteriv,
-		glIsFramebuffer,
-		glBindFramebuffer,
-		glDeleteFramebuffers,
-		glGenFramebuffers,
-		glCheckFramebufferStatus,
-		glFramebufferTexture1D,
-		glFramebufferTexture2D,
-		glFramebufferTexture3D,
-		glFramebufferTextureLayer,
-		glFramebufferRenderbuffer,
-		glGetFramebufferAttachmentParameteriv,
-		glBlitFramebuffer,
-		glGenerateMipmap,
-		glTexParameterIiv,
-		glTexParameterIuiv,
-		glGetTexParameterIiv,
-		glGetTexParameterIuiv,
-		glColorMaski,
-		glGetBooleani_v,
-		glGetIntegeri_v,
-		glEnablei,
-		glDisablei,
-		glIsEnabledi,
-		glBindBufferRange,
-		glBindBufferBase,
-		glBeginTransformFeedback,
-		glEndTransformFeedback,
-		glTransformFeedbackVaryings,
-		glGetTransformFeedbackVarying,
-		glBindVertexArray,
-		glDeleteVertexArrays,
-		glGenVertexArrays,
-		glIsVertexArray;
+		GetStringi,
+		VertexAttribI1i,
+		VertexAttribI2i,
+		VertexAttribI3i,
+		VertexAttribI4i,
+		VertexAttribI1ui,
+		VertexAttribI2ui,
+		VertexAttribI3ui,
+		VertexAttribI4ui,
+		VertexAttribI1iv,
+		VertexAttribI2iv,
+		VertexAttribI3iv,
+		VertexAttribI4iv,
+		VertexAttribI1uiv,
+		VertexAttribI2uiv,
+		VertexAttribI3uiv,
+		VertexAttribI4uiv,
+		VertexAttribI4bv,
+		VertexAttribI4sv,
+		VertexAttribI4ubv,
+		VertexAttribI4usv,
+		VertexAttribIPointer,
+		GetVertexAttribIiv,
+		GetVertexAttribIuiv,
+		Uniform1ui,
+		Uniform2ui,
+		Uniform3ui,
+		Uniform4ui,
+		Uniform1uiv,
+		Uniform2uiv,
+		Uniform3uiv,
+		Uniform4uiv,
+		GetUniformuiv,
+		BindFragDataLocation,
+		GetFragDataLocation,
+		BeginConditionalRender,
+		EndConditionalRender,
+		MapBufferRange,
+		FlushMappedBufferRange,
+		ClampColor,
+		IsRenderbuffer,
+		BindRenderbuffer,
+		DeleteRenderbuffers,
+		GenRenderbuffers,
+		RenderbufferStorage,
+		RenderbufferStorageMultisample,
+		GetRenderbufferParameteriv,
+		IsFramebuffer,
+		BindFramebuffer,
+		DeleteFramebuffers,
+		GenFramebuffers,
+		CheckFramebufferStatus,
+		FramebufferTexture1D,
+		FramebufferTexture2D,
+		FramebufferTexture3D,
+		FramebufferTextureLayer,
+		FramebufferRenderbuffer,
+		GetFramebufferAttachmentParameteriv,
+		BlitFramebuffer,
+		GenerateMipmap,
+		TexParameterIiv,
+		TexParameterIuiv,
+		GetTexParameterIiv,
+		GetTexParameterIuiv,
+		ColorMaski,
+		GetBooleani_v,
+		GetIntegeri_v,
+		Enablei,
+		Disablei,
+		IsEnabledi,
+		BindBufferRange,
+		BindBufferBase,
+		BeginTransformFeedback,
+		EndTransformFeedback,
+		TransformFeedbackVaryings,
+		GetTransformFeedbackVarying,
+		BindVertexArray,
+		DeleteVertexArrays,
+		GenVertexArrays,
+		IsVertexArray;
 
 	@JavadocExclude
 	public GL30(FunctionProvider provider) {
-		glGetStringi = provider.getFunctionAddress("glGetStringi");
-		glVertexAttribI1i = provider.getFunctionAddress("glVertexAttribI1i");
-		glVertexAttribI2i = provider.getFunctionAddress("glVertexAttribI2i");
-		glVertexAttribI3i = provider.getFunctionAddress("glVertexAttribI3i");
-		glVertexAttribI4i = provider.getFunctionAddress("glVertexAttribI4i");
-		glVertexAttribI1ui = provider.getFunctionAddress("glVertexAttribI1ui");
-		glVertexAttribI2ui = provider.getFunctionAddress("glVertexAttribI2ui");
-		glVertexAttribI3ui = provider.getFunctionAddress("glVertexAttribI3ui");
-		glVertexAttribI4ui = provider.getFunctionAddress("glVertexAttribI4ui");
-		glVertexAttribI1iv = provider.getFunctionAddress("glVertexAttribI1iv");
-		glVertexAttribI2iv = provider.getFunctionAddress("glVertexAttribI2iv");
-		glVertexAttribI3iv = provider.getFunctionAddress("glVertexAttribI3iv");
-		glVertexAttribI4iv = provider.getFunctionAddress("glVertexAttribI4iv");
-		glVertexAttribI1uiv = provider.getFunctionAddress("glVertexAttribI1uiv");
-		glVertexAttribI2uiv = provider.getFunctionAddress("glVertexAttribI2uiv");
-		glVertexAttribI3uiv = provider.getFunctionAddress("glVertexAttribI3uiv");
-		glVertexAttribI4uiv = provider.getFunctionAddress("glVertexAttribI4uiv");
-		glVertexAttribI4bv = provider.getFunctionAddress("glVertexAttribI4bv");
-		glVertexAttribI4sv = provider.getFunctionAddress("glVertexAttribI4sv");
-		glVertexAttribI4ubv = provider.getFunctionAddress("glVertexAttribI4ubv");
-		glVertexAttribI4usv = provider.getFunctionAddress("glVertexAttribI4usv");
-		glVertexAttribIPointer = provider.getFunctionAddress("glVertexAttribIPointer");
-		glGetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
-		glGetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
-		glUniform1ui = provider.getFunctionAddress("glUniform1ui");
-		glUniform2ui = provider.getFunctionAddress("glUniform2ui");
-		glUniform3ui = provider.getFunctionAddress("glUniform3ui");
-		glUniform4ui = provider.getFunctionAddress("glUniform4ui");
-		glUniform1uiv = provider.getFunctionAddress("glUniform1uiv");
-		glUniform2uiv = provider.getFunctionAddress("glUniform2uiv");
-		glUniform3uiv = provider.getFunctionAddress("glUniform3uiv");
-		glUniform4uiv = provider.getFunctionAddress("glUniform4uiv");
-		glGetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
-		glBindFragDataLocation = provider.getFunctionAddress("glBindFragDataLocation");
-		glGetFragDataLocation = provider.getFunctionAddress("glGetFragDataLocation");
-		glBeginConditionalRender = provider.getFunctionAddress("glBeginConditionalRender");
-		glEndConditionalRender = provider.getFunctionAddress("glEndConditionalRender");
-		glMapBufferRange = provider.getFunctionAddress("glMapBufferRange");
-		glFlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
-		glClampColor = provider.getFunctionAddress("glClampColor");
-		glIsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
-		glBindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
-		glDeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
-		glGenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
-		glRenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
-		glRenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
-		glGetRenderbufferParameteriv = provider.getFunctionAddress("glGetRenderbufferParameteriv");
-		glIsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
-		glBindFramebuffer = provider.getFunctionAddress("glBindFramebuffer");
-		glDeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
-		glGenFramebuffers = provider.getFunctionAddress("glGenFramebuffers");
-		glCheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
-		glFramebufferTexture1D = provider.getFunctionAddress("glFramebufferTexture1D");
-		glFramebufferTexture2D = provider.getFunctionAddress("glFramebufferTexture2D");
-		glFramebufferTexture3D = provider.getFunctionAddress("glFramebufferTexture3D");
-		glFramebufferTextureLayer = provider.getFunctionAddress("glFramebufferTextureLayer");
-		glFramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
-		glGetFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetFramebufferAttachmentParameteriv");
-		glBlitFramebuffer = provider.getFunctionAddress("glBlitFramebuffer");
-		glGenerateMipmap = provider.getFunctionAddress("glGenerateMipmap");
-		glTexParameterIiv = provider.getFunctionAddress("glTexParameterIiv");
-		glTexParameterIuiv = provider.getFunctionAddress("glTexParameterIuiv");
-		glGetTexParameterIiv = provider.getFunctionAddress("glGetTexParameterIiv");
-		glGetTexParameterIuiv = provider.getFunctionAddress("glGetTexParameterIuiv");
-		glColorMaski = provider.getFunctionAddress("glColorMaski");
-		glGetBooleani_v = provider.getFunctionAddress("glGetBooleani_v");
-		glGetIntegeri_v = provider.getFunctionAddress("glGetIntegeri_v");
-		glEnablei = provider.getFunctionAddress("glEnablei");
-		glDisablei = provider.getFunctionAddress("glDisablei");
-		glIsEnabledi = provider.getFunctionAddress("glIsEnabledi");
-		glBindBufferRange = provider.getFunctionAddress("glBindBufferRange");
-		glBindBufferBase = provider.getFunctionAddress("glBindBufferBase");
-		glBeginTransformFeedback = provider.getFunctionAddress("glBeginTransformFeedback");
-		glEndTransformFeedback = provider.getFunctionAddress("glEndTransformFeedback");
-		glTransformFeedbackVaryings = provider.getFunctionAddress("glTransformFeedbackVaryings");
-		glGetTransformFeedbackVarying = provider.getFunctionAddress("glGetTransformFeedbackVarying");
-		glBindVertexArray = provider.getFunctionAddress("glBindVertexArray");
-		glDeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
-		glGenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
-		glIsVertexArray = provider.getFunctionAddress("glIsVertexArray");
+		GetStringi = provider.getFunctionAddress("glGetStringi");
+		VertexAttribI1i = provider.getFunctionAddress("glVertexAttribI1i");
+		VertexAttribI2i = provider.getFunctionAddress("glVertexAttribI2i");
+		VertexAttribI3i = provider.getFunctionAddress("glVertexAttribI3i");
+		VertexAttribI4i = provider.getFunctionAddress("glVertexAttribI4i");
+		VertexAttribI1ui = provider.getFunctionAddress("glVertexAttribI1ui");
+		VertexAttribI2ui = provider.getFunctionAddress("glVertexAttribI2ui");
+		VertexAttribI3ui = provider.getFunctionAddress("glVertexAttribI3ui");
+		VertexAttribI4ui = provider.getFunctionAddress("glVertexAttribI4ui");
+		VertexAttribI1iv = provider.getFunctionAddress("glVertexAttribI1iv");
+		VertexAttribI2iv = provider.getFunctionAddress("glVertexAttribI2iv");
+		VertexAttribI3iv = provider.getFunctionAddress("glVertexAttribI3iv");
+		VertexAttribI4iv = provider.getFunctionAddress("glVertexAttribI4iv");
+		VertexAttribI1uiv = provider.getFunctionAddress("glVertexAttribI1uiv");
+		VertexAttribI2uiv = provider.getFunctionAddress("glVertexAttribI2uiv");
+		VertexAttribI3uiv = provider.getFunctionAddress("glVertexAttribI3uiv");
+		VertexAttribI4uiv = provider.getFunctionAddress("glVertexAttribI4uiv");
+		VertexAttribI4bv = provider.getFunctionAddress("glVertexAttribI4bv");
+		VertexAttribI4sv = provider.getFunctionAddress("glVertexAttribI4sv");
+		VertexAttribI4ubv = provider.getFunctionAddress("glVertexAttribI4ubv");
+		VertexAttribI4usv = provider.getFunctionAddress("glVertexAttribI4usv");
+		VertexAttribIPointer = provider.getFunctionAddress("glVertexAttribIPointer");
+		GetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
+		GetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
+		Uniform1ui = provider.getFunctionAddress("glUniform1ui");
+		Uniform2ui = provider.getFunctionAddress("glUniform2ui");
+		Uniform3ui = provider.getFunctionAddress("glUniform3ui");
+		Uniform4ui = provider.getFunctionAddress("glUniform4ui");
+		Uniform1uiv = provider.getFunctionAddress("glUniform1uiv");
+		Uniform2uiv = provider.getFunctionAddress("glUniform2uiv");
+		Uniform3uiv = provider.getFunctionAddress("glUniform3uiv");
+		Uniform4uiv = provider.getFunctionAddress("glUniform4uiv");
+		GetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
+		BindFragDataLocation = provider.getFunctionAddress("glBindFragDataLocation");
+		GetFragDataLocation = provider.getFunctionAddress("glGetFragDataLocation");
+		BeginConditionalRender = provider.getFunctionAddress("glBeginConditionalRender");
+		EndConditionalRender = provider.getFunctionAddress("glEndConditionalRender");
+		MapBufferRange = provider.getFunctionAddress("glMapBufferRange");
+		FlushMappedBufferRange = provider.getFunctionAddress("glFlushMappedBufferRange");
+		ClampColor = provider.getFunctionAddress("glClampColor");
+		IsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
+		BindRenderbuffer = provider.getFunctionAddress("glBindRenderbuffer");
+		DeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
+		GenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
+		RenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
+		RenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
+		GetRenderbufferParameteriv = provider.getFunctionAddress("glGetRenderbufferParameteriv");
+		IsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
+		BindFramebuffer = provider.getFunctionAddress("glBindFramebuffer");
+		DeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
+		GenFramebuffers = provider.getFunctionAddress("glGenFramebuffers");
+		CheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
+		FramebufferTexture1D = provider.getFunctionAddress("glFramebufferTexture1D");
+		FramebufferTexture2D = provider.getFunctionAddress("glFramebufferTexture2D");
+		FramebufferTexture3D = provider.getFunctionAddress("glFramebufferTexture3D");
+		FramebufferTextureLayer = provider.getFunctionAddress("glFramebufferTextureLayer");
+		FramebufferRenderbuffer = provider.getFunctionAddress("glFramebufferRenderbuffer");
+		GetFramebufferAttachmentParameteriv = provider.getFunctionAddress("glGetFramebufferAttachmentParameteriv");
+		BlitFramebuffer = provider.getFunctionAddress("glBlitFramebuffer");
+		GenerateMipmap = provider.getFunctionAddress("glGenerateMipmap");
+		TexParameterIiv = provider.getFunctionAddress("glTexParameterIiv");
+		TexParameterIuiv = provider.getFunctionAddress("glTexParameterIuiv");
+		GetTexParameterIiv = provider.getFunctionAddress("glGetTexParameterIiv");
+		GetTexParameterIuiv = provider.getFunctionAddress("glGetTexParameterIuiv");
+		ColorMaski = provider.getFunctionAddress("glColorMaski");
+		GetBooleani_v = provider.getFunctionAddress("glGetBooleani_v");
+		GetIntegeri_v = provider.getFunctionAddress("glGetIntegeri_v");
+		Enablei = provider.getFunctionAddress("glEnablei");
+		Disablei = provider.getFunctionAddress("glDisablei");
+		IsEnabledi = provider.getFunctionAddress("glIsEnabledi");
+		BindBufferRange = provider.getFunctionAddress("glBindBufferRange");
+		BindBufferBase = provider.getFunctionAddress("glBindBufferBase");
+		BeginTransformFeedback = provider.getFunctionAddress("glBeginTransformFeedback");
+		EndTransformFeedback = provider.getFunctionAddress("glEndTransformFeedback");
+		TransformFeedbackVaryings = provider.getFunctionAddress("glTransformFeedbackVaryings");
+		GetTransformFeedbackVarying = provider.getFunctionAddress("glGetTransformFeedbackVarying");
+		BindVertexArray = provider.getFunctionAddress("glBindVertexArray");
+		DeleteVertexArrays = provider.getFunctionAddress("glDeleteVertexArrays");
+		GenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
+		IsVertexArray = provider.getFunctionAddress("glIsVertexArray");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -654,93 +654,93 @@ public final class GL30 {
 		GL30 funcs = new GL30(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glGetStringi) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI1i) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI2i) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI3i) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4i) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI1ui) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI2ui) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI3ui) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4ui) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI1iv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI2iv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI3iv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4iv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI1uiv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI2uiv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI3uiv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4uiv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4bv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4sv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4ubv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribI4usv) &&
-			GL.isFunctionSupported(funcs.glVertexAttribIPointer) &&
-			GL.isFunctionSupported(funcs.glGetVertexAttribIiv) &&
-			GL.isFunctionSupported(funcs.glGetVertexAttribIuiv) &&
-			GL.isFunctionSupported(funcs.glUniform1ui) &&
-			GL.isFunctionSupported(funcs.glUniform2ui) &&
-			GL.isFunctionSupported(funcs.glUniform3ui) &&
-			GL.isFunctionSupported(funcs.glUniform4ui) &&
-			GL.isFunctionSupported(funcs.glUniform1uiv) &&
-			GL.isFunctionSupported(funcs.glUniform2uiv) &&
-			GL.isFunctionSupported(funcs.glUniform3uiv) &&
-			GL.isFunctionSupported(funcs.glUniform4uiv) &&
-			GL.isFunctionSupported(funcs.glGetUniformuiv) &&
-			GL.isFunctionSupported(funcs.glBindFragDataLocation) &&
-			GL.isFunctionSupported(funcs.glGetFragDataLocation) &&
-			GL.isFunctionSupported(funcs.glBeginConditionalRender) &&
-			GL.isFunctionSupported(funcs.glEndConditionalRender) &&
-			GL.isFunctionSupported(funcs.glMapBufferRange) &&
-			GL.isFunctionSupported(funcs.glFlushMappedBufferRange) &&
-			GL.isFunctionSupported(funcs.glClampColor) &&
-			GL.isFunctionSupported(funcs.glIsRenderbuffer) &&
-			GL.isFunctionSupported(funcs.glBindRenderbuffer) &&
-			GL.isFunctionSupported(funcs.glDeleteRenderbuffers) &&
-			GL.isFunctionSupported(funcs.glGenRenderbuffers) &&
-			GL.isFunctionSupported(funcs.glRenderbufferStorage) &&
-			GL.isFunctionSupported(funcs.glRenderbufferStorageMultisample) &&
-			GL.isFunctionSupported(funcs.glGetRenderbufferParameteriv) &&
-			GL.isFunctionSupported(funcs.glIsFramebuffer) &&
-			GL.isFunctionSupported(funcs.glBindFramebuffer) &&
-			GL.isFunctionSupported(funcs.glDeleteFramebuffers) &&
-			GL.isFunctionSupported(funcs.glGenFramebuffers) &&
-			GL.isFunctionSupported(funcs.glCheckFramebufferStatus) &&
-			GL.isFunctionSupported(funcs.glFramebufferTexture1D) &&
-			GL.isFunctionSupported(funcs.glFramebufferTexture2D) &&
-			GL.isFunctionSupported(funcs.glFramebufferTexture3D) &&
-			GL.isFunctionSupported(funcs.glFramebufferTextureLayer) &&
-			GL.isFunctionSupported(funcs.glFramebufferRenderbuffer) &&
-			GL.isFunctionSupported(funcs.glGetFramebufferAttachmentParameteriv) &&
-			GL.isFunctionSupported(funcs.glBlitFramebuffer) &&
-			GL.isFunctionSupported(funcs.glGenerateMipmap) &&
-			GL.isFunctionSupported(funcs.glTexParameterIiv) &&
-			GL.isFunctionSupported(funcs.glTexParameterIuiv) &&
-			GL.isFunctionSupported(funcs.glGetTexParameterIiv) &&
-			GL.isFunctionSupported(funcs.glGetTexParameterIuiv) &&
-			GL.isFunctionSupported(funcs.glColorMaski) &&
-			GL.isFunctionSupported(funcs.glGetBooleani_v) &&
-			GL.isFunctionSupported(funcs.glGetIntegeri_v) &&
-			GL.isFunctionSupported(funcs.glEnablei) &&
-			GL.isFunctionSupported(funcs.glDisablei) &&
-			GL.isFunctionSupported(funcs.glIsEnabledi) &&
-			GL.isFunctionSupported(funcs.glBindBufferRange) &&
-			GL.isFunctionSupported(funcs.glBindBufferBase) &&
-			GL.isFunctionSupported(funcs.glBeginTransformFeedback) &&
-			GL.isFunctionSupported(funcs.glEndTransformFeedback) &&
-			GL.isFunctionSupported(funcs.glTransformFeedbackVaryings) &&
-			GL.isFunctionSupported(funcs.glGetTransformFeedbackVarying) &&
-			GL.isFunctionSupported(funcs.glBindVertexArray) &&
-			GL.isFunctionSupported(funcs.glDeleteVertexArrays) &&
-			GL.isFunctionSupported(funcs.glGenVertexArrays) &&
-			GL.isFunctionSupported(funcs.glIsVertexArray);
+			GL.isFunctionSupported(funcs.GetStringi) &&
+			GL.isFunctionSupported(funcs.VertexAttribI1i) &&
+			GL.isFunctionSupported(funcs.VertexAttribI2i) &&
+			GL.isFunctionSupported(funcs.VertexAttribI3i) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4i) &&
+			GL.isFunctionSupported(funcs.VertexAttribI1ui) &&
+			GL.isFunctionSupported(funcs.VertexAttribI2ui) &&
+			GL.isFunctionSupported(funcs.VertexAttribI3ui) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4ui) &&
+			GL.isFunctionSupported(funcs.VertexAttribI1iv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI2iv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI3iv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4iv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI1uiv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI2uiv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI3uiv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4uiv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4bv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4sv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4ubv) &&
+			GL.isFunctionSupported(funcs.VertexAttribI4usv) &&
+			GL.isFunctionSupported(funcs.VertexAttribIPointer) &&
+			GL.isFunctionSupported(funcs.GetVertexAttribIiv) &&
+			GL.isFunctionSupported(funcs.GetVertexAttribIuiv) &&
+			GL.isFunctionSupported(funcs.Uniform1ui) &&
+			GL.isFunctionSupported(funcs.Uniform2ui) &&
+			GL.isFunctionSupported(funcs.Uniform3ui) &&
+			GL.isFunctionSupported(funcs.Uniform4ui) &&
+			GL.isFunctionSupported(funcs.Uniform1uiv) &&
+			GL.isFunctionSupported(funcs.Uniform2uiv) &&
+			GL.isFunctionSupported(funcs.Uniform3uiv) &&
+			GL.isFunctionSupported(funcs.Uniform4uiv) &&
+			GL.isFunctionSupported(funcs.GetUniformuiv) &&
+			GL.isFunctionSupported(funcs.BindFragDataLocation) &&
+			GL.isFunctionSupported(funcs.GetFragDataLocation) &&
+			GL.isFunctionSupported(funcs.BeginConditionalRender) &&
+			GL.isFunctionSupported(funcs.EndConditionalRender) &&
+			GL.isFunctionSupported(funcs.MapBufferRange) &&
+			GL.isFunctionSupported(funcs.FlushMappedBufferRange) &&
+			GL.isFunctionSupported(funcs.ClampColor) &&
+			GL.isFunctionSupported(funcs.IsRenderbuffer) &&
+			GL.isFunctionSupported(funcs.BindRenderbuffer) &&
+			GL.isFunctionSupported(funcs.DeleteRenderbuffers) &&
+			GL.isFunctionSupported(funcs.GenRenderbuffers) &&
+			GL.isFunctionSupported(funcs.RenderbufferStorage) &&
+			GL.isFunctionSupported(funcs.RenderbufferStorageMultisample) &&
+			GL.isFunctionSupported(funcs.GetRenderbufferParameteriv) &&
+			GL.isFunctionSupported(funcs.IsFramebuffer) &&
+			GL.isFunctionSupported(funcs.BindFramebuffer) &&
+			GL.isFunctionSupported(funcs.DeleteFramebuffers) &&
+			GL.isFunctionSupported(funcs.GenFramebuffers) &&
+			GL.isFunctionSupported(funcs.CheckFramebufferStatus) &&
+			GL.isFunctionSupported(funcs.FramebufferTexture1D) &&
+			GL.isFunctionSupported(funcs.FramebufferTexture2D) &&
+			GL.isFunctionSupported(funcs.FramebufferTexture3D) &&
+			GL.isFunctionSupported(funcs.FramebufferTextureLayer) &&
+			GL.isFunctionSupported(funcs.FramebufferRenderbuffer) &&
+			GL.isFunctionSupported(funcs.GetFramebufferAttachmentParameteriv) &&
+			GL.isFunctionSupported(funcs.BlitFramebuffer) &&
+			GL.isFunctionSupported(funcs.GenerateMipmap) &&
+			GL.isFunctionSupported(funcs.TexParameterIiv) &&
+			GL.isFunctionSupported(funcs.TexParameterIuiv) &&
+			GL.isFunctionSupported(funcs.GetTexParameterIiv) &&
+			GL.isFunctionSupported(funcs.GetTexParameterIuiv) &&
+			GL.isFunctionSupported(funcs.ColorMaski) &&
+			GL.isFunctionSupported(funcs.GetBooleani_v) &&
+			GL.isFunctionSupported(funcs.GetIntegeri_v) &&
+			GL.isFunctionSupported(funcs.Enablei) &&
+			GL.isFunctionSupported(funcs.Disablei) &&
+			GL.isFunctionSupported(funcs.IsEnabledi) &&
+			GL.isFunctionSupported(funcs.BindBufferRange) &&
+			GL.isFunctionSupported(funcs.BindBufferBase) &&
+			GL.isFunctionSupported(funcs.BeginTransformFeedback) &&
+			GL.isFunctionSupported(funcs.EndTransformFeedback) &&
+			GL.isFunctionSupported(funcs.TransformFeedbackVaryings) &&
+			GL.isFunctionSupported(funcs.GetTransformFeedbackVarying) &&
+			GL.isFunctionSupported(funcs.BindVertexArray) &&
+			GL.isFunctionSupported(funcs.DeleteVertexArrays) &&
+			GL.isFunctionSupported(funcs.GenVertexArrays) &&
+			GL.isFunctionSupported(funcs.IsVertexArray);
 
 		return GL.checkExtension("OpenGL30", funcs, supported);
 	}
 
 	// --- [ glGetStringi ] ---
 
-	/** JNI method for {@link #glGetStringi glGetStringi} */
+	/** JNI method for {@link #glGetStringi GetStringi} */
 	@JavadocExclude
 	public static native long nglGetStringi(int name, int index, long __functionAddress);
 
@@ -751,7 +751,7 @@ public final class GL30 {
 	 * @param index the index of the particular element being queried
 	 */
 	public static String glGetStringi(int name, int index) {
-		long __functionAddress = getInstance().glGetStringi;
+		long __functionAddress = getInstance().GetStringi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglGetStringi(name, index, __functionAddress);
@@ -760,7 +760,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1i ] ---
 
-	/** JNI method for {@link #glVertexAttribI1i glVertexAttribI1i} */
+	/** JNI method for {@link #glVertexAttribI1i VertexAttribI1i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI1i(int index, int x, long __functionAddress);
 
@@ -773,7 +773,7 @@ public final class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1i(int index, int x) {
-		long __functionAddress = getInstance().glVertexAttribI1i;
+		long __functionAddress = getInstance().VertexAttribI1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1i(index, x, __functionAddress);
@@ -781,7 +781,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2i ] ---
 
-	/** JNI method for {@link #glVertexAttribI2i glVertexAttribI2i} */
+	/** JNI method for {@link #glVertexAttribI2i VertexAttribI2i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI2i(int index, int x, int y, long __functionAddress);
 
@@ -795,7 +795,7 @@ public final class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2i(int index, int x, int y) {
-		long __functionAddress = getInstance().glVertexAttribI2i;
+		long __functionAddress = getInstance().VertexAttribI2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2i(index, x, y, __functionAddress);
@@ -803,7 +803,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3i ] ---
 
-	/** JNI method for {@link #glVertexAttribI3i glVertexAttribI3i} */
+	/** JNI method for {@link #glVertexAttribI3i VertexAttribI3i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI3i(int index, int x, int y, int z, long __functionAddress);
 
@@ -818,7 +818,7 @@ public final class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3i(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().glVertexAttribI3i;
+		long __functionAddress = getInstance().VertexAttribI3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3i(index, x, y, z, __functionAddress);
@@ -826,7 +826,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4i ] ---
 
-	/** JNI method for {@link #glVertexAttribI4i glVertexAttribI4i} */
+	/** JNI method for {@link #glVertexAttribI4i VertexAttribI4i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w, long __functionAddress);
 
@@ -842,7 +842,7 @@ public final class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().glVertexAttribI4i;
+		long __functionAddress = getInstance().VertexAttribI4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4i(index, x, y, z, w, __functionAddress);
@@ -850,7 +850,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI1ui glVertexAttribI1ui} */
+	/** JNI method for {@link #glVertexAttribI1ui VertexAttribI1ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI1ui(int index, int x, long __functionAddress);
 
@@ -863,7 +863,7 @@ public final class GL30 {
 	 * @param x     the vertex attribute x component
 	 */
 	public static void glVertexAttribI1ui(int index, int x) {
-		long __functionAddress = getInstance().glVertexAttribI1ui;
+		long __functionAddress = getInstance().VertexAttribI1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1ui(index, x, __functionAddress);
@@ -871,7 +871,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI2ui glVertexAttribI2ui} */
+	/** JNI method for {@link #glVertexAttribI2ui VertexAttribI2ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI2ui(int index, int x, int y, long __functionAddress);
 
@@ -885,7 +885,7 @@ public final class GL30 {
 	 * @param y     the vertex attribute y component
 	 */
 	public static void glVertexAttribI2ui(int index, int x, int y) {
-		long __functionAddress = getInstance().glVertexAttribI2ui;
+		long __functionAddress = getInstance().VertexAttribI2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2ui(index, x, y, __functionAddress);
@@ -893,7 +893,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI3ui glVertexAttribI3ui} */
+	/** JNI method for {@link #glVertexAttribI3ui VertexAttribI3ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI3ui(int index, int x, int y, int z, long __functionAddress);
 
@@ -908,7 +908,7 @@ public final class GL30 {
 	 * @param z     the vertex attribute z component
 	 */
 	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
-		long __functionAddress = getInstance().glVertexAttribI3ui;
+		long __functionAddress = getInstance().VertexAttribI3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3ui(index, x, y, z, __functionAddress);
@@ -916,7 +916,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4ui ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ui glVertexAttribI4ui} */
+	/** JNI method for {@link #glVertexAttribI4ui VertexAttribI4ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w, long __functionAddress);
 
@@ -932,7 +932,7 @@ public final class GL30 {
 	 * @param w     the vertex attribute w component
 	 */
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
-		long __functionAddress = getInstance().glVertexAttribI4ui;
+		long __functionAddress = getInstance().VertexAttribI4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4ui(index, x, y, z, w, __functionAddress);
@@ -947,13 +947,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI1i glVertexAttribI1i}.
+	 * Pointer version of {@link #glVertexAttribI1i VertexAttribI1i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1i(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI1iv;
+		long __functionAddress = getInstance().VertexAttribI1iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 2);
@@ -963,7 +963,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI1i(int, ByteBuffer) glVertexAttribI1i} */
 	public static void glVertexAttribI1(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI1iv;
+		long __functionAddress = getInstance().VertexAttribI1iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -980,13 +980,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI2i glVertexAttribI2i}.
+	 * Pointer version of {@link #glVertexAttribI2i VertexAttribI2i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2i(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI2iv;
+		long __functionAddress = getInstance().VertexAttribI2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 2);
@@ -996,7 +996,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI2i(int, ByteBuffer) glVertexAttribI2i} */
 	public static void glVertexAttribI2(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI2iv;
+		long __functionAddress = getInstance().VertexAttribI2iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -1013,13 +1013,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI3i glVertexAttribI3i}.
+	 * Pointer version of {@link #glVertexAttribI3i VertexAttribI3i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3i(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI3iv;
+		long __functionAddress = getInstance().VertexAttribI3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -1029,7 +1029,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI3i(int, ByteBuffer) glVertexAttribI3i} */
 	public static void glVertexAttribI3(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI3iv;
+		long __functionAddress = getInstance().VertexAttribI3iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1046,13 +1046,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI4i glVertexAttribI4i}.
+	 * Pointer version of {@link #glVertexAttribI4i VertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4i(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4iv;
+		long __functionAddress = getInstance().VertexAttribI4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -1062,7 +1062,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i} */
 	public static void glVertexAttribI4(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4iv;
+		long __functionAddress = getInstance().VertexAttribI4iv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1079,13 +1079,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI1ui glVertexAttribI1ui}.
+	 * Pointer version of {@link #glVertexAttribI1ui VertexAttribI1ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1ui(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI1uiv;
+		long __functionAddress = getInstance().VertexAttribI1uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1 << 2);
@@ -1095,7 +1095,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI1ui(int, ByteBuffer) glVertexAttribI1ui} */
 	public static void glVertexAttribI1u(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI1uiv;
+		long __functionAddress = getInstance().VertexAttribI1uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 1);
@@ -1112,13 +1112,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI2ui glVertexAttribI2ui}.
+	 * Pointer version of {@link #glVertexAttribI2ui VertexAttribI2ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2ui(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI2uiv;
+		long __functionAddress = getInstance().VertexAttribI2uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2 << 2);
@@ -1128,7 +1128,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI2ui(int, ByteBuffer) glVertexAttribI2ui} */
 	public static void glVertexAttribI2u(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI2uiv;
+		long __functionAddress = getInstance().VertexAttribI2uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 2);
@@ -1145,13 +1145,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI3ui glVertexAttribI3ui}.
+	 * Pointer version of {@link #glVertexAttribI3ui VertexAttribI3ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3ui(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI3uiv;
+		long __functionAddress = getInstance().VertexAttribI3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3 << 2);
@@ -1161,7 +1161,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI3ui(int, ByteBuffer) glVertexAttribI3ui} */
 	public static void glVertexAttribI3u(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI3uiv;
+		long __functionAddress = getInstance().VertexAttribI3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 3);
@@ -1178,13 +1178,13 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Pointer version of {@link #glVertexAttribI4ui glVertexAttribI4ui}.
+	 * Pointer version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4ui(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4uiv;
+		long __functionAddress = getInstance().VertexAttribI4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 2);
@@ -1194,7 +1194,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui} */
 	public static void glVertexAttribI4u(int index, IntBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4uiv;
+		long __functionAddress = getInstance().VertexAttribI4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1217,7 +1217,7 @@ public final class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4b(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4bv;
+		long __functionAddress = getInstance().VertexAttribI4bv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1240,7 +1240,7 @@ public final class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4s(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4sv;
+		long __functionAddress = getInstance().VertexAttribI4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 1);
@@ -1250,7 +1250,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI4s(int, ByteBuffer) glVertexAttribI4s} */
 	public static void glVertexAttribI4(int index, ShortBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4sv;
+		long __functionAddress = getInstance().VertexAttribI4sv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1273,7 +1273,7 @@ public final class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4ub(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4ubv;
+		long __functionAddress = getInstance().VertexAttribI4ubv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1296,7 +1296,7 @@ public final class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4us(int index, ByteBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4usv;
+		long __functionAddress = getInstance().VertexAttribI4usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4 << 1);
@@ -1306,7 +1306,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glVertexAttribI4us(int, ByteBuffer) glVertexAttribI4us} */
 	public static void glVertexAttribI4u(int index, ShortBuffer v) {
-		long __functionAddress = getInstance().glVertexAttribI4usv;
+		long __functionAddress = getInstance().VertexAttribI4usv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(v, 4);
@@ -1316,7 +1316,7 @@ public final class GL30 {
 
 	// --- [ glVertexAttribIPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribIPointer glVertexAttribIPointer} */
+	/** JNI method for {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	@JavadocExclude
 	public static native void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer, long __functionAddress);
 
@@ -1334,7 +1334,7 @@ public final class GL30 {
 	 *                currently bound to the GL15#ARRAY_BUFFER target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		long __functionAddress = getInstance().glVertexAttribIPointer;
+		long __functionAddress = getInstance().VertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1342,9 +1342,9 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** Buffer object offset version of: {@link #glVertexAttribIPointer glVertexAttribIPointer} */
+	/** Buffer object offset version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointerOffset) {
-		long __functionAddress = getInstance().glVertexAttribIPointer;
+		long __functionAddress = getInstance().VertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
@@ -1352,9 +1352,9 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, pointerOffset, __functionAddress);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribIPointer glVertexAttribIPointer} */
+	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
-		long __functionAddress = getInstance().glVertexAttribIPointer;
+		long __functionAddress = getInstance().VertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1362,9 +1362,9 @@ public final class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer), __functionAddress);
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribIPointer glVertexAttribIPointer} */
+	/** IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
-		long __functionAddress = getInstance().glVertexAttribIPointer;
+		long __functionAddress = getInstance().VertexAttribIPointer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1388,7 +1388,7 @@ public final class GL30 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIi(int index, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetVertexAttribIiv;
+		long __functionAddress = getInstance().GetVertexAttribIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -1398,7 +1398,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
 	public static void glGetVertexAttribI(int index, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetVertexAttribIiv;
+		long __functionAddress = getInstance().GetVertexAttribIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -1408,7 +1408,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
 	public static int glGetVertexAttribIi(int index, int pname) {
-		long __functionAddress = getInstance().glGetVertexAttribIiv;
+		long __functionAddress = getInstance().GetVertexAttribIiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1433,7 +1433,7 @@ public final class GL30 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIui(int index, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetVertexAttribIuiv;
+		long __functionAddress = getInstance().GetVertexAttribIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4 << 2);
@@ -1443,7 +1443,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
 	public static void glGetVertexAttribIu(int index, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetVertexAttribIuiv;
+		long __functionAddress = getInstance().GetVertexAttribIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 4);
@@ -1453,7 +1453,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
 	public static int glGetVertexAttribIui(int index, int pname) {
-		long __functionAddress = getInstance().glGetVertexAttribIuiv;
+		long __functionAddress = getInstance().GetVertexAttribIuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1464,7 +1464,7 @@ public final class GL30 {
 
 	// --- [ glUniform1ui ] ---
 
-	/** JNI method for {@link #glUniform1ui glUniform1ui} */
+	/** JNI method for {@link #glUniform1ui Uniform1ui} */
 	@JavadocExclude
 	public static native void nglUniform1ui(int location, int v0, long __functionAddress);
 
@@ -1477,7 +1477,7 @@ public final class GL30 {
 	 * @param v0       the uniform value
 	 */
 	public static void glUniform1ui(int location, int v0) {
-		long __functionAddress = getInstance().glUniform1ui;
+		long __functionAddress = getInstance().Uniform1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform1ui(location, v0, __functionAddress);
@@ -1485,7 +1485,7 @@ public final class GL30 {
 
 	// --- [ glUniform2ui ] ---
 
-	/** JNI method for {@link #glUniform2ui glUniform2ui} */
+	/** JNI method for {@link #glUniform2ui Uniform2ui} */
 	@JavadocExclude
 	public static native void nglUniform2ui(int location, int v0, int v1, long __functionAddress);
 
@@ -1499,7 +1499,7 @@ public final class GL30 {
 	 * @param v1       the uniform y value
 	 */
 	public static void glUniform2ui(int location, int v0, int v1) {
-		long __functionAddress = getInstance().glUniform2ui;
+		long __functionAddress = getInstance().Uniform2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform2ui(location, v0, v1, __functionAddress);
@@ -1507,7 +1507,7 @@ public final class GL30 {
 
 	// --- [ glUniform3ui ] ---
 
-	/** JNI method for {@link #glUniform3ui glUniform3ui} */
+	/** JNI method for {@link #glUniform3ui Uniform3ui} */
 	@JavadocExclude
 	public static native void nglUniform3ui(int location, int v0, int v1, int v2, long __functionAddress);
 
@@ -1522,7 +1522,7 @@ public final class GL30 {
 	 * @param v2       the uniform z value
 	 */
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
-		long __functionAddress = getInstance().glUniform3ui;
+		long __functionAddress = getInstance().Uniform3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform3ui(location, v0, v1, v2, __functionAddress);
@@ -1530,7 +1530,7 @@ public final class GL30 {
 
 	// --- [ glUniform4ui ] ---
 
-	/** JNI method for {@link #glUniform4ui glUniform4ui} */
+	/** JNI method for {@link #glUniform4ui Uniform4ui} */
 	@JavadocExclude
 	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
@@ -1546,7 +1546,7 @@ public final class GL30 {
 	 * @param v3       the uniform w value
 	 */
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
-		long __functionAddress = getInstance().glUniform4ui;
+		long __functionAddress = getInstance().Uniform4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform4ui(location, v0, v1, v2, v3, __functionAddress);
@@ -1568,7 +1568,7 @@ public final class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1ui(int location, int count, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniform1uiv;
+		long __functionAddress = getInstance().Uniform1uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, count << 2);
@@ -1578,7 +1578,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glUniform1ui(int, int, ByteBuffer) glUniform1ui} */
 	public static void glUniform1u(int location, IntBuffer value) {
-		long __functionAddress = getInstance().glUniform1uiv;
+		long __functionAddress = getInstance().Uniform1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform1uiv(location, value.remaining(), memAddress(value), __functionAddress);
@@ -1600,7 +1600,7 @@ public final class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2ui(int location, int count, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniform2uiv;
+		long __functionAddress = getInstance().Uniform2uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count << 1) << 2);
@@ -1610,7 +1610,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glUniform2ui(int, int, ByteBuffer) glUniform2ui} */
 	public static void glUniform2u(int location, IntBuffer value) {
-		long __functionAddress = getInstance().glUniform2uiv;
+		long __functionAddress = getInstance().Uniform2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform2uiv(location, value.remaining() >> 1, memAddress(value), __functionAddress);
@@ -1632,7 +1632,7 @@ public final class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3ui(int location, int count, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniform3uiv;
+		long __functionAddress = getInstance().Uniform3uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count * 3) << 2);
@@ -1642,7 +1642,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glUniform3ui(int, int, ByteBuffer) glUniform3ui} */
 	public static void glUniform3u(int location, IntBuffer value) {
-		long __functionAddress = getInstance().glUniform3uiv;
+		long __functionAddress = getInstance().Uniform3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform3uiv(location, value.remaining() / 3, memAddress(value), __functionAddress);
@@ -1664,7 +1664,7 @@ public final class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4ui(int location, int count, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniform4uiv;
+		long __functionAddress = getInstance().Uniform4uiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count << 2) << 2);
@@ -1674,7 +1674,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glUniform4ui(int, int, ByteBuffer) glUniform4ui} */
 	public static void glUniform4u(int location, IntBuffer value) {
-		long __functionAddress = getInstance().glUniform4uiv;
+		long __functionAddress = getInstance().Uniform4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniform4uiv(location, value.remaining() >> 2, memAddress(value), __functionAddress);
@@ -1696,7 +1696,7 @@ public final class GL30 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformui(int program, int location, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetUniformuiv;
+		long __functionAddress = getInstance().GetUniformuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -1706,7 +1706,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
 	public static void glGetUniformu(int program, int location, IntBuffer params) {
-		long __functionAddress = getInstance().glGetUniformuiv;
+		long __functionAddress = getInstance().GetUniformuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -1716,7 +1716,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
 	public static int glGetUniformui(int program, int location) {
-		long __functionAddress = getInstance().glGetUniformuiv;
+		long __functionAddress = getInstance().GetUniformuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1727,7 +1727,7 @@ public final class GL30 {
 
 	// --- [ glBindFragDataLocation ] ---
 
-	/** JNI method for {@link #glBindFragDataLocation glBindFragDataLocation} */
+	/** JNI method for {@link #glBindFragDataLocation BindFragDataLocation} */
 	@JavadocExclude
 	public static native void nglBindFragDataLocation(int program, int colorNumber, long name, long __functionAddress);
 
@@ -1741,7 +1741,7 @@ public final class GL30 {
 	 * @param name        the name of the user-defined varying out variable whose binding to modify
 	 */
 	public static void glBindFragDataLocation(int program, int colorNumber, ByteBuffer name) {
-		long __functionAddress = getInstance().glBindFragDataLocation;
+		long __functionAddress = getInstance().BindFragDataLocation;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(name);
@@ -1749,9 +1749,9 @@ public final class GL30 {
 		nglBindFragDataLocation(program, colorNumber, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glBindFragDataLocation glBindFragDataLocation} */
+	/** CharSequence version of: {@link #glBindFragDataLocation BindFragDataLocation} */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
-		long __functionAddress = getInstance().glBindFragDataLocation;
+		long __functionAddress = getInstance().BindFragDataLocation;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindFragDataLocation(program, colorNumber, memAddress(memEncodeASCII(name)), __functionAddress);
@@ -1759,7 +1759,7 @@ public final class GL30 {
 
 	// --- [ glGetFragDataLocation ] ---
 
-	/** JNI method for {@link #glGetFragDataLocation glGetFragDataLocation} */
+	/** JNI method for {@link #glGetFragDataLocation GetFragDataLocation} */
 	@JavadocExclude
 	public static native int nglGetFragDataLocation(int program, long name, long __functionAddress);
 
@@ -1772,7 +1772,7 @@ public final class GL30 {
 	 * @param name    the name of the user-defined varying out variable whose binding to query
 	 */
 	public static int glGetFragDataLocation(int program, ByteBuffer name) {
-		long __functionAddress = getInstance().glGetFragDataLocation;
+		long __functionAddress = getInstance().GetFragDataLocation;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(name);
@@ -1780,9 +1780,9 @@ public final class GL30 {
 		return nglGetFragDataLocation(program, memAddress(name), __functionAddress);
 	}
 
-	/** CharSequence version of: {@link #glGetFragDataLocation glGetFragDataLocation} */
+	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
-		long __functionAddress = getInstance().glGetFragDataLocation;
+		long __functionAddress = getInstance().GetFragDataLocation;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglGetFragDataLocation(program, memAddress(memEncodeASCII(name)), __functionAddress);
@@ -1790,7 +1790,7 @@ public final class GL30 {
 
 	// --- [ glBeginConditionalRender ] ---
 
-	/** JNI method for {@link #glBeginConditionalRender glBeginConditionalRender} */
+	/** JNI method for {@link #glBeginConditionalRender BeginConditionalRender} */
 	@JavadocExclude
 	public static native void nglBeginConditionalRender(int id, int mode, long __functionAddress);
 
@@ -1803,7 +1803,7 @@ public final class GL30 {
 	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<p/>{@link #GL_QUERY_WAIT QUERY_WAIT}, {@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}, {@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}, {@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
-		long __functionAddress = getInstance().glBeginConditionalRender;
+		long __functionAddress = getInstance().BeginConditionalRender;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBeginConditionalRender(id, mode, __functionAddress);
@@ -1811,7 +1811,7 @@ public final class GL30 {
 
 	// --- [ glEndConditionalRender ] ---
 
-	/** JNI method for {@link #glEndConditionalRender glEndConditionalRender} */
+	/** JNI method for {@link #glEndConditionalRender EndConditionalRender} */
 	@JavadocExclude
 	public static native void nglEndConditionalRender(long __functionAddress);
 
@@ -1821,7 +1821,7 @@ public final class GL30 {
 	 * Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
-		long __functionAddress = getInstance().glEndConditionalRender;
+		long __functionAddress = getInstance().EndConditionalRender;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEndConditionalRender(__functionAddress);
@@ -1829,7 +1829,7 @@ public final class GL30 {
 
 	// --- [ glMapBufferRange ] ---
 
-	/** JNI method for {@link #glMapBufferRange glMapBufferRange} */
+	/** JNI method for {@link #glMapBufferRange MapBufferRange} */
 	@JavadocExclude
 	public static native long nglMapBufferRange(int target, long offset, long length, int access, long __functionAddress);
 
@@ -1850,16 +1850,16 @@ public final class GL30 {
 	 * @param access a combination of access flags indicating the desired access to the range. One of:<p/>{@link #GL_MAP_READ_BIT MAP_READ_BIT}, {@link #GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link #GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link #GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link #GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
 	 */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
-		long __functionAddress = getInstance().glMapBufferRange;
+		long __functionAddress = getInstance().MapBufferRange;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBufferRange(target, offset, length, access, __functionAddress);
 		return memByteBuffer(__result, length);
 	}
 
-	/** Alternative version of: {@link #glMapBufferRange glMapBufferRange} */
+	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance().glMapBufferRange;
+		long __functionAddress = getInstance().MapBufferRange;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nglMapBufferRange(target, offset, length, access, __functionAddress);
@@ -1868,7 +1868,7 @@ public final class GL30 {
 
 	// --- [ glFlushMappedBufferRange ] ---
 
-	/** JNI method for {@link #glFlushMappedBufferRange glFlushMappedBufferRange} */
+	/** JNI method for {@link #glFlushMappedBufferRange FlushMappedBufferRange} */
 	@JavadocExclude
 	public static native void nglFlushMappedBufferRange(int target, long offset, long length, long __functionAddress);
 
@@ -1882,7 +1882,7 @@ public final class GL30 {
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
-		long __functionAddress = getInstance().glFlushMappedBufferRange;
+		long __functionAddress = getInstance().FlushMappedBufferRange;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFlushMappedBufferRange(target, offset, length, __functionAddress);
@@ -1890,7 +1890,7 @@ public final class GL30 {
 
 	// --- [ glClampColor ] ---
 
-	/** JNI method for {@link #glClampColor glClampColor} */
+	/** JNI method for {@link #glClampColor ClampColor} */
 	@JavadocExclude
 	public static native void nglClampColor(int target, int clamp, long __functionAddress);
 
@@ -1903,7 +1903,7 @@ public final class GL30 {
 	 * @param clamp  whether to apply color clamping. One of:<p/>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}
 	 */
 	public static void glClampColor(int target, int clamp) {
-		long __functionAddress = getInstance().glClampColor;
+		long __functionAddress = getInstance().ClampColor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClampColor(target, clamp, __functionAddress);
@@ -1911,7 +1911,7 @@ public final class GL30 {
 
 	// --- [ glIsRenderbuffer ] ---
 
-	/** JNI method for {@link #glIsRenderbuffer glIsRenderbuffer} */
+	/** JNI method for {@link #glIsRenderbuffer IsRenderbuffer} */
 	@JavadocExclude
 	public static native boolean nglIsRenderbuffer(int renderbuffer, long __functionAddress);
 
@@ -1923,7 +1923,7 @@ public final class GL30 {
 	 * @param renderbuffer a value that may be the name of a renderbuffer object
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
-		long __functionAddress = getInstance().glIsRenderbuffer;
+		long __functionAddress = getInstance().IsRenderbuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsRenderbuffer(renderbuffer, __functionAddress);
@@ -1931,7 +1931,7 @@ public final class GL30 {
 
 	// --- [ glBindRenderbuffer ] ---
 
-	/** JNI method for {@link #glBindRenderbuffer glBindRenderbuffer} */
+	/** JNI method for {@link #glBindRenderbuffer BindRenderbuffer} */
 	@JavadocExclude
 	public static native void nglBindRenderbuffer(int target, int renderbuffer, long __functionAddress);
 
@@ -1944,7 +1944,7 @@ public final class GL30 {
 	 * @param renderbuffer the name of the renderbuffer object to bind
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
-		long __functionAddress = getInstance().glBindRenderbuffer;
+		long __functionAddress = getInstance().BindRenderbuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindRenderbuffer(target, renderbuffer, __functionAddress);
@@ -1952,7 +1952,7 @@ public final class GL30 {
 
 	// --- [ glDeleteRenderbuffers ] ---
 
-	/** JNI method for {@link #glDeleteRenderbuffers glDeleteRenderbuffers} */
+	/** JNI method for {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	@JavadocExclude
 	public static native void nglDeleteRenderbuffers(int n, long renderbuffers, long __functionAddress);
 
@@ -1965,7 +1965,7 @@ public final class GL30 {
 	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
 	 */
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
-		long __functionAddress = getInstance().glDeleteRenderbuffers;
+		long __functionAddress = getInstance().DeleteRenderbuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(renderbuffers, n << 2);
@@ -1973,17 +1973,17 @@ public final class GL30 {
 		nglDeleteRenderbuffers(n, memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteRenderbuffers glDeleteRenderbuffers} */
+	/** Alternative version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
-		long __functionAddress = getInstance().glDeleteRenderbuffers;
+		long __functionAddress = getInstance().DeleteRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteRenderbuffers glDeleteRenderbuffers} */
+	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
-		long __functionAddress = getInstance().glDeleteRenderbuffers;
+		long __functionAddress = getInstance().DeleteRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -1993,7 +1993,7 @@ public final class GL30 {
 
 	// --- [ glGenRenderbuffers ] ---
 
-	/** JNI method for {@link #glGenRenderbuffers glGenRenderbuffers} */
+	/** JNI method for {@link #glGenRenderbuffers GenRenderbuffers} */
 	@JavadocExclude
 	public static native void nglGenRenderbuffers(int n, long renderbuffers, long __functionAddress);
 
@@ -2006,7 +2006,7 @@ public final class GL30 {
 	 * @param renderbuffers an array in which the generated renderbuffer object names are stored
 	 */
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
-		long __functionAddress = getInstance().glGenRenderbuffers;
+		long __functionAddress = getInstance().GenRenderbuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(renderbuffers, n << 2);
@@ -2014,17 +2014,17 @@ public final class GL30 {
 		nglGenRenderbuffers(n, memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenRenderbuffers glGenRenderbuffers} */
+	/** Alternative version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
-		long __functionAddress = getInstance().glGenRenderbuffers;
+		long __functionAddress = getInstance().GenRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenRenderbuffers glGenRenderbuffers} */
+	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static int glGenRenderbuffers() {
-		long __functionAddress = getInstance().glGenRenderbuffers;
+		long __functionAddress = getInstance().GenRenderbuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2035,7 +2035,7 @@ public final class GL30 {
 
 	// --- [ glRenderbufferStorage ] ---
 
-	/** JNI method for {@link #glRenderbufferStorage glRenderbufferStorage} */
+	/** JNI method for {@link #glRenderbufferStorage RenderbufferStorage} */
 	@JavadocExclude
 	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height, long __functionAddress);
 
@@ -2052,7 +2052,7 @@ public final class GL30 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().glRenderbufferStorage;
+		long __functionAddress = getInstance().RenderbufferStorage;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorage(target, internalformat, width, height, __functionAddress);
@@ -2060,7 +2060,7 @@ public final class GL30 {
 
 	// --- [ glRenderbufferStorageMultisample ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisample glRenderbufferStorageMultisample} */
+	/** JNI method for {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} */
 	@JavadocExclude
 	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height, long __functionAddress);
 
@@ -2076,7 +2076,7 @@ public final class GL30 {
 	 * @param height         the height of the renderbuffer, in pixels
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
-		long __functionAddress = getInstance().glRenderbufferStorageMultisample;
+		long __functionAddress = getInstance().RenderbufferStorageMultisample;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height, __functionAddress);
@@ -2098,7 +2098,7 @@ public final class GL30 {
 	 * @param params an array to receive the value of the queried parameter
 	 */
 	public static void glGetRenderbufferParameteri(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetRenderbufferParameteriv;
+		long __functionAddress = getInstance().GetRenderbufferParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2108,7 +2108,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
 	public static void glGetRenderbufferParameter(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetRenderbufferParameteriv;
+		long __functionAddress = getInstance().GetRenderbufferParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2118,7 +2118,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
-		long __functionAddress = getInstance().glGetRenderbufferParameteriv;
+		long __functionAddress = getInstance().GetRenderbufferParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2129,7 +2129,7 @@ public final class GL30 {
 
 	// --- [ glIsFramebuffer ] ---
 
-	/** JNI method for {@link #glIsFramebuffer glIsFramebuffer} */
+	/** JNI method for {@link #glIsFramebuffer IsFramebuffer} */
 	@JavadocExclude
 	public static native boolean nglIsFramebuffer(int framebuffer, long __functionAddress);
 
@@ -2141,7 +2141,7 @@ public final class GL30 {
 	 * @param framebuffer a value that may be the name of a framebuffer object
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
-		long __functionAddress = getInstance().glIsFramebuffer;
+		long __functionAddress = getInstance().IsFramebuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsFramebuffer(framebuffer, __functionAddress);
@@ -2149,7 +2149,7 @@ public final class GL30 {
 
 	// --- [ glBindFramebuffer ] ---
 
-	/** JNI method for {@link #glBindFramebuffer glBindFramebuffer} */
+	/** JNI method for {@link #glBindFramebuffer BindFramebuffer} */
 	@JavadocExclude
 	public static native void nglBindFramebuffer(int target, int framebuffer, long __functionAddress);
 
@@ -2162,7 +2162,7 @@ public final class GL30 {
 	 * @param framebuffer the name of the framebuffer object to bind
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
-		long __functionAddress = getInstance().glBindFramebuffer;
+		long __functionAddress = getInstance().BindFramebuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindFramebuffer(target, framebuffer, __functionAddress);
@@ -2170,7 +2170,7 @@ public final class GL30 {
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	/** JNI method for {@link #glDeleteFramebuffers glDeleteFramebuffers} */
+	/** JNI method for {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	@JavadocExclude
 	public static native void nglDeleteFramebuffers(int n, long framebuffers, long __functionAddress);
 
@@ -2183,7 +2183,7 @@ public final class GL30 {
 	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
 	 */
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
-		long __functionAddress = getInstance().glDeleteFramebuffers;
+		long __functionAddress = getInstance().DeleteFramebuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(framebuffers, n << 2);
@@ -2191,17 +2191,17 @@ public final class GL30 {
 		nglDeleteFramebuffers(n, memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteFramebuffers glDeleteFramebuffers} */
+	/** Alternative version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
-		long __functionAddress = getInstance().glDeleteFramebuffers;
+		long __functionAddress = getInstance().DeleteFramebuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteFramebuffers glDeleteFramebuffers} */
+	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
-		long __functionAddress = getInstance().glDeleteFramebuffers;
+		long __functionAddress = getInstance().DeleteFramebuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2211,7 +2211,7 @@ public final class GL30 {
 
 	// --- [ glGenFramebuffers ] ---
 
-	/** JNI method for {@link #glGenFramebuffers glGenFramebuffers} */
+	/** JNI method for {@link #glGenFramebuffers GenFramebuffers} */
 	@JavadocExclude
 	public static native void nglGenFramebuffers(int n, long framebuffers, long __functionAddress);
 
@@ -2224,7 +2224,7 @@ public final class GL30 {
 	 * @param framebuffers an array in which the generated framebuffer object names are stored
 	 */
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
-		long __functionAddress = getInstance().glGenFramebuffers;
+		long __functionAddress = getInstance().GenFramebuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(framebuffers, n << 2);
@@ -2232,17 +2232,17 @@ public final class GL30 {
 		nglGenFramebuffers(n, memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenFramebuffers glGenFramebuffers} */
+	/** Alternative version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
-		long __functionAddress = getInstance().glGenFramebuffers;
+		long __functionAddress = getInstance().GenFramebuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenFramebuffers glGenFramebuffers} */
+	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static int glGenFramebuffers() {
-		long __functionAddress = getInstance().glGenFramebuffers;
+		long __functionAddress = getInstance().GenFramebuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2253,7 +2253,7 @@ public final class GL30 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	/** JNI method for {@link #glCheckFramebufferStatus glCheckFramebufferStatus} */
+	/** JNI method for {@link #glCheckFramebufferStatus CheckFramebufferStatus} */
 	@JavadocExclude
 	public static native int nglCheckFramebufferStatus(int target, long __functionAddress);
 
@@ -2265,7 +2265,7 @@ public final class GL30 {
 	 * @param target the target of the framebuffer completeness check. One of:<p/>{@link #GL_FRAMEBUFFER FRAMEBUFFER}, {@link #GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}, {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}
 	 */
 	public static int glCheckFramebufferStatus(int target) {
-		long __functionAddress = getInstance().glCheckFramebufferStatus;
+		long __functionAddress = getInstance().CheckFramebufferStatus;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglCheckFramebufferStatus(target, __functionAddress);
@@ -2273,7 +2273,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture1D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture1D glFramebufferTexture1D} */
+	/** JNI method for {@link #glFramebufferTexture1D FramebufferTexture1D} */
 	@JavadocExclude
 	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
@@ -2289,7 +2289,7 @@ public final class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().glFramebufferTexture1D;
+		long __functionAddress = getInstance().FramebufferTexture1D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture1D(target, attachment, textarget, texture, level, __functionAddress);
@@ -2297,7 +2297,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture2D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture2D glFramebufferTexture2D} */
+	/** JNI method for {@link #glFramebufferTexture2D FramebufferTexture2D} */
 	@JavadocExclude
 	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
@@ -2313,7 +2313,7 @@ public final class GL30 {
 	 * @param level      the mipmap level of {@code texture} to attach
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
-		long __functionAddress = getInstance().glFramebufferTexture2D;
+		long __functionAddress = getInstance().FramebufferTexture2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture2D(target, attachment, textarget, texture, level, __functionAddress);
@@ -2321,7 +2321,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTexture3D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture3D glFramebufferTexture3D} */
+	/** JNI method for {@link #glFramebufferTexture3D FramebufferTexture3D} */
 	@JavadocExclude
 	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer, long __functionAddress);
 
@@ -2338,7 +2338,7 @@ public final class GL30 {
 	 * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-		long __functionAddress = getInstance().glFramebufferTexture3D;
+		long __functionAddress = getInstance().FramebufferTexture3D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer, __functionAddress);
@@ -2346,7 +2346,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferTextureLayer ] ---
 
-	/** JNI method for {@link #glFramebufferTextureLayer glFramebufferTextureLayer} */
+	/** JNI method for {@link #glFramebufferTextureLayer FramebufferTextureLayer} */
 	@JavadocExclude
 	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer, long __functionAddress);
 
@@ -2362,7 +2362,7 @@ public final class GL30 {
 	 * @param layer      the layer of {@code texture} to attach.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
-		long __functionAddress = getInstance().glFramebufferTextureLayer;
+		long __functionAddress = getInstance().FramebufferTextureLayer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureLayer(target, attachment, texture, level, layer, __functionAddress);
@@ -2370,7 +2370,7 @@ public final class GL30 {
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
-	/** JNI method for {@link #glFramebufferRenderbuffer glFramebufferRenderbuffer} */
+	/** JNI method for {@link #glFramebufferRenderbuffer FramebufferRenderbuffer} */
 	@JavadocExclude
 	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer, long __functionAddress);
 
@@ -2385,7 +2385,7 @@ public final class GL30 {
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
-		long __functionAddress = getInstance().glFramebufferRenderbuffer;
+		long __functionAddress = getInstance().FramebufferRenderbuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
@@ -2408,7 +2408,7 @@ public final class GL30 {
 	 * @param params     an array to receive the value of the queried parameter
 	 */
 	public static void glGetFramebufferAttachmentParameteri(int target, int attachment, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetFramebufferAttachmentParameteriv;
+		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2418,7 +2418,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
 	public static void glGetFramebufferAttachmentParameter(int target, int attachment, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetFramebufferAttachmentParameteriv;
+		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2428,7 +2428,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
-		long __functionAddress = getInstance().glGetFramebufferAttachmentParameteriv;
+		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2439,7 +2439,7 @@ public final class GL30 {
 
 	// --- [ glBlitFramebuffer ] ---
 
-	/** JNI method for {@link #glBlitFramebuffer glBlitFramebuffer} */
+	/** JNI method for {@link #glBlitFramebuffer BlitFramebuffer} */
 	@JavadocExclude
 	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
@@ -2460,7 +2460,7 @@ public final class GL30 {
 	 * @param filter the interpolation to be applied if the image is stretched. One of:<p/>{@link GL11#GL_NEAREST NEAREST}, {@link GL11#GL_LINEAR LINEAR}
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
-		long __functionAddress = getInstance().glBlitFramebuffer;
+		long __functionAddress = getInstance().BlitFramebuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
@@ -2468,7 +2468,7 @@ public final class GL30 {
 
 	// --- [ glGenerateMipmap ] ---
 
-	/** JNI method for {@link #glGenerateMipmap glGenerateMipmap} */
+	/** JNI method for {@link #glGenerateMipmap GenerateMipmap} */
 	@JavadocExclude
 	public static native void nglGenerateMipmap(int target, long __functionAddress);
 
@@ -2480,7 +2480,7 @@ public final class GL30 {
 	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 */
 	public static void glGenerateMipmap(int target) {
-		long __functionAddress = getInstance().glGenerateMipmap;
+		long __functionAddress = getInstance().GenerateMipmap;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenerateMipmap(target, __functionAddress);
@@ -2502,7 +2502,7 @@ public final class GL30 {
 	 * @param params the value of {@code pname}
 	 */
 	public static void glTexParameterIi(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexParameterIiv;
+		long __functionAddress = getInstance().TexParameterIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2512,7 +2512,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
 	public static void glTexParameterI(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glTexParameterIiv;
+		long __functionAddress = getInstance().TexParameterIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2522,7 +2522,7 @@ public final class GL30 {
 
 	/** Single value version of: {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
 	public static void glTexParameterIi(int target, int pname, int param) {
-		long __functionAddress = getInstance().glTexParameterIiv;
+		long __functionAddress = getInstance().TexParameterIiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2546,7 +2546,7 @@ public final class GL30 {
 	 * @param params the value of {@code pname}
 	 */
 	public static void glTexParameterIui(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glTexParameterIuiv;
+		long __functionAddress = getInstance().TexParameterIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2556,7 +2556,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
 	public static void glTexParameterIu(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glTexParameterIuiv;
+		long __functionAddress = getInstance().TexParameterIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2566,7 +2566,7 @@ public final class GL30 {
 
 	/** Single value version of: {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
 	public static void glTexParameterIui(int target, int pname, int param) {
-		long __functionAddress = getInstance().glTexParameterIuiv;
+		long __functionAddress = getInstance().TexParameterIuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2590,7 +2590,7 @@ public final class GL30 {
 	 * @param params returns the texture parameter value
 	 */
 	public static void glGetTexParameterIi(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetTexParameterIiv;
+		long __functionAddress = getInstance().GetTexParameterIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2600,7 +2600,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
 	public static void glGetTexParameterI(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetTexParameterIiv;
+		long __functionAddress = getInstance().GetTexParameterIiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2610,7 +2610,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
 	public static int glGetTexParameterIi(int target, int pname) {
-		long __functionAddress = getInstance().glGetTexParameterIiv;
+		long __functionAddress = getInstance().GetTexParameterIiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2635,7 +2635,7 @@ public final class GL30 {
 	 * @param params returns the texture parameter value
 	 */
 	public static void glGetTexParameterIui(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().glGetTexParameterIuiv;
+		long __functionAddress = getInstance().GetTexParameterIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1 << 2);
@@ -2645,7 +2645,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
 	public static void glGetTexParameterIu(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().glGetTexParameterIuiv;
+		long __functionAddress = getInstance().GetTexParameterIuiv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(params, 1);
@@ -2655,7 +2655,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
 	public static int glGetTexParameterIui(int target, int pname) {
-		long __functionAddress = getInstance().glGetTexParameterIuiv;
+		long __functionAddress = getInstance().GetTexParameterIuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2666,7 +2666,7 @@ public final class GL30 {
 
 	// --- [ glColorMaski ] ---
 
-	/** JNI method for {@link #glColorMaski glColorMaski} */
+	/** JNI method for {@link #glColorMaski ColorMaski} */
 	@JavadocExclude
 	public static native void nglColorMaski(int buf, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
 
@@ -2682,7 +2682,7 @@ public final class GL30 {
 	 * @param a   whether A values are written or not
 	 */
 	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
-		long __functionAddress = getInstance().glColorMaski;
+		long __functionAddress = getInstance().ColorMaski;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglColorMaski(buf, r, g, b, a, __functionAddress);
@@ -2704,7 +2704,7 @@ public final class GL30 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetBooleani(int target, int index, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetBooleani_v;
+		long __functionAddress = getInstance().GetBooleani_v;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -2714,7 +2714,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetBooleani(int, int, ByteBuffer) glGetBooleani} */
 	public static boolean glGetBooleani(int target, int index) {
-		long __functionAddress = getInstance().glGetBooleani_v;
+		long __functionAddress = getInstance().GetBooleani_v;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2739,7 +2739,7 @@ public final class GL30 {
 	 * @param data   a scalar or array in which to place the returned data
 	 */
 	public static void glGetIntegeri(int target, int index, ByteBuffer data) {
-		long __functionAddress = getInstance().glGetIntegeri_v;
+		long __functionAddress = getInstance().GetIntegeri_v;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1 << 2);
@@ -2749,7 +2749,7 @@ public final class GL30 {
 
 	/** Alternative version of: {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
 	public static void glGetInteger(int target, int index, IntBuffer data) {
-		long __functionAddress = getInstance().glGetIntegeri_v;
+		long __functionAddress = getInstance().GetIntegeri_v;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 1);
@@ -2759,7 +2759,7 @@ public final class GL30 {
 
 	/** Single return value version of: {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
 	public static int glGetIntegeri(int target, int index) {
-		long __functionAddress = getInstance().glGetIntegeri_v;
+		long __functionAddress = getInstance().GetIntegeri_v;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2770,7 +2770,7 @@ public final class GL30 {
 
 	// --- [ glEnablei ] ---
 
-	/** JNI method for {@link #glEnablei glEnablei} */
+	/** JNI method for {@link #glEnablei Enablei} */
 	@JavadocExclude
 	public static native void nglEnablei(int cap, int index, long __functionAddress);
 
@@ -2783,7 +2783,7 @@ public final class GL30 {
 	 * @param index the index to enable
 	 */
 	public static void glEnablei(int cap, int index) {
-		long __functionAddress = getInstance().glEnablei;
+		long __functionAddress = getInstance().Enablei;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEnablei(cap, index, __functionAddress);
@@ -2791,7 +2791,7 @@ public final class GL30 {
 
 	// --- [ glDisablei ] ---
 
-	/** JNI method for {@link #glDisablei glDisablei} */
+	/** JNI method for {@link #glDisablei Disablei} */
 	@JavadocExclude
 	public static native void nglDisablei(int target, int index, long __functionAddress);
 
@@ -2804,7 +2804,7 @@ public final class GL30 {
 	 * @param index  the index to disable
 	 */
 	public static void glDisablei(int target, int index) {
-		long __functionAddress = getInstance().glDisablei;
+		long __functionAddress = getInstance().Disablei;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDisablei(target, index, __functionAddress);
@@ -2812,7 +2812,7 @@ public final class GL30 {
 
 	// --- [ glIsEnabledi ] ---
 
-	/** JNI method for {@link #glIsEnabledi glIsEnabledi} */
+	/** JNI method for {@link #glIsEnabledi IsEnabledi} */
 	@JavadocExclude
 	public static native boolean nglIsEnabledi(int target, int index, long __functionAddress);
 
@@ -2825,7 +2825,7 @@ public final class GL30 {
 	 * @param index  the index to query
 	 */
 	public static boolean glIsEnabledi(int target, int index) {
-		long __functionAddress = getInstance().glIsEnabledi;
+		long __functionAddress = getInstance().IsEnabledi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsEnabledi(target, index, __functionAddress);
@@ -2833,7 +2833,7 @@ public final class GL30 {
 
 	// --- [ glBindBufferRange ] ---
 
-	/** JNI method for {@link #glBindBufferRange glBindBufferRange} */
+	/** JNI method for {@link #glBindBufferRange BindBufferRange} */
 	@JavadocExclude
 	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size, long __functionAddress);
 
@@ -2849,7 +2849,7 @@ public final class GL30 {
 	 * @param size   the amount of data in machine units that can be read from the buffer object while used as an indexed target
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
-		long __functionAddress = getInstance().glBindBufferRange;
+		long __functionAddress = getInstance().BindBufferRange;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindBufferRange(target, index, buffer, offset, size, __functionAddress);
@@ -2857,7 +2857,7 @@ public final class GL30 {
 
 	// --- [ glBindBufferBase ] ---
 
-	/** JNI method for {@link #glBindBufferBase glBindBufferBase} */
+	/** JNI method for {@link #glBindBufferBase BindBufferBase} */
 	@JavadocExclude
 	public static native void nglBindBufferBase(int target, int index, int buffer, long __functionAddress);
 
@@ -2871,7 +2871,7 @@ public final class GL30 {
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
-		long __functionAddress = getInstance().glBindBufferBase;
+		long __functionAddress = getInstance().BindBufferBase;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindBufferBase(target, index, buffer, __functionAddress);
@@ -2879,7 +2879,7 @@ public final class GL30 {
 
 	// --- [ glBeginTransformFeedback ] ---
 
-	/** JNI method for {@link #glBeginTransformFeedback glBeginTransformFeedback} */
+	/** JNI method for {@link #glBeginTransformFeedback BeginTransformFeedback} */
 	@JavadocExclude
 	public static native void nglBeginTransformFeedback(int primitiveMode, long __functionAddress);
 
@@ -2891,7 +2891,7 @@ public final class GL30 {
 	 * @param primitiveMode the output type of the primitives that will be recorded into the buffer objects that are bound for transform feedback. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_TRIANGLES TRIANGLES}
 	 */
 	public static void glBeginTransformFeedback(int primitiveMode) {
-		long __functionAddress = getInstance().glBeginTransformFeedback;
+		long __functionAddress = getInstance().BeginTransformFeedback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBeginTransformFeedback(primitiveMode, __functionAddress);
@@ -2899,7 +2899,7 @@ public final class GL30 {
 
 	// --- [ glEndTransformFeedback ] ---
 
-	/** JNI method for {@link #glEndTransformFeedback glEndTransformFeedback} */
+	/** JNI method for {@link #glEndTransformFeedback EndTransformFeedback} */
 	@JavadocExclude
 	public static native void nglEndTransformFeedback(long __functionAddress);
 
@@ -2909,7 +2909,7 @@ public final class GL30 {
 	 * Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
-		long __functionAddress = getInstance().glEndTransformFeedback;
+		long __functionAddress = getInstance().EndTransformFeedback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglEndTransformFeedback(__functionAddress);
@@ -2917,7 +2917,7 @@ public final class GL30 {
 
 	// --- [ glTransformFeedbackVaryings ] ---
 
-	/** JNI method for {@link #glTransformFeedbackVaryings glTransformFeedbackVaryings} */
+	/** JNI method for {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	@JavadocExclude
 	public static native void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode, long __functionAddress);
 
@@ -2932,7 +2932,7 @@ public final class GL30 {
 	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<p/>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
 	 */
 	public static void glTransformFeedbackVaryings(int program, int count, ByteBuffer varyings, int bufferMode) {
-		long __functionAddress = getInstance().glTransformFeedbackVaryings;
+		long __functionAddress = getInstance().TransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(varyings, count << POINTER_SHIFT);
@@ -2940,17 +2940,17 @@ public final class GL30 {
 		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glTransformFeedbackVaryings glTransformFeedbackVaryings} */
+	/** Alternative version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, PointerBuffer varyings, int bufferMode) {
-		long __functionAddress = getInstance().glTransformFeedbackVaryings;
+		long __functionAddress = getInstance().TransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode, __functionAddress);
 	}
 
-	/** Array version of: {@link #glTransformFeedbackVaryings glTransformFeedbackVaryings} */
+	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
-		long __functionAddress = getInstance().glTransformFeedbackVaryings;
+		long __functionAddress = getInstance().TransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2961,9 +2961,9 @@ public final class GL30 {
 		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode, __functionAddress);
 	}
 
-	/** Single varying version of: {@link #glTransformFeedbackVaryings glTransformFeedbackVaryings} */
+	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
-		long __functionAddress = getInstance().glTransformFeedbackVaryings;
+		long __functionAddress = getInstance().TransformFeedbackVaryings;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -2974,7 +2974,7 @@ public final class GL30 {
 
 	// --- [ glGetTransformFeedbackVarying ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbackVarying glGetTransformFeedbackVarying} */
+	/** JNI method for {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	@JavadocExclude
 	public static native void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
 
@@ -2992,7 +2992,7 @@ public final class GL30 {
 	 * @param name    a buffer into which will be written the name of the varying
 	 */
 	public static void glGetTransformFeedbackVarying(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
+		long __functionAddress = getInstance().GetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(name, bufSize);
@@ -3003,9 +3003,9 @@ public final class GL30 {
 		nglGetTransformFeedbackVarying(program, index, bufSize, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbackVarying glGetTransformFeedbackVarying} */
+	/** Alternative version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
+		long __functionAddress = getInstance().GetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( length != null ) checkBuffer(length, 1);
@@ -3015,9 +3015,9 @@ public final class GL30 {
 		nglGetTransformFeedbackVarying(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name), __functionAddress);
 	}
 
-	/** String return version of: {@link #glGetTransformFeedbackVarying glGetTransformFeedbackVarying} */
+	/** String return version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
-		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
+		long __functionAddress = getInstance().GetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(size, 1);
@@ -3030,9 +3030,9 @@ public final class GL30 {
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
-	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying glGetTransformFeedbackVarying} */
+	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
-		long __functionAddress = getInstance().glGetTransformFeedbackVarying;
+		long __functionAddress = getInstance().GetTransformFeedbackVarying;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(size, 1);
@@ -3048,7 +3048,7 @@ public final class GL30 {
 
 	// --- [ glBindVertexArray ] ---
 
-	/** JNI method for {@link #glBindVertexArray glBindVertexArray} */
+	/** JNI method for {@link #glBindVertexArray BindVertexArray} */
 	@JavadocExclude
 	public static native void nglBindVertexArray(int array, long __functionAddress);
 
@@ -3060,7 +3060,7 @@ public final class GL30 {
 	 * @param array the name of the vertex array to bind
 	 */
 	public static void glBindVertexArray(int array) {
-		long __functionAddress = getInstance().glBindVertexArray;
+		long __functionAddress = getInstance().BindVertexArray;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglBindVertexArray(array, __functionAddress);
@@ -3068,7 +3068,7 @@ public final class GL30 {
 
 	// --- [ glDeleteVertexArrays ] ---
 
-	/** JNI method for {@link #glDeleteVertexArrays glDeleteVertexArrays} */
+	/** JNI method for {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	@JavadocExclude
 	public static native void nglDeleteVertexArrays(int n, long arrays, long __functionAddress);
 
@@ -3081,7 +3081,7 @@ public final class GL30 {
 	 * @param arrays an array containing the n names of the objects to be deleted
 	 */
 	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		long __functionAddress = getInstance().glDeleteVertexArrays;
+		long __functionAddress = getInstance().DeleteVertexArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(arrays, n << 2);
@@ -3089,17 +3089,17 @@ public final class GL30 {
 		nglDeleteVertexArrays(n, memAddress(arrays), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glDeleteVertexArrays glDeleteVertexArrays} */
+	/** Alternative version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
-		long __functionAddress = getInstance().glDeleteVertexArrays;
+		long __functionAddress = getInstance().DeleteVertexArrays;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays), __functionAddress);
 	}
 
-	/** Single value version of: {@link #glDeleteVertexArrays glDeleteVertexArrays} */
+	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
-		long __functionAddress = getInstance().glDeleteVertexArrays;
+		long __functionAddress = getInstance().DeleteVertexArrays;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -3109,7 +3109,7 @@ public final class GL30 {
 
 	// --- [ glGenVertexArrays ] ---
 
-	/** JNI method for {@link #glGenVertexArrays glGenVertexArrays} */
+	/** JNI method for {@link #glGenVertexArrays GenVertexArrays} */
 	@JavadocExclude
 	public static native void nglGenVertexArrays(int n, long arrays, long __functionAddress);
 
@@ -3122,7 +3122,7 @@ public final class GL30 {
 	 * @param arrays an array in which the generated vertex array object names are stored
 	 */
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		long __functionAddress = getInstance().glGenVertexArrays;
+		long __functionAddress = getInstance().GenVertexArrays;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(arrays, n << 2);
@@ -3130,17 +3130,17 @@ public final class GL30 {
 		nglGenVertexArrays(n, memAddress(arrays), __functionAddress);
 	}
 
-	/** Alternative version of: {@link #glGenVertexArrays glGenVertexArrays} */
+	/** Alternative version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
-		long __functionAddress = getInstance().glGenVertexArrays;
+		long __functionAddress = getInstance().GenVertexArrays;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglGenVertexArrays(arrays.remaining(), memAddress(arrays), __functionAddress);
 	}
 
-	/** Single return value version of: {@link #glGenVertexArrays glGenVertexArrays} */
+	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static int glGenVertexArrays() {
-		long __functionAddress = getInstance().glGenVertexArrays;
+		long __functionAddress = getInstance().GenVertexArrays;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -3151,7 +3151,7 @@ public final class GL30 {
 
 	// --- [ glIsVertexArray ] ---
 
-	/** JNI method for {@link #glIsVertexArray glIsVertexArray} */
+	/** JNI method for {@link #glIsVertexArray IsVertexArray} */
 	@JavadocExclude
 	public static native boolean nglIsVertexArray(int array, long __functionAddress);
 
@@ -3163,7 +3163,7 @@ public final class GL30 {
 	 * @param array a value that may be the name of a vertex array object
 	 */
 	public static boolean glIsVertexArray(int array) {
-		long __functionAddress = getInstance().glIsVertexArray;
+		long __functionAddress = getInstance().IsVertexArray;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nglIsVertexArray(array, __functionAddress);

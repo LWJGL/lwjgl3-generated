@@ -7,8 +7,10 @@
 #include <stddef.h>
 #include "OpenCL.h"
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1bus_1address_1amd_offsets(JNIEnv *env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1bus_1address_1amd_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
+	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)(offsetof(cl_bus_address_amd, surface_bus_address));
 	buffer[1] = (jint)(offsetof(cl_bus_address_amd, marker_bus_address));

@@ -60,21 +60,21 @@ public final class GL21 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		glUniformMatrix2x3fv,
-		glUniformMatrix3x2fv,
-		glUniformMatrix2x4fv,
-		glUniformMatrix4x2fv,
-		glUniformMatrix3x4fv,
-		glUniformMatrix4x3fv;
+		UniformMatrix2x3fv,
+		UniformMatrix3x2fv,
+		UniformMatrix2x4fv,
+		UniformMatrix4x2fv,
+		UniformMatrix3x4fv,
+		UniformMatrix4x3fv;
 
 	@JavadocExclude
 	public GL21(FunctionProvider provider) {
-		glUniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
-		glUniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
-		glUniformMatrix2x4fv = provider.getFunctionAddress("glUniformMatrix2x4fv");
-		glUniformMatrix4x2fv = provider.getFunctionAddress("glUniformMatrix4x2fv");
-		glUniformMatrix3x4fv = provider.getFunctionAddress("glUniformMatrix3x4fv");
-		glUniformMatrix4x3fv = provider.getFunctionAddress("glUniformMatrix4x3fv");
+		UniformMatrix2x3fv = provider.getFunctionAddress("glUniformMatrix2x3fv");
+		UniformMatrix3x2fv = provider.getFunctionAddress("glUniformMatrix3x2fv");
+		UniformMatrix2x4fv = provider.getFunctionAddress("glUniformMatrix2x4fv");
+		UniformMatrix4x2fv = provider.getFunctionAddress("glUniformMatrix4x2fv");
+		UniformMatrix3x4fv = provider.getFunctionAddress("glUniformMatrix3x4fv");
+		UniformMatrix4x3fv = provider.getFunctionAddress("glUniformMatrix4x3fv");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -90,12 +90,12 @@ public final class GL21 {
 		GL21 funcs = new GL21(provider);
 
 		boolean supported = 
-			GL.isFunctionSupported(funcs.glUniformMatrix2x3fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x2fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix2x4fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x2fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix3x4fv) &&
-			GL.isFunctionSupported(funcs.glUniformMatrix4x3fv);
+			GL.isFunctionSupported(funcs.UniformMatrix2x3fv) &&
+			GL.isFunctionSupported(funcs.UniformMatrix3x2fv) &&
+			GL.isFunctionSupported(funcs.UniformMatrix2x4fv) &&
+			GL.isFunctionSupported(funcs.UniformMatrix4x2fv) &&
+			GL.isFunctionSupported(funcs.UniformMatrix3x4fv) &&
+			GL.isFunctionSupported(funcs.UniformMatrix4x3fv);
 
 		return GL.checkExtension("OpenGL21", funcs, supported);
 	}
@@ -117,7 +117,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix2x3f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix2x3fv;
+		long __functionAddress = getInstance().UniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count * 6) << 2);
@@ -127,7 +127,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) glUniformMatrix2x3f} */
 	public static void glUniformMatrix2x3(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix2x3fv;
+		long __functionAddress = getInstance().UniformMatrix2x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x3fv(location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
@@ -150,7 +150,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix3x2f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix3x2fv;
+		long __functionAddress = getInstance().UniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count * 6) << 2);
@@ -160,7 +160,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) glUniformMatrix3x2f} */
 	public static void glUniformMatrix3x2(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix3x2fv;
+		long __functionAddress = getInstance().UniformMatrix3x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x2fv(location, value.remaining() / 6, transpose, memAddress(value), __functionAddress);
@@ -183,7 +183,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix2x4f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix2x4fv;
+		long __functionAddress = getInstance().UniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count << 3) << 2);
@@ -193,7 +193,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) glUniformMatrix2x4f} */
 	public static void glUniformMatrix2x4(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix2x4fv;
+		long __functionAddress = getInstance().UniformMatrix2x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x4fv(location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
@@ -216,7 +216,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix4x2f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix4x2fv;
+		long __functionAddress = getInstance().UniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count << 3) << 2);
@@ -226,7 +226,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) glUniformMatrix4x2f} */
 	public static void glUniformMatrix4x2(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix4x2fv;
+		long __functionAddress = getInstance().UniformMatrix4x2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x2fv(location, value.remaining() >> 3, transpose, memAddress(value), __functionAddress);
@@ -249,7 +249,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix3x4f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix3x4fv;
+		long __functionAddress = getInstance().UniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count * 12) << 2);
@@ -259,7 +259,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) glUniformMatrix3x4f} */
 	public static void glUniformMatrix3x4(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix3x4fv;
+		long __functionAddress = getInstance().UniformMatrix3x4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x4fv(location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);
@@ -282,7 +282,7 @@ public final class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix4x3f(int location, int count, boolean transpose, ByteBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix4x3fv;
+		long __functionAddress = getInstance().UniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(value, (count * 12) << 2);
@@ -292,7 +292,7 @@ public final class GL21 {
 
 	/** Alternative version of: {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) glUniformMatrix4x3f} */
 	public static void glUniformMatrix4x3(int location, boolean transpose, FloatBuffer value) {
-		long __functionAddress = getInstance().glUniformMatrix4x3fv;
+		long __functionAddress = getInstance().UniformMatrix4x3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value), __functionAddress);

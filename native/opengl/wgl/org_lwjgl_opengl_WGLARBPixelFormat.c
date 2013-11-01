@@ -15,6 +15,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPixelFormat_nwglGetPixelForma
 	const int *attributes = (const int *)(intptr_t)attributesAddress;
 	int *values = (int *)(intptr_t)valuesAddress;
 	wglGetPixelFormatAttribivARBPROC wglGetPixelFormatAttribivARB = (wglGetPixelFormatAttribivARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, n, attributes, values);
 }
 
@@ -23,6 +24,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPixelFormat_nwglGetPixelForma
 	const int *attributes = (const int *)(intptr_t)attributesAddress;
 	FLOAT *values = (FLOAT *)(intptr_t)valuesAddress;
 	wglGetPixelFormatAttribfvARBPROC wglGetPixelFormatAttribfvARB = (wglGetPixelFormatAttribfvARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, n, attributes, values);
 }
 
@@ -33,5 +35,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPixelFormat_nwglChoosePixelFo
 	int *formats = (int *)(intptr_t)formatsAddress;
 	UINT *numFormats = (UINT *)(intptr_t)numFormatsAddress;
 	wglChoosePixelFormatARBPROC wglChoosePixelFormatARB = (wglChoosePixelFormatARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglChoosePixelFormatARB(hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 }
