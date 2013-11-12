@@ -146,7 +146,6 @@ public final class WinGDI {
 	 *
 	 * @param object the type of stock object
 	 */
-	@JavadocExclude
 	public static native long GetStockObject(int object);
 
 	// --- [ EnumObjects ] ---

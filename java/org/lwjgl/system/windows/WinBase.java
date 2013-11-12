@@ -66,7 +66,6 @@ public final class WinBase {
 	 * Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each
 	 * other's last-error code.
 	 */
-	@JavadocExclude
 	public static native int GetLastError();
 
 	// --- [ GetModuleHandle ] ---
@@ -223,7 +222,6 @@ public final class WinBase {
 	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
 	 *              handle to a memory object that is marked as discarded.
 	 */
-	@JavadocExclude
 	public static native long GlobalAlloc(int flags, long bytes);
 
 	// --- [ GlobalLock ] ---

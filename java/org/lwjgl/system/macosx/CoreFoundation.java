@@ -49,13 +49,11 @@ public final class CoreFoundation {
 	// --- [ kCFAllocatorDefault ] ---
 
 	/** This is a synonym for {@code NULL}, if you'd rather use a named constant. */
-	@JavadocExclude
 	public static native long kCFAllocatorDefault();
 
 	// --- [ kCFAllocatorSystemDefault ] ---
 
 	/** Default system allocator; you rarely need to use this. */
-	@JavadocExclude
 	public static native long kCFAllocatorSystemDefault();
 
 	// --- [ kCFAllocatorMalloc ] ---
@@ -65,7 +63,6 @@ public final class CoreFoundation {
 	 * whenever possible. This allocator is useful as the "bytesDeallocator" in {@code CFData} or "contentsDeallocator" in {@code CFString} where the memory
 	 * was obtained as a result of {@code malloc()} type functions.
 	 */
-	@JavadocExclude
 	public static native long kCFAllocatorMalloc();
 
 	// --- [ kCFAllocatorMallocZone ] ---
@@ -74,7 +71,6 @@ public final class CoreFoundation {
 	 * This allocator explicitly uses the default malloc zone, returned by {@code malloc_default_zone()}. It should only be used when an object is safe to be
 	 * allocated in non-scanned memory.
 	 */
-	@JavadocExclude
 	public static native long kCFAllocatorMallocZone();
 
 	// --- [ kCFAllocatorNull ] ---
@@ -83,13 +79,11 @@ public final class CoreFoundation {
 	 * Null allocator which does nothing and allocates no memory. This allocator is useful as the "bytesDeallocator" in {@code CFData} or "contentsDeallocator"
 	 * in {@code CFString} where the memory should not be freed.
 	 */
-	@JavadocExclude
 	public static native long kCFAllocatorNull();
 
 	// --- [ kCFAllocatorUseContext ] ---
 
 	/** Special allocator argument to {@link #CFAllocatorCreate CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
-	@JavadocExclude
 	public static native long kCFAllocatorUseContext();
 
 	// --- [ CFRetain ] ---

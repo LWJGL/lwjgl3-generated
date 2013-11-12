@@ -309,13 +309,11 @@ public final class GLX {
 	// --- [ glXGetCurrentContext ] ---
 
 	/** Returns the GLXContext that is current in the current thread. */
-	@JavadocExclude
 	public static native long glXGetCurrentContext();
 
 	// --- [ glXGetCurrentDrawable ] ---
 
 	/** Returns the XID of the current drawable used for rendering. */
-	@JavadocExclude
 	public static native long glXGetCurrentDrawable();
 
 	// --- [ glXWaitGL ] ---
@@ -327,7 +325,6 @@ public final class GLX {
 	 * can be achieved using {@link GL11#glFinish Finish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
 	 * where the client and server are on separate machines.
 	 */
-	@JavadocExclude
 	public static native void glXWaitGL();
 
 	// --- [ glXWaitX ] ---
@@ -338,7 +335,6 @@ public final class GLX {
 	 * X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
 	 * result can be achieved using {@link Xlib#XSync XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
 	 */
-	@JavadocExclude
 	public static native void glXWaitX();
 
 	// --- [ glXSwapBuffers ] ---
@@ -374,7 +370,6 @@ public final class GLX {
 	 * @param count     the number of display lists to define
 	 * @param list_base the base list number
 	 */
-	@JavadocExclude
 	public static native void glXUseXFont(long font, int first, int count, int list_base);
 
 	// --- [ glXCreateGLXPixmap ] ---

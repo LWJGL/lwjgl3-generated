@@ -207,7 +207,6 @@ public final class Mmsystem {
 	 * which is about 49.71 days. This can cause problems in code that directly uses the {@code timeGetTime} return value in computations, particularly where
 	 * the value is used to control code execution. You should always use the difference between two {@code timeGetTime} return values in computations.
 	 */
-	@JavadocExclude
 	public static native int timeGetTime();
 
 }

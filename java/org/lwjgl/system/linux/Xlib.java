@@ -41,7 +41,6 @@ public final class Xlib {
 	 * access mechanism (for example, a mutual exclusion lock in a toolkit or through explicit client programming), Xlib thread initialization is not required.
 	 * It is recommended that single-threaded programs not call this function.
 	 */
-	@JavadocExclude
 	public static native int XInitThreads();
 
 	// --- [ XSetErrorHandler ] ---

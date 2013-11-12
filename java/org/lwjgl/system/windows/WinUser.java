@@ -1319,7 +1319,6 @@ public final class WinUser {
 	 *
 	 * @param index the system metric or configuration setting to be retrieved
 	 */
-	@JavadocExclude
 	public static native int GetSystemMetrics(int index);
 
 	// --- [ CreateWindowEx ] ---
@@ -1538,7 +1537,6 @@ public final class WinUser {
 	 * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
 	 * return until a new message is placed in the thread's message queue.
 	 */
-	@JavadocExclude
 	public static native int WaitMessage();
 
 	// --- [ DispatchMessage ] ---
@@ -1565,7 +1563,6 @@ public final class WinUser {
 	 *
 	 * @param flags the types of messages for which to check
 	 */
-	@JavadocExclude
 	public static native int GetQueueStatus(int flags);
 
 	// --- [ GetMessageTime ] ---
@@ -1574,7 +1571,6 @@ public final class WinUser {
 	 * Retrieves the message time for the last message retrieved by the GetMessage function. The time is a long integer that specifies the elapsed time, in
 	 * milliseconds, from the time the system was started to the time the message was created (that is, placed in the thread's message queue).
 	 */
-	@JavadocExclude
 	public static native int GetMessageTime();
 
 	// --- [ DefWindowProc ] ---
@@ -2024,7 +2020,6 @@ public final class WinUser {
 	 *
 	 * @param key the virtual-key code
 	 */
-	@JavadocExclude
 	public static native short GetAsyncKeyState(int key);
 
 	// --- [ SetCursorPos ] ---
@@ -2036,7 +2031,6 @@ public final class WinUser {
 	 * @param X the new x-coordinate of the cursor, in screen coordinates.
 	 * @param Y the new y-coordinate of the cursor, in screen coordinates.
 	 */
-	@JavadocExclude
 	public static native int SetCursorPos(int X, int Y);
 
 	// --- [ SetCapture ] ---
@@ -2070,7 +2064,6 @@ public final class WinUser {
 	 * all mouse input, regardless of the position of the cursor, except when a mouse button is clicked while the cursor hot spot is in the window of another
 	 * thread.
 	 */
-	@JavadocExclude
 	public static native int ReleaseCapture();
 
 	// --- [ ClipCursor ] ---
@@ -2103,7 +2096,6 @@ public final class WinUser {
 	 * @param show If {@code show} is {@link WinBase#TRUE TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE FALSE}, the display count is
 	 *             decremented by one.
 	 */
-	@JavadocExclude
 	public static native int ShowCursor(int show);
 
 	// --- [ SetCursor ] ---
@@ -2144,7 +2136,6 @@ public final class WinUser {
 	 * @param code    the virtual key code or scan code for a key. How this value is interpreted depends on the value of the {@code mapType} parameter.
 	 * @param mapType the translation to be performed. The value of this parameter depends on the value of the {@code code} parameter.
 	 */
-	@JavadocExclude
 	public static native int MapVirtualKey(int code, int mapType);
 
 	// --- [ TrackMouseEvent ] ---
@@ -2170,7 +2161,6 @@ public final class WinUser {
 	 * Retrieves a handle to the foreground window (the window with which the user is currently working). The system assigns a slightly higher priority to the
 	 * thread that creates the foreground window than it does to other threads.
 	 */
-	@JavadocExclude
 	public static native long GetForegroundWindow();
 
 	// --- [ OpenClipboard ] ---
@@ -2194,7 +2184,6 @@ public final class WinUser {
 	 * Empties the clipboard and frees handles to data in the clipboard. The function then assigns ownership of the clipboard to the window that currently has
 	 * the clipboard open.
 	 */
-	@JavadocExclude
 	public static native int EmptyClipboard();
 
 	// --- [ SetClipboardData ] ---
@@ -2233,7 +2222,6 @@ public final class WinUser {
 	 *
 	 * @param format a standard or registered clipboard format
 	 */
-	@JavadocExclude
 	public static native int IsClipboardFormatAvailable(int format);
 
 	// --- [ GetClipboardData ] ---
@@ -2245,13 +2233,11 @@ public final class WinUser {
 	 *
 	 * @return the handle to a clipboard object in the specified format if the function succeeds. If the function fails, the return value is {@code NULL}.
 	 */
-	@JavadocExclude
 	public static native long GetClipboardData(int format);
 
 	// --- [ CloseClipboard ] ---
 
 	/** Closes the clipboard. */
-	@JavadocExclude
 	public static native int CloseClipboard();
 
 }

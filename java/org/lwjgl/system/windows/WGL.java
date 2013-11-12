@@ -140,13 +140,11 @@ public final class WGL {
 	// --- [ wglGetCurrentContext ] ---
 
 	/** Obtains a handle to the current OpenGL rendering context of the calling thread. */
-	@JavadocExclude
 	public static native long wglGetCurrentContext();
 
 	// --- [ wglGetCurrentDC ] ---
 
 	/** Obtains a handle to the device context that is associated with the current OpenGL rendering context of the calling thread. */
-	@JavadocExclude
 	public static native long wglGetCurrentDC();
 
 	// --- [ wglGetProcAddress ] ---

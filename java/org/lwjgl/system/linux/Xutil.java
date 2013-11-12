@@ -127,7 +127,6 @@ public final class Xutil {
 	// --- [ XUniqueContext ] ---
 
 	/** Creates a unique context. */
-	@JavadocExclude
 	public static native int XUniqueContext();
 
 	// --- [ XSaveContext ] ---

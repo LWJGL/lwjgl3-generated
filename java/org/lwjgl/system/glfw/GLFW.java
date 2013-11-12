@@ -504,7 +504,6 @@ public final class GLFW {
 	// --- [ glfwGetPrimaryMonitor ] ---
 
 	/** Returns the primary monitor. This is usually the monitor where elements like the Windows task bar or the OS X menu bar is located. */
-	@JavadocExclude
 	public static native long glfwGetPrimaryMonitor();
 
 	// --- [ glfwGetMonitorPos ] ---
@@ -729,7 +728,6 @@ public final class GLFW {
 	 * <p/>
 	 * Note: This function may only be called from the main thread.
 	 */
-	@JavadocExclude
 	public static native void glfwDefaultWindowHints();
 
 	// --- [ glfwWindowHint ] ---
@@ -756,7 +754,6 @@ public final class GLFW {
 	 * @param target The window hint to set
 	 * @param hint   new value of the window hint
 	 */
-	@JavadocExclude
 	public static native void glfwWindowHint(int target, int hint);
 
 	// --- [ glfwCreateWindow ] ---
@@ -1697,7 +1694,6 @@ public final class GLFW {
 	 *
 	 * @param joy joystick to query
 	 */
-	@JavadocExclude
 	public static native int glfwJoystickPresent(int joy);
 
 	// --- [ glfwGetJoystickAxes ] ---
@@ -1804,7 +1800,6 @@ public final class GLFW {
 	// --- [ glfwGetTime ] ---
 
 	/** Returns the value of the GLFW timer. Unless the timer has been set using glfwSetTime, the timer measures time elapsed since GLFW was initialized. */
-	@JavadocExclude
 	public static native double glfwGetTime();
 
 	// --- [ glfwSetTime ] ---
@@ -1814,7 +1809,6 @@ public final class GLFW {
 	 *
 	 * @param time new value, in seconds
 	 */
-	@JavadocExclude
 	public static native void glfwSetTime(double time);
 
 	// --- [ glfwMakeContextCurrent ] ---
@@ -1838,7 +1832,6 @@ public final class GLFW {
 	// --- [ glfwGetCurrentContext ] ---
 
 	/** Returns the window whose context is current on the calling thread. */
-	@JavadocExclude
 	public static native long glfwGetCurrentContext();
 
 	// --- [ glfwSwapBuffers ] ---
@@ -1875,7 +1868,6 @@ public final class GLFW {
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
 	 */
-	@JavadocExclude
 	public static native void glfwSwapInterval(int interval);
 
 	// --- [ glfwExtensionSupported ] ---

@@ -226,7 +226,6 @@ public final class CGL {
 	// --- [ CGLGetCurrentContext ] ---
 
 	/** Returns the current rendering context. If there is none, returns {@code NULL}. */
-	@JavadocExclude
 	public static native long CGLGetCurrentContext();
 
 	// --- [ CGLSetCurrentContext ] ---

@@ -26,7 +26,6 @@ public final class Unistd {
 	 *
 	 * @param fd the file descriptor to close
 	 */
-	@JavadocExclude
 	public static native int close(int fd);
 
 	// --- [ read ] ---
