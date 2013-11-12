@@ -22,6 +22,8 @@ typedef ALCenum (APIENTRY *alcGetErrorPROC) (ALCdevice *);
 typedef const ALCchar * (APIENTRY *alcGetStringPROC) (ALCdevice *, ALCenum);
 typedef ALCvoid (APIENTRY *alcGetIntegervPROC) (ALCdevice *, ALCenum, ALCsizei, ALCint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC10_nalcOpenDevice(JNIEnv *__env, jclass clazz, jlong deviceSpecifierAddress, jlong __functionAddress) {
 	const ALCchar *deviceSpecifier = (const ALCchar *)(intptr_t)deviceSpecifierAddress;
 	alcOpenDevicePROC alcOpenDevice = (alcOpenDevicePROC)(intptr_t)__functionAddress;
@@ -130,3 +132,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC10_nalcGetIntegerv(JNIEnv *__env
 	UNUSED_PARAMS(__env, clazz)
 	alcGetIntegerv(deviceHandle, token, size, dest);
 }
+
+EXTERN_C_EXIT

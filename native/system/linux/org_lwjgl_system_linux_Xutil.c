@@ -8,6 +8,8 @@
 #include <X11/Xresource.h>
 #include <X11/Xutil.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xutil_nXLookupString(JNIEnv *__env, jclass clazz, jlong event_structAddress, jlong buffer_returnAddress, jint bytes_buffer, jlong keysym_returnAddress, jlong status_in_outAddress) {
 	XKeyEvent *event_struct = (XKeyEvent *)(intptr_t)event_structAddress;
 	char *buffer_return = (char *)(intptr_t)buffer_returnAddress;
@@ -51,3 +53,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xutil_nXDeleteContext(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)XDeleteContext(display, (XID)rid, context);
 }
+
+EXTERN_C_EXIT

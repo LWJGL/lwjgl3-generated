@@ -13,6 +13,8 @@ typedef GLvoid (APIENTRY *glUniformMatrix4x2fvPROC) (GLint, GLsizei, GLboolean, 
 typedef GLvoid (APIENTRY *glUniformMatrix3x4fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
 typedef GLvoid (APIENTRY *glUniformMatrix4x3fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL21_nglUniformMatrix2x3fv(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress, jlong __functionAddress) {
 	const GLfloat *value = (const GLfloat *)(intptr_t)valueAddress;
 	glUniformMatrix2x3fvPROC glUniformMatrix2x3fv = (glUniformMatrix2x3fvPROC)(intptr_t)__functionAddress;
@@ -54,3 +56,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL21_nglUniformMatrix4x3fv(JNIEnv *
 	UNUSED_PARAMS(__env, clazz)
 	glUniformMatrix4x3fv(location, count, transpose, value);
 }
+
+EXTERN_C_EXIT

@@ -9,6 +9,8 @@
 typedef void (APIENTRY *glXBindSwapBarrierSGIXPROC) (Display *, GLXDrawable, int);
 typedef Bool (APIENTRY *glXQueryMaxSwapBarriersSGIXPROC) (Display *, int, int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapBarrier_nglXBindSwapBarrierSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jint barrier, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
@@ -24,3 +26,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapBarrier_nglXQueryMaxSwap
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXQueryMaxSwapBarriersSGIX(display, screen, max);
 }
+
+EXTERN_C_EXIT

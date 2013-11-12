@@ -13,6 +13,8 @@ typedef int (APIENTRY *wglReleasePbufferDCARBPROC) (HPBUFFERARB, HDC);
 typedef BOOL (APIENTRY *wglDestroyPbufferARBPROC) (HPBUFFERARB);
 typedef BOOL (APIENTRY *wglQueryPbufferARBPROC) (HPBUFFERARB, int, int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglCreatePbufferARB(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint pixelFormat, jint width, jint height, jlong attribListAddress, jlong __functionAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	const int *attribList = (const int *)(intptr_t)attribListAddress;
@@ -50,3 +52,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPbuffer_nwglQueryPbufferARB(J
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglQueryPbufferARB(pbuffer, attribute, value);
 }
+
+EXTERN_C_EXIT

@@ -8,6 +8,8 @@
 #include "WindowsLWJGL.h"
 #include "WGL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GPU_1DEVICE_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -21,3 +23,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GPU_1DEVICE_offsets(JNIEnv *__env, 
 
 	return sizeof(GPU_DEVICE);
 }
+
+EXTERN_C_EXIT

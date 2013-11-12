@@ -9,6 +9,8 @@
 typedef BOOL (APIENTRY *wglSwapIntervalEXTPROC) (int);
 typedef int (APIENTRY *wglGetSwapIntervalEXTPROC) (void);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLEXTSwapControl_nwglSwapIntervalEXT(JNIEnv *__env, jclass clazz, jint interval, jlong __functionAddress) {
 	wglSwapIntervalEXTPROC wglSwapIntervalEXT = (wglSwapIntervalEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -20,3 +22,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLEXTSwapControl_nwglGetSwapInterv
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetSwapIntervalEXT();
 }
+
+EXTERN_C_EXIT

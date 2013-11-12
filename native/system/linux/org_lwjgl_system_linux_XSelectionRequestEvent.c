@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "LinuxLWJGL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XSelectionRequestEvent_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -25,3 +27,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XSelectionRequestEvent_offset
 
 	return sizeof(XSelectionRequestEvent);
 }
+
+EXTERN_C_EXIT

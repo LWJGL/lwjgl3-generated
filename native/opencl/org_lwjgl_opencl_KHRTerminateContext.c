@@ -8,9 +8,13 @@
 
 typedef cl_int (APIENTRY *clTerminateContextKHRPROC) (cl_context);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_KHRTerminateContext_nclTerminateContextKHR(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	clTerminateContextKHRPROC clTerminateContextKHR = (clTerminateContextKHRPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clTerminateContextKHR(context);
 }
+
+EXTERN_C_EXIT

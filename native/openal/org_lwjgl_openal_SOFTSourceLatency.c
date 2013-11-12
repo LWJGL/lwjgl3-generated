@@ -19,6 +19,8 @@ typedef ALvoid (APIENTRY *alGetSourcei64SOFTPROC) (ALuint, ALenum, ALint64SOFT *
 typedef ALvoid (APIENTRY *alGetSource3i64SOFTPROC) (ALuint, ALenum, ALint64SOFT *, ALint64SOFT *, ALint64SOFT *);
 typedef ALvoid (APIENTRY *alGetSourcei64vSOFTPROC) (ALuint, ALenum, ALint64SOFT *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalSourcedSOFT(JNIEnv *__env, jclass clazz, jint source, jint param, jdouble value, jlong __functionAddress) {
 	alSourcedSOFTPROC alSourcedSOFT = (alSourcedSOFTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -102,3 +104,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTSourceLatency_nalGetSourcei64vS
 	UNUSED_PARAMS(__env, clazz)
 	alGetSourcei64vSOFT(source, param, values);
 }
+
+EXTERN_C_EXIT

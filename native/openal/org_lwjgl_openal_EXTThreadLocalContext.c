@@ -9,6 +9,8 @@
 typedef ALCboolean (APIENTRY *alcSetThreadContextPROC) (ALCcontext *);
 typedef ALCcontext * (APIENTRY *alcGetThreadContextPROC) (void);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_EXTThreadLocalContext_nalcSetThreadContext(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong __functionAddress) {
 	ALCcontext *context = (ALCcontext *)(intptr_t)contextAddress;
 	alcSetThreadContextPROC alcSetThreadContext = (alcSetThreadContextPROC)(intptr_t)__functionAddress;
@@ -21,3 +23,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_EXTThreadLocalContext_nalcGetThrea
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)alcGetThreadContext();
 }
+
+EXTERN_C_EXIT

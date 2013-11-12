@@ -92,6 +92,8 @@ typedef GLvoid (APIENTRY *glScissorIndexedvPROC) (GLuint, const GLint *);
 typedef GLvoid (APIENTRY *glDepthRangeArrayvPROC) (GLuint, GLsizei, const GLdouble *);
 typedef GLvoid (APIENTRY *glDepthRangeIndexedPROC) (GLuint, GLdouble, GLdouble);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglShaderBinary(JNIEnv *__env, jclass clazz, jint count, jlong shadersAddress, jint binaryformat, jlong binaryAddress, jint length, jlong __functionAddress) {
 	const GLuint *shaders = (const GLuint *)(intptr_t)shadersAddress;
 	const GLvoid *binary = (const GLvoid *)(intptr_t)binaryAddress;
@@ -660,3 +662,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglDepthRangeIndexed(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	glDepthRangeIndexed(index, zNear, zFar);
 }
+
+EXTERN_C_EXIT

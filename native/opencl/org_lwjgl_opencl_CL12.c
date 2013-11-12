@@ -22,6 +22,8 @@ typedef cl_int (APIENTRY *clEnqueueMigrateMemObjectsPROC) (cl_command_queue, cl_
 typedef cl_int (APIENTRY *clEnqueueMarkerWithWaitListPROC) (cl_command_queue, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueBarrierWithWaitListPROC) (cl_command_queue, cl_uint, const cl_event *, cl_event *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL12_nclGetExtensionFunctionAddressForPlatform(JNIEnv *__env, jclass clazz, jlong platformAddress, jlong func_nameAddress, jlong __functionAddress) {
 	cl_platform_id platform = (cl_platform_id)(intptr_t)platformAddress;
 	const cl_char *func_name = (const cl_char *)(intptr_t)func_nameAddress;
@@ -167,3 +169,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL12_nclEnqueueBarrierWithWaitList(
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueBarrierWithWaitList(command_queue, num_events_in_wait_list, event_wait_list, event);
 }
+
+EXTERN_C_EXIT

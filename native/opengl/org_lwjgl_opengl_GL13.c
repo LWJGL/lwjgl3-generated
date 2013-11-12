@@ -53,6 +53,8 @@ typedef GLvoid (APIENTRY *glLoadTransposeMatrixdPROC) (const GLdouble *);
 typedef GLvoid (APIENTRY *glMultTransposeMatrixfPROC) (const GLfloat *);
 typedef GLvoid (APIENTRY *glMultTransposeMatrixdPROC) (const GLdouble *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
 	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
 	glCompressedTexImage3DPROC glCompressedTexImage3D = (glCompressedTexImage3DPROC)(intptr_t)__functionAddress;
@@ -355,3 +357,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglMultTransposeMatrixd(JNIEnv
 	UNUSED_PARAMS(__env, clazz)
 	glMultTransposeMatrixd(m);
 }
+
+EXTERN_C_EXIT

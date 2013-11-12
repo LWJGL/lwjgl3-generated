@@ -7,6 +7,8 @@
 #include "MacOSXLWJGL.h"
 #include <OpenGL/OpenGL.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CGL_CGLGetCurrentContext(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)CGLGetCurrentContext();
@@ -227,3 +229,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CGL_nCGLErrorString(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)CGLErrorString(error);
 }
+
+EXTERN_C_EXIT

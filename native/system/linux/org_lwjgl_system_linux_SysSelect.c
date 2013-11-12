@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <sys/select.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_SysSelect_nFD_1CLR(JNIEnv *__env, jclass clazz, jint fd, jlong setAddress) {
 	fd_set *set = (fd_set *)(intptr_t)setAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -39,3 +41,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_SysSelect_nselect(JNIEnv *__e
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)select(nfds, readfds, writefds, exceptfds, timeout);
 }
+
+EXTERN_C_EXIT

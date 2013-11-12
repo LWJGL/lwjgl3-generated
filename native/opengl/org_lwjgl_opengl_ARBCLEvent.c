@@ -9,6 +9,8 @@
 
 typedef GLsync (APIENTRY *glCreateSyncFromCLeventARBPROC) (cl_context, cl_event, GLbitfield);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBCLEvent_nglCreateSyncFromCLeventARB(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong eventAddress, jint flags, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_event event = (cl_event)(intptr_t)eventAddress;
@@ -16,3 +18,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_ARBCLEvent_nglCreateSyncFromCLeven
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glCreateSyncFromCLeventARB(context, event, flags);
 }
+
+EXTERN_C_EXIT

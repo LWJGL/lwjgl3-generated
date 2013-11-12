@@ -8,6 +8,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/extensions/XInput2.h>
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIModifierState_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -20,3 +22,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIModifierState_offsets(JNIEn
 
 	return sizeof(XIModifierState);
 }
+
+EXTERN_C_EXIT

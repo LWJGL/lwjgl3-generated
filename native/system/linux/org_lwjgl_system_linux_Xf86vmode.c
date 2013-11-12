@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/extensions/xf86vmode.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong event_baseAddress, jlong error_baseAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *event_base = (int *)(intptr_t)event_baseAddress;
@@ -39,3 +41,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xf86vmode_nXF86VidModeSetGamm
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)XF86VidModeSetGammaRamp(display, screen, size, red_array, green_array, blue_array);
 }
+
+EXTERN_C_EXIT

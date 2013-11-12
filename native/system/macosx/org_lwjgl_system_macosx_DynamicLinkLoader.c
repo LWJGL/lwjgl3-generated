@@ -7,6 +7,8 @@
 #include "MacOSXLWJGL.h"
 #include <dlfcn.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_DynamicLinkLoader_ndlopen(JNIEnv *__env, jclass clazz, jlong pathAddress, jint mode) {
 	const char *path = (const char *)(intptr_t)pathAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -30,3 +32,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_macosx_DynamicLinkLoader_ndlclose(J
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)dlclose(handle);
 }
+
+EXTERN_C_EXIT

@@ -9,6 +9,8 @@
 
 typedef cl_event (APIENTRY *clCreateEventFromGLsyncKHRPROC) (cl_context, GLsync, cl_int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_KHRGLEvent_nclCreateEventFromGLsyncKHR(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong syncAddress, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	GLsync sync = (GLsync)(intptr_t)syncAddress;
@@ -17,3 +19,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_KHRGLEvent_nclCreateEventFromGLsyn
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clCreateEventFromGLsyncKHR(context, sync, errcode_ret);
 }
+
+EXTERN_C_EXIT

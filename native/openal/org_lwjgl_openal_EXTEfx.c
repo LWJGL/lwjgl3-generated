@@ -40,6 +40,8 @@ typedef ALvoid (APIENTRY *alGetAuxiliaryEffectSlotivPROC) (ALuint, ALenum, ALint
 typedef ALvoid (APIENTRY *alGetAuxiliaryEffectSlotfPROC) (ALuint, ALenum, ALfloat *);
 typedef ALvoid (APIENTRY *alGetAuxiliaryEffectSlotfvPROC) (ALuint, ALenum, ALfloat *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_EXTEfx_nalGenEffects(JNIEnv *__env, jclass clazz, jint n, jlong effectsAddress, jlong __functionAddress) {
 	ALuint *effects = (ALuint *)(intptr_t)effectsAddress;
 	alGenEffectsPROC alGenEffects = (alGenEffectsPROC)(intptr_t)__functionAddress;
@@ -261,3 +263,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_EXTEfx_nalGetAuxiliaryEffectSlotfv(
 	UNUSED_PARAMS(__env, clazz)
 	alGetAuxiliaryEffectSlotfv(effectSlot, param, values);
 }
+
+EXTERN_C_EXIT

@@ -8,6 +8,8 @@
 
 typedef GLXContext (APIENTRY *glXCreateContextAttribsARBPROC) (Display *, GLXFBConfig, GLXContext, Bool, const int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXARBCreateContext_nglXCreateContextAttribsARB(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong configAddress, jlong share_contextAddress, jint direct, jlong attrib_listAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
@@ -17,3 +19,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXARBCreateContext_nglXCreateCont
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXCreateContextAttribsARB(display, config, share_context, direct, attrib_list);
 }
+
+EXTERN_C_EXIT

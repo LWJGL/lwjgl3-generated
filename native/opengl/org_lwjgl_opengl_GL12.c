@@ -11,6 +11,8 @@ typedef GLvoid (APIENTRY *glTexSubImage3DPROC) (GLenum, GLint, GLint, GLint, GLi
 typedef GLvoid (APIENTRY *glCopyTexSubImage3DPROC) (GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
 typedef GLvoid (APIENTRY *glDrawRangeElementsPROC) (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglTexImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
 	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
 	glTexImage3DPROC glTexImage3D = (glTexImage3DPROC)(intptr_t)__functionAddress;
@@ -37,3 +39,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglDrawRangeElements(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	glDrawRangeElements(mode, start, end, count, type, indices);
 }
+
+EXTERN_C_EXIT

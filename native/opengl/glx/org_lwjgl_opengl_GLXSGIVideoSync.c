@@ -9,6 +9,8 @@
 typedef GLint (APIENTRY *glXGetVideoSyncSGIPROC) (unsigned int *);
 typedef GLint (APIENTRY *glXWaitVideoSyncSGIPROC) (int, int, unsigned int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIVideoSync_nglXGetVideoSyncSGI(JNIEnv *__env, jclass clazz, jlong countAddress, jlong __functionAddress) {
 	unsigned int *count = (unsigned int *)(intptr_t)countAddress;
 	glXGetVideoSyncSGIPROC glXGetVideoSyncSGI = (glXGetVideoSyncSGIPROC)(intptr_t)__functionAddress;
@@ -22,3 +24,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIVideoSync_nglXWaitVideoSyncSG
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXWaitVideoSyncSGI(divisor, remainder, count);
 }
+
+EXTERN_C_EXIT

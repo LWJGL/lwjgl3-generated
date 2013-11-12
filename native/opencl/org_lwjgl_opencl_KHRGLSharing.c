@@ -8,6 +8,8 @@
 
 typedef cl_int (APIENTRY *clGetGLContextInfoKHRPROC) (const cl_context_properties *, cl_gl_context_info, size_t, cl_void *, size_t *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_KHRGLSharing_nclGetGLContextInfoKHR(JNIEnv *__env, jclass clazz, jlong propertiesAddress, jint param_name, jlong param_value_size, jlong param_valueAddress, jlong param_value_size_retAddress, jlong __functionAddress) {
 	const cl_context_properties *properties = (const cl_context_properties *)(intptr_t)propertiesAddress;
 	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
@@ -16,3 +18,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_KHRGLSharing_nclGetGLContextInfoKHR
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clGetGLContextInfoKHR(properties, param_name, (size_t)param_value_size, param_value, param_value_size_ret);
 }
+
+EXTERN_C_EXIT

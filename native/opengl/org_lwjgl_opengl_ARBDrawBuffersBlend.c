@@ -11,6 +11,8 @@ typedef GLvoid (APIENTRY *glBlendEquationSeparateiARBPROC) (GLuint, GLenum, GLen
 typedef GLvoid (APIENTRY *glBlendFunciARBPROC) (GLuint, GLenum, GLenum);
 typedef GLvoid (APIENTRY *glBlendFuncSeparateiARBPROC) (GLuint, GLenum, GLenum, GLenum, GLenum);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_nglBlendEquationiARB(JNIEnv *__env, jclass clazz, jint buf, jint mode, jlong __functionAddress) {
 	glBlendEquationiARBPROC glBlendEquationiARB = (glBlendEquationiARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -34,3 +36,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawBuffersBlend_nglBlendFuncSep
 	UNUSED_PARAMS(__env, clazz)
 	glBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
+
+EXTERN_C_EXIT

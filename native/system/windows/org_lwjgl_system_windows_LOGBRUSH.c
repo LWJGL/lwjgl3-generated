@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "WindowsLWJGL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGBRUSH_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -18,3 +20,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGBRUSH_offsets(JNIEnv *__
 
 	return sizeof(LOGBRUSH);
 }
+
+EXTERN_C_EXIT

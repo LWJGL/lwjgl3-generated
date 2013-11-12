@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "LinuxLWJGL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XWindowAttributes_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -38,3 +40,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XWindowAttributes_offsets(JNI
 
 	return sizeof(XWindowAttributes);
 }
+
+EXTERN_C_EXIT

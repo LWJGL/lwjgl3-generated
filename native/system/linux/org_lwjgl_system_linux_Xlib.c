@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/Xutil.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_XInitThreads(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)XInitThreads();
@@ -458,3 +460,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXFreeGC(JNIEnv *__env, 
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)XFreeGC(display, gc);
 }
+
+EXTERN_C_EXIT

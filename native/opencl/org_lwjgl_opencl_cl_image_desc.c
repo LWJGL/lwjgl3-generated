@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "OpenCL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1image_1desc_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -25,3 +27,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1image_1desc_offsets(JNIEnv *__e
 
 	return sizeof(cl_image_desc);
 }
+
+EXTERN_C_EXIT

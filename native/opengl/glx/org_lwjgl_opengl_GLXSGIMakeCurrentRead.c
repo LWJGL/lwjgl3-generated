@@ -9,6 +9,8 @@
 typedef Bool (APIENTRY *glXMakeCurrentReadSGIPROC) (Display *, GLXDrawable, GLXDrawable, GLXContext);
 typedef GLXDrawable (APIENTRY *glXGetCurrentReadDrawableSGIPROC) (void);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIMakeCurrentRead_nglXMakeCurrentReadSGI(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawAddress, jlong readAddress, jlong ctxAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable draw = (GLXDrawable)(intptr_t)drawAddress;
@@ -24,3 +26,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIMakeCurrentRead_nglXGetCurre
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetCurrentReadDrawableSGI();
 }
+
+EXTERN_C_EXIT

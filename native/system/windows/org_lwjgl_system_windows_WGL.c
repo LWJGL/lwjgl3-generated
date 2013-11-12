@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "WindowsLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WGL_nwglCreateContext(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -73,3 +75,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WGL_nwglUseFontOutlines(JNI
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglUseFontOutlines(hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
 }
+
+EXTERN_C_EXIT

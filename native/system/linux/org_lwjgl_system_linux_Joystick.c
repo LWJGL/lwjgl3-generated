@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <linux/joystick.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Joystick_JSIOCGVERSION(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)JSIOCGVERSION;
@@ -26,3 +28,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Joystick_JSIOCGNAME(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)JSIOCGNAME(len);
 }
+
+EXTERN_C_EXIT

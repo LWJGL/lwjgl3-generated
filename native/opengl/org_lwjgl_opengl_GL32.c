@@ -24,6 +24,8 @@ typedef GLvoid (APIENTRY *glWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
 typedef GLvoid (APIENTRY *glGetInteger64vPROC) (GLenum, GLint64 *);
 typedef GLvoid (APIENTRY *glGetSyncivPROC) (GLsync, GLenum, GLsizei, GLsizei *, GLint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint basevertex, jlong __functionAddress) {
 	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
 	glDrawElementsBaseVertexPROC glDrawElementsBaseVertex = (glDrawElementsBaseVertexPROC)(intptr_t)__functionAddress;
@@ -140,3 +142,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetSynciv(JNIEnv *__env, jc
 	UNUSED_PARAMS(__env, clazz)
 	glGetSynciv(sync, pname, bufSize, length, values);
 }
+
+EXTERN_C_EXIT

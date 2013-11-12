@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <GL/glx.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_GLX_nglXQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong error_baseAddress, jlong event_baseAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *error_base = (int *)(intptr_t)error_baseAddress;
@@ -121,3 +123,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_GLX_nglXDestroyGLXPixmap(JNIE
 	UNUSED_PARAMS(__env, clazz)
 	glXDestroyGLXPixmap(display, pixmap);
 }
+
+EXTERN_C_EXIT

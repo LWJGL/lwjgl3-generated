@@ -8,6 +8,8 @@
 
 typedef HGLRC (APIENTRY *wglCreateContextAttribsARBPROC) (HDC, HGLRC, const int *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBCreateContext_nwglCreateContextAttribsARB(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong shareContextAddress, jlong attribListAddress, jlong __functionAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	HGLRC shareContext = (HGLRC)(intptr_t)shareContextAddress;
@@ -16,3 +18,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBCreateContext_nwglCreateCont
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglCreateContextAttribsARB(hdc, shareContext, attribList);
 }
+
+EXTERN_C_EXIT

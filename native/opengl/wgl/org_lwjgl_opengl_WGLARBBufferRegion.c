@@ -11,6 +11,8 @@ typedef VOID (APIENTRY *wglDeleteBufferRegionARBPROC) (HANDLE);
 typedef BOOL (APIENTRY *wglSaveBufferRegionARBPROC) (HANDLE, int, int, int, int);
 typedef BOOL (APIENTRY *wglRestoreBufferRegionARBPROC) (HANDLE, int, int, int, int, int, int);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBBufferRegion_nwglCreateBufferRegionARB(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint layerPlane, jint type, jlong __functionAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	wglCreateBufferRegionARBPROC wglCreateBufferRegionARB = (wglCreateBufferRegionARBPROC)(intptr_t)__functionAddress;
@@ -38,3 +40,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBBufferRegion_nwglRestoreBuffe
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglRestoreBufferRegionARB(region, x, y, width, height, xSrc, ySrc);
 }
+
+EXTERN_C_EXIT

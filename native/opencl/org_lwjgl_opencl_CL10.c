@@ -72,6 +72,8 @@ typedef cl_int (APIENTRY *clFlushPROC) (cl_command_queue);
 typedef cl_int (APIENTRY *clFinishPROC) (cl_command_queue);
 typedef void * (APIENTRY *clGetExtensionFunctionAddressPROC) (const cl_char *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclGetPlatformIDs(JNIEnv *__env, jclass clazz, jint num_entries, jlong platformsAddress, jlong num_platformsAddress, jlong __functionAddress) {
 	cl_platform_id *platforms = (cl_platform_id *)(intptr_t)platformsAddress;
 	cl_uint *num_platforms = (cl_uint *)(intptr_t)num_platformsAddress;
@@ -669,3 +671,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10_nclGetExtensionFunctionAddres
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)clGetExtensionFunctionAddress(funcname);
 }
+
+EXTERN_C_EXIT

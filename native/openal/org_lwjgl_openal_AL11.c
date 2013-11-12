@@ -23,6 +23,8 @@ typedef ALvoid (APIENTRY *alGetBufferfPROC) (ALuint, ALenum, ALfloat *);
 typedef ALvoid (APIENTRY *alGetBufferfvPROC) (ALuint, ALenum, ALfloat *);
 typedef ALvoid (APIENTRY *alSpeedOfSoundPROC) (ALfloat);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_AL11_nalListener3i(JNIEnv *__env, jclass clazz, jint paramName, jfloat value1, jfloat value2, jfloat value3, jlong __functionAddress) {
 	alListener3iPROC alListener3i = (alListener3iPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -127,3 +129,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_AL11_nalSpeedOfSound(JNIEnv *__env,
 	UNUSED_PARAMS(__env, clazz)
 	alSpeedOfSound(value);
 }
+
+EXTERN_C_EXIT

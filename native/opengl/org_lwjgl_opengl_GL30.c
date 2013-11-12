@@ -87,6 +87,8 @@ typedef GLvoid (APIENTRY *glDeleteVertexArraysPROC) (GLsizei, const GLuint *);
 typedef GLvoid (APIENTRY *glGenVertexArraysPROC) (GLsizei, GLuint *);
 typedef GLboolean (APIENTRY *glIsVertexArrayPROC) (GLuint);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL30_nglGetStringi(JNIEnv *__env, jclass clazz, jint name, jint index, jlong __functionAddress) {
 	glGetStringiPROC glGetStringi = (glGetStringiPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -607,3 +609,5 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL30_nglIsVertexArray(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)glIsVertexArray(array);
 }
+
+EXTERN_C_EXIT

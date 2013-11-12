@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "OpenCL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1device_1topology_1amd_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -24,3 +26,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1device_1topology_1amd_offsets(J
 
 	return sizeof(cl_device_topology_amd);
 }
+
+EXTERN_C_EXIT

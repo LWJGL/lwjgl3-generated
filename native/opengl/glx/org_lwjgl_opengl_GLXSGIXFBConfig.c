@@ -13,6 +13,8 @@ typedef GLXContext (APIENTRY *glXCreateContextWithConfigSGIXPROC) (Display *, GL
 typedef XVisualInfo * (APIENTRY *glXGetVisualFromFBConfigSGIXPROC) (Display *, GLXFBConfig);
 typedef GLXFBConfigSGIX (APIENTRY *glXGetFBConfigFromVisualSGIXPROC) (Display *, XVisualInfo *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXGetFBConfigAttribSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong configAddress, jint attribute, jlong valueAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfigSGIX config = (GLXFBConfigSGIX)(intptr_t)configAddress;
@@ -63,3 +65,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXFBConfig_nglXGetFBConfigFro
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glXGetFBConfigFromVisualSGIX(display, vis);
 }
+
+EXTERN_C_EXIT

@@ -9,6 +9,8 @@
 typedef void (APIENTRY *glXBindTexImageEXTPROC) (Display *, GLXDrawable, int, const int *);
 typedef void (APIENTRY *glXReleaseTexImageEXTPROC) (Display *, GLXDrawable, int);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTTextureFromPixmap_nglXBindTexImageEXT(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jint buffer, jlong attrib_listAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
@@ -25,3 +27,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTTextureFromPixmap_nglXRelease
 	UNUSED_PARAMS(__env, clazz)
 	glXReleaseTexImageEXT(display, drawable, buffer);
 }
+
+EXTERN_C_EXIT

@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "MacOSXLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_kCFAllocatorDefault(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)kCFAllocatorDefault;
@@ -83,3 +85,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFURLCreate
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)CFURLCreateWithFileSystemPath(allocator, filePath, pathStyle, isDirectory);
 }
+
+EXTERN_C_EXIT

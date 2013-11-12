@@ -12,6 +12,8 @@ typedef void (APIENTRY *glXQueryGLXPbufferSGIXPROC) (Display *, GLXPbuffer, int,
 typedef void (APIENTRY *glXSelectEventSGIXPROC) (Display *, GLXDrawable, unsigned long);
 typedef void (APIENTRY *glXGetSelectedEventSGIXPROC) (Display *, GLXDrawable, unsigned long *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXCreateGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong configAddress, jint width, jint height, jlong attrib_listAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
@@ -54,3 +56,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXGetSelectedEvent
 	UNUSED_PARAMS(__env, clazz)
 	glXGetSelectedEventSGIX(display, drawable, mask);
 }
+
+EXTERN_C_EXIT

@@ -54,6 +54,8 @@ typedef GLvoid (APIENTRY *glWindowPos3svPROC) (const GLshort *);
 typedef GLvoid (APIENTRY *glWindowPos3fvPROC) (const GLfloat *);
 typedef GLvoid (APIENTRY *glWindowPos3dvPROC) (const GLdouble *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha, jlong __functionAddress) {
 	glBlendColorPROC glBlendColor = (glBlendColorPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -361,3 +363,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3dv(JNIEnv *__env,
 	UNUSED_PARAMS(__env, clazz)
 	glWindowPos3dv(p);
 }
+
+EXTERN_C_EXIT

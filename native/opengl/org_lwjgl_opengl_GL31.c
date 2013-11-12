@@ -19,6 +19,8 @@ typedef GLvoid (APIENTRY *glGetActiveUniformBlockivPROC) (GLuint, GLuint, GLenum
 typedef GLvoid (APIENTRY *glGetActiveUniformBlockNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
 typedef GLvoid (APIENTRY *glUniformBlockBindingPROC) (GLuint, GLuint, GLuint);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawArraysInstanced(JNIEnv *__env, jclass clazz, jint mode, jint first, jint count, jint primcount, jlong __functionAddress) {
 	glDrawArraysInstancedPROC glDrawArraysInstanced = (glDrawArraysInstancedPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -101,3 +103,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglUniformBlockBinding(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 }
+
+EXTERN_C_EXIT

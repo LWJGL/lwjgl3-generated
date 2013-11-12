@@ -8,6 +8,8 @@
 
 typedef void (APIENTRY *glXJoinSwapGroupSGIXPROC) (Display *, GLXDrawable, GLXDrawable);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapGroup_nglXJoinSwapGroupSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jlong memberAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
@@ -16,3 +18,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXSwapGroup_nglXJoinSwapGroupS
 	UNUSED_PARAMS(__env, clazz)
 	glXJoinSwapGroupSGIX(display, drawable, member);
 }
+
+EXTERN_C_EXIT

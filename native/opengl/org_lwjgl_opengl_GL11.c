@@ -330,6 +330,8 @@ typedef GLvoid (APIENTRY *glVertex4dvPROC) (const GLdouble *);
 typedef GLvoid (APIENTRY *glVertexPointerPROC) (GLint, GLenum, GLsizei, const GLvoid *);
 typedef GLvoid (APIENTRY *glViewportPROC) (GLint, GLint, GLsizei, GLsizei);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglEnable(JNIEnv *__env, jclass clazz, jint target, jlong __functionAddress) {
 	glEnablePROC glEnable = (glEnablePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -2419,3 +2421,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglViewport(JNIEnv *__env, jcl
 	UNUSED_PARAMS(__env, clazz)
 	glViewport(x, y, w, h);
 }
+
+EXTERN_C_EXIT

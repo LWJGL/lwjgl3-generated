@@ -12,6 +12,8 @@ typedef ALCvoid (APIENTRY *alcCaptureStartPROC) (ALCdevice *);
 typedef ALCvoid (APIENTRY *alcCaptureStopPROC) (ALCdevice *);
 typedef ALCvoid (APIENTRY *alcCaptureSamplesPROC) (ALCdevice *, ALCvoid *, ALCsizei);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureOpenDevice(JNIEnv *__env, jclass clazz, jlong devicenameAddress, jint frequency, jint format, jint buffersize, jlong __functionAddress) {
 	const ALCchar *devicename = (const ALCchar *)(intptr_t)devicenameAddress;
 	alcCaptureOpenDevicePROC alcCaptureOpenDevice = (alcCaptureOpenDevicePROC)(intptr_t)__functionAddress;
@@ -47,3 +49,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_ALC11_nalcCaptureSamples(JNIEnv *__
 	UNUSED_PARAMS(__env, clazz)
 	alcCaptureSamples(device, buffer, samples);
 }
+
+EXTERN_C_EXIT

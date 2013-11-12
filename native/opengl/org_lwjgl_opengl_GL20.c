@@ -98,6 +98,8 @@ typedef GLvoid (APIENTRY *glStencilOpSeparatePROC) (GLenum, GLenum, GLenum, GLen
 typedef GLvoid (APIENTRY *glStencilFuncSeparatePROC) (GLenum, GLenum, GLint, GLuint);
 typedef GLvoid (APIENTRY *glStencilMaskSeparatePROC) (GLenum, GLuint);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL20_nglCreateProgram(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	glCreateProgramPROC glCreateProgram = (glCreateProgramPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -708,3 +710,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglStencilMaskSeparate(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	glStencilMaskSeparate(face, mask);
 }
+
+EXTERN_C_EXIT

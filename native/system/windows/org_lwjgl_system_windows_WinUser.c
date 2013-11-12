@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "WindowsLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jshort JNICALL Java_org_lwjgl_system_windows_WinUser_nRegisterClassEx(JNIEnv *__env, jclass clazz, jlong wndClassExAddress) {
 	const WNDCLASSEX *wndClassEx = (const WNDCLASSEX *)(intptr_t)wndClassExAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -357,3 +359,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_CloseClipboard(JNIE
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)CloseClipboard();
 }
+
+EXTERN_C_EXIT

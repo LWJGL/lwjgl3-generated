@@ -10,6 +10,8 @@ typedef BOOL (APIENTRY *wglGetPixelFormatAttribivARBPROC) (HDC, int, int, UINT, 
 typedef BOOL (APIENTRY *wglGetPixelFormatAttribfvARBPROC) (HDC, int, int, UINT, const int *, FLOAT *);
 typedef BOOL (APIENTRY *wglChoosePixelFormatARBPROC) (HDC, const int *, const FLOAT *, UINT, int *, UINT *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPixelFormat_nwglGetPixelFormatAttribivARB(JNIEnv *__env, jclass clazz, jlong hdcAddress, jint pixelFormat, jint layerPlane, jint n, jlong attributesAddress, jlong valuesAddress, jlong __functionAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	const int *attributes = (const int *)(intptr_t)attributesAddress;
@@ -38,3 +40,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBPixelFormat_nwglChoosePixelFo
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglChoosePixelFormatARB(hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 }
+
+EXTERN_C_EXIT

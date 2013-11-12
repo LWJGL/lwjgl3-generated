@@ -15,6 +15,8 @@ typedef BOOL (APIENTRY *wglDXObjectAccessNVPROC) (HANDLE, GLenum);
 typedef BOOL (APIENTRY *wglDXLockObjectsNVPROC) (HANDLE, GLint, HANDLE *);
 typedef BOOL (APIENTRY *wglDXUnlockObjectsNVPROC) (HANDLE, GLint, HANDLE *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXSetResourceShareHandleNV(JNIEnv *__env, jclass clazz, jlong dxObjectAddress, jlong shareHandleAddress, jlong __functionAddress) {
 	void *dxObject = (void *)(intptr_t)dxObjectAddress;
 	HANDLE shareHandle = (HANDLE)(intptr_t)shareHandleAddress;
@@ -75,3 +77,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVDXInterop_nwglDXUnlockObjectsN
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDXUnlockObjectsNV(device, count, objects);
 }
+
+EXTERN_C_EXIT

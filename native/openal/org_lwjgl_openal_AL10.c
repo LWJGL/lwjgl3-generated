@@ -61,6 +61,8 @@ typedef ALuint (APIENTRY *alGetEnumValuePROC) (const ALchar *);
 typedef void * (APIENTRY *alGetProcAddressPROC) (const ALchar *);
 typedef ALCboolean (APIENTRY *alIsExtensionPresentPROC) (const ALchar *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_openal_AL10_nalGetError(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	alGetErrorPROC alGetError = (alGetErrorPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -418,3 +420,5 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_openal_AL10_nalIsExtensionPresent(JNIE
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)alIsExtensionPresent(extName);
 }
+
+EXTERN_C_EXIT

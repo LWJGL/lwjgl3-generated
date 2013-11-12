@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <dlfcn.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_DynamicLinkLoader_ndlopen(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint mode) {
 	const char *filename = (const char *)(intptr_t)filenameAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -30,3 +32,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_DynamicLinkLoader_ndlclose(JN
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)dlclose(handle);
 }
+
+EXTERN_C_EXIT

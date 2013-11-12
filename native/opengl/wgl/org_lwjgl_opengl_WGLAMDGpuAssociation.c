@@ -17,6 +17,8 @@ typedef BOOL (APIENTRY *wglMakeAssociatedContextCurrentAMDPROC) (HGLRC);
 typedef HGLRC (APIENTRY *wglGetCurrentAssociatedContextAMDPROC) (void);
 typedef VOID (APIENTRY *wglBlitContextFramebufferAMDPROC) (HGLRC, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUIDsAMD(JNIEnv *__env, jclass clazz, jint maxCount, jlong idsAddress, jlong __functionAddress) {
 	UINT *ids = (UINT *)(intptr_t)idsAddress;
 	wglGetGPUIDsAMDPROC wglGetGPUIDsAMD = (wglGetGPUIDsAMDPROC)(intptr_t)__functionAddress;
@@ -78,3 +80,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglBlitContex
 	UNUSED_PARAMS(__env, clazz)
 	wglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }
+
+EXTERN_C_EXIT

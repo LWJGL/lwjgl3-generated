@@ -41,6 +41,8 @@ typedef GLvoid (APIENTRY *glGetMinmaxParameterfvPROC) (GLenum, GLenum, GLfloat *
 typedef GLvoid (APIENTRY *glBlendColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
 typedef GLvoid (APIENTRY *glBlendEquationPROC) (GLenum);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglColorTable(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint format, jint type, jlong tableAddress, jlong __functionAddress) {
 	const GLvoid *table = (const GLvoid *)(intptr_t)tableAddress;
 	glColorTablePROC glColorTable = (glColorTablePROC)(intptr_t)__functionAddress;
@@ -269,3 +271,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglBlendEquation(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	glBlendEquation(mode);
 }
+
+EXTERN_C_EXIT

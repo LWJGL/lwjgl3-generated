@@ -16,6 +16,8 @@ typedef cl_int (APIENTRY *clGetGLTextureInfoPROC) (cl_mem, cl_gl_texture_info, s
 typedef cl_int (APIENTRY *clEnqueueAcquireGLObjectsPROC) (cl_command_queue, cl_uint, const cl_mem *, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueReleaseGLObjectsPROC) (cl_command_queue, cl_uint, const cl_mem *, cl_uint, const cl_event *, cl_event *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL10GL_nclCreateFromGLBuffer(JNIEnv *__env, jclass clazz, jlong contextAddress, jlong flags, jint bufobj, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_context context = (cl_context)(intptr_t)contextAddress;
 	cl_int *errcode_ret = (cl_int *)(intptr_t)errcode_retAddress;
@@ -85,3 +87,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclEnqueueReleaseGLObjects(J
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueReleaseGLObjects(command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 }
+
+EXTERN_C_EXIT

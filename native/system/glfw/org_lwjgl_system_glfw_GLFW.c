@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "glfw3.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwInit(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glfwInit();
@@ -445,3 +447,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_glfw_GLFW_nglfwExtensionSupported(J
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glfwExtensionSupported(extension);
 }
+
+EXTERN_C_EXIT

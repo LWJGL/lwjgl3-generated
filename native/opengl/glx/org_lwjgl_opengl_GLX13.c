@@ -23,6 +23,8 @@ typedef int (APIENTRY *glXQueryContextPROC) (Display *, GLXContext, int, int *);
 typedef void (APIENTRY *glXSelectEventPROC) (Display *, GLXDrawable, unsigned long);
 typedef void (APIENTRY *glXGetSelectedEventPROC) (Display *, GLXDrawable, unsigned long *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetFBConfigs(JNIEnv *__env, jclass clazz, jlong displayAddress, jint screen, jlong nelementsAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *nelements = (int *)(intptr_t)nelementsAddress;
@@ -159,3 +161,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLX13_nglXGetSelectedEvent(JNIEnv *
 	UNUSED_PARAMS(__env, clazz)
 	glXGetSelectedEvent(display, draw, event_mask);
 }
+
+EXTERN_C_EXIT

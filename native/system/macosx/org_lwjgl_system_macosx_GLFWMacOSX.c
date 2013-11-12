@@ -9,6 +9,8 @@
 #include "glfw3.h"
 #include "glfw3native.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_GLFWMacOSX_nglfwGetCocoaWindow(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -20,3 +22,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_GLFWMacOSX_nglfwGetNSGLCont
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glfwGetNSGLContext(window);
 }
+
+EXTERN_C_EXIT

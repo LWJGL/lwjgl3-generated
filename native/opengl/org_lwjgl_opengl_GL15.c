@@ -26,6 +26,8 @@ typedef GLvoid (APIENTRY *glGetQueryivPROC) (GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetQueryObjectivPROC) (GLuint, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetQueryObjectuivPROC) (GLuint, GLenum, GLuint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglBindBuffer(JNIEnv *__env, jclass clazz, jint target, jint buffer, jlong __functionAddress) {
 	glBindBufferPROC glBindBuffer = (glBindBufferPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -151,3 +153,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetQueryObjectuiv(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	glGetQueryObjectuiv(id, pname, params);
 }
+
+EXTERN_C_EXIT

@@ -49,6 +49,8 @@ typedef GLvoid (APIENTRY *glVertexAttribLFormatPROC) (GLuint, GLint, GLenum, GLu
 typedef GLvoid (APIENTRY *glVertexAttribBindingPROC) (GLuint, GLuint);
 typedef GLvoid (APIENTRY *glVertexBindingDivisorPROC) (GLuint, GLuint);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglClearBufferData(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint format, jint type, jlong dataAddress, jlong __functionAddress) {
 	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
 	glClearBufferDataPROC glClearBufferData = (glClearBufferDataPROC)(intptr_t)__functionAddress;
@@ -336,3 +338,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglVertexBindingDivisor(JNIEnv
 	UNUSED_PARAMS(__env, clazz)
 	glVertexBindingDivisor(index, divisor);
 }
+
+EXTERN_C_EXIT

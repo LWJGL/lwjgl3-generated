@@ -10,6 +10,8 @@ typedef ALCdevice * (APIENTRY *alcLoopbackOpenDeviceSOFTPROC) (const ALCchar *);
 typedef ALCboolean (APIENTRY *alcIsRenderFormatSupportedSOFTPROC) (ALCdevice *, ALCsizei, ALCenum, ALCenum);
 typedef ALCvoid (APIENTRY *alcRenderSamplesSOFTPROC) (ALCdevice *, ALCvoid *, ALCsizei);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_openal_SOFTLoopback_nalcLoopbackOpenDeviceSOFT(JNIEnv *__env, jclass clazz, jlong deviceNameAddress, jlong __functionAddress) {
 	const ALCchar *deviceName = (const ALCchar *)(intptr_t)deviceNameAddress;
 	alcLoopbackOpenDeviceSOFTPROC alcLoopbackOpenDeviceSOFT = (alcLoopbackOpenDeviceSOFTPROC)(intptr_t)__functionAddress;
@@ -31,3 +33,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTLoopback_nalcRenderSamplesSOFT(
 	UNUSED_PARAMS(__env, clazz)
 	alcRenderSamplesSOFT(device, buffer, samples);
 }
+
+EXTERN_C_EXIT

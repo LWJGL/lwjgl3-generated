@@ -18,6 +18,8 @@ typedef GLvoid (APIENTRY *glBindImageTexturePROC) (GLuint, GLuint, GLint, GLbool
 typedef GLvoid (APIENTRY *glMemoryBarrierPROC) (GLbitfield);
 typedef GLvoid (APIENTRY *glGetInternalformativPROC) (GLenum, GLenum, GLenum, GLsizei, GLint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglTexStorage1D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jlong __functionAddress) {
 	glTexStorage1DPROC glTexStorage1D = (glTexStorage1DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -86,3 +88,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglGetInternalformativ(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	glGetInternalformativ(target, internalformat, pname, bufSize, params);
 }
+
+EXTERN_C_EXIT

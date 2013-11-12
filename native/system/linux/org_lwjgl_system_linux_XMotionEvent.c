@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include "LinuxLWJGL.h"
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XMotionEvent_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -30,3 +32,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XMotionEvent_offsets(JNIEnv *
 
 	return sizeof(XMotionEvent);
 }
+
+EXTERN_C_EXIT

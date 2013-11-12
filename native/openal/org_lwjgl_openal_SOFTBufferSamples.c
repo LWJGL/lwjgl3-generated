@@ -11,6 +11,8 @@ typedef ALCboolean (APIENTRY *alIsBufferFormatSupportedSOFTPROC) (ALCenum);
 typedef ALCvoid (APIENTRY *alBufferSubSamplesSOFTPROC) (ALuint, ALCsizei, ALCsizei, ALenum, ALenum, const ALCvoid *);
 typedef ALCvoid (APIENTRY *alGetBufferSamplesSOFTPROC) (ALuint, ALCsizei, ALCsizei, ALenum, ALenum, ALCvoid *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTBufferSamples_nalBufferSamplesSOFT(JNIEnv *__env, jclass clazz, jint buffer, jint samplerate, jint internalformat, jint samples, jint channels, jint type, jlong dataAddress, jlong __functionAddress) {
 	const ALCvoid *data = (const ALCvoid *)(intptr_t)dataAddress;
 	alBufferSamplesSOFTPROC alBufferSamplesSOFT = (alBufferSamplesSOFTPROC)(intptr_t)__functionAddress;
@@ -37,3 +39,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_openal_SOFTBufferSamples_nalGetBufferSampl
 	UNUSED_PARAMS(__env, clazz)
 	alGetBufferSamplesSOFT(buffer, offset, samples, channels, type, data);
 }
+
+EXTERN_C_EXIT

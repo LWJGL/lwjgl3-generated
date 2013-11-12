@@ -17,6 +17,8 @@ typedef unsigned int (APIENTRY *glXGetGPUIDsAMDPROC) (unsigned int, unsigned int
 typedef int (APIENTRY *glXGetGPUInfoAMDPROC) (unsigned int, int, GLenum, unsigned int, void *);
 typedef Bool (APIENTRY *glXMakeAssociatedContextCurrentAMDPROC) (GLXContext);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXAMDGPUAssociation_nglXBlitContextFramebufferAMD(JNIEnv *__env, jclass clazz, jlong dstCtxAddress, jint srcX0, jint srcY0, jint srcX1, jint srcY1, jint dstX0, jint dstY0, jint dstX1, jint dstY1, jint mask, jint filter, jlong __functionAddress) {
 	GLXContext dstCtx = (GLXContext)(intptr_t)dstCtxAddress;
 	glXBlitContextFramebufferAMDPROC glXBlitContextFramebufferAMD = (glXBlitContextFramebufferAMDPROC)(intptr_t)__functionAddress;
@@ -78,3 +80,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GLXAMDGPUAssociation_nglXMakeAssoci
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glXMakeAssociatedContextCurrentAMD(ctx);
 }
+
+EXTERN_C_EXIT

@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/XKBlib.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XKBlib_nXkbQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong opcodeReturnAddress, jlong eventBaseReturnAddress, jlong errorBaseReturnAddress, jlong majorRtrnAddress, jlong minorRtrnAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *opcodeReturn = (int *)(intptr_t)opcodeReturnAddress;
@@ -42,3 +44,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_XKBlib_nXkbFreeKeyboard(JNIEn
 	UNUSED_PARAMS(__env, clazz)
 	XkbFreeKeyboard(xkb, which, freeDesc);
 }
+
+EXTERN_C_EXIT

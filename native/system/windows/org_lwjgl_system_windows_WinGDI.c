@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "WindowsLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_GetStockObject(JNIEnv *__env, jclass clazz, jint object) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)GetStockObject(object);
@@ -141,3 +143,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinGDI_nSwapBuffers(JNIEnv 
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)SwapBuffers(dc);
 }
+
+EXTERN_C_EXIT

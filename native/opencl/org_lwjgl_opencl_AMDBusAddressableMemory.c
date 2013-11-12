@@ -10,6 +10,8 @@ typedef cl_int (APIENTRY *clEnqueueWaitSignalAMDPROC) (cl_command_queue, cl_mem,
 typedef cl_int (APIENTRY *clEnqueueWriteSignalAMDPROC) (cl_command_queue, cl_mem, cl_uint, cl_ulong, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueMakeBuffersResidentAMDPROC) (cl_command_queue, cl_uint, cl_mem *, cl_bool, cl_bus_address_amd *, cl_uint, const cl_event *, cl_event *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_AMDBusAddressableMemory_nclEnqueueWaitSignalAMD(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong mem_objectAddress, jint value, jint num_events_in_wait_list, jlong event_wait_listAddress, jlong eventAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
 	cl_mem mem_object = (cl_mem)(intptr_t)mem_objectAddress;
@@ -40,3 +42,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_AMDBusAddressableMemory_nclEnqueueM
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 }
+
+EXTERN_C_EXIT

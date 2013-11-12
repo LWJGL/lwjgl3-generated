@@ -9,6 +9,8 @@
 typedef BOOL (APIENTRY *wglMakeContextCurrentARBPROC) (HDC, HDC, HGLRC);
 typedef HDC (APIENTRY *wglGetCurrentReadDCARBPROC) (void);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLARBMakeCurrentRead_nwglMakeContextCurrentARB(JNIEnv *__env, jclass clazz, jlong drawDCAddress, jlong readDCAddress, jlong hglrcAddress, jlong __functionAddress) {
 	HDC drawDC = (HDC)(intptr_t)drawDCAddress;
 	HDC readDC = (HDC)(intptr_t)readDCAddress;
@@ -23,3 +25,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_WGLARBMakeCurrentRead_nwglGetCurre
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)wglGetCurrentReadDCARB();
 }
+
+EXTERN_C_EXIT

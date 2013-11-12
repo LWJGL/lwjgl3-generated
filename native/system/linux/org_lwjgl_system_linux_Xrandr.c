@@ -7,6 +7,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/extensions/Xrandr.h>
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRQueryExtension(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong event_base_returnAddress, jlong error_base_returnAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	int *event_base_return = (int *)(intptr_t)event_base_returnAddress;
@@ -116,3 +118,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_linux_Xrandr_nXRRSetCrtcGamma(JNIEn
 	UNUSED_PARAMS(__env, clazz)
 	XRRSetCrtcGamma(display, (RRCrtc)crtc, gamma);
 }
+
+EXTERN_C_EXIT

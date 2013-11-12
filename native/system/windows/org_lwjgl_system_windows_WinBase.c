@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "WindowsLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nGetVersionEx(JNIEnv *__env, jclass clazz, jlong versionInfoAddress) {
 	LPOSVERSIONINFO versionInfo = (LPOSVERSIONINFO)(intptr_t)versionInfoAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -76,3 +78,5 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalFree(JNIEnv
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)GlobalFree(hMem);
 }
+
+EXTERN_C_EXIT

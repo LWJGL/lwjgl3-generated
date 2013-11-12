@@ -15,6 +15,8 @@ typedef cl_event (APIENTRY *clCreateUserEventPROC) (cl_context, cl_int *);
 typedef cl_int (APIENTRY *clSetUserEventStatusPROC) (cl_event, cl_int);
 typedef cl_int (APIENTRY *clSetEventCallbackPROC) (cl_event, cl_int, cl_event_callback, void *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL11_nclCreateSubBuffer(JNIEnv *__env, jclass clazz, jlong bufferAddress, jlong flags, jint buffer_create_type, jlong buffer_create_infoAddress, jlong errcode_retAddress, jlong __functionAddress) {
 	cl_mem buffer = (cl_mem)(intptr_t)bufferAddress;
 	const cl_void *buffer_create_info = (const cl_void *)(intptr_t)buffer_create_infoAddress;
@@ -98,3 +100,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL11_nclSetEventCallback(JNIEnv *__
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)clSetEventCallback(event, command_exec_callback_type, pfn_notify, user_data);
 }
+
+EXTERN_C_EXIT

@@ -8,6 +8,8 @@
 #include "LinuxLWJGL.h"
 #include <X11/Xmd.h>
 
+EXTERN_C_EXIT
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_PropertyWMState_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
@@ -23,3 +25,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_PropertyWMState_offsets(JNIEn
 
 	return sizeof(PropertyWMState);
 }
+
+EXTERN_C_EXIT

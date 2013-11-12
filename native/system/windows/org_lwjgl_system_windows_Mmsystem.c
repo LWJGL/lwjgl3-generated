@@ -6,6 +6,8 @@
 #include "common_tools.h"
 #include "WindowsLWJGL.h"
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_Mmsystem_njoyGetDevCaps(JNIEnv *__env, jclass clazz, jlong joyID, jlong jcAddress, jint bjc) {
 	LPJOYCAPS jc = (LPJOYCAPS)(intptr_t)jcAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -28,3 +30,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_Mmsystem_timeGetTime(JNIEnv
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)timeGetTime();
 }
+
+EXTERN_C_EXIT

@@ -13,6 +13,8 @@ typedef HDC (APIENTRY *wglCreateAffinityDCNVPROC) (const HGPUNV *);
 typedef BOOL (APIENTRY *wglEnumGpusFromAffinityDCNVPROC) (HDC, UINT, HGPUNV *);
 typedef BOOL (APIENTRY *wglDeleteDCNVPROC) (HDC);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVGPUAffinity_nwglEnumGpusNV(JNIEnv *__env, jclass clazz, jint gpuIndex, jlong gpuAddress, jlong __functionAddress) {
 	HGPUNV *gpu = (HGPUNV *)(intptr_t)gpuAddress;
 	wglEnumGpusNVPROC wglEnumGpusNV = (wglEnumGpusNVPROC)(intptr_t)__functionAddress;
@@ -49,3 +51,5 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLNVGPUAffinity_nwglDeleteDCNV(JNI
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglDeleteDCNV(hdc);
 }
+
+EXTERN_C_EXIT

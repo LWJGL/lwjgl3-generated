@@ -65,6 +65,8 @@ typedef GLvoid (APIENTRY *glVertexAttribP2uivPROC) (GLuint, GLenum, GLboolean, c
 typedef GLvoid (APIENTRY *glVertexAttribP3uivPROC) (GLuint, GLenum, GLboolean, const GLuint *);
 typedef GLvoid (APIENTRY *glVertexAttribP4uivPROC) (GLuint, GLenum, GLboolean, const GLuint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglBindFragDataLocationIndexed(JNIEnv *__env, jclass clazz, jint program, jint colorNumber, jint index, jlong nameAddress, jlong __functionAddress) {
 	const GLchar *name = (const GLchar *)(intptr_t)nameAddress;
 	glBindFragDataLocationIndexedPROC glBindFragDataLocationIndexed = (glBindFragDataLocationIndexedPROC)(intptr_t)__functionAddress;
@@ -445,3 +447,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL33_nglVertexAttribP4uiv(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	glVertexAttribP4uiv(index, type, normalized, value);
 }
+
+EXTERN_C_EXIT

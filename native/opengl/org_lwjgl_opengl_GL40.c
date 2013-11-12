@@ -51,6 +51,8 @@ typedef GLvoid (APIENTRY *glBeginQueryIndexedPROC) (GLenum, GLuint, GLuint);
 typedef GLvoid (APIENTRY *glEndQueryIndexedPROC) (GLenum, GLuint);
 typedef GLvoid (APIENTRY *glGetQueryIndexedivPROC) (GLenum, GLuint, GLenum, GLint *);
 
+EXTERN_C_ENTER
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglBlendEquationi(JNIEnv *__env, jclass clazz, jint buf, jint mode, jlong __functionAddress) {
 	glBlendEquationiPROC glBlendEquationi = (glBlendEquationiPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -344,3 +346,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetQueryIndexediv(JNIEnv *_
 	UNUSED_PARAMS(__env, clazz)
 	glGetQueryIndexediv(target, index, pname, params);
 }
+
+EXTERN_C_EXIT

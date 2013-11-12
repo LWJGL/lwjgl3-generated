@@ -12,6 +12,8 @@ typedef GLXContextID (APIENTRY *glXGetContextIDEXTPROC) (const GLXContext);
 typedef GLXContext (APIENTRY *glXImportContextEXTPROC) (Display *, GLXContextID);
 typedef void (APIENTRY *glXFreeContextEXTPROC) (Display *, GLXContext);
 
+EXTERN_C_ENTER
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXEXTImportContext_nglXGetCurrentDisplayEXT(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
 	glXGetCurrentDisplayEXTPROC glXGetCurrentDisplayEXT = (glXGetCurrentDisplayEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -48,3 +50,5 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXEXTImportContext_nglXFreeContext
 	UNUSED_PARAMS(__env, clazz)
 	glXFreeContextEXT(display, context);
 }
+
+EXTERN_C_EXIT
