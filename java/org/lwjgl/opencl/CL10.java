@@ -3818,7 +3818,7 @@ public final class CL10 {
 	 *                  the total number of arguments declared by a kernel.
 	 *                  <p/>
 	 *                  For example, consider the following kernel:
-	 *                  <pre>{@code
+	 *                  <pre><code>
 	 *                  kernel void image_filter (
 	 *                  	int n, int m,
 	 *                  	__constant float *filter_weights,
@@ -3826,7 +3826,7 @@ public final class CL10 {
 	 *                  	__write_only image2d_t dst_image
 	 *                  ) {
 	 *                  	&hellip;
-	 *                  }}</pre>
+	 *                  }</code></pre>
 	 *                  Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for
 	 *                  {@code dst_image}.
 	 *                  <p/>

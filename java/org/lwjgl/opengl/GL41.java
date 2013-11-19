@@ -679,7 +679,7 @@ public final class GL41 {
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * <p/>
 	 * {@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:
-	 * <pre>{@code
+	 * <pre><code>
 	 * const GLuint shader = glCreateShader(type);
 	 * if (shader) {
 	 * 	glShaderSource(shader, count, strings, NULL);
@@ -700,7 +700,7 @@ public final class GL41 {
 	 * 	return program;
 	 * } else {
 	 * 	return 0;
-	 * }}</pre>
+	 * }</code></pre>
 	 * The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.
 	 *
 	 * @param type    the type of shader to create

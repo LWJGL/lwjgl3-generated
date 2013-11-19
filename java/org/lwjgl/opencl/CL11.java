@@ -713,19 +713,19 @@ public final class CL11 {
 	 * except for event objects are called; otherwise the behavior is undefined.
 	 * <p/>
 	 * For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.
-	 * <pre>{@code
+	 * <pre><code>
 	 * ev1 = clCreateUserEvent(ctx, NULL);
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
 	 * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
 	 * clReleaseMemObject(buf2);
-	 * clSetUserEventStatus(ev1, CL_COMPLETE);}</pre>
+	 * clSetUserEventStatus(ev1, CL_COMPLETE);</code></pre>
 	 * The following code sequence, however, works correctly.
-	 * <pre>{@code
+	 * <pre><code>
 	 * ev1 = clCreateUserEvent(ctx, NULL);
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
 	 * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
 	 * clSetUserEventStatus(ev1, CL_COMPLETE);
-	 * clReleaseMemObject(buf2);}</pre>
+	 * clReleaseMemObject(buf2);</code></pre>
 	 *
 	 * @param event            a user event object created using {@link #clCreateUserEvent CreateUserEvent}
 	 * @param execution_status the new execution status to be set and can be {@link CL10#CL_COMPLETE COMPLETE} or a negative integer value to indicate an error. A negative integer value
