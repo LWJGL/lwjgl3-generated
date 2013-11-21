@@ -27,6 +27,7 @@ public class CLCapabilities {
 	final CL11                    __CL11;
 	final CL12                    __CL12;
 	final CL12GL                  __CL12GL;
+	final CL20                    __CL20;
 	final AMDBusAddressableMemory __AMDBusAddressableMemory;
 	final APPLEGLSharing          __APPLEGLSharing;
 	final KHRGLEvent              __KHRGLEvent;
@@ -46,6 +47,7 @@ public class CLCapabilities {
 		OpenCL11,
 		OpenCL12,
 		OpenCL12GL,
+		OpenCL20,
 		cl_amd_bus_addressable_memory,
 		cl_amd_compile_options,
 		cl_amd_device_attribute_query,
@@ -102,6 +104,7 @@ public class CLCapabilities {
 		OpenCL11 = (__CL11 = CL11.create(ext, provider)) != null;
 		OpenCL12 = (__CL12 = CL12.create(ext, provider)) != null;
 		OpenCL12GL = (__CL12GL = CL12GL.create(ext, provider)) != null;
+		OpenCL20 = (__CL20 = CL20.create(ext, provider)) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = AMDBusAddressableMemory.create(ext, provider, platform)) != null;
 		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
 		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");
@@ -158,6 +161,7 @@ public class CLCapabilities {
 		OpenCL11 = (__CL11 = ext.contains("OpenCL11") ? caps.__CL11 : null) != null;
 		OpenCL12 = (__CL12 = ext.contains("OpenCL12") ? caps.__CL12 : null) != null;
 		OpenCL12GL = (__CL12GL = ext.contains("OpenCL12GL") ? caps.__CL12GL : null) != null;
+		OpenCL20 = (__CL20 = ext.contains("OpenCL20") ? caps.__CL20 : null) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = ext.contains("cl_amd_bus_addressable_memory") ? caps.__AMDBusAddressableMemory : null) != null;
 		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
 		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");

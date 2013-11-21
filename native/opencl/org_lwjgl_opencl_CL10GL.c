@@ -12,7 +12,7 @@ typedef cl_mem (APIENTRY *clCreateFromGLTexture2DPROC) (cl_context, cl_mem_flags
 typedef cl_mem (APIENTRY *clCreateFromGLTexture3DPROC) (cl_context, cl_mem_flags, GLenum, GLint, GLuint, cl_int *);
 typedef cl_mem (APIENTRY *clCreateFromGLRenderbufferPROC) (cl_context, cl_mem_flags, GLuint, cl_int *);
 typedef cl_int (APIENTRY *clGetGLObjectInfoPROC) (cl_mem, cl_gl_object_type *, GLuint *);
-typedef cl_int (APIENTRY *clGetGLTextureInfoPROC) (cl_mem, cl_gl_texture_info, size_t, cl_void *, size_t *);
+typedef cl_int (APIENTRY *clGetGLTextureInfoPROC) (cl_mem, cl_gl_texture_info, size_t, void *, size_t *);
 typedef cl_int (APIENTRY *clEnqueueAcquireGLObjectsPROC) (cl_command_queue, cl_uint, const cl_mem *, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueReleaseGLObjectsPROC) (cl_command_queue, cl_uint, const cl_mem *, cl_uint, const cl_event *, cl_event *);
 
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclGetGLObjectInfo(JNIEnv *_
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10GL_nclGetGLTextureInfo(JNIEnv *__env, jclass clazz, jlong memobjAddress, jint param_name, jlong param_value_size, jlong param_valueAddress, jlong param_value_size_retAddress, jlong __functionAddress) {
 	cl_mem memobj = (cl_mem)(intptr_t)memobjAddress;
-	cl_void *param_value = (cl_void *)(intptr_t)param_valueAddress;
+	void *param_value = (void *)(intptr_t)param_valueAddress;
 	size_t *param_value_size_ret = (size_t *)(intptr_t)param_value_size_retAddress;
 	clGetGLTextureInfoPROC clGetGLTextureInfo = (clGetGLTextureInfoPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)

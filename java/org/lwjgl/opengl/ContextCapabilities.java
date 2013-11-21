@@ -27,6 +27,7 @@ public final class ContextCapabilities {
 	final GL41                    __GL41;
 	final GL42                    __GL42;
 	final GL43                    __GL43;
+	final GL44                    __GL44;
 	final GLX11                   __GLX11;
 	final GLX12                   __GLX12;
 	final GLX13                   __GLX13;
@@ -46,10 +47,13 @@ public final class ContextCapabilities {
 	final GLXSGIXSwapBarrier      __GLXSGIXSwapBarrier;
 	final GLXSGIXSwapGroup        __GLXSGIXSwapGroup;
 	final AMDDebugOutput          __AMDDebugOutput;
+	final ARBBufferStorage        __ARBBufferStorage;
 	final ARBCLEvent              __ARBCLEvent;
+	final ARBClearTexture         __ARBClearTexture;
 	final ARBCopyBuffer           __ARBCopyBuffer;
 	final ARBDrawBuffersBlend     __ARBDrawBuffersBlend;
 	final ARBImaging              __ARBImaging;
+	final ARBMultiBind            __ARBMultiBind;
 	final ARBSync                 __ARBSync;
 	final WGLAMDGPUAssociation    __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion      __WGLARBBufferRegion;
@@ -81,6 +85,7 @@ public final class ContextCapabilities {
 		OpenGL41,
 		OpenGL42,
 		OpenGL43,
+		OpenGL44,
 		GLX_11,
 		GLX_12,
 		GLX_13,
@@ -123,16 +128,21 @@ public final class ContextCapabilities {
 		GL_AMD_vertex_shader_layer,
 		GL_AMD_vertex_shader_viewport_index,
 		GL_ARB_arrays_of_arrays,
+		GL_ARB_buffer_storage,
 		GL_ARB_cl_event,
+		GL_ARB_clear_texture,
 		GL_ARB_compatibility,
 		GL_ARB_conservative_depth,
 		GL_ARB_copy_buffer,
 		GL_ARB_draw_buffers_blend,
+		GL_ARB_enhanced_layouts,
 		GL_ARB_explicit_attrib_location,
 		GL_ARB_fragment_coord_conventions,
 		GL_ARB_fragment_layer_viewport,
 		GL_ARB_fragment_program_shadow,
 		GL_ARB_imaging,
+		GL_ARB_multi_bind,
+		GL_ARB_query_buffer_object,
 		GL_ARB_robust_buffer_access_behavior,
 		GL_ARB_robustness_isolation,
 		GL_ARB_shader_bit_encoding,
@@ -146,6 +156,7 @@ public final class ContextCapabilities {
 		GL_ARB_texture_buffer_object_rgb32,
 		GL_ARB_texture_env_add,
 		GL_ARB_texture_env_crossbar,
+		GL_ARB_texture_mirror_clamp_to_edge,
 		GL_ARB_texture_non_power_of_two,
 		GL_ARB_texture_query_levels,
 		GL_ARB_texture_query_lod,
@@ -205,6 +216,7 @@ public final class ContextCapabilities {
 		OpenGL41 = (__GL41 = GL41.create(ext, provider)) != null;
 		OpenGL42 = (__GL42 = GL42.create(ext, provider)) != null;
 		OpenGL43 = (__GL43 = GL43.create(ext, provider)) != null;
+		OpenGL44 = (__GL44 = GL44.create(ext, provider)) != null;
 		GLX_11 = (__GLX11 = GLX11.create(ext, provider)) != null;
 		GLX_12 = (__GLX12 = GLX12.create(ext, provider)) != null;
 		GLX_13 = (__GLX13 = GLX13.create(ext, provider)) != null;
@@ -247,16 +259,21 @@ public final class ContextCapabilities {
 		GL_AMD_vertex_shader_layer = ext.contains("GL_AMD_vertex_shader_layer");
 		GL_AMD_vertex_shader_viewport_index = ext.contains("GL_AMD_vertex_shader_viewport_index");
 		GL_ARB_arrays_of_arrays = ext.contains("GL_ARB_arrays_of_arrays");
+		GL_ARB_buffer_storage = (__ARBBufferStorage = ARBBufferStorage.create(ext, provider)) != null;
 		GL_ARB_cl_event = (__ARBCLEvent = ARBCLEvent.create(ext, provider)) != null;
+		GL_ARB_clear_texture = (__ARBClearTexture = ARBClearTexture.create(ext, provider)) != null;
 		GL_ARB_compatibility = ext.contains("GL_ARB_compatibility");
 		GL_ARB_conservative_depth = ext.contains("GL_ARB_conservative_depth");
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
 		GL_ARB_draw_buffers_blend = (__ARBDrawBuffersBlend = ARBDrawBuffersBlend.create(ext, provider)) != null;
+		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
 		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
 		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
+		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
+		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
 		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
 		GL_ARB_robustness_isolation = ext.contains("GL_ARB_robustness_isolation");
 		GL_ARB_shader_bit_encoding = ext.contains("GL_ARB_shader_bit_encoding");
@@ -270,6 +287,7 @@ public final class ContextCapabilities {
 		GL_ARB_texture_buffer_object_rgb32 = ext.contains("GL_ARB_texture_buffer_object_rgb32");
 		GL_ARB_texture_env_add = ext.contains("GL_ARB_texture_env_add");
 		GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
+		GL_ARB_texture_mirror_clamp_to_edge = ext.contains("GL_ARB_texture_mirror_clamp_to_edge");
 		GL_ARB_texture_non_power_of_two = ext.contains("GL_ARB_texture_non_power_of_two");
 		GL_ARB_texture_query_levels = ext.contains("GL_ARB_texture_query_levels");
 		GL_ARB_texture_query_lod = ext.contains("GL_ARB_texture_query_lod");

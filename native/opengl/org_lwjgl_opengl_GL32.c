@@ -6,6 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
+typedef GLvoid (APIENTRY *glGetBufferParameteri64vPROC) (GLenum, GLenum, GLint64 *);
 typedef GLvoid (APIENTRY *glDrawElementsBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLint);
 typedef GLvoid (APIENTRY *glDrawRangeElementsBaseVertexPROC) (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *, GLint);
 typedef GLvoid (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLsizei, GLint);
@@ -25,6 +26,13 @@ typedef GLvoid (APIENTRY *glGetInteger64vPROC) (GLenum, GLint64 *);
 typedef GLvoid (APIENTRY *glGetSyncivPROC) (GLsync, GLenum, GLsizei, GLsizei *, GLint *);
 
 EXTERN_C_ENTER
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetBufferParameteri64v(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLint64 *params = (GLint64 *)(intptr_t)paramsAddress;
+	glGetBufferParameteri64vPROC glGetBufferParameteri64v = (glGetBufferParameteri64vPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetBufferParameteri64v(target, pname, params);
+}
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint basevertex, jlong __functionAddress) {
 	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;

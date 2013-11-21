@@ -197,6 +197,7 @@ public final class GL32 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
+		GetBufferParameteri64v,
 		DrawElementsBaseVertex,
 		DrawRangeElementsBaseVertex,
 		DrawElementsInstancedBaseVertex,
@@ -217,6 +218,7 @@ public final class GL32 {
 
 	@JavadocExclude
 	public GL32(FunctionProvider provider) {
+		GetBufferParameteri64v = provider.getFunctionAddress("glGetBufferParameteri64v");
 		DrawElementsBaseVertex = provider.getFunctionAddress("glDrawElementsBaseVertex");
 		DrawRangeElementsBaseVertex = provider.getFunctionAddress("glDrawRangeElementsBaseVertex");
 		DrawElementsInstancedBaseVertex = provider.getFunctionAddress("glDrawElementsInstancedBaseVertex");
@@ -249,6 +251,7 @@ public final class GL32 {
 		GL32 funcs = new GL32(provider);
 
 		boolean supported = 
+			GL.isFunctionSupported(funcs.GetBufferParameteri64v) &&
 			GL.isFunctionSupported(funcs.DrawElementsBaseVertex) &&
 			GL.isFunctionSupported(funcs.DrawRangeElementsBaseVertex) &&
 			GL.isFunctionSupported(funcs.DrawElementsInstancedBaseVertex) &&
@@ -268,6 +271,47 @@ public final class GL32 {
 			GL.isFunctionSupported(funcs.GetSynciv);
 
 		return GL.checkExtension("OpenGL32", funcs, supported);
+	}
+
+	// --- [ glGetBufferParameteri64v ] ---
+
+	/** JNI method for {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	@JavadocExclude
+	public static native void nglGetBufferParameteri64v(int target, int pname, long params, long __functionAddress);
+
+	/**
+	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferParameter.xml">OpenGL SDK Reference</a>
+	 * <p/>
+	 * Returns the value of a buffer object parameter.
+	 *
+	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<p/>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 * @param params the requested parameter
+	 */
+	public static void glGetBufferParameteri64(int target, int pname, ByteBuffer params) {
+		long __functionAddress = getInstance().GetBufferParameteri64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetBufferParameteri64v(target, pname, memAddress(params), __functionAddress);
+	}
+
+	/** Alternative version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	public static void glGetBufferParameter(int target, int pname, LongBuffer params) {
+		long __functionAddress = getInstance().GetBufferParameteri64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetBufferParameteri64v(target, pname, memAddress(params), __functionAddress);
+	}
+
+	/** Single return value version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	public static long glGetBufferParameteri64(int target, int pname) {
+		long __functionAddress = getInstance().GetBufferParameteri64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.longParam();
+		nglGetBufferParameteri64v(target, pname, __buffer.address() + params, __functionAddress);
+		return __buffer.longValue(params);
 	}
 
 	// --- [ glDrawElementsBaseVertex ] ---

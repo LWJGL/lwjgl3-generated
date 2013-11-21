@@ -1554,11 +1554,11 @@ public final class GL43 {
 	 * <pre><code>
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
-	 * DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
-	 * if ( stride == 0 )
-	 * ptr += sizeof(DrawArraysIndirectCommand);
-	 * else
-	 * ptr += stride;
+	 * 	DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
+	 * 	if ( stride == 0 )
+	 * 		ptr += sizeof(DrawArraysIndirectCommand);
+	 * 	else
+	 * 		ptr += stride;
 	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
@@ -1600,11 +1600,11 @@ public final class GL43 {
 	 * <pre><code>
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
-	 * DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
-	 * if ( stride == 0 )
-	 * ptr += sizeof(DrawElementsIndirectCommand);
-	 * else
-	 * ptr += stride;
+	 * 	DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);
+	 * 	if ( stride == 0 )
+	 * 		ptr += sizeof(DrawElementsIndirectCommand);
+	 * 	else
+	 * 		ptr += stride;
 	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
