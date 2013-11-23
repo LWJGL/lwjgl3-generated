@@ -116,6 +116,15 @@ public final class GLXEXTTextureFromPixmap {
 	@JavadocExclude
 	public static native void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list, long __functionAddress);
 
+	/** Unsafe version of {@link #glXBindTexImageEXT BindTexImageEXT} */
+	@JavadocExclude
+	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
+		long __functionAddress = getInstance().BindTexImageEXT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglXBindTexImageEXT(display, drawable, buffer, attrib_list, __functionAddress);
+	}
+
 	/**
 	 * Defines a one- or two-dimensional texture image. The texture image is taken from {@code buffer} and need not be copied. The texture target, the texture
 	 * format, and the size of the texture components are derived from attributes of {@code drawable}.
@@ -126,26 +135,22 @@ public final class GLXEXTTextureFromPixmap {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
-		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list), __functionAddress);
+		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
-		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list), __functionAddress);
+		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 
 	// --- [ glXReleaseTexImageEXT ] ---

@@ -79,6 +79,15 @@ public final class SOFTLoopback {
 	@JavadocExclude
 	public static native long nalcLoopbackOpenDeviceSOFT(long deviceName, long __functionAddress);
 
+	/** Unsafe version of {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
+	@JavadocExclude
+	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
+		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcLoopbackOpenDeviceSOFT(deviceName, __functionAddress);
+	}
+
 	/**
 	 * Loopback devices provide a way for applications to "read back" rendered
 	 * audio without it being sent to an actual audio device. It allows
@@ -103,20 +112,14 @@ public final class SOFTLoopback {
 	 * @param deviceName name of the device to open
 	 */
 	public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
-		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(deviceName);
-		}
-		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceName), __functionAddress);
+		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceName));
 	}
 
 	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
-		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcLoopbackOpenDeviceSOFT(memAddress(memEncodeUTF8(deviceName)), __functionAddress);
+		return nalcLoopbackOpenDeviceSOFT(memAddress(memEncodeUTF8(deviceName)));
 	}
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
@@ -149,6 +152,15 @@ public final class SOFTLoopback {
 	@JavadocExclude
 	public static native void nalcRenderSamplesSOFT(long device, long buffer, int samples, long __functionAddress);
 
+	/** Unsafe version of {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	@JavadocExclude
+	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
+		long __functionAddress = getInstance().RenderSamplesSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalcRenderSamplesSOFT(device, buffer, samples, __functionAddress);
+	}
+
 	/**
 	 * The state of various objects on loopback devices (including processed
 	 * buffers and source offsets) is processed only when new samples are
@@ -159,10 +171,7 @@ public final class SOFTLoopback {
 	 * @param samples number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, ByteBuffer buffer, int samples) {
-		long __functionAddress = getInstance().RenderSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalcRenderSamplesSOFT(device, memAddress(buffer), samples, __functionAddress);
+		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 
 }

@@ -134,6 +134,15 @@ public final class GL44 {
 	@JavadocExclude
 	public static native void nglBufferStorage(int target, long size, long data, int flags, long __functionAddress);
 
+	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
+	@JavadocExclude
+	public static void nglBufferStorage(int target, long size, long data, int flags) {
+		long __functionAddress = getInstance().BufferStorage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBufferStorage(target, size, data, flags, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferStorage.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -186,60 +195,39 @@ public final class GL44 {
 	 *               It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
 	 */
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( data != null ) checkBuffer(data, size);
-		}
-		nglBufferStorage(target, size, memAddressSafe(data), flags, __functionAddress);
+		nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, size, 0L, flags, __functionAddress);
+		nglBufferStorage(target, size, 0L, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ShortBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** IntBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, IntBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, FloatBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	// --- [ glClearTexSubImage ] ---
@@ -247,6 +235,15 @@ public final class GL44 {
 	/** JNI method for {@link #glClearTexSubImage ClearTexSubImage} */
 	@JavadocExclude
 	public static native void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
+	@JavadocExclude
+	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
+		long __functionAddress = getInstance().ClearTexSubImage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearTexSubImage.xml">OpenGL SDK Reference</a>
@@ -279,42 +276,27 @@ public final class GL44 {
 	 *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data), __functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data), __functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data), __functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data), __functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** DoubleBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer data) {
-		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data), __functionAddress);
+		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearTexImage ] ---
@@ -322,6 +304,15 @@ public final class GL44 {
 	/** JNI method for {@link #glClearTexImage ClearTexImage} */
 	@JavadocExclude
 	public static native void nglClearTexImage(int texture, int level, int format, int type, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
+	@JavadocExclude
+	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
+		long __functionAddress = getInstance().ClearTexImage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearTexImage(texture, level, format, type, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearTexImage.xml">OpenGL SDK Reference</a>
@@ -338,10 +329,7 @@ public final class GL44 {
 	 * @param data    
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().ClearTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearTexImage(texture, level, format, type, memAddress(data), __functionAddress);
+		nglClearTexImage(texture, level, format, type, memAddress(data));
 	}
 
 	// --- [ glBindBuffersBase ] ---
@@ -349,6 +337,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindBuffersBase BindBuffersBase} */
 	@JavadocExclude
 	public static native void nglBindBuffersBase(int target, int first, int count, long buffers, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindBuffersBase BindBuffersBase} */
+	@JavadocExclude
+	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
+		long __functionAddress = getInstance().BindBuffersBase;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindBuffersBase(target, first, count, buffers, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBuffersBase.xml">OpenGL SDK Reference</a>
@@ -372,20 +369,14 @@ public final class GL44 {
 	 * @param buffers an array of zeros or names of existing buffers objects
 	 */
 	public static void glBindBuffersBase(int target, int first, int count, ByteBuffer buffers) {
-		long __functionAddress = getInstance().BindBuffersBase;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
-		}
-		nglBindBuffersBase(target, first, count, memAddressSafe(buffers), __functionAddress);
+		nglBindBuffersBase(target, first, count, memAddressSafe(buffers));
 	}
 
 	/** Alternative version of: {@link #glBindBuffersBase BindBuffersBase} */
 	public static void glBindBuffersBase(int target, int first, IntBuffer buffers) {
-		long __functionAddress = getInstance().BindBuffersBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBindBuffersBase(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), __functionAddress);
+		nglBindBuffersBase(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers));
 	}
 
 	// --- [ glBindBuffersRange ] ---
@@ -393,6 +384,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindBuffersRange BindBuffersRange} */
 	@JavadocExclude
 	public static native void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindBuffersRange BindBuffersRange} */
+	@JavadocExclude
+	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
+		long __functionAddress = getInstance().BindBuffersRange;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindBuffersRange(target, first, count, buffers, offsets, sizes, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBuffersRange.xml">OpenGL SDK Reference</a>
@@ -424,25 +424,21 @@ public final class GL44 {
 	 * @param sizes   an array of sizes
 	 */
 	public static void glBindBuffersRange(int target, int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer sizes) {
-		long __functionAddress = getInstance().BindBuffersRange;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( sizes != null ) checkBuffer(sizes, count << POINTER_SHIFT);
 		}
-		nglBindBuffersRange(target, first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes), __functionAddress);
+		nglBindBuffersRange(target, first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	/** Alternative version of: {@link #glBindBuffersRange BindBuffersRange} */
 	public static void glBindBuffersRange(int target, int first, IntBuffer buffers, PointerBuffer offsets, PointerBuffer sizes) {
-		long __functionAddress = getInstance().BindBuffersRange;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( sizes != null ) checkBuffer(sizes, buffers.remaining());
 		}
-		nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes), __functionAddress);
+		nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	// --- [ glBindTextures ] ---
@@ -450,6 +446,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindTextures BindTextures} */
 	@JavadocExclude
 	public static native void nglBindTextures(int first, int count, long textures, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindTextures BindTextures} */
+	@JavadocExclude
+	public static void nglBindTextures(int first, int count, long textures) {
+		long __functionAddress = getInstance().BindTextures;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindTextures(first, count, textures, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindTextures.xml">OpenGL SDK Reference</a>
@@ -492,20 +497,14 @@ public final class GL44 {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindTextures(int first, int count, ByteBuffer textures) {
-		long __functionAddress = getInstance().BindTextures;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
-		}
-		nglBindTextures(first, count, memAddressSafe(textures), __functionAddress);
+		nglBindTextures(first, count, memAddressSafe(textures));
 	}
 
 	/** Alternative version of: {@link #glBindTextures BindTextures} */
 	public static void glBindTextures(int first, IntBuffer textures) {
-		long __functionAddress = getInstance().BindTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBindTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures), __functionAddress);
+		nglBindTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
 	}
 
 	// --- [ glBindSamplers ] ---
@@ -513,6 +512,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindSamplers BindSamplers} */
 	@JavadocExclude
 	public static native void nglBindSamplers(int first, int count, long samplers, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindSamplers BindSamplers} */
+	@JavadocExclude
+	public static void nglBindSamplers(int first, int count, long samplers) {
+		long __functionAddress = getInstance().BindSamplers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindSamplers(first, count, samplers, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindSamplers.xml">OpenGL SDK Reference</a>
@@ -539,20 +547,14 @@ public final class GL44 {
 	 * @param samplers an array of zeros or names of existing sampler objects
 	 */
 	public static void glBindSamplers(int first, int count, ByteBuffer samplers) {
-		long __functionAddress = getInstance().BindSamplers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( samplers != null ) checkBuffer(samplers, count << 2);
-		}
-		nglBindSamplers(first, count, memAddressSafe(samplers), __functionAddress);
+		nglBindSamplers(first, count, memAddressSafe(samplers));
 	}
 
 	/** Alternative version of: {@link #glBindSamplers BindSamplers} */
 	public static void glBindSamplers(int first, IntBuffer samplers) {
-		long __functionAddress = getInstance().BindSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBindSamplers(first, samplers == null ? 0 : samplers.remaining(), memAddressSafe(samplers), __functionAddress);
+		nglBindSamplers(first, samplers == null ? 0 : samplers.remaining(), memAddressSafe(samplers));
 	}
 
 	// --- [ glBindImageTextures ] ---
@@ -560,6 +562,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindImageTextures BindImageTextures} */
 	@JavadocExclude
 	public static native void nglBindImageTextures(int first, int count, long textures, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindImageTextures BindImageTextures} */
+	@JavadocExclude
+	public static void nglBindImageTextures(int first, int count, long textures) {
+		long __functionAddress = getInstance().BindImageTextures;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindImageTextures(first, count, textures, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindImageTextures.xml">OpenGL SDK Reference</a>
@@ -597,20 +608,14 @@ public final class GL44 {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindImageTextures(int first, int count, ByteBuffer textures) {
-		long __functionAddress = getInstance().BindImageTextures;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
-		}
-		nglBindImageTextures(first, count, memAddressSafe(textures), __functionAddress);
+		nglBindImageTextures(first, count, memAddressSafe(textures));
 	}
 
 	/** Alternative version of: {@link #glBindImageTextures BindImageTextures} */
 	public static void glBindImageTextures(int first, IntBuffer textures) {
-		long __functionAddress = getInstance().BindImageTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBindImageTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures), __functionAddress);
+		nglBindImageTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
 	}
 
 	// --- [ glBindVertexBuffers ] ---
@@ -618,6 +623,15 @@ public final class GL44 {
 	/** JNI method for {@link #glBindVertexBuffers BindVertexBuffers} */
 	@JavadocExclude
 	public static native void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides, long __functionAddress);
+
+	/** Unsafe version of {@link #glBindVertexBuffers BindVertexBuffers} */
+	@JavadocExclude
+	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
+		long __functionAddress = getInstance().BindVertexBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindVertexBuffers(first, count, buffers, offsets, strides, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindVertexBuffers.xml">OpenGL SDK Reference</a>
@@ -651,25 +665,21 @@ public final class GL44 {
 	 * @param strides an array of stride values
 	 */
 	public static void glBindVertexBuffers(int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer strides) {
-		long __functionAddress = getInstance().BindVertexBuffers;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( strides != null ) checkBuffer(strides, count << 2);
 		}
-		nglBindVertexBuffers(first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides), __functionAddress);
+		nglBindVertexBuffers(first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 	/** Alternative version of: {@link #glBindVertexBuffers BindVertexBuffers} */
 	public static void glBindVertexBuffers(int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
-		long __functionAddress = getInstance().BindVertexBuffers;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}
-		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides), __functionAddress);
+		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 }

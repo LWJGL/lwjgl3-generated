@@ -118,6 +118,15 @@ public final class GLXSGIXPBuffer {
 	@JavadocExclude
 	public static native long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list, long __functionAddress);
 
+	/** Unsafe version of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
+	@JavadocExclude
+	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
+		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXCreateGLXPbufferSGIX(display, config, width, height, attrib_list, __functionAddress);
+	}
+
 	/**
 	 * Creates a single GLXPbuffer and returns its XID.
 	 *
@@ -128,26 +137,22 @@ public final class GLXSGIXPBuffer {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
-		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
-		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
 	}
 
 	// --- [ glXDestroyGLXPbufferSGIX ] ---
@@ -178,6 +183,15 @@ public final class GLXSGIXPBuffer {
 	@JavadocExclude
 	public static native void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
+	@JavadocExclude
+	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
+		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, value, __functionAddress);
+	}
+
 	/**
 	 * Queries an attribute associated with a GLXPbuffer.
 	 *
@@ -187,26 +201,22 @@ public final class GLXSGIXPBuffer {
 	 * @param value     returns the attribute value
 	 */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 			checkBuffer(value, 1 << 2);
 		}
-		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value), __functionAddress);
+		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 			checkBuffer(value, 1);
 		}
-		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value), __functionAddress);
+		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
 	}
 
 	// --- [ glXSelectEventSGIX ] ---
@@ -238,6 +248,15 @@ public final class GLXSGIXPBuffer {
 	@JavadocExclude
 	public static native void nglXGetSelectedEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
+	@JavadocExclude
+	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
+		long __functionAddress = getInstance().GetSelectedEventSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglXGetSelectedEventSGIX(display, drawable, mask, __functionAddress);
+	}
+
 	/**
 	 * Returns which GLX events are selected for a GLXdrawable.
 	 *
@@ -246,26 +265,22 @@ public final class GLXSGIXPBuffer {
 	 * @param mask     returns the selection mask
 	 */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, ByteBuffer mask) {
-		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 			checkBuffer(mask, 1 << POINTER_SHIFT);
 		}
-		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask), __functionAddress);
+		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
 	}
 
 	/** Alternative version of: {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
-		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 			checkBuffer(mask, 1);
 		}
-		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask), __functionAddress);
+		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
 	}
 
 }

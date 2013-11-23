@@ -116,6 +116,15 @@ public final class ALC10 {
 	@JavadocExclude
 	public static native long nalcOpenDevice(long deviceSpecifier, long __functionAddress);
 
+	/** Unsafe version of {@link #alcOpenDevice OpenDevice} */
+	@JavadocExclude
+	public static long nalcOpenDevice(long deviceSpecifier) {
+		long __functionAddress = getInstance().OpenDevice;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcOpenDevice(deviceSpecifier, __functionAddress);
+	}
+
 	/**
 	 * Allows the application to connect to a device.
 	 * <p/>
@@ -125,20 +134,14 @@ public final class ALC10 {
 	 * @param deviceSpecifier the requested device or device configuration
 	 */
 	public static long alcOpenDevice(ByteBuffer deviceSpecifier) {
-		long __functionAddress = getInstance().OpenDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( deviceSpecifier != null ) checkNT1(deviceSpecifier);
-		}
-		return nalcOpenDevice(memAddressSafe(deviceSpecifier), __functionAddress);
+		return nalcOpenDevice(memAddressSafe(deviceSpecifier));
 	}
 
 	/** CharSequence version of: {@link #alcOpenDevice OpenDevice} */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
-		long __functionAddress = getInstance().OpenDevice;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcOpenDevice(memAddressSafe(memEncodeUTF8(deviceSpecifier)), __functionAddress);
+		return nalcOpenDevice(memAddressSafe(memEncodeUTF8(deviceSpecifier)));
 	}
 
 	// --- [ alcCloseDevice ] ---
@@ -170,6 +173,15 @@ public final class ALC10 {
 	@JavadocExclude
 	public static native long nalcCreateContext(long deviceHandle, long attrList, long __functionAddress);
 
+	/** Unsafe version of {@link #alcCreateContext CreateContext} */
+	@JavadocExclude
+	public static long nalcCreateContext(long deviceHandle, long attrList) {
+		long __functionAddress = getInstance().CreateContext;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcCreateContext(deviceHandle, attrList, __functionAddress);
+	}
+
 	/**
 	 * Creates an AL context.
 	 *
@@ -177,24 +189,20 @@ public final class ALC10 {
 	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<p/>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
 	 */
 	public static long alcCreateContext(long deviceHandle, ByteBuffer attrList) {
-		long __functionAddress = getInstance().CreateContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(deviceHandle);
 			if ( attrList != null ) checkNT4(attrList);
 		}
-		return nalcCreateContext(deviceHandle, memAddressSafe(attrList), __functionAddress);
+		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 
 	/** Alternative version of: {@link #alcCreateContext CreateContext} */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
-		long __functionAddress = getInstance().CreateContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(deviceHandle);
 			if ( attrList != null ) checkNT(attrList);
 		}
-		return nalcCreateContext(deviceHandle, memAddressSafe(attrList), __functionAddress);
+		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 
 	// --- [ alcMakeContextCurrent ] ---
@@ -333,6 +341,15 @@ public final class ALC10 {
 	@JavadocExclude
 	public static native boolean nalcIsExtensionPresent(long deviceHandle, long extName, long __functionAddress);
 
+	/** Unsafe version of {@link #alcIsExtensionPresent IsExtensionPresent} */
+	@JavadocExclude
+	public static boolean nalcIsExtensionPresent(long deviceHandle, long extName) {
+		long __functionAddress = getInstance().IsExtensionPresent;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcIsExtensionPresent(deviceHandle, extName, __functionAddress);
+	}
+
 	/**
 	 * Verifies that a given extension is available for the current context and the device it is associated with.
 	 * <p/>
@@ -343,20 +360,14 @@ public final class ALC10 {
 	 * @param extName      the extension name
 	 */
 	public static boolean alcIsExtensionPresent(long deviceHandle, ByteBuffer extName) {
-		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(extName);
-		}
-		return nalcIsExtensionPresent(deviceHandle, memAddress(extName), __functionAddress);
+		return nalcIsExtensionPresent(deviceHandle, memAddress(extName));
 	}
 
 	/** CharSequence version of: {@link #alcIsExtensionPresent IsExtensionPresent} */
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
-		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcIsExtensionPresent(deviceHandle, memAddress(memEncodeASCII(extName)), __functionAddress);
+		return nalcIsExtensionPresent(deviceHandle, memAddress(memEncodeASCII(extName)));
 	}
 
 	// --- [ alcGetProcAddress ] ---
@@ -364,6 +375,15 @@ public final class ALC10 {
 	/** JNI method for {@link #alcGetProcAddress GetProcAddress} */
 	@JavadocExclude
 	public static native long nalcGetProcAddress(long deviceHandle, long funcName, long __functionAddress);
+
+	/** Unsafe version of {@link #alcGetProcAddress GetProcAddress} */
+	@JavadocExclude
+	public static long nalcGetProcAddress(long deviceHandle, long funcName) {
+		long __functionAddress = getInstance().GetProcAddress;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcGetProcAddress(deviceHandle, funcName, __functionAddress);
+	}
 
 	/**
 	 * Retrieves extension entry points.
@@ -378,20 +398,14 @@ public final class ALC10 {
 	 * @param funcName     the function name
 	 */
 	public static long alcGetProcAddress(long deviceHandle, ByteBuffer funcName) {
-		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(funcName);
-		}
-		return nalcGetProcAddress(deviceHandle, memAddress(funcName), __functionAddress);
+		return nalcGetProcAddress(deviceHandle, memAddress(funcName));
 	}
 
 	/** CharSequence version of: {@link #alcGetProcAddress GetProcAddress} */
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
-		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcGetProcAddress(deviceHandle, memAddress(memEncodeASCII(funcName)), __functionAddress);
+		return nalcGetProcAddress(deviceHandle, memAddress(memEncodeASCII(funcName)));
 	}
 
 	// --- [ alcGetEnumValue ] ---
@@ -399,6 +413,15 @@ public final class ALC10 {
 	/** JNI method for {@link #alcGetEnumValue GetEnumValue} */
 	@JavadocExclude
 	public static native int nalcGetEnumValue(long deviceHandle, long enumName, long __functionAddress);
+
+	/** Unsafe version of {@link #alcGetEnumValue GetEnumValue} */
+	@JavadocExclude
+	public static int nalcGetEnumValue(long deviceHandle, long enumName) {
+		long __functionAddress = getInstance().GetEnumValue;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcGetEnumValue(deviceHandle, enumName, __functionAddress);
+	}
 
 	/**
 	 * Returns extension enum values.
@@ -410,20 +433,14 @@ public final class ALC10 {
 	 * @param enumName     the enum name
 	 */
 	public static int alcGetEnumValue(long deviceHandle, ByteBuffer enumName) {
-		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(enumName);
-		}
-		return nalcGetEnumValue(deviceHandle, memAddress(enumName), __functionAddress);
+		return nalcGetEnumValue(deviceHandle, memAddress(enumName));
 	}
 
 	/** CharSequence version of: {@link #alcGetEnumValue GetEnumValue} */
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
-		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcGetEnumValue(deviceHandle, memAddress(memEncodeASCII(enumName)), __functionAddress);
+		return nalcGetEnumValue(deviceHandle, memAddress(memEncodeASCII(enumName)));
 	}
 
 	// --- [ alcGetError ] ---
@@ -457,6 +474,15 @@ public final class ALC10 {
 	@JavadocExclude
 	public static native long nalcGetString(long deviceHandle, int token, long __functionAddress);
 
+	/** Unsafe version of {@link #alcGetString GetString} */
+	@JavadocExclude
+	public static long nalcGetString(long deviceHandle, int token) {
+		long __functionAddress = getInstance().GetString;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcGetString(deviceHandle, token, __functionAddress);
+	}
+
 	/**
 	 * Obtains string value(s) from ALC.
 	 * <p/>
@@ -466,10 +492,7 @@ public final class ALC10 {
 	 * @param token        the information to query. One of:<p/>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}, {@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}, {@link #ALC_EXTENSIONS EXTENSIONS}, {@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}, {@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}
 	 */
 	public static String alcGetString(long deviceHandle, int token) {
-		long __functionAddress = getInstance().GetString;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nalcGetString(deviceHandle, token, __functionAddress);
+		long __result = nalcGetString(deviceHandle, token);
 		return memDecodeUTF8(memByteBufferNT1(__result));
 	}
 
@@ -478,6 +501,15 @@ public final class ALC10 {
 	/** JNI method for {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
 	@JavadocExclude
 	public static native void nalcGetIntegerv(long deviceHandle, int token, int size, long dest, long __functionAddress);
+
+	/** Unsafe version of {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	@JavadocExclude
+	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
+		long __functionAddress = getInstance().GetIntegerv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalcGetIntegerv(deviceHandle, token, size, dest, __functionAddress);
+	}
 
 	/**
 	 * Obtains integer value(s) from ALC.
@@ -488,30 +520,21 @@ public final class ALC10 {
 	 * @param dest         the destination buffer
 	 */
 	public static void alcGetInteger(long deviceHandle, int token, int size, ByteBuffer dest) {
-		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, size << 2);
-		}
-		nalcGetIntegerv(deviceHandle, token, size, memAddress(dest), __functionAddress);
+		nalcGetIntegerv(deviceHandle, token, size, memAddress(dest));
 	}
 
 	/** Alternative version of: {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
 	public static void alcGetInteger(long deviceHandle, int token, IntBuffer dest) {
-		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalcGetIntegerv(deviceHandle, token, dest.remaining(), memAddress(dest), __functionAddress);
+		nalcGetIntegerv(deviceHandle, token, dest.remaining(), memAddress(dest));
 	}
 
 	/** Single return value version of: {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
 	public static int alcGetInteger(long deviceHandle, int token) {
-		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int dest = __buffer.intParam();
-		nalcGetIntegerv(deviceHandle, token, 1, __buffer.address() + dest, __functionAddress);
+		nalcGetIntegerv(deviceHandle, token, 1, __buffer.address() + dest);
 		return __buffer.intValue(dest);
 	}
 

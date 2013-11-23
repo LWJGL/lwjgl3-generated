@@ -143,6 +143,15 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static native long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList, long __functionAddress);
 
+	/** Unsafe version of {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
+	@JavadocExclude
+	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
+		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXCreateAssociatedContextAttribsAMD(id, share_context, attribList, __functionAddress);
+	}
+
 	/**
 	 * Creates an associated context and requests a specific GL version.
 	 *
@@ -151,22 +160,16 @@ public final class GLXAMDGPUAssociation {
 	 * @param attribList    
 	 */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, ByteBuffer attribList) {
-		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_context);
-		}
-		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList), __functionAddress);
+		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
 
 	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
-		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_context);
-		}
-		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList), __functionAddress);
+		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
 
 	// --- [ glXDeleteAssociatedContextAMD ] ---
@@ -248,6 +251,15 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static native int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
+	@JavadocExclude
+	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
+		long __functionAddress = getInstance().GetGPUInfoAMD;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetGPUInfoAMD(id, property, dataType, size, data, __functionAddress);
+	}
+
 	/**
 	 * Queries GPU properties.
 	 *
@@ -258,10 +270,7 @@ public final class GLXAMDGPUAssociation {
 	 * @param data     
 	 */
 	public static int glXGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
-		long __functionAddress = getInstance().GetGPUInfoAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglXGetGPUInfoAMD(id, property, dataType, size, memAddress(data), __functionAddress);
+		return nglXGetGPUInfoAMD(id, property, dataType, size, memAddress(data));
 	}
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---

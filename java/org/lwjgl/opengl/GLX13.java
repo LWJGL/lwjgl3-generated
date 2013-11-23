@@ -146,6 +146,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native long nglXGetFBConfigs(long display, int screen, long nelements, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetFBConfigs GetFBConfigs} */
+	@JavadocExclude
+	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
+		long __functionAddress = getInstance().GetFBConfigs;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetFBConfigs(display, screen, nelements, __functionAddress);
+	}
+
 	/**
 	 * Returns the list of all GLXFBConfigs that are available on the specified screen.
 	 *
@@ -153,14 +162,11 @@ public final class GLX13 {
 	 * @param screen  the screen number
 	 */
 	public static PointerBuffer glXGetFBConfigs(long display, int screen) {
-		long __functionAddress = getInstance().GetFBConfigs;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXGetFBConfigs(display, screen, __buffer.address() + nelements, __functionAddress);
+		long __result = nglXGetFBConfigs(display, screen, __buffer.address() + nelements);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
@@ -170,6 +176,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements, long __functionAddress);
 
+	/** Unsafe version of {@link #glXChooseFBConfig ChooseFBConfig} */
+	@JavadocExclude
+	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
+		long __functionAddress = getInstance().ChooseFBConfig;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXChooseFBConfig(display, screen, attrib_list, nelements, __functionAddress);
+	}
+
 	/**
 	 * Returns a list of GLXFBConfigs that match a list of attributes.
 	 *
@@ -178,29 +193,25 @@ public final class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@link X#None}
 	 */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().ChooseFBConfig;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
+		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
 	/** Alternative version of: {@link #glXChooseFBConfig ChooseFBConfig} */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().ChooseFBConfig;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
+		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
@@ -209,6 +220,15 @@ public final class GLX13 {
 	/** JNI method for {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	@JavadocExclude
 	public static native int nglXGetFBConfigAttrib(long display, long config, int attribute, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
+	@JavadocExclude
+	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
+		long __functionAddress = getInstance().GetFBConfigAttrib;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetFBConfigAttrib(display, config, attribute, value, __functionAddress);
+	}
 
 	/**
 	 * Queries the value of a GLX attribute for a GLXFBConfig.
@@ -219,26 +239,22 @@ public final class GLX13 {
 	 * @param value     the attribute value
 	 */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().GetFBConfigAttrib;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkBuffer(value, 1 << 2);
 		}
-		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value), __functionAddress);
+		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().GetFBConfigAttrib;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkBuffer(value, 1);
 		}
-		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value), __functionAddress);
+		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
 	}
 
 	// --- [ glXGetVisualFromFBConfig ] ---
@@ -247,6 +263,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native long nglXGetVisualFromFBConfig(long display, long config, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
+	@JavadocExclude
+	public static long nglXGetVisualFromFBConfig(long display, long config) {
+		long __functionAddress = getInstance().GetVisualFromFBConfig;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetVisualFromFBConfig(display, config, __functionAddress);
+	}
+
 	/**
 	 * Retrieves the associated visual of a GLXFBConfig.
 	 *
@@ -254,13 +279,11 @@ public final class GLX13 {
 	 * @param config  the GLXFBConfig
 	 */
 	public static ByteBuffer glXGetVisualFromFBConfig(long display, long config) {
-		long __functionAddress = getInstance().GetVisualFromFBConfig;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
-		long __result = nglXGetVisualFromFBConfig(display, config, __functionAddress);
+		long __result = nglXGetVisualFromFBConfig(display, config);
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
@@ -269,6 +292,15 @@ public final class GLX13 {
 	/** JNI method for {@link #glXCreateWindow CreateWindow} */
 	@JavadocExclude
 	public static native long nglXCreateWindow(long display, long config, long win, long attrib_list, long __functionAddress);
+
+	/** Unsafe version of {@link #glXCreateWindow CreateWindow} */
+	@JavadocExclude
+	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
+		long __functionAddress = getInstance().CreateWindow;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXCreateWindow(display, config, win, attrib_list, __functionAddress);
+	}
 
 	/**
 	 * Create an onscreen rendering area from an X Window and a desired GLXFBConfig.
@@ -279,26 +311,22 @@ public final class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@link X#None}
 	 */
 	public static long glXCreateWindow(long display, long config, long win, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().CreateWindow;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
-		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateWindow CreateWindow} */
 	public static long glXCreateWindow(long display, long config, long win, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().CreateWindow;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
-		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
 	}
 
 	// --- [ glXCreatePixmap ] ---
@@ -306,6 +334,15 @@ public final class GLX13 {
 	/** JNI method for {@link #glXCreatePixmap CreatePixmap} */
 	@JavadocExclude
 	public static native long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list, long __functionAddress);
+
+	/** Unsafe version of {@link #glXCreatePixmap CreatePixmap} */
+	@JavadocExclude
+	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
+		long __functionAddress = getInstance().CreatePixmap;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXCreatePixmap(display, config, pixmap, attrib_list, __functionAddress);
+	}
 
 	/**
 	 * Creates a GLXPixmap offscreen rendering area from an X Pixmap and a desired GLXFBConfig.
@@ -316,26 +353,22 @@ public final class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@link X#None}
 	 */
 	public static long glXCreatePixmap(long display, long config, long pixmap, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().CreatePixmap;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
-		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreatePixmap CreatePixmap} */
 	public static long glXCreatePixmap(long display, long config, long pixmap, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().CreatePixmap;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
-		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
 	}
 
 	// --- [ glXDestroyPixmap ] ---
@@ -366,6 +399,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native long nglXCreatePbuffer(long display, long config, long attrib_list, long __functionAddress);
 
+	/** Unsafe version of {@link #glXCreatePbuffer CreatePbuffer} */
+	@JavadocExclude
+	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
+		long __functionAddress = getInstance().CreatePbuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXCreatePbuffer(display, config, attrib_list, __functionAddress);
+	}
+
 	/**
 	 * Creates a GLXPbuffer from a GLXFBConfig.
 	 *
@@ -374,26 +416,22 @@ public final class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@link X#None}
 	 */
 	public static long glXCreatePbuffer(long display, long config, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().CreatePbuffer;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		}
-		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreatePbuffer CreatePbuffer} */
 	public static long glXCreatePbuffer(long display, long config, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().CreatePbuffer;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			if ( attrib_list != null ) checkNT(attrib_list);
 		}
-		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list), __functionAddress);
+		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
 	}
 
 	// --- [ glXDestroyPbuffer ] ---
@@ -424,6 +462,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native void nglXQueryDrawable(long display, long draw, int attribute, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryDrawable QueryDrawable} */
+	@JavadocExclude
+	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
+		long __functionAddress = getInstance().QueryDrawable;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglXQueryDrawable(display, draw, attribute, value, __functionAddress);
+	}
+
 	/**
 	 * Queries an attribute associated with a GLXDrawable.
 	 *
@@ -433,26 +480,22 @@ public final class GLX13 {
 	 * @param value     returns the attribute value
 	 */
 	public static void glXQueryDrawable(long display, long draw, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().QueryDrawable;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 			checkBuffer(value, 1 << 2);
 		}
-		nglXQueryDrawable(display, draw, attribute, memAddress(value), __functionAddress);
+		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryDrawable QueryDrawable} */
 	public static void glXQueryDrawable(long display, long draw, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().QueryDrawable;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 			checkBuffer(value, 1);
 		}
-		nglXQueryDrawable(display, draw, attribute, memAddress(value), __functionAddress);
+		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
 
 	// --- [ glXCreateNewContext ] ---
@@ -523,6 +566,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native int nglXQueryContext(long display, long ctx, int attribute, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryContext QueryContext} */
+	@JavadocExclude
+	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
+		long __functionAddress = getInstance().QueryContext;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXQueryContext(display, ctx, attribute, value, __functionAddress);
+	}
+
 	/**
 	 * Queries the value of a GLXContext attribute.
 	 *
@@ -532,26 +584,22 @@ public final class GLX13 {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXQueryContext(long display, long ctx, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().QueryContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(ctx);
 			checkBuffer(value, 1 << 2);
 		}
-		return nglXQueryContext(display, ctx, attribute, memAddress(value), __functionAddress);
+		return nglXQueryContext(display, ctx, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryContext QueryContext} */
 	public static int glXQueryContext(long display, long ctx, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().QueryContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(ctx);
 			checkBuffer(value, 1);
 		}
-		return nglXQueryContext(display, ctx, attribute, memAddress(value), __functionAddress);
+		return nglXQueryContext(display, ctx, attribute, memAddress(value));
 	}
 
 	// --- [ glXSelectEvent ] ---
@@ -583,6 +631,15 @@ public final class GLX13 {
 	@JavadocExclude
 	public static native void nglXGetSelectedEvent(long display, long draw, long event_mask, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetSelectedEvent GetSelectedEvent} */
+	@JavadocExclude
+	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
+		long __functionAddress = getInstance().GetSelectedEvent;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglXGetSelectedEvent(display, draw, event_mask, __functionAddress);
+	}
+
 	/**
 	 * Returns which GLX events are selected for a GLXDrawable.
 	 *
@@ -591,24 +648,20 @@ public final class GLX13 {
 	 * @param event_mask returns the selection mask
 	 */
 	public static void glXGetSelectedEvent(long display, long draw, ByteBuffer event_mask) {
-		long __functionAddress = getInstance().GetSelectedEvent;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXGetSelectedEvent(display, draw, memAddress(event_mask), __functionAddress);
+		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
 	}
 
 	/** Alternative version of: {@link #glXGetSelectedEvent GetSelectedEvent} */
 	public static void glXGetSelectedEvent(long display, long draw, PointerBuffer event_mask) {
-		long __functionAddress = getInstance().GetSelectedEvent;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXGetSelectedEvent(display, draw, memAddress(event_mask), __functionAddress);
+		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
 	}
 
 }

@@ -332,6 +332,15 @@ public final class GL13 {
 	@JavadocExclude
 	public static native void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data, long __functionAddress);
 
+	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
+	@JavadocExclude
+	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexImage3D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage3D.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -348,33 +357,25 @@ public final class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage3D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexImage3D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage3D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, 0, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, 0, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glCompressedTexImage2D ] ---
@@ -382,6 +383,15 @@ public final class GL13 {
 	/** JNI method for {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	@JavadocExclude
 	public static native void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
+	@JavadocExclude
+	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexImage2D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage2D.xml">OpenGL SDK Reference</a>
@@ -398,33 +408,25 @@ public final class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage2D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexImage2D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage2D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage2D(target, level, internalformat, width, height, 0, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexImage2D(target, level, internalformat, width, height, 0, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glCompressedTexImage1D ] ---
@@ -432,6 +434,15 @@ public final class GL13 {
 	/** JNI method for {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	@JavadocExclude
 	public static native void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glCompressedTexImage1D CompressedTexImage1D} */
+	@JavadocExclude
+	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexImage1D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage1D.xml">OpenGL SDK Reference</a>
@@ -447,33 +458,25 @@ public final class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage1D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexImage1D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexImage1D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexImage1D(target, level, internalformat, width, 0, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexImage1D(target, level, internalformat, width, 0, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glCompressedTexSubImage3D ] ---
@@ -481,6 +484,15 @@ public final class GL13 {
 	/** JNI method for {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	@JavadocExclude
 	public static native void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
+	@JavadocExclude
+	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexSubImage3D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage3D.xml">OpenGL SDK Reference</a>
@@ -500,33 +512,25 @@ public final class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage3D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glCompressedTexSubImage2D ] ---
@@ -534,6 +538,15 @@ public final class GL13 {
 	/** JNI method for {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	@JavadocExclude
 	public static native void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
+	@JavadocExclude
+	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexSubImage2D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage2D.xml">OpenGL SDK Reference</a>
@@ -551,33 +564,25 @@ public final class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage2D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glCompressedTexSubImage1D ] ---
@@ -585,6 +590,15 @@ public final class GL13 {
 	/** JNI method for {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	@JavadocExclude
 	public static native void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
+	@JavadocExclude
+	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
+		long __functionAddress = getInstance().CompressedTexSubImage1D;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage1D.xml">OpenGL SDK Reference</a>
@@ -600,33 +614,25 @@ public final class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage1D;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, memAddress(data), __functionAddress);
+		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
-		long __functionAddress = getInstance().CompressedTexSubImage1D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, dataOffset, __functionAddress);
+		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
-		long __functionAddress = getInstance().CompressedTexSubImage1D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data), __functionAddress);
+		nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glGetCompressedTexImage ] ---
@@ -634,6 +640,15 @@ public final class GL13 {
 	/** JNI method for {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	@JavadocExclude
 	public static native void nglGetCompressedTexImage(int target, int lod, long img, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
+	@JavadocExclude
+	public static void nglGetCompressedTexImage(int target, int lod, long img) {
+		long __functionAddress = getInstance().GetCompressedTexImage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetCompressedTexImage(target, lod, img, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetCompressedTexImage.xml">OpenGL SDK Reference</a>
@@ -645,24 +660,19 @@ public final class GL13 {
 	 * @param img    an array in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTexImage(int target, int lod, ByteBuffer img) {
-		long __functionAddress = getInstance().GetCompressedTexImage;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, lod, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
-		nglGetCompressedTexImage(target, lod, memAddress(img), __functionAddress);
+		nglGetCompressedTexImage(target, lod, memAddress(img));
 	}
 
 	/** Buffer object offset version of: {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	public static void glGetCompressedTexImage(int target, int lod, long imgOffset) {
-		long __functionAddress = getInstance().GetCompressedTexImage;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		}
-		nglGetCompressedTexImage(target, lod, imgOffset, __functionAddress);
+		nglGetCompressedTexImage(target, lod, imgOffset);
 	}
 
 	// --- [ glSampleCoverage ] ---
@@ -831,6 +841,15 @@ public final class GL13 {
 	@JavadocExclude
 	public static native void nglMultiTexCoord1fv(int texture, long v, long __functionAddress);
 
+	/** Unsafe version of {@link #glMultiTexCoord1f(int, ByteBuffer) glMultiTexCoord1f} */
+	@JavadocExclude
+	public static void nglMultiTexCoord1fv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord1fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord1fv(texture, v, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
@@ -840,22 +859,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1f(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
-		}
-		nglMultiTexCoord1fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1f(int, ByteBuffer) glMultiTexCoord1f} */
 	public static void glMultiTexCoord1(int texture, FloatBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		}
-		nglMultiTexCoord1fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord1sv ] ---
@@ -863,6 +876,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1sv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
+	@JavadocExclude
+	public static void nglMultiTexCoord1sv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord1sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord1sv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -873,22 +895,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1s(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
-		}
-		nglMultiTexCoord1sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
 	public static void glMultiTexCoord1(int texture, ShortBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		}
-		nglMultiTexCoord1sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord1iv ] ---
@@ -896,6 +912,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1iv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
+	@JavadocExclude
+	public static void nglMultiTexCoord1iv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord1iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord1iv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -906,22 +931,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1i(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
-		}
-		nglMultiTexCoord1iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
 	public static void glMultiTexCoord1(int texture, IntBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		}
-		nglMultiTexCoord1iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord1dv ] ---
@@ -929,6 +948,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1dv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
+	@JavadocExclude
+	public static void nglMultiTexCoord1dv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord1dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord1dv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -939,22 +967,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1d(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
-		}
-		nglMultiTexCoord1dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
 	public static void glMultiTexCoord1(int texture, DoubleBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord1dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		}
-		nglMultiTexCoord1dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord2f ] ---
@@ -1051,6 +1073,15 @@ public final class GL13 {
 	@JavadocExclude
 	public static native void nglMultiTexCoord2fv(int texture, long v, long __functionAddress);
 
+	/** Unsafe version of {@link #glMultiTexCoord2f(int, ByteBuffer) glMultiTexCoord2f} */
+	@JavadocExclude
+	public static void nglMultiTexCoord2fv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord2fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord2fv(texture, v, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
@@ -1060,22 +1091,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2f(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
-		}
-		nglMultiTexCoord2fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2f(int, ByteBuffer) glMultiTexCoord2f} */
 	public static void glMultiTexCoord2(int texture, FloatBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		}
-		nglMultiTexCoord2fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord2sv ] ---
@@ -1083,6 +1108,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2sv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
+	@JavadocExclude
+	public static void nglMultiTexCoord2sv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord2sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord2sv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1093,22 +1127,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2s(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
-		}
-		nglMultiTexCoord2sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
 	public static void glMultiTexCoord2(int texture, ShortBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		}
-		nglMultiTexCoord2sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord2iv ] ---
@@ -1116,6 +1144,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2iv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
+	@JavadocExclude
+	public static void nglMultiTexCoord2iv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord2iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord2iv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1126,22 +1163,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2i(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
-		}
-		nglMultiTexCoord2iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
 	public static void glMultiTexCoord2(int texture, IntBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		}
-		nglMultiTexCoord2iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord2dv ] ---
@@ -1149,6 +1180,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2dv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
+	@JavadocExclude
+	public static void nglMultiTexCoord2dv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord2dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord2dv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1159,22 +1199,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2d(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
-		}
-		nglMultiTexCoord2dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
 	public static void glMultiTexCoord2(int texture, DoubleBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord2dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		}
-		nglMultiTexCoord2dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord3f ] ---
@@ -1275,6 +1309,15 @@ public final class GL13 {
 	@JavadocExclude
 	public static native void nglMultiTexCoord3fv(int texture, long v, long __functionAddress);
 
+	/** Unsafe version of {@link #glMultiTexCoord3f(int, ByteBuffer) glMultiTexCoord3f} */
+	@JavadocExclude
+	public static void nglMultiTexCoord3fv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord3fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord3fv(texture, v, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
@@ -1284,22 +1327,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3f(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
-		}
-		nglMultiTexCoord3fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3f(int, ByteBuffer) glMultiTexCoord3f} */
 	public static void glMultiTexCoord3(int texture, FloatBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		}
-		nglMultiTexCoord3fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord3sv ] ---
@@ -1307,6 +1344,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3sv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
+	@JavadocExclude
+	public static void nglMultiTexCoord3sv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord3sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord3sv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1317,22 +1363,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3s(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
-		}
-		nglMultiTexCoord3sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
 	public static void glMultiTexCoord3(int texture, ShortBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		}
-		nglMultiTexCoord3sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord3iv ] ---
@@ -1340,6 +1380,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3iv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
+	@JavadocExclude
+	public static void nglMultiTexCoord3iv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord3iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord3iv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1350,22 +1399,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3i(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
-		}
-		nglMultiTexCoord3iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
 	public static void glMultiTexCoord3(int texture, IntBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		}
-		nglMultiTexCoord3iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord3dv ] ---
@@ -1373,6 +1416,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3dv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
+	@JavadocExclude
+	public static void nglMultiTexCoord3dv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord3dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord3dv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1383,22 +1435,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3d(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
-		}
-		nglMultiTexCoord3dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
 	public static void glMultiTexCoord3(int texture, DoubleBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord3dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		}
-		nglMultiTexCoord3dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord4f ] ---
@@ -1503,6 +1549,15 @@ public final class GL13 {
 	@JavadocExclude
 	public static native void nglMultiTexCoord4fv(int texture, long v, long __functionAddress);
 
+	/** Unsafe version of {@link #glMultiTexCoord4f(int, ByteBuffer) glMultiTexCoord4f} */
+	@JavadocExclude
+	public static void nglMultiTexCoord4fv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord4fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord4fv(texture, v, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
@@ -1512,22 +1567,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4f(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
-		}
-		nglMultiTexCoord4fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4f(int, ByteBuffer) glMultiTexCoord4f} */
 	public static void glMultiTexCoord4(int texture, FloatBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4fv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		}
-		nglMultiTexCoord4fv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord4sv ] ---
@@ -1535,6 +1584,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4sv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
+	@JavadocExclude
+	public static void nglMultiTexCoord4sv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord4sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord4sv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1545,22 +1603,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4s(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
-		}
-		nglMultiTexCoord4sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
 	public static void glMultiTexCoord4(int texture, ShortBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4sv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		}
-		nglMultiTexCoord4sv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord4iv ] ---
@@ -1568,6 +1620,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4iv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
+	@JavadocExclude
+	public static void nglMultiTexCoord4iv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord4iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord4iv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1578,22 +1639,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4i(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
-		}
-		nglMultiTexCoord4iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
 	public static void glMultiTexCoord4(int texture, IntBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4iv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		}
-		nglMultiTexCoord4iv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
 
 	// --- [ glMultiTexCoord4dv ] ---
@@ -1601,6 +1656,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4dv(int texture, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
+	@JavadocExclude
+	public static void nglMultiTexCoord4dv(int texture, long v) {
+		long __functionAddress = getInstance().MultiTexCoord4dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoord4dv(texture, v, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1611,22 +1675,16 @@ public final class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4d(int texture, ByteBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
-		}
-		nglMultiTexCoord4dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
 	public static void glMultiTexCoord4(int texture, DoubleBuffer v) {
-		long __functionAddress = getInstance().MultiTexCoord4dv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		}
-		nglMultiTexCoord4dv(texture, memAddress(v), __functionAddress);
+		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
 
 	// --- [ glLoadTransposeMatrixf ] ---
@@ -1634,6 +1692,15 @@ public final class GL13 {
 	/** JNI method for {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	@JavadocExclude
 	public static native void nglLoadTransposeMatrixf(long m, long __functionAddress);
+
+	/** Unsafe version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
+	@JavadocExclude
+	public static void nglLoadTransposeMatrixf(long m) {
+		long __functionAddress = getInstance().LoadTransposeMatrixf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglLoadTransposeMatrixf(m, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1651,22 +1718,16 @@ public final class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixf(ByteBuffer m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16 << 2);
-		}
-		nglLoadTransposeMatrixf(memAddress(m), __functionAddress);
+		nglLoadTransposeMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	public static void glLoadTransposeMatrix(FloatBuffer m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
-		}
-		nglLoadTransposeMatrixf(memAddress(m), __functionAddress);
+		nglLoadTransposeMatrixf(memAddress(m));
 	}
 
 	// --- [ glLoadTransposeMatrixd ] ---
@@ -1674,6 +1735,15 @@ public final class GL13 {
 	/** JNI method for {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	@JavadocExclude
 	public static native void nglLoadTransposeMatrixd(long m, long __functionAddress);
+
+	/** Unsafe version of {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
+	@JavadocExclude
+	public static void nglLoadTransposeMatrixd(long m) {
+		long __functionAddress = getInstance().LoadTransposeMatrixd;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglLoadTransposeMatrixd(m, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1683,22 +1753,16 @@ public final class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixd(ByteBuffer m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16 << 3);
-		}
-		nglLoadTransposeMatrixd(memAddress(m), __functionAddress);
+		nglLoadTransposeMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	public static void glLoadTransposeMatrix(DoubleBuffer m) {
-		long __functionAddress = getInstance().LoadTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
-		}
-		nglLoadTransposeMatrixd(memAddress(m), __functionAddress);
+		nglLoadTransposeMatrixd(memAddress(m));
 	}
 
 	// --- [ glMultTransposeMatrixf ] ---
@@ -1706,6 +1770,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	@JavadocExclude
 	public static native void nglMultTransposeMatrixf(long m, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
+	@JavadocExclude
+	public static void nglMultTransposeMatrixf(long m) {
+		long __functionAddress = getInstance().MultTransposeMatrixf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultTransposeMatrixf(m, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1715,22 +1788,16 @@ public final class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixf(ByteBuffer m) {
-		long __functionAddress = getInstance().MultTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16 << 2);
-		}
-		nglMultTransposeMatrixf(memAddress(m), __functionAddress);
+		nglMultTransposeMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	public static void glMultTransposeMatrix(FloatBuffer m) {
-		long __functionAddress = getInstance().MultTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
-		}
-		nglMultTransposeMatrixf(memAddress(m), __functionAddress);
+		nglMultTransposeMatrixf(memAddress(m));
 	}
 
 	// --- [ glMultTransposeMatrixd ] ---
@@ -1738,6 +1805,15 @@ public final class GL13 {
 	/** JNI method for {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	@JavadocExclude
 	public static native void nglMultTransposeMatrixd(long m, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
+	@JavadocExclude
+	public static void nglMultTransposeMatrixd(long m) {
+		long __functionAddress = getInstance().MultTransposeMatrixd;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultTransposeMatrixd(m, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
@@ -1747,22 +1823,16 @@ public final class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixd(ByteBuffer m) {
-		long __functionAddress = getInstance().MultTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16 << 3);
-		}
-		nglMultTransposeMatrixd(memAddress(m), __functionAddress);
+		nglMultTransposeMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	public static void glMultTransposeMatrix(DoubleBuffer m) {
-		long __functionAddress = getInstance().MultTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
-		}
-		nglMultTransposeMatrixd(memAddress(m), __functionAddress);
+		nglMultTransposeMatrixd(memAddress(m));
 	}
 
 }

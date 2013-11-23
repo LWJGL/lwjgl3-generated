@@ -75,6 +75,15 @@ public final class ALC11 {
 	@JavadocExclude
 	public static native long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize, long __functionAddress);
 
+	/** Unsafe version of {@link #alcCaptureOpenDevice CaptureOpenDevice} */
+	@JavadocExclude
+	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
+		long __functionAddress = getInstance().CaptureOpenDevice;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalcCaptureOpenDevice(devicename, frequency, format, buffersize, __functionAddress);
+	}
+
 	/**
 	 * Allows the application to connect to a capture device.
 	 * <p/>
@@ -87,20 +96,14 @@ public final class ALC11 {
 	 * @param buffersize the number of sample frame to buffer in the AL
 	 */
 	public static long alcCaptureOpenDevice(ByteBuffer devicename, int frequency, int format, int buffersize) {
-		long __functionAddress = getInstance().CaptureOpenDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( devicename != null ) checkNT1(devicename);
-		}
-		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize, __functionAddress);
+		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize);
 	}
 
 	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
-		long __functionAddress = getInstance().CaptureOpenDevice;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalcCaptureOpenDevice(memAddressSafe(memEncodeUTF8(devicename)), frequency, format, buffersize, __functionAddress);
+		return nalcCaptureOpenDevice(memAddressSafe(memEncodeUTF8(devicename)), frequency, format, buffersize);
 	}
 
 	// --- [ alcCaptureCloseDevice ] ---
@@ -176,6 +179,15 @@ public final class ALC11 {
 	@JavadocExclude
 	public static native void nalcCaptureSamples(long device, long buffer, int samples, long __functionAddress);
 
+	/** Unsafe version of {@link #alcCaptureSamples CaptureSamples} */
+	@JavadocExclude
+	public static void nalcCaptureSamples(long device, long buffer, int samples) {
+		long __functionAddress = getInstance().CaptureSamples;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalcCaptureSamples(device, buffer, samples, __functionAddress);
+	}
+
 	/**
 	 * Obtains captured audio samples from the AL.
 	 * <p/>
@@ -186,23 +198,18 @@ public final class ALC11 {
 	 * @param samples the buffer size
 	 */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
-		long __functionAddress = getInstance().CaptureSamples;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkBuffer(buffer, samples);
 		}
-		nalcCaptureSamples(device, memAddress(buffer), samples, __functionAddress);
+		nalcCaptureSamples(device, memAddress(buffer), samples);
 	}
 
 	/** Alternative version of: {@link #alcCaptureSamples CaptureSamples} */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer) {
-		long __functionAddress = getInstance().CaptureSamples;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
-		nalcCaptureSamples(device, memAddress(buffer), buffer.remaining(), __functionAddress);
+		nalcCaptureSamples(device, memAddress(buffer), buffer.remaining());
 	}
 
 }

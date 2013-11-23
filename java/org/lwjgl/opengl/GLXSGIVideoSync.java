@@ -57,28 +57,31 @@ public final class GLXSGIVideoSync {
 	@JavadocExclude
 	public static native int nglXGetVideoSyncSGI(long count, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
+	@JavadocExclude
+	public static int nglXGetVideoSyncSGI(long count) {
+		long __functionAddress = getInstance().GetVideoSyncSGI;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetVideoSyncSGI(count, __functionAddress);
+	}
+
 	/**
 	 * Returns the value of the video sync counter in {@code count}. Zero is returned if the call is successful.
 	 *
 	 * @param count the video sync counter value
 	 */
 	public static int glXGetVideoSyncSGI(ByteBuffer count) {
-		long __functionAddress = getInstance().GetVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1 << 2);
-		}
-		return nglXGetVideoSyncSGI(memAddress(count), __functionAddress);
+		return nglXGetVideoSyncSGI(memAddress(count));
 	}
 
 	/** Alternative version of: {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
 	public static int glXGetVideoSyncSGI(IntBuffer count) {
-		long __functionAddress = getInstance().GetVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1);
-		}
-		return nglXGetVideoSyncSGI(memAddress(count), __functionAddress);
+		return nglXGetVideoSyncSGI(memAddress(count));
 	}
 
 	// --- [ glXWaitVideoSyncSGI ] ---
@@ -86,6 +89,15 @@ public final class GLXSGIVideoSync {
 	/** JNI method for {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	@JavadocExclude
 	public static native int nglXWaitVideoSyncSGI(int divisor, int remainder, long count, long __functionAddress);
+
+	/** Unsafe version of {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
+	@JavadocExclude
+	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
+		long __functionAddress = getInstance().WaitVideoSyncSGI;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXWaitVideoSyncSGI(divisor, remainder, count, __functionAddress);
+	}
 
 	/**
 	 * Puts the calling process to sleep until
@@ -101,22 +113,16 @@ public final class GLXSGIVideoSync {
 	 * @param count     the video sync counter value
 	 */
 	public static int glXWaitVideoSyncSGI(int divisor, int remainder, ByteBuffer count) {
-		long __functionAddress = getInstance().WaitVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1 << 2);
-		}
-		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count), __functionAddress);
+		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count));
 	}
 
 	/** Alternative version of: {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	public static int glXWaitVideoSyncSGI(int divisor, int remainder, IntBuffer count) {
-		long __functionAddress = getInstance().WaitVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1);
-		}
-		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count), __functionAddress);
+		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count));
 	}
 
 }

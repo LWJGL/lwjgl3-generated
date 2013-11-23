@@ -55,6 +55,15 @@ public final class WGLARBExtensionsString {
 	@JavadocExclude
 	public static native long nwglGetExtensionsStringARB(long hdc, long __functionAddress);
 
+	/** Unsafe version of {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
+	@JavadocExclude
+	public static long nwglGetExtensionsStringARB(long hdc) {
+		long __functionAddress = getInstance().GetExtensionsStringARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nwglGetExtensionsStringARB(hdc, __functionAddress);
+	}
+
 	/**
 	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be NULL terminated and
 	 * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
@@ -63,12 +72,9 @@ public final class WGLARBExtensionsString {
 	 * @param hdc the device context to query extensions for
 	 */
 	public static String wglGetExtensionsStringARB(long hdc) {
-		long __functionAddress = getInstance().GetExtensionsStringARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
-		long __result = nwglGetExtensionsStringARB(hdc, __functionAddress);
+		long __result = nwglGetExtensionsStringARB(hdc);
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}
 

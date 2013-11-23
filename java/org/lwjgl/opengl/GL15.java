@@ -198,6 +198,15 @@ public final class GL15 {
 	@JavadocExclude
 	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
+	/** Unsafe version of {@link #glDeleteBuffers DeleteBuffers} */
+	@JavadocExclude
+	public static void nglDeleteBuffers(int n, long buffers) {
+		long __functionAddress = getInstance().DeleteBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDeleteBuffers(n, buffers, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteBuffers.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -207,30 +216,21 @@ public final class GL15 {
 	 * @param buffers an array of buffer objects to be deleted
 	 */
 	public static void glDeleteBuffers(int n, ByteBuffer buffers) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(buffers, n << 2);
-		}
-		nglDeleteBuffers(n, memAddress(buffers), __functionAddress);
+		nglDeleteBuffers(n, memAddress(buffers));
 	}
 
 	/** Alternative version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(IntBuffer buffers) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDeleteBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
+		nglDeleteBuffers(buffers.remaining(), memAddress(buffers));
 	}
 
 	/** Single value version of: {@link #glDeleteBuffers DeleteBuffers} */
 	public static void glDeleteBuffers(int buffer) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam(buffer);
-		nglDeleteBuffers(1, __buffer.address() + buffers, __functionAddress);
+		nglDeleteBuffers(1, __buffer.address() + buffers);
 	}
 
 	// --- [ glGenBuffers ] ---
@@ -238,6 +238,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
+
+	/** Unsafe version of {@link #glGenBuffers GenBuffers} */
+	@JavadocExclude
+	public static void nglGenBuffers(int n, long buffers) {
+		long __functionAddress = getInstance().GenBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGenBuffers(n, buffers, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenBuffers.xml">OpenGL SDK Reference</a>
@@ -248,30 +257,21 @@ public final class GL15 {
 	 * @param buffers an array in which the generated buffer object names are stored
 	 */
 	public static void glGenBuffers(int n, ByteBuffer buffers) {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(buffers, n << 2);
-		}
-		nglGenBuffers(n, memAddress(buffers), __functionAddress);
+		nglGenBuffers(n, memAddress(buffers));
 	}
 
 	/** Alternative version of: {@link #glGenBuffers GenBuffers} */
 	public static void glGenBuffers(IntBuffer buffers) {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGenBuffers(buffers.remaining(), memAddress(buffers), __functionAddress);
+		nglGenBuffers(buffers.remaining(), memAddress(buffers));
 	}
 
 	/** Single return value version of: {@link #glGenBuffers GenBuffers} */
 	public static int glGenBuffers() {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam();
-		nglGenBuffers(1, __buffer.address() + buffers, __functionAddress);
+		nglGenBuffers(1, __buffer.address() + buffers);
 		return __buffer.intValue(buffers);
 	}
 
@@ -301,6 +301,15 @@ public final class GL15 {
 	@JavadocExclude
 	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
+	/** Unsafe version of {@link #glBufferData BufferData} */
+	@JavadocExclude
+	public static void nglBufferData(int target, long size, long data, int usage) {
+		long __functionAddress = getInstance().BufferData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBufferData(target, size, data, usage, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferData.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -328,60 +337,39 @@ public final class GL15 {
 	 * @param usage  the expected usage pattern of the data store. One of:<p/>{@link #GL_STREAM_DRAW STREAM_DRAW}, {@link #GL_STREAM_READ STREAM_READ}, {@link #GL_STREAM_COPY STREAM_COPY}, {@link #GL_STATIC_DRAW STATIC_DRAW}, {@link #GL_STATIC_READ STATIC_READ}, {@link #GL_STATIC_COPY STATIC_COPY}, {@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link #GL_DYNAMIC_READ DYNAMIC_READ}, {@link #GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glBufferData(int target, long size, ByteBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( data != null ) checkBuffer(data, size);
-		}
-		nglBufferData(target, size, memAddressSafe(data), usage, __functionAddress);
+		nglBufferData(target, size, memAddressSafe(data), usage);
 	}
 
 	/** Alternative version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, long size, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, size, 0L, usage, __functionAddress);
+		nglBufferData(target, size, 0L, usage);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, data.remaining(), memAddress(data), usage, __functionAddress);
+		nglBufferData(target, data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ShortBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, data.remaining() << 1, memAddress(data), usage, __functionAddress);
+		nglBufferData(target, data.remaining() << 1, memAddress(data), usage);
 	}
 
 	/** IntBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, IntBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
+		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, FloatBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, data.remaining() << 2, memAddress(data), usage, __functionAddress);
+		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, DoubleBuffer data, int usage) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferData(target, data.remaining() << 3, memAddress(data), usage, __functionAddress);
+		nglBufferData(target, data.remaining() << 3, memAddress(data), usage);
 	}
 
 	// --- [ glBufferSubData ] ---
@@ -389,6 +377,15 @@ public final class GL15 {
 	/** JNI method for {@link #glBufferSubData BufferSubData} */
 	@JavadocExclude
 	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glBufferSubData BufferSubData} */
+	@JavadocExclude
+	public static void nglBufferSubData(int target, long offset, long size, long data) {
+		long __functionAddress = getInstance().BufferSubData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBufferSubData(target, offset, size, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferSubData.xml">OpenGL SDK Reference</a>
@@ -401,20 +398,14 @@ public final class GL15 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		long __functionAddress = getInstance().BufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, size);
-		}
-		nglBufferSubData(target, offset, size, memAddress(data), __functionAddress);
+		nglBufferSubData(target, offset, size, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
-		long __functionAddress = getInstance().BufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBufferSubData(target, offset, data.remaining(), memAddress(data), __functionAddress);
+		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glGetBufferSubData ] ---
@@ -422,6 +413,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGetBufferSubData GetBufferSubData} */
 	@JavadocExclude
 	public static native void nglGetBufferSubData(int target, long offset, long size, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetBufferSubData GetBufferSubData} */
+	@JavadocExclude
+	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
+		long __functionAddress = getInstance().GetBufferSubData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetBufferSubData(target, offset, size, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferSubData.xml">OpenGL SDK Reference</a>
@@ -434,52 +434,34 @@ public final class GL15 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, size);
-		}
-		nglGetBufferSubData(target, offset, size, memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, size, memAddress(data));
 	}
 
 	/** ByteBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ShortBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, IntBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, FloatBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, DoubleBuffer data) {
-		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data), __functionAddress);
+		nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
 	}
 
 	// --- [ glMapBuffer ] ---
@@ -487,6 +469,15 @@ public final class GL15 {
 	/** JNI method for {@link #glMapBuffer MapBuffer} */
 	@JavadocExclude
 	public static native long nglMapBuffer(int target, int access, long __functionAddress);
+
+	/** Unsafe version of {@link #glMapBuffer MapBuffer} */
+	@JavadocExclude
+	public static long nglMapBuffer(int target, int access) {
+		long __functionAddress = getInstance().MapBuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglMapBuffer(target, access, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMapBuffer.xml">OpenGL SDK Reference</a>
@@ -504,29 +495,20 @@ public final class GL15 {
 	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<p/>{@link #GL_READ_ONLY READ_ONLY}, {@link #GL_WRITE_ONLY WRITE_ONLY}, {@link #GL_READ_WRITE READ_WRITE}
 	 */
 	public static ByteBuffer glMapBuffer(int target, int access) {
-		long __functionAddress = getInstance().MapBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nglMapBuffer(target, access, __functionAddress);
+		long __result = nglMapBuffer(target, access);
 		return memByteBuffer(__result, glGetBufferParameteri(target, GL_BUFFER_SIZE));
 	}
 
 	/** Alternative version of: {@link #glMapBuffer MapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance().MapBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nglMapBuffer(target, access, __functionAddress);
+		long __result = nglMapBuffer(target, access);
 		int length = glGetBufferParameteri(target, GL_BUFFER_SIZE);
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapBuffer MapBuffer} */
 	public static ByteBuffer glMapBuffer(int target, int access, int length, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance().MapBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nglMapBuffer(target, access, __functionAddress);
+		long __result = nglMapBuffer(target, access);
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
 
@@ -561,6 +543,15 @@ public final class GL15 {
 	@JavadocExclude
 	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	@JavadocExclude
+	public static void nglGetBufferParameteriv(int target, int pname, long params) {
+		long __functionAddress = getInstance().GetBufferParameteriv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetBufferParameteriv(target, pname, params, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -571,28 +562,19 @@ public final class GL15 {
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameteri(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetBufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferParameteriv(target, pname, memAddress(params), __functionAddress);
+		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
 	public static void glGetBufferParameter(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetBufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferParameteriv(target, pname, memAddress(params), __functionAddress);
+		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
 	public static int glGetBufferParameteri(int target, int pname) {
-		long __functionAddress = getInstance().GetBufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetBufferParameteriv(target, pname, __buffer.address() + params, __functionAddress);
+		nglGetBufferParameteriv(target, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -601,6 +583,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
 	@JavadocExclude
 	public static native void nglGetBufferPointerv(int target, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	@JavadocExclude
+	public static void nglGetBufferPointerv(int target, int pname, long params) {
+		long __functionAddress = getInstance().GetBufferPointerv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetBufferPointerv(target, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferPointer.xml">OpenGL SDK Reference</a>
@@ -612,28 +603,19 @@ public final class GL15 {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetBufferPointer(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetBufferPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferPointerv(target, pname, memAddress(params), __functionAddress);
+		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
 	public static void glGetBufferPointer(int target, int pname, PointerBuffer params) {
-		long __functionAddress = getInstance().GetBufferPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetBufferPointerv(target, pname, memAddress(params), __functionAddress);
+		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
 	public static long glGetBufferPointer(int target, int pname) {
-		long __functionAddress = getInstance().GetBufferPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetBufferPointerv(target, pname, __buffer.address() + params, __functionAddress);
+		nglGetBufferPointerv(target, pname, __buffer.address() + params);
 		return __buffer.pointerValue(params);
 	}
 
@@ -642,6 +624,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGenQueries GenQueries} */
 	@JavadocExclude
 	public static native void nglGenQueries(int n, long ids, long __functionAddress);
+
+	/** Unsafe version of {@link #glGenQueries GenQueries} */
+	@JavadocExclude
+	public static void nglGenQueries(int n, long ids) {
+		long __functionAddress = getInstance().GenQueries;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGenQueries(n, ids, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenQueries.xml">OpenGL SDK Reference</a>
@@ -652,30 +643,21 @@ public final class GL15 {
 	 * @param ids an array in which the generated query object names are stored
 	 */
 	public static void glGenQueries(int n, ByteBuffer ids) {
-		long __functionAddress = getInstance().GenQueries;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		}
-		nglGenQueries(n, memAddress(ids), __functionAddress);
+		nglGenQueries(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glGenQueries GenQueries} */
 	public static void glGenQueries(IntBuffer ids) {
-		long __functionAddress = getInstance().GenQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGenQueries(ids.remaining(), memAddress(ids), __functionAddress);
+		nglGenQueries(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single return value version of: {@link #glGenQueries GenQueries} */
 	public static int glGenQueries() {
-		long __functionAddress = getInstance().GenQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglGenQueries(1, __buffer.address() + ids, __functionAddress);
+		nglGenQueries(1, __buffer.address() + ids);
 		return __buffer.intValue(ids);
 	}
 
@@ -684,6 +666,15 @@ public final class GL15 {
 	/** JNI method for {@link #glDeleteQueries DeleteQueries} */
 	@JavadocExclude
 	public static native void nglDeleteQueries(int n, long ids, long __functionAddress);
+
+	/** Unsafe version of {@link #glDeleteQueries DeleteQueries} */
+	@JavadocExclude
+	public static void nglDeleteQueries(int n, long ids) {
+		long __functionAddress = getInstance().DeleteQueries;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDeleteQueries(n, ids, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteQueries.xml">OpenGL SDK Reference</a>
@@ -694,30 +685,21 @@ public final class GL15 {
 	 * @param ids an array of query objects to be deleted
 	 */
 	public static void glDeleteQueries(int n, ByteBuffer ids) {
-		long __functionAddress = getInstance().DeleteQueries;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		}
-		nglDeleteQueries(n, memAddress(ids), __functionAddress);
+		nglDeleteQueries(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(IntBuffer ids) {
-		long __functionAddress = getInstance().DeleteQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDeleteQueries(ids.remaining(), memAddress(ids), __functionAddress);
+		nglDeleteQueries(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single value version of: {@link #glDeleteQueries DeleteQueries} */
 	public static void glDeleteQueries(int id) {
-		long __functionAddress = getInstance().DeleteQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDeleteQueries(1, __buffer.address() + ids, __functionAddress);
+		nglDeleteQueries(1, __buffer.address() + ids);
 	}
 
 	// --- [ glIsQuery ] ---
@@ -787,6 +769,15 @@ public final class GL15 {
 	@JavadocExclude
 	public static native void nglGetQueryiv(int target, int pname, long params, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	@JavadocExclude
+	public static void nglGetQueryiv(int target, int pname, long params) {
+		long __functionAddress = getInstance().GetQueryiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetQueryiv(target, pname, params, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQuery.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -797,32 +788,23 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryi(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetQueryiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetQueryiv(target, pname, memAddress(params), __functionAddress);
+		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
 	public static void glGetQuery(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetQueryiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetQueryiv(target, pname, memAddress(params), __functionAddress);
+		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
 	public static int glGetQueryi(int target, int pname) {
-		long __functionAddress = getInstance().GetQueryiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryiv(target, pname, __buffer.address() + params, __functionAddress);
+		nglGetQueryiv(target, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -831,6 +813,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectiv(int id, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	@JavadocExclude
+	public static void nglGetQueryObjectiv(int id, int pname, long params) {
+		long __functionAddress = getInstance().GetQueryObjectiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetQueryObjectiv(id, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
@@ -842,32 +833,23 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjecti(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetQueryObjectiv(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
 	public static void glGetQueryObject(int id, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetQueryObjectiv(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
 	public static int glGetQueryObjecti(int id, int pname) {
-		long __functionAddress = getInstance().GetQueryObjectiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectiv(id, pname, __buffer.address() + params, __functionAddress);
+		nglGetQueryObjectiv(id, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -876,6 +858,15 @@ public final class GL15 {
 	/** JNI method for {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectuiv(int id, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	@JavadocExclude
+	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
+		long __functionAddress = getInstance().GetQueryObjectuiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetQueryObjectuiv(id, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
@@ -887,32 +878,23 @@ public final class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectui(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectuiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetQueryObjectuiv(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
 	public static void glGetQueryObjectu(int id, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectuiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetQueryObjectuiv(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
 	public static int glGetQueryObjectui(int id, int pname) {
-		long __functionAddress = getInstance().GetQueryObjectuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectuiv(id, pname, __buffer.address() + params, __functionAddress);
+		nglGetQueryObjectuiv(id, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 

@@ -418,6 +418,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetBooleanv(int paramName, long dest, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetBoolean(int, ByteBuffer) alGetBoolean} */
+	@JavadocExclude
+	public static void nalGetBooleanv(int paramName, long dest) {
+		long __functionAddress = getInstance().GetBooleanv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetBooleanv(paramName, dest, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alGetBoolean GetBoolean}.
 	 *
@@ -425,12 +434,9 @@ public final class AL10 {
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetBoolean(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().GetBooleanv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
-		}
-		nalGetBooleanv(paramName, memAddress(dest), __functionAddress);
+		nalGetBooleanv(paramName, memAddress(dest));
 	}
 
 	// --- [ alGetIntegerv ] ---
@@ -439,6 +445,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetIntegerv(int paramName, long dest, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
+	@JavadocExclude
+	public static void nalGetIntegerv(int paramName, long dest) {
+		long __functionAddress = getInstance().GetIntegerv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetIntegerv(paramName, dest, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alGetInteger GetInteger}.
 	 *
@@ -446,22 +461,16 @@ public final class AL10 {
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetInteger(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1 << 2);
-		}
-		nalGetIntegerv(paramName, memAddress(dest), __functionAddress);
+		nalGetIntegerv(paramName, memAddress(dest));
 	}
 
 	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
 	public static void alGetInteger(int paramName, IntBuffer dest) {
-		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
-		}
-		nalGetIntegerv(paramName, memAddress(dest), __functionAddress);
+		nalGetIntegerv(paramName, memAddress(dest));
 	}
 
 	// --- [ alGetFloatv ] ---
@@ -470,6 +479,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetFloatv(int paramName, long dest, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
+	@JavadocExclude
+	public static void nalGetFloatv(int paramName, long dest) {
+		long __functionAddress = getInstance().GetFloatv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetFloatv(paramName, dest, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alGetFloat GetFloat}.
 	 *
@@ -477,22 +495,16 @@ public final class AL10 {
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetFloat(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().GetFloatv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1 << 2);
-		}
-		nalGetFloatv(paramName, memAddress(dest), __functionAddress);
+		nalGetFloatv(paramName, memAddress(dest));
 	}
 
 	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
 	public static void alGetFloat(int paramName, FloatBuffer dest) {
-		long __functionAddress = getInstance().GetFloatv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
-		}
-		nalGetFloatv(paramName, memAddress(dest), __functionAddress);
+		nalGetFloatv(paramName, memAddress(dest));
 	}
 
 	// --- [ alGetDoublev ] ---
@@ -501,6 +513,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetDoublev(int paramName, long dest, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
+	@JavadocExclude
+	public static void nalGetDoublev(int paramName, long dest) {
+		long __functionAddress = getInstance().GetDoublev;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetDoublev(paramName, dest, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alGetDouble GetDouble}.
 	 *
@@ -508,22 +529,16 @@ public final class AL10 {
 	 * @param dest      a buffer that will receive the parameter values
 	 */
 	public static void alGetDouble(int paramName, ByteBuffer dest) {
-		long __functionAddress = getInstance().GetDoublev;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1 << 3);
-		}
-		nalGetDoublev(paramName, memAddress(dest), __functionAddress);
+		nalGetDoublev(paramName, memAddress(dest));
 	}
 
 	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
 	public static void alGetDouble(int paramName, DoubleBuffer dest) {
-		long __functionAddress = getInstance().GetDoublev;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
-		}
-		nalGetDoublev(paramName, memAddress(dest), __functionAddress);
+		nalGetDoublev(paramName, memAddress(dest));
 	}
 
 	// --- [ alGetString ] ---
@@ -532,16 +547,22 @@ public final class AL10 {
 	@JavadocExclude
 	public static native long nalGetString(int paramName, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetString GetString} */
+	@JavadocExclude
+	public static long nalGetString(int paramName) {
+		long __functionAddress = getInstance().GetString;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalGetString(paramName, __functionAddress);
+	}
+
 	/**
 	 * Returns the string value of the specified parameter
 	 *
 	 * @param paramName the parameter to query. One of:<p/>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
 	 */
 	public static String alGetString(int paramName) {
-		long __functionAddress = getInstance().GetString;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nalGetString(paramName, __functionAddress);
+		long __result = nalGetString(paramName);
 		return memDecodeUTF8(memByteBufferNT1(__result));
 	}
 
@@ -718,6 +739,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalListenerfv(int paramName, long values, long __functionAddress);
 
+	/** Unsafe version of {@link #alListenerf(int, ByteBuffer) alListenerf} */
+	@JavadocExclude
+	public static void nalListenerfv(int paramName, long values) {
+		long __functionAddress = getInstance().Listenerfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalListenerfv(paramName, values, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alListenerf Listenerf}.
 	 *
@@ -725,22 +755,16 @@ public final class AL10 {
 	 * @param values    the parameter values
 	 */
 	public static void alListenerf(int paramName, ByteBuffer values) {
-		long __functionAddress = getInstance().Listenerfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
-		}
-		nalListenerfv(paramName, memAddress(values), __functionAddress);
+		nalListenerfv(paramName, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alListenerf(int, ByteBuffer) alListenerf} */
 	public static void alListener(int paramName, FloatBuffer values) {
-		long __functionAddress = getInstance().Listenerfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		}
-		nalListenerfv(paramName, memAddress(values), __functionAddress);
+		nalListenerfv(paramName, memAddress(values));
 	}
 
 	// --- [ alGetListenerf ] ---
@@ -749,6 +773,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetListenerf(int paramName, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetListenerf GetListenerf} */
+	@JavadocExclude
+	public static void nalGetListenerf(int paramName, long value) {
+		long __functionAddress = getInstance().GetListenerf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetListenerf(paramName, value, __functionAddress);
+	}
+
 	/**
 	 * Returns the float value of a listener parameter.
 	 *
@@ -756,32 +789,23 @@ public final class AL10 {
 	 * @param value     the parameter value
 	 */
 	public static void alGetListenerf(int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().GetListenerf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetListenerf(paramName, memAddress(value), __functionAddress);
+		nalGetListenerf(paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetListenerf GetListenerf} */
 	public static void alGetListener(int paramName, FloatBuffer value) {
-		long __functionAddress = getInstance().GetListenerf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetListenerf(paramName, memAddress(value), __functionAddress);
+		nalGetListenerf(paramName, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetListenerf GetListenerf} */
 	public static float alGetListenerf(int paramName) {
-		long __functionAddress = getInstance().GetListenerf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetListenerf(paramName, __buffer.address() + value, __functionAddress);
+		nalGetListenerf(paramName, __buffer.address() + value);
 		return __buffer.floatValue(value);
 	}
 
@@ -791,6 +815,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetListeneri(int paramName, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetListeneri GetListeneri} */
+	@JavadocExclude
+	public static void nalGetListeneri(int paramName, long value) {
+		long __functionAddress = getInstance().GetListeneri;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetListeneri(paramName, value, __functionAddress);
+	}
+
 	/**
 	 * Returns the integer value of a listener parameter.
 	 *
@@ -798,32 +831,23 @@ public final class AL10 {
 	 * @param value     the parameter value
 	 */
 	public static void alGetListeneri(int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().GetListeneri;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetListeneri(paramName, memAddress(value), __functionAddress);
+		nalGetListeneri(paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetListeneri GetListeneri} */
 	public static void alGetListener(int paramName, IntBuffer value) {
-		long __functionAddress = getInstance().GetListeneri;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetListeneri(paramName, memAddress(value), __functionAddress);
+		nalGetListeneri(paramName, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetListeneri GetListeneri} */
 	public static int alGetListeneri(int paramName) {
-		long __functionAddress = getInstance().GetListeneri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetListeneri(paramName, __buffer.address() + value, __functionAddress);
+		nalGetListeneri(paramName, __buffer.address() + value);
 		return __buffer.intValue(value);
 	}
 
@@ -832,6 +856,15 @@ public final class AL10 {
 	/** JNI method for {@link #alGetListener3f GetListener3f} */
 	@JavadocExclude
 	public static native void nalGetListener3f(int paramName, long value1, long value2, long value3, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetListener3f GetListener3f} */
+	@JavadocExclude
+	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
+		long __functionAddress = getInstance().GetListener3f;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetListener3f(paramName, value1, value2, value3, __functionAddress);
+	}
 
 	/**
 	 * Returns the 3 dimensional values of a listener parameter.
@@ -842,26 +875,22 @@ public final class AL10 {
 	 * @param value3    the third parameter value
 	 */
 	public static void alGetListener3f(int paramName, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
-		long __functionAddress = getInstance().GetListener3f;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(value1, 1 << 2);
 			checkBuffer(value2, 1 << 2);
 			checkBuffer(value3, 1 << 2);
 		}
-		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
+		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
 	/** Alternative version of: {@link #alGetListener3f GetListener3f} */
 	public static void alGetListener3(int paramName, FloatBuffer value1, FloatBuffer value2, FloatBuffer value3) {
-		long __functionAddress = getInstance().GetListener3f;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(value1, 1);
 			checkBuffer(value2, 1);
 			checkBuffer(value3, 1);
 		}
-		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3), __functionAddress);
+		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
 	// --- [ alGetListenerfv ] ---
@@ -870,6 +899,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetListenerfv(int paramName, long values, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
+	@JavadocExclude
+	public static void nalGetListenerfv(int paramName, long values) {
+		long __functionAddress = getInstance().GetListenerfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetListenerfv(paramName, values, __functionAddress);
+	}
+
 	/**
 	 * Returns float values of a listener parameter.
 	 *
@@ -877,22 +915,16 @@ public final class AL10 {
 	 * @param values    the parameter values
 	 */
 	public static void alGetListenerfv(int paramName, ByteBuffer values) {
-		long __functionAddress = getInstance().GetListenerfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
-		}
-		nalGetListenerfv(paramName, memAddress(values), __functionAddress);
+		nalGetListenerfv(paramName, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetListenerfv GetListenerfv} */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
-		long __functionAddress = getInstance().GetListenerfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		}
-		nalGetListenerfv(paramName, memAddress(values), __functionAddress);
+		nalGetListenerfv(paramName, memAddress(values));
 	}
 
 	// --- [ alGenSources ] ---
@@ -901,6 +933,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGenSources(int n, long srcNames, long __functionAddress);
 
+	/** Unsafe version of {@link #alGenSources GenSources} */
+	@JavadocExclude
+	public static void nalGenSources(int n, long srcNames) {
+		long __functionAddress = getInstance().GenSources;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGenSources(n, srcNames, __functionAddress);
+	}
+
 	/**
 	 * Requests a number of source names.
 	 *
@@ -908,30 +949,21 @@ public final class AL10 {
 	 * @param srcNames the buffer that will receive the source names
 	 */
 	public static void alGenSources(int n, ByteBuffer srcNames) {
-		long __functionAddress = getInstance().GenSources;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(srcNames, n << 2);
-		}
-		nalGenSources(n, memAddress(srcNames), __functionAddress);
+		nalGenSources(n, memAddress(srcNames));
 	}
 
 	/** Alternative version of: {@link #alGenSources GenSources} */
 	public static void alGenSources(IntBuffer srcNames) {
-		long __functionAddress = getInstance().GenSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalGenSources(srcNames.remaining(), memAddress(srcNames), __functionAddress);
+		nalGenSources(srcNames.remaining(), memAddress(srcNames));
 	}
 
 	/** Single return value version of: {@link #alGenSources GenSources} */
 	public static int alGenSources() {
-		long __functionAddress = getInstance().GenSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int srcNames = __buffer.intParam();
-		nalGenSources(1, __buffer.address() + srcNames, __functionAddress);
+		nalGenSources(1, __buffer.address() + srcNames);
 		return __buffer.intValue(srcNames);
 	}
 
@@ -941,6 +973,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalDeleteSources(int n, long sources, long __functionAddress);
 
+	/** Unsafe version of {@link #alDeleteSources DeleteSources} */
+	@JavadocExclude
+	public static void nalDeleteSources(int n, long sources) {
+		long __functionAddress = getInstance().DeleteSources;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalDeleteSources(n, sources, __functionAddress);
+	}
+
 	/**
 	 * Requests the deletion of a number of sources.
 	 *
@@ -948,30 +989,21 @@ public final class AL10 {
 	 * @param sources the sources to delete
 	 */
 	public static void alDeleteSources(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().DeleteSources;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(sources, n << 2);
-		}
-		nalDeleteSources(n, memAddress(sources), __functionAddress);
+		nalDeleteSources(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(IntBuffer sources) {
-		long __functionAddress = getInstance().DeleteSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalDeleteSources(sources.remaining(), memAddress(sources), __functionAddress);
+		nalDeleteSources(sources.remaining(), memAddress(sources));
 	}
 
 	/** Single value version of: {@link #alDeleteSources DeleteSources} */
 	public static void alDeleteSources(int source) {
-		long __functionAddress = getInstance().DeleteSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int sources = __buffer.intParam(source);
-		nalDeleteSources(1, __buffer.address() + sources, __functionAddress);
+		nalDeleteSources(1, __buffer.address() + sources);
 	}
 
 	// --- [ alIsSource ] ---
@@ -1040,6 +1072,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalSourcefv(int source, int param, long values, long __functionAddress);
 
+	/** Unsafe version of {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
+	@JavadocExclude
+	public static void nalSourcefv(int source, int param, long values) {
+		long __functionAddress = getInstance().Sourcefv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourcefv(source, param, values, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alSourcef Sourcef}.
 	 *
@@ -1048,18 +1089,12 @@ public final class AL10 {
 	 * @param values the parameter values
 	 */
 	public static void alSourcef(int source, int param, ByteBuffer values) {
-		long __functionAddress = getInstance().Sourcefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourcefv(source, param, memAddress(values), __functionAddress);
+		nalSourcefv(source, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
 	public static void alSource(int source, int param, FloatBuffer values) {
-		long __functionAddress = getInstance().Sourcefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourcefv(source, param, memAddress(values), __functionAddress);
+		nalSourcefv(source, param, memAddress(values));
 	}
 
 	// --- [ alSourcei ] ---
@@ -1088,6 +1123,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetSourcef(int source, int param, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetSourcef GetSourcef} */
+	@JavadocExclude
+	public static void nalGetSourcef(int source, int param, long value) {
+		long __functionAddress = getInstance().GetSourcef;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetSourcef(source, param, value, __functionAddress);
+	}
+
 	/**
 	 * Returns the float value of the specified source parameter.
 	 *
@@ -1096,32 +1140,23 @@ public final class AL10 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcef(int source, int param, ByteBuffer value) {
-		long __functionAddress = getInstance().GetSourcef;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetSourcef(source, param, memAddress(value), __functionAddress);
+		nalGetSourcef(source, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetSourcef GetSourcef} */
 	public static void alGetSource(int source, int param, FloatBuffer value) {
-		long __functionAddress = getInstance().GetSourcef;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetSourcef(source, param, memAddress(value), __functionAddress);
+		nalGetSourcef(source, param, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetSourcef GetSourcef} */
 	public static float alGetSourcef(int source, int param) {
-		long __functionAddress = getInstance().GetSourcef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetSourcef(source, param, __buffer.address() + value, __functionAddress);
+		nalGetSourcef(source, param, __buffer.address() + value);
 		return __buffer.floatValue(value);
 	}
 
@@ -1130,6 +1165,15 @@ public final class AL10 {
 	/** JNI method for {@link #alGetSource3f GetSource3f} */
 	@JavadocExclude
 	public static native void nalGetSource3f(int source, int param, long v1, long v2, long v3, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetSource3f GetSource3f} */
+	@JavadocExclude
+	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
+		long __functionAddress = getInstance().GetSource3f;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetSource3f(source, param, v1, v2, v3, __functionAddress);
+	}
 
 	/**
 	 * Returns the 3 dimensional values of the specified source parameter.
@@ -1141,26 +1185,22 @@ public final class AL10 {
 	 * @param v3     the third parameter value
 	 */
 	public static void alGetSource3f(int source, int param, ByteBuffer v1, ByteBuffer v2, ByteBuffer v3) {
-		long __functionAddress = getInstance().GetSource3f;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 1 << 2);
 			checkBuffer(v2, 1 << 2);
 			checkBuffer(v3, 1 << 2);
 		}
-		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3), __functionAddress);
+		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3));
 	}
 
 	/** Alternative version of: {@link #alGetSource3f GetSource3f} */
 	public static void alGetSource3(int source, int param, FloatBuffer v1, FloatBuffer v2, FloatBuffer v3) {
-		long __functionAddress = getInstance().GetSource3f;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(v1, 1);
 			checkBuffer(v2, 1);
 			checkBuffer(v3, 1);
 		}
-		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3), __functionAddress);
+		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3));
 	}
 
 	// --- [ alGetSourcefv ] ---
@@ -1168,6 +1208,15 @@ public final class AL10 {
 	/** JNI method for {@link #alGetSourcefv GetSourcefv} */
 	@JavadocExclude
 	public static native void nalGetSourcefv(int source, int param, long values, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
+	@JavadocExclude
+	public static void nalGetSourcefv(int source, int param, long values) {
+		long __functionAddress = getInstance().GetSourcefv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetSourcefv(source, param, values, __functionAddress);
+	}
 
 	/**
 	 * Returns the float values of the specified source parameter.
@@ -1177,22 +1226,16 @@ public final class AL10 {
 	 * @param values the parameter values
 	 */
 	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
-		long __functionAddress = getInstance().GetSourcefv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
-		}
-		nalGetSourcefv(source, param, memAddress(values), __functionAddress);
+		nalGetSourcefv(source, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetSourcefv GetSourcefv} */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
-		long __functionAddress = getInstance().GetSourcefv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		}
-		nalGetSourcefv(source, param, memAddress(values), __functionAddress);
+		nalGetSourcefv(source, param, memAddress(values));
 	}
 
 	// --- [ alGetSourcei ] ---
@@ -1200,6 +1243,15 @@ public final class AL10 {
 	/** JNI method for {@link #alGetSourcei GetSourcei} */
 	@JavadocExclude
 	public static native void nalGetSourcei(int source, int param, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetSourcei GetSourcei} */
+	@JavadocExclude
+	public static void nalGetSourcei(int source, int param, long value) {
+		long __functionAddress = getInstance().GetSourcei;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetSourcei(source, param, value, __functionAddress);
+	}
 
 	/**
 	 * Returns the integer value of the specified source parameter.
@@ -1209,32 +1261,23 @@ public final class AL10 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcei(int source, int param, ByteBuffer value) {
-		long __functionAddress = getInstance().GetSourcei;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetSourcei(source, param, memAddress(value), __functionAddress);
+		nalGetSourcei(source, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetSourcei GetSourcei} */
 	public static void alGetSource(int source, int param, IntBuffer value) {
-		long __functionAddress = getInstance().GetSourcei;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetSourcei(source, param, memAddress(value), __functionAddress);
+		nalGetSourcei(source, param, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetSourcei GetSourcei} */
 	public static int alGetSourcei(int source, int param) {
-		long __functionAddress = getInstance().GetSourcei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetSourcei(source, param, __buffer.address() + value, __functionAddress);
+		nalGetSourcei(source, param, __buffer.address() + value);
 		return __buffer.intValue(value);
 	}
 
@@ -1243,6 +1286,15 @@ public final class AL10 {
 	/** JNI method for {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	@JavadocExclude
 	public static native void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames, long __functionAddress);
+
+	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
+	@JavadocExclude
+	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
+		long __functionAddress = getInstance().SourceQueueBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourceQueueBuffers(sourceName, numBuffers, bufferNames, __functionAddress);
+	}
 
 	/**
 	 * Queues up one or multiple buffer names to the specified source.
@@ -1256,30 +1308,21 @@ public final class AL10 {
 	 * @param bufferNames the buffer names
 	 */
 	public static void alSourceQueueBuffers(int sourceName, int numBuffers, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().SourceQueueBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(bufferNames, numBuffers << 2);
-		}
-		nalSourceQueueBuffers(sourceName, numBuffers, memAddress(bufferNames), __functionAddress);
+		nalSourceQueueBuffers(sourceName, numBuffers, memAddress(bufferNames));
 	}
 
 	/** Alternative version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, IntBuffer bufferNames) {
-		long __functionAddress = getInstance().SourceQueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceQueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
+		nalSourceQueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames));
 	}
 
 	/** Single value version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
-		long __functionAddress = getInstance().SourceQueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam(bufferName);
-		nalSourceQueueBuffers(sourceName, 1, __buffer.address() + bufferNames, __functionAddress);
+		nalSourceQueueBuffers(sourceName, 1, __buffer.address() + bufferNames);
 	}
 
 	// --- [ alSourceUnqueueBuffers ] ---
@@ -1287,6 +1330,15 @@ public final class AL10 {
 	/** JNI method for {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	@JavadocExclude
 	public static native void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames, long __functionAddress);
+
+	/** Unsafe version of {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
+	@JavadocExclude
+	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
+		long __functionAddress = getInstance().SourceUnqueueBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourceUnqueueBuffers(sourceName, numEntries, bufferNames, __functionAddress);
+	}
 
 	/**
 	 * Removes a number of buffer entries that have finished processing, in the order of apperance, from the queue of the specified source.
@@ -1301,30 +1353,21 @@ public final class AL10 {
 	 * @param bufferNames the buffer names
 	 */
 	public static void alSourceUnqueueBuffers(int sourceName, int numEntries, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().SourceUnqueueBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(bufferNames, numEntries << 2);
-		}
-		nalSourceUnqueueBuffers(sourceName, numEntries, memAddress(bufferNames), __functionAddress);
+		nalSourceUnqueueBuffers(sourceName, numEntries, memAddress(bufferNames));
 	}
 
 	/** Alternative version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, IntBuffer bufferNames) {
-		long __functionAddress = getInstance().SourceUnqueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
+		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames));
 	}
 
 	/** Single value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	public static void alSourceUnqueueBuffers(int sourceName, int bufferName) {
-		long __functionAddress = getInstance().SourceUnqueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam(bufferName);
-		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address() + bufferNames, __functionAddress);
+		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address() + bufferNames);
 	}
 
 	// --- [ alSourcePlay ] ---
@@ -1424,6 +1467,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalSourcePlayv(int n, long sources, long __functionAddress);
 
+	/** Unsafe version of {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
+	@JavadocExclude
+	public static void nalSourcePlayv(int n, long sources) {
+		long __functionAddress = getInstance().SourcePlayv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourcePlayv(n, sources, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alSourcePlay SourcePlay}.
 	 *
@@ -1431,20 +1483,14 @@ public final class AL10 {
 	 * @param sources the sources to play
 	 */
 	public static void alSourcePlay(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().SourcePlayv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(sources, n << 2);
-		}
-		nalSourcePlayv(n, memAddress(sources), __functionAddress);
+		nalSourcePlayv(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
 	public static void alSourcePlay(IntBuffer sources) {
-		long __functionAddress = getInstance().SourcePlayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourcePlayv(sources.remaining(), memAddress(sources), __functionAddress);
+		nalSourcePlayv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourcePausev ] ---
@@ -1453,6 +1499,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalSourcePausev(int n, long sources, long __functionAddress);
 
+	/** Unsafe version of {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
+	@JavadocExclude
+	public static void nalSourcePausev(int n, long sources) {
+		long __functionAddress = getInstance().SourcePausev;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourcePausev(n, sources, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alSourcePause SourcePause}.
 	 *
@@ -1460,18 +1515,12 @@ public final class AL10 {
 	 * @param sources the sources to pause
 	 */
 	public static void alSourcePause(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().SourcePausev;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourcePausev(n, memAddress(sources), __functionAddress);
+		nalSourcePausev(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
 	public static void alSourcePause(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().SourcePausev;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourcePausev(n, memAddress(sources), __functionAddress);
+		nalSourcePausev(n, memAddress(sources));
 	}
 
 	// --- [ alSourceStopv ] ---
@@ -1480,6 +1529,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalSourceStopv(int n, long sources, long __functionAddress);
 
+	/** Unsafe version of {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
+	@JavadocExclude
+	public static void nalSourceStopv(int n, long sources) {
+		long __functionAddress = getInstance().SourceStopv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourceStopv(n, sources, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alSourceStop SourceStop}.
 	 *
@@ -1487,18 +1545,12 @@ public final class AL10 {
 	 * @param sources the sources to stop
 	 */
 	public static void alSourceStop(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().SourceStopv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceStopv(n, memAddress(sources), __functionAddress);
+		nalSourceStopv(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
 	public static void alSourceStop(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().SourceStopv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceStopv(n, memAddress(sources), __functionAddress);
+		nalSourceStopv(n, memAddress(sources));
 	}
 
 	// --- [ alSourceRewindv ] ---
@@ -1507,6 +1559,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalSourceRewindv(int n, long sources, long __functionAddress);
 
+	/** Unsafe version of {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
+	@JavadocExclude
+	public static void nalSourceRewindv(int n, long sources) {
+		long __functionAddress = getInstance().SourceRewindv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalSourceRewindv(n, sources, __functionAddress);
+	}
+
 	/**
 	 * Pointer version of {@link #alSourceRewind SourceRewind}.
 	 *
@@ -1514,18 +1575,12 @@ public final class AL10 {
 	 * @param sources the sources to rewind
 	 */
 	public static void alSourceRewind(int n, ByteBuffer sources) {
-		long __functionAddress = getInstance().SourceRewindv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceRewindv(n, memAddress(sources), __functionAddress);
+		nalSourceRewindv(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
 	public static void alSourceRewind(int n, IntBuffer sources) {
-		long __functionAddress = getInstance().SourceRewindv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalSourceRewindv(n, memAddress(sources), __functionAddress);
+		nalSourceRewindv(n, memAddress(sources));
 	}
 
 	// --- [ alGenBuffers ] ---
@@ -1534,6 +1589,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGenBuffers(int n, long bufferNames, long __functionAddress);
 
+	/** Unsafe version of {@link #alGenBuffers GenBuffers} */
+	@JavadocExclude
+	public static void nalGenBuffers(int n, long bufferNames) {
+		long __functionAddress = getInstance().GenBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGenBuffers(n, bufferNames, __functionAddress);
+	}
+
 	/**
 	 * Requests a number of buffer names.
 	 *
@@ -1541,30 +1605,21 @@ public final class AL10 {
 	 * @param bufferNames the buffer that will receive the buffer names
 	 */
 	public static void alGenBuffers(int n, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(bufferNames, n << 2);
-		}
-		nalGenBuffers(n, memAddress(bufferNames), __functionAddress);
+		nalGenBuffers(n, memAddress(bufferNames));
 	}
 
 	/** Alternative version of: {@link #alGenBuffers GenBuffers} */
 	public static void alGenBuffers(IntBuffer bufferNames) {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalGenBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
+		nalGenBuffers(bufferNames.remaining(), memAddress(bufferNames));
 	}
 
 	/** Single return value version of: {@link #alGenBuffers GenBuffers} */
 	public static int alGenBuffers() {
-		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam();
-		nalGenBuffers(1, __buffer.address() + bufferNames, __functionAddress);
+		nalGenBuffers(1, __buffer.address() + bufferNames);
 		return __buffer.intValue(bufferNames);
 	}
 
@@ -1574,6 +1629,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalDeleteBuffers(int n, long bufferNames, long __functionAddress);
 
+	/** Unsafe version of {@link #alDeleteBuffers DeleteBuffers} */
+	@JavadocExclude
+	public static void nalDeleteBuffers(int n, long bufferNames) {
+		long __functionAddress = getInstance().DeleteBuffers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalDeleteBuffers(n, bufferNames, __functionAddress);
+	}
+
 	/**
 	 * Requests the deletion of a number of buffers.
 	 *
@@ -1581,30 +1645,21 @@ public final class AL10 {
 	 * @param bufferNames the buffers to delete
 	 */
 	public static void alDeleteBuffers(int n, ByteBuffer bufferNames) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(bufferNames, n << 2);
-		}
-		nalDeleteBuffers(n, memAddress(bufferNames), __functionAddress);
+		nalDeleteBuffers(n, memAddress(bufferNames));
 	}
 
 	/** Alternative version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(IntBuffer bufferNames) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalDeleteBuffers(bufferNames.remaining(), memAddress(bufferNames), __functionAddress);
+		nalDeleteBuffers(bufferNames.remaining(), memAddress(bufferNames));
 	}
 
 	/** Single value version of: {@link #alDeleteBuffers DeleteBuffers} */
 	public static void alDeleteBuffers(int bufferName) {
-		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam(bufferName);
-		nalDeleteBuffers(1, __buffer.address() + bufferNames, __functionAddress);
+		nalDeleteBuffers(1, __buffer.address() + bufferNames);
 	}
 
 	// --- [ alIsBuffer ] ---
@@ -1631,6 +1686,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetBufferf(int bufferName, int paramName, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
+	@JavadocExclude
+	public static void nalGetBufferf(int bufferName, int paramName, long value) {
+		long __functionAddress = getInstance().GetBufferf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetBufferf(bufferName, paramName, value, __functionAddress);
+	}
+
 	/**
 	 * Returns the float value of the specified buffer parameter.
 	 *
@@ -1639,32 +1703,23 @@ public final class AL10 {
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferf(int bufferName, int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().GetBufferf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
+		nalGetBufferf(bufferName, paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetBufferf GetBufferf} */
 	public static void alGetBuffer(int bufferName, int paramName, FloatBuffer value) {
-		long __functionAddress = getInstance().GetBufferf;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetBufferf(bufferName, paramName, memAddress(value), __functionAddress);
+		nalGetBufferf(bufferName, paramName, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetBufferf GetBufferf} */
 	public static float alGetBufferf(int bufferName, int paramName) {
-		long __functionAddress = getInstance().GetBufferf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetBufferf(bufferName, paramName, __buffer.address() + value, __functionAddress);
+		nalGetBufferf(bufferName, paramName, __buffer.address() + value);
 		return __buffer.floatValue(value);
 	}
 
@@ -1674,6 +1729,15 @@ public final class AL10 {
 	@JavadocExclude
 	public static native void nalGetBufferi(int bufferName, int paramName, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
+	@JavadocExclude
+	public static void nalGetBufferi(int bufferName, int paramName, long value) {
+		long __functionAddress = getInstance().GetBufferi;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetBufferi(bufferName, paramName, value, __functionAddress);
+	}
+
 	/**
 	 * Returns the integer value of the specified buffer parameter.
 	 *
@@ -1682,32 +1746,23 @@ public final class AL10 {
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferi(int bufferName, int paramName, ByteBuffer value) {
-		long __functionAddress = getInstance().GetBufferi;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
+		nalGetBufferi(bufferName, paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetBufferi GetBufferi} */
 	public static void alGetBuffer(int bufferName, int paramName, IntBuffer value) {
-		long __functionAddress = getInstance().GetBufferi;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nalGetBufferi(bufferName, paramName, memAddress(value), __functionAddress);
+		nalGetBufferi(bufferName, paramName, memAddress(value));
 	}
 
 	/** Single return value version of: {@link #alGetBufferi GetBufferi} */
 	public static int alGetBufferi(int bufferName, int paramName) {
-		long __functionAddress = getInstance().GetBufferi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetBufferi(bufferName, paramName, __buffer.address() + value, __functionAddress);
+		nalGetBufferi(bufferName, paramName, __buffer.address() + value);
 		return __buffer.intValue(value);
 	}
 
@@ -1716,6 +1771,15 @@ public final class AL10 {
 	/** JNI method for {@link #alBufferData BufferData} */
 	@JavadocExclude
 	public static native void nalBufferData(int bufferName, int format, long data, int size, int frequency, long __functionAddress);
+
+	/** Unsafe version of {@link #alBufferData BufferData} */
+	@JavadocExclude
+	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
+		long __functionAddress = getInstance().BufferData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalBufferData(bufferName, format, data, size, frequency, __functionAddress);
+	}
 
 	/**
 	 * Sets the sample data of the given buffer.
@@ -1740,36 +1804,24 @@ public final class AL10 {
 	 * @param frequency  the data frequency
 	 */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int size, int frequency) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, size);
-		}
-		nalBufferData(bufferName, format, memAddress(data), size, frequency, __functionAddress);
+		nalBufferData(bufferName, format, memAddress(data), size, frequency);
 	}
 
 	/** ByteBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int frequency) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency, __functionAddress);
+		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency);
 	}
 
 	/** ShortBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ShortBuffer data, int frequency) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 1, frequency, __functionAddress);
+		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 1, frequency);
 	}
 
 	/** IntBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, IntBuffer data, int frequency) {
-		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency, __functionAddress);
+		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency);
 	}
 
 	// --- [ alGetEnumValue ] ---
@@ -1778,26 +1830,29 @@ public final class AL10 {
 	@JavadocExclude
 	public static native int nalGetEnumValue(long enumName, long __functionAddress);
 
+	/** Unsafe version of {@link #alGetEnumValue GetEnumValue} */
+	@JavadocExclude
+	public static int nalGetEnumValue(long enumName) {
+		long __functionAddress = getInstance().GetEnumValue;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalGetEnumValue(enumName, __functionAddress);
+	}
+
 	/**
 	 * Returns the enumeration value of the specified enum.
 	 *
 	 * @param enumName the enum name
 	 */
 	public static int alGetEnumValue(ByteBuffer enumName) {
-		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(enumName);
-		}
-		return nalGetEnumValue(memAddress(enumName), __functionAddress);
+		return nalGetEnumValue(memAddress(enumName));
 	}
 
 	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
-		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalGetEnumValue(memAddress(memEncodeASCII(enumName)), __functionAddress);
+		return nalGetEnumValue(memAddress(memEncodeASCII(enumName)));
 	}
 
 	// --- [ alGetProcAddress ] ---
@@ -1805,6 +1860,15 @@ public final class AL10 {
 	/** JNI method for {@link #alGetProcAddress GetProcAddress} */
 	@JavadocExclude
 	public static native long nalGetProcAddress(long funcName, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetProcAddress GetProcAddress} */
+	@JavadocExclude
+	public static long nalGetProcAddress(long funcName) {
+		long __functionAddress = getInstance().GetProcAddress;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalGetProcAddress(funcName, __functionAddress);
+	}
 
 	/**
 	 * Retrieves extension entry points.
@@ -1818,20 +1882,14 @@ public final class AL10 {
 	 * @param funcName the function name
 	 */
 	public static long alGetProcAddress(ByteBuffer funcName) {
-		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(funcName);
-		}
-		return nalGetProcAddress(memAddress(funcName), __functionAddress);
+		return nalGetProcAddress(memAddress(funcName));
 	}
 
 	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
-		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalGetProcAddress(memAddress(memEncodeASCII(funcName)), __functionAddress);
+		return nalGetProcAddress(memAddress(memEncodeASCII(funcName)));
 	}
 
 	// --- [ alIsExtensionPresent ] ---
@@ -1839,6 +1897,15 @@ public final class AL10 {
 	/** JNI method for {@link #alIsExtensionPresent IsExtensionPresent} */
 	@JavadocExclude
 	public static native boolean nalIsExtensionPresent(long extName, long __functionAddress);
+
+	/** Unsafe version of {@link #alIsExtensionPresent IsExtensionPresent} */
+	@JavadocExclude
+	public static boolean nalIsExtensionPresent(long extName) {
+		long __functionAddress = getInstance().IsExtensionPresent;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nalIsExtensionPresent(extName, __functionAddress);
+	}
 
 	/**
 	 * Verifies that a given extension is available for the current context and the device it is associated with.
@@ -1849,20 +1916,14 @@ public final class AL10 {
 	 * @param extName the extension name
 	 */
 	public static boolean alIsExtensionPresent(ByteBuffer extName) {
-		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(extName);
-		}
-		return nalIsExtensionPresent(memAddress(extName), __functionAddress);
+		return nalIsExtensionPresent(memAddress(extName));
 	}
 
 	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
-		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nalIsExtensionPresent(memAddress(memEncodeASCII(extName)), __functionAddress);
+		return nalIsExtensionPresent(memAddress(memEncodeASCII(extName)));
 	}
 
 }

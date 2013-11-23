@@ -238,6 +238,15 @@ public final class GL31 {
 	@JavadocExclude
 	public static native void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount, long __functionAddress);
 
+	/** Unsafe version of {@link #glDrawElementsInstanced DrawElementsInstanced} */
+	@JavadocExclude
+	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
+		long __functionAddress = getInstance().DrawElementsInstanced;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDrawElementsInstanced(mode, count, type, indices, primcount, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsInstanced.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -250,63 +259,46 @@ public final class GL31 {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstanced(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(indices, count / GLChecks.typeToBytes(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
-		nglDrawElementsInstanced(mode, count, type, memAddress(indices), primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, count, type, memAddress(indices), primcount);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, int count, int type, long indicesOffset, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		}
-		nglDrawElementsInstanced(mode, count, type, indicesOffset, primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, count, type, indicesOffset, primcount);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
-		}
-		nglDrawElementsInstanced(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
-		long __functionAddress = getInstance().DrawElementsInstanced;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		}
-		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, __functionAddress);
+		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}
 
 	// --- [ glCopyBufferSubData ] ---
@@ -381,6 +373,15 @@ public final class GL31 {
 	@JavadocExclude
 	public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
+	@JavadocExclude
+	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
+		long __functionAddress = getInstance().GetUniformIndices;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetUniformIndices(program, uniformCount, uniformNames, uniformIndices, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformIndices.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -392,50 +393,39 @@ public final class GL31 {
 	 * @param uniformIndices an array that will receive the indices of the uniforms
 	 */
 	public static void glGetUniformIndices(int program, int uniformCount, ByteBuffer uniformNames, ByteBuffer uniformIndices) {
-		long __functionAddress = getInstance().GetUniformIndices;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
 			checkBuffer(uniformIndices, uniformCount << 2);
 		}
-		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices), __functionAddress);
+		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
 	/** Alternative version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
-		long __functionAddress = getInstance().GetUniformIndices;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(uniformIndices, uniformNames.remaining());
-		}
-		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices), __functionAddress);
+		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
 	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
-		long __functionAddress = getInstance().GetUniformIndices;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(uniformIndices, uniformNames.length);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int uniformNamesAddress = __buffer.bufferParam(uniformNames.length << POINTER_SHIFT);
 		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
 		for ( int i = 0; i < uniformNames.length; i++ )
 			__buffer.pointerParam(uniformNamesAddress, i, memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
-		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices), __functionAddress);
+		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices));
 	}
 
 	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static int glGetUniformIndices(int program, CharSequence uniformName) {
-		long __functionAddress = getInstance().GetUniformIndices;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer uniformNameBuffers = memEncodeASCII(uniformName, true);
 		int uniformNamesAddress = __buffer.pointerParam(memAddress(uniformNameBuffers));
 		int uniformIndices = __buffer.intParam();
-		nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices, __functionAddress);
+		nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices);
 		return __buffer.intValue(uniformIndices);
 	}
 
@@ -444,6 +434,15 @@ public final class GL31 {
 	/** JNI method for {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) glGetActiveUniformsi} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) glGetActiveUniformsi} */
+	@JavadocExclude
+	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
+		long __functionAddress = getInstance().GetActiveUniformsiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveUniforms.xml">OpenGL SDK Reference</a>
@@ -457,34 +456,26 @@ public final class GL31 {
 	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
 	 */
 	public static void glGetActiveUniformsi(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetActiveUniformsiv;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(uniformIndices, uniformCount << 2);
 			checkBuffer(params, uniformCount << 2);
 		}
-		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params), __functionAddress);
+		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) glGetActiveUniformsi} */
 	public static void glGetActiveUniforms(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetActiveUniformsiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
-		}
-		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params), __functionAddress);
+		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
 
 	/** Single value version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) glGetActiveUniformsi} */
 	public static int glGetActiveUniformsi(int program, int uniformIndex, int pname) {
-		long __functionAddress = getInstance().GetActiveUniformsiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
 		int uniformIndices = __buffer.intParam(uniformIndex);
-		nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params, __functionAddress);
+		nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -493,6 +484,15 @@ public final class GL31 {
 	/** JNI method for {@link #glGetActiveUniformName GetActiveUniformName} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetActiveUniformName GetActiveUniformName} */
+	@JavadocExclude
+	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
+		long __functionAddress = getInstance().GetActiveUniformName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveUniformName.xml">OpenGL SDK Reference</a>
@@ -506,47 +506,36 @@ public final class GL31 {
 	 * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
 	 */
 	public static void glGetActiveUniformName(int program, int uniformIndex, int bufSize, ByteBuffer length, ByteBuffer uniformName) {
-		long __functionAddress = getInstance().GetActiveUniformName;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(uniformName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetActiveUniformName(program, uniformIndex, bufSize, memAddressSafe(length), memAddress(uniformName), __functionAddress);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, memAddressSafe(length), memAddress(uniformName));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
-		long __functionAddress = getInstance().GetActiveUniformName;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName), __functionAddress);
+		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
 	}
 
 	/** String return version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static String glGetActiveUniformName(int program, int uniformIndex, int bufSize) {
-		long __functionAddress = getInstance().GetActiveUniformName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName, __functionAddress);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static String glGetActiveUniformName(int program, int uniformIndex) {
-		long __functionAddress = getInstance().GetActiveUniformName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		int bufSize = glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName, __functionAddress);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
 	}
 
@@ -555,6 +544,15 @@ public final class GL31 {
 	/** JNI method for {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	@JavadocExclude
 	public static native int nglGetUniformBlockIndex(int program, long uniformBlockName, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
+	@JavadocExclude
+	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
+		long __functionAddress = getInstance().GetUniformBlockIndex;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetUniformBlockIndex(program, uniformBlockName, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformBlockIndex.xml">OpenGL SDK Reference</a>
@@ -565,20 +563,14 @@ public final class GL31 {
 	 * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
 	 */
 	public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
-		long __functionAddress = getInstance().GetUniformBlockIndex;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(uniformBlockName);
-		}
-		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName), __functionAddress);
+		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
 	}
 
 	/** CharSequence version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
-		long __functionAddress = getInstance().GetUniformBlockIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglGetUniformBlockIndex(program, memAddress(memEncodeASCII(uniformBlockName)), __functionAddress);
+		return nglGetUniformBlockIndex(program, memAddress(memEncodeASCII(uniformBlockName)));
 	}
 
 	// --- [ glGetActiveUniformBlockiv ] ---
@@ -586,6 +578,15 @@ public final class GL31 {
 	/** JNI method for {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) glGetActiveUniformBlocki} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) glGetActiveUniformBlocki} */
+	@JavadocExclude
+	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
+		long __functionAddress = getInstance().GetActiveUniformBlockiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveUniformBlock.xml">OpenGL SDK Reference</a>
@@ -598,32 +599,23 @@ public final class GL31 {
 	 * @param params            the address of a variable to receive the result of the query
 	 */
 	public static void glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params), __functionAddress);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) glGetActiveUniformBlocki} */
 	public static void glGetActiveUniformBlock(int program, int uniformBlockIndex, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params), __functionAddress);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) glGetActiveUniformBlocki} */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
-		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address() + params, __functionAddress);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -632,6 +624,15 @@ public final class GL31 {
 	/** JNI method for {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
+	@JavadocExclude
+	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
+		long __functionAddress = getInstance().GetActiveUniformBlockName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveUniformBlockName.xml">OpenGL SDK Reference</a>
@@ -645,47 +646,36 @@ public final class GL31 {
 	 * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
 	 */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, ByteBuffer length, ByteBuffer uniformBlockName) {
-		long __functionAddress = getInstance().GetActiveUniformBlockName;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(uniformBlockName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName), __functionAddress);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
-		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName), __functionAddress);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
 	/** String return version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
-		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName, __functionAddress);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
-		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		int bufSize = glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName, __functionAddress);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
 	}
 

@@ -83,6 +83,15 @@ public final class GLXSGIXSwapBarrier {
 	@JavadocExclude
 	public static native int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
+	@JavadocExclude
+	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
+		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXQueryMaxSwapBarriersSGIX(display, screen, max, __functionAddress);
+	}
+
 	/**
 	 * Returns in {@code max} the maximum number of barriers supported by an implementation on {@code screen}.
 	 *
@@ -91,24 +100,20 @@ public final class GLXSGIXSwapBarrier {
 	 * @param max     returns the maximum number of barriers
 	 */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, ByteBuffer max) {
-		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkBuffer(max, 1 << 2);
 		}
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max), __functionAddress);
+		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
 	}
 
 	/** Alternative version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
-		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkBuffer(max, 1);
 		}
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max), __functionAddress);
+		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
 	}
 
 }

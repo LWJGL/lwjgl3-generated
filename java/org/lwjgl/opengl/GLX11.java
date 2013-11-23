@@ -61,6 +61,15 @@ public final class GLX11 {
 	@JavadocExclude
 	public static native long nglXQueryExtensionsString(long display, int screen, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryExtensionsString QueryExtensionsString} */
+	@JavadocExclude
+	public static long nglXQueryExtensionsString(long display, int screen) {
+		long __functionAddress = getInstance().QueryExtensionsString;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXQueryExtensionsString(display, screen, __functionAddress);
+	}
+
 	/**
 	 * Returns a string describing which GLX extensions are supported on the connection.
 	 *
@@ -68,12 +77,9 @@ public final class GLX11 {
 	 * @param screen  the screen number
 	 */
 	public static String glXQueryExtensionsString(long display, int screen) {
-		long __functionAddress = getInstance().QueryExtensionsString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
-		long __result = nglXQueryExtensionsString(display, screen, __functionAddress);
+		long __result = nglXQueryExtensionsString(display, screen);
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}
 
@@ -83,6 +89,15 @@ public final class GLX11 {
 	@JavadocExclude
 	public static native long nglXGetClientString(long display, int name, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetClientString GetClientString} */
+	@JavadocExclude
+	public static long nglXGetClientString(long display, int name) {
+		long __functionAddress = getInstance().GetClientString;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetClientString(display, name, __functionAddress);
+	}
+
 	/**
 	 * Returns a pointer to a string describing some aspect of the client library.
 	 *
@@ -90,12 +105,9 @@ public final class GLX11 {
 	 * @param name    the string to query
 	 */
 	public static String glXGetClientString(long display, int name) {
-		long __functionAddress = getInstance().GetClientString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
-		long __result = nglXGetClientString(display, name, __functionAddress);
+		long __result = nglXGetClientString(display, name);
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}
 
@@ -105,6 +117,15 @@ public final class GLX11 {
 	@JavadocExclude
 	public static native long nglXQueryServerString(long display, int screen, int name, long __functionAddress);
 
+	/** Unsafe version of {@link #glXQueryServerString QueryServerString} */
+	@JavadocExclude
+	public static long nglXQueryServerString(long display, int screen, int name) {
+		long __functionAddress = getInstance().QueryServerString;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXQueryServerString(display, screen, name, __functionAddress);
+	}
+
 	/**
 	 * Returns a pointer to a string describing some aspect of the server's GLX extension.
 	 *
@@ -113,12 +134,9 @@ public final class GLX11 {
 	 * @param name    the string to query
 	 */
 	public static String glXQueryServerString(long display, int screen, int name) {
-		long __functionAddress = getInstance().QueryServerString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
-		long __result = nglXQueryServerString(display, screen, name, __functionAddress);
+		long __result = nglXQueryServerString(display, screen, name);
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}
 

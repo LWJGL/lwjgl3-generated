@@ -55,6 +55,15 @@ public final class SOFTBufferSubData {
 	@JavadocExclude
 	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
 
+	/** Unsafe version of {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
+	@JavadocExclude
+	public static void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length) {
+		long __functionAddress = getInstance().BufferSubDataSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalBufferSubDataSOFT(buffer, format, data, offset, length, __functionAddress);
+	}
+
 	/**
 	 * To update a section of buffered sample data, use the function alBufferSubDataSOFT.
 	 * The named {@code buffer} may be attached to a source (either queued or by the
@@ -93,10 +102,7 @@ public final class SOFTBufferSubData {
 	 * @param length number of bytes of the original data, to modify
 	 */
 	public static void alBufferSubDataSOFT(int buffer, int format, ByteBuffer data, int offset, int length) {
-		long __functionAddress = getInstance().BufferSubDataSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferSubDataSOFT(buffer, format, memAddress(data), offset, length, __functionAddress);
+		nalBufferSubDataSOFT(buffer, format, memAddress(data), offset, length);
 	}
 
 }

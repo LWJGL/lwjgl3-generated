@@ -583,6 +583,15 @@ public final class GL43 {
 	@JavadocExclude
 	public static native void nglClearBufferData(int target, int internalformat, int format, int type, long data, long __functionAddress);
 
+	/** Unsafe version of {@link #glClearBufferData ClearBufferData} */
+	@JavadocExclude
+	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
+		long __functionAddress = getInstance().ClearBufferData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferData(target, internalformat, format, type, data, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearBufferData.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -595,34 +604,22 @@ public final class GL43 {
 	 * @param data           a memory location storing the data to be replicated into the buffer's data store
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().ClearBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-		long __functionAddress = getInstance().ClearBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-		long __functionAddress = getInstance().ClearBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-		long __functionAddress = getInstance().ClearBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferData(target, internalformat, format, type, memAddress(data), __functionAddress);
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	// --- [ glClearBufferSubData ] ---
@@ -630,6 +627,15 @@ public final class GL43 {
 	/** JNI method for {@link #glClearBufferSubData ClearBufferSubData} */
 	@JavadocExclude
 	public static native void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearBufferSubData ClearBufferSubData} */
+	@JavadocExclude
+	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
+		long __functionAddress = getInstance().ClearBufferSubData;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, data, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearBufferSubData.xml">OpenGL SDK Reference</a>
@@ -645,34 +651,22 @@ public final class GL43 {
 	 * @param data           a memory location storing the data to be replicated into the buffer's data store
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-		long __functionAddress = getInstance().ClearBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data), __functionAddress);
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	// --- [ glDispatchCompute ] ---
@@ -773,6 +767,15 @@ public final class GL43 {
 	@JavadocExclude
 	public static native void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled, long __functionAddress);
 
+	/** Unsafe version of {@link #glDebugMessageControl DebugMessageControl} */
+	@JavadocExclude
+	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
+		long __functionAddress = getInstance().DebugMessageControl;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDebugMessageControl(source, type, severity, count, ids, enabled, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDebugMessageControl.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -786,30 +789,21 @@ public final class GL43 {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControl;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, count << 2);
-		}
-		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled, __functionAddress);
+		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled);
 	}
 
 	/** Alternative version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControl;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled, __functionAddress);
+		nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled);
 	}
 
 	/** Single value version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
-		long __functionAddress = getInstance().DebugMessageControl;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDebugMessageControl(source, type, severity, 1, __buffer.address() + ids, enabled, __functionAddress);
+		nglDebugMessageControl(source, type, severity, 1, __buffer.address() + ids, enabled);
 	}
 
 	// --- [ glDebugMessageInsert ] ---
@@ -817,6 +811,15 @@ public final class GL43 {
 	/** JNI method for {@link #glDebugMessageInsert DebugMessageInsert} */
 	@JavadocExclude
 	public static native void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message, long __functionAddress);
+
+	/** Unsafe version of {@link #glDebugMessageInsert DebugMessageInsert} */
+	@JavadocExclude
+	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
+		long __functionAddress = getInstance().DebugMessageInsert;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDebugMessageInsert(source, type, id, severity, length, message, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDebugMessageInsert.xml">OpenGL SDK Reference</a>
@@ -831,29 +834,21 @@ public final class GL43 {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		long __functionAddress = getInstance().DebugMessageInsert;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(message, length);
 			checkNT1(message);
 		}
-		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message), __functionAddress);
+		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
 
 	/** Alternative version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
-		long __functionAddress = getInstance().DebugMessageInsert;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message), __functionAddress);
+		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
 	}
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-		long __functionAddress = getInstance().DebugMessageInsert;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(memEncodeUTF8(message)), __functionAddress);
+		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(memEncodeUTF8(message)));
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -893,6 +888,15 @@ public final class GL43 {
 	@JavadocExclude
 	public static native int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetDebugMessageLog GetDebugMessageLog} */
+	@JavadocExclude
+	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
+		long __functionAddress = getInstance().GetDebugMessageLog;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetDebugMessageLog(count, bufsize, sources, types, ids, severities, lengths, messageLog, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetDebugMessageLog.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -908,9 +912,7 @@ public final class GL43 {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLog;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -918,35 +920,31 @@ public final class GL43 {
 			if ( severities != null ) checkBuffer(severities, count << 2);
 			if ( lengths != null ) checkBuffer(lengths, count << 2);
 		}
-		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog), __functionAddress);
+		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLog;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
 			if ( severities != null ) checkBuffer(severities, count);
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog), __functionAddress);
+		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	/** CharSequence version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, CharSequence messageLog) {
-		long __functionAddress = getInstance().GetDebugMessageLog;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
 			if ( severities != null ) checkBuffer(severities, count);
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(memEncodeUTF8(messageLog)), __functionAddress);
+		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(memEncodeUTF8(messageLog)));
 	}
 
 	// --- [ glPushDebugGroup ] ---
@@ -954,6 +952,15 @@ public final class GL43 {
 	/** JNI method for {@link #glPushDebugGroup PushDebugGroup} */
 	@JavadocExclude
 	public static native void nglPushDebugGroup(int source, int id, int length, long message, long __functionAddress);
+
+	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
+	@JavadocExclude
+	public static void nglPushDebugGroup(int source, int id, int length, long message) {
+		long __functionAddress = getInstance().PushDebugGroup;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglPushDebugGroup(source, id, length, message, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushDebugGroup.xml">OpenGL SDK Reference</a>
@@ -966,29 +973,21 @@ public final class GL43 {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		long __functionAddress = getInstance().PushDebugGroup;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(message, length);
 			checkNT1(message);
 		}
-		nglPushDebugGroup(source, id, length, memAddress(message), __functionAddress);
+		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
 
 	/** Alternative version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, ByteBuffer message) {
-		long __functionAddress = getInstance().PushDebugGroup;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglPushDebugGroup(source, id, message.remaining(), memAddress(message), __functionAddress);
+		nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
 	}
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
-		long __functionAddress = getInstance().PushDebugGroup;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglPushDebugGroup(source, id, message.length(), memAddress(memEncodeUTF8(message)), __functionAddress);
+		nglPushDebugGroup(source, id, message.length(), memAddress(memEncodeUTF8(message)));
 	}
 
 	// --- [ glObjectLabel ] ---
@@ -996,6 +995,15 @@ public final class GL43 {
 	/** JNI method for {@link #glObjectLabel ObjectLabel} */
 	@JavadocExclude
 	public static native void nglObjectLabel(int identifier, int name, int length, long label, long __functionAddress);
+
+	/** Unsafe version of {@link #glObjectLabel ObjectLabel} */
+	@JavadocExclude
+	public static void nglObjectLabel(int identifier, int name, int length, long label) {
+		long __functionAddress = getInstance().ObjectLabel;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglObjectLabel(identifier, name, length, label, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glObjectLabel.xml">OpenGL SDK Reference</a>
@@ -1008,29 +1016,21 @@ public final class GL43 {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		long __functionAddress = getInstance().ObjectLabel;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(label, length);
 			checkNT1(label);
 		}
-		nglObjectLabel(identifier, name, length, memAddress(label), __functionAddress);
+		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, ByteBuffer label) {
-		long __functionAddress = getInstance().ObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglObjectLabel(identifier, name, label.remaining(), memAddress(label), __functionAddress);
+		nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
 	}
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
-		long __functionAddress = getInstance().ObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglObjectLabel(identifier, name, label.length(), memAddress(memEncodeUTF8(label)), __functionAddress);
+		nglObjectLabel(identifier, name, label.length(), memAddress(memEncodeUTF8(label)));
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -1038,6 +1038,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetObjectLabel GetObjectLabel} */
 	@JavadocExclude
 	public static native void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetObjectLabel GetObjectLabel} */
+	@JavadocExclude
+	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
+		long __functionAddress = getInstance().GetObjectLabel;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetObjectLabel(identifier, name, bufSize, length, label, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetObjectLabel.xml">OpenGL SDK Reference</a>
@@ -1051,47 +1060,36 @@ public final class GL43 {
 	 * @param label      a string that will receive the object label
 	 */
 	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		long __functionAddress = getInstance().GetObjectLabel;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label), __functionAddress);
+		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		long __functionAddress = getInstance().GetObjectLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
+		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
 	/** String return version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static String glGetObjectLabel(int identifier, int name, int bufSize) {
-		long __functionAddress = getInstance().GetObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static String glGetObjectLabel(int identifier, int name) {
-		long __functionAddress = getInstance().GetObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
@@ -1100,6 +1098,15 @@ public final class GL43 {
 	/** JNI method for {@link #glObjectPtrLabel ObjectPtrLabel} */
 	@JavadocExclude
 	public static native void nglObjectPtrLabel(long ptr, int length, long label, long __functionAddress);
+
+	/** Unsafe version of {@link #glObjectPtrLabel ObjectPtrLabel} */
+	@JavadocExclude
+	public static void nglObjectPtrLabel(long ptr, int length, long label) {
+		long __functionAddress = getInstance().ObjectPtrLabel;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglObjectPtrLabel(ptr, length, label, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glObjectPtrLabel.xml">OpenGL SDK Reference</a>
@@ -1111,34 +1118,26 @@ public final class GL43 {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
 			checkBuffer(label, length);
 			checkNT1(label);
 		}
-		nglObjectPtrLabel(ptr, length, memAddress(label), __functionAddress);
+		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
-		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
-		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label), __functionAddress);
+		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
-		nglObjectPtrLabel(ptr, label.length(), memAddress(memEncodeUTF8(label)), __functionAddress);
+		nglObjectPtrLabel(ptr, label.length(), memAddress(memEncodeUTF8(label)));
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -1146,6 +1145,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	@JavadocExclude
 	public static native void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
+	@JavadocExclude
+	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
+		long __functionAddress = getInstance().GetObjectPtrLabel;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetObjectPtrLabel(ptr, bufSize, length, label, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetObjectPtrLabel.xml">OpenGL SDK Reference</a>
@@ -1158,53 +1166,43 @@ public final class GL43 {
 	 * @param label   a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label), __functionAddress);
+		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
 			if ( length != null ) checkBuffer(length, 1);
 		}
-		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label), __functionAddress);
+		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
 	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
-		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr) {
-		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label, __functionAddress);
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
 	}
 
@@ -1236,6 +1234,15 @@ public final class GL43 {
 	@JavadocExclude
 	public static native void nglGetFramebufferParameteriv(int target, int pname, long params, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	@JavadocExclude
+	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
+		long __functionAddress = getInstance().GetFramebufferParameteriv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetFramebufferParameteriv(target, pname, params, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFramebufferParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1246,32 +1253,23 @@ public final class GL43 {
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetFramebufferParameteri(int target, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetFramebufferParameteriv(target, pname, memAddress(params), __functionAddress);
+		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
 	public static void glGetFramebufferParameter(int target, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetFramebufferParameteriv(target, pname, memAddress(params), __functionAddress);
+		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
-		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address() + params, __functionAddress);
+		nglGetFramebufferParameteriv(target, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -1280,6 +1278,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
 	@JavadocExclude
 	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	@JavadocExclude
+	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
+		long __functionAddress = getInstance().GetInternalformati64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetInternalformati64v(target, internalformat, pname, bufSize, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetInternalformat.xml">OpenGL SDK Reference</a>
@@ -1293,30 +1300,21 @@ public final class GL43 {
 	 * @param params         a variable into which to write the retrieved information
 	 */
 	public static void glGetInternalformati64(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
-		long __functionAddress = getInstance().GetInternalformati64v;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 3);
-		}
-		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params), __functionAddress);
+		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
 	public static void glGetInternalformat(int target, int internalformat, int pname, LongBuffer params) {
-		long __functionAddress = getInstance().GetInternalformati64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params), __functionAddress);
+		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
-		long __functionAddress = getInstance().GetInternalformati64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address() + params, __functionAddress);
+		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 
@@ -1416,6 +1414,15 @@ public final class GL43 {
 	@JavadocExclude
 	public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments, long __functionAddress);
 
+	/** Unsafe version of {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	@JavadocExclude
+	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
+		long __functionAddress = getInstance().InvalidateFramebuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglInvalidateFramebuffer(target, numAttachments, attachments, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateFramebuffer.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1426,30 +1433,21 @@ public final class GL43 {
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		long __functionAddress = getInstance().InvalidateFramebuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
-		}
-		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments), __functionAddress);
+		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
 	}
 
 	/** Alternative version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
-		long __functionAddress = getInstance().InvalidateFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments), __functionAddress);
+		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
 	}
 
 	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
-		long __functionAddress = getInstance().InvalidateFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments, __functionAddress);
+		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments);
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
@@ -1457,6 +1455,15 @@ public final class GL43 {
 	/** JNI method for {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	@JavadocExclude
 	public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height, long __functionAddress);
+
+	/** Unsafe version of {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	@JavadocExclude
+	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
+		long __functionAddress = getInstance().InvalidateSubFramebuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglInvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateSubFramebuffer.xml">OpenGL SDK Reference</a>
@@ -1472,30 +1479,21 @@ public final class GL43 {
 	 * @param height         the height of the region to be invalidated
 	 */
 	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
-		}
-		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height, __functionAddress);
+		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
 	}
 
 	/** Alternative version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height, __functionAddress);
+		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
 	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
-		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height, __functionAddress);
+		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height);
 	}
 
 	// --- [ glMultiDrawArraysIndirect ] ---
@@ -1503,6 +1501,15 @@ public final class GL43 {
 	/** JNI method for {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	@JavadocExclude
 	public static native void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
+	@JavadocExclude
+	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
+		long __functionAddress = getInstance().MultiDrawArraysIndirect;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiDrawArraysIndirect(mode, indirect, primcount, stride, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawArraysIndirect.xml">OpenGL SDK Reference</a>
@@ -1535,12 +1542,9 @@ public final class GL43 {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, ByteBuffer indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawArraysIndirect;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
-		}
-		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride, __functionAddress);
+		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
 	// --- [ glMultiDrawElementsIndirect ] ---
@@ -1548,6 +1552,15 @@ public final class GL43 {
 	/** JNI method for {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	@JavadocExclude
 	public static native void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
+	@JavadocExclude
+	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
+		long __functionAddress = getInstance().MultiDrawElementsIndirect;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawElementsIndirect.xml">OpenGL SDK Reference</a>
@@ -1582,12 +1595,9 @@ public final class GL43 {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int primcount, int stride) {
-		long __functionAddress = getInstance().MultiDrawElementsIndirect;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
-		}
-		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride, __functionAddress);
+		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
 	// --- [ glGetProgramInterfaceiv ] ---
@@ -1595,6 +1605,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
 	@JavadocExclude
 	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	@JavadocExclude
+	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
+		long __functionAddress = getInstance().GetProgramInterfaceiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetProgramInterfaceiv(program, programInterface, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramInterface.xml">OpenGL SDK Reference</a>
@@ -1607,32 +1626,23 @@ public final class GL43 {
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
 	public static void glGetProgramInterfacei(int program, int programInterface, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params), __functionAddress);
+		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
 	public static void glGetProgramInterface(int program, int programInterface, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params), __functionAddress);
+		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
-		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address() + params, __functionAddress);
+		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -1641,6 +1651,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	@JavadocExclude
 	public static native int nglGetProgramResourceIndex(int program, int programInterface, long name, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
+	@JavadocExclude
+	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
+		long __functionAddress = getInstance().GetProgramResourceIndex;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetProgramResourceIndex(program, programInterface, name, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceIndex.xml">OpenGL SDK Reference</a>
@@ -1652,20 +1671,14 @@ public final class GL43 {
 	 * @param name             the name of the resource to query the index of
 	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
-		long __functionAddress = getInstance().GetProgramResourceIndex;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
-		return nglGetProgramResourceIndex(program, programInterface, memAddress(name), __functionAddress);
+		return nglGetProgramResourceIndex(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		long __functionAddress = getInstance().GetProgramResourceIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglGetProgramResourceIndex(program, programInterface, memAddress(memEncodeUTF8(name)), __functionAddress);
+		return nglGetProgramResourceIndex(program, programInterface, memAddress(memEncodeUTF8(name)));
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -1673,6 +1686,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramResourceName GetProgramResourceName} */
 	@JavadocExclude
 	public static native void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramResourceName GetProgramResourceName} */
+	@JavadocExclude
+	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
+		long __functionAddress = getInstance().GetProgramResourceName;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetProgramResourceName(program, programInterface, index, bufSize, length, name, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceName.xml">OpenGL SDK Reference</a>
@@ -1687,47 +1709,36 @@ public final class GL43 {
 	 * @param name             a character array into which will be written the name of the resource
 	 */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, int bufSize, ByteBuffer length, ByteBuffer name) {
-		long __functionAddress = getInstance().GetProgramResourceName;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name), __functionAddress);
+		nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
-		long __functionAddress = getInstance().GetProgramResourceName;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name), __functionAddress);
+		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index, int bufSize) {
-		long __functionAddress = getInstance().GetProgramResourceName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static String glGetProgramResourceName(int program, int programInterface, int index) {
-		long __functionAddress = getInstance().GetProgramResourceName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		int bufSize = glGetProgramInterfacei(program, programInterface, GL_MAX_NAME_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name, __functionAddress);
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
 	}
 
@@ -1736,6 +1747,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
 	@JavadocExclude
 	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	@JavadocExclude
+	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
+		long __functionAddress = getInstance().GetProgramResourceiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetProgramResourceiv(program, programInterface, index, propCount, props, bufSize, length, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResource.xml">OpenGL SDK Reference</a>
@@ -1752,35 +1772,27 @@ public final class GL43 {
 	 * @param params           an array that will receive the property values
 	 */
 	public static void glGetProgramResourcei(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
-		long __functionAddress = getInstance().GetProgramResourceiv;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(props, propCount << 2);
 			checkBuffer(params, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params), __functionAddress);
+		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
 	public static void glGetProgramResource(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
-		long __functionAddress = getInstance().GetProgramResourceiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params), __functionAddress);
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
 	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
 	public static ByteBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
-		long __functionAddress = getInstance().GetProgramResourceiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int params = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address() + length, __buffer.address() + params, __functionAddress);
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address() + length, __buffer.address() + params);
 		return memByteBuffer(__buffer.address() + params, __buffer.intValue(length));
 	}
 
@@ -1789,6 +1801,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	@JavadocExclude
 	public static native int nglGetProgramResourceLocation(int program, int programInterface, long name, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
+	@JavadocExclude
+	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
+		long __functionAddress = getInstance().GetProgramResourceLocation;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetProgramResourceLocation(program, programInterface, name, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceLocation.xml">OpenGL SDK Reference</a>
@@ -1800,20 +1821,14 @@ public final class GL43 {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocation(int program, int programInterface, ByteBuffer name) {
-		long __functionAddress = getInstance().GetProgramResourceLocation;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
-		return nglGetProgramResourceLocation(program, programInterface, memAddress(name), __functionAddress);
+		return nglGetProgramResourceLocation(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		long __functionAddress = getInstance().GetProgramResourceLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglGetProgramResourceLocation(program, programInterface, memAddress(memEncodeASCII(name)), __functionAddress);
+		return nglGetProgramResourceLocation(program, programInterface, memAddress(memEncodeASCII(name)));
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -1821,6 +1836,15 @@ public final class GL43 {
 	/** JNI method for {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	@JavadocExclude
 	public static native int nglGetProgramResourceLocationIndex(int program, int programInterface, long name, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
+	@JavadocExclude
+	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
+		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetProgramResourceLocationIndex(program, programInterface, name, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceLocationIndex.xml">OpenGL SDK Reference</a>
@@ -1832,20 +1856,14 @@ public final class GL43 {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {
-		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
-		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name), __functionAddress);
+		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(memEncodeASCII(name)), __functionAddress);
+		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(memEncodeASCII(name)));
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---

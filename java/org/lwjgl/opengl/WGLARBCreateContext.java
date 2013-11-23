@@ -73,6 +73,15 @@ public final class WGLARBCreateContext {
 	@JavadocExclude
 	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
 
+	/** Unsafe version of {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
+	@JavadocExclude
+	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
+		long __functionAddress = getInstance().CreateContextAttribsARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nwglCreateContextAttribsARB(hdc, shareContext, attribList, __functionAddress);
+	}
+
 	/**
 	 * Creates an OpenGL context.
 	 * <p/>
@@ -86,24 +95,20 @@ public final class WGLARBCreateContext {
 	 *                     is used.
 	 */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, ByteBuffer attribList) {
-		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 			if ( attribList != null ) checkNT4(attribList);
 		}
-		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
+		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
 	/** Alternative version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
-		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 			if ( attribList != null ) checkNT(attribList);
 		}
-		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList), __functionAddress);
+		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
 }

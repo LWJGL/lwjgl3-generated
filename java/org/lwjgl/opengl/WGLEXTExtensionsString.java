@@ -50,16 +50,22 @@ public final class WGLEXTExtensionsString {
 	@JavadocExclude
 	public static native long nwglGetExtensionsStringEXT(long __functionAddress);
 
+	/** Unsafe version of {@link #wglGetExtensionsStringEXT GetExtensionsStringEXT} */
+	@JavadocExclude
+	public static long nwglGetExtensionsStringEXT() {
+		long __functionAddress = getInstance().GetExtensionsStringEXT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nwglGetExtensionsStringEXT(__functionAddress);
+	}
+
 	/**
 	 * Returns a list of supported extensions to WGL. Although the contents of the string is implementation specific, the string will be NULL terminated and
 	 * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
 	 * empty string is returned.
 	 */
 	public static String wglGetExtensionsStringEXT() {
-		long __functionAddress = getInstance().GetExtensionsStringEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		long __result = nwglGetExtensionsStringEXT(__functionAddress);
+		long __result = nwglGetExtensionsStringEXT();
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}
 

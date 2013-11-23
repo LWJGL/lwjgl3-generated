@@ -65,6 +65,15 @@ public final class ARBBufferStorage {
 
 	// --- [ glBufferStorage ] ---
 
+	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
+	@JavadocExclude
+	public static void nglBufferStorage(int target, long size, long data, int flags) {
+		long __functionAddress = getInstance().BufferStorage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		GL44.nglBufferStorage(target, size, data, flags, __functionAddress);
+	}
+
 	/**
 	 * Creates the data store of a buffer object.
 	 * <p/>
@@ -115,60 +124,39 @@ public final class ARBBufferStorage {
 	 *               It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
 	 */
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( data != null ) checkBuffer(data, size);
-		}
-		GL44.nglBufferStorage(target, size, memAddressSafe(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, size, 0L, flags, __functionAddress);
+		GL44.nglBufferStorage(target, size, 0L, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ShortBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** IntBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, IntBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, FloatBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
-		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags, __functionAddress);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	// --- [ glNamedBufferStorageEXT ] ---
@@ -176,6 +164,15 @@ public final class ARBBufferStorage {
 	/** JNI method for {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	@JavadocExclude
 	public static native void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags, long __functionAddress);
+
+	/** Unsafe version of {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	@JavadocExclude
+	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
+		long __functionAddress = getInstance().NamedBufferStorageEXT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglNamedBufferStorageEXT(buffer, size, data, flags, __functionAddress);
+	}
 
 	/**
 	 * Behaves similarly to {@link #glBufferStorage BufferStorage}, except that the buffer whose storage is to be defined is specified by {@code buffer} rather than by the current
@@ -188,10 +185,7 @@ public final class ARBBufferStorage {
 	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. One of:<p/>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}, {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT}, {@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT}, {@link #GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT}
 	 */
 	public static void glNamedBufferStorageEXT(int buffer, long size, ByteBuffer data, int flags) {
-		long __functionAddress = getInstance().NamedBufferStorageEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglNamedBufferStorageEXT(buffer, size, memAddress(data), flags, __functionAddress);
+		nglNamedBufferStorageEXT(buffer, size, memAddress(data), flags);
 	}
 
 }

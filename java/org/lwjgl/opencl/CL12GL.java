@@ -61,6 +61,15 @@ public final class CL12GL {
 	@JavadocExclude
 	public static native long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
 
+	/** Unsafe version of {@link #clCreateFromGLTexture CreateFromGLTexture} */
+	@JavadocExclude
+	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
+		long __functionAddress = getInstance().CreateFromGLTexture;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, errcode_ret, __functionAddress);
+	}
+
 	/**
 	 * Creates one of the following:
 	 * <ul>
@@ -108,22 +117,16 @@ public final class CL12GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLTexture;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		}
-		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret)), context);
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance().CreateFromGLTexture;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret), __functionAddress), context);
+		return CLMem.create(nclCreateFromGLTexture(context.getPointer(), flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret)), context);
 	}
 
 }

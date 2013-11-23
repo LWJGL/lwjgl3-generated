@@ -237,6 +237,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name, long __functionAddress);
 
+	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
+	@JavadocExclude
+	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
+		long __functionAddress = getInstance().BindFragDataLocationIndexed;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, name, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindFragDataLocationIndexed.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -248,20 +257,14 @@ public final class GL33 {
 	 * @param name        the name of the user-defined varying out variable whose binding to modify
 	 */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
-		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name), __functionAddress);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(memEncodeASCII(name)), __functionAddress);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(memEncodeASCII(name)));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -269,6 +272,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetFragDataIndex GetFragDataIndex} */
 	@JavadocExclude
 	public static native int nglGetFragDataIndex(int program, long name, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
+	@JavadocExclude
+	public static int nglGetFragDataIndex(int program, long name) {
+		long __functionAddress = getInstance().GetFragDataIndex;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglGetFragDataIndex(program, name, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFragDataIndex.xml">OpenGL SDK Reference</a>
@@ -279,20 +291,14 @@ public final class GL33 {
 	 * @param name    the name of the user-defined varying out variable whose index to query
 	 */
 	public static int glGetFragDataIndex(int program, ByteBuffer name) {
-		long __functionAddress = getInstance().GetFragDataIndex;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
-		return nglGetFragDataIndex(program, memAddress(name), __functionAddress);
+		return nglGetFragDataIndex(program, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		long __functionAddress = getInstance().GetFragDataIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglGetFragDataIndex(program, memAddress(memEncodeASCII(name)), __functionAddress);
+		return nglGetFragDataIndex(program, memAddress(memEncodeASCII(name)));
 	}
 
 	// --- [ glGenSamplers ] ---
@@ -300,6 +306,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGenSamplers GenSamplers} */
 	@JavadocExclude
 	public static native void nglGenSamplers(int count, long samplers, long __functionAddress);
+
+	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
+	@JavadocExclude
+	public static void nglGenSamplers(int count, long samplers) {
+		long __functionAddress = getInstance().GenSamplers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGenSamplers(count, samplers, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenSamplers.xml">OpenGL SDK Reference</a>
@@ -310,30 +325,21 @@ public final class GL33 {
 	 * @param samplers an array in which the generated sampler object names are stored
 	 */
 	public static void glGenSamplers(int count, ByteBuffer samplers) {
-		long __functionAddress = getInstance().GenSamplers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(samplers, count << 2);
-		}
-		nglGenSamplers(count, memAddress(samplers), __functionAddress);
+		nglGenSamplers(count, memAddress(samplers));
 	}
 
 	/** Alternative version of: {@link #glGenSamplers GenSamplers} */
 	public static void glGenSamplers(IntBuffer samplers) {
-		long __functionAddress = getInstance().GenSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGenSamplers(samplers.remaining(), memAddress(samplers), __functionAddress);
+		nglGenSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
 	/** Single return value version of: {@link #glGenSamplers GenSamplers} */
 	public static int glGenSamplers() {
-		long __functionAddress = getInstance().GenSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam();
-		nglGenSamplers(1, __buffer.address() + samplers, __functionAddress);
+		nglGenSamplers(1, __buffer.address() + samplers);
 		return __buffer.intValue(samplers);
 	}
 
@@ -342,6 +348,15 @@ public final class GL33 {
 	/** JNI method for {@link #glDeleteSamplers DeleteSamplers} */
 	@JavadocExclude
 	public static native void nglDeleteSamplers(int count, long samplers, long __functionAddress);
+
+	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
+	@JavadocExclude
+	public static void nglDeleteSamplers(int count, long samplers) {
+		long __functionAddress = getInstance().DeleteSamplers;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglDeleteSamplers(count, samplers, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteSamplers.xml">OpenGL SDK Reference</a>
@@ -352,30 +367,21 @@ public final class GL33 {
 	 * @param samplers an array of sampler objects to be deleted
 	 */
 	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
-		long __functionAddress = getInstance().DeleteSamplers;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(samplers, count << 2);
-		}
-		nglDeleteSamplers(count, memAddress(samplers), __functionAddress);
+		nglDeleteSamplers(count, memAddress(samplers));
 	}
 
 	/** Alternative version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(IntBuffer samplers) {
-		long __functionAddress = getInstance().DeleteSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDeleteSamplers(samplers.remaining(), memAddress(samplers), __functionAddress);
+		nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
 	/** Single value version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(int sampler) {
-		long __functionAddress = getInstance().DeleteSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam(sampler);
-		nglDeleteSamplers(1, __buffer.address() + samplers, __functionAddress);
+		nglDeleteSamplers(1, __buffer.address() + samplers);
 	}
 
 	// --- [ glIsSampler ] ---
@@ -469,6 +475,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglSamplerParameteriv(int sampler, int pname, long params, long __functionAddress);
 
+	/** Unsafe version of {@link #glSamplerParameteri(int, int, ByteBuffer) glSamplerParameteri} */
+	@JavadocExclude
+	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().SamplerParameteriv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglSamplerParameteriv(sampler, pname, params, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameter.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -479,18 +494,12 @@ public final class GL33 {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().SamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameteriv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameteri(int, int, ByteBuffer) glSamplerParameteri} */
 	public static void glSamplerParameter(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().SamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameteriv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterfv ] ---
@@ -498,6 +507,15 @@ public final class GL33 {
 	/** JNI method for {@link #glSamplerParameterf(int, int, ByteBuffer) glSamplerParameterf} */
 	@JavadocExclude
 	public static native void nglSamplerParameterfv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glSamplerParameterf(int, int, ByteBuffer) glSamplerParameterf} */
+	@JavadocExclude
+	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().SamplerParameterfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglSamplerParameterfv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameter.xml">OpenGL SDK Reference</a>
@@ -509,18 +527,12 @@ public final class GL33 {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterfv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterf(int, int, ByteBuffer) glSamplerParameterf} */
 	public static void glSamplerParameter(int sampler, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterfv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIiv ] ---
@@ -528,6 +540,15 @@ public final class GL33 {
 	/** JNI method for {@link #glSamplerParameterIi(int, int, ByteBuffer) glSamplerParameterIi} */
 	@JavadocExclude
 	public static native void nglSamplerParameterIiv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glSamplerParameterIi(int, int, ByteBuffer) glSamplerParameterIi} */
+	@JavadocExclude
+	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().SamplerParameterIiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglSamplerParameterIiv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameterI.xml">OpenGL SDK Reference</a>
@@ -539,18 +560,12 @@ public final class GL33 {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIi(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterIiv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIi(int, int, ByteBuffer) glSamplerParameterIi} */
 	public static void glSamplerParameterI(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterIiv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIuiv ] ---
@@ -558,6 +573,15 @@ public final class GL33 {
 	/** JNI method for {@link #glSamplerParameterIui(int, int, ByteBuffer) glSamplerParameterIui} */
 	@JavadocExclude
 	public static native void nglSamplerParameterIuiv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glSamplerParameterIui(int, int, ByteBuffer) glSamplerParameterIui} */
+	@JavadocExclude
+	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().SamplerParameterIuiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameterI.xml">OpenGL SDK Reference</a>
@@ -569,18 +593,12 @@ public final class GL33 {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIui(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIui(int, int, ByteBuffer) glSamplerParameterIui} */
 	public static void glSamplerParameterIu(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().SamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params), __functionAddress);
+		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glGetSamplerParameteriv ] ---
@@ -588,6 +606,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri} */
 	@JavadocExclude
 	public static native void nglGetSamplerParameteriv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri} */
+	@JavadocExclude
+	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().GetSamplerParameteriv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetSamplerParameteriv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameter.xml">OpenGL SDK Reference</a>
@@ -599,32 +626,23 @@ public final class GL33 {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameteri(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameteriv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri} */
 	public static void glGetSamplerParameter(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameteriv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri} */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
-		long __functionAddress = getInstance().GetSamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameteriv(sampler, pname, __buffer.address() + params, __functionAddress);
+		nglGetSamplerParameteriv(sampler, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -633,6 +651,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetSamplerParameterf(int, int, ByteBuffer) glGetSamplerParameterf} */
 	@JavadocExclude
 	public static native void nglGetSamplerParameterfv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetSamplerParameterf(int, int, ByteBuffer) glGetSamplerParameterf} */
+	@JavadocExclude
+	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().GetSamplerParameterfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetSamplerParameterfv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameter.xml">OpenGL SDK Reference</a>
@@ -644,32 +671,23 @@ public final class GL33 {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterf(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterf(int, int, ByteBuffer) glGetSamplerParameterf} */
 	public static void glGetSamplerParameter(int sampler, int pname, FloatBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterfv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterf(int, int, ByteBuffer) glGetSamplerParameterf} */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
-		long __functionAddress = getInstance().GetSamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetSamplerParameterfv(sampler, pname, __buffer.address() + params, __functionAddress);
+		nglGetSamplerParameterfv(sampler, pname, __buffer.address() + params);
 		return __buffer.floatValue(params);
 	}
 
@@ -678,6 +696,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetSamplerParameterIi(int, int, ByteBuffer) glGetSamplerParameterIi} */
 	@JavadocExclude
 	public static native void nglGetSamplerParameterIiv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetSamplerParameterIi(int, int, ByteBuffer) glGetSamplerParameterIi} */
+	@JavadocExclude
+	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().GetSamplerParameterIiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetSamplerParameterIiv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameterI.xml">OpenGL SDK Reference</a>
@@ -689,32 +716,23 @@ public final class GL33 {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterIi(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIi(int, int, ByteBuffer) glGetSamplerParameterIi} */
 	public static void glGetSamplerParameterI(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterIi(int, int, ByteBuffer) glGetSamplerParameterIi} */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
-		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIiv(sampler, pname, __buffer.address() + params, __functionAddress);
+		nglGetSamplerParameterIiv(sampler, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -723,6 +741,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetSamplerParameterIui(int, int, ByteBuffer) glGetSamplerParameterIui} */
 	@JavadocExclude
 	public static native void nglGetSamplerParameterIuiv(int sampler, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetSamplerParameterIui(int, int, ByteBuffer) glGetSamplerParameterIui} */
+	@JavadocExclude
+	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
+		long __functionAddress = getInstance().GetSamplerParameterIuiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameterI.xml">OpenGL SDK Reference</a>
@@ -734,32 +761,23 @@ public final class GL33 {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterIui(int sampler, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIui(int, int, ByteBuffer) glGetSamplerParameterIui} */
 	public static void glGetSamplerParameterIu(int sampler, int pname, IntBuffer params) {
-		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params), __functionAddress);
+		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterIui(int, int, ByteBuffer) glGetSamplerParameterIui} */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
-		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address() + params, __functionAddress);
+		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -790,6 +808,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglGetQueryObjecti64v(int id, int pname, long params, long __functionAddress);
 
+	/** Unsafe version of {@link #glGetQueryObjecti64(int, int, ByteBuffer) glGetQueryObjecti64} */
+	@JavadocExclude
+	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
+		long __functionAddress = getInstance().GetQueryObjecti64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetQueryObjecti64v(id, pname, params, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -800,32 +827,23 @@ public final class GL33 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjecti64(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjecti64v;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		}
-		nglGetQueryObjecti64v(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64(int, int, ByteBuffer) glGetQueryObjecti64} */
 	public static void glGetQueryObject(int id, int pname, LongBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjecti64v;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetQueryObjecti64v(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjecti64(int, int, ByteBuffer) glGetQueryObjecti64} */
 	public static long glGetQueryObjecti64(int id, int pname) {
-		long __functionAddress = getInstance().GetQueryObjecti64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address() + params, __functionAddress);
+		nglGetQueryObjecti64v(id, pname, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 
@@ -834,6 +852,15 @@ public final class GL33 {
 	/** JNI method for {@link #glGetQueryObjectui64(int, int, ByteBuffer) glGetQueryObjectui64} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectui64v(int id, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetQueryObjectui64(int, int, ByteBuffer) glGetQueryObjectui64} */
+	@JavadocExclude
+	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
+		long __functionAddress = getInstance().GetQueryObjectui64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetQueryObjectui64v(id, pname, params, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
@@ -845,32 +872,23 @@ public final class GL33 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectui64(int id, int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectui64v;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		}
-		nglGetQueryObjectui64v(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64(int, int, ByteBuffer) glGetQueryObjectui64} */
 	public static void glGetQueryObjectu(int id, int pname, LongBuffer params) {
-		long __functionAddress = getInstance().GetQueryObjectui64v;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
-		nglGetQueryObjectui64v(id, pname, memAddress(params), __functionAddress);
+		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjectui64(int, int, ByteBuffer) glGetQueryObjectui64} */
 	public static long glGetQueryObjectui64(int id, int pname) {
-		long __functionAddress = getInstance().GetQueryObjectui64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address() + params, __functionAddress);
+		nglGetQueryObjectui64v(id, pname, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 
@@ -964,6 +982,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglVertexP2uiv(int type, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glVertexP2ui(int, ByteBuffer) glVertexP2ui} */
+	@JavadocExclude
+	public static void nglVertexP2uiv(int type, long value) {
+		long __functionAddress = getInstance().VertexP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexP2uiv(type, value, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP2.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -973,22 +1000,16 @@ public final class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP2ui(int type, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexP2uiv(type, memAddress(value), __functionAddress);
+		nglVertexP2uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP2ui(int, ByteBuffer) glVertexP2ui} */
 	public static void glVertexP2u(int type, IntBuffer value) {
-		long __functionAddress = getInstance().VertexP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexP2uiv(type, memAddress(value), __functionAddress);
+		nglVertexP2uiv(type, memAddress(value));
 	}
 
 	// --- [ glVertexP3uiv ] ---
@@ -996,6 +1017,15 @@ public final class GL33 {
 	/** JNI method for {@link #glVertexP3ui(int, ByteBuffer) glVertexP3ui} */
 	@JavadocExclude
 	public static native void nglVertexP3uiv(int type, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexP3ui(int, ByteBuffer) glVertexP3ui} */
+	@JavadocExclude
+	public static void nglVertexP3uiv(int type, long value) {
+		long __functionAddress = getInstance().VertexP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexP3uiv(type, value, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP3.xml">OpenGL SDK Reference</a>
@@ -1006,22 +1036,16 @@ public final class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP3ui(int type, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexP3uiv(type, memAddress(value), __functionAddress);
+		nglVertexP3uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP3ui(int, ByteBuffer) glVertexP3ui} */
 	public static void glVertexP3u(int type, IntBuffer value) {
-		long __functionAddress = getInstance().VertexP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexP3uiv(type, memAddress(value), __functionAddress);
+		nglVertexP3uiv(type, memAddress(value));
 	}
 
 	// --- [ glVertexP4uiv ] ---
@@ -1029,6 +1053,15 @@ public final class GL33 {
 	/** JNI method for {@link #glVertexP4ui(int, ByteBuffer) glVertexP4ui} */
 	@JavadocExclude
 	public static native void nglVertexP4uiv(int type, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexP4ui(int, ByteBuffer) glVertexP4ui} */
+	@JavadocExclude
+	public static void nglVertexP4uiv(int type, long value) {
+		long __functionAddress = getInstance().VertexP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexP4uiv(type, value, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP4.xml">OpenGL SDK Reference</a>
@@ -1039,22 +1072,16 @@ public final class GL33 {
 	 * @param value the packed value
 	 */
 	public static void glVertexP4ui(int type, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexP4uiv(type, memAddress(value), __functionAddress);
+		nglVertexP4uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP4ui(int, ByteBuffer) glVertexP4ui} */
 	public static void glVertexP4u(int type, IntBuffer value) {
-		long __functionAddress = getInstance().VertexP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexP4uiv(type, memAddress(value), __functionAddress);
+		nglVertexP4uiv(type, memAddress(value));
 	}
 
 	// --- [ glTexCoordP1ui ] ---
@@ -1147,6 +1174,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglTexCoordP1uiv(int type, long coords, long __functionAddress);
 
+	/** Unsafe version of {@link #glTexCoordP1ui(int, ByteBuffer) glTexCoordP1ui} */
+	@JavadocExclude
+	public static void nglTexCoordP1uiv(int type, long coords) {
+		long __functionAddress = getInstance().TexCoordP1uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglTexCoordP1uiv(type, coords, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP1.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1156,22 +1192,16 @@ public final class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP1ui(int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglTexCoordP1uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP1ui(int, ByteBuffer) glTexCoordP1ui} */
 	public static void glTexCoordP1u(int type, IntBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglTexCoordP1uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP2uiv ] ---
@@ -1179,6 +1209,15 @@ public final class GL33 {
 	/** JNI method for {@link #glTexCoordP2ui(int, ByteBuffer) glTexCoordP2ui} */
 	@JavadocExclude
 	public static native void nglTexCoordP2uiv(int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glTexCoordP2ui(int, ByteBuffer) glTexCoordP2ui} */
+	@JavadocExclude
+	public static void nglTexCoordP2uiv(int type, long coords) {
+		long __functionAddress = getInstance().TexCoordP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglTexCoordP2uiv(type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP2.xml">OpenGL SDK Reference</a>
@@ -1189,22 +1228,16 @@ public final class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP2ui(int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglTexCoordP2uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP2ui(int, ByteBuffer) glTexCoordP2ui} */
 	public static void glTexCoordP2u(int type, IntBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglTexCoordP2uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP3uiv ] ---
@@ -1212,6 +1245,15 @@ public final class GL33 {
 	/** JNI method for {@link #glTexCoordP3ui(int, ByteBuffer) glTexCoordP3ui} */
 	@JavadocExclude
 	public static native void nglTexCoordP3uiv(int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glTexCoordP3ui(int, ByteBuffer) glTexCoordP3ui} */
+	@JavadocExclude
+	public static void nglTexCoordP3uiv(int type, long coords) {
+		long __functionAddress = getInstance().TexCoordP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglTexCoordP3uiv(type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP3.xml">OpenGL SDK Reference</a>
@@ -1222,22 +1264,16 @@ public final class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP3ui(int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglTexCoordP3uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP3ui(int, ByteBuffer) glTexCoordP3ui} */
 	public static void glTexCoordP3u(int type, IntBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglTexCoordP3uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP4uiv ] ---
@@ -1245,6 +1281,15 @@ public final class GL33 {
 	/** JNI method for {@link #glTexCoordP4ui(int, ByteBuffer) glTexCoordP4ui} */
 	@JavadocExclude
 	public static native void nglTexCoordP4uiv(int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glTexCoordP4ui(int, ByteBuffer) glTexCoordP4ui} */
+	@JavadocExclude
+	public static void nglTexCoordP4uiv(int type, long coords) {
+		long __functionAddress = getInstance().TexCoordP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglTexCoordP4uiv(type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP4.xml">OpenGL SDK Reference</a>
@@ -1255,22 +1300,16 @@ public final class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP4ui(int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglTexCoordP4uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP4ui(int, ByteBuffer) glTexCoordP4ui} */
 	public static void glTexCoordP4u(int type, IntBuffer coords) {
-		long __functionAddress = getInstance().TexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglTexCoordP4uiv(type, memAddress(coords), __functionAddress);
+		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP1ui ] ---
@@ -1367,6 +1406,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglMultiTexCoordP1uiv(int texture, int type, long coords, long __functionAddress);
 
+	/** Unsafe version of {@link #glMultiTexCoordP1ui(int, int, ByteBuffer) glMultiTexCoordP1ui} */
+	@JavadocExclude
+	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
+		long __functionAddress = getInstance().MultiTexCoordP1uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoordP1uiv(texture, type, coords, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP1.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1377,22 +1425,16 @@ public final class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglMultiTexCoordP1uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP1ui(int, int, ByteBuffer) glMultiTexCoordP1ui} */
 	public static void glMultiTexCoordP1u(int texture, int type, IntBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglMultiTexCoordP1uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP2uiv ] ---
@@ -1400,6 +1442,15 @@ public final class GL33 {
 	/** JNI method for {@link #glMultiTexCoordP2ui(int, int, ByteBuffer) glMultiTexCoordP2ui} */
 	@JavadocExclude
 	public static native void nglMultiTexCoordP2uiv(int texture, int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoordP2ui(int, int, ByteBuffer) glMultiTexCoordP2ui} */
+	@JavadocExclude
+	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
+		long __functionAddress = getInstance().MultiTexCoordP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoordP2uiv(texture, type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP2.xml">OpenGL SDK Reference</a>
@@ -1411,22 +1462,16 @@ public final class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglMultiTexCoordP2uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP2ui(int, int, ByteBuffer) glMultiTexCoordP2ui} */
 	public static void glMultiTexCoordP2u(int texture, int type, IntBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglMultiTexCoordP2uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP3uiv ] ---
@@ -1434,6 +1479,15 @@ public final class GL33 {
 	/** JNI method for {@link #glMultiTexCoordP3ui(int, int, ByteBuffer) glMultiTexCoordP3ui} */
 	@JavadocExclude
 	public static native void nglMultiTexCoordP3uiv(int texture, int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoordP3ui(int, int, ByteBuffer) glMultiTexCoordP3ui} */
+	@JavadocExclude
+	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
+		long __functionAddress = getInstance().MultiTexCoordP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoordP3uiv(texture, type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP3.xml">OpenGL SDK Reference</a>
@@ -1445,22 +1499,16 @@ public final class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglMultiTexCoordP3uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP3ui(int, int, ByteBuffer) glMultiTexCoordP3ui} */
 	public static void glMultiTexCoordP3u(int texture, int type, IntBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglMultiTexCoordP3uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP4uiv ] ---
@@ -1468,6 +1516,15 @@ public final class GL33 {
 	/** JNI method for {@link #glMultiTexCoordP4ui(int, int, ByteBuffer) glMultiTexCoordP4ui} */
 	@JavadocExclude
 	public static native void nglMultiTexCoordP4uiv(int texture, int type, long coords, long __functionAddress);
+
+	/** Unsafe version of {@link #glMultiTexCoordP4ui(int, int, ByteBuffer) glMultiTexCoordP4ui} */
+	@JavadocExclude
+	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
+		long __functionAddress = getInstance().MultiTexCoordP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglMultiTexCoordP4uiv(texture, type, coords, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP4.xml">OpenGL SDK Reference</a>
@@ -1479,22 +1536,16 @@ public final class GL33 {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglMultiTexCoordP4uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP4ui(int, int, ByteBuffer) glMultiTexCoordP4ui} */
 	public static void glMultiTexCoordP4u(int texture, int type, IntBuffer coords) {
-		long __functionAddress = getInstance().MultiTexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglMultiTexCoordP4uiv(texture, type, memAddress(coords), __functionAddress);
+		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glNormalP3ui ] ---
@@ -1524,6 +1575,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglNormalP3uiv(int type, long coords, long __functionAddress);
 
+	/** Unsafe version of {@link #glNormalP3ui(int, ByteBuffer) glNormalP3ui} */
+	@JavadocExclude
+	public static void nglNormalP3uiv(int type, long coords) {
+		long __functionAddress = getInstance().NormalP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglNormalP3uiv(type, coords, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormalP3.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1533,22 +1593,16 @@ public final class GL33 {
 	 * @param coords the packed value
 	 */
 	public static void glNormalP3ui(int type, ByteBuffer coords) {
-		long __functionAddress = getInstance().NormalP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		}
-		nglNormalP3uiv(type, memAddress(coords), __functionAddress);
+		nglNormalP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glNormalP3ui(int, ByteBuffer) glNormalP3ui} */
 	public static void glNormalP3u(int type, IntBuffer coords) {
-		long __functionAddress = getInstance().NormalP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		}
-		nglNormalP3uiv(type, memAddress(coords), __functionAddress);
+		nglNormalP3uiv(type, memAddress(coords));
 	}
 
 	// --- [ glColorP3ui ] ---
@@ -1599,6 +1653,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglColorP3uiv(int type, long color, long __functionAddress);
 
+	/** Unsafe version of {@link #glColorP3ui(int, ByteBuffer) glColorP3ui} */
+	@JavadocExclude
+	public static void nglColorP3uiv(int type, long color) {
+		long __functionAddress = getInstance().ColorP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglColorP3uiv(type, color, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP3.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1608,22 +1671,16 @@ public final class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glColorP3ui(int type, ByteBuffer color) {
-		long __functionAddress = getInstance().ColorP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		}
-		nglColorP3uiv(type, memAddress(color), __functionAddress);
+		nglColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP3ui(int, ByteBuffer) glColorP3ui} */
 	public static void glColorP3u(int type, IntBuffer color) {
-		long __functionAddress = getInstance().ColorP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		}
-		nglColorP3uiv(type, memAddress(color), __functionAddress);
+		nglColorP3uiv(type, memAddress(color));
 	}
 
 	// --- [ glColorP4uiv ] ---
@@ -1631,6 +1688,15 @@ public final class GL33 {
 	/** JNI method for {@link #glColorP4ui(int, ByteBuffer) glColorP4ui} */
 	@JavadocExclude
 	public static native void nglColorP4uiv(int type, long color, long __functionAddress);
+
+	/** Unsafe version of {@link #glColorP4ui(int, ByteBuffer) glColorP4ui} */
+	@JavadocExclude
+	public static void nglColorP4uiv(int type, long color) {
+		long __functionAddress = getInstance().ColorP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglColorP4uiv(type, color, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP4.xml">OpenGL SDK Reference</a>
@@ -1641,22 +1707,16 @@ public final class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glColorP4ui(int type, ByteBuffer color) {
-		long __functionAddress = getInstance().ColorP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		}
-		nglColorP4uiv(type, memAddress(color), __functionAddress);
+		nglColorP4uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP4ui(int, ByteBuffer) glColorP4ui} */
 	public static void glColorP4u(int type, IntBuffer color) {
-		long __functionAddress = getInstance().ColorP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		}
-		nglColorP4uiv(type, memAddress(color), __functionAddress);
+		nglColorP4uiv(type, memAddress(color));
 	}
 
 	// --- [ glSecondaryColorP3ui ] ---
@@ -1686,6 +1746,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglSecondaryColorP3uiv(int type, long color, long __functionAddress);
 
+	/** Unsafe version of {@link #glSecondaryColorP3ui(int, ByteBuffer) glSecondaryColorP3ui} */
+	@JavadocExclude
+	public static void nglSecondaryColorP3uiv(int type, long color) {
+		long __functionAddress = getInstance().SecondaryColorP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglSecondaryColorP3uiv(type, color, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColorP3.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1695,22 +1764,16 @@ public final class GL33 {
 	 * @param color the packed value
 	 */
 	public static void glSecondaryColorP3ui(int type, ByteBuffer color) {
-		long __functionAddress = getInstance().SecondaryColorP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		}
-		nglSecondaryColorP3uiv(type, memAddress(color), __functionAddress);
+		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColorP3ui(int, ByteBuffer) glSecondaryColorP3ui} */
 	public static void glSecondaryColorP3u(int type, IntBuffer color) {
-		long __functionAddress = getInstance().SecondaryColorP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		}
-		nglSecondaryColorP3uiv(type, memAddress(color), __functionAddress);
+		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
 	// --- [ glVertexAttribP1ui ] ---
@@ -1811,6 +1874,15 @@ public final class GL33 {
 	@JavadocExclude
 	public static native void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glVertexAttribP1ui(int, int, boolean, ByteBuffer) glVertexAttribP1ui} */
+	@JavadocExclude
+	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
+		long __functionAddress = getInstance().VertexAttribP1uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexAttribP1uiv(index, type, normalized, value, __functionAddress);
+	}
+
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP1.xml">OpenGL SDK Reference</a>
 	 * <p/>
@@ -1822,22 +1894,16 @@ public final class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexAttribP1uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP1ui(int, int, boolean, ByteBuffer) glVertexAttribP1ui} */
 	public static void glVertexAttribP1u(int index, int type, boolean normalized, IntBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP1uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexAttribP1uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP2uiv ] ---
@@ -1845,6 +1911,15 @@ public final class GL33 {
 	/** JNI method for {@link #glVertexAttribP2ui(int, int, boolean, ByteBuffer) glVertexAttribP2ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexAttribP2ui(int, int, boolean, ByteBuffer) glVertexAttribP2ui} */
+	@JavadocExclude
+	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
+		long __functionAddress = getInstance().VertexAttribP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexAttribP2uiv(index, type, normalized, value, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP2.xml">OpenGL SDK Reference</a>
@@ -1857,22 +1932,16 @@ public final class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexAttribP2uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP2ui(int, int, boolean, ByteBuffer) glVertexAttribP2ui} */
 	public static void glVertexAttribP2u(int index, int type, boolean normalized, IntBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP2uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexAttribP2uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP3uiv ] ---
@@ -1880,6 +1949,15 @@ public final class GL33 {
 	/** JNI method for {@link #glVertexAttribP3ui(int, int, boolean, ByteBuffer) glVertexAttribP3ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexAttribP3ui(int, int, boolean, ByteBuffer) glVertexAttribP3ui} */
+	@JavadocExclude
+	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
+		long __functionAddress = getInstance().VertexAttribP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexAttribP3uiv(index, type, normalized, value, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP3.xml">OpenGL SDK Reference</a>
@@ -1892,22 +1970,16 @@ public final class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexAttribP3uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP3ui(int, int, boolean, ByteBuffer) glVertexAttribP3ui} */
 	public static void glVertexAttribP3u(int index, int type, boolean normalized, IntBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP3uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexAttribP3uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP4uiv ] ---
@@ -1915,6 +1987,15 @@ public final class GL33 {
 	/** JNI method for {@link #glVertexAttribP4ui(int, int, boolean, ByteBuffer) glVertexAttribP4ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexAttribP4ui(int, int, boolean, ByteBuffer) glVertexAttribP4ui} */
+	@JavadocExclude
+	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
+		long __functionAddress = getInstance().VertexAttribP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexAttribP4uiv(index, type, normalized, value, __functionAddress);
+	}
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP4.xml">OpenGL SDK Reference</a>
@@ -1927,22 +2008,16 @@ public final class GL33 {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, ByteBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		nglVertexAttribP4uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP4ui(int, int, boolean, ByteBuffer) glVertexAttribP4ui} */
 	public static void glVertexAttribP4u(int index, int type, boolean normalized, IntBuffer value) {
-		long __functionAddress = getInstance().VertexAttribP4uiv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		nglVertexAttribP4uiv(index, type, normalized, memAddress(value), __functionAddress);
+		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
 }

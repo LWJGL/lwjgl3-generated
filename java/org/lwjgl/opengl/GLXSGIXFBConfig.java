@@ -110,6 +110,15 @@ public final class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static native int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
+	@JavadocExclude
+	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
+		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetFBConfigAttribSGIX(display, config, attribute, value, __functionAddress);
+	}
+
 	/**
 	 * Gets the value of a GLX attribute for a {@code GLXFBConfigSGIX}.
 	 *
@@ -119,26 +128,22 @@ public final class GLXSGIXFBConfig {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, ByteBuffer value) {
-		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkBuffer(value, 1 << 2);
 		}
-		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value), __functionAddress);
+		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, IntBuffer value) {
-		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkBuffer(value, 1);
 		}
-		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value), __functionAddress);
+		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value));
 	}
 
 	// --- [ glXChooseFBConfigSGIX ] ---
@@ -146,6 +151,15 @@ public final class GLXSGIXFBConfig {
 	/** JNI method for {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
 	@JavadocExclude
 	public static native long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements, long __functionAddress);
+
+	/** Unsafe version of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
+	@JavadocExclude
+	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
+		long __functionAddress = getInstance().ChooseFBConfigSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXChooseFBConfigSGIX(display, screen, attrib_list, nelements, __functionAddress);
+	}
 
 	/**
 	 * Gets {@code GLXFBConfigSGIX}s that match a list of attributes or to get the list of GLXFBConfigSGIXs that are available on the specified screen.
@@ -155,27 +169,21 @@ public final class GLXSGIXFBConfig {
 	 * @param attrib_list an optional list of attributes, terminated with {@link org.lwjgl.system.linux.X#None}
 	 */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, ByteBuffer attrib_list) {
-		long __functionAddress = getInstance().ChooseFBConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
+		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
 	/** Alternative version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, IntBuffer attrib_list) {
-		long __functionAddress = getInstance().ChooseFBConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements, __functionAddress);
+		long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
@@ -234,6 +242,15 @@ public final class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static native long nglXGetVisualFromFBConfigSGIX(long display, long config, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
+	@JavadocExclude
+	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
+		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetVisualFromFBConfigSGIX(display, config, __functionAddress);
+	}
+
 	/**
 	 * Retrieves the associated visual of a {@code GLXFBConfigSGIX}.
 	 *
@@ -241,13 +258,11 @@ public final class GLXSGIXFBConfig {
 	 * @param config  the {@code GLXFBConfigSGIX}
 	 */
 	public static ByteBuffer glXGetVisualFromFBConfigSGIX(long display, long config) {
-		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
-		long __result = nglXGetVisualFromFBConfigSGIX(display, config, __functionAddress);
+		long __result = nglXGetVisualFromFBConfigSGIX(display, config);
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
@@ -257,6 +272,15 @@ public final class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static native long nglXGetFBConfigFromVisualSGIX(long display, long vis, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
+	@JavadocExclude
+	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
+		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetFBConfigFromVisualSGIX(display, vis, __functionAddress);
+	}
+
 	/**
 	 * Retrieves the {@code GLXFBConfigSGIX} associated with a visual.
 	 *
@@ -264,13 +288,11 @@ public final class GLXSGIXFBConfig {
 	 * @param vis     the visual
 	 */
 	public static long glXGetFBConfigFromVisualSGIX(long display, ByteBuffer vis) {
-		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkBuffer(vis, XVisualInfo.SIZEOF);
 		}
-		return nglXGetFBConfigFromVisualSGIX(display, memAddress(vis), __functionAddress);
+		return nglXGetFBConfigFromVisualSGIX(display, memAddress(vis));
 	}
 
 }

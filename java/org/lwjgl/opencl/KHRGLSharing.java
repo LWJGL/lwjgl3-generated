@@ -78,6 +78,15 @@ public final class KHRGLSharing {
 	@JavadocExclude
 	public static native int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
+	/** Unsafe version of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
+	@JavadocExclude
+	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
+		long __functionAddress = getInstance().GetGLContextInfoKHR;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nclGetGLContextInfoKHR(properties, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+	}
+
 	/**
 	 * Queries the OpenCL device currently corresponding to an OpenGL context.
 	 * <p/>
@@ -130,36 +139,30 @@ public final class KHRGLSharing {
 	 *         the OpenCL implementation on the host.
 	 */
 	public static int clGetGLContextInfoKHR(ByteBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5 << POINTER_SHIFT);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** Alternative version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret), __functionAddress);
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 }

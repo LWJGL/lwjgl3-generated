@@ -119,6 +119,15 @@ public final class SOFTBufferSamples {
 	@JavadocExclude
 	public static native void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data, long __functionAddress);
 
+	/** Unsafe version of {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
+	@JavadocExclude
+	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
+		long __functionAddress = getInstance().BufferSamplesSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalBufferSamplesSOFT(buffer, samplerate, internalformat, samples, channels, type, data, __functionAddress);
+	}
+
 	/**
 	 * To remove a buffer's sample data and replace it with new data, the
 	 * alBufferSamplesSOFT function should be used.
@@ -152,10 +161,7 @@ public final class SOFTBufferSamples {
 	 * @param data           buffer to write to
 	 */
 	public static void alBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().BufferSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferSamplesSOFT(buffer, samplerate, internalformat, samples, channels, type, memAddress(data), __functionAddress);
+		nalBufferSamplesSOFT(buffer, samplerate, internalformat, samples, channels, type, memAddress(data));
 	}
 
 	// --- [ alIsBufferFormatSupportedSOFT ] ---
@@ -184,6 +190,15 @@ public final class SOFTBufferSamples {
 	/** JNI method for {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
 	@JavadocExclude
 	public static native void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
+	@JavadocExclude
+	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
+		long __functionAddress = getInstance().BufferSubSamplesSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalBufferSubSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
+	}
 
 	/**
 	 * To update a buffer with new data, call alBufferSubSamplesSOFT.
@@ -216,10 +231,7 @@ public final class SOFTBufferSamples {
 	 * @param data     buffer to write to
 	 */
 	public static void alBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().BufferSubSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalBufferSubSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data), __functionAddress);
+		nalBufferSubSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data));
 	}
 
 	// --- [ alGetBufferSamplesSOFT ] ---
@@ -227,6 +239,15 @@ public final class SOFTBufferSamples {
 	/** JNI method for {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
 	@JavadocExclude
 	public static native void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
+	@JavadocExclude
+	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
+		long __functionAddress = getInstance().GetBufferSamplesSOFT;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
+	}
 
 	/**
 	 * To retrieve a buffer's sample data, use alGetBufferSamplesSOFT.
@@ -246,10 +267,7 @@ public final class SOFTBufferSamples {
 	 * @param data     buffer to write to
 	 */
 	public static void alGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, ByteBuffer data) {
-		long __functionAddress = getInstance().GetBufferSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data), __functionAddress);
+		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data));
 	}
 
 }

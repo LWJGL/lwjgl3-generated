@@ -57,6 +57,15 @@ public final class GLX14 {
 	@JavadocExclude
 	public static native long nglXGetProcAddress(long procName, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetProcAddress GetProcAddress} */
+	@JavadocExclude
+	public static long nglXGetProcAddress(long procName) {
+		long __functionAddress = getInstance().GetProcAddress;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetProcAddress(procName, __functionAddress);
+	}
+
 	/**
 	 * Returns the address of the extension function named by {@code procName}. The pointer returned should be cast to a function pointer type matching the
 	 * extension function's definition in that extension specification. A return value of {@code NULL} indicates that the specified function does not exist for the
@@ -79,10 +88,7 @@ public final class GLX14 {
 	 * @param procName the function name to query
 	 */
 	public static long glXGetProcAddress(ByteBuffer procName) {
-		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglXGetProcAddress(memAddress(procName), __functionAddress);
+		return nglXGetProcAddress(memAddress(procName));
 	}
 
 }

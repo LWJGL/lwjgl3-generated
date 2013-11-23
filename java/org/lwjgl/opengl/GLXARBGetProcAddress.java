@@ -58,6 +58,15 @@ public final class GLXARBGetProcAddress {
 	@JavadocExclude
 	public static native long nglXGetProcAddressARB(long procName, long __functionAddress);
 
+	/** Unsafe version of {@link #glXGetProcAddressARB GetProcAddressARB} */
+	@JavadocExclude
+	public static long nglXGetProcAddressARB(long procName) {
+		long __functionAddress = getInstance().GetProcAddressARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglXGetProcAddressARB(procName, __functionAddress);
+	}
+
 	/**
 	 * Returns the address of the extension function named by procName. The pointer returned should be cast to a function pointer type matching the extension
 	 * function's definition in that extension specification. A return value of {@code NULL} indicates that the specified function does not exist for the
@@ -80,10 +89,7 @@ public final class GLXARBGetProcAddress {
 	 * @param procName the function name to query
 	 */
 	public static long glXGetProcAddressARB(ByteBuffer procName) {
-		long __functionAddress = getInstance().GetProcAddressARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return nglXGetProcAddressARB(memAddress(procName), __functionAddress);
+		return nglXGetProcAddressARB(memAddress(procName));
 	}
 
 }

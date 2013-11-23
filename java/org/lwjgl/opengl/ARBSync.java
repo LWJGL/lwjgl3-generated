@@ -198,6 +198,15 @@ public final class ARBSync {
 
 	// --- [ glGetInteger64v ] ---
 
+	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	@JavadocExclude
+	public static void nglGetInteger64v(int pname, long params) {
+		long __functionAddress = getInstance().GetInteger64v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		GL32.nglGetInteger64v(pname, params, __functionAddress);
+	}
+
 	/**
 	 * Returns the 64bit integer value or values of a selected parameter.
 	 *
@@ -205,32 +214,32 @@ public final class ARBSync {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64(int pname, ByteBuffer params) {
-		long __functionAddress = getInstance().GetInteger64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL32.nglGetInteger64v(pname, memAddress(params), __functionAddress);
+		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
-		long __functionAddress = getInstance().GetInteger64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		GL32.nglGetInteger64v(pname, memAddress(params), __functionAddress);
+		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
 	public static long glGetInteger64(int pname) {
-		long __functionAddress = getInstance().GetInteger64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		GL32.nglGetInteger64v(pname, __buffer.address() + params, __functionAddress);
+		GL32.nglGetInteger64v(pname, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 
 	// --- [ glGetSynciv ] ---
+
+	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	@JavadocExclude
+	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
+		long __functionAddress = getInstance().GetSynciv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		GL32.nglGetSynciv(sync, pname, bufSize, length, values, __functionAddress);
+	}
 
 	/**
 	 * Queries the properties of a sync object.
@@ -242,38 +251,32 @@ public final class ARBSync {
 	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
 	public static void glGetSynci(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values), __functionAddress);
+		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
-		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 			if ( length != null ) checkBuffer(length, 1);
 		}
-		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values), __functionAddress);
+		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
-		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 			if ( length != null ) checkBuffer(length, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values, __functionAddress);
+		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values);
 		return __buffer.intValue(values);
 	}
 
