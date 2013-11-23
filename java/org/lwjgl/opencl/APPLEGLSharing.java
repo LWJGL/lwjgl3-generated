@@ -48,27 +48,25 @@ public final class APPLEGLSharing {
 	public final long GetGLContextInfoAPPLE;
 
 	@JavadocExclude
-	public APPLEGLSharing(FunctionProviderLocal provider, long platform) {
-		GetGLContextInfoAPPLE = provider.getFunctionAddress(platform, "clGetGLContextInfoAPPLE");
+	public APPLEGLSharing(FunctionProvider provider) {
+		GetGLContextInfoAPPLE = provider.getFunctionAddress("clGetGLContextInfoAPPLE");
 	}
 
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link APPLEGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static APPLEGLSharing getInstance(CLObject object) {
-		return object.getCapabilities().__APPLEGLSharing;
+	public static APPLEGLSharing getInstance() {
+		return CL.getICD().__APPLEGLSharing;
 	}
 
-	static APPLEGLSharing create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_APPLE_gl_sharing") ) return null;
-
-		APPLEGLSharing funcs = new APPLEGLSharing(provider, platform);
+	static APPLEGLSharing create(FunctionProvider provider) {
+		APPLEGLSharing funcs = new APPLEGLSharing(provider);
 
 		boolean supported = checkFunctions(
 			funcs.GetGLContextInfoAPPLE
 		);
 
-		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
@@ -92,7 +90,7 @@ public final class APPLEGLSharing {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
+		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);
@@ -104,7 +102,7 @@ public final class APPLEGLSharing {
 
 	/** Alternative version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
+		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);
@@ -115,7 +113,7 @@ public final class APPLEGLSharing {
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetGLContextInfoAPPLE;
+		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform_gl_ctx);

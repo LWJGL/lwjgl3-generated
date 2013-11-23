@@ -198,9 +198,7 @@ public final class ContextCapabilities {
 		WGL_NV_DX_interop2,
 		WGL_NV_gpu_affinity;
 
-	ContextCapabilities(Set<String> ext, boolean fc) {
-		FunctionProvider provider = GL.getFunctionProvider();
-
+	ContextCapabilities(FunctionProvider provider, Set<String> ext, boolean fc) {
 		OpenGL11 = (__GL11 = GL11.create(ext, provider, fc)) != null;
 		OpenGL12 = (__GL12 = GL12.create(ext, provider)) != null;
 		OpenGL13 = (__GL13 = GL13.create(ext, provider, fc)) != null;

@@ -51,27 +51,25 @@ public final class KHRGLSharing {
 	public final long GetGLContextInfoKHR;
 
 	@JavadocExclude
-	public KHRGLSharing(FunctionProviderLocal provider, long platform) {
-		GetGLContextInfoKHR = provider.getFunctionAddress(platform, "clGetGLContextInfoKHR");
+	public KHRGLSharing(FunctionProvider provider) {
+		GetGLContextInfoKHR = provider.getFunctionAddress("clGetGLContextInfoKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link KHRGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static KHRGLSharing getInstance(CLObject object) {
-		return object.getCapabilities().__KHRGLSharing;
+	public static KHRGLSharing getInstance() {
+		return CL.getICD().__KHRGLSharing;
 	}
 
-	static KHRGLSharing create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_khr_gl_sharing") ) return null;
-
-		KHRGLSharing funcs = new KHRGLSharing(provider, platform);
+	static KHRGLSharing create(FunctionProvider provider) {
+		KHRGLSharing funcs = new KHRGLSharing(provider);
 
 		boolean supported = checkFunctions(
 			funcs.GetGLContextInfoKHR
 		);
 
-		return CL.checkExtension("cl_khr_gl_sharing", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clGetGLContextInfoKHR ] ---
@@ -89,8 +87,6 @@ public final class KHRGLSharing {
 	 *
 	 * @param properties           points to an attribute list whose format and valid contents are identical to the {code properties} argument of {@link CL10#clCreateContext CreateContext}.
 	 *                             {@code properties} must identify a single valid GL context or GL share group object.
-	 *                             <p/>
-	 *                             <strong>LWJGL note</strong>: The {@link CL10#CL_CONTEXT_PLATFORM CONTEXT_PLATFORM} property must be present.
 	 * @param param_name           a constant that specifies the GL context information to query. One of:<p/>{@link #CL_DEVICES_FOR_GL_CONTEXT_KHR DEVICES_FOR_GL_CONTEXT_KHR}, {@link #CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR CURRENT_DEVICE_FOR_GL_CONTEXT_KHR}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
@@ -134,8 +130,7 @@ public final class KHRGLSharing {
 	 *         the OpenCL implementation on the host.
 	 */
 	public static int clGetGLContextInfoKHR(ByteBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
+		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5 << POINTER_SHIFT);
@@ -147,8 +142,7 @@ public final class KHRGLSharing {
 
 	/** Alternative version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
+		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);
@@ -159,8 +153,7 @@ public final class KHRGLSharing {
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).GetGLContextInfoKHR;
+		long __functionAddress = getInstance().GetGLContextInfoKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 5);

@@ -226,7 +226,7 @@ public final class CL12 {
 		EnqueueBarrierWithWaitList;
 
 	@JavadocExclude
-	public CL12(FunctionProviderLocal provider) {
+	public CL12(FunctionProvider provider) {
 		GetExtensionFunctionAddressForPlatform = provider.getFunctionAddress("clGetExtensionFunctionAddressForPlatform");
 		RetainDevice = provider.getFunctionAddress("clRetainDevice");
 		ReleaseDevice = provider.getFunctionAddress("clReleaseDevice");
@@ -247,13 +247,11 @@ public final class CL12 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link CL12} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static CL12 getInstance(CLObject object) {
-		return object.getCapabilities().__CL12;
+	public static CL12 getInstance() {
+		return CL.getICD().__CL12;
 	}
 
-	static CL12 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL12") ) return null;
-
+	static CL12 create(FunctionProvider provider) {
 		CL12 funcs = new CL12(provider);
 
 		boolean supported = checkFunctions(
@@ -262,7 +260,7 @@ public final class CL12 {
 			funcs.EnqueueFillBuffer, funcs.EnqueueFillImage, funcs.EnqueueMigrateMemObjects, funcs.EnqueueMarkerWithWaitList, funcs.EnqueueBarrierWithWaitList
 		);
 
-		return CL.checkExtension("OpenCL12", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
@@ -278,7 +276,7 @@ public final class CL12 {
 	 * @param func_name 
 	 */
 	public static long clGetExtensionFunctionAddressForPlatform(CLPlatform platform, ByteBuffer func_name) {
-		long __functionAddress = getInstance(platform).GetExtensionFunctionAddressForPlatform;
+		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(func_name);
@@ -288,7 +286,7 @@ public final class CL12 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	public static long clGetExtensionFunctionAddressForPlatform(CLPlatform platform, CharSequence func_name) {
-		long __functionAddress = getInstance(platform).GetExtensionFunctionAddressForPlatform;
+		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclGetExtensionFunctionAddressForPlatform(platform.getPointer(), memAddress(memEncodeASCII(func_name)), __functionAddress);
@@ -314,7 +312,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clRetainDevice(CLDevice device) {
-		long __functionAddress = getInstance(device).RetainDevice;
+		long __functionAddress = getInstance().RetainDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainDevice(device.getPointer(), __functionAddress);
@@ -343,7 +341,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clReleaseDevice(CLDevice device) {
-		long __functionAddress = getInstance(device).ReleaseDevice;
+		long __functionAddress = getInstance().ReleaseDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseDevice(device.getPointer(), __functionAddress);
@@ -399,7 +397,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clCreateSubDevices(CLDevice in_device, ByteBuffer properties, int num_devices, ByteBuffer out_devices, ByteBuffer num_devices_ret) {
-		long __functionAddress = getInstance(in_device).CreateSubDevices;
+		long __functionAddress = getInstance().CreateSubDevices;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(properties);
@@ -411,7 +409,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clCreateSubDevices CreateSubDevices} */
 	public static int clCreateSubDevices(CLDevice in_device, PointerBuffer properties, PointerBuffer out_devices, IntBuffer num_devices_ret) {
-		long __functionAddress = getInstance(in_device).CreateSubDevices;
+		long __functionAddress = getInstance().CreateSubDevices;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT(properties);
@@ -467,7 +465,7 @@ public final class CL12 {
 	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static CLMem clCreateImage(CLContext context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage;
+		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -479,7 +477,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clCreateImage CreateImage} */
 	public static CLMem clCreateImage(CLContext context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage;
+		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -491,7 +489,7 @@ public final class CL12 {
 
 	/** ShortBuffer version of: {@link #clCreateImage CreateImage} */
 	public static CLMem clCreateImage(CLContext context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage;
+		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -503,7 +501,7 @@ public final class CL12 {
 
 	/** IntBuffer version of: {@link #clCreateImage CreateImage} */
 	public static CLMem clCreateImage(CLContext context, long flags, ByteBuffer image_format, ByteBuffer image_desc, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage;
+		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -515,7 +513,7 @@ public final class CL12 {
 
 	/** FloatBuffer version of: {@link #clCreateImage CreateImage} */
 	public static CLMem clCreateImage(CLContext context, long flags, ByteBuffer image_format, ByteBuffer image_desc, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage;
+		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -557,7 +555,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static CLProgram clCreateProgramWithBuiltInKernels(CLContext context, int num_devices, ByteBuffer device_list, ByteBuffer kernel_names, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBuiltInKernels;
+		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(kernel_names);
@@ -568,7 +566,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static CLProgram clCreateProgramWithBuiltInKernels(CLContext context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBuiltInKernels;
+		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -578,7 +576,7 @@ public final class CL12 {
 
 	/** CharSequence version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static CLProgram clCreateProgramWithBuiltInKernels(CLContext context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBuiltInKernels;
+		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -588,7 +586,7 @@ public final class CL12 {
 
 	/** Single value version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	public static CLProgram clCreateProgramWithBuiltInKernels(CLContext context, int num_devices, CLDevice device, CharSequence kernel_names, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBuiltInKernels;
+		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -655,7 +653,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clCompileProgram(CLProgram program, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_headers, ByteBuffer input_headers, ByteBuffer header_include_names, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance(program).CompileProgram;
+		long __functionAddress = getInstance().CompileProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
@@ -668,7 +666,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).CompileProgram;
+		long __functionAddress = getInstance().CompileProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
@@ -681,7 +679,7 @@ public final class CL12 {
 
 	/** CharSequence version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(CLProgram program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).CompileProgram;
+		long __functionAddress = getInstance().CompileProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
@@ -694,7 +692,7 @@ public final class CL12 {
 
 	/** Single value version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgram input_header, CharSequence header_include_name, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).CompileProgram;
+		long __functionAddress = getInstance().CompileProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -782,7 +780,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static CLProgram clLinkProgram(CLContext context, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_programs, ByteBuffer input_programs, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance(context).LinkProgram;
+		long __functionAddress = getInstance().LinkProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
@@ -794,7 +792,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clLinkProgram LinkProgram} */
 	public static CLProgram clLinkProgram(CLContext context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(context).LinkProgram;
+		long __functionAddress = getInstance().LinkProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
@@ -805,7 +803,7 @@ public final class CL12 {
 
 	/** CharSequence version of: {@link #clLinkProgram LinkProgram} */
 	public static CLProgram clLinkProgram(CLContext context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(context).LinkProgram;
+		long __functionAddress = getInstance().LinkProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
@@ -816,7 +814,7 @@ public final class CL12 {
 
 	/** Single value version of: {@link #clLinkProgram LinkProgram} */
 	public static CLProgram clLinkProgram(CLContext context, PointerBuffer device_list, CharSequence options, CLProgram input_program, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(context).LinkProgram;
+		long __functionAddress = getInstance().LinkProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -847,7 +845,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clUnloadPlatformCompiler(CLPlatform platform) {
-		long __functionAddress = getInstance(platform).UnloadPlatformCompiler;
+		long __functionAddress = getInstance().UnloadPlatformCompiler;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclUnloadPlatformCompiler(platform.getPointer(), __functionAddress);
@@ -882,7 +880,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clGetKernelArgInfo(CLKernel kernel, int arg_indx, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelArgInfo;
+		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -893,7 +891,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(CLKernel kernel, int arg_indx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelArgInfo;
+		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -903,7 +901,7 @@ public final class CL12 {
 
 	/** IntBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(CLKernel kernel, int arg_indx, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelArgInfo;
+		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -913,7 +911,7 @@ public final class CL12 {
 
 	/** LongBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(CLKernel kernel, int arg_indx, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelArgInfo;
+		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -971,7 +969,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueFillBuffer(CLCommandQueue command_queue, CLMem buffer, ByteBuffer pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueFillBuffer;
+		long __functionAddress = getInstance().EnqueueFillBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pattern, pattern_size);
@@ -983,7 +981,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clEnqueueFillBuffer EnqueueFillBuffer} */
 	public static int clEnqueueFillBuffer(CLCommandQueue command_queue, CLMem buffer, ByteBuffer pattern, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueFillBuffer;
+		long __functionAddress = getInstance().EnqueueFillBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1045,7 +1043,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueFillImage(CLCommandQueue command_queue, CLMem image, ByteBuffer fill_color, ByteBuffer origin, ByteBuffer region, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueFillImage;
+		long __functionAddress = getInstance().EnqueueFillImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -1056,7 +1054,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clEnqueueFillImage EnqueueFillImage} */
 	public static int clEnqueueFillImage(CLCommandQueue command_queue, CLMem image, ByteBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueFillImage;
+		long __functionAddress = getInstance().EnqueueFillImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1116,7 +1114,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueMigrateMemObjects(CLCommandQueue command_queue, int num_mem_objects, ByteBuffer mem_objects, long flags, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMigrateMemObjects;
+		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(mem_objects, num_mem_objects << POINTER_SHIFT);
@@ -1128,7 +1126,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clEnqueueMigrateMemObjects EnqueueMigrateMemObjects} */
 	public static int clEnqueueMigrateMemObjects(CLCommandQueue command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMigrateMemObjects;
+		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1169,7 +1167,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueMarkerWithWaitList(CLCommandQueue command_queue, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMarkerWithWaitList;
+		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -1180,7 +1178,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clEnqueueMarkerWithWaitList EnqueueMarkerWithWaitList} */
 	public static int clEnqueueMarkerWithWaitList(CLCommandQueue command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMarkerWithWaitList;
+		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1221,7 +1219,7 @@ public final class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueBarrierWithWaitList(CLCommandQueue command_queue, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueBarrierWithWaitList;
+		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -1232,7 +1230,7 @@ public final class CL12 {
 
 	/** Alternative version of: {@link #clEnqueueBarrierWithWaitList EnqueueBarrierWithWaitList} */
 	public static int clEnqueueBarrierWithWaitList(CLCommandQueue command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueBarrierWithWaitList;
+		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);

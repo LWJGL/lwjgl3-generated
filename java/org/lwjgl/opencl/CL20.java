@@ -35,7 +35,7 @@ public final class CL20 {
 		CreateSamplerWithProperties;
 
 	@JavadocExclude
-	public CL20(FunctionProviderLocal provider) {
+	public CL20(FunctionProvider provider) {
 		CreateCommandQueueWithProperties = provider.getFunctionAddress("clCreateCommandQueueWithProperties");
 		CreatePipe = provider.getFunctionAddress("clCreatePipe");
 		GetPipeInfo = provider.getFunctionAddress("clGetPipeInfo");
@@ -54,13 +54,11 @@ public final class CL20 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link CL20} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static CL20 getInstance(CLObject object) {
-		return object.getCapabilities().__CL20;
+	public static CL20 getInstance() {
+		return CL.getICD().__CL20;
 	}
 
-	static CL20 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL20") ) return null;
-
+	static CL20 create(FunctionProvider provider) {
 		CL20 funcs = new CL20(provider);
 
 		boolean supported = checkFunctions(
@@ -69,7 +67,7 @@ public final class CL20 {
 			funcs.CreateSamplerWithProperties
 		);
 
-		return CL.checkExtension("OpenCL20", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateCommandQueueWithProperties ] ---
@@ -106,7 +104,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static CLCommandQueue clCreateCommandQueueWithProperties(CLContext context, CLDevice device, ByteBuffer properties, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateCommandQueueWithProperties;
+		long __functionAddress = getInstance().CreateCommandQueueWithProperties;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -116,7 +114,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
 	public static CLCommandQueue clCreateCommandQueueWithProperties(CLContext context, CLDevice device, LongBuffer properties, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateCommandQueueWithProperties;
+		long __functionAddress = getInstance().CreateCommandQueueWithProperties;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -156,7 +154,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static CLMem clCreatePipe(CLContext context, long flags, int pipe_packet_size, int pipe_max_packets, ByteBuffer properties, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreatePipe;
+		long __functionAddress = getInstance().CreatePipe;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -166,7 +164,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clCreatePipe CreatePipe} */
 	public static CLMem clCreatePipe(CLContext context, long flags, int pipe_packet_size, int pipe_max_packets, IntBuffer properties, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreatePipe;
+		long __functionAddress = getInstance().CreatePipe;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -199,7 +197,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clGetPipeInfo(CLMem pipe, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(pipe).GetPipeInfo;
+		long __functionAddress = getInstance().GetPipeInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -210,7 +208,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(CLMem pipe, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(pipe).GetPipeInfo;
+		long __functionAddress = getInstance().GetPipeInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -220,7 +218,7 @@ public final class CL20 {
 
 	/** IntBuffer version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(CLMem pipe, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(pipe).GetPipeInfo;
+		long __functionAddress = getInstance().GetPipeInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -281,7 +279,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static ByteBuffer clSVMAlloc(CLContext context, long flags, long size, int alignment) {
-		long __functionAddress = getInstance(context).SVMAlloc;
+		long __functionAddress = getInstance().SVMAlloc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long __result = nclSVMAlloc(context.getPointer(), flags, size, alignment, __functionAddress);
@@ -310,7 +308,7 @@ public final class CL20 {
 	 * @param svm_pointer must be the value returned by a call to {@link #clSVMAlloc SVMAlloc}. If a {@code NULL} pointer is passed in {@code svm_pointer}, no action occurs.
 	 */
 	public static void clSVMFree(CLContext context, ByteBuffer svm_pointer) {
-		long __functionAddress = getInstance(context).SVMFree;
+		long __functionAddress = getInstance().SVMFree;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nclSVMFree(context.getPointer(), memAddress(svm_pointer), __functionAddress);
@@ -356,7 +354,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMFree(CLCommandQueue command_queue, int num_svm_pointers, ByteBuffer svm_pointers, long pfn_free_func, ByteBuffer user_data, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMFree;
+		long __functionAddress = getInstance().EnqueueSVMFree;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(svm_pointers, num_svm_pointers << POINTER_SHIFT);
@@ -368,7 +366,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMFree EnqueueSVMFree} */
 	public static int clEnqueueSVMFree(CLCommandQueue command_queue, PointerBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMFree;
+		long __functionAddress = getInstance().EnqueueSVMFree;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -429,7 +427,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMemcpy(CLCommandQueue command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMemcpy;
+		long __functionAddress = getInstance().EnqueueSVMMemcpy;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -440,7 +438,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
 	public static int clEnqueueSVMMemcpy(CLCommandQueue command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMemcpy;
+		long __functionAddress = getInstance().EnqueueSVMMemcpy;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -493,7 +491,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMemFill(CLCommandQueue command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long pattern_size, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMemFill;
+		long __functionAddress = getInstance().EnqueueSVMMemFill;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pattern, pattern_size);
@@ -505,7 +503,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
 	public static int clEnqueueSVMMemFill(CLCommandQueue command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMemFill;
+		long __functionAddress = getInstance().EnqueueSVMMemFill;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -560,7 +558,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMap(CLCommandQueue command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMap;
+		long __functionAddress = getInstance().EnqueueSVMMap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(svm_ptr, size);
@@ -572,7 +570,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMap EnqueueSVMMap} */
 	public static int clEnqueueSVMMap(CLCommandQueue command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMMap;
+		long __functionAddress = getInstance().EnqueueSVMMap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -614,7 +612,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMUnmap(CLCommandQueue command_queue, ByteBuffer svm_ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMUnmap;
+		long __functionAddress = getInstance().EnqueueSVMUnmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -625,7 +623,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
 	public static int clEnqueueSVMUnmap(CLCommandQueue command_queue, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueSVMUnmap;
+		long __functionAddress = getInstance().EnqueueSVMUnmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -662,7 +660,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clSetKernelArgSVMPointer(CLKernel kernel, int arg_index, ByteBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArgSVMPointer;
+		long __functionAddress = getInstance().SetKernelArgSVMPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArgSVMPointer(kernel.getPointer(), arg_index, memAddress(arg_value), __functionAddress);
@@ -721,7 +719,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static int clSetKernelExecInfo(CLKernel kernel, int param_name, long param_value_size, ByteBuffer param_value) {
-		long __functionAddress = getInstance(kernel).SetKernelExecInfo;
+		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(param_value, param_value_size);
@@ -731,7 +729,7 @@ public final class CL20 {
 
 	/** PointerBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	public static int clSetKernelExecInfo(CLKernel kernel, int param_name, PointerBuffer param_value) {
-		long __functionAddress = getInstance(kernel).SetKernelExecInfo;
+		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelExecInfo(kernel.getPointer(), param_name, param_value.remaining(), memAddress(param_value), __functionAddress);
@@ -739,7 +737,7 @@ public final class CL20 {
 
 	/** IntBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	public static int clSetKernelExecInfo(CLKernel kernel, int param_name, IntBuffer param_value) {
-		long __functionAddress = getInstance(kernel).SetKernelExecInfo;
+		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelExecInfo(kernel.getPointer(), param_name, param_value.remaining(), memAddress(param_value), __functionAddress);
@@ -772,7 +770,7 @@ public final class CL20 {
 	 *         </ul>
 	 */
 	public static CLSampler clCreateSamplerWithProperties(CLContext context, ByteBuffer sampler_properties, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateSamplerWithProperties;
+		long __functionAddress = getInstance().CreateSamplerWithProperties;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( sampler_properties != null ) checkNT4(sampler_properties);
@@ -783,7 +781,7 @@ public final class CL20 {
 
 	/** Alternative version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
 	public static CLSampler clCreateSamplerWithProperties(CLContext context, IntBuffer sampler_properties, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateSamplerWithProperties;
+		long __functionAddress = getInstance().CreateSamplerWithProperties;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( sampler_properties != null ) checkNT(sampler_properties);

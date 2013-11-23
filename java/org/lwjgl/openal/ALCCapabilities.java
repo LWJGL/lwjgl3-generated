@@ -29,9 +29,7 @@ public final class ALCCapabilities {
 		ALC_EXT_thread_local_context,
 		ALC_SOFT_loopback;
 
-	ALCCapabilities(long device, Set<String> ext) {
-		FunctionProviderLocal provider = ALC.getFunctionProvider();
-
+	ALCCapabilities(FunctionProviderLocal provider, long device, Set<String> ext) {
 		OpenALC10 = (__ALC10 = ALC10.create(ext, provider)) != null;
 		OpenALC11 = (__ALC11 = ALC11.create(ext, provider)) != null;
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");

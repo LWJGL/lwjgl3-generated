@@ -42,27 +42,25 @@ public final class KHRTerminateContext {
 	public final long TerminateContextKHR;
 
 	@JavadocExclude
-	public KHRTerminateContext(FunctionProviderLocal provider, long platform) {
-		TerminateContextKHR = provider.getFunctionAddress(platform, "clTerminateContextKHR");
+	public KHRTerminateContext(FunctionProvider provider) {
+		TerminateContextKHR = provider.getFunctionAddress("clTerminateContextKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link KHRTerminateContext} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static KHRTerminateContext getInstance(CLObject object) {
-		return object.getCapabilities().__KHRTerminateContext;
+	public static KHRTerminateContext getInstance() {
+		return CL.getICD().__KHRTerminateContext;
 	}
 
-	static KHRTerminateContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long platform) {
-		if ( !ext.contains("cl_khr_terminate_context") ) return null;
-
-		KHRTerminateContext funcs = new KHRTerminateContext(provider, platform);
+	static KHRTerminateContext create(FunctionProvider provider) {
+		KHRTerminateContext funcs = new KHRTerminateContext(provider);
 
 		boolean supported = checkFunctions(
 			funcs.TerminateContextKHR
 		);
 
-		return CL.checkExtension("cl_khr_terminate_context", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clTerminateContextKHR ] ---
@@ -101,7 +99,7 @@ public final class KHRTerminateContext {
 	 *         OOHME
 	 */
 	public static int clTerminateContextKHR(CLContext context) {
-		long __functionAddress = getInstance(context).TerminateContextKHR;
+		long __functionAddress = getInstance().TerminateContextKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclTerminateContextKHR(context.getPointer(), __functionAddress);

@@ -61,7 +61,8 @@ public final class SOFTLoopback {
 		return ALC.getCapabilities().__SOFTLoopback;
 	}
 
-	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {		if ( !ext.contains("ALC_SOFT_loopback") ) return null;
+	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
+		if ( !ext.contains("ALC_SOFT_loopback") ) return null;
 
 		SOFTLoopback funcs = new SOFTLoopback(provider, device);
 

@@ -57,7 +57,8 @@ public final class ALC11 {
 		return ALC.getCapabilities().__ALC11;
 	}
 
-	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC11") ) return null;
+	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenALC11") ) return null;
 
 		ALC11 funcs = new ALC11(provider);
 

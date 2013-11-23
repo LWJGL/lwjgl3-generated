@@ -96,7 +96,7 @@ public final class CL11 {
 		SetEventCallback;
 
 	@JavadocExclude
-	public CL11(FunctionProviderLocal provider) {
+	public CL11(FunctionProvider provider) {
 		CreateSubBuffer = provider.getFunctionAddress("clCreateSubBuffer");
 		SetMemObjectDestructorCallback = provider.getFunctionAddress("clSetMemObjectDestructorCallback");
 		EnqueueReadBufferRect = provider.getFunctionAddress("clEnqueueReadBufferRect");
@@ -110,13 +110,11 @@ public final class CL11 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link CL11} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static CL11 getInstance(CLObject object) {
-		return object.getCapabilities().__CL11;
+	public static CL11 getInstance() {
+		return CL.getICD().__CL11;
 	}
 
-	static CL11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL11") ) return null;
-
+	static CL11 create(FunctionProvider provider) {
 		CL11 funcs = new CL11(provider);
 
 		boolean supported = checkFunctions(
@@ -124,7 +122,7 @@ public final class CL11 {
 			funcs.CreateUserEvent, funcs.SetUserEventStatus, funcs.SetEventCallback
 		);
 
-		return CL.checkExtension("OpenCL11", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateSubBuffer ] ---
@@ -177,7 +175,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static CLMem clCreateSubBuffer(CLMem buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(buffer).CreateSubBuffer;
+		long __functionAddress = getInstance().CreateSubBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -187,7 +185,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clCreateSubBuffer CreateSubBuffer} */
 	public static CLMem clCreateSubBuffer(CLMem buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(buffer).CreateSubBuffer;
+		long __functionAddress = getInstance().CreateSubBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -222,7 +220,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clSetMemObjectDestructorCallback(CLMem memobj, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance(memobj).SetMemObjectDestructorCallback;
+		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetMemObjectDestructorCallback(memobj.getPointer(), pfn_notify, user_data, __functionAddress);
@@ -230,7 +228,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} */
 	public static int clSetMemObjectDestructorCallback(CLMem memobj, CLMemObjectDestructorCallback pfn_notify) {
-		long __functionAddress = getInstance(memobj).SetMemObjectDestructorCallback;
+		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
@@ -319,7 +317,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3 << POINTER_SHIFT);
@@ -333,7 +331,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -346,7 +344,7 @@ public final class CL11 {
 
 	/** ShortBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -359,7 +357,7 @@ public final class CL11 {
 
 	/** IntBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -372,7 +370,7 @@ public final class CL11 {
 
 	/** FloatBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -385,7 +383,7 @@ public final class CL11 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBufferRect;
+		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -476,7 +474,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3 << POINTER_SHIFT);
@@ -490,7 +488,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -503,7 +501,7 @@ public final class CL11 {
 
 	/** ShortBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -516,7 +514,7 @@ public final class CL11 {
 
 	/** IntBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -529,7 +527,7 @@ public final class CL11 {
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -542,7 +540,7 @@ public final class CL11 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBufferRect;
+		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(buffer_offset, 3);
@@ -627,7 +625,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyBufferRect(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, ByteBuffer src_origin, ByteBuffer dst_origin, ByteBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBufferRect;
+		long __functionAddress = getInstance().EnqueueCopyBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3 << POINTER_SHIFT);
@@ -641,7 +639,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clEnqueueCopyBufferRect EnqueueCopyBufferRect} */
 	public static int clEnqueueCopyBufferRect(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBufferRect;
+		long __functionAddress = getInstance().EnqueueCopyBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3);
@@ -676,7 +674,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static CLEvent clCreateUserEvent(CLContext context, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateUserEvent;
+		long __functionAddress = getInstance().CreateUserEvent;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -686,7 +684,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clCreateUserEvent CreateUserEvent} */
 	public static CLEvent clCreateUserEvent(CLContext context, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateUserEvent;
+		long __functionAddress = getInstance().CreateUserEvent;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -737,7 +735,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clSetUserEventStatus(CLEvent event, int execution_status) {
-		long __functionAddress = getInstance(event).SetUserEventStatus;
+		long __functionAddress = getInstance().SetUserEventStatus;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetUserEventStatus(event.getPointer(), execution_status, __functionAddress);
@@ -794,7 +792,7 @@ public final class CL11 {
 	 *         </ul>
 	 */
 	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance(event).SetEventCallback;
+		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetEventCallback(event.getPointer(), command_exec_callback_type, pfn_notify, user_data, __functionAddress);
@@ -802,7 +800,7 @@ public final class CL11 {
 
 	/** Alternative version of: {@link #clSetEventCallback SetEventCallback} */
 	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, CLEventCallback pfn_notify) {
-		long __functionAddress = getInstance(event).SetEventCallback;
+		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)

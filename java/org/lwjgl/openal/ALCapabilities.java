@@ -41,9 +41,7 @@ public final class ALCapabilities {
 		AL_SOFT_loop_points,
 		AL_SOFT_source_latency;
 
-	ALCapabilities(Set<String> ext) {
-		FunctionProvider provider = AL.getFunctionProvider();
-
+	ALCapabilities(FunctionProvider provider, Set<String> ext) {
 		OpenAL10 = (__AL10 = AL10.create(ext, provider)) != null;
 		OpenAL11 = (__AL11 = AL11.create(ext, provider)) != null;
 		AL_EXT_ALAW = ext.contains("AL_EXT_ALAW");

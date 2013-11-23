@@ -32,7 +32,8 @@ public final class EXTThreadLocalContext {
 		return ALC.getCapabilities().__EXTThreadLocalContext;
 	}
 
-	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {		if ( !ext.contains("ALC_EXT_thread_local_context") ) return null;
+	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
+		if ( !ext.contains("ALC_EXT_thread_local_context") ) return null;
 
 		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
 

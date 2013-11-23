@@ -430,7 +430,7 @@ public final class CL10 {
 		GetExtensionFunctionAddress;
 
 	@JavadocExclude
-	public CL10(FunctionProviderLocal provider) {
+	public CL10(FunctionProvider provider) {
 		GetPlatformIDs = provider.getFunctionAddress("clGetPlatformIDs");
 		GetPlatformInfo = provider.getFunctionAddress("clGetPlatformInfo");
 		GetDeviceIDs = provider.getFunctionAddress("clGetDeviceIDs");
@@ -501,13 +501,11 @@ public final class CL10 {
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link CL10} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static CL10 getInstance(CLObject object) {
-		return object.getCapabilities().__CL10;
+	public static CL10 getInstance() {
+		return CL.getICD().__CL10;
 	}
 
-	static CL10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL10") ) return null;
-
+	static CL10 create(FunctionProvider provider) {
 		CL10 funcs = new CL10(provider);
 
 		boolean supported = checkFunctions(
@@ -524,7 +522,7 @@ public final class CL10 {
 			funcs.EnqueueBarrier, funcs.EnqueueWaitForEvents, funcs.GetEventProfilingInfo, funcs.Flush, funcs.Finish, funcs.GetExtensionFunctionAddress
 		);
 
-		return CL.checkExtension("OpenCL10", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clGetPlatformIDs ] ---
@@ -551,7 +549,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetPlatformIDs(int num_entries, ByteBuffer platforms, ByteBuffer num_platforms) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetPlatformIDs");
+		long __functionAddress = getInstance().GetPlatformIDs;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( platforms != null ) checkBuffer(platforms, num_entries << POINTER_SHIFT);
@@ -562,7 +560,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetPlatformIDs GetPlatformIDs} */
 	public static int clGetPlatformIDs(PointerBuffer platforms, IntBuffer num_platforms) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetPlatformIDs");
+		long __functionAddress = getInstance().GetPlatformIDs;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( num_platforms != null ) checkBuffer(num_platforms, 1);
@@ -594,7 +592,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetPlatformInfo(CLPlatform platform, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(platform).GetPlatformInfo;
+		long __functionAddress = getInstance().GetPlatformInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -605,7 +603,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetPlatformInfo GetPlatformInfo} */
 	public static int clGetPlatformInfo(CLPlatform platform, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(platform).GetPlatformInfo;
+		long __functionAddress = getInstance().GetPlatformInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -643,7 +641,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetDeviceIDs(CLPlatform platform, long device_type, int num_entries, ByteBuffer devices, ByteBuffer num_devices) {
-		long __functionAddress = getInstance(platform).GetDeviceIDs;
+		long __functionAddress = getInstance().GetDeviceIDs;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( devices != null ) checkBuffer(devices, num_entries << POINTER_SHIFT);
@@ -654,7 +652,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetDeviceIDs GetDeviceIDs} */
 	public static int clGetDeviceIDs(CLPlatform platform, long device_type, PointerBuffer devices, IntBuffer num_devices) {
-		long __functionAddress = getInstance(platform).GetDeviceIDs;
+		long __functionAddress = getInstance().GetDeviceIDs;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( num_devices != null ) checkBuffer(num_devices, 1);
@@ -689,7 +687,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(device).GetDeviceInfo;
+		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -700,7 +698,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(device).GetDeviceInfo;
+		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -710,7 +708,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(device).GetDeviceInfo;
+		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -720,7 +718,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(device).GetDeviceInfo;
+		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -730,7 +728,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(CLDevice device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(device).GetDeviceInfo;
+		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -779,34 +777,33 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLContext clCreateContext(ByteBuffer properties, int num_devices, ByteBuffer devices, long pfn_notify, long user_data, ByteBuffer errcode_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).CreateContext;
+		long __functionAddress = getInstance().CreateContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 3 << POINTER_SHIFT);
 			checkBuffer(devices, num_devices << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
+		CLPlatform platform = CLContext.getPlatform(properties);
 		return CLContext.create(nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Alternative version of: {@link #clCreateContext CreateContext} */
 	public static CLContext clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallback pfn_notify, IntBuffer errcode_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).CreateContext;
+		long __functionAddress = getInstance().CreateContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
+		CLPlatform platform = CLContext.getPlatform(properties);
 		long user_data = CLContextCallback.Util.register(pfn_notify);
 		return CLContext.create(nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Single value version of: {@link #clCreateContext CreateContext} */
 	public static CLContext clCreateContext(PointerBuffer properties, CLDevice device, CLContextCallback pfn_notify, IntBuffer errcode_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).CreateContext;
+		long __functionAddress = getInstance().CreateContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 3);
@@ -814,6 +811,7 @@ public final class CL10 {
 		}
 		APIBuffer __buffer = apiBuffer();
 		int devices = __buffer.pointerParam(device);
+		CLPlatform platform = CLContext.getPlatform(properties);
 		long user_data = CLContextCallback.Util.register(pfn_notify);
 		return CLContext.create(nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
@@ -837,25 +835,25 @@ public final class CL10 {
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static CLContext clCreateContextFromType(ByteBuffer properties, long device_type, long pfn_notify, long user_data, ByteBuffer errcode_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).CreateContextFromType;
+		long __functionAddress = getInstance().CreateContextFromType;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 3 << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
+		CLPlatform platform = CLContext.getPlatform(properties);
 		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
 
 	/** Alternative version of: {@link #clCreateContextFromType CreateContextFromType} */
 	public static CLContext clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallback pfn_notify, IntBuffer errcode_ret) {
-		CLPlatform platform = CLContext.getPlatform(properties);
-		long __functionAddress = getInstance(platform).CreateContextFromType;
+		long __functionAddress = getInstance().CreateContextFromType;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
+		CLPlatform platform = CLContext.getPlatform(properties);
 		long user_data = CLContextCallback.Util.register(pfn_notify);
 		return CLContext.create(nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : CLContextCallback.Util.CALLBACK, user_data, memAddressSafe(errcode_ret), __functionAddress), platform, pfn_notify, user_data);
 	}
@@ -883,7 +881,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainContext(CLContext context) {
-		long __functionAddress = getInstance(context).RetainContext;
+		long __functionAddress = getInstance().RetainContext;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainContext(context.getPointer(), __functionAddress);
@@ -911,7 +909,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseContext(CLContext context) {
-		long __functionAddress = getInstance(context).ReleaseContext;
+		long __functionAddress = getInstance().ReleaseContext;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseContext(context.getPointer(), __functionAddress);
@@ -942,7 +940,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetContextInfo(CLContext context, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetContextInfo;
+		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -953,7 +951,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetContextInfo GetContextInfo} */
 	public static int clGetContextInfo(CLContext context, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetContextInfo;
+		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -963,7 +961,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetContextInfo GetContextInfo} */
 	public static int clGetContextInfo(CLContext context, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetContextInfo;
+		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -973,7 +971,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetContextInfo GetContextInfo} */
 	public static int clGetContextInfo(CLContext context, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(context).GetContextInfo;
+		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -1013,7 +1011,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLCommandQueue clCreateCommandQueue(CLContext context, CLDevice device, long properties, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateCommandQueue;
+		long __functionAddress = getInstance().CreateCommandQueue;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -1023,7 +1021,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateCommandQueue CreateCommandQueue} */
 	public static CLCommandQueue clCreateCommandQueue(CLContext context, CLDevice device, long properties, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateCommandQueue;
+		long __functionAddress = getInstance().CreateCommandQueue;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1054,7 +1052,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainCommandQueue(CLCommandQueue command_queue) {
-		long __functionAddress = getInstance(command_queue).RetainCommandQueue;
+		long __functionAddress = getInstance().RetainCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainCommandQueue(command_queue.getPointer(), __functionAddress);
@@ -1084,7 +1082,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseCommandQueue(CLCommandQueue command_queue) {
-		long __functionAddress = getInstance(command_queue).ReleaseCommandQueue;
+		long __functionAddress = getInstance().ReleaseCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseCommandQueue(command_queue.getPointer(), __functionAddress);
@@ -1115,7 +1113,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(command_queue).GetCommandQueueInfo;
+		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -1126,7 +1124,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(command_queue).GetCommandQueueInfo;
+		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -1136,7 +1134,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(command_queue).GetCommandQueueInfo;
+		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -1146,7 +1144,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(command_queue).GetCommandQueueInfo;
+		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -1156,7 +1154,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(CLCommandQueue command_queue, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(command_queue).GetCommandQueueInfo;
+		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -1196,7 +1194,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLMem clCreateBuffer(CLContext context, long flags, long size, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( host_ptr != null ) checkBuffer(host_ptr, size);
@@ -1207,7 +1205,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, long size, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1217,7 +1215,7 @@ public final class CL10 {
 
 	/** ByteBuffer version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1227,7 +1225,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1237,7 +1235,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1247,7 +1245,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1257,7 +1255,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clCreateBuffer CreateBuffer} */
 	public static CLMem clCreateBuffer(CLContext context, long flags, DoubleBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateBuffer;
+		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -1329,7 +1327,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, long size, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ptr, size);
@@ -1341,7 +1339,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, long size, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1351,7 +1349,7 @@ public final class CL10 {
 
 	/** ByteBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1361,7 +1359,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1371,7 +1369,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1381,7 +1379,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1391,7 +1389,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_read, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadBuffer;
+		long __functionAddress = getInstance().EnqueueReadBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1462,7 +1460,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, long size, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(ptr, size);
@@ -1474,7 +1472,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, long size, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1484,7 +1482,7 @@ public final class CL10 {
 
 	/** ByteBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1494,7 +1492,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1504,7 +1502,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1514,7 +1512,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1524,7 +1522,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_write, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteBuffer;
+		long __functionAddress = getInstance().EnqueueWriteBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1582,7 +1580,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyBuffer(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBuffer;
+		long __functionAddress = getInstance().EnqueueCopyBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -1593,7 +1591,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueCopyBuffer EnqueueCopyBuffer} */
 	public static int clEnqueueCopyBuffer(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, long src_offset, long dst_offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBuffer;
+		long __functionAddress = getInstance().EnqueueCopyBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1673,7 +1671,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static ByteBuffer clEnqueueMapBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(command_queue).EnqueueMapBuffer;
+		long __functionAddress = getInstance().EnqueueMapBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -1686,7 +1684,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
 	public static ByteBuffer clEnqueueMapBuffer(CLCommandQueue command_queue, CLMem buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance(command_queue).EnqueueMapBuffer;
+		long __functionAddress = getInstance().EnqueueMapBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -1738,7 +1736,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage2D;
+		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1749,7 +1747,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateImage2D CreateImage2D} */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage2D;
+		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1760,7 +1758,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage2D;
+		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1771,7 +1769,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage2D;
+		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1782,7 +1780,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static CLMem clCreateImage2D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage2D;
+		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1840,7 +1838,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage3D;
+		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1851,7 +1849,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateImage3D CreateImage3D} */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage3D;
+		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1862,7 +1860,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage3D;
+		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1873,7 +1871,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage3D;
+		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1884,7 +1882,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static CLMem clCreateImage3D(CLContext context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateImage3D;
+		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(image_format, cl_image_format.SIZEOF);
@@ -1928,7 +1926,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetSupportedImageFormats(CLContext context, long flags, int image_type, int num_entries, ByteBuffer image_formats, ByteBuffer num_image_formats) {
-		long __functionAddress = getInstance(context).GetSupportedImageFormats;
+		long __functionAddress = getInstance().GetSupportedImageFormats;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( image_formats != null ) checkBuffer(image_formats, num_entries * cl_image_format.SIZEOF);
@@ -1940,7 +1938,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
 	public static int clGetSupportedImageFormats(CLContext context, long flags, int image_type, ByteBuffer image_formats, IntBuffer num_image_formats) {
-		long __functionAddress = getInstance(context).GetSupportedImageFormats;
+		long __functionAddress = getInstance().GetSupportedImageFormats;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( image_formats != null ) checkBuffer(image_formats, cl_image_format.SIZEOF);
@@ -2034,7 +2032,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, ByteBuffer origin, ByteBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3 << POINTER_SHIFT);
@@ -2047,7 +2045,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2059,7 +2057,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2071,7 +2069,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2083,7 +2081,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2095,7 +2093,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadImage EnqueueReadImage} */
 	public static int clEnqueueReadImage(CLCommandQueue command_queue, CLMem image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueReadImage;
+		long __functionAddress = getInstance().EnqueueReadImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2190,7 +2188,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, ByteBuffer origin, ByteBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3 << POINTER_SHIFT);
@@ -2203,7 +2201,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2215,7 +2213,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2227,7 +2225,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2239,7 +2237,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2251,7 +2249,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	public static int clEnqueueWriteImage(CLCommandQueue command_queue, CLMem image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWriteImage;
+		long __functionAddress = getInstance().EnqueueWriteImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2338,7 +2336,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyImage(CLCommandQueue command_queue, CLMem src_image, CLMem dst_image, ByteBuffer src_origin, ByteBuffer dst_origin, ByteBuffer region, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyImage;
+		long __functionAddress = getInstance().EnqueueCopyImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3 << POINTER_SHIFT);
@@ -2352,7 +2350,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueCopyImage EnqueueCopyImage} */
 	public static int clEnqueueCopyImage(CLCommandQueue command_queue, CLMem src_image, CLMem dst_image, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyImage;
+		long __functionAddress = getInstance().EnqueueCopyImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3);
@@ -2427,7 +2425,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyImageToBuffer(CLCommandQueue command_queue, CLMem src_image, CLMem dst_buffer, ByteBuffer src_origin, ByteBuffer region, long dst_offset, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyImageToBuffer;
+		long __functionAddress = getInstance().EnqueueCopyImageToBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3 << POINTER_SHIFT);
@@ -2440,7 +2438,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueCopyImageToBuffer EnqueueCopyImageToBuffer} */
 	public static int clEnqueueCopyImageToBuffer(CLCommandQueue command_queue, CLMem src_image, CLMem dst_buffer, PointerBuffer src_origin, PointerBuffer region, long dst_offset, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyImageToBuffer;
+		long __functionAddress = getInstance().EnqueueCopyImageToBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(src_origin, 3);
@@ -2510,7 +2508,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueCopyBufferToImage(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_image, long src_offset, ByteBuffer dst_origin, ByteBuffer region, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBufferToImage;
+		long __functionAddress = getInstance().EnqueueCopyBufferToImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dst_origin, 3 << POINTER_SHIFT);
@@ -2523,7 +2521,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueCopyBufferToImage EnqueueCopyBufferToImage} */
 	public static int clEnqueueCopyBufferToImage(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_image, long src_offset, PointerBuffer dst_origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueCopyBufferToImage;
+		long __functionAddress = getInstance().EnqueueCopyBufferToImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(dst_origin, 3);
@@ -2623,7 +2621,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static ByteBuffer clEnqueueMapImage(CLCommandQueue command_queue, CLMem image, int blocking_map, long map_flags, ByteBuffer origin, ByteBuffer region, ByteBuffer image_row_pitch, ByteBuffer image_slice_pitch, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(command_queue).EnqueueMapImage;
+		long __functionAddress = getInstance().EnqueueMapImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3 << POINTER_SHIFT);
@@ -2640,7 +2638,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */
 	public static ByteBuffer clEnqueueMapImage(CLCommandQueue command_queue, CLMem image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance(command_queue).EnqueueMapImage;
+		long __functionAddress = getInstance().EnqueueMapImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2657,7 +2655,7 @@ public final class CL10 {
 
 	/** Explicit size alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */
 	public static ByteBuffer clEnqueueMapImage(CLCommandQueue command_queue, CLMem image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, int length, ByteBuffer old_buffer) {
-		long __functionAddress = getInstance(command_queue).EnqueueMapImage;
+		long __functionAddress = getInstance().EnqueueMapImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(origin, 3);
@@ -2696,7 +2694,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetImageInfo(CLMem image, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(image).GetImageInfo;
+		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -2707,7 +2705,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetImageInfo GetImageInfo} */
 	public static int clGetImageInfo(CLMem image, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(image).GetImageInfo;
+		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2717,7 +2715,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetImageInfo GetImageInfo} */
 	public static int clGetImageInfo(CLMem image, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(image).GetImageInfo;
+		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2727,7 +2725,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetImageInfo GetImageInfo} */
 	public static int clGetImageInfo(CLMem image, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(image).GetImageInfo;
+		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2756,7 +2754,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainMemObject(CLMem memobj) {
-		long __functionAddress = getInstance(memobj).RetainMemObject;
+		long __functionAddress = getInstance().RetainMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainMemObject(memobj.getPointer(), __functionAddress);
@@ -2785,7 +2783,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseMemObject(CLMem memobj) {
-		long __functionAddress = getInstance(memobj).ReleaseMemObject;
+		long __functionAddress = getInstance().ReleaseMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseMemObject(memobj.getPointer(), __functionAddress);
@@ -2832,7 +2830,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueUnmapMemObject(CLCommandQueue command_queue, CLMem memobj, ByteBuffer mapped_ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueUnmapMemObject;
+		long __functionAddress = getInstance().EnqueueUnmapMemObject;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -2843,7 +2841,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject} */
 	public static int clEnqueueUnmapMemObject(CLCommandQueue command_queue, CLMem memobj, ByteBuffer mapped_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueUnmapMemObject;
+		long __functionAddress = getInstance().EnqueueUnmapMemObject;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -2876,7 +2874,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).GetMemObjectInfo;
+		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -2887,7 +2885,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).GetMemObjectInfo;
+		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2897,7 +2895,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).GetMemObjectInfo;
+		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2907,7 +2905,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).GetMemObjectInfo;
+		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2917,7 +2915,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(CLMem memobj, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(memobj).GetMemObjectInfo;
+		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -2957,7 +2955,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLSampler clCreateSampler(CLContext context, int normalized_coords, int addressing_mode, int filter_mode, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateSampler;
+		long __functionAddress = getInstance().CreateSampler;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -2967,7 +2965,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateSampler CreateSampler} */
 	public static CLSampler clCreateSampler(CLContext context, int normalized_coords, int addressing_mode, int filter_mode, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateSampler;
+		long __functionAddress = getInstance().CreateSampler;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -2994,7 +2992,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainSampler(CLSampler sampler) {
-		long __functionAddress = getInstance(sampler).RetainSampler;
+		long __functionAddress = getInstance().RetainSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainSampler(sampler.getPointer(), __functionAddress);
@@ -3020,7 +3018,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseSampler(CLSampler sampler) {
-		long __functionAddress = getInstance(sampler).ReleaseSampler;
+		long __functionAddress = getInstance().ReleaseSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseSampler(sampler.getPointer(), __functionAddress);
@@ -3051,7 +3049,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetSamplerInfo(CLSampler sampler, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(sampler).GetSamplerInfo;
+		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -3062,7 +3060,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int clGetSamplerInfo(CLSampler sampler, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(sampler).GetSamplerInfo;
+		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3072,7 +3070,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int clGetSamplerInfo(CLSampler sampler, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(sampler).GetSamplerInfo;
+		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3082,7 +3080,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int clGetSamplerInfo(CLSampler sampler, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(sampler).GetSamplerInfo;
+		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3119,7 +3117,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLProgram clCreateProgramWithSource(CLContext context, int count, ByteBuffer strings, ByteBuffer lengths, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithSource;
+		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(strings, count << POINTER_SHIFT);
@@ -3131,7 +3129,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
 	public static CLProgram clCreateProgramWithSource(CLContext context, PointerBuffer strings, PointerBuffer lengths, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithSource;
+		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( lengths != null ) checkBuffer(lengths, strings.remaining());
@@ -3142,7 +3140,7 @@ public final class CL10 {
 
 	/** Array version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
 	public static CLProgram clCreateProgramWithSource(CLContext context, CharSequence[] strings, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithSource;
+		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -3160,7 +3158,7 @@ public final class CL10 {
 
 	/** Single string version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
 	public static CLProgram clCreateProgramWithSource(CLContext context, CharSequence string, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithSource;
+		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -3225,7 +3223,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLProgram clCreateProgramWithBinary(CLContext context, int num_devices, ByteBuffer device_list, ByteBuffer lengths, ByteBuffer binaries, ByteBuffer binary_status, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBinary;
+		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(binaries, num_devices << POINTER_SHIFT);
@@ -3239,7 +3237,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
 	public static CLProgram clCreateProgramWithBinary(CLContext context, PointerBuffer device_list, PointerBuffer lengths, PointerBuffer binaries, IntBuffer binary_status, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBinary;
+		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(device_list, binaries.remaining());
@@ -3252,7 +3250,7 @@ public final class CL10 {
 
 	/** Array version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
 	public static CLProgram clCreateProgramWithBinary(CLContext context, PointerBuffer device_list, ByteBuffer[] binaries, IntBuffer binary_status, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBinary;
+		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(device_list, binaries.length);
@@ -3271,7 +3269,7 @@ public final class CL10 {
 
 	/** Single binary version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
 	public static CLProgram clCreateProgramWithBinary(CLContext context, PointerBuffer device_list, ByteBuffer binary, IntBuffer binary_status, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateProgramWithBinary;
+		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(device_list, 1);
@@ -3303,7 +3301,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainProgram(CLProgram program) {
-		long __functionAddress = getInstance(program).RetainProgram;
+		long __functionAddress = getInstance().RetainProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainProgram(program.getPointer(), __functionAddress);
@@ -3329,7 +3327,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseProgram(CLProgram program) {
-		long __functionAddress = getInstance(program).ReleaseProgram;
+		long __functionAddress = getInstance().ReleaseProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseProgram(program.getPointer(), __functionAddress);
@@ -3387,7 +3385,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clBuildProgram(CLProgram program, int num_devices, ByteBuffer device_list, ByteBuffer options, long pfn_notify, long user_data) {
-		long __functionAddress = getInstance(program).BuildProgram;
+		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
@@ -3398,7 +3396,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).BuildProgram;
+		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
@@ -3409,7 +3407,7 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(CLProgram program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).BuildProgram;
+		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
@@ -3420,7 +3418,7 @@ public final class CL10 {
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(CLProgram program, CLDevice device, CharSequence options, CLProgramCallback pfn_notify) {
-		long __functionAddress = getInstance(program).BuildProgram;
+		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -3446,7 +3444,7 @@ public final class CL10 {
 	 * @return always {@link #CL_SUCCESS SUCCESS}
 	 */
 	public static int clUnloadCompiler() {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clUnloadCompiler");
+		long __functionAddress = getInstance().UnloadCompiler;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclUnloadCompiler(__functionAddress);
@@ -3479,7 +3477,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetProgramInfo(CLProgram program, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramInfo;
+		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -3490,7 +3488,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetProgramInfo GetProgramInfo} */
 	public static int clGetProgramInfo(CLProgram program, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramInfo;
+		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3500,7 +3498,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetProgramInfo GetProgramInfo} */
 	public static int clGetProgramInfo(CLProgram program, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramInfo;
+		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3510,7 +3508,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetProgramInfo GetProgramInfo} */
 	public static int clGetProgramInfo(CLProgram program, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramInfo;
+		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3545,7 +3543,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramBuildInfo;
+		long __functionAddress = getInstance().GetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -3556,7 +3554,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramBuildInfo;
+		long __functionAddress = getInstance().GetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3566,7 +3564,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramBuildInfo;
+		long __functionAddress = getInstance().GetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3576,7 +3574,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int clGetProgramBuildInfo(CLProgram program, CLDevice device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(program).GetProgramBuildInfo;
+		long __functionAddress = getInstance().GetProgramBuildInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3622,7 +3620,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static CLKernel clCreateKernel(CLProgram program, ByteBuffer kernel_name, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(program).CreateKernel;
+		long __functionAddress = getInstance().CreateKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(kernel_name);
@@ -3633,7 +3631,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateKernel CreateKernel} */
 	public static CLKernel clCreateKernel(CLProgram program, ByteBuffer kernel_name, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(program).CreateKernel;
+		long __functionAddress = getInstance().CreateKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -3643,7 +3641,7 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clCreateKernel CreateKernel} */
 	public static CLKernel clCreateKernel(CLProgram program, CharSequence kernel_name, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(program).CreateKernel;
+		long __functionAddress = getInstance().CreateKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -3679,7 +3677,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clCreateKernelsInProgram(CLProgram program, int num_kernels, ByteBuffer kernels, ByteBuffer num_kernels_ret) {
-		long __functionAddress = getInstance(program).CreateKernelsInProgram;
+		long __functionAddress = getInstance().CreateKernelsInProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( kernels != null ) checkBuffer(kernels, num_kernels << POINTER_SHIFT);
@@ -3690,7 +3688,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clCreateKernelsInProgram CreateKernelsInProgram} */
 	public static int clCreateKernelsInProgram(CLProgram program, PointerBuffer kernels, IntBuffer num_kernels_ret) {
-		long __functionAddress = getInstance(program).CreateKernelsInProgram;
+		long __functionAddress = getInstance().CreateKernelsInProgram;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( num_kernels_ret != null ) checkBuffer(num_kernels_ret, 1);
@@ -3717,7 +3715,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainKernel(CLKernel kernel) {
-		long __functionAddress = getInstance(kernel).RetainKernel;
+		long __functionAddress = getInstance().RetainKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainKernel(kernel.getPointer(), __functionAddress);
@@ -3745,7 +3743,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseKernel(CLKernel kernel) {
-		long __functionAddress = getInstance(kernel).ReleaseKernel;
+		long __functionAddress = getInstance().ReleaseKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseKernel(kernel.getPointer(), __functionAddress);
@@ -3827,7 +3825,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, long arg_size, ByteBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( arg_value != null ) checkBuffer(arg_value, arg_size);
@@ -3837,7 +3835,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, long arg_size) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_size, 0L, __functionAddress);
@@ -3845,7 +3843,7 @@ public final class CL10 {
 
 	/** ByteBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, ByteBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3853,7 +3851,7 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, ShortBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3861,7 +3859,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, IntBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3869,7 +3867,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, LongBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3877,7 +3875,7 @@ public final class CL10 {
 
 	/** FloatBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, FloatBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3885,7 +3883,7 @@ public final class CL10 {
 
 	/** DoubleBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, DoubleBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3893,7 +3891,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(CLKernel kernel, int arg_index, PointerBuffer arg_value) {
-		long __functionAddress = getInstance(kernel).SetKernelArg;
+		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclSetKernelArg(kernel.getPointer(), arg_index, arg_value.remaining(), memAddress(arg_value), __functionAddress);
@@ -3924,7 +3922,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetKernelInfo(CLKernel kernel, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelInfo;
+		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -3935,7 +3933,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetKernelInfo GetKernelInfo} */
 	public static int clGetKernelInfo(CLKernel kernel, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelInfo;
+		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3945,7 +3943,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetKernelInfo GetKernelInfo} */
 	public static int clGetKernelInfo(CLKernel kernel, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelInfo;
+		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3955,7 +3953,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetKernelInfo GetKernelInfo} */
 	public static int clGetKernelInfo(CLKernel kernel, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelInfo;
+		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -3994,7 +3992,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelWorkGroupInfo;
+		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -4005,7 +4003,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelWorkGroupInfo;
+		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4015,7 +4013,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelWorkGroupInfo;
+		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4025,7 +4023,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelWorkGroupInfo;
+		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4035,7 +4033,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(CLKernel kernel, CLDevice device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(kernel).GetKernelWorkGroupInfo;
+		long __functionAddress = getInstance().GetKernelWorkGroupInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4128,7 +4126,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueNDRangeKernel(CLCommandQueue command_queue, CLKernel kernel, int work_dim, ByteBuffer global_work_offset, ByteBuffer global_work_size, ByteBuffer local_work_size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueNDRangeKernel;
+		long __functionAddress = getInstance().EnqueueNDRangeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( global_work_offset != null ) checkBuffer(global_work_offset, work_dim << POINTER_SHIFT);
@@ -4142,7 +4140,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} */
 	public static int clEnqueueNDRangeKernel(CLCommandQueue command_queue, CLKernel kernel, int work_dim, PointerBuffer global_work_offset, PointerBuffer global_work_size, PointerBuffer local_work_size, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueNDRangeKernel;
+		long __functionAddress = getInstance().EnqueueNDRangeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( global_work_offset != null ) checkBuffer(global_work_offset, work_dim);
@@ -4179,7 +4177,7 @@ public final class CL10 {
 	 * @return {@link #CL_SUCCESS SUCCESS} if the kernel execution was successfully queued. Otherwise, see {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel}.
 	 */
 	public static int clEnqueueTask(CLCommandQueue command_queue, CLKernel kernel, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueTask;
+		long __functionAddress = getInstance().EnqueueTask;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -4190,7 +4188,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueTask EnqueueTask} */
 	public static int clEnqueueTask(CLCommandQueue command_queue, CLKernel kernel, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueTask;
+		long __functionAddress = getInstance().EnqueueTask;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -4258,7 +4256,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, long user_func, ByteBuffer args, long cb_args, int num_mem_objects, ByteBuffer mem_list, ByteBuffer args_mem_loc, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueNativeKernel;
+		long __functionAddress = getInstance().EnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
@@ -4273,7 +4271,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
 	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernel user_func, ByteBuffer args, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueNativeKernel;
+		long __functionAddress = getInstance().EnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
@@ -4288,7 +4286,7 @@ public final class CL10 {
 
 	/** Single value version of: {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
 	public static int clEnqueueNativeKernel(CLCommandQueue command_queue, CLNativeKernel user_func, ByteBuffer args, CLMem memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueNativeKernel;
+		long __functionAddress = getInstance().EnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( args != null ) checkBuffer(args, POINTER_SIZE * 2);
@@ -4327,7 +4325,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clWaitForEvents(int num_events, ByteBuffer event_list) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		long __functionAddress = getInstance().WaitForEvents;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(event_list, num_events << POINTER_SHIFT);
@@ -4337,7 +4335,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clWaitForEvents WaitForEvents} */
 	public static int clWaitForEvents(PointerBuffer event_list) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		long __functionAddress = getInstance().WaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclWaitForEvents(event_list.remaining(), memAddress(event_list), __functionAddress);
@@ -4345,7 +4343,7 @@ public final class CL10 {
 
 	/** Single value version of: {@link #clWaitForEvents WaitForEvents} */
 	public static int clWaitForEvents(CLEvent event) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clWaitForEvents");
+		long __functionAddress = getInstance().WaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4383,7 +4381,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetEventInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventInfo;
+		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -4394,7 +4392,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetEventInfo GetEventInfo} */
 	public static int clGetEventInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventInfo;
+		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4404,7 +4402,7 @@ public final class CL10 {
 
 	/** IntBuffer version of: {@link #clGetEventInfo GetEventInfo} */
 	public static int clGetEventInfo(CLEvent event, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventInfo;
+		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4414,7 +4412,7 @@ public final class CL10 {
 
 	/** PointerBuffer version of: {@link #clGetEventInfo GetEventInfo} */
 	public static int clGetEventInfo(CLEvent event, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventInfo;
+		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4441,7 +4439,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clRetainEvent(CLEvent event) {
-		long __functionAddress = getInstance(event).RetainEvent;
+		long __functionAddress = getInstance().RetainEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclRetainEvent(event.getPointer(), __functionAddress);
@@ -4477,7 +4475,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clReleaseEvent(CLEvent event) {
-		long __functionAddress = getInstance(event).ReleaseEvent;
+		long __functionAddress = getInstance().ReleaseEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclReleaseEvent(event.getPointer(), __functionAddress);
@@ -4509,7 +4507,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueMarker(CLCommandQueue command_queue, ByteBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMarker;
+		long __functionAddress = getInstance().EnqueueMarker;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -4519,7 +4517,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueMarker EnqueueMarker} */
 	public static int clEnqueueMarker(CLCommandQueue command_queue, PointerBuffer event) {
-		long __functionAddress = getInstance(command_queue).EnqueueMarker;
+		long __functionAddress = getInstance().EnqueueMarker;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( event != null ) checkBuffer(event, 1);
@@ -4547,7 +4545,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueBarrier(CLCommandQueue command_queue) {
-		long __functionAddress = getInstance(command_queue).EnqueueBarrier;
+		long __functionAddress = getInstance().EnqueueBarrier;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclEnqueueBarrier(command_queue.getPointer(), __functionAddress);
@@ -4577,7 +4575,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, int num_events, ByteBuffer event_list) {
-		long __functionAddress = getInstance(command_queue).EnqueueWaitForEvents;
+		long __functionAddress = getInstance().EnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(event_list, num_events << POINTER_SHIFT);
@@ -4587,7 +4585,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
 	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, PointerBuffer event_list) {
-		long __functionAddress = getInstance(command_queue).EnqueueWaitForEvents;
+		long __functionAddress = getInstance().EnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclEnqueueWaitForEvents(command_queue.getPointer(), event_list.remaining(), memAddress(event_list), __functionAddress);
@@ -4595,7 +4593,7 @@ public final class CL10 {
 
 	/** Single value version of: {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
 	public static int clEnqueueWaitForEvents(CLCommandQueue command_queue, CLEvent event) {
-		long __functionAddress = getInstance(command_queue).EnqueueWaitForEvents;
+		long __functionAddress = getInstance().EnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		APIBuffer __buffer = apiBuffer();
@@ -4630,7 +4628,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clGetEventProfilingInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventProfilingInfo;
+		long __functionAddress = getInstance().GetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
@@ -4641,7 +4639,7 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
 	public static int clGetEventProfilingInfo(CLEvent event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventProfilingInfo;
+		long __functionAddress = getInstance().GetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4651,7 +4649,7 @@ public final class CL10 {
 
 	/** LongBuffer version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
 	public static int clGetEventProfilingInfo(CLEvent event, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
-		long __functionAddress = getInstance(event).GetEventProfilingInfo;
+		long __functionAddress = getInstance().GetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
@@ -4689,7 +4687,7 @@ public final class CL10 {
 	 *         </ul>
 	 */
 	public static int clFlush(CLCommandQueue command_queue) {
-		long __functionAddress = getInstance(command_queue).Flush;
+		long __functionAddress = getInstance().Flush;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclFlush(command_queue.getPointer(), __functionAddress);
@@ -4709,7 +4707,7 @@ public final class CL10 {
 	 * @param command_queue the command-queue
 	 */
 	public static int clFinish(CLCommandQueue command_queue) {
-		long __functionAddress = getInstance(command_queue).Finish;
+		long __functionAddress = getInstance().Finish;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclFinish(command_queue.getPointer(), __functionAddress);
@@ -4737,7 +4735,7 @@ public final class CL10 {
 	 * @return the extension function address
 	 */
 	public static long clGetExtensionFunctionAddress(ByteBuffer funcname) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetExtensionFunctionAddress");
+		long __functionAddress = getInstance().GetExtensionFunctionAddress;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkNT1(funcname);
@@ -4747,7 +4745,7 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
-		long __functionAddress = CL.getFunctionProvider().getFunctionAddress("clGetExtensionFunctionAddress");
+		long __functionAddress = getInstance().GetExtensionFunctionAddress;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return nclGetExtensionFunctionAddress(memAddress(memEncodeASCII(funcname)), __functionAddress);

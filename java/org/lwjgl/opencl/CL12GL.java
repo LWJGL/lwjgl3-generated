@@ -34,27 +34,25 @@ public final class CL12GL {
 	public final long CreateFromGLTexture;
 
 	@JavadocExclude
-	public CL12GL(FunctionProviderLocal provider) {
+	public CL12GL(FunctionProvider provider) {
 		CreateFromGLTexture = provider.getFunctionAddress("clCreateFromGLTexture");
 	}
 
 	// --- [ Function Addresses ] ---
 
 	/** Returns the {@link CL12GL} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
-	public static CL12GL getInstance(CLObject object) {
-		return object.getCapabilities().__CL12GL;
+	public static CL12GL getInstance() {
+		return CL.getICD().__CL12GL;
 	}
 
-	static CL12GL create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenCL12GL") ) return null;
-
+	static CL12GL create(FunctionProvider provider) {
 		CL12GL funcs = new CL12GL(provider);
 
 		boolean supported = checkFunctions(
 			funcs.CreateFromGLTexture
 		);
 
-		return CL.checkExtension("OpenCL12GL", funcs, supported);
+		return supported ? funcs : null;
 	}
 
 	// --- [ clCreateFromGLTexture ] ---
@@ -110,7 +108,7 @@ public final class CL12GL {
 	 *         </ul>
 	 */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateFromGLTexture;
+		long __functionAddress = getInstance().CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
@@ -120,7 +118,7 @@ public final class CL12GL {
 
 	/** Alternative version of: {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	public static CLMem clCreateFromGLTexture(CLContext context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		long __functionAddress = getInstance(context).CreateFromGLTexture;
+		long __functionAddress = getInstance().CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);

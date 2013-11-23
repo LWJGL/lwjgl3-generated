@@ -96,7 +96,8 @@ public final class ALC10 {
 		return ALC.getCapabilities().__ALC10;
 	}
 
-	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {		if ( !ext.contains("OpenALC10") ) return null;
+	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
+		if ( !ext.contains("OpenALC10") ) return null;
 
 		ALC10 funcs = new ALC10(provider);
 
