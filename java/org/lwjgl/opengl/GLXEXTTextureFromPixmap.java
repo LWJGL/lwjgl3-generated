@@ -103,9 +103,9 @@ public final class GLXEXTTextureFromPixmap {
 
 		GLXEXTTextureFromPixmap funcs = new GLXEXTTextureFromPixmap(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BindTexImageEXT) &&
-			GL.isFunctionSupported(funcs.ReleaseTexImageEXT);
+		boolean supported = checkFunctions(
+			funcs.BindTexImageEXT, funcs.ReleaseTexImageEXT
+		);
 
 		return GL.checkExtension("GLX_EXT_texture_from_pixmap", funcs, supported);
 	}

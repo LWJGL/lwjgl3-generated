@@ -290,51 +290,17 @@ public final class GL40 {
 
 		GL40 funcs = new GL40(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BlendEquationi) &&
-			GL.isFunctionSupported(funcs.BlendEquationSeparatei) &&
-			GL.isFunctionSupported(funcs.BlendFunci) &&
-			GL.isFunctionSupported(funcs.BlendFuncSeparatei) &&
-			GL.isFunctionSupported(funcs.DrawArraysIndirect) &&
-			GL.isFunctionSupported(funcs.DrawElementsIndirect) &&
-			GL.isFunctionSupported(funcs.Uniform1d) &&
-			GL.isFunctionSupported(funcs.Uniform2d) &&
-			GL.isFunctionSupported(funcs.Uniform3d) &&
-			GL.isFunctionSupported(funcs.Uniform4d) &&
-			GL.isFunctionSupported(funcs.Uniform1dv) &&
-			GL.isFunctionSupported(funcs.Uniform2dv) &&
-			GL.isFunctionSupported(funcs.Uniform3dv) &&
-			GL.isFunctionSupported(funcs.Uniform4dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix2dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix2x3dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix2x4dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3x2dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3x4dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4x2dv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4x3dv) &&
-			GL.isFunctionSupported(funcs.GetUniformdv) &&
-			GL.isFunctionSupported(funcs.MinSampleShading) &&
-			GL.isFunctionSupported(funcs.GetSubroutineUniformLocation) &&
-			GL.isFunctionSupported(funcs.GetSubroutineIndex) &&
-			GL.isFunctionSupported(funcs.GetActiveSubroutineUniformiv) &&
-			GL.isFunctionSupported(funcs.GetActiveSubroutineUniformName) &&
-			GL.isFunctionSupported(funcs.GetActiveSubroutineName) &&
-			GL.isFunctionSupported(funcs.UniformSubroutinesuiv) &&
-			GL.isFunctionSupported(funcs.GetUniformSubroutineuiv) &&
-			GL.isFunctionSupported(funcs.GetProgramStageiv) &&
-			GL.isFunctionSupported(funcs.PatchParameteri) &&
-			GL.isFunctionSupported(funcs.PatchParameterfv) &&
-			GL.isFunctionSupported(funcs.BindTransformFeedback) &&
-			GL.isFunctionSupported(funcs.DeleteTransformFeedbacks) &&
-			GL.isFunctionSupported(funcs.GenTransformFeedbacks) &&
-			GL.isFunctionSupported(funcs.IsTransformFeedback) &&
-			GL.isFunctionSupported(funcs.DrawTransformFeedback) &&
-			GL.isFunctionSupported(funcs.DrawTransformFeedbackStream) &&
-			GL.isFunctionSupported(funcs.BeginQueryIndexed) &&
-			GL.isFunctionSupported(funcs.EndQueryIndexed) &&
-			GL.isFunctionSupported(funcs.GetQueryIndexediv);
+		boolean supported = checkFunctions(
+			funcs.BlendEquationi, funcs.BlendEquationSeparatei, funcs.BlendFunci, funcs.BlendFuncSeparatei, funcs.DrawArraysIndirect, 
+			funcs.DrawElementsIndirect, funcs.Uniform1d, funcs.Uniform2d, funcs.Uniform3d, funcs.Uniform4d, funcs.Uniform1dv, funcs.Uniform2dv, 
+			funcs.Uniform3dv, funcs.Uniform4dv, funcs.UniformMatrix2dv, funcs.UniformMatrix3dv, funcs.UniformMatrix4dv, funcs.UniformMatrix2x3dv, 
+			funcs.UniformMatrix2x4dv, funcs.UniformMatrix3x2dv, funcs.UniformMatrix3x4dv, funcs.UniformMatrix4x2dv, funcs.UniformMatrix4x3dv, 
+			funcs.GetUniformdv, funcs.MinSampleShading, funcs.GetSubroutineUniformLocation, funcs.GetSubroutineIndex, funcs.GetActiveSubroutineUniformiv, 
+			funcs.GetActiveSubroutineUniformName, funcs.GetActiveSubroutineName, funcs.UniformSubroutinesuiv, funcs.GetUniformSubroutineuiv, 
+			funcs.GetProgramStageiv, funcs.PatchParameteri, funcs.PatchParameterfv, funcs.BindTransformFeedback, funcs.DeleteTransformFeedbacks, 
+			funcs.GenTransformFeedbacks, funcs.IsTransformFeedback, funcs.DrawTransformFeedback, funcs.DrawTransformFeedbackStream, funcs.BeginQueryIndexed, 
+			funcs.EndQueryIndexed, funcs.GetQueryIndexediv
+		);
 
 		return GL.checkExtension("OpenGL40", funcs, supported);
 	}

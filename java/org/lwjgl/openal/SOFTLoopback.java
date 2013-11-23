@@ -65,10 +65,9 @@ public final class SOFTLoopback {
 
 		SOFTLoopback funcs = new SOFTLoopback(provider, device);
 
-		boolean supported = 
-			funcs.LoopbackOpenDeviceSOFT != 0L &&
-			funcs.IsRenderFormatSupportedSOFT != 0L &&
-			funcs.RenderSamplesSOFT != 0L;
+		boolean supported = checkFunctions(
+			funcs.LoopbackOpenDeviceSOFT, funcs.IsRenderFormatSupportedSOFT, funcs.RenderSamplesSOFT
+		);
 
 		return ALC.checkExtension("ALC_SOFT_loopback", funcs, supported);
 	}

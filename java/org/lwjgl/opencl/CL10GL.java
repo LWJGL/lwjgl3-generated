@@ -110,15 +110,10 @@ public final class CL10GL {
 
 		CL10GL funcs = new CL10GL(provider);
 
-		boolean supported = 
-			funcs.CreateFromGLBuffer != 0L &&
-			funcs.CreateFromGLTexture2D != 0L &&
-			funcs.CreateFromGLTexture3D != 0L &&
-			funcs.CreateFromGLRenderbuffer != 0L &&
-			funcs.GetGLObjectInfo != 0L &&
-			funcs.GetGLTextureInfo != 0L &&
-			funcs.EnqueueAcquireGLObjects != 0L &&
-			funcs.EnqueueReleaseGLObjects != 0L;
+		boolean supported = checkFunctions(
+			funcs.CreateFromGLBuffer, funcs.CreateFromGLTexture2D, funcs.CreateFromGLTexture3D, funcs.CreateFromGLRenderbuffer, funcs.GetGLObjectInfo, 
+			funcs.GetGLTextureInfo, funcs.EnqueueAcquireGLObjects, funcs.EnqueueReleaseGLObjects
+		);
 
 		return CL.checkExtension("OpenCL10GL", funcs, supported);
 	}

@@ -90,14 +90,9 @@ public final class ARBSync {
 
 		ARBSync funcs = new ARBSync(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.FenceSync) &&
-			GL.isFunctionSupported(funcs.IsSync) &&
-			GL.isFunctionSupported(funcs.DeleteSync) &&
-			GL.isFunctionSupported(funcs.ClientWaitSync) &&
-			GL.isFunctionSupported(funcs.WaitSync) &&
-			GL.isFunctionSupported(funcs.GetInteger64v) &&
-			GL.isFunctionSupported(funcs.GetSynciv);
+		boolean supported = checkFunctions(
+			funcs.FenceSync, funcs.IsSync, funcs.DeleteSync, funcs.ClientWaitSync, funcs.WaitSync, funcs.GetInteger64v, funcs.GetSynciv
+		);
 
 		return GL.checkExtension("GL_ARB_sync", funcs, supported);
 	}

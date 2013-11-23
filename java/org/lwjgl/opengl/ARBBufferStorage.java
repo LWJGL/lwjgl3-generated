@@ -56,9 +56,9 @@ public final class ARBBufferStorage {
 
 		ARBBufferStorage funcs = new ARBBufferStorage(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BufferStorage) &&
-			(!ext.contains("GL_EXT_direct_state_access") || GL.isFunctionSupported(funcs.NamedBufferStorageEXT));
+		boolean supported = checkFunctions(
+			funcs.BufferStorage, ext.contains("GL_EXT_direct_state_access") ? funcs.NamedBufferStorageEXT : -1L
+		);
 
 		return GL.checkExtension("GL_ARB_buffer_storage", funcs, supported);
 	}

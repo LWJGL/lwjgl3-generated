@@ -34,7 +34,9 @@ public final class GLX12 {
 
 		GLX12 funcs = new GLX12(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.GetCurrentDisplay);
+		boolean supported = checkFunctions(
+			funcs.GetCurrentDisplay
+		);
 
 		return GL.checkExtension("GLX_12", funcs, supported);
 	}

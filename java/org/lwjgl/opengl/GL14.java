@@ -277,54 +277,17 @@ public final class GL14 {
 
 		GL14 funcs = new GL14(provider, fc);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BlendColor) &&
-			GL.isFunctionSupported(funcs.BlendEquation) &&
-			GL.isFunctionSupported(funcs.FogCoordf, fc) &&
-			GL.isFunctionSupported(funcs.FogCoordd, fc) &&
-			GL.isFunctionSupported(funcs.FogCoordfv, fc) &&
-			GL.isFunctionSupported(funcs.FogCoorddv, fc) &&
-			GL.isFunctionSupported(funcs.FogCoordPointer, fc) &&
-			GL.isFunctionSupported(funcs.MultiDrawArrays) &&
-			GL.isFunctionSupported(funcs.MultiDrawElements) &&
-			GL.isFunctionSupported(funcs.PointParameterf) &&
-			GL.isFunctionSupported(funcs.PointParameteri) &&
-			GL.isFunctionSupported(funcs.PointParameterfv) &&
-			GL.isFunctionSupported(funcs.PointParameteriv) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3b, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3s, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3i, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3f, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3d, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3ub, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3us, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3ui, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3bv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3sv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3iv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3fv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3dv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3ubv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3usv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColor3uiv, fc) &&
-			GL.isFunctionSupported(funcs.SecondaryColorPointer, fc) &&
-			GL.isFunctionSupported(funcs.BlendFuncSeparate) &&
-			GL.isFunctionSupported(funcs.WindowPos2i, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2s, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2f, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2d, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2iv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2sv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2fv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos2dv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3i, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3s, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3f, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3d, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3iv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3sv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3fv, fc) &&
-			GL.isFunctionSupported(funcs.WindowPos3dv, fc);
+		boolean supported = (fc || checkFunctions(
+			funcs.FogCoordf, funcs.FogCoordd, funcs.FogCoordfv, funcs.FogCoorddv, funcs.FogCoordPointer, funcs.SecondaryColor3b, funcs.SecondaryColor3s, 
+			funcs.SecondaryColor3i, funcs.SecondaryColor3f, funcs.SecondaryColor3d, funcs.SecondaryColor3ub, funcs.SecondaryColor3us, funcs.SecondaryColor3ui, 
+			funcs.SecondaryColor3bv, funcs.SecondaryColor3sv, funcs.SecondaryColor3iv, funcs.SecondaryColor3fv, funcs.SecondaryColor3dv, 
+			funcs.SecondaryColor3ubv, funcs.SecondaryColor3usv, funcs.SecondaryColor3uiv, funcs.SecondaryColorPointer, funcs.WindowPos2i, funcs.WindowPos2s, 
+			funcs.WindowPos2f, funcs.WindowPos2d, funcs.WindowPos2iv, funcs.WindowPos2sv, funcs.WindowPos2fv, funcs.WindowPos2dv, funcs.WindowPos3i, 
+			funcs.WindowPos3s, funcs.WindowPos3f, funcs.WindowPos3d, funcs.WindowPos3iv, funcs.WindowPos3sv, funcs.WindowPos3fv, funcs.WindowPos3dv
+		)) && checkFunctions(
+			funcs.BlendColor, funcs.BlendEquation, funcs.MultiDrawArrays, funcs.MultiDrawElements, funcs.PointParameterf, funcs.PointParameteri, 
+			funcs.PointParameterfv, funcs.PointParameteriv, funcs.BlendFuncSeparate
+		);
 
 		return GL.checkExtension("OpenGL14", funcs, supported);
 	}

@@ -162,26 +162,11 @@ public final class GL15 {
 
 		GL15 funcs = new GL15(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BindBuffer) &&
-			GL.isFunctionSupported(funcs.DeleteBuffers) &&
-			GL.isFunctionSupported(funcs.GenBuffers) &&
-			GL.isFunctionSupported(funcs.IsBuffer) &&
-			GL.isFunctionSupported(funcs.BufferData) &&
-			GL.isFunctionSupported(funcs.BufferSubData) &&
-			GL.isFunctionSupported(funcs.GetBufferSubData) &&
-			GL.isFunctionSupported(funcs.MapBuffer) &&
-			GL.isFunctionSupported(funcs.UnmapBuffer) &&
-			GL.isFunctionSupported(funcs.GetBufferParameteriv) &&
-			GL.isFunctionSupported(funcs.GetBufferPointerv) &&
-			GL.isFunctionSupported(funcs.GenQueries) &&
-			GL.isFunctionSupported(funcs.DeleteQueries) &&
-			GL.isFunctionSupported(funcs.IsQuery) &&
-			GL.isFunctionSupported(funcs.BeginQuery) &&
-			GL.isFunctionSupported(funcs.EndQuery) &&
-			GL.isFunctionSupported(funcs.GetQueryiv) &&
-			GL.isFunctionSupported(funcs.GetQueryObjectiv) &&
-			GL.isFunctionSupported(funcs.GetQueryObjectuiv);
+		boolean supported = checkFunctions(
+			funcs.BindBuffer, funcs.DeleteBuffers, funcs.GenBuffers, funcs.IsBuffer, funcs.BufferData, funcs.BufferSubData, funcs.GetBufferSubData, 
+			funcs.MapBuffer, funcs.UnmapBuffer, funcs.GetBufferParameteriv, funcs.GetBufferPointerv, funcs.GenQueries, funcs.DeleteQueries, funcs.IsQuery, 
+			funcs.BeginQuery, funcs.EndQuery, funcs.GetQueryiv, funcs.GetQueryObjectiv, funcs.GetQueryObjectuiv
+		);
 
 		return GL.checkExtension("OpenGL15", funcs, supported);
 	}

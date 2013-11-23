@@ -45,7 +45,9 @@ public final class GLXARBGetProcAddress {
 
 		GLXARBGetProcAddress funcs = new GLXARBGetProcAddress(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.GetProcAddressARB);
+		boolean supported = checkFunctions(
+			funcs.GetProcAddressARB
+		);
 
 		return GL.checkExtension("GLX_ARB_get_proc_address", funcs, supported);
 	}

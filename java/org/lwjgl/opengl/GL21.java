@@ -89,13 +89,10 @@ public final class GL21 {
 
 		GL21 funcs = new GL21(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.UniformMatrix2x3fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3x2fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix2x4fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4x2fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3x4fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4x3fv);
+		boolean supported = checkFunctions(
+			funcs.UniformMatrix2x3fv, funcs.UniformMatrix3x2fv, funcs.UniformMatrix2x4fv, funcs.UniformMatrix4x2fv, funcs.UniformMatrix3x4fv, 
+			funcs.UniformMatrix4x3fv
+		);
 
 		return GL.checkExtension("OpenGL21", funcs, supported);
 	}

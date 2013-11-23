@@ -214,65 +214,19 @@ public final class GL33 {
 
 		GL33 funcs = new GL33(provider, fc);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BindFragDataLocationIndexed) &&
-			GL.isFunctionSupported(funcs.GetFragDataIndex) &&
-			GL.isFunctionSupported(funcs.GenSamplers) &&
-			GL.isFunctionSupported(funcs.DeleteSamplers) &&
-			GL.isFunctionSupported(funcs.IsSampler) &&
-			GL.isFunctionSupported(funcs.BindSampler) &&
-			GL.isFunctionSupported(funcs.SamplerParameteri) &&
-			GL.isFunctionSupported(funcs.SamplerParameterf) &&
-			GL.isFunctionSupported(funcs.SamplerParameteriv) &&
-			GL.isFunctionSupported(funcs.SamplerParameterfv) &&
-			GL.isFunctionSupported(funcs.SamplerParameterIiv) &&
-			GL.isFunctionSupported(funcs.SamplerParameterIuiv) &&
-			GL.isFunctionSupported(funcs.GetSamplerParameteriv) &&
-			GL.isFunctionSupported(funcs.GetSamplerParameterfv) &&
-			GL.isFunctionSupported(funcs.GetSamplerParameterIiv) &&
-			GL.isFunctionSupported(funcs.GetSamplerParameterIuiv) &&
-			GL.isFunctionSupported(funcs.QueryCounter) &&
-			GL.isFunctionSupported(funcs.GetQueryObjecti64v) &&
-			GL.isFunctionSupported(funcs.GetQueryObjectui64v) &&
-			GL.isFunctionSupported(funcs.VertexAttribDivisor) &&
-			GL.isFunctionSupported(funcs.VertexP2ui, fc) &&
-			GL.isFunctionSupported(funcs.VertexP3ui, fc) &&
-			GL.isFunctionSupported(funcs.VertexP4ui, fc) &&
-			GL.isFunctionSupported(funcs.VertexP2uiv) &&
-			GL.isFunctionSupported(funcs.VertexP3uiv) &&
-			GL.isFunctionSupported(funcs.VertexP4uiv) &&
-			GL.isFunctionSupported(funcs.TexCoordP1ui, fc) &&
-			GL.isFunctionSupported(funcs.TexCoordP2ui, fc) &&
-			GL.isFunctionSupported(funcs.TexCoordP3ui, fc) &&
-			GL.isFunctionSupported(funcs.TexCoordP4ui, fc) &&
-			GL.isFunctionSupported(funcs.TexCoordP1uiv) &&
-			GL.isFunctionSupported(funcs.TexCoordP2uiv) &&
-			GL.isFunctionSupported(funcs.TexCoordP3uiv) &&
-			GL.isFunctionSupported(funcs.TexCoordP4uiv) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP1ui, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP2ui, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP3ui, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP4ui, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP1uiv) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP2uiv) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP3uiv) &&
-			GL.isFunctionSupported(funcs.MultiTexCoordP4uiv) &&
-			GL.isFunctionSupported(funcs.NormalP3ui) &&
-			GL.isFunctionSupported(funcs.NormalP3uiv) &&
-			GL.isFunctionSupported(funcs.ColorP3ui) &&
-			GL.isFunctionSupported(funcs.ColorP4ui) &&
-			GL.isFunctionSupported(funcs.ColorP3uiv) &&
-			GL.isFunctionSupported(funcs.ColorP4uiv) &&
-			GL.isFunctionSupported(funcs.SecondaryColorP3ui) &&
-			GL.isFunctionSupported(funcs.SecondaryColorP3uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribP1ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribP2ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribP3ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribP4ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribP1uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribP2uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribP3uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribP4uiv);
+		boolean supported = (fc || checkFunctions(
+			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.TexCoordP1ui, funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, 
+			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui
+		)) && checkFunctions(
+			funcs.BindFragDataLocationIndexed, funcs.GetFragDataIndex, funcs.GenSamplers, funcs.DeleteSamplers, funcs.IsSampler, funcs.BindSampler, 
+			funcs.SamplerParameteri, funcs.SamplerParameterf, funcs.SamplerParameteriv, funcs.SamplerParameterfv, funcs.SamplerParameterIiv, 
+			funcs.SamplerParameterIuiv, funcs.GetSamplerParameteriv, funcs.GetSamplerParameterfv, funcs.GetSamplerParameterIiv, funcs.GetSamplerParameterIuiv, 
+			funcs.QueryCounter, funcs.GetQueryObjecti64v, funcs.GetQueryObjectui64v, funcs.VertexAttribDivisor, funcs.VertexP2uiv, funcs.VertexP3uiv, 
+			funcs.VertexP4uiv, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, funcs.MultiTexCoordP1uiv, 
+			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
+			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv, funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, 
+			funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, funcs.VertexAttribP3uiv, funcs.VertexAttribP4uiv
+		);
 
 		return GL.checkExtension("OpenGL33", funcs, supported);
 	}

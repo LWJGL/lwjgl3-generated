@@ -44,9 +44,9 @@ public final class ARBClearTexture {
 
 		ARBClearTexture funcs = new ARBClearTexture(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.ClearTexSubImage) &&
-			GL.isFunctionSupported(funcs.ClearTexImage);
+		boolean supported = checkFunctions(
+			funcs.ClearTexSubImage, funcs.ClearTexImage
+		);
 
 		return GL.checkExtension("GL_ARB_clear_texture", funcs, supported);
 	}

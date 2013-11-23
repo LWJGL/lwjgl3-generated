@@ -76,16 +76,11 @@ public final class WGLAMDGPUAssociation {
 
 		WGLAMDGPUAssociation funcs = new WGLAMDGPUAssociation(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetGPUIDsAMD) &&
-			GL.isFunctionSupported(funcs.GetGPUInfoAMD) &&
-			GL.isFunctionSupported(funcs.GetContextGPUIDAMD) &&
-			GL.isFunctionSupported(funcs.CreateAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.CreateAssociatedContextAttribsAMD) &&
-			GL.isFunctionSupported(funcs.DeleteAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.MakeAssociatedContextCurrentAMD) &&
-			GL.isFunctionSupported(funcs.GetCurrentAssociatedContextAMD) &&
-			(!ext.contains("GL_EXT_framebuffer_blit") || GL.isFunctionSupported(funcs.BlitContextFramebufferAMD));
+		boolean supported = checkFunctions(
+			funcs.GetGPUIDsAMD, funcs.GetGPUInfoAMD, funcs.GetContextGPUIDAMD, funcs.CreateAssociatedContextAMD, funcs.CreateAssociatedContextAttribsAMD, 
+			funcs.DeleteAssociatedContextAMD, funcs.MakeAssociatedContextCurrentAMD, funcs.GetCurrentAssociatedContextAMD, 
+			ext.contains("GL_EXT_framebuffer_blit") ? funcs.BlitContextFramebufferAMD : -1L
+		);
 
 		return GL.checkExtension("WGL_AMD_gpu_association", funcs, supported);
 	}

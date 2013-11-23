@@ -653,87 +653,23 @@ public final class GL30 {
 
 		GL30 funcs = new GL30(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetStringi) &&
-			GL.isFunctionSupported(funcs.VertexAttribI1i) &&
-			GL.isFunctionSupported(funcs.VertexAttribI2i) &&
-			GL.isFunctionSupported(funcs.VertexAttribI3i) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4i) &&
-			GL.isFunctionSupported(funcs.VertexAttribI1ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribI2ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribI3ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4ui) &&
-			GL.isFunctionSupported(funcs.VertexAttribI1iv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI2iv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI3iv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4iv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI1uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI2uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI3uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4bv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4sv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4ubv) &&
-			GL.isFunctionSupported(funcs.VertexAttribI4usv) &&
-			GL.isFunctionSupported(funcs.VertexAttribIPointer) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribIiv) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribIuiv) &&
-			GL.isFunctionSupported(funcs.Uniform1ui) &&
-			GL.isFunctionSupported(funcs.Uniform2ui) &&
-			GL.isFunctionSupported(funcs.Uniform3ui) &&
-			GL.isFunctionSupported(funcs.Uniform4ui) &&
-			GL.isFunctionSupported(funcs.Uniform1uiv) &&
-			GL.isFunctionSupported(funcs.Uniform2uiv) &&
-			GL.isFunctionSupported(funcs.Uniform3uiv) &&
-			GL.isFunctionSupported(funcs.Uniform4uiv) &&
-			GL.isFunctionSupported(funcs.GetUniformuiv) &&
-			GL.isFunctionSupported(funcs.BindFragDataLocation) &&
-			GL.isFunctionSupported(funcs.GetFragDataLocation) &&
-			GL.isFunctionSupported(funcs.BeginConditionalRender) &&
-			GL.isFunctionSupported(funcs.EndConditionalRender) &&
-			GL.isFunctionSupported(funcs.MapBufferRange) &&
-			GL.isFunctionSupported(funcs.FlushMappedBufferRange) &&
-			GL.isFunctionSupported(funcs.ClampColor) &&
-			GL.isFunctionSupported(funcs.IsRenderbuffer) &&
-			GL.isFunctionSupported(funcs.BindRenderbuffer) &&
-			GL.isFunctionSupported(funcs.DeleteRenderbuffers) &&
-			GL.isFunctionSupported(funcs.GenRenderbuffers) &&
-			GL.isFunctionSupported(funcs.RenderbufferStorage) &&
-			GL.isFunctionSupported(funcs.RenderbufferStorageMultisample) &&
-			GL.isFunctionSupported(funcs.GetRenderbufferParameteriv) &&
-			GL.isFunctionSupported(funcs.IsFramebuffer) &&
-			GL.isFunctionSupported(funcs.BindFramebuffer) &&
-			GL.isFunctionSupported(funcs.DeleteFramebuffers) &&
-			GL.isFunctionSupported(funcs.GenFramebuffers) &&
-			GL.isFunctionSupported(funcs.CheckFramebufferStatus) &&
-			GL.isFunctionSupported(funcs.FramebufferTexture1D) &&
-			GL.isFunctionSupported(funcs.FramebufferTexture2D) &&
-			GL.isFunctionSupported(funcs.FramebufferTexture3D) &&
-			GL.isFunctionSupported(funcs.FramebufferTextureLayer) &&
-			GL.isFunctionSupported(funcs.FramebufferRenderbuffer) &&
-			GL.isFunctionSupported(funcs.GetFramebufferAttachmentParameteriv) &&
-			GL.isFunctionSupported(funcs.BlitFramebuffer) &&
-			GL.isFunctionSupported(funcs.GenerateMipmap) &&
-			GL.isFunctionSupported(funcs.TexParameterIiv) &&
-			GL.isFunctionSupported(funcs.TexParameterIuiv) &&
-			GL.isFunctionSupported(funcs.GetTexParameterIiv) &&
-			GL.isFunctionSupported(funcs.GetTexParameterIuiv) &&
-			GL.isFunctionSupported(funcs.ColorMaski) &&
-			GL.isFunctionSupported(funcs.GetBooleani_v) &&
-			GL.isFunctionSupported(funcs.GetIntegeri_v) &&
-			GL.isFunctionSupported(funcs.Enablei) &&
-			GL.isFunctionSupported(funcs.Disablei) &&
-			GL.isFunctionSupported(funcs.IsEnabledi) &&
-			GL.isFunctionSupported(funcs.BindBufferRange) &&
-			GL.isFunctionSupported(funcs.BindBufferBase) &&
-			GL.isFunctionSupported(funcs.BeginTransformFeedback) &&
-			GL.isFunctionSupported(funcs.EndTransformFeedback) &&
-			GL.isFunctionSupported(funcs.TransformFeedbackVaryings) &&
-			GL.isFunctionSupported(funcs.GetTransformFeedbackVarying) &&
-			GL.isFunctionSupported(funcs.BindVertexArray) &&
-			GL.isFunctionSupported(funcs.DeleteVertexArrays) &&
-			GL.isFunctionSupported(funcs.GenVertexArrays) &&
-			GL.isFunctionSupported(funcs.IsVertexArray);
+		boolean supported = checkFunctions(
+			funcs.GetStringi, funcs.VertexAttribI1i, funcs.VertexAttribI2i, funcs.VertexAttribI3i, funcs.VertexAttribI4i, funcs.VertexAttribI1ui, 
+			funcs.VertexAttribI2ui, funcs.VertexAttribI3ui, funcs.VertexAttribI4ui, funcs.VertexAttribI1iv, funcs.VertexAttribI2iv, funcs.VertexAttribI3iv, 
+			funcs.VertexAttribI4iv, funcs.VertexAttribI1uiv, funcs.VertexAttribI2uiv, funcs.VertexAttribI3uiv, funcs.VertexAttribI4uiv, funcs.VertexAttribI4bv, 
+			funcs.VertexAttribI4sv, funcs.VertexAttribI4ubv, funcs.VertexAttribI4usv, funcs.VertexAttribIPointer, funcs.GetVertexAttribIiv, 
+			funcs.GetVertexAttribIuiv, funcs.Uniform1ui, funcs.Uniform2ui, funcs.Uniform3ui, funcs.Uniform4ui, funcs.Uniform1uiv, funcs.Uniform2uiv, 
+			funcs.Uniform3uiv, funcs.Uniform4uiv, funcs.GetUniformuiv, funcs.BindFragDataLocation, funcs.GetFragDataLocation, funcs.BeginConditionalRender, 
+			funcs.EndConditionalRender, funcs.MapBufferRange, funcs.FlushMappedBufferRange, funcs.ClampColor, funcs.IsRenderbuffer, funcs.BindRenderbuffer, 
+			funcs.DeleteRenderbuffers, funcs.GenRenderbuffers, funcs.RenderbufferStorage, funcs.RenderbufferStorageMultisample, 
+			funcs.GetRenderbufferParameteriv, funcs.IsFramebuffer, funcs.BindFramebuffer, funcs.DeleteFramebuffers, funcs.GenFramebuffers, 
+			funcs.CheckFramebufferStatus, funcs.FramebufferTexture1D, funcs.FramebufferTexture2D, funcs.FramebufferTexture3D, funcs.FramebufferTextureLayer, 
+			funcs.FramebufferRenderbuffer, funcs.GetFramebufferAttachmentParameteriv, funcs.BlitFramebuffer, funcs.GenerateMipmap, funcs.TexParameterIiv, 
+			funcs.TexParameterIuiv, funcs.GetTexParameterIiv, funcs.GetTexParameterIuiv, funcs.ColorMaski, funcs.GetBooleani_v, funcs.GetIntegeri_v, 
+			funcs.Enablei, funcs.Disablei, funcs.IsEnabledi, funcs.BindBufferRange, funcs.BindBufferBase, funcs.BeginTransformFeedback, 
+			funcs.EndTransformFeedback, funcs.TransformFeedbackVaryings, funcs.GetTransformFeedbackVarying, funcs.BindVertexArray, funcs.DeleteVertexArrays, 
+			funcs.GenVertexArrays, funcs.IsVertexArray
+		);
 
 		return GL.checkExtension("OpenGL30", funcs, supported);
 	}

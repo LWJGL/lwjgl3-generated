@@ -119,15 +119,10 @@ public final class CL11 {
 
 		CL11 funcs = new CL11(provider);
 
-		boolean supported = 
-			funcs.CreateSubBuffer != 0L &&
-			funcs.SetMemObjectDestructorCallback != 0L &&
-			funcs.EnqueueReadBufferRect != 0L &&
-			funcs.EnqueueWriteBufferRect != 0L &&
-			funcs.EnqueueCopyBufferRect != 0L &&
-			funcs.CreateUserEvent != 0L &&
-			funcs.SetUserEventStatus != 0L &&
-			funcs.SetEventCallback != 0L;
+		boolean supported = checkFunctions(
+			funcs.CreateSubBuffer, funcs.SetMemObjectDestructorCallback, funcs.EnqueueReadBufferRect, funcs.EnqueueWriteBufferRect, funcs.EnqueueCopyBufferRect, 
+			funcs.CreateUserEvent, funcs.SetUserEventStatus, funcs.SetEventCallback
+		);
 
 		return CL.checkExtension("OpenCL11", funcs, supported);
 	}

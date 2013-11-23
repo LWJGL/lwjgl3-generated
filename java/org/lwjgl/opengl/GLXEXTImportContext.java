@@ -58,12 +58,9 @@ public final class GLXEXTImportContext {
 
 		GLXEXTImportContext funcs = new GLXEXTImportContext(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetCurrentDisplayEXT) &&
-			GL.isFunctionSupported(funcs.QueryContextInfoEXT) &&
-			GL.isFunctionSupported(funcs.GetContextIDEXT) &&
-			GL.isFunctionSupported(funcs.ImportContextEXT) &&
-			GL.isFunctionSupported(funcs.FreeContextEXT);
+		boolean supported = checkFunctions(
+			funcs.GetCurrentDisplayEXT, funcs.QueryContextInfoEXT, funcs.GetContextIDEXT, funcs.ImportContextEXT, funcs.FreeContextEXT
+		);
 
 		return GL.checkExtension("GLX_EXT_import_context", funcs, supported);
 	}

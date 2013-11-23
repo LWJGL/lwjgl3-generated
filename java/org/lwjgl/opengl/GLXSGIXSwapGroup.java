@@ -43,7 +43,9 @@ public final class GLXSGIXSwapGroup {
 
 		GLXSGIXSwapGroup funcs = new GLXSGIXSwapGroup(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.JoinSwapGroupSGIX);
+		boolean supported = checkFunctions(
+			funcs.JoinSwapGroupSGIX
+		);
 
 		return GL.checkExtension("GLX_SGIX_swap_group", funcs, supported);
 	}

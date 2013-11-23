@@ -40,7 +40,9 @@ public final class GLXSGISwapControl {
 
 		GLXSGISwapControl funcs = new GLXSGISwapControl(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.SwapIntervalSGI);
+		boolean supported = checkFunctions(
+			funcs.SwapIntervalSGI
+		);
 
 		return GL.checkExtension("GLX_SGI_swap_control", funcs, supported);
 	}

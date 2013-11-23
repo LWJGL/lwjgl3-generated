@@ -62,10 +62,9 @@ public final class AMDBusAddressableMemory {
 
 		AMDBusAddressableMemory funcs = new AMDBusAddressableMemory(provider, platform);
 
-		boolean supported = 
-			funcs.EnqueueWaitSignalAMD != 0L &&
-			funcs.EnqueueWriteSignalAMD != 0L &&
-			funcs.EnqueueMakeBuffersResidentAMD != 0L;
+		boolean supported = checkFunctions(
+			funcs.EnqueueWaitSignalAMD, funcs.EnqueueWriteSignalAMD, funcs.EnqueueMakeBuffersResidentAMD
+		);
 
 		return CL.checkExtension("cl_amd_bus_addressable_memory", funcs, supported);
 	}

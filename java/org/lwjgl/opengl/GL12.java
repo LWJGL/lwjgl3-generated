@@ -143,11 +143,9 @@ public final class GL12 {
 
 		GL12 funcs = new GL12(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.TexImage3D) &&
-			GL.isFunctionSupported(funcs.TexSubImage3D) &&
-			GL.isFunctionSupported(funcs.CopyTexSubImage3D) &&
-			GL.isFunctionSupported(funcs.DrawRangeElements);
+		boolean supported = checkFunctions(
+			funcs.TexImage3D, funcs.TexSubImage3D, funcs.CopyTexSubImage3D, funcs.DrawRangeElements
+		);
 
 		return GL.checkExtension("OpenGL12", funcs, supported);
 	}

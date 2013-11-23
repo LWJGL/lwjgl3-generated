@@ -105,12 +105,9 @@ public final class GLXSGIXPBuffer {
 
 		GLXSGIXPBuffer funcs = new GLXSGIXPBuffer(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.CreateGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.DestroyGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.QueryGLXPbufferSGIX) &&
-			GL.isFunctionSupported(funcs.SelectEventSGIX) &&
-			GL.isFunctionSupported(funcs.GetSelectedEventSGIX);
+		boolean supported = checkFunctions(
+			funcs.CreateGLXPbufferSGIX, funcs.DestroyGLXPbufferSGIX, funcs.QueryGLXPbufferSGIX, funcs.SelectEventSGIX, funcs.GetSelectedEventSGIX
+		);
 
 		return GL.checkExtension("GLX_SGIX_pbuffer", funcs, supported);
 	}

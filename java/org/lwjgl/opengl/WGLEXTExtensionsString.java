@@ -37,7 +37,9 @@ public final class WGLEXTExtensionsString {
 
 		WGLEXTExtensionsString funcs = new WGLEXTExtensionsString(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.GetExtensionsStringEXT);
+		boolean supported = checkFunctions(
+			funcs.GetExtensionsStringEXT
+		);
 
 		return GL.checkExtension("WGL_EXT_extensions_string", funcs, supported);
 	}

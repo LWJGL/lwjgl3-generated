@@ -42,7 +42,9 @@ public final class WGLARBExtensionsString {
 
 		WGLARBExtensionsString funcs = new WGLARBExtensionsString(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.GetExtensionsStringARB);
+		boolean supported = checkFunctions(
+			funcs.GetExtensionsStringARB
+		);
 
 		return GL.checkExtension("WGL_ARB_extensions_string", funcs, supported);
 	}

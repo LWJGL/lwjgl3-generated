@@ -100,22 +100,11 @@ public final class ALC10 {
 
 		ALC10 funcs = new ALC10(provider);
 
-		boolean supported = 
-			funcs.OpenDevice != 0L &&
-			funcs.CloseDevice != 0L &&
-			funcs.CreateContext != 0L &&
-			funcs.MakeContextCurrent != 0L &&
-			funcs.ProcessContext != 0L &&
-			funcs.SuspendContext != 0L &&
-			funcs.DestroyContext != 0L &&
-			funcs.GetCurrentContext != 0L &&
-			funcs.GetContextsDevice != 0L &&
-			funcs.IsExtensionPresent != 0L &&
-			funcs.GetProcAddress != 0L &&
-			funcs.GetEnumValue != 0L &&
-			funcs.GetError != 0L &&
-			funcs.GetString != 0L &&
-			funcs.GetIntegerv != 0L;
+		boolean supported = checkFunctions(
+			funcs.OpenDevice, funcs.CloseDevice, funcs.CreateContext, funcs.MakeContextCurrent, funcs.ProcessContext, funcs.SuspendContext, 
+			funcs.DestroyContext, funcs.GetCurrentContext, funcs.GetContextsDevice, funcs.IsExtensionPresent, funcs.GetProcAddress, funcs.GetEnumValue, 
+			funcs.GetError, funcs.GetString, funcs.GetIntegerv
+		);
 
 		return ALC.checkExtension("OpenALC10", funcs, supported);
 	}

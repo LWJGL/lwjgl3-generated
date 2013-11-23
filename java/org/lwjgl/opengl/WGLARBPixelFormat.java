@@ -111,10 +111,9 @@ public final class WGLARBPixelFormat {
 
 		WGLARBPixelFormat funcs = new WGLARBPixelFormat(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetPixelFormatAttribivARB) &&
-			GL.isFunctionSupported(funcs.GetPixelFormatAttribfvARB) &&
-			GL.isFunctionSupported(funcs.ChoosePixelFormatARB);
+		boolean supported = checkFunctions(
+			funcs.GetPixelFormatAttribivARB, funcs.GetPixelFormatAttribfvARB, funcs.ChoosePixelFormatARB
+		);
 
 		return GL.checkExtension("WGL_ARB_pixel_format", funcs, supported);
 	}

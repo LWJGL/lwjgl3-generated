@@ -60,7 +60,9 @@ public final class WGLARBCreateContext {
 
 		WGLARBCreateContext funcs = new WGLARBCreateContext(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CreateContextAttribsARB);
+		boolean supported = checkFunctions(
+			funcs.CreateContextAttribsARB
+		);
 
 		return GL.checkExtension("WGL_ARB_create_context", funcs, supported);
 	}

@@ -48,10 +48,9 @@ public final class GLX11 {
 
 		GLX11 funcs = new GLX11(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.QueryExtensionsString) &&
-			GL.isFunctionSupported(funcs.GetClientString) &&
-			GL.isFunctionSupported(funcs.QueryServerString);
+		boolean supported = checkFunctions(
+			funcs.QueryExtensionsString, funcs.GetClientString, funcs.QueryServerString
+		);
 
 		return GL.checkExtension("GLX_11", funcs, supported);
 	}

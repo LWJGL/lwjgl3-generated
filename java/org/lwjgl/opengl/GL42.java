@@ -240,18 +240,11 @@ public final class GL42 {
 
 		GL42 funcs = new GL42(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.TexStorage1D) &&
-			GL.isFunctionSupported(funcs.TexStorage2D) &&
-			GL.isFunctionSupported(funcs.TexStorage3D) &&
-			GL.isFunctionSupported(funcs.DrawTransformFeedbackInstanced) &&
-			GL.isFunctionSupported(funcs.DrawTransformFeedbackStreamInstanced) &&
-			GL.isFunctionSupported(funcs.DrawArraysInstancedBaseInstance) &&
-			GL.isFunctionSupported(funcs.DrawElementsInstancedBaseInstance) &&
-			GL.isFunctionSupported(funcs.DrawElementsInstancedBaseVertexBaseInstance) &&
-			GL.isFunctionSupported(funcs.BindImageTexture) &&
-			GL.isFunctionSupported(funcs.MemoryBarrier) &&
-			GL.isFunctionSupported(funcs.GetInternalformativ);
+		boolean supported = checkFunctions(
+			funcs.TexStorage1D, funcs.TexStorage2D, funcs.TexStorage3D, funcs.DrawTransformFeedbackInstanced, funcs.DrawTransformFeedbackStreamInstanced, 
+			funcs.DrawArraysInstancedBaseInstance, funcs.DrawElementsInstancedBaseInstance, funcs.DrawElementsInstancedBaseVertexBaseInstance, 
+			funcs.BindImageTexture, funcs.MemoryBarrier, funcs.GetInternalformativ
+		);
 
 		return GL.checkExtension("OpenGL42", funcs, supported);
 	}

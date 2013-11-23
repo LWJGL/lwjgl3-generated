@@ -63,20 +63,11 @@ public final class CL20 {
 
 		CL20 funcs = new CL20(provider);
 
-		boolean supported = 
-			funcs.CreateCommandQueueWithProperties != 0L &&
-			funcs.CreatePipe != 0L &&
-			funcs.GetPipeInfo != 0L &&
-			funcs.SVMAlloc != 0L &&
-			funcs.SVMFree != 0L &&
-			funcs.EnqueueSVMFree != 0L &&
-			funcs.EnqueueSVMMemcpy != 0L &&
-			funcs.EnqueueSVMMemFill != 0L &&
-			funcs.EnqueueSVMMap != 0L &&
-			funcs.EnqueueSVMUnmap != 0L &&
-			funcs.SetKernelArgSVMPointer != 0L &&
-			funcs.SetKernelExecInfo != 0L &&
-			funcs.CreateSamplerWithProperties != 0L;
+		boolean supported = checkFunctions(
+			funcs.CreateCommandQueueWithProperties, funcs.CreatePipe, funcs.GetPipeInfo, funcs.SVMAlloc, funcs.SVMFree, funcs.EnqueueSVMFree, 
+			funcs.EnqueueSVMMemcpy, funcs.EnqueueSVMMemFill, funcs.EnqueueSVMMap, funcs.EnqueueSVMUnmap, funcs.SetKernelArgSVMPointer, funcs.SetKernelExecInfo, 
+			funcs.CreateSamplerWithProperties
+		);
 
 		return CL.checkExtension("OpenCL20", funcs, supported);
 	}

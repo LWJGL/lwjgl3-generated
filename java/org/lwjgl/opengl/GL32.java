@@ -250,25 +250,12 @@ public final class GL32 {
 
 		GL32 funcs = new GL32(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetBufferParameteri64v) &&
-			GL.isFunctionSupported(funcs.DrawElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.DrawRangeElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.DrawElementsInstancedBaseVertex) &&
-			GL.isFunctionSupported(funcs.MultiDrawElementsBaseVertex) &&
-			GL.isFunctionSupported(funcs.ProvokingVertex) &&
-			GL.isFunctionSupported(funcs.TexImage2DMultisample) &&
-			GL.isFunctionSupported(funcs.TexImage3DMultisample) &&
-			GL.isFunctionSupported(funcs.GetMultisamplefv) &&
-			GL.isFunctionSupported(funcs.SampleMaski) &&
-			GL.isFunctionSupported(funcs.FramebufferTexture) &&
-			GL.isFunctionSupported(funcs.FenceSync) &&
-			GL.isFunctionSupported(funcs.IsSync) &&
-			GL.isFunctionSupported(funcs.DeleteSync) &&
-			GL.isFunctionSupported(funcs.ClientWaitSync) &&
-			GL.isFunctionSupported(funcs.WaitSync) &&
-			GL.isFunctionSupported(funcs.GetInteger64v) &&
-			GL.isFunctionSupported(funcs.GetSynciv);
+		boolean supported = checkFunctions(
+			funcs.GetBufferParameteri64v, funcs.DrawElementsBaseVertex, funcs.DrawRangeElementsBaseVertex, funcs.DrawElementsInstancedBaseVertex, 
+			funcs.MultiDrawElementsBaseVertex, funcs.ProvokingVertex, funcs.TexImage2DMultisample, funcs.TexImage3DMultisample, funcs.GetMultisamplefv, 
+			funcs.SampleMaski, funcs.FramebufferTexture, funcs.FenceSync, funcs.IsSync, funcs.DeleteSync, funcs.ClientWaitSync, funcs.WaitSync, 
+			funcs.GetInteger64v, funcs.GetSynciv
+		);
 
 		return GL.checkExtension("OpenGL32", funcs, supported);
 	}

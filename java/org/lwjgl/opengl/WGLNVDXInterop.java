@@ -64,15 +64,10 @@ public final class WGLNVDXInterop {
 
 		WGLNVDXInterop funcs = new WGLNVDXInterop(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.DXSetResourceShareHandleNV) &&
-			GL.isFunctionSupported(funcs.DXOpenDeviceNV) &&
-			GL.isFunctionSupported(funcs.DXCloseDeviceNV) &&
-			GL.isFunctionSupported(funcs.DXRegisterObjectNV) &&
-			GL.isFunctionSupported(funcs.DXUnregisterObjectNV) &&
-			GL.isFunctionSupported(funcs.DXObjectAccessNV) &&
-			GL.isFunctionSupported(funcs.DXLockObjectsNV) &&
-			GL.isFunctionSupported(funcs.DXUnlockObjectsNV);
+		boolean supported = checkFunctions(
+			funcs.DXSetResourceShareHandleNV, funcs.DXOpenDeviceNV, funcs.DXCloseDeviceNV, funcs.DXRegisterObjectNV, funcs.DXUnregisterObjectNV, 
+			funcs.DXObjectAccessNV, funcs.DXLockObjectsNV, funcs.DXUnlockObjectsNV
+		);
 
 		return GL.checkExtension("WGL_NV_DX_interop", funcs, supported);
 	}

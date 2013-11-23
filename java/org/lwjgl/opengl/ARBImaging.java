@@ -299,41 +299,17 @@ public final class ARBImaging {
 
 		ARBImaging funcs = new ARBImaging(provider, fc);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.ColorTable, fc) &&
-			GL.isFunctionSupported(funcs.CopyColorTable, fc) &&
-			GL.isFunctionSupported(funcs.ColorTableParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.ColorTableParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.GetColorTable, fc) &&
-			GL.isFunctionSupported(funcs.GetColorTableParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.GetColorTableParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.ColorSubTable, fc) &&
-			GL.isFunctionSupported(funcs.CopyColorSubTable, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionFilter1D, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.CopyConvolutionFilter1D, fc) &&
-			GL.isFunctionSupported(funcs.CopyConvolutionFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.GetConvolutionFilter, fc) &&
-			GL.isFunctionSupported(funcs.SeparableFilter2D, fc) &&
-			GL.isFunctionSupported(funcs.GetSeparableFilter, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionParameteri, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionParameterf, fc) &&
-			GL.isFunctionSupported(funcs.ConvolutionParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.GetConvolutionParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.GetConvolutionParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.Histogram, fc) &&
-			GL.isFunctionSupported(funcs.ResetHistogram, fc) &&
-			GL.isFunctionSupported(funcs.GetHistogram, fc) &&
-			GL.isFunctionSupported(funcs.GetHistogramParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.GetHistogramParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.Minmax, fc) &&
-			GL.isFunctionSupported(funcs.ResetMinmax, fc) &&
-			GL.isFunctionSupported(funcs.GetMinmax, fc) &&
-			GL.isFunctionSupported(funcs.GetMinmaxParameteriv, fc) &&
-			GL.isFunctionSupported(funcs.GetMinmaxParameterfv, fc) &&
-			GL.isFunctionSupported(funcs.BlendColor) &&
-			GL.isFunctionSupported(funcs.BlendEquation);
+		boolean supported = (fc || checkFunctions(
+			funcs.ColorTable, funcs.CopyColorTable, funcs.ColorTableParameteriv, funcs.ColorTableParameterfv, funcs.GetColorTable, 
+			funcs.GetColorTableParameteriv, funcs.GetColorTableParameterfv, funcs.ColorSubTable, funcs.CopyColorSubTable, funcs.ConvolutionFilter1D, 
+			funcs.ConvolutionFilter2D, funcs.CopyConvolutionFilter1D, funcs.CopyConvolutionFilter2D, funcs.GetConvolutionFilter, funcs.SeparableFilter2D, 
+			funcs.GetSeparableFilter, funcs.ConvolutionParameteri, funcs.ConvolutionParameteriv, funcs.ConvolutionParameterf, funcs.ConvolutionParameterfv, 
+			funcs.GetConvolutionParameteriv, funcs.GetConvolutionParameterfv, funcs.Histogram, funcs.ResetHistogram, funcs.GetHistogram, 
+			funcs.GetHistogramParameteriv, funcs.GetHistogramParameterfv, funcs.Minmax, funcs.ResetMinmax, funcs.GetMinmax, funcs.GetMinmaxParameteriv, 
+			funcs.GetMinmaxParameterfv
+		)) && checkFunctions(
+			funcs.BlendColor, funcs.BlendEquation
+		);
 
 		return GL.checkExtension("GL_ARB_imaging", funcs, supported);
 	}

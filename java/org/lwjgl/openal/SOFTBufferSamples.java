@@ -106,11 +106,9 @@ public final class SOFTBufferSamples {
 
 		SOFTBufferSamples funcs = new SOFTBufferSamples(provider);
 
-		boolean supported = 
-			funcs.BufferSamplesSOFT != 0L &&
-			funcs.IsBufferFormatSupportedSOFT != 0L &&
-			funcs.BufferSubSamplesSOFT != 0L &&
-			funcs.GetBufferSamplesSOFT != 0L;
+		boolean supported = checkFunctions(
+			funcs.BufferSamplesSOFT, funcs.IsBufferFormatSupportedSOFT, funcs.BufferSubSamplesSOFT, funcs.GetBufferSamplesSOFT
+		);
 
 		return AL.checkExtension("AL_SOFT_buffer_samples", funcs, supported);
 	}

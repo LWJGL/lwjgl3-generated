@@ -256,22 +256,11 @@ public final class CL12 {
 
 		CL12 funcs = new CL12(provider);
 
-		boolean supported = 
-			funcs.GetExtensionFunctionAddressForPlatform != 0L &&
-			funcs.RetainDevice != 0L &&
-			funcs.ReleaseDevice != 0L &&
-			funcs.CreateSubDevices != 0L &&
-			funcs.CreateImage != 0L &&
-			funcs.CreateProgramWithBuiltInKernels != 0L &&
-			funcs.CompileProgram != 0L &&
-			funcs.LinkProgram != 0L &&
-			funcs.UnloadPlatformCompiler != 0L &&
-			funcs.GetKernelArgInfo != 0L &&
-			funcs.EnqueueFillBuffer != 0L &&
-			funcs.EnqueueFillImage != 0L &&
-			funcs.EnqueueMigrateMemObjects != 0L &&
-			funcs.EnqueueMarkerWithWaitList != 0L &&
-			funcs.EnqueueBarrierWithWaitList != 0L;
+		boolean supported = checkFunctions(
+			funcs.GetExtensionFunctionAddressForPlatform, funcs.RetainDevice, funcs.ReleaseDevice, funcs.CreateSubDevices, funcs.CreateImage, 
+			funcs.CreateProgramWithBuiltInKernels, funcs.CompileProgram, funcs.LinkProgram, funcs.UnloadPlatformCompiler, funcs.GetKernelArgInfo, 
+			funcs.EnqueueFillBuffer, funcs.EnqueueFillImage, funcs.EnqueueMigrateMemObjects, funcs.EnqueueMarkerWithWaitList, funcs.EnqueueBarrierWithWaitList
+		);
 
 		return CL.checkExtension("OpenCL12", funcs, supported);
 	}

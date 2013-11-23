@@ -41,9 +41,9 @@ public final class WGLEXTSwapControl {
 
 		WGLEXTSwapControl funcs = new WGLEXTSwapControl(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.SwapIntervalEXT) &&
-			GL.isFunctionSupported(funcs.GetSwapIntervalEXT);
+		boolean supported = checkFunctions(
+			funcs.SwapIntervalEXT, funcs.GetSwapIntervalEXT
+		);
 
 		return GL.checkExtension("WGL_EXT_swap_control", funcs, supported);
 	}

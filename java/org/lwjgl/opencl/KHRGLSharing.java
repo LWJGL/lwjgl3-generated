@@ -67,7 +67,9 @@ public final class KHRGLSharing {
 
 		KHRGLSharing funcs = new KHRGLSharing(provider, platform);
 
-		boolean supported =  funcs.GetGLContextInfoKHR != 0L;
+		boolean supported = checkFunctions(
+			funcs.GetGLContextInfoKHR
+		);
 
 		return CL.checkExtension("cl_khr_gl_sharing", funcs, supported);
 	}

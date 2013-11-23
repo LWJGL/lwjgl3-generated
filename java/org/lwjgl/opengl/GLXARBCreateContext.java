@@ -63,7 +63,9 @@ public final class GLXARBCreateContext {
 
 		GLXARBCreateContext funcs = new GLXARBCreateContext(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CreateContextAttribsARB);
+		boolean supported = checkFunctions(
+			funcs.CreateContextAttribsARB
+		);
 
 		return GL.checkExtension("GLX_ARB_create_context", funcs, supported);
 	}

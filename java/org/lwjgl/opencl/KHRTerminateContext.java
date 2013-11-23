@@ -58,7 +58,9 @@ public final class KHRTerminateContext {
 
 		KHRTerminateContext funcs = new KHRTerminateContext(provider, platform);
 
-		boolean supported =  funcs.TerminateContextKHR != 0L;
+		boolean supported = checkFunctions(
+			funcs.TerminateContextKHR
+		);
 
 		return CL.checkExtension("cl_khr_terminate_context", funcs, supported);
 	}

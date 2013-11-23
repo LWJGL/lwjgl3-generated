@@ -248,61 +248,16 @@ public final class AL10 {
 
 		AL10 funcs = new AL10(provider);
 
-		boolean supported = 
-			funcs.GetError != 0L &&
-			funcs.Enable != 0L &&
-			funcs.Disable != 0L &&
-			funcs.IsEnabled != 0L &&
-			funcs.GetBoolean != 0L &&
-			funcs.GetInteger != 0L &&
-			funcs.GetFloat != 0L &&
-			funcs.GetDouble != 0L &&
-			funcs.GetBooleanv != 0L &&
-			funcs.GetIntegerv != 0L &&
-			funcs.GetFloatv != 0L &&
-			funcs.GetDoublev != 0L &&
-			funcs.GetString != 0L &&
-			funcs.DistanceModel != 0L &&
-			funcs.DopplerFactor != 0L &&
-			funcs.DopplerVelocity != 0L &&
-			funcs.Listenerf != 0L &&
-			funcs.Listeneri != 0L &&
-			funcs.Listener3f != 0L &&
-			funcs.Listenerfv != 0L &&
-			funcs.GetListenerf != 0L &&
-			funcs.GetListeneri != 0L &&
-			funcs.GetListener3f != 0L &&
-			funcs.GetListenerfv != 0L &&
-			funcs.GenSources != 0L &&
-			funcs.DeleteSources != 0L &&
-			funcs.IsSource != 0L &&
-			funcs.Sourcef != 0L &&
-			funcs.Source3f != 0L &&
-			funcs.Sourcefv != 0L &&
-			funcs.Sourcei != 0L &&
-			funcs.GetSourcef != 0L &&
-			funcs.GetSource3f != 0L &&
-			funcs.GetSourcefv != 0L &&
-			funcs.GetSourcei != 0L &&
-			funcs.SourceQueueBuffers != 0L &&
-			funcs.SourceUnqueueBuffers != 0L &&
-			funcs.SourcePlay != 0L &&
-			funcs.SourcePause != 0L &&
-			funcs.SourceStop != 0L &&
-			funcs.SourceRewind != 0L &&
-			funcs.SourcePlayv != 0L &&
-			funcs.SourcePausev != 0L &&
-			funcs.SourceStopv != 0L &&
-			funcs.SourceRewindv != 0L &&
-			funcs.GenBuffers != 0L &&
-			funcs.DeleteBuffers != 0L &&
-			funcs.IsBuffer != 0L &&
-			funcs.GetBufferf != 0L &&
-			funcs.GetBufferi != 0L &&
-			funcs.BufferData != 0L &&
-			funcs.GetEnumValue != 0L &&
-			funcs.GetProcAddress != 0L &&
-			funcs.IsExtensionPresent != 0L;
+		boolean supported = checkFunctions(
+			funcs.GetError, funcs.Enable, funcs.Disable, funcs.IsEnabled, funcs.GetBoolean, funcs.GetInteger, funcs.GetFloat, funcs.GetDouble, 
+			funcs.GetBooleanv, funcs.GetIntegerv, funcs.GetFloatv, funcs.GetDoublev, funcs.GetString, funcs.DistanceModel, funcs.DopplerFactor, 
+			funcs.DopplerVelocity, funcs.Listenerf, funcs.Listeneri, funcs.Listener3f, funcs.Listenerfv, funcs.GetListenerf, funcs.GetListeneri, 
+			funcs.GetListener3f, funcs.GetListenerfv, funcs.GenSources, funcs.DeleteSources, funcs.IsSource, funcs.Sourcef, funcs.Source3f, funcs.Sourcefv, 
+			funcs.Sourcei, funcs.GetSourcef, funcs.GetSource3f, funcs.GetSourcefv, funcs.GetSourcei, funcs.SourceQueueBuffers, funcs.SourceUnqueueBuffers, 
+			funcs.SourcePlay, funcs.SourcePause, funcs.SourceStop, funcs.SourceRewind, funcs.SourcePlayv, funcs.SourcePausev, funcs.SourceStopv, 
+			funcs.SourceRewindv, funcs.GenBuffers, funcs.DeleteBuffers, funcs.IsBuffer, funcs.GetBufferf, funcs.GetBufferi, funcs.BufferData, 
+			funcs.GetEnumValue, funcs.GetProcAddress, funcs.IsExtensionPresent
+		);
 
 		return AL.checkExtension("OpenAL10", funcs, supported);
 	}

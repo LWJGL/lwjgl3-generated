@@ -120,16 +120,10 @@ public final class GL44 {
 
 		GL44 funcs = new GL44(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BufferStorage) &&
-			GL.isFunctionSupported(funcs.ClearTexSubImage) &&
-			GL.isFunctionSupported(funcs.ClearTexImage) &&
-			GL.isFunctionSupported(funcs.BindBuffersBase) &&
-			GL.isFunctionSupported(funcs.BindBuffersRange) &&
-			GL.isFunctionSupported(funcs.BindTextures) &&
-			GL.isFunctionSupported(funcs.BindSamplers) &&
-			GL.isFunctionSupported(funcs.BindImageTextures) &&
-			GL.isFunctionSupported(funcs.BindVertexBuffers);
+		boolean supported = checkFunctions(
+			funcs.BufferStorage, funcs.ClearTexSubImage, funcs.ClearTexImage, funcs.BindBuffersBase, funcs.BindBuffersRange, funcs.BindTextures, 
+			funcs.BindSamplers, funcs.BindImageTextures, funcs.BindVertexBuffers
+		);
 
 		return GL.checkExtension("OpenGL44", funcs, supported);
 	}

@@ -96,13 +96,10 @@ public final class GLXSGIXFBConfig {
 
 		GLXSGIXFBConfig funcs = new GLXSGIXFBConfig(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetFBConfigAttribSGIX) &&
-			GL.isFunctionSupported(funcs.ChooseFBConfigSGIX) &&
-			GL.isFunctionSupported(funcs.CreateGLXPixmapWithConfigSGIX) &&
-			GL.isFunctionSupported(funcs.CreateContextWithConfigSGIX) &&
-			GL.isFunctionSupported(funcs.GetVisualFromFBConfigSGIX) &&
-			GL.isFunctionSupported(funcs.GetFBConfigFromVisualSGIX);
+		boolean supported = checkFunctions(
+			funcs.GetFBConfigAttribSGIX, funcs.ChooseFBConfigSGIX, funcs.CreateGLXPixmapWithConfigSGIX, funcs.CreateContextWithConfigSGIX, 
+			funcs.GetVisualFromFBConfigSGIX, funcs.GetFBConfigFromVisualSGIX
+		);
 
 		return GL.checkExtension("GLX_SGIX_fbconfig", funcs, supported);
 	}

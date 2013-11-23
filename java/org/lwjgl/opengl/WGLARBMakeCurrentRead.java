@@ -47,9 +47,9 @@ public final class WGLARBMakeCurrentRead {
 
 		WGLARBMakeCurrentRead funcs = new WGLARBMakeCurrentRead(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.MakeContextCurrentARB) &&
-			GL.isFunctionSupported(funcs.GetCurrentReadDCARB);
+		boolean supported = checkFunctions(
+			funcs.MakeContextCurrentARB, funcs.GetCurrentReadDCARB
+		);
 
 		return GL.checkExtension("WGL_ARB_make_current_read", funcs, supported);
 	}

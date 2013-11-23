@@ -41,11 +41,9 @@ public final class ARBDrawBuffersBlend {
 
 		ARBDrawBuffersBlend funcs = new ARBDrawBuffersBlend(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BlendEquationiARB) &&
-			GL.isFunctionSupported(funcs.BlendEquationSeparateiARB) &&
-			GL.isFunctionSupported(funcs.BlendFunciARB) &&
-			GL.isFunctionSupported(funcs.BlendFuncSeparateiARB);
+		boolean supported = checkFunctions(
+			funcs.BlendEquationiARB, funcs.BlendEquationSeparateiARB, funcs.BlendFunciARB, funcs.BlendFuncSeparateiARB
+		);
 
 		return GL.checkExtension("GL_ARB_draw_buffers_blend", funcs, supported);
 	}

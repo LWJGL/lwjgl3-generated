@@ -729,40 +729,14 @@ public final class EXTEfx {
 
 		EXTEfx funcs = new EXTEfx(provider);
 
-		boolean supported = 
-			funcs.GenEffects != 0L &&
-			funcs.DeleteEffects != 0L &&
-			funcs.IsEffect != 0L &&
-			funcs.Effecti != 0L &&
-			funcs.Effectiv != 0L &&
-			funcs.Effectf != 0L &&
-			funcs.Effectfv != 0L &&
-			funcs.GetEffecti != 0L &&
-			funcs.GetEffectiv != 0L &&
-			funcs.GetEffectf != 0L &&
-			funcs.GetEffectfv != 0L &&
-			funcs.GenFilters != 0L &&
-			funcs.DeleteFilters != 0L &&
-			funcs.IsFilter != 0L &&
-			funcs.Filteri != 0L &&
-			funcs.Filteriv != 0L &&
-			funcs.Filterf != 0L &&
-			funcs.Filterfv != 0L &&
-			funcs.GetFilteri != 0L &&
-			funcs.GetFilteriv != 0L &&
-			funcs.GetFilterf != 0L &&
-			funcs.GetFilterfv != 0L &&
-			funcs.GenAuxiliaryEffectSlots != 0L &&
-			funcs.DeleteAuxiliaryEffectSlots != 0L &&
-			funcs.IsAuxiliaryEffectSlot != 0L &&
-			funcs.AuxiliaryEffectSloti != 0L &&
-			funcs.AuxiliaryEffectSlotiv != 0L &&
-			funcs.AuxiliaryEffectSlotf != 0L &&
-			funcs.AuxiliaryEffectSlotfv != 0L &&
-			funcs.GetAuxiliaryEffectSloti != 0L &&
-			funcs.GetAuxiliaryEffectSlotiv != 0L &&
-			funcs.GetAuxiliaryEffectSlotf != 0L &&
-			funcs.GetAuxiliaryEffectSlotfv != 0L;
+		boolean supported = checkFunctions(
+			funcs.GenEffects, funcs.DeleteEffects, funcs.IsEffect, funcs.Effecti, funcs.Effectiv, funcs.Effectf, funcs.Effectfv, funcs.GetEffecti, 
+			funcs.GetEffectiv, funcs.GetEffectf, funcs.GetEffectfv, funcs.GenFilters, funcs.DeleteFilters, funcs.IsFilter, funcs.Filteri, funcs.Filteriv, 
+			funcs.Filterf, funcs.Filterfv, funcs.GetFilteri, funcs.GetFilteriv, funcs.GetFilterf, funcs.GetFilterfv, funcs.GenAuxiliaryEffectSlots, 
+			funcs.DeleteAuxiliaryEffectSlots, funcs.IsAuxiliaryEffectSlot, funcs.AuxiliaryEffectSloti, funcs.AuxiliaryEffectSlotiv, funcs.AuxiliaryEffectSlotf, 
+			funcs.AuxiliaryEffectSlotfv, funcs.GetAuxiliaryEffectSloti, funcs.GetAuxiliaryEffectSlotiv, funcs.GetAuxiliaryEffectSlotf, 
+			funcs.GetAuxiliaryEffectSlotfv
+		);
 
 		return AL.checkExtension("ALC_EXT_EFX", funcs, supported);
 	}

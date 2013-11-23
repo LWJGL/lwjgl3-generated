@@ -562,49 +562,17 @@ public final class GL43 {
 
 		GL43 funcs = new GL43(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.ClearBufferData) &&
-			GL.isFunctionSupported(funcs.ClearBufferSubData) &&
-			GL.isFunctionSupported(funcs.DispatchCompute) &&
-			GL.isFunctionSupported(funcs.DispatchComputeIndirect) &&
-			GL.isFunctionSupported(funcs.CopyImageSubData) &&
-			GL.isFunctionSupported(funcs.DebugMessageControl) &&
-			GL.isFunctionSupported(funcs.DebugMessageInsert) &&
-			GL.isFunctionSupported(funcs.DebugMessageCallback) &&
-			GL.isFunctionSupported(funcs.GetDebugMessageLog) &&
-			GL.isFunctionSupported(funcs.PushDebugGroup) &&
-			GL.isFunctionSupported(funcs.ObjectLabel) &&
-			GL.isFunctionSupported(funcs.GetObjectLabel) &&
-			GL.isFunctionSupported(funcs.ObjectPtrLabel) &&
-			GL.isFunctionSupported(funcs.GetObjectPtrLabel) &&
-			GL.isFunctionSupported(funcs.FramebufferParameteri) &&
-			GL.isFunctionSupported(funcs.GetFramebufferParameteriv) &&
-			GL.isFunctionSupported(funcs.GetInternalformati64v) &&
-			GL.isFunctionSupported(funcs.InvalidateTexSubImage) &&
-			GL.isFunctionSupported(funcs.InvalidateTexImage) &&
-			GL.isFunctionSupported(funcs.InvalidateBufferSubData) &&
-			GL.isFunctionSupported(funcs.InvalidateBufferData) &&
-			GL.isFunctionSupported(funcs.InvalidateFramebuffer) &&
-			GL.isFunctionSupported(funcs.InvalidateSubFramebuffer) &&
-			GL.isFunctionSupported(funcs.MultiDrawArraysIndirect) &&
-			GL.isFunctionSupported(funcs.MultiDrawElementsIndirect) &&
-			GL.isFunctionSupported(funcs.GetProgramInterfaceiv) &&
-			GL.isFunctionSupported(funcs.GetProgramResourceIndex) &&
-			GL.isFunctionSupported(funcs.GetProgramResourceName) &&
-			GL.isFunctionSupported(funcs.GetProgramResourceiv) &&
-			GL.isFunctionSupported(funcs.GetProgramResourceLocation) &&
-			GL.isFunctionSupported(funcs.GetProgramResourceLocationIndex) &&
-			GL.isFunctionSupported(funcs.ShaderStorageBlockBinding) &&
-			GL.isFunctionSupported(funcs.TexBufferRange) &&
-			GL.isFunctionSupported(funcs.TexStorage2DMultisample) &&
-			GL.isFunctionSupported(funcs.TexStorage3DMultisample) &&
-			GL.isFunctionSupported(funcs.TextureView) &&
-			GL.isFunctionSupported(funcs.BindVertexBuffer) &&
-			GL.isFunctionSupported(funcs.VertexAttribFormat) &&
-			GL.isFunctionSupported(funcs.VertexAttribIFormat) &&
-			GL.isFunctionSupported(funcs.VertexAttribLFormat) &&
-			GL.isFunctionSupported(funcs.VertexAttribBinding) &&
-			GL.isFunctionSupported(funcs.VertexBindingDivisor);
+		boolean supported = checkFunctions(
+			funcs.ClearBufferData, funcs.ClearBufferSubData, funcs.DispatchCompute, funcs.DispatchComputeIndirect, funcs.CopyImageSubData, 
+			funcs.DebugMessageControl, funcs.DebugMessageInsert, funcs.DebugMessageCallback, funcs.GetDebugMessageLog, funcs.PushDebugGroup, funcs.ObjectLabel, 
+			funcs.GetObjectLabel, funcs.ObjectPtrLabel, funcs.GetObjectPtrLabel, funcs.FramebufferParameteri, funcs.GetFramebufferParameteriv, 
+			funcs.GetInternalformati64v, funcs.InvalidateTexSubImage, funcs.InvalidateTexImage, funcs.InvalidateBufferSubData, funcs.InvalidateBufferData, 
+			funcs.InvalidateFramebuffer, funcs.InvalidateSubFramebuffer, funcs.MultiDrawArraysIndirect, funcs.MultiDrawElementsIndirect, 
+			funcs.GetProgramInterfaceiv, funcs.GetProgramResourceIndex, funcs.GetProgramResourceName, funcs.GetProgramResourceiv, 
+			funcs.GetProgramResourceLocation, funcs.GetProgramResourceLocationIndex, funcs.ShaderStorageBlockBinding, funcs.TexBufferRange, 
+			funcs.TexStorage2DMultisample, funcs.TexStorage3DMultisample, funcs.TextureView, funcs.BindVertexBuffer, funcs.VertexAttribFormat, 
+			funcs.VertexAttribIFormat, funcs.VertexAttribLFormat, funcs.VertexAttribBinding, funcs.VertexBindingDivisor
+		);
 
 		return GL.checkExtension("OpenGL43", funcs, supported);
 	}

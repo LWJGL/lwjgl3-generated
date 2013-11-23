@@ -40,7 +40,9 @@ public final class WGLNVCopyImage {
 
 		WGLNVCopyImage funcs = new WGLNVCopyImage(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CopyImageSubDataNV);
+		boolean supported = checkFunctions(
+			funcs.CopyImageSubDataNV
+		);
 
 		return GL.checkExtension("WGL_NV_copy_image", funcs, supported);
 	}

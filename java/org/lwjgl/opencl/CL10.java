@@ -510,72 +510,19 @@ public final class CL10 {
 
 		CL10 funcs = new CL10(provider);
 
-		boolean supported = 
-			funcs.GetPlatformIDs != 0L &&
-			funcs.GetPlatformInfo != 0L &&
-			funcs.GetDeviceIDs != 0L &&
-			funcs.GetDeviceInfo != 0L &&
-			funcs.CreateContext != 0L &&
-			funcs.CreateContextFromType != 0L &&
-			funcs.RetainContext != 0L &&
-			funcs.ReleaseContext != 0L &&
-			funcs.GetContextInfo != 0L &&
-			funcs.CreateCommandQueue != 0L &&
-			funcs.RetainCommandQueue != 0L &&
-			funcs.ReleaseCommandQueue != 0L &&
-			funcs.GetCommandQueueInfo != 0L &&
-			funcs.CreateBuffer != 0L &&
-			funcs.EnqueueReadBuffer != 0L &&
-			funcs.EnqueueWriteBuffer != 0L &&
-			funcs.EnqueueCopyBuffer != 0L &&
-			funcs.EnqueueMapBuffer != 0L &&
-			funcs.CreateImage2D != 0L &&
-			funcs.CreateImage3D != 0L &&
-			funcs.GetSupportedImageFormats != 0L &&
-			funcs.EnqueueReadImage != 0L &&
-			funcs.EnqueueWriteImage != 0L &&
-			funcs.EnqueueCopyImage != 0L &&
-			funcs.EnqueueCopyImageToBuffer != 0L &&
-			funcs.EnqueueCopyBufferToImage != 0L &&
-			funcs.EnqueueMapImage != 0L &&
-			funcs.GetImageInfo != 0L &&
-			funcs.RetainMemObject != 0L &&
-			funcs.ReleaseMemObject != 0L &&
-			funcs.EnqueueUnmapMemObject != 0L &&
-			funcs.GetMemObjectInfo != 0L &&
-			funcs.CreateSampler != 0L &&
-			funcs.RetainSampler != 0L &&
-			funcs.ReleaseSampler != 0L &&
-			funcs.GetSamplerInfo != 0L &&
-			funcs.CreateProgramWithSource != 0L &&
-			funcs.CreateProgramWithBinary != 0L &&
-			funcs.RetainProgram != 0L &&
-			funcs.ReleaseProgram != 0L &&
-			funcs.BuildProgram != 0L &&
-			funcs.UnloadCompiler != 0L &&
-			funcs.GetProgramInfo != 0L &&
-			funcs.GetProgramBuildInfo != 0L &&
-			funcs.CreateKernel != 0L &&
-			funcs.CreateKernelsInProgram != 0L &&
-			funcs.RetainKernel != 0L &&
-			funcs.ReleaseKernel != 0L &&
-			funcs.SetKernelArg != 0L &&
-			funcs.GetKernelInfo != 0L &&
-			funcs.GetKernelWorkGroupInfo != 0L &&
-			funcs.EnqueueNDRangeKernel != 0L &&
-			funcs.EnqueueTask != 0L &&
-			funcs.EnqueueNativeKernel != 0L &&
-			funcs.WaitForEvents != 0L &&
-			funcs.GetEventInfo != 0L &&
-			funcs.RetainEvent != 0L &&
-			funcs.ReleaseEvent != 0L &&
-			funcs.EnqueueMarker != 0L &&
-			funcs.EnqueueBarrier != 0L &&
-			funcs.EnqueueWaitForEvents != 0L &&
-			funcs.GetEventProfilingInfo != 0L &&
-			funcs.Flush != 0L &&
-			funcs.Finish != 0L &&
-			funcs.GetExtensionFunctionAddress != 0L;
+		boolean supported = checkFunctions(
+			funcs.GetPlatformIDs, funcs.GetPlatformInfo, funcs.GetDeviceIDs, funcs.GetDeviceInfo, funcs.CreateContext, funcs.CreateContextFromType, 
+			funcs.RetainContext, funcs.ReleaseContext, funcs.GetContextInfo, funcs.CreateCommandQueue, funcs.RetainCommandQueue, funcs.ReleaseCommandQueue, 
+			funcs.GetCommandQueueInfo, funcs.CreateBuffer, funcs.EnqueueReadBuffer, funcs.EnqueueWriteBuffer, funcs.EnqueueCopyBuffer, funcs.EnqueueMapBuffer, 
+			funcs.CreateImage2D, funcs.CreateImage3D, funcs.GetSupportedImageFormats, funcs.EnqueueReadImage, funcs.EnqueueWriteImage, funcs.EnqueueCopyImage, 
+			funcs.EnqueueCopyImageToBuffer, funcs.EnqueueCopyBufferToImage, funcs.EnqueueMapImage, funcs.GetImageInfo, funcs.RetainMemObject, 
+			funcs.ReleaseMemObject, funcs.EnqueueUnmapMemObject, funcs.GetMemObjectInfo, funcs.CreateSampler, funcs.RetainSampler, funcs.ReleaseSampler, 
+			funcs.GetSamplerInfo, funcs.CreateProgramWithSource, funcs.CreateProgramWithBinary, funcs.RetainProgram, funcs.ReleaseProgram, funcs.BuildProgram, 
+			funcs.UnloadCompiler, funcs.GetProgramInfo, funcs.GetProgramBuildInfo, funcs.CreateKernel, funcs.CreateKernelsInProgram, funcs.RetainKernel, 
+			funcs.ReleaseKernel, funcs.SetKernelArg, funcs.GetKernelInfo, funcs.GetKernelWorkGroupInfo, funcs.EnqueueNDRangeKernel, funcs.EnqueueTask, 
+			funcs.EnqueueNativeKernel, funcs.WaitForEvents, funcs.GetEventInfo, funcs.RetainEvent, funcs.ReleaseEvent, funcs.EnqueueMarker, 
+			funcs.EnqueueBarrier, funcs.EnqueueWaitForEvents, funcs.GetEventProfilingInfo, funcs.Flush, funcs.Finish, funcs.GetExtensionFunctionAddress
+		);
 
 		return CL.checkExtension("OpenCL10", funcs, supported);
 	}

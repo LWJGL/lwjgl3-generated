@@ -61,12 +61,9 @@ public final class ALC11 {
 
 		ALC11 funcs = new ALC11(provider);
 
-		boolean supported = 
-			funcs.CaptureOpenDevice != 0L &&
-			funcs.CaptureCloseDevice != 0L &&
-			funcs.CaptureStart != 0L &&
-			funcs.CaptureStop != 0L &&
-			funcs.CaptureSamples != 0L;
+		boolean supported = checkFunctions(
+			funcs.CaptureOpenDevice, funcs.CaptureCloseDevice, funcs.CaptureStart, funcs.CaptureStop, funcs.CaptureSamples
+		);
 
 		return ALC.checkExtension("OpenALC11", funcs, supported);
 	}

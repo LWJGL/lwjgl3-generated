@@ -285,92 +285,25 @@ public final class GL41 {
 
 		GL41 funcs = new GL41(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.ShaderBinary) &&
-			GL.isFunctionSupported(funcs.GetShaderPrecisionFormat) &&
-			GL.isFunctionSupported(funcs.DepthRangef) &&
-			GL.isFunctionSupported(funcs.ClearDepthf) &&
-			GL.isFunctionSupported(funcs.GetProgramBinary) &&
-			GL.isFunctionSupported(funcs.ProgramBinary) &&
-			GL.isFunctionSupported(funcs.ProgramParameteri) &&
-			GL.isFunctionSupported(funcs.UseProgramStages) &&
-			GL.isFunctionSupported(funcs.ActiveShaderProgram) &&
-			GL.isFunctionSupported(funcs.CreateShaderProgramv) &&
-			GL.isFunctionSupported(funcs.BindProgramPipeline) &&
-			GL.isFunctionSupported(funcs.DeleteProgramPipelines) &&
-			GL.isFunctionSupported(funcs.GenProgramPipelines) &&
-			GL.isFunctionSupported(funcs.IsProgramPipeline) &&
-			GL.isFunctionSupported(funcs.GetProgramPipelineiv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1i) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2i) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3i) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4i) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1ui) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2ui) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3ui) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4ui) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1f) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2f) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3f) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4f) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1d) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2d) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3d) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4d) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1iv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2iv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3iv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4iv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1uiv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2uiv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3uiv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4uiv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform1dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform2dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform3dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniform4dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2x3fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3x2fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2x4fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4x2fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3x4fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4x3fv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2x3dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3x2dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix2x4dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4x2dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix3x4dv) &&
-			GL.isFunctionSupported(funcs.ProgramUniformMatrix4x3dv) &&
-			GL.isFunctionSupported(funcs.ValidateProgramPipeline) &&
-			GL.isFunctionSupported(funcs.GetProgramPipelineInfoLog) &&
-			GL.isFunctionSupported(funcs.VertexAttribL1d) &&
-			GL.isFunctionSupported(funcs.VertexAttribL2d) &&
-			GL.isFunctionSupported(funcs.VertexAttribL3d) &&
-			GL.isFunctionSupported(funcs.VertexAttribL4d) &&
-			GL.isFunctionSupported(funcs.VertexAttribL1dv) &&
-			GL.isFunctionSupported(funcs.VertexAttribL2dv) &&
-			GL.isFunctionSupported(funcs.VertexAttribL3dv) &&
-			GL.isFunctionSupported(funcs.VertexAttribL4dv) &&
-			GL.isFunctionSupported(funcs.VertexAttribLPointer) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribLdv) &&
-			GL.isFunctionSupported(funcs.ViewportArrayv) &&
-			GL.isFunctionSupported(funcs.ViewportIndexedf) &&
-			GL.isFunctionSupported(funcs.ViewportIndexedfv) &&
-			GL.isFunctionSupported(funcs.ScissorArrayv) &&
-			GL.isFunctionSupported(funcs.ScissorIndexed) &&
-			GL.isFunctionSupported(funcs.ScissorIndexedv) &&
-			GL.isFunctionSupported(funcs.DepthRangeArrayv) &&
-			GL.isFunctionSupported(funcs.DepthRangeIndexed);
+		boolean supported = checkFunctions(
+			funcs.ShaderBinary, funcs.GetShaderPrecisionFormat, funcs.DepthRangef, funcs.ClearDepthf, funcs.GetProgramBinary, funcs.ProgramBinary, 
+			funcs.ProgramParameteri, funcs.UseProgramStages, funcs.ActiveShaderProgram, funcs.CreateShaderProgramv, funcs.BindProgramPipeline, 
+			funcs.DeleteProgramPipelines, funcs.GenProgramPipelines, funcs.IsProgramPipeline, funcs.GetProgramPipelineiv, funcs.ProgramUniform1i, 
+			funcs.ProgramUniform2i, funcs.ProgramUniform3i, funcs.ProgramUniform4i, funcs.ProgramUniform1ui, funcs.ProgramUniform2ui, funcs.ProgramUniform3ui, 
+			funcs.ProgramUniform4ui, funcs.ProgramUniform1f, funcs.ProgramUniform2f, funcs.ProgramUniform3f, funcs.ProgramUniform4f, funcs.ProgramUniform1d, 
+			funcs.ProgramUniform2d, funcs.ProgramUniform3d, funcs.ProgramUniform4d, funcs.ProgramUniform1iv, funcs.ProgramUniform2iv, funcs.ProgramUniform3iv, 
+			funcs.ProgramUniform4iv, funcs.ProgramUniform1uiv, funcs.ProgramUniform2uiv, funcs.ProgramUniform3uiv, funcs.ProgramUniform4uiv, 
+			funcs.ProgramUniform1fv, funcs.ProgramUniform2fv, funcs.ProgramUniform3fv, funcs.ProgramUniform4fv, funcs.ProgramUniform1dv, 
+			funcs.ProgramUniform2dv, funcs.ProgramUniform3dv, funcs.ProgramUniform4dv, funcs.ProgramUniformMatrix2fv, funcs.ProgramUniformMatrix3fv, 
+			funcs.ProgramUniformMatrix4fv, funcs.ProgramUniformMatrix2dv, funcs.ProgramUniformMatrix3dv, funcs.ProgramUniformMatrix4dv, 
+			funcs.ProgramUniformMatrix2x3fv, funcs.ProgramUniformMatrix3x2fv, funcs.ProgramUniformMatrix2x4fv, funcs.ProgramUniformMatrix4x2fv, 
+			funcs.ProgramUniformMatrix3x4fv, funcs.ProgramUniformMatrix4x3fv, funcs.ProgramUniformMatrix2x3dv, funcs.ProgramUniformMatrix3x2dv, 
+			funcs.ProgramUniformMatrix2x4dv, funcs.ProgramUniformMatrix4x2dv, funcs.ProgramUniformMatrix3x4dv, funcs.ProgramUniformMatrix4x3dv, 
+			funcs.ValidateProgramPipeline, funcs.GetProgramPipelineInfoLog, funcs.VertexAttribL1d, funcs.VertexAttribL2d, funcs.VertexAttribL3d, 
+			funcs.VertexAttribL4d, funcs.VertexAttribL1dv, funcs.VertexAttribL2dv, funcs.VertexAttribL3dv, funcs.VertexAttribL4dv, funcs.VertexAttribLPointer, 
+			funcs.GetVertexAttribLdv, funcs.ViewportArrayv, funcs.ViewportIndexedf, funcs.ViewportIndexedfv, funcs.ScissorArrayv, funcs.ScissorIndexed, 
+			funcs.ScissorIndexedv, funcs.DepthRangeArrayv, funcs.DepthRangeIndexed
+		);
 
 		return GL.checkExtension("OpenGL41", funcs, supported);
 	}

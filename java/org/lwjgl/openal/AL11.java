@@ -84,23 +84,10 @@ public final class AL11 {
 
 		AL11 funcs = new AL11(provider);
 
-		boolean supported = 
-			funcs.Listener3i != 0L &&
-			funcs.GetListeneriv != 0L &&
-			funcs.Source3i != 0L &&
-			funcs.Listeneriv != 0L &&
-			funcs.Sourceiv != 0L &&
-			funcs.Bufferf != 0L &&
-			funcs.Buffer3f != 0L &&
-			funcs.Bufferfv != 0L &&
-			funcs.Bufferi != 0L &&
-			funcs.Buffer3i != 0L &&
-			funcs.Bufferiv != 0L &&
-			funcs.GetBufferi != 0L &&
-			funcs.GetBufferiv != 0L &&
-			funcs.GetBufferf != 0L &&
-			funcs.GetBufferfv != 0L &&
-			funcs.SpeedOfSound != 0L;
+		boolean supported = checkFunctions(
+			funcs.Listener3i, funcs.GetListeneriv, funcs.Source3i, funcs.Listeneriv, funcs.Sourceiv, funcs.Bufferf, funcs.Buffer3f, funcs.Bufferfv, 
+			funcs.Bufferi, funcs.Buffer3i, funcs.Bufferiv, funcs.GetBufferi, funcs.GetBufferiv, funcs.GetBufferf, funcs.GetBufferfv, funcs.SpeedOfSound
+		);
 
 		return AL.checkExtension("OpenAL11", funcs, supported);
 	}

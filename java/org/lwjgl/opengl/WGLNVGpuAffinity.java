@@ -64,12 +64,9 @@ public final class WGLNVGPUAffinity {
 
 		WGLNVGPUAffinity funcs = new WGLNVGPUAffinity(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.EnumGpusNV) &&
-			GL.isFunctionSupported(funcs.EnumGpuDevicesNV) &&
-			GL.isFunctionSupported(funcs.CreateAffinityDCNV) &&
-			GL.isFunctionSupported(funcs.EnumGpusFromAffinityDCNV) &&
-			GL.isFunctionSupported(funcs.DeleteDCNV);
+		boolean supported = checkFunctions(
+			funcs.EnumGpusNV, funcs.EnumGpuDevicesNV, funcs.CreateAffinityDCNV, funcs.EnumGpusFromAffinityDCNV, funcs.DeleteDCNV
+		);
 
 		return GL.checkExtension("WGL_NV_gpu_affinity", funcs, supported);
 	}

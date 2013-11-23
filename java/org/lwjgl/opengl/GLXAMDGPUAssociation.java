@@ -78,16 +78,10 @@ public final class GLXAMDGPUAssociation {
 
 		GLXAMDGPUAssociation funcs = new GLXAMDGPUAssociation(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BlitContextFramebufferAMD) &&
-			GL.isFunctionSupported(funcs.CreateAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.CreateAssociatedContextAttribsAMD) &&
-			GL.isFunctionSupported(funcs.DeleteAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.GetContextGPUIDAMD) &&
-			GL.isFunctionSupported(funcs.GetCurrentAssociatedContextAMD) &&
-			GL.isFunctionSupported(funcs.GetGPUIDsAMD) &&
-			GL.isFunctionSupported(funcs.GetGPUInfoAMD) &&
-			GL.isFunctionSupported(funcs.MakeAssociatedContextCurrentAMD);
+		boolean supported = checkFunctions(
+			funcs.BlitContextFramebufferAMD, funcs.CreateAssociatedContextAMD, funcs.CreateAssociatedContextAttribsAMD, funcs.DeleteAssociatedContextAMD, 
+			funcs.GetContextGPUIDAMD, funcs.GetCurrentAssociatedContextAMD, funcs.GetGPUIDsAMD, funcs.GetGPUInfoAMD, funcs.MakeAssociatedContextCurrentAMD
+		);
 
 		return GL.checkExtension("GLX_AMD_gpu_association", funcs, supported);
 	}

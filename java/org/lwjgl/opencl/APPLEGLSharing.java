@@ -64,7 +64,9 @@ public final class APPLEGLSharing {
 
 		APPLEGLSharing funcs = new APPLEGLSharing(provider, platform);
 
-		boolean supported =  funcs.GetGLContextInfoAPPLE != 0L;
+		boolean supported = checkFunctions(
+			funcs.GetGLContextInfoAPPLE
+		);
 
 		return CL.checkExtension("cl_APPLE_gl_sharing", funcs, supported);
 	}

@@ -370,98 +370,23 @@ public final class GL20 {
 
 		GL20 funcs = new GL20(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.CreateProgram) &&
-			GL.isFunctionSupported(funcs.DeleteProgram) &&
-			GL.isFunctionSupported(funcs.CreateShader) &&
-			GL.isFunctionSupported(funcs.DeleteShader) &&
-			GL.isFunctionSupported(funcs.AttachShader) &&
-			GL.isFunctionSupported(funcs.DetachShader) &&
-			GL.isFunctionSupported(funcs.ShaderSource) &&
-			GL.isFunctionSupported(funcs.CompileShader) &&
-			GL.isFunctionSupported(funcs.LinkProgram) &&
-			GL.isFunctionSupported(funcs.UseProgram) &&
-			GL.isFunctionSupported(funcs.ValidateProgram) &&
-			GL.isFunctionSupported(funcs.Uniform1f) &&
-			GL.isFunctionSupported(funcs.Uniform2f) &&
-			GL.isFunctionSupported(funcs.Uniform3f) &&
-			GL.isFunctionSupported(funcs.Uniform4f) &&
-			GL.isFunctionSupported(funcs.Uniform1i) &&
-			GL.isFunctionSupported(funcs.Uniform2i) &&
-			GL.isFunctionSupported(funcs.Uniform3i) &&
-			GL.isFunctionSupported(funcs.Uniform4i) &&
-			GL.isFunctionSupported(funcs.Uniform1fv) &&
-			GL.isFunctionSupported(funcs.Uniform2fv) &&
-			GL.isFunctionSupported(funcs.Uniform3fv) &&
-			GL.isFunctionSupported(funcs.Uniform4fv) &&
-			GL.isFunctionSupported(funcs.Uniform1iv) &&
-			GL.isFunctionSupported(funcs.Uniform2iv) &&
-			GL.isFunctionSupported(funcs.Uniform3iv) &&
-			GL.isFunctionSupported(funcs.Uniform4iv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix2fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix3fv) &&
-			GL.isFunctionSupported(funcs.UniformMatrix4fv) &&
-			GL.isFunctionSupported(funcs.GetShaderiv) &&
-			GL.isFunctionSupported(funcs.GetProgramiv) &&
-			GL.isFunctionSupported(funcs.GetShaderInfoLog) &&
-			GL.isFunctionSupported(funcs.GetProgramInfoLog) &&
-			GL.isFunctionSupported(funcs.GetAttachedShaders) &&
-			GL.isFunctionSupported(funcs.GetUniformLocation) &&
-			GL.isFunctionSupported(funcs.GetActiveUniform) &&
-			GL.isFunctionSupported(funcs.GetUniformfv) &&
-			GL.isFunctionSupported(funcs.GetUniformiv) &&
-			GL.isFunctionSupported(funcs.GetShaderSource) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1f) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1s) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1d) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2f) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2s) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2d) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3f) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3s) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3d) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4f) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4s) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4d) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nub) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1fv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1sv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib1dv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2fv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2sv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib2dv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3fv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3sv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib3dv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4fv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4sv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4dv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4iv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4bv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4ubv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4usv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4uiv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nbv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nsv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Niv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nubv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nusv) &&
-			GL.isFunctionSupported(funcs.VertexAttrib4Nuiv) &&
-			GL.isFunctionSupported(funcs.VertexAttribPointer) &&
-			GL.isFunctionSupported(funcs.EnableVertexAttribArray) &&
-			GL.isFunctionSupported(funcs.DisableVertexAttribArray) &&
-			GL.isFunctionSupported(funcs.BindAttribLocation) &&
-			GL.isFunctionSupported(funcs.GetActiveAttrib) &&
-			GL.isFunctionSupported(funcs.GetAttribLocation) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribiv) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribfv) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribdv) &&
-			GL.isFunctionSupported(funcs.GetVertexAttribPointerv) &&
-			GL.isFunctionSupported(funcs.DrawBuffers) &&
-			GL.isFunctionSupported(funcs.BlendEquationSeparate) &&
-			GL.isFunctionSupported(funcs.StencilOpSeparate) &&
-			GL.isFunctionSupported(funcs.StencilFuncSeparate) &&
-			GL.isFunctionSupported(funcs.StencilMaskSeparate);
+		boolean supported = checkFunctions(
+			funcs.CreateProgram, funcs.DeleteProgram, funcs.CreateShader, funcs.DeleteShader, funcs.AttachShader, funcs.DetachShader, funcs.ShaderSource, 
+			funcs.CompileShader, funcs.LinkProgram, funcs.UseProgram, funcs.ValidateProgram, funcs.Uniform1f, funcs.Uniform2f, funcs.Uniform3f, funcs.Uniform4f, 
+			funcs.Uniform1i, funcs.Uniform2i, funcs.Uniform3i, funcs.Uniform4i, funcs.Uniform1fv, funcs.Uniform2fv, funcs.Uniform3fv, funcs.Uniform4fv, 
+			funcs.Uniform1iv, funcs.Uniform2iv, funcs.Uniform3iv, funcs.Uniform4iv, funcs.UniformMatrix2fv, funcs.UniformMatrix3fv, funcs.UniformMatrix4fv, 
+			funcs.GetShaderiv, funcs.GetProgramiv, funcs.GetShaderInfoLog, funcs.GetProgramInfoLog, funcs.GetAttachedShaders, funcs.GetUniformLocation, 
+			funcs.GetActiveUniform, funcs.GetUniformfv, funcs.GetUniformiv, funcs.GetShaderSource, funcs.VertexAttrib1f, funcs.VertexAttrib1s, 
+			funcs.VertexAttrib1d, funcs.VertexAttrib2f, funcs.VertexAttrib2s, funcs.VertexAttrib2d, funcs.VertexAttrib3f, funcs.VertexAttrib3s, 
+			funcs.VertexAttrib3d, funcs.VertexAttrib4f, funcs.VertexAttrib4s, funcs.VertexAttrib4d, funcs.VertexAttrib4Nub, funcs.VertexAttrib1fv, 
+			funcs.VertexAttrib1sv, funcs.VertexAttrib1dv, funcs.VertexAttrib2fv, funcs.VertexAttrib2sv, funcs.VertexAttrib2dv, funcs.VertexAttrib3fv, 
+			funcs.VertexAttrib3sv, funcs.VertexAttrib3dv, funcs.VertexAttrib4fv, funcs.VertexAttrib4sv, funcs.VertexAttrib4dv, funcs.VertexAttrib4iv, 
+			funcs.VertexAttrib4bv, funcs.VertexAttrib4ubv, funcs.VertexAttrib4usv, funcs.VertexAttrib4uiv, funcs.VertexAttrib4Nbv, funcs.VertexAttrib4Nsv, 
+			funcs.VertexAttrib4Niv, funcs.VertexAttrib4Nubv, funcs.VertexAttrib4Nusv, funcs.VertexAttrib4Nuiv, funcs.VertexAttribPointer, 
+			funcs.EnableVertexAttribArray, funcs.DisableVertexAttribArray, funcs.BindAttribLocation, funcs.GetActiveAttrib, funcs.GetAttribLocation, 
+			funcs.GetVertexAttribiv, funcs.GetVertexAttribfv, funcs.GetVertexAttribdv, funcs.GetVertexAttribPointerv, funcs.DrawBuffers, 
+			funcs.BlendEquationSeparate, funcs.StencilOpSeparate, funcs.StencilFuncSeparate, funcs.StencilMaskSeparate
+		);
 
 		return GL.checkExtension("OpenGL20", funcs, supported);
 	}

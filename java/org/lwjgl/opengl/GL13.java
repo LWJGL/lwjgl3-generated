@@ -310,53 +310,18 @@ public final class GL13 {
 
 		GL13 funcs = new GL13(provider, fc);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.CompressedTexImage3D) &&
-			GL.isFunctionSupported(funcs.CompressedTexImage2D) &&
-			GL.isFunctionSupported(funcs.CompressedTexImage1D) &&
-			GL.isFunctionSupported(funcs.CompressedTexSubImage3D) &&
-			GL.isFunctionSupported(funcs.CompressedTexSubImage2D) &&
-			GL.isFunctionSupported(funcs.CompressedTexSubImage1D) &&
-			GL.isFunctionSupported(funcs.GetCompressedTexImage) &&
-			GL.isFunctionSupported(funcs.SampleCoverage) &&
-			GL.isFunctionSupported(funcs.ActiveTexture) &&
-			GL.isFunctionSupported(funcs.ClientActiveTexture, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1f, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1s, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1i, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1d, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1fv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1sv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1iv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord1dv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2f, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2s, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2i, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2d, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2fv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2sv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2iv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord2dv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3f, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3s, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3i, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3d, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3fv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3sv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3iv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord3dv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4f, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4s, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4i, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4d, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4fv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4sv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4iv, fc) &&
-			GL.isFunctionSupported(funcs.MultiTexCoord4dv, fc) &&
-			GL.isFunctionSupported(funcs.LoadTransposeMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.LoadTransposeMatrixd, fc) &&
-			GL.isFunctionSupported(funcs.MultTransposeMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.MultTransposeMatrixd, fc);
+		boolean supported = (fc || checkFunctions(
+			funcs.ClientActiveTexture, funcs.MultiTexCoord1f, funcs.MultiTexCoord1s, funcs.MultiTexCoord1i, funcs.MultiTexCoord1d, funcs.MultiTexCoord1fv, 
+			funcs.MultiTexCoord1sv, funcs.MultiTexCoord1iv, funcs.MultiTexCoord1dv, funcs.MultiTexCoord2f, funcs.MultiTexCoord2s, funcs.MultiTexCoord2i, 
+			funcs.MultiTexCoord2d, funcs.MultiTexCoord2fv, funcs.MultiTexCoord2sv, funcs.MultiTexCoord2iv, funcs.MultiTexCoord2dv, funcs.MultiTexCoord3f, 
+			funcs.MultiTexCoord3s, funcs.MultiTexCoord3i, funcs.MultiTexCoord3d, funcs.MultiTexCoord3fv, funcs.MultiTexCoord3sv, funcs.MultiTexCoord3iv, 
+			funcs.MultiTexCoord3dv, funcs.MultiTexCoord4f, funcs.MultiTexCoord4s, funcs.MultiTexCoord4i, funcs.MultiTexCoord4d, funcs.MultiTexCoord4fv, 
+			funcs.MultiTexCoord4sv, funcs.MultiTexCoord4iv, funcs.MultiTexCoord4dv, funcs.LoadTransposeMatrixf, funcs.LoadTransposeMatrixd, 
+			funcs.MultTransposeMatrixf, funcs.MultTransposeMatrixd
+		)) && checkFunctions(
+			funcs.CompressedTexImage3D, funcs.CompressedTexImage2D, funcs.CompressedTexImage1D, funcs.CompressedTexSubImage3D, funcs.CompressedTexSubImage2D, 
+			funcs.CompressedTexSubImage1D, funcs.GetCompressedTexImage, funcs.SampleCoverage, funcs.ActiveTexture
+		);
 
 		return GL.checkExtension("OpenGL13", funcs, supported);
 	}

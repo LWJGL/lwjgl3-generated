@@ -43,9 +43,9 @@ public final class GLXSGIMakeCurrentRead {
 
 		GLXSGIMakeCurrentRead funcs = new GLXSGIMakeCurrentRead(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.MakeCurrentReadSGI) &&
-			GL.isFunctionSupported(funcs.GetCurrentReadDrawableSGI);
+		boolean supported = checkFunctions(
+			funcs.MakeCurrentReadSGI, funcs.GetCurrentReadDrawableSGI
+		);
 
 		return GL.checkExtension("GLX_SGI_make_current_read", funcs, supported);
 	}

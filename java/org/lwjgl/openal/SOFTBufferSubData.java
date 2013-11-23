@@ -42,7 +42,9 @@ public final class SOFTBufferSubData {
 
 		SOFTBufferSubData funcs = new SOFTBufferSubData(provider);
 
-		boolean supported =  funcs.BufferSubDataSOFT != 0L;
+		boolean supported = checkFunctions(
+			funcs.BufferSubDataSOFT
+		);
 
 		return AL.checkExtension("AL_SOFT_buffer_sub_data", funcs, supported);
 	}

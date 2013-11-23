@@ -50,7 +50,9 @@ public final class KHRGLEvent {
 
 		KHRGLEvent funcs = new KHRGLEvent(provider, platform);
 
-		boolean supported =  funcs.CreateEventFromGLsyncKHR != 0L;
+		boolean supported = checkFunctions(
+			funcs.CreateEventFromGLsyncKHR
+		);
 
 		return CL.checkExtension("cl_khr_gl_event", funcs, supported);
 	}

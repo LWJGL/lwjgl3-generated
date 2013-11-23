@@ -16,7 +16,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL15;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.opengl.GL31;
 
@@ -51,7 +50,9 @@ public final class CL12GL {
 
 		CL12GL funcs = new CL12GL(provider);
 
-		boolean supported =  funcs.CreateFromGLTexture != 0L;
+		boolean supported = checkFunctions(
+			funcs.CreateFromGLTexture
+		);
 
 		return CL.checkExtension("OpenCL12GL", funcs, supported);
 	}

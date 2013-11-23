@@ -131,23 +131,11 @@ public final class GLX13 {
 
 		GLX13 funcs = new GLX13(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetFBConfigs) &&
-			GL.isFunctionSupported(funcs.ChooseFBConfig) &&
-			GL.isFunctionSupported(funcs.GetFBConfigAttrib) &&
-			GL.isFunctionSupported(funcs.GetVisualFromFBConfig) &&
-			GL.isFunctionSupported(funcs.CreateWindow) &&
-			GL.isFunctionSupported(funcs.CreatePixmap) &&
-			GL.isFunctionSupported(funcs.DestroyPixmap) &&
-			GL.isFunctionSupported(funcs.CreatePbuffer) &&
-			GL.isFunctionSupported(funcs.DestroyPbuffer) &&
-			GL.isFunctionSupported(funcs.QueryDrawable) &&
-			GL.isFunctionSupported(funcs.CreateNewContext) &&
-			GL.isFunctionSupported(funcs.MakeContextCurrent) &&
-			GL.isFunctionSupported(funcs.GetCurrentReadDrawable) &&
-			GL.isFunctionSupported(funcs.QueryContext) &&
-			GL.isFunctionSupported(funcs.SelectEvent) &&
-			GL.isFunctionSupported(funcs.GetSelectedEvent);
+		boolean supported = checkFunctions(
+			funcs.GetFBConfigs, funcs.ChooseFBConfig, funcs.GetFBConfigAttrib, funcs.GetVisualFromFBConfig, funcs.CreateWindow, funcs.CreatePixmap, 
+			funcs.DestroyPixmap, funcs.CreatePbuffer, funcs.DestroyPbuffer, funcs.QueryDrawable, funcs.CreateNewContext, funcs.MakeContextCurrent, 
+			funcs.GetCurrentReadDrawable, funcs.QueryContext, funcs.SelectEvent, funcs.GetSelectedEvent
+		);
 
 		return GL.checkExtension("GLX_13", funcs, supported);
 	}

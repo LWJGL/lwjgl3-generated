@@ -69,11 +69,9 @@ public final class AMDDebugOutput {
 
 		AMDDebugOutput funcs = new AMDDebugOutput(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.DebugMessageEnableAMD) &&
-			GL.isFunctionSupported(funcs.DebugMessageInsertAMD) &&
-			GL.isFunctionSupported(funcs.DebugMessageCallbackAMD) &&
-			GL.isFunctionSupported(funcs.GetDebugMessageLogAMD);
+		boolean supported = checkFunctions(
+			funcs.DebugMessageEnableAMD, funcs.DebugMessageInsertAMD, funcs.DebugMessageCallbackAMD, funcs.GetDebugMessageLogAMD
+		);
 
 		return GL.checkExtension("GL_AMD_debug_output", funcs, supported);
 	}

@@ -44,7 +44,9 @@ public final class GLX14 {
 
 		GLX14 funcs = new GLX14(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.GetProcAddress);
+		boolean supported = checkFunctions(
+			funcs.GetProcAddress
+		);
 
 		return GL.checkExtension("GLX_14", funcs, supported);
 	}

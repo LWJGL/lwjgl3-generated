@@ -36,9 +36,9 @@ public final class EXTThreadLocalContext {
 
 		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
 
-		boolean supported = 
-			funcs.SetThreadContext != 0L &&
-			funcs.GetThreadContext != 0L;
+		boolean supported = checkFunctions(
+			funcs.SetThreadContext, funcs.GetThreadContext
+		);
 
 		return ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
 	}

@@ -90,19 +90,10 @@ public final class SOFTSourceLatency {
 
 		SOFTSourceLatency funcs = new SOFTSourceLatency(provider);
 
-		boolean supported = 
-			funcs.SourcedSOFT != 0L &&
-			funcs.Source3dSOFT != 0L &&
-			funcs.SourcedvSOFT != 0L &&
-			funcs.GetSourcedSOFT != 0L &&
-			funcs.GetSource3dSOFT != 0L &&
-			funcs.GetSourcedvSOFT != 0L &&
-			funcs.Sourcei64SOFT != 0L &&
-			funcs.Source3i64SOFT != 0L &&
-			funcs.Sourcei64vSOFT != 0L &&
-			funcs.GetSourcei64SOFT != 0L &&
-			funcs.GetSource3i64SOFT != 0L &&
-			funcs.GetSourcei64vSOFT != 0L;
+		boolean supported = checkFunctions(
+			funcs.SourcedSOFT, funcs.Source3dSOFT, funcs.SourcedvSOFT, funcs.GetSourcedSOFT, funcs.GetSource3dSOFT, funcs.GetSourcedvSOFT, funcs.Sourcei64SOFT, 
+			funcs.Source3i64SOFT, funcs.Sourcei64vSOFT, funcs.GetSourcei64SOFT, funcs.GetSource3i64SOFT, funcs.GetSourcei64vSOFT
+		);
 
 		return AL.checkExtension("AL_SOFT_source_latency", funcs, supported);
 	}

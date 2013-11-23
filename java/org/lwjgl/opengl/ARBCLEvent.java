@@ -44,7 +44,9 @@ public final class ARBCLEvent {
 
 		ARBCLEvent funcs = new ARBCLEvent(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CreateSyncFromCLeventARB);
+		boolean supported = checkFunctions(
+			funcs.CreateSyncFromCLeventARB
+		);
 
 		return GL.checkExtension("GL_ARB_cl_event", funcs, supported);
 	}

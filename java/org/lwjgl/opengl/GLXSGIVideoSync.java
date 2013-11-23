@@ -44,9 +44,9 @@ public final class GLXSGIVideoSync {
 
 		GLXSGIVideoSync funcs = new GLXSGIVideoSync(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.GetVideoSyncSGI) &&
-			GL.isFunctionSupported(funcs.WaitVideoSyncSGI);
+		boolean supported = checkFunctions(
+			funcs.GetVideoSyncSGI, funcs.WaitVideoSyncSGI
+		);
 
 		return GL.checkExtension("GLX_SGI_video_sync", funcs, supported);
 	}

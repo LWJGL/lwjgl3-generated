@@ -49,13 +49,9 @@ public final class ARBMultiBind {
 
 		ARBMultiBind funcs = new ARBMultiBind(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BindBuffersBase) &&
-			GL.isFunctionSupported(funcs.BindBuffersRange) &&
-			GL.isFunctionSupported(funcs.BindTextures) &&
-			GL.isFunctionSupported(funcs.BindSamplers) &&
-			GL.isFunctionSupported(funcs.BindImageTextures) &&
-			GL.isFunctionSupported(funcs.BindVertexBuffers);
+		boolean supported = checkFunctions(
+			funcs.BindBuffersBase, funcs.BindBuffersRange, funcs.BindTextures, funcs.BindSamplers, funcs.BindImageTextures, funcs.BindVertexBuffers
+		);
 
 		return GL.checkExtension("GL_ARB_multi_bind", funcs, supported);
 	}

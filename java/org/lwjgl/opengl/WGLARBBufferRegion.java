@@ -56,11 +56,9 @@ public final class WGLARBBufferRegion {
 
 		WGLARBBufferRegion funcs = new WGLARBBufferRegion(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.CreateBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.DeleteBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.SaveBufferRegionARB) &&
-			GL.isFunctionSupported(funcs.RestoreBufferRegionARB);
+		boolean supported = checkFunctions(
+			funcs.CreateBufferRegionARB, funcs.DeleteBufferRegionARB, funcs.SaveBufferRegionARB, funcs.RestoreBufferRegionARB
+		);
 
 		return GL.checkExtension("WGL_ARB_buffer_region", funcs, supported);
 	}

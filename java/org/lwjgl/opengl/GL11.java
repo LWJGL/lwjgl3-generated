@@ -1342,330 +1342,51 @@ public final class GL11 {
 
 		GL11 funcs = new GL11(provider, fc);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.Enable) &&
-			GL.isFunctionSupported(funcs.Disable) &&
-			GL.isFunctionSupported(funcs.Accum, fc) &&
-			GL.isFunctionSupported(funcs.AlphaFunc, fc) &&
-			GL.isFunctionSupported(funcs.AreTexturesResident, fc) &&
-			GL.isFunctionSupported(funcs.ArrayElement) &&
-			GL.isFunctionSupported(funcs.Begin, fc) &&
-			GL.isFunctionSupported(funcs.BindTexture) &&
-			GL.isFunctionSupported(funcs.Bitmap, fc) &&
-			GL.isFunctionSupported(funcs.BlendFunc) &&
-			GL.isFunctionSupported(funcs.CallList, fc) &&
-			GL.isFunctionSupported(funcs.CallLists, fc) &&
-			GL.isFunctionSupported(funcs.Clear) &&
-			GL.isFunctionSupported(funcs.ClearAccum, fc) &&
-			GL.isFunctionSupported(funcs.ClearColor) &&
-			GL.isFunctionSupported(funcs.ClearDepth) &&
-			GL.isFunctionSupported(funcs.ClearStencil) &&
-			GL.isFunctionSupported(funcs.ClipPlane) &&
-			GL.isFunctionSupported(funcs.Color3b, fc) &&
-			GL.isFunctionSupported(funcs.Color3s, fc) &&
-			GL.isFunctionSupported(funcs.Color3i, fc) &&
-			GL.isFunctionSupported(funcs.Color3f, fc) &&
-			GL.isFunctionSupported(funcs.Color3d, fc) &&
-			GL.isFunctionSupported(funcs.Color3ub, fc) &&
-			GL.isFunctionSupported(funcs.Color3us, fc) &&
-			GL.isFunctionSupported(funcs.Color3ui, fc) &&
-			GL.isFunctionSupported(funcs.Color3bv, fc) &&
-			GL.isFunctionSupported(funcs.Color3sv, fc) &&
-			GL.isFunctionSupported(funcs.Color3iv, fc) &&
-			GL.isFunctionSupported(funcs.Color3fv, fc) &&
-			GL.isFunctionSupported(funcs.Color3dv, fc) &&
-			GL.isFunctionSupported(funcs.Color3ubv, fc) &&
-			GL.isFunctionSupported(funcs.Color3usv, fc) &&
-			GL.isFunctionSupported(funcs.Color3uiv, fc) &&
-			GL.isFunctionSupported(funcs.Color4b, fc) &&
-			GL.isFunctionSupported(funcs.Color4s, fc) &&
-			GL.isFunctionSupported(funcs.Color4i, fc) &&
-			GL.isFunctionSupported(funcs.Color4f, fc) &&
-			GL.isFunctionSupported(funcs.Color4d, fc) &&
-			GL.isFunctionSupported(funcs.Color4ub, fc) &&
-			GL.isFunctionSupported(funcs.Color4us, fc) &&
-			GL.isFunctionSupported(funcs.Color4ui, fc) &&
-			GL.isFunctionSupported(funcs.Color4bv, fc) &&
-			GL.isFunctionSupported(funcs.Color4sv, fc) &&
-			GL.isFunctionSupported(funcs.Color4iv, fc) &&
-			GL.isFunctionSupported(funcs.Color4fv, fc) &&
-			GL.isFunctionSupported(funcs.Color4dv, fc) &&
-			GL.isFunctionSupported(funcs.Color4ubv, fc) &&
-			GL.isFunctionSupported(funcs.Color4usv, fc) &&
-			GL.isFunctionSupported(funcs.Color4uiv, fc) &&
-			GL.isFunctionSupported(funcs.ColorMask) &&
-			GL.isFunctionSupported(funcs.ColorMaterial, fc) &&
-			GL.isFunctionSupported(funcs.ColorPointer, fc) &&
-			GL.isFunctionSupported(funcs.CopyPixels) &&
-			GL.isFunctionSupported(funcs.CullFace) &&
-			GL.isFunctionSupported(funcs.DeleteLists, fc) &&
-			GL.isFunctionSupported(funcs.DepthFunc) &&
-			GL.isFunctionSupported(funcs.DepthMask) &&
-			GL.isFunctionSupported(funcs.DepthRange) &&
-			GL.isFunctionSupported(funcs.DisableClientState, fc) &&
-			GL.isFunctionSupported(funcs.DrawArrays) &&
-			GL.isFunctionSupported(funcs.DrawBuffer) &&
-			GL.isFunctionSupported(funcs.DrawElements) &&
-			GL.isFunctionSupported(funcs.DrawPixels, fc) &&
-			GL.isFunctionSupported(funcs.EdgeFlag, fc) &&
-			GL.isFunctionSupported(funcs.EdgeFlagv, fc) &&
-			GL.isFunctionSupported(funcs.EdgeFlagPointer, fc) &&
-			GL.isFunctionSupported(funcs.EnableClientState, fc) &&
-			GL.isFunctionSupported(funcs.End, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord1f, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord1fv, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord1d, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord1dv, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord2f, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord2fv, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord2d, fc) &&
-			GL.isFunctionSupported(funcs.EvalCoord2dv, fc) &&
-			GL.isFunctionSupported(funcs.EvalMesh1, fc) &&
-			GL.isFunctionSupported(funcs.EvalMesh2, fc) &&
-			GL.isFunctionSupported(funcs.EvalPoint1, fc) &&
-			GL.isFunctionSupported(funcs.EvalPoint2, fc) &&
-			GL.isFunctionSupported(funcs.FeedbackBuffer, fc) &&
-			GL.isFunctionSupported(funcs.Finish) &&
-			GL.isFunctionSupported(funcs.Flush) &&
-			GL.isFunctionSupported(funcs.Fogi, fc) &&
-			GL.isFunctionSupported(funcs.Fogiv, fc) &&
-			GL.isFunctionSupported(funcs.Fogf, fc) &&
-			GL.isFunctionSupported(funcs.Fogfv, fc) &&
-			GL.isFunctionSupported(funcs.FrontFace) &&
-			GL.isFunctionSupported(funcs.GenLists, fc) &&
-			GL.isFunctionSupported(funcs.GenTextures) &&
-			GL.isFunctionSupported(funcs.DeleteTextures) &&
-			GL.isFunctionSupported(funcs.GetClipPlane) &&
-			GL.isFunctionSupported(funcs.GetBooleanv) &&
-			GL.isFunctionSupported(funcs.GetFloatv) &&
-			GL.isFunctionSupported(funcs.GetIntegerv) &&
-			GL.isFunctionSupported(funcs.GetDoublev) &&
-			GL.isFunctionSupported(funcs.GetError) &&
-			GL.isFunctionSupported(funcs.GetLightiv, fc) &&
-			GL.isFunctionSupported(funcs.GetLightfv, fc) &&
-			GL.isFunctionSupported(funcs.GetMapiv, fc) &&
-			GL.isFunctionSupported(funcs.GetMapfv, fc) &&
-			GL.isFunctionSupported(funcs.GetMapdv, fc) &&
-			GL.isFunctionSupported(funcs.GetMaterialiv, fc) &&
-			GL.isFunctionSupported(funcs.GetMaterialfv, fc) &&
-			GL.isFunctionSupported(funcs.GetPixelMapfv, fc) &&
-			GL.isFunctionSupported(funcs.GetPixelMapusv, fc) &&
-			GL.isFunctionSupported(funcs.GetPixelMapuiv, fc) &&
-			GL.isFunctionSupported(funcs.GetPointerv) &&
-			GL.isFunctionSupported(funcs.GetPolygonStipple, fc) &&
-			GL.isFunctionSupported(funcs.GetString) &&
-			GL.isFunctionSupported(funcs.GetTexEnviv) &&
-			GL.isFunctionSupported(funcs.GetTexEnvfv) &&
-			GL.isFunctionSupported(funcs.GetTexGeniv, fc) &&
-			GL.isFunctionSupported(funcs.GetTexGenfv, fc) &&
-			GL.isFunctionSupported(funcs.GetTexGendv, fc) &&
-			GL.isFunctionSupported(funcs.GetTexImage) &&
-			GL.isFunctionSupported(funcs.GetTexLevelParameteriv) &&
-			GL.isFunctionSupported(funcs.GetTexLevelParameterfv) &&
-			GL.isFunctionSupported(funcs.GetTexParameteriv) &&
-			GL.isFunctionSupported(funcs.GetTexParameterfv) &&
-			GL.isFunctionSupported(funcs.Hint) &&
-			GL.isFunctionSupported(funcs.InitNames, fc) &&
-			GL.isFunctionSupported(funcs.InterleavedArrays) &&
-			GL.isFunctionSupported(funcs.IsEnabled) &&
-			GL.isFunctionSupported(funcs.IsList, fc) &&
-			GL.isFunctionSupported(funcs.IsTexture) &&
-			GL.isFunctionSupported(funcs.LightModeli, fc) &&
-			GL.isFunctionSupported(funcs.LightModelf, fc) &&
-			GL.isFunctionSupported(funcs.LightModeliv, fc) &&
-			GL.isFunctionSupported(funcs.LightModelfv, fc) &&
-			GL.isFunctionSupported(funcs.Lighti, fc) &&
-			GL.isFunctionSupported(funcs.Lightf, fc) &&
-			GL.isFunctionSupported(funcs.Lightiv, fc) &&
-			GL.isFunctionSupported(funcs.Lightfv, fc) &&
-			GL.isFunctionSupported(funcs.LineStipple, fc) &&
-			GL.isFunctionSupported(funcs.LineWidth) &&
-			GL.isFunctionSupported(funcs.ListBase, fc) &&
-			GL.isFunctionSupported(funcs.LoadMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.LoadMatrixd, fc) &&
-			GL.isFunctionSupported(funcs.LoadIdentity, fc) &&
-			GL.isFunctionSupported(funcs.LoadName, fc) &&
-			GL.isFunctionSupported(funcs.LogicOp) &&
-			GL.isFunctionSupported(funcs.Map1f, fc) &&
-			GL.isFunctionSupported(funcs.Map1d, fc) &&
-			GL.isFunctionSupported(funcs.Map2f, fc) &&
-			GL.isFunctionSupported(funcs.Map2d, fc) &&
-			GL.isFunctionSupported(funcs.MapGrid1f, fc) &&
-			GL.isFunctionSupported(funcs.MapGrid1d, fc) &&
-			GL.isFunctionSupported(funcs.MapGrid2f, fc) &&
-			GL.isFunctionSupported(funcs.MapGrid2d, fc) &&
-			GL.isFunctionSupported(funcs.Materiali, fc) &&
-			GL.isFunctionSupported(funcs.Materialf, fc) &&
-			GL.isFunctionSupported(funcs.Materialiv, fc) &&
-			GL.isFunctionSupported(funcs.Materialfv, fc) &&
-			GL.isFunctionSupported(funcs.MatrixMode, fc) &&
-			GL.isFunctionSupported(funcs.MultMatrixf, fc) &&
-			GL.isFunctionSupported(funcs.MultMatrixd, fc) &&
-			GL.isFunctionSupported(funcs.Frustum, fc) &&
-			GL.isFunctionSupported(funcs.NewList, fc) &&
-			GL.isFunctionSupported(funcs.EndList, fc) &&
-			GL.isFunctionSupported(funcs.Normal3f, fc) &&
-			GL.isFunctionSupported(funcs.Normal3b, fc) &&
-			GL.isFunctionSupported(funcs.Normal3s, fc) &&
-			GL.isFunctionSupported(funcs.Normal3i, fc) &&
-			GL.isFunctionSupported(funcs.Normal3d, fc) &&
-			GL.isFunctionSupported(funcs.Normal3fv, fc) &&
-			GL.isFunctionSupported(funcs.Normal3bv, fc) &&
-			GL.isFunctionSupported(funcs.Normal3sv, fc) &&
-			GL.isFunctionSupported(funcs.Normal3iv, fc) &&
-			GL.isFunctionSupported(funcs.Normal3dv, fc) &&
-			GL.isFunctionSupported(funcs.NormalPointer, fc) &&
-			GL.isFunctionSupported(funcs.Ortho, fc) &&
-			GL.isFunctionSupported(funcs.PassThrough, fc) &&
-			GL.isFunctionSupported(funcs.PixelMapfv, fc) &&
-			GL.isFunctionSupported(funcs.PixelMapusv, fc) &&
-			GL.isFunctionSupported(funcs.PixelMapuiv, fc) &&
-			GL.isFunctionSupported(funcs.PixelStorei) &&
-			GL.isFunctionSupported(funcs.PixelStoref) &&
-			GL.isFunctionSupported(funcs.PixelTransferi, fc) &&
-			GL.isFunctionSupported(funcs.PixelTransferf, fc) &&
-			GL.isFunctionSupported(funcs.PixelZoom, fc) &&
-			GL.isFunctionSupported(funcs.PointSize) &&
-			GL.isFunctionSupported(funcs.PolygonMode) &&
-			GL.isFunctionSupported(funcs.PolygonOffset) &&
-			GL.isFunctionSupported(funcs.PolygonStipple, fc) &&
-			GL.isFunctionSupported(funcs.PushAttrib, fc) &&
-			GL.isFunctionSupported(funcs.PushClientAttrib, fc) &&
-			GL.isFunctionSupported(funcs.PopAttrib, fc) &&
-			GL.isFunctionSupported(funcs.PopClientAttrib, fc) &&
-			GL.isFunctionSupported(funcs.PopMatrix, fc) &&
-			GL.isFunctionSupported(funcs.PopName, fc) &&
-			GL.isFunctionSupported(funcs.PrioritizeTextures, fc) &&
-			GL.isFunctionSupported(funcs.PushMatrix, fc) &&
-			GL.isFunctionSupported(funcs.PushName, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2i, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2s, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2f, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2d, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2iv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2sv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2fv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos2dv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3i, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3s, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3f, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3d, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3iv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3sv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3fv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos3dv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4i, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4s, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4f, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4d, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4iv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4sv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4fv, fc) &&
-			GL.isFunctionSupported(funcs.RasterPos4dv, fc) &&
-			GL.isFunctionSupported(funcs.ReadBuffer) &&
-			GL.isFunctionSupported(funcs.ReadPixels) &&
-			GL.isFunctionSupported(funcs.Recti, fc) &&
-			GL.isFunctionSupported(funcs.Rects, fc) &&
-			GL.isFunctionSupported(funcs.Rectf, fc) &&
-			GL.isFunctionSupported(funcs.Rectd, fc) &&
-			GL.isFunctionSupported(funcs.Rectiv, fc) &&
-			GL.isFunctionSupported(funcs.Rectsv, fc) &&
-			GL.isFunctionSupported(funcs.Rectfv, fc) &&
-			GL.isFunctionSupported(funcs.Rectdv, fc) &&
-			GL.isFunctionSupported(funcs.RenderMode, fc) &&
-			GL.isFunctionSupported(funcs.Rotatef, fc) &&
-			GL.isFunctionSupported(funcs.Rotated, fc) &&
-			GL.isFunctionSupported(funcs.Scalef, fc) &&
-			GL.isFunctionSupported(funcs.Scaled, fc) &&
-			GL.isFunctionSupported(funcs.Scissor) &&
-			GL.isFunctionSupported(funcs.SelectBuffer, fc) &&
-			GL.isFunctionSupported(funcs.ShadeModel, fc) &&
-			GL.isFunctionSupported(funcs.StencilFunc) &&
-			GL.isFunctionSupported(funcs.StencilMask) &&
-			GL.isFunctionSupported(funcs.StencilOp) &&
-			GL.isFunctionSupported(funcs.TexCoord1f, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1s, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1i, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1d, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1fv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1sv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1iv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord1dv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2f, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2s, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2i, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2d, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2fv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2sv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2iv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord2dv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3f, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3s, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3i, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3d, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3fv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3sv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3iv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord3dv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4f, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4s, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4i, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4d, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4fv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4sv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4iv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoord4dv, fc) &&
-			GL.isFunctionSupported(funcs.TexCoordPointer, fc) &&
-			GL.isFunctionSupported(funcs.TexEnvi) &&
-			GL.isFunctionSupported(funcs.TexEnviv) &&
-			GL.isFunctionSupported(funcs.TexEnvf) &&
-			GL.isFunctionSupported(funcs.TexEnvfv) &&
-			GL.isFunctionSupported(funcs.TexGeni, fc) &&
-			GL.isFunctionSupported(funcs.TexGeniv, fc) &&
-			GL.isFunctionSupported(funcs.TexGenf, fc) &&
-			GL.isFunctionSupported(funcs.TexGenfv, fc) &&
-			GL.isFunctionSupported(funcs.TexGend, fc) &&
-			GL.isFunctionSupported(funcs.TexGendv, fc) &&
-			GL.isFunctionSupported(funcs.TexImage2D) &&
-			GL.isFunctionSupported(funcs.TexImage1D) &&
-			GL.isFunctionSupported(funcs.CopyTexImage2D) &&
-			GL.isFunctionSupported(funcs.CopyTexImage1D) &&
-			GL.isFunctionSupported(funcs.CopyTexSubImage1D) &&
-			GL.isFunctionSupported(funcs.CopyTexSubImage2D) &&
-			GL.isFunctionSupported(funcs.TexParameteri) &&
-			GL.isFunctionSupported(funcs.TexParameteriv) &&
-			GL.isFunctionSupported(funcs.TexParameterf) &&
-			GL.isFunctionSupported(funcs.TexParameterfv) &&
-			GL.isFunctionSupported(funcs.TexSubImage1D) &&
-			GL.isFunctionSupported(funcs.TexSubImage2D) &&
-			GL.isFunctionSupported(funcs.Translatef, fc) &&
-			GL.isFunctionSupported(funcs.Translated, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2f, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2s, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2i, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2d, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2fv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2sv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2iv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex2dv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3f, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3s, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3i, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3d, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3fv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3sv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3iv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex3dv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4f, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4s, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4i, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4d, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4fv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4sv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4iv, fc) &&
-			GL.isFunctionSupported(funcs.Vertex4dv, fc) &&
-			GL.isFunctionSupported(funcs.VertexPointer, fc) &&
-			GL.isFunctionSupported(funcs.Viewport);
+		boolean supported = (fc || checkFunctions(
+			funcs.Accum, funcs.AlphaFunc, funcs.AreTexturesResident, funcs.Begin, funcs.Bitmap, funcs.CallList, funcs.CallLists, funcs.ClearAccum, 
+			funcs.Color3b, funcs.Color3s, funcs.Color3i, funcs.Color3f, funcs.Color3d, funcs.Color3ub, funcs.Color3us, funcs.Color3ui, funcs.Color3bv, 
+			funcs.Color3sv, funcs.Color3iv, funcs.Color3fv, funcs.Color3dv, funcs.Color3ubv, funcs.Color3usv, funcs.Color3uiv, funcs.Color4b, funcs.Color4s, 
+			funcs.Color4i, funcs.Color4f, funcs.Color4d, funcs.Color4ub, funcs.Color4us, funcs.Color4ui, funcs.Color4bv, funcs.Color4sv, funcs.Color4iv, 
+			funcs.Color4fv, funcs.Color4dv, funcs.Color4ubv, funcs.Color4usv, funcs.Color4uiv, funcs.ColorMaterial, funcs.ColorPointer, funcs.DeleteLists, 
+			funcs.DisableClientState, funcs.DrawPixels, funcs.EdgeFlag, funcs.EdgeFlagv, funcs.EdgeFlagPointer, funcs.EnableClientState, funcs.End, 
+			funcs.EvalCoord1f, funcs.EvalCoord1fv, funcs.EvalCoord1d, funcs.EvalCoord1dv, funcs.EvalCoord2f, funcs.EvalCoord2fv, funcs.EvalCoord2d, 
+			funcs.EvalCoord2dv, funcs.EvalMesh1, funcs.EvalMesh2, funcs.EvalPoint1, funcs.EvalPoint2, funcs.FeedbackBuffer, funcs.Fogi, funcs.Fogiv, funcs.Fogf, 
+			funcs.Fogfv, funcs.GenLists, funcs.GetLightiv, funcs.GetLightfv, funcs.GetMapiv, funcs.GetMapfv, funcs.GetMapdv, funcs.GetMaterialiv, 
+			funcs.GetMaterialfv, funcs.GetPixelMapfv, funcs.GetPixelMapusv, funcs.GetPixelMapuiv, funcs.GetPolygonStipple, funcs.GetTexGeniv, funcs.GetTexGenfv, 
+			funcs.GetTexGendv, funcs.InitNames, funcs.IsList, funcs.LightModeli, funcs.LightModelf, funcs.LightModeliv, funcs.LightModelfv, funcs.Lighti, 
+			funcs.Lightf, funcs.Lightiv, funcs.Lightfv, funcs.LineStipple, funcs.ListBase, funcs.LoadMatrixf, funcs.LoadMatrixd, funcs.LoadIdentity, 
+			funcs.LoadName, funcs.Map1f, funcs.Map1d, funcs.Map2f, funcs.Map2d, funcs.MapGrid1f, funcs.MapGrid1d, funcs.MapGrid2f, funcs.MapGrid2d, 
+			funcs.Materiali, funcs.Materialf, funcs.Materialiv, funcs.Materialfv, funcs.MatrixMode, funcs.MultMatrixf, funcs.MultMatrixd, funcs.Frustum, 
+			funcs.NewList, funcs.EndList, funcs.Normal3f, funcs.Normal3b, funcs.Normal3s, funcs.Normal3i, funcs.Normal3d, funcs.Normal3fv, funcs.Normal3bv, 
+			funcs.Normal3sv, funcs.Normal3iv, funcs.Normal3dv, funcs.NormalPointer, funcs.Ortho, funcs.PassThrough, funcs.PixelMapfv, funcs.PixelMapusv, 
+			funcs.PixelMapuiv, funcs.PixelTransferi, funcs.PixelTransferf, funcs.PixelZoom, funcs.PolygonStipple, funcs.PushAttrib, funcs.PushClientAttrib, 
+			funcs.PopAttrib, funcs.PopClientAttrib, funcs.PopMatrix, funcs.PopName, funcs.PrioritizeTextures, funcs.PushMatrix, funcs.PushName, 
+			funcs.RasterPos2i, funcs.RasterPos2s, funcs.RasterPos2f, funcs.RasterPos2d, funcs.RasterPos2iv, funcs.RasterPos2sv, funcs.RasterPos2fv, 
+			funcs.RasterPos2dv, funcs.RasterPos3i, funcs.RasterPos3s, funcs.RasterPos3f, funcs.RasterPos3d, funcs.RasterPos3iv, funcs.RasterPos3sv, 
+			funcs.RasterPos3fv, funcs.RasterPos3dv, funcs.RasterPos4i, funcs.RasterPos4s, funcs.RasterPos4f, funcs.RasterPos4d, funcs.RasterPos4iv, 
+			funcs.RasterPos4sv, funcs.RasterPos4fv, funcs.RasterPos4dv, funcs.Recti, funcs.Rects, funcs.Rectf, funcs.Rectd, funcs.Rectiv, funcs.Rectsv, 
+			funcs.Rectfv, funcs.Rectdv, funcs.RenderMode, funcs.Rotatef, funcs.Rotated, funcs.Scalef, funcs.Scaled, funcs.SelectBuffer, funcs.ShadeModel, 
+			funcs.TexCoord1f, funcs.TexCoord1s, funcs.TexCoord1i, funcs.TexCoord1d, funcs.TexCoord1fv, funcs.TexCoord1sv, funcs.TexCoord1iv, funcs.TexCoord1dv, 
+			funcs.TexCoord2f, funcs.TexCoord2s, funcs.TexCoord2i, funcs.TexCoord2d, funcs.TexCoord2fv, funcs.TexCoord2sv, funcs.TexCoord2iv, funcs.TexCoord2dv, 
+			funcs.TexCoord3f, funcs.TexCoord3s, funcs.TexCoord3i, funcs.TexCoord3d, funcs.TexCoord3fv, funcs.TexCoord3sv, funcs.TexCoord3iv, funcs.TexCoord3dv, 
+			funcs.TexCoord4f, funcs.TexCoord4s, funcs.TexCoord4i, funcs.TexCoord4d, funcs.TexCoord4fv, funcs.TexCoord4sv, funcs.TexCoord4iv, funcs.TexCoord4dv, 
+			funcs.TexCoordPointer, funcs.TexGeni, funcs.TexGeniv, funcs.TexGenf, funcs.TexGenfv, funcs.TexGend, funcs.TexGendv, funcs.Translatef, 
+			funcs.Translated, funcs.Vertex2f, funcs.Vertex2s, funcs.Vertex2i, funcs.Vertex2d, funcs.Vertex2fv, funcs.Vertex2sv, funcs.Vertex2iv, 
+			funcs.Vertex2dv, funcs.Vertex3f, funcs.Vertex3s, funcs.Vertex3i, funcs.Vertex3d, funcs.Vertex3fv, funcs.Vertex3sv, funcs.Vertex3iv, funcs.Vertex3dv, 
+			funcs.Vertex4f, funcs.Vertex4s, funcs.Vertex4i, funcs.Vertex4d, funcs.Vertex4fv, funcs.Vertex4sv, funcs.Vertex4iv, funcs.Vertex4dv, 
+			funcs.VertexPointer
+		)) && checkFunctions(
+			funcs.Enable, funcs.Disable, funcs.ArrayElement, funcs.BindTexture, funcs.BlendFunc, funcs.Clear, funcs.ClearColor, funcs.ClearDepth, 
+			funcs.ClearStencil, funcs.ClipPlane, funcs.ColorMask, funcs.CopyPixels, funcs.CullFace, funcs.DepthFunc, funcs.DepthMask, funcs.DepthRange, 
+			funcs.DrawArrays, funcs.DrawBuffer, funcs.DrawElements, funcs.Finish, funcs.Flush, funcs.FrontFace, funcs.GenTextures, funcs.DeleteTextures, 
+			funcs.GetClipPlane, funcs.GetBooleanv, funcs.GetFloatv, funcs.GetIntegerv, funcs.GetDoublev, funcs.GetError, funcs.GetPointerv, funcs.GetString, 
+			funcs.GetTexEnviv, funcs.GetTexEnvfv, funcs.GetTexImage, funcs.GetTexLevelParameteriv, funcs.GetTexLevelParameterfv, funcs.GetTexParameteriv, 
+			funcs.GetTexParameterfv, funcs.Hint, funcs.InterleavedArrays, funcs.IsEnabled, funcs.IsTexture, funcs.LineWidth, funcs.LogicOp, funcs.PixelStorei, 
+			funcs.PixelStoref, funcs.PointSize, funcs.PolygonMode, funcs.PolygonOffset, funcs.ReadBuffer, funcs.ReadPixels, funcs.Scissor, funcs.StencilFunc, 
+			funcs.StencilMask, funcs.StencilOp, funcs.TexEnvi, funcs.TexEnviv, funcs.TexEnvf, funcs.TexEnvfv, funcs.TexImage2D, funcs.TexImage1D, 
+			funcs.CopyTexImage2D, funcs.CopyTexImage1D, funcs.CopyTexSubImage1D, funcs.CopyTexSubImage2D, funcs.TexParameteri, funcs.TexParameteriv, 
+			funcs.TexParameterf, funcs.TexParameterfv, funcs.TexSubImage1D, funcs.TexSubImage2D, funcs.Viewport
+		);
 
 		return GL.checkExtension("OpenGL11", funcs, supported);
 	}

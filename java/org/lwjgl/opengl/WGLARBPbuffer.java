@@ -88,12 +88,9 @@ public final class WGLARBPbuffer {
 
 		WGLARBPbuffer funcs = new WGLARBPbuffer(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.CreatePbufferARB) &&
-			GL.isFunctionSupported(funcs.GetPbufferDCARB) &&
-			GL.isFunctionSupported(funcs.ReleasePbufferDCARB) &&
-			GL.isFunctionSupported(funcs.DestroyPbufferARB) &&
-			GL.isFunctionSupported(funcs.QueryPbufferARB);
+		boolean supported = checkFunctions(
+			funcs.CreatePbufferARB, funcs.GetPbufferDCARB, funcs.ReleasePbufferDCARB, funcs.DestroyPbufferARB, funcs.QueryPbufferARB
+		);
 
 		return GL.checkExtension("WGL_ARB_pbuffer", funcs, supported);
 	}

@@ -43,7 +43,9 @@ public final class GLXNVCopyImage {
 
 		GLXNVCopyImage funcs = new GLXNVCopyImage(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CopyImageSubDataNV);
+		boolean supported = checkFunctions(
+			funcs.CopyImageSubDataNV
+		);
 
 		return GL.checkExtension("GLX_NV_copy_image", funcs, supported);
 	}

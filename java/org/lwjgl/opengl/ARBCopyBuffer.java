@@ -42,7 +42,9 @@ public final class ARBCopyBuffer {
 
 		ARBCopyBuffer funcs = new ARBCopyBuffer(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.CopyBufferSubData);
+		boolean supported = checkFunctions(
+			funcs.CopyBufferSubData
+		);
 
 		return GL.checkExtension("GL_ARB_copy_buffer", funcs, supported);
 	}

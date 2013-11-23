@@ -41,7 +41,9 @@ public final class GLXEXTSwapControl {
 
 		GLXEXTSwapControl funcs = new GLXEXTSwapControl(provider);
 
-		boolean supported =  GL.isFunctionSupported(funcs.SwapIntervalEXT);
+		boolean supported = checkFunctions(
+			funcs.SwapIntervalEXT
+		);
 
 		return GL.checkExtension("GLX_EXT_swap_control", funcs, supported);
 	}

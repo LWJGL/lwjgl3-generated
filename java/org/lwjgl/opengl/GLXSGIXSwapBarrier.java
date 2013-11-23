@@ -46,9 +46,9 @@ public final class GLXSGIXSwapBarrier {
 
 		GLXSGIXSwapBarrier funcs = new GLXSGIXSwapBarrier(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.BindSwapBarrierSGIX) &&
-			GL.isFunctionSupported(funcs.QueryMaxSwapBarriersSGIX);
+		boolean supported = checkFunctions(
+			funcs.BindSwapBarrierSGIX, funcs.QueryMaxSwapBarriersSGIX
+		);
 
 		return GL.checkExtension("GLX_SGIX_swap_barrier", funcs, supported);
 	}

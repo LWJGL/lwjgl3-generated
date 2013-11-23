@@ -200,19 +200,11 @@ public final class GL31 {
 
 		GL31 funcs = new GL31(provider);
 
-		boolean supported = 
-			GL.isFunctionSupported(funcs.DrawArraysInstanced) &&
-			GL.isFunctionSupported(funcs.DrawElementsInstanced) &&
-			GL.isFunctionSupported(funcs.CopyBufferSubData) &&
-			GL.isFunctionSupported(funcs.PrimitiveRestartIndex) &&
-			GL.isFunctionSupported(funcs.TexBuffer) &&
-			GL.isFunctionSupported(funcs.GetUniformIndices) &&
-			GL.isFunctionSupported(funcs.GetActiveUniformsiv) &&
-			GL.isFunctionSupported(funcs.GetActiveUniformName) &&
-			GL.isFunctionSupported(funcs.GetUniformBlockIndex) &&
-			GL.isFunctionSupported(funcs.GetActiveUniformBlockiv) &&
-			GL.isFunctionSupported(funcs.GetActiveUniformBlockName) &&
-			GL.isFunctionSupported(funcs.UniformBlockBinding);
+		boolean supported = checkFunctions(
+			funcs.DrawArraysInstanced, funcs.DrawElementsInstanced, funcs.CopyBufferSubData, funcs.PrimitiveRestartIndex, funcs.TexBuffer, 
+			funcs.GetUniformIndices, funcs.GetActiveUniformsiv, funcs.GetActiveUniformName, funcs.GetUniformBlockIndex, funcs.GetActiveUniformBlockiv, 
+			funcs.GetActiveUniformBlockName, funcs.UniformBlockBinding
+		);
 
 		return GL.checkExtension("OpenGL31", funcs, supported);
 	}
