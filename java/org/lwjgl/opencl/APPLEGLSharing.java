@@ -54,7 +54,7 @@ public final class APPLEGLSharing {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLEGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	/** Returns the {@link APPLEGLSharing} instance for the currently loaded ICD. */
 	public static APPLEGLSharing getInstance() {
 		return CL.getICD().__APPLEGLSharing;
 	}
@@ -79,8 +79,11 @@ public final class APPLEGLSharing {
 	@JavadocExclude
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(platform_gl_ctx);
+		}
 		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
 	}
 
@@ -98,31 +101,26 @@ public final class APPLEGLSharing {
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 */
-	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
+	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(platform_gl_ctx);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
-		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** Alternative version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
-	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(platform_gl_ctx);
+	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		}
-		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
-	public static int clGetGLContextInfoAPPLE(CLContext context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(platform_gl_ctx);
+	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		}
-		return nclGetGLContextInfoAPPLE(context.getPointer(), platform_gl_ctx, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 }

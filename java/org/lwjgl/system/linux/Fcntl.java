@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <fcntl.h>. */
 public final class Fcntl {
 
-	/** {@link #open open} flags. */
+	/** {@link #open} flags. */
 	public static final int
 		O_ACCMODE   = 0x3,
 		O_RDONLY    = 0x0,

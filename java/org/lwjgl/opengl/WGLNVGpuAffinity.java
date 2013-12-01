@@ -115,8 +115,10 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(gpu);
+		}
 		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice, __functionAddress);
 	}
 
@@ -128,10 +130,8 @@ public final class WGLNVGPUAffinity {
 	 * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
 	 */
 	public static int wglEnumGpuDevicesNV(long gpu, int deviceIndex, ByteBuffer gpuDevice) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(gpu);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(gpuDevice, GPU_DEVICE.SIZEOF);
-		}
 		return nwglEnumGpuDevicesNV(gpu, deviceIndex, memAddress(gpuDevice));
 	}
 
@@ -183,8 +183,10 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(affinityDC);
+		}
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, gpu, __functionAddress);
 	}
 
@@ -200,15 +202,11 @@ public final class WGLNVGPUAffinity {
 	 * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
 	 */
 	public static int wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, ByteBuffer gpu) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(affinityDC);
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu));
 	}
 
 	/** Alternative version of: {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
 	public static int wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(affinityDC);
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu));
 	}
 

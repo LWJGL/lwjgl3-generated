@@ -77,8 +77,10 @@ public final class WGLARBCreateContext {
 	@JavadocExclude
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+		}
 		return nwglCreateContextAttribsARB(hdc, shareContext, attribList, __functionAddress);
 	}
 
@@ -95,19 +97,15 @@ public final class WGLARBCreateContext {
 	 *                     is used.
 	 */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, ByteBuffer attribList) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			if ( attribList != null ) checkNT4(attribList);
-		}
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
 	/** Alternative version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			if ( attribList != null ) checkNT(attribList);
-		}
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 

@@ -329,7 +329,7 @@ public final class WinUser {
 		SC_CONTEXTHELP  = 0xF180,
 		SC_SEPARATOR    = 0xF00F;
 
-	/** {@link #GetSystemMetrics GetSystemMetrics} codes. */
+	/** {@link #GetSystemMetrics} codes. */
 	public static final int
 		SM_CXSCREEN                    = 0x0,
 		SM_CYSCREEN                    = 0x1,
@@ -459,7 +459,7 @@ public final class WinUser {
 		WS_EX_COMPOSITED       = 0x2000000,
 		WS_EX_NOACTIVATE       = 0x8000000;
 
-	/** May be used in {@link #CreateWindowEx CreateWindowEx} for the x, y, width, height parameters. */
+	/** May be used in {@link #CreateWindowEx} for the x, y, width, height parameters. */
 	public static final int
 		CW_USEDEFAULT = 0x80000000;
 
@@ -521,7 +521,7 @@ public final class WinUser {
 		CS_IME             = 0x10000,
 		CS_DROPSHADOW      = 0x20000;
 
-	/** Window field offsets for {@link #GetWindowLongPtr GetWindowLongPtr}. */
+	/** Window field offsets for {@link #GetWindowLongPtr}. */
 	public static final int
 		GWL_WNDPROC    = 0xFFFFFFFC,
 		GWL_HINSTANCE  = 0xFFFFFFFA,
@@ -531,7 +531,7 @@ public final class WinUser {
 		GWL_USERDATA   = 0xFFFFFFEB,
 		GWL_ID         = 0xFFFFFFF4;
 
-	/** {@link #ShowWindow ShowWindow} commands. */
+	/** {@link #ShowWindow} commands. */
 	public static final int
 		SW_HIDE            = 0x0,
 		SW_SHOWNORMAL      = 0x1,
@@ -549,14 +549,14 @@ public final class WinUser {
 		SW_FORCEMINIMIZE   = 0xB,
 		SW_MAX             = 0xB;
 
-	/** Virtual window handles used by the {@link #SetWindowPos SetWindowPos} insertAfter argument. */
+	/** Virtual window handles used by the {@link #SetWindowPos} insertAfter argument. */
 	public static final long
 		HWND_TOP       = 0x0L,
 		HWND_BOTTOM    = 0x1L,
 		HWND_TOPMOST   = 0xFFFFFFFFFFFFFFFFL,
 		HWND_NOTOPMOST = 0xFFFFFFFFFFFFFFFEL;
 
-	/** Window sizing and positiong flags used by the {@link #SetWindowPos SetWindowPos} flags argument. */
+	/** Window sizing and positiong flags used by the {@link #SetWindowPos} flags argument. */
 	public static final int
 		SWP_NOSIZE         = 0x1,
 		SWP_NOMOVE         = 0x2,
@@ -606,7 +606,7 @@ public final class WinUser {
 		IDC_APPSTARTING = 0x7F8A,
 		IDC_HELP        = 0x7F8B;
 
-	/** Class field offsets for {@link #GetClassLongPtr GetClassLongPtr}. */
+	/** Class field offsets for {@link #GetClassLongPtr}. */
 	public static final int
 		GCL_MENUNAME      = 0xFFFFFFF8,
 		GCL_HBRBACKGROUND = 0xFFFFFFF6,
@@ -620,7 +620,7 @@ public final class WinUser {
 		GCW_ATOM          = 0xFFFFFFE0,
 		GCL_HICONSM       = 0xFFFFFFDE;
 
-	/** Queue status flags for {@link #GetQueueStatus GetQueueStatus} and {@link #MsgWaitForMultipleObjects MsgWaitForMultipleObjects} */
+	/** Queue status flags for {@link #GetQueueStatus} and {@link #MsgWaitForMultipleObjects} */
 	public static final int
 		QS_KEY            = 0x1,
 		QS_MOUSEMOVE      = 0x2,
@@ -637,7 +637,7 @@ public final class WinUser {
 		QS_ALLEVENTS      = QS_INPUT | QS_POSTMESSAGE | QS_TIMER | QS_PAINT | QS_HOTKEY,
 		QS_ALLINPUT       = QS_INPUT | QS_POSTMESSAGE | QS_TIMER | QS_PAINT | QS_HOTKEY | QS_SENDMESSAGE;
 
-	/** Remove message flags for {@link #PeekMessage PeekMessage}. */
+	/** Remove message flags for {@link #PeekMessage}. */
 	public static final int
 		PM_NOREMOVE       = 0x0,
 		PM_REMOVE         = 0x1,
@@ -652,7 +652,7 @@ public final class WinUser {
 		ENUM_CURRENT_SETTINGS  = -1,
 		ENUM_REGISTRY_SETTINGS = -2;
 
-	/** Flags for {@link #ChangeDisplaySettings ChangeDisplaySettings}. */
+	/** Flags for {@link #ChangeDisplaySettings}. */
 	public static final int
 		CDS_UPDATEREGISTRY       = 0x1,
 		CDS_TEST                 = 0x2,
@@ -666,7 +666,7 @@ public final class WinUser {
 		CDS_RESET_EX             = 0x20000000,
 		CDS_NORESET              = 0x10000000;
 
-	/** Return values for {@link #ChangeDisplaySettings ChangeDisplaySettings}. */
+	/** Return values for {@link #ChangeDisplaySettings}. */
 	public static final int
 		DISP_CHANGE_SUCCESSFUL  = 0x0,
 		DISP_CHANGE_RESTART     = 0x1,
@@ -693,12 +693,12 @@ public final class WinUser {
 		DISPLAY_DEVICE_ACTIVE              = 0x1,
 		DISPLAY_DEVICE_ATTACHED            = 0x2;
 
-	/** Flags for {@link #EnumDisplaySettingsEx EnumDisplaySettingsEx}. */
+	/** Flags for {@link #EnumDisplaySettingsEx}. */
 	public static final int
 		EDS_RAWMODE     = 0x2,
 		EDS_ROTATEDMODE = 0x4;
 
-	/** {@link #SystemParametersInfo SystemParametersInfo} parameters. */
+	/** {@link #SystemParametersInfo} parameters. */
 	public static final int
 		SPI_GETBEEP                      = 0x1,
 		SPI_SETBEEP                      = 0x2,
@@ -936,7 +936,7 @@ public final class WinUser {
 		SPI_GETGESTUREVISUALIZATION      = 0x201A,
 		SPI_SETGESTUREVISUALIZATION      = 0x201B;
 
-	/** {@link #SystemParametersInfo SystemParametersInfo} flags. */
+	/** {@link #SystemParametersInfo} flags. */
 	public static final int
 		SPIF_UPDATEINIFILE    = 0x1,
 		SPIF_SENDWININICHANGE = 0x2,
@@ -1152,7 +1152,7 @@ public final class WinUser {
 	public static native short nRegisterClassEx(long wndClassEx);
 
 	/**
-	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx CreateWindowEx} function.
+	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx} function.
 	 *
 	 * @param wndClassEx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
 	 */
@@ -1172,8 +1172,8 @@ public final class WinUser {
 	 * Unregisters a window class, freeing the memory required for the class.
 	 *
 	 * @param className a null-terminated string or a class atom. If {@code className} is a string, it specifies the window class name. This class name must have been
-	 *                  registered by a previous call to the {@link #RegisterClassEx RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
-	 *                  parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx RegisterClassEx} function. The atom must be in the low-order
+	 *                  registered by a previous call to the {@link #RegisterClassEx} function. System classes, such as dialog box controls, cannot be unregistered. If this
+	 *                  parameter is an atom, it must be a class atom created by a previous call to the {@link #RegisterClassEx} function. The atom must be in the low-order
 	 *                  word of {@code className}; the high-order word must be zero.
 	 * @param instance  a handle to the instance of the module that created the class
 	 */
@@ -1203,8 +1203,8 @@ public final class WinUser {
 	 *
 	 * @param instance  a handle to the instance of the application that created the class. To retrieve information about classes defined by the system (such as buttons or
 	 *                  list boxes), set this parameter to {@code NULL}.
-	 * @param className the class name. The name must be that of a preregistered class or a class registered by a previous call to the {@link #RegisterClassEx RegisterClassEx} function.
-	 *                  Alternatively, this parameter can be a class atom created by a previous call to {@link #RegisterClassEx RegisterClassEx}. The atom must be in the low-order word of
+	 * @param className the class name. The name must be that of a preregistered class or a class registered by a previous call to the {@link #RegisterClassEx} function.
+	 *                  Alternatively, this parameter can be a class atom created by a previous call to {@link #RegisterClassEx}. The atom must be in the low-order word of
 	 *                  {@code className}; the high-order word must be zero.
 	 * @param classEx   a {@link WNDCLASSEX} structure that receives the information about the class.
 	 */
@@ -1331,7 +1331,7 @@ public final class WinUser {
 	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
 	 *
 	 * @param exStyle    the extended window style of the window being created
-	 * @param className  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx RegisterClassEx} function.
+	 * @param className  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx} function.
 	 * @param windowName the window name. If the window style specifies a title bar, the window title pointed to by {@code windowName} is displayed in the title bar.
 	 * @param style      the style of the window being created
 	 * @param x          the initial horizontal position of the window
@@ -1478,7 +1478,7 @@ public final class WinUser {
 
 	/**
 	 * Retrieves a message from the calling thread's message queue. The function dispatches incoming sent messages until a posted message is available for
-	 * retrieval. Unlike GetMessage, the {@link #PeekMessage PeekMessage} function does not wait for a message to be posted before returning.
+	 * retrieval. Unlike GetMessage, the {@link #PeekMessage} function does not wait for a message to be posted before returning.
 	 *
 	 * @param msg          an {@link MSG} structure that receives message information from the thread's message queue
 	 * @param window       a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
@@ -1520,10 +1520,10 @@ public final class WinUser {
 
 	/**
 	 * Translates virtual-key messages into character messages. The character messages are posted to the calling thread's message queue, to be read the next
-	 * time the thread calls the {@link #GetMessage GetMessage} or {@link #PeekMessage PeekMessage} function.
+	 * time the thread calls the {@link #GetMessage} or {@link #PeekMessage} function.
 	 *
 	 * @param msg an {@link MSG} structure that contains message information retrieved from the calling thread's message queue by using the
-	 *            {@link #GetMessage GetMessage} or {@link #PeekMessage PeekMessage} function.
+	 *            {@link #GetMessage} or {@link #PeekMessage} function.
 	 */
 	public static int TranslateMessage(ByteBuffer msg) {
 		if ( LWJGLUtil.CHECKS )
@@ -1546,7 +1546,7 @@ public final class WinUser {
 	public static native long nDispatchMessage(long msg);
 
 	/**
-	 * Dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the {@link #GetMessage GetMessage} function.
+	 * Dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the {@link #GetMessage} function.
 	 *
 	 * @param msg a structure that contains the message
 	 */
@@ -1672,7 +1672,7 @@ public final class WinUser {
 	 * a series of calls to this function.
 	 *
 	 * @param deviceName a null-terminated string that specifies the display device about whose graphics mode the function will obtain information. This parameter is either
-	 *                   {@code NULL} or a DISPLAY_DEVICE.DeviceName returned from {@link #EnumDisplayDevices EnumDisplayDevices}. A {@code NULL} value specifies the current display device on the computer on
+	 *                   {@code NULL} or a DISPLAY_DEVICE.DeviceName returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display device on the computer on
 	 *                   which the calling thread is running.
 	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
 	 * @param devMode    a {@link DEVMODE} structure into which the function stores information about the specified graphics mode
@@ -1700,7 +1700,7 @@ public final class WinUser {
 
 	/**
 	 * Retrieves information about one of the graphics modes for a display device. To retrieve information for all the graphics modes for a display device,
-	 * make a series of calls to this function. This function differs from {@link #EnumDisplaySettings EnumDisplaySettings} in that there is a {@code flags} parameter.
+	 * make a series of calls to this function. This function differs from {@link #EnumDisplaySettings} in that there is a {@code flags} parameter.
 	 *
 	 * @param deviceName a null-terminated string that specifies the display device about which graphics mode the function will obtain information
 	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:. One of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
@@ -1805,7 +1805,7 @@ public final class WinUser {
 
 	/**
 	 * Calculates the required size of the window rectangle, based on the desired size of the client rectangle. The window rectangle can then be passed to the
-	 * {@link #CreateWindowEx CreateWindowEx} function to create a window whose client area is the desired size.
+	 * {@link #CreateWindowEx} function to create a window whose client area is the desired size.
 	 *
 	 * @param rect    a pointer to a {@link RECT} structure that contains the coordinates of the top-left and bottom-right corners of the desired client area. When the
 	 *                function returns, the structure contains the coordinates of the top-left and bottom-right corners of the window to accommodate the desired client
@@ -2025,7 +2025,7 @@ public final class WinUser {
 	// --- [ SetCursorPos ] ---
 
 	/**
-	 * Moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent {@link #ClipCursor ClipCursor}
+	 * Moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent {@link #ClipCursor}
 	 * function call, the system automatically adjusts the coordinates so that the cursor stays within the rectangle.
 	 *
 	 * @param X the new x-coordinate of the cursor, in screen coordinates.
@@ -2116,11 +2116,11 @@ public final class WinUser {
 	 * If your application must set the cursor while it is in a window, make sure the class cursor for the specified window's class is set to {@code NULL}. If the
 	 * class cursor is not NULL, the system restores the class cursor each time the mouse is moved.
 	 * <p/>
-	 * The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor ShowCursor}
+	 * The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor}
 	 * function to hide the cursor more times than to show the cursor.
 	 *
-	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor CreateCursor} function or loaded by the {@link #LoadCursor LoadCursor} or
-	 *                {@link #LoadImage LoadImage} function. If this parameter is {@code NULL}, the cursor is removed from the screen.
+	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor} function or loaded by the {@link #LoadCursor} or
+	 *                {@link #LoadImage} function. If this parameter is {@code NULL}, the cursor is removed from the screen.
 	 *
 	 * @return the handle to the previous cursor, if there was one
 	 */
@@ -2194,8 +2194,8 @@ public final class WinUser {
 
 	/**
 	 * Places data on the clipboard in a specified clipboard format. The window must be the current clipboard owner, and the application must have called the
-	 * {@link #OpenClipboard OpenClipboard} function. (When responding to the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS} messages, the clipboard owner must
-	 * not call {@link #OpenClipboard OpenClipboard} before calling {@link #SetClipboardData SetClipboardData}.)
+	 * {@link #OpenClipboard} function. (When responding to the {@link #WM_RENDERFORMAT} and {@link #WM_RENDERALLFORMATS} messages, the clipboard owner must
+	 * not call {@link #OpenClipboard} before calling {@link #SetClipboardData}.)
 	 *
 	 * @param format the clipboard format. This parameter can be a registered format or any of the standard clipboard formats.
 	 * @param hMem   a handle to the data in the specified format. This parameter can be {@code NULL}, indicating that the window provides data in the specified clipboard
@@ -2203,8 +2203,8 @@ public final class WinUser {
 	 *               messages.
 	 *               <p/>
 	 *               If {@code SetClipboardData} succeeds, the system owns the object identified by the {@code hMem} parameter. The application may not write to or free
-	 *               the data once ownership has been transferred to the system, but it can lock and read from the data until the {@link #CloseClipboard CloseClipboard} function is
-	 *               called. (The memory must be unlocked before the {@link #Clipboard Clipboard} is closed.) If the {@code hMem} parameter identifies a memory object, the object
+	 *               the data once ownership has been transferred to the system, but it can lock and read from the data until the {@link #CloseClipboard} function is
+	 *               called. (The memory must be unlocked before the {@link #Clipboard} is closed.) If the {@code hMem} parameter identifies a memory object, the object
 	 *               must have been allocated using the function with the {@link #GMEM_MOVEABLE} flag.
 	 *
 	 * @return the handle to the data if the function succeeds. If the function fails, the return value is {@code NULL}.

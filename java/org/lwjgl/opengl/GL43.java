@@ -1103,8 +1103,10 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(ptr);
+		}
 		nglObjectPtrLabel(ptr, length, label, __functionAddress);
 	}
 
@@ -1119,7 +1121,6 @@ public final class GL43 {
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ptr);
 			checkBuffer(label, length);
 			checkNT1(label);
 		}
@@ -1128,15 +1129,11 @@ public final class GL43 {
 
 	/** Alternative version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(ptr);
 		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(ptr);
 		nglObjectPtrLabel(ptr, label.length(), memAddress(memEncodeUTF8(label)));
 	}
 
@@ -1150,8 +1147,10 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(ptr);
+		}
 		nglGetObjectPtrLabel(ptr, bufSize, length, label, __functionAddress);
 	}
 
@@ -1167,7 +1166,6 @@ public final class GL43 {
 	 */
 	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ptr);
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1176,17 +1174,13 @@ public final class GL43 {
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ptr);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
 	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr, int bufSize) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(ptr);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
@@ -1196,8 +1190,6 @@ public final class GL43 {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static String glGetObjectPtrLabel(long ptr) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(ptr);
 		int bufSize = GL11.glGetInteger(GL_MAX_LABEL_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();

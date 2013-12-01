@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Used by {@link Xlib#XSetSizeHints XSetSizeHints}. */
+/** Used by {@link Xlib#XSetSizeHints}. */
 public final class XSizeHints {
 
 	/** The struct size in bytes. */

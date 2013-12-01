@@ -359,6 +359,7 @@ public final class GLFW {
 	 * </ul>
 	 */
 	public static int glfwInit() {
+		Sys.touch();
 		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.initSharedApplication();
 		return nglfwInit();
 	}

@@ -80,8 +80,11 @@ public final class GLXARBCreateContext {
 	@JavadocExclude
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+		}
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, attrib_list, __functionAddress);
 	}
 
@@ -112,21 +115,15 @@ public final class GLXARBCreateContext {
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@link X#None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(config);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
-		}
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(config);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
-		}
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
 	}
 

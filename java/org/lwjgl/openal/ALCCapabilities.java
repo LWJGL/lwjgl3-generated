@@ -6,7 +6,6 @@
 package org.lwjgl.openal;
 
 import org.lwjgl.system.*;
-
 import java.util.Set;
 
 /** Defines the capabilities of the OpenAL Context API. */

@@ -59,8 +59,10 @@ public final class WGLARBExtensionsString {
 	@JavadocExclude
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+		}
 		return nwglGetExtensionsStringARB(hdc, __functionAddress);
 	}
 
@@ -72,8 +74,6 @@ public final class WGLARBExtensionsString {
 	 * @param hdc the device context to query extensions for
 	 */
 	public static String wglGetExtensionsStringARB(long hdc) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hdc);
 		long __result = nwglGetExtensionsStringARB(hdc);
 		return memDecodeASCII(memByteBufferNT1(__result));
 	}

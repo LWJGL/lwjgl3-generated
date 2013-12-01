@@ -147,8 +147,10 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(share_context);
+		}
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, attribList, __functionAddress);
 	}
 
@@ -160,15 +162,11 @@ public final class GLXAMDGPUAssociation {
 	 * @param attribList    
 	 */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, ByteBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(share_context);
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
 
 	/** Alternative version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(share_context);
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
 

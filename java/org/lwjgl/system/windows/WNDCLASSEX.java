@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Contains the window class attributes that are registered by the {@link WinUser#RegisterClassEx RegisterClassEx} function. */
+/** Contains the window class attributes that are registered by the {@link WinUser#RegisterClassEx} function. */
 public final class WNDCLASSEX {
 
 	/** The struct size in bytes. */

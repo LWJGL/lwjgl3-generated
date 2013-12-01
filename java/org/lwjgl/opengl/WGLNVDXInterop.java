@@ -212,8 +212,10 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXLockObjectsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
 		return nwglDXLockObjectsNV(device, count, objects, __functionAddress);
 	}
 
@@ -232,17 +234,13 @@ public final class WGLNVDXInterop {
 	 * @param objects an array of {@code count} interop objects
 	 */
 	public static int wglDXLockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(device);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(objects, count << POINTER_SHIFT);
-		}
 		return nwglDXLockObjectsNV(device, count, memAddress(objects));
 	}
 
 	/** Alternative version of: {@link #wglDXLockObjectsNV DXLockObjectsNV} */
 	public static int wglDXLockObjectsNV(long device, PointerBuffer objects) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(device);
 		return nwglDXLockObjectsNV(device, objects.remaining(), memAddress(objects));
 	}
 
@@ -256,8 +254,10 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
 		return nwglDXUnlockObjectsNV(device, count, objects, __functionAddress);
 	}
 
@@ -269,17 +269,13 @@ public final class WGLNVDXInterop {
 	 * @param objects an array of {@code count} interop objects
 	 */
 	public static int wglDXUnlockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(device);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(objects, count << POINTER_SHIFT);
-		}
 		return nwglDXUnlockObjectsNV(device, count, memAddress(objects));
 	}
 
 	/** Alternative version of: {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
 	public static int wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(device);
 		return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects));
 	}
 

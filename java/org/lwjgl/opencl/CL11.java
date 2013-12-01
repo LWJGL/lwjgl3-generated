@@ -109,7 +109,7 @@ public final class CL11 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL11} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	/** Returns the {@link CL11} instance for the currently loaded ICD. */
 	public static CL11 getInstance() {
 		return CL.getICD().__CL11;
 	}
@@ -135,8 +135,10 @@ public final class CL11 {
 	@JavadocExclude
 	public static long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSubBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(buffer);
+		}
 		return nclCreateSubBuffer(buffer, flags, buffer_create_type, buffer_create_info, errcode_ret, __functionAddress);
 	}
 
@@ -183,17 +185,17 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static CLMem clCreateSubBuffer(CLMem buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, ByteBuffer errcode_ret) {
+	public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		return CLMem.create(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret)), buffer);
+		return nclCreateSubBuffer(buffer, flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateSubBuffer CreateSubBuffer} */
-	public static CLMem clCreateSubBuffer(CLMem buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
+	public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return CLMem.create(nclCreateSubBuffer(buffer.getPointer(), flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret)), buffer);
+		return nclCreateSubBuffer(buffer, flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clSetMemObjectDestructorCallback ] ---
@@ -222,20 +224,24 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetMemObjectDestructorCallback(CLMem memobj, long pfn_notify, long user_data) {
+	public static int clSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclSetMemObjectDestructorCallback(memobj.getPointer(), pfn_notify, user_data, __functionAddress);
+			checkPointer(memobj);
+		}
+		return nclSetMemObjectDestructorCallback(memobj, pfn_notify, user_data, __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} */
-	public static int clSetMemObjectDestructorCallback(CLMem memobj, CLMemObjectDestructorCallback pfn_notify) {
+	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify) {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(memobj);
+		}
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetMemObjectDestructorCallback(memobj.getPointer(), CLMemObjectDestructorCallback.Util.CALLBACK, user_data, __functionAddress);
+		int __result = nclSetMemObjectDestructorCallback(memobj, CLMemObjectDestructorCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
 		return __result;
 	}
@@ -250,8 +256,11 @@ public final class CL11 {
 	@JavadocExclude
 	public static int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReadBufferRect;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -328,7 +337,7 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3 << POINTER_SHIFT);
 			checkBuffer(host_offset, 3 << POINTER_SHIFT);
@@ -336,62 +345,62 @@ public final class CL11 {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** ShortBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	public static int clEnqueueReadBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueWriteBufferRect ] ---
@@ -404,8 +413,11 @@ public final class CL11 {
 	@JavadocExclude
 	public static int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWriteBufferRect;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -482,7 +494,7 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, ByteBuffer buffer_offset, ByteBuffer host_offset, ByteBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3 << POINTER_SHIFT);
 			checkBuffer(host_offset, 3 << POINTER_SHIFT);
@@ -490,62 +502,62 @@ public final class CL11 {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** ShortBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	public static int clEnqueueWriteBufferRect(CLCommandQueue command_queue, CLMem buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue.getPointer(), buffer.getPointer(), blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueCopyBufferRect ] ---
@@ -558,8 +570,12 @@ public final class CL11 {
 	@JavadocExclude
 	public static int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueCopyBufferRect;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(src_buffer);
+			checkPointer(dst_buffer);
+		}
 		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -630,7 +646,7 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueCopyBufferRect(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, ByteBuffer src_origin, ByteBuffer dst_origin, ByteBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, ByteBuffer src_origin, ByteBuffer dst_origin, ByteBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(src_origin, 3 << POINTER_SHIFT);
 			checkBuffer(dst_origin, 3 << POINTER_SHIFT);
@@ -638,18 +654,18 @@ public final class CL11 {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueCopyBufferRect(command_queue.getPointer(), src_buffer.getPointer(), dst_buffer.getPointer(), memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueCopyBufferRect EnqueueCopyBufferRect} */
-	public static int clEnqueueCopyBufferRect(CLCommandQueue command_queue, CLMem src_buffer, CLMem dst_buffer, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(src_origin, 3);
 			checkBuffer(dst_origin, 3);
 			checkBuffer(region, 3);
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueCopyBufferRect(command_queue.getPointer(), src_buffer.getPointer(), dst_buffer.getPointer(), memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clCreateUserEvent ] ---
@@ -662,8 +678,10 @@ public final class CL11 {
 	@JavadocExclude
 	public static long nclCreateUserEvent(long context, long errcode_ret) {
 		long __functionAddress = getInstance().CreateUserEvent;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+		}
 		return nclCreateUserEvent(context, errcode_ret, __functionAddress);
 	}
 
@@ -684,17 +702,17 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static CLEvent clCreateUserEvent(CLContext context, ByteBuffer errcode_ret) {
+	public static long clCreateUserEvent(long context, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		return CLEvent.create(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret)), context);
+		return nclCreateUserEvent(context, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateUserEvent CreateUserEvent} */
-	public static CLEvent clCreateUserEvent(CLContext context, IntBuffer errcode_ret) {
+	public static long clCreateUserEvent(long context, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return CLEvent.create(nclCreateUserEvent(context.getPointer(), memAddressSafe(errcode_ret)), context);
+		return nclCreateUserEvent(context, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clSetUserEventStatus ] ---
@@ -739,11 +757,13 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetUserEventStatus(CLEvent event, int execution_status) {
+	public static int clSetUserEventStatus(long event, int execution_status) {
 		long __functionAddress = getInstance().SetUserEventStatus;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclSetUserEventStatus(event.getPointer(), execution_status, __functionAddress);
+			checkPointer(event);
+		}
+		return nclSetUserEventStatus(event, execution_status, __functionAddress);
 	}
 
 	// --- [ clSetEventCallback ] ---
@@ -796,20 +816,24 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, long pfn_notify, long user_data) {
+	public static int clSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetEventCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclSetEventCallback(event.getPointer(), command_exec_callback_type, pfn_notify, user_data, __functionAddress);
+			checkPointer(event);
+		}
+		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify, user_data, __functionAddress);
 	}
 
 	/** Alternative version of: {@link #clSetEventCallback SetEventCallback} */
-	public static int clSetEventCallback(CLEvent event, int command_exec_callback_type, CLEventCallback pfn_notify) {
+	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify) {
 		long __functionAddress = getInstance().SetEventCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(event);
+		}
 		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetEventCallback(event.getPointer(), command_exec_callback_type, CLEventCallback.Util.CALLBACK, user_data, __functionAddress);
+		int __result = nclSetEventCallback(event, command_exec_callback_type, CLEventCallback.Util.CALLBACK, user_data, __functionAddress);
 		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
 		return __result;
 	}

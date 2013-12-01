@@ -120,8 +120,11 @@ public final class GLXEXTTextureFromPixmap {
 	@JavadocExclude
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = getInstance().BindTexImageEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(drawable);
+		}
 		nglXBindTexImageEXT(display, drawable, buffer, attrib_list, __functionAddress);
 	}
 
@@ -135,21 +138,15 @@ public final class GLXEXTTextureFromPixmap {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(drawable);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
-		}
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(drawable);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
-		}
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 

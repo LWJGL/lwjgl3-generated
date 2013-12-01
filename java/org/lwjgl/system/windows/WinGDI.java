@@ -50,7 +50,7 @@ public final class WinGDI {
 		DC_BRUSH            = 0x12,
 		DC_PEN              = 0x13;
 
-	/** Object types for {@link #EnumObjects EnumObjects} and {@link #GetCurrentObject GetCurrentObject}. */
+	/** Object types for {@link #EnumObjects} and {@link #GetCurrentObject}. */
 	public static final int
 		OBJ_PEN         = 0x1,
 		OBJ_BRUSH       = 0x2,
@@ -67,7 +67,7 @@ public final class WinGDI {
 		OBJ_ENHMETAFILE = 0xD,
 		OBJ_COLORSPACE  = 0xE;
 
-	/** Used by the index parameter of {@link #GetDeviceCaps GetDeviceCaps}. */
+	/** Used by the index parameter of {@link #GetDeviceCaps}. */
 	public static final int
 		DRIVERVERSION  = 0x0,
 		TECHNOLOGY     = 0x2,
@@ -269,7 +269,7 @@ public final class WinGDI {
 	 * @param lpszDevice A pointer to a null-terminated character string that specifies the name of the specific output device being used, as shown by the Print Manager (for
 	 *                   example, Epson FX-80). It is not the printer model name. The {@code lpszDevice} parameter must be used.
 	 *                   <p/>
-	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices EnumDisplayDevices}.
+	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices}.
 	 *                   <p/>
 	 *                   If {@code lpszDriver} is DISPLAY or the device name of a specific display device, then {@code lpszDevice} must be {@code NULL} or that same device name. If
 	 *                   {@code lpszDevice} is {@code NULL}, then a DC is created for the primary display device.
@@ -373,7 +373,7 @@ public final class WinGDI {
 
 	/**
 	 * Restores a device context (DC) to the specified state. The DC is restored by popping state information off a stack created by earlier calls to the
-	 * {@link #SaveDC SaveDC} function.
+	 * {@link #SaveDC} function.
 	 *
 	 * @param hdc     a handle to the DC
 	 * @param savedDC the saved state to be restored. If this parameter is positive, {@code savedDC} represents a specific instance of the state to be restored. If this\

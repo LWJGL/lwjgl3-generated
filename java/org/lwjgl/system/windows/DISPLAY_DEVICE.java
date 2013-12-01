@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices EnumDisplayDevices} function. */
+/** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices} function. */
 public final class DISPLAY_DEVICE {
 
 	/** The struct size in bytes. */

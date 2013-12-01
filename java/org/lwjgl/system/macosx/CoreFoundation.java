@@ -83,7 +83,7 @@ public final class CoreFoundation {
 
 	// --- [ kCFAllocatorUseContext ] ---
 
-	/** Special allocator argument to {@link #CFAllocatorCreate CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
+	/** Special allocator argument to {@link #CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
 	public static native long kCFAllocatorUseContext();
 
 	// --- [ CFRetain ] ---
@@ -116,7 +116,7 @@ public final class CoreFoundation {
 	 * Releases a Core Foundation object.
 	 * <p/>
 	 * If the retain count of {@code cf} becomes zero the memory allocated to the object is deallocated and the object is destroyed. If you create, copy, or
-	 * explicitly retain (see the {@link #CFRetain CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.
+	 * explicitly retain (see the {@link #CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.
 	 *
 	 * @param cf the CFType object to release
 	 */

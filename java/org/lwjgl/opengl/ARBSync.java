@@ -236,8 +236,10 @@ public final class ARBSync {
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(sync);
+		}
 		GL32.nglGetSynciv(sync, pname, bufSize, length, values, __functionAddress);
 	}
 
@@ -252,7 +254,6 @@ public final class ARBSync {
 	 */
 	public static void glGetSynci(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(sync);
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -261,19 +262,15 @@ public final class ARBSync {
 
 	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(sync);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
 		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(sync);
+		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
 		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values);

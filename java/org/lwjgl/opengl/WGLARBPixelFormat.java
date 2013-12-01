@@ -128,8 +128,10 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+		}
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
 	}
 
@@ -145,7 +147,6 @@ public final class WGLARBPixelFormat {
 	 */
 	public static int wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int n, ByteBuffer attributes, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
 			checkBuffer(attributes, n << 2);
 			checkBuffer(values, n << 2);
 		}
@@ -154,19 +155,15 @@ public final class WGLARBPixelFormat {
 
 	/** Alternative version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
 	public static int wglGetPixelFormatAttribARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, attributes.remaining());
-		}
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
 	/** Single value version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
 	public static int wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int attributes = __buffer.intParam(attribute);
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, 1, __buffer.address() + attributes, memAddress(values));
@@ -182,8 +179,10 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+		}
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
 	}
 
@@ -199,7 +198,6 @@ public final class WGLARBPixelFormat {
 	 */
 	public static int wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int n, ByteBuffer attributes, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
 			checkBuffer(attributes, n << 2);
 			checkBuffer(values, n << 2);
 		}
@@ -208,19 +206,15 @@ public final class WGLARBPixelFormat {
 
 	/** Alternative version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
 	public static int wglGetPixelFormatAttribARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, attributes.remaining());
-		}
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
 	/** Single value version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
 	public static int wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int attributes = __buffer.intParam(attribute);
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, 1, __buffer.address() + attributes, memAddress(values));
@@ -236,8 +230,10 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+		}
 		return nwglChoosePixelFormatARB(hdc, attribIList, attribFList, maxFormats, formats, numFormats, __functionAddress);
 	}
 
@@ -256,7 +252,6 @@ public final class WGLARBPixelFormat {
 	 */
 	public static int wglChoosePixelFormatARB(long hdc, ByteBuffer attribIList, ByteBuffer attribFList, int maxFormats, ByteBuffer formats, ByteBuffer numFormats) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
 			if ( attribIList != null ) checkNT4(attribIList);
 			if ( attribFList != null ) checkNT4(attribFList);
 			checkBuffer(formats, maxFormats << 2);
@@ -268,7 +263,6 @@ public final class WGLARBPixelFormat {
 	/** Alternative version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
 	public static int wglChoosePixelFormatARB(long hdc, IntBuffer attribIList, FloatBuffer attribFList, IntBuffer formats, IntBuffer numFormats) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hdc);
 			if ( attribIList != null ) checkNT(attribIList);
 			if ( attribFList != null ) checkNT(attribFList);
 			checkBuffer(numFormats, 1);

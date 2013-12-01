@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Compose sequence status structure, used in calling {@link Xutil#XLookupString XLookupString}. */
+/** Compose sequence status structure, used in calling {@link Xutil#XLookupString}. */
 public final class XComposeStatus {
 
 	/** The struct size in bytes. */

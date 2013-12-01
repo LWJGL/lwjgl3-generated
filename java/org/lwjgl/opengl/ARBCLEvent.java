@@ -73,11 +73,14 @@ public final class ARBCLEvent {
 	 * @param event   a valid OpenCL event
 	 * @param flags   must be 0 (placeholder for anticipated future extensions of sync object capabilities)
 	 */
-	public static long glCreateSyncFromCLeventARB(CLContext context, CLEvent event, int flags) {
+	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
 		long __functionAddress = getInstance().CreateSyncFromCLeventARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nglCreateSyncFromCLeventARB(context.getPointer(), event.getPointer(), flags, __functionAddress);
+			checkPointer(context);
+			checkPointer(event);
+		}
+		return nglCreateSyncFromCLeventARB(context, event, flags, __functionAddress);
 	}
 
 }

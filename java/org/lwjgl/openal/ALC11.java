@@ -183,8 +183,10 @@ public final class ALC11 {
 	@JavadocExclude
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().CaptureSamples;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
 		nalcCaptureSamples(device, buffer, samples, __functionAddress);
 	}
 
@@ -198,17 +200,13 @@ public final class ALC11 {
 	 * @param samples the buffer size
 	 */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(device);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(buffer, samples);
-		}
 		nalcCaptureSamples(device, memAddress(buffer), samples);
 	}
 
 	/** Alternative version of: {@link #alcCaptureSamples CaptureSamples} */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(device);
 		nalcCaptureSamples(device, memAddress(buffer), buffer.remaining());
 	}
 

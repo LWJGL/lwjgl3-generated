@@ -203,7 +203,7 @@ public final class WinBase {
 	 * <p/>
 	 * On a multiprocessor computer, it should not matter which processor is called. However, you can get different results on different processors due to bugs
 	 * in the basic input/output system (BIOS) or the hardware abstraction layer (HAL). To specify processor affinity for a thread, use the
-	 * {@link Kernel32#SetThreadAffinityMask SetThreadAffinityMask} function.
+	 * {@link Kernel32#SetThreadAffinityMask} function.
 	 *
 	 * @param frequency a pointer to a variable that receives the current performance-counter value, in counts.
 	 */

@@ -57,7 +57,7 @@ public final class KHRGLSharing {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRGLSharing} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	/** Returns the {@link KHRGLSharing} instance for the currently loaded ICD. */
 	public static KHRGLSharing getInstance() {
 		return CL.getICD().__KHRGLSharing;
 	}

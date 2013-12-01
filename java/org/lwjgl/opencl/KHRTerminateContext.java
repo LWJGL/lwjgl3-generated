@@ -48,7 +48,7 @@ public final class KHRTerminateContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRTerminateContext} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	/** Returns the {@link KHRTerminateContext} instance for the currently loaded ICD. */
 	public static KHRTerminateContext getInstance() {
 		return CL.getICD().__KHRTerminateContext;
 	}
@@ -98,11 +98,13 @@ public final class KHRTerminateContext {
 	 *         OORE,
 	 *         OOHME
 	 */
-	public static int clTerminateContextKHR(CLContext context) {
+	public static int clTerminateContextKHR(long context) {
 		long __functionAddress = getInstance().TerminateContextKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-		return nclTerminateContextKHR(context.getPointer(), __functionAddress);
+			checkPointer(context);
+		}
+		return nclTerminateContextKHR(context, __functionAddress);
 	}
 
 }

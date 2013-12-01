@@ -40,7 +40,7 @@ public final class KHRGLEvent {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRGLEvent} instance for the CL platform or device that corresponds to the given {@link CLObject}. */
+	/** Returns the {@link KHRGLEvent} instance for the currently loaded ICD. */
 	public static KHRGLEvent getInstance() {
 		return CL.getICD().__KHRGLEvent;
 	}
@@ -65,8 +65,11 @@ public final class KHRGLEvent {
 	@JavadocExclude
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
 		long __functionAddress = getInstance().CreateEventFromGLsyncKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(sync);
+		}
 		return nclCreateEventFromGLsyncKHR(context, sync, errcode_ret, __functionAddress);
 	}
 
@@ -77,21 +80,17 @@ public final class KHRGLEvent {
 	 * @param sync        the OpenGL fence sync object
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
-	public static CLEvent clCreateEventFromGLsyncKHR(CLContext context, long sync, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(sync);
+	public static long clCreateEventFromGLsyncKHR(long context, long sync, ByteBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		}
-		return CLEvent.create(nclCreateEventFromGLsyncKHR(context.getPointer(), sync, memAddressSafe(errcode_ret)), context);
+		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-	public static CLEvent clCreateEventFromGLsyncKHR(CLContext context, long sync, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(sync);
+	public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return CLEvent.create(nclCreateEventFromGLsyncKHR(context.getPointer(), sync, memAddressSafe(errcode_ret)), context);
+		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}
 
 }

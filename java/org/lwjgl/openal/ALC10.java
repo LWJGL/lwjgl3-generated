@@ -177,8 +177,10 @@ public final class ALC10 {
 	@JavadocExclude
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(deviceHandle);
+		}
 		return nalcCreateContext(deviceHandle, attrList, __functionAddress);
 	}
 
@@ -189,19 +191,15 @@ public final class ALC10 {
 	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<p/>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
 	 */
 	public static long alcCreateContext(long deviceHandle, ByteBuffer attrList) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(deviceHandle);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrList != null ) checkNT4(attrList);
-		}
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 
 	/** Alternative version of: {@link #alcCreateContext CreateContext} */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(deviceHandle);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrList != null ) checkNT(attrList);
-		}
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 

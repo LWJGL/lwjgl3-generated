@@ -89,8 +89,11 @@ public final class GLXEXTImportContext {
 	@JavadocExclude
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContextInfoEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(context);
+		}
 		return nglXQueryContextInfoEXT(display, context, attribute, value, __functionAddress);
 	}
 
@@ -103,21 +106,15 @@ public final class GLXEXTImportContext {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(context);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
-			checkPointer(context);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
 	}
 

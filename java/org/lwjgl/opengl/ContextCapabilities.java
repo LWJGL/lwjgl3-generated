@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import org.lwjgl.system.*;
-
 import java.util.Set;
 
 /** Defines the capabilities of an OpenGL context. */
@@ -47,6 +46,7 @@ public final class ContextCapabilities {
 	final GLXSGIXSwapBarrier      __GLXSGIXSwapBarrier;
 	final GLXSGIXSwapGroup        __GLXSGIXSwapGroup;
 	final AMDDebugOutput          __AMDDebugOutput;
+	final AMDOcclusionQueryEvent  __AMDOcclusionQueryEvent;
 	final ARBBufferStorage        __ARBBufferStorage;
 	final ARBCLEvent              __ARBCLEvent;
 	final ARBClearTexture         __ARBClearTexture;
@@ -121,6 +121,7 @@ public final class ContextCapabilities {
 		GLX_SGIX_swap_group,
 		GL_AMD_conservative_depth,
 		GL_AMD_debug_output,
+		GL_AMD_occlusion_query_event,
 		GL_AMD_shader_stencil_export,
 		GL_AMD_shader_trinary_minmax,
 		GL_AMD_texture_texture4,
@@ -250,6 +251,7 @@ public final class ContextCapabilities {
 		GLX_SGIX_swap_group = (__GLXSGIXSwapGroup = GLXSGIXSwapGroup.create(ext, provider)) != null;
 		GL_AMD_conservative_depth = ext.contains("GL_AMD_conservative_depth");
 		GL_AMD_debug_output = (__AMDDebugOutput = AMDDebugOutput.create(ext, provider)) != null;
+		GL_AMD_occlusion_query_event = (__AMDOcclusionQueryEvent = AMDOcclusionQueryEvent.create(ext, provider)) != null;
 		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
 		GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
 		GL_AMD_texture_texture4 = ext.contains("GL_AMD_texture_texture4");

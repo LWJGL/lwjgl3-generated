@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <dlfcn.h>. */
 public final class DynamicLinkLoader {
 
-	/** The {@code mode} argument to {@link #dlopen dlopen} contains one of the following: */
+	/** The {@code mode} argument to {@link #dlopen} contains one of the following: */
 	public static final int
 		RTLD_LAZY         = 0x1,
 		RTLD_NOW          = 0x2,
@@ -25,7 +25,7 @@ public final class DynamicLinkLoader {
 		RTLD_DEEPBIND     = 0x8;
 
 	/**
-	 * If the following bit is set in the {@code mode} argument to {@link #dlopen dlopen}, the symbols of the loaded object and its dependencies are made visible as
+	 * If the following bit is set in the {@code mode} argument to {@link #dlopen}, the symbols of the loaded object and its dependencies are made visible as
 	 * if the object were linked directly into the program.
 	 */
 	public static final int
@@ -75,7 +75,7 @@ public final class DynamicLinkLoader {
 	public static native long ndlerror();
 
 	/**
-	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen dlopen}, {@link #dlsym dlsym} or {@link #dlclose dlclose} since
+	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since
 	 * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
 	 */
 	public static String dlerror() {
@@ -90,8 +90,8 @@ public final class DynamicLinkLoader {
 	public static native long ndlsym(long handle, long name);
 
 	/**
-	 * Takes a "handle" of a dynamic library returned by {@link #dlopen dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
-	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen dlopen} when that
+	 * Takes a "handle" of a dynamic library returned by {@link #dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
+	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen} when that
 	 * library was loaded, {@code dlsym()} returns {@code NULL}.
 	 *
 	 * @param handle the dynamic library handle

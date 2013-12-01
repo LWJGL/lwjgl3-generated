@@ -333,7 +333,7 @@ public final class GLX {
 	 * Prevents the OpenGL command sequence from executing until any outstanding X requests are completed.
 	 * <p/>
 	 * X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
-	 * result can be achieved using {@link Xlib#XSync XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
+	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
 	 */
 	public static native void glXWaitX();
 
