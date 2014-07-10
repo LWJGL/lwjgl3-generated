@@ -3504,18 +3504,20 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify) {
+		ByteBuffer optionsEncoded = memEncodeASCII(options);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		int __result = nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(memEncodeASCII(options)), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
+		int __result = nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
 		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
 		return __result;
 	}
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, long device, CharSequence options, CLProgramCallback pfn_notify) {
+		ByteBuffer optionsEncoded = memEncodeASCII(options);
 		APIBuffer __buffer = apiBuffer();
 		int device_list = __buffer.pointerParam(device);
 		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		int __result = nclBuildProgram(program, 1, __buffer.address() + device_list, memAddress(memEncodeASCII(options)), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
+		int __result = nclBuildProgram(program, 1, __buffer.address() + device_list, memAddress(optionsEncoded), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
 		if ( __result != CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
 		return __result;
 	}
@@ -3741,7 +3743,8 @@ public final class CL10 {
 	public static long clCreateKernel(long program, CharSequence kernel_name, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return nclCreateKernel(program, memAddress(memEncodeASCII(kernel_name)), memAddressSafe(errcode_ret));
+		ByteBuffer kernel_nameEncoded = memEncodeASCII(kernel_name);
+		return nclCreateKernel(program, memAddress(kernel_nameEncoded), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateKernelsInProgram ] ---
@@ -5116,7 +5119,8 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
-		return nclGetExtensionFunctionAddress(memAddress(memEncodeASCII(funcname)));
+		ByteBuffer funcnameEncoded = memEncodeASCII(funcname);
+		return nclGetExtensionFunctionAddress(memAddress(funcnameEncoded));
 	}
 
 }

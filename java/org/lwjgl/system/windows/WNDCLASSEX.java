@@ -168,10 +168,10 @@ public final class WNDCLASSEX {
 	public static void background(ByteBuffer wndclassex, long background) { PointerBuffer.put(wndclassex, wndclassex.position() + BACKGROUND, background); }
 	public static void menuName(ByteBuffer wndclassex, long menuName) { PointerBuffer.put(wndclassex, wndclassex.position() + MENUNAME, menuName); }
 	public static void menuNameSet(ByteBuffer wndclassex, ByteBuffer menuName) { menuName(wndclassex, menuName == null ? NULL : memAddress(checkNT2(menuName))); }
-	public static void menuNameSet(ByteBuffer wndclassex, CharSequence menuName) { menuName(wndclassex, menuName == null ? NULL : memAddress(memEncodeUTF16(menuName))); }
+	public static void menuNameSet(ByteBuffer wndclassex, CharSequence menuName) { ByteBuffer menuNameEncoded; menuName(wndclassex, menuName == null ? NULL : memAddress(menuNameEncoded = memEncodeUTF16(menuName))); }
 	public static void className(ByteBuffer wndclassex, long className) { PointerBuffer.put(wndclassex, wndclassex.position() + CLASSNAME, className); }
 	public static void classNameSet(ByteBuffer wndclassex, ByteBuffer className) { className(wndclassex, className == null ? NULL : memAddress(checkNT2(className))); }
-	public static void classNameSet(ByteBuffer wndclassex, CharSequence className) { className(wndclassex, className == null ? NULL : memAddress(memEncodeUTF16(className))); }
+	public static void classNameSet(ByteBuffer wndclassex, CharSequence className) { ByteBuffer classNameEncoded; className(wndclassex, className == null ? NULL : memAddress(classNameEncoded = memEncodeUTF16(className))); }
 	public static void iconSm(ByteBuffer wndclassex, long iconSm) { PointerBuffer.put(wndclassex, wndclassex.position() + ICONSM, iconSm); }
 
 	public static int size(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + SIZE); }

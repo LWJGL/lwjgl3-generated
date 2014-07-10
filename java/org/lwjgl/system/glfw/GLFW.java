@@ -797,7 +797,8 @@ public final class GLFW {
 
 	/** CharSequence version of: {@link #glfwCreateWindow CreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
-		long __result = nglfwCreateWindow(width, height, memAddress(memEncodeUTF8(title)), monitor, share);
+		ByteBuffer titleEncoded = memEncodeUTF8(title);
+		long __result = nglfwCreateWindow(width, height, memAddress(titleEncoded), monitor, share);
 		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
 			WindowCallback.set(__result, new WindowCallbackAdapter());
 		return __result;
@@ -891,7 +892,8 @@ public final class GLFW {
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowTitle(window, memAddress(memEncodeUTF8(title)));
+		ByteBuffer titleEncoded = memEncodeUTF8(title);
+		nglfwSetWindowTitle(window, memAddress(titleEncoded));
 	}
 
 	// --- [ glfwGetWindowPos ] ---
@@ -1777,7 +1779,8 @@ public final class GLFW {
 	public static void glfwSetClipboardString(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetClipboardString(window, memAddress(memEncodeUTF8(string)));
+		ByteBuffer stringEncoded = memEncodeUTF8(string);
+		nglfwSetClipboardString(window, memAddress(stringEncoded));
 	}
 
 	// --- [ glfwGetClipboardString ] ---
@@ -1825,8 +1828,6 @@ public final class GLFW {
 	 * @param window the window whose context to make current, or {@code NULL} to detach the current context
 	 */
 	public static void glfwMakeContextCurrent(long window) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
 		nglfwMakeContextCurrent(window);
 	}
 
@@ -1896,7 +1897,8 @@ public final class GLFW {
 
 	/** CharSequence version of: {@link #glfwExtensionSupported ExtensionSupported} */
 	public static int glfwExtensionSupported(CharSequence extension) {
-		return nglfwExtensionSupported(memAddress(memEncodeASCII(extension)));
+		ByteBuffer extensionEncoded = memEncodeASCII(extension);
+		return nglfwExtensionSupported(memAddress(extensionEncoded));
 	}
 
 }

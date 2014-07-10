@@ -119,7 +119,8 @@ public final class SOFTLoopback {
 
 	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
-		return nalcLoopbackOpenDeviceSOFT(memAddress(memEncodeUTF8(deviceName)));
+		ByteBuffer deviceNameEncoded = memEncodeUTF8(deviceName);
+		return nalcLoopbackOpenDeviceSOFT(memAddress(deviceNameEncoded));
 	}
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---

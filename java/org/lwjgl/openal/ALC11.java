@@ -103,7 +103,8 @@ public final class ALC11 {
 
 	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
-		return nalcCaptureOpenDevice(memAddressSafe(memEncodeUTF8(devicename)), frequency, format, buffersize);
+		ByteBuffer devicenameEncoded = memEncodeUTF8(devicename);
+		return nalcCaptureOpenDevice(memAddressSafe(devicenameEncoded), frequency, format, buffersize);
 	}
 
 	// --- [ alcCaptureCloseDevice ] ---

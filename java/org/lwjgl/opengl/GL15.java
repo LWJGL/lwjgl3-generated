@@ -178,7 +178,7 @@ public final class GL15 {
 	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a named buffer object.
 	 *
@@ -208,7 +208,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteBuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteBuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes named buffer objects.
 	 *
@@ -249,7 +249,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenBuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenBuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates buffer object names.
 	 *
@@ -282,7 +282,7 @@ public final class GL15 {
 	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a buffer object.
 	 *
@@ -311,7 +311,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates and initializes a buffer object's data store.
 	 * <p/>
@@ -388,7 +388,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferSubData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Updates a subset of a buffer object's data store.
 	 *
@@ -424,7 +424,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferSubData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a subset of a buffer object's data store.
 	 *
@@ -480,7 +480,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMapBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMapBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Maps a buffer object's data store.
 	 * <p/>
@@ -519,7 +519,7 @@ public final class GL15 {
 	public static native boolean nglUnmapBuffer(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUnmapBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUnmapBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Relinquishes the mapping of a buffer object and invalidates the pointer to its data store.
 	 * <p/>
@@ -553,7 +553,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -594,7 +594,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the pointer to a mapped buffer object's data store.
 	 *
@@ -635,7 +635,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenQueries.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenQueries.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates query object names.
 	 *
@@ -677,7 +677,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteQueries.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteQueries.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes named query objects.
 	 *
@@ -709,7 +709,7 @@ public final class GL15 {
 	public static native boolean nglIsQuery(int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsQuery.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsQuery.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determine if a name corresponds to a query object.
 	 *
@@ -729,7 +729,7 @@ public final class GL15 {
 	public static native void nglBeginQuery(int target, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginQuery.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates a query object and makes it active.
 	 *
@@ -750,7 +750,7 @@ public final class GL15 {
 	public static native void nglEndQuery(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginQuery.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
@@ -779,7 +779,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQuery.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQuery.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns parameters of a query object target.
 	 *
@@ -824,7 +824,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the integer value of a query object parameter.
 	 *
@@ -869,7 +869,7 @@ public final class GL15 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned version of {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti}.
 	 *

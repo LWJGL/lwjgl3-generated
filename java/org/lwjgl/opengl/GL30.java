@@ -707,7 +707,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI1i(int index, int x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
@@ -728,7 +728,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI2i(int index, int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
@@ -750,7 +750,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI3i(int index, int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
@@ -773,7 +773,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI4i(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a pure integer generic vertex attribute.
 	 *
@@ -797,7 +797,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI1ui(int index, int x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
@@ -818,7 +818,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI2ui(int index, int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
 	 *
@@ -840,7 +840,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI3ui(int index, int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
 	 *
@@ -863,7 +863,7 @@ public final class GL30 {
 	public static native void nglVertexAttribI4ui(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
 	 *
@@ -896,7 +896,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI1i VertexAttribI1i}.
 	 *
@@ -932,7 +932,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI2i VertexAttribI2i}.
 	 *
@@ -968,7 +968,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI3i VertexAttribI3i}.
 	 *
@@ -1004,7 +1004,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI4i VertexAttribI4i}.
 	 *
@@ -1040,7 +1040,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI1ui VertexAttribI1ui}.
 	 *
@@ -1076,7 +1076,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI2ui VertexAttribI2ui}.
 	 *
@@ -1112,7 +1112,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI3ui VertexAttribI3ui}.
 	 *
@@ -1148,7 +1148,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
 	 *
@@ -1184,7 +1184,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4b.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4b.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Byte version of {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i}.
 	 *
@@ -1213,7 +1213,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i}.
 	 *
@@ -1249,7 +1249,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4ub.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ub.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Byte version of {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui}.
 	 *
@@ -1278,7 +1278,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribI4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui}.
 	 *
@@ -1314,7 +1314,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribIPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
@@ -1369,7 +1369,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttribI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the value of a pure integer generic vertex attribute parameter.
 	 *
@@ -1414,7 +1414,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttribI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi}.
 	 *
@@ -1450,7 +1450,7 @@ public final class GL30 {
 	public static native void nglUniform1ui(int location, int v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uint uniform variable for the current program object.
 	 *
@@ -1471,7 +1471,7 @@ public final class GL30 {
 	public static native void nglUniform2ui(int location, int v0, int v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec2 uniform variable for the current program object.
 	 *
@@ -1493,7 +1493,7 @@ public final class GL30 {
 	public static native void nglUniform3ui(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec3 uniform variable for the current program object.
 	 *
@@ -1516,7 +1516,7 @@ public final class GL30 {
 	public static native void nglUniform4ui(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec4 uniform variable for the current program object.
 	 *
@@ -1549,7 +1549,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for the current program object.
 	 *
@@ -1584,7 +1584,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for the current program object.
 	 *
@@ -1619,7 +1619,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for the current program object.
 	 *
@@ -1654,7 +1654,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for the current program object.
 	 *
@@ -1689,7 +1689,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the uint value(s) of a uniform variable.
 	 *
@@ -1734,7 +1734,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindFragDataLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a user-defined varying out variable to a fragment shader color number.
 	 *
@@ -1750,7 +1750,8 @@ public final class GL30 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocation BindFragDataLocation} */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
-		nglBindFragDataLocation(program, colorNumber, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		nglBindFragDataLocation(program, colorNumber, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetFragDataLocation ] ---
@@ -1769,7 +1770,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFragDataLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the bindings of color numbers to user-defined varying out variables.
 	 *
@@ -1784,7 +1785,8 @@ public final class GL30 {
 
 	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
-		return nglGetFragDataLocation(program, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetFragDataLocation(program, memAddress(nameEncoded));
 	}
 
 	// --- [ glBeginConditionalRender ] ---
@@ -1794,7 +1796,7 @@ public final class GL30 {
 	public static native void nglBeginConditionalRender(int id, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginConditionalRender.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Starts conditional rendering.
 	 *
@@ -1815,7 +1817,7 @@ public final class GL30 {
 	public static native void nglEndConditionalRender(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginConditionalRender.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginConditionalRender.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Ends conditional rendering.
 	 */
@@ -1842,7 +1844,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMapBufferRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMapBufferRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Maps a section of a buffer object's data store.
 	 * <p/>
@@ -1875,7 +1877,7 @@ public final class GL30 {
 	public static native void nglFlushMappedBufferRange(int target, long offset, long length, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFlushMappedBufferRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFlushMappedBufferRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
@@ -1897,7 +1899,7 @@ public final class GL30 {
 	public static native void nglClampColor(int target, int clamp, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClampColor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClampColor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies whether data read via {@link GL11#glReadPixels ReadPixels} should be clamped.
 	 *
@@ -1918,7 +1920,7 @@ public final class GL30 {
 	public static native boolean nglIsRenderbuffer(int renderbuffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsRenderbuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsRenderbuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a renderbuffer object.
 	 *
@@ -1938,7 +1940,7 @@ public final class GL30 {
 	public static native void nglBindRenderbuffer(int target, int renderbuffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindRenderbuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindRenderbuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a renderbuffer to a renderbuffer target.
 	 *
@@ -1968,7 +1970,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteRenderbuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteRenderbuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes renderbuffer objects.
 	 *
@@ -2009,7 +2011,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenRenderbuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenRenderbuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates renderbuffer object names.
 	 *
@@ -2042,7 +2044,7 @@ public final class GL30 {
 	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glRenderbufferStorage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
 	 * <p/>
@@ -2067,7 +2069,7 @@ public final class GL30 {
 	public static native void nglRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glRenderbufferStorageMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
 	 *
@@ -2100,7 +2102,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetRenderbufferParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetRenderbufferParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves information about a bound renderbuffer object.
 	 *
@@ -2136,7 +2138,7 @@ public final class GL30 {
 	public static native boolean nglIsFramebuffer(int framebuffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsFramebuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsFramebuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a framebuffer object.
 	 *
@@ -2156,7 +2158,7 @@ public final class GL30 {
 	public static native void nglBindFramebuffer(int target, int framebuffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindFramebuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindFramebuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a framebuffer to a framebuffer target.
 	 *
@@ -2186,7 +2188,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteFramebuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteFramebuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes framebuffer objects.
 	 *
@@ -2227,7 +2229,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenFramebuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenFramebuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates framebuffer object names.
 	 *
@@ -2260,7 +2262,7 @@ public final class GL30 {
 	public static native int nglCheckFramebufferStatus(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCheckFramebufferStatus.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCheckFramebufferStatus.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Checks the completeness status of a framebuffer.
 	 *
@@ -2280,7 +2282,7 @@ public final class GL30 {
 	public static native void nglFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferTexture1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a level of a 1D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -2304,7 +2306,7 @@ public final class GL30 {
 	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferTexture2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a level of a 2D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -2328,7 +2330,7 @@ public final class GL30 {
 	public static native void nglFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferTexture3D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture3D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a layer of a 3D texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -2353,7 +2355,7 @@ public final class GL30 {
 	public static native void nglFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferTextureLayer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTextureLayer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a single layer of a texture to a framebuffer
 	 *
@@ -2377,7 +2379,7 @@ public final class GL30 {
 	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferRenderbuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferRenderbuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a renderbuffer as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -2409,7 +2411,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFramebufferAttachmentParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrievees information about attachments of a bound framebuffer object.
 	 *
@@ -2446,7 +2448,7 @@ public final class GL30 {
 	public static native void nglBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlitFramebuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlitFramebuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Copies a block of pixels from the read framebuffer to the draw framebuffer.
 	 *
@@ -2475,7 +2477,7 @@ public final class GL30 {
 	public static native void nglGenerateMipmap(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenerateMipmap.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenerateMipmap.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generate mipmaps for a specified texture target.
 	 *
@@ -2504,7 +2506,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the integer value of a texture parameter.
 	 *
@@ -2548,7 +2550,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the unsigned integer value of a texture parameter.
 	 *
@@ -2592,7 +2594,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the integer value of a texture parameter.
 	 *
@@ -2637,7 +2639,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the unsigned integer value of a texture parameter.
 	 *
@@ -2673,7 +2675,7 @@ public final class GL30 {
 	public static native void nglColorMaski(int buf, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorMaski.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorMaski.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Enables and disables writing of frame buffer color components.
 	 *
@@ -2706,7 +2708,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the boolean value of an indexed state variable.
 	 *
@@ -2744,7 +2746,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the integer value of an indexed state variable.
 	 *
@@ -2780,7 +2782,7 @@ public final class GL30 {
 	public static native void nglEnablei(int cap, int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnablei.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glEnablei.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Enables an indexed capability.
 	 *
@@ -2801,7 +2803,7 @@ public final class GL30 {
 	public static native void nglDisablei(int target, int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDisablei.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDisablei.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Disables an indexed capability.
 	 *
@@ -2822,7 +2824,7 @@ public final class GL30 {
 	public static native boolean nglIsEnabledi(int target, int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabledi.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabledi.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Tests whether an indexed capability is enabled.
 	 *
@@ -2843,7 +2845,7 @@ public final class GL30 {
 	public static native void nglBindBufferRange(int target, int index, int buffer, long offset, long size, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBufferRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
@@ -2867,7 +2869,7 @@ public final class GL30 {
 	public static native void nglBindBufferBase(int target, int index, int buffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBufferBase.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindBufferBase.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a buffer object to an indexed buffer target.
 	 *
@@ -2889,7 +2891,7 @@ public final class GL30 {
 	public static native void nglBeginTransformFeedback(int primitiveMode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginTransformFeedback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Starts transform feedback operation.
 	 *
@@ -2909,7 +2911,7 @@ public final class GL30 {
 	public static native void nglEndTransformFeedback(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginTransformFeedback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginTransformFeedback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Ends transform feedback operation.
 	 */
@@ -2936,7 +2938,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTransformFeedbackVaryings.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTransformFeedbackVaryings.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies values to record in transform feedback buffers.
 	 *
@@ -2990,7 +2992,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTransformFeedbackVarying.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves information about varying variables selected for transform feedback.
 	 *
@@ -3056,7 +3058,7 @@ public final class GL30 {
 	public static native void nglBindVertexArray(int array, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindVertexArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a vertex array object
 	 *
@@ -3085,7 +3087,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteVertexArrays.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteVertexArrays.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes vertex array objects.
 	 *
@@ -3126,7 +3128,7 @@ public final class GL30 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenVertexArrays.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenVertexArrays.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates vertex array object names.
 	 *
@@ -3159,7 +3161,7 @@ public final class GL30 {
 	public static native boolean nglIsVertexArray(int array, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsVertexArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsVertexArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a vertex array object.
 	 *

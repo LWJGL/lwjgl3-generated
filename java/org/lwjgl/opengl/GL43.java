@@ -593,7 +593,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearBufferData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Fills a buffer object's data store with a fixed value.
 	 *
@@ -638,7 +638,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearBufferSubData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferSubData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
@@ -676,7 +676,7 @@ public final class GL43 {
 	public static native void nglDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDispatchCompute.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDispatchCompute.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Launches one or more compute work groups.
 	 *
@@ -698,7 +698,7 @@ public final class GL43 {
 	public static native void nglDispatchComputeIndirect(long indirect, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDispatchComputeIndirect.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDispatchComputeIndirect.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Launches one or more compute work groups using parameters stored in a buffer.
 	 * <p/>
@@ -734,7 +734,7 @@ public final class GL43 {
 	public static native void nglCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyImageSubData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyImageSubData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Performs a raw data copy between two images.
 	 *
@@ -777,7 +777,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDebugMessageControl.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageControl.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the reporting of debug messages in a debug context.
 	 *
@@ -822,7 +822,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDebugMessageInsert.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageInsert.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Injects an application-supplied message into the debug message queue.
 	 *
@@ -848,7 +848,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(memEncodeUTF8(message)));
+		ByteBuffer messageEncoded = memEncodeUTF8(message);
+		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(messageEncoded));
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -858,7 +859,7 @@ public final class GL43 {
 	public static native void nglDebugMessageCallback(long callback, long userParam, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDebugMessageCallback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDebugMessageCallback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a callback to receive debugging messages from the GL.
 	 *
@@ -898,7 +899,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetDebugMessageLog.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetDebugMessageLog.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves messages from the debug message log.
 	 *
@@ -944,7 +945,8 @@ public final class GL43 {
 			if ( severities != null ) checkBuffer(severities, count);
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(memEncodeUTF8(messageLog)));
+		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
+		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
 	}
 
 	// --- [ glPushDebugGroup ] ---
@@ -963,7 +965,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushDebugGroup.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPushDebugGroup.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pushes a named debug group into the command stream.
 	 *
@@ -987,7 +989,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
-		nglPushDebugGroup(source, id, message.length(), memAddress(memEncodeUTF8(message)));
+		ByteBuffer messageEncoded = memEncodeUTF8(message);
+		nglPushDebugGroup(source, id, message.length(), memAddress(messageEncoded));
 	}
 
 	// --- [ glObjectLabel ] ---
@@ -1006,7 +1009,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glObjectLabel.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glObjectLabel.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Labels a named object identified within a namespace.
 	 *
@@ -1030,7 +1033,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
-		nglObjectLabel(identifier, name, label.length(), memAddress(memEncodeUTF8(label)));
+		ByteBuffer labelEncoded = memEncodeUTF8(label);
+		nglObjectLabel(identifier, name, label.length(), memAddress(labelEncoded));
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -1049,7 +1053,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetObjectLabel.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectLabel.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the label of a named object identified within a namespace.
 	 *
@@ -1111,7 +1115,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glObjectPtrLabel.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glObjectPtrLabel.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Labels a sync object identified by a pointer.
 	 *
@@ -1134,7 +1138,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		nglObjectPtrLabel(ptr, label.length(), memAddress(memEncodeUTF8(label)));
+		ByteBuffer labelEncoded = memEncodeUTF8(label);
+		nglObjectPtrLabel(ptr, label.length(), memAddress(labelEncoded));
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -1155,7 +1160,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetObjectPtrLabel.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetObjectPtrLabel.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the label of a sync object identified by a pointer.
 	 *
@@ -1205,7 +1210,7 @@ public final class GL43 {
 	public static native void nglFramebufferParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferParameteri.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferParameteri.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets a named parameter of a framebuffer.
 	 *
@@ -1236,7 +1241,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFramebufferParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves a named parameter from a framebuffer.
 	 *
@@ -1281,7 +1286,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetInternalformat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *
@@ -1317,7 +1322,7 @@ public final class GL43 {
 	public static native void nglInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateTexSubImage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexSubImage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidates a region of a texture image.
 	 *
@@ -1344,7 +1349,7 @@ public final class GL43 {
 	public static native void nglInvalidateTexImage(int texture, int level, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateTexImage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateTexImage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidates the entirety of a texture image.
 	 *
@@ -1365,7 +1370,7 @@ public final class GL43 {
 	public static native void nglInvalidateBufferSubData(int buffer, long offset, long length, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateBufferSubData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferSubData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidates a region of a buffer object's data store.
 	 *
@@ -1387,7 +1392,7 @@ public final class GL43 {
 	public static native void nglInvalidateBufferData(int buffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateBufferData.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateBufferData.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidates the content of a buffer object's data store.
 	 *
@@ -1416,7 +1421,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateFramebuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateFramebuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidate the content some or all of a framebuffer object's attachments.
 	 *
@@ -1458,7 +1463,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInvalidateSubFramebuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateSubFramebuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
 	 *
@@ -1504,7 +1509,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawArraysIndirect.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArraysIndirect.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * <p/>
@@ -1555,7 +1560,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawElementsIndirect.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsIndirect.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * <p/>
@@ -1608,7 +1613,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramInterface.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInterface.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries a property of an interface in a program.
 	 *
@@ -1654,7 +1659,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceIndex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceIndex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the index of a named resource within a program.
 	 *
@@ -1670,7 +1675,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		return nglGetProgramResourceIndex(program, programInterface, memAddress(memEncodeUTF8(name)));
+		ByteBuffer nameEncoded = memEncodeUTF8(name);
+		return nglGetProgramResourceIndex(program, programInterface, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -1689,7 +1695,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceName.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceName.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the name of an indexed resource within a program.
 	 *
@@ -1750,7 +1756,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResource.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResource.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves values for multiple properties of a single active resource within a program object.
 	 *
@@ -1804,7 +1810,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the location of a named resource within a program.
 	 *
@@ -1820,7 +1826,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		return nglGetProgramResourceLocation(program, programInterface, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetProgramResourceLocation(program, programInterface, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -1839,7 +1846,7 @@ public final class GL43 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramResourceLocationIndex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramResourceLocationIndex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the fragment color index of a named variable within a program.
 	 *
@@ -1855,7 +1862,8 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(nameEncoded));
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---
@@ -1865,7 +1873,7 @@ public final class GL43 {
 	public static native void nglShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glShaderStorageBlockBinding.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glShaderStorageBlockBinding.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Changes an active shader storage block binding.
 	 *
@@ -1887,7 +1895,7 @@ public final class GL43 {
 	public static native void nglTexBufferRange(int target, int internalformat, int buffer, long offset, long size, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexBufferRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexBufferRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a range of a buffer's data store to a buffer texture.
 	 *
@@ -1911,7 +1919,7 @@ public final class GL43 {
 	public static native void nglTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexStorage2DMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2DMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies storage for a two-dimensional multisample texture.
 	 *
@@ -1937,7 +1945,7 @@ public final class GL43 {
 	public static native void nglTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexStorage3DMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3DMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies storage for a two-dimensional multisample array texture.
 	 *
@@ -1964,7 +1972,7 @@ public final class GL43 {
 	public static native void nglTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTextureView.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTextureView.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Initializes a texture as a data alias of another texture's data store.
 	 *
@@ -1991,7 +1999,7 @@ public final class GL43 {
 	public static native void nglBindVertexBuffer(int bindingindex, int buffer, long offset, int stride, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindVertexBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindVertexBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a buffer to a vertex buffer bind point.
 	 *
@@ -2014,7 +2022,7 @@ public final class GL43 {
 	public static native void nglVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribFormat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribFormat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the organization of data in vertex arrays.
 	 *
@@ -2039,7 +2047,7 @@ public final class GL43 {
 	public static native void nglVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribIFormat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIFormat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
@@ -2062,7 +2070,7 @@ public final class GL43 {
 	public static native void nglVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribLFormat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribLFormat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
@@ -2085,7 +2093,7 @@ public final class GL43 {
 	public static native void nglVertexAttribBinding(int attribindex, int bindingindex, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribBinding.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribBinding.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Associate a vertex attribute and a vertex buffer binding.
 	 *
@@ -2106,7 +2114,7 @@ public final class GL43 {
 	public static native void nglVertexBindingDivisor(int index, int divisor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexBindingDivisor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexBindingDivisor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *

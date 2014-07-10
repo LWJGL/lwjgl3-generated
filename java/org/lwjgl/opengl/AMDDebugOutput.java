@@ -150,7 +150,8 @@ public final class AMDDebugOutput {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
-		nglDebugMessageInsertAMD(category, severity, id, buf.length(), memAddress(memEncodeUTF8(buf)));
+		ByteBuffer bufEncoded = memEncodeUTF8(buf);
+		nglDebugMessageInsertAMD(category, severity, id, buf.length(), memAddress(bufEncoded));
 	}
 
 	// --- [ glDebugMessageCallbackAMD ] ---
@@ -239,7 +240,8 @@ public final class AMDDebugOutput {
 			if ( ids != null ) checkBuffer(ids, count);
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
-		return nglGetDebugMessageLogAMD(count, messageLog.length(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(memEncodeUTF8(messageLog)));
+		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
+		return nglGetDebugMessageLogAMD(count, messageLog.length(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddress(messageLogEncoded));
 	}
 
 }

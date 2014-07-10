@@ -324,7 +324,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glShaderBinary.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glShaderBinary.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Loads pre-compiled shader binaries.
 	 *
@@ -363,7 +363,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderPrecisionFormat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderPrecisionFormat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the range and precision for numeric formats supported by the shader compiler.
 	 *
@@ -406,7 +406,7 @@ public final class GL41 {
 	public static native void nglDepthRangef(float zNear, float zFar, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/DepthRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/DepthRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates
 	 *
@@ -427,7 +427,7 @@ public final class GL41 {
 	public static native void nglClearDepthf(float depth, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearDepthf.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearDepthf.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the clear value for the depth buffer
 	 *
@@ -456,7 +456,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramBinary.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramBinary.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a binary representation of a program object's compiled and linked executable source.
 	 *
@@ -523,7 +523,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramBinary.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramBinary.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Loads a program object with a program binary.
 	 *
@@ -550,7 +550,7 @@ public final class GL41 {
 	public static native void nglProgramParameteri(int program, int pname, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the integer value of a program object parameter.
 	 *
@@ -572,7 +572,7 @@ public final class GL41 {
 	public static native void nglUseProgramStages(int pipeline, int stages, int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUseProgramStages.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUseProgramStages.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds stages of a program object to a program pipeline.
 	 *
@@ -594,7 +594,7 @@ public final class GL41 {
 	public static native void nglActiveShaderProgram(int pipeline, int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glActiveShaderProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glActiveShaderProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the active program object for a program pipeline object.
 	 *
@@ -624,7 +624,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCreateShaderProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCreateShaderProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * <p/>
@@ -691,7 +691,7 @@ public final class GL41 {
 	public static native void nglBindProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindProgramPipeline.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindProgramPipeline.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a program pipeline to the current context.
 	 *
@@ -720,7 +720,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteProgramPipelines.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgramPipelines.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes program pipeline objects.
 	 *
@@ -761,7 +761,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenProgramPipelines.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenProgramPipelines.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Reserves program pipeline object names.
 	 *
@@ -794,7 +794,7 @@ public final class GL41 {
 	public static native boolean nglIsProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsProgramPipeline.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsProgramPipeline.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a program pipeline object.
 	 *
@@ -823,7 +823,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramPipeline.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramPipeline.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves properties of a program pipeline object.
 	 *
@@ -859,7 +859,7 @@ public final class GL41 {
 	public static native void nglProgramUniform1i(int program, int location, int x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an int uniform variable for a specified program object.
 	 *
@@ -881,7 +881,7 @@ public final class GL41 {
 	public static native void nglProgramUniform2i(int program, int location, int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an ivec2 uniform variable for a specified program object.
 	 *
@@ -904,7 +904,7 @@ public final class GL41 {
 	public static native void nglProgramUniform3i(int program, int location, int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an ivec3 uniform variable for a specified program object.
 	 *
@@ -928,7 +928,7 @@ public final class GL41 {
 	public static native void nglProgramUniform4i(int program, int location, int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an ivec4 uniform variable for a specified program object.
 	 *
@@ -953,7 +953,7 @@ public final class GL41 {
 	public static native void nglProgramUniform1ui(int program, int location, int x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uint uniform variable for a specified program object.
 	 *
@@ -975,7 +975,7 @@ public final class GL41 {
 	public static native void nglProgramUniform2ui(int program, int location, int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec2 uniform variable for a specified program object.
 	 *
@@ -998,7 +998,7 @@ public final class GL41 {
 	public static native void nglProgramUniform3ui(int program, int location, int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec3 uniform variable for a specified program object.
 	 *
@@ -1022,7 +1022,7 @@ public final class GL41 {
 	public static native void nglProgramUniform4ui(int program, int location, int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a uvec4 uniform variable for a specified program object.
 	 *
@@ -1047,7 +1047,7 @@ public final class GL41 {
 	public static native void nglProgramUniform1f(int program, int location, float x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a float uniform variable for a specified program object.
 	 *
@@ -1069,7 +1069,7 @@ public final class GL41 {
 	public static native void nglProgramUniform2f(int program, int location, float x, float y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec2 uniform variable for a specified program object.
 	 *
@@ -1092,7 +1092,7 @@ public final class GL41 {
 	public static native void nglProgramUniform3f(int program, int location, float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec3 uniform variable for a specified program object.
 	 *
@@ -1116,7 +1116,7 @@ public final class GL41 {
 	public static native void nglProgramUniform4f(int program, int location, float x, float y, float z, float w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec4 uniform variable for a specified program object.
 	 *
@@ -1141,7 +1141,7 @@ public final class GL41 {
 	public static native void nglProgramUniform1d(int program, int location, double x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a double uniform variable for a specified program object.
 	 *
@@ -1163,7 +1163,7 @@ public final class GL41 {
 	public static native void nglProgramUniform2d(int program, int location, double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec2 uniform variable for a specified program object.
 	 *
@@ -1186,7 +1186,7 @@ public final class GL41 {
 	public static native void nglProgramUniform3d(int program, int location, double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec3 uniform variable for a specified program object.
 	 *
@@ -1210,7 +1210,7 @@ public final class GL41 {
 	public static native void nglProgramUniform4d(int program, int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec4 uniform variable for a specified program object.
 	 *
@@ -1244,7 +1244,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
 	 *
@@ -1280,7 +1280,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec2 uniform variable or a ivec2 uniform variable array for a specified program object.
 	 *
@@ -1316,7 +1316,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec3 uniform variable or a ivec3 uniform variable array for a specified program object.
 	 *
@@ -1352,7 +1352,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec4 uniform variable or a ivec4 uniform variable array for a specified program object.
 	 *
@@ -1388,7 +1388,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for a specified program object.
 	 *
@@ -1424,7 +1424,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for a specified program object.
 	 *
@@ -1460,7 +1460,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for a specified program object.
 	 *
@@ -1496,7 +1496,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for a specified program object.
 	 *
@@ -1532,7 +1532,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
 	 *
@@ -1568,7 +1568,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for a specified program object.
 	 *
@@ -1604,7 +1604,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for a specified program object.
 	 *
@@ -1640,7 +1640,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for a specified program object.
 	 *
@@ -1676,7 +1676,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for a specified program object.
 	 *
@@ -1712,7 +1712,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for a specified program object.
 	 *
@@ -1748,7 +1748,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for a specified program object.
 	 *
@@ -1784,7 +1784,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for a specified program object.
 	 *
@@ -1820,7 +1820,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
 	 *
@@ -1857,7 +1857,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
 	 *
@@ -1894,7 +1894,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
 	 *
@@ -1931,7 +1931,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
@@ -1968,7 +1968,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
@@ -2005,7 +2005,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
@@ -2042,7 +2042,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
 	 *
@@ -2079,7 +2079,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
 	 *
@@ -2116,7 +2116,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
 	 *
@@ -2153,7 +2153,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
 	 *
@@ -2190,7 +2190,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
 	 *
@@ -2227,7 +2227,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
 	 *
@@ -2264,7 +2264,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
@@ -2301,7 +2301,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
@@ -2338,7 +2338,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
@@ -2375,7 +2375,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
@@ -2412,7 +2412,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
@@ -2449,7 +2449,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProgramUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProgramUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
@@ -2477,7 +2477,7 @@ public final class GL41 {
 	public static native void nglValidateProgramPipeline(int pipeline, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glValidateProgramPipeline.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgramPipeline.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Validates a program pipeline object against current GL state.
 	 *
@@ -2506,7 +2506,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramPipelineInfoLog.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramPipelineInfoLog.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the info log string from a program pipeline object.
 	 *
@@ -2556,7 +2556,7 @@ public final class GL41 {
 	public static native void nglVertexAttribL1d(int index, double x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0 and w to 1.0.
 	 *
@@ -2577,7 +2577,7 @@ public final class GL41 {
 	public static native void nglVertexAttribL2d(int index, double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0 and w to 1.0.
 	 *
@@ -2599,7 +2599,7 @@ public final class GL41 {
 	public static native void nglVertexAttribL3d(int index, double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0.
 	 *
@@ -2622,7 +2622,7 @@ public final class GL41 {
 	public static native void nglVertexAttribL4d(int index, double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute.
 	 *
@@ -2655,7 +2655,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribL1d VertexAttribL1d}.
 	 *
@@ -2691,7 +2691,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribL2d VertexAttribL2d}.
 	 *
@@ -2727,7 +2727,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribL3d VertexAttribL3d}.
 	 *
@@ -2763,7 +2763,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribL4d VertexAttribL4d}.
 	 *
@@ -2799,7 +2799,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the location and organization of a 64-bit vertex attribute array.
 	 *
@@ -2847,7 +2847,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link GL20#glGetVertexAttribi GetVertexAttribi}.
 	 *
@@ -2880,7 +2880,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewportArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glViewportArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets multiple viewports.
 	 *
@@ -2906,7 +2906,7 @@ public final class GL41 {
 	public static native void nglViewportIndexedf(int index, float x, float y, float w, float h, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewportIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets a specified viewport.
 	 *
@@ -2939,7 +2939,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewportIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glViewportIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glViewportIndexedf ViewportIndexedf}.
 	 *
@@ -2975,7 +2975,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissorArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glScissorArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines the scissor box for multiple viewports.
 	 *
@@ -3001,7 +3001,7 @@ public final class GL41 {
 	public static native void nglScissorIndexed(int index, int left, int bottom, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissorIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines the scissor box for a specific viewport.
 	 *
@@ -3034,7 +3034,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissorIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glScissorIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glScissorIndexed ScissorIndexed}.
 	 *
@@ -3070,7 +3070,7 @@ public final class GL41 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthRangeArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified set of viewports.
 	 *
@@ -3096,7 +3096,7 @@ public final class GL41 {
 	public static native void nglDepthRangeIndexed(int index, double zNear, double zFar, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthRangeIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDepthRangeIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies mapping of depth values from normalized device coordinates to window coordinates for a specified viewport.
 	 *

@@ -1398,7 +1398,7 @@ public final class GL11 {
 	public static native void nglEnable(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnable.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Enables the specified OpenGL state.
 	 *
@@ -1418,7 +1418,7 @@ public final class GL11 {
 	public static native void nglDisable(int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnable.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Disables the specified OpenGL state.
 	 *
@@ -1438,7 +1438,7 @@ public final class GL11 {
 	public static native void nglAccum(int op, float value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glAccum.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Each portion of a pixel in the accumulation buffer consists of four values: one for each of R, G, B, and A. The accumulation buffer is controlled
 	 * exclusively through the use of this method (except for clearing it).
@@ -1460,7 +1460,7 @@ public final class GL11 {
 	public static native void nglAlphaFunc(int func, float ref, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glAlphaFunc.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glAlphaFunc.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * The alpha test discards a fragment conditionally based on the outcome of a comparison between the incoming fragment’s alpha value and a constant value.
 	 * The comparison is enabled or disabled with the generic {@link #glEnable Enable} and {@link #glDisable Disable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
@@ -1492,7 +1492,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glAreTexturesResident.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glAreTexturesResident.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns {@link #GL_TRUE TRUE} if all of the texture objects named in textures are resident, or if the implementation does not distinguish a working set. If
 	 * at least one of the texture objects named in textures is not resident, then {@link #GL_FALSE FALSE} is returned, and the residence of each texture object is
@@ -1533,7 +1533,7 @@ public final class GL11 {
 	public static native void nglArrayElement(int i, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glArrayElement.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glArrayElement.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Transfers the ith element of every enabled, non-instanced array, and the first element of every enabled, instanced array to the GL.
 	 *
@@ -1553,7 +1553,7 @@ public final class GL11 {
 	public static native void nglBegin(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glBegin.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glBegin.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Begins the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 *
@@ -1573,7 +1573,7 @@ public final class GL11 {
 	public static native void nglBindTexture(int target, int texture, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindTexture.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindTexture.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds the a texture to a texture target.
 	 * <p/>
@@ -1607,7 +1607,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glBitmap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glBitmap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sents a bitmap to the GL. Bitmaps are rectangles of zeros and ones specifying a particular pattern of fragments to be produced. Each of these fragments
 	 * has the same associated data. These data are those associated with the current raster position.
@@ -1640,7 +1640,7 @@ public final class GL11 {
 	public static native void nglBlendFunc(int sfactor, int dfactor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFunc.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the weighting factors used by the blend equation, for both RGB and alpha functions and for all draw buffers.
 	 *
@@ -1661,7 +1661,7 @@ public final class GL11 {
 	public static native void nglCallList(int list, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glCallList.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glCallList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Executes a display list. Causes the commands saved in the display list to be executed, in order, just as if they were issued without using a display list.
 	 *
@@ -1690,7 +1690,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glCallLists.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glCallLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Provides an efficient means for executing a number of display lists.
 	 *
@@ -1731,7 +1731,7 @@ public final class GL11 {
 	public static native void nglClear(int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClear.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClear.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets portions of every pixel in a particular buffer to the same value. The value to which each buffer is cleared depends on the setting of the clear
 	 * value for that buffer.
@@ -1752,7 +1752,7 @@ public final class GL11 {
 	public static native void nglClearAccum(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glClearAccum.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glClearAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the clear values for the accumulation buffer. These values are clamped to the range [-1,1] when they are specified.
 	 *
@@ -1775,7 +1775,7 @@ public final class GL11 {
 	public static native void nglClearColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearColor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearColor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the clear value for fixed-point and floating-point color buffers in RGBA mode. The specified components are stored as floating-point values.
 	 *
@@ -1798,7 +1798,7 @@ public final class GL11 {
 	public static native void nglClearDepth(double depth, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearDepth.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearDepth.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the depth value used when clearing the depth buffer. When clearing a fixedpoint depth buffer, {@code depth} is clamped to the range [0,1] and
 	 * converted to fixed-point. No conversion is applied when clearing a floating-point depth buffer.
@@ -1819,7 +1819,7 @@ public final class GL11 {
 	public static native void nglClearStencil(int s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearStencil.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearStencil.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the value to which to clear the stencil buffer. {@code s} is masked to the number of bitplanes in the stencil buffer.
 	 *
@@ -1848,7 +1848,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClipPlane.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClipPlane.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a client-defined clip plane.
 	 * <p/>
@@ -1875,7 +1875,7 @@ public final class GL11 {
 	public static native void nglColor3b(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the R, G, and B components of the current color. The alpha component is set to 1.0.
 	 *
@@ -1897,7 +1897,7 @@ public final class GL11 {
 	public static native void nglColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glColor3b Color3b}
 	 *
@@ -1919,7 +1919,7 @@ public final class GL11 {
 	public static native void nglColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glColor3b Color3b}
 	 *
@@ -1941,7 +1941,7 @@ public final class GL11 {
 	public static native void nglColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glColor3b Color3b}
 	 *
@@ -1963,7 +1963,7 @@ public final class GL11 {
 	public static native void nglColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glColor3b Color3b}
 	 *
@@ -1985,7 +1985,7 @@ public final class GL11 {
 	public static native void nglColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned version of {@link #glColor3b Color3b}
 	 *
@@ -2007,7 +2007,7 @@ public final class GL11 {
 	public static native void nglColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned short version of {@link #glColor3b Color3b}
 	 *
@@ -2029,7 +2029,7 @@ public final class GL11 {
 	public static native void nglColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned int version of {@link #glColor3b Color3b}
 	 *
@@ -2060,7 +2060,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Byte pointer version of {@link #glColor3b Color3b}.
 	 *
@@ -2088,7 +2088,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3s Color3s}.
 	 *
@@ -2123,7 +2123,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3i Color3i}.
 	 *
@@ -2158,7 +2158,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3f Color3f}.
 	 *
@@ -2193,7 +2193,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3d Color3d}.
 	 *
@@ -2228,7 +2228,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3ub Color3ub}.
 	 *
@@ -2256,7 +2256,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3us Color3us}.
 	 *
@@ -2291,7 +2291,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor3ui Color3ui}.
 	 *
@@ -2317,7 +2317,7 @@ public final class GL11 {
 	public static native void nglColor4b(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current color.
 	 *
@@ -2340,7 +2340,7 @@ public final class GL11 {
 	public static native void nglColor4s(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glColor4b Color4b}
 	 *
@@ -2363,7 +2363,7 @@ public final class GL11 {
 	public static native void nglColor4i(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glColor4b Color4b}
 	 *
@@ -2386,7 +2386,7 @@ public final class GL11 {
 	public static native void nglColor4f(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glColor4b Color4b}
 	 *
@@ -2409,7 +2409,7 @@ public final class GL11 {
 	public static native void nglColor4d(double red, double green, double blue, double alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glColor4b Color4b}
 	 *
@@ -2432,7 +2432,7 @@ public final class GL11 {
 	public static native void nglColor4ub(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned version of {@link #glColor4b Color4b}
 	 *
@@ -2455,7 +2455,7 @@ public final class GL11 {
 	public static native void nglColor4us(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned short version of {@link #glColor4b Color4b}
 	 *
@@ -2478,7 +2478,7 @@ public final class GL11 {
 	public static native void nglColor4ui(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned int version of {@link #glColor4b Color4b}
 	 *
@@ -2510,7 +2510,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4b Color4b}.
 	 *
@@ -2538,7 +2538,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4s Color4s}.
 	 *
@@ -2573,7 +2573,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4i Color4i}.
 	 *
@@ -2608,7 +2608,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4f Color4f}.
 	 *
@@ -2643,7 +2643,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4d Color4d}.
 	 *
@@ -2678,7 +2678,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4ub Color4ub}.
 	 *
@@ -2706,7 +2706,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4us Color4us}.
 	 *
@@ -2741,7 +2741,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColor4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glColor4ui Color4ui}.
 	 *
@@ -2767,7 +2767,7 @@ public final class GL11 {
 	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorMask.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorMask.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Masks the writing of R, G, B and A values to all draw buffers. In the initial state, all color values are enabled for writing for all draw buffers.
 	 *
@@ -2790,7 +2790,7 @@ public final class GL11 {
 	public static native void nglColorMaterial(int face, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColorMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * It is possible to attach one or more material properties to the current color, so that they continuously track its component values. This behavior is
 	 * enabled and disabled by calling {@link #glEnable Enable} or {@link #glDisable Disable} with the symbolic value {@link #GL_COLOR_MATERIAL COLOR_MATERIAL}. This function controls which
@@ -2822,7 +2822,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glColorPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a color array.
 	 *
@@ -2865,7 +2865,7 @@ public final class GL11 {
 	public static native void nglCopyPixels(int x, int y, int width, int height, int type, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyPixels.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyPixels.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Transfers a rectangle of pixel values from one region of the read framebuffer to another in the draw framebuffer
 	 *
@@ -2889,7 +2889,7 @@ public final class GL11 {
 	public static native void nglCullFace(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCullFace.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCullFace.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies which polygon faces are culled if {@link #GL_CULL_FACE CULL_FACE} is enabled. Front-facing polygons are rasterized if either culling is disabled or the
 	 * CullFace mode is {@link #GL_BACK BACK} while back-facing polygons are rasterized only if either culling is disabled or the CullFace mode is
@@ -2911,7 +2911,7 @@ public final class GL11 {
 	public static native void nglDeleteLists(int list, int range, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glDeleteLists.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glDeleteLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Deletes a contiguous group of display lists. All information about the display lists is lost, and the indices become unused. Indices to which no display
 	 * list corresponds are ignored. If {@code range} is zero, nothing happens.
@@ -2933,7 +2933,7 @@ public final class GL11 {
 	public static native void nglDepthFunc(int func, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthFunc.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDepthFunc.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the comparison that takes place during the depth buffer test (when {@link #GL_DEPTH_TEST DEPTH_TEST} is enabled).
 	 *
@@ -2953,7 +2953,7 @@ public final class GL11 {
 	public static native void nglDepthMask(boolean flag, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthMask.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDepthMask.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Masks the writing of depth values to the depth buffer. In the initial state, the depth buffer is enabled for writing.
 	 *
@@ -2973,7 +2973,7 @@ public final class GL11 {
 	public static native void nglDepthRange(double zNear, double zFar, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthRange.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDepthRange.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the depth range for all viewports to the same values.
 	 *
@@ -2994,7 +2994,7 @@ public final class GL11 {
 	public static native void nglDisableClientState(int array, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glDisableClientState.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glDisableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Disables the specified fixed-function attribute array.
 	 *
@@ -3014,7 +3014,7 @@ public final class GL11 {
 	public static native void nglDrawArrays(int mode, int first, int count, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawArrays.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawArrays.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
 	 * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
@@ -3040,7 +3040,7 @@ public final class GL11 {
 	public static native void nglDrawBuffer(int buf, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines the color buffer to which fragment color zero is written.
 	 * <p/>
@@ -3072,7 +3072,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElements.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElements.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
 	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
@@ -3142,7 +3142,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glDrawPixels.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Draws a pixel rectangle to the active draw buffers.
 	 *
@@ -3193,7 +3193,7 @@ public final class GL11 {
 	public static native void nglEdgeFlag(boolean flag, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlag.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlag.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Each edge of each polygon primitive generated is flagged as either boundary or non-boundary. These classifications are used during polygon
 	 * rasterization; some modes affect the interpretation of polygon boundary edges. By default, all edges are boundary edges, but the flagging of polygons,
@@ -3228,7 +3228,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlag.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlag.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glEdgeFlag EdgeFlag}.
 	 *
@@ -3256,7 +3256,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEdgeFlagPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlagPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of an edge flag array.
 	 *
@@ -3283,7 +3283,7 @@ public final class GL11 {
 	public static native void nglEnableClientState(int array, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEnableClientState.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEnableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Enables the specified fixed-function attribute array.
 	 *
@@ -3303,7 +3303,7 @@ public final class GL11 {
 	public static native void nglEnd(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEnd.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEnd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Ends the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 */
@@ -3321,7 +3321,7 @@ public final class GL11 {
 	public static native void nglEvalCoord1f(float u, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Causes evaluation of the enabled one-dimensional evaluator maps.
 	 *
@@ -3350,7 +3350,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
@@ -3372,7 +3372,7 @@ public final class GL11 {
 	public static native void nglEvalCoord1d(double u, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glEvalCoord1f EvalCoord1f}.
 	 *
@@ -3401,7 +3401,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glEvalCoord1d EvalCoord1d}.
 	 *
@@ -3423,7 +3423,7 @@ public final class GL11 {
 	public static native void nglEvalCoord2f(float u, float v, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Causes evaluation of the enabled two-dimensional evaluator maps.
 	 *
@@ -3453,7 +3453,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
@@ -3475,7 +3475,7 @@ public final class GL11 {
 	public static native void nglEvalCoord2d(double u, double v, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glEvalCoord2f EvalCoord2f}.
 	 *
@@ -3505,7 +3505,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glEvalCoord2d EvalCoord2d}.
 	 *
@@ -3527,7 +3527,7 @@ public final class GL11 {
 	public static native void nglEvalMesh1(int mode, int i1, int i2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalMesh1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Carries out an evaluation on a subset of the one-dimensional map grid.
 	 *
@@ -3549,7 +3549,7 @@ public final class GL11 {
 	public static native void nglEvalMesh2(int mode, int i1, int i2, int j1, int j2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalMesh2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Carries out an evaluation on a rectangular subset of the two-dimensional map grid.
 	 *
@@ -3573,7 +3573,7 @@ public final class GL11 {
 	public static native void nglEvalPoint1(int i, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalPoint1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Carries out an evalutation of a single point on the one-dimensional map grid.
 	 *
@@ -3593,7 +3593,7 @@ public final class GL11 {
 	public static native void nglEvalPoint2(int i, int j, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEvalPoint2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Carries out an evalutation of a single point on the two-dimensional map grid.
 	 *
@@ -3623,7 +3623,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFeedbackBuffer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFeedbackBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns information about primitives when the GL is in feedback mode.
 	 *
@@ -3649,7 +3649,7 @@ public final class GL11 {
 	public static native void nglFinish(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFinish.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFinish.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Forces all previously issued GL commands to complete. {@code Finish} does not return until all effects from such commands on GL client and server
 	 * state and the framebuffer are fully realized.
@@ -3668,7 +3668,7 @@ public final class GL11 {
 	public static native void nglFlush(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFlush.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFlush.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Causes all previously issued GL commands to complete in finite time (although such commands may still be executing when {@code Flush} returns).
 	 */
@@ -3686,7 +3686,7 @@ public final class GL11 {
 	public static native void nglFogi(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogi.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the integer value of a fog parameter.
 	 *
@@ -3716,7 +3716,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glFogi Fogi}.
 	 *
@@ -3743,7 +3743,7 @@ public final class GL11 {
 	public static native void nglFogf(int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the float value of a fog parameter.
 	 *
@@ -3773,7 +3773,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFog.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glFogf Fogf}.
 	 *
@@ -3800,7 +3800,7 @@ public final class GL11 {
 	public static native void nglFrontFace(int dir, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFrontFace.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFrontFace.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * The first step of polygon rasterization is to determine if the polygon is back-facing or front-facing. This determination is made based on the sign of
 	 * the (clipped or unclipped) polygon's area computed in window coordinates. The interpretation of the sign of this value is controlled with this function.
@@ -3822,7 +3822,7 @@ public final class GL11 {
 	public static native int nglGenLists(int s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGenLists.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGenLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns an integer n such that the indices {@code n,..., n + s - 1} are previously unused (i.e. there are {@code s} previously unused display list
 	 * indices starting at n). {@code GenLists} also has the effect of creating an empty display list for each of the indices {@code n,..., n + s - 1}, so
@@ -3854,7 +3854,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenTextures.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenTextures.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns n previously unused texture names in textures. These names are marked as used, for the purposes of GenTextures only, but they acquire texture
 	 * state and a dimensionality only when they are first bound, just as if they were unused.
@@ -3897,7 +3897,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTextures.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTextures.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
 	 * currently bound to any of the target bindings of {@link #glBindTexture BindTexture} is deleted, it is as though {@link #glBindTexture BindTexture} had been executed with the
@@ -3944,7 +3944,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetClipPlane.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetClipPlane.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns four double-precision values in {@code equation}; these are the coefficients of the plane equation of plane in eye coordinates (these
 	 * coordinates are those that were computed when the plane was specified).
@@ -3981,7 +3981,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the current boolean value of the specified state variable.
 	 * <p/>
@@ -4022,7 +4022,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the current float value of the specified state variable.
 	 * <p/>
@@ -4070,7 +4070,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the current integer value of the specified state variable.
 	 * <p/>
@@ -4118,7 +4118,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the current double value of the specified state variable.
 	 * <p/>
@@ -4157,7 +4157,7 @@ public final class GL11 {
 	public static native int nglGetError(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetError.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetError.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns error information. Each detectable error is assigned a numeric code. When an error is detected, a flag is set and the code is recorded. Further
 	 * errors, if they occur, do not affect this recorded code. When {@code GetError} is called, the code is returned and the flag is cleared, so that a
@@ -4187,7 +4187,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns integer information about light parameter {@code value} for {@code light} in {@code data}.
 	 *
@@ -4232,7 +4232,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glGetLighti(int, int, ByteBuffer) glGetLighti}.
 	 *
@@ -4277,7 +4277,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns integer information about {@code query} for evaluator map {@code target} in {@code data}.
 	 *
@@ -4322,7 +4322,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glGetMapi(int, int, ByteBuffer) glGetMapi}.
 	 *
@@ -4367,7 +4367,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glGetMapi(int, int, ByteBuffer) glGetMapi}.
 	 *
@@ -4412,7 +4412,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns integer information about material property {@code value} for {@code face} in {@code data}.
 	 *
@@ -4445,7 +4445,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali}.
 	 *
@@ -4478,7 +4478,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns all float values in the pixel map {@code map} in {@code data}.
 	 *
@@ -4525,7 +4525,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned short version of {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf}.
 	 *
@@ -4572,7 +4572,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned integer version of {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf}.
 	 *
@@ -4619,7 +4619,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a pointer in the current GL context.
 	 *
@@ -4663,7 +4663,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetPolygonStipple.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPolygonStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Obtains the polygon stipple.
 	 *
@@ -4725,7 +4725,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexEnv.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns integer information about {@code value} for {@code env} in {@code data}.
 	 *
@@ -4770,7 +4770,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexEnv.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi}.
 	 *
@@ -4815,7 +4815,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns integer information about {@code value} for {@code coord} in {@code data}.
 	 *
@@ -4860,7 +4860,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni}.
 	 *
@@ -4905,7 +4905,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glGetTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni}.
 	 *
@@ -4950,7 +4950,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexImage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Obtains texture images.
 	 *
@@ -5017,7 +5017,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexLevelParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Places integer information about texture image parameter {@code value} for level-of-detail {@code lod} of the specified {@code target} into {@code data}.
 	 *
@@ -5063,7 +5063,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexLevelParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri}.
 	 *
@@ -5109,7 +5109,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Place integer information about texture parameter {@code value} for the specified {@code target} into {@code data}.
 	 *
@@ -5154,7 +5154,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri}.
 	 *
@@ -5190,7 +5190,7 @@ public final class GL11 {
 	public static native void nglHint(int target, int hint, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glHint.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glHint.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Certain aspects of GL behavior, when there is room for variation, may be controlled with this function. The initial value for all hints is
 	 * {@link #GL_DONT_CARE DONT_CARE}.
@@ -5212,7 +5212,7 @@ public final class GL11 {
 	public static native void nglInitNames(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glInitNames.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glInitNames.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Clears the selection name stack.
 	 */
@@ -5239,7 +5239,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glInterleavedArrays.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
 	 *
@@ -5295,7 +5295,7 @@ public final class GL11 {
 	public static native boolean nglIsEnabled(int cap, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabled.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabled.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if {@code cap} is currently enabled (as with {@link #glEnable Enable}) or disabled.
 	 *
@@ -5315,7 +5315,7 @@ public final class GL11 {
 	public static native boolean nglIsList(int list, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glIsList.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glIsList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Returns true if the {@code list} is the index of some display list.
 	 *
@@ -5335,7 +5335,7 @@ public final class GL11 {
 	public static native boolean nglIsTexture(int texture, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsTexture.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsTexture.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns true if {@code texture} is the name of a texture object.
 	 *
@@ -5355,7 +5355,7 @@ public final class GL11 {
 	public static native void nglLightModeli(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModeli.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLightModeli.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Set the integer value of a lighting model parameter.
 	 *
@@ -5376,7 +5376,7 @@ public final class GL11 {
 	public static native void nglLightModelf(int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModelf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLightModelf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glLightModeli LightModeli}.
 	 *
@@ -5406,7 +5406,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glLightModeli LightModeli}.
 	 *
@@ -5442,7 +5442,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightModel.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glLightModelf LightModelf}.
 	 *
@@ -5469,7 +5469,7 @@ public final class GL11 {
 	public static native void nglLighti(int light, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLighti.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLighti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the integer value of a light parameter.
 	 *
@@ -5491,7 +5491,7 @@ public final class GL11 {
 	public static native void nglLightf(int light, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLightf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLightf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glLighti Lighti}.
 	 *
@@ -5522,7 +5522,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glLighti Lighti}.
 	 *
@@ -5559,7 +5559,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLight.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glLightf Lightf}.
 	 *
@@ -5587,7 +5587,7 @@ public final class GL11 {
 	public static native void nglLineStipple(int factor, short pattern, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLineStipple.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLineStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a line stipple. It determines those fragments that are to be drawn when the line is rasterized. Line stippling may be enabled or disabled using
 	 * {@link #glEnable Enable} or {@link #glDisable Disable} with the constant {@link #GL_LINE_STIPPLE LINE_STIPPLE}. When disabled, it is as if the line stipple has its default value.
@@ -5610,7 +5610,7 @@ public final class GL11 {
 	public static native void nglLineWidth(float width, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glLineWidth.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glLineWidth.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the width of rasterized line segments. The default width is 1.0.
 	 *
@@ -5630,7 +5630,7 @@ public final class GL11 {
 	public static native void nglListBase(int base, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glListBase.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glListBase.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the display list base.
 	 *
@@ -5659,7 +5659,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current matrix to a 4 &times; 4 matrix in column-major order.
 	 * <p/>
@@ -5705,7 +5705,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glLoadMatrixf LoadMatrixf}.
 	 *
@@ -5731,7 +5731,7 @@ public final class GL11 {
 	public static native void nglLoadIdentity(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadIdentity.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadIdentity.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current matrix to the identity matrix.
 	 * <p/>
@@ -5757,7 +5757,7 @@ public final class GL11 {
 	public static native void nglLoadName(int name, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadName.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Replaces the value on the top of the selection stack with {@code name}.
 	 *
@@ -5777,7 +5777,7 @@ public final class GL11 {
 	public static native void nglLogicOp(int op, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glLogicOp.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glLogicOp.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the logical framebuffer operation.
 	 *
@@ -5806,7 +5806,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a polynomial or rational polynomial mapping to produce vertex, normal, texture coordinates and colors. The values so produced are sent on to
 	 * further stages of the GL as if they had been provided directly by the client.
@@ -5847,7 +5847,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMap1f Map1f}.
 	 *
@@ -5887,7 +5887,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Bivariate version of {@link #glMap1f Map1f}.
 	 *
@@ -5931,7 +5931,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMap2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMap2f Map2f}.
 	 *
@@ -5966,7 +5966,7 @@ public final class GL11 {
 	public static native void nglMapGrid1f(int n, float u1, float u2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid1f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a one-dimensional grid in the map evaluator domain.
 	 *
@@ -5988,7 +5988,7 @@ public final class GL11 {
 	public static native void nglMapGrid1d(int n, double u1, double u2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMapGrid1f MapGrid1f}.
 	 *
@@ -6010,7 +6010,7 @@ public final class GL11 {
 	public static native void nglMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a two-dimensional grid in the map evaluator domain.
 	 *
@@ -6035,7 +6035,7 @@ public final class GL11 {
 	public static native void nglMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMapGrid2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMapGrid2f MapGrid2f}.
 	 *
@@ -6060,7 +6060,7 @@ public final class GL11 {
 	public static native void nglMateriali(int face, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMateriali.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMateriali.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the integer value of a material parameter.
 	 *
@@ -6082,7 +6082,7 @@ public final class GL11 {
 	public static native void nglMaterialf(int face, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterialf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMaterialf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glMateriali Materiali}.
 	 *
@@ -6113,7 +6113,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMateriali Materiali}.
 	 *
@@ -6150,7 +6150,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMaterial.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMaterialf Materialf}.
 	 *
@@ -6178,7 +6178,7 @@ public final class GL11 {
 	public static native void nglMatrixMode(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMatrixMode.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMatrixMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Set the current matrix mode.
 	 *
@@ -6207,7 +6207,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf LoadMatrixf} for details.
 	 *
@@ -6242,7 +6242,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultMatrixf MultMatrixf}.
 	 *
@@ -6268,7 +6268,7 @@ public final class GL11 {
 	public static native void nglFrustum(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFrustum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
@@ -6304,7 +6304,7 @@ public final class GL11 {
 	public static native void nglNewList(int n, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNewList.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNewList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Begins the definition of a display list.
 	 *
@@ -6325,7 +6325,7 @@ public final class GL11 {
 	public static native void nglEndList(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glEndList.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glEndList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Ends the definition of GL commands to be placed in a display list. It is only when {@code EndList} occurs that the specified display list is actually
 	 * associated with the index indicated with {@link #glNewList NewList}.
@@ -6344,7 +6344,7 @@ public final class GL11 {
 	public static native void nglNormal3f(float nx, float ny, float nz, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current normal.
 	 *
@@ -6366,7 +6366,7 @@ public final class GL11 {
 	public static native void nglNormal3b(byte nx, byte ny, byte nz, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Byte version of {@link #glNormal3f Normal3f}.
 	 *
@@ -6388,7 +6388,7 @@ public final class GL11 {
 	public static native void nglNormal3s(short nx, short ny, short nz, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glNormal3f Normal3f}.
 	 *
@@ -6410,7 +6410,7 @@ public final class GL11 {
 	public static native void nglNormal3i(int nx, int ny, int nz, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glNormal3f Normal3f}.
 	 *
@@ -6432,7 +6432,7 @@ public final class GL11 {
 	public static native void nglNormal3d(double nx, double ny, double nz, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glNormal3f Normal3f}.
 	 *
@@ -6463,7 +6463,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glNormal3f Normal3f}.
 	 *
@@ -6498,7 +6498,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glNormal3b Normal3b}.
 	 *
@@ -6526,7 +6526,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glNormal3s Normal3s}.
 	 *
@@ -6561,7 +6561,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glNormal3i Normal3i}.
 	 *
@@ -6596,7 +6596,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormal3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glNormal3d Normal3d}.
 	 *
@@ -6631,7 +6631,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glNormalPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a normal array.
 	 *
@@ -6680,7 +6680,7 @@ public final class GL11 {
 	public static native void nglOrtho(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glOrtho.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
 	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
@@ -6716,7 +6716,7 @@ public final class GL11 {
 	public static native void nglPassThrough(float token, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPassThrough.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPassThrough.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Inserts a marker when the GL is in feeback mode. {@code token} is returned as if it were a primitive; it is indicated with its own unique identifying
 	 * value. The ordering of any {@code PassThrough} commands with respect to primitive specification is maintained by feedback. {@code PassThrough} may
@@ -6747,7 +6747,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets a pixel map lookup table.
 	 *
@@ -6793,7 +6793,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned short version of {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf}.
 	 *
@@ -6839,7 +6839,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelMap.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned integer version of {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf}.
 	 *
@@ -6876,7 +6876,7 @@ public final class GL11 {
 	public static native void nglPixelStorei(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStorei.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPixelStorei.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the integer value of a pixel store parameter.
 	 *
@@ -6897,7 +6897,7 @@ public final class GL11 {
 	public static native void nglPixelStoref(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStoref.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPixelStoref.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glPixelStorei PixelStorei}.
 	 *
@@ -6918,7 +6918,7 @@ public final class GL11 {
 	public static native void nglPixelTransferi(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelTransferi.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the integer value of a pixel transfer parameter.
 	 *
@@ -6939,7 +6939,7 @@ public final class GL11 {
 	public static native void nglPixelTransferf(int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelTransferf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glPixelTransferi PixelTransferi}.
 	 *
@@ -6960,7 +6960,7 @@ public final class GL11 {
 	public static native void nglPixelZoom(float xfactor, float yfactor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPixelZoom.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelZoom.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Controls the conversion of a group of fragments.
 	 * <p/>
@@ -6989,7 +6989,7 @@ public final class GL11 {
 	public static native void nglPointSize(float size, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointSize.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPointSize.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the rasterization of points if no vertex, tessellation control, tessellation evaluation, or geometry shader is active. The default point size is 1.0.
 	 *
@@ -7009,7 +7009,7 @@ public final class GL11 {
 	public static native void nglPolygonMode(int face, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPolygonMode.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPolygonMode.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the interpretation of polygons for rasterization.
 	 * <p/>
@@ -7034,7 +7034,7 @@ public final class GL11 {
 	public static native void nglPolygonOffset(float factor, float units, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPolygonOffset.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPolygonOffset.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * The depth values of all fragments generated by the rasterization of a polygon may be offset by a single value that is computed for that polygon. This
 	 * function determines that value.
@@ -7068,7 +7068,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPolygonStipple.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPolygonStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple LineStipple}, masking out certain fragments produced by rasterization so that they
 	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
@@ -7101,7 +7101,7 @@ public final class GL11 {
 	public static native void nglPushAttrib(int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPushAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the server attribute stack. Each constant refers to a
 	 * group of state variables.
@@ -7128,7 +7128,7 @@ public final class GL11 {
 	public static native void nglPushClientAttrib(int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushClientAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPushClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Takes a bitwise OR of symbolic constants indicating which groups of state variables to push onto the client attribute stack. Each constant refers to a
 	 * group of state variables.
@@ -7155,7 +7155,7 @@ public final class GL11 {
 	public static native void nglPopAttrib(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPopAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Resets the values of those state variables that were saved with the last {@link #glPushAttrib PushAttrib}. Those not saved remain unchanged.
 	 */
@@ -7173,7 +7173,7 @@ public final class GL11 {
 	public static native void nglPopClientAttrib(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopClientAttrib.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPopClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Resets the values of those state variables that were saved with the last {@link #glPushClientAttrib PushClientAttrib}. Those not saved remain unchanged.
 	 */
@@ -7191,7 +7191,7 @@ public final class GL11 {
 	public static native void nglPopMatrix(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPopMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pops the top entry off the current matrix stack, replacing the current matrix with the matrix that was the second entry in the stack.
 	 */
@@ -7209,7 +7209,7 @@ public final class GL11 {
 	public static native void nglPopName(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPopName.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPopName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pops one name off the top of the selection name stack.
 	 */
@@ -7236,7 +7236,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPrioritizeTextures.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPrioritizeTextures.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the priority of texture objects. Each priority value is clamped to the range [0, 1] before it is assigned. Zero indicates the lowest priority, with
 	 * the least likelihood of being resident. One indicates the highest priority, with the greatest likelihood of being resident.
@@ -7267,7 +7267,7 @@ public final class GL11 {
 	public static native void nglPushMatrix(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPushMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pushes the current matrix stack down by one, duplicating the current matrix in both the top of the stack and the entry below it.
 	 */
@@ -7285,7 +7285,7 @@ public final class GL11 {
 	public static native void nglPushName(int name, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glPushName.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPushName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Causes {@code name} to be pushed onto the selection name stack.
 	 *
@@ -7305,7 +7305,7 @@ public final class GL11 {
 	public static native void nglRasterPos2i(int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the two-dimensional current raster position. {@code z} is implicitly set to 0 and {@code w} implicitly set to 1.
 	 * <p/>
@@ -7332,7 +7332,7 @@ public final class GL11 {
 	public static native void nglRasterPos2s(short x, short y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -7353,7 +7353,7 @@ public final class GL11 {
 	public static native void nglRasterPos2f(float x, float y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -7374,7 +7374,7 @@ public final class GL11 {
 	public static native void nglRasterPos2d(double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -7404,7 +7404,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos2i RasterPos2i}.
 	 *
@@ -7439,7 +7439,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos2s RasterPos2s}.
 	 *
@@ -7474,7 +7474,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos2f RasterPos2f}.
 	 *
@@ -7509,7 +7509,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos2d RasterPos2d}.
 	 *
@@ -7535,7 +7535,7 @@ public final class GL11 {
 	public static native void nglRasterPos3i(int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the three-dimensional current raster position. {@code w} is implicitly set to 1. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
@@ -7557,7 +7557,7 @@ public final class GL11 {
 	public static native void nglRasterPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -7579,7 +7579,7 @@ public final class GL11 {
 	public static native void nglRasterPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -7601,7 +7601,7 @@ public final class GL11 {
 	public static native void nglRasterPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -7632,7 +7632,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos3i RasterPos3i}.
 	 *
@@ -7667,7 +7667,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos3s RasterPos3s}.
 	 *
@@ -7702,7 +7702,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos3f RasterPos3f}.
 	 *
@@ -7737,7 +7737,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos3d RasterPos3d}.
 	 *
@@ -7763,7 +7763,7 @@ public final class GL11 {
 	public static native void nglRasterPos4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the four-dimensional current raster position. See {@link #glRasterPos2i RasterPos2i} for more details.
 	 *
@@ -7786,7 +7786,7 @@ public final class GL11 {
 	public static native void nglRasterPos4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -7809,7 +7809,7 @@ public final class GL11 {
 	public static native void nglRasterPos4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of RasterPos4i.
 	 *
@@ -7832,7 +7832,7 @@ public final class GL11 {
 	public static native void nglRasterPos4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -7864,7 +7864,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos4i RasterPos4i}.
 	 *
@@ -7899,7 +7899,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos4s RasterPos4s}.
 	 *
@@ -7934,7 +7934,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos4f RasterPos4f}.
 	 *
@@ -7969,7 +7969,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRasterPos4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRasterPos4d RasterPos4d}.
 	 *
@@ -7995,7 +7995,7 @@ public final class GL11 {
 	public static native void nglReadBuffer(int src, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glReadBuffer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glReadBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines the color buffer from which values are obtained.
 	 * <p/>
@@ -8027,7 +8027,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glReadPixels.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
 	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
@@ -8084,7 +8084,7 @@ public final class GL11 {
 	public static native void nglRecti(int x1, int y1, int x2, int y2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRecti.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRecti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies a rectangle as two corner vertices. The effect of the Rect command
 	 * <p/>
@@ -8120,7 +8120,7 @@ public final class GL11 {
 	public static native void nglRects(short x1, short y1, short x2, short y2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRects.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRects.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glRecti Recti}.
 	 *
@@ -8143,7 +8143,7 @@ public final class GL11 {
 	public static native void nglRectf(float x1, float y1, float x2, float y2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRectf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glRecti Recti}.
 	 *
@@ -8166,7 +8166,7 @@ public final class GL11 {
 	public static native void nglRectd(double x1, double y1, double x2, double y2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRectd.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRectd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glRecti Recti}.
 	 *
@@ -8198,7 +8198,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRecti Recti}.
 	 *
@@ -8238,7 +8238,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRects Rects}.
 	 *
@@ -8278,7 +8278,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRectf Rectf}.
 	 *
@@ -8318,7 +8318,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRect.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glRectd Rectd}.
 	 *
@@ -8349,7 +8349,7 @@ public final class GL11 {
 	public static native int nglRenderMode(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRenderMode.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRenderMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current render mode. The default is #RENDER.
 	 *
@@ -8369,7 +8369,7 @@ public final class GL11 {
 	public static native void nglRotatef(float angle, float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRotatef.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRotatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Manipulates the current matrix with a rotation matrix.
 	 * <p/>
@@ -8411,7 +8411,7 @@ public final class GL11 {
 	public static native void nglRotated(double angle, double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glRotated.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRotated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glRotatef Rotatef}.
 	 *
@@ -8434,7 +8434,7 @@ public final class GL11 {
 	public static native void nglScalef(float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glScalef.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glScalef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * <p/>
@@ -8464,7 +8464,7 @@ public final class GL11 {
 	public static native void nglScaled(double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glScaled.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glScaled.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glScalef Scalef}.
 	 *
@@ -8486,7 +8486,7 @@ public final class GL11 {
 	public static native void nglScissor(int x, int y, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glScissor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
@@ -8521,7 +8521,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSelectBuffer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSelectBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the selection array.
 	 *
@@ -8546,7 +8546,7 @@ public final class GL11 {
 	public static native void nglShadeModel(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glShadeModel.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glShadeModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current shade mode. The initial value of the shade mode is {@link #GL_SMOOTH SMOOTH}.
 	 * <p/>
@@ -8570,7 +8570,7 @@ public final class GL11 {
 	public static native void nglStencilFunc(int func, int ref, int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilFunc.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilFunc.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the stencil test.
 	 * <p/>
@@ -8597,7 +8597,7 @@ public final class GL11 {
 	public static native void nglStencilMask(int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilMask.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilMask.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Masks the writing of particular bits into the stencil plans.
 	 * <p/>
@@ -8620,7 +8620,7 @@ public final class GL11 {
 	public static native void nglStencilOp(int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilOp.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilOp.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Indicates what happens to the stored stencil value if this or certain subsequent tests fail or pass.
 	 * <p/>
@@ -8650,7 +8650,7 @@ public final class GL11 {
 	public static native void nglTexCoord1f(float s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current one-dimensional texture coordinate. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
@@ -8670,7 +8670,7 @@ public final class GL11 {
 	public static native void nglTexCoord1s(short s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -8690,7 +8690,7 @@ public final class GL11 {
 	public static native void nglTexCoord1i(int s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -8710,7 +8710,7 @@ public final class GL11 {
 	public static native void nglTexCoord1d(double s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -8739,7 +8739,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord1f TexCoord1f}.
 	 *
@@ -8774,7 +8774,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord1s TexCoord1s}.
 	 *
@@ -8809,7 +8809,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord1i TexCoord1i}.
 	 *
@@ -8844,7 +8844,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord1d TexCoord1d}.
 	 *
@@ -8870,7 +8870,7 @@ public final class GL11 {
 	public static native void nglTexCoord2f(float s, float t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current two-dimensional texture coordinate. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
@@ -8891,7 +8891,7 @@ public final class GL11 {
 	public static native void nglTexCoord2s(short s, short t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -8912,7 +8912,7 @@ public final class GL11 {
 	public static native void nglTexCoord2i(int s, int t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -8933,7 +8933,7 @@ public final class GL11 {
 	public static native void nglTexCoord2d(double s, double t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -8963,7 +8963,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord2f TexCoord2f}.
 	 *
@@ -8998,7 +8998,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord2s TexCoord2s}.
 	 *
@@ -9033,7 +9033,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord2i TexCoord2i}.
 	 *
@@ -9068,7 +9068,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord2d TexCoord2d}.
 	 *
@@ -9094,7 +9094,7 @@ public final class GL11 {
 	public static native void nglTexCoord3f(float s, float t, float r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current three-dimensional texture coordinate. {@code q} is implicitly set to 1.
 	 *
@@ -9116,7 +9116,7 @@ public final class GL11 {
 	public static native void nglTexCoord3s(short s, short t, short r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -9138,7 +9138,7 @@ public final class GL11 {
 	public static native void nglTexCoord3i(int s, int t, int r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -9160,7 +9160,7 @@ public final class GL11 {
 	public static native void nglTexCoord3d(double s, double t, double r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -9191,7 +9191,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord3f TexCoord3f}.
 	 *
@@ -9226,7 +9226,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord3s TexCoord3s}.
 	 *
@@ -9261,7 +9261,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord3i TexCoord3i}.
 	 *
@@ -9296,7 +9296,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord3d TexCoord3d}.
 	 *
@@ -9322,7 +9322,7 @@ public final class GL11 {
 	public static native void nglTexCoord4f(float s, float t, float r, float q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current four-dimensional texture coordinate.
 	 *
@@ -9345,7 +9345,7 @@ public final class GL11 {
 	public static native void nglTexCoord4s(short s, short t, short r, short q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -9368,7 +9368,7 @@ public final class GL11 {
 	public static native void nglTexCoord4i(int s, int t, int r, int q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -9391,7 +9391,7 @@ public final class GL11 {
 	public static native void nglTexCoord4d(double s, double t, double r, double q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -9423,7 +9423,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord4f TexCoord4f}.
 	 *
@@ -9458,7 +9458,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord4s TexCoord4s}.
 	 *
@@ -9493,7 +9493,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord4i TexCoord4i}.
 	 *
@@ -9528,7 +9528,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoord4d TexCoord4d}.
 	 *
@@ -9563,7 +9563,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a texture coordinate array.
 	 *
@@ -9599,7 +9599,7 @@ public final class GL11 {
 	public static native void nglTexEnvi(int target, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnvi.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvi.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets parameters of the texture environment that specifies how texture values are interpreted when texturing a fragment, or sets per-texture-unit
 	 * filtering parameters.
@@ -9631,7 +9631,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexEnvi TexEnvi}.
 	 *
@@ -9659,7 +9659,7 @@ public final class GL11 {
 	public static native void nglTexEnvf(int target, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnvf.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvf.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glTexEnvi TexEnvi}.
 	 *
@@ -9690,7 +9690,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexEnvf TexEnvf}.
 	 *
@@ -9718,7 +9718,7 @@ public final class GL11 {
 	public static native void nglTexGeni(int coord, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGeni.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGeni.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets an integer texture coordinate generation parameter.
 	 * <p/>
@@ -9757,7 +9757,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexGeni TexGeni}.
 	 *
@@ -9785,7 +9785,7 @@ public final class GL11 {
 	public static native void nglTexGenf(int coord, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGenf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGenf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glTexGeni TexGeni}.
 	 *
@@ -9816,7 +9816,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexGenf TexGenf}.
 	 *
@@ -9844,7 +9844,7 @@ public final class GL11 {
 	public static native void nglTexGend(int coord, int pname, double param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGend.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGend.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTexGeni TexGeni}.
 	 *
@@ -9875,7 +9875,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexGen.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glTexGend TexGend}.
 	 *
@@ -9912,7 +9912,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a two-dimensional texture image.
 	 *
@@ -9983,7 +9983,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
 	 *
@@ -10044,7 +10044,7 @@ public final class GL11 {
 	public static native void nglCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines a two-dimensional texel array in exactly the manner of {@link #glTexImage2D TexImage2D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory.
@@ -10085,7 +10085,7 @@ public final class GL11 {
 	public static native void nglCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines a one-dimensional texel array in exactly the manner of {@link #glTexImage1D TexImage1D}, except that the image data are taken from the framebuffer rather
 	 * than from client memory. For the purposes of decoding the texture image, {@code CopyTexImage1D} is equivalent to calling {@link #glCopyTexImage2D CopyTexImage2D}
@@ -10115,7 +10115,7 @@ public final class GL11 {
 	public static native void nglCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexSubImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width} or {@code border}
 	 * parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See {@link #glCopyTexImage1D CopyTexImage1D} for more
@@ -10142,7 +10142,7 @@ public final class GL11 {
 	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexSubImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the {@code internalformat}, {@code width}, {@code height},
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
@@ -10171,7 +10171,7 @@ public final class GL11 {
 	public static native void nglTexParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameteri.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameteri.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the integer value of a texture parameter, which controls how the texel array is treated when specified or changed, and when applied to a fragment.
 	 *
@@ -10202,7 +10202,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexParameteri TexParameteri}.
 	 *
@@ -10230,7 +10230,7 @@ public final class GL11 {
 	public static native void nglTexParameterf(int target, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameterf.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterf.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glTexParameteri TexParameteri}.
 	 *
@@ -10261,7 +10261,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexParameterf TexParameterf}.
 	 *
@@ -10298,7 +10298,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexSubImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
 	 *
@@ -10367,7 +10367,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexSubImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
@@ -10430,7 +10430,7 @@ public final class GL11 {
 	public static native void nglTranslatef(float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTranslatef.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTranslatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * <p/>
@@ -10460,7 +10460,7 @@ public final class GL11 {
 	public static native void nglTranslated(double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTranslated.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTranslated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glTranslatef Translatef}.
 	 *
@@ -10482,7 +10482,7 @@ public final class GL11 {
 	public static native void nglVertex2f(float x, float y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in two dimensions. The z coordinate is implicitly set
 	 * to zero and the w coordinate to one.
@@ -10504,7 +10504,7 @@ public final class GL11 {
 	public static native void nglVertex2s(short x, short y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -10525,7 +10525,7 @@ public final class GL11 {
 	public static native void nglVertex2i(int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -10546,7 +10546,7 @@ public final class GL11 {
 	public static native void nglVertex2d(double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -10576,7 +10576,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex2f Vertex2f}.
 	 *
@@ -10611,7 +10611,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex2s Vertex2s}.
 	 *
@@ -10646,7 +10646,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex2i Vertex2i}.
 	 *
@@ -10681,7 +10681,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex2d Vertex2d}.
 	 *
@@ -10707,7 +10707,7 @@ public final class GL11 {
 	public static native void nglVertex3f(float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in three dimensions. The w coordinate is implicitly set
 	 * to one.
@@ -10730,7 +10730,7 @@ public final class GL11 {
 	public static native void nglVertex3s(short x, short y, short z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -10752,7 +10752,7 @@ public final class GL11 {
 	public static native void nglVertex3i(int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -10774,7 +10774,7 @@ public final class GL11 {
 	public static native void nglVertex3d(double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -10805,7 +10805,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex3f Vertex3f}.
 	 *
@@ -10840,7 +10840,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex3s Vertex3s}.
 	 *
@@ -10875,7 +10875,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex3i Vertex3i}.
 	 *
@@ -10910,7 +10910,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex3d Vertex3d}.
 	 *
@@ -10936,7 +10936,7 @@ public final class GL11 {
 	public static native void nglVertex4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies a single vertex between {@link #glBegin Begin} and {@link #glEnd End} by giving its coordinates in four dimensions.
 	 *
@@ -10959,7 +10959,7 @@ public final class GL11 {
 	public static native void nglVertex4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -10982,7 +10982,7 @@ public final class GL11 {
 	public static native void nglVertex4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -11005,7 +11005,7 @@ public final class GL11 {
 	public static native void nglVertex4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -11037,7 +11037,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex4f Vertex4f}.
 	 *
@@ -11072,7 +11072,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex4s Vertex4s}.
 	 *
@@ -11107,7 +11107,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex4i Vertex4i}.
 	 *
@@ -11142,7 +11142,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertex4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glVertex4d Vertex4d}.
 	 *
@@ -11177,7 +11177,7 @@ public final class GL11 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a vertex array.
 	 *
@@ -11234,7 +11234,7 @@ public final class GL11 {
 	public static native void nglViewport(int x, int y, int w, int h, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewport.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glViewport.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the viewport transformation parameters for all viewports.
 	 * <p/>

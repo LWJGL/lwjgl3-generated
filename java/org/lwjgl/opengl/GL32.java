@@ -276,7 +276,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetBufferParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the value of a buffer object parameter.
 	 *
@@ -317,7 +317,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsBaseVertex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -386,7 +386,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawRangeElementsBaseVertex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawRangeElementsBaseVertex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
@@ -457,7 +457,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsInstancedBaseVertex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -527,7 +527,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawElementsBaseVertex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple sets of primitives by specifying indices of array data elements and an offset to apply to each index.
 	 * <p/>
@@ -565,7 +565,7 @@ public final class GL32 {
 	public static native void nglProvokingVertex(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glProvokingVertex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glProvokingVertex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the vertex to be used as the source of data for flat shaded varyings.
 	 *
@@ -585,7 +585,7 @@ public final class GL32 {
 	public static native void nglTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage2DMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2DMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Establishes the data storage, format, dimensions, and number of samples of a 2D multisample texture's image.
 	 *
@@ -612,7 +612,7 @@ public final class GL32 {
 	public static native void nglTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage3DMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3DMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Establishes the data storage, format, dimensions, and number of samples of a 3D multisample texture's image.
 	 *
@@ -649,7 +649,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetMultisample.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the location of a sample.
 	 *
@@ -685,7 +685,7 @@ public final class GL32 {
 	public static native void nglSampleMaski(int index, int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSampleMaski.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSampleMaski.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the value of a sub-word of the sample mask.
 	 *
@@ -706,7 +706,7 @@ public final class GL32 {
 	public static native void nglFramebufferTexture(int target, int attachment, int texture, int level, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFramebufferTexture.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFramebufferTexture.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a level of a texture object as a logical buffer to the currently bound framebuffer object.
 	 *
@@ -729,7 +729,7 @@ public final class GL32 {
 	public static native long nglFenceSync(int condition, int flags, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glFenceSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glFenceSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates a new sync object and inserts it into the GL command stream.
 	 *
@@ -751,7 +751,7 @@ public final class GL32 {
 	public static native boolean nglIsSync(long sync, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a sync object.
 	 *
@@ -773,7 +773,7 @@ public final class GL32 {
 	public static native void nglDeleteSync(long sync, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes a sync object.
 	 *
@@ -795,7 +795,7 @@ public final class GL32 {
 	public static native int nglClientWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glClientWaitSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClientWaitSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Causes the client to block and wait for a sync object to become signaled. If {@code sync} is signaled when {@code glClientWaitSync} is called,
 	 * {@code glClientWaitSync} returns immediately, otherwise it will block and wait for up to timeout nanoseconds for {@code sync} to become signaled.
@@ -828,7 +828,7 @@ public final class GL32 {
 	public static native void nglWaitSync(long sync, int flags, long timeout, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glWaitSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glWaitSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Causes the GL server to block and wait for a sync object to become signaled.
 	 * <p/>
@@ -867,7 +867,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the 64bit integer value or values of a selected parameter.
 	 *
@@ -909,7 +909,7 @@ public final class GL32 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSync.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the properties of a sync object.
 	 *

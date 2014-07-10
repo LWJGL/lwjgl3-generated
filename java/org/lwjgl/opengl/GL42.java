@@ -256,7 +256,7 @@ public final class GL42 {
 	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexStorage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a one-dimensional texture.
 	 *
@@ -279,7 +279,7 @@ public final class GL42 {
 	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexStorage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a two-dimensional or one-dimensional array texture.
 	 *
@@ -303,7 +303,7 @@ public final class GL42 {
 	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexStorage3D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Simultaneously specifies storage for all levels of a three-dimensional, two-dimensional array or cube-map array texture.
 	 *
@@ -328,7 +328,7 @@ public final class GL42 {
 	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawTransformFeedbackInstanced.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackInstanced.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple instances of primitives using a count derived from a transform feedback object.
 	 *
@@ -350,7 +350,7 @@ public final class GL42 {
 	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawTransformFeedbackStreamInstanced.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStreamInstanced.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple instances of primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -373,7 +373,7 @@ public final class GL42 {
 	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawArraysInstancedBaseInstance.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstancedBaseInstance.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Draws multiple instances of a range of elements with an offset applied to instanced attributes.
 	 *
@@ -406,7 +406,7 @@ public final class GL42 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsInstancedBaseInstance.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseInstance.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Draws multiple instances of a set of elements with an offset applied to instanced attributes
 	 *
@@ -476,7 +476,7 @@ public final class GL42 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsInstancedBaseVertexBaseInstance.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstancedBaseVertexBaseInstance.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
@@ -538,7 +538,7 @@ public final class GL42 {
 	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindImageTexture.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTexture.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a level of a texture to an image unit.
 	 *
@@ -564,7 +564,7 @@ public final class GL42 {
 	public static native void nglMemoryBarrier(int barriers, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMemoryBarrier.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrier.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Defines a barrier ordering memory transactions.
 	 *
@@ -593,7 +593,7 @@ public final class GL42 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetInternalformat.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves information about implementation-dependent support for internal formats.
 	 *

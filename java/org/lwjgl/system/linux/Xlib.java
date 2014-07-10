@@ -144,7 +144,8 @@ public final class Xlib {
 
 	/** CharSequence version of: {@link #XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
-		return nXOpenDisplay(memAddressSafe(memEncodeASCII(display_name)));
+		ByteBuffer display_nameEncoded = memEncodeASCII(display_name);
+		return nXOpenDisplay(memAddressSafe(display_nameEncoded));
 	}
 
 	// --- [ XCloseDisplay ] ---
@@ -193,7 +194,8 @@ public final class Xlib {
 	public static long XInternAtom(long display, CharSequence atom_name, int only_if_exists) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXInternAtom(display, memAddress(memEncodeASCII(atom_name)), only_if_exists);
+		ByteBuffer atom_nameEncoded = memEncodeASCII(atom_name);
+		return nXInternAtom(display, memAddress(atom_nameEncoded), only_if_exists);
 	}
 
 	// --- [ XDefaultScreen ] ---
@@ -384,7 +386,8 @@ public final class Xlib {
 	public static int XQueryExtension(long display, CharSequence name, IntBuffer major_opcode_return, IntBuffer first_event_return, IntBuffer first_error_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXQueryExtension(display, memAddress(memEncodeASCII(name)), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nXQueryExtension(display, memAddress(nameEncoded), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
 	}
 
 	// --- [ XFlush ] ---
@@ -1245,7 +1248,9 @@ public final class Xlib {
 			if ( wm_hints != null ) checkBuffer(wm_hints, XWMHints.SIZEOF);
 			if ( class_hints != null ) checkBuffer(class_hints, XClassHint.SIZEOF);
 		}
-		nXutf8SetWMProperties(display, w, memAddress(memEncodeUTF8(window_name)), memAddress(memEncodeUTF8(icon_name)), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
+		ByteBuffer window_nameEncoded = memEncodeUTF8(window_name);
+		ByteBuffer icon_nameEncoded = memEncodeUTF8(icon_name);
+		nXutf8SetWMProperties(display, w, memAddress(window_nameEncoded), memAddress(icon_nameEncoded), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	// --- [ XChangeProperty ] ---

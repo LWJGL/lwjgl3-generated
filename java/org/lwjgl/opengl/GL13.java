@@ -342,7 +342,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage3D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage3D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a three-dimensional texture image in a compressed format.
 	 *
@@ -394,7 +394,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a two-dimensional texture image in a compressed format.
 	 *
@@ -445,7 +445,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a one-dimensional texture image in a compressed format.
 	 *
@@ -495,7 +495,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage3D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage3D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies only a cubic subregion of an existing 3D texel array, with incoming data stored in a specific compressed image format.
 	 *
@@ -549,7 +549,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage2D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage2D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies only a rectangular subregion of an existing 2D texel array, with incoming data stored in a specific compressed image format.
 	 *
@@ -601,7 +601,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompressedTexSubImage1D.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompressedTexSubImage1D.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Respecifies only a subregion of an existing 1D texel array, with incoming data stored in a specific compressed image format.
 	 *
@@ -651,7 +651,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetCompressedTexImage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTexImage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a compressed texture image.
 	 *
@@ -682,7 +682,7 @@ public final class GL13 {
 	public static native void nglSampleCoverage(float value, boolean invert, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSampleCoverage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSampleCoverage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies multisample coverage parameters.
 	 * <p/>
@@ -716,7 +716,7 @@ public final class GL13 {
 	public static native void nglActiveTexture(int texture, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glActiveTexture.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glActiveTexture.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Selects which texture unit subsequent texture state calls will affect. The number of texture units an implementation supports is implementation
 	 * dependent.
@@ -737,7 +737,7 @@ public final class GL13 {
 	public static native void nglClientActiveTexture(int texture, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glClientActiveTexture.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glClientActiveTexture.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Selects the vertex array client state parameters to be modified by the TexCoordPointer command and the array affected by EnableClientState and
 	 * DisableClientState with parameter TEXTURE_COORD_ARRAY.
@@ -758,7 +758,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord1f(int texture, float s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current one-dimensional texture coordinate for the given texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
@@ -779,7 +779,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord1s(int texture, short s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -800,7 +800,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord1i(int texture, int s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -821,7 +821,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord1d(int texture, double s, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -851,7 +851,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -887,7 +887,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord1s MultiTexCoord1s}.
 	 *
@@ -923,7 +923,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord1i MultiTexCoord1i}.
 	 *
@@ -959,7 +959,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord1.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord1d MultiTexCoord1d}.
 	 *
@@ -986,7 +986,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord2f(int texture, float s, float t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current two-dimensional texture coordinate for the given texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
@@ -1008,7 +1008,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord2s(int texture, short s, short t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -1030,7 +1030,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord2i(int texture, int s, int t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -1052,7 +1052,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord2d(int texture, double s, double t, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -1083,7 +1083,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -1119,7 +1119,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord2s MultiTexCoord2s}.
 	 *
@@ -1155,7 +1155,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord2i MultiTexCoord2i}.
 	 *
@@ -1191,7 +1191,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord2d MultiTexCoord2d}.
 	 *
@@ -1218,7 +1218,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord3f(int texture, float s, float t, float r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current three-dimensional texture coordinate for the given texture coordinate set. {@code q} is implicitly set to 1.
 	 *
@@ -1241,7 +1241,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord3s(int texture, short s, short t, short r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -1264,7 +1264,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord3i(int texture, int s, int t, int r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -1287,7 +1287,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord3d(int texture, double s, double t, double r, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -1319,7 +1319,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -1355,7 +1355,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord3s MultiTexCoord3s}.
 	 *
@@ -1391,7 +1391,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord3i MultiTexCoord3i}.
 	 *
@@ -1427,7 +1427,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord3d MultiTexCoord3d}.
 	 *
@@ -1454,7 +1454,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord4f(int texture, float s, float t, float r, float q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current four-dimensional texture coordinate for the given texture coordinate set.
 	 *
@@ -1478,7 +1478,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord4s(int texture, short s, short t, short r, short q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -1502,7 +1502,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord4i(int texture, int s, int t, int r, int q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -1526,7 +1526,7 @@ public final class GL13 {
 	public static native void nglMultiTexCoord4d(int texture, double s, double t, double r, double q, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -1559,7 +1559,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -1595,7 +1595,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord4s MultiTexCoord4s}.
 	 *
@@ -1631,7 +1631,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord4i MultiTexCoord4i}.
 	 *
@@ -1667,7 +1667,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoord4.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoord4d MultiTexCoord4d}.
 	 *
@@ -1703,7 +1703,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
 	 * <p/>
@@ -1746,7 +1746,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glLoadTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf}.
 	 *
@@ -1781,7 +1781,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Multiplies the current matrix with a 4 &times; 4 matrix in row-major order. See {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} for details.
 	 *
@@ -1816,7 +1816,7 @@ public final class GL13 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultTransposeMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glMultTransposeMatrixf MultTransposeMatrixf}.
 	 *

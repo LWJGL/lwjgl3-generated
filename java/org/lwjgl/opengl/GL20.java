@@ -398,7 +398,7 @@ public final class GL20 {
 	public static native int nglCreateProgram(long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCreateProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates a program object.
 	 */
@@ -416,7 +416,7 @@ public final class GL20 {
 	public static native void nglDeleteProgram(int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes a program object.
 	 *
@@ -436,7 +436,7 @@ public final class GL20 {
 	public static native int nglCreateShader(int type, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCreateShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCreateShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Creates a shader object.
 	 *
@@ -456,7 +456,7 @@ public final class GL20 {
 	public static native void nglDeleteShader(int shader, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes a shader object.
 	 *
@@ -476,7 +476,7 @@ public final class GL20 {
 	public static native void nglAttachShader(int program, int shader, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glAttachShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glAttachShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Attaches a shader object to a program object.
 	 * <p/>
@@ -508,7 +508,7 @@ public final class GL20 {
 	public static native void nglDetachShader(int program, int shader, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDetachShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDetachShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Detaches a shader object from a program object to which it is attached.
 	 *
@@ -538,7 +538,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glShaderSource.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
 	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is NULL, each string is
@@ -596,7 +596,7 @@ public final class GL20 {
 	public static native void nglCompileShader(int shader, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompileShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCompileShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Compiles a shader object.
 	 *
@@ -616,7 +616,7 @@ public final class GL20 {
 	public static native void nglLinkProgram(int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glLinkProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glLinkProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Links a program object.
 	 *
@@ -636,7 +636,7 @@ public final class GL20 {
 	public static native void nglUseProgram(int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUseProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Installs a program object as part of current rendering state.
 	 *
@@ -656,7 +656,7 @@ public final class GL20 {
 	public static native void nglValidateProgram(int program, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glValidateProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Validates a program object.
 	 *
@@ -676,7 +676,7 @@ public final class GL20 {
 	public static native void nglUniform1f(int location, float v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a float uniform variable for the current program object.
 	 *
@@ -697,7 +697,7 @@ public final class GL20 {
 	public static native void nglUniform2f(int location, float v0, float v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec2 uniform variable for the current program object.
 	 *
@@ -719,7 +719,7 @@ public final class GL20 {
 	public static native void nglUniform3f(int location, float v0, float v1, float v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec3 uniform variable for the current program object.
 	 *
@@ -742,7 +742,7 @@ public final class GL20 {
 	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a vec4 uniform variable for the current program object.
 	 *
@@ -766,7 +766,7 @@ public final class GL20 {
 	public static native void nglUniform1i(int location, int v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of an int uniform variable for the current program object.
 	 *
@@ -787,7 +787,7 @@ public final class GL20 {
 	public static native void nglUniform2i(int location, int v0, int v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a ivec2 uniform variable for the current program object.
 	 *
@@ -809,7 +809,7 @@ public final class GL20 {
 	public static native void nglUniform3i(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a ivec3 uniform variable for the current program object.
 	 *
@@ -832,7 +832,7 @@ public final class GL20 {
 	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4i.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a ivec4 uniform variable for the current program object.
 	 *
@@ -865,7 +865,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single float uniform variable or a float uniform variable array for the current program object.
 	 *
@@ -900,7 +900,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for the current program object.
 	 *
@@ -935,7 +935,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for the current program object.
 	 *
@@ -970,7 +970,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for the current program object.
 	 *
@@ -1005,7 +1005,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single int uniform variable or a int uniform variable array for the current program object.
 	 *
@@ -1040,7 +1040,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec2 uniform variable or a ivec2 uniform variable array for the current program object.
 	 *
@@ -1075,7 +1075,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec3 uniform variable or a ivec3 uniform variable array for the current program object.
 	 *
@@ -1110,7 +1110,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single ivec4 uniform variable or a ivec4 uniform variable array for the current program object.
 	 *
@@ -1145,7 +1145,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
 	 *
@@ -1181,7 +1181,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
 	 *
@@ -1217,7 +1217,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
 	 *
@@ -1253,7 +1253,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShader.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetShader.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a parameter from a shader object.
 	 *
@@ -1298,7 +1298,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgram.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgram.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns a parameter from a program object.
 	 *
@@ -1343,7 +1343,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderInfoLog.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the information log for a shader object.
 	 *
@@ -1402,7 +1402,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramInfoLog.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the information log for a program object.
 	 *
@@ -1461,7 +1461,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetAttachedShaders.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetAttachedShaders.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the handles of the shader objects attached to a program object.
 	 *
@@ -1501,7 +1501,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the location of a uniform variable.
 	 *
@@ -1516,7 +1516,8 @@ public final class GL20 {
 
 	/** CharSequence version of: {@link #glGetUniformLocation GetUniformLocation} */
 	public static int glGetUniformLocation(int program, CharSequence name) {
-		return nglGetUniformLocation(program, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetUniformLocation(program, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetActiveUniform ] ---
@@ -1535,7 +1536,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns information about an active uniform variable for the specified program object.
 	 *
@@ -1610,7 +1611,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the float value(s) of a uniform variable.
 	 *
@@ -1655,7 +1656,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the int value(s) of a uniform variable.
 	 *
@@ -1700,7 +1701,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderSource.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the source code string from a shader object.
 	 *
@@ -1750,7 +1751,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib1f(int index, float v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The y and z components are implicitly set to 0.0f and w to 1.0f.
 	 *
@@ -1771,7 +1772,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib1s(int index, short v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1s.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1s.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
@@ -1792,7 +1793,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib1d(int index, double v0, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
@@ -1813,7 +1814,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib2f(int index, float v0, float v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The y component is implicitly set to 0.0f and w to 1.0f.
 	 *
@@ -1835,7 +1836,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib2s(int index, short v0, short v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2s.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2s.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
@@ -1857,7 +1858,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib2d(int index, double v0, double v1, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
@@ -1879,7 +1880,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib3f(int index, float v0, float v1, float v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute. The w is implicitly set to 1.0f.
 	 *
@@ -1902,7 +1903,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib3s(int index, short v0, short v1, short v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3s.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3s.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
@@ -1925,7 +1926,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib3d(int index, double v0, double v1, double v2, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
@@ -1948,7 +1949,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib4f(int index, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4f.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4f.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a generic vertex attribute.
 	 *
@@ -1972,7 +1973,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib4s(int index, short v0, short v1, short v2, short v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4s.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4s.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Short version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -1996,7 +1997,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib4d(int index, double v0, double v1, double v2, double v3, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2020,7 +2021,7 @@ public final class GL20 {
 	public static native void nglVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nub.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized unsigned byte version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2053,7 +2054,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib1f VertexAttrib1f}.
 	 *
@@ -2089,7 +2090,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib1s VertexAttrib1s}.
 	 *
@@ -2125,7 +2126,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib1d VertexAttrib1d}.
 	 *
@@ -2161,7 +2162,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib2f VertexAttrib2f}.
 	 *
@@ -2197,7 +2198,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib2s VertexAttrib2s}.
 	 *
@@ -2233,7 +2234,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib2d VertexAttrib2d}.
 	 *
@@ -2269,7 +2270,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib3f VertexAttrib3f}.
 	 *
@@ -2305,7 +2306,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib3s VertexAttrib3s}.
 	 *
@@ -2341,7 +2342,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib3d VertexAttrib3d}.
 	 *
@@ -2377,7 +2378,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2413,7 +2414,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib4s VertexAttrib4s}.
 	 *
@@ -2449,7 +2450,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib4d VertexAttrib4d}.
 	 *
@@ -2485,7 +2486,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Integer pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2521,7 +2522,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4b.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4b.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2550,7 +2551,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4ub.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4ub.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttrib4Nub VertexAttrib4Nub}.
 	 *
@@ -2579,7 +2580,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2615,7 +2616,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2651,7 +2652,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nb.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nb.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2680,7 +2681,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2716,7 +2717,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2752,7 +2753,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4Nub.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2781,7 +2782,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2817,7 +2818,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib4N.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -2853,7 +2854,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the location and organization of a vertex attribute array.
 	 *
@@ -2914,7 +2915,7 @@ public final class GL20 {
 	public static native void nglEnableVertexAttribArray(int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Enables a generic vertex attribute array.
 	 *
@@ -2934,7 +2935,7 @@ public final class GL20 {
 	public static native void nglDisableVertexAttribArray(int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Disables a generic vertex attribute array.
 	 *
@@ -2963,7 +2964,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindAttribLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindAttribLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Associates a generic vertex attribute index with a named attribute variable.
 	 *
@@ -2979,7 +2980,8 @@ public final class GL20 {
 
 	/** CharSequence version of: {@link #glBindAttribLocation BindAttribLocation} */
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
-		nglBindAttribLocation(program, index, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		nglBindAttribLocation(program, index, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetActiveAttrib ] ---
@@ -2998,7 +3000,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns information about an active attribute variable for the specified program object.
 	 *
@@ -3056,7 +3058,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetAttribLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetAttribLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the location of an attribute variable.
 	 *
@@ -3071,7 +3073,8 @@ public final class GL20 {
 
 	/** CharSequence version of: {@link #glGetAttribLocation GetAttribLocation} */
 	public static int glGetAttribLocation(int program, CharSequence name) {
-		return nglGetAttribLocation(program, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetAttribLocation(program, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetVertexAttribiv ] ---
@@ -3090,7 +3093,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the integer value of a generic vertex attribute parameter.
 	 *
@@ -3135,7 +3138,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glGetVertexAttribi(int, int, ByteBuffer) glGetVertexAttribi}.
 	 *
@@ -3172,7 +3175,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttrib.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Double version of {@link #glGetVertexAttribi(int, int, ByteBuffer) glGetVertexAttribi}.
 	 *
@@ -3209,7 +3212,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetVertexAttribPointer.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribPointer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the address of the specified generic vertex attribute pointer.
 	 *
@@ -3254,7 +3257,7 @@ public final class GL20 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawBuffers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies a list of color buffers to be drawn into.
 	 *
@@ -3286,7 +3289,7 @@ public final class GL20 {
 	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquationSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the RGB blend equation and the alpha blend equation separately.
 	 *
@@ -3307,7 +3310,7 @@ public final class GL20 {
 	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilOpSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilOpSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets front and/or back stencil test actions.
 	 *
@@ -3331,7 +3334,7 @@ public final class GL20 {
 	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilFuncSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilFuncSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets front and/or back function and reference value for stencil testing.
 	 *
@@ -3355,7 +3358,7 @@ public final class GL20 {
 	public static native void nglStencilMaskSeparate(int face, int mask, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilMaskSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glStencilMaskSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the front and/or back writing of individual bits in the stencil planes.
 	 *

@@ -60,7 +60,8 @@ public final class Fcntl {
 
 	/** CharSequence version of: {@link #open} */
 	public static int open(CharSequence pathname, int flags) {
-		return nopen(memAddress(memEncodeASCII(pathname)), flags);
+		ByteBuffer pathnameEncoded = memEncodeASCII(pathname);
+		return nopen(memAddress(pathnameEncoded), flags);
 	}
 
 }

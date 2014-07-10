@@ -295,7 +295,10 @@ public final class WinGDI {
 	public static long CreateDC(CharSequence lpszDriver, CharSequence lpszDevice, CharSequence lpszOutput, ByteBuffer lpInitData) {
 		if ( LWJGLUtil.CHECKS )
 			if ( lpInitData != null ) checkBuffer(lpInitData, DEVMODE.SIZEOF);
-		return nCreateDC(memAddressSafe(memEncodeUTF16(lpszDriver)), memAddressSafe(memEncodeUTF16(lpszDevice)), memAddressSafe(memEncodeUTF16(lpszOutput)), memAddressSafe(lpInitData));
+		ByteBuffer lpszDriverEncoded = memEncodeUTF16(lpszDriver);
+		ByteBuffer lpszDeviceEncoded = memEncodeUTF16(lpszDevice);
+		ByteBuffer lpszOutputEncoded = memEncodeUTF16(lpszOutput);
+		return nCreateDC(memAddressSafe(lpszDriverEncoded), memAddressSafe(lpszDeviceEncoded), memAddressSafe(lpszOutputEncoded), memAddressSafe(lpInitData));
 	}
 
 	// --- [ CreateCompatibleDC ] ---

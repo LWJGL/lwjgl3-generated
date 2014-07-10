@@ -92,7 +92,8 @@ public final class WinBase {
 
 	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
-		return nGetModuleHandle(memAddressSafe(memEncodeUTF16(moduleName)));
+		ByteBuffer moduleNameEncoded = memEncodeUTF16(moduleName);
+		return nGetModuleHandle(memAddressSafe(moduleNameEncoded));
 	}
 
 	// --- [ LoadLibrary ] ---
@@ -125,7 +126,8 @@ public final class WinBase {
 
 	/** CharSequence version of: {@link #LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
-		return nLoadLibrary(memAddress(memEncodeUTF16(name)));
+		ByteBuffer nameEncoded = memEncodeUTF16(name);
+		return nLoadLibrary(memAddress(nameEncoded));
 	}
 
 	// --- [ GetProcAddress ] ---
@@ -153,7 +155,8 @@ public final class WinBase {
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
-		return nGetProcAddress(handle, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nGetProcAddress(handle, memAddress(nameEncoded));
 	}
 
 	// --- [ FreeLibrary ] ---

@@ -141,7 +141,8 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcOpenDevice OpenDevice} */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
-		return nalcOpenDevice(memAddressSafe(memEncodeUTF8(deviceSpecifier)));
+		ByteBuffer deviceSpecifierEncoded = memEncodeUTF8(deviceSpecifier);
+		return nalcOpenDevice(memAddressSafe(deviceSpecifierEncoded));
 	}
 
 	// --- [ alcCloseDevice ] ---
@@ -365,7 +366,8 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcIsExtensionPresent IsExtensionPresent} */
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
-		return nalcIsExtensionPresent(deviceHandle, memAddress(memEncodeASCII(extName)));
+		ByteBuffer extNameEncoded = memEncodeASCII(extName);
+		return nalcIsExtensionPresent(deviceHandle, memAddress(extNameEncoded));
 	}
 
 	// --- [ alcGetProcAddress ] ---
@@ -403,7 +405,8 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcGetProcAddress GetProcAddress} */
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
-		return nalcGetProcAddress(deviceHandle, memAddress(memEncodeASCII(funcName)));
+		ByteBuffer funcNameEncoded = memEncodeASCII(funcName);
+		return nalcGetProcAddress(deviceHandle, memAddress(funcNameEncoded));
 	}
 
 	// --- [ alcGetEnumValue ] ---
@@ -438,7 +441,8 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcGetEnumValue GetEnumValue} */
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
-		return nalcGetEnumValue(deviceHandle, memAddress(memEncodeASCII(enumName)));
+		ByteBuffer enumNameEncoded = memEncodeASCII(enumName);
+		return nalcGetEnumValue(deviceHandle, memAddress(enumNameEncoded));
 	}
 
 	// --- [ alcGetError ] ---

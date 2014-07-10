@@ -65,7 +65,8 @@ public final class DynamicLinkLoader {
 
 	/** CharSequence version of: {@link #dlopen} */
 	public static long dlopen(CharSequence filename, int mode) {
-		return ndlopen(memAddressSafe(memEncodeASCII(filename)), mode);
+		ByteBuffer filenameEncoded = memEncodeASCII(filename);
+		return ndlopen(memAddressSafe(filenameEncoded), mode);
 	}
 
 	// --- [ dlerror ] ---
@@ -109,7 +110,8 @@ public final class DynamicLinkLoader {
 	public static long dlsym(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
-		return ndlsym(handle, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return ndlsym(handle, memAddress(nameEncoded));
 	}
 
 	// --- [ dlclose ] ---

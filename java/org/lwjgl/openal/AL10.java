@@ -1852,7 +1852,8 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
-		return nalGetEnumValue(memAddress(memEncodeASCII(enumName)));
+		ByteBuffer enumNameEncoded = memEncodeASCII(enumName);
+		return nalGetEnumValue(memAddress(enumNameEncoded));
 	}
 
 	// --- [ alGetProcAddress ] ---
@@ -1889,7 +1890,8 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
-		return nalGetProcAddress(memAddress(memEncodeASCII(funcName)));
+		ByteBuffer funcNameEncoded = memEncodeASCII(funcName);
+		return nalGetProcAddress(memAddress(funcNameEncoded));
 	}
 
 	// --- [ alIsExtensionPresent ] ---
@@ -1923,7 +1925,8 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
-		return nalIsExtensionPresent(memAddress(memEncodeASCII(extName)));
+		ByteBuffer extNameEncoded = memEncodeASCII(extName);
+		return nalIsExtensionPresent(memAddress(extNameEncoded));
 	}
 
 }

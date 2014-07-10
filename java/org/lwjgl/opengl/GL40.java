@@ -312,7 +312,7 @@ public final class GL40 {
 	public static native void nglBlendEquationi(int buf, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the given draw buffer.
 	 *
@@ -333,7 +333,7 @@ public final class GL40 {
 	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquationSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the RGB blend equation and the alpha blend equation separately for the given draw buffer.
 	 *
@@ -355,7 +355,7 @@ public final class GL40 {
 	public static native void nglBlendFunci(int buf, int sfactor, int dfactor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFunci.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies pixel arithmetic for the given draw buffer.
 	 *
@@ -377,7 +377,7 @@ public final class GL40 {
 	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFuncSeparatei.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies pixel arithmetic for RGB and alpha components separately for the given draw buffer.
 	 *
@@ -410,7 +410,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawArraysIndirect.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders primitives from array data, taking parameters from memory.
 	 * <p/>
@@ -472,7 +472,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElementsIndirect.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders indexed primitives from array data, taking parameters from memory.
 	 * <p/>
@@ -539,7 +539,7 @@ public final class GL40 {
 	public static native void nglUniform1d(int location, double x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
@@ -560,7 +560,7 @@ public final class GL40 {
 	public static native void nglUniform2d(int location, double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
 	 *
@@ -582,7 +582,7 @@ public final class GL40 {
 	public static native void nglUniform3d(int location, double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
 	 *
@@ -605,7 +605,7 @@ public final class GL40 {
 	public static native void nglUniform4d(int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4d.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
 	 *
@@ -638,7 +638,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
 	 *
@@ -673,7 +673,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
 	 *
@@ -708,7 +708,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
 	 *
@@ -743,7 +743,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
 	 *
@@ -778,7 +778,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
@@ -814,7 +814,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
@@ -850,7 +850,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
@@ -886,7 +886,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2x3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
@@ -922,7 +922,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2x4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
@@ -958,7 +958,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3x2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
@@ -994,7 +994,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3x4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
@@ -1030,7 +1030,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4x2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
@@ -1066,7 +1066,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4x3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
@@ -1102,7 +1102,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the double value(s) of a uniform variable.
 	 *
@@ -1138,7 +1138,7 @@ public final class GL40 {
 	public static native void nglMinSampleShading(float value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMinSampleShading.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the minimum rate at which sample shading takes place.
 	 *
@@ -1167,7 +1167,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSubroutineUniformLocation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
 	 *
@@ -1183,7 +1183,8 @@ public final class GL40 {
 
 	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
-		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetSubroutineIndex ] ---
@@ -1202,7 +1203,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSubroutineIndex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the index of a subroutine function of a given shader stage within a program.
 	 *
@@ -1218,7 +1219,8 @@ public final class GL40 {
 
 	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
-		return nglGetSubroutineIndex(program, shadertype, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetSubroutineIndex(program, shadertype, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
@@ -1237,7 +1239,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveSubroutineUniform.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries a property of an active shader subroutine uniform.
 	 *
@@ -1284,7 +1286,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveSubroutineUniformName.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the name of an active shader subroutine uniform.
 	 *
@@ -1345,7 +1347,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetActiveSubroutineName.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the name of an active shader subroutine.
 	 *
@@ -1406,7 +1408,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformSubroutines.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Loads active subroutine uniforms.
 	 *
@@ -1448,7 +1450,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformSubroutine.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
 	 *
@@ -1493,7 +1495,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramStage.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Retrieves properties of a program object corresponding to a specified shader stage.
 	 *
@@ -1530,7 +1532,7 @@ public final class GL40 {
 	public static native void nglPatchParameteri(int pname, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPatchParameteri.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the integer value of the given parameter for patch primitives.
 	 *
@@ -1560,7 +1562,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPatchParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies an array of float values for the given parameter for patch primitives.
 	 *
@@ -1589,7 +1591,7 @@ public final class GL40 {
 	public static native void nglBindTransformFeedback(int target, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindTransformFeedback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a transform feedback object.
 	 *
@@ -1619,7 +1621,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTransformFeedbacks.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes transform feedback objects.
 	 *
@@ -1660,7 +1662,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenTransformFeedbacks.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Reserves transform feedback object names.
 	 *
@@ -1693,7 +1695,7 @@ public final class GL40 {
 	public static native boolean nglIsTransformFeedback(int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsTransformFeedback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a transform feedback object.
 	 *
@@ -1713,7 +1715,7 @@ public final class GL40 {
 	public static native void nglDrawTransformFeedback(int mode, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawTransformFeedback.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Render primitives using a count derived from a transform feedback object.
 	 *
@@ -1734,7 +1736,7 @@ public final class GL40 {
 	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawTransformFeedbackStream.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
@@ -1756,7 +1758,7 @@ public final class GL40 {
 	public static native void nglBeginQueryIndexed(int target, int index, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginQueryIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Begins a query object on an indexed target
 	 *
@@ -1778,7 +1780,7 @@ public final class GL40 {
 	public static native void nglEndQueryIndexed(int target, int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBeginQueryIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Ends a query object on an indexed target
 	 *
@@ -1808,7 +1810,7 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns parameters of an indexed query object target.
 	 *

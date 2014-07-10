@@ -299,7 +299,7 @@ public final class GL14 {
 	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendColor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendColor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
@@ -322,7 +322,7 @@ public final class GL14 {
 	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquation.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Controls the blend equations used for per-fragment blending.
 	 *
@@ -342,7 +342,7 @@ public final class GL14 {
 	public static native void nglFogCoordf(float coord, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoordf.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the current fog coordinate.
 	 *
@@ -362,7 +362,7 @@ public final class GL14 {
 	public static native void nglFogCoordd(double coord, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoordd.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glFogCoordf FogCoordf}.
 	 *
@@ -391,7 +391,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glFogCoordf FogCoordf}.
 	 *
@@ -426,7 +426,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoord.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glFogCoordd FogCoordd}.
 	 *
@@ -461,7 +461,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glFogCoordPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a fog coordinate array.
 	 *
@@ -505,7 +505,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawArrays.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArrays.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple sets of primitives from array data.
 	 *
@@ -545,7 +545,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiDrawElements.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElements.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Renders multiple sets of primitives by specifying indices of array data elements.
 	 * <p/>
@@ -579,7 +579,7 @@ public final class GL14 {
 	public static native void nglPointParameterf(int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameterf.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPointParameterf.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Sets the float value of a pointer parameter.
 	 *
@@ -600,7 +600,7 @@ public final class GL14 {
 	public static native void nglPointParameteri(int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameteri.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPointParameteri.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Integer version of {@link #glPointParameterf PointParameterf}.
 	 *
@@ -630,7 +630,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glPointParameterf PointParameterf}.
 	 *
@@ -666,7 +666,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glPointParameteri PointParameteri}.
 	 *
@@ -693,7 +693,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3b(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Sets the R, G, and B components of the current secondary color. The alpha component is set to 1.0.
 	 *
@@ -715,7 +715,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -737,7 +737,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Integer version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -759,7 +759,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -781,7 +781,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -803,7 +803,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -825,7 +825,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3us.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned short version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -847,7 +847,7 @@ public final class GL14 {
 	public static native void nglSecondaryColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Unsigned int version of {@link #glSecondaryColor3b SecondaryColor3b}
 	 *
@@ -878,7 +878,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3b.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Byte pointer version of {@link #glSecondaryColor3b SecondaryColor3b}.
 	 *
@@ -906,7 +906,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3s SecondaryColor3s}.
 	 *
@@ -941,7 +941,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3i SecondaryColor3i}.
 	 *
@@ -976,7 +976,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3f SecondaryColor3f}.
 	 *
@@ -1011,7 +1011,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3d SecondaryColor3d}.
 	 *
@@ -1046,7 +1046,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3ub.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3ub SecondaryColor3ub}.
 	 *
@@ -1074,7 +1074,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3us SecondaryColor3us}.
 	 *
@@ -1109,7 +1109,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColor3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColor3ui SecondaryColor3ui}.
 	 *
@@ -1144,7 +1144,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glSecondaryColorPointer.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Specifies the location and organization of a secondary color array.
 	 *
@@ -1187,7 +1187,7 @@ public final class GL14 {
 	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFuncSeparate.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparate.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies pixel arithmetic for RGB and alpha components separately.
 	 *
@@ -1210,7 +1210,7 @@ public final class GL14 {
 	public static native void nglWindowPos2i(int x, int y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
@@ -1231,7 +1231,7 @@ public final class GL14 {
 	public static native void nglWindowPos2s(short x, short y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -1252,7 +1252,7 @@ public final class GL14 {
 	public static native void nglWindowPos2f(float x, float y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -1273,7 +1273,7 @@ public final class GL14 {
 	public static native void nglWindowPos2d(double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -1303,7 +1303,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos2i WindowPos2i}.
 	 *
@@ -1338,7 +1338,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos2s WindowPos2s}.
 	 *
@@ -1373,7 +1373,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos2f WindowPos2f}.
 	 *
@@ -1408,7 +1408,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos2.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos2d WindowPos2d}.
 	 *
@@ -1434,7 +1434,7 @@ public final class GL14 {
 	public static native void nglWindowPos3i(int x, int y, int z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3i.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Alternate way to set the current raster position.
 	 *
@@ -1456,7 +1456,7 @@ public final class GL14 {
 	public static native void nglWindowPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3s.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Short version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -1478,7 +1478,7 @@ public final class GL14 {
 	public static native void nglWindowPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3f.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Float version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -1500,7 +1500,7 @@ public final class GL14 {
 	public static native void nglWindowPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3d.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Double version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -1531,7 +1531,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos3i WindowPos3i}.
 	 *
@@ -1566,7 +1566,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos3s WindowPos3s}.
 	 *
@@ -1601,7 +1601,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos3f WindowPos3f}.
 	 *
@@ -1636,7 +1636,7 @@ public final class GL14 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glWindowPos3.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Pointer version of {@link #glWindowPos3d WindowPos3d}.
 	 *

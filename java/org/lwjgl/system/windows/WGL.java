@@ -167,7 +167,8 @@ public final class WGL {
 
 	/** CharSequence version of: {@link #wglGetProcAddress GetProcAddress} */
 	public static long wglGetProcAddress(CharSequence proc) {
-		return nwglGetProcAddress(memAddress(memEncodeASCII(proc)));
+		ByteBuffer procEncoded = memEncodeASCII(proc);
+		return nwglGetProcAddress(memAddress(procEncoded));
 	}
 
 	// --- [ wglMakeCurrent ] ---

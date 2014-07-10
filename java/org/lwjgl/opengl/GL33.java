@@ -247,7 +247,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindFragDataLocationIndexed.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocationIndexed.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a user-defined varying out variable to a fragment shader color number and index.
 	 *
@@ -264,7 +264,8 @@ public final class GL33 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -283,7 +284,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetFragDataIndex.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataIndex.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Queries the bindings of color indices to user-defined varying out variables.
 	 *
@@ -298,7 +299,8 @@ public final class GL33 {
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		return nglGetFragDataIndex(program, memAddress(memEncodeASCII(name)));
+		ByteBuffer nameEncoded = memEncodeASCII(name);
+		return nglGetFragDataIndex(program, memAddress(nameEncoded));
 	}
 
 	// --- [ glGenSamplers ] ---
@@ -317,7 +319,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenSamplers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenSamplers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Generates sampler object names.
 	 *
@@ -359,7 +361,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteSamplers.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteSamplers.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Deletes named sampler objects.
 	 *
@@ -391,7 +393,7 @@ public final class GL33 {
 	public static native boolean nglIsSampler(int sampler, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsSampler.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsSampler.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Determines if a name corresponds to a sampler object.
 	 *
@@ -411,7 +413,7 @@ public final class GL33 {
 	public static native void nglBindSampler(int unit, int sampler, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindSampler.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindSampler.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Binds a named sampler to a texturing target.
 	 *
@@ -432,7 +434,7 @@ public final class GL33 {
 	public static native void nglSamplerParameteri(int sampler, int pname, int param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameteri.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameteri.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Set the integer value of a sampler parameter.
 	 *
@@ -454,7 +456,7 @@ public final class GL33 {
 	public static native void nglSamplerParameterf(int sampler, int pname, float param, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameterf.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterf.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
@@ -485,7 +487,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
@@ -518,7 +520,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glSamplerParameteri(int, int, ByteBuffer) glSamplerParameteri}.
 	 *
@@ -551,7 +553,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) glSamplerParameteri}.
 	 *
@@ -584,7 +586,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSamplerParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) glSamplerParameteri}.
 	 *
@@ -617,7 +619,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Return the integer value(s) of a sampler parameter.
 	 *
@@ -662,7 +664,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Float version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri}.
 	 *
@@ -707,7 +709,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri}.
 	 *
@@ -752,7 +754,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetSamplerParameterI.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) glGetSamplerParameteri}.
 	 *
@@ -788,7 +790,7 @@ public final class GL33 {
 	public static native void nglQueryCounter(int id, int target, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glQueryCounter.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glQueryCounter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Records the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.
 	 *
@@ -818,7 +820,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Returns the 64bit integer value of query object parameter.
 	 *
@@ -863,7 +865,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetQueryObject.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Unsigned version of {@link #glGetQueryObjecti64(int, int, ByteBuffer) glGetQueryObjecti64}.
 	 *
@@ -899,7 +901,7 @@ public final class GL33 {
 	public static native void nglVertexAttribDivisor(int index, int divisor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribDivisor.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribDivisor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
@@ -920,7 +922,7 @@ public final class GL33 {
 	public static native void nglVertexP2ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP2ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex2f Vertex2f}.
 	 *
@@ -941,7 +943,7 @@ public final class GL33 {
 	public static native void nglVertexP3ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex3f Vertex3f}.
 	 *
@@ -962,7 +964,7 @@ public final class GL33 {
 	public static native void nglVertexP4ui(int type, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glVertexP4ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glVertex4f Vertex4f}.
 	 *
@@ -992,7 +994,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexP2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexP2ui VertexP2ui}.
 	 *
@@ -1028,7 +1030,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexP3ui VertexP3ui}.
 	 *
@@ -1064,7 +1066,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexP4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexP4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexP4ui VertexP4ui}.
 	 *
@@ -1091,7 +1093,7 @@ public final class GL33 {
 	public static native void nglTexCoordP1ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP1ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord1f TexCoord1f}.
 	 *
@@ -1112,7 +1114,7 @@ public final class GL33 {
 	public static native void nglTexCoordP2ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP2ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord2f TexCoord2f}.
 	 *
@@ -1133,7 +1135,7 @@ public final class GL33 {
 	public static native void nglTexCoordP3ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord3f TexCoord3f}.
 	 *
@@ -1154,7 +1156,7 @@ public final class GL33 {
 	public static native void nglTexCoordP4ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glTexCoordP4ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL11#glTexCoord4f TexCoord4f}.
 	 *
@@ -1184,7 +1186,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoordP1ui TexCoordP1ui}.
 	 *
@@ -1220,7 +1222,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoordP2ui TexCoordP2ui}.
 	 *
@@ -1256,7 +1258,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoordP3ui TexCoordP3ui}.
 	 *
@@ -1292,7 +1294,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordP4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glTexCoordP4ui TexCoordP4ui}.
 	 *
@@ -1319,7 +1321,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP1ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP1ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord1f MultiTexCoord1f}.
 	 *
@@ -1341,7 +1343,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP2ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP2ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord2f MultiTexCoord2f}.
 	 *
@@ -1363,7 +1365,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP3ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP3ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord3f MultiTexCoord3f}.
 	 *
@@ -1385,7 +1387,7 @@ public final class GL33 {
 	public static native void nglMultiTexCoordP4ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man2/xhtml/glMultiTexCoordP4ui.xml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
+	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
 	 * Packed component version of {@link GL13#glMultiTexCoord4f MultiTexCoord4f}.
 	 *
@@ -1416,7 +1418,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoordP1ui MultiTexCoordP1ui}.
 	 *
@@ -1453,7 +1455,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoordP2ui MultiTexCoordP2ui}.
 	 *
@@ -1490,7 +1492,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoordP3ui MultiTexCoordP3ui}.
 	 *
@@ -1527,7 +1529,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoordP4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glMultiTexCoordP4ui MultiTexCoordP4ui}.
 	 *
@@ -1555,7 +1557,7 @@ public final class GL33 {
 	public static native void nglNormalP3ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormalP3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL11#glNormal3f Normal3f}.
 	 *
@@ -1585,7 +1587,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormalP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glNormalP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version {@link #glNormalP3ui NormalP3ui}.
 	 *
@@ -1612,7 +1614,7 @@ public final class GL33 {
 	public static native void nglColorP3ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorP3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL11#glColor3f Color3f}.
 	 *
@@ -1633,7 +1635,7 @@ public final class GL33 {
 	public static native void nglColorP4ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP4ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorP4ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL11#glColor4f Color4f}.
 	 *
@@ -1663,7 +1665,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glColorP3ui ColorP3ui}.
 	 *
@@ -1699,7 +1701,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorP4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glColorP4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glColorP4ui ColorP4ui}.
 	 *
@@ -1726,7 +1728,7 @@ public final class GL33 {
 	public static native void nglSecondaryColorP3ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColorP3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL14#glSecondaryColor3f SecondaryColor3f}.
 	 *
@@ -1756,7 +1758,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColorP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glSecondaryColorP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glSecondaryColorP3ui SecondaryColorP3ui}.
 	 *
@@ -1783,7 +1785,7 @@ public final class GL33 {
 	public static native void nglVertexAttribP1ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP1ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL20#glVertexAttrib1f VertexAttrib1f}.
 	 *
@@ -1806,7 +1808,7 @@ public final class GL33 {
 	public static native void nglVertexAttribP2ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP2ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL20#glVertexAttrib2f VertexAttrib2f}.
 	 *
@@ -1829,7 +1831,7 @@ public final class GL33 {
 	public static native void nglVertexAttribP3ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP3ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL20#glVertexAttrib3f VertexAttrib3f}.
 	 *
@@ -1852,7 +1854,7 @@ public final class GL33 {
 	public static native void nglVertexAttribP4ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP4ui.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4ui.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Packed component version of {@link GL20#glVertexAttrib4f VertexAttrib4f}.
 	 *
@@ -1884,7 +1886,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP1.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribP1ui VertexAttribP1ui}.
 	 *
@@ -1922,7 +1924,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribP2ui VertexAttribP2ui}.
 	 *
@@ -1960,7 +1962,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribP3ui VertexAttribP3ui}.
 	 *
@@ -1998,7 +2000,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribP4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Pointer version of {@link #glVertexAttribP4ui VertexAttribP4ui}.
 	 *

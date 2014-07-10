@@ -1189,7 +1189,8 @@ public final class WinUser {
 	public static int UnregisterClass(CharSequence className, long instance) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		return nUnregisterClass(memAddress(memEncodeUTF16(className)), instance);
+		ByteBuffer classNameEncoded = memEncodeUTF16(className);
+		return nUnregisterClass(memAddress(classNameEncoded), instance);
 	}
 
 	// --- [ GetClassInfoEx ] ---
@@ -1220,7 +1221,8 @@ public final class WinUser {
 	public static int GetClassInfoEx(long instance, CharSequence className, ByteBuffer classEx) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(classEx, WNDCLASSEX.SIZEOF);
-		return nGetClassInfoEx(instance, memAddress(memEncodeUTF16(className)), memAddress(classEx));
+		ByteBuffer classNameEncoded = memEncodeUTF16(className);
+		return nGetClassInfoEx(instance, memAddress(classNameEncoded), memAddress(classEx));
 	}
 
 	// --- [ GetClassLongPtr ] ---
@@ -1282,7 +1284,8 @@ public final class WinUser {
 
 	/** CharSequence version of: {@link #LoadIcon} */
 	public static long LoadIcon(long instance, CharSequence iconName) {
-		return nLoadIcon(instance, memAddress(memEncodeUTF16(iconName)));
+		ByteBuffer iconNameEncoded = memEncodeUTF16(iconName);
+		return nLoadIcon(instance, memAddress(iconNameEncoded));
 	}
 
 	// --- [ LoadCursor ] ---
@@ -1309,7 +1312,8 @@ public final class WinUser {
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		return nLoadCursor(instance, memAddress(memEncodeUTF16(cursorName)));
+		ByteBuffer cursorNameEncoded = memEncodeUTF16(cursorName);
+		return nLoadCursor(instance, memAddress(cursorNameEncoded));
 	}
 
 	// --- [ GetSystemMetrics ] ---
@@ -1356,7 +1360,9 @@ public final class WinUser {
 	public static long CreateWindowEx(int exStyle, CharSequence className, CharSequence windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		return nCreateWindowEx(exStyle, memAddress(memEncodeUTF16(className)), memAddress(memEncodeUTF16(windowName)), style, x, y, width, height, parent, menu, instance, param);
+		ByteBuffer classNameEncoded = memEncodeUTF16(className);
+		ByteBuffer windowNameEncoded = memEncodeUTF16(windowName);
+		return nCreateWindowEx(exStyle, memAddress(classNameEncoded), memAddress(windowNameEncoded), style, x, y, width, height, parent, menu, instance, param);
 	}
 
 	// --- [ DestroyWindow ] ---
@@ -1467,7 +1473,8 @@ public final class WinUser {
 	public static int SetWindowText(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nSetWindowText(window, memAddress(memEncodeUTF16(string)));
+		ByteBuffer stringEncoded = memEncodeUTF16(string);
+		return nSetWindowText(window, memAddress(stringEncoded));
 	}
 
 	// --- [ GetMessage ] ---
@@ -1658,7 +1665,8 @@ public final class WinUser {
 	public static int EnumDisplayDevices(CharSequence device, int devNum, ByteBuffer displayDevice, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(displayDevice, DISPLAY_DEVICE.SIZEOF);
-		return nEnumDisplayDevices(memAddressSafe(memEncodeUTF16(device)), devNum, memAddress(displayDevice), flags);
+		ByteBuffer deviceEncoded = memEncodeUTF16(device);
+		return nEnumDisplayDevices(memAddressSafe(deviceEncoded), devNum, memAddress(displayDevice), flags);
 	}
 
 	// --- [ EnumDisplaySettings ] ---
@@ -1689,7 +1697,8 @@ public final class WinUser {
 	public static int EnumDisplaySettings(CharSequence deviceName, int modeNum, ByteBuffer devMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
-		return nEnumDisplaySettings(memAddressSafe(memEncodeUTF16(deviceName)), modeNum, memAddress(devMode));
+		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
+		return nEnumDisplaySettings(memAddressSafe(deviceNameEncoded), modeNum, memAddress(devMode));
 	}
 
 	// --- [ EnumDisplaySettingsEx ] ---
@@ -1719,7 +1728,8 @@ public final class WinUser {
 	public static int EnumDisplaySettingsEx(CharSequence deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
-		return nEnumDisplaySettingsEx(memAddress(memEncodeUTF16(deviceName)), modeNum, memAddress(devMode), flags);
+		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
+		return nEnumDisplaySettingsEx(memAddress(deviceNameEncoded), modeNum, memAddress(devMode), flags);
 	}
 
 	// --- [ ChangeDisplaySettings ] ---
@@ -1771,7 +1781,8 @@ public final class WinUser {
 	public static int ChangeDisplaySettingsEx(CharSequence deviceName, ByteBuffer devMode, long window, int flags, long param) {
 		if ( LWJGLUtil.CHECKS )
 			if ( devMode != null ) checkBuffer(devMode, DEVMODE.SIZEOF);
-		return nChangeDisplaySettingsEx(memAddress(memEncodeUTF16(deviceName)), memAddressSafe(devMode), window, flags, param);
+		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
+		return nChangeDisplaySettingsEx(memAddress(deviceNameEncoded), memAddressSafe(devMode), window, flags, param);
 	}
 
 	// --- [ SystemParametersInfo ] ---

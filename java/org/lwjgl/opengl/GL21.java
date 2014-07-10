@@ -113,7 +113,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2x3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
 	 *
@@ -149,7 +149,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3x2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
 	 *
@@ -185,7 +185,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix2x4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
 	 *
@@ -221,7 +221,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4x2.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
 	 *
@@ -257,7 +257,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix3x4.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
 	 *
@@ -293,7 +293,7 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix4x3.xml">OpenGL SDK Reference</a>
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
 	 *
