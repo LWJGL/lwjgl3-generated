@@ -936,8 +936,9 @@ public final class CL10 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
+		int contextRefs = CLContextCallback.Util.getReferenceCount(context);
 		int __result = nclReleaseContext(context, __functionAddress);
-		if (__result == CL_SUCCESS) CLContextCallback.Util.release(context);
+		if ( __result == CL_SUCCESS && contextRefs == 1 ) CLContextCallback.Util.release(context);
 		return __result;
 	}
 
