@@ -1410,7 +1410,7 @@ public final class GLFW {
 	 * Returns the value of an input option for the specified window
 	 *
 	 * @param window window to query
-	 * @param mode   One of {@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
+	 * @param mode   one of:<p/>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		if ( LWJGLUtil.CHECKS )
@@ -1444,7 +1444,7 @@ public final class GLFW {
 	 * been pressed but not when or in which order.
 	 *
 	 * @param window window whose input mode to set
-	 * @param mode   One of {@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS} or {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
+	 * @param mode   one of:<p/>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 * @param value  new value of the specified input mode
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {

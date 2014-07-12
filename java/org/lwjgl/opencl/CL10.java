@@ -645,7 +645,7 @@ public final class CL10 {
 	 *
 	 * @param platform    the platform to query
 	 * @param device_type a bitfield that identifies the type of OpenCL device. The {@code device_type} can be used to query specific OpenCL devices or all OpenCL devices
-	 *                    available. One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
+	 *                    available. One or more of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
 	 * @param num_entries the number of {@code cl_device_id} entries that can be added to devices. If {@code devices} is not {@code NULL}, the {@code num_entries} must be greater
 	 *                    than zero.
 	 * @param devices     returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL

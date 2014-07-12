@@ -1736,7 +1736,7 @@ public final class GL11 {
 	 * Sets portions of every pixel in a particular buffer to the same value. The value to which each buffer is cleared depends on the setting of the clear
 	 * value for that buffer.
 	 *
-	 * @param mask Zero or the bitwise OR of one or more values indicating which buffers are to be cleared. Valid values:. One of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}
+	 * @param mask Zero or the bitwise OR of one or more values indicating which buffers are to be cleared. One or more of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}
 	 */
 	public static void glClear(int mask) {
 		long __functionAddress = getInstance().Clear;
@@ -7112,7 +7112,7 @@ public final class GL11 {
 	 * A {@link #GL_STACK_OVERFLOW STACK_OVERFLOW} error is generated if {@code PushAttrib} is called and the attribute stack depth is equal to the value of
 	 * {@link #GL_MAX_ATTRIB_STACK_DEPTH MAX_ATTRIB_STACK_DEPTH}.
 	 *
-	 * @param mask the state variables to push. One of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_CURRENT_BIT CURRENT_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_ENABLE_BIT ENABLE_BIT}, {@link #GL_EVAL_BIT EVAL_BIT}, {@link #GL_FOG_BIT FOG_BIT}, {@link #GL_HINT_BIT HINT_BIT}, {@link #GL_LIGHTING_BIT LIGHTING_BIT}, {@link #GL_LINE_BIT LINE_BIT}, {@link #GL_LIST_BIT LIST_BIT}, {@link GL13#GL_MULTISAMPLE_BIT MULTISAMPLE_BIT}, {@link #GL_PIXEL_MODE_BIT PIXEL_MODE_BIT}, {@link #GL_POINT_BIT POINT_BIT}, {@link #GL_POLYGON_BIT POLYGON_BIT}, {@link #GL_POLYGON_STIPPLE_BIT POLYGON_STIPPLE_BIT}, {@link #GL_SCISSOR_BIT SCISSOR_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}, {@link #GL_TEXTURE_BIT TEXTURE_BIT}, {@link #GL_TRANSFORM_BIT TRANSFORM_BIT}, {@link #GL_VIEWPORT_BIT VIEWPORT_BIT}, {@link #GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}
+	 * @param mask the state variables to push. One or more of:<p/>{@link #GL_ACCUM_BUFFER_BIT ACCUM_BUFFER_BIT}, {@link #GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}, {@link #GL_CURRENT_BIT CURRENT_BIT}, {@link #GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}, {@link #GL_ENABLE_BIT ENABLE_BIT}, {@link #GL_EVAL_BIT EVAL_BIT}, {@link #GL_FOG_BIT FOG_BIT}, {@link #GL_HINT_BIT HINT_BIT}, {@link #GL_LIGHTING_BIT LIGHTING_BIT}, {@link #GL_LINE_BIT LINE_BIT}, {@link #GL_LIST_BIT LIST_BIT}, {@link GL13#GL_MULTISAMPLE_BIT MULTISAMPLE_BIT}, {@link #GL_PIXEL_MODE_BIT PIXEL_MODE_BIT}, {@link #GL_POINT_BIT POINT_BIT}, {@link #GL_POLYGON_BIT POLYGON_BIT}, {@link #GL_POLYGON_STIPPLE_BIT POLYGON_STIPPLE_BIT}, {@link #GL_SCISSOR_BIT SCISSOR_BIT}, {@link #GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}, {@link #GL_TEXTURE_BIT TEXTURE_BIT}, {@link #GL_TRANSFORM_BIT TRANSFORM_BIT}, {@link #GL_VIEWPORT_BIT VIEWPORT_BIT}, {@link #GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}
 	 */
 	public static void glPushAttrib(int mask) {
 		long __functionAddress = getInstance().PushAttrib;
@@ -7139,7 +7139,7 @@ public final class GL11 {
 	 * A {@link #GL_STACK_OVERFLOW STACK_OVERFLOW} error is generated if {@code PushAttrib} is called and the client attribute stack depth is equal to the value of
 	 * {@link #GL_MAX_CLIENT_ATTRIB_STACK_DEPTH MAX_CLIENT_ATTRIB_STACK_DEPTH}.
 	 *
-	 * @param mask the state variables to push. One of:<p/>{@link #GL_CLIENT_VERTEX_ARRAY_BIT CLIENT_VERTEX_ARRAY_BIT}, {@link #GL_CLIENT_PIXEL_STORE_BIT CLIENT_PIXEL_STORE_BIT}, {@link #GL_CLIENT_ALL_ATTRIB_BITS CLIENT_ALL_ATTRIB_BITS}
+	 * @param mask the state variables to push. One or more of:<p/>{@link #GL_CLIENT_VERTEX_ARRAY_BIT CLIENT_VERTEX_ARRAY_BIT}, {@link #GL_CLIENT_PIXEL_STORE_BIT CLIENT_PIXEL_STORE_BIT}, {@link #GL_CLIENT_ALL_ATTRIB_BITS CLIENT_ALL_ATTRIB_BITS}
 	 */
 	public static void glPushClientAttrib(int mask) {
 		long __functionAddress = getInstance().PushClientAttrib;
@@ -9606,7 +9606,7 @@ public final class GL11 {
 	 *
 	 * @param target the texture environment target. One of:<p/>{@link #GL_TEXTURE_ENV TEXTURE_ENV}, {@link GL14#GL_TEXTURE_FILTER_CONTROL TEXTURE_FILTER_CONTROL}, {@link GL20#GL_POINT_SPRITE POINT_SPRITE}
 	 * @param pname  the parameter to set. One of:<p/>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}, {@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL13#GL_COMBINE_RGB COMBINE_RGB}, {@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}, {@link GL15#GL_SRC0_RGB SRC0_RGB}, {@link GL15#GL_SRC1_RGB SRC1_RGB}, {@link GL15#GL_SRC2_RGB SRC2_RGB}, {@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}, {@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}, {@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}, {@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}, {@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}, {@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}, {@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}, {@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}, {@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}, {@link GL13#GL_RGB_SCALE RGB_SCALE}, {@link #GL_ALPHA_SCALE ALPHA_SCALE}
-	 * @param param  the parameter value. Scalar value or one of:. One of:<p/>{@link #GL_REPLACE REPLACE}, {@link #GL_MODULATE MODULATE}, {@link #GL_DECAL DECAL}, {@link #GL_BLEND BLEND}, {@link #GL_ADD ADD}, {@link GL13#GL_COMBINE COMBINE}, {@link GL13#GL_ADD_SIGNED ADD_SIGNED}, {@link GL13#GL_INTERPOLATE INTERPOLATE}, {@link GL13#GL_SUBTRACT SUBTRACT}, {@link GL13#GL_DOT3_RGB DOT3_RGB}, {@link GL13#GL_DOT3_RGBA DOT3_RGBA}, {@link #GL_TEXTURE TEXTURE}, {@link GL13#GL_TEXTURE0 TEXTURE0}, GL13.GL_TEXTURE[1-31], {@link GL13#GL_CONSTANT CONSTANT}, {@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link GL13#GL_PREVIOUS PREVIOUS}
+	 * @param param  the parameter value. Scalar value or one of:<p/>{@link #GL_REPLACE REPLACE}, {@link #GL_MODULATE MODULATE}, {@link #GL_DECAL DECAL}, {@link #GL_BLEND BLEND}, {@link #GL_ADD ADD}, {@link GL13#GL_COMBINE COMBINE}, {@link GL13#GL_ADD_SIGNED ADD_SIGNED}, {@link GL13#GL_INTERPOLATE INTERPOLATE}, {@link GL13#GL_SUBTRACT SUBTRACT}, {@link GL13#GL_DOT3_RGB DOT3_RGB}, {@link GL13#GL_DOT3_RGBA DOT3_RGBA}, {@link #GL_TEXTURE TEXTURE}, {@link GL13#GL_TEXTURE0 TEXTURE0}, GL13.GL_TEXTURE[1-31], {@link GL13#GL_CONSTANT CONSTANT}, {@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link GL13#GL_PREVIOUS PREVIOUS}
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexEnvi;
