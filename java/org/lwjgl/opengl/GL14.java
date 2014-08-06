@@ -25,13 +25,6 @@ public final class GL14 {
 	public static final int
 		GL_GENERATE_MIPMAP_HINT = 0x8192;
 
-	/** Accepted by the {@code sfactor} and {@code dfactor} parameters of BlendFunc. */
-	public static final int
-		GL_CONSTANT_COLOR           = 0x8001,
-		GL_ONE_MINUS_CONSTANT_COLOR = 0x8002,
-		GL_CONSTANT_ALPHA           = 0x8003,
-		GL_ONE_MINUS_CONSTANT_ALPHA = 0x8004;
-
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
 		GL_BLEND_COLOR = 0x8005;

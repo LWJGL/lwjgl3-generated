@@ -90,10 +90,7 @@ public final class GL41 {
 
 	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX or VIEWPORT_INDEX_PROVOKING_VERTEX. */
 	public static final int
-		GL_FIRST_VERTEX_CONVENTION = 0x8E4D,
-		GL_LAST_VERTEX_CONVENTION  = 0x8E4E,
-		GL_PROVOKING_VERTEX        = 0x8E4F,
-		GL_UNDEFINED_VERTEX        = 0x8260;
+		GL_UNDEFINED_VERTEX = 0x8260;
 
 	/** Function address. */
 	@JavadocExclude

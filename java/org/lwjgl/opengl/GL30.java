@@ -231,7 +231,6 @@ public final class GL30 {
 
 	/** Returned in {@code params} by GetFramebufferAttachmentParameteriv. */
 	public static final int
-		GL_SRGB                = 0x8C40,
 		GL_FRAMEBUFFER_DEFAULT = 0x8218,
 		GL_INDEX               = 0x8222;
 

@@ -145,8 +145,7 @@ public final class GL32 {
 
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachment- Parameteriv. */
 	public static final int
-		GL_FRAMEBUFFER_ATTACHMENT_LAYERED       = 0x8DA7,
-		GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER = 0x8CD4;
+		GL_FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetFloatv, GetDoublev, and
