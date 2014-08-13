@@ -8,10 +8,7 @@ package org.lwjgl.opengl;
 /** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/query_buffer_object.txt">ARB_query_buffer_object</a> extension. */
 public final class ARBQueryBufferObject {
 
-	/**
-	 * Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and
-	 * GetQueryObjectui64()".link}.
-	 */
+	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}. */
 	public static final int
 		GL_QUERY_RESULT_NO_WAIT = 0x9194;
 

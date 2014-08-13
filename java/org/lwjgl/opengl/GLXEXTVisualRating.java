@@ -20,13 +20,13 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXEXTVisualRating {
 
-	/** Accepted by the {@code attribute} parameter of {@link GLX#glXGetConfig GetConfig} and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual}: */
+	/** Accepted by the {@code attribute} parameter of {@link GLX#glXGetConfig GetConfig} and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual}. */
 	public static final int
 		GLX_VISUAL_CAVEAT_EXT = 0x20;
 
 	/**
 	 * Returned by the {@code value} parameter of {@link GLX#glXGetConfig GetConfig} (when {@code attribute} is set to {@link #GLX_VISUAL_CAVEAT_EXT VISUAL_CAVEAT_EXT}) and accepted by the {@code attrib_list}
-	 * parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the {@link #GLX_VISUAL_CAVEAT_EXT VISUAL_CAVEAT_EXT} token):
+	 * parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the {@link #GLX_VISUAL_CAVEAT_EXT VISUAL_CAVEAT_EXT} token).
 	 */
 	public static final int
 		GLX_NONE_EXT                  = 0x8000,

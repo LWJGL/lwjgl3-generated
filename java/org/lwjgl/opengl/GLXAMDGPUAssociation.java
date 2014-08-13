@@ -27,7 +27,7 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXAMDGPUAssociation {
 
-	/** Accepted by the {@code property} parameter of {@link #glXGetGPUInfoAMD GetGPUInfoAMD}: */
+	/** Accepted by the {@code property} parameter of {@link #glXGetGPUInfoAMD GetGPUInfoAMD}. */
 	public static final int
 		GLX_GPU_VENDOR_AMD                = 0x1F00,
 		GLX_GPU_RENDERER_STRING_AMD       = 0x1F01,

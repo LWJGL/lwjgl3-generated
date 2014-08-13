@@ -17,6 +17,107 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The core OpenCL 2.0 functionality. */
 public final class CL20 {
 
+	/** OpenCL Version. */
+	public static final int
+		CL_VERSION_2_0 = 0x1;
+
+	/** Error Codes */
+	public static final int
+		CL_INVALID_PIPE_SIZE    = 0xFFFFFFBB,
+		CL_INVALID_DEVICE_QUEUE = 0xFFFFFFBA;
+
+	/** cl_device_info */
+	public static final int
+		CL_DEVICE_QUEUE_ON_HOST_PROPERTIES             = 0x102A,
+		CL_DEVICE_MAX_READ_WRITE_IMAGE_ARGS            = 0x104C,
+		CL_DEVICE_MAX_GLOBAL_VARIABLE_SIZE             = 0x104D,
+		CL_DEVICE_QUEUE_ON_DEVICE_PROPERTIES           = 0x104E,
+		CL_DEVICE_QUEUE_ON_DEVICE_PREFERRED_SIZE       = 0x104F,
+		CL_DEVICE_QUEUE_ON_DEVICE_MAX_SIZE             = 0x1050,
+		CL_DEVICE_MAX_ON_DEVICE_QUEUES                 = 0x1051,
+		CL_DEVICE_MAX_ON_DEVICE_EVENTS                 = 0x1052,
+		CL_DEVICE_SVM_CAPABILITIES                     = 0x1053,
+		CL_DEVICE_GLOBAL_VARIABLE_PREFERRED_TOTAL_SIZE = 0x1054,
+		CL_DEVICE_MAX_PIPE_ARGS                        = 0x1055,
+		CL_DEVICE_PIPE_MAX_ACTIVE_RESERVATIONS         = 0x1056,
+		CL_DEVICE_PIPE_MAX_PACKET_SIZE                 = 0x1057,
+		CL_DEVICE_PREFERRED_PLATFORM_ATOMIC_ALIGNMENT  = 0x1058,
+		CL_DEVICE_PREFERRED_GLOBAL_ATOMIC_ALIGNMENT    = 0x1059,
+		CL_DEVICE_PREFERRED_LOCAL_ATOMIC_ALIGNMENT     = 0x105A;
+
+	/** cl_command_queue_properties */
+	public static final int
+		CL_QUEUE_ON_DEVICE         = 1 << 2,
+		CL_QUEUE_ON_DEVICE_DEFAULT = 1 << 3;
+
+	/** cl_device_svm_capabilities */
+	public static final int
+		CL_DEVICE_SVM_COARSE_GRAIN_BUFFER = 1 << 0,
+		CL_DEVICE_SVM_FINE_GRAIN_BUFFER   = 1 << 1,
+		CL_DEVICE_SVM_FINE_GRAIN_SYSTEM   = 1 << 2,
+		CL_DEVICE_SVM_ATOMICS             = 1 << 3;
+
+	/** cl_command_queue_info */
+	public static final int
+		CL_QUEUE_SIZE = 0x1094;
+
+	/** cl_svm_mem_flags */
+	public static final int
+		CL_MEM_SVM_FINE_GRAIN_BUFFER = 1 << 10,
+		CL_MEM_SVM_ATOMICS           = 1 << 11;
+
+	/** cl_mem_object_type */
+	public static final int
+		CL_MEM_OBJECT_PIPE = 0x10F7;
+
+	/** cl_mem_info */
+	public static final int
+		CL_MEM_USES_SVM_POINTER = 0x1109;
+
+	/** cl_channel_order */
+	public static final int
+		CL_sRGB  = 0x10BF,
+		CL_sRGBx = 0x10C0,
+		CL_sRGBA = 0x10C1,
+		CL_sBGRA = 0x10C2,
+		CL_ABGR  = 0x10C3;
+
+	/** cl_pipe_info */
+	public static final int
+		CL_PIPE_PACKET_SIZE = 0x1120,
+		CL_PIPE_MAX_PACKETS = 0x1121;
+
+	/** cl_sampler_info */
+	public static final int
+		CL_SAMPLER_MIP_FILTER_MODE = 0x1155,
+		CL_SAMPLER_LOD_MIN         = 0x1156,
+		CL_SAMPLER_LOD_MAX         = 0x1157;
+
+	/** cl_program_build_info */
+	public static final int
+		CL_PROGRAM_BUILD_GLOBAL_VARIABLE_TOTAL_SIZE = 0x1185;
+
+	/** cl_kernel_arg_type_qualifer */
+	public static final int
+		CL_KERNEL_ARG_TYPE_PIPE = 1 << 3;
+
+	/** cl_kernel_exec_info */
+	public static final int
+		CL_KERNEL_EXEC_INFO_SVM_PTRS              = 0x11B6,
+		CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM = 0x11B7;
+
+	/** cl_command_type */
+	public static final int
+		CL_COMMAND_SVM_FREE    = 0x1209,
+		CL_COMMAND_SVM_MEMCPY  = 0x120A,
+		CL_COMMAND_SVM_MEMFILL = 0x120B,
+		CL_COMMAND_SVM_MAP     = 0x120C,
+		CL_COMMAND_SVM_UNMAP   = 0x120D;
+
+	/** cl_profiling_info */
+	public static final int
+		CL_PROFILING_COMMAND_COMPLETE = 0x1284;
+
 	/** Function address. */
 	@JavadocExclude
 	public final long
@@ -163,7 +264,7 @@ public final class CL20 {
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are invalid.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code properties} is not {@code NULL}.</li>
-	 *         <li>{@link CL20#CL_INVALID_PIPE_SIZE INVALID_PIPE_SIZE} if {@code pipe_packet_size} is {@code 0} or the {@code pipe_packet_size} exceeds {@link CL20#CL_DEVICE_PIPE_MAX_PACKET_SIZE DEVICE_PIPE_MAX_PACKET_SIZE}
+	 *         <li>{@link #CL_INVALID_PIPE_SIZE INVALID_PIPE_SIZE} if {@code pipe_packet_size} is {@code 0} or the {@code pipe_packet_size} exceeds {@link #CL_DEVICE_PIPE_MAX_PACKET_SIZE DEVICE_PIPE_MAX_PACKET_SIZE}
 	 *         value for all devices in {@code context} or if {@code pipe_max_packets} is {@code 0}.</li>
 	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for the pipe object.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -277,13 +378,13 @@ public final class CL20 {
 	 * so their memory can be shared using SVM. However, fine grained sharing and atomics are not supported for image reads and writes in a kernel.
 	 * <p/>
 	 * If {@link CL10#clCreateBuffer CreateBuffer} is called with a pointer returned by {@code SVMAlloc} as its {@code host_ptr} argument, and
-	 * $("CL10#MEM_USE_HOST_PTR".link} is set in its {@code flags} argument, {@code CreateBuffer} will succeed and return a valid non-zero buffer object as
+	 * {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} is set in its {@code flags} argument, {@code CreateBuffer} will succeed and return a valid non-zero buffer object as
 	 * long as the {@code size} argument to {@code CreateBuffer} is no larger than the {@code size} argument passed in the original {@code SVMAlloc} call. The
 	 * new buffer object returned has the shared memory as the underlying storage. Locations in the buffer's underlying shared memory can be operated on using,
 	 * e.g., atomic operations if the device supports them.
 	 *
 	 * @param context   a valid OpenCL context used to create the SVM buffer
-	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<p/>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link CL10#CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
+	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<p/>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
 	 * @param size      the size in bytes of the SVM buffer to be allocated
 	 * @param alignment the minimum alignment in bytes that is required for the newly created buffer's memory region. It must be a power of two up to the largest data type
 	 *                  supported by the OpenCL device. For the full profile, the largest data type is {@code long16}. For the embedded profile, it is {@code long16} if the

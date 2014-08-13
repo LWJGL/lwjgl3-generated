@@ -115,11 +115,11 @@ public final class AL11 {
 
 	// --- [ alGetListeneriv ] ---
 
-	/** JNI method for {@link #alGetListeneriv GetListeneriv} */
+	/** JNI method for {@link #alGetListeneriv} */
 	@JavadocExclude
 	public static native void nalGetListeneriv(int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetListeneriv GetListeneriv} */
+	/** Unsafe version of {@link #alGetListeneriv} */
 	@JavadocExclude
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = getInstance().GetListeneriv;
@@ -140,7 +140,7 @@ public final class AL11 {
 		nalGetListeneriv(param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetListeneriv GetListeneriv} */
+	/** Alternative version of: {@link #alGetListeneriv} */
 	public static void alGetListeneriv(int param, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -171,11 +171,11 @@ public final class AL11 {
 
 	// --- [ alListeneriv ] ---
 
-	/** JNI method for {@link #alListeneri(int, ByteBuffer) alListeneri} */
+	/** JNI method for {@link #alListeneri(int, ByteBuffer) Listeneri} */
 	@JavadocExclude
 	public static native void nalListeneriv(int listener, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #alListeneri(int, ByteBuffer) alListeneri} */
+	/** Unsafe version of {@link #alListeneri(int, ByteBuffer) Listeneri} */
 	@JavadocExclude
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = getInstance().Listeneriv;
@@ -196,7 +196,7 @@ public final class AL11 {
 		nalListeneriv(listener, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #alListeneri(int, ByteBuffer) alListeneri} */
+	/** Alternative version of: {@link #alListeneri(int, ByteBuffer) Listeneri} */
 	public static void alListener(int listener, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
@@ -205,11 +205,11 @@ public final class AL11 {
 
 	// --- [ alSourceiv ] ---
 
-	/** JNI method for {@link #alSourcei(int, int, ByteBuffer) alSourcei} */
+	/** JNI method for {@link #alSourcei(int, int, ByteBuffer) Sourcei} */
 	@JavadocExclude
 	public static native void nalSourceiv(int source, int paramName, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcei(int, int, ByteBuffer) alSourcei} */
+	/** Unsafe version of {@link #alSourcei(int, int, ByteBuffer) Sourcei} */
 	@JavadocExclude
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = getInstance().Sourceiv;
@@ -231,7 +231,7 @@ public final class AL11 {
 		nalSourceiv(source, paramName, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #alSourcei(int, int, ByteBuffer) alSourcei} */
+	/** Alternative version of: {@link #alSourcei(int, int, ByteBuffer) Sourcei} */
 	public static void alSource(int source, int paramName, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
@@ -282,11 +282,11 @@ public final class AL11 {
 
 	// --- [ alBufferfv ] ---
 
-	/** JNI method for {@link #alBufferf(int, int, ByteBuffer) alBufferf} */
+	/** JNI method for {@link #alBufferf(int, int, ByteBuffer) Bufferf} */
 	@JavadocExclude
 	public static native void nalBufferfv(int buffer, int paramName, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #alBufferf(int, int, ByteBuffer) alBufferf} */
+	/** Unsafe version of {@link #alBufferf(int, int, ByteBuffer) Bufferf} */
 	@JavadocExclude
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferfv;
@@ -308,7 +308,7 @@ public final class AL11 {
 		nalBufferfv(buffer, paramName, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #alBufferf(int, int, ByteBuffer) alBufferf} */
+	/** Alternative version of: {@link #alBufferf(int, int, ByteBuffer) Bufferf} */
 	public static void alBuffer(int buffer, int paramName, FloatBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
@@ -359,11 +359,11 @@ public final class AL11 {
 
 	// --- [ alBufferiv ] ---
 
-	/** JNI method for {@link #alBufferi(int, int, ByteBuffer) alBufferi} */
+	/** JNI method for {@link #alBufferi(int, int, ByteBuffer) Bufferi} */
 	@JavadocExclude
 	public static native void nalBufferiv(int buffer, int paramName, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #alBufferi(int, int, ByteBuffer) alBufferi} */
+	/** Unsafe version of {@link #alBufferi(int, int, ByteBuffer) Bufferi} */
 	@JavadocExclude
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferiv;
@@ -385,7 +385,7 @@ public final class AL11 {
 		nalBufferiv(buffer, paramName, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #alBufferi(int, int, ByteBuffer) alBufferi} */
+	/** Alternative version of: {@link #alBufferi(int, int, ByteBuffer) Bufferi} */
 	public static void alBuffer(int buffer, int paramName, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
@@ -437,11 +437,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferiv ] ---
 
-	/** JNI method for {@link #alGetBufferiv GetBufferiv} */
+	/** JNI method for {@link #alGetBufferiv} */
 	@JavadocExclude
 	public static native void nalGetBufferiv(int buffer, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetBufferiv GetBufferiv} */
+	/** Unsafe version of {@link #alGetBufferiv} */
 	@JavadocExclude
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferiv;
@@ -463,7 +463,7 @@ public final class AL11 {
 		nalGetBufferiv(buffer, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetBufferiv GetBufferiv} */
+	/** Alternative version of: {@link #alGetBufferiv} */
 	public static void alGetBufferiv(int buffer, int param, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -515,11 +515,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferfv ] ---
 
-	/** JNI method for {@link #alGetBufferfv GetBufferfv} */
+	/** JNI method for {@link #alGetBufferfv} */
 	@JavadocExclude
 	public static native void nalGetBufferfv(int buffer, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetBufferfv GetBufferfv} */
+	/** Unsafe version of {@link #alGetBufferfv} */
 	@JavadocExclude
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferfv;
@@ -541,7 +541,7 @@ public final class AL11 {
 		nalGetBufferfv(buffer, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetBufferfv GetBufferfv} */
+	/** Alternative version of: {@link #alGetBufferfv} */
 	public static void alGetBufferfv(int buffer, int param, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);

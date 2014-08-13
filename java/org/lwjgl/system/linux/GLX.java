@@ -175,7 +175,7 @@ public final class GLX {
 	 *
 	 * @param display     the connection to the X server
 	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@link X#None None}
+	 * @param attrib_list a list of attributes terminated with {@link X#None}
 	 *
 	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
 	 *         returned.
@@ -322,7 +322,7 @@ public final class GLX {
 	 * Prevents X requests from executing until any outstanding OpenGL rendering is done.
 	 * <p/>
 	 * OpenGL calls made prior to {@code glXWaitGL} are guaranteed to be executed before X rendering calls made after {@code glXWaitGL}. While the same result
-	 * can be achieved using {@link GL11#glFinish Finish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
+	 * can be achieved using {@link GL11#glFinish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
 	 * where the client and server are on separate machines.
 	 */
 	public static native void glXWaitGL();

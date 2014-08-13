@@ -568,7 +568,7 @@ public final class GL42 {
 	 * <p/>
 	 * Defines a barrier ordering memory transactions.
 	 *
-	 * @param barriers the barriers to insert (bitwise combination). One or more of:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}
+	 * @param barriers the barriers to insert (bitwise combination). One or more of:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}, {@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}, {@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}, {@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}, {@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}, {@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}, {@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}, {@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}, {@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}, {@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}, {@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}, {@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}, {@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}, {@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
@@ -579,11 +579,11 @@ public final class GL42 {
 
 	// --- [ glGetInternalformativ ] ---
 
-	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
+	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
 	@JavadocExclude
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
+	/** Unsafe version of {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
@@ -609,12 +609,12 @@ public final class GL42 {
 		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
+	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
 	public static void glGetInternalformat(int target, int internalformat, int pname, IntBuffer params) {
 		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) glGetInternalformati} */
+	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

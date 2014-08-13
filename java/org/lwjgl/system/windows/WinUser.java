@@ -1511,7 +1511,7 @@ public final class WinUser {
 	 * @param window       a handle to the window whose messages are to be retrieved. The window must belong to the current thread.
 	 * @param msgFilterMin the value of the first message in the range of messages to be examined
 	 * @param msgFilterMax the value of the last message in the range of messages to be examined
-	 * @param removeMsg    specifies how messages are to be handled. One of:<p/>{@link #PM_NOREMOVE PM_NOREMOVE}, {@link #PM_REMOVE PM_REMOVE}, {@link #PM_NOYIELD PM_NOYIELD}
+	 * @param removeMsg    specifies how messages are to be handled. One of:<p/>{@link #PM_NOREMOVE}, {@link #PM_REMOVE}, {@link #PM_NOYIELD}
 	 */
 	public static int PeekMessage(ByteBuffer msg, long window, int msgFilterMin, int msgFilterMax, int removeMsg) {
 		if ( LWJGLUtil.CHECKS )
@@ -1682,7 +1682,7 @@ public final class WinUser {
 	 * @param deviceName a null-terminated string that specifies the display device about whose graphics mode the function will obtain information. This parameter is either
 	 *                   {@code NULL} or a DISPLAY_DEVICE.DeviceName returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display device on the computer on
 	 *                   which the calling thread is running.
-	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
+	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:<p/>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}
 	 * @param devMode    a {@link DEVMODE} structure into which the function stores information about the specified graphics mode
 	 */
 	public static int EnumDisplaySettings(ByteBuffer deviceName, int modeNum, ByteBuffer devMode) {
@@ -1712,9 +1712,9 @@ public final class WinUser {
 	 * make a series of calls to this function. This function differs from {@link #EnumDisplaySettings} in that there is a {@code flags} parameter.
 	 *
 	 * @param deviceName a null-terminated string that specifies the display device about which graphics mode the function will obtain information
-	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:<p/>{@link #ENUM_CURRENT_SETTINGS ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS ENUM_REGISTRY_SETTINGS}
+	 * @param modeNum    the type of information to be retrieved. This value can be a graphics mode index or one of:<p/>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}
 	 * @param devMode    a {@link DEVMODE} structure into which the function stores information about the specified graphics mode
-	 * @param flags      one of:<p/>{@link #EDS_RAWMODE EDS_RAWMODE}, {@link #EDS_ROTATEDMODE EDS_ROTATEDMODE}
+	 * @param flags      one of:<p/>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
 	 */
 	public static int EnumDisplaySettingsEx(ByteBuffer deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1994,7 +1994,7 @@ public final class WinUser {
 	 *
 	 * @param hWnd    a handle to the window and, indirectly, the class to which the window belongs
 	 * @param index   the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *                of an integer. To set any other value, specify one of:<p/>{@link #GWL_WNDPROC GWL_WNDPROC}, {@link #GWL_HINSTANCE GWL_HINSTANCE}, {@link #GWL_HWNDPARENT GWL_HWNDPARENT}, {@link #GWL_STYLE GWL_STYLE}, {@link #GWL_EXSTYLE GWL_EXSTYLE}, {@link #GWL_USERDATA GWL_USERDATA}, {@link #GWL_ID GWL_ID}
+	 *                of an integer. To set any other value, specify one of:<p/>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
 	 * @param newLong the replacement value
 	 *
 	 * @return the previous value at the given {@code index}
@@ -2016,7 +2016,7 @@ public final class WinUser {
 	 *
 	 * @param hWnd  a handle to the window and, indirectly, the class to which the window belongs
 	 * @param index the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
-	 *              of an integer. To set any other value, specify one of:<p/>{@link #GWL_WNDPROC GWL_WNDPROC}, {@link #GWL_HINSTANCE GWL_HINSTANCE}, {@link #GWL_HWNDPARENT GWL_HWNDPARENT}, {@link #GWL_STYLE GWL_STYLE}, {@link #GWL_EXSTYLE GWL_EXSTYLE}, {@link #GWL_USERDATA GWL_USERDATA}, {@link #GWL_ID GWL_ID}
+	 *              of an integer. To set any other value, specify one of:<p/>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
 	 */
 	public static long GetWindowLongPtr(long hWnd, int index) {
 		if ( LWJGLUtil.CHECKS )
@@ -2104,7 +2104,7 @@ public final class WinUser {
 	 * This function sets an internal display counter that determines whether the cursor should be displayed. The cursor is displayed only if the display count
 	 * is greater than or equal to 0. If a mouse is installed, the initial display count is 0. If no mouse is installed, the display count is –1.
 	 *
-	 * @param show If {@code show} is {@link WinBase#TRUE TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE FALSE}, the display count is
+	 * @param show If {@code show} is {@link WinBase#TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE}, the display count is
 	 *             decremented by one.
 	 */
 	public static native int ShowCursor(int show);

@@ -390,11 +390,11 @@ public final class ARBImaging {
 
 	// --- [ glColorTableParameteriv ] ---
 
-	/** JNI method for {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
+	/** JNI method for {@link #glColorTableParameteri(int, int, ByteBuffer) ColorTableParameteri} */
 	@JavadocExclude
 	public static native void nglColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
+	/** Unsafe version of {@link #glColorTableParameteri(int, int, ByteBuffer) ColorTableParameteri} */
 	@JavadocExclude
 	public static void nglColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameteriv;
@@ -416,7 +416,7 @@ public final class ARBImaging {
 		nglColorTableParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri} */
+	/** Alternative version of: {@link #glColorTableParameteri(int, int, ByteBuffer) ColorTableParameteri} */
 	public static void glColorTableParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -425,11 +425,11 @@ public final class ARBImaging {
 
 	// --- [ glColorTableParameterfv ] ---
 
-	/** JNI method for {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
+	/** JNI method for {@link #glColorTableParameterf(int, int, ByteBuffer) ColorTableParameterf} */
 	@JavadocExclude
 	public static native void nglColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
+	/** Unsafe version of {@link #glColorTableParameterf(int, int, ByteBuffer) ColorTableParameterf} */
 	@JavadocExclude
 	public static void nglColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameterfv;
@@ -439,7 +439,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glColorTableParameteri(int, int, ByteBuffer) glColorTableParameteri}.
+	 * Float version of {@link #glColorTableParameteri(int, int, ByteBuffer) ColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to set
@@ -451,7 +451,7 @@ public final class ARBImaging {
 		nglColorTableParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glColorTableParameterf(int, int, ByteBuffer) glColorTableParameterf} */
+	/** Alternative version of: {@link #glColorTableParameterf(int, int, ByteBuffer) ColorTableParameterf} */
 	public static void glColorTableParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -517,11 +517,11 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTableParameteriv ] ---
 
-	/** JNI method for {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
+	/** JNI method for {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri} */
 	@JavadocExclude
 	public static native void nglGetColorTableParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
+	/** Unsafe version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri} */
 	@JavadocExclude
 	public static void nglGetColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameteriv;
@@ -543,14 +543,14 @@ public final class ARBImaging {
 		nglGetColorTableParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
+	/** Alternative version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri} */
 	public static void glGetColorTableParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetColorTableParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri} */
+	/** Single return value version of: {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri} */
 	public static int glGetColorTableParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -560,11 +560,11 @@ public final class ARBImaging {
 
 	// --- [ glGetColorTableParameterfv ] ---
 
-	/** JNI method for {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
+	/** JNI method for {@link #glGetColorTableParameterf(int, int, ByteBuffer) GetColorTableParameterf} */
 	@JavadocExclude
 	public static native void nglGetColorTableParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
+	/** Unsafe version of {@link #glGetColorTableParameterf(int, int, ByteBuffer) GetColorTableParameterf} */
 	@JavadocExclude
 	public static void nglGetColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameterfv;
@@ -574,7 +574,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) glGetColorTableParameteri}.
+	 * Float version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to query
@@ -586,14 +586,14 @@ public final class ARBImaging {
 		nglGetColorTableParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
+	/** Alternative version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) GetColorTableParameterf} */
 	public static void glGetColorTableParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetColorTableParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) glGetColorTableParameterf} */
+	/** Single return value version of: {@link #glGetColorTableParameterf(int, int, ByteBuffer) GetColorTableParameterf} */
 	public static float glGetColorTableParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -943,11 +943,11 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameteriv ] ---
 
-	/** JNI method for {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
+	/** JNI method for {@link #glConvolutionParameteri(int, int, ByteBuffer) ConvolutionParameteri} */
 	@JavadocExclude
 	public static native void nglConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
+	/** Unsafe version of {@link #glConvolutionParameteri(int, int, ByteBuffer) ConvolutionParameteri} */
 	@JavadocExclude
 	public static void nglConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameteriv;
@@ -969,7 +969,7 @@ public final class ARBImaging {
 		nglConvolutionParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glConvolutionParameteri(int, int, ByteBuffer) glConvolutionParameteri} */
+	/** Alternative version of: {@link #glConvolutionParameteri(int, int, ByteBuffer) ConvolutionParameteri} */
 	public static void glConvolutionParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -998,11 +998,11 @@ public final class ARBImaging {
 
 	// --- [ glConvolutionParameterfv ] ---
 
-	/** JNI method for {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
+	/** JNI method for {@link #glConvolutionParameterf(int, int, ByteBuffer) ConvolutionParameterf} */
 	@JavadocExclude
 	public static native void nglConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
+	/** Unsafe version of {@link #glConvolutionParameterf(int, int, ByteBuffer) ConvolutionParameterf} */
 	@JavadocExclude
 	public static void nglConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameterfv;
@@ -1024,7 +1024,7 @@ public final class ARBImaging {
 		nglConvolutionParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glConvolutionParameterf(int, int, ByteBuffer) glConvolutionParameterf} */
+	/** Alternative version of: {@link #glConvolutionParameterf(int, int, ByteBuffer) ConvolutionParameterf} */
 	public static void glConvolutionParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -1033,11 +1033,11 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionParameteriv ] ---
 
-	/** JNI method for {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
+	/** JNI method for {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri} */
 	@JavadocExclude
 	public static native void nglGetConvolutionParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
+	/** Unsafe version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri} */
 	@JavadocExclude
 	public static void nglGetConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameteriv;
@@ -1059,14 +1059,14 @@ public final class ARBImaging {
 		nglGetConvolutionParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
+	/** Alternative version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri} */
 	public static void glGetConvolutionParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetConvolutionParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri} */
+	/** Single return value version of: {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri} */
 	public static int glGetConvolutionParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1076,11 +1076,11 @@ public final class ARBImaging {
 
 	// --- [ glGetConvolutionParameterfv ] ---
 
-	/** JNI method for {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
+	/** JNI method for {@link #glGetConvolutionParameterf(int, int, ByteBuffer) GetConvolutionParameterf} */
 	@JavadocExclude
 	public static native void nglGetConvolutionParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
+	/** Unsafe version of {@link #glGetConvolutionParameterf(int, int, ByteBuffer) GetConvolutionParameterf} */
 	@JavadocExclude
 	public static void nglGetConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameterfv;
@@ -1090,7 +1090,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) glGetConvolutionParameteri}.
+	 * Float version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri}.
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to query
@@ -1102,14 +1102,14 @@ public final class ARBImaging {
 		nglGetConvolutionParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
+	/** Alternative version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) GetConvolutionParameterf} */
 	public static void glGetConvolutionParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetConvolutionParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) glGetConvolutionParameterf} */
+	/** Single return value version of: {@link #glGetConvolutionParameterf(int, int, ByteBuffer) GetConvolutionParameterf} */
 	public static float glGetConvolutionParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1195,11 +1195,11 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogramParameteriv ] ---
 
-	/** JNI method for {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
+	/** JNI method for {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri} */
 	@JavadocExclude
 	public static native void nglGetHistogramParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
+	/** Unsafe version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri} */
 	@JavadocExclude
 	public static void nglGetHistogramParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameteriv;
@@ -1221,14 +1221,14 @@ public final class ARBImaging {
 		nglGetHistogramParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
+	/** Alternative version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri} */
 	public static void glGetHistogramParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetHistogramParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri} */
+	/** Single return value version of: {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri} */
 	public static int glGetHistogramParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1238,11 +1238,11 @@ public final class ARBImaging {
 
 	// --- [ glGetHistogramParameterfv ] ---
 
-	/** JNI method for {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
+	/** JNI method for {@link #glGetHistogramParameterf(int, int, ByteBuffer) GetHistogramParameterf} */
 	@JavadocExclude
 	public static native void nglGetHistogramParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
+	/** Unsafe version of {@link #glGetHistogramParameterf(int, int, ByteBuffer) GetHistogramParameterf} */
 	@JavadocExclude
 	public static void nglGetHistogramParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameterfv;
@@ -1252,7 +1252,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) glGetHistogramParameteri}.
+	 * Float version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri}.
 	 *
 	 * @param target the histogram target
 	 * @param pname  the parameter to query
@@ -1264,14 +1264,14 @@ public final class ARBImaging {
 		nglGetHistogramParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
+	/** Alternative version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) GetHistogramParameterf} */
 	public static void glGetHistogramParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetHistogramParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) glGetHistogramParameterf} */
+	/** Single return value version of: {@link #glGetHistogramParameterf(int, int, ByteBuffer) GetHistogramParameterf} */
 	public static float glGetHistogramParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1357,11 +1357,11 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmaxParameteriv ] ---
 
-	/** JNI method for {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
+	/** JNI method for {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri} */
 	@JavadocExclude
 	public static native void nglGetMinmaxParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
+	/** Unsafe version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri} */
 	@JavadocExclude
 	public static void nglGetMinmaxParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameteriv;
@@ -1383,14 +1383,14 @@ public final class ARBImaging {
 		nglGetMinmaxParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
+	/** Alternative version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri} */
 	public static void glGetMinmaxParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMinmaxParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri} */
+	/** Single return value version of: {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri} */
 	public static int glGetMinmaxParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1400,11 +1400,11 @@ public final class ARBImaging {
 
 	// --- [ glGetMinmaxParameterfv ] ---
 
-	/** JNI method for {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
+	/** JNI method for {@link #glGetMinmaxParameterf(int, int, ByteBuffer) GetMinmaxParameterf} */
 	@JavadocExclude
 	public static native void nglGetMinmaxParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
+	/** Unsafe version of {@link #glGetMinmaxParameterf(int, int, ByteBuffer) GetMinmaxParameterf} */
 	@JavadocExclude
 	public static void nglGetMinmaxParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameterfv;
@@ -1414,7 +1414,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) glGetMinmaxParameteri}.
+	 * Float version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri}.
 	 *
 	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query
@@ -1426,14 +1426,14 @@ public final class ARBImaging {
 		nglGetMinmaxParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
+	/** Alternative version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) GetMinmaxParameterf} */
 	public static void glGetMinmaxParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMinmaxParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) glGetMinmaxParameterf} */
+	/** Single return value version of: {@link #glGetMinmaxParameterf(int, int, ByteBuffer) GetMinmaxParameterf} */
 	public static float glGetMinmaxParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();

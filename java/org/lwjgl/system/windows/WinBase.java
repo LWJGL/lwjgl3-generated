@@ -221,7 +221,7 @@ public final class WinBase {
 	/**
 	 * Allocates the specified number of bytes from the heap.
 	 *
-	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<p/>{@link #GMEM_FIXED GMEM_FIXED}, {@link #GMEM_MOVEABLE GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD GMEM_NODISCARD}, {@link #GMEM_ZEROINIT GMEM_ZEROINIT}, {@link #GMEM_MODIFY GMEM_MODIFY}, {@link #GMEM_DISCARDABLE GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED GMEM_NOT_BANKED}, {@link #GMEM_SHARE GMEM_SHARE}, {@link #GMEM_DDESHARE GMEM_DDESHARE}, {@link #GMEM_NOTIFY GMEM_NOTIFY}, {@link #GMEM_LOWER GMEM_LOWER}, {@link #GMEM_VALID_FLAGS GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE GMEM_INVALID_HANDLE}, {@link #GHND GHND}, {@link #GPTR GPTR}
+	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<p/>{@link #GMEM_FIXED}, {@link #GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD}, {@link #GMEM_ZEROINIT}, {@link #GMEM_MODIFY}, {@link #GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED}, {@link #GMEM_SHARE}, {@link #GMEM_DDESHARE}, {@link #GMEM_NOTIFY}, {@link #GMEM_LOWER}, {@link #GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE}, {@link #GHND}, {@link #GPTR}
 	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
 	 *              handle to a memory object that is marked as discarded.
 	 */

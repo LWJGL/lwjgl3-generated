@@ -414,11 +414,11 @@ public final class AL10 {
 
 	// --- [ alGetBooleanv ] ---
 
-	/** JNI method for {@link #alGetBoolean(int, ByteBuffer) alGetBoolean} */
+	/** JNI method for {@link #alGetBoolean(int, ByteBuffer) GetBoolean} */
 	@JavadocExclude
 	public static native void nalGetBooleanv(int paramName, long dest, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetBoolean(int, ByteBuffer) alGetBoolean} */
+	/** Unsafe version of {@link #alGetBoolean(int, ByteBuffer) GetBoolean} */
 	@JavadocExclude
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetBooleanv;
@@ -441,11 +441,11 @@ public final class AL10 {
 
 	// --- [ alGetIntegerv ] ---
 
-	/** JNI method for {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
+	/** JNI method for {@link #alGetInteger(int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static native void nalGetIntegerv(int paramName, long dest, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
+	/** Unsafe version of {@link #alGetInteger(int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
@@ -466,7 +466,7 @@ public final class AL10 {
 		nalGetIntegerv(paramName, memAddress(dest));
 	}
 
-	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer) alGetInteger} */
+	/** Alternative version of: {@link #alGetInteger(int, ByteBuffer) GetInteger} */
 	public static void alGetInteger(int paramName, IntBuffer dest) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
@@ -475,11 +475,11 @@ public final class AL10 {
 
 	// --- [ alGetFloatv ] ---
 
-	/** JNI method for {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
+	/** JNI method for {@link #alGetFloat(int, ByteBuffer) GetFloat} */
 	@JavadocExclude
 	public static native void nalGetFloatv(int paramName, long dest, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
+	/** Unsafe version of {@link #alGetFloat(int, ByteBuffer) GetFloat} */
 	@JavadocExclude
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetFloatv;
@@ -500,7 +500,7 @@ public final class AL10 {
 		nalGetFloatv(paramName, memAddress(dest));
 	}
 
-	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer) alGetFloat} */
+	/** Alternative version of: {@link #alGetFloat(int, ByteBuffer) GetFloat} */
 	public static void alGetFloat(int paramName, FloatBuffer dest) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
@@ -509,11 +509,11 @@ public final class AL10 {
 
 	// --- [ alGetDoublev ] ---
 
-	/** JNI method for {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
+	/** JNI method for {@link #alGetDouble(int, ByteBuffer) GetDouble} */
 	@JavadocExclude
 	public static native void nalGetDoublev(int paramName, long dest, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
+	/** Unsafe version of {@link #alGetDouble(int, ByteBuffer) GetDouble} */
 	@JavadocExclude
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = getInstance().GetDoublev;
@@ -534,7 +534,7 @@ public final class AL10 {
 		nalGetDoublev(paramName, memAddress(dest));
 	}
 
-	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer) alGetDouble} */
+	/** Alternative version of: {@link #alGetDouble(int, ByteBuffer) GetDouble} */
 	public static void alGetDouble(int paramName, DoubleBuffer dest) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dest, 1);
@@ -735,11 +735,11 @@ public final class AL10 {
 
 	// --- [ alListenerfv ] ---
 
-	/** JNI method for {@link #alListenerf(int, ByteBuffer) alListenerf} */
+	/** JNI method for {@link #alListenerf(int, ByteBuffer) Listenerf} */
 	@JavadocExclude
 	public static native void nalListenerfv(int paramName, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alListenerf(int, ByteBuffer) alListenerf} */
+	/** Unsafe version of {@link #alListenerf(int, ByteBuffer) Listenerf} */
 	@JavadocExclude
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().Listenerfv;
@@ -760,7 +760,7 @@ public final class AL10 {
 		nalListenerfv(paramName, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alListenerf(int, ByteBuffer) alListenerf} */
+	/** Alternative version of: {@link #alListenerf(int, ByteBuffer) Listenerf} */
 	public static void alListener(int paramName, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -895,11 +895,11 @@ public final class AL10 {
 
 	// --- [ alGetListenerfv ] ---
 
-	/** JNI method for {@link #alGetListenerfv GetListenerfv} */
+	/** JNI method for {@link #alGetListenerfv} */
 	@JavadocExclude
 	public static native void nalGetListenerfv(int paramName, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
+	/** Unsafe version of {@link #alGetListenerfv} */
 	@JavadocExclude
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().GetListenerfv;
@@ -920,7 +920,7 @@ public final class AL10 {
 		nalGetListenerfv(paramName, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetListenerfv GetListenerfv} */
+	/** Alternative version of: {@link #alGetListenerfv} */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -1068,11 +1068,11 @@ public final class AL10 {
 
 	// --- [ alSourcefv ] ---
 
-	/** JNI method for {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
+	/** JNI method for {@link #alSourcef(int, int, ByteBuffer) Sourcef} */
 	@JavadocExclude
 	public static native void nalSourcefv(int source, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
+	/** Unsafe version of {@link #alSourcef(int, int, ByteBuffer) Sourcef} */
 	@JavadocExclude
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcefv;
@@ -1092,7 +1092,7 @@ public final class AL10 {
 		nalSourcefv(source, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) alSourcef} */
+	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) Sourcef} */
 	public static void alSource(int source, int param, FloatBuffer values) {
 		nalSourcefv(source, param, memAddress(values));
 	}
@@ -1205,11 +1205,11 @@ public final class AL10 {
 
 	// --- [ alGetSourcefv ] ---
 
-	/** JNI method for {@link #alGetSourcefv GetSourcefv} */
+	/** JNI method for {@link #alGetSourcefv} */
 	@JavadocExclude
 	public static native void nalGetSourcefv(int source, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
+	/** Unsafe version of {@link #alGetSourcefv} */
 	@JavadocExclude
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcefv;
@@ -1231,7 +1231,7 @@ public final class AL10 {
 		nalGetSourcefv(source, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetSourcefv GetSourcefv} */
+	/** Alternative version of: {@link #alGetSourcefv} */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -1463,11 +1463,11 @@ public final class AL10 {
 
 	// --- [ alSourcePlayv ] ---
 
-	/** JNI method for {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
+	/** JNI method for {@link #alSourcePlay(int, ByteBuffer) SourcePlay} */
 	@JavadocExclude
 	public static native void nalSourcePlayv(int n, long sources, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
+	/** Unsafe version of {@link #alSourcePlay(int, ByteBuffer) SourcePlay} */
 	@JavadocExclude
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = getInstance().SourcePlayv;
@@ -1488,18 +1488,18 @@ public final class AL10 {
 		nalSourcePlayv(n, memAddress(sources));
 	}
 
-	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer) alSourcePlay} */
+	/** Alternative version of: {@link #alSourcePlay(int, ByteBuffer) SourcePlay} */
 	public static void alSourcePlay(IntBuffer sources) {
 		nalSourcePlayv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourcePausev ] ---
 
-	/** JNI method for {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
+	/** JNI method for {@link #alSourcePause(int, ByteBuffer) SourcePause} */
 	@JavadocExclude
 	public static native void nalSourcePausev(int n, long sources, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
+	/** Unsafe version of {@link #alSourcePause(int, ByteBuffer) SourcePause} */
 	@JavadocExclude
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = getInstance().SourcePausev;
@@ -1518,18 +1518,18 @@ public final class AL10 {
 		nalSourcePausev(n, memAddress(sources));
 	}
 
-	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) alSourcePause} */
+	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) SourcePause} */
 	public static void alSourcePause(int n, IntBuffer sources) {
 		nalSourcePausev(n, memAddress(sources));
 	}
 
 	// --- [ alSourceStopv ] ---
 
-	/** JNI method for {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
+	/** JNI method for {@link #alSourceStop(int, ByteBuffer) SourceStop} */
 	@JavadocExclude
 	public static native void nalSourceStopv(int n, long sources, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
+	/** Unsafe version of {@link #alSourceStop(int, ByteBuffer) SourceStop} */
 	@JavadocExclude
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = getInstance().SourceStopv;
@@ -1548,18 +1548,18 @@ public final class AL10 {
 		nalSourceStopv(n, memAddress(sources));
 	}
 
-	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) alSourceStop} */
+	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) SourceStop} */
 	public static void alSourceStop(int n, IntBuffer sources) {
 		nalSourceStopv(n, memAddress(sources));
 	}
 
 	// --- [ alSourceRewindv ] ---
 
-	/** JNI method for {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
+	/** JNI method for {@link #alSourceRewind(int, ByteBuffer) SourceRewind} */
 	@JavadocExclude
 	public static native void nalSourceRewindv(int n, long sources, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
+	/** Unsafe version of {@link #alSourceRewind(int, ByteBuffer) SourceRewind} */
 	@JavadocExclude
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = getInstance().SourceRewindv;
@@ -1578,7 +1578,7 @@ public final class AL10 {
 		nalSourceRewindv(n, memAddress(sources));
 	}
 
-	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) alSourceRewind} */
+	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) SourceRewind} */
 	public static void alSourceRewind(int n, IntBuffer sources) {
 		nalSourceRewindv(n, memAddress(sources));
 	}

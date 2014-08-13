@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class WGLNVDXInterop {
 
-	/** Accepted by the {@code access} parameters of {@link #wglDXRegisterObjectNV} and {@link #wglDXObjectAccessNV}. */
+	/** Accepted by the {@code access} parameters of {@link #wglDXRegisterObjectNV DXRegisterObjectNV} and {@link #wglDXObjectAccessNV DXObjectAccessNV}. */
 	public static final int
 		WGL_ACCESS_READ_ONLY_NV     = 0x0,
 		WGL_ACCESS_READ_WRITE_NV    = 0x1,
@@ -143,7 +143,7 @@ public final class WGLNVDXInterop {
 	/**
 	 * Prepares a DirectX object for use by the GL and returns a handle to a GL/DirectX interop object.
 	 *
-	 * @param device     a GL/DirectX interop device handle, as returned by {@link #wglDXOpenDeviceNV}
+	 * @param device     a GL/DirectX interop device handle, as returned by {@link #wglDXOpenDeviceNV DXOpenDeviceNV}
 	 * @param dxResource a pointer to a DirectX resource to be registered with the GL
 	 * @param name       the GL object name to be assigned to the DirectX resource in the namespace of the objects identified by {@code type} in the current GL context
 	 * @param type       the GL object type that will map to the DirectX resource being shared

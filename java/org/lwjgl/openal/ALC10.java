@@ -500,11 +500,11 @@ public final class ALC10 {
 
 	// --- [ alcGetIntegerv ] ---
 
-	/** JNI method for {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	/** JNI method for {@link #alcGetInteger(long, int, int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static native void nalcGetIntegerv(long deviceHandle, int token, int size, long dest, long __functionAddress);
 
-	/** Unsafe version of {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	/** Unsafe version of {@link #alcGetInteger(long, int, int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
@@ -527,12 +527,12 @@ public final class ALC10 {
 		nalcGetIntegerv(deviceHandle, token, size, memAddress(dest));
 	}
 
-	/** Alternative version of: {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	/** Alternative version of: {@link #alcGetInteger(long, int, int, ByteBuffer) GetInteger} */
 	public static void alcGetInteger(long deviceHandle, int token, IntBuffer dest) {
 		nalcGetIntegerv(deviceHandle, token, dest.remaining(), memAddress(dest));
 	}
 
-	/** Single return value version of: {@link #alcGetInteger(long, int, int, ByteBuffer) alcGetInteger} */
+	/** Single return value version of: {@link #alcGetInteger(long, int, int, ByteBuffer) GetInteger} */
 	public static int alcGetInteger(long deviceHandle, int token) {
 		APIBuffer __buffer = apiBuffer();
 		int dest = __buffer.intParam();

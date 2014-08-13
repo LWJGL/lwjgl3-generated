@@ -409,7 +409,7 @@ public final class CL12 {
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code out_devices} is not {@code NULL} and {@code num_devices} is less than the number of sub-devices created by the
 	 *         partition scheme.</li>
 	 *         <li>{@link #CL_DEVICE_PARTITION_FAILED DEVICE_PARTITION_FAILED} if the partition name is supported by the implementation but {@code in_device} could not be further partitioned.</li>
-	 *         <li>{@link CL12#CL_INVALID_DEVICE_PARTITION_COUNT INVALID_DEVICE_PARTITION_COUNT} if the partition name specified in {@code properties} is {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS} and the
+	 *         <li>{@link #CL_INVALID_DEVICE_PARTITION_COUNT INVALID_DEVICE_PARTITION_COUNT} if the partition name specified in {@code properties} is {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS} and the
 	 *         number of sub-devices requested exceeds {@link #CL_DEVICE_PARTITION_MAX_SUB_DEVICES DEVICE_PARTITION_MAX_SUB_DEVICES} or the total number of compute units requested exceeds
 	 *         {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}, or the number of compute units requested for one or more sub-devices is less
 	 *         than zero or the number of sub-devices requested exceeds {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}.</li>
@@ -470,7 +470,7 @@ public final class CL12 {
 	 *                     For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
 	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.
 	 *                     <p/>
-	 *                     For {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
+	 *                     For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
 	 *                     values are not specified in {@code flags}, they are inherited from the corresponding memory access qualifers associated with buffer. The
 	 *                     {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in {@code flags}
 	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
@@ -671,7 +671,7 @@ public final class CL12 {
 	 *         {@code num_input_headers} is not zero and {@code header_include_names} or {@code input_headers} are {@code NULL}.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with program.</li>
-	 *         <li>{@link CL12#CL_INVALID_COMPILER_OPTIONS INVALID_COMPILER_OPTIONS} if the compiler options specified by options are invalid.</li>
+	 *         <li>{@link #CL_INVALID_COMPILER_OPTIONS INVALID_COMPILER_OPTIONS} if the compiler options specified by options are invalid.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if the compilation or build of a program executable for any of the devices listed in {@code device_list} by a
 	 *         previous call to {@code clCompileProgram} or {@link CL10#clBuildProgram BuildProgram} for program has not completed.</li>
 	 *         <li>{@link CL10#CL_COMPILER_NOT_AVAILABLE COMPILER_NOT_AVAILABLE} if a compiler is not available i.e. {@link CL10#CL_DEVICE_COMPILER_AVAILABLE DEVICE_COMPILER_AVAILABLE} is set to {@link CL10#CL_FALSE FALSE}.</li>
@@ -801,7 +801,7 @@ public final class CL12 {
 	 *         <li>{@link CL10#CL_INVALID_PROGRAM INVALID_PROGRAM} if programs specified in {@code input_programs} are not valid program objects.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_notify} is {@code NULL} but {@code user_data} is not {@code NULL}.</li>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if OpenCL devices listed in {@code device_list} are not in the list of devices associated with {@code context}.</li>
-	 *         <li>{@link CL12#CL_INVALID_LINKER_OPTIONS INVALID_LINKER_OPTIONS} if the linker options specified by {@code options} are invalid.</li>
+	 *         <li>{@link #CL_INVALID_LINKER_OPTIONS INVALID_LINKER_OPTIONS} if the linker options specified by {@code options} are invalid.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if the compilation or build of a program executable for any of the devices listed in {@code device_list} by a
 	 *         previous call to {@link #clCompileProgram CompileProgram} or {@link CL10#clBuildProgram BuildProgram} for program has not completed.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if the rules for devices containing compiled binaries or libraries as described in {@code input_programs} argument

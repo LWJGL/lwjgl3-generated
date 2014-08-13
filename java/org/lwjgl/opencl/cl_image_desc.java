@@ -28,10 +28,11 @@ public final class cl_image_desc {
 		IMAGE_SLICE_PITCH,
 		NUM_MIP_LEVELS,
 		NUM_SAMPLES,
-		BUFFER;
+		BUFFER,
+		MEM_OBJECT;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(10);
+		IntBuffer offsets = BufferUtils.createIntBuffer(11);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -45,6 +46,7 @@ public final class cl_image_desc {
 		NUM_MIP_LEVELS = offsets.get(7);
 		NUM_SAMPLES = offsets.get(8);
 		BUFFER = offsets.get(9);
+		MEM_OBJECT = offsets.get(10);
 	}
 
 	private cl_image_desc() {}
@@ -65,7 +67,8 @@ public final class cl_image_desc {
 		long image_slice_pitch,
 		int num_mip_levels,
 		int num_samples,
-		long buffer
+		long buffer,
+		long mem_object
 	) {
 		ByteBuffer cl_image_desc = malloc();
 
@@ -79,6 +82,7 @@ public final class cl_image_desc {
 		num_mip_levels(cl_image_desc, num_mip_levels);
 		num_samples(cl_image_desc, num_samples);
 		buffer(cl_image_desc, buffer);
+		mem_object(cl_image_desc, mem_object);
 
 		return cl_image_desc;
 	}
@@ -93,6 +97,7 @@ public final class cl_image_desc {
 	public static void num_mip_levels(ByteBuffer cl_image_desc, int num_mip_levels) { cl_image_desc.putInt(cl_image_desc.position() + NUM_MIP_LEVELS, num_mip_levels); }
 	public static void num_samples(ByteBuffer cl_image_desc, int num_samples) { cl_image_desc.putInt(cl_image_desc.position() + NUM_SAMPLES, num_samples); }
 	public static void buffer(ByteBuffer cl_image_desc, long buffer) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + BUFFER, buffer); }
+	public static void mem_object(ByteBuffer cl_image_desc, long mem_object) { PointerBuffer.put(cl_image_desc, cl_image_desc.position() + MEM_OBJECT, mem_object); }
 
 	public static int image_type(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + IMAGE_TYPE); }
 	public static long image_width(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + IMAGE_WIDTH); }
@@ -104,5 +109,6 @@ public final class cl_image_desc {
 	public static int num_mip_levels(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + NUM_MIP_LEVELS); }
 	public static int num_samples(ByteBuffer cl_image_desc) { return cl_image_desc.getInt(cl_image_desc.position() + NUM_SAMPLES); }
 	public static long buffer(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + BUFFER); }
+	public static long mem_object(ByteBuffer cl_image_desc) { return PointerBuffer.get(cl_image_desc, cl_image_desc.position() + MEM_OBJECT); }
 
 }

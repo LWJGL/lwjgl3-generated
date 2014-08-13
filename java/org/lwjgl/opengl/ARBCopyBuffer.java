@@ -15,7 +15,7 @@ public final class ARBCopyBuffer {
 
 	/**
 	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
-	 * FlushMappedBufferRange, GetBufferParameteriv, BindBufferRange, BindBufferBase, and CopyBufferSubData:
+	 * FlushMappedBufferRange, GetBufferParameteriv, BindBufferRange, BindBufferBase, and CopyBufferSubData.
 	 */
 	public static final int
 		GL_COPY_READ_BUFFER  = 0x8F36,

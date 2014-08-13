@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <time.h>. */
 public final class Time {
 
-	/** The IDs of the various system clocks (for POSIX.1b interval timers): */
+	/** The IDs of the various system clocks (for POSIX.1b interval timers). */
 	public static final int
 		CLOCK_REALTIME           = 0x0,
 		CLOCK_MONOTONIC          = 0x1,

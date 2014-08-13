@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.system.windows.*;
 
 /**
- * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV EnumGpuDevicesNV}
+ * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
  * function.
  */
 public final class GPU_DEVICE {

@@ -35,8 +35,8 @@ import org.lwjgl.opengl.GL31;
  * created, may be shared, with the exception of the default OpenGL objects (i.e. objects named zero), which may not be shared.
  * <h3>Lifetime of Shared Objects</h3>
  * An OpenCL memory object created from an OpenGL object (hereinafter refered to as a “shared CL/GL object”) remains valid as long as the corresponding GL
- * object has not been deleted. If the GL object is deleted through the GL API (e.g. {@link GL15#glDeleteBuffers DeleteBuffers}, {@link GL11#glDeleteTextures DeleteTextures}, or
- * {@link GL30#glDeleteRenderbuffers DeleteRenderbuffers}), subsequent use of the CL buffer or image object will result in undefined behavior, including but not limited to
+ * object has not been deleted. If the GL object is deleted through the GL API (e.g. {@link GL15#glDeleteBuffers}, {@link GL11#glDeleteTextures}, or
+ * {@link GL30#glDeleteRenderbuffers}), subsequent use of the CL buffer or image object will result in undefined behavior, including but not limited to
  * possible CL errors and data corruption, but may not result in program termination.
  * <p/>
  * The CL context and corresponding command-queues are dependent on the existence of the GL share group object, or the share group associated with the GL
@@ -137,14 +137,14 @@ public final class CL10GL {
 	 * Creates an OpenCL buffer object from an OpenGL buffer object.
 	 * <p/>
 	 * The size of the GL buffer object data store at the time {@code clCreateFromGLBuffer} is called will be used as the size of buffer object returned by
-	 * {@code clCreateFromGLBuffer}. If the state of a GL buffer object is modified through the GL API (e.g. {@link GL15#glBufferData BufferData}) while there exists a
+	 * {@code clCreateFromGLBuffer}. If the state of a GL buffer object is modified through the GL API (e.g. {@link GL15#glBufferData}) while there exists a
 	 * corresponding CL buffer object, subsequent use of the CL buffer object will result in undefined behavior.
 	 * <p/>
 	 * The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the buffer object.
 	 *
 	 * @param context     a valid OpenCL context created from an OpenGL context
 	 * @param flags       a bit-field that is used to specify usage information. One of:<p/>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
-	 * @param bufobj      the name of a GL buffer object. The data store of the GL buffer object must have have been previously created by calling {@link GL15#glBufferData BufferData},
+	 * @param bufobj      the name of a GL buffer object. The data store of the GL buffer object must have have been previously created by calling {@link GL15#glBufferData},
 	 *                    although its contents need not be initialized. The size of the data store will be used to determine the size of the CL buffer object.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
@@ -153,7 +153,7 @@ public final class CL10GL {
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code bufobj} is not a GL buffer object or is a GL buffer object but does not have an existing data store or the
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code bufobj} is not a GL buffer object or is a GL buffer object but does not have an existing data store or the
 	 *         size of the buffer is 0.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
@@ -192,15 +192,15 @@ public final class CL10GL {
 	/**
 	 * Creates an OpenCL 2D image object from an OpenGL 2D texture object, or a single face of an OpenGL cubemap texture object.
 	 * <p/>
-	 * If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D TexImage2D} or the values of the texture parameters
-	 * {@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
+	 * If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D} or the values of the texture parameters
+	 * {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
 	 * of the CL image object will result in undefined behavior.
 	 * <p/>
 	 * The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<p/>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<p/>{@link GL11#GL_TEXTURE_2D GL_TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X GL_TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y GL_TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z GL_TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X GL_TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL31#GL_TEXTURE_RECTANGLE GL_TEXTURE_RECTANGLE}
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<p/>{@link GL11#GL_TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL31#GL_TEXTURE_RECTANGLE}
 	 * @param miplevel       the mipmap level to be used. Implementations may return {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} for {@code miplevel} values &gt; 0.
 	 * @param texture        the name of a GL 2D, cubemap or rectangle texture object. The texture object must be a complete texture as per OpenGL rules on texture completeness.
 	 *                       The texture format and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be used to create the 2D image object.
@@ -214,11 +214,11 @@ public final class CL10GL {
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid or if value specified in {@code texture_target} is not one of the
 	 *         values specified in the description of {@code texture_target}.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is less than the value of {@code level}<sub>base</sub> (for OpenGL implementations) or zero (for
+	 *         <li>{@link #CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is less than the value of {@code level}<sub>base</sub> (for OpenGL implementations) or zero (for
 	 *         OpenGL ES implementations); or greater than the value of {@code q} (for both OpenGL and OpenGL ES).</li>
-	 *         <li>{@link CL10GL#CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is greather than zero and the OpenGL implementation does not support creating from non-zero mipmap
+	 *         <li>{@link #CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is greather than zero and the OpenGL implementation does not support creating from non-zero mipmap
 	 *         levels.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code texture} is not a GL texture object whose type matches {@code texture_target}, if the specified {@code miplevel}
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code texture} is not a GL texture object whose type matches {@code texture_target}, if the specified {@code miplevel}
 	 *         of texture is not defined, or if the width or height of the specified {@code miplevel} is zero.</li>
 	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if the OpenGL texture internal format does not map to a supported OpenCL image format.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code texture} is a GL texture object created with a border width value greater than zero.</li>
@@ -259,15 +259,15 @@ public final class CL10GL {
 	/**
 	 * Creates an OpenCL 3D image object from an OpenGL 3D texture object.
 	 * <p/>
-	 * If the state of a GL texture object is modified through the GL API (e.g. {@link GL12#glTexImage3D TexImage3D} or the values of the texture parameters
-	 * {@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
+	 * If the state of a GL texture object is modified through the GL API (e.g. {@link GL12#glTexImage3D} or the values of the texture parameters
+	 * {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image object, subsequent use
 	 * of the CL image object will result in undefined behavior.
 	 * <p/>
 	 * The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<p/>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<p/>{@link GL12#GL_TEXTURE_3D GL_TEXTURE_3D}
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<p/>{@link GL12#CL_GL_TEXTURE_3D GL_TEXTURE_3D}
 	 * @param miplevel       the mipmap level to be used
 	 * @param texture        the name of a GL 3D texture object. The texture object must be a complete texture as per OpenGL rules on texture completeness. The texture format
 	 *                       and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be used to create the 3D image object. Only GL texture
@@ -280,11 +280,11 @@ public final class CL10GL {
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid or if value specified in {@code texture_target} is not one of the
 	 *         values specified in the description of {@code texture_target}.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is less than the value of {@code level}<sub>base</sub> (for OpenGL implementations) or zero (for
+	 *         <li>{@link #CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is less than the value of {@code level}<sub>base</sub> (for OpenGL implementations) or zero (for
 	 *         OpenGL ES implementations); or greater than the value of {@code q} (for both OpenGL and OpenGL ES).</li>
-	 *         <li>{@link CL10GL#CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is greather than zero and the OpenGL implementation does not support creating from non-zero mipmap
+	 *         <li>{@link #CL_INVALID_MIP_LEVEL INVALID_MIP_LEVEL} if {@code miplevel} is greather than zero and the OpenGL implementation does not support creating from non-zero mipmap
 	 *         levels.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code texture} is not a GL texture object whose type matches {@code texture_target}, if the specified {@code miplevel}
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code texture} is not a GL texture object whose type matches {@code texture_target}, if the specified {@code miplevel}
 	 *         of texture is not defined, or if the width or height of the specified {@code miplevel} is zero.</li>
 	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if the OpenGL texture internal format does not map to a supported OpenCL image format.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code texture} is a GL texture object created with a border width value greater than zero.</li>
@@ -326,7 +326,7 @@ public final class CL10GL {
 	 * Creates an OpenCL 2D image object from an OpenGL renderbuffer object.
 	 * <p/>
 	 * If the state of a GL renderbuffer object is modified through the GL API (i.e. changes to the dimensions or format used to represent pixels of the GL
-	 * renderbuffer using appropriate GL API calls such as {@link GL30#glRenderbufferStorage RenderbufferStorage}) while there exists a corresponding CL image object, subsequent
+	 * renderbuffer using appropriate GL API calls such as {@link GL30#glRenderbufferStorage}) while there exists a corresponding CL image object, subsequent
 	 * use of the CL image object will result in undefined behavior.
 	 * <p/>
 	 * The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.
@@ -343,7 +343,7 @@ public final class CL10GL {
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code renderbuffer} is not a GL renderbuffer object or if the width or height of {@code renderbuffer} is zero.</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if {@code renderbuffer} is not a GL renderbuffer object or if the width or height of {@code renderbuffer} is zero.</li>
 	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if the OpenGL renderbuffer internal format does not map to a supported OpenCL image format.</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code renderbuffer} is a multi-sample GL renderbuffer object.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -391,7 +391,7 @@ public final class CL10GL {
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the call was executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid OpenCL memory object.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL object associated with {@code memobj}.</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL object associated with {@code memobj}.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
@@ -434,7 +434,7 @@ public final class CL10GL {
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid OpenCL memory object.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL texture object associated with {@code memobj}.</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL texture object associated with {@code memobj}.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return
 	 *         type and {@code param_value} is not {@code NULL}, or if {@code param_value} and {@code param_value_size_ret} are {@code NULL}.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -486,11 +486,11 @@ public final class CL10GL {
 	 * command-queues associated with the OpenCL context.
 	 * <p/>
 	 * Prior to calling {@code clEnqueueAcquireGLObjects}, the application must ensure that any pending GL operations which access the objects specified in
-	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@link GL11#glFinish Finish} command on all GL
+	 * {@code mem_objects} have completed. This may be accomplished portably by issuing and waiting for completion of a {@link GL11#glFinish} command on all GL
 	 * contexts with pending references to these objects. Implementations may offer more efficient synchronization methods; for example on some platforms
-	 * calling {@link GL11#glFlush Flush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
+	 * calling {@link GL11#glFlush} may be sufficient, or synchronization may be implicit within a thread, or there may be vendor-specific extensions that
 	 * enable placing a fence in the GL command stream and waiting for completion of that fence in the CL command queue. Note that no synchronization methods
-	 * other than {@link GL11#glFinish Finish} are portable between OpenGL implementations at this time.
+	 * other than {@link GL11#glFinish} are portable between OpenGL implementations at this time.
 	 *
 	 * @param command_queue           a valid command-queue. All devices used to create the OpenCL context associated with {@code command_queue} must support acquiring shared CL/GL
 	 *                                objects. This constraint is enforced at context creation time.
@@ -513,7 +513,7 @@ public final class CL10GL {
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if memory objects in {@code mem_objects} are not valid OpenCL memory objects.</li>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} was not created from an OpenGL context.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if memory objects in {@code mem_objects} have not been created from a GL object(s).</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if memory objects in {@code mem_objects} have not been created from a GL object(s).</li>
 	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -591,7 +591,7 @@ public final class CL10GL {
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if memory objects in {@code mem_objects} are not valid OpenCL memory objects.</li>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} was not created from an OpenGL context.</li>
-	 *         <li>{@link CL10GL#CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if memory objects in {@code mem_objects} have not been created from a GL object(s).</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if memory objects in {@code mem_objects} have not been created from a GL object(s).</li>
 	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
 	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>

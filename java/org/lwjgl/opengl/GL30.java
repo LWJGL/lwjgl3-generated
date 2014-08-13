@@ -881,11 +881,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1iv ] ---
 
-	/** JNI method for {@link #glVertexAttribI1i(int, ByteBuffer) glVertexAttribI1i} */
+	/** JNI method for {@link #glVertexAttribI1i(int, ByteBuffer) VertexAttribI1i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI1iv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI1i(int, ByteBuffer) glVertexAttribI1i} */
+	/** Unsafe version of {@link #glVertexAttribI1i(int, ByteBuffer) VertexAttribI1i} */
 	@JavadocExclude
 	public static void nglVertexAttribI1iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1iv;
@@ -908,7 +908,7 @@ public final class GL30 {
 		nglVertexAttribI1iv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI1i(int, ByteBuffer) glVertexAttribI1i} */
+	/** Alternative version of: {@link #glVertexAttribI1i(int, ByteBuffer) VertexAttribI1i} */
 	public static void glVertexAttribI1(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -917,11 +917,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2iv ] ---
 
-	/** JNI method for {@link #glVertexAttribI2i(int, ByteBuffer) glVertexAttribI2i} */
+	/** JNI method for {@link #glVertexAttribI2i(int, ByteBuffer) VertexAttribI2i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI2iv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI2i(int, ByteBuffer) glVertexAttribI2i} */
+	/** Unsafe version of {@link #glVertexAttribI2i(int, ByteBuffer) VertexAttribI2i} */
 	@JavadocExclude
 	public static void nglVertexAttribI2iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2iv;
@@ -944,7 +944,7 @@ public final class GL30 {
 		nglVertexAttribI2iv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI2i(int, ByteBuffer) glVertexAttribI2i} */
+	/** Alternative version of: {@link #glVertexAttribI2i(int, ByteBuffer) VertexAttribI2i} */
 	public static void glVertexAttribI2(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -953,11 +953,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3iv ] ---
 
-	/** JNI method for {@link #glVertexAttribI3i(int, ByteBuffer) glVertexAttribI3i} */
+	/** JNI method for {@link #glVertexAttribI3i(int, ByteBuffer) VertexAttribI3i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI3iv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI3i(int, ByteBuffer) glVertexAttribI3i} */
+	/** Unsafe version of {@link #glVertexAttribI3i(int, ByteBuffer) VertexAttribI3i} */
 	@JavadocExclude
 	public static void nglVertexAttribI3iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3iv;
@@ -980,7 +980,7 @@ public final class GL30 {
 		nglVertexAttribI3iv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI3i(int, ByteBuffer) glVertexAttribI3i} */
+	/** Alternative version of: {@link #glVertexAttribI3i(int, ByteBuffer) VertexAttribI3i} */
 	public static void glVertexAttribI3(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -989,11 +989,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4iv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i} */
+	/** JNI method for {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4iv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i} */
+	/** Unsafe version of {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i} */
 	@JavadocExclude
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4iv;
@@ -1016,7 +1016,7 @@ public final class GL30 {
 		nglVertexAttribI4iv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i} */
+	/** Alternative version of: {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i} */
 	public static void glVertexAttribI4(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1025,11 +1025,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI1uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribI1ui(int, ByteBuffer) glVertexAttribI1ui} */
+	/** JNI method for {@link #glVertexAttribI1ui(int, ByteBuffer) VertexAttribI1ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI1uiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI1ui(int, ByteBuffer) glVertexAttribI1ui} */
+	/** Unsafe version of {@link #glVertexAttribI1ui(int, ByteBuffer) VertexAttribI1ui} */
 	@JavadocExclude
 	public static void nglVertexAttribI1uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1uiv;
@@ -1052,7 +1052,7 @@ public final class GL30 {
 		nglVertexAttribI1uiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI1ui(int, ByteBuffer) glVertexAttribI1ui} */
+	/** Alternative version of: {@link #glVertexAttribI1ui(int, ByteBuffer) VertexAttribI1ui} */
 	public static void glVertexAttribI1u(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -1061,11 +1061,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI2uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribI2ui(int, ByteBuffer) glVertexAttribI2ui} */
+	/** JNI method for {@link #glVertexAttribI2ui(int, ByteBuffer) VertexAttribI2ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI2uiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI2ui(int, ByteBuffer) glVertexAttribI2ui} */
+	/** Unsafe version of {@link #glVertexAttribI2ui(int, ByteBuffer) VertexAttribI2ui} */
 	@JavadocExclude
 	public static void nglVertexAttribI2uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2uiv;
@@ -1088,7 +1088,7 @@ public final class GL30 {
 		nglVertexAttribI2uiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI2ui(int, ByteBuffer) glVertexAttribI2ui} */
+	/** Alternative version of: {@link #glVertexAttribI2ui(int, ByteBuffer) VertexAttribI2ui} */
 	public static void glVertexAttribI2u(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -1097,11 +1097,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI3uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribI3ui(int, ByteBuffer) glVertexAttribI3ui} */
+	/** JNI method for {@link #glVertexAttribI3ui(int, ByteBuffer) VertexAttribI3ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI3uiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI3ui(int, ByteBuffer) glVertexAttribI3ui} */
+	/** Unsafe version of {@link #glVertexAttribI3ui(int, ByteBuffer) VertexAttribI3ui} */
 	@JavadocExclude
 	public static void nglVertexAttribI3uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3uiv;
@@ -1124,7 +1124,7 @@ public final class GL30 {
 		nglVertexAttribI3uiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI3ui(int, ByteBuffer) glVertexAttribI3ui} */
+	/** Alternative version of: {@link #glVertexAttribI3ui(int, ByteBuffer) VertexAttribI3ui} */
 	public static void glVertexAttribI3u(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1133,11 +1133,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui} */
+	/** JNI method for {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4uiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui} */
+	/** Unsafe version of {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui} */
 	@JavadocExclude
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uiv;
@@ -1160,7 +1160,7 @@ public final class GL30 {
 		nglVertexAttribI4uiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui} */
+	/** Alternative version of: {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui} */
 	public static void glVertexAttribI4u(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1169,11 +1169,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4bv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4b(int, ByteBuffer) glVertexAttribI4b} */
+	/** JNI method for {@link #glVertexAttribI4b(int, ByteBuffer) VertexAttribI4b} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4bv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4b(int, ByteBuffer) glVertexAttribI4b} */
+	/** Unsafe version of {@link #glVertexAttribI4b(int, ByteBuffer) VertexAttribI4b} */
 	@JavadocExclude
 	public static void nglVertexAttribI4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4bv;
@@ -1185,7 +1185,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4b.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Byte version of {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i}.
+	 * Byte version of {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1198,11 +1198,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4sv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4s(int, ByteBuffer) glVertexAttribI4s} */
+	/** JNI method for {@link #glVertexAttribI4s(int, ByteBuffer) VertexAttribI4s} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4sv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4s(int, ByteBuffer) glVertexAttribI4s} */
+	/** Unsafe version of {@link #glVertexAttribI4s(int, ByteBuffer) VertexAttribI4s} */
 	@JavadocExclude
 	public static void nglVertexAttribI4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4sv;
@@ -1214,7 +1214,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttribI4i(int, ByteBuffer) glVertexAttribI4i}.
+	 * Short version of {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1225,7 +1225,7 @@ public final class GL30 {
 		nglVertexAttribI4sv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI4s(int, ByteBuffer) glVertexAttribI4s} */
+	/** Alternative version of: {@link #glVertexAttribI4s(int, ByteBuffer) VertexAttribI4s} */
 	public static void glVertexAttribI4(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1234,11 +1234,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4ubv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ub(int, ByteBuffer) glVertexAttribI4ub} */
+	/** JNI method for {@link #glVertexAttribI4ub(int, ByteBuffer) VertexAttribI4ub} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4ubv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4ub(int, ByteBuffer) glVertexAttribI4ub} */
+	/** Unsafe version of {@link #glVertexAttribI4ub(int, ByteBuffer) VertexAttribI4ub} */
 	@JavadocExclude
 	public static void nglVertexAttribI4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ubv;
@@ -1250,7 +1250,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ub.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Byte version of {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui}.
+	 * Byte version of {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1263,11 +1263,11 @@ public final class GL30 {
 
 	// --- [ glVertexAttribI4usv ] ---
 
-	/** JNI method for {@link #glVertexAttribI4us(int, ByteBuffer) glVertexAttribI4us} */
+	/** JNI method for {@link #glVertexAttribI4us(int, ByteBuffer) VertexAttribI4us} */
 	@JavadocExclude
 	public static native void nglVertexAttribI4usv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribI4us(int, ByteBuffer) glVertexAttribI4us} */
+	/** Unsafe version of {@link #glVertexAttribI4us(int, ByteBuffer) VertexAttribI4us} */
 	@JavadocExclude
 	public static void nglVertexAttribI4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4usv;
@@ -1279,7 +1279,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Short version of {@link #glVertexAttribI4ui(int, ByteBuffer) glVertexAttribI4ui}.
+	 * Short version of {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1290,7 +1290,7 @@ public final class GL30 {
 		nglVertexAttribI4usv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribI4us(int, ByteBuffer) glVertexAttribI4us} */
+	/** Alternative version of: {@link #glVertexAttribI4us(int, ByteBuffer) VertexAttribI4us} */
 	public static void glVertexAttribI4u(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1318,12 +1318,12 @@ public final class GL30 {
 	 * Specifies the location and organization of a pure integer vertex attribute array.
 	 *
 	 * @param index   the index of the pure integer generic vertex attribute to be modified
-	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. Must be:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
 	 * @param type    the data type of each component in the array. One of:<p/>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
 	 *                the array. The initial value is 0.
 	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                currently bound to the GL15#ARRAY_BUFFER target. The initial value is 0.
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -1354,11 +1354,11 @@ public final class GL30 {
 
 	// --- [ glGetVertexAttribIiv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
+	/** JNI method for {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribIiv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
+	/** Unsafe version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi} */
 	@JavadocExclude
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIiv;
@@ -1382,14 +1382,14 @@ public final class GL30 {
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
+	/** Alternative version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi} */
 	public static void glGetVertexAttribI(int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi} */
+	/** Single return value version of: {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi} */
 	public static int glGetVertexAttribIi(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1399,11 +1399,11 @@ public final class GL30 {
 
 	// --- [ glGetVertexAttribIuiv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
+	/** JNI method for {@link #glGetVertexAttribIui(int, int, ByteBuffer) GetVertexAttribIui} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribIuiv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
+	/** Unsafe version of {@link #glGetVertexAttribIui(int, int, ByteBuffer) GetVertexAttribIui} */
 	@JavadocExclude
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuiv;
@@ -1415,7 +1415,7 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Unsigned version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) glGetVertexAttribIi}.
+	 * Unsigned version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi}.
 	 *
 	 * @param index  the index of the pure integer generic vertex attribute to be modified
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<p/>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
@@ -1427,14 +1427,14 @@ public final class GL30 {
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
+	/** Alternative version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) GetVertexAttribIui} */
 	public static void glGetVertexAttribIu(int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) glGetVertexAttribIui} */
+	/** Single return value version of: {@link #glGetVertexAttribIui(int, int, ByteBuffer) GetVertexAttribIui} */
 	public static int glGetVertexAttribIui(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1534,11 +1534,11 @@ public final class GL30 {
 
 	// --- [ glUniform1uiv ] ---
 
-	/** JNI method for {@link #glUniform1ui(int, int, ByteBuffer) glUniform1ui} */
+	/** JNI method for {@link #glUniform1ui(int, int, ByteBuffer) Uniform1ui} */
 	@JavadocExclude
 	public static native void nglUniform1uiv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1ui(int, int, ByteBuffer) glUniform1ui} */
+	/** Unsafe version of {@link #glUniform1ui(int, int, ByteBuffer) Uniform1ui} */
 	@JavadocExclude
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uiv;
@@ -1562,18 +1562,18 @@ public final class GL30 {
 		nglUniform1uiv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1ui(int, int, ByteBuffer) glUniform1ui} */
+	/** Alternative version of: {@link #glUniform1ui(int, int, ByteBuffer) Uniform1ui} */
 	public static void glUniform1u(int location, IntBuffer value) {
 		nglUniform1uiv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2uiv ] ---
 
-	/** JNI method for {@link #glUniform2ui(int, int, ByteBuffer) glUniform2ui} */
+	/** JNI method for {@link #glUniform2ui(int, int, ByteBuffer) Uniform2ui} */
 	@JavadocExclude
 	public static native void nglUniform2uiv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2ui(int, int, ByteBuffer) glUniform2ui} */
+	/** Unsafe version of {@link #glUniform2ui(int, int, ByteBuffer) Uniform2ui} */
 	@JavadocExclude
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uiv;
@@ -1597,18 +1597,18 @@ public final class GL30 {
 		nglUniform2uiv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2ui(int, int, ByteBuffer) glUniform2ui} */
+	/** Alternative version of: {@link #glUniform2ui(int, int, ByteBuffer) Uniform2ui} */
 	public static void glUniform2u(int location, IntBuffer value) {
 		nglUniform2uiv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3uiv ] ---
 
-	/** JNI method for {@link #glUniform3ui(int, int, ByteBuffer) glUniform3ui} */
+	/** JNI method for {@link #glUniform3ui(int, int, ByteBuffer) Uniform3ui} */
 	@JavadocExclude
 	public static native void nglUniform3uiv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3ui(int, int, ByteBuffer) glUniform3ui} */
+	/** Unsafe version of {@link #glUniform3ui(int, int, ByteBuffer) Uniform3ui} */
 	@JavadocExclude
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uiv;
@@ -1632,18 +1632,18 @@ public final class GL30 {
 		nglUniform3uiv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3ui(int, int, ByteBuffer) glUniform3ui} */
+	/** Alternative version of: {@link #glUniform3ui(int, int, ByteBuffer) Uniform3ui} */
 	public static void glUniform3u(int location, IntBuffer value) {
 		nglUniform3uiv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4uiv ] ---
 
-	/** JNI method for {@link #glUniform4ui(int, int, ByteBuffer) glUniform4ui} */
+	/** JNI method for {@link #glUniform4ui(int, int, ByteBuffer) Uniform4ui} */
 	@JavadocExclude
 	public static native void nglUniform4uiv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4ui(int, int, ByteBuffer) glUniform4ui} */
+	/** Unsafe version of {@link #glUniform4ui(int, int, ByteBuffer) Uniform4ui} */
 	@JavadocExclude
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uiv;
@@ -1667,18 +1667,18 @@ public final class GL30 {
 		nglUniform4uiv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4ui(int, int, ByteBuffer) glUniform4ui} */
+	/** Alternative version of: {@link #glUniform4ui(int, int, ByteBuffer) Uniform4ui} */
 	public static void glUniform4u(int location, IntBuffer value) {
 		nglUniform4uiv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glGetUniformuiv ] ---
 
-	/** JNI method for {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
+	/** JNI method for {@link #glGetUniformui(int, int, ByteBuffer) GetUniformui} */
 	@JavadocExclude
 	public static native void nglGetUniformuiv(int program, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
+	/** Unsafe version of {@link #glGetUniformui(int, int, ByteBuffer) GetUniformui} */
 	@JavadocExclude
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuiv;
@@ -1702,14 +1702,14 @@ public final class GL30 {
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
+	/** Alternative version of: {@link #glGetUniformui(int, int, ByteBuffer) GetUniformui} */
 	public static void glGetUniformu(int program, int location, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformui(int, int, ByteBuffer) glGetUniformui} */
+	/** Single return value version of: {@link #glGetUniformui(int, int, ByteBuffer) GetUniformui} */
 	public static int glGetUniformui(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1800,7 +1800,7 @@ public final class GL30 {
 	 * Starts conditional rendering.
 	 *
 	 * @param id   the name of an occlusion query object whose results are used to determine if the rendering commands are discarded
-	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<p/>{@link #GL_QUERY_WAIT QUERY_WAIT}, {@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}, {@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}, {@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}
+	 * @param mode how {@code glBeginConditionalRender} interprets the results of the occlusion query. One of:<p/>{@link #GL_QUERY_WAIT QUERY_WAIT}, {@link #GL_QUERY_NO_WAIT QUERY_NO_WAIT}, {@link #GL_QUERY_BY_REGION_WAIT QUERY_BY_REGION_WAIT}, {@link #GL_QUERY_BY_REGION_NO_WAIT QUERY_BY_REGION_NO_WAIT}, {@link GL45#GL_QUERY_WAIT_INVERTED QUERY_WAIT_INVERTED}, {@link GL45#GL_QUERY_NO_WAIT_INVERTED QUERY_NO_WAIT_INVERTED}, {@link GL45#GL_QUERY_BY_REGION_WAIT_INVERTED QUERY_BY_REGION_WAIT_INVERTED}, {@link GL45#GL_QUERY_BY_REGION_NO_WAIT_INVERTED QUERY_BY_REGION_NO_WAIT_INVERTED}
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRender;
@@ -1853,7 +1853,7 @@ public final class GL30 {
 	 * <li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if the given length and returned pointer match the buffer capacity and address, respectively.</li>
 	 * </ol>
 	 *
-	 * @param target a binding to which the target buffer is bound. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target a binding to which the target buffer is bound. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param offset the starting offset within the buffer of the range to be mapped
 	 * @param length the length of the range to be mapped
 	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<p/>{@link #GL_MAP_READ_BIT MAP_READ_BIT}, {@link #GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link #GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link #GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link #GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
@@ -1880,7 +1880,7 @@ public final class GL30 {
 	 * <p/>
 	 * Indicates modifications to a range of a mapped buffer.
 	 *
-	 * @param target the target of the flush operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target of the flush operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param offset the start of the buffer subrange, in basic machine units
 	 * @param length the length of the buffer subrange, in basic machine units
 	 */
@@ -2087,11 +2087,11 @@ public final class GL30 {
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
+	/** JNI method for {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	@JavadocExclude
 	public static native void nglGetRenderbufferParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
+	/** Unsafe version of {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
@@ -2115,14 +2115,14 @@ public final class GL30 {
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
+	/** Alternative version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	public static void glGetRenderbufferParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) glGetRenderbufferParameteri} */
+	/** Single return value version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2396,11 +2396,11 @@ public final class GL30 {
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	/** JNI method for {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
+	/** JNI method for {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	@JavadocExclude
 	public static native void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
+	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
@@ -2425,14 +2425,14 @@ public final class GL30 {
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
+	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	public static void glGetFramebufferAttachmentParameter(int target, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) glGetFramebufferAttachmentParameteri} */
+	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2491,11 +2491,11 @@ public final class GL30 {
 
 	// --- [ glTexParameterIiv ] ---
 
-	/** JNI method for {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
+	/** JNI method for {@link #glTexParameterIi(int, int, ByteBuffer) TexParameterIi} */
 	@JavadocExclude
 	public static native void nglTexParameterIiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
+	/** Unsafe version of {@link #glTexParameterIi(int, int, ByteBuffer) TexParameterIi} */
 	@JavadocExclude
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIiv;
@@ -2519,14 +2519,14 @@ public final class GL30 {
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
+	/** Alternative version of: {@link #glTexParameterIi(int, int, ByteBuffer) TexParameterIi} */
 	public static void glTexParameterI(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIi(int, int, ByteBuffer) glTexParameterIi} */
+	/** Single value version of: {@link #glTexParameterIi(int, int, ByteBuffer) TexParameterIi} */
 	public static void glTexParameterIi(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -2535,11 +2535,11 @@ public final class GL30 {
 
 	// --- [ glTexParameterIuiv ] ---
 
-	/** JNI method for {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
+	/** JNI method for {@link #glTexParameterIui(int, int, ByteBuffer) TexParameterIui} */
 	@JavadocExclude
 	public static native void nglTexParameterIuiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
+	/** Unsafe version of {@link #glTexParameterIui(int, int, ByteBuffer) TexParameterIui} */
 	@JavadocExclude
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuiv;
@@ -2563,14 +2563,14 @@ public final class GL30 {
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
+	/** Alternative version of: {@link #glTexParameterIui(int, int, ByteBuffer) TexParameterIui} */
 	public static void glTexParameterIu(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIui(int, int, ByteBuffer) glTexParameterIui} */
+	/** Single value version of: {@link #glTexParameterIui(int, int, ByteBuffer) TexParameterIui} */
 	public static void glTexParameterIui(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -2579,11 +2579,11 @@ public final class GL30 {
 
 	// --- [ glGetTexParameterIiv ] ---
 
-	/** JNI method for {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
+	/** JNI method for {@link #glGetTexParameterIi(int, int, ByteBuffer) GetTexParameterIi} */
 	@JavadocExclude
 	public static native void nglGetTexParameterIiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
+	/** Unsafe version of {@link #glGetTexParameterIi(int, int, ByteBuffer) GetTexParameterIi} */
 	@JavadocExclude
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIiv;
@@ -2607,14 +2607,14 @@ public final class GL30 {
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
+	/** Alternative version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) GetTexParameterIi} */
 	public static void glGetTexParameterI(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) glGetTexParameterIi} */
+	/** Single return value version of: {@link #glGetTexParameterIi(int, int, ByteBuffer) GetTexParameterIi} */
 	public static int glGetTexParameterIi(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2624,11 +2624,11 @@ public final class GL30 {
 
 	// --- [ glGetTexParameterIuiv ] ---
 
-	/** JNI method for {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
+	/** JNI method for {@link #glGetTexParameterIui(int, int, ByteBuffer) GetTexParameterIui} */
 	@JavadocExclude
 	public static native void nglGetTexParameterIuiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
+	/** Unsafe version of {@link #glGetTexParameterIui(int, int, ByteBuffer) GetTexParameterIui} */
 	@JavadocExclude
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuiv;
@@ -2652,14 +2652,14 @@ public final class GL30 {
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
+	/** Alternative version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) GetTexParameterIui} */
 	public static void glGetTexParameterIu(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) glGetTexParameterIui} */
+	/** Single return value version of: {@link #glGetTexParameterIui(int, int, ByteBuffer) GetTexParameterIui} */
 	public static int glGetTexParameterIui(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2693,11 +2693,11 @@ public final class GL30 {
 
 	// --- [ glGetBooleani_v ] ---
 
-	/** JNI method for {@link #glGetBooleani(int, int, ByteBuffer) glGetBooleani} */
+	/** JNI method for {@link #glGetBooleani(int, int, ByteBuffer) GetBooleani} */
 	@JavadocExclude
 	public static native void nglGetBooleani_v(int target, int index, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBooleani(int, int, ByteBuffer) glGetBooleani} */
+	/** Unsafe version of {@link #glGetBooleani(int, int, ByteBuffer) GetBooleani} */
 	@JavadocExclude
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleani_v;
@@ -2721,7 +2721,7 @@ public final class GL30 {
 		nglGetBooleani_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetBooleani(int, int, ByteBuffer) glGetBooleani} */
+	/** Single return value version of: {@link #glGetBooleani(int, int, ByteBuffer) GetBooleani} */
 	public static boolean glGetBooleani(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.booleanParam();
@@ -2731,11 +2731,11 @@ public final class GL30 {
 
 	// --- [ glGetIntegeri_v ] ---
 
-	/** JNI method for {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
+	/** JNI method for {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	@JavadocExclude
 	public static native void nglGetIntegeri_v(int target, int index, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
+	/** Unsafe version of {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
@@ -2759,14 +2759,14 @@ public final class GL30 {
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
+	/** Alternative version of: {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	public static void glGetInteger(int target, int index, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetIntegeri(int, int, ByteBuffer) glGetIntegeri} */
+	/** Single return value version of: {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	public static int glGetIntegeri(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();

@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <dlfcn.h>. */
 public final class DynamicLinkLoader {
 
-	/** The {@code mode} argument to {@link #dlopen} contains one of the following: */
+	/** The {@code mode} argument to {@link #dlopen} contains one of the following. */
 	public static final int
 		RTLD_LAZY         = 0x1,
 		RTLD_NOW          = 0x2,
@@ -55,7 +55,7 @@ public final class DynamicLinkLoader {
 	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
 	 *
 	 * @param filename the name of the dynamic library to open, or {@code NULL}
-	 * @param mode     a bitfield. One or more of:<p/>{@link #RTLD_LAZY RTLD_LAZY}, {@link #RTLD_NOW RTLD_NOW}, {@link #RTLD_BINDING_MASK RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD RTLD_NOLOAD}, {@link #RTLD_DEEPBIND RTLD_DEEPBIND}, {@link #RTLD_GLOBAL RTLD_GLOBAL}, {@link #RTLD_LOCAL RTLD_LOCAL}, {@link #RTLD_NODELETE RTLD_NODELETE}
+	 * @param mode     a bitfield. One or more of:<p/>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
 	 */
 	public static long dlopen(ByteBuffer filename, int mode) {
 		if ( LWJGLUtil.CHECKS )

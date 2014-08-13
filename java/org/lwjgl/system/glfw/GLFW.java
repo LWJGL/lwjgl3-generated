@@ -1212,7 +1212,7 @@ public final class GLFW {
 	public static native long nglfwSetWindowPosCallback(long window, long cbfun);
 
 	/**
-	 * Sets the position callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the position callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1230,7 +1230,7 @@ public final class GLFW {
 	public static native long nglfwSetWindowSizeCallback(long window, long cbfun);
 
 	/**
-	 * Sets the size callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the size callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1249,7 +1249,7 @@ public final class GLFW {
 
 	/**
 	 * Sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in
-	 * the title bar. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * the title bar. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose SetWindowShouldClose}.
 	 * <p/>
@@ -1273,7 +1273,7 @@ public final class GLFW {
 	public static native long nglfwSetWindowRefreshCallback(long window, long cbfun);
 
 	/**
-	 * Sets the refresh callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the refresh callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * This callback is called when the client area of the window needs to be redrawn, for example if the window has been exposed after having been covered by
 	 * another window.
@@ -1297,7 +1297,7 @@ public final class GLFW {
 	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
-	 * Sets the focus callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the focus callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * This callback is called when the window gains or loses focus.
 	 *
@@ -1317,7 +1317,7 @@ public final class GLFW {
 	public static native long nglfwSetWindowIconifyCallback(long window, long cbfun);
 
 	/**
-	 * Sets the iconify callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the iconify callback for the specified window. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * This callback is called when the window is iconified or restored.
 	 *
@@ -1339,7 +1339,7 @@ public final class GLFW {
 	/**
 	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
 	 * <p/>
-	 * See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}
+	 * See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1434,11 +1434,11 @@ public final class GLFW {
 	 * <li>{@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} disables the cursor and removes any limitations on cursor movement.</li>
 	 * </ul>
 	 * <p/>
-	 * If mode is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE TRUE} to enable sticky keys, or {@link GL11#GL_FALSE FALSE} to disable it. If
+	 * If mode is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE} to enable sticky keys, or {@link GL11#GL_FALSE} to disable it. If
 	 * sticky keys are enabled, a key press will ensure that {@link #glfwGetKey GetKey} returns {@link #GLFW_PRESS PRESS} the next time it is called even if the key had
 	 * been released before the call.
 	 * <p/>
-	 * If mode is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE FALSE} to
+	 * If mode is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE} to
 	 * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton GetMouseButton} returns {@link #GLFW_PRESS PRESS} the next
 	 * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
 	 * been pressed but not when or in which order.
@@ -1570,7 +1570,7 @@ public final class GLFW {
 	public static native long nglfwSetKeyCallback(long window, long cbfun);
 
 	/**
-	 * Sets the key callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the key callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * The key callback deals with physical keys, with key tokens named after their use on the standard US keyboard layout. If you want to input text, use the
 	 * Unicode character callback instead.
@@ -1601,7 +1601,7 @@ public final class GLFW {
 	public static native long nglfwSetCharCallback(long window, long cbfun);
 
 	/**
-	 * Sets the Unicode character callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the Unicode character callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * The Unicode character callback is for text input. If you want to know whether a specific key was pressed or released, use the key callback.
 	 *
@@ -1621,7 +1621,7 @@ public final class GLFW {
 	public static native long nglfwSetMouseButtonCallback(long window, long cbfun);
 
 	/**
-	 * Sets the mouse button callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the mouse button callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1639,7 +1639,7 @@ public final class GLFW {
 	public static native long nglfwSetCursorPosCallback(long window, long cbfun);
 
 	/**
-	 * Sets the cursor position callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the cursor position callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * The position is relative to the upper-left corner of the client area of the window.
 	 *
@@ -1659,7 +1659,7 @@ public final class GLFW {
 	public static native long nglfwSetCursorEnterCallback(long window, long cbfun);
 
 	/**
-	 * Sets the cursor enter/exit callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the cursor enter/exit callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} if no callback was set or an error occurred
@@ -1677,7 +1677,7 @@ public final class GLFW {
 	public static native long nglfwSetScrollCallback(long window, long cbfun);
 
 	/**
-	 * Sets the scroll callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet) WindowCallback.set}.
+	 * Sets the scroll callback. See {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.
 	 * <p/>
 	 * This receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.
 	 *

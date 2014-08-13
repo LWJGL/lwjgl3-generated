@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 /** Native bindings to CGL. */
 public final class CGL {
 
-	/** Attribute names for {@link #CGLChoosePixelFormat ChoosePixelFormat} and {@link #CGLDescribePixelFormat DescribePixelFormat}: */
+	/** Attribute names for {@link #CGLChoosePixelFormat ChoosePixelFormat} and {@link #CGLDescribePixelFormat DescribePixelFormat}. */
 	public static final int
 		kCGLPFAAllRenderers                       = 0x1,
 		kCGLPFATripleBuffer                       = 0x3,
@@ -64,7 +64,7 @@ public final class CGL {
 		kCGLPFAMultiScreen                        = 0x51,
 		kCGLPFAFullScreen                         = 0x36;
 
-	/** Property names for {@link #CGLDescribeRenderer DescribeRenderer}: */
+	/** Property names for {@link #CGLDescribeRenderer DescribeRenderer}. */
 	public static final int
 		kCGLRPOffScreen              = 0x35,
 		kCGLRPRendererID             = 0x46,
@@ -97,7 +97,7 @@ public final class CGL {
 		kCGLRPMultiScreen            = 0x51,
 		kCGLRPFullScreen             = 0x36;
 
-	/** Enable names for {@link #CGLEnable Enable}, {@link #CGLDisable Disable}, and {@link #CGLIsEnabled IsEnabled}: */
+	/** Enable names for {@link #CGLEnable Enable}, {@link #CGLDisable Disable}, and {@link #CGLIsEnabled IsEnabled}. */
 	public static final int
 		kCGLCESwapRectangle           = 0xC9,
 		kCGLCESwapLimit               = 0xCB,
@@ -107,7 +107,7 @@ public final class CGL {
 		kCGLCEDisplayListOptimization = 0x133,
 		kCGLCEMPEngine                = 0x139;
 
-	/** Parameter names for {@link #CGLSetParameter SetParameter} and {@link #CGLGetParameter GetParameter}: */
+	/** Parameter names for {@link #CGLSetParameter SetParameter} and {@link #CGLGetParameter GetParameter}. */
 	public static final int
 		kCGLCPSwapRectangle          = 0xC8,
 		kCGLCPSwapInterval           = 0xDE,
@@ -125,7 +125,7 @@ public final class CGL {
 		kCGLCPHasDrawable            = 0x13A,
 		kCGLCPMPSwapsInFlight        = 0x13B;
 
-	/** Option names for {@link #CGLSetGlobalOption SetGlobalOption} and {@link #CGLGetGlobalOption GetGlobalOption}: */
+	/** Option names for {@link #CGLSetGlobalOption SetGlobalOption} and {@link #CGLGetGlobalOption GetGlobalOption}. */
 	public static final int
 		kCGLGOFormatCacheSize  = 0x1F5,
 		kCGLGOClearFormatCache = 0x1F6,
@@ -134,7 +134,7 @@ public final class CGL {
 		kCGLGOUseErrorHandler  = 0x1F9,
 		kCGLGOUseBuildCache    = 0x1FA;
 
-	/** OpenGL Implementation Profiles: */
+	/** OpenGL Implementation Profiles. */
 	public static final int
 		kCGLOGLPVersion_Legacy   = 0x1000,
 		kCGLOGLPVersion_3_2_Core = 0x3200;
@@ -161,7 +161,7 @@ public final class CGL {
 		kCGLBadAlloc        = 0x2720,
 		kCGLBadConnection   = 0x2721;
 
-	/** Buffer modes: */
+	/** Buffer modes. */
 	public static final int
 		kCGLMonoscopicBit   = 0x1,
 		kCGLStereoscopicBit = 0x2,
@@ -169,7 +169,7 @@ public final class CGL {
 		kCGLDoubleBufferBit = 0x8,
 		kCGLTripleBufferBit = 0x10;
 
-	/** Depth and stencil buffer depths: */
+	/** Depth and stencil buffer depths. */
 	public static final int
 		kCGL0Bit   = 0x1,
 		kCGL1Bit   = 0x2,
@@ -189,7 +189,7 @@ public final class CGL {
 		kCGL96Bit  = 0x8000,
 		kCGL128Bit = 0x10000;
 
-	/** Color and accumulation buffer formats: */
+	/** Color and accumulation buffer formats. */
 	public static final int
 		kCGLRGB444Bit       = 0x40,
 		kCGLARGB4444Bit     = 0x80,
@@ -216,7 +216,7 @@ public final class CGL {
 		kCGLRGBFloat256Bit  = 0x10000000,
 		kCGLRGBAFloat256Bit = 0x20000000;
 
-	/** Sampling modes: */
+	/** Sampling modes. */
 	public static final int
 		kCGLSupersampleBit = 0x1,
 		kCGLMultisampleBit = 0x2;
@@ -565,8 +565,8 @@ public final class CGL {
 	 * @param src  the source rendering context
 	 * @param dst  the destination rendering context
 	 * @param mask a mask that specifies the state variables to copy. Pass a bit field that contains the bitwise OR of the state variable names that you want to copy.
-	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib PushAttrib}. To copy as many state variables
-	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}.
+	 *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib}. To copy as many state variables
+	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS}.
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -690,7 +690,7 @@ public final class CGL {
 	 * the receiver is not a double-buffered context, this call does nothing.
 	 * <p/>
 	 * If you set the swap interval attribute ({@link #kCGLCPSwapInterval CPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
-	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush Flush} operation is performed by CGLFlushDrawable
+	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush} operation is performed by CGLFlushDrawable
 	 * before it returns. For optimal performance, an application should not call glFlush immediately before calling CGLFlushDrawable. Subsequent OpenGL
 	 * commands can be issued immediately after calling CGLFlushDrawable, but are not executed until the buffer copy is completed.
 	 *

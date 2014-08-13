@@ -261,11 +261,11 @@ public final class GL32 {
 
 	// --- [ glGetBufferParameteri64v ] ---
 
-	/** JNI method for {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	/** JNI method for {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
 	@JavadocExclude
 	public static native void nglGetBufferParameteri64v(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	/** Unsafe version of {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
 	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
@@ -287,12 +287,12 @@ public final class GL32 {
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	/** Alternative version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
 	public static void glGetBufferParameter(int target, int pname, LongBuffer params) {
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) glGetBufferParameteri64} */
+	/** Single return value version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
 	public static long glGetBufferParameteri64(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -320,7 +320,7 @@ public final class GL32 {
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      the number of elements to be rendered
 	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
@@ -389,7 +389,7 @@ public final class GL32 {
 	 * <p/>
 	 * Renders primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param start      the minimum array index contained in {@code indices}
 	 * @param end        the maximum array index contained in {@code indices}
 	 * @param count      the number of elements to be rendered
@@ -460,7 +460,7 @@ public final class GL32 {
 	 * <p/>
 	 * Renders multiple instances of a set of primitives from array data with a per-element offset.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      the number of elements to be rendered
 	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
@@ -532,7 +532,7 @@ public final class GL32 {
 	 * <p/>
 	 * <b>LWJGL note</b>: Use {@link MemoryUtil#memAddress} to retrieve pointers to the index buffers.
 	 *
-	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode       the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link #GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link #GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link #GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link #GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count      an array of the elements counts
 	 * @param type       the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices    a pointer to the location where the indices are stored
@@ -634,11 +634,11 @@ public final class GL32 {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
+	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	@JavadocExclude
 	public static native void nglGetMultisamplefv(int pname, int index, long val, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
+	/** Unsafe version of {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
@@ -662,14 +662,14 @@ public final class GL32 {
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
+	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	public static void glGetMultisample(int pname, int index, FloatBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) glGetMultisamplef} */
+	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
@@ -808,7 +808,7 @@ public final class GL32 {
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
+	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
@@ -838,7 +838,7 @@ public final class GL32 {
 	 * If an error occurs, {@code glWaitSync} does not cause the GL server to block.
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0
+	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0
 	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
@@ -852,11 +852,11 @@ public final class GL32 {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** JNI method for {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** JNI method for {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	@JavadocExclude
 	public static native void nglGetInteger64v(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
@@ -877,12 +877,12 @@ public final class GL32 {
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -892,11 +892,11 @@ public final class GL32 {
 
 	// --- [ glGetSynciv ] ---
 
-	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	@JavadocExclude
 	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
@@ -926,14 +926,14 @@ public final class GL32 {
 		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

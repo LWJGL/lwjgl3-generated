@@ -573,7 +573,7 @@ public final class GL43 {
 	 * <p/>
 	 * Fills a buffer object's data store with a fixed value.
 	 *
-	 * @param target         the target of the operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target         the target of the operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link #GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param internalformat the internal format with which the data will be stored in the buffer object
 	 * @param format         the format of the data in memory addressed by {@code data}. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
 	 * @param type           the type of the data in memory addressed by {@code data}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
@@ -618,7 +618,7 @@ public final class GL43 {
 	 * <p/>
 	 * Fills all or part of buffer object's data store with a fixed value.
 	 *
-	 * @param target         the target of the operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target         the target of the operation. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link #GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param internalformat the internal format with which the data will be stored in the buffer object
 	 * @param offset         the offset, in basic machine units into the buffer object's data store at which to start filling
 	 * @param size           the size, in basic machine units of the range of the data store to fill
@@ -1203,11 +1203,11 @@ public final class GL43 {
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	/** JNI method for {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
 	@JavadocExclude
 	public static native void nglGetFramebufferParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	/** Unsafe version of {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
@@ -1231,14 +1231,14 @@ public final class GL43 {
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	/** Alternative version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
 	public static void glGetFramebufferParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) glGetFramebufferParameteri} */
+	/** Single return value version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1248,11 +1248,11 @@ public final class GL43 {
 
 	// --- [ glGetInternalformati64v ] ---
 
-	/** JNI method for {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	/** JNI method for {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
 	@JavadocExclude
 	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	/** Unsafe version of {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
 	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
@@ -1278,12 +1278,12 @@ public final class GL43 {
 		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	/** Alternative version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
 	public static void glGetInternalformat(int target, int internalformat, int pname, LongBuffer params) {
 		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) glGetInternalformati64} */
+	/** Single return value version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -1575,11 +1575,11 @@ public final class GL43 {
 
 	// --- [ glGetProgramInterfaceiv ] ---
 
-	/** JNI method for {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	/** JNI method for {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
 	@JavadocExclude
 	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	/** Unsafe version of {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
@@ -1604,14 +1604,14 @@ public final class GL43 {
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	/** Alternative version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
 	public static void glGetProgramInterface(int program, int programInterface, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) glGetProgramInterfacei} */
+	/** Single return value version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1718,11 +1718,11 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceiv ] ---
 
-	/** JNI method for {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	/** JNI method for {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
 	@JavadocExclude
 	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	/** Unsafe version of {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
@@ -1754,14 +1754,14 @@ public final class GL43 {
 		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	/** Alternative version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
 	public static void glGetProgramResource(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) glGetProgramResourcei} */
+	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
 	public static ByteBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -2003,7 +2003,7 @@ public final class GL43 {
 	 * Specifies the organization of data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. Must be:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
 	 * @param type           the type of the data stored in the array
 	 * @param normalized     if true then integer data is normalized to the range [-1, 1] or [0, 1] if it is signed or unsigned, respectively. If false then integer data is
 	 *                       directly converted to floating point.
@@ -2028,7 +2028,7 @@ public final class GL43 {
 	 * Specifies the organization of pure integer data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. Must be:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */
@@ -2051,7 +2051,7 @@ public final class GL43 {
 	 * Specifies the organization of 64-bit double data in vertex arrays.
 	 *
 	 * @param attribindex    the generic vertex attribute array being described
-	 * @param size           the number of values per vertex that are stored in the array. Must be:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size           the number of values per vertex that are stored in the array. One of:<p/>1, 2, 3, 4, {@link GL12#GL_BGRA BGRA}
 	 * @param type           the type of the data stored in the array
 	 * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
 	 */

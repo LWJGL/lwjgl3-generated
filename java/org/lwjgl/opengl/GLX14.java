@@ -18,7 +18,7 @@ import org.lwjgl.system.linux.*;
 /** Native bindings to GLX 1.4. */
 public final class GLX14 {
 
-	/** Added in GLX 1.4: */
+	/** Added in GLX 1.4. */
 	public static final int
 		GLX_SAMPLE_BUFFERS = 0x186A0,
 		GLX_SAMPLES        = 0x186A1;
@@ -72,7 +72,7 @@ public final class GLX14 {
 	 * implementation.
 	 * <p/>
 	 * A non-{@code NULL} return value for {@code glXGetProcAddress} does not guarantee that an extension function is actually supported at runtime. The client must
-	 * also query {@link GL11#glGetString GetString}({@link GL11#GL_EXTENSIONS EXTENSIONS}) or {@link GLX11#glXQueryExtensionsString QueryExtensionsString} to determine if an extension is supported
+	 * also query {@link GL11#glGetString}({@link GL11#GL_EXTENSIONS}) or {@link GLX11#glXQueryExtensionsString QueryExtensionsString} to determine if an extension is supported
 	 * by a particular context.
 	 * <p/>
 	 * GL function pointers returned by {@code glXGetProcAddress} are independent of the currently bound context and may be used by any context which
@@ -82,7 +82,7 @@ public final class GLX14 {
 	 * <ul>
 	 * <li>All GL and GLX extension functions supported by the implementation (whether those extensions are supported by the current context or not).</li>
 	 * <li>All core (non-extension) functions in GL and GLX from version 1.0 up to and including the versions of those specifications supported by the
-	 * implementation, as determined by {@link GL11#glGetString GetString}({@link GL11#GL_VERSION VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
+	 * implementation, as determined by {@link GL11#glGetString}({@link GL11#GLX_GL_VERSION GL_VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
 	 * </ul>
 	 *
 	 * @param procName the function name to query

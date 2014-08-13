@@ -24,6 +24,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_cl_1image_1desc_offsets(JNIEnv *__e
 	buffer[7] = (jint)(offsetof(cl_image_desc, num_mip_levels));
 	buffer[8] = (jint)(offsetof(cl_image_desc, num_samples));
 	buffer[9] = (jint)(offsetof(cl_image_desc, buffer));
+	buffer[10] = (jint)(offsetof(cl_image_desc, mem_object));
 
 	return sizeof(cl_image_desc);
 }

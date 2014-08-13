@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class WGLAMDGPUAssociation {
 
-	/** Accepted by the {@code property} parameter of {@link #wglGetGPUInfoAMD}. */
+	/** Accepted by the {@code property} parameter of {@link #wglGetGPUInfoAMD GetGPUInfoAMD}. */
 	public static final int
 		WGL_GPU_VENDOR_AMD                = 0x1F00,
 		WGL_GPU_RENDERER_STRING_AMD       = 0x1F01,
@@ -147,7 +147,7 @@ public final class WGLAMDGPUAssociation {
 	 *
 	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
 	 * @param property the information being queried. One of:<p/>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}, {@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
-	 * @param dataType the data type to be returned. One of:<p/>{@link GL11#GL_UNSIGNED_INT GL_UNSIGNED_INT}, {@link GL11#GL_INT GL_INT}, {@link GL11#GL_FLOAT GL_FLOAT}, {@link GL11#GL_UNSIGNED_BYTE GL_UNSIGNED_BYTE}
+	 * @param dataType the data type to be returned. One of:<p/>{@link GL11#GL_UNSIGNED_INT}, {@link GL11#GL_INT}, {@link GL11#GL_FLOAT}, {@link GL11#GL_UNSIGNED_BYTE}
 	 * @param size     the size of the {@code data} buffer
 	 * @param data     the buffer which will be filled with the requested information
 	 */
@@ -181,7 +181,7 @@ public final class WGLAMDGPUAssociation {
 	/**
 	 * Determine which GPU a context is attached to.
 	 * <p/>
-	 * Unassociated contexts are created by calling {@link org.lwjgl.system.windows.WGL#wglCreateContext}. Although these contexts are unassociated, their use
+	 * Unassociated contexts are created by calling {@link org.lwjgl.system.windows.WGL#wglCreateContext CreateContext}. Although these contexts are unassociated, their use
 	 * will still be tied to a single GPU in most cases. For this reason it is advantageous to be able to query the GPU an existing unassociated context
 	 * resides on. If multiple GPUs are available, it would be undesirable to use one for rendering to visible surfaces and then chose the same one for
 	 * off-screen rendering.
@@ -233,7 +233,7 @@ public final class WGLAMDGPUAssociation {
 	/**
 	 * Create an associated context with a specific GL version.
 	 * <p/>
-	 * All capabilities and limitations of WGLARBCreateContext#wglCreateContextAttribsARB} apply to {@code wglCreateAssociatedContextAttribsAMD}.
+	 * All capabilities and limitations of {@link WGLARBCreateContext#wglwglCreateContextAttribsARB wglCreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.
 	 *
 	 * @param id           a valid GPU id
 	 * @param shareContext must either be NULL or that of an associated context created with the the same GPU ID as {@code id}
@@ -259,9 +259,9 @@ public final class WGLAMDGPUAssociation {
 	public static native int nwglDeleteAssociatedContextAMD(long hglrc, long __functionAddress);
 
 	/**
-	 * Deletes an associated context. An associated context cannot be deleted by calling {@link org.lwjgl.system.windows.WGL#wglDeleteContext}.
+	 * Deletes an associated context. An associated context cannot be deleted by calling {@link org.lwjgl.system.windows.WGL#wglDeleteContext DeleteContext}.
 	 *
-	 * @param hglrc a valid associated context created by calling {@link #wglCreateAssociatedContextAMD}
+	 * @param hglrc a valid associated context created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
 	public static int wglDeleteAssociatedContextAMD(long hglrc) {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
@@ -281,7 +281,7 @@ public final class WGLAMDGPUAssociation {
 	/**
 	 * Makes an associated context current in the current thread.
 	 *
-	 * @param hglrc a context handle created by calling {@link #wglCreateAssociatedContextAMD}
+	 * @param hglrc a context handle created by calling {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD}
 	 */
 	public static int wglMakeAssociatedContextCurrentAMD(long hglrc) {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
@@ -324,8 +324,8 @@ public final class WGLAMDGPUAssociation {
 	 * @param dstY0  the destination Y<sub>0</sub> coordinate
 	 * @param dstX1  the destination X<sub>1</sub> coordinate
 	 * @param dstY1  the destination Y<sub>1</sub> coordinate
-	 * @param mask   the bitwise OR of a number of values indicating which buffers are to be copied. One or more of:<p/>{@link GL11#GL_COLOR_BUFFER_BIT GL_COLOR_BUFFER_BIT}, {@link GL11#GL_DEPTH_BUFFER_BIT GL_DEPTH_BUFFER_BIT}, {@link GL11#GL_STENCIL_BUFFER_BIT GL_STENCIL_BUFFER_BIT}
-	 * @param filter the interpolation method to apply if the image is stretched. One of:<p/>{@link GL11#GL_LINEAR GL_LINEAR}, {@link GL11#GL_NEAREST GL_NEAREST}
+	 * @param mask   the bitwise OR of a number of values indicating which buffers are to be copied. One or more of:<p/>{@link GL11#GL_COLOR_BUFFER_BIT}, {@link GL11#GL_DEPTH_BUFFER_BIT}, {@link GL11#GL_STENCIL_BUFFER_BIT}
+	 * @param filter the interpolation method to apply if the image is stretched. One of:<p/>{@link GL11#GL_LINEAR}, {@link GL11#GL_NEAREST}
 	 */
 	public static void wglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;

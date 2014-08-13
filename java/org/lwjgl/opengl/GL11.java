@@ -1444,7 +1444,7 @@ public final class GL11 {
 	 * exclusively through the use of this method (except for clearing it).
 	 *
 	 * @param op    a symbolic constant indicating an accumulation buffer operation
-	 * @param value a floating-point value to be used in that operation. The possible operations are:. One of:<p/>{@link #GL_ACCUM ACCUM}, {@link #GL_LOAD LOAD}, {@link #GL_RETURN RETURN}, {@link #GL_MULT MULT}, {@link #GL_ADD ADD}
+	 * @param value a floating-point value to be used in that operation. One of:<p/>{@link #GL_ACCUM ACCUM}, {@link #GL_LOAD LOAD}, {@link #GL_RETURN RETURN}, {@link #GL_MULT MULT}, {@link #GL_ADD ADD}
 	 */
 	public static void glAccum(int op, float value) {
 		long __functionAddress = getInstance().Accum;
@@ -1466,7 +1466,7 @@ public final class GL11 {
 	 * The comparison is enabled or disabled with the generic {@link #glEnable Enable} and {@link #glDisable Disable} commands using the symbolic constant {@link #GL_ALPHA_TEST ALPHA_TEST}.
 	 * When disabled, it is as if the comparison always passes. The test is controlled with this method.
 	 *
-	 * @param func a symbolic constant indicating the alpha test function. The possible constants are:. One of:<p/>{@link #GL_NEVER NEVER}, {@link #GL_ALWAYS ALWAYS}, {@link #GL_LESS LESS}, {@link #GL_LEQUAL LEQUAL}, {@link #GL_EQUAL EQUAL}, {@link #GL_GEQUAL GEQUAL}, {@link #GL_GREATER GREATER}, {@link #GL_NOTEQUAL NOTEQUAL}
+	 * @param func a symbolic constant indicating the alpha test function. One of:<p/>{@link #GL_NEVER NEVER}, {@link #GL_ALWAYS ALWAYS}, {@link #GL_LESS LESS}, {@link #GL_LEQUAL LEQUAL}, {@link #GL_EQUAL EQUAL}, {@link #GL_GEQUAL GEQUAL}, {@link #GL_GREATER GREATER}, {@link #GL_NOTEQUAL NOTEQUAL}
 	 * @param ref  a reference value clamped to the range [0, 1]. When performing the alpha test, the GL will convert the reference value to the same representation as the fragment's alpha value (floating-point or fixed-point).
 	 */
 	public static void glAlphaFunc(int func, float ref) {
@@ -1557,7 +1557,7 @@ public final class GL11 {
 	 * <p/>
 	 * Begins the definition of vertex attributes of a sequence of primitives to be transferred to the GL.
 	 *
-	 * @param mode the primitive type being defined. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode the primitive type being defined. One of:<p/>{@link #GL_POINTS POINTS}, {@link #GL_LINE_STRIP LINE_STRIP}, {@link #GL_LINE_LOOP LINE_LOOP}, {@link #GL_LINES LINES}, {@link #GL_POLYGON POLYGON}, {@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link #GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link #GL_TRIANGLES TRIANGLES}, {@link #GL_QUAD_STRIP QUAD_STRIP}, {@link #GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 */
 	public static void glBegin(int mode) {
 		long __functionAddress = getInstance().Begin;
@@ -1581,7 +1581,7 @@ public final class GL11 {
 	 * bound return state from the bound object. If texture mapping of the dimensionality of the target to which a texture object is bound is enabled, the
 	 * state of the bound texture object directs the texturing operation.
 	 *
-	 * @param target  the texture target. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param target  the texture target. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param texture the texture object to bind
 	 */
 	public static void glBindTexture(int target, int texture) {
@@ -2046,11 +2046,11 @@ public final class GL11 {
 
 	// --- [ glColor3bv ] ---
 
-	/** JNI method for {@link #glColor3b(ByteBuffer) glColor3b} */
+	/** JNI method for {@link #glColor3b(ByteBuffer) Color3b} */
 	@JavadocExclude
 	public static native void nglColor3bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3b(ByteBuffer) glColor3b} */
+	/** Unsafe version of {@link #glColor3b(ByteBuffer) Color3b} */
 	@JavadocExclude
 	public static void nglColor3bv(long v) {
 		long __functionAddress = getInstance().Color3bv;
@@ -2074,11 +2074,11 @@ public final class GL11 {
 
 	// --- [ glColor3sv ] ---
 
-	/** JNI method for {@link #glColor3s(ByteBuffer) glColor3s} */
+	/** JNI method for {@link #glColor3s(ByteBuffer) Color3s} */
 	@JavadocExclude
 	public static native void nglColor3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3s(ByteBuffer) glColor3s} */
+	/** Unsafe version of {@link #glColor3s(ByteBuffer) Color3s} */
 	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
@@ -2100,7 +2100,7 @@ public final class GL11 {
 		nglColor3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3s(ByteBuffer) glColor3s} */
+	/** Alternative version of: {@link #glColor3s(ByteBuffer) Color3s} */
 	public static void glColor3(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2109,11 +2109,11 @@ public final class GL11 {
 
 	// --- [ glColor3iv ] ---
 
-	/** JNI method for {@link #glColor3i(ByteBuffer) glColor3i} */
+	/** JNI method for {@link #glColor3i(ByteBuffer) Color3i} */
 	@JavadocExclude
 	public static native void nglColor3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3i(ByteBuffer) glColor3i} */
+	/** Unsafe version of {@link #glColor3i(ByteBuffer) Color3i} */
 	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
@@ -2135,7 +2135,7 @@ public final class GL11 {
 		nglColor3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3i(ByteBuffer) glColor3i} */
+	/** Alternative version of: {@link #glColor3i(ByteBuffer) Color3i} */
 	public static void glColor3(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2144,11 +2144,11 @@ public final class GL11 {
 
 	// --- [ glColor3fv ] ---
 
-	/** JNI method for {@link #glColor3f(ByteBuffer) glColor3f} */
+	/** JNI method for {@link #glColor3f(ByteBuffer) Color3f} */
 	@JavadocExclude
 	public static native void nglColor3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3f(ByteBuffer) glColor3f} */
+	/** Unsafe version of {@link #glColor3f(ByteBuffer) Color3f} */
 	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
@@ -2170,7 +2170,7 @@ public final class GL11 {
 		nglColor3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3f(ByteBuffer) glColor3f} */
+	/** Alternative version of: {@link #glColor3f(ByteBuffer) Color3f} */
 	public static void glColor3(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2179,11 +2179,11 @@ public final class GL11 {
 
 	// --- [ glColor3dv ] ---
 
-	/** JNI method for {@link #glColor3d(ByteBuffer) glColor3d} */
+	/** JNI method for {@link #glColor3d(ByteBuffer) Color3d} */
 	@JavadocExclude
 	public static native void nglColor3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3d(ByteBuffer) glColor3d} */
+	/** Unsafe version of {@link #glColor3d(ByteBuffer) Color3d} */
 	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
@@ -2205,7 +2205,7 @@ public final class GL11 {
 		nglColor3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3d(ByteBuffer) glColor3d} */
+	/** Alternative version of: {@link #glColor3d(ByteBuffer) Color3d} */
 	public static void glColor3(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2214,11 +2214,11 @@ public final class GL11 {
 
 	// --- [ glColor3ubv ] ---
 
-	/** JNI method for {@link #glColor3ub(ByteBuffer) glColor3ub} */
+	/** JNI method for {@link #glColor3ub(ByteBuffer) Color3ub} */
 	@JavadocExclude
 	public static native void nglColor3ubv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3ub(ByteBuffer) glColor3ub} */
+	/** Unsafe version of {@link #glColor3ub(ByteBuffer) Color3ub} */
 	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
@@ -2242,11 +2242,11 @@ public final class GL11 {
 
 	// --- [ glColor3usv ] ---
 
-	/** JNI method for {@link #glColor3us(ByteBuffer) glColor3us} */
+	/** JNI method for {@link #glColor3us(ByteBuffer) Color3us} */
 	@JavadocExclude
 	public static native void nglColor3usv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3us(ByteBuffer) glColor3us} */
+	/** Unsafe version of {@link #glColor3us(ByteBuffer) Color3us} */
 	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
@@ -2268,7 +2268,7 @@ public final class GL11 {
 		nglColor3usv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3us(ByteBuffer) glColor3us} */
+	/** Alternative version of: {@link #glColor3us(ByteBuffer) Color3us} */
 	public static void glColor3u(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2277,11 +2277,11 @@ public final class GL11 {
 
 	// --- [ glColor3uiv ] ---
 
-	/** JNI method for {@link #glColor3ui(ByteBuffer) glColor3ui} */
+	/** JNI method for {@link #glColor3ui(ByteBuffer) Color3ui} */
 	@JavadocExclude
 	public static native void nglColor3uiv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3ui(ByteBuffer) glColor3ui} */
+	/** Unsafe version of {@link #glColor3ui(ByteBuffer) Color3ui} */
 	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
@@ -2303,7 +2303,7 @@ public final class GL11 {
 		nglColor3uiv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3ui(ByteBuffer) glColor3ui} */
+	/** Alternative version of: {@link #glColor3ui(ByteBuffer) Color3ui} */
 	public static void glColor3u(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -2496,11 +2496,11 @@ public final class GL11 {
 
 	// --- [ glColor4bv ] ---
 
-	/** JNI method for {@link #glColor4b(ByteBuffer) glColor4b} */
+	/** JNI method for {@link #glColor4b(ByteBuffer) Color4b} */
 	@JavadocExclude
 	public static native void nglColor4bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4b(ByteBuffer) glColor4b} */
+	/** Unsafe version of {@link #glColor4b(ByteBuffer) Color4b} */
 	@JavadocExclude
 	public static void nglColor4bv(long v) {
 		long __functionAddress = getInstance().Color4bv;
@@ -2524,11 +2524,11 @@ public final class GL11 {
 
 	// --- [ glColor4sv ] ---
 
-	/** JNI method for {@link #glColor4s(ByteBuffer) glColor4s} */
+	/** JNI method for {@link #glColor4s(ByteBuffer) Color4s} */
 	@JavadocExclude
 	public static native void nglColor4sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4s(ByteBuffer) glColor4s} */
+	/** Unsafe version of {@link #glColor4s(ByteBuffer) Color4s} */
 	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
@@ -2550,7 +2550,7 @@ public final class GL11 {
 		nglColor4sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4s(ByteBuffer) glColor4s} */
+	/** Alternative version of: {@link #glColor4s(ByteBuffer) Color4s} */
 	public static void glColor4(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2559,11 +2559,11 @@ public final class GL11 {
 
 	// --- [ glColor4iv ] ---
 
-	/** JNI method for {@link #glColor4i(ByteBuffer) glColor4i} */
+	/** JNI method for {@link #glColor4i(ByteBuffer) Color4i} */
 	@JavadocExclude
 	public static native void nglColor4iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4i(ByteBuffer) glColor4i} */
+	/** Unsafe version of {@link #glColor4i(ByteBuffer) Color4i} */
 	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
@@ -2585,7 +2585,7 @@ public final class GL11 {
 		nglColor4iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4i(ByteBuffer) glColor4i} */
+	/** Alternative version of: {@link #glColor4i(ByteBuffer) Color4i} */
 	public static void glColor4(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2594,11 +2594,11 @@ public final class GL11 {
 
 	// --- [ glColor4fv ] ---
 
-	/** JNI method for {@link #glColor4f(ByteBuffer) glColor4f} */
+	/** JNI method for {@link #glColor4f(ByteBuffer) Color4f} */
 	@JavadocExclude
 	public static native void nglColor4fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4f(ByteBuffer) glColor4f} */
+	/** Unsafe version of {@link #glColor4f(ByteBuffer) Color4f} */
 	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
@@ -2620,7 +2620,7 @@ public final class GL11 {
 		nglColor4fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4f(ByteBuffer) glColor4f} */
+	/** Alternative version of: {@link #glColor4f(ByteBuffer) Color4f} */
 	public static void glColor4(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2629,11 +2629,11 @@ public final class GL11 {
 
 	// --- [ glColor4dv ] ---
 
-	/** JNI method for {@link #glColor4d(ByteBuffer) glColor4d} */
+	/** JNI method for {@link #glColor4d(ByteBuffer) Color4d} */
 	@JavadocExclude
 	public static native void nglColor4dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4d(ByteBuffer) glColor4d} */
+	/** Unsafe version of {@link #glColor4d(ByteBuffer) Color4d} */
 	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
@@ -2655,7 +2655,7 @@ public final class GL11 {
 		nglColor4dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4d(ByteBuffer) glColor4d} */
+	/** Alternative version of: {@link #glColor4d(ByteBuffer) Color4d} */
 	public static void glColor4(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2664,11 +2664,11 @@ public final class GL11 {
 
 	// --- [ glColor4ubv ] ---
 
-	/** JNI method for {@link #glColor4ub(ByteBuffer) glColor4ub} */
+	/** JNI method for {@link #glColor4ub(ByteBuffer) Color4ub} */
 	@JavadocExclude
 	public static native void nglColor4ubv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4ub(ByteBuffer) glColor4ub} */
+	/** Unsafe version of {@link #glColor4ub(ByteBuffer) Color4ub} */
 	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
@@ -2692,11 +2692,11 @@ public final class GL11 {
 
 	// --- [ glColor4usv ] ---
 
-	/** JNI method for {@link #glColor4us(ByteBuffer) glColor4us} */
+	/** JNI method for {@link #glColor4us(ByteBuffer) Color4us} */
 	@JavadocExclude
 	public static native void nglColor4usv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4us(ByteBuffer) glColor4us} */
+	/** Unsafe version of {@link #glColor4us(ByteBuffer) Color4us} */
 	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
@@ -2718,7 +2718,7 @@ public final class GL11 {
 		nglColor4usv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4us(ByteBuffer) glColor4us} */
+	/** Alternative version of: {@link #glColor4us(ByteBuffer) Color4us} */
 	public static void glColor4u(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2727,11 +2727,11 @@ public final class GL11 {
 
 	// --- [ glColor4uiv ] ---
 
-	/** JNI method for {@link #glColor4ui(ByteBuffer) glColor4ui} */
+	/** JNI method for {@link #glColor4ui(ByteBuffer) Color4ui} */
 	@JavadocExclude
 	public static native void nglColor4uiv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4ui(ByteBuffer) glColor4ui} */
+	/** Unsafe version of {@link #glColor4ui(ByteBuffer) Color4ui} */
 	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
@@ -2753,7 +2753,7 @@ public final class GL11 {
 		nglColor4uiv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4ui(ByteBuffer) glColor4ui} */
+	/** Alternative version of: {@link #glColor4ui(ByteBuffer) Color4ui} */
 	public static void glColor4u(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -2826,7 +2826,7 @@ public final class GL11 {
 	 * <p/>
 	 * Specifies the location and organization of a color array.
 	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<p/>3, 4, {@link GL12#GL_BGRA BGRA}
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. One of:<p/>3, 4, {@link GL12#GL_BGRA BGRA}
 	 * @param type    the data type of the values stored in the array. One of:<p/>{@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_INT INT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link #GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}
 	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer the color array data
@@ -3148,8 +3148,8 @@ public final class GL11 {
 	 *
 	 * @param width  the pixel rectangle width
 	 * @param height the pixel rectangle height
-	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type   the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format the pixel data format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type   the pixel data type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param pixels the pixel data
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ByteBuffer pixels) {
@@ -3214,11 +3214,11 @@ public final class GL11 {
 
 	// --- [ glEdgeFlagv ] ---
 
-	/** JNI method for {@link #glEdgeFlag(ByteBuffer) glEdgeFlag} */
+	/** JNI method for {@link #glEdgeFlag(ByteBuffer) EdgeFlag} */
 	@JavadocExclude
 	public static native void nglEdgeFlagv(long flag, long __functionAddress);
 
-	/** Unsafe version of {@link #glEdgeFlag(ByteBuffer) glEdgeFlag} */
+	/** Unsafe version of {@link #glEdgeFlag(ByteBuffer) EdgeFlag} */
 	@JavadocExclude
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = getInstance().EdgeFlagv;
@@ -3336,11 +3336,11 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1fv ] ---
 
-	/** JNI method for {@link #glEvalCoord1f(ByteBuffer) glEvalCoord1f} */
+	/** JNI method for {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
 	@JavadocExclude
 	public static native void nglEvalCoord1fv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord1f(ByteBuffer) glEvalCoord1f} */
+	/** Unsafe version of {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
 	@JavadocExclude
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = getInstance().EvalCoord1fv;
@@ -3360,7 +3360,7 @@ public final class GL11 {
 		nglEvalCoord1fv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord1f(ByteBuffer) glEvalCoord1f} */
+	/** Alternative version of: {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
 	public static void glEvalCoord1(FloatBuffer u) {
 		nglEvalCoord1fv(memAddress(u));
 	}
@@ -3387,11 +3387,11 @@ public final class GL11 {
 
 	// --- [ glEvalCoord1dv ] ---
 
-	/** JNI method for {@link #glEvalCoord1d(ByteBuffer) glEvalCoord1d} */
+	/** JNI method for {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
 	@JavadocExclude
 	public static native void nglEvalCoord1dv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord1d(ByteBuffer) glEvalCoord1d} */
+	/** Unsafe version of {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
 	@JavadocExclude
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = getInstance().EvalCoord1dv;
@@ -3411,7 +3411,7 @@ public final class GL11 {
 		nglEvalCoord1dv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord1d(ByteBuffer) glEvalCoord1d} */
+	/** Alternative version of: {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
 	public static void glEvalCoord1(DoubleBuffer u) {
 		nglEvalCoord1dv(memAddress(u));
 	}
@@ -3439,11 +3439,11 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2fv ] ---
 
-	/** JNI method for {@link #glEvalCoord2f(ByteBuffer) glEvalCoord2f} */
+	/** JNI method for {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
 	@JavadocExclude
 	public static native void nglEvalCoord2fv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord2f(ByteBuffer) glEvalCoord2f} */
+	/** Unsafe version of {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
 	@JavadocExclude
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = getInstance().EvalCoord2fv;
@@ -3463,7 +3463,7 @@ public final class GL11 {
 		nglEvalCoord2fv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord2f(ByteBuffer) glEvalCoord2f} */
+	/** Alternative version of: {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
 	public static void glEvalCoord2(FloatBuffer u) {
 		nglEvalCoord2fv(memAddress(u));
 	}
@@ -3491,11 +3491,11 @@ public final class GL11 {
 
 	// --- [ glEvalCoord2dv ] ---
 
-	/** JNI method for {@link #glEvalCoord2d(ByteBuffer) glEvalCoord2d} */
+	/** JNI method for {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
 	@JavadocExclude
 	public static native void nglEvalCoord2dv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord2d(ByteBuffer) glEvalCoord2d} */
+	/** Unsafe version of {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
 	@JavadocExclude
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = getInstance().EvalCoord2dv;
@@ -3515,7 +3515,7 @@ public final class GL11 {
 		nglEvalCoord2dv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord2d(ByteBuffer) glEvalCoord2d} */
+	/** Alternative version of: {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
 	public static void glEvalCoord2(DoubleBuffer u) {
 		nglEvalCoord2dv(memAddress(u));
 	}
@@ -3702,11 +3702,11 @@ public final class GL11 {
 
 	// --- [ glFogiv ] ---
 
-	/** JNI method for {@link #glFogi(int, ByteBuffer) glFogi} */
+	/** JNI method for {@link #glFogi(int, ByteBuffer) Fogi} */
 	@JavadocExclude
 	public static native void nglFogiv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogi(int, ByteBuffer) glFogi} */
+	/** Unsafe version of {@link #glFogi(int, ByteBuffer) Fogi} */
 	@JavadocExclude
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = getInstance().Fogiv;
@@ -3729,7 +3729,7 @@ public final class GL11 {
 		nglFogiv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glFogi(int, ByteBuffer) glFogi} */
+	/** Alternative version of: {@link #glFogi(int, ByteBuffer) Fogi} */
 	public static void glFog(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -3759,11 +3759,11 @@ public final class GL11 {
 
 	// --- [ glFogfv ] ---
 
-	/** JNI method for {@link #glFogf(int, ByteBuffer) glFogf} */
+	/** JNI method for {@link #glFogf(int, ByteBuffer) Fogf} */
 	@JavadocExclude
 	public static native void nglFogfv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogf(int, ByteBuffer) glFogf} */
+	/** Unsafe version of {@link #glFogf(int, ByteBuffer) Fogf} */
 	@JavadocExclude
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = getInstance().Fogfv;
@@ -3786,7 +3786,7 @@ public final class GL11 {
 		nglFogfv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glFogf(int, ByteBuffer) glFogf} */
+	/** Alternative version of: {@link #glFogf(int, ByteBuffer) Fogf} */
 	public static void glFog(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -3967,11 +3967,11 @@ public final class GL11 {
 
 	// --- [ glGetBooleanv ] ---
 
-	/** JNI method for {@link #glGetBoolean(int, ByteBuffer) glGetBoolean} */
+	/** JNI method for {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
 	@JavadocExclude
 	public static native void nglGetBooleanv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBoolean(int, ByteBuffer) glGetBoolean} */
+	/** Unsafe version of {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
@@ -3998,7 +3998,7 @@ public final class GL11 {
 		nglGetBooleanv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBoolean(int, ByteBuffer) glGetBoolean} */
+	/** Single return value version of: {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
 	public static boolean glGetBoolean(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.booleanParam();
@@ -4008,11 +4008,11 @@ public final class GL11 {
 
 	// --- [ glGetFloatv ] ---
 
-	/** JNI method for {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
+	/** JNI method for {@link #glGetFloat(int, ByteBuffer) GetFloat} */
 	@JavadocExclude
 	public static native void nglGetFloatv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
+	/** Unsafe version of {@link #glGetFloat(int, ByteBuffer) GetFloat} */
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
@@ -4039,14 +4039,14 @@ public final class GL11 {
 		nglGetFloatv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
+	/** Alternative version of: {@link #glGetFloat(int, ByteBuffer) GetFloat} */
 	public static void glGetFloat(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFloatv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFloat(int, ByteBuffer) glGetFloat} */
+	/** Single return value version of: {@link #glGetFloat(int, ByteBuffer) GetFloat} */
 	public static float glGetFloat(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -4056,11 +4056,11 @@ public final class GL11 {
 
 	// --- [ glGetIntegerv ] ---
 
-	/** JNI method for {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
+	/** JNI method for {@link #glGetInteger(int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static native void nglGetIntegerv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
+	/** Unsafe version of {@link #glGetInteger(int, ByteBuffer) GetInteger} */
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
@@ -4087,14 +4087,14 @@ public final class GL11 {
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
+	/** Alternative version of: {@link #glGetInteger(int, ByteBuffer) GetInteger} */
 	public static void glGetInteger(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger(int, ByteBuffer) glGetInteger} */
+	/** Single return value version of: {@link #glGetInteger(int, ByteBuffer) GetInteger} */
 	public static int glGetInteger(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -4104,11 +4104,11 @@ public final class GL11 {
 
 	// --- [ glGetDoublev ] ---
 
-	/** JNI method for {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
+	/** JNI method for {@link #glGetDouble(int, ByteBuffer) GetDouble} */
 	@JavadocExclude
 	public static native void nglGetDoublev(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
+	/** Unsafe version of {@link #glGetDouble(int, ByteBuffer) GetDouble} */
 	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
@@ -4135,14 +4135,14 @@ public final class GL11 {
 		nglGetDoublev(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
+	/** Alternative version of: {@link #glGetDouble(int, ByteBuffer) GetDouble} */
 	public static void glGetDouble(int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetDoublev(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetDouble(int, ByteBuffer) glGetDouble} */
+	/** Single return value version of: {@link #glGetDouble(int, ByteBuffer) GetDouble} */
 	public static double glGetDouble(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -4173,11 +4173,11 @@ public final class GL11 {
 
 	// --- [ glGetLightiv ] ---
 
-	/** JNI method for {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
+	/** JNI method for {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	@JavadocExclude
 	public static native void nglGetLightiv(int light, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
+	/** Unsafe version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	@JavadocExclude
 	public static void nglGetLightiv(int light, int value, long data) {
 		long __functionAddress = getInstance().GetLightiv;
@@ -4191,7 +4191,7 @@ public final class GL11 {
 	 * <p/>
 	 * Returns integer information about light parameter {@code value} for {@code light} in {@code data}.
 	 *
-	 * @param light the light for which to return information. Must be:<p/>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
+	 * @param light the light for which to return information. One of:<p/>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
 	 * @param value the light parameter to query. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
 	 * @param data  a scalar or array in which to place the returned data
 	 */
@@ -4201,14 +4201,14 @@ public final class GL11 {
 		nglGetLightiv(light, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
+	/** Alternative version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	public static void glGetLight(int light, int value, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightiv(light, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetLighti(int, int, ByteBuffer) glGetLighti} */
+	/** Single return value version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	public static int glGetLighti(int light, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4218,11 +4218,11 @@ public final class GL11 {
 
 	// --- [ glGetLightfv ] ---
 
-	/** JNI method for {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
+	/** JNI method for {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	@JavadocExclude
 	public static native void nglGetLightfv(int light, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
+	/** Unsafe version of {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	@JavadocExclude
 	public static void nglGetLightfv(int light, int value, long data) {
 		long __functionAddress = getInstance().GetLightfv;
@@ -4234,7 +4234,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glGetLighti(int, int, ByteBuffer) glGetLighti}.
+	 * Float version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti}.
 	 *
 	 * @param light the light for which to return information
 	 * @param value the light parameter to query
@@ -4246,14 +4246,14 @@ public final class GL11 {
 		nglGetLightfv(light, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
+	/** Alternative version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	public static void glGetLight(int light, int value, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightfv(light, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetLightf(int, int, ByteBuffer) glGetLightf} */
+	/** Single return value version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	public static float glGetLightf(int light, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4263,11 +4263,11 @@ public final class GL11 {
 
 	// --- [ glGetMapiv ] ---
 
-	/** JNI method for {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
+	/** JNI method for {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
 	@JavadocExclude
 	public static native void nglGetMapiv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
+	/** Unsafe version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
 	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
@@ -4291,14 +4291,14 @@ public final class GL11 {
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
+	/** Alternative version of: {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
 	public static void glGetMap(int target, int query, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapi(int, int, ByteBuffer) glGetMapi} */
+	/** Single return value version of: {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
 	public static int glGetMapi(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4308,11 +4308,11 @@ public final class GL11 {
 
 	// --- [ glGetMapfv ] ---
 
-	/** JNI method for {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
+	/** JNI method for {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
 	@JavadocExclude
 	public static native void nglGetMapfv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
+	/** Unsafe version of {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
 	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
@@ -4324,7 +4324,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glGetMapi(int, int, ByteBuffer) glGetMapi}.
+	 * Float version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
@@ -4336,14 +4336,14 @@ public final class GL11 {
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
+	/** Alternative version of: {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
 	public static void glGetMap(int target, int query, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapf(int, int, ByteBuffer) glGetMapf} */
+	/** Single return value version of: {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
 	public static float glGetMapf(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4353,11 +4353,11 @@ public final class GL11 {
 
 	// --- [ glGetMapdv ] ---
 
-	/** JNI method for {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
+	/** JNI method for {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
 	@JavadocExclude
 	public static native void nglGetMapdv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
+	/** Unsafe version of {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
 	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
@@ -4369,7 +4369,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glGetMapi(int, int, ByteBuffer) glGetMapi}.
+	 * Double version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
@@ -4381,14 +4381,14 @@ public final class GL11 {
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
+	/** Alternative version of: {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
 	public static void glGetMap(int target, int query, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapd(int, int, ByteBuffer) glGetMapd} */
+	/** Single return value version of: {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
 	public static double glGetMapd(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
@@ -4398,11 +4398,11 @@ public final class GL11 {
 
 	// --- [ glGetMaterialiv ] ---
 
-	/** JNI method for {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali} */
+	/** JNI method for {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
 	@JavadocExclude
 	public static native void nglGetMaterialiv(int face, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali} */
+	/** Unsafe version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
 	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int value, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
@@ -4424,18 +4424,18 @@ public final class GL11 {
 		nglGetMaterialiv(face, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali} */
+	/** Alternative version of: {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
 	public static void glGetMaterial(int face, int value, IntBuffer data) {
 		nglGetMaterialiv(face, value, memAddress(data));
 	}
 
 	// --- [ glGetMaterialfv ] ---
 
-	/** JNI method for {@link #glGetMaterialf(int, int, ByteBuffer) glGetMaterialf} */
+	/** JNI method for {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
 	@JavadocExclude
 	public static native void nglGetMaterialfv(int face, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMaterialf(int, int, ByteBuffer) glGetMaterialf} */
+	/** Unsafe version of {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
 	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int value, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
@@ -4447,7 +4447,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glGetMateriali(int, int, ByteBuffer) glGetMateriali}.
+	 * Float version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali}.
 	 *
 	 * @param face  the material face for which to return information
 	 * @param value the information to query
@@ -4457,18 +4457,18 @@ public final class GL11 {
 		nglGetMaterialfv(face, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMaterialf(int, int, ByteBuffer) glGetMaterialf} */
+	/** Alternative version of: {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
 	public static void glGetMaterial(int face, int value, FloatBuffer data) {
 		nglGetMaterialfv(face, value, memAddress(data));
 	}
 
 	// --- [ glGetPixelMapfv ] ---
 
-	/** JNI method for {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
+	/** JNI method for {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
 	@JavadocExclude
 	public static native void nglGetPixelMapfv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
+	/** Unsafe version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
 	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
@@ -4493,14 +4493,14 @@ public final class GL11 {
 		nglGetPixelMapfv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
+	/** Buffer object offset version of: {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
 	public static void glGetPixelMapf(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapfv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf} */
+	/** Alternative version of: {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
 	public static void glGetPixelMap(int map, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
@@ -4511,11 +4511,11 @@ public final class GL11 {
 
 	// --- [ glGetPixelMapusv ] ---
 
-	/** JNI method for {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
+	/** JNI method for {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
 	@JavadocExclude
 	public static native void nglGetPixelMapusv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
+	/** Unsafe version of {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
 	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
@@ -4527,7 +4527,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf}.
+	 * Unsigned short version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data an array in which to place the returned data
@@ -4540,14 +4540,14 @@ public final class GL11 {
 		nglGetPixelMapusv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
+	/** Buffer object offset version of: {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
 	public static void glGetPixelMapus(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapusv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapus(int, ByteBuffer) glGetPixelMapus} */
+	/** Alternative version of: {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
 	public static void glGetPixelMapu(int map, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
@@ -4558,11 +4558,11 @@ public final class GL11 {
 
 	// --- [ glGetPixelMapuiv ] ---
 
-	/** JNI method for {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
+	/** JNI method for {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
 	@JavadocExclude
 	public static native void nglGetPixelMapuiv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
+	/** Unsafe version of {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
 	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
@@ -4574,7 +4574,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned integer version of {@link #glGetPixelMapf(int, ByteBuffer) glGetPixelMapf}.
+	 * Unsigned integer version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data an array in which to place the returned data
@@ -4587,14 +4587,14 @@ public final class GL11 {
 		nglGetPixelMapuiv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
+	/** Buffer object offset version of: {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
 	public static void glGetPixelMapui(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapuiv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapui(int, ByteBuffer) glGetPixelMapui} */
+	/** Alternative version of: {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
 	public static void glGetPixelMapu(int map, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
@@ -4605,11 +4605,11 @@ public final class GL11 {
 
 	// --- [ glGetPointerv ] ---
 
-	/** JNI method for {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
+	/** JNI method for {@link #glGetPointer(int, ByteBuffer) GetPointer} */
 	@JavadocExclude
 	public static native void nglGetPointerv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
+	/** Unsafe version of {@link #glGetPointer(int, ByteBuffer) GetPointer} */
 	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
@@ -4632,14 +4632,14 @@ public final class GL11 {
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
+	/** Alternative version of: {@link #glGetPointer(int, ByteBuffer) GetPointer} */
 	public static void glGetPointer(int pname, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetPointer(int, ByteBuffer) glGetPointer} */
+	/** Single return value version of: {@link #glGetPointer(int, ByteBuffer) GetPointer} */
 	public static long glGetPointer(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -4711,11 +4711,11 @@ public final class GL11 {
 
 	// --- [ glGetTexEnviv ] ---
 
-	/** JNI method for {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
+	/** JNI method for {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	@JavadocExclude
 	public static native void nglGetTexEnviv(int env, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
+	/** Unsafe version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int value, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
@@ -4739,14 +4739,14 @@ public final class GL11 {
 		nglGetTexEnviv(env, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
+	/** Alternative version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	public static void glGetTexEnv(int env, int value, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnviv(env, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi} */
+	/** Single return value version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	public static int glGetTexEnvi(int env, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4756,11 +4756,11 @@ public final class GL11 {
 
 	// --- [ glGetTexEnvfv ] ---
 
-	/** JNI method for {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
+	/** JNI method for {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	@JavadocExclude
 	public static native void nglGetTexEnvfv(int env, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
+	/** Unsafe version of {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int value, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
@@ -4772,7 +4772,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glGetTexEnvi(int, int, ByteBuffer) glGetTexEnvi}.
+	 * Float version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi}.
 	 *
 	 * @param env   the texture environment to query
 	 * @param value the value to query
@@ -4784,14 +4784,14 @@ public final class GL11 {
 		nglGetTexEnvfv(env, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
+	/** Alternative version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	public static void glGetTexEnv(int env, int value, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnvfv(env, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexEnvf(int, int, ByteBuffer) glGetTexEnvf} */
+	/** Single return value version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	public static float glGetTexEnvf(int env, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4801,11 +4801,11 @@ public final class GL11 {
 
 	// --- [ glGetTexGeniv ] ---
 
-	/** JNI method for {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
+	/** JNI method for {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	@JavadocExclude
 	public static native void nglGetTexGeniv(int coord, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
+	/** Unsafe version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int value, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
@@ -4829,14 +4829,14 @@ public final class GL11 {
 		nglGetTexGeniv(coord, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
+	/** Alternative version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	public static void glGetTexGen(int coord, int value, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexGeniv(coord, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni} */
+	/** Single return value version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	public static int glGetTexGeni(int coord, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4846,11 +4846,11 @@ public final class GL11 {
 
 	// --- [ glGetTexGenfv ] ---
 
-	/** JNI method for {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
+	/** JNI method for {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	@JavadocExclude
 	public static native void nglGetTexGenfv(int coord, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
+	/** Unsafe version of {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int value, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
@@ -4862,7 +4862,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Float version of {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni}.
+	 * Float version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
 	 *
 	 * @param coord the coord to query
 	 * @param value the value to query
@@ -4874,14 +4874,14 @@ public final class GL11 {
 		nglGetTexGenfv(coord, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
+	/** Alternative version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	public static void glGetTexGen(int coord, int value, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGenfv(coord, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGenf(int, int, ByteBuffer) glGetTexGenf} */
+	/** Single return value version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	public static float glGetTexGenf(int coord, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4891,11 +4891,11 @@ public final class GL11 {
 
 	// --- [ glGetTexGendv ] ---
 
-	/** JNI method for {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
+	/** JNI method for {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	@JavadocExclude
 	public static native void nglGetTexGendv(int coord, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
+	/** Unsafe version of {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int value, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
@@ -4907,7 +4907,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Double version of {@link #glGetTexGeni(int, int, ByteBuffer) glGetTexGeni}.
+	 * Double version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
 	 *
 	 * @param coord the coord to query
 	 * @param value the value to query
@@ -4919,14 +4919,14 @@ public final class GL11 {
 		nglGetTexGendv(coord, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
+	/** Alternative version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	public static void glGetTexGen(int coord, int value, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGendv(coord, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGend(int, int, ByteBuffer) glGetTexGend} */
+	/** Single return value version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	public static double glGetTexGend(int coord, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
@@ -4956,8 +4956,8 @@ public final class GL11 {
 	 *
 	 * @param tex    the texture (or texture face) to be obtained. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}
 	 * @param lod    the level-of-detail number
-	 * @param format the pixel format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type   the pixel type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format the pixel format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type   the pixel type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param img    the array in which to place the returned data
 	 */
 	public static void glGetTexImage(int tex, int lod, int format, int type, ByteBuffer img) {
@@ -5003,11 +5003,11 @@ public final class GL11 {
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
+	/** JNI method for {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	@JavadocExclude
 	public static native void nglGetTexLevelParameteriv(int target, int lod, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
+	/** Unsafe version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int lod, int value, long data) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
@@ -5021,7 +5021,7 @@ public final class GL11 {
 	 * <p/>
 	 * Places integer information about texture image parameter {@code value} for level-of-detail {@code lod} of the specified {@code target} into {@code data}.
 	 *
-	 * @param target the texture image target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}, {@link #GL_TEXTURE_1D TEXTURE_1D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
+	 * @param target the texture image target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}, {@link #GL_TEXTURE_1D TEXTURE_1D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param lod    the level-of-detail number
 	 * @param value  the value to query. One of:<p/>{@link #GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link #GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link #GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link #GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link #GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link #GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link #GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link #GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link #GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link #GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
 	 * @param data   a scalar or array in which to place the returned data
@@ -5032,14 +5032,14 @@ public final class GL11 {
 		nglGetTexLevelParameteriv(target, lod, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
+	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	public static void glGetTexLevelParameter(int target, int lod, int value, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexLevelParameteriv(target, lod, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri} */
+	/** Single return value version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	public static int glGetTexLevelParameteri(int target, int lod, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -5049,11 +5049,11 @@ public final class GL11 {
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
+	/** JNI method for {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	@JavadocExclude
 	public static native void nglGetTexLevelParameterfv(int target, int lod, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
+	/** Unsafe version of {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int lod, int value, long data) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
@@ -5065,7 +5065,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) glGetTexLevelParameteri}.
+	 * Float version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri}.
 	 *
 	 * @param target the texture image target
 	 * @param lod    the level-of-detail number
@@ -5078,14 +5078,14 @@ public final class GL11 {
 		nglGetTexLevelParameterfv(target, lod, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
+	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	public static void glGetTexLevelParameter(int target, int lod, int value, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexLevelParameterfv(target, lod, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) glGetTexLevelParameterf} */
+	/** Single return value version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	public static float glGetTexLevelParameterf(int target, int lod, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -5095,11 +5095,11 @@ public final class GL11 {
 
 	// --- [ glGetTexParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
+	/** JNI method for {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	@JavadocExclude
 	public static native void nglGetTexParameteriv(int target, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
+	/** Unsafe version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int value, long data) {
 		long __functionAddress = getInstance().GetTexParameteriv;
@@ -5123,14 +5123,14 @@ public final class GL11 {
 		nglGetTexParameteriv(target, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
+	/** Alternative version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	public static void glGetTexParameter(int target, int value, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexParameteriv(target, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri} */
+	/** Single return value version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	public static int glGetTexParameteri(int target, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -5140,11 +5140,11 @@ public final class GL11 {
 
 	// --- [ glGetTexParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
+	/** JNI method for {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	@JavadocExclude
 	public static native void nglGetTexParameterfv(int target, int value, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
+	/** Unsafe version of {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int value, long data) {
 		long __functionAddress = getInstance().GetTexParameterfv;
@@ -5156,7 +5156,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Float version of {@link #glGetTexParameteri(int, int, ByteBuffer) glGetTexParameteri}.
+	 * Float version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param value  the value to query
@@ -5168,14 +5168,14 @@ public final class GL11 {
 		nglGetTexParameterfv(target, value, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
+	/** Alternative version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	public static void glGetTexParameter(int target, int value, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexParameterfv(target, value, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterf(int, int, ByteBuffer) glGetTexParameterf} */
+	/** Single return value version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	public static float glGetTexParameterf(int target, int value) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -5392,11 +5392,11 @@ public final class GL11 {
 
 	// --- [ glLightModeliv ] ---
 
-	/** JNI method for {@link #glLightModeli(int, ByteBuffer) glLightModeli} */
+	/** JNI method for {@link #glLightModeli(int, ByteBuffer) LightModeli} */
 	@JavadocExclude
 	public static native void nglLightModeliv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightModeli(int, ByteBuffer) glLightModeli} */
+	/** Unsafe version of {@link #glLightModeli(int, ByteBuffer) LightModeli} */
 	@JavadocExclude
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = getInstance().LightModeliv;
@@ -5419,7 +5419,7 @@ public final class GL11 {
 		nglLightModeliv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightModeli(int, ByteBuffer) glLightModeli} */
+	/** Alternative version of: {@link #glLightModeli(int, ByteBuffer) LightModeli} */
 	public static void glLightModel(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -5428,11 +5428,11 @@ public final class GL11 {
 
 	// --- [ glLightModelfv ] ---
 
-	/** JNI method for {@link #glLightModelf(int, ByteBuffer) glLightModelf} */
+	/** JNI method for {@link #glLightModelf(int, ByteBuffer) LightModelf} */
 	@JavadocExclude
 	public static native void nglLightModelfv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightModelf(int, ByteBuffer) glLightModelf} */
+	/** Unsafe version of {@link #glLightModelf(int, ByteBuffer) LightModelf} */
 	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
@@ -5455,7 +5455,7 @@ public final class GL11 {
 		nglLightModelfv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightModelf(int, ByteBuffer) glLightModelf} */
+	/** Alternative version of: {@link #glLightModelf(int, ByteBuffer) LightModelf} */
 	public static void glLightModel(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -5473,7 +5473,7 @@ public final class GL11 {
 	 * <p/>
 	 * Sets the integer value of a light parameter.
 	 *
-	 * @param light the light for which to set the parameter. Must be:<p/>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
+	 * @param light the light for which to set the parameter. One of:<p/>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
 	 * @param pname the parameter to set. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
 	 * @param param the parameter value
 	 */
@@ -5508,11 +5508,11 @@ public final class GL11 {
 
 	// --- [ glLightiv ] ---
 
-	/** JNI method for {@link #glLighti(int, int, ByteBuffer) glLighti} */
+	/** JNI method for {@link #glLighti(int, int, ByteBuffer) Lighti} */
 	@JavadocExclude
 	public static native void nglLightiv(int light, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLighti(int, int, ByteBuffer) glLighti} */
+	/** Unsafe version of {@link #glLighti(int, int, ByteBuffer) Lighti} */
 	@JavadocExclude
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightiv;
@@ -5536,7 +5536,7 @@ public final class GL11 {
 		nglLightiv(light, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLighti(int, int, ByteBuffer) glLighti} */
+	/** Alternative version of: {@link #glLighti(int, int, ByteBuffer) Lighti} */
 	public static void glLight(int light, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -5545,11 +5545,11 @@ public final class GL11 {
 
 	// --- [ glLightfv ] ---
 
-	/** JNI method for {@link #glLightf(int, int, ByteBuffer) glLightf} */
+	/** JNI method for {@link #glLightf(int, int, ByteBuffer) Lightf} */
 	@JavadocExclude
 	public static native void nglLightfv(int light, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightf(int, int, ByteBuffer) glLightf} */
+	/** Unsafe version of {@link #glLightf(int, int, ByteBuffer) Lightf} */
 	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
@@ -5573,7 +5573,7 @@ public final class GL11 {
 		nglLightfv(light, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightf(int, int, ByteBuffer) glLightf} */
+	/** Alternative version of: {@link #glLightf(int, int, ByteBuffer) Lightf} */
 	public static void glLight(int light, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -6099,11 +6099,11 @@ public final class GL11 {
 
 	// --- [ glMaterialiv ] ---
 
-	/** JNI method for {@link #glMateriali(int, int, ByteBuffer) glMateriali} */
+	/** JNI method for {@link #glMateriali(int, int, ByteBuffer) Materiali} */
 	@JavadocExclude
 	public static native void nglMaterialiv(int face, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMateriali(int, int, ByteBuffer) glMateriali} */
+	/** Unsafe version of {@link #glMateriali(int, int, ByteBuffer) Materiali} */
 	@JavadocExclude
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialiv;
@@ -6127,7 +6127,7 @@ public final class GL11 {
 		nglMaterialiv(face, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMateriali(int, int, ByteBuffer) glMateriali} */
+	/** Alternative version of: {@link #glMateriali(int, int, ByteBuffer) Materiali} */
 	public static void glMaterial(int face, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -6136,11 +6136,11 @@ public final class GL11 {
 
 	// --- [ glMaterialfv ] ---
 
-	/** JNI method for {@link #glMaterialf(int, int, ByteBuffer) glMaterialf} */
+	/** JNI method for {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
 	@JavadocExclude
 	public static native void nglMaterialfv(int face, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMaterialf(int, int, ByteBuffer) glMaterialf} */
+	/** Unsafe version of {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
 	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
@@ -6164,7 +6164,7 @@ public final class GL11 {
 		nglMaterialfv(face, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMaterialf(int, int, ByteBuffer) glMaterialf} */
+	/** Alternative version of: {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
 	public static void glMaterial(int face, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -6449,11 +6449,11 @@ public final class GL11 {
 
 	// --- [ glNormal3fv ] ---
 
-	/** JNI method for {@link #glNormal3f(ByteBuffer) glNormal3f} */
+	/** JNI method for {@link #glNormal3f(ByteBuffer) Normal3f} */
 	@JavadocExclude
 	public static native void nglNormal3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3f(ByteBuffer) glNormal3f} */
+	/** Unsafe version of {@link #glNormal3f(ByteBuffer) Normal3f} */
 	@JavadocExclude
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = getInstance().Normal3fv;
@@ -6475,7 +6475,7 @@ public final class GL11 {
 		nglNormal3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3f(ByteBuffer) glNormal3f} */
+	/** Alternative version of: {@link #glNormal3f(ByteBuffer) Normal3f} */
 	public static void glNormal3(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -6484,11 +6484,11 @@ public final class GL11 {
 
 	// --- [ glNormal3bv ] ---
 
-	/** JNI method for {@link #glNormal3b(ByteBuffer) glNormal3b} */
+	/** JNI method for {@link #glNormal3b(ByteBuffer) Normal3b} */
 	@JavadocExclude
 	public static native void nglNormal3bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3b(ByteBuffer) glNormal3b} */
+	/** Unsafe version of {@link #glNormal3b(ByteBuffer) Normal3b} */
 	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
@@ -6512,11 +6512,11 @@ public final class GL11 {
 
 	// --- [ glNormal3sv ] ---
 
-	/** JNI method for {@link #glNormal3s(ByteBuffer) glNormal3s} */
+	/** JNI method for {@link #glNormal3s(ByteBuffer) Normal3s} */
 	@JavadocExclude
 	public static native void nglNormal3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3s(ByteBuffer) glNormal3s} */
+	/** Unsafe version of {@link #glNormal3s(ByteBuffer) Normal3s} */
 	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
@@ -6538,7 +6538,7 @@ public final class GL11 {
 		nglNormal3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3s(ByteBuffer) glNormal3s} */
+	/** Alternative version of: {@link #glNormal3s(ByteBuffer) Normal3s} */
 	public static void glNormal3(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -6547,11 +6547,11 @@ public final class GL11 {
 
 	// --- [ glNormal3iv ] ---
 
-	/** JNI method for {@link #glNormal3i(ByteBuffer) glNormal3i} */
+	/** JNI method for {@link #glNormal3i(ByteBuffer) Normal3i} */
 	@JavadocExclude
 	public static native void nglNormal3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3i(ByteBuffer) glNormal3i} */
+	/** Unsafe version of {@link #glNormal3i(ByteBuffer) Normal3i} */
 	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
@@ -6573,7 +6573,7 @@ public final class GL11 {
 		nglNormal3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3i(ByteBuffer) glNormal3i} */
+	/** Alternative version of: {@link #glNormal3i(ByteBuffer) Normal3i} */
 	public static void glNormal3(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -6582,11 +6582,11 @@ public final class GL11 {
 
 	// --- [ glNormal3dv ] ---
 
-	/** JNI method for {@link #glNormal3d(ByteBuffer) glNormal3d} */
+	/** JNI method for {@link #glNormal3d(ByteBuffer) Normal3d} */
 	@JavadocExclude
 	public static native void nglNormal3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3d(ByteBuffer) glNormal3d} */
+	/** Unsafe version of {@link #glNormal3d(ByteBuffer) Normal3d} */
 	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
@@ -6608,7 +6608,7 @@ public final class GL11 {
 		nglNormal3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3d(ByteBuffer) glNormal3d} */
+	/** Alternative version of: {@link #glNormal3d(ByteBuffer) Normal3d} */
 	public static void glNormal3(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -6733,11 +6733,11 @@ public final class GL11 {
 
 	// --- [ glPixelMapfv ] ---
 
-	/** JNI method for {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
+	/** JNI method for {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
 	@JavadocExclude
 	public static native void nglPixelMapfv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
+	/** Unsafe version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
 	@JavadocExclude
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapfv;
@@ -6763,14 +6763,14 @@ public final class GL11 {
 		nglPixelMapfv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
+	/** Buffer object offset version of: {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
 	public static void glPixelMapf(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapfv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf} */
+	/** Alternative version of: {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
 	public static void glPixelMap(int map, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6779,11 +6779,11 @@ public final class GL11 {
 
 	// --- [ glPixelMapusv ] ---
 
-	/** JNI method for {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
+	/** JNI method for {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
 	@JavadocExclude
 	public static native void nglPixelMapusv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
+	/** Unsafe version of {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
 	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
@@ -6795,7 +6795,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned short version of {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf}.
+	 * Unsigned short version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size
@@ -6809,14 +6809,14 @@ public final class GL11 {
 		nglPixelMapusv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
+	/** Buffer object offset version of: {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
 	public static void glPixelMapus(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapusv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapus(int, int, ByteBuffer) glPixelMapus} */
+	/** Alternative version of: {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
 	public static void glPixelMapu(int map, ShortBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -6825,11 +6825,11 @@ public final class GL11 {
 
 	// --- [ glPixelMapuiv ] ---
 
-	/** JNI method for {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
+	/** JNI method for {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
 	@JavadocExclude
 	public static native void nglPixelMapuiv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
+	/** Unsafe version of {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
 	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
@@ -6841,7 +6841,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Unsigned integer version of {@link #glPixelMapf(int, int, ByteBuffer) glPixelMapf}.
+	 * Unsigned integer version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size
@@ -6855,14 +6855,14 @@ public final class GL11 {
 		nglPixelMapuiv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
+	/** Buffer object offset version of: {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
 	public static void glPixelMapui(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapuiv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapui(int, int, ByteBuffer) glPixelMapui} */
+	/** Alternative version of: {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
 	public static void glPixelMapu(int map, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
@@ -7390,11 +7390,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos2iv ] ---
 
-	/** JNI method for {@link #glRasterPos2i(ByteBuffer) glRasterPos2i} */
+	/** JNI method for {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
 	@JavadocExclude
 	public static native void nglRasterPos2iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2i(ByteBuffer) glRasterPos2i} */
+	/** Unsafe version of {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
 	@JavadocExclude
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = getInstance().RasterPos2iv;
@@ -7416,7 +7416,7 @@ public final class GL11 {
 		nglRasterPos2iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2i(ByteBuffer) glRasterPos2i} */
+	/** Alternative version of: {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
 	public static void glRasterPos2(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -7425,11 +7425,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos2sv ] ---
 
-	/** JNI method for {@link #glRasterPos2s(ByteBuffer) glRasterPos2s} */
+	/** JNI method for {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
 	@JavadocExclude
 	public static native void nglRasterPos2sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2s(ByteBuffer) glRasterPos2s} */
+	/** Unsafe version of {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
 	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
@@ -7451,7 +7451,7 @@ public final class GL11 {
 		nglRasterPos2sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2s(ByteBuffer) glRasterPos2s} */
+	/** Alternative version of: {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
 	public static void glRasterPos2(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -7460,11 +7460,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos2fv ] ---
 
-	/** JNI method for {@link #glRasterPos2f(ByteBuffer) glRasterPos2f} */
+	/** JNI method for {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
 	@JavadocExclude
 	public static native void nglRasterPos2fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2f(ByteBuffer) glRasterPos2f} */
+	/** Unsafe version of {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
 	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
@@ -7486,7 +7486,7 @@ public final class GL11 {
 		nglRasterPos2fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2f(ByteBuffer) glRasterPos2f} */
+	/** Alternative version of: {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
 	public static void glRasterPos2(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -7495,11 +7495,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos2dv ] ---
 
-	/** JNI method for {@link #glRasterPos2d(ByteBuffer) glRasterPos2d} */
+	/** JNI method for {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
 	@JavadocExclude
 	public static native void nglRasterPos2dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2d(ByteBuffer) glRasterPos2d} */
+	/** Unsafe version of {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
 	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
@@ -7521,7 +7521,7 @@ public final class GL11 {
 		nglRasterPos2dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2d(ByteBuffer) glRasterPos2d} */
+	/** Alternative version of: {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
 	public static void glRasterPos2(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -7618,11 +7618,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos3iv ] ---
 
-	/** JNI method for {@link #glRasterPos3i(ByteBuffer) glRasterPos3i} */
+	/** JNI method for {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
 	@JavadocExclude
 	public static native void nglRasterPos3iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3i(ByteBuffer) glRasterPos3i} */
+	/** Unsafe version of {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
 	@JavadocExclude
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = getInstance().RasterPos3iv;
@@ -7644,7 +7644,7 @@ public final class GL11 {
 		nglRasterPos3iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3i(ByteBuffer) glRasterPos3i} */
+	/** Alternative version of: {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
 	public static void glRasterPos3(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -7653,11 +7653,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos3sv ] ---
 
-	/** JNI method for {@link #glRasterPos3s(ByteBuffer) glRasterPos3s} */
+	/** JNI method for {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
 	@JavadocExclude
 	public static native void nglRasterPos3sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3s(ByteBuffer) glRasterPos3s} */
+	/** Unsafe version of {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
 	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
@@ -7679,7 +7679,7 @@ public final class GL11 {
 		nglRasterPos3sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3s(ByteBuffer) glRasterPos3s} */
+	/** Alternative version of: {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
 	public static void glRasterPos3(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -7688,11 +7688,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos3fv ] ---
 
-	/** JNI method for {@link #glRasterPos3f(ByteBuffer) glRasterPos3f} */
+	/** JNI method for {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
 	@JavadocExclude
 	public static native void nglRasterPos3fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3f(ByteBuffer) glRasterPos3f} */
+	/** Unsafe version of {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
 	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
@@ -7714,7 +7714,7 @@ public final class GL11 {
 		nglRasterPos3fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3f(ByteBuffer) glRasterPos3f} */
+	/** Alternative version of: {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
 	public static void glRasterPos3(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -7723,11 +7723,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos3dv ] ---
 
-	/** JNI method for {@link #glRasterPos3d(ByteBuffer) glRasterPos3d} */
+	/** JNI method for {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
 	@JavadocExclude
 	public static native void nglRasterPos3dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3d(ByteBuffer) glRasterPos3d} */
+	/** Unsafe version of {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
 	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
@@ -7749,7 +7749,7 @@ public final class GL11 {
 		nglRasterPos3dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3d(ByteBuffer) glRasterPos3d} */
+	/** Alternative version of: {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
 	public static void glRasterPos3(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -7850,11 +7850,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos4iv ] ---
 
-	/** JNI method for {@link #glRasterPos4i(ByteBuffer) glRasterPos4i} */
+	/** JNI method for {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
 	@JavadocExclude
 	public static native void nglRasterPos4iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4i(ByteBuffer) glRasterPos4i} */
+	/** Unsafe version of {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
 	@JavadocExclude
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = getInstance().RasterPos4iv;
@@ -7876,7 +7876,7 @@ public final class GL11 {
 		nglRasterPos4iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4i(ByteBuffer) glRasterPos4i} */
+	/** Alternative version of: {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
 	public static void glRasterPos4(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -7885,11 +7885,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos4sv ] ---
 
-	/** JNI method for {@link #glRasterPos4s(ByteBuffer) glRasterPos4s} */
+	/** JNI method for {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
 	@JavadocExclude
 	public static native void nglRasterPos4sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4s(ByteBuffer) glRasterPos4s} */
+	/** Unsafe version of {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
 	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
@@ -7911,7 +7911,7 @@ public final class GL11 {
 		nglRasterPos4sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4s(ByteBuffer) glRasterPos4s} */
+	/** Alternative version of: {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
 	public static void glRasterPos4(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -7920,11 +7920,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos4fv ] ---
 
-	/** JNI method for {@link #glRasterPos4f(ByteBuffer) glRasterPos4f} */
+	/** JNI method for {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
 	@JavadocExclude
 	public static native void nglRasterPos4fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4f(ByteBuffer) glRasterPos4f} */
+	/** Unsafe version of {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
 	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
@@ -7946,7 +7946,7 @@ public final class GL11 {
 		nglRasterPos4fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4f(ByteBuffer) glRasterPos4f} */
+	/** Alternative version of: {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
 	public static void glRasterPos4(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -7955,11 +7955,11 @@ public final class GL11 {
 
 	// --- [ glRasterPos4dv ] ---
 
-	/** JNI method for {@link #glRasterPos4d(ByteBuffer) glRasterPos4d} */
+	/** JNI method for {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
 	@JavadocExclude
 	public static native void nglRasterPos4dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4d(ByteBuffer) glRasterPos4d} */
+	/** Unsafe version of {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
 	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
@@ -7981,7 +7981,7 @@ public final class GL11 {
 		nglRasterPos4dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4d(ByteBuffer) glRasterPos4d} */
+	/** Alternative version of: {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
 	public static void glRasterPos4(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -8039,8 +8039,8 @@ public final class GL11 {
 	 * @param y      the lower pixel coordinate
 	 * @param width  the number of pixels to read in the x-dimension
 	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type   the pixel type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format the pixel format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type   the pixel type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param pixels an array in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -8184,11 +8184,11 @@ public final class GL11 {
 
 	// --- [ glRectiv ] ---
 
-	/** JNI method for {@link #glRecti(ByteBuffer, ByteBuffer) glRecti} */
+	/** JNI method for {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
 	@JavadocExclude
 	public static native void nglRectiv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRecti(ByteBuffer, ByteBuffer) glRecti} */
+	/** Unsafe version of {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
 	@JavadocExclude
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectiv;
@@ -8213,7 +8213,7 @@ public final class GL11 {
 		nglRectiv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRecti(ByteBuffer, ByteBuffer) glRecti} */
+	/** Alternative version of: {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
 	public static void glRect(IntBuffer v1, IntBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
@@ -8224,11 +8224,11 @@ public final class GL11 {
 
 	// --- [ glRectsv ] ---
 
-	/** JNI method for {@link #glRects(ByteBuffer, ByteBuffer) glRects} */
+	/** JNI method for {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
 	@JavadocExclude
 	public static native void nglRectsv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRects(ByteBuffer, ByteBuffer) glRects} */
+	/** Unsafe version of {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
 	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
@@ -8253,7 +8253,7 @@ public final class GL11 {
 		nglRectsv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRects(ByteBuffer, ByteBuffer) glRects} */
+	/** Alternative version of: {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
 	public static void glRect(ShortBuffer v1, ShortBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
@@ -8264,11 +8264,11 @@ public final class GL11 {
 
 	// --- [ glRectfv ] ---
 
-	/** JNI method for {@link #glRectf(ByteBuffer, ByteBuffer) glRectf} */
+	/** JNI method for {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
 	@JavadocExclude
 	public static native void nglRectfv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRectf(ByteBuffer, ByteBuffer) glRectf} */
+	/** Unsafe version of {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
 	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
@@ -8293,7 +8293,7 @@ public final class GL11 {
 		nglRectfv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRectf(ByteBuffer, ByteBuffer) glRectf} */
+	/** Alternative version of: {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
 	public static void glRect(FloatBuffer v1, FloatBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
@@ -8304,11 +8304,11 @@ public final class GL11 {
 
 	// --- [ glRectdv ] ---
 
-	/** JNI method for {@link #glRectd(ByteBuffer, ByteBuffer) glRectd} */
+	/** JNI method for {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
 	@JavadocExclude
 	public static native void nglRectdv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRectd(ByteBuffer, ByteBuffer) glRectd} */
+	/** Unsafe version of {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
 	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
@@ -8333,7 +8333,7 @@ public final class GL11 {
 		nglRectdv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRectd(ByteBuffer, ByteBuffer) glRectd} */
+	/** Alternative version of: {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
 	public static void glRect(DoubleBuffer v1, DoubleBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
@@ -8351,7 +8351,7 @@ public final class GL11 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man2/html/glRenderMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em>
 	 * <p/>
-	 * Sets the current render mode. The default is #RENDER.
+	 * Sets the current render mode. The default is {@link #GL_RENDER RENDER}.
 	 *
 	 * @param mode the render mode. One of:<p/>{@link #GL_RENDER RENDER}, {@link #GL_SELECT SELECT}, {@link #GL_FEEDBACK FEEDBACK}
 	 */
@@ -8725,11 +8725,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord1fv ] ---
 
-	/** JNI method for {@link #glTexCoord1f(ByteBuffer) glTexCoord1f} */
+	/** JNI method for {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
 	@JavadocExclude
 	public static native void nglTexCoord1fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1f(ByteBuffer) glTexCoord1f} */
+	/** Unsafe version of {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
 	@JavadocExclude
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = getInstance().TexCoord1fv;
@@ -8751,7 +8751,7 @@ public final class GL11 {
 		nglTexCoord1fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1f(ByteBuffer) glTexCoord1f} */
+	/** Alternative version of: {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
 	public static void glTexCoord1(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -8760,11 +8760,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord1sv ] ---
 
-	/** JNI method for {@link #glTexCoord1s(ByteBuffer) glTexCoord1s} */
+	/** JNI method for {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
 	@JavadocExclude
 	public static native void nglTexCoord1sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1s(ByteBuffer) glTexCoord1s} */
+	/** Unsafe version of {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
 	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
@@ -8786,7 +8786,7 @@ public final class GL11 {
 		nglTexCoord1sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1s(ByteBuffer) glTexCoord1s} */
+	/** Alternative version of: {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
 	public static void glTexCoord1(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -8795,11 +8795,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord1iv ] ---
 
-	/** JNI method for {@link #glTexCoord1i(ByteBuffer) glTexCoord1i} */
+	/** JNI method for {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
 	@JavadocExclude
 	public static native void nglTexCoord1iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1i(ByteBuffer) glTexCoord1i} */
+	/** Unsafe version of {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
 	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
@@ -8821,7 +8821,7 @@ public final class GL11 {
 		nglTexCoord1iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1i(ByteBuffer) glTexCoord1i} */
+	/** Alternative version of: {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
 	public static void glTexCoord1(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -8830,11 +8830,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord1dv ] ---
 
-	/** JNI method for {@link #glTexCoord1d(ByteBuffer) glTexCoord1d} */
+	/** JNI method for {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
 	@JavadocExclude
 	public static native void nglTexCoord1dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1d(ByteBuffer) glTexCoord1d} */
+	/** Unsafe version of {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
 	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
@@ -8856,7 +8856,7 @@ public final class GL11 {
 		nglTexCoord1dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1d(ByteBuffer) glTexCoord1d} */
+	/** Alternative version of: {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
 	public static void glTexCoord1(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -8949,11 +8949,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord2fv ] ---
 
-	/** JNI method for {@link #glTexCoord2f(ByteBuffer) glTexCoord2f} */
+	/** JNI method for {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
 	@JavadocExclude
 	public static native void nglTexCoord2fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2f(ByteBuffer) glTexCoord2f} */
+	/** Unsafe version of {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
 	@JavadocExclude
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = getInstance().TexCoord2fv;
@@ -8975,7 +8975,7 @@ public final class GL11 {
 		nglTexCoord2fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2f(ByteBuffer) glTexCoord2f} */
+	/** Alternative version of: {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
 	public static void glTexCoord2(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -8984,11 +8984,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord2sv ] ---
 
-	/** JNI method for {@link #glTexCoord2s(ByteBuffer) glTexCoord2s} */
+	/** JNI method for {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
 	@JavadocExclude
 	public static native void nglTexCoord2sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2s(ByteBuffer) glTexCoord2s} */
+	/** Unsafe version of {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
 	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
@@ -9010,7 +9010,7 @@ public final class GL11 {
 		nglTexCoord2sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2s(ByteBuffer) glTexCoord2s} */
+	/** Alternative version of: {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
 	public static void glTexCoord2(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -9019,11 +9019,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord2iv ] ---
 
-	/** JNI method for {@link #glTexCoord2i(ByteBuffer) glTexCoord2i} */
+	/** JNI method for {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
 	@JavadocExclude
 	public static native void nglTexCoord2iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2i(ByteBuffer) glTexCoord2i} */
+	/** Unsafe version of {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
 	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
@@ -9045,7 +9045,7 @@ public final class GL11 {
 		nglTexCoord2iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2i(ByteBuffer) glTexCoord2i} */
+	/** Alternative version of: {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
 	public static void glTexCoord2(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -9054,11 +9054,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord2dv ] ---
 
-	/** JNI method for {@link #glTexCoord2d(ByteBuffer) glTexCoord2d} */
+	/** JNI method for {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
 	@JavadocExclude
 	public static native void nglTexCoord2dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2d(ByteBuffer) glTexCoord2d} */
+	/** Unsafe version of {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
 	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
@@ -9080,7 +9080,7 @@ public final class GL11 {
 		nglTexCoord2dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2d(ByteBuffer) glTexCoord2d} */
+	/** Alternative version of: {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
 	public static void glTexCoord2(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -9177,11 +9177,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord3fv ] ---
 
-	/** JNI method for {@link #glTexCoord3f(ByteBuffer) glTexCoord3f} */
+	/** JNI method for {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
 	@JavadocExclude
 	public static native void nglTexCoord3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3f(ByteBuffer) glTexCoord3f} */
+	/** Unsafe version of {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
 	@JavadocExclude
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = getInstance().TexCoord3fv;
@@ -9203,7 +9203,7 @@ public final class GL11 {
 		nglTexCoord3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3f(ByteBuffer) glTexCoord3f} */
+	/** Alternative version of: {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
 	public static void glTexCoord3(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -9212,11 +9212,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord3sv ] ---
 
-	/** JNI method for {@link #glTexCoord3s(ByteBuffer) glTexCoord3s} */
+	/** JNI method for {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
 	@JavadocExclude
 	public static native void nglTexCoord3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3s(ByteBuffer) glTexCoord3s} */
+	/** Unsafe version of {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
 	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
@@ -9238,7 +9238,7 @@ public final class GL11 {
 		nglTexCoord3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3s(ByteBuffer) glTexCoord3s} */
+	/** Alternative version of: {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
 	public static void glTexCoord3(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -9247,11 +9247,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord3iv ] ---
 
-	/** JNI method for {@link #glTexCoord3i(ByteBuffer) glTexCoord3i} */
+	/** JNI method for {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
 	@JavadocExclude
 	public static native void nglTexCoord3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3i(ByteBuffer) glTexCoord3i} */
+	/** Unsafe version of {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
 	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
@@ -9273,7 +9273,7 @@ public final class GL11 {
 		nglTexCoord3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3i(ByteBuffer) glTexCoord3i} */
+	/** Alternative version of: {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
 	public static void glTexCoord3(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -9282,11 +9282,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord3dv ] ---
 
-	/** JNI method for {@link #glTexCoord3d(ByteBuffer) glTexCoord3d} */
+	/** JNI method for {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
 	@JavadocExclude
 	public static native void nglTexCoord3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3d(ByteBuffer) glTexCoord3d} */
+	/** Unsafe version of {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
 	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
@@ -9308,7 +9308,7 @@ public final class GL11 {
 		nglTexCoord3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3d(ByteBuffer) glTexCoord3d} */
+	/** Alternative version of: {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
 	public static void glTexCoord3(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -9409,11 +9409,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord4fv ] ---
 
-	/** JNI method for {@link #glTexCoord4f(ByteBuffer) glTexCoord4f} */
+	/** JNI method for {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
 	@JavadocExclude
 	public static native void nglTexCoord4fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4f(ByteBuffer) glTexCoord4f} */
+	/** Unsafe version of {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
 	@JavadocExclude
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = getInstance().TexCoord4fv;
@@ -9435,7 +9435,7 @@ public final class GL11 {
 		nglTexCoord4fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4f(ByteBuffer) glTexCoord4f} */
+	/** Alternative version of: {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
 	public static void glTexCoord4(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -9444,11 +9444,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord4sv ] ---
 
-	/** JNI method for {@link #glTexCoord4s(ByteBuffer) glTexCoord4s} */
+	/** JNI method for {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
 	@JavadocExclude
 	public static native void nglTexCoord4sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4s(ByteBuffer) glTexCoord4s} */
+	/** Unsafe version of {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
 	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
@@ -9470,7 +9470,7 @@ public final class GL11 {
 		nglTexCoord4sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4s(ByteBuffer) glTexCoord4s} */
+	/** Alternative version of: {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
 	public static void glTexCoord4(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -9479,11 +9479,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord4iv ] ---
 
-	/** JNI method for {@link #glTexCoord4i(ByteBuffer) glTexCoord4i} */
+	/** JNI method for {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
 	@JavadocExclude
 	public static native void nglTexCoord4iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4i(ByteBuffer) glTexCoord4i} */
+	/** Unsafe version of {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
 	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
@@ -9505,7 +9505,7 @@ public final class GL11 {
 		nglTexCoord4iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4i(ByteBuffer) glTexCoord4i} */
+	/** Alternative version of: {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
 	public static void glTexCoord4(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -9514,11 +9514,11 @@ public final class GL11 {
 
 	// --- [ glTexCoord4dv ] ---
 
-	/** JNI method for {@link #glTexCoord4d(ByteBuffer) glTexCoord4d} */
+	/** JNI method for {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
 	@JavadocExclude
 	public static native void nglTexCoord4dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4d(ByteBuffer) glTexCoord4d} */
+	/** Unsafe version of {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
 	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
@@ -9540,7 +9540,7 @@ public final class GL11 {
 		nglTexCoord4dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4d(ByteBuffer) glTexCoord4d} */
+	/** Alternative version of: {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
 	public static void glTexCoord4(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -9617,11 +9617,11 @@ public final class GL11 {
 
 	// --- [ glTexEnviv ] ---
 
-	/** JNI method for {@link #glTexEnvi(int, int, ByteBuffer) glTexEnvi} */
+	/** JNI method for {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
 	@JavadocExclude
 	public static native void nglTexEnviv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexEnvi(int, int, ByteBuffer) glTexEnvi} */
+	/** Unsafe version of {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
 	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
@@ -9645,7 +9645,7 @@ public final class GL11 {
 		nglTexEnviv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexEnvi(int, int, ByteBuffer) glTexEnvi} */
+	/** Alternative version of: {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
 	public static void glTexEnv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -9676,11 +9676,11 @@ public final class GL11 {
 
 	// --- [ glTexEnvfv ] ---
 
-	/** JNI method for {@link #glTexEnvf(int, int, ByteBuffer) glTexEnvf} */
+	/** JNI method for {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
 	@JavadocExclude
 	public static native void nglTexEnvfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexEnvf(int, int, ByteBuffer) glTexEnvf} */
+	/** Unsafe version of {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
 	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
@@ -9704,7 +9704,7 @@ public final class GL11 {
 		nglTexEnvfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexEnvf(int, int, ByteBuffer) glTexEnvf} */
+	/** Alternative version of: {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
 	public static void glTexEnv(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -9743,11 +9743,11 @@ public final class GL11 {
 
 	// --- [ glTexGeniv ] ---
 
-	/** JNI method for {@link #glTexGeni(int, int, ByteBuffer) glTexGeni} */
+	/** JNI method for {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
 	@JavadocExclude
 	public static native void nglTexGeniv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGeni(int, int, ByteBuffer) glTexGeni} */
+	/** Unsafe version of {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
 	@JavadocExclude
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGeniv;
@@ -9771,7 +9771,7 @@ public final class GL11 {
 		nglTexGeniv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGeni(int, int, ByteBuffer) glTexGeni} */
+	/** Alternative version of: {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
 	public static void glTexGen(int coord, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -9802,11 +9802,11 @@ public final class GL11 {
 
 	// --- [ glTexGenfv ] ---
 
-	/** JNI method for {@link #glTexGenf(int, int, ByteBuffer) glTexGenf} */
+	/** JNI method for {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
 	@JavadocExclude
 	public static native void nglTexGenfv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGenf(int, int, ByteBuffer) glTexGenf} */
+	/** Unsafe version of {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
 	@JavadocExclude
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGenfv;
@@ -9830,7 +9830,7 @@ public final class GL11 {
 		nglTexGenfv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGenf(int, int, ByteBuffer) glTexGenf} */
+	/** Alternative version of: {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
 	public static void glTexGen(int coord, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -9861,11 +9861,11 @@ public final class GL11 {
 
 	// --- [ glTexGendv ] ---
 
-	/** JNI method for {@link #glTexGend(int, int, ByteBuffer) glTexGend} */
+	/** JNI method for {@link #glTexGend(int, int, ByteBuffer) TexGend} */
 	@JavadocExclude
 	public static native void nglTexGendv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGend(int, int, ByteBuffer) glTexGend} */
+	/** Unsafe version of {@link #glTexGend(int, int, ByteBuffer) TexGend} */
 	@JavadocExclude
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGendv;
@@ -9889,7 +9889,7 @@ public final class GL11 {
 		nglTexGendv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGend(int, int, ByteBuffer) glTexGend} */
+	/** Alternative version of: {@link #glTexGend(int, int, ByteBuffer) TexGend} */
 	public static void glTexGen(int coord, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -9916,14 +9916,14 @@ public final class GL11 {
 	 * <p/>
 	 * Specifies a two-dimensional texture image.
 	 *
-	 * @param target         the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
+	 * @param target         the texture target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
 	 * @param level          the level-of-detail number
-	 * @param internalformat the texture internal format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL30#GL_R8 R8}, {@link GL31#GL_R8_SNORM R8_SNORM}, {@link GL30#GL_R16 R16}, {@link GL31#GL_R16_SNORM R16_SNORM}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL30#GL_RG16 RG16}, {@link GL31#GL_RG16_SNORM RG16_SNORM}, {@link GL11#GL_R3_G3_B2 R3_G3_B2}, {@link GL11#GL_RGB4 RGB4}, {@link GL11#GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link GL11#GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link GL11#GL_RGB10 RGB10}, {@link GL11#GL_RGB12 RGB12}, {@link GL11#GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link GL11#GL_RGBA2 RGBA2}, {@link GL11#GL_RGBA4 RGBA4}, {@link GL11#GL_RGB5_A1 RGB5_A1}, {@link GL11#GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link GL11#GL_RGB10_A2 RGB10_A2}, {@link GL33#GL_RGB10_A2UI RGB10_A2UI}, {@link GL11#GL_RGBA12 RGBA12}, {@link GL11#GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_R16F R16F}, {@link GL30#GL_RG16F RG16F}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_R32F R32F}, {@link GL30#GL_RG32F RG32F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL30#GL_RGB9_E5 RGB9_E5}, {@link GL30#GL_R8I R8I}, {@link GL30#GL_R8UI R8UI}, {@link GL30#GL_R16I R16I}, {@link GL30#GL_R16UI R16UI}, {@link GL30#GL_R32I R32I}, {@link GL30#GL_R32UI R32UI}, {@link GL30#GL_RG8I RG8I}, {@link GL30#GL_RG8UI RG8UI}, {@link GL30#GL_RG16I RG16I}, {@link GL30#GL_RG16UI RG16UI}, {@link GL30#GL_RG32I RG32I}, {@link GL30#GL_RG32UI RG32UI}, {@link GL30#GL_RGB8I RGB8I}, {@link GL30#GL_RGB8UI RGB8UI}, {@link GL30#GL_RGB16I RGB16I}, {@link GL30#GL_RGB16UI RGB16UI}, {@link GL30#GL_RGB32I RGB32I}, {@link GL30#GL_RGB32UI RGB32UI}, {@link GL30#GL_RGBA8I RGBA8I}, {@link GL30#GL_RGBA8UI RGBA8UI}, {@link GL30#GL_RGBA16I RGBA16I}, {@link GL30#GL_RGBA16UI RGBA16UI}, {@link GL30#GL_RGBA32I RGBA32I}, {@link GL30#GL_RGBA32UI RGBA32UI}, {@link GL14#GL_DEPTH_COMPONENT16 DEPTH_COMPONENT16}, {@link GL14#GL_DEPTH_COMPONENT24 DEPTH_COMPONENT24}, {@link GL14#GL_DEPTH_COMPONENT32 DEPTH_COMPONENT32}, {@link GL30#GL_DEPTH24_STENCIL8 DEPTH24_STENCIL8}, {@link GL30#GL_DEPTH_COMPONENT32F DEPTH_COMPONENT32F}, {@link GL30#GL_DEPTH32F_STENCIL8 DEPTH32F_STENCIL8}, {@link GL30#GL_COMPRESSED_RED COMPRESSED_RED}, {@link GL30#GL_COMPRESSED_RG COMPRESSED_RG}, {@link GL13#GL_COMPRESSED_RGB COMPRESSED_RGB}, {@link GL13#GL_COMPRESSED_RGBA COMPRESSED_RGBA}, {@link GL21#GL_COMPRESSED_SRGB COMPRESSED_SRGB}, {@link GL21#GL_COMPRESSED_SRGB_ALPHA COMPRESSED_SRGB_ALPHA}, {@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}
+	 * @param internalformat the texture internal format. One of:<p/>{@link #GL_RED RED}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL30#GL_R8 R8}, {@link GL31#GL_R8_SNORM R8_SNORM}, {@link GL30#GL_R16 R16}, {@link GL31#GL_R16_SNORM R16_SNORM}, {@link GL30#GL_RG8 RG8}, {@link GL31#GL_RG8_SNORM RG8_SNORM}, {@link GL30#GL_RG16 RG16}, {@link GL31#GL_RG16_SNORM RG16_SNORM}, {@link #GL_R3_G3_B2 R3_G3_B2}, {@link #GL_RGB4 RGB4}, {@link #GL_RGB5 RGB5}, {@link GL41#GL_RGB565 RGB565}, {@link #GL_RGB8 RGB8}, {@link GL31#GL_RGB8_SNORM RGB8_SNORM}, {@link #GL_RGB10 RGB10}, {@link #GL_RGB12 RGB12}, {@link #GL_RGB16 RGB16}, {@link GL31#GL_RGB16_SNORM RGB16_SNORM}, {@link #GL_RGBA2 RGBA2}, {@link #GL_RGBA4 RGBA4}, {@link #GL_RGB5_A1 RGB5_A1}, {@link #GL_RGBA8 RGBA8}, {@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}, {@link #GL_RGB10_A2 RGB10_A2}, {@link GL33#GL_RGB10_A2UI RGB10_A2UI}, {@link #GL_RGBA12 RGBA12}, {@link #GL_RGBA16 RGBA16}, {@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}, {@link GL21#GL_SRGB8 SRGB8}, {@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}, {@link GL30#GL_R16F R16F}, {@link GL30#GL_RG16F RG16F}, {@link GL30#GL_RGB16F RGB16F}, {@link GL30#GL_RGBA16F RGBA16F}, {@link GL30#GL_R32F R32F}, {@link GL30#GL_RG32F RG32F}, {@link GL30#GL_RGB32F RGB32F}, {@link GL30#GL_RGBA32F RGBA32F}, {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}, {@link GL30#GL_RGB9_E5 RGB9_E5}, {@link GL30#GL_R8I R8I}, {@link GL30#GL_R8UI R8UI}, {@link GL30#GL_R16I R16I}, {@link GL30#GL_R16UI R16UI}, {@link GL30#GL_R32I R32I}, {@link GL30#GL_R32UI R32UI}, {@link GL30#GL_RG8I RG8I}, {@link GL30#GL_RG8UI RG8UI}, {@link GL30#GL_RG16I RG16I}, {@link GL30#GL_RG16UI RG16UI}, {@link GL30#GL_RG32I RG32I}, {@link GL30#GL_RG32UI RG32UI}, {@link GL30#GL_RGB8I RGB8I}, {@link GL30#GL_RGB8UI RGB8UI}, {@link GL30#GL_RGB16I RGB16I}, {@link GL30#GL_RGB16UI RGB16UI}, {@link GL30#GL_RGB32I RGB32I}, {@link GL30#GL_RGB32UI RGB32UI}, {@link GL30#GL_RGBA8I RGBA8I}, {@link GL30#GL_RGBA8UI RGBA8UI}, {@link GL30#GL_RGBA16I RGBA16I}, {@link GL30#GL_RGBA16UI RGBA16UI}, {@link GL30#GL_RGBA32I RGBA32I}, {@link GL30#GL_RGBA32UI RGBA32UI}, {@link GL14#GL_DEPTH_COMPONENT16 DEPTH_COMPONENT16}, {@link GL14#GL_DEPTH_COMPONENT24 DEPTH_COMPONENT24}, {@link GL14#GL_DEPTH_COMPONENT32 DEPTH_COMPONENT32}, {@link GL30#GL_DEPTH24_STENCIL8 DEPTH24_STENCIL8}, {@link GL30#GL_DEPTH_COMPONENT32F DEPTH_COMPONENT32F}, {@link GL30#GL_DEPTH32F_STENCIL8 DEPTH32F_STENCIL8}, {@link GL30#GL_COMPRESSED_RED COMPRESSED_RED}, {@link GL30#GL_COMPRESSED_RG COMPRESSED_RG}, {@link GL13#GL_COMPRESSED_RGB COMPRESSED_RGB}, {@link GL13#GL_COMPRESSED_RGBA COMPRESSED_RGBA}, {@link GL21#GL_COMPRESSED_SRGB COMPRESSED_SRGB}, {@link GL21#GL_COMPRESSED_SRGB_ALPHA COMPRESSED_SRGB_ALPHA}, {@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}
 	 * @param width          the texture width
 	 * @param height         the texture height
 	 * @param border         the texture border width
-	 * @param format         the texel data format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type           the texel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format         the texel data format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type           the texel data type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
@@ -10062,7 +10062,7 @@ public final class GL11 {
 	 * <p/>
 	 * The constraints on width, height, and border are exactly those for the corresponding arguments of {@link #glTexImage2D TexImage2D}.
 	 *
-	 * @param target         the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param target         the texture target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level          the level-of-detail number
 	 * @param internalFormat the texture internal format. See {@link #glTexImage2D TexImage2D} for a list of supported formats.
 	 * @param x              the left framebuffer pixel coordinate
@@ -10148,7 +10148,7 @@ public final class GL11 {
 	 * or {@code border} parameters of the specified texel array, nor is any change made to texel values outside the specified subregion. See
 	 * {@link #glCopyTexImage2D CopyTexImage2D} for more details.
 	 *
-	 * @param target  the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param target  the texture target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level   the level-of-detail number
 	 * @param xoffset the left texel coordinate of the texture subregion to update
 	 * @param yoffset the lower texel coordinate of the texture subregion to update
@@ -10188,11 +10188,11 @@ public final class GL11 {
 
 	// --- [ glTexParameteriv ] ---
 
-	/** JNI method for {@link #glTexParameteri(int, int, ByteBuffer) glTexParameteri} */
+	/** JNI method for {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
 	@JavadocExclude
 	public static native void nglTexParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameteri(int, int, ByteBuffer) glTexParameteri} */
+	/** Unsafe version of {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
@@ -10216,7 +10216,7 @@ public final class GL11 {
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameteri(int, int, ByteBuffer) glTexParameteri} */
+	/** Alternative version of: {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
 	public static void glTexParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -10247,11 +10247,11 @@ public final class GL11 {
 
 	// --- [ glTexParameterfv ] ---
 
-	/** JNI method for {@link #glTexParameterf(int, int, ByteBuffer) glTexParameterf} */
+	/** JNI method for {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
 	@JavadocExclude
 	public static native void nglTexParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterf(int, int, ByteBuffer) glTexParameterf} */
+	/** Unsafe version of {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
@@ -10275,7 +10275,7 @@ public final class GL11 {
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterf(int, int, ByteBuffer) glTexParameterf} */
+	/** Alternative version of: {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
 	public static void glTexParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
@@ -10306,8 +10306,8 @@ public final class GL11 {
 	 * @param level   the level-of-detail-number
 	 * @param xoffset the left coordinate of the texel subregion
 	 * @param width   the subregion width
-	 * @param format  the pixel data format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type    the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format  the pixel data format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
@@ -10372,14 +10372,14 @@ public final class GL11 {
 	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
 	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
 	 *
-	 * @param target  the texture target. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param target  the texture target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level   the level-of-detail-number
 	 * @param xoffset the left coordinate of the texel subregion
 	 * @param yoffset the bottom coordinate of the texel subregion
 	 * @param width   the subregion width
 	 * @param height  the subregion height
-	 * @param format  the pixel data format. One of:<p/>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
-	 * @param type    the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param format  the pixel data format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel data type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -10562,11 +10562,11 @@ public final class GL11 {
 
 	// --- [ glVertex2fv ] ---
 
-	/** JNI method for {@link #glVertex2f(ByteBuffer) glVertex2f} */
+	/** JNI method for {@link #glVertex2f(ByteBuffer) Vertex2f} */
 	@JavadocExclude
 	public static native void nglVertex2fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2f(ByteBuffer) glVertex2f} */
+	/** Unsafe version of {@link #glVertex2f(ByteBuffer) Vertex2f} */
 	@JavadocExclude
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = getInstance().Vertex2fv;
@@ -10588,7 +10588,7 @@ public final class GL11 {
 		nglVertex2fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2f(ByteBuffer) glVertex2f} */
+	/** Alternative version of: {@link #glVertex2f(ByteBuffer) Vertex2f} */
 	public static void glVertex2(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -10597,11 +10597,11 @@ public final class GL11 {
 
 	// --- [ glVertex2sv ] ---
 
-	/** JNI method for {@link #glVertex2s(ByteBuffer) glVertex2s} */
+	/** JNI method for {@link #glVertex2s(ByteBuffer) Vertex2s} */
 	@JavadocExclude
 	public static native void nglVertex2sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2s(ByteBuffer) glVertex2s} */
+	/** Unsafe version of {@link #glVertex2s(ByteBuffer) Vertex2s} */
 	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
@@ -10623,7 +10623,7 @@ public final class GL11 {
 		nglVertex2sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2s(ByteBuffer) glVertex2s} */
+	/** Alternative version of: {@link #glVertex2s(ByteBuffer) Vertex2s} */
 	public static void glVertex2(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -10632,11 +10632,11 @@ public final class GL11 {
 
 	// --- [ glVertex2iv ] ---
 
-	/** JNI method for {@link #glVertex2i(ByteBuffer) glVertex2i} */
+	/** JNI method for {@link #glVertex2i(ByteBuffer) Vertex2i} */
 	@JavadocExclude
 	public static native void nglVertex2iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2i(ByteBuffer) glVertex2i} */
+	/** Unsafe version of {@link #glVertex2i(ByteBuffer) Vertex2i} */
 	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
@@ -10658,7 +10658,7 @@ public final class GL11 {
 		nglVertex2iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2i(ByteBuffer) glVertex2i} */
+	/** Alternative version of: {@link #glVertex2i(ByteBuffer) Vertex2i} */
 	public static void glVertex2(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -10667,11 +10667,11 @@ public final class GL11 {
 
 	// --- [ glVertex2dv ] ---
 
-	/** JNI method for {@link #glVertex2d(ByteBuffer) glVertex2d} */
+	/** JNI method for {@link #glVertex2d(ByteBuffer) Vertex2d} */
 	@JavadocExclude
 	public static native void nglVertex2dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2d(ByteBuffer) glVertex2d} */
+	/** Unsafe version of {@link #glVertex2d(ByteBuffer) Vertex2d} */
 	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
@@ -10693,7 +10693,7 @@ public final class GL11 {
 		nglVertex2dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2d(ByteBuffer) glVertex2d} */
+	/** Alternative version of: {@link #glVertex2d(ByteBuffer) Vertex2d} */
 	public static void glVertex2(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
@@ -10791,11 +10791,11 @@ public final class GL11 {
 
 	// --- [ glVertex3fv ] ---
 
-	/** JNI method for {@link #glVertex3f(ByteBuffer) glVertex3f} */
+	/** JNI method for {@link #glVertex3f(ByteBuffer) Vertex3f} */
 	@JavadocExclude
 	public static native void nglVertex3fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3f(ByteBuffer) glVertex3f} */
+	/** Unsafe version of {@link #glVertex3f(ByteBuffer) Vertex3f} */
 	@JavadocExclude
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = getInstance().Vertex3fv;
@@ -10817,7 +10817,7 @@ public final class GL11 {
 		nglVertex3fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3f(ByteBuffer) glVertex3f} */
+	/** Alternative version of: {@link #glVertex3f(ByteBuffer) Vertex3f} */
 	public static void glVertex3(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -10826,11 +10826,11 @@ public final class GL11 {
 
 	// --- [ glVertex3sv ] ---
 
-	/** JNI method for {@link #glVertex3s(ByteBuffer) glVertex3s} */
+	/** JNI method for {@link #glVertex3s(ByteBuffer) Vertex3s} */
 	@JavadocExclude
 	public static native void nglVertex3sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3s(ByteBuffer) glVertex3s} */
+	/** Unsafe version of {@link #glVertex3s(ByteBuffer) Vertex3s} */
 	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
@@ -10852,7 +10852,7 @@ public final class GL11 {
 		nglVertex3sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3s(ByteBuffer) glVertex3s} */
+	/** Alternative version of: {@link #glVertex3s(ByteBuffer) Vertex3s} */
 	public static void glVertex3(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -10861,11 +10861,11 @@ public final class GL11 {
 
 	// --- [ glVertex3iv ] ---
 
-	/** JNI method for {@link #glVertex3i(ByteBuffer) glVertex3i} */
+	/** JNI method for {@link #glVertex3i(ByteBuffer) Vertex3i} */
 	@JavadocExclude
 	public static native void nglVertex3iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3i(ByteBuffer) glVertex3i} */
+	/** Unsafe version of {@link #glVertex3i(ByteBuffer) Vertex3i} */
 	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
@@ -10887,7 +10887,7 @@ public final class GL11 {
 		nglVertex3iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3i(ByteBuffer) glVertex3i} */
+	/** Alternative version of: {@link #glVertex3i(ByteBuffer) Vertex3i} */
 	public static void glVertex3(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -10896,11 +10896,11 @@ public final class GL11 {
 
 	// --- [ glVertex3dv ] ---
 
-	/** JNI method for {@link #glVertex3d(ByteBuffer) glVertex3d} */
+	/** JNI method for {@link #glVertex3d(ByteBuffer) Vertex3d} */
 	@JavadocExclude
 	public static native void nglVertex3dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3d(ByteBuffer) glVertex3d} */
+	/** Unsafe version of {@link #glVertex3d(ByteBuffer) Vertex3d} */
 	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
@@ -10922,7 +10922,7 @@ public final class GL11 {
 		nglVertex3dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3d(ByteBuffer) glVertex3d} */
+	/** Alternative version of: {@link #glVertex3d(ByteBuffer) Vertex3d} */
 	public static void glVertex3(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
@@ -11023,11 +11023,11 @@ public final class GL11 {
 
 	// --- [ glVertex4fv ] ---
 
-	/** JNI method for {@link #glVertex4f(ByteBuffer) glVertex4f} */
+	/** JNI method for {@link #glVertex4f(ByteBuffer) Vertex4f} */
 	@JavadocExclude
 	public static native void nglVertex4fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4f(ByteBuffer) glVertex4f} */
+	/** Unsafe version of {@link #glVertex4f(ByteBuffer) Vertex4f} */
 	@JavadocExclude
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = getInstance().Vertex4fv;
@@ -11049,7 +11049,7 @@ public final class GL11 {
 		nglVertex4fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4f(ByteBuffer) glVertex4f} */
+	/** Alternative version of: {@link #glVertex4f(ByteBuffer) Vertex4f} */
 	public static void glVertex4(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -11058,11 +11058,11 @@ public final class GL11 {
 
 	// --- [ glVertex4sv ] ---
 
-	/** JNI method for {@link #glVertex4s(ByteBuffer) glVertex4s} */
+	/** JNI method for {@link #glVertex4s(ByteBuffer) Vertex4s} */
 	@JavadocExclude
 	public static native void nglVertex4sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4s(ByteBuffer) glVertex4s} */
+	/** Unsafe version of {@link #glVertex4s(ByteBuffer) Vertex4s} */
 	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
@@ -11084,7 +11084,7 @@ public final class GL11 {
 		nglVertex4sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4s(ByteBuffer) glVertex4s} */
+	/** Alternative version of: {@link #glVertex4s(ByteBuffer) Vertex4s} */
 	public static void glVertex4(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -11093,11 +11093,11 @@ public final class GL11 {
 
 	// --- [ glVertex4iv ] ---
 
-	/** JNI method for {@link #glVertex4i(ByteBuffer) glVertex4i} */
+	/** JNI method for {@link #glVertex4i(ByteBuffer) Vertex4i} */
 	@JavadocExclude
 	public static native void nglVertex4iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4i(ByteBuffer) glVertex4i} */
+	/** Unsafe version of {@link #glVertex4i(ByteBuffer) Vertex4i} */
 	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
@@ -11119,7 +11119,7 @@ public final class GL11 {
 		nglVertex4iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4i(ByteBuffer) glVertex4i} */
+	/** Alternative version of: {@link #glVertex4i(ByteBuffer) Vertex4i} */
 	public static void glVertex4(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
@@ -11128,11 +11128,11 @@ public final class GL11 {
 
 	// --- [ glVertex4dv ] ---
 
-	/** JNI method for {@link #glVertex4d(ByteBuffer) glVertex4d} */
+	/** JNI method for {@link #glVertex4d(ByteBuffer) Vertex4d} */
 	@JavadocExclude
 	public static native void nglVertex4dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4d(ByteBuffer) glVertex4d} */
+	/** Unsafe version of {@link #glVertex4d(ByteBuffer) Vertex4d} */
 	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
@@ -11154,7 +11154,7 @@ public final class GL11 {
 		nglVertex4dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4d(ByteBuffer) glVertex4d} */
+	/** Alternative version of: {@link #glVertex4d(ByteBuffer) Vertex4d} */
 	public static void glVertex4(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);

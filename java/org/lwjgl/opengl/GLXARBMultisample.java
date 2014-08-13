@@ -15,7 +15,7 @@ import org.lwjgl.system.linux.GLX;
  */
 public final class GLXARBMultisample {
 
-	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}: */
+	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}. */
 	public static final int
 		GLX_SAMPLE_BUFFERS_ARB = 0x186A0,
 		GLX_SAMPLES_ARB        = 0x186A1;

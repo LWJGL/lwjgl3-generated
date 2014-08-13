@@ -14,7 +14,7 @@ package org.lwjgl.opengl;
 public final class WGLARBRobustnessShareGroupIsolation {
 
 	/**
-	 * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB} in the {@code attribList} argument to
+	 * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attribList} argument to
 	 * {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}.
 	 */
 	public static final int

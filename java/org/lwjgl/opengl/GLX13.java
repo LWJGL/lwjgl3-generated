@@ -20,7 +20,7 @@ import org.lwjgl.system.linux.*;
 /** Native bindings to GLX 1.3. */
 public final class GLX13 {
 
-	/** Added in GLX 1.3: */
+	/** Added in GLX 1.3. */
 	public static final int
 		GLX_WINDOW_BIT              = 0x1,
 		GLX_PIXMAP_BIT              = 0x2,

@@ -160,7 +160,7 @@ public final class WinGDI {
 	 * zero or until all of the objects have been enumerated.
 	 *
 	 * @param hdc        a handle to the DC
-	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH OBJ_BRUSH}, {@link #OBJ_PEN OBJ_PEN}
+	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
 	 * @param objectFunc the application-defined callback function
 	 * @param param      the data passed to the callback function along with the object information.
 	 */

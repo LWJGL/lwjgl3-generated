@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public final class GLXEXTImportContext {
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT QueryContextInfoEXT}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT QueryContextInfoEXT}. */
 	public static final int
 		GLX_SHARE_CONTEXT_EXT = 0x800A,
 		GLX_VISUAL_ID_EXT     = 0x800B,

@@ -398,7 +398,7 @@ public final class GL13 {
 	 * <p/>
 	 * Specifies a two-dimensional texture image in a compressed format.
 	 *
-	 * @param target         the target texture. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
+	 * @param target         the target texture. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL11#GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link #GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}
 	 * @param level          the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param internalformat the format of the compressed image data. One of:<p/>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}, {@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}, {@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}, {@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}, {@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}, {@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}, {@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}, {@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}, {@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}, {@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}, {@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}, {@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}, see {@link EXTTextureCompressionS3TC}, see {@link EXTTextureCompressionLATC}, see {@link ATITextureCompression3DC}, see {@link KHRTextureCompressionAstcLdr}
 	 * @param width          the width of the texture image
@@ -553,7 +553,7 @@ public final class GL13 {
 	 * <p/>
 	 * Respecifies only a rectangular subregion of an existing 2D texel array, with incoming data stored in a specific compressed image format.
 	 *
-	 * @param target    the target texture. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param target    the target texture. One of:<p/>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link #GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 * @param level     the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param xoffset   a texel offset in the x direction within the texture array
 	 * @param yoffset   a texel offset in the y direction within the texture array
@@ -655,7 +655,7 @@ public final class GL13 {
 	 * <p/>
 	 * Returns a compressed texture image.
 	 *
-	 * @param target the target texture. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param target the target texture. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
 	 * @param lod    the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 	 * @param img    an array in which to return the compressed texture image
 	 */
@@ -721,7 +721,7 @@ public final class GL13 {
 	 * Selects which texture unit subsequent texture state calls will affect. The number of texture units an implementation supports is implementation
 	 * dependent.
 	 *
-	 * @param texture which texture unit to make active. Must be:<p/>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
+	 * @param texture which texture unit to make active. One of:<p/>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
 	 */
 	public static void glActiveTexture(int texture) {
 		long __functionAddress = getInstance().ActiveTexture;
@@ -742,7 +742,7 @@ public final class GL13 {
 	 * Selects the vertex array client state parameters to be modified by the TexCoordPointer command and the array affected by EnableClientState and
 	 * DisableClientState with parameter TEXTURE_COORD_ARRAY.
 	 *
-	 * @param texture which texture coordinate array to make active. Must be:<p/>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
+	 * @param texture which texture coordinate array to make active. One of:<p/>{@link #GL_TEXTURE0 TEXTURE0}, GL_TEXTURE[1-31]
 	 */
 	public static void glClientActiveTexture(int texture) {
 		long __functionAddress = getInstance().ClientActiveTexture;
@@ -837,11 +837,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1f(int, ByteBuffer) glMultiTexCoord1f} */
+	/** JNI method for {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1f(int, ByteBuffer) glMultiTexCoord1f} */
+	/** Unsafe version of {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
@@ -864,7 +864,7 @@ public final class GL13 {
 		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1f(int, ByteBuffer) glMultiTexCoord1f} */
+	/** Alternative version of: {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
 	public static void glMultiTexCoord1(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -873,11 +873,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
+	/** JNI method for {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
+	/** Unsafe version of {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
@@ -900,7 +900,7 @@ public final class GL13 {
 		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1s(int, ByteBuffer) glMultiTexCoord1s} */
+	/** Alternative version of: {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
 	public static void glMultiTexCoord1(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -909,11 +909,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
+	/** JNI method for {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
+	/** Unsafe version of {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
@@ -936,7 +936,7 @@ public final class GL13 {
 		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1i(int, ByteBuffer) glMultiTexCoord1i} */
+	/** Alternative version of: {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
 	public static void glMultiTexCoord1(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -945,11 +945,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
+	/** JNI method for {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
+	/** Unsafe version of {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
@@ -972,7 +972,7 @@ public final class GL13 {
 		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1d(int, ByteBuffer) glMultiTexCoord1d} */
+	/** Alternative version of: {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
 	public static void glMultiTexCoord1(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
@@ -1069,11 +1069,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2f(int, ByteBuffer) glMultiTexCoord2f} */
+	/** JNI method for {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2f(int, ByteBuffer) glMultiTexCoord2f} */
+	/** Unsafe version of {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
@@ -1096,7 +1096,7 @@ public final class GL13 {
 		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2f(int, ByteBuffer) glMultiTexCoord2f} */
+	/** Alternative version of: {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
 	public static void glMultiTexCoord2(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -1105,11 +1105,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
+	/** JNI method for {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
+	/** Unsafe version of {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
@@ -1132,7 +1132,7 @@ public final class GL13 {
 		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2s(int, ByteBuffer) glMultiTexCoord2s} */
+	/** Alternative version of: {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
 	public static void glMultiTexCoord2(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -1141,11 +1141,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
+	/** JNI method for {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
+	/** Unsafe version of {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
@@ -1168,7 +1168,7 @@ public final class GL13 {
 		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2i(int, ByteBuffer) glMultiTexCoord2i} */
+	/** Alternative version of: {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
 	public static void glMultiTexCoord2(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -1177,11 +1177,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
+	/** JNI method for {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
+	/** Unsafe version of {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
@@ -1204,7 +1204,7 @@ public final class GL13 {
 		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2d(int, ByteBuffer) glMultiTexCoord2d} */
+	/** Alternative version of: {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
 	public static void glMultiTexCoord2(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
@@ -1305,11 +1305,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3f(int, ByteBuffer) glMultiTexCoord3f} */
+	/** JNI method for {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3f(int, ByteBuffer) glMultiTexCoord3f} */
+	/** Unsafe version of {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
@@ -1332,7 +1332,7 @@ public final class GL13 {
 		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3f(int, ByteBuffer) glMultiTexCoord3f} */
+	/** Alternative version of: {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
 	public static void glMultiTexCoord3(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1341,11 +1341,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
+	/** JNI method for {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
+	/** Unsafe version of {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
@@ -1368,7 +1368,7 @@ public final class GL13 {
 		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3s(int, ByteBuffer) glMultiTexCoord3s} */
+	/** Alternative version of: {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
 	public static void glMultiTexCoord3(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1377,11 +1377,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
+	/** JNI method for {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
+	/** Unsafe version of {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
@@ -1404,7 +1404,7 @@ public final class GL13 {
 		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3i(int, ByteBuffer) glMultiTexCoord3i} */
+	/** Alternative version of: {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
 	public static void glMultiTexCoord3(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1413,11 +1413,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
+	/** JNI method for {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
+	/** Unsafe version of {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
@@ -1440,7 +1440,7 @@ public final class GL13 {
 		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3d(int, ByteBuffer) glMultiTexCoord3d} */
+	/** Alternative version of: {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
 	public static void glMultiTexCoord3(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1545,11 +1545,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4f(int, ByteBuffer) glMultiTexCoord4f} */
+	/** JNI method for {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4f(int, ByteBuffer) glMultiTexCoord4f} */
+	/** Unsafe version of {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
@@ -1572,7 +1572,7 @@ public final class GL13 {
 		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4f(int, ByteBuffer) glMultiTexCoord4f} */
+	/** Alternative version of: {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
 	public static void glMultiTexCoord4(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1581,11 +1581,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
+	/** JNI method for {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
+	/** Unsafe version of {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
@@ -1608,7 +1608,7 @@ public final class GL13 {
 		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4s(int, ByteBuffer) glMultiTexCoord4s} */
+	/** Alternative version of: {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
 	public static void glMultiTexCoord4(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1617,11 +1617,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
+	/** JNI method for {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
+	/** Unsafe version of {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
@@ -1644,7 +1644,7 @@ public final class GL13 {
 		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4i(int, ByteBuffer) glMultiTexCoord4i} */
+	/** Alternative version of: {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
 	public static void glMultiTexCoord4(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
@@ -1653,11 +1653,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
+	/** JNI method for {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
+	/** Unsafe version of {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
@@ -1680,7 +1680,7 @@ public final class GL13 {
 		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4d(int, ByteBuffer) glMultiTexCoord4d} */
+	/** Alternative version of: {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
 	public static void glMultiTexCoord4(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);

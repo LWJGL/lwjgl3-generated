@@ -15,11 +15,11 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXINTELSwapEvent {
 
-	/** Accepted by the {@code mask} parameter of {@link GLX13#glXSelectEvent SelectEvent} and returned in the {@code mask} parameter of {@link GLX13#glXGetSelectedEvent GetSelectedEvent}: */
+	/** Accepted by the {@code mask} parameter of {@link GLX13#glXSelectEvent SelectEvent} and returned in the {@code mask} parameter of {@link GLX13#glXGetSelectedEvent GetSelectedEvent}. */
 	public static final int
 		GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x4000000;
 
-	/** Returned in the {@code event_type} field of a "swap complete" event: */
+	/** Returned in the {@code event_type} field of a "swap complete" event. */
 	public static final int
 		GLX_EXCHANGE_COMPLETE_INTEL = 0x8180,
 		GLX_COPY_COMPLETE_INTEL     = 0x8181,

@@ -13,7 +13,7 @@ package org.lwjgl.opengl;
 public final class WGLARBCreateContextRobustness {
 
 	/**
-	 * Accepted as a bit in the attribute value for {@code WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
+	 * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
 	 * {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}.
 	 */
 	public static final int

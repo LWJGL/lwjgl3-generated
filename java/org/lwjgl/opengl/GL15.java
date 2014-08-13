@@ -182,7 +182,7 @@ public final class GL15 {
 	 * <p/>
 	 * Binds a named buffer object.
 	 *
-	 * @param target the target to which the buffer object is bound. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target to which the buffer object is bound. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param buffer the name of a buffer object
 	 */
 	public static void glBindBuffer(int target, int buffer) {
@@ -331,7 +331,7 @@ public final class GL15 {
 	 * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
 	 * </ul>
 	 *
-	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param size   the size in bytes of the buffer object's new data store
 	 * @param data   a pointer to data that will be copied into the data store for initialization, or NULL if no data is to be copied
 	 * @param usage  the expected usage pattern of the data store. One of:<p/>{@link #GL_STREAM_DRAW STREAM_DRAW}, {@link #GL_STREAM_READ STREAM_READ}, {@link #GL_STREAM_COPY STREAM_COPY}, {@link #GL_STATIC_DRAW STATIC_DRAW}, {@link #GL_STATIC_READ STATIC_READ}, {@link #GL_STATIC_COPY STATIC_COPY}, {@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link #GL_DYNAMIC_READ DYNAMIC_READ}, {@link #GL_DYNAMIC_COPY DYNAMIC_COPY}
@@ -392,7 +392,7 @@ public final class GL15 {
 	 * <p/>
 	 * Updates a subset of a buffer object's data store.
 	 *
-	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
 	 * @param size   the size in bytes of the data store region being replaced
 	 * @param data   a pointer to the new data that will be copied into the data store
@@ -428,7 +428,7 @@ public final class GL15 {
 	 * <p/>
 	 * Returns a subset of a buffer object's data store.
 	 *
-	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
 	 * @param size   the size in bytes of the data store region being returned
 	 * @param data   a pointer to the location where buffer object data is returned
@@ -486,12 +486,12 @@ public final class GL15 {
 	 * <p/>
 	 * <b>LWJGL note</b>: This method comes in 3 flavors:
 	 * <ol>
-	 * <li>{@link #glMapBuffer(int, int)} - Calls {@link #glGetBufferParameteri(int, int) glGetBufferParameteri} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
-	 * <li>{@link #glMapBuffer(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteri(int, int) glGetBufferParameteri} to retrieve the buffer size and the {@code old_buffer} parameter is reused if the returned size and pointer match the buffer capacity and address, respectively.</li>
+	 * <li>{@link #glMapBuffer(int, int)} - Calls {@link #glGetBufferParameteri GetBufferParameteri} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
+	 * <li>{@link #glMapBuffer(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteri GetBufferParameteri} to retrieve the buffer size and the {@code old_buffer} parameter is reused if the returned size and pointer match the buffer capacity and address, respectively.</li>
 	 * <li>{@link #glMapBuffer(int, int, int, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if {@code size} and the returned pointer match the buffer capacity and address, respectively. This is the most efficient method.</li>
 	 * </ol>
 	 *
-	 * @param target the target buffer object being mapped. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object being mapped. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<p/>{@link #GL_READ_ONLY READ_ONLY}, {@link #GL_WRITE_ONLY WRITE_ONLY}, {@link #GL_READ_WRITE READ_WRITE}
 	 */
 	public static ByteBuffer glMapBuffer(int target, int access) {
@@ -528,7 +528,7 @@ public final class GL15 {
 	 * memory to be discarded. GL implementations must guarantee that such corruption can occur only during the periods that a buffer’s data store is mapped.
 	 * If such corruption has occurred, UnmapBuffer returns FALSE, and the contents of the buffer’s data store become undefined.
 	 *
-	 * @param target the target buffer object being unmapped. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object being unmapped. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 */
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = getInstance().UnmapBuffer;
@@ -539,11 +539,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	/** JNI method for {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
 	@JavadocExclude
 	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	/** Unsafe version of {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
@@ -557,20 +557,20 @@ public final class GL15 {
 	 * <p/>
 	 * Returns the value of a buffer object parameter.
 	 *
-	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
-	 * @param pname  the symbolic name of a buffer object parameter. One of:<p/>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
+	 * @param target the target buffer object. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param pname  the symbolic name of a buffer object parameter. One of:<p/>{@link #GL_BUFFER_SIZE BUFFER_SIZE}, {@link #GL_BUFFER_USAGE BUFFER_USAGE}, {@link #GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link #GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameteri(int target, int pname, ByteBuffer params) {
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	/** Alternative version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
 	public static void glGetBufferParameter(int target, int pname, IntBuffer params) {
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) glGetBufferParameteri} */
+	/** Single return value version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
 	public static int glGetBufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -580,11 +580,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferPointerv ] ---
 
-	/** JNI method for {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	/** JNI method for {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
 	@JavadocExclude
 	public static native void nglGetBufferPointerv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	/** Unsafe version of {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
@@ -598,7 +598,7 @@ public final class GL15 {
 	 * <p/>
 	 * Returns the pointer to a mapped buffer object's data store.
 	 *
-	 * @param target the target buffer object. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target buffer object. One of:<p/>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param pname  the pointer to be returned. Must be:<p/>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
@@ -606,12 +606,12 @@ public final class GL15 {
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	/** Alternative version of: {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
 	public static void glGetBufferPointer(int target, int pname, PointerBuffer params) {
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferPointer(int, int, ByteBuffer) glGetBufferPointer} */
+	/** Single return value version of: {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
 	public static long glGetBufferPointer(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -733,7 +733,7 @@ public final class GL15 {
 	 * <p/>
 	 * Creates a query object and makes it active.
 	 *
-	 * @param target the target type of query object established. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the target type of query object established. One of:<p/>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQuery(int target, int id) {
@@ -754,7 +754,7 @@ public final class GL15 {
 	 * <p/>
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
-	 * @param target the query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the query object target. One of:<p/>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 */
 	public static void glEndQuery(int target) {
 		long __functionAddress = getInstance().EndQuery;
@@ -765,11 +765,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryiv ] ---
 
-	/** JNI method for {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	/** JNI method for {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
 	@JavadocExclude
 	public static native void nglGetQueryiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	/** Unsafe version of {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
@@ -783,7 +783,7 @@ public final class GL15 {
 	 * <p/>
 	 * Returns parameters of a query object target.
 	 *
-	 * @param target the query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the query object target. One of:<p/>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param pname  the symbolic name of a query object target parameter. One of:<p/>{@link #GL_QUERY_COUNTER_BITS QUERY_COUNTER_BITS}, {@link #GL_CURRENT_QUERY CURRENT_QUERY}
 	 * @param params the requested data
 	 */
@@ -793,14 +793,14 @@ public final class GL15 {
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	/** Alternative version of: {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
 	public static void glGetQuery(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryi(int, int, ByteBuffer) glGetQueryi} */
+	/** Single return value version of: {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
 	public static int glGetQueryi(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -810,11 +810,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	/** JNI method for {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectiv(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	/** Unsafe version of {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
 	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
@@ -838,14 +838,14 @@ public final class GL15 {
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	/** Alternative version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
 	public static void glGetQueryObject(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti} */
+	/** Single return value version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
 	public static int glGetQueryObjecti(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -855,11 +855,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectuiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	/** JNI method for {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectuiv(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	/** Unsafe version of {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
@@ -871,7 +871,7 @@ public final class GL15 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Unsigned version of {@link #glGetQueryObjecti(int, int, ByteBuffer) glGetQueryObjecti}.
+	 * Unsigned version of {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter. One of:<p/>{@link #GL_QUERY_RESULT QUERY_RESULT}, {@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
@@ -883,14 +883,14 @@ public final class GL15 {
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	/** Alternative version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
 	public static void glGetQueryObjectu(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) glGetQueryObjectui} */
+	/** Single return value version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
 	public static int glGetQueryObjectui(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

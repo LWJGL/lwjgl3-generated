@@ -16,14 +16,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <dlfcn.h>. */
 public final class DynamicLinkLoader {
 
-	/** The {@code mode} argument to {@link #dlopen} contains one of the following: */
+	/** The {@code mode} argument to {@link #dlopen} contains one of the following. */
 	public static final int
 		RTLD_LAZY   = 0x1,
 		RTLD_NOW    = 0x2,
 		RTLD_LOCAL  = 0x4,
 		RTLD_GLOBAL = 0x8;
 
-	/** Special-handle values for {@link #dlsym}: */
+	/** Special-handle values for {@link #dlsym}. */
 	public static final long
 		RTLD_NEXT      = 0xFFFFFFFFFFFFFFFFL,
 		RTLD_DEFAULT   = 0xFFFFFFFFFFFFFFFEL,

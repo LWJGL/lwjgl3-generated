@@ -99,11 +99,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix2x3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) glUniformMatrix2x3f} */
+	/** JNI method for {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) UniformMatrix2x3f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) glUniformMatrix2x3f} */
+	/** Unsafe version of {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) UniformMatrix2x3f} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
@@ -128,18 +128,18 @@ public final class GL21 {
 		nglUniformMatrix2x3fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) glUniformMatrix2x3f} */
+	/** Alternative version of: {@link #glUniformMatrix2x3f(int, int, boolean, ByteBuffer) UniformMatrix2x3f} */
 	public static void glUniformMatrix2x3(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x3fv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) glUniformMatrix3x2f} */
+	/** JNI method for {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) UniformMatrix3x2f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) glUniformMatrix3x2f} */
+	/** Unsafe version of {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) UniformMatrix3x2f} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
@@ -164,18 +164,18 @@ public final class GL21 {
 		nglUniformMatrix3x2fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) glUniformMatrix3x2f} */
+	/** Alternative version of: {@link #glUniformMatrix3x2f(int, int, boolean, ByteBuffer) UniformMatrix3x2f} */
 	public static void glUniformMatrix3x2(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x2fv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) glUniformMatrix2x4f} */
+	/** JNI method for {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) UniformMatrix2x4f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) glUniformMatrix2x4f} */
+	/** Unsafe version of {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) UniformMatrix2x4f} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
@@ -200,18 +200,18 @@ public final class GL21 {
 		nglUniformMatrix2x4fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) glUniformMatrix2x4f} */
+	/** Alternative version of: {@link #glUniformMatrix2x4f(int, int, boolean, ByteBuffer) UniformMatrix2x4f} */
 	public static void glUniformMatrix2x4(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2x4fv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) glUniformMatrix4x2f} */
+	/** JNI method for {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) UniformMatrix4x2f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) glUniformMatrix4x2f} */
+	/** Unsafe version of {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) UniformMatrix4x2f} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
@@ -236,18 +236,18 @@ public final class GL21 {
 		nglUniformMatrix4x2fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) glUniformMatrix4x2f} */
+	/** Alternative version of: {@link #glUniformMatrix4x2f(int, int, boolean, ByteBuffer) UniformMatrix4x2f} */
 	public static void glUniformMatrix4x2(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x2fv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) glUniformMatrix3x4f} */
+	/** JNI method for {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) UniformMatrix3x4f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) glUniformMatrix3x4f} */
+	/** Unsafe version of {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) UniformMatrix3x4f} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
@@ -272,18 +272,18 @@ public final class GL21 {
 		nglUniformMatrix3x4fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) glUniformMatrix3x4f} */
+	/** Alternative version of: {@link #glUniformMatrix3x4f(int, int, boolean, ByteBuffer) UniformMatrix3x4f} */
 	public static void glUniformMatrix3x4(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3x4fv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) glUniformMatrix4x3f} */
+	/** JNI method for {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) UniformMatrix4x3f} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) glUniformMatrix4x3f} */
+	/** Unsafe version of {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) UniformMatrix4x3f} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
@@ -308,7 +308,7 @@ public final class GL21 {
 		nglUniformMatrix4x3fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) glUniformMatrix4x3f} */
+	/** Alternative version of: {@link #glUniformMatrix4x3f(int, int, boolean, ByteBuffer) UniformMatrix4x3f} */
 	public static void glUniformMatrix4x3(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value));
 	}

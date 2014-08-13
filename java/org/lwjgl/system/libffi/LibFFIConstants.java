@@ -17,12 +17,12 @@ final class LibFFIConstants {
 
 	// --- [ FFI_TYPE_DOUBLE ] ---
 
-	/** Returns the {@link LibFFI#FFI_TYPE_DOUBLE FFI_TYPE_DOUBLE} value. */
+	/** Returns the {@link LibFFI#FFI_TYPE_DOUBLE} value. */
 	static native int FFI_TYPE_DOUBLE();
 
 	// --- [ FFI_DEFAULT_ABI ] ---
 
-	/** Returns the {@link LibFFI#FFI_DEFAULT_ABI FFI_DEFAULT_ABI} value. */
+	/** Returns the {@link LibFFI#FFI_DEFAULT_ABI} value. */
 	static native int FFI_DEFAULT_ABI();
 
 	// --- [ ffi_type_void ] ---

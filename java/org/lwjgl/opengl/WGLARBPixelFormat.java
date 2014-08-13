@@ -25,8 +25,8 @@ import static org.lwjgl.system.APIUtil.*;
 public final class WGLARBPixelFormat {
 
 	/**
-	 * Accepted in the {@code attributes} parameter array of {@link #wglGetPixelFormatAttribARB}, and {@link #wglGetPixelFormatAttribARB}, and as a type in
-	 * the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB}:
+	 * Accepted in the {@code attributes} parameter array of {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}, and {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}, and as a type in
+	 * the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB}.
 	 */
 	public static final int
 		WGL_NUMBER_PIXEL_FORMATS_ARB    = 0x2000,
@@ -72,8 +72,8 @@ public final class WGLARBPixelFormat {
 		WGL_AUX_BUFFERS_ARB             = 0x2024;
 
 	/**
-	 * Accepted as a value in the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB}, and returned in the
-	 * {@code values} parameter array of {@link #wglGetPixelFormatAttribARB} and {@link #wglGetPixelFormatAttribARB}:
+	 * Accepted as a value in the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB}, and returned in the
+	 * {@code values} parameter array of {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB} and {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}.
 	 */
 	public static final int
 		WGL_NO_ACCELERATION_ARB      = 0x2025,
@@ -120,11 +120,11 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglGetPixelFormatAttribivARB ] ---
 
-	/** JNI method for {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
+	/** JNI method for {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB} */
 	@JavadocExclude
 	public static native int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
+	/** Unsafe version of {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB} */
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
@@ -153,14 +153,14 @@ public final class WGLARBPixelFormat {
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, n, memAddress(attributes), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
+	/** Alternative version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB} */
 	public static int wglGetPixelFormatAttribARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, attributes.remaining());
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
-	/** Single value version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB} */
+	/** Single value version of: {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB} */
 	public static int wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
@@ -171,11 +171,11 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglGetPixelFormatAttribfvARB ] ---
 
-	/** JNI method for {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
+	/** JNI method for {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribfARB} */
 	@JavadocExclude
 	public static native int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
+	/** Unsafe version of {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribfARB} */
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
@@ -187,7 +187,7 @@ public final class WGLARBPixelFormat {
 	}
 
 	/**
-	 * Float version of {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribiARB}.
+	 * Float version of {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB}.
 	 *
 	 * @param hdc         the device context on which the pixel format is supported
 	 * @param pixelFormat an index that specifies the pixel format
@@ -204,14 +204,14 @@ public final class WGLARBPixelFormat {
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, n, memAddress(attributes), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
+	/** Alternative version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribfARB} */
 	public static int wglGetPixelFormatAttribARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, attributes.remaining());
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
-	/** Single value version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) wglGetPixelFormatAttribfARB} */
+	/** Single value version of: {@link #wglGetPixelFormatAttribfARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribfARB} */
 	public static int wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);

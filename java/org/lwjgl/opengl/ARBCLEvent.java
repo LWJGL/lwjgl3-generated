@@ -62,9 +62,9 @@ public final class ARBCLEvent {
 	 * respectively. {@code context} must support sharing with GL, and must have been created with respect to the current GL context, or to a share group
 	 * including the current GL context.
 	 * <p/>
-	 * The status of such a sync object depends on {@code event}. When the status of {@code event} is {@link CL10#CL_QUEUED QUEUED}, {@link CL10#CL_SUBMITTED SUBMITTED}, or
-	 * {@link CL10#CL_RUNNING RUNNING}, the status of the linked sync object will be {@link GL32#GL_UNSIGNALED UNSIGNALED}. When the status of {@code event} changes to
-	 * {@link CL10#CL_COMPLETE COMPLETE}, the status of the linked sync object will become {@link GL32#GL_SIGNALED SIGNALED}.
+	 * The status of such a sync object depends on {@code event}. When the status of {@code event} is {@link CL10#CL_QUEUED}, {@link CL10#CL_SUBMITTED}, or {@link CL10#CL_RUNNING},
+	 * the status of the linked sync object will be {@link GL32#GL_UNSIGNALED UNSIGNALED}. When the status of {@code event} changes to {@link CL10#CL_COMPLETE}, the status of the linked
+	 * sync object will become {@link GL32#GL_SIGNALED SIGNALED}.
 	 * <p/>
 	 * Creating a linked sync object places a reference on the linked OpenCL event object. When the sync object is deleted, the reference will be removed from
 	 * the event object.

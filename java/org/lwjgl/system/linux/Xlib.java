@@ -316,7 +316,7 @@ public final class Xlib {
 	 * the error handler. For each protocol error received by Xlib, {@code XSync()} calls the client application's error handling routine. Any events generated
 	 * by the server are enqueued into the library's event queue.
 	 * <p/>
-	 * Finally, if you passed {@link X#GrabSuccess}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#GrabSuccess GrabSuccess}, {@code XSync()} discards
+	 * Finally, if you passed {@link X#GrabSuccess}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#GrabSuccess}, {@code XSync()} discards
 	 * all events in the queue, including those events that were on the queue before {@code XSync()} was called. Client applications seldom need to call
 	 * {@code XSync()}.
 	 *
@@ -480,7 +480,7 @@ public final class Xlib {
 	 * Deletes the association between the {@code colormap} resource ID and the {@code colormap} and frees the {@code colormap} storage. However, this function
 	 * has no effect on the default colormap for a screen. If the specified {@code colormap} is an installed map for a screen, it is uninstalled. If the
 	 * specified {@code colormap} is defined as the {@code colormap} for a window, {@code XFreeColormap()} changes the colormap associated with the window to
-	 * {@link X#GrabSuccess} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link X#GrabSuccess GrabSuccess}.
+	 * {@link X#GrabSuccess} and generates a {@code ColormapNotify} event. X does not define the colors displayed for a window with a colormap of {@link X#GrabSuccess}.
 	 *
 	 * @param display  the connection to the X server
 	 * @param colormap the colormap to destroy
@@ -570,7 +570,7 @@ public final class Xlib {
 	 * @param height       the window height
 	 * @param border_width the border width
 	 * @param depth        the window's depth. A depth of {@link X#GrabSuccess} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput InputOutput}, {@link X#InputOnly InputOnly}, {@link X#CopyFromParent CopyFromParent}
+	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
 	 * @param visual       the visual type. A visual of {@link X#GrabSuccess} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
@@ -721,11 +721,11 @@ public final class Xlib {
 	 * @param owner_events  a Boolean value that indicates whether the pointer events are to be reported as usual or reported with respect to the grab window if selected by the
 	 *                      event mask
 	 * @param event_mask    which pointer events are reported to the client. The mask is the bitwise inclusive OR of the valid pointer event mask bits.
-	 * @param pointer_mode  further processing of pointer events. One of:<p/>{@link X#GrabModeSync GrabModeSync}, {@link X#GrabModeAsync GrabModeAsync}
-	 * @param keyboard_mode further processing of keyboard events. One of:<p/>{@link X#GrabModeSync GrabModeSync}, {@link X#GrabModeAsync GrabModeAsync}
-	 * @param confine_to    the window to confine the pointer in or {@link X#None None}
-	 * @param cursor        the cursor that is to be displayed during the grab or {@link X#None None}
-	 * @param time          the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
+	 * @param pointer_mode  further processing of pointer events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
+	 * @param keyboard_mode further processing of keyboard events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
+	 * @param confine_to    the window to confine the pointer in or {@link X#None}
+	 * @param cursor        the cursor that is to be displayed during the grab or {@link X#None}
+	 * @param time          the time. You can pass either a timestamp or {@link X#CurrentTime}
 	 */
 	public static int XGrabPointer(long display, long grab_window, int owner_events, int event_mask, int pointer_mode, int keyboard_mode, long confine_to, long cursor, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -747,7 +747,7 @@ public final class Xlib {
 	 * causes the {@code confine_to} window to lie completely outside the boundaries of the root window.
 	 *
 	 * @param display the connection to the X server
-	 * @param time    specifies the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}.
+	 * @param time    specifies the time. You can pass either a timestamp or {@link X#CurrentTime}.
 	 */
 	public static int XUngrabPointer(long display, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -762,11 +762,11 @@ public final class Xlib {
 	public static native int nXDefineCursor(long display, long w, long cursor);
 
 	/**
-	 * If a cursor is set, it will be used when the pointer is in the window. If the cursor is {@link X#None None}, it is equivalent to {@link #XUndefineCursor}.
+	 * If a cursor is set, it will be used when the pointer is in the window. If the cursor is {@link X#None}, it is equivalent to {@link #XUndefineCursor}.
 	 *
 	 * @param display the connection to the X server
 	 * @param w       the window
-	 * @param cursor  the cursor that is to be displayed or {@link X#None None}
+	 * @param cursor  the cursor that is to be displayed or {@link X#None}
 	 */
 	public static int XDefineCursor(long display, long w, long cursor) {
 		if ( LWJGLUtil.CHECKS )
@@ -881,8 +881,8 @@ public final class Xlib {
 	 * Identifies the destination window, determines which clients should receive the specified events, and ignores any active grabs. This function requires
 	 * you to pass an event mask. This function uses the {@code w} argument to identify the destination window as follows:
 	 * <ul>
-	 * <li>If {@code w} is {@link X#PointerWindow PointerWindow}, the destination window is the window that contains the pointer.</li>
-	 * <li>If {@code w} is {@link X#InputFocus InputFocus} and if the focus window contains the pointer, the destination window is the window that contains the pointer;
+	 * <li>If {@code w} is {@link X#PointerWindow}, the destination window is the window that contains the pointer.</li>
+	 * <li>If {@code w} is {@link X#InputFocus} and if the focus window contains the pointer, the destination window is the window that contains the pointer;
 	 * otherwise, the destination window is the focus window.</li>
 	 * </ul>
 	 * <p/>
@@ -893,7 +893,7 @@ public final class Xlib {
 	 * <li>If propagate is {@link #False}, the event is sent to every client selecting on destination any of the event types in the {@code event_mask} argument.</li>
 	 * <li>If propagate is {@link #True} and no clients have selected on destination any of the event types in event-mask, the destination is replaced with the
 	 * closest ancestor of destination for which some client has selected a type in event-mask and for which no intervening window has that type in its
-	 * do-not-propagate-mask. If no such window exists or if the window is an ancestor of the focus window and {@link X#InputFocus InputFocus} was originally
+	 * do-not-propagate-mask. If no such window exists or if the window is an ancestor of the focus window and {@link X#InputFocus} was originally
 	 * specified as the destination, the event is not sent to any clients. Otherwise, the event is reported to every client selecting on the final
 	 * destination any of the types specified in {@code event_mask}.</li>
 	 * </ul>
@@ -901,7 +901,7 @@ public final class Xlib {
 	 * The event in the XEvent structure must be one of the core events or one of the events defined by an extension (or a BadValue error results) so that the X server can correctly byte-swap the contents as necessary. The contents of the event are otherwise unaltered and unchecked by the X server except to force send_event to True in the forwarded event and to set the serial number in the event correctly; therefore these fields and the display field are ignored by XSendEvent().
 	 *
 	 * @param display    the connection to the X server
-	 * @param w          the window the event is to be sent to, or {@link X#PointerWindow PointerWindow}, or {@link X#InputFocus InputFocus}
+	 * @param w          the window the event is to be sent to, or {@link X#PointerWindow}, or {@link X#InputFocus}
 	 * @param propagate  a Boolean value
 	 * @param event_mask the event mask
 	 * @param event_send the event that is to be sent
@@ -942,29 +942,29 @@ public final class Xlib {
 
 	/**
 	 * Changes the input focus and the last-focus-change time. It has no effect if the specified time is earlier than the current last-focus-change time or is
-	 * later than the current X server time. Otherwise, the last-focus-change time is set to the specified time ({@link X#CurrentTime CurrentTime} is replaced by the
+	 * later than the current X server time. Otherwise, the last-focus-change time is set to the specified time ({@link X#CurrentTime} is replaced by the
 	 * current X server time). {@code XSetInputFocus} causes the X server to generate {@code FocusIn} and {@code FocusOut} events.
 	 * <p/>
 	 * Depending on the focus argument, the following occurs:
 	 * <ul>
-	 * <li>If focus is {@link X#None None}, all keyboard events are discarded until a new focus window is set, and the {@code revert_to} argument is ignored.</li>
+	 * <li>If focus is {@link X#None}, all keyboard events are discarded until a new focus window is set, and the {@code revert_to} argument is ignored.</li>
 	 * <li>If focus is a window, it becomes the keyboard's focus window. If a generated keyboard event would normally be reported to this window or one of its
 	 * inferiors, the event is reported as usual. Otherwise, the event is reported relative to the focus window.</li>
-	 * <li>If focus is {@link X#PointerRoot PointerRoot}, the focus window is dynamically taken to be the root window of whatever screen the pointer is on at each keyboard
+	 * <li>If focus is {@link X#PointerRoot}, the focus window is dynamically taken to be the root window of whatever screen the pointer is on at each keyboard
 	 * event. In this case, the {@code revert_to} argument is ignored. The specified focus window must be viewable at the time {@code XSetInputFocus} is
-	 * called, or a {@link X#BadMatch BadMatch} error results. If the focus window later becomes not viewable, the X server evaluates the revert_to argument to
+	 * called, or a {@link X#BadMatch} error results. If the focus window later becomes not viewable, the X server evaluates the revert_to argument to
 	 * determine the new focus window as follows:</li>
-	 * <li>If {@code revert_to} is {@link X#RevertToParent RevertToParent}, the focus reverts to the parent (or the closest viewable ancestor), and the new {@code revert_to}
-	 * value is taken to be {@link X#RevertToNone RevertToNone}.</li>
-	 * <li>If {@code revert_to} is {@link X#RevertToPointerRoot RevertToPointerRoot} or {@link X#RevertToNone RevertToNone}, the focus reverts to {@link X#PointerRoot PointerRoot} or {@link X#None None},
+	 * <li>If {@code revert_to} is {@link X#RevertToParent}, the focus reverts to the parent (or the closest viewable ancestor), and the new {@code revert_to}
+	 * value is taken to be {@link X#RevertToNone}.</li>
+	 * <li>If {@code revert_to} is {@link X#RevertToPointerRoot} or {@link X#RevertToNone}, the focus reverts to {@link X#PointerRoot} or {@link X#None},
 	 * respectively. When the focus reverts, the X server generates {@code FocusIn} and {@code FocusOut} events, but the last-focus-change time is not
 	 * affected.</li>
 	 * </ul>
 	 *
 	 * @param display   the connection to the X server
-	 * @param focus     the window, {@link X#PointerRoot PointerRoot} or {@link X#None None}
-	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<p/>{@link X#RevertToParent RevertToParent}, {@link X#RevertToPointerRoot RevertToPointerRoot}, {@link X#RevertToNone RevertToNone}
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}.
+	 * @param focus     the window, {@link X#PointerRoot} or {@link X#None}
+	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<p/>{@link X#RevertToParent}, {@link X#RevertToPointerRoot}, {@link X#RevertToNone}
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}.
 	 */
 	public static int XSetInputFocus(long display, long focus, int revert_to, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -1074,7 +1074,7 @@ public final class Xlib {
 	 * @param long_offset          the offset in the specified property (in 32-bit quantities) where the data is to be retrieved
 	 * @param long_length          the length in 32-bit multiples of the data to be retrieved
 	 * @param delete               a Boolean value that determines whether the property is deleted
-	 * @param req_type             the atom identifier associated with the property type or {@link X#AnyPropertyType AnyPropertyType}.
+	 * @param req_type             the atom identifier associated with the property type or {@link X#AnyPropertyType}.
 	 * @param actual_type_return   the atom identifier that defines the actual type of the property
 	 * @param actual_format_return the actual format of the property
 	 * @param nitems_return        the actual number of 8-bit, 16-bit, or 32-bit items stored in the {@code prop_return} data
@@ -1122,10 +1122,10 @@ public final class Xlib {
 
 	/**
 	 * Returns the root window the pointer is logically on and the pointer coordinates relative to the root window's origin. If {@code XQueryPointer} returns
-	 * {@link #False}, the pointer is not on the same screen as the specified window, and {@code XQueryPointer} returns {@link X#None None} to {@code child_return}
+	 * {@link #False}, the pointer is not on the same screen as the specified window, and {@code XQueryPointer} returns {@link X#None} to {@code child_return}
 	 * and zero to {@code win_x_return} and {@code win_y_return}. If {@code XQueryPointer} returns {@link #True}, the pointer coordinates returned to
 	 * {@code win_x_return} and {@code win_y_return} are relative to the origin of the specified window. In this case, {@code XQueryPointer} returns the child
-	 * that contains the pointer, if any, or else {@link X#None None} to {@code child_return}.
+	 * that contains the pointer, if any, or else {@link X#None} to {@code child_return}.
 	 * <p/>
 	 * Returns the current logical state of the keyboard buttons and the modifier keys in {@code mask_return}. It sets {@code mask_return} to the bitwise
 	 * inclusive OR of one or more of the button or modifier key bitmasks to match the current state of the mouse buttons and the modifier keys.
@@ -1267,7 +1267,7 @@ public final class Xlib {
 	 * @param property  the property name
 	 * @param type      the type of the property
 	 * @param format    whether the data should be viewed as a list of 8-bit, 16-bit, or 32-bit quantities. One of:<p/>8, 16, 32
-	 * @param mode      the mode of the operation. One of:<p/>{@link X#PropModeReplace PropModeReplace}, {@link X#PropModePrepend PropModePrepend}, {@link X#PropModeAppend PropModeAppend}
+	 * @param mode      the mode of the operation. One of:<p/>{@link X#PropModeReplace}, {@link X#PropModePrepend}, {@link X#PropModeAppend}
 	 * @param data      the property data
 	 * @param nelements the number of elements of the specified data format
 	 */
@@ -1442,8 +1442,8 @@ public final class Xlib {
 	 * closest edge of the {@code confine_to} window.
 	 *
 	 * @param display    the connection to the X server
-	 * @param src_w      the source window or {@link X#None None}
-	 * @param dest_w     the destination window or {@link X#None None}
+	 * @param src_w      the source window or {@link X#None}
+	 * @param dest_w     the destination window or {@link X#None}
 	 * @param src_x      the source rectangle x-coordinate
 	 * @param src_y      the source rectangle y-coordinate
 	 * @param src_width  the source rectangle width
@@ -1465,20 +1465,20 @@ public final class Xlib {
 
 	/**
 	 * changes the owner and last-change time for the specified selection and has no effect if the specified time is earlier than the current last-change time
-	 * of the specified selection or is later than the current X server time. Otherwise, the last-change time is set to the specified time, with {@link X#CurrentTime CurrentTime}
-	 * replaced by the current server time. If the owner window is specified as {@link X#None None}, then the owner of the selection becomes {@link X#None None} (that
+	 * of the specified selection or is later than the current X server time. Otherwise, the last-change time is set to the specified time, with {@link X#CurrentTime}
+	 * replaced by the current server time. If the owner window is specified as {@link X#None}, then the owner of the selection becomes {@link X#None} (that
 	 * is, no owner). Otherwise, the owner of the selection becomes the client executing the request.
 	 * <p/>
-	 * If the new owner (whether a client or {@link X#None None}) is not the same as the current owner of the selection and the current owner is not {@link X#None None},
+	 * If the new owner (whether a client or {@link X#None}) is not the same as the current owner of the selection and the current owner is not {@link X#None},
 	 * the current owner is sent a {@code SelectionClear} event. If the client that is the owner of a selection is later terminated (that is, its connection is
-	 * closed) or if the owner window it has specified in the request is later destroyed, the owner of the selection automatically reverts to {@link X#None None},
+	 * closed) or if the owner window it has specified in the request is later destroyed, the owner of the selection automatically reverts to {@link X#None},
 	 * but the last-change time is not affected. The selection atom is uninterpreted by the X server. {@link #XGetSelectionOwner} returns the owner window,
 	 * which is reported in {@code SelectionRequest} and {@code SelectionClear} events. Selections are global to the X server.
 	 *
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom
-	 * @param owner     the owner of the specified selection atom. You can pass a window or {@link X#None None}.
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
+	 * @param owner     the owner of the specified selection atom. You can pass a window or {@link X#None}.
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}
 	 */
 	public static int XSetSelectionOwner(long display, long selection, long owner, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -1494,7 +1494,7 @@ public final class Xlib {
 
 	/**
 	 * Returns the window ID associated with the window that currently owns the specified selection. If no selection was specified, the function returns the
-	 * constant {@link X#None None}. If {@link X#None None} is returned, there is no owner for the selection.
+	 * constant {@link X#None}. If {@link X#None} is returned, there is no owner for the selection.
 	 *
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom whose owner you want returned
@@ -1517,9 +1517,9 @@ public final class Xlib {
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom
 	 * @param target    the target atom
-	 * @param property  the property name or {@link X#None None}
+	 * @param property  the property name or {@link X#None}
 	 * @param requestor the requestor window
-	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime CurrentTime}
+	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}
 	 */
 	public static int XConvertSelection(long display, long selection, long target, long property, long requestor, long time) {
 		if ( LWJGLUtil.CHECKS )
@@ -1558,9 +1558,9 @@ public final class Xlib {
 	public static native long nXCreatePixmap(long display, long d, int width, int height, int depth);
 
 	/**
-	 * Creates a pixmap of the width, height, and depth you specified and returns a pixmap ID that identifies it. It is valid to pass an {@link X#InputOnly InputOnly}
-	 * window to the drawable argument. The width and height arguments must be nonzero, or a {@link X#BadValue BadValue} error results. The depth argument must be one
-	 * of the depths supported by the screen of the specified drawable, or a {@link X#BadValue BadValue} error results.
+	 * Creates a pixmap of the width, height, and depth you specified and returns a pixmap ID that identifies it. It is valid to pass an {@link X#InputOnly}
+	 * window to the drawable argument. The width and height arguments must be nonzero, or a {@link X#BadValue} error results. The depth argument must be one
+	 * of the depths supported by the screen of the specified drawable, or a {@link X#BadValue} error results.
 	 *
 	 * @param display the connection to the X server
 	 * @param d       which screen the pixmap is created on
@@ -1582,7 +1582,7 @@ public final class Xlib {
 
 	/**
 	 * Creates a graphics context and returns a GC. The GC can be used with any destination drawable having the same root and depth as the specified drawable.
-	 * Use with other drawables results in a {@link X#BadMatch BadMatch} error.
+	 * Use with other drawables results in a {@link X#BadMatch} error.
 	 *
 	 * @param display   
 	 * @param d         
@@ -1633,7 +1633,7 @@ public final class Xlib {
 	 *
 	 * @param display          the connection to the X server
 	 * @param source           the shape of the source cursor
-	 * @param mask             the cursor's source bits to be displayed or {@link X#None None}
+	 * @param mask             the cursor's source bits to be displayed or {@link X#None}
 	 * @param foreground_color the RGB values for the foreground of the source
 	 * @param background_color the RGB values for the background of the source
 	 * @param x                the hotspot x-coordinate relative to the source's origin

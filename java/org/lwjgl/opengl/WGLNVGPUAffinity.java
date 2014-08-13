@@ -30,7 +30,7 @@ public final class WGLNVGPUAffinity {
 	public static final int
 		ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
 
-	/** New error code set by {@link org.lwjgl.system.windows.WGL#wglMakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
+	/** New error code set by {@link org.lwjgl.system.windows.WGL#wglMakeCurrent MakeCurrent} and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
 	public static final int
 		WGL_ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 

@@ -19,7 +19,7 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXEXTVisualInfo {
 
-	/** Accepted by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}, and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual}: */
+	/** Accepted by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}, and by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual}. */
 	public static final int
 		GLX_X_VISUAL_TYPE_EXT           = 0x22,
 		GLX_TRANSPARENT_TYPE_EXT        = 0x23,
@@ -31,7 +31,7 @@ public final class GLXEXTVisualInfo {
 
 	/**
 	 * Returned by {@link GLX#glXGetConfig GetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the
-	 * {@link #GLX_X_VISUAL_TYPE_EXT X_VISUAL_TYPE_EXT} token):
+	 * {@link #GLX_X_VISUAL_TYPE_EXT X_VISUAL_TYPE_EXT} token).
 	 */
 	public static final int
 		GLX_TRUE_COLOR_EXT   = 0x8002,
@@ -43,7 +43,7 @@ public final class GLXEXTVisualInfo {
 
 	/**
 	 * Returned by {@link GLX#glXGetConfig GetConfig}, and accepted by the {@code attrib_list} parameter of {@link GLX#glXChooseVisual ChooseVisual} (following the
-	 * {@link #GLX_TRANSPARENT_TYPE_EXT TRANSPARENT_TYPE_EXT} token):
+	 * {@link #GLX_TRANSPARENT_TYPE_EXT TRANSPARENT_TYPE_EXT} token).
 	 */
 	public static final int
 		GLX_NONE_EXT              = 0x8000,

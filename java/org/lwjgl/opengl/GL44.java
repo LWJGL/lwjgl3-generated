@@ -47,10 +47,7 @@ public final class GL44 {
 		GL_TRANSFORM_FEEDBACK_BUFFER_INDEX  = 0x934B,
 		GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
-	/**
-	 * Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and
-	 * GetQueryObjectui64()".link}.
-	 */
+	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}. */
 	public static final int
 		GL_QUERY_RESULT_NO_WAIT = 0x9194;
 
@@ -76,8 +73,8 @@ public final class GL44 {
 
 	/**
 	 * Accepted by the {@code param} parameter of TexParameter{if}, SamplerParameter{if} and SamplerParameter{if}v, and by the {@code params} parameter of
-	 * TexParameter{if}v, TexParameterI{i ui}v and SamplerParameterI{i ui}v when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S},
-	 * {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or TEXTURE_WRAP_R".link}:
+	 * TexParameter{if}v, TexParameterI{i ui}v and SamplerParameterI{i ui}v when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or
+	 * {@link GL11#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R},
 	 */
 	public static final int
 		GL_MIRROR_CLAMP_TO_EDGE = 0x8743;

@@ -25,7 +25,7 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXSGIXFBConfig {
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, and by the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, and by the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX}. */
 	public static final int
 		GLX_DRAWABLE_TYPE_SGIX = 0x8010,
 		GLX_RENDER_TYPE_SGIX   = 0x8011,
@@ -34,18 +34,18 @@ public final class GLXSGIXFBConfig {
 	/**
 	 * Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX},
 	 * by the {@code attribute} parameter of {@link GLXSGIXPbuffer#glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} and by the {@code attribute} parameter of
-	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT QueryContextInfoEXT}:
+	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT QueryContextInfoEXT}.
 	 */
 	public static final int
 		GLX_FBCONFIG_ID_SGIX = 0x8013;
 
-	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}: */
+	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}. */
 	public static final int
 		GLX_SCREEN_EXT = 0x800C;
 
 	/**
 	 * Returned by {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX}) and accepted by the {@code attrib_list}
-	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX} token):
+	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX} token).
 	 */
 	public static final int
 		GLX_WINDOW_BIT_SGIX = 0x1,
@@ -53,13 +53,13 @@ public final class GLXSGIXFBConfig {
 
 	/**
 	 * Returned by {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_RENDER_TYPE_SGIX RENDER_TYPE_SGIX}) and accepted by the {@code attrib_list}
-	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_RENDER_TYPE_SGIX RENDER_TYPE_SGIX} token):
+	 * parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the {@link #GLX_RENDER_TYPE_SGIX RENDER_TYPE_SGIX} token).
 	 */
 	public static final int
 		GLX_RGBA_BIT_SGIX        = 0x1,
 		GLX_COLOR_INDEX_BIT_SGIX = 0x2;
 
-	/** Accepted by the {@code render_type} parameter of {@link #glXCreateContextWithConfigSGIX CreateContextWithConfigSGIX}: */
+	/** Accepted by the {@code render_type} parameter of {@link #glXCreateContextWithConfigSGIX CreateContextWithConfigSGIX}. */
 	public static final int
 		GLX_RGBA_TYPE_SGIX        = 0x8014,
 		GLX_COLOR_INDEX_TYPE_SGIX = 0x8015;

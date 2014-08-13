@@ -160,7 +160,7 @@ public final class ARBSync {
 	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
+	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<p/>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}
 	 * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
@@ -184,7 +184,7 @@ public final class ARBSync {
 	 * If an error occurs, {@code glWaitSync} does not cause the GL server to block.
 	 *
 	 * @param sync    the sync object whose status to wait on
-	 * @param flags   a bitfield controlling the command flushing behavior. One of:<p/>0
+	 * @param flags   a bitfield controlling the command flushing behavior. Must be:<p/>0
 	 * @param timeout the timeout that the server should wait before continuing. Must be:<p/>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
@@ -198,7 +198,7 @@ public final class ARBSync {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
@@ -217,12 +217,12 @@ public final class ARBSync {
 		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
 		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) glGetInteger64} */
+	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -232,7 +232,7 @@ public final class ARBSync {
 
 	// --- [ glGetSynciv ] ---
 
-	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
@@ -260,14 +260,14 @@ public final class ARBSync {
 		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) glGetSynci} */
+	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

@@ -370,11 +370,11 @@ public final class GL14 {
 
 	// --- [ glFogCoordfv ] ---
 
-	/** JNI method for {@link #glFogCoordf(ByteBuffer) glFogCoordf} */
+	/** JNI method for {@link #glFogCoordf(ByteBuffer) FogCoordf} */
 	@JavadocExclude
 	public static native void nglFogCoordfv(long coord, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogCoordf(ByteBuffer) glFogCoordf} */
+	/** Unsafe version of {@link #glFogCoordf(ByteBuffer) FogCoordf} */
 	@JavadocExclude
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = getInstance().FogCoordfv;
@@ -396,7 +396,7 @@ public final class GL14 {
 		nglFogCoordfv(memAddress(coord));
 	}
 
-	/** Alternative version of: {@link #glFogCoordf(ByteBuffer) glFogCoordf} */
+	/** Alternative version of: {@link #glFogCoordf(ByteBuffer) FogCoordf} */
 	public static void glFogCoord(FloatBuffer coord) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coord, 1);
@@ -405,11 +405,11 @@ public final class GL14 {
 
 	// --- [ glFogCoorddv ] ---
 
-	/** JNI method for {@link #glFogCoordd(ByteBuffer) glFogCoordd} */
+	/** JNI method for {@link #glFogCoordd(ByteBuffer) FogCoordd} */
 	@JavadocExclude
 	public static native void nglFogCoorddv(long coord, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogCoordd(ByteBuffer) glFogCoordd} */
+	/** Unsafe version of {@link #glFogCoordd(ByteBuffer) FogCoordd} */
 	@JavadocExclude
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = getInstance().FogCoorddv;
@@ -431,7 +431,7 @@ public final class GL14 {
 		nglFogCoorddv(memAddress(coord));
 	}
 
-	/** Alternative version of: {@link #glFogCoordd(ByteBuffer) glFogCoordd} */
+	/** Alternative version of: {@link #glFogCoordd(ByteBuffer) FogCoordd} */
 	public static void glFogCoord(DoubleBuffer coord) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coord, 1);
@@ -609,11 +609,11 @@ public final class GL14 {
 
 	// --- [ glPointParameterfv ] ---
 
-	/** JNI method for {@link #glPointParameterf(int, ByteBuffer) glPointParameterf} */
+	/** JNI method for {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
 	@JavadocExclude
 	public static native void nglPointParameterfv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glPointParameterf(int, ByteBuffer) glPointParameterf} */
+	/** Unsafe version of {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
 	@JavadocExclude
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfv;
@@ -636,7 +636,7 @@ public final class GL14 {
 		nglPointParameterfv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glPointParameterf(int, ByteBuffer) glPointParameterf} */
+	/** Alternative version of: {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
 	public static void glPointParameter(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -645,11 +645,11 @@ public final class GL14 {
 
 	// --- [ glPointParameteriv ] ---
 
-	/** JNI method for {@link #glPointParameteri(int, ByteBuffer) glPointParameteri} */
+	/** JNI method for {@link #glPointParameteri(int, ByteBuffer) PointParameteri} */
 	@JavadocExclude
 	public static native void nglPointParameteriv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glPointParameteri(int, ByteBuffer) glPointParameteri} */
+	/** Unsafe version of {@link #glPointParameteri(int, ByteBuffer) PointParameteri} */
 	@JavadocExclude
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameteriv;
@@ -672,7 +672,7 @@ public final class GL14 {
 		nglPointParameteriv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glPointParameteri(int, ByteBuffer) glPointParameteri} */
+	/** Alternative version of: {@link #glPointParameteri(int, ByteBuffer) PointParameteri} */
 	public static void glPointParameter(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
@@ -857,11 +857,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3bv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3b(ByteBuffer) glSecondaryColor3b} */
+	/** JNI method for {@link #glSecondaryColor3b(ByteBuffer) SecondaryColor3b} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3b(ByteBuffer) glSecondaryColor3b} */
+	/** Unsafe version of {@link #glSecondaryColor3b(ByteBuffer) SecondaryColor3b} */
 	@JavadocExclude
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bv;
@@ -885,11 +885,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3sv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3s(ByteBuffer) glSecondaryColor3s} */
+	/** JNI method for {@link #glSecondaryColor3s(ByteBuffer) SecondaryColor3s} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3s(ByteBuffer) glSecondaryColor3s} */
+	/** Unsafe version of {@link #glSecondaryColor3s(ByteBuffer) SecondaryColor3s} */
 	@JavadocExclude
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3sv;
@@ -911,7 +911,7 @@ public final class GL14 {
 		nglSecondaryColor3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3s(ByteBuffer) glSecondaryColor3s} */
+	/** Alternative version of: {@link #glSecondaryColor3s(ByteBuffer) SecondaryColor3s} */
 	public static void glSecondaryColor3(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -920,11 +920,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3iv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3i(ByteBuffer) glSecondaryColor3i} */
+	/** JNI method for {@link #glSecondaryColor3i(ByteBuffer) SecondaryColor3i} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3i(ByteBuffer) glSecondaryColor3i} */
+	/** Unsafe version of {@link #glSecondaryColor3i(ByteBuffer) SecondaryColor3i} */
 	@JavadocExclude
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3iv;
@@ -946,7 +946,7 @@ public final class GL14 {
 		nglSecondaryColor3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3i(ByteBuffer) glSecondaryColor3i} */
+	/** Alternative version of: {@link #glSecondaryColor3i(ByteBuffer) SecondaryColor3i} */
 	public static void glSecondaryColor3(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -955,11 +955,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3fv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3f(ByteBuffer) glSecondaryColor3f} */
+	/** JNI method for {@link #glSecondaryColor3f(ByteBuffer) SecondaryColor3f} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3f(ByteBuffer) glSecondaryColor3f} */
+	/** Unsafe version of {@link #glSecondaryColor3f(ByteBuffer) SecondaryColor3f} */
 	@JavadocExclude
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fv;
@@ -981,7 +981,7 @@ public final class GL14 {
 		nglSecondaryColor3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3f(ByteBuffer) glSecondaryColor3f} */
+	/** Alternative version of: {@link #glSecondaryColor3f(ByteBuffer) SecondaryColor3f} */
 	public static void glSecondaryColor3(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -990,11 +990,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3dv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3d(ByteBuffer) glSecondaryColor3d} */
+	/** JNI method for {@link #glSecondaryColor3d(ByteBuffer) SecondaryColor3d} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3d(ByteBuffer) glSecondaryColor3d} */
+	/** Unsafe version of {@link #glSecondaryColor3d(ByteBuffer) SecondaryColor3d} */
 	@JavadocExclude
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dv;
@@ -1016,7 +1016,7 @@ public final class GL14 {
 		nglSecondaryColor3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3d(ByteBuffer) glSecondaryColor3d} */
+	/** Alternative version of: {@link #glSecondaryColor3d(ByteBuffer) SecondaryColor3d} */
 	public static void glSecondaryColor3(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1025,11 +1025,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ubv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ub(ByteBuffer) glSecondaryColor3ub} */
+	/** JNI method for {@link #glSecondaryColor3ub(ByteBuffer) SecondaryColor3ub} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3ubv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3ub(ByteBuffer) glSecondaryColor3ub} */
+	/** Unsafe version of {@link #glSecondaryColor3ub(ByteBuffer) SecondaryColor3ub} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
@@ -1053,11 +1053,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3usv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3us(ByteBuffer) glSecondaryColor3us} */
+	/** JNI method for {@link #glSecondaryColor3us(ByteBuffer) SecondaryColor3us} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3usv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3us(ByteBuffer) glSecondaryColor3us} */
+	/** Unsafe version of {@link #glSecondaryColor3us(ByteBuffer) SecondaryColor3us} */
 	@JavadocExclude
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usv;
@@ -1079,7 +1079,7 @@ public final class GL14 {
 		nglSecondaryColor3usv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3us(ByteBuffer) glSecondaryColor3us} */
+	/** Alternative version of: {@link #glSecondaryColor3us(ByteBuffer) SecondaryColor3us} */
 	public static void glSecondaryColor3u(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1088,11 +1088,11 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3uiv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ui(ByteBuffer) glSecondaryColor3ui} */
+	/** JNI method for {@link #glSecondaryColor3ui(ByteBuffer) SecondaryColor3ui} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3uiv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3ui(ByteBuffer) glSecondaryColor3ui} */
+	/** Unsafe version of {@link #glSecondaryColor3ui(ByteBuffer) SecondaryColor3ui} */
 	@JavadocExclude
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
@@ -1114,7 +1114,7 @@ public final class GL14 {
 		nglSecondaryColor3uiv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3ui(ByteBuffer) glSecondaryColor3ui} */
+	/** Alternative version of: {@link #glSecondaryColor3ui(ByteBuffer) SecondaryColor3ui} */
 	public static void glSecondaryColor3u(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
@@ -1141,7 +1141,7 @@ public final class GL14 {
 	 * <p/>
 	 * Specifies the location and organization of a secondary color array.
 	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<p/>3, {@link GL12#GL_BGRA BGRA}
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. One of:<p/>3, {@link GL12#GL_BGRA BGRA}
 	 * @param type    the data type of the values stored in the array. One of:<p/>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}
 	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer the secondary color array data
@@ -1282,11 +1282,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos2iv ] ---
 
-	/** JNI method for {@link #glWindowPos2i(ByteBuffer) glWindowPos2i} */
+	/** JNI method for {@link #glWindowPos2i(ByteBuffer) WindowPos2i} */
 	@JavadocExclude
 	public static native void nglWindowPos2iv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2i(ByteBuffer) glWindowPos2i} */
+	/** Unsafe version of {@link #glWindowPos2i(ByteBuffer) WindowPos2i} */
 	@JavadocExclude
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = getInstance().WindowPos2iv;
@@ -1308,7 +1308,7 @@ public final class GL14 {
 		nglWindowPos2iv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2i(ByteBuffer) glWindowPos2i} */
+	/** Alternative version of: {@link #glWindowPos2i(ByteBuffer) WindowPos2i} */
 	public static void glWindowPos2(IntBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
@@ -1317,11 +1317,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos2sv ] ---
 
-	/** JNI method for {@link #glWindowPos2s(ByteBuffer) glWindowPos2s} */
+	/** JNI method for {@link #glWindowPos2s(ByteBuffer) WindowPos2s} */
 	@JavadocExclude
 	public static native void nglWindowPos2sv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2s(ByteBuffer) glWindowPos2s} */
+	/** Unsafe version of {@link #glWindowPos2s(ByteBuffer) WindowPos2s} */
 	@JavadocExclude
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = getInstance().WindowPos2sv;
@@ -1343,7 +1343,7 @@ public final class GL14 {
 		nglWindowPos2sv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2s(ByteBuffer) glWindowPos2s} */
+	/** Alternative version of: {@link #glWindowPos2s(ByteBuffer) WindowPos2s} */
 	public static void glWindowPos2(ShortBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
@@ -1352,11 +1352,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos2fv ] ---
 
-	/** JNI method for {@link #glWindowPos2f(ByteBuffer) glWindowPos2f} */
+	/** JNI method for {@link #glWindowPos2f(ByteBuffer) WindowPos2f} */
 	@JavadocExclude
 	public static native void nglWindowPos2fv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2f(ByteBuffer) glWindowPos2f} */
+	/** Unsafe version of {@link #glWindowPos2f(ByteBuffer) WindowPos2f} */
 	@JavadocExclude
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = getInstance().WindowPos2fv;
@@ -1378,7 +1378,7 @@ public final class GL14 {
 		nglWindowPos2fv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2f(ByteBuffer) glWindowPos2f} */
+	/** Alternative version of: {@link #glWindowPos2f(ByteBuffer) WindowPos2f} */
 	public static void glWindowPos2(FloatBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
@@ -1387,11 +1387,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos2dv ] ---
 
-	/** JNI method for {@link #glWindowPos2d(ByteBuffer) glWindowPos2d} */
+	/** JNI method for {@link #glWindowPos2d(ByteBuffer) WindowPos2d} */
 	@JavadocExclude
 	public static native void nglWindowPos2dv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2d(ByteBuffer) glWindowPos2d} */
+	/** Unsafe version of {@link #glWindowPos2d(ByteBuffer) WindowPos2d} */
 	@JavadocExclude
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = getInstance().WindowPos2dv;
@@ -1413,7 +1413,7 @@ public final class GL14 {
 		nglWindowPos2dv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2d(ByteBuffer) glWindowPos2d} */
+	/** Alternative version of: {@link #glWindowPos2d(ByteBuffer) WindowPos2d} */
 	public static void glWindowPos2(DoubleBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
@@ -1510,11 +1510,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos3iv ] ---
 
-	/** JNI method for {@link #glWindowPos3i(ByteBuffer) glWindowPos3i} */
+	/** JNI method for {@link #glWindowPos3i(ByteBuffer) WindowPos3i} */
 	@JavadocExclude
 	public static native void nglWindowPos3iv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3i(ByteBuffer) glWindowPos3i} */
+	/** Unsafe version of {@link #glWindowPos3i(ByteBuffer) WindowPos3i} */
 	@JavadocExclude
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = getInstance().WindowPos3iv;
@@ -1536,7 +1536,7 @@ public final class GL14 {
 		nglWindowPos3iv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3i(ByteBuffer) glWindowPos3i} */
+	/** Alternative version of: {@link #glWindowPos3i(ByteBuffer) WindowPos3i} */
 	public static void glWindowPos3(IntBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
@@ -1545,11 +1545,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos3sv ] ---
 
-	/** JNI method for {@link #glWindowPos3s(ByteBuffer) glWindowPos3s} */
+	/** JNI method for {@link #glWindowPos3s(ByteBuffer) WindowPos3s} */
 	@JavadocExclude
 	public static native void nglWindowPos3sv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3s(ByteBuffer) glWindowPos3s} */
+	/** Unsafe version of {@link #glWindowPos3s(ByteBuffer) WindowPos3s} */
 	@JavadocExclude
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = getInstance().WindowPos3sv;
@@ -1571,7 +1571,7 @@ public final class GL14 {
 		nglWindowPos3sv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3s(ByteBuffer) glWindowPos3s} */
+	/** Alternative version of: {@link #glWindowPos3s(ByteBuffer) WindowPos3s} */
 	public static void glWindowPos3(ShortBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
@@ -1580,11 +1580,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos3fv ] ---
 
-	/** JNI method for {@link #glWindowPos3f(ByteBuffer) glWindowPos3f} */
+	/** JNI method for {@link #glWindowPos3f(ByteBuffer) WindowPos3f} */
 	@JavadocExclude
 	public static native void nglWindowPos3fv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3f(ByteBuffer) glWindowPos3f} */
+	/** Unsafe version of {@link #glWindowPos3f(ByteBuffer) WindowPos3f} */
 	@JavadocExclude
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = getInstance().WindowPos3fv;
@@ -1606,7 +1606,7 @@ public final class GL14 {
 		nglWindowPos3fv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3f(ByteBuffer) glWindowPos3f} */
+	/** Alternative version of: {@link #glWindowPos3f(ByteBuffer) WindowPos3f} */
 	public static void glWindowPos3(FloatBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
@@ -1615,11 +1615,11 @@ public final class GL14 {
 
 	// --- [ glWindowPos3dv ] ---
 
-	/** JNI method for {@link #glWindowPos3d(ByteBuffer) glWindowPos3d} */
+	/** JNI method for {@link #glWindowPos3d(ByteBuffer) WindowPos3d} */
 	@JavadocExclude
 	public static native void nglWindowPos3dv(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3d(ByteBuffer) glWindowPos3d} */
+	/** Unsafe version of {@link #glWindowPos3d(ByteBuffer) WindowPos3d} */
 	@JavadocExclude
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = getInstance().WindowPos3dv;
@@ -1641,7 +1641,7 @@ public final class GL14 {
 		nglWindowPos3dv(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3d(ByteBuffer) glWindowPos3d} */
+	/** Alternative version of: {@link #glWindowPos3d(ByteBuffer) WindowPos3d} */
 	public static void glWindowPos3(DoubleBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);

@@ -25,19 +25,19 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXARBCreateContext {
 
-	/** Accepted as an attribute name in {@code attrib_list}: */
+	/** Accepted as an attribute name in {@code attrib_list}. */
 	public static final int
 		GLX_CONTEXT_MAJOR_VERSION_ARB = 0x2091,
 		GLX_CONTEXT_MINOR_VERSION_ARB = 0x2092,
 		GLX_CONTEXT_FLAGS_ARB         = 0x2094,
 		GLX_CONTEXT_PROFILE_MASK_ARB  = 0x9126;
 
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}: */
+	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}. */
 	public static final int
 		GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
 		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}: */
+	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}. */
 	public static final int
 		GLX_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
 		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;

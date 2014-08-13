@@ -65,7 +65,7 @@ public final class WGLARBMakeCurrentRead {
 	 * by the calling thread are drawn on the device identified by {@code drawDC} and read on the device identified by {@code readDC}.
 	 * <p/>
 	 * The {@code drawDC} and {@code readDC} parameters must refer to drawing surfaces supported by OpenGL. These parameters need not be the same {@code hdc}
-	 * that was passed to {@link org.lwjgl.system.windows.WGL#wglCreateContext} when {@code hglrc} was created. {@code drawDC} must have the same pixel format
+	 * that was passed to {@link org.lwjgl.system.windows.WGL#wglCreateContext CreateContext} when {@code hglrc} was created. {@code drawDC} must have the same pixel format
 	 * and be created on the same physical device as the {@code hdc} that was passed into wglCreateContext. {@code readDC} must be created on the same device
 	 * as the {@code hdc} that was passed to wglCreateContext and it must support the same pixel type as the pixel format of the {@code hdc} that was passed to
 	 * wglCreateContext.
@@ -73,10 +73,10 @@ public final class WGLARBMakeCurrentRead {
 	 * If {@code wglMakeContextCurrentARB} is used to associate a different device for reads than for draws, the "read" device will be used for the following
 	 * OpenGL operations:
 	 * <ol>
-	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER READ_BUFFER}. Note, that accumulation operations use the value of
+	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER}. Note, that accumulation operations use the value of
 	 * {@code READ_BUFFER}, but are not allowed when a different device context is used for reads.  In this case, the accumulation operation will generate
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION}.</li>
-	 * <li>Any depth values that are retrieved by {@link GL11#glReadPixels ReadPixels}, {@link GL11#glCopyPixels CopyPixels}, or any OpenGL extension that sources
+	 * {@link GL11#GL_INVALID_OPERATION}.</li>
+	 * <li>Any depth values that are retrieved by {@link GL11#glReadPixels}, {@link GL11#glCopyPixels}, or any OpenGL extension that sources
 	 * depth images from the frame buffer in the manner of ReadPixels and CopyPixels.</li>
 	 * <li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the
 	 * manner of ReadPixels and CopyPixels.</li>

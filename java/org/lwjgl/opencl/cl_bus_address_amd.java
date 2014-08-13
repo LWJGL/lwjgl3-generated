@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD}. */
+/** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}. */
 public final class cl_bus_address_amd {
 
 	/** The struct size in bytes. */
