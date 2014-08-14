@@ -906,12 +906,12 @@ public final class CL20 {
 
 	/** PointerBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	public static int clSetKernelExecInfo(long kernel, int param_name, PointerBuffer param_value) {
-		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
+		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << POINTER_SHIFT, memAddress(param_value));
 	}
 
 	/** IntBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	public static int clSetKernelExecInfo(long kernel, int param_name, IntBuffer param_value) {
-		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
+		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << 2, memAddress(param_value));
 	}
 
 	// --- [ clCreateSamplerWithProperties ] ---

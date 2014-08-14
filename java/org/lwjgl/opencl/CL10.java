@@ -3962,32 +3962,32 @@ public final class CL10 {
 
 	/** ShortBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, ShortBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 1, memAddress(arg_value));
 	}
 
 	/** IntBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, IntBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 2, memAddress(arg_value));
 	}
 
 	/** LongBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, LongBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 3, memAddress(arg_value));
 	}
 
 	/** FloatBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, FloatBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 2, memAddress(arg_value));
 	}
 
 	/** DoubleBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, DoubleBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 3, memAddress(arg_value));
 	}
 
 	/** PointerBuffer version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg(long kernel, int arg_index, PointerBuffer arg_value) {
-		return nclSetKernelArg(kernel, arg_index, arg_value.remaining(), memAddress(arg_value));
+		return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << POINTER_SHIFT, memAddress(arg_value));
 	}
 
 	/** Single byte value version of: {@link #clSetKernelArg SetKernelArg} */

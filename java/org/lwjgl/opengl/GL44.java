@@ -209,22 +209,22 @@ public final class GL44 {
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ShortBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
 	}
 
 	/** IntBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, IntBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, FloatBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
 	}
 
 	// --- [ glClearTexSubImage ] ---
