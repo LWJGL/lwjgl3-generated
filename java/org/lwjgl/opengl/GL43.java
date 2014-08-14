@@ -2087,21 +2087,21 @@ public final class GL43 {
 
 	/** JNI method for {@link #glVertexBindingDivisor VertexBindingDivisor} */
 	@JavadocExclude
-	public static native void nglVertexBindingDivisor(int index, int divisor, long __functionAddress);
+	public static native void nglVertexBindingDivisor(int bindingindex, int divisor, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glVertexBindingDivisor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
 	 * Modifies the rate at which generic vertex attributes advance during instanced rendering.
 	 *
-	 * @param index   the index of the generic vertex attribute
-	 * @param divisor the number of instances that will pass between updates of the generic attribute at slot {@code index}
+	 * @param bindingindex the index of the generic vertex attribute
+	 * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
 	 */
-	public static void glVertexBindingDivisor(int index, int divisor) {
+	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexBindingDivisor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexBindingDivisor(index, divisor, __functionAddress);
+		nglVertexBindingDivisor(bindingindex, divisor, __functionAddress);
 	}
 
 }

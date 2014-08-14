@@ -324,7 +324,7 @@ public final class GL33 {
 	 * Generates sampler object names.
 	 *
 	 * @param count    the number of sampler object names to generate
-	 * @param samplers an array in which the generated sampler object names are stored
+	 * @param samplers a buffer in which the generated sampler object names are stored
 	 */
 	public static void glGenSamplers(int count, ByteBuffer samplers) {
 		if ( LWJGLUtil.CHECKS )

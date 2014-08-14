@@ -254,7 +254,7 @@ public final class GL15 {
 	 * Generates buffer object names.
 	 *
 	 * @param n       the number of buffer object names to be generated
-	 * @param buffers an array in which the generated buffer object names are stored
+	 * @param buffers a buffer in which the generated buffer object names are stored
 	 */
 	public static void glGenBuffers(int n, ByteBuffer buffers) {
 		if ( LWJGLUtil.CHECKS )
@@ -640,7 +640,7 @@ public final class GL15 {
 	 * Generates query object names.
 	 *
 	 * @param n   the number of query object names to be generated
-	 * @param ids an array in which the generated query object names are stored
+	 * @param ids a buffer in which the generated query object names are stored
 	 */
 	public static void glGenQueries(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )

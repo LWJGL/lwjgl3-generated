@@ -34,10 +34,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawElementsInstanced(JNIEn
 	glDrawElementsInstanced(mode, count, type, indices, primcount);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglCopyBufferSubData(JNIEnv *__env, jclass clazz, jint readtarget, jint writetarget, jlong readoffset, jlong writeoffset, jlong size, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglCopyBufferSubData(JNIEnv *__env, jclass clazz, jint readtarget, jint writetarget, jlong readOffset, jlong writeOffset, jlong size, jlong __functionAddress) {
 	glCopyBufferSubDataPROC glCopyBufferSubData = (glCopyBufferSubDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glCopyBufferSubData(readtarget, writetarget, (GLintptr)readoffset, (GLintptr)writeoffset, (GLsizeiptr)size);
+	glCopyBufferSubData(readtarget, writetarget, (GLintptr)readOffset, (GLintptr)writeOffset, (GLsizeiptr)size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglPrimitiveRestartIndex(JNIEnv *__env, jclass clazz, jint index, jlong __functionAddress) {

@@ -3860,7 +3860,7 @@ public final class GL11 {
 	 * state and a dimensionality only when they are first bound, just as if they were unused.
 	 *
 	 * @param n        the number of textures to create
-	 * @param textures a scalar or array in which to place the returned texture names
+	 * @param textures a scalar or buffer in which to place the returned texture names
 	 */
 	public static void glGenTextures(int n, ByteBuffer textures) {
 		if ( LWJGLUtil.CHECKS )
@@ -3950,7 +3950,7 @@ public final class GL11 {
 	 * coordinates are those that were computed when the plane was specified).
 	 *
 	 * @param plane    the clip plane
-	 * @param equation an array in which to place the returned values
+	 * @param equation a buffer in which to place the returned values
 	 */
 	public static void glGetClipPlane(int plane, ByteBuffer equation) {
 		if ( LWJGLUtil.CHECKS )
@@ -3990,7 +3990,7 @@ public final class GL11 {
 	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.
 	 *
 	 * @param pname  the state variable
-	 * @param params a scalar or array in which to place the returned data
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetBoolean(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -4031,7 +4031,7 @@ public final class GL11 {
 	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.
 	 *
 	 * @param pname  the state variable
-	 * @param params a scalar or array in which to place the returned data
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetFloat(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -4079,7 +4079,7 @@ public final class GL11 {
 	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.
 	 *
 	 * @param pname  the state variable
-	 * @param params a scalar or array in which to place the returned data
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetInteger(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -4127,7 +4127,7 @@ public final class GL11 {
 	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.
 	 *
 	 * @param pname  the state variable
-	 * @param params a scalar or array in which to place the returned data
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetDouble(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -4175,15 +4175,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	@JavadocExclude
-	public static native void nglGetLightiv(int light, int value, long data, long __functionAddress);
+	public static native void nglGetLightiv(int light, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
 	@JavadocExclude
-	public static void nglGetLightiv(int light, int value, long data) {
+	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetLightiv(light, value, data, __functionAddress);
+		nglGetLightiv(light, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4192,27 +4192,27 @@ public final class GL11 {
 	 * Returns integer information about light parameter {@code value} for {@code light} in {@code data}.
 	 *
 	 * @param light the light for which to return information. One of:<p/>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
-	 * @param value the light parameter to query. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the light parameter to query. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetLighti(int light, int value, ByteBuffer data) {
+	public static void glGetLighti(int light, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
-		nglGetLightiv(light, value, memAddress(data));
+		nglGetLightiv(light, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
-	public static void glGetLight(int light, int value, IntBuffer data) {
+	public static void glGetLight(int light, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
-		nglGetLightiv(light, value, memAddress(data));
+		nglGetLightiv(light, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
-	public static int glGetLighti(int light, int value) {
+	public static int glGetLighti(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetLightiv(light, value, __buffer.address() + data);
+		nglGetLightiv(light, pname, __buffer.address() + data);
 		return __buffer.intValue(data);
 	}
 
@@ -4220,15 +4220,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	@JavadocExclude
-	public static native void nglGetLightfv(int light, int value, long data, long __functionAddress);
+	public static native void nglGetLightfv(int light, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
 	@JavadocExclude
-	public static void nglGetLightfv(int light, int value, long data) {
+	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetLightfv(light, value, data, __functionAddress);
+		nglGetLightfv(light, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4237,27 +4237,27 @@ public final class GL11 {
 	 * Float version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti}.
 	 *
 	 * @param light the light for which to return information
-	 * @param value the light parameter to query
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the light parameter to query
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetLightf(int light, int value, ByteBuffer data) {
+	public static void glGetLightf(int light, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
-		nglGetLightfv(light, value, memAddress(data));
+		nglGetLightfv(light, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
-	public static void glGetLight(int light, int value, FloatBuffer data) {
+	public static void glGetLight(int light, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
-		nglGetLightfv(light, value, memAddress(data));
+		nglGetLightfv(light, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
-	public static float glGetLightf(int light, int value) {
+	public static float glGetLightf(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetLightfv(light, value, __buffer.address() + data);
+		nglGetLightfv(light, pname, __buffer.address() + data);
 		return __buffer.floatValue(data);
 	}
 
@@ -4283,7 +4283,7 @@ public final class GL11 {
 	 *
 	 * @param target the evaluator target. One of:<p/>{@link #GL_MAP1_VERTEX_3 MAP1_VERTEX_3}, {@link #GL_MAP1_VERTEX_4 MAP1_VERTEX_4}, {@link #GL_MAP1_COLOR_4 MAP1_COLOR_4}, {@link #GL_MAP1_NORMAL MAP1_NORMAL}, {@link #GL_MAP1_TEXTURE_COORD_1 MAP1_TEXTURE_COORD_1}, {@link #GL_MAP1_TEXTURE_COORD_2 MAP1_TEXTURE_COORD_2}, {@link #GL_MAP1_TEXTURE_COORD_3 MAP1_TEXTURE_COORD_3}, {@link #GL_MAP1_TEXTURE_COORD_4 MAP1_TEXTURE_COORD_4}, {@link #GL_MAP2_VERTEX_3 MAP2_VERTEX_3}, {@link #GL_MAP2_VERTEX_4 MAP2_VERTEX_4}, {@link #GL_MAP2_COLOR_4 MAP2_COLOR_4}, {@link #GL_MAP2_NORMAL MAP2_NORMAL}, {@link #GL_MAP2_TEXTURE_COORD_1 MAP2_TEXTURE_COORD_1}, {@link #GL_MAP2_TEXTURE_COORD_2 MAP2_TEXTURE_COORD_2}, {@link #GL_MAP2_TEXTURE_COORD_3 MAP2_TEXTURE_COORD_3}, {@link #GL_MAP2_TEXTURE_COORD_4 MAP2_TEXTURE_COORD_4}
 	 * @param query  the information to query. One of:<p/>{@link #GL_ORDER ORDER}, {@link #GL_COEFF COEFF}, {@link #GL_DOMAIN DOMAIN}
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapi(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -4328,7 +4328,7 @@ public final class GL11 {
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapf(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -4373,7 +4373,7 @@ public final class GL11 {
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapd(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -4400,15 +4400,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
 	@JavadocExclude
-	public static native void nglGetMaterialiv(int face, int value, long data, long __functionAddress);
+	public static native void nglGetMaterialiv(int face, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
 	@JavadocExclude
-	public static void nglGetMaterialiv(int face, int value, long data) {
+	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMaterialiv(face, value, data, __functionAddress);
+		nglGetMaterialiv(face, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4417,31 +4417,31 @@ public final class GL11 {
 	 * Returns integer information about material property {@code value} for {@code face} in {@code data}.
 	 *
 	 * @param face  the material face for which to return information. One of:<p/>{@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}
-	 * @param value the information to query. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}, {@link #GL_SHININESS SHININESS}
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the information to query. One of:<p/>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}, {@link #GL_SHININESS SHININESS}
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMateriali(int face, int value, ByteBuffer data) {
-		nglGetMaterialiv(face, value, memAddress(data));
+	public static void glGetMateriali(int face, int pname, ByteBuffer data) {
+		nglGetMaterialiv(face, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
-	public static void glGetMaterial(int face, int value, IntBuffer data) {
-		nglGetMaterialiv(face, value, memAddress(data));
+	public static void glGetMaterial(int face, int pname, IntBuffer data) {
+		nglGetMaterialiv(face, pname, memAddress(data));
 	}
 
 	// --- [ glGetMaterialfv ] ---
 
 	/** JNI method for {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
 	@JavadocExclude
-	public static native void nglGetMaterialfv(int face, int value, long data, long __functionAddress);
+	public static native void nglGetMaterialfv(int face, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
 	@JavadocExclude
-	public static void nglGetMaterialfv(int face, int value, long data) {
+	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMaterialfv(face, value, data, __functionAddress);
+		nglGetMaterialfv(face, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4450,16 +4450,16 @@ public final class GL11 {
 	 * Float version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali}.
 	 *
 	 * @param face  the material face for which to return information
-	 * @param value the information to query
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the information to query
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMaterialf(int face, int value, ByteBuffer data) {
-		nglGetMaterialfv(face, value, memAddress(data));
+	public static void glGetMaterialf(int face, int pname, ByteBuffer data) {
+		nglGetMaterialfv(face, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
-	public static void glGetMaterial(int face, int value, FloatBuffer data) {
-		nglGetMaterialfv(face, value, memAddress(data));
+	public static void glGetMaterial(int face, int pname, FloatBuffer data) {
+		nglGetMaterialfv(face, pname, memAddress(data));
 	}
 
 	// --- [ glGetPixelMapfv ] ---
@@ -4483,7 +4483,7 @@ public final class GL11 {
 	 * Returns all float values in the pixel map {@code map} in {@code data}.
 	 *
 	 * @param map  the pixel map parameter to query. One of:<p/>{@link #GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}, {@link #GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}, {@link #GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}, {@link #GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}, {@link #GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}, {@link #GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}, {@link #GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}, {@link #GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}, {@link #GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}, {@link #GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}
-	 * @param data an array in which to place the returned data
+	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapf(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -4530,7 +4530,7 @@ public final class GL11 {
 	 * Unsigned short version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
-	 * @param data an array in which to place the returned data
+	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapus(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -4577,7 +4577,7 @@ public final class GL11 {
 	 * Unsigned integer version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
-	 * @param data an array in which to place the returned data
+	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapui(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -4624,7 +4624,7 @@ public final class GL11 {
 	 * Returns a pointer in the current GL context.
 	 *
 	 * @param pname  the pointer to return
-	 * @param params an array in which to place the returned pointer
+	 * @param params a buffer in which to place the returned pointer
 	 */
 	public static void glGetPointer(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -4667,7 +4667,7 @@ public final class GL11 {
 	 * <p/>
 	 * Obtains the polygon stipple.
 	 *
-	 * @param pattern an array in which to place the returned data
+	 * @param pattern a buffer in which to place the returned data
 	 */
 	public static void glGetPolygonStipple(ByteBuffer pattern) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -4713,15 +4713,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	@JavadocExclude
-	public static native void nglGetTexEnviv(int env, int value, long data, long __functionAddress);
+	public static native void nglGetTexEnviv(int env, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
 	@JavadocExclude
-	public static void nglGetTexEnviv(int env, int value, long data) {
+	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexEnviv(env, value, data, __functionAddress);
+		nglGetTexEnviv(env, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4730,27 +4730,27 @@ public final class GL11 {
 	 * Returns integer information about {@code value} for {@code env} in {@code data}.
 	 *
 	 * @param env   the texture environment to query. One of:<p/>{@link GL20#GL_POINT_SPRITE POINT_SPRITE}, {@link #GL_TEXTURE_ENV TEXTURE_ENV}, {@link GL14#GL_TEXTURE_FILTER_CONTROL TEXTURE_FILTER_CONTROL}
-	 * @param value the value to query. One of:<p/>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}, {@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}, {@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL13#GL_COMBINE_RGB COMBINE_RGB}, {@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}, {@link GL15#GL_SRC0_RGB SRC0_RGB}, {@link GL15#GL_SRC1_RGB SRC1_RGB}, {@link GL15#GL_SRC2_RGB SRC2_RGB}, {@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}, {@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}, {@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}, {@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}, {@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}, {@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}, {@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}, {@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}, {@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}, {@link GL13#GL_RGB_SCALE RGB_SCALE}, {@link #GL_ALPHA_SCALE ALPHA_SCALE}
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the parameter to query. One of:<p/>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}, {@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}, {@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL13#GL_COMBINE_RGB COMBINE_RGB}, {@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}, {@link GL15#GL_SRC0_RGB SRC0_RGB}, {@link GL15#GL_SRC1_RGB SRC1_RGB}, {@link GL15#GL_SRC2_RGB SRC2_RGB}, {@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}, {@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}, {@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}, {@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}, {@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}, {@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}, {@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}, {@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}, {@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}, {@link GL13#GL_RGB_SCALE RGB_SCALE}, {@link #GL_ALPHA_SCALE ALPHA_SCALE}
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexEnvi(int env, int value, ByteBuffer data) {
+	public static void glGetTexEnvi(int env, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
-		nglGetTexEnviv(env, value, memAddress(data));
+		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
-	public static void glGetTexEnv(int env, int value, IntBuffer data) {
+	public static void glGetTexEnv(int env, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		nglGetTexEnviv(env, value, memAddress(data));
+		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
-	public static int glGetTexEnvi(int env, int value) {
+	public static int glGetTexEnvi(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetTexEnviv(env, value, __buffer.address() + data);
+		nglGetTexEnviv(env, pname, __buffer.address() + data);
 		return __buffer.intValue(data);
 	}
 
@@ -4758,15 +4758,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	@JavadocExclude
-	public static native void nglGetTexEnvfv(int env, int value, long data, long __functionAddress);
+	public static native void nglGetTexEnvfv(int env, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
 	@JavadocExclude
-	public static void nglGetTexEnvfv(int env, int value, long data) {
+	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexEnvfv(env, value, data, __functionAddress);
+		nglGetTexEnvfv(env, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4775,27 +4775,27 @@ public final class GL11 {
 	 * Float version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi}.
 	 *
 	 * @param env   the texture environment to query
-	 * @param value the value to query
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the parameter to query
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexEnvf(int env, int value, ByteBuffer data) {
+	public static void glGetTexEnvf(int env, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
-		nglGetTexEnvfv(env, value, memAddress(data));
+		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
-	public static void glGetTexEnv(int env, int value, FloatBuffer data) {
+	public static void glGetTexEnv(int env, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		nglGetTexEnvfv(env, value, memAddress(data));
+		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
-	public static float glGetTexEnvf(int env, int value) {
+	public static float glGetTexEnvf(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetTexEnvfv(env, value, __buffer.address() + data);
+		nglGetTexEnvfv(env, pname, __buffer.address() + data);
 		return __buffer.floatValue(data);
 	}
 
@@ -4803,15 +4803,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	@JavadocExclude
-	public static native void nglGetTexGeniv(int coord, int value, long data, long __functionAddress);
+	public static native void nglGetTexGeniv(int coord, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
 	@JavadocExclude
-	public static void nglGetTexGeniv(int coord, int value, long data) {
+	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGeniv(coord, value, data, __functionAddress);
+		nglGetTexGeniv(coord, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4820,27 +4820,27 @@ public final class GL11 {
 	 * Returns integer information about {@code value} for {@code coord} in {@code data}.
 	 *
 	 * @param coord the coord to query. One of:<p/>{@link #GL_S S}, {@link #GL_T T}, {@link #GL_R R}, {@link #GL_Q Q}
-	 * @param value the value to query. One of:<p/>{@link #GL_EYE_PLANE EYE_PLANE}, {@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the parameter to query. One of:<p/>{@link #GL_EYE_PLANE EYE_PLANE}, {@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGeni(int coord, int value, ByteBuffer data) {
+	public static void glGetTexGeni(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
-		nglGetTexGeniv(coord, value, memAddress(data));
+		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
-	public static void glGetTexGen(int coord, int value, IntBuffer data) {
+	public static void glGetTexGen(int coord, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		nglGetTexGeniv(coord, value, memAddress(data));
+		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
-	public static int glGetTexGeni(int coord, int value) {
+	public static int glGetTexGeni(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetTexGeniv(coord, value, __buffer.address() + data);
+		nglGetTexGeniv(coord, pname, __buffer.address() + data);
 		return __buffer.intValue(data);
 	}
 
@@ -4848,15 +4848,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	@JavadocExclude
-	public static native void nglGetTexGenfv(int coord, int value, long data, long __functionAddress);
+	public static native void nglGetTexGenfv(int coord, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
 	@JavadocExclude
-	public static void nglGetTexGenfv(int coord, int value, long data) {
+	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGenfv(coord, value, data, __functionAddress);
+		nglGetTexGenfv(coord, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4865,27 +4865,27 @@ public final class GL11 {
 	 * Float version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
 	 *
 	 * @param coord the coord to query
-	 * @param value the value to query
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the parameter to query
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGenf(int coord, int value, ByteBuffer data) {
+	public static void glGetTexGenf(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
-		nglGetTexGenfv(coord, value, memAddress(data));
+		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
-	public static void glGetTexGen(int coord, int value, FloatBuffer data) {
+	public static void glGetTexGen(int coord, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
-		nglGetTexGenfv(coord, value, memAddress(data));
+		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
-	public static float glGetTexGenf(int coord, int value) {
+	public static float glGetTexGenf(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetTexGenfv(coord, value, __buffer.address() + data);
+		nglGetTexGenfv(coord, pname, __buffer.address() + data);
 		return __buffer.floatValue(data);
 	}
 
@@ -4893,15 +4893,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	@JavadocExclude
-	public static native void nglGetTexGendv(int coord, int value, long data, long __functionAddress);
+	public static native void nglGetTexGendv(int coord, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
 	@JavadocExclude
-	public static void nglGetTexGendv(int coord, int value, long data) {
+	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGendv(coord, value, data, __functionAddress);
+		nglGetTexGendv(coord, pname, data, __functionAddress);
 	}
 
 	/**
@@ -4910,27 +4910,27 @@ public final class GL11 {
 	 * Double version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
 	 *
 	 * @param coord the coord to query
-	 * @param value the value to query
-	 * @param data  a scalar or array in which to place the returned data
+	 * @param pname the parameter to query
+	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGend(int coord, int value, ByteBuffer data) {
+	public static void glGetTexGend(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 3);
-		nglGetTexGendv(coord, value, memAddress(data));
+		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
-	public static void glGetTexGen(int coord, int value, DoubleBuffer data) {
+	public static void glGetTexGen(int coord, int pname, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
-		nglGetTexGendv(coord, value, memAddress(data));
+		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
-	public static double glGetTexGend(int coord, int value) {
+	public static double glGetTexGend(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetTexGendv(coord, value, __buffer.address() + data);
+		nglGetTexGendv(coord, pname, __buffer.address() + data);
 		return __buffer.doubleValue(data);
 	}
 
@@ -4938,15 +4938,15 @@ public final class GL11 {
 
 	/** JNI method for {@link #glGetTexImage GetTexImage} */
 	@JavadocExclude
-	public static native void nglGetTexImage(int tex, int lod, int format, int type, long img, long __functionAddress);
+	public static native void nglGetTexImage(int tex, int level, int format, int type, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexImage GetTexImage} */
 	@JavadocExclude
-	public static void nglGetTexImage(int tex, int lod, int format, int type, long img) {
+	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTexImage;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexImage(tex, lod, format, type, img, __functionAddress);
+		nglGetTexImage(tex, level, format, type, pixels, __functionAddress);
 	}
 
 	/**
@@ -4955,65 +4955,65 @@ public final class GL11 {
 	 * Obtains texture images.
 	 *
 	 * @param tex    the texture (or texture face) to be obtained. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}
-	 * @param lod    the level-of-detail number
+	 * @param level  the level-of-detail number
 	 * @param format the pixel format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
 	 * @param type   the pixel type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
-	 * @param img    the array in which to place the returned data
+	 * @param pixels the buffer in which to place the returned data
 	 */
-	public static void glGetTexImage(int tex, int lod, int format, int type, ByteBuffer img) {
+	public static void glGetTexImage(int tex, int level, int format, int type, ByteBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		nglGetTexImage(tex, lod, format, type, memAddress(img));
+		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glGetTexImage GetTexImage} */
-	public static void glGetTexImage(int tex, int lod, int format, int type, long imgOffset) {
+	public static void glGetTexImage(int tex, int level, int format, int type, long pixelsOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetTexImage(tex, lod, format, type, imgOffset);
+		nglGetTexImage(tex, level, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glGetTexImage GetTexImage} */
-	public static void glGetTexImage(int tex, int lod, int format, int type, ShortBuffer img) {
+	public static void glGetTexImage(int tex, int level, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		nglGetTexImage(tex, lod, format, type, memAddress(img));
+		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTexImage GetTexImage} */
-	public static void glGetTexImage(int tex, int lod, int format, int type, IntBuffer img) {
+	public static void glGetTexImage(int tex, int level, int format, int type, IntBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		nglGetTexImage(tex, lod, format, type, memAddress(img));
+		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTexImage GetTexImage} */
-	public static void glGetTexImage(int tex, int lod, int format, int type, FloatBuffer img) {
+	public static void glGetTexImage(int tex, int level, int format, int type, FloatBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		nglGetTexImage(tex, lod, format, type, memAddress(img));
+		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTexImage GetTexImage} */
-	public static void glGetTexImage(int tex, int lod, int format, int type, DoubleBuffer img) {
+	public static void glGetTexImage(int tex, int level, int format, int type, DoubleBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		nglGetTexImage(tex, lod, format, type, memAddress(img));
+		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
 	/** JNI method for {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	@JavadocExclude
-	public static native void nglGetTexLevelParameteriv(int target, int lod, int value, long data, long __functionAddress);
+	public static native void nglGetTexLevelParameteriv(int target, int level, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	@JavadocExclude
-	public static void nglGetTexLevelParameteriv(int target, int lod, int value, long data) {
+	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexLevelParameteriv(target, lod, value, data, __functionAddress);
+		nglGetTexLevelParameteriv(target, level, pname, params, __functionAddress);
 	}
 
 	/**
@@ -5022,44 +5022,44 @@ public final class GL11 {
 	 * Places integer information about texture image parameter {@code value} for level-of-detail {@code lod} of the specified {@code target} into {@code data}.
 	 *
 	 * @param target the texture image target. One of:<p/>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}, {@link #GL_TEXTURE_1D TEXTURE_1D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
-	 * @param lod    the level-of-detail number
-	 * @param value  the value to query. One of:<p/>{@link #GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link #GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link #GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link #GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link #GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link #GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link #GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link #GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link #GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link #GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param level  the level-of-detail number
+	 * @param pname  the parameter to query. One of:<p/>{@link #GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link #GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link #GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link #GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link #GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link #GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link #GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link #GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link #GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link #GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexLevelParameteri(int target, int lod, int value, ByteBuffer data) {
+	public static void glGetTexLevelParameteri(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 4 << 2);
-		nglGetTexLevelParameteriv(target, lod, value, memAddress(data));
+			checkBuffer(params, 4 << 2);
+		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
-	public static void glGetTexLevelParameter(int target, int lod, int value, IntBuffer data) {
+	public static void glGetTexLevelParameter(int target, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 4);
-		nglGetTexLevelParameteriv(target, lod, value, memAddress(data));
+			checkBuffer(params, 4);
+		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
-	public static int glGetTexLevelParameteri(int target, int lod, int value) {
+	public static int glGetTexLevelParameteri(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetTexLevelParameteriv(target, lod, value, __buffer.address() + data);
-		return __buffer.intValue(data);
+		int params = __buffer.intParam();
+		nglGetTexLevelParameteriv(target, level, pname, __buffer.address() + params);
+		return __buffer.intValue(params);
 	}
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
 	/** JNI method for {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	@JavadocExclude
-	public static native void nglGetTexLevelParameterfv(int target, int lod, int value, long data, long __functionAddress);
+	public static native void nglGetTexLevelParameterfv(int target, int level, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	@JavadocExclude
-	public static void nglGetTexLevelParameterfv(int target, int lod, int value, long data) {
+	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexLevelParameterfv(target, lod, value, data, __functionAddress);
+		nglGetTexLevelParameterfv(target, level, pname, params, __functionAddress);
 	}
 
 	/**
@@ -5068,44 +5068,44 @@ public final class GL11 {
 	 * Float version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri}.
 	 *
 	 * @param target the texture image target
-	 * @param lod    the level-of-detail number
-	 * @param value  the value to query
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param level  the level-of-detail number
+	 * @param pname  the parameter to query
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexLevelParameterf(int target, int lod, int value, ByteBuffer data) {
+	public static void glGetTexLevelParameterf(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 4 << 2);
-		nglGetTexLevelParameterfv(target, lod, value, memAddress(data));
+			checkBuffer(params, 4 << 2);
+		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
-	public static void glGetTexLevelParameter(int target, int lod, int value, FloatBuffer data) {
+	public static void glGetTexLevelParameter(int target, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 4);
-		nglGetTexLevelParameterfv(target, lod, value, memAddress(data));
+			checkBuffer(params, 4);
+		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
-	public static float glGetTexLevelParameterf(int target, int lod, int value) {
+	public static float glGetTexLevelParameterf(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetTexLevelParameterfv(target, lod, value, __buffer.address() + data);
-		return __buffer.floatValue(data);
+		int params = __buffer.floatParam();
+		nglGetTexLevelParameterfv(target, level, pname, __buffer.address() + params);
+		return __buffer.floatValue(params);
 	}
 
 	// --- [ glGetTexParameteriv ] ---
 
 	/** JNI method for {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	@JavadocExclude
-	public static native void nglGetTexParameteriv(int target, int value, long data, long __functionAddress);
+	public static native void nglGetTexParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
 	@JavadocExclude
-	public static void nglGetTexParameteriv(int target, int value, long data) {
+	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexParameteriv(target, value, data, __functionAddress);
+		nglGetTexParameteriv(target, pname, params, __functionAddress);
 	}
 
 	/**
@@ -5114,43 +5114,43 @@ public final class GL11 {
 	 * Place integer information about texture parameter {@code value} for the specified {@code target} into {@code data}.
 	 *
 	 * @param target the texture target. One of:<p/>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
-	 * @param value  the value to query. One of:<p/>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link #GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param pname  the parameter to query. One of:<p/>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link #GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexParameteri(int target, int value, ByteBuffer data) {
+	public static void glGetTexParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetTexParameteriv(target, value, memAddress(data));
+			checkBuffer(params, 1 << 2);
+		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
-	public static void glGetTexParameter(int target, int value, IntBuffer data) {
+	public static void glGetTexParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 1);
-		nglGetTexParameteriv(target, value, memAddress(data));
+			checkBuffer(params, 1);
+		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
-	public static int glGetTexParameteri(int target, int value) {
+	public static int glGetTexParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.intParam();
-		nglGetTexParameteriv(target, value, __buffer.address() + data);
-		return __buffer.intValue(data);
+		int params = __buffer.intParam();
+		nglGetTexParameteriv(target, pname, __buffer.address() + params);
+		return __buffer.intValue(params);
 	}
 
 	// --- [ glGetTexParameterfv ] ---
 
 	/** JNI method for {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	@JavadocExclude
-	public static native void nglGetTexParameterfv(int target, int value, long data, long __functionAddress);
+	public static native void nglGetTexParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
 	@JavadocExclude
-	public static void nglGetTexParameterfv(int target, int value, long data) {
+	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexParameterfv(target, value, data, __functionAddress);
+		nglGetTexParameterfv(target, pname, params, __functionAddress);
 	}
 
 	/**
@@ -5159,28 +5159,28 @@ public final class GL11 {
 	 * Float version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri}.
 	 *
 	 * @param target the texture target
-	 * @param value  the value to query
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param pname  the parameter to query
+	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexParameterf(int target, int value, ByteBuffer data) {
+	public static void glGetTexParameterf(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 1 << 2);
-		nglGetTexParameterfv(target, value, memAddress(data));
+			checkBuffer(params, 1 << 2);
+		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
-	public static void glGetTexParameter(int target, int value, FloatBuffer data) {
+	public static void glGetTexParameter(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, 1);
-		nglGetTexParameterfv(target, value, memAddress(data));
+			checkBuffer(params, 1);
+		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
-	public static float glGetTexParameterf(int target, int value) {
+	public static float glGetTexParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
-		int data = __buffer.floatParam();
-		nglGetTexParameterfv(target, value, __buffer.address() + data);
-		return __buffer.floatValue(data);
+		int params = __buffer.floatParam();
+		nglGetTexParameterfv(target, pname, __buffer.address() + params);
+		return __buffer.floatValue(params);
 	}
 
 	// --- [ glHint ] ---
@@ -8041,7 +8041,7 @@ public final class GL11 {
 	 * @param height the number of pixels to read in the y-dimension
 	 * @param format the pixel format. One of:<p/>{@link #GL_STENCIL_INDEX STENCIL_INDEX}, {@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link #GL_RED RED}, {@link #GL_GREEN GREEN}, {@link #GL_BLUE BLUE}, {@link #GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link #GL_RGB RGB}, {@link #GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link #GL_LUMINANCE LUMINANCE}, {@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
 	 * @param type   the pixel type. One of:<p/>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_BYTE BYTE}, {@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link #GL_SHORT SHORT}, {@link #GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link #GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link #GL_BITMAP BITMAP}
-	 * @param pixels an array in which to place the returned pixel data
+	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )

@@ -7,6 +7,10 @@
 #include "OpenGL.h"
 
 typedef const GLubyte * (APIENTRY *glGetStringiPROC) (GLenum, GLuint);
+typedef GLvoid (APIENTRY *glClearBufferivPROC) (GLenum, GLint, GLint *);
+typedef GLvoid (APIENTRY *glClearBufferuivPROC) (GLenum, GLint, GLint *);
+typedef GLvoid (APIENTRY *glClearBufferfvPROC) (GLenum, GLint, GLfloat *);
+typedef GLvoid (APIENTRY *glClearBufferfiPROC) (GLenum, GLint, GLfloat, GLint);
 typedef GLvoid (APIENTRY *glVertexAttribI1iPROC) (GLuint, GLint);
 typedef GLvoid (APIENTRY *glVertexAttribI2iPROC) (GLuint, GLint, GLint);
 typedef GLvoid (APIENTRY *glVertexAttribI3iPROC) (GLuint, GLint, GLint, GLint);
@@ -93,6 +97,33 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL30_nglGetStringi(JNIEnv *__env, 
 	glGetStringiPROC glGetStringi = (glGetStringiPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)glGetStringi(name, index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglClearBufferiv(JNIEnv *__env, jclass clazz, jint buffer, jint drawbuffer, jlong valueAddress, jlong __functionAddress) {
+	GLint *value = (GLint *)(intptr_t)valueAddress;
+	glClearBufferivPROC glClearBufferiv = (glClearBufferivPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glClearBufferiv(buffer, drawbuffer, value);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglClearBufferuiv(JNIEnv *__env, jclass clazz, jint buffer, jint drawbuffer, jlong valueAddress, jlong __functionAddress) {
+	GLint *value = (GLint *)(intptr_t)valueAddress;
+	glClearBufferuivPROC glClearBufferuiv = (glClearBufferuivPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glClearBufferuiv(buffer, drawbuffer, value);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglClearBufferfv(JNIEnv *__env, jclass clazz, jint buffer, jint drawbuffer, jlong valueAddress, jlong __functionAddress) {
+	GLfloat *value = (GLfloat *)(intptr_t)valueAddress;
+	glClearBufferfvPROC glClearBufferfv = (glClearBufferfvPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glClearBufferfv(buffer, drawbuffer, value);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglClearBufferfi(JNIEnv *__env, jclass clazz, jint buffer, jint drawbuffer, jfloat depth, jint stencil, jlong __functionAddress) {
+	glClearBufferfiPROC glClearBufferfi = (glClearBufferfiPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glClearBufferfi(buffer, drawbuffer, depth, stencil);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglVertexAttribI1i(JNIEnv *__env, jclass clazz, jint index, jint x, jlong __functionAddress) {

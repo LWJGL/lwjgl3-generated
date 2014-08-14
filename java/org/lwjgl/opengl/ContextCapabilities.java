@@ -27,6 +27,7 @@ public final class ContextCapabilities {
 	final GL42                    __GL42;
 	final GL43                    __GL43;
 	final GL44                    __GL44;
+	final GL45                    __GL45;
 	final GLX11                   __GLX11;
 	final GLX12                   __GLX12;
 	final GLX13                   __GLX13;
@@ -50,11 +51,18 @@ public final class ContextCapabilities {
 	final ARBBufferStorage        __ARBBufferStorage;
 	final ARBCLEvent              __ARBCLEvent;
 	final ARBClearTexture         __ARBClearTexture;
+	final ARBClipControl          __ARBClipControl;
 	final ARBCopyBuffer           __ARBCopyBuffer;
+	final ARBDirectStateAccess    __ARBDirectStateAccess;
 	final ARBDrawBuffersBlend     __ARBDrawBuffersBlend;
+	final ARBES31Compatibility    __ARBES31Compatibility;
+	final ARBGetTextureSubImage   __ARBGetTextureSubImage;
 	final ARBImaging              __ARBImaging;
 	final ARBMultiBind            __ARBMultiBind;
+	final ARBSparseBuffer         __ARBSparseBuffer;
 	final ARBSync                 __ARBSync;
+	final ARBTextureBarrier       __ARBTextureBarrier;
+	final KHRRobustness           __KHRRobustness;
 	final WGLAMDGPUAssociation    __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion      __WGLARBBufferRegion;
 	final WGLARBCreateContext     __WGLARBCreateContext;
@@ -86,11 +94,13 @@ public final class ContextCapabilities {
 		OpenGL42,
 		OpenGL43,
 		OpenGL44,
+		OpenGL45,
 		GLX_11,
 		GLX_12,
 		GLX_13,
 		GLX_14,
 		GLX_AMD_gpu_association,
+		GLX_ARB_context_flush_control,
 		GLX_ARB_create_context,
 		GLX_ARB_create_context_profile,
 		GLX_ARB_create_context_robustness,
@@ -132,17 +142,25 @@ public final class ContextCapabilities {
 		GL_ARB_buffer_storage,
 		GL_ARB_cl_event,
 		GL_ARB_clear_texture,
+		GL_ARB_clip_control,
 		GL_ARB_compatibility,
+		GL_ARB_conditional_render_inverted,
 		GL_ARB_conservative_depth,
 		GL_ARB_copy_buffer,
+		GL_ARB_cull_distance,
+		GL_ARB_derivative_control,
+		GL_ARB_direct_state_access,
 		GL_ARB_draw_buffers_blend,
 		GL_ARB_enhanced_layouts,
+		GL_ARB_ES3_1_compatibility,
 		GL_ARB_explicit_attrib_location,
 		GL_ARB_fragment_coord_conventions,
 		GL_ARB_fragment_layer_viewport,
 		GL_ARB_fragment_program_shadow,
+		GL_ARB_get_texture_sub_image,
 		GL_ARB_imaging,
 		GL_ARB_multi_bind,
+		GL_ARB_pipeline_statistics_query,
 		GL_ARB_query_buffer_object,
 		GL_ARB_robust_buffer_access_behavior,
 		GL_ARB_robustness_isolation,
@@ -150,10 +168,13 @@ public final class ContextCapabilities {
 		GL_ARB_shader_image_size,
 		GL_ARB_shader_precision,
 		GL_ARB_shader_stencil_export,
+		GL_ARB_shader_texture_image_samples,
 		GL_ARB_shader_texture_lod,
 		GL_ARB_shading_language_420pack,
 		GL_ARB_shading_language_packing,
+		GL_ARB_sparse_buffer,
 		GL_ARB_sync,
+		GL_ARB_texture_barrier,
 		GL_ARB_texture_buffer_object_rgb32,
 		GL_ARB_texture_env_add,
 		GL_ARB_texture_env_crossbar,
@@ -161,8 +182,12 @@ public final class ContextCapabilities {
 		GL_ARB_texture_non_power_of_two,
 		GL_ARB_texture_query_levels,
 		GL_ARB_texture_query_lod,
+		GL_ARB_transform_feedback_overflow_query,
 		GL_ATI_shader_texture_lod,
 		GL_EXT_shadow_funcs,
+		GL_KHR_context_flush_control,
+		GL_KHR_robust_buffer_access_behavior,
+		GL_KHR_robustness,
 		GL_NV_blend_square,
 		GL_NV_fragment_program4,
 		GL_NV_fragment_program_option,
@@ -176,6 +201,7 @@ public final class ContextCapabilities {
 		GL_NV_vertex_program4,
 		WGL_AMD_gpu_association,
 		WGL_ARB_buffer_region,
+		WGL_ARB_context_flush_control,
 		WGL_ARB_create_context,
 		WGL_ARB_create_context_profile,
 		WGL_ARB_create_context_robustness,
@@ -216,11 +242,13 @@ public final class ContextCapabilities {
 		OpenGL42 = (__GL42 = GL42.create(ext, provider)) != null;
 		OpenGL43 = (__GL43 = GL43.create(ext, provider)) != null;
 		OpenGL44 = (__GL44 = GL44.create(ext, provider)) != null;
+		OpenGL45 = (__GL45 = GL45.create(ext, provider)) != null;
 		GLX_11 = (__GLX11 = GLX11.create(ext, provider)) != null;
 		GLX_12 = (__GLX12 = GLX12.create(ext, provider)) != null;
 		GLX_13 = (__GLX13 = GLX13.create(ext, provider)) != null;
 		GLX_14 = (__GLX14 = GLX14.create(ext, provider)) != null;
 		GLX_AMD_gpu_association = (__GLXAMDGPUAssociation = GLXAMDGPUAssociation.create(ext, provider)) != null;
+		GLX_ARB_context_flush_control = ext.contains("GLX_ARB_context_flush_control");
 		GLX_ARB_create_context = (__GLXARBCreateContext = GLXARBCreateContext.create(ext, provider)) != null;
 		GLX_ARB_create_context_profile = ext.contains("GLX_ARB_create_context_profile");
 		GLX_ARB_create_context_robustness = ext.contains("GLX_ARB_create_context_robustness");
@@ -262,17 +290,25 @@ public final class ContextCapabilities {
 		GL_ARB_buffer_storage = (__ARBBufferStorage = ARBBufferStorage.create(ext, provider)) != null;
 		GL_ARB_cl_event = (__ARBCLEvent = ARBCLEvent.create(ext, provider)) != null;
 		GL_ARB_clear_texture = (__ARBClearTexture = ARBClearTexture.create(ext, provider)) != null;
+		GL_ARB_clip_control = (__ARBClipControl = ARBClipControl.create(ext, provider)) != null;
 		GL_ARB_compatibility = ext.contains("GL_ARB_compatibility");
+		GL_ARB_conditional_render_inverted = ext.contains("GL_ARB_conditional_render_inverted");
 		GL_ARB_conservative_depth = ext.contains("GL_ARB_conservative_depth");
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
+		GL_ARB_cull_distance = ext.contains("GL_ARB_cull_distance");
+		GL_ARB_derivative_control = ext.contains("GL_ARB_derivative_control");
+		GL_ARB_direct_state_access = (__ARBDirectStateAccess = ARBDirectStateAccess.create(ext, provider)) != null;
 		GL_ARB_draw_buffers_blend = (__ARBDrawBuffersBlend = ARBDrawBuffersBlend.create(ext, provider)) != null;
 		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
+		GL_ARB_ES3_1_compatibility = (__ARBES31Compatibility = ARBES31Compatibility.create(ext, provider)) != null;
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
 		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
 		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
+		GL_ARB_get_texture_sub_image = (__ARBGetTextureSubImage = ARBGetTextureSubImage.create(ext, provider)) != null;
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
 		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
+		GL_ARB_pipeline_statistics_query = ext.contains("GL_ARB_pipeline_statistics_query");
 		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
 		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
 		GL_ARB_robustness_isolation = ext.contains("GL_ARB_robustness_isolation");
@@ -280,10 +316,13 @@ public final class ContextCapabilities {
 		GL_ARB_shader_image_size = ext.contains("GL_ARB_shader_image_size");
 		GL_ARB_shader_precision = ext.contains("GL_ARB_shader_precision");
 		GL_ARB_shader_stencil_export = ext.contains("GL_ARB_shader_stencil_export");
+		GL_ARB_shader_texture_image_samples = ext.contains("GL_ARB_shader_texture_image_samples");
 		GL_ARB_shader_texture_lod = ext.contains("GL_ARB_shader_texture_lod");
 		GL_ARB_shading_language_420pack = ext.contains("GL_ARB_shading_language_420pack");
 		GL_ARB_shading_language_packing = ext.contains("GL_ARB_shading_language_packing");
+		GL_ARB_sparse_buffer = (__ARBSparseBuffer = ARBSparseBuffer.create(ext, provider)) != null;
 		GL_ARB_sync = (__ARBSync = ARBSync.create(ext, provider)) != null;
+		GL_ARB_texture_barrier = (__ARBTextureBarrier = ARBTextureBarrier.create(ext, provider)) != null;
 		GL_ARB_texture_buffer_object_rgb32 = ext.contains("GL_ARB_texture_buffer_object_rgb32");
 		GL_ARB_texture_env_add = ext.contains("GL_ARB_texture_env_add");
 		GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
@@ -291,8 +330,12 @@ public final class ContextCapabilities {
 		GL_ARB_texture_non_power_of_two = ext.contains("GL_ARB_texture_non_power_of_two");
 		GL_ARB_texture_query_levels = ext.contains("GL_ARB_texture_query_levels");
 		GL_ARB_texture_query_lod = ext.contains("GL_ARB_texture_query_lod");
+		GL_ARB_transform_feedback_overflow_query = ext.contains("GL_ARB_transform_feedback_overflow_query");
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
+		GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
+		GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
+		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
 		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
 		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
 		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");
@@ -306,6 +349,7 @@ public final class ContextCapabilities {
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
 		WGL_AMD_gpu_association = (__WGLAMDGPUAssociation = WGLAMDGPUAssociation.create(ext, provider)) != null;
 		WGL_ARB_buffer_region = (__WGLARBBufferRegion = WGLARBBufferRegion.create(ext, provider)) != null;
+		WGL_ARB_context_flush_control = ext.contains("WGL_ARB_context_flush_control");
 		WGL_ARB_create_context = (__WGLARBCreateContext = WGLARBCreateContext.create(ext, provider)) != null;
 		WGL_ARB_create_context_profile = ext.contains("WGL_ARB_create_context_profile");
 		WGL_ARB_create_context_robustness = ext.contains("WGL_ARB_create_context_robustness");

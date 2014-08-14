@@ -639,15 +639,15 @@ public final class GL13 {
 
 	/** JNI method for {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	@JavadocExclude
-	public static native void nglGetCompressedTexImage(int target, int lod, long img, long __functionAddress);
+	public static native void nglGetCompressedTexImage(int target, int level, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	@JavadocExclude
-	public static void nglGetCompressedTexImage(int target, int lod, long img) {
+	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImage;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetCompressedTexImage(target, lod, img, __functionAddress);
+		nglGetCompressedTexImage(target, level, pixels, __functionAddress);
 	}
 
 	/**
@@ -656,23 +656,23 @@ public final class GL13 {
 	 * Returns a compressed texture image.
 	 *
 	 * @param target the target texture. One of:<p/>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link #GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link #GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
-	 * @param lod    the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
-	 * @param img    an array in which to return the compressed texture image
+	 * @param level  the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param pixels a buffer in which to return the compressed texture image
 	 */
-	public static void glGetCompressedTexImage(int target, int lod, ByteBuffer img) {
+	public static void glGetCompressedTexImage(int target, int level, ByteBuffer pixels) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( LWJGLUtil.DEBUG )
-				checkBuffer(img, GL11.glGetTexLevelParameteri(target, lod, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
+				checkBuffer(pixels, GL11.glGetTexLevelParameteri(target, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
-		nglGetCompressedTexImage(target, lod, memAddress(img));
+		nglGetCompressedTexImage(target, level, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glGetCompressedTexImage GetCompressedTexImage} */
-	public static void glGetCompressedTexImage(int target, int lod, long imgOffset) {
+	public static void glGetCompressedTexImage(int target, int level, long pixelsOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetCompressedTexImage(target, lod, imgOffset);
+		nglGetCompressedTexImage(target, level, pixelsOffset);
 	}
 
 	// --- [ glSampleCoverage ] ---

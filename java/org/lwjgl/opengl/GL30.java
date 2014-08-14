@@ -476,6 +476,10 @@ public final class GL30 {
 	@JavadocExclude
 	public final long
 		GetStringi,
+		ClearBufferiv,
+		ClearBufferuiv,
+		ClearBufferfv,
+		ClearBufferfi,
 		VertexAttribI1i,
 		VertexAttribI2i,
 		VertexAttribI3i,
@@ -559,6 +563,10 @@ public final class GL30 {
 	@JavadocExclude
 	public GL30(FunctionProvider provider) {
 		GetStringi = provider.getFunctionAddress("glGetStringi");
+		ClearBufferiv = provider.getFunctionAddress("glClearBufferiv");
+		ClearBufferuiv = provider.getFunctionAddress("glClearBufferuiv");
+		ClearBufferfv = provider.getFunctionAddress("glClearBufferfv");
+		ClearBufferfi = provider.getFunctionAddress("glClearBufferfi");
 		VertexAttribI1i = provider.getFunctionAddress("glVertexAttribI1i");
 		VertexAttribI2i = provider.getFunctionAddress("glVertexAttribI2i");
 		VertexAttribI3i = provider.getFunctionAddress("glVertexAttribI3i");
@@ -653,21 +661,21 @@ public final class GL30 {
 		GL30 funcs = new GL30(provider);
 
 		boolean supported = checkFunctions(
-			funcs.GetStringi, funcs.VertexAttribI1i, funcs.VertexAttribI2i, funcs.VertexAttribI3i, funcs.VertexAttribI4i, funcs.VertexAttribI1ui, 
-			funcs.VertexAttribI2ui, funcs.VertexAttribI3ui, funcs.VertexAttribI4ui, funcs.VertexAttribI1iv, funcs.VertexAttribI2iv, funcs.VertexAttribI3iv, 
-			funcs.VertexAttribI4iv, funcs.VertexAttribI1uiv, funcs.VertexAttribI2uiv, funcs.VertexAttribI3uiv, funcs.VertexAttribI4uiv, funcs.VertexAttribI4bv, 
-			funcs.VertexAttribI4sv, funcs.VertexAttribI4ubv, funcs.VertexAttribI4usv, funcs.VertexAttribIPointer, funcs.GetVertexAttribIiv, 
-			funcs.GetVertexAttribIuiv, funcs.Uniform1ui, funcs.Uniform2ui, funcs.Uniform3ui, funcs.Uniform4ui, funcs.Uniform1uiv, funcs.Uniform2uiv, 
-			funcs.Uniform3uiv, funcs.Uniform4uiv, funcs.GetUniformuiv, funcs.BindFragDataLocation, funcs.GetFragDataLocation, funcs.BeginConditionalRender, 
-			funcs.EndConditionalRender, funcs.MapBufferRange, funcs.FlushMappedBufferRange, funcs.ClampColor, funcs.IsRenderbuffer, funcs.BindRenderbuffer, 
-			funcs.DeleteRenderbuffers, funcs.GenRenderbuffers, funcs.RenderbufferStorage, funcs.RenderbufferStorageMultisample, 
-			funcs.GetRenderbufferParameteriv, funcs.IsFramebuffer, funcs.BindFramebuffer, funcs.DeleteFramebuffers, funcs.GenFramebuffers, 
-			funcs.CheckFramebufferStatus, funcs.FramebufferTexture1D, funcs.FramebufferTexture2D, funcs.FramebufferTexture3D, funcs.FramebufferTextureLayer, 
-			funcs.FramebufferRenderbuffer, funcs.GetFramebufferAttachmentParameteriv, funcs.BlitFramebuffer, funcs.GenerateMipmap, funcs.TexParameterIiv, 
-			funcs.TexParameterIuiv, funcs.GetTexParameterIiv, funcs.GetTexParameterIuiv, funcs.ColorMaski, funcs.GetBooleani_v, funcs.GetIntegeri_v, 
-			funcs.Enablei, funcs.Disablei, funcs.IsEnabledi, funcs.BindBufferRange, funcs.BindBufferBase, funcs.BeginTransformFeedback, 
-			funcs.EndTransformFeedback, funcs.TransformFeedbackVaryings, funcs.GetTransformFeedbackVarying, funcs.BindVertexArray, funcs.DeleteVertexArrays, 
-			funcs.GenVertexArrays, funcs.IsVertexArray
+			funcs.GetStringi, funcs.ClearBufferiv, funcs.ClearBufferuiv, funcs.ClearBufferfv, funcs.ClearBufferfi, funcs.VertexAttribI1i, funcs.VertexAttribI2i, 
+			funcs.VertexAttribI3i, funcs.VertexAttribI4i, funcs.VertexAttribI1ui, funcs.VertexAttribI2ui, funcs.VertexAttribI3ui, funcs.VertexAttribI4ui, 
+			funcs.VertexAttribI1iv, funcs.VertexAttribI2iv, funcs.VertexAttribI3iv, funcs.VertexAttribI4iv, funcs.VertexAttribI1uiv, funcs.VertexAttribI2uiv, 
+			funcs.VertexAttribI3uiv, funcs.VertexAttribI4uiv, funcs.VertexAttribI4bv, funcs.VertexAttribI4sv, funcs.VertexAttribI4ubv, funcs.VertexAttribI4usv, 
+			funcs.VertexAttribIPointer, funcs.GetVertexAttribIiv, funcs.GetVertexAttribIuiv, funcs.Uniform1ui, funcs.Uniform2ui, funcs.Uniform3ui, 
+			funcs.Uniform4ui, funcs.Uniform1uiv, funcs.Uniform2uiv, funcs.Uniform3uiv, funcs.Uniform4uiv, funcs.GetUniformuiv, funcs.BindFragDataLocation, 
+			funcs.GetFragDataLocation, funcs.BeginConditionalRender, funcs.EndConditionalRender, funcs.MapBufferRange, funcs.FlushMappedBufferRange, 
+			funcs.ClampColor, funcs.IsRenderbuffer, funcs.BindRenderbuffer, funcs.DeleteRenderbuffers, funcs.GenRenderbuffers, funcs.RenderbufferStorage, 
+			funcs.RenderbufferStorageMultisample, funcs.GetRenderbufferParameteriv, funcs.IsFramebuffer, funcs.BindFramebuffer, funcs.DeleteFramebuffers, 
+			funcs.GenFramebuffers, funcs.CheckFramebufferStatus, funcs.FramebufferTexture1D, funcs.FramebufferTexture2D, funcs.FramebufferTexture3D, 
+			funcs.FramebufferTextureLayer, funcs.FramebufferRenderbuffer, funcs.GetFramebufferAttachmentParameteriv, funcs.BlitFramebuffer, 
+			funcs.GenerateMipmap, funcs.TexParameterIiv, funcs.TexParameterIuiv, funcs.GetTexParameterIiv, funcs.GetTexParameterIuiv, funcs.ColorMaski, 
+			funcs.GetBooleani_v, funcs.GetIntegeri_v, funcs.Enablei, funcs.Disablei, funcs.IsEnabledi, funcs.BindBufferRange, funcs.BindBufferBase, 
+			funcs.BeginTransformFeedback, funcs.EndTransformFeedback, funcs.TransformFeedbackVaryings, funcs.GetTransformFeedbackVarying, funcs.BindVertexArray, 
+			funcs.DeleteVertexArrays, funcs.GenVertexArrays, funcs.IsVertexArray
 		);
 
 		return GL.checkExtension("OpenGL30", funcs, supported);
@@ -697,6 +705,142 @@ public final class GL30 {
 	public static String glGetStringi(int name, int index) {
 		long __result = nglGetStringi(name, index);
 		return memDecodeUTF8(memByteBufferNT1(__result));
+	}
+
+	// --- [ glClearBufferiv ] ---
+
+	/** JNI method for {@link #glClearBufferi(int, int, ByteBuffer) ClearBufferi} */
+	@JavadocExclude
+	public static native void nglClearBufferiv(int buffer, int drawbuffer, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearBufferi(int, int, ByteBuffer) ClearBufferi} */
+	@JavadocExclude
+	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
+		long __functionAddress = getInstance().ClearBufferiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferiv(buffer, drawbuffer, value, __functionAddress);
+	}
+
+	/**
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a>
+	 * <p/>
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. One of:<p/>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_STENCIL STENCIL}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
+	 *                   single stencil value to clear the buffer to.
+	 */
+	public static void glClearBufferi(int buffer, int drawbuffer, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
+		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
+	}
+
+	/** Alternative version of: {@link #glClearBufferi(int, int, ByteBuffer) ClearBufferi} */
+	public static void glClearBuffer(int buffer, int drawbuffer, IntBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
+		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
+	}
+
+	// --- [ glClearBufferuiv ] ---
+
+	/** JNI method for {@link #glClearBufferui(int, int, ByteBuffer) ClearBufferui} */
+	@JavadocExclude
+	public static native void nglClearBufferuiv(int buffer, int drawbuffer, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearBufferui(int, int, ByteBuffer) ClearBufferui} */
+	@JavadocExclude
+	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
+		long __functionAddress = getInstance().ClearBufferuiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferuiv(buffer, drawbuffer, value, __functionAddress);
+	}
+
+	/**
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a>
+	 * <p/>
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. Must be:<p/>{@link GL11#GL_COLOR COLOR}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
+	 */
+	public static void glClearBufferui(int buffer, int drawbuffer, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 4 << 2);
+		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
+	}
+
+	/** Alternative version of: {@link #glClearBufferui(int, int, ByteBuffer) ClearBufferui} */
+	public static void glClearBufferu(int buffer, int drawbuffer, IntBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 4);
+		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
+	}
+
+	// --- [ glClearBufferfv ] ---
+
+	/** JNI method for {@link #glClearBufferf(int, int, ByteBuffer) ClearBufferf} */
+	@JavadocExclude
+	public static native void nglClearBufferfv(int buffer, int drawbuffer, long value, long __functionAddress);
+
+	/** Unsafe version of {@link #glClearBufferf(int, int, ByteBuffer) ClearBufferf} */
+	@JavadocExclude
+	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
+		long __functionAddress = getInstance().ClearBufferfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferfv(buffer, drawbuffer, value, __functionAddress);
+	}
+
+	/**
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a>
+	 * <p/>
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. One of:<p/>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_DEPTH DEPTH}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param value      for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
+	 *                   single depth value to clear the buffer to.
+	 */
+	public static void glClearBufferf(int buffer, int drawbuffer, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
+		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
+	}
+
+	/** Alternative version of: {@link #glClearBufferf(int, int, ByteBuffer) ClearBufferf} */
+	public static void glClearBuffer(int buffer, int drawbuffer, FloatBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
+		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
+	}
+
+	// --- [ glClearBufferfi ] ---
+
+	/** JNI method for {@link #glClearBufferfi ClearBufferfi} */
+	@JavadocExclude
+	public static native void nglClearBufferfi(int buffer, int drawbuffer, float depth, int stencil, long __functionAddress);
+
+	/**
+	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClearBufferfi.xhtml">OpenGL SDK Reference</a>
+	 * <p/>
+	 * Clears an individual buffer of the currently bound framebuffer object to the {@link #GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} binding.
+	 *
+	 * @param buffer     the buffer to clear. Must be:<p/>{@link #GL_DEPTH_STENCIL DEPTH_STENCIL}
+	 * @param drawbuffer the draw buffer to clear
+	 * @param depth      the depth value to clear the buffer to
+	 * @param stencil    the stencil value to clear the buffer to
+	 */
+	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
+		long __functionAddress = getInstance().ClearBufferfi;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearBufferfi(buffer, drawbuffer, depth, stencil, __functionAddress);
 	}
 
 	// --- [ glVertexAttribI1i ] ---
@@ -2015,7 +2159,7 @@ public final class GL30 {
 	 * Generates renderbuffer object names.
 	 *
 	 * @param n             the number of renderbuffer object names to generate
-	 * @param renderbuffers an array in which the generated renderbuffer object names are stored
+	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
 	 */
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
 		if ( LWJGLUtil.CHECKS )
@@ -2233,7 +2377,7 @@ public final class GL30 {
 	 * Generates framebuffer object names.
 	 *
 	 * @param n            the number of framebuffer object names to generate
-	 * @param framebuffers an array in which the generated framebuffer object names are stored
+	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
 	 */
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
 		if ( LWJGLUtil.CHECKS )
@@ -2713,7 +2857,7 @@ public final class GL30 {
 	 *
 	 * @param target the indexed state to query
 	 * @param index  the index of the element being queried
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetBooleani(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -2751,7 +2895,7 @@ public final class GL30 {
 	 *
 	 * @param target the indexed state to query
 	 * @param index  the index of the element being queried
-	 * @param data   a scalar or array in which to place the returned data
+	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetIntegeri(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -3132,7 +3276,7 @@ public final class GL30 {
 	 * Generates vertex array object names.
 	 *
 	 * @param n      the number of vertex array object names to generate
-	 * @param arrays an array in which the generated vertex array object names are stored
+	 * @param arrays a buffer in which the generated vertex array object names are stored
 	 */
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
 		if ( LWJGLUtil.CHECKS )

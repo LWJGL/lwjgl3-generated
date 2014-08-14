@@ -960,18 +960,18 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL11_nglGetError(JNIEnv *__env, jcl
 	return (jint)glGetError();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetLightiv(JNIEnv *__env, jclass clazz, jint light, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetLightiv(JNIEnv *__env, jclass clazz, jint light, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLint *data = (GLint *)(intptr_t)dataAddress;
 	glGetLightivPROC glGetLightiv = (glGetLightivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetLightiv(light, value, data);
+	glGetLightiv(light, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetLightfv(JNIEnv *__env, jclass clazz, jint light, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetLightfv(JNIEnv *__env, jclass clazz, jint light, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
 	glGetLightfvPROC glGetLightfv = (glGetLightfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetLightfv(light, value, data);
+	glGetLightfv(light, pname, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMapiv(JNIEnv *__env, jclass clazz, jint target, jint query, jlong dataAddress, jlong __functionAddress) {
@@ -995,18 +995,18 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMapdv(JNIEnv *__env, jcl
 	glGetMapdv(target, query, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMaterialiv(JNIEnv *__env, jclass clazz, jint face, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMaterialiv(JNIEnv *__env, jclass clazz, jint face, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLint *data = (GLint *)(intptr_t)dataAddress;
 	glGetMaterialivPROC glGetMaterialiv = (glGetMaterialivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetMaterialiv(face, value, data);
+	glGetMaterialiv(face, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMaterialfv(JNIEnv *__env, jclass clazz, jint face, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetMaterialfv(JNIEnv *__env, jclass clazz, jint face, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
 	glGetMaterialfvPROC glGetMaterialfv = (glGetMaterialfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetMaterialfv(face, value, data);
+	glGetMaterialfv(face, pname, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPixelMapfv(JNIEnv *__env, jclass clazz, jint map, jlong dataAddress, jlong __functionAddress) {
@@ -1050,74 +1050,74 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL11_nglGetString(JNIEnv *__env, j
 	return (jlong)(intptr_t)glGetString(name);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexEnviv(JNIEnv *__env, jclass clazz, jint env, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexEnviv(JNIEnv *__env, jclass clazz, jint env, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLint *data = (GLint *)(intptr_t)dataAddress;
 	glGetTexEnvivPROC glGetTexEnviv = (glGetTexEnvivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexEnviv(env, value, data);
+	glGetTexEnviv(env, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexEnvfv(JNIEnv *__env, jclass clazz, jint env, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexEnvfv(JNIEnv *__env, jclass clazz, jint env, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
 	glGetTexEnvfvPROC glGetTexEnvfv = (glGetTexEnvfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexEnvfv(env, value, data);
+	glGetTexEnvfv(env, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGeniv(JNIEnv *__env, jclass clazz, jint coord, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGeniv(JNIEnv *__env, jclass clazz, jint coord, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLint *data = (GLint *)(intptr_t)dataAddress;
 	glGetTexGenivPROC glGetTexGeniv = (glGetTexGenivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexGeniv(coord, value, data);
+	glGetTexGeniv(coord, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGenfv(JNIEnv *__env, jclass clazz, jint coord, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGenfv(JNIEnv *__env, jclass clazz, jint coord, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
 	glGetTexGenfvPROC glGetTexGenfv = (glGetTexGenfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexGenfv(coord, value, data);
+	glGetTexGenfv(coord, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGendv(JNIEnv *__env, jclass clazz, jint coord, jint value, jlong dataAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGendv(JNIEnv *__env, jclass clazz, jint coord, jint pname, jlong dataAddress, jlong __functionAddress) {
 	GLdouble *data = (GLdouble *)(intptr_t)dataAddress;
 	glGetTexGendvPROC glGetTexGendv = (glGetTexGendvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexGendv(coord, value, data);
+	glGetTexGendv(coord, pname, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexImage(JNIEnv *__env, jclass clazz, jint tex, jint lod, jint format, jint type, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexImage(JNIEnv *__env, jclass clazz, jint tex, jint level, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
+	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
 	glGetTexImagePROC glGetTexImage = (glGetTexImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexImage(tex, lod, format, type, img);
+	glGetTexImage(tex, level, format, type, pixels);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexLevelParameteriv(JNIEnv *__env, jclass clazz, jint target, jint lod, jint value, jlong dataAddress, jlong __functionAddress) {
-	GLint *data = (GLint *)(intptr_t)dataAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexLevelParameteriv(JNIEnv *__env, jclass clazz, jint target, jint level, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLint *params = (GLint *)(intptr_t)paramsAddress;
 	glGetTexLevelParameterivPROC glGetTexLevelParameteriv = (glGetTexLevelParameterivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexLevelParameteriv(target, lod, value, data);
+	glGetTexLevelParameteriv(target, level, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexLevelParameterfv(JNIEnv *__env, jclass clazz, jint target, jint lod, jint value, jlong dataAddress, jlong __functionAddress) {
-	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexLevelParameterfv(JNIEnv *__env, jclass clazz, jint target, jint level, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLfloat *params = (GLfloat *)(intptr_t)paramsAddress;
 	glGetTexLevelParameterfvPROC glGetTexLevelParameterfv = (glGetTexLevelParameterfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexLevelParameterfv(target, lod, value, data);
+	glGetTexLevelParameterfv(target, level, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexParameteriv(JNIEnv *__env, jclass clazz, jint target, jint value, jlong dataAddress, jlong __functionAddress) {
-	GLint *data = (GLint *)(intptr_t)dataAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexParameteriv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLint *params = (GLint *)(intptr_t)paramsAddress;
 	glGetTexParameterivPROC glGetTexParameteriv = (glGetTexParameterivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexParameteriv(target, value, data);
+	glGetTexParameteriv(target, pname, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexParameterfv(JNIEnv *__env, jclass clazz, jint target, jint value, jlong dataAddress, jlong __functionAddress) {
-	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexParameterfv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLfloat *params = (GLfloat *)(intptr_t)paramsAddress;
 	glGetTexParameterfvPROC glGetTexParameterfv = (glGetTexParameterfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetTexParameterfv(target, value, data);
+	glGetTexParameterfv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglHint(JNIEnv *__env, jclass clazz, jint target, jint hint, jlong __functionAddress) {

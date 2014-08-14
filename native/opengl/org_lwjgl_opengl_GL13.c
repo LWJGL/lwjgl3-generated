@@ -97,11 +97,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage1D(JNI
 	glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEnv *__env, jclass clazz, jint target, jint lod, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEnv *__env, jclass clazz, jint target, jint level, jlong pixelsAddress, jlong __functionAddress) {
+	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
 	glGetCompressedTexImagePROC glGetCompressedTexImage = (glGetCompressedTexImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetCompressedTexImage(target, lod, img);
+	glGetCompressedTexImage(target, level, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglSampleCoverage(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert, jlong __functionAddress) {

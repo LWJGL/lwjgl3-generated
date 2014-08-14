@@ -535,7 +535,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the color table target. One of:<p/>{@link #GL_COLOR_TABLE COLOR_TABLE}, {@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}, {@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}, {@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}, {@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}
 	 * @param pname  the parameter to query. One of:<p/>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}, {@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}, {@link #GL_COLOR_TABLE_FORMAT COLOR_TABLE_FORMAT}, {@link #GL_COLOR_TABLE_WIDTH COLOR_TABLE_WIDTH}, {@link #GL_COLOR_TABLE_RED_SIZE COLOR_TABLE_RED_SIZE}, {@link #GL_COLOR_TABLE_GREEN_SIZE COLOR_TABLE_GREEN_SIZE}, {@link #GL_COLOR_TABLE_BLUE_SIZE COLOR_TABLE_BLUE_SIZE}, {@link #GL_COLOR_TABLE_ALPHA_SIZE COLOR_TABLE_ALPHA_SIZE}, {@link #GL_COLOR_TABLE_LUMINANCE_SIZE COLOR_TABLE_LUMINANCE_SIZE}, {@link #GL_COLOR_TABLE_INTENSITY_SIZE COLOR_TABLE_INTENSITY_SIZE}
-	 * @param params an array in which to place the returned value
+	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetColorTableParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -578,7 +578,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to query
-	 * @param params an array in which to place the returned value
+	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetColorTableParameterf(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -893,8 +893,8 @@ public final class ARBImaging {
 	 * @param target the filter target. Must be:<p/>{@link #GL_SEPARABLE_2D SEPARABLE_2D}
 	 * @param format the filter data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
 	 * @param type   the filter data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
-	 * @param row    an array in which to return the filter row
-	 * @param column an array in which to return the filter column
+	 * @param row    a buffer in which to return the filter row
+	 * @param column a buffer in which to return the filter column
 	 * @param span   unused
 	 */
 	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
@@ -1051,7 +1051,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the filter target. One of:<p/>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}, {@link #GL_CONVOLUTION_2D CONVOLUTION_2D}, {@link #GL_SEPARABLE_2D SEPARABLE_2D}
 	 * @param pname  the parameter to query. One of:<p/>{@link #GL_CONVOLUTION_FORMAT CONVOLUTION_FORMAT}, {@link #GL_CONVOLUTION_WIDTH CONVOLUTION_WIDTH}, {@link #GL_CONVOLUTION_HEIGHT CONVOLUTION_HEIGHT}, {@link #GL_MAX_CONVOLUTION_WIDTH MAX_CONVOLUTION_WIDTH}, {@link #GL_MAX_CONVOLUTION_HEIGHT MAX_CONVOLUTION_HEIGHT}
-	 * @param params an array in which to return the parameter value
+	 * @param params a buffer in which to return the parameter value
 	 */
 	public static void glGetConvolutionParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -1094,7 +1094,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to query
-	 * @param params an array in which to return the parameter value
+	 * @param params a buffer in which to return the parameter value
 	 */
 	public static void glGetConvolutionParameterf(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -1213,7 +1213,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the histogram target. Must be:<p/>{@link #GL_HISTOGRAM HISTOGRAM}
 	 * @param pname  the parameter to query. One of:<p/>{@link #GL_HISTOGRAM_WIDTH HISTOGRAM_WIDTH}, {@link #GL_HISTOGRAM_FORMAT HISTOGRAM_FORMAT}, {@link #GL_HISTOGRAM_RED_SIZE HISTOGRAM_RED_SIZE}, {@link #GL_HISTOGRAM_GREEN_SIZE HISTOGRAM_GREEN_SIZE}, {@link #GL_HISTOGRAM_BLUE_SIZE HISTOGRAM_BLUE_SIZE}, {@link #GL_HISTOGRAM_ALPHA_SIZE HISTOGRAM_ALPHA_SIZE}, {@link #GL_HISTOGRAM_LUMINANCE_SIZE HISTOGRAM_LUMINANCE_SIZE}, {@link #GL_HISTOGRAM_SINK HISTOGRAM_SINK}
-	 * @param params an array in which to return the parameter values
+	 * @param params a buffer in which to return the parameter values
 	 */
 	public static void glGetHistogramParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -1256,7 +1256,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the histogram target
 	 * @param pname  the parameter to query
-	 * @param params an array in which to place the returned value
+	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetHistogramParameterf(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -1340,7 +1340,7 @@ public final class ARBImaging {
 	 *               representable value. All values are reset, whether returned or not.
 	 * @param format the pixel data format. One of:<p/>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
 	 * @param type   the pixel data type. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
-	 * @param values an array in which to place the minmax values
+	 * @param values a buffer in which to place the minmax values
 	 */
 	public static void glGetMinmax(int target, boolean reset, int format, int type, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
@@ -1375,7 +1375,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query
-	 * @param params an array in which to place the returned value
+	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetMinmaxParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
@@ -1418,7 +1418,7 @@ public final class ARBImaging {
 	 *
 	 * @param target the minmax target. Must be:<p/>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query
-	 * @param params an array in which to place the returned value
+	 * @param params a buffer in which to place the returned value
 	 */
 	public static void glGetMinmaxParameterf(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )

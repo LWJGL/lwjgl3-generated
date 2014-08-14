@@ -305,7 +305,7 @@ public final class GL31 {
 
 	/** JNI method for {@link #glCopyBufferSubData CopyBufferSubData} */
 	@JavadocExclude
-	public static native void nglCopyBufferSubData(int readtarget, int writetarget, long readoffset, long writeoffset, long size, long __functionAddress);
+	public static native void nglCopyBufferSubData(int readtarget, int writetarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a>
@@ -314,15 +314,15 @@ public final class GL31 {
 	 *
 	 * @param readtarget  the target from whose data store data should be read
 	 * @param writetarget the target to whose data store data should be written
-	 * @param readoffset  the offset, in basic machine units, within the data store of {@code readtarget} from which data should be read
-	 * @param writeoffset the offset, in basic machine units, within the data store of {@code writetarget} to which data should be written
+	 * @param readOffset  the offset, in basic machine units, within the data store of {@code readtarget} from which data should be read
+	 * @param writeOffset the offset, in basic machine units, within the data store of {@code writetarget} to which data should be written
 	 * @param size        the size, in basic machine units, of the data to be copied from {@code readtarget} to {@code writetarget}
 	 */
-	public static void glCopyBufferSubData(int readtarget, int writetarget, long readoffset, long writeoffset, long size) {
+	public static void glCopyBufferSubData(int readtarget, int writetarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCopyBufferSubData(readtarget, writetarget, readoffset, writeoffset, size, __functionAddress);
+		nglCopyBufferSubData(readtarget, writetarget, readOffset, writeOffset, size, __functionAddress);
 	}
 
 	// --- [ glPrimitiveRestartIndex ] ---

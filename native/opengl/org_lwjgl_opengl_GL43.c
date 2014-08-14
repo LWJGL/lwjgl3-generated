@@ -333,10 +333,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglVertexAttribBinding(JNIEnv 
 	glVertexAttribBinding(attribindex, bindingindex);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglVertexBindingDivisor(JNIEnv *__env, jclass clazz, jint index, jint divisor, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglVertexBindingDivisor(JNIEnv *__env, jclass clazz, jint bindingindex, jint divisor, jlong __functionAddress) {
 	glVertexBindingDivisorPROC glVertexBindingDivisor = (glVertexBindingDivisorPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glVertexBindingDivisor(index, divisor);
+	glVertexBindingDivisor(bindingindex, divisor);
 }
 
 EXTERN_C_EXIT
