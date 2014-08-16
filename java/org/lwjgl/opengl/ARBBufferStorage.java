@@ -176,7 +176,7 @@ public final class ARBBufferStorage {
 
 	/**
 	 * Behaves similarly to {@link #glBufferStorage BufferStorage}, except that the buffer whose storage is to be defined is specified by {@code buffer} rather than by the current
-	 * binding to @code target}.
+	 * binding to {@code target}.
 	 *
 	 * @param buffer the buffer object
 	 * @param size   the size of the data store in basic machine units

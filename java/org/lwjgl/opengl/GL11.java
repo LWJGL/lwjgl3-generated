@@ -5028,14 +5028,14 @@ public final class GL11 {
 	 */
 	public static void glGetTexLevelParameteri(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
 	public static void glGetTexLevelParameter(int target, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
@@ -5074,14 +5074,14 @@ public final class GL11 {
 	 */
 	public static void glGetTexLevelParameterf(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
 	public static void glGetTexLevelParameter(int target, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 

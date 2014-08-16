@@ -481,11 +481,15 @@ public final class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki(int xfb, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
 	public static void glGetTransformFeedback(int xfb, int pname, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
@@ -523,11 +527,15 @@ public final class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki(int xfb, int pname, int index, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
 	public static void glGetTransformFeedback(int xfb, int pname, int index, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
@@ -565,11 +573,15 @@ public final class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki64(int xfb, int pname, int index, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 3);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
 	public static void glGetTransformFeedback(int xfb, int pname, int index, LongBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
@@ -3015,14 +3027,14 @@ public final class GL45 {
 	 */
 	public static void glGetTextureLevelParameterf(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
 	public static void glGetTextureLevelParameter(int texture, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
@@ -3061,14 +3073,14 @@ public final class GL45 {
 	 */
 	public static void glGetTextureLevelParameteri(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
 	public static void glGetTextureLevelParameter(int texture, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
@@ -3589,6 +3601,14 @@ public final class GL45 {
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
+	/** Single return value version of: {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
+	public static int glGetVertexArrayi(int vaobj, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.intParam();
+		nglGetVertexArrayiv(vaobj, pname, __buffer.address() + param);
+		return __buffer.intValue(param);
+	}
+
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** JNI method for {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
@@ -3615,12 +3635,24 @@ public final class GL45 {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexedi(int vaobj, int index, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
 	public static void glGetVertexArrayIndexed(int vaobj, int index, int pname, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
+	}
+
+	/** Single return value version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
+	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.intParam();
+		nglGetVertexArrayIndexediv(vaobj, index, pname, __buffer.address() + param);
+		return __buffer.intValue(param);
 	}
 
 	// --- [ glGetVertexArrayIndexed64iv ] ---
@@ -3649,12 +3681,24 @@ public final class GL45 {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 3);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
 	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, LongBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
+	}
+
+	/** Single return value version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
+	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.longParam();
+		nglGetVertexArrayIndexed64iv(vaobj, index, pname, __buffer.address() + param);
+		return __buffer.longValue(param);
 	}
 
 	// --- [ glCreateSamplers ] ---
