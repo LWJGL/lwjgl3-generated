@@ -16,6 +16,8 @@ import static org.lwjgl.system.Checks.*;
  * This extension adds to GL a mechanism to decouple the virtual and physical storage requirements of textures and allows an application
  * to create partially populated textures that would over-subscribe available graphics memory if made fully resident. This extension provides like
  * functionality for buffer objects, allowing applications to manage buffer object storage in a similar manner.
+ * <p/>
+ * Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}.
  */
 public final class ARBSparseBuffer {
 

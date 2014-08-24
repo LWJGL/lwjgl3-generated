@@ -8,7 +8,9 @@ package org.lwjgl.opengl;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context_profile</a> extension.
  * <p/>
- * Add an attribute to {@link WGLARBCreateContext}, specifying the GL profile requested for a context of OpenGL 3.2 or later.
+ * Adds an attribute to {@link WGLARBCreateContext}, specifying the GL profile requested for a context of OpenGL 3.2 or later.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link GL32 OpenGL 3.2}.
  */
 public final class WGLARBCreateContextProfile {
 
@@ -20,6 +22,10 @@ public final class WGLARBCreateContextProfile {
 	public static final int
 		WGL_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
 		WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
+
+	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
+	public static final int
+		ERROR_INVALID_PROFILE_ARB = 0x2096;
 
 	private WGLARBCreateContextProfile() {}
 

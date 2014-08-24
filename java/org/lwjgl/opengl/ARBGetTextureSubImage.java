@@ -17,6 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/get_texture_sub_image.txt">ARB_get_texture_sub_image</a> extension.
  * <p/>
  * This extension adds a new function to get sub-regions of texture images.
+ * <p/>
+ * Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL45 OpenGL 4.5}.
  */
 public final class ARBGetTextureSubImage {
 

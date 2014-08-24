@@ -19,6 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * With the advent of new versions of OpenGL which deprecate features and/or break backward compatibility with older versions, there is a need and desire
  * to indicate at context creation which interface will be used. This extension add a new context creation routine with attributes specifying the GL
  * version and context properties requested for the context.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
  */
 public final class WGLARBCreateContext {
 
@@ -36,8 +38,7 @@ public final class WGLARBCreateContext {
 
 	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
 	public static final int
-		ERROR_INVALID_VERSION_ARB = 0x2095,
-		ERROR_INVALID_PROFILE_ARB = 0x2096;
+		ERROR_INVALID_VERSION_ARB = 0x2095;
 
 	/** Function address. */
 	@JavadocExclude

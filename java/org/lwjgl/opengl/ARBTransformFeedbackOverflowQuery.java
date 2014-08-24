@@ -10,6 +10,8 @@ package org.lwjgl.opengl;
  * <p/>
  * This extension adds new query types which can be used to detect overflow of transform feedback buffers. The new query types are also accepted by
  * conditional rendering commands.
+ * <p/>
+ * Requires {@link GL30 OpenGL 3.0}.
  */
 public final class ARBTransformFeedbackOverflowQuery {
 

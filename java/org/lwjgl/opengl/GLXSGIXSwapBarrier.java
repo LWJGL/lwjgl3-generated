@@ -13,12 +13,12 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.system.linux.X;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/swap_barrier.txt">GLX_SGIX_swap_barrier</a> extension.
  * <p/>
  * This extension provides the capability to sychronize the buffer swaps of different swap groups.
+ * <p/>
+ * Requires {@link GLXSGIXSwapGroup GLX_SGIX_swap_group}.
  */
 public final class GLXSGIXSwapBarrier {
 

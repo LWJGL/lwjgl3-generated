@@ -9,6 +9,8 @@ package org.lwjgl.opengl;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_sRGB.txt">WGL_EXT_create_context_es_profile</a> extension.
  * <p/>
  * This extension allows creating an OpenGL ES context.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBCreateContext WGL_ARB_create_context}, {@link WGLARBCreateContextProfile WGL_ARB_create_context_profile} and an OpenGL ES implementation.
  */
 public final class WGLEXTCreateContextESProfile {
 

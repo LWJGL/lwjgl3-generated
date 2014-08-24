@@ -9,6 +9,8 @@ package org.lwjgl.opengl;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_sRGB.txt">WGL_ARB_framebuffer_sRGB</a> extension.
  * <p/>
  * This extension adds a framebuffer capability for sRGB framebuffer update and blending.
+ * <p/>
+ * Requires {@link WGLEXTExtensionsString WGL_EXT_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format} and {@link ARBFramebufferObject ARB_framebuffer_object}.
  */
 public final class WGLARBFramebufferSRGB {
 

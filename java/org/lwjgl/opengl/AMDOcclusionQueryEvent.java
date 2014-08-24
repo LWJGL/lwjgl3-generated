@@ -16,6 +16,8 @@ import static org.lwjgl.system.Checks.*;
  * This extension introduces the concept of occlusion query events and changes the concept of an occlusion query from counting passed fragments to counting
  * fragments that generate any of a user-selectable set of events. Provided events include passing the depth test, and passing or failing the stencil test.
  * For a given occlusion query object, counting of these events may be enabled or disabled, allowing any combination to be counted.
+ * <p/>
+ * Requires {@link GL15 OpenGL 1.5}.
  */
 public final class AMDOcclusionQueryEvent {
 

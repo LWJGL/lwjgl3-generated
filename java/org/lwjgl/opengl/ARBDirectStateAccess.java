@@ -27,6 +27,8 @@ import static org.lwjgl.system.APIUtil.*;
  * its state can be more efficient than binding the object to the context and then indirecting through it. Further, directly accessing the state of objects
  * through their names rather than by bind-to-edit does not disturb the bindings of the current context, which is useful for tools, middleware and other
  * applications that are unaware of the outer state but it can also avoid cases of redundant state changes.
+ * <p/>
+ * Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL45 OpenGL 4.5}.
  */
 public final class ARBDirectStateAccess {
 
@@ -365,11 +367,15 @@ public final class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki(int xfb, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		GL45.nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
 	public static void glGetTransformFeedback(int xfb, int pname, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		GL45.nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
@@ -401,11 +407,15 @@ public final class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki(int xfb, int pname, int index, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		GL45.nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
 	public static void glGetTransformFeedback(int xfb, int pname, int index, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		GL45.nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
@@ -437,11 +447,15 @@ public final class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki64(int xfb, int pname, int index, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 3);
 		GL45.nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
 	public static void glGetTransformFeedback(int xfb, int pname, int index, LongBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		GL45.nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
@@ -538,7 +552,6 @@ public final class ARBDirectStateAccess {
 	 *               <li>{@link GL44#GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
-	 *               <p/>
 	 *               If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
 	 *               <p/>
 	 *               It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
@@ -2497,14 +2510,14 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetTextureLevelParameterf(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		GL45.nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
 	public static void glGetTextureLevelParameter(int texture, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		GL45.nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
@@ -2537,14 +2550,14 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetTextureLevelParameteri(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 2);
+			checkBuffer(params, 1 << 2);
 		GL45.nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
 	public static void glGetTextureLevelParameter(int texture, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
+			checkBuffer(params, 1);
 		GL45.nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
@@ -2969,6 +2982,14 @@ public final class ARBDirectStateAccess {
 		GL45.nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
+	/** Single return value version of: {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
+	public static int glGetVertexArrayi(int vaobj, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.intParam();
+		GL45.nglGetVertexArrayiv(vaobj, pname, __buffer.address() + param);
+		return __buffer.intValue(param);
+	}
+
 	// --- [ glGetVertexArrayIndexediv ] ---
 
 	/** Unsafe version of {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
@@ -2989,12 +3010,24 @@ public final class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexedi(int vaobj, int index, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 2);
 		GL45.nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
 	public static void glGetVertexArrayIndexed(int vaobj, int index, int pname, IntBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		GL45.nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
+	}
+
+	/** Single return value version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
+	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.intParam();
+		GL45.nglGetVertexArrayIndexediv(vaobj, index, pname, __buffer.address() + param);
+		return __buffer.intValue(param);
 	}
 
 	// --- [ glGetVertexArrayIndexed64iv ] ---
@@ -3017,12 +3050,24 @@ public final class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, ByteBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1 << 3);
 		GL45.nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
 	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, LongBuffer param) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(param, 1);
 		GL45.nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
+	}
+
+	/** Single return value version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
+	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int param = __buffer.longParam();
+		GL45.nglGetVertexArrayIndexed64iv(vaobj, index, pname, __buffer.address() + param);
+		return __buffer.longValue(param);
 	}
 
 	// --- [ glCreateSamplers ] ---

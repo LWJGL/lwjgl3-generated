@@ -32,8 +32,7 @@ public final class GLX {
 		GLXBadFBConfig               = 0x9,
 		GLXBadPbuffer                = 0xA,
 		GLXBadCurrentDrawable        = 0xB,
-		GLXBadWindow                 = 0xC,
-		GLXBadProfileARB             = 0xD;
+		GLXBadWindow                 = 0xC;
 
 	/** Names for attributes to {@link #glXGetConfig GetConfig}. */
 	public static final int

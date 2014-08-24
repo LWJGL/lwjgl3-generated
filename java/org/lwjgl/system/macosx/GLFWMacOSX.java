@@ -15,6 +15,23 @@ public final class GLFWMacOSX {
 
 	private GLFWMacOSX() {}
 
+	// --- [ glfwGetCocoaMonitor ] ---
+
+	/** JNI method for {@link #glfwGetCocoaMonitor GetCocoaMonitor} */
+	@JavadocExclude
+	public static native long nglfwGetCocoaMonitor(long monitor);
+
+	/**
+	 * Returns the {@code CGDirectDisplayID} of the specified monitor.
+	 *
+	 * @param monitor the GLFW monitor
+	 */
+	public static long glfwGetCocoaMonitor(long monitor) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return nglfwGetCocoaMonitor(monitor);
+	}
+
 	// --- [ glfwGetCocoaWindow ] ---
 
 	/** JNI method for {@link #glfwGetCocoaWindow GetCocoaWindow} */

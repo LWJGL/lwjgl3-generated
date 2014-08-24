@@ -12,7 +12,15 @@ import static org.lwjgl.system.Checks.*;
 
 import org.lwjgl.opencl.*;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/cl_event.txt">ARB_cl_event</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/cl_event.txt">ARB_cl_event</a> extension.
+ * <p/>
+ * This extension allows creating OpenGL sync objects linked to OpenCL event objects, potentially improving efficiency of sharing images and buffers
+ * between the two APIs. The companion {@link org.lwjgl.opencl.KHRGLEvent cl_khr_gl_event} OpenCL extension provides the complementary functionality of
+ * creating an OpenCL event object from an OpenGL fence sync object.
+ * <p/>
+ * Requires {@link GL32 OpenGL 3.2} or {@link ARBSync ARB_sync}. Requires an OpenCL implementation supporting sharing event objects with OpenGL.
+ */
 public final class ARBCLEvent {
 
 	/** Returned in {@code values} for {@link GL32#glGetSync GetSync} {@code pname} {@link GL32#GL_OBJECT_TYPE OBJECT_TYPE}. */

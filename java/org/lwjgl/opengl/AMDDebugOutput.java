@@ -13,7 +13,12 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/debug_output.txt">AMD_debug_output</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/debug_output.txt">AMD_debug_output</a> extension.
+ * <p/>
+ * This extension allows the GL to notify applications when various debug events occur in contexts that have been created with the debug flag, as provided
+ * by {@link WGLARBCreateContext WGL_ARB_create_context} and {@link GLXARBCreateContext GLX_ARB_create_context}.
+ */
 public final class AMDDebugOutput {
 
 	/** Tokens accepted by GetIntegerv. */

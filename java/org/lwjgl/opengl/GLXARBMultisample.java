@@ -6,12 +6,11 @@
 package org.lwjgl.opengl;
 
 import org.lwjgl.system.linux.*;
-import org.lwjgl.system.linux.GLX;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">GLX_ARB_multisample</a> extension.
  * <p/>
- * This extension provides a mechanism to antialias all GL primitives.
+ * See {@link ARBMultisample} for details.
  */
 public final class GLXARBMultisample {
 

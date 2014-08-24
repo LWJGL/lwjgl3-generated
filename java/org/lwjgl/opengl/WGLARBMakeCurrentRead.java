@@ -15,6 +15,8 @@ import static org.lwjgl.system.Checks.*;
  * <p/>
  * The association of a separate "read" and "draw" DC with the current context allows for preprocessing of image data in an "off screen" DC which is then
  * read into a visible DC for final display.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
  */
 public final class WGLARBMakeCurrentRead {
 
@@ -81,7 +83,6 @@ public final class WGLARBMakeCurrentRead {
 	 * <li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the
 	 * manner of ReadPixels and CopyPixels.</li>
 	 * </ol>
-	 * <p/>
 	 * These frame buffer values are taken from the surface associated with the device context specified by {@code readDC}.
 	 *
 	 * @param drawDC the "draw" device context

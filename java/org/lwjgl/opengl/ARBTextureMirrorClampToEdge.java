@@ -5,7 +5,17 @@
  */
 package org.lwjgl.opengl;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a> extension.
+ * <p/>
+ * ARB_texture_mirror_clamp_to_edge extends the set of texture wrap modes to include an additional mode ({@link #GL_MIRROR_CLAMP_TO_EDGE MIRROR_CLAMP_TO_EDGE}) that effectively uses a
+ * texture map twice as large as the original image in which the additional half of the new image is a mirror image of the original image.
+ * <p/>
+ * This new mode relaxes the need to generate images whose opposite edges match by using the original image to generate a matching "mirror image". This
+ * mode allows the texture to be mirrored only once in the negative s, t, and r directions.
+ * <p/>
+ * Requires {@link GL14 OpenGL 1.4}. Promoted to core in {@link GL44 OpenGL 4.4}.
+ */
 public final class ARBTextureMirrorClampToEdge {
 
 	/**

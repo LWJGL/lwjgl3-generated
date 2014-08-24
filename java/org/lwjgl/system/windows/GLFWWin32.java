@@ -8,12 +8,33 @@ package org.lwjgl.system.windows;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import java.nio.*;
+
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the GLFW library's Win32 native access functions. */
 public final class GLFWWin32 {
 
 	private GLFWWin32() {}
+
+	// --- [ glfwGetWin32Monitor ] ---
+
+	/** JNI method for {@link #glfwGetWin32Monitor GetWin32Monitor} */
+	@JavadocExclude
+	public static native long nglfwGetWin32Monitor(long monitor);
+
+	/**
+	 * Returns the device name of the specified monitor.
+	 *
+	 * @param monitor the GLFW monitor
+	 */
+	public static String glfwGetWin32Monitor(long monitor) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		long __result = nglfwGetWin32Monitor(monitor);
+		return memDecodeUTF16(memByteBufferNT2(__result));
+	}
 
 	// --- [ glfwGetWin32Window ] ---
 

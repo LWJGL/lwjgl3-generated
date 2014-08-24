@@ -13,12 +13,12 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.system.linux.*;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_from_pixmap.txt">GLX_EXT_texture_from_pixmap</a> extension.
  * <p/>
  * This extension allows a color buffer to be used for both rendering and texturing.
+ * <p/>
+ * Requires {@link GLX13 GLX 1.3}.
  */
 public final class GLXEXTTextureFromPixmap {
 

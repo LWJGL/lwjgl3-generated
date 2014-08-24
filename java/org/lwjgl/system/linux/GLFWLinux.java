@@ -15,6 +15,23 @@ public final class GLFWLinux {
 
 	private GLFWLinux() {}
 
+	// --- [ glfwGetX11Monitor ] ---
+
+	/** JNI method for {@link #glfwGetX11Monitor GetX11Monitor} */
+	@JavadocExclude
+	public static native long nglfwGetX11Monitor(long monitor);
+
+	/**
+	 * Returns the {@code RRCrtc} of the specified monitor.
+	 *
+	 * @param monitor the GLFW monitor
+	 */
+	public static long glfwGetX11Monitor(long monitor) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return nglfwGetX11Monitor(monitor);
+	}
+
 	// --- [ glfwGetX11Display ] ---
 
 	/** Returns the {@code Display} used by GLFW. */

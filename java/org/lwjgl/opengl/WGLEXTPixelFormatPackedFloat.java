@@ -10,6 +10,8 @@ package org.lwjgl.opengl;
  * <p/>
  * This extension provides support for rendering into an unsigned floating-point rendering format with the assumption that the texture format described in
  * {@link EXTPackedFloat} could also be advertised as an unsigned floating-point format for rendering.
+ * <p/>
+ * Requires {@link WGLARBPixelFormat WGL_ARB_pixel_format}.
  */
 public final class WGLEXTPixelFormatPackedFloat {
 

@@ -17,6 +17,8 @@ import org.lwjgl.system.linux.*;
  * International Electrotechnical Commission (IEC) as IEC 61966-2-1. The sRGB color space roughly corresponds to 2.2 gamma correction.
  * <p/>
  * This extension adds a framebuffer capability for sRGB framebuffer update and blending.
+ * <p/>
+ * Requires {@link ARBFramebufferObject ARB_framebuffer_object}.
  */
 public final class GLXARBFramebufferSRGB {
 

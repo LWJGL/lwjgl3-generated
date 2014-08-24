@@ -10,6 +10,8 @@ package org.lwjgl.opengl;
  * <p/>
  * GL_ARB_robustness and WGL_ARB_create_context_robustness allow creating an OpenGL context supporting graphics reset notification behavior.
  * WGL_ARB_robustness_share_group_isolation provides stronger guarantees about the possible side-effects of a graphics reset.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBCreateContextRobustness WGL_ARB_create_context_robustness}.
  */
 public final class WGLARBRobustnessShareGroupIsolation {
 

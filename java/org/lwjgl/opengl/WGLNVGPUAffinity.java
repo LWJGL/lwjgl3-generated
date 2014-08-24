@@ -23,6 +23,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p/>
  * This extension also introduces the concept called affinity-DC. An affinity-DC is a device context with a GPU affinity mask embedded in it. This
  * restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the affinity mask.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
  */
 public final class WGLNVGPUAffinity {
 

@@ -6,7 +6,6 @@
 package org.lwjgl.opengl;
 
 import org.lwjgl.system.linux.*;
-import org.lwjgl.system.linux.GLX;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/packed_float.txt">GLX_EXT_fbconfig_packed_float</a> extension.
@@ -21,6 +20,8 @@ import org.lwjgl.system.linux.GLX;
  * described above could also be advertised as an unsigned floating-point format for rendering.
  * <p/>
  * The extension also provides a pixel external format for specifying packed float values directly.
+ * <p/>
+ * Requires {@link GLX13 GLX 1.3}.
  */
 public final class GLXEXTFBConfigPackedFloat {
 

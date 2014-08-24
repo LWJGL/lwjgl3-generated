@@ -9,6 +9,8 @@ package org.lwjgl.opengl;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/conditional_render_inverted.txt">ARB_conditional_render_inverted</a> extension.
  * <p/>
  * This extension adds new modes to {@link GL30#glBeginConditionalRender BeginConditionalRender} which invert the condition used to determine whether to draw or not.
+ * <p/>
+ * Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL45 OpenGL 4.5}.
  */
 public final class ARBConditionalRenderInverted {
 

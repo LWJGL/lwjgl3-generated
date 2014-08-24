@@ -21,6 +21,8 @@ package org.lwjgl.opengl;
  * performance consequences of this unless implementations make special considerations for them, which is generally untenable.
  * <p/>
  * This extension allows querying the context flush behavior.
+ * <p/>
+ * Promoted to core in {@link GL45 OpenGL 4.5}.
  */
 public final class KHRContextFlushControl {
 

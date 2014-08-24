@@ -576,7 +576,7 @@ public final class GL14 {
 	 * <p/>
 	 * Sets the float value of a pointer parameter.
 	 *
-	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}, {@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
+	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}
 	 * @param param the parameter value
 	 */
 	public static void glPointParameterf(int pname, float param) {
@@ -597,7 +597,7 @@ public final class GL14 {
 	 * <p/>
 	 * Integer version of {@link #glPointParameterf PointParameterf}.
 	 *
-	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}, {@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
+	 * @param pname the parameter to set. One of:<p/>{@link #GL_POINT_SIZE_MIN POINT_SIZE_MIN}, {@link #GL_POINT_SIZE_MAX POINT_SIZE_MAX}, {@link #GL_POINT_FADE_THRESHOLD_SIZE POINT_FADE_THRESHOLD_SIZE}
 	 * @param param the parameter value
 	 */
 	public static void glPointParameteri(int pname, int param) {
@@ -627,19 +627,19 @@ public final class GL14 {
 	 * <p/>
 	 * Pointer version of {@link #glPointParameterf PointParameterf}.
 	 *
-	 * @param pname  the parameter to set
+	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
 	 * @param params the parameter value
 	 */
 	public static void glPointParameterf(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 1 << 2);
+			checkBuffer(params, 3 << 2);
 		nglPointParameterfv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
 	public static void glPointParameter(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 1);
+			checkBuffer(params, 3);
 		nglPointParameterfv(pname, memAddress(params));
 	}
 
@@ -663,19 +663,19 @@ public final class GL14 {
 	 * <p/>
 	 * Pointer version of {@link #glPointParameteri PointParameteri}.
 	 *
-	 * @param pname  the parameter to set
+	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}
 	 * @param params the parameter value
 	 */
 	public static void glPointParameteri(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 1 << 2);
+			checkBuffer(params, 3 << 2);
 		nglPointParameteriv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameteri(int, ByteBuffer) PointParameteri} */
 	public static void glPointParameter(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 1);
+			checkBuffer(params, 3);
 		nglPointParameteriv(pname, memAddress(params));
 	}
 

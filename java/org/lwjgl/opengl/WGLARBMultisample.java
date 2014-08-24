@@ -8,10 +8,9 @@ package org.lwjgl.opengl;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">WGL_ARB_multisample</a> extension.
  * <p/>
- * This extension provides a mechanism to antialias all GL primitives: points, lines, polygons, bitmaps, and images.  The technique is to sample all
- * primitives multiple times at each pixel.  The color sample values are resolved to a single, displayable color each time a pixel is updated, so the
- * antialiasing appears to be automatic at the application level.  Because each sample includes depth and stencil information, the depth and stencil
- * functions perform equivalently to the single-sample mode.
+ * See {@link ARBMultisample} for details.
+ * <p/>
+ * Requires {@link WGLEXTExtensionsString WGL_EXT_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.
  */
 public final class WGLARBMultisample {
 

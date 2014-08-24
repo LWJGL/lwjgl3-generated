@@ -15,6 +15,8 @@ import static org.lwjgl.system.Checks.*;
  * <p/>
  * This extension provides additional clip control modes to configure how clip space is mapped to window space.  This extension's goal is to 1) allow
  * OpenGL to effectively match Direct3D's coordinate system conventions, and 2) potentially improve the numerical precision of the Z coordinate mapping.
+ * <p/>
+ * Promoted to core in {@link GL45 OpenGL 4.5}.
  */
 public final class ARBClipControl {
 

@@ -25,13 +25,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>The pixel buffer might be lost if a display mode change occurs. A query is provided that can be called after a display mode change to determine the
  * state of the pixel buffer.</li>
  * </ol>
- * <p/>
  * The intent of the pbuffer semantics is to enable implementations to allocate pbuffers in non-visible frame buffer memory. These pbuffers are intended to
  * be "static" resources in that a program will typically allocate them only once rather than as a part of its rendering loop.  (Pbuffers should be
  * deallocated when the program is no longer using them -- for example, if the program is iconified.)
  * <p/>
  * The frame buffer resources that are associated with a pbuffer are also static and are deallocated when the pbuffer is destroyed or possibly when a
  * display mode change occurs.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.
  */
 public final class WGLARBPbuffer {
 

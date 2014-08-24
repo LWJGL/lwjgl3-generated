@@ -14,7 +14,24 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multi_bind.txt">ARB_multi_bind</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multi_bind.txt">ARB_multi_bind</a> extension.
+ * <p/>
+ * This extension provides a new set of commands allowing applications to bind or unbind a set of objects in a single call, instead of requiring a separate
+ * call for each bind or unbind operation.  Using a single command allows OpenGL implementations to amortize function call, name space lookup, and
+ * potential locking overhead over multiple bind or unbind operations. The rendering loops of graphics applications frequently switch between different
+ * states, binding different sets of resources, including texture objects, sampler objects, textures for image loads and stores, uniform buffers, and
+ * vertex buffers; this extension provides "multi-bind" entry points for all of these object types.
+ * <p/>
+ * Each command in this extension includes a &lt;first&gt; and &lt;count&gt; parameter, specifying a continguous range of binding points to update, as well
+ * as an array of &lt;count&gt; object names specifying the objects to bind. Unlike single bind commands, multi-bind commands can be used only to bind or
+ * unbind existing objects. Passing a previously unused object name (generated or not) results in an error and does not create a new object. For binding
+ * points with associated data (e.g., ranges of a buffer), separate arrays are used to pass the associated data for each binding point. Passing zero values
+ * in the array of object names removes the object bound to the current bounding point. Additionally, if {@code NULL} is passed as the array of objects, objects
+ * bound to the entire range of binding points are unbound, as though the caller passed an array of zeroes.
+ * <p/>
+ * Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL44 OpenGL 4.4}.
+ */
 public final class ARBMultiBind {
 
 	/** Function address. */

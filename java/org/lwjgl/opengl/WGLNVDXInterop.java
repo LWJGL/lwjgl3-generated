@@ -19,6 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p/>
  * This extension allows OpenGL to directly access DirectX buffers and surfaces. A DirectX vertex buffer may be shared as an OpenGL buffer object and a
  * DirectX surface may be shared as an OpenGL texture or renderbuffer object.
+ * <p/>
+ * Requires {@link GL21 OpenGL 2.1}.
  */
 public final class WGLNVDXInterop {
 

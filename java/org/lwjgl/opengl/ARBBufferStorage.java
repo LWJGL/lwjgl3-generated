@@ -13,7 +13,23 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a> extension.
+ * <p/>
+ * OpenGL has long supported buffer objects as a means of storing data that may be used to source vertex attributes, pixel data for textures, uniforms and
+ * other elements. In un-extended GL, buffer data stores are mutable - that is, they may be de-allocated or resized while they are in use. The
+ * {@link ARBTextureStorage ARB_texture_storage} extension added immutable storage for texture object (and was subsequently incorporated into OpenGL 4.2).
+ * This extension further applies the concept of immutable storage to buffer objects. If an implementation is aware of a buffer's immutability, it may be
+ * able to make certain assumptions or apply particular optimizations in order to increase performance or reliability.
+ * <p/>
+ * Furthermore, this extension allows applications to pass additional information about a requested allocation to the implementation which it may use to
+ * select memory heaps, caching behavior or allocation strategies.
+ * <p/>
+ * Finally, this extension introduces the concept of persistent client mappings of buffer objects, which allow clients to retain pointers to a buffer's
+ * data store returned as the result of a mapping, and to issue drawing commands while those mappings are in place.
+ * <p/>
+ * Promoted to core in {@link GL44 OpenGL 4.4}.
+ */
 public final class ARBBufferStorage {
 
 	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link EXTDirectStateAccess#glNamedBufferStorageEXT NamedBufferStorageEXT}. */
@@ -118,7 +134,6 @@ public final class ARBBufferStorage {
 	 *               <li>{@link #GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
-	 *               <p/>
 	 *               If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
 	 *               <p/>
 	 *               It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
@@ -212,7 +227,6 @@ public final class ARBBufferStorage {
 	 *               <li>{@link GL44#GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
-	 *               <p/>
 	 *               If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
 	 *               <p/>
 	 *               It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.

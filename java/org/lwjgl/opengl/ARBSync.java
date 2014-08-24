@@ -14,7 +14,23 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
-/** Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a> extension.
+ * <p/>
+ * This extension introduces the concept of "sync objects". Sync objects are a synchronization primitive - a representation of events whose completion
+ * status can be tested or waited upon. One specific type of sync object, the "fence sync object", is supported in this extension, and additional types can
+ * easily be added in the future.
+ * <p/>
+ * Fence sync objects have corresponding fences, which are inserted into the OpenGL command stream at the time the sync object is created. A sync object
+ * can be queried for a given condition. The only condition supported for fence sync objects is completion of the corresponding fence command. Fence
+ * completion allows applications to request a partial Finish, wherein all commands prior to the fence will be forced to complete before control is
+ * returned to the calling process.
+ * <p/>
+ * These new mechanisms allow for synchronization between the host CPU and the GPU, which may be accessing the same resources (typically memory), as well
+ * as between multiple GL contexts bound to multiple threads in the host CPU.
+ * <p/>
+ * Requires {@link GL31 OpenGL 3.1}. Promoted to core in {@link GL32 OpenGL 3.2}.
+ */
 public final class ARBSync {
 
 	/** Accepted as the {@code pname} parameter of GetInteger64v. */

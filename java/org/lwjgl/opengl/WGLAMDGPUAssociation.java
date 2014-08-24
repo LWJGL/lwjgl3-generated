@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/gpu_affinity.txt">WGL_AMD_gpu_association</a> extension.
+ * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/wgl_gpu_association.txt">WGL_AMD_gpu_association</a> extension.
  * <p/>
  * There currently is no way for applications to efficiently use GPU resources in systems that contain more than one GPU. Vendors have provided methods
  * that attempt to split the workload for an application among the available GPU resources. This has proven to be very inefficient because most
@@ -22,6 +22,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p/>
  * This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
  * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link EXTFramebufferObject EXT_framebuffer_object}.
  */
 public final class WGLAMDGPUAssociation {
 

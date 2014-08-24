@@ -22,6 +22,8 @@ import org.lwjgl.system.linux.*;
  * to indicate at context creation which interface will be used. These extensions add a new context creation routine with attributes specifying the GL
  * version and context properties requested for the context, and additionally add an attribute specifying the GL profile requested for a context of OpenGL
  * 3.2 or later. It also allows making an OpenGL 3.0 or later context current without providing a default framebuffer.
+ * <p/>
+ * Requires {@link GLX14 GLX 1.4}.
  */
 public final class GLXARBCreateContext {
 
@@ -29,18 +31,12 @@ public final class GLXARBCreateContext {
 	public static final int
 		GLX_CONTEXT_MAJOR_VERSION_ARB = 0x2091,
 		GLX_CONTEXT_MINOR_VERSION_ARB = 0x2092,
-		GLX_CONTEXT_FLAGS_ARB         = 0x2094,
-		GLX_CONTEXT_PROFILE_MASK_ARB  = 0x9126;
+		GLX_CONTEXT_FLAGS_ARB         = 0x2094;
 
 	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in {@code attrib_list}. */
 	public static final int
 		GLX_CONTEXT_DEBUG_BIT_ARB              = 0x1,
 		GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
-
-	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}. */
-	public static final int
-		GLX_CONTEXT_CORE_PROFILE_BIT_ARB          = 0x1,
-		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
 
 	/** Function address. */
 	@JavadocExclude

@@ -21,6 +21,8 @@ import static org.lwjgl.system.APIUtil.*;
  * <p/>
  * These functions treat pixel formats as opaque types: attributes are specified by name rather than by accessing them directly as fields in a structure.
  * Thus the list of attributes can be easily extended.
+ * <p/>
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
  */
 public final class WGLARBPixelFormat {
 
