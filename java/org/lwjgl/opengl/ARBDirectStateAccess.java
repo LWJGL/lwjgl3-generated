@@ -955,7 +955,7 @@ public final class ARBDirectStateAccess {
 	 * DSA version of {@link GL15#glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer}.
 	 *
 	 * @param buffer the buffer object name
-	 * @param pname  the pointer to be returned. Must be:<p/>{@link GL15#GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
+	 * @param pname  the pointer to be returned. Must be:<p/>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetNamedBufferPointer(int buffer, int pname, ByteBuffer params) {

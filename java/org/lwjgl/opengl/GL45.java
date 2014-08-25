@@ -15,7 +15,24 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
-/** The core OpenGL 4.5 functionality. */
+/**
+ * The core OpenGL 4.5 functionality. OpenGL 4.5 implementations support revision 4.50 of the OpenGL Shading Language.
+ * <p/>
+ * Extensions promoted to core in this release:
+ * <ul>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/cull_distance.txt">ARB_cull_distance</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/conditional_render_inverted.txt">ARB_conditional_render_inverted</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/KHR/context_flush_control.txt">KHR_context_flush_control</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/derivative_control.txt">ARB_derivative_control</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/direct_state_access.txt">ARB_direct_state_access</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/get_texture_sub_image.txt">ARB_get_texture_sub_image</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_texture_image_samples.txt">ARB_shader_texture_image_samples</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a></li>
+ * </ul>
+ */
 public final class GL45 {
 
 	/** Accepted by the {@code origin} parameter of {@link #glClipControl ClipControl}. */
@@ -1165,7 +1182,7 @@ public final class GL45 {
 	 * DSA version of {@link GL15#glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer}.
 	 *
 	 * @param buffer the buffer object name
-	 * @param pname  the pointer to be returned. Must be:<p/>{@link GL15#GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
+	 * @param pname  the pointer to be returned. Must be:<p/>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetNamedBufferPointer(int buffer, int pname, ByteBuffer params) {

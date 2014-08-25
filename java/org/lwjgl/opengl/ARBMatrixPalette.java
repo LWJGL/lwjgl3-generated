@@ -115,11 +115,11 @@ public final class ARBMatrixPalette {
 
 	// --- [ glMatrixIndexubvARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
+	/** JNI method for {@link #glMatrixIndexubARB(int, ByteBuffer) MatrixIndexubARB} */
 	@JavadocExclude
 	public static native void nglMatrixIndexubvARB(int size, long indices, long __functionAddress);
 
-	/** Unsafe version of {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
+	/** Unsafe version of {@link #glMatrixIndexubARB(int, ByteBuffer) MatrixIndexubARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexubvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexubvARB;
@@ -134,24 +134,24 @@ public final class ARBMatrixPalette {
 	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexubvARB(int size, ByteBuffer indices) {
+	public static void glMatrixIndexubARB(int size, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indices, size);
 		nglMatrixIndexubvARB(size, memAddress(indices));
 	}
 
-	/** Alternative version of: {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
-	public static void glMatrixIndexubvARB(ByteBuffer indices) {
+	/** Alternative version of: {@link #glMatrixIndexubARB(int, ByteBuffer) MatrixIndexubARB} */
+	public static void glMatrixIndexubARB(ByteBuffer indices) {
 		nglMatrixIndexubvARB(indices.remaining(), memAddress(indices));
 	}
 
 	// --- [ glMatrixIndexusvARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
+	/** JNI method for {@link #glMatrixIndexusARB(int, ByteBuffer) MatrixIndexusARB} */
 	@JavadocExclude
 	public static native void nglMatrixIndexusvARB(int size, long indices, long __functionAddress);
 
-	/** Unsafe version of {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
+	/** Unsafe version of {@link #glMatrixIndexusARB(int, ByteBuffer) MatrixIndexusARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexusvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexusvARB;
@@ -166,24 +166,24 @@ public final class ARBMatrixPalette {
 	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexusvARB(int size, ByteBuffer indices) {
+	public static void glMatrixIndexusARB(int size, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indices, size << 1);
 		nglMatrixIndexusvARB(size, memAddress(indices));
 	}
 
-	/** Alternative version of: {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
-	public static void glMatrixIndexusvARB(ShortBuffer indices) {
+	/** Alternative version of: {@link #glMatrixIndexusARB(int, ByteBuffer) MatrixIndexusARB} */
+	public static void glMatrixIndexuARB(ShortBuffer indices) {
 		nglMatrixIndexusvARB(indices.remaining(), memAddress(indices));
 	}
 
 	// --- [ glMatrixIndexuivARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
+	/** JNI method for {@link #glMatrixIndexuiARB(int, ByteBuffer) MatrixIndexuiARB} */
 	@JavadocExclude
 	public static native void nglMatrixIndexuivARB(int size, long indices, long __functionAddress);
 
-	/** Unsafe version of {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
+	/** Unsafe version of {@link #glMatrixIndexuiARB(int, ByteBuffer) MatrixIndexuiARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexuivARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexuivARB;
@@ -198,14 +198,14 @@ public final class ARBMatrixPalette {
 	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
 	 */
-	public static void glMatrixIndexuivARB(int size, ByteBuffer indices) {
+	public static void glMatrixIndexuiARB(int size, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indices, size << 2);
 		nglMatrixIndexuivARB(size, memAddress(indices));
 	}
 
-	/** Alternative version of: {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
-	public static void glMatrixIndexuivARB(IntBuffer indices) {
+	/** Alternative version of: {@link #glMatrixIndexuiARB(int, ByteBuffer) MatrixIndexuiARB} */
+	public static void glMatrixIndexuARB(IntBuffer indices) {
 		nglMatrixIndexuivARB(indices.remaining(), memAddress(indices));
 	}
 

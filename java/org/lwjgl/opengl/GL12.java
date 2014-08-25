@@ -13,7 +13,31 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** The core OpenGL 1.2 functionality. */
+/**
+ * The core OpenGL 1.2 functionality.
+ * <p/>
+ * Extensions promoted to core in this release:
+ * <ul>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/texture3D.txt">EXT_texture3D</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/packed_pixels.txt">EXT_packed_pixels</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/rescale_normal.txt">EXT_rescale_normal</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/separate_specular_color.txt">EXT_separate_specular_color</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_lod.txt">SGIS_texture_lod</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/draw_range_elements.txt">EXT_draw_range_elements</a></li>
+ * </ul>
+ * <p/>
+ * Extensions part of the <em>imaging subset</em>:
+ * <ul>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/color_table.txt">EXT_color_table</a> and <a href="http://www.opengl.org/registry/specs/EXT/color_subtable.txt">EXT_color_subtable</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/convolution.txt">EXT_convolution</a> and <a href="http://www.opengl.org/registry/specs/HP/convolution_border_modes.txt">HP_convolution_border_modes</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/SGI/color_matrix.txt">SGI_color_matrix</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/histogram.txt">EXT_histogram</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
+ * </ul>
+ */
 public final class GL12 {
 
 	/** Aliases for smooth points and lines. */

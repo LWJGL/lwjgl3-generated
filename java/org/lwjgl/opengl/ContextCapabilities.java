@@ -61,6 +61,7 @@ public final class ContextCapabilities {
 	final ARBMatrixPalette        __ARBMatrixPalette;
 	final ARBMultiBind            __ARBMultiBind;
 	final ARBMultisample          __ARBMultisample;
+	final ARBOcclusionQuery       __ARBOcclusionQuery;
 	final ARBPointParameters      __ARBPointParameters;
 	final ARBSparseBuffer         __ARBSparseBuffer;
 	final ARBSync                 __ARBSync;
@@ -68,6 +69,8 @@ public final class ContextCapabilities {
 	final ARBTextureCompression   __ARBTextureCompression;
 	final ARBTransposeMatrix      __ARBTransposeMatrix;
 	final ARBVertexBlend          __ARBVertexBlend;
+	final ARBVertexBufferObject   __ARBVertexBufferObject;
+	final ARBVertexProgram        __ARBVertexProgram;
 	final ARBWindowPos            __ARBWindowPos;
 	final KHRRobustness           __KHRRobustness;
 	final WGLAMDGPUAssociation    __WGLAMDGPUAssociation;
@@ -158,6 +161,8 @@ public final class ContextCapabilities {
 	 * Requires {@link GLX14 GLX 1.4} and {@link GLXARBCreateContextRobustness GLX_ARB_create_context_robustness}.
 	 */
 	public final boolean GLX_ARB_robustness_share_group_isolation;
+	/** When true, {@link GLXARBVertexBufferObject} is supported. */
+	public final boolean GLX_ARB_vertex_buffer_object;
 	/** When true, {@link GLXEXTBufferAge} is supported. */
 	public final boolean GLX_EXT_buffer_age;
 	/** When true, {@link GLXEXTCreateContextESProfile} is supported. */
@@ -388,6 +393,8 @@ public final class ContextCapabilities {
 	 * Requires {@link GL30 OpenGL 3.0} and {@link #GL_ARB_geometry_shader4 ARB_geometry_shader4}, or {@link GL32 OpenGL 3.2}. Promoted to core in {@link GL43 OpenGL 4.3}.
 	 */
 	public final boolean GL_ARB_fragment_layer_viewport;
+	/** When true, {@link ARBFragmentProgram} is supported. */
+	public final boolean GL_ARB_fragment_program;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/fragment_program_shadow.txt">ARB_fragment_program_shadow</a> extension is supported.
 	 * <p/>
@@ -414,6 +421,8 @@ public final class ContextCapabilities {
 	 * Promoted to core in {@link GL12 OpenGL 1.2}.
 	 */
 	public final boolean GL_ARB_multitexture;
+	/** When true, {@link ARBOcclusionQuery} is supported. */
+	public final boolean GL_ARB_occlusion_query;
 	/** When true, {@link ARBPipelineStatisticsQuery} is supported. */
 	public final boolean GL_ARB_pipeline_statistics_query;
 	/** When true, {@link ARBPointParameters} is supported. */
@@ -606,6 +615,10 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_transpose_matrix;
 	/** When true, {@link ARBVertexBlend} is supported. */
 	public final boolean GL_ARB_vertex_blend;
+	/** When true, {@link ARBVertexBufferObject} is supported. */
+	public final boolean GL_ARB_vertex_buffer_object;
+	/** When true, {@link ARBVertexProgram} is supported. */
+	public final boolean GL_ARB_vertex_program;
 	/** When true, {@link ARBWindowPos} is supported. */
 	public final boolean GL_ARB_window_pos;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/ATI/shader_texture_lod.txt">ATI_shader_texture_lod</a> extension is supported. */
@@ -798,6 +811,7 @@ public final class ContextCapabilities {
 		GLX_ARB_multisample = ext.contains("GLX_ARB_multisample");
 		GLX_ARB_robustness_application_isolation = ext.contains("GLX_ARB_robustness_application_isolation");
 		GLX_ARB_robustness_share_group_isolation = ext.contains("GLX_ARB_robustness_share_group_isolation");
+		GLX_ARB_vertex_buffer_object = ext.contains("GLX_ARB_vertex_buffer_object");
 		GLX_EXT_buffer_age = ext.contains("GLX_EXT_buffer_age");
 		GLX_EXT_create_context_es_profile = ext.contains("GLX_EXT_create_context_es_profile");
 		GLX_EXT_fbconfig_packed_float = ext.contains("GLX_EXT_fbconfig_packed_float");
@@ -845,6 +859,7 @@ public final class ContextCapabilities {
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
 		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
 		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");
+		GL_ARB_fragment_program = ext.contains("GL_ARB_fragment_program");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_get_texture_sub_image = (__ARBGetTextureSubImage = ARBGetTextureSubImage.create(ext, provider)) != null;
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
@@ -852,6 +867,7 @@ public final class ContextCapabilities {
 		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
 		GL_ARB_multisample = (__ARBMultisample = ARBMultisample.create(ext, provider)) != null;
 		GL_ARB_multitexture = ext.contains("GL_ARB_multitexture");
+		GL_ARB_occlusion_query = (__ARBOcclusionQuery = ARBOcclusionQuery.create(ext, provider)) != null;
 		GL_ARB_pipeline_statistics_query = ext.contains("GL_ARB_pipeline_statistics_query");
 		GL_ARB_point_parameters = (__ARBPointParameters = ARBPointParameters.create(ext, provider)) != null;
 		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
@@ -886,6 +902,8 @@ public final class ContextCapabilities {
 		GL_ARB_transform_feedback_overflow_query = ext.contains("GL_ARB_transform_feedback_overflow_query");
 		GL_ARB_transpose_matrix = (__ARBTransposeMatrix = ARBTransposeMatrix.create(ext, provider)) != null;
 		GL_ARB_vertex_blend = (__ARBVertexBlend = ARBVertexBlend.create(ext, provider)) != null;
+		GL_ARB_vertex_buffer_object = (__ARBVertexBufferObject = ARBVertexBufferObject.create(ext, provider)) != null;
+		GL_ARB_vertex_program = (__ARBVertexProgram = ARBVertexProgram.create(ext, provider)) != null;
 		GL_ARB_window_pos = (__ARBWindowPos = ARBWindowPos.create(ext, provider)) != null;
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");

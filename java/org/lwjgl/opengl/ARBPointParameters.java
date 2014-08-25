@@ -45,12 +45,12 @@ public final class ARBPointParameters {
 	@JavadocExclude
 	public final long
 		PointParameterfARB,
-		PointParameterfv;
+		PointParameterfvARB;
 
 	@JavadocExclude
 	public ARBPointParameters(FunctionProvider provider) {
 		PointParameterfARB = provider.getFunctionAddress("glPointParameterfARB");
-		PointParameterfv = provider.getFunctionAddress("glPointParameterfv");
+		PointParameterfvARB = provider.getFunctionAddress("glPointParameterfvARB");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -66,7 +66,7 @@ public final class ARBPointParameters {
 		ARBPointParameters funcs = new ARBPointParameters(provider);
 
 		boolean supported = checkFunctions(
-			funcs.PointParameterfARB, funcs.PointParameterfv
+			funcs.PointParameterfARB, funcs.PointParameterfvARB
 		);
 
 		return GL.checkExtension("GL_ARB_point_parameters", funcs, supported);
@@ -91,38 +91,38 @@ public final class ARBPointParameters {
 		nglPointParameterfARB(pname, param, __functionAddress);
 	}
 
-	// --- [ glPointParameterfv ] ---
+	// --- [ glPointParameterfvARB ] ---
 
-	/** JNI method for {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
+	/** JNI method for {@link #glPointParameterfARB(int, ByteBuffer) PointParameterfARB} */
 	@JavadocExclude
-	public static native void nglPointParameterfv(int pname, long params, long __functionAddress);
+	public static native void nglPointParameterfvARB(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
+	/** Unsafe version of {@link #glPointParameterfARB(int, ByteBuffer) PointParameterfARB} */
 	@JavadocExclude
-	public static void nglPointParameterfv(int pname, long params) {
-		long __functionAddress = getInstance().PointParameterfv;
+	public static void nglPointParameterfvARB(int pname, long params) {
+		long __functionAddress = getInstance().PointParameterfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPointParameterfv(pname, params, __functionAddress);
+		nglPointParameterfvARB(pname, params, __functionAddress);
 	}
 
 	/**
-	 * Pointer version of {@link #glPointParameterf PointParameterf}.
+	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
 	 *
 	 * @param pname  the parameter to set. Must be:<p/>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}
 	 * @param params the parameter value
 	 */
-	public static void glPointParameterf(int pname, ByteBuffer params) {
+	public static void glPointParameterfARB(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 3 << 2);
-		nglPointParameterfv(pname, memAddress(params));
+		nglPointParameterfvARB(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glPointParameterf(int, ByteBuffer) PointParameterf} */
-	public static void glPointParameter(int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glPointParameterfARB(int, ByteBuffer) PointParameterfARB} */
+	public static void glPointParameterARB(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 3);
-		nglPointParameterfv(pname, memAddress(params));
+		nglPointParameterfvARB(pname, memAddress(params));
 	}
 
 }

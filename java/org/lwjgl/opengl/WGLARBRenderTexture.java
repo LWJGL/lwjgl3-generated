@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>The application must release the color buffer from the texture before it can render to the pbuffer again. When the color buffer is bound as a texture,
  * draw and read operations on the pbuffer are undefined.</li>
  * <li>A mipmap attribute can be set, in which case memory will be allocated up front for mipmaps. The application can render the mipmap images or, if
- * {@link SGISGenerateMipmap SGIS_generate_mipmap} is supported, they can be automatically generated when the color buffer is bound as a texture.</li>
+ * <a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a> is supported, they can be automatically generated when the color buffer is bound as a texture.</li>
  * <li>A texture target is associated with the pbuffer, so that cubemap images can be rendered into a single color buffer.</li>
  * </ul>
  * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.

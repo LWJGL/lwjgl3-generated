@@ -14,7 +14,23 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
-/** The core OpenGL 4.2 functionality. */
+/**
+ * The core OpenGL 4.2 functionality. OpenGL 4.2 implementations support revision 4.20 of the OpenGL Shading Language.
+ * <p/>
+ * Extensions promoted to core in this release:
+ * <ul>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_compression_bptc.txt">ARB_texture_compression_bptc</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/compressed_texture_pixel_storage.txt">ARB_compressed_texture_pixel_storage</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_atomic_counters.txt">ARB_shader_atomic_counters</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/base_instance.txt">ARB_base_instance</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/conservative_depth.txt">ARB_conservative_depth</a> and <a href="http://www.opengl.org/registry/specs/ARB/shading_language_420pack.txt">ARB_shading_language_420pack</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/internalformat_query.txt">ARB_internalformat_query</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/ARB/map_buffer_alignment.txt">ARB_map_buffer_alignment</a></li>
+ * </ul>
+ */
 public final class GL42 {
 
 	/** Renamed tokens. */

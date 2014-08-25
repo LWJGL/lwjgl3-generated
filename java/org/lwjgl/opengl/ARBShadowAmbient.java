@@ -10,7 +10,7 @@ package org.lwjgl.opengl;
  * <p/>
  * This extension allows the user to specify the texture value to use when the texture compare function fails. Normally this value is zero. By allowing an
  * arbitrary value we can get functionality which otherwise requires an advanced texture combine extension (such as
- * {@link NVRegisterCombiners NV_register_combiners}) and multiple texture units.
+ * <a href="http://www.opengl.org/registry/specs/NV/register_combiners.txt">NV_register_combiners</a>) and multiple texture units.
  * <p/>
  * Requires {@link ARBShadow ARB_shadow} and {@link ARBDepthTexture ARB_depth_texture}.
  */
