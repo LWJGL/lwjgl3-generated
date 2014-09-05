@@ -1498,6 +1498,25 @@ public final class GL20 {
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
 
+	/** Buffer return version of: {@link #glGetAttachedShaders GetAttachedShaders} */
+	public static IntBuffer glGetAttachedShaders(int program, int maxCount) {
+		APIBuffer __buffer = apiBuffer();
+		int count = __buffer.intParam();
+		int shaders = __buffer.bufferParam(maxCount << 2);
+		nglGetAttachedShaders(program, maxCount, __buffer.address() + count, __buffer.address() + shaders);
+		return memIntBuffer(__buffer.address() + shaders, __buffer.intValue(count));
+	}
+
+	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedShaders GetAttachedShaders} */
+	public static IntBuffer glGetAttachedShaders(int program) {
+		int maxCount = glGetProgrami(program, GL_ATTACHED_SHADERS);
+		APIBuffer __buffer = apiBuffer();
+		int count = __buffer.intParam();
+		int shaders = __buffer.bufferParam(maxCount << 2);
+		nglGetAttachedShaders(program, maxCount, __buffer.address() + count, __buffer.address() + shaders);
+		return memIntBuffer(__buffer.address() + shaders, __buffer.intValue(count));
+	}
+
 	// --- [ glGetUniformLocation ] ---
 
 	/** JNI method for {@link #glGetUniformLocation GetUniformLocation} */

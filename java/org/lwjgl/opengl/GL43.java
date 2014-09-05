@@ -1793,12 +1793,12 @@ public final class GL43 {
 	}
 
 	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
-	public static ByteBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
+	public static IntBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int params = __buffer.bufferParam(bufSize);
+		int params = __buffer.bufferParam(bufSize << 2);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address() + length, __buffer.address() + params);
-		return memByteBuffer(__buffer.address() + params, __buffer.intValue(length));
+		return memIntBuffer(__buffer.address() + params, __buffer.intValue(length));
 	}
 
 	// --- [ glGetProgramResourceLocation ] ---

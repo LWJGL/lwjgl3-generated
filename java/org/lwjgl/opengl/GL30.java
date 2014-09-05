@@ -2067,10 +2067,10 @@ public final class GL30 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glClampColor.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Specifies whether data read via {@link GL11#glReadPixels ReadPixels} should be clamped.
+	 * Controls color clamping.
 	 *
-	 * @param target target for color clamping. Must be:<p/>{@link #GL_CLAMP_READ_COLOR CLAMP_READ_COLOR}
-	 * @param clamp  whether to apply color clamping. One of:<p/>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}
+	 * @param target target for color clamping. One of:<p/>{@link #GL_CLAMP_VERTEX_COLOR CLAMP_VERTEX_COLOR}, {@link #GL_CLAMP_FRAGMENT_COLOR CLAMP_FRAGMENT_COLOR}, {@link #GL_CLAMP_READ_COLOR CLAMP_READ_COLOR}
+	 * @param clamp  whether to apply color clamping. One of:<p/>{@link GL11#GL_TRUE TRUE}, {@link GL11#GL_FALSE FALSE}, {@link #GL_FIXED_ONLY FIXED_ONLY}
 	 */
 	public static void glClampColor(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColor;
