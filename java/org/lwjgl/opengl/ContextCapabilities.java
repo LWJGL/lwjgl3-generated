@@ -39,6 +39,7 @@ public final class ContextCapabilities {
 	final GLXEXTSwapControl       __GLXEXTSwapControl;
 	final GLXEXTTextureFromPixmap __GLXEXTTextureFromPixmap;
 	final GLXNVCopyImage          __GLXNVCopyImage;
+	final GLXNVDelayBeforeSwap    __GLXNVDelayBeforeSwap;
 	final GLXSGIMakeCurrentRead   __GLXSGIMakeCurrentRead;
 	final GLXSGISwapControl       __GLXSGISwapControl;
 	final GLXSGIVideoSync         __GLXSGIVideoSync;
@@ -88,6 +89,7 @@ public final class ContextCapabilities {
 	final WGLEXTExtensionsString  __WGLEXTExtensionsString;
 	final WGLEXTSwapControl       __WGLEXTSwapControl;
 	final WGLNVCopyImage          __WGLNVCopyImage;
+	final WGLNVDelayBeforeSwap    __WGLNVDelayBeforeSwap;
 	final WGLNVDXInterop          __WGLNVDXInterop;
 	final WGLNVGPUAffinity        __WGLNVGPUAffinity;
 
@@ -195,6 +197,8 @@ public final class ContextCapabilities {
 	public final boolean GLX_INTEL_swap_event;
 	/** When true, {@link GLXNVCopyImage} is supported. */
 	public final boolean GLX_NV_copy_image;
+	/** When true, {@link GLXNVDelayBeforeSwap} is supported. */
+	public final boolean GLX_NV_delay_before_swap;
 	/** When true, {@link GLXSGIMakeCurrentRead} is supported. */
 	public final boolean GLX_SGI_make_current_read;
 	/** When true, {@link GLXSGISwapControl} is supported. */
@@ -793,6 +797,8 @@ public final class ContextCapabilities {
 	public final boolean WGL_EXT_swap_control_tear;
 	/** When true, {@link WGLNVCopyImage} is supported. */
 	public final boolean WGL_NV_copy_image;
+	/** When true, {@link WGLNVDelayBeforeSwap} is supported. */
+	public final boolean WGL_NV_delay_before_swap;
 	/** When true, {@link WGLNVDXInterop} is supported. */
 	public final boolean WGL_NV_DX_interop;
 	/**
@@ -852,6 +858,7 @@ public final class ContextCapabilities {
 		GLX_EXT_visual_rating = ext.contains("GLX_EXT_visual_rating");
 		GLX_INTEL_swap_event = ext.contains("GLX_INTEL_swap_event");
 		GLX_NV_copy_image = (__GLXNVCopyImage = GLXNVCopyImage.create(ext, provider)) != null;
+		GLX_NV_delay_before_swap = (__GLXNVDelayBeforeSwap = GLXNVDelayBeforeSwap.create(ext, provider)) != null;
 		GLX_SGI_make_current_read = (__GLXSGIMakeCurrentRead = GLXSGIMakeCurrentRead.create(ext, provider)) != null;
 		GLX_SGI_swap_control = (__GLXSGISwapControl = GLXSGISwapControl.create(ext, provider)) != null;
 		GLX_SGI_video_sync = (__GLXSGIVideoSync = GLXSGIVideoSync.create(ext, provider)) != null;
@@ -984,6 +991,7 @@ public final class ContextCapabilities {
 		WGL_EXT_swap_control = (__WGLEXTSwapControl = WGLEXTSwapControl.create(ext, provider)) != null;
 		WGL_EXT_swap_control_tear = ext.contains("WGL_EXT_swap_control_tear");
 		WGL_NV_copy_image = (__WGLNVCopyImage = WGLNVCopyImage.create(ext, provider)) != null;
+		WGL_NV_delay_before_swap = (__WGLNVDelayBeforeSwap = WGLNVDelayBeforeSwap.create(ext, provider)) != null;
 		WGL_NV_DX_interop = (__WGLNVDXInterop = WGLNVDXInterop.create(ext, provider)) != null;
 		WGL_NV_DX_interop2 = ext.contains("WGL_NV_DX_interop2");
 		WGL_NV_gpu_affinity = (__WGLNVGPUAffinity = WGLNVGPUAffinity.create(ext, provider)) != null;
