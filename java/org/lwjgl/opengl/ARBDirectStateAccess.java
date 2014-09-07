@@ -1658,7 +1658,7 @@ public final class ARBDirectStateAccess {
 	 * DSA version of {@link GL31#glTexBuffer TexBuffer}.
 	 *
 	 * @param texture        the texture name
-	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
+	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTextureBuffer(int texture, int internalformat, int buffer) {

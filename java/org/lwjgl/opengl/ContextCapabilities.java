@@ -58,9 +58,14 @@ public final class ContextCapabilities {
 	final ARBDirectStateAccess    __ARBDirectStateAccess;
 	final ARBDrawBuffers          __ARBDrawBuffers;
 	final ARBDrawBuffersBlend     __ARBDrawBuffersBlend;
+	final ARBDrawInstanced        __ARBDrawInstanced;
 	final ARBES31Compatibility    __ARBES31Compatibility;
+	final ARBFramebufferObject    __ARBFramebufferObject;
+	final ARBGeometryShader4      __ARBGeometryShader4;
 	final ARBGetTextureSubImage   __ARBGetTextureSubImage;
 	final ARBImaging              __ARBImaging;
+	final ARBInstancedArrays      __ARBInstancedArrays;
+	final ARBMapBufferRange       __ARBMapBufferRange;
 	final ARBMatrixPalette        __ARBMatrixPalette;
 	final ARBMultiBind            __ARBMultiBind;
 	final ARBMultisample          __ARBMultisample;
@@ -70,8 +75,10 @@ public final class ContextCapabilities {
 	final ARBSparseBuffer         __ARBSparseBuffer;
 	final ARBSync                 __ARBSync;
 	final ARBTextureBarrier       __ARBTextureBarrier;
+	final ARBTextureBufferObject  __ARBTextureBufferObject;
 	final ARBTextureCompression   __ARBTextureCompression;
 	final ARBTransposeMatrix      __ARBTransposeMatrix;
+	final ARBVertexArrayObject    __ARBVertexArrayObject;
 	final ARBVertexBlend          __ARBVertexBlend;
 	final ARBVertexBufferObject   __ARBVertexBufferObject;
 	final ARBVertexProgram        __ARBVertexProgram;
@@ -372,6 +379,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_draw_buffers;
 	/** When true, {@link ARBDrawBuffersBlend} is supported. */
 	public final boolean GL_ARB_draw_buffers_blend;
+	/** When true, {@link ARBDrawInstanced} is supported. */
+	public final boolean GL_ARB_draw_instanced;
 	/** When true, {@link ARBEnhancedLayouts} is supported. */
 	public final boolean GL_ARB_enhanced_layouts;
 	/** When true, {@link ARBES31Compatibility} is supported. */
@@ -419,12 +428,24 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_fragment_program_shadow;
 	/** When true, {@link ARBFragmentShader} is supported. */
 	public final boolean GL_ARB_fragment_shader;
+	/** When true, {@link ARBFramebufferObject} is supported. */
+	public final boolean GL_ARB_framebuffer_object;
+	/** When true, {@link ARBFramebufferSRGB} is supported. */
+	public final boolean GL_ARB_framebuffer_sRGB;
+	/** When true, {@link ARBGeometryShader4} is supported. */
+	public final boolean GL_ARB_geometry_shader4;
 	/** When true, {@link ARBGetTextureSubImage} is supported. */
 	public final boolean GL_ARB_get_texture_sub_image;
 	/** When true, {@link ARBHalfFloatPixel} is supported. */
 	public final boolean GL_ARB_half_float_pixel;
+	/** When true, {@link ARBHalfFloatVertex} is supported. */
+	public final boolean GL_ARB_half_float_vertex;
 	/** When true, {@link ARBImaging} is supported. */
 	public final boolean GL_ARB_imaging;
+	/** When true, {@link ARBInstancedArrays} is supported. */
+	public final boolean GL_ARB_instanced_arrays;
+	/** When true, {@link ARBMapBufferRange} is supported. */
+	public final boolean GL_ARB_map_buffer_range;
 	/** When true, {@link ARBMatrixPalette} is supported. */
 	public final boolean GL_ARB_matrix_palette;
 	/** When true, {@link ARBMultiBind} is supported. */
@@ -569,6 +590,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_barrier;
 	/** When true, {@link ARBTextureBorderClamp} is supported. */
 	public final boolean GL_ARB_texture_border_clamp;
+	/** When true, {@link ARBTextureBufferObject} is supported. */
+	public final boolean GL_ARB_texture_buffer_object;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object_rgb32.txt">ARB_texture_buffer_object_rgb32</a> extension is supported.
 	 * <p/>
@@ -580,6 +603,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_buffer_object_rgb32;
 	/** When true, {@link ARBTextureCompression} is supported. */
 	public final boolean GL_ARB_texture_compression;
+	/** When true, {@link ARBTextureCompressionRGTC} is supported. */
+	public final boolean GL_ARB_texture_compression_rgtc;
 	/** When true, {@link ARBTextureCubeMap} is supported. */
 	public final boolean GL_ARB_texture_cube_map;
 	/**
@@ -639,10 +664,14 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_query_lod;
 	/** When true, {@link ARBTextureRectangle} is supported. */
 	public final boolean GL_ARB_texture_rectangle;
+	/** When true, {@link ARBTextureRG} is supported. */
+	public final boolean GL_ARB_texture_rg;
 	/** When true, {@link ARBTransformFeedbackOverflowQuery} is supported. */
 	public final boolean GL_ARB_transform_feedback_overflow_query;
 	/** When true, {@link ARBTransposeMatrix} is supported. */
 	public final boolean GL_ARB_transpose_matrix;
+	/** When true, {@link ARBVertexArrayObject} is supported. */
+	public final boolean GL_ARB_vertex_array_object;
 	/** When true, {@link ARBVertexBlend} is supported. */
 	public final boolean GL_ARB_vertex_blend;
 	/** When true, {@link ARBVertexBufferObject} is supported. */
@@ -892,6 +921,7 @@ public final class ContextCapabilities {
 		GL_ARB_direct_state_access = (__ARBDirectStateAccess = ARBDirectStateAccess.create(ext, provider)) != null;
 		GL_ARB_draw_buffers = (__ARBDrawBuffers = ARBDrawBuffers.create(ext, provider)) != null;
 		GL_ARB_draw_buffers_blend = (__ARBDrawBuffersBlend = ARBDrawBuffersBlend.create(ext, provider)) != null;
+		GL_ARB_draw_instanced = (__ARBDrawInstanced = ARBDrawInstanced.create(ext, provider)) != null;
 		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
 		GL_ARB_ES3_1_compatibility = (__ARBES31Compatibility = ARBES31Compatibility.create(ext, provider)) != null;
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
@@ -900,9 +930,15 @@ public final class ContextCapabilities {
 		GL_ARB_fragment_program = ext.contains("GL_ARB_fragment_program");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_fragment_shader = ext.contains("GL_ARB_fragment_shader");
+		GL_ARB_framebuffer_object = (__ARBFramebufferObject = ARBFramebufferObject.create(ext, provider)) != null;
+		GL_ARB_framebuffer_sRGB = ext.contains("GL_ARB_framebuffer_sRGB");
+		GL_ARB_geometry_shader4 = (__ARBGeometryShader4 = ARBGeometryShader4.create(ext, provider)) != null;
 		GL_ARB_get_texture_sub_image = (__ARBGetTextureSubImage = ARBGetTextureSubImage.create(ext, provider)) != null;
 		GL_ARB_half_float_pixel = ext.contains("GL_ARB_half_float_pixel");
+		GL_ARB_half_float_vertex = ext.contains("GL_ARB_half_float_vertex");
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
+		GL_ARB_instanced_arrays = (__ARBInstancedArrays = ARBInstancedArrays.create(ext, provider)) != null;
+		GL_ARB_map_buffer_range = (__ARBMapBufferRange = ARBMapBufferRange.create(ext, provider)) != null;
 		GL_ARB_matrix_palette = (__ARBMatrixPalette = ARBMatrixPalette.create(ext, provider)) != null;
 		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
 		GL_ARB_multisample = (__ARBMultisample = ARBMultisample.create(ext, provider)) != null;
@@ -931,8 +967,10 @@ public final class ContextCapabilities {
 		GL_ARB_sync = (__ARBSync = ARBSync.create(ext, provider)) != null;
 		GL_ARB_texture_barrier = (__ARBTextureBarrier = ARBTextureBarrier.create(ext, provider)) != null;
 		GL_ARB_texture_border_clamp = ext.contains("GL_ARB_texture_border_clamp");
+		GL_ARB_texture_buffer_object = (__ARBTextureBufferObject = ARBTextureBufferObject.create(ext, provider)) != null;
 		GL_ARB_texture_buffer_object_rgb32 = ext.contains("GL_ARB_texture_buffer_object_rgb32");
 		GL_ARB_texture_compression = (__ARBTextureCompression = ARBTextureCompression.create(ext, provider)) != null;
+		GL_ARB_texture_compression_rgtc = ext.contains("GL_ARB_texture_compression_rgtc");
 		GL_ARB_texture_cube_map = ext.contains("GL_ARB_texture_cube_map");
 		GL_ARB_texture_env_add = ext.contains("GL_ARB_texture_env_add");
 		GL_ARB_texture_env_combine = ext.contains("GL_ARB_texture_env_combine");
@@ -945,8 +983,10 @@ public final class ContextCapabilities {
 		GL_ARB_texture_query_levels = ext.contains("GL_ARB_texture_query_levels");
 		GL_ARB_texture_query_lod = ext.contains("GL_ARB_texture_query_lod");
 		GL_ARB_texture_rectangle = ext.contains("GL_ARB_texture_rectangle");
+		GL_ARB_texture_rg = ext.contains("GL_ARB_texture_rg");
 		GL_ARB_transform_feedback_overflow_query = ext.contains("GL_ARB_transform_feedback_overflow_query");
 		GL_ARB_transpose_matrix = (__ARBTransposeMatrix = ARBTransposeMatrix.create(ext, provider)) != null;
+		GL_ARB_vertex_array_object = (__ARBVertexArrayObject = ARBVertexArrayObject.create(ext, provider)) != null;
 		GL_ARB_vertex_blend = (__ARBVertexBlend = ARBVertexBlend.create(ext, provider)) != null;
 		GL_ARB_vertex_buffer_object = (__ARBVertexBufferObject = ARBVertexBufferObject.create(ext, provider)) != null;
 		GL_ARB_vertex_program = (__ARBVertexProgram = ARBVertexProgram.create(ext, provider)) != null;

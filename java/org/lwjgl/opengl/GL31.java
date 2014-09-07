@@ -366,10 +366,30 @@ public final class GL31 {
 	/**
 	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a>
 	 * <p/>
-	 * Attaches the storage for a buffer object to the active buffer texture.
+	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
+	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
+	 * attached. If {@code buffer} is non-zero, but is not the name of an existing buffer object, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
+	 * <p/>
+	 * When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
+	 * buffer texture's texel array is given by
+	 * <p/>
+	 * <code>floor(buffer_size / (components * sizeof(base_type))</code>,
+	 * <p/>
+	 * where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
+	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit {@link #GL_MAX_TEXTURE_BUFFER_SIZE MAX_TEXTURE_BUFFER_SIZE}.
+	 * When a buffer texture is accessed in a shader, the results of a texel fetch are undefined if the specified texel number is greater than or equal to the
+	 * clamped number of texels in the texel array.
+	 * <p/>
+	 * When a buffer texture is accessed in a shader, an integer is provided to indicate the texel number being accessed. If no buffer object is bound to the
+	 * buffer texture, the results of the texel access are undefined. Otherwise, the attached buffer object's data store is interpreted as an array of elements
+	 * of the GL data type corresponding to {@code internalformat}. Each texel consists of one to four elements that are mapped to texture components
+	 * (R, G, B, A, L, and I). Element {@code m} of the texel numbered {@code n} is taken from element {@code n} * {@code components} + {@code m} of the
+	 * attached buffer object's data store. Elements and texels are both numbered starting with zero. For texture formats with normalized components, the
+	 * extracted values are converted to floating-point values. The components of the texture are then converted to an (R,G,B,A) vector, and returned to the
+	 * shader as a four-component result vector with components of the appropriate data type for the texture's internal format.
 	 *
 	 * @param target         the target of the operation. Must be:<p/>{@link #GL_TEXTURE_BUFFER TEXTURE_BUFFER}
-	 * @param internalformat the internal format of the data in the store belonging to {@code buffer}
+	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
 	public static void glTexBuffer(int target, int internalformat, int buffer) {
