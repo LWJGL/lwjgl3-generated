@@ -81,8 +81,8 @@ public final class WinBase {
 	 *                   The file name string can include a trailing point character (.) to indicate that the module name has no extension. The string does not have to
 	 *                   specify a path. When specifying a path, be sure to use backslashes (\), not forward slashes (/). The name is compared (case independently) to the
 	 *                   names of modules currently mapped into the address space of the calling process.
-	 *                   <p/>
-	 *                   If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).
+	 *                   
+	 *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
 	 */
 	public static long GetModuleHandle(ByteBuffer moduleName) {
 		if ( LWJGLUtil.CHECKS )
@@ -108,15 +108,15 @@ public final class WinBase {
 	 * @param name the name of the module. This can be either a library module (a .dll file) or an executable module (an .exe file). The name specified is the file
 	 *             name of the module and is not related to the name stored in the library module itself, as specified by the LIBRARY keyword in the module-definition
 	 *             (.def) file.
-	 *             <p/>
-	 *             If the string specifies a full path, the function searches only that path for the module.
-	 *             <p/>
-	 *             If the string specifies a relative path or a module name without a path, the function uses a standard search strategy to find the module.
-	 *             <p/>
-	 *             If the function cannot find the module, the function fails. When specifying a path, be sure to use backslashes (\), not forward slashes (/).
-	 *             <p/>
-	 *             If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension .dll
-	 *             to the module name. To prevent the function from appending.dll to the module name, include a trailing point character (.) in the module name string.
+	 *             
+	 *             <p>If the string specifies a full path, the function searches only that path for the module.</p>
+	 *             
+	 *             <p>If the string specifies a relative path or a module name without a path, the function uses a standard search strategy to find the module.</p>
+	 *             
+	 *             <p>If the function cannot find the module, the function fails. When specifying a path, be sure to use backslashes (\), not forward slashes (/).</p>
+	 *             
+	 *             <p>If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension .dll
+	 *             to the module name. To prevent the function from appending.dll to the module name, include a trailing point character (.) in the module name string.</p>
 	 */
 	public static long LoadLibrary(ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
@@ -203,10 +203,10 @@ public final class WinBase {
 
 	/**
 	 * Retrieves the current value of the high-resolution performance counter.
-	 * <p/>
-	 * On a multiprocessor computer, it should not matter which processor is called. However, you can get different results on different processors due to bugs
+	 * 
+	 * <p>On a multiprocessor computer, it should not matter which processor is called. However, you can get different results on different processors due to bugs
 	 * in the basic input/output system (BIOS) or the hardware abstraction layer (HAL). To specify processor affinity for a thread, use the
-	 * {@link Kernel32#SetThreadAffinityMask} function.
+	 * {@link Kernel32#SetThreadAffinityMask} function.</p>
 	 *
 	 * @param frequency a pointer to a variable that receives the current performance-counter value, in counts.
 	 */
@@ -221,7 +221,7 @@ public final class WinBase {
 	/**
 	 * Allocates the specified number of bytes from the heap.
 	 *
-	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<p/>{@link #GMEM_FIXED}, {@link #GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD}, {@link #GMEM_ZEROINIT}, {@link #GMEM_MODIFY}, {@link #GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED}, {@link #GMEM_SHARE}, {@link #GMEM_DDESHARE}, {@link #GMEM_NOTIFY}, {@link #GMEM_LOWER}, {@link #GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE}, {@link #GHND}, {@link #GPTR}
+	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<br>{@link #GMEM_FIXED}, {@link #GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD}, {@link #GMEM_ZEROINIT}, {@link #GMEM_MODIFY}, {@link #GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED}, {@link #GMEM_SHARE}, {@link #GMEM_DDESHARE}, {@link #GMEM_NOTIFY}, {@link #GMEM_LOWER}, {@link #GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE}, {@link #GHND}, {@link #GPTR}
 	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
 	 *              handle to a memory object that is marked as discarded.
 	 */

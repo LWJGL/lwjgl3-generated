@@ -62,13 +62,13 @@ public final class Xutil {
 	 * string will be stored in the buffer. Otherwise, the {@code KeySym} is mapped, if possible, to an ISO Latin-1 character or (if the Control modifier is
 	 * on) to an ASCII control character, and that character is stored in the buffer. {@code XLookupString} returns the number of characters that are stored
 	 * in the buffer.
-	 * <p/>
-	 * If present (non-{@code NULL}), the {@link XComposeStatus} structure records the state, which is private to Xlib, that needs preservation across calls to
+	 * 
+	 * <p>If present (non-{@code NULL}), the {@link XComposeStatus} structure records the state, which is private to Xlib, that needs preservation across calls to
 	 * {@code XLookupString} to implement compose processing. The creation of {@link XComposeStatus} structures is implementation dependent; a portable
-	 * program must pass {@code NULL} for this argument.
-	 * <p/>
-	 * {@code XLookupString} depends on the cached keyboard information mentioned in the previous section, so it is necessary to use
-	 * {@link Xlib#XRefreshKeyboardMapping} to keep this information up-to-date.
+	 * program must pass {@code NULL} for this argument.</p>
+	 * 
+	 * <p>{@code XLookupString} depends on the cached keyboard information mentioned in the previous section, so it is necessary to use
+	 * {@link Xlib#XRefreshKeyboardMapping} to keep this information up-to-date.</p>
 	 *
 	 * @param event_struct  specifies the {@link XKeyEvent} structure to be used.
 	 * @param buffer_return returns the translated characters

@@ -36,10 +36,10 @@ public final class Xlib {
 	 * Initializes Xlib support for concurrent threads. This function must be the first Xlib function a multi-threaded program calls, and it must complete
 	 * before any other Xlib call is made. This function returns a nonzero status if initialization was successful; otherwise, it returns zero. On systems that
 	 * do not support threads, this function always returns zero.
-	 * <p/>
-	 * It is only necessary to call this function if multiple threads might use Xlib concurrently. If all calls to Xlib functions are protected by some other
+	 * 
+	 * <p>It is only necessary to call this function if multiple threads might use Xlib concurrently. If all calls to Xlib functions are protected by some other
 	 * access mechanism (for example, a mutual exclusion lock in a toolkit or through explicit client programming), Xlib thread initialization is not required.
-	 * It is recommended that single-threaded programs not call this function.
+	 * It is recommended that single-threaded programs not call this function.</p>
 	 */
 	public static native int XInitThreads();
 
@@ -52,8 +52,8 @@ public final class Xlib {
 	/**
 	 * Sets the error handler that will be invoked when a X11 protocol error occurs. If {@code handler} is {@code NULL}, the default error handler is used. The action
 	 * of the default handlers is to print an explanatory message and exit.
-	 * <p/>
-	 * If the returned value is non-{@code NULL}, the new error handler must pass the error down to the previous error handler. Use {@link #XErrorHandler} to do that.
+	 * 
+	 * <p>If the returned value is non-{@code NULL}, the new error handler must pass the error down to the previous error handler. Use {@link #XErrorHandler} to do that.</p>
 	 *
 	 * @param handler the program's supplied error handler.
 	 *
@@ -315,10 +315,10 @@ public final class Xlib {
 	 * Flushes the output buffer and then waits until all requests have been received and processed by the X server. Any errors generated must be handled by
 	 * the error handler. For each protocol error received by Xlib, {@code XSync()} calls the client application's error handling routine. Any events generated
 	 * by the server are enqueued into the library's event queue.
-	 * <p/>
-	 * Finally, if you passed {@link X#GrabSuccess}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#GrabSuccess}, {@code XSync()} discards
+	 * 
+	 * <p>Finally, if you passed {@link X#GrabSuccess}, {@code XSync()} does not discard the events in the queue. If you passed {@link X#GrabSuccess}, {@code XSync()} discards
 	 * all events in the queue, including those events that were on the queue before {@code XSync()} was called. Client applications seldom need to call
-	 * {@code XSync()}.
+	 * {@code XSync()}.</p>
 	 *
 	 * @param display the connection to the X server
 	 * @param discard whether to discard events in the queue
@@ -553,14 +553,14 @@ public final class Xlib {
 	/**
 	 * Creates an unmapped subwindow for a specified parent window, returns the window ID of the created window, and causes the X server to generate a
 	 * {@code CreateNotify }event. The created window is placed on top in the stacking order with respect to siblings.
-	 * <p/>
-	 * The coordinate system has the X axis horizontal and the Y axis vertical with the origin [0, 0] at the upper-left corner. Coordinates are integral, in
+	 * 
+	 * <p>The coordinate system has the X axis horizontal and the Y axis vertical with the origin [0, 0] at the upper-left corner. Coordinates are integral, in
 	 * terms of pixels, and coincide with pixel centers. Each window and pixmap has its own coordinate system. For a window, the origin is inside the border at
-	 * the inside, upper-left corner.
-	 * <p/>
-	 * The x and y coordinates are the top-left outside corner of the window's borders and are relative to the inside of the parent window's borders.
-	 * <p/>
-	 * The width and height are the created window's inside dimensions and do not include the created window's borders.
+	 * the inside, upper-left corner.</p>
+	 * 
+	 * <p>The x and y coordinates are the top-left outside corner of the window's borders and are relative to the inside of the parent window's borders.</p>
+	 * 
+	 * <p>The width and height are the created window's inside dimensions and do not include the created window's borders.</p>
 	 *
 	 * @param display      the connection to the X server
 	 * @param parent       the parent window
@@ -570,7 +570,7 @@ public final class Xlib {
 	 * @param height       the window height
 	 * @param border_width the border width
 	 * @param depth        the window's depth. A depth of {@link X#GrabSuccess} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<p/>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
+	 * @param windowClass  the created window's class. One of:<br>{@link X#InputOutput}, {@link X#InputOnly}, {@link X#CopyFromParent}
 	 * @param visual       the visual type. A visual of {@link X#GrabSuccess} means the visual type is taken from the parent.
 	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
 	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
@@ -721,8 +721,8 @@ public final class Xlib {
 	 * @param owner_events  a Boolean value that indicates whether the pointer events are to be reported as usual or reported with respect to the grab window if selected by the
 	 *                      event mask
 	 * @param event_mask    which pointer events are reported to the client. The mask is the bitwise inclusive OR of the valid pointer event mask bits.
-	 * @param pointer_mode  further processing of pointer events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
-	 * @param keyboard_mode further processing of keyboard events. One of:<p/>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
+	 * @param pointer_mode  further processing of pointer events. One of:<br>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
+	 * @param keyboard_mode further processing of keyboard events. One of:<br>{@link X#GrabModeSync}, {@link X#GrabModeAsync}
 	 * @param confine_to    the window to confine the pointer in or {@link X#None}
 	 * @param cursor        the cursor that is to be displayed during the grab or {@link X#None}
 	 * @param time          the time. You can pass either a timestamp or {@link X#CurrentTime}
@@ -885,8 +885,8 @@ public final class Xlib {
 	 * <li>If {@code w} is {@link X#InputFocus} and if the focus window contains the pointer, the destination window is the window that contains the pointer;
 	 * otherwise, the destination window is the focus window.</li>
 	 * </ul>
-	 * <p/>
-	 * To determine which clients should receive the specified events, XSendEvent() uses the propagate argument as follows:
+	 * 
+	 * <p>To determine which clients should receive the specified events, XSendEvent() uses the propagate argument as follows:
 	 * <ul>
 	 * <li>If {@code }event_mask is the empty set, the event is sent to the client that created the destination window. If that client no longer exists, no
 	 * event is sent.</li>
@@ -896,9 +896,9 @@ public final class Xlib {
 	 * do-not-propagate-mask. If no such window exists or if the window is an ancestor of the focus window and {@link X#InputFocus} was originally
 	 * specified as the destination, the event is not sent to any clients. Otherwise, the event is reported to every client selecting on the final
 	 * destination any of the types specified in {@code event_mask}.</li>
-	 * </ul>
-	 * <p/>
-	 * The event in the XEvent structure must be one of the core events or one of the events defined by an extension (or a BadValue error results) so that the X server can correctly byte-swap the contents as necessary. The contents of the event are otherwise unaltered and unchecked by the X server except to force send_event to True in the forwarded event and to set the serial number in the event correctly; therefore these fields and the display field are ignored by XSendEvent().
+	 * </ul></p>
+	 * 
+	 * <p>The event in the XEvent structure must be one of the core events or one of the events defined by an extension (or a BadValue error results) so that the X server can correctly byte-swap the contents as necessary. The contents of the event are otherwise unaltered and unchecked by the X server except to force send_event to True in the forwarded event and to set the serial number in the event correctly; therefore these fields and the display field are ignored by XSendEvent().</p>
 	 *
 	 * @param display    the connection to the X server
 	 * @param w          the window the event is to be sent to, or {@link X#PointerWindow}, or {@link X#InputFocus}
@@ -944,8 +944,8 @@ public final class Xlib {
 	 * Changes the input focus and the last-focus-change time. It has no effect if the specified time is earlier than the current last-focus-change time or is
 	 * later than the current X server time. Otherwise, the last-focus-change time is set to the specified time ({@link X#CurrentTime} is replaced by the
 	 * current X server time). {@code XSetInputFocus} causes the X server to generate {@code FocusIn} and {@code FocusOut} events.
-	 * <p/>
-	 * Depending on the focus argument, the following occurs:
+	 * 
+	 * <p>Depending on the focus argument, the following occurs:
 	 * <ul>
 	 * <li>If focus is {@link X#None}, all keyboard events are discarded until a new focus window is set, and the {@code revert_to} argument is ignored.</li>
 	 * <li>If focus is a window, it becomes the keyboard's focus window. If a generated keyboard event would normally be reported to this window or one of its
@@ -959,11 +959,11 @@ public final class Xlib {
 	 * <li>If {@code revert_to} is {@link X#RevertToPointerRoot} or {@link X#RevertToNone}, the focus reverts to {@link X#PointerRoot} or {@link X#None},
 	 * respectively. When the focus reverts, the X server generates {@code FocusIn} and {@code FocusOut} events, but the last-focus-change time is not
 	 * affected.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param display   the connection to the X server
 	 * @param focus     the window, {@link X#PointerRoot} or {@link X#None}
-	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<p/>{@link X#RevertToParent}, {@link X#RevertToPointerRoot}, {@link X#RevertToNone}
+	 * @param revert_to where the input focus reverts to if the window becomes not viewable. One of:<br>{@link X#RevertToParent}, {@link X#RevertToPointerRoot}, {@link X#RevertToNone}
 	 * @param time      the time. You can pass either a timestamp or {@link X#CurrentTime}.
 	 */
 	public static int XSetInputFocus(long display, long focus, int revert_to, long time) {
@@ -983,8 +983,8 @@ public final class Xlib {
 	 * the mapping state of the window. Moving a mapped window may or may not lose the window's contents depending on if the window is obscured by nonchildren
 	 * and if no backing store exists. If the contents of the window are lost, the X server generates Expose events. Moving a mapped window generates
 	 * {@code Expose} events on any formerly obscured windows.
-	 * <p/>
-	 * The {@code x} and {@code y} coordinates define the new location of the top-left pixel of the window's border or the window itself if it has no border.
+	 * 
+	 * <p>The {@code x} and {@code y} coordinates define the new location of the top-left pixel of the window's border or the window itself if it has no border.</p>
 	 *
 	 * @param display the connection to the X server
 	 * @param w       the window
@@ -1126,9 +1126,9 @@ public final class Xlib {
 	 * and zero to {@code win_x_return} and {@code win_y_return}. If {@code XQueryPointer} returns {@link #True}, the pointer coordinates returned to
 	 * {@code win_x_return} and {@code win_y_return} are relative to the origin of the specified window. In this case, {@code XQueryPointer} returns the child
 	 * that contains the pointer, if any, or else {@link X#None} to {@code child_return}.
-	 * <p/>
-	 * Returns the current logical state of the keyboard buttons and the modifier keys in {@code mask_return}. It sets {@code mask_return} to the bitwise
-	 * inclusive OR of one or more of the button or modifier key bitmasks to match the current state of the mouse buttons and the modifier keys.
+	 * 
+	 * <p>Returns the current logical state of the keyboard buttons and the modifier keys in {@code mask_return}. It sets {@code mask_return} to the bitwise
+	 * inclusive OR of one or more of the button or modifier key bitmasks to match the current state of the mouse buttons and the modifier keys.</p>
 	 *
 	 * @param display       the connection to the X server
 	 * @param w             the window
@@ -1266,8 +1266,8 @@ public final class Xlib {
 	 * @param w         the window
 	 * @param property  the property name
 	 * @param type      the type of the property
-	 * @param format    whether the data should be viewed as a list of 8-bit, 16-bit, or 32-bit quantities. One of:<p/>8, 16, 32
-	 * @param mode      the mode of the operation. One of:<p/>{@link X#PropModeReplace}, {@link X#PropModePrepend}, {@link X#PropModeAppend}
+	 * @param format    whether the data should be viewed as a list of 8-bit, 16-bit, or 32-bit quantities. One of:<br>8, 16, 32
+	 * @param mode      the mode of the operation. One of:<br>{@link X#PropModeReplace}, {@link X#PropModePrepend}, {@link X#PropModeAppend}
 	 * @param data      the property data
 	 * @param nelements the number of elements of the specified data format
 	 */
@@ -1431,15 +1431,15 @@ public final class Xlib {
 	 * pointer. If {@code dest_w} is a window, {@code XWarpPointer()} moves the pointer to the offsets {@code (dest_x, dest_y)} relative to the origin of
 	 * {@code dest_w}. However, if {@code src_w} is a window, the move only takes place if the window {@code src_w} contains the pointer and if the specified
 	 * rectangle of {@code src_w} contains the pointer.
-	 * <p/>
-	 * The {@code src_x} and {@code src_y} coordinates are relative to the origin of {@code src_w}. If {@code src_height} is zero, it is replaced with the
+	 * 
+	 * <p>The {@code src_x} and {@code src_y} coordinates are relative to the origin of {@code src_w}. If {@code src_height} is zero, it is replaced with the
 	 * current height of {@code src_w} minus {@code src_y}. If {@code src_width} is zero, it is replaced with the current width of {@code src_w} minus
-	 * {@code src_x}.
-	 * <p/>
-	 * There is seldom any reason for calling this function. The pointer should normally be left to the user. If you do use this function, however, it
+	 * {@code src_x}.</p>
+	 * 
+	 * <p>There is seldom any reason for calling this function. The pointer should normally be left to the user. If you do use this function, however, it
 	 * generates events just as if the user had instantaneously moved the pointer from one position to another. Note that you cannot use {@code XWarpPointer()}
 	 * to move the pointer outside the {@code confine_to} window of an active pointer grab. An attempt to do so will only move the pointer as far as the
-	 * closest edge of the {@code confine_to} window.
+	 * closest edge of the {@code confine_to} window.</p>
 	 *
 	 * @param display    the connection to the X server
 	 * @param src_w      the source window or {@link X#None}
@@ -1468,12 +1468,12 @@ public final class Xlib {
 	 * of the specified selection or is later than the current X server time. Otherwise, the last-change time is set to the specified time, with {@link X#CurrentTime}
 	 * replaced by the current server time. If the owner window is specified as {@link X#None}, then the owner of the selection becomes {@link X#None} (that
 	 * is, no owner). Otherwise, the owner of the selection becomes the client executing the request.
-	 * <p/>
-	 * If the new owner (whether a client or {@link X#None}) is not the same as the current owner of the selection and the current owner is not {@link X#None},
+	 * 
+	 * <p>If the new owner (whether a client or {@link X#None}) is not the same as the current owner of the selection and the current owner is not {@link X#None},
 	 * the current owner is sent a {@code SelectionClear} event. If the client that is the owner of a selection is later terminated (that is, its connection is
 	 * closed) or if the owner window it has specified in the request is later destroyed, the owner of the selection automatically reverts to {@link X#None},
 	 * but the last-change time is not affected. The selection atom is uninterpreted by the X server. {@link #XGetSelectionOwner} returns the owner window,
-	 * which is reported in {@code SelectionRequest} and {@code SelectionClear} events. Selections are global to the X server.
+	 * which is reported in {@code SelectionRequest} and {@code SelectionClear} events. Selections are global to the X server.</p>
 	 *
 	 * @param display   the connection to the X server
 	 * @param selection the selection atom

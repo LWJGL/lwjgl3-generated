@@ -7,10 +7,10 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_env_combine.txt">ARB_texture_env_combine</a> extension.
- * <p/>
- * New texture environment function COMBINE_ARB allows programmable texture combiner operations.
- * <p/>
- * Requires {@link ContextCapabilities#GL_ARB_multitexture}. Promoted to core in {@link GL13 OpenGL 1.3}.
+ * 
+ * <p>New texture environment function COMBINE_ARB allows programmable texture combiner operations.</p>
+ * 
+ * <p>Requires {@link ContextCapabilities#GL_ARB_multitexture}. Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
 public final class ARBTextureEnvCombine {
 

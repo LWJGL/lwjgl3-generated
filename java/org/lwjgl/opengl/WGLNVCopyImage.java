@@ -12,10 +12,10 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/copy_image.txt">WGL_NV_copy_image</a> extension.
- * <p/>
- * This extension enables efficient image data transfer between image objects (i.e. textures and renderbuffers) without the need to bind the objects or
+ * 
+ * <p>This extension enables efficient image data transfer between image objects (i.e. textures and renderbuffers) without the need to bind the objects or
  * otherwise configure the rendering pipeline. The WGL version allows copying between images in different contexts, even if those contexts are in
- * different sharelists or even on different physical devices.
+ * different sharelists or even on different physical devices.</p>
  */
 public final class WGLNVCopyImage {
 

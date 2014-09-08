@@ -7,8 +7,8 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/enhanced_layouts.txt">ARB_enhanced_layouts</a> extension.
- * <p/>
- * This extension adds the following functionality to layout qualifiers, including broadening the API where this functionality is reflected. The following
+ * 
+ * <p>This extension adds the following functionality to layout qualifiers, including broadening the API where this functionality is reflected. The following
  * are added:
  * <ol>
  * <li>Use compile-time constant expressions.</li>
@@ -18,7 +18,7 @@ package org.lwjgl.opengl;
  * <li>Specify transform/feedback buffers, locations, and widths.</li>
  * <li>Allow locations on input and output blocks for SSO interface matching.</li>
  * </ol>
- * Requires {@link GL31 OpenGL 3.1} and GLSL 1.40. Promoted to core in {@link GL44 OpenGL 4.4}.
+ * Requires {@link GL31 OpenGL 3.1} and GLSL 1.40. Promoted to core in {@link GL44 OpenGL 4.4}.</p>
  */
 public final class ARBEnhancedLayouts {
 

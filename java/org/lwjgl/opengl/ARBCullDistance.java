@@ -7,12 +7,12 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/cull_distance.txt">ARB_cull_distance</a> extension.
- * <p/>
- * This extension adds a new GLSL {@code gl_CullDistance} shader output, similar to {@code gl_ClipDistance}, but used for whole primitive culling.
- * <p/>
- * This new stage in the pipeline is added as part of the primitive clipping stage.
- * <p/>
- * Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL45 OpenGL 4.5}.
+ * 
+ * <p>This extension adds a new GLSL {@code gl_CullDistance} shader output, similar to {@code gl_ClipDistance}, but used for whole primitive culling.</p>
+ * 
+ * <p>This new stage in the pipeline is added as part of the primitive clipping stage.</p>
+ * 
+ * <p>Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public final class ARBCullDistance {
 

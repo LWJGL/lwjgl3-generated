@@ -15,11 +15,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/draw_buffers.txt">ARB_draw_buffers</a> extension.
- * <p/>
- * This extension extends {@link ARBFragmentProgram ARB_fragment_program} and {@link ARBFragmentShader ARB_fragment_shader} to allow multiple output colors, and provides a mechanism for
- * directing those outputs to multiple color buffers.
- * <p/>
- * Requires {@link GL13 OpenGL 1.3}. Promoted to core in {@link GL20 OpenGL 2.0}.
+ * 
+ * <p>This extension extends {@link ARBFragmentProgram ARB_fragment_program} and {@link ARBFragmentShader ARB_fragment_shader} to allow multiple output colors, and provides a mechanism for
+ * directing those outputs to multiple color buffers.</p>
+ * 
+ * <p>Requires {@link GL13 OpenGL 1.3}. Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
 public final class ARBDrawBuffers {
 
@@ -90,7 +90,7 @@ public final class ARBDrawBuffers {
 	 * Defines the draw buffers to which all output colors are written.
 	 *
 	 * @param n    the number of buffers in {@code bufs}
-	 * @param bufs a buffer of symbolic constants specifying the buffer to which each output color is written. One of:<p/>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
+	 * @param bufs a buffer of symbolic constants specifying the buffer to which each output color is written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glDrawBuffersARB(int n, ByteBuffer bufs) {
 		if ( LWJGLUtil.CHECKS )

@@ -12,10 +12,10 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a> extension.
- * <p/>
- * This extension relaxes the restrictions on rendering to a currently bound texture and provides a mechanism to avoid read-after-write hazards.
- * <p/>
- * Promoted to core in {@link GL45 OpenGL 4.5}.
+ * 
+ * <p>This extension relaxes the restrictions on rendering to a currently bound texture and provides a mechanism to avoid read-after-write hazards.</p>
+ * 
+ * <p>Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public final class ARBTextureBarrier {
 

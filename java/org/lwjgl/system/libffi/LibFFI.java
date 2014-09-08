@@ -18,18 +18,18 @@ import static org.lwjgl.system.libffi.LibFFIConstants.*;
 
 /**
  * Native bindings to the <a href="https://sourceware.org/libffi">libffi</a> library.
- * <p/>
- * The foreign function interface provides a mechanism by which a function can generate a call to another function at runtime without requiring knowledge
- * of the called function's interface at compile time. This enables use of native libraries that LWJGL does not provide bindings for.
- * <p/>
- * libffi assumes that you have a pointer to the function you wish to call and that you know the number and types of arguments to pass it, as well as the
- * return type of the function.
- * <p/>
- * The first thing you must do is create an {@link ffi_cif} object that matches the signature of the function you wish to call. This is a separate step
+ * 
+ * <p>The foreign function interface provides a mechanism by which a function can generate a call to another function at runtime without requiring knowledge
+ * of the called function's interface at compile time. This enables use of native libraries that LWJGL does not provide bindings for.</p>
+ * 
+ * <p>libffi assumes that you have a pointer to the function you wish to call and that you know the number and types of arguments to pass it, as well as the
+ * return type of the function.</p>
+ * 
+ * <p>The first thing you must do is create an {@link ffi_cif} object that matches the signature of the function you wish to call. This is a separate step
  * because it is common to make multiple calls using a single {@link ffi_cif}. The {@code cif} in {@code ffi_cif} stands for Call InterFace. To prepare a
- * call interface object, use the function {@link #ffi_prep_cif prep_cif}. To call a function using an initialized {@code ffi_cif}, use the {@link #ffi_call call} function.
- * <p/>
- * <strong>LWJGL note</strong>: The closure and raw APIs are not exposed.
+ * call interface object, use the function {@link #ffi_prep_cif prep_cif}. To call a function using an initialized {@code ffi_cif}, use the {@link #ffi_call call} function.</p>
+ * 
+ * <p><strong>LWJGL note</strong>: The closure and raw APIs are not exposed.</p>
  */
 public final class LibFFI {
 
@@ -104,7 +104,7 @@ public final class LibFFI {
 	 * Prepares an {@link ffi_cif} structure for use with {@link #ffi_call call}.
 	 *
 	 * @param cif    the {@link ffi_cif} structure to prepare
-	 * @param abi    the calling convention to use. One of:<p/>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nargs  the number of arguments
 	 * @param rtype  points to an {@link ffi_type} that describes the data type, size and alignment of the return value
 	 * @param atypes an array of {@code nargs} pointers to {@link ffi_type} structs that describe the data type, size and alignment of each argument
@@ -140,7 +140,7 @@ public final class LibFFI {
 	 * Prepares an {@link ffi_cif} structure for use with {@link #ffi_call call} for variadic functions.
 	 *
 	 * @param cif        the {@link ffi_cif} structure to prepare
-	 * @param abi        the calling convention to use. One of:<p/>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nfixedargs the number of fixed (non-variadic) arguments
 	 * @param ntotalargs the total number of arguments
 	 * @param rtype      points to an {@link ffi_type} that describes the data type, size and alignment of the return value

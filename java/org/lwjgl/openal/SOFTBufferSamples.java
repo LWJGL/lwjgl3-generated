@@ -137,27 +137,27 @@ public final class SOFTBufferSamples {
 	 * play at, and the {@code channels} is the storage format used (see Table
 	 * 1.1). The number of uncompressed sample frames to load is specified by
 	 * {@code channels}.
-	 * <p/>
-	 * The {@code channels} and {@code type} parameters specify the channel configuration and
+	 * 
+	 * <p>The {@code channels} and {@code type} parameters specify the channel configuration and
 	 * sample type of the provided data (see Table 1.2 and 1.3). The samples will
 	 * be converted to the internal storage format as needed, however the channel
 	 * configuration must match the channel configuration of the storage format
-	 * or an AL_INVALID_ENUM error will be generated.
-	 * <p/>
-	 * The {@code data} pointer should hold enough data as specified by the {@code channels},
+	 * or an AL_INVALID_ENUM error will be generated.</p>
+	 * 
+	 * <p>The {@code data} pointer should hold enough data as specified by the {@code channels},
 	 * {@code type}, and {@code samples} parameters, and will be copied and converted into
 	 * the buffer's storage. It may also be NULL, in which case the stored data
-	 * will be undefined.
-	 * <p/>
-	 * If AL_SOFT_loop_points is supported, a successful call will reset the
-	 * start and end loop points to 0 and {@code samples} respectively.
+	 * will be undefined.</p>
+	 * 
+	 * <p>If AL_SOFT_loop_points is supported, a successful call will reset the
+	 * start and end loop points to 0 and {@code samples} respectively.</p>
 	 *
 	 * @param buffer         buffer ID returned by alGenBuffers, and not currently be attached to or queued on a source
 	 * @param samplerate     number of sample frames per second the data will play at
-	 * @param internalformat storage format used. One of:<p/>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
+	 * @param internalformat storage format used. One of:<br>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
 	 * @param samples        number of uncompressed sample frames to load
-	 * @param channels       channel configuration of the provided data. One of:<p/>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
-	 * @param type           type of the provided data. One of:<p/>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param channels       channel configuration of the provided data. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type           type of the provided data. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
 	 * @param data           buffer to write to
 	 */
 	public static void alBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, ByteBuffer data) {
@@ -176,7 +176,7 @@ public final class SOFTBufferSamples {
 	 * not a recognized storage format. Otherwise, if it returns true it may be specified
 	 * as the {@code internalformat} for alBufferSamplesSOFT.
 	 *
-	 * @param format format to check if supported. One of:<p/>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
+	 * @param format format to check if supported. One of:<br>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
 	 */
 	public static boolean alIsBufferFormatSupportedSOFT(int format) {
 		long __functionAddress = getInstance().IsBufferFormatSupportedSOFT;
@@ -211,23 +211,23 @@ public final class SOFTBufferSamples {
 	 * storage format. As with alBufferSamplesSOFT, the channel configuration
 	 * must match the storage format's channel configuration or an
 	 * AL_INVALID_ENUM error will be generated.
-	 * <p/>
-	 * When modifying a buffer that's playing on a source, an application must
+	 * 
+	 * <p>When modifying a buffer that's playing on a source, an application must
 	 * take care to not modify the section that is currently being played. The
-	 * read-only source attributes
-	 * <p/>
-	 * AL_BYTE_RW_OFFSETS_SOFT
-	 * AL_SAMPLE_RW_OFFSETS_SOFT
-	 * <p/>
-	 * may be used to retrieve the read and write cursor offsets (see Table 3.0
+	 * read-only source attributes</p>
+	 * 
+	 * <p>AL_BYTE_RW_OFFSETS_SOFT
+	 * AL_SAMPLE_RW_OFFSETS_SOFT</p>
+	 * 
+	 * <p>may be used to retrieve the read and write cursor offsets (see Table 3.0
 	 * and 3.1). Behavior is undefined if an attempt is made to modify buffer
-	 * data between the read and write offsets.
+	 * data between the read and write offsets.</p>
 	 *
 	 * @param buffer   ID of the buffer to modify
 	 * @param offset   first sample frame in the internal storage to be modified
 	 * @param samples  number of sample frames to modify. They must not extend beyond the existing internal storage length.
-	 * @param channels channel configuration of the provided data. One of:<p/>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
-	 * @param type     type of the provided data. One of:<p/>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param channels channel configuration of the provided data. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type     type of the provided data. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
 	 * @param data     buffer to write to
 	 */
 	public static void alBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, ByteBuffer data) {
@@ -262,8 +262,8 @@ public final class SOFTBufferSamples {
 	 * @param buffer   ID of the buffer to modify
 	 * @param offset   first sample frame in the internal storage to be modified
 	 * @param samples  number of sample frames to modify. They must not extend beyond the existing internal storage length.
-	 * @param channels channel configuration of the provided data. One of:<p/>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
-	 * @param type     type of the provided data. One of:<p/>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
+	 * @param channels channel configuration of the provided data. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
+	 * @param type     type of the provided data. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
 	 * @param data     buffer to write to
 	 */
 	public static void alGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, ByteBuffer data) {

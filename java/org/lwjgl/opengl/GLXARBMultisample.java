@@ -9,8 +9,8 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">GLX_ARB_multisample</a> extension.
- * <p/>
- * See {@link ARBMultisample} for details.
+ * 
+ * <p>See {@link ARBMultisample} for details.</p>
  */
 public final class GLXARBMultisample {
 

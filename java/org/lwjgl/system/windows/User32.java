@@ -12,9 +12,9 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Optional functionality loaded dynamically from <strong>user32.dll</strong>.
- * <p/>
- * Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
- * function is not supported in the Windows version we're running.
+ * 
+ * <p>Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
+ * function is not supported in the Windows version we're running.</p>
  */
 public final class User32 {
 

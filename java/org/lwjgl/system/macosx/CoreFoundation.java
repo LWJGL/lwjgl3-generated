@@ -94,9 +94,9 @@ public final class CoreFoundation {
 
 	/**
 	 * Retains a Core Foundation object.
-	 * <p/>
-	 * You should retain a Core Foundation object when you receive it from elsewhere (that is, you did not create or copy it) and you want it to persist. If
-	 * you retain a Core Foundation object you are responsible for releasing it.
+	 * 
+	 * <p>You should retain a Core Foundation object when you receive it from elsewhere (that is, you did not create or copy it) and you want it to persist. If
+	 * you retain a Core Foundation object you are responsible for releasing it.</p>
 	 *
 	 * @param cf the CFType object to retain
 	 */
@@ -114,9 +114,9 @@ public final class CoreFoundation {
 
 	/**
 	 * Releases a Core Foundation object.
-	 * <p/>
-	 * If the retain count of {@code cf} becomes zero the memory allocated to the object is deallocated and the object is destroyed. If you create, copy, or
-	 * explicitly retain (see the {@link #CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.
+	 * 
+	 * <p>If the retain count of {@code cf} becomes zero the memory allocated to the object is deallocated and the object is destroyed. If you create, copy, or
+	 * explicitly retain (see the {@link #CFRetain} function) a Core Foundation object, you are responsible for releasing it when you no longer need it.</p>
 	 *
 	 * @param cf the CFType object to release
 	 */

@@ -15,8 +15,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_pbuffer.txt">WGL_ARB_pbuffer</a> extension.
- * <p/>
- * This extension defines pixel buffers (pbuffer for short). Pbuffers are additional non-visible rendering buffers for an OpenGL renderer. Pbuffers are
+ * 
+ * <p>This extension defines pixel buffers (pbuffer for short). Pbuffers are additional non-visible rendering buffers for an OpenGL renderer. Pbuffers are
  * equivalent to a window that has the same pixel format descriptor with the following exceptions:
  * <ol>
  * <li>There is no rendering to a pbuffer by GDI.</li>
@@ -27,12 +27,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </ol>
  * The intent of the pbuffer semantics is to enable implementations to allocate pbuffers in non-visible frame buffer memory. These pbuffers are intended to
  * be "static" resources in that a program will typically allocate them only once rather than as a part of its rendering loop.  (Pbuffers should be
- * deallocated when the program is no longer using them -- for example, if the program is iconified.)
- * <p/>
- * The frame buffer resources that are associated with a pbuffer are also static and are deallocated when the pbuffer is destroyed or possibly when a
- * display mode change occurs.
- * <p/>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.
+ * deallocated when the program is no longer using them -- for example, if the program is iconified.)</p>
+ * 
+ * <p>The frame buffer resources that are associated with a pbuffer are also static and are deallocated when the pbuffer is destroyed or possibly when a
+ * display mode change occurs.</p>
+ * 
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.</p>
  */
 public final class WGLARBPbuffer {
 
@@ -115,9 +115,9 @@ public final class WGLARBPbuffer {
 
 	/**
 	 * Creates a pixel buffer (pbuffer) and returns a handle to it.
-	 * <p/>
-	 * Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
-	 * attribute to determine which pixel formats support the creation of pbuffers.
+	 * 
+	 * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
+	 * attribute to determine which pixel formats support the creation of pbuffers.</p>
 	 *
 	 * @param hdc         a device context for the device on which the pbuffer is created
 	 * @param pixelFormat a non-generic pixel format descriptor index
@@ -188,9 +188,9 @@ public final class WGLARBPbuffer {
 
 	/**
 	 * Destroys a pbuffer.
-	 * <p/>
-	 * The pbuffer is destroyed once it is no longer current to any rendering context.  When a pbuffer is destroyed, any memory resources that are attached to
-	 * it are freed and its handle is no longer valid.
+	 * 
+	 * <p>The pbuffer is destroyed once it is no longer current to any rendering context.  When a pbuffer is destroyed, any memory resources that are attached to
+	 * it are freed and its handle is no longer valid.</p>
 	 *
 	 * @param pbuffer a pbuffer handle
 	 */
@@ -224,7 +224,7 @@ public final class WGLARBPbuffer {
 	 * Queries an attribute associated with a specific pbuffer.
 	 *
 	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<p/>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}
+	 * @param attribute the attribute to query. One of:<br>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}, {@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}, {@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}
 	 * @param value     the attribute value
 	 */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, ByteBuffer value) {

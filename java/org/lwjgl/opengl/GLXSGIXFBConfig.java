@@ -18,10 +18,10 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/fbconfig.txt">GLX_SGIX_fbconfig</a> extension.
- * <p/>
- * This extension introduces a new way to describe the capabilities of a GLX drawable (i.e., to describe the depth of color buffer components and the type
+ * 
+ * <p>This extension introduces a new way to describe the capabilities of a GLX drawable (i.e., to describe the depth of color buffer components and the type
  * and size of ancillary buffers), removes the "similarity" requirement when making a context current to a drawable, and supports  RGBA rendering to
- * one-and two-component Windows and GLX Pixmaps.
+ * one-and two-component Windows and GLX Pixmaps.</p>
  */
 public final class GLXSGIXFBConfig {
 
@@ -216,7 +216,7 @@ public final class GLXSGIXFBConfig {
 	 *
 	 * @param display     the connection to the X server
 	 * @param config      the {@code GLXFBConfigSGIX}
-	 * @param render_type the render type. One of:<p/>{@link #GLX_RGBA_TYPE_SGIX RGBA_TYPE_SGIX}, {@link #GLX_COLOR_INDEX_TYPE_SGIX COLOR_INDEX_TYPE_SGIX}
+	 * @param render_type the render type. One of:<br>{@link #GLX_RGBA_TYPE_SGIX RGBA_TYPE_SGIX}, {@link #GLX_COLOR_INDEX_TYPE_SGIX COLOR_INDEX_TYPE_SGIX}
 	 * @param share_list  the GLX context to share objects with
 	 * @param direct      direct rendering request
 	 */

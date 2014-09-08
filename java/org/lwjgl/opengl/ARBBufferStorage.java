@@ -15,20 +15,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a> extension.
- * <p/>
- * OpenGL has long supported buffer objects as a means of storing data that may be used to source vertex attributes, pixel data for textures, uniforms and
+ * 
+ * <p>OpenGL has long supported buffer objects as a means of storing data that may be used to source vertex attributes, pixel data for textures, uniforms and
  * other elements. In un-extended GL, buffer data stores are mutable - that is, they may be de-allocated or resized while they are in use. The
  * {@link ARBTextureStorage ARB_texture_storage} extension added immutable storage for texture object (and was subsequently incorporated into OpenGL 4.2).
  * This extension further applies the concept of immutable storage to buffer objects. If an implementation is aware of a buffer's immutability, it may be
- * able to make certain assumptions or apply particular optimizations in order to increase performance or reliability.
- * <p/>
- * Furthermore, this extension allows applications to pass additional information about a requested allocation to the implementation which it may use to
- * select memory heaps, caching behavior or allocation strategies.
- * <p/>
- * Finally, this extension introduces the concept of persistent client mappings of buffer objects, which allow clients to retain pointers to a buffer's
- * data store returned as the result of a mapping, and to issue drawing commands while those mappings are in place.
- * <p/>
- * Promoted to core in {@link GL44 OpenGL 4.4}.
+ * able to make certain assumptions or apply particular optimizations in order to increase performance or reliability.</p>
+ * 
+ * <p>Furthermore, this extension allows applications to pass additional information about a requested allocation to the implementation which it may use to
+ * select memory heaps, caching behavior or allocation strategies.</p>
+ * 
+ * <p>Finally, this extension introduces the concept of persistent client mappings of buffer objects, which allow clients to retain pointers to a buffer's
+ * data store returned as the result of a mapping, and to issue drawing commands while those mappings are in place.</p>
+ * 
+ * <p>Promoted to core in {@link GL44 OpenGL 4.4}.</p>
  */
 public final class ARBBufferStorage {
 
@@ -92,15 +92,15 @@ public final class ARBBufferStorage {
 
 	/**
 	 * Creates the data store of a buffer object.
-	 * <p/>
-	 * The data store of the buffer object bound to {@code target} is allocated as a result of a call to this function and cannot be de-allocated until the
+	 * 
+	 * <p>The data store of the buffer object bound to {@code target} is allocated as a result of a call to this function and cannot be de-allocated until the
 	 * buffer is deleted with a call to {@link GL15#glDeleteBuffers DeleteBuffers}. Such a store may not be re-allocated through further calls to {@code BufferStorage}
-	 * or {@link GL15#glBufferData BufferData}.
-	 * <p/>
-	 * {@code BufferStorage} deletes any existing data store. If any portion of the buffer object is mapped in the current context or any context current to
-	 * another thread, it is as though {@link GL15#glUnmapBuffer UnmapBuffer} is executed in each such context prior to deleting the existing data store.
+	 * or {@link GL15#glBufferData BufferData}.</p>
+	 * 
+	 * <p>{@code BufferStorage} deletes any existing data store. If any portion of the buffer object is mapped in the current context or any context current to
+	 * another thread, it is as though {@link GL15#glUnmapBuffer UnmapBuffer} is executed in each such context prior to deleting the existing data store.</p>
 	 *
-	 * @param target the buffer object target. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param size   the size of the data store in basic machine units
 	 * @param data   the address in client memory of the data that should be used to initialize the buffer's data store. If {@code data} is {@code NULL}, the data store of the
 	 *               buffer is created, but contains undefined data. Otherwise, {@code data} should point to an array of at least {@code size} basic machine units.
@@ -135,8 +135,8 @@ public final class ARBBufferStorage {
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
 	 *               If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
-	 *               <p/>
-	 *               It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
+	 *               
+	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
 		if ( LWJGLUtil.CHECKS )
@@ -228,8 +228,8 @@ public final class ARBBufferStorage {
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
 	 *               If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
-	 *               <p/>
-	 *               It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.
+	 *               
+	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glNamedBufferStorageEXT(int buffer, long size, ByteBuffer data, int flags) {
 		if ( LWJGLUtil.CHECKS )

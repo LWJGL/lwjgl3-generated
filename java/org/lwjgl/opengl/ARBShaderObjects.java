@@ -17,25 +17,25 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_objects.txt">ARB_shader_objects</a> extension.
- * <p/>
- * This extension adds API calls that are necessary to manage shader objects and program objects as defined in the OpenGL 2.0 white papers by 3Dlabs.
- * <p/>
- * The generation of an executable that runs on one of OpenGL's programmable units is modeled to that of developing a typical C/C++ application. There are
+ * 
+ * <p>This extension adds API calls that are necessary to manage shader objects and program objects as defined in the OpenGL 2.0 white papers by 3Dlabs.</p>
+ * 
+ * <p>The generation of an executable that runs on one of OpenGL's programmable units is modeled to that of developing a typical C/C++ application. There are
  * one or more source files, each of which are stored by OpenGL in a shader object. Each shader object (source file) needs to be compiled and attached to a
  * program object. Once all shader objects are compiled successfully, the program object needs to be linked to produce an executable. This executable is
  * part of the program object, and can now be loaded onto the programmable units to make it part of the current OpenGL state. Both the compile and link
  * stages generate a text string that can be queried to get more information. This information could be, but is not limited to, compile errors, link errors,
- * optimization hints, etc. Values for uniform variables, declared in a shader, can be set by the application and used to control a shader's behavior.
- * <p/>
- * This extension defines functions for creating shader objects and program objects, for compiling shader objects, for linking program objects, for
+ * optimization hints, etc. Values for uniform variables, declared in a shader, can be set by the application and used to control a shader's behavior.</p>
+ * 
+ * <p>This extension defines functions for creating shader objects and program objects, for compiling shader objects, for linking program objects, for
  * attaching shader objects to program objects, and for using a program object as part of current state. Functions to load uniform values are also defined.
- * Some house keeping functions, like deleting an object and querying object state, are also provided.
- * <p/>
- * Although this extension defines the API for creating shader objects, it does not define any specific types of shader objects. It is assumed that this
+ * Some house keeping functions, like deleting an object and querying object state, are also provided.</p>
+ * 
+ * <p>Although this extension defines the API for creating shader objects, it does not define any specific types of shader objects. It is assumed that this
  * extension will be implemented along with at least one such additional extension for creating a specific type of OpenGL 2.0 shader (e.g., the
- * {@link ARBFragmentShader ARB_fragment_shader} extension or the {@link ARBVertexShader ARB_vertex_shader} extension).
- * <p/>
- * Promoted to core in {@link GL20 OpenGL 2.0}.
+ * {@link ARBFragmentShader ARB_fragment_shader} extension or the {@link ARBVertexShader ARB_vertex_shader} extension).</p>
+ * 
+ * <p>Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
 public final class ARBShaderObjects {
 
@@ -209,13 +209,13 @@ public final class ARBShaderObjects {
 	 * any container object, for any context. If it is still attached to at least one container object, the object is flagged for deletion. If the object is
 	 * part of the current rendering state, it is not deleted until it is no longer part of the current rendering state for any context. If the object is still
 	 * part of the rendering state of at least one context, it is flagged for deletion.
-	 * <p/>
-	 * If an object is flagged for deletion, its Boolean status bit {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB} is set to true.
-	 * <p/>
-	 * DeleteObjectARB will silently ignore the value zero.
-	 * <p/>
-	 * When a container object is deleted, it will detach each attached object as part of the deletion process. When an object is deleted, all information for
-	 * the object referenced is lost. The data for the object is also deleted.
+	 * 
+	 * <p>If an object is flagged for deletion, its Boolean status bit {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB} is set to true.</p>
+	 * 
+	 * <p>DeleteObjectARB will silently ignore the value zero.</p>
+	 * 
+	 * <p>When a container object is deleted, it will detach each attached object as part of the deletion process. When an object is deleted, all information for
+	 * the object referenced is lost. The data for the object is also deleted.</p>
 	 *
 	 * @param obj the shader object to delete
 	 */
@@ -235,7 +235,7 @@ public final class ARBShaderObjects {
 	/**
 	 * Returns the handle to an object that is in use as part of current state.
 	 *
-	 * @param pname the state item for which the current object is to be returned. Must be:<p/>{@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
+	 * @param pname the state item for which the current object is to be returned. Must be:<br>{@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
 	 */
 	public static int glGetHandleARB(int pname) {
 		long __functionAddress = getInstance().GetHandleARB;
@@ -272,7 +272,7 @@ public final class ARBShaderObjects {
 	/**
 	 * Creates a shader object.
 	 *
-	 * @param shaderType the type of the shader object to be created. One of:<p/>{@link ARBVertexShader#GL_VERTEX_SHADER_ARB VERTEX_SHADER_ARB}, {@link ARBFragmentShader#GL_FRAGMENT_SHADER_ARB FRAGMENT_SHADER_ARB}
+	 * @param shaderType the type of the shader object to be created. One of:<br>{@link ARBVertexShader#GL_VERTEX_SHADER_ARB VERTEX_SHADER_ARB}, {@link ARBFragmentShader#GL_FRAGMENT_SHADER_ARB FRAGMENT_SHADER_ARB}
 	 */
 	public static int glCreateShaderObjectARB(int shaderType) {
 		long __functionAddress = getInstance().CreateShaderObjectARB;
@@ -299,9 +299,9 @@ public final class ARBShaderObjects {
 	/**
 	 * Sets the source code for the specified shader object {@code shaderObj} to the text strings in the {@code string} array. If the object previously had
 	 * source code loaded into it, it is completely replaced.
-	 * <p/>
-	 * The strings that are loaded into a shader object are expected to form the source code for a valid shader as defined in the OpenGL Shading Language
-	 * Specification.
+	 * 
+	 * <p>The strings that are loaded into a shader object are expected to form the source code for a valid shader as defined in the OpenGL Shading Language
+	 * Specification.</p>
 	 *
 	 * @param shaderObj the shader object
 	 * @param count     the number of strings in the array
@@ -359,11 +359,11 @@ public final class ARBShaderObjects {
 	 * ready for use, and {@link GL11#GL_FALSE FALSE} otherwise. Compilation can fail for a variety of reasons as listed in the OpenGL Shading Language Specification. If
 	 * CompileShaderARB failed, any information about a previous compile is lost and is not restored. Thus a failed compile does not restore the old state of
 	 * {@code shaderObj}. If {@code shaderObj} does not reference a shader object, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
-	 * <p/>
-	 * Note that changing the source code of a shader object, through ShaderSourceARB, does not change its compile status {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}.
-	 * <p/>
-	 * Each shader object has an information log that is modified as a result of compilation. This information log can be queried with {@link #glGetInfoLogARB GetInfoLogARB} to
-	 * obtain more information about the compilation attempt.
+	 * 
+	 * <p>Note that changing the source code of a shader object, through ShaderSourceARB, does not change its compile status {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}.</p>
+	 * 
+	 * <p>Each shader object has an information log that is modified as a result of compilation. This information log can be queried with {@link #glGetInfoLogARB GetInfoLogARB} to
+	 * obtain more information about the compilation attempt.</p>
 	 *
 	 * @param shaderObj the shader object to compile
 	 */
@@ -382,11 +382,11 @@ public final class ARBShaderObjects {
 
 	/**
 	 * Creates a program object.
-	 * <p/>
-	 * A program object is a container object. Shader objects are attached to a program object with the command AttachObjectARB. It is permissible to attach
+	 * 
+	 * <p>A program object is a container object. Shader objects are attached to a program object with the command AttachObjectARB. It is permissible to attach
 	 * shader objects to program objects before source code has been loaded into the shader object, or before the shader object has been compiled. It is
 	 * permissible to attach multiple shader objects of the same type to a single program object, and it is permissible to attach a shader object to more than
-	 * one program object.
+	 * one program object.</p>
 	 */
 	public static int glCreateProgramObjectARB() {
 		long __functionAddress = getInstance().CreateProgramObjectARB;
@@ -422,16 +422,16 @@ public final class ARBShaderObjects {
 
 	/**
 	 * Links a program object.
-	 * <p/>
-	 * Each program object has a Boolean status, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, that is modified as a result of linking. This status can be queried with
+	 * 
+	 * <p>Each program object has a Boolean status, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, that is modified as a result of linking. This status can be queried with
 	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. This status will be set to {@link GL11#GL_TRUE TRUE} if a valid executable is created, and {@link GL11#GL_FALSE FALSE} otherwise. Linking can fail for a
 	 * variety of reasons as specified in the OpenGL Shading Language Specification. Linking will also fail if one or more of the shader objects, attached to
 	 * {@code programObj}, are not compiled successfully, or if more active uniform or active sampler variables are used in {@code programObj} than allowed.
 	 * If LinkProgramARB failed, any information about a previous link is lost and is not restored. Thus a failed link does not restore the old state of
-	 * {@code programObj}. If {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
-	 * <p/>
-	 * Each program object has an information log that is modified as a result of a link operation. This information log can be queried with {@link #glGetInfoLogARB GetInfoLogARB}
-	 * to obtain more information about the link operation.
+	 * {@code programObj}. If {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</p>
+	 * 
+	 * <p>Each program object has an information log that is modified as a result of a link operation. This information log can be queried with {@link #glGetInfoLogARB GetInfoLogARB}
+	 * to obtain more information about the link operation.</p>
 	 *
 	 * @param programObj the program object to link
 	 */
@@ -454,13 +454,13 @@ public final class ARBShaderObjects {
 	 * functionality paths will be used instead. If {@code programObj} cannot be made part of the current rendering state, an {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error will
 	 * be generated and the current rendering state left unmodified. This error will be set, for example, if {@code programObj} has not been linked
 	 * successfully. If {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
-	 * <p/>
-	 * While a program object is in use, applications are free to modify attached shader objects, compile attached shader objects, attach additional shader
+	 * 
+	 * <p>While a program object is in use, applications are free to modify attached shader objects, compile attached shader objects, attach additional shader
 	 * objects, and detach shader objects. This does not affect the link status {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB} of the program object. This does not affect the
 	 * executable code that is part of the current state either. That executable code is only affected when the program object has been re-linked successfully.
 	 * After such a successful re-link, the {@link #glLinkProgramARB LinkProgramARB} command will install the generated executable code as part of the current rendering state if the
 	 * specified program object was already in use as a result of a previous call to UseProgramObjectARB. If this re-link failed, then the executable code part
-	 * of the current state does not change.
+	 * of the current state does not change.</p>
 	 *
 	 * @param programObj the program object to use
 	 */
@@ -483,14 +483,14 @@ public final class ARBShaderObjects {
 	 * succeeded this status will be set to {@link GL11#GL_TRUE TRUE}, otherwise it will be set to {@link GL11#GL_FALSE FALSE}. If validation succeeded the program object is guaranteed to
 	 * execute, given the current GL state. If validation failed, the program object is guaranteed to not execute, given the current GL state. If
 	 * {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
-	 * <p/>
-	 * ValidateProgramARB will validate at least as much as is done when a rendering command is issued, and it could validate more. For example, it could give
-	 * a hint on how to optimize some piece of shader code.
-	 * <p/>
-	 * ValidateProgramARB will store its information in the info log. This information will either be an empty string or it will contain validation information.
-	 * <p/>
-	 * ValidateProgramARB is typically only useful during application development. An application should not expect different OpenGL implementations to produce
-	 * identical information.
+	 * 
+	 * <p>ValidateProgramARB will validate at least as much as is done when a rendering command is issued, and it could validate more. For example, it could give
+	 * a hint on how to optimize some piece of shader code.</p>
+	 * 
+	 * <p>ValidateProgramARB will store its information in the info log. This information will either be an empty string or it will contain validation information.</p>
+	 * 
+	 * <p>ValidateProgramARB is typically only useful during application development. An application should not expect different OpenGL implementations to produce
+	 * identical information.</p>
 	 *
 	 * @param programObj the program object to validate
 	 */
@@ -1077,7 +1077,7 @@ public final class ARBShaderObjects {
 	 * Returns object specific parameter values.
 	 *
 	 * @param obj    the object to query
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
+	 * @param pname  the parameter to query. One of:<br>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
 	 * @param params a buffer in which to return the parameter value
 	 */
 	public static void glGetObjectParameteriARB(int obj, int pname, ByteBuffer params) {
@@ -1119,16 +1119,16 @@ public final class ARBShaderObjects {
 	/**
 	 * A string that contains information about the last link or validation attempt and last compilation attempt are kept per program or shader object. This
 	 * string is called the info log and can be obtained with this command.
-	 * <p/>
-	 * This string will be null terminated. The number of characters in the info log is given by {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, which can be queried with
+	 * 
+	 * <p>This string will be null terminated. The number of characters in the info log is given by {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, which can be queried with
 	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is a shader object, the returned info log will either be an empty string or it will contain
 	 * information about the last compilation attempt for that object. If {@code obj} is a program object, the returned info log will either be an empty string
 	 * or it will contain information about the last link attempt or last validation attempt for that object. If {@code obj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}
 	 * or {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code infoLog}
-	 * will be unmodified.
-	 * <p/>
-	 * The info log is typically only useful during application development and an application should not expect different OpenGL implementations to produce
-	 * identical info logs.
+	 * will be unmodified.</p>
+	 * 
+	 * <p>The info log is typically only useful during application development and an application should not expect different OpenGL implementations to produce
+	 * identical info logs.</p>
 	 *
 	 * @param obj       the shader object to query
 	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code infoLog}
@@ -1249,13 +1249,13 @@ public final class ARBShaderObjects {
 	 * returned if {@code name} does not correspond to an active uniform variable name in {@code programObj} or if {@code name} starts with the reserved prefix
 	 * "gl_". If {@code programObj} has not been successfully linked, or if {@code programObj} is not of type {@link #GL_PROGRAM_OBJECT_ARB PROGRAM_OBJECT_ARB}, the error
 	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. The location of a uniform variable does not change until the next link command is issued.
-	 * <p/>
-	 * A valid {@code name} cannot be a structure, an array of structures, or a subcomponent of a vector or a matrix. In order to identify a valid {@code name},
-	 * the "." (dot) and "[]" operators can be used in {@code name} to operate on a structure or to operate on an array.
-	 * <p/>
-	 * The first element of a uniform array is identified using the name of the uniform array appended with "[0]". Except if the last part of the string
+	 * 
+	 * <p>A valid {@code name} cannot be a structure, an array of structures, or a subcomponent of a vector or a matrix. In order to identify a valid {@code name},
+	 * the "." (dot) and "[]" operators can be used in {@code name} to operate on a structure or to operate on an array.</p>
+	 * 
+	 * <p>The first element of a uniform array is identified using the name of the uniform array appended with "[0]". Except if the last part of the string
 	 * {@code name} indicates a uniform array, then the location of the first element of that array can be retrieved by either using the name of the uniform
-	 * array, or the name of the uniform array appended with "[0]".
+	 * array, or the name of the uniform array appended with "[0]".</p>
 	 *
 	 * @param programObj the program object to query
 	 * @param name       the name of the uniform variable whose location is to be queried
@@ -1289,26 +1289,26 @@ public final class ARBShaderObjects {
 
 	/**
 	 * Determines which of the declared uniform variables are active and their sizes and types.
-	 * <p/>
-	 * This command provides information about the uniform selected by {@code index}. The {@code index} of 0 selects the first active uniform, and
+	 * 
+	 * <p>This command provides information about the uniform selected by {@code index}. The {@code index} of 0 selects the first active uniform, and
 	 * {@code index} of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} - 1 selects the last active uniform. The value of {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB} can be queried with
-	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code index} is greater than or equal to {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated.
-	 * <p/>
-	 * If an error occurred, the return parameters {@code length}, {@code size}, {@code type} and {@code name} will be unmodified.
-	 * <p/>
-	 * The returned uniform name can be the name of built-in uniform state as well. The length of the longest uniform name in {@code programObj} is given by
-	 * {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}.
-	 * <p/>
-	 * Each uniform variable, declared in a shader, is broken down into one or more strings using the "." (dot) and "[]" operators, if necessary, to the point
+	 * {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code index} is greater than or equal to {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated.</p>
+	 * 
+	 * <p>If an error occurred, the return parameters {@code length}, {@code size}, {@code type} and {@code name} will be unmodified.</p>
+	 * 
+	 * <p>The returned uniform name can be the name of built-in uniform state as well. The length of the longest uniform name in {@code programObj} is given by
+	 * {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}.</p>
+	 * 
+	 * <p>Each uniform variable, declared in a shader, is broken down into one or more strings using the "." (dot) and "[]" operators, if necessary, to the point
 	 * that it is legal to pass each string back into {@link #glGetUniformLocationARB GetUniformLocationARB}. Each of these strings constitutes one active uniform, and each string is
-	 * assigned an index.
-	 * <p/>
-	 * If one or more elements of an array are active, GetActiveUniformARB will return the name of the array in {@code name}, subject to the restrictions
+	 * assigned an index.</p>
+	 * 
+	 * <p>If one or more elements of an array are active, GetActiveUniformARB will return the name of the array in {@code name}, subject to the restrictions
 	 * listed above. The type of the array is returned in {@code type}. The {@code size} parameter contains the highest array element index used, plus one. The
-	 * compiler or linker determines the highest index used. There will be only one active uniform reported by the GL per uniform array.
-	 * <p/>
-	 * This command will return as much information about active uniforms as possible. If no information is available, {@code length} will be set to zero and
-	 * {@code name} will be an empty string. This situation could arise if GetActiveUniformARB is issued after a failed link.
+	 * compiler or linker determines the highest index used. There will be only one active uniform reported by the GL per uniform array.</p>
+	 * 
+	 * <p>This command will return as much information about active uniforms as possible. If no information is available, {@code length} will be set to zero and
+	 * {@code name} will be an empty string. This situation could arise if GetActiveUniformARB is issued after a failed link.</p>
 	 *
 	 * @param programObj a handle to a program object for which the command {@link #glLinkProgramARB LinkProgramARB} has been issued in the past. It is not necessary for {@code programObj} to have
 	 *                   been linked successfully. The link could have failed because the number of active uniforms exceeded the limit.
@@ -1470,10 +1470,10 @@ public final class ARBShaderObjects {
 
 	/**
 	 * Returns the string making up the source code for a shader object.
-	 * <p/>
-	 * The string {@code source} is a concatenation of the strings passed to OpenGL using {@link #glShaderSourceARB ShaderSourceARB}. The length of this concatenation is given by
+	 * 
+	 * <p>The string {@code source} is a concatenation of the strings passed to OpenGL using {@link #glShaderSourceARB ShaderSourceARB}. The length of this concatenation is given by
 	 * {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}, which can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. If {@code obj} is not of type {@link #GL_SHADER_OBJECT_ARB SHADER_OBJECT_ARB}, the error
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code source} will be unmodified.
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If an error occurred, the return parameters {@code length} and {@code source} will be unmodified.</p>
 	 *
 	 * @param obj       the shader object to query
 	 * @param maxLength the maximum number of characters the GL is allowed to write into {@code source}

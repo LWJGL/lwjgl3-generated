@@ -191,18 +191,18 @@ public final class CL20 {
 
 	/**
 	 * Creates a host or device command-queue on a specific device.
-	 * <p/>
-	 * OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
+	 * 
+	 * <p>OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
 	 * The command-queue can be used to queue a set of operations (referred to as commands) in order. Having multiple command-queues allows applications to
 	 * queue multiple independent commands without requiring synchronization. Note that this should work as long as these objects are not being shared. Sharing
-	 * of objects across multiple command-queues will require the application to perform appropriate synchronization.
+	 * of objects across multiple command-queues will require the application to perform appropriate synchronization.</p>
 	 *
 	 * @param context     a valid OpenCL context
 	 * @param device      a device associated with context. It can either be in the list of devices specified when context is created using {@link CL10#clCreateContext CreateContext} or have the same
 	 *                    device type as device type specified when context is created using {@link CL10#clCreateContextFromType CreateContextFromType}.
 	 * @param properties  a list of properties for the command-queue and their corresponding values. Each property name is immediately followed by the corresponding desired
 	 *                    value. The list is terminated with {@code 0}. If a supported property and its value is not specified in properties, its default value will be used.
-	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<p/>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link #CL_QUEUE_SIZE QUEUE_SIZE}
+	 *                    {@code properties} can be {@code NULL} in which case the default values for supported command-queue properties will be used. One of:<br>{@link CL10#CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link #CL_QUEUE_SIZE QUEUE_SIZE}
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
@@ -361,30 +361,30 @@ public final class CL20 {
 	/**
 	 * Allocates a shared virtual memory buffer (referred to as a SVM buffer) that can be shared by the host and all devices in an OpenCL context that support
 	 * shared virtual memory.
-	 * <p/>
-	 * If {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER} is not specified, the buffer can be created as a coarse grained SVM allocation. Similarly, if
-	 * {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS} is not specified, the buffer can be created without support for the OpenCL 2.0 SVM atomic operations.
-	 * <p/>
-	 * Calling {@code SVMAlloc} does not itself provide consistency for the shared memory region. When the host can't use the SVM atomic operations, it must
+	 * 
+	 * <p>If {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER} is not specified, the buffer can be created as a coarse grained SVM allocation. Similarly, if
+	 * {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS} is not specified, the buffer can be created without support for the OpenCL 2.0 SVM atomic operations.</p>
+	 * 
+	 * <p>Calling {@code SVMAlloc} does not itself provide consistency for the shared memory region. When the host can't use the SVM atomic operations, it must
 	 * rely on OpenCL's guaranteed memory consistency at synchronization points. To initialize a buffer to be shared with a kernel, the host can create the
-	 * buffer and use the resulting virtual memory pointer to initialize the buffer's contents.
-	 * <p/>
-	 * For SVM to be used efficiently, the host and any devices sharing a buffer containing virtual memory pointers should have the same endianness. If the
+	 * buffer and use the resulting virtual memory pointer to initialize the buffer's contents.</p>
+	 * 
+	 * <p>For SVM to be used efficiently, the host and any devices sharing a buffer containing virtual memory pointers should have the same endianness. If the
 	 * context passed to {@code SVMAlloc} has devices with mixed endianness and the OpenCL implementation is unable to implement SVM because of that mixed
-	 * endianness, {@code SVMAlloc} will fail and return {@code NULL}.
-	 * <p/>
-	 * Although SVM is generally not supported for image objects, {@link CL12#clCreateImage CreateImage} may create an image from a buffer (a 1D image from a buffer
+	 * endianness, {@code SVMAlloc} will fail and return {@code NULL}.</p>
+	 * 
+	 * <p>Although SVM is generally not supported for image objects, {@link CL12#clCreateImage CreateImage} may create an image from a buffer (a 1D image from a buffer
 	 * or a 2D image from buffer) if the buffer specified in its image description parameter is a SVM buffer. Such images have a linear memory representation
-	 * so their memory can be shared using SVM. However, fine grained sharing and atomics are not supported for image reads and writes in a kernel.
-	 * <p/>
-	 * If {@link CL10#clCreateBuffer CreateBuffer} is called with a pointer returned by {@code SVMAlloc} as its {@code host_ptr} argument, and
+	 * so their memory can be shared using SVM. However, fine grained sharing and atomics are not supported for image reads and writes in a kernel.</p>
+	 * 
+	 * <p>If {@link CL10#clCreateBuffer CreateBuffer} is called with a pointer returned by {@code SVMAlloc} as its {@code host_ptr} argument, and
 	 * {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} is set in its {@code flags} argument, {@code CreateBuffer} will succeed and return a valid non-zero buffer object as
 	 * long as the {@code size} argument to {@code CreateBuffer} is no larger than the {@code size} argument passed in the original {@code SVMAlloc} call. The
 	 * new buffer object returned has the shared memory as the underlying storage. Locations in the buffer's underlying shared memory can be operated on using,
-	 * e.g., atomic operations if the device supports them.
+	 * e.g., atomic operations if the device supports them.</p>
 	 *
 	 * @param context   a valid OpenCL context used to create the SVM buffer
-	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<p/>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
+	 * @param flags     a bit-field that is used to specify allocation and usage information. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER}, {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}
 	 * @param size      the size in bytes of the SVM buffer to be allocated
 	 * @param alignment the minimum alignment in bytes that is required for the newly created buffer's memory region. It must be a power of two up to the largest data type
 	 *                  supported by the OpenCL device. For the full profile, the largest data type is {@code long16}. For the embedded profile, it is {@code long16} if the
@@ -428,15 +428,15 @@ public final class CL20 {
 
 	/**
 	 * Frees a shared virtual memory buffer allocated using {@link #clSVMAlloc SVMAlloc}.
-	 * <p/>
-	 * Note that {@code SVMFree} does not wait for previously enqueued commands that may be using {@code svm_pointer} to finish before freeing
+	 * 
+	 * <p>Note that {@code SVMFree} does not wait for previously enqueued commands that may be using {@code svm_pointer} to finish before freeing
 	 * {@code svm_pointer}. It is the responsibility of the application to make sure that enqueued commands that use {@code svm_pointer} have finished before
 	 * freeing {@code svm_pointer}. This can be done by enqueuing a blocking operation such as {@link CL10#clFinish Finish}, {@link CL10#clWaitForEvents WaitForEvents},
 	 * {@link CL10#clEnqueueReadBuffer EnqueueReadBuffer} or by registering a callback with the events associated with enqueued commands and when the last enqueued command
-	 * has finished freeing {@code svm_pointer}.
-	 * <p/>
-	 * The behavior of using {@code svm_pointer} after it has been freed is undefined. In addition, if a buffer object is created using
-	 * {@link CL10#clCreateBuffer CreateBuffer} with {@code svm_pointer}, the buffer object must first be released before the {@code svm_pointer} is freed.
+	 * has finished freeing {@code svm_pointer}.</p>
+	 * 
+	 * <p>The behavior of using {@code svm_pointer} after it has been freed is undefined. In addition, if a buffer object is created using
+	 * {@link CL10#clCreateBuffer CreateBuffer} with {@code svm_pointer}, the buffer object must first be released before the {@code svm_pointer} is freed.</p>
 	 *
 	 * @param context     a valid OpenCL context used to create the SVM buffer
 	 * @param svm_pointer must be the value returned by a call to {@link #clSVMAlloc SVMAlloc}. If a {@code NULL} pointer is passed in {@code svm_pointer}, no action occurs.
@@ -533,20 +533,20 @@ public final class CL20 {
 
 	/**
 	 * Enqueues a command to do a {@code memcpy} operation.
-	 * <p/>
-	 * If {@code dst_ptr} and/or {@code src_ptr} are allocated using {@link #clSVMAlloc SVMAlloc} then they must be allocated from the same context from which
-	 * {@code command_queue} was created. Otherwise the behavior is undefined.
+	 * 
+	 * <p>If {@code dst_ptr} and/or {@code src_ptr} are allocated using {@link #clSVMAlloc SVMAlloc} then they must be allocated from the same context from which
+	 * {@code command_queue} was created. Otherwise the behavior is undefined.</p>
 	 *
 	 * @param command_queue           the host command-queue in which the read / write command will be queued
 	 * @param blocking_copy           indicates if the copy operation is <em>blocking</em> or <em>non-blocking</em>.
-	 *                                <p/>
-	 *                                If {@code blocking_copy} is {@link CL10#CL_TRUE TRUE} i.e. the copy command is blocking, {@code EnqueueSVMMemcpy} does not return until the buffer data has been copied
-	 *                                into memory pointed to by {@code dst_ptr}.
-	 *                                <p/>
-	 *                                If {@code blocking_copy} is {@link CL10#CL_FALSE FALSE} i.e. the copy command is non-blocking, {@code EnqueueSVMMemcpy} queues a non-blocking copy command and returns.
+	 *                                
+	 *                                <p>If {@code blocking_copy} is {@link CL10#CL_TRUE TRUE} i.e. the copy command is blocking, {@code EnqueueSVMMemcpy} does not return until the buffer data has been copied
+	 *                                into memory pointed to by {@code dst_ptr}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_copy} is {@link CL10#CL_FALSE FALSE} i.e. the copy command is non-blocking, {@code EnqueueSVMMemcpy} queues a non-blocking copy command and returns.
 	 *                                The contents of the buffer that {@code dst_ptr} point to cannot be used until the copy command has completed. The event argument returns an event
 	 *                                object which can be used to query the execution status of the read command. When the copy command has completed, the contents of the buffer that
-	 *                                {@code dst_ptr} points to can be used by the application.
+	 *                                {@code dst_ptr} points to can be used by the application.</p>
 	 * @param dst_ptr                 the pointer to a memory region where data is copied to
 	 * @param src_ptr                 the pointer to a memory region where data is copied from
 	 * @param size                    the size in bytes of data being copied
@@ -683,13 +683,13 @@ public final class CL20 {
 	 *
 	 * @param command_queue           a valid host command-queue
 	 * @param blocking_map            indicates if the map operation is blocking or non-blocking.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link CL10#CL_TRUE TRUE}, {@code EnqueueSVMMap} does not return until the application can access the contents of the SVM region specified by
-	 *                                {@code svm_ptr} and {@code size} on the host.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link CL10#CL_FALSE FALSE} i.e. map operation is non-blocking, the region specified by {@code svm_ptr} and {@code size} cannot be used until
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link CL10#CL_TRUE TRUE}, {@code EnqueueSVMMap} does not return until the application can access the contents of the SVM region specified by
+	 *                                {@code svm_ptr} and {@code size} on the host.</p>
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link CL10#CL_FALSE FALSE} i.e. map operation is non-blocking, the region specified by {@code svm_ptr} and {@code size} cannot be used until
 	 *                                the map command has completed. The event argument returns an event object which can be used to query the execution status of the map command. When
-	 *                                the map command is completed, the application can access the contents of the region specified by {@code svm_ptr} and {@code size}.
+	 *                                the map command is completed, the application can access the contents of the region specified by {@code svm_ptr} and {@code size}.</p>
 	 * @param map_flags               a bit-field
 	 * @param svm_ptr                 a pointer to a memory region and {@code size} in bytes that will be updated by the host. If {@code svm_ptr} is allocated using {@link #clSVMAlloc SVMAlloc} then it
 	 *                                must be allocated from the same context from which {@code command_queue} was created. Otherwise the behavior is undefined.
@@ -854,34 +854,34 @@ public final class CL20 {
 
 	/**
 	 * Can be used to pass additional information other than argument values to a kernel.
-	 * <p/>
-	 * NOTES
-	 * <p/>
-	 * 1. Coarse-grain or fine-grain buffer SVM pointers used by a kernel which are not passed as a kernel arguments must be specified using
+	 * 
+	 * <p>NOTES</p>
+	 * 
+	 * <p>1. Coarse-grain or fine-grain buffer SVM pointers used by a kernel which are not passed as a kernel arguments must be specified using
 	 * {@code SetKernelExecInfo} with {@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}. For example, if SVM buffer A contains a pointer to another SVM buffer B, and the
 	 * kernel dereferences that pointer, then a pointer to B must either be passed as an argument in the call to that kernel or it must be made available to
-	 * the kernel using {@code SetKernelExecInfo}. For example, we might pass extra SVM pointers as follows:
-	 * <p/>
-	 * <code>clSetKernelExecInfo(kernel, CL_KERNEL_EXEC_INFO_SVM_PTRS, num_ptrs * sizeof(void *), extra_svm_ptr_list);</code>
-	 * <p/>
-	 * Here {@code num_ptrs} specifies the number of additional SVM pointers while {@code extra_svm_ptr_list} specifies a pointer to memory containing those
+	 * the kernel using {@code SetKernelExecInfo}. For example, we might pass extra SVM pointers as follows:</p>
+	 * 
+	 * <p><code>clSetKernelExecInfo(kernel, CL_KERNEL_EXEC_INFO_SVM_PTRS, num_ptrs * sizeof(void *), extra_svm_ptr_list);</code></p>
+	 * 
+	 * <p>Here {@code num_ptrs} specifies the number of additional SVM pointers while {@code extra_svm_ptr_list} specifies a pointer to memory containing those
 	 * SVM pointers. When calling {@code SetKernelExecInfo} with {@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS} to specify pointers to non-argument SVM buffers as extra
 	 * arguments to a kernel, each of these pointers can be the SVM pointer returned by {@link #clSVMAlloc SVMAlloc} or can be a pointer + offset into the SVM region. It is
-	 * sufficient to provide one pointer for each SVM buffer used.
-	 * <p/>
-	 * 2. {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} is used to indicate whether SVM pointers used by a kernel will refer to system allocations or not.
-	 * <p/>
-	 * {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} = {@link CL10#CL_FALSE FALSE} indicates that the OpenCL implementation may assume that system pointers are not passed as
-	 * kernel arguments and are not stored inside SVM allocations passed as kernel arguments.
-	 * <p/>
-	 * {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} = {@link CL10#CL_TRUE TRUE} indicates that the OpenCL implementation must assume that system pointers might be passed as
+	 * sufficient to provide one pointer for each SVM buffer used.</p>
+	 * 
+	 * <p>2. {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} is used to indicate whether SVM pointers used by a kernel will refer to system allocations or not.</p>
+	 * 
+	 * <p>{@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} = {@link CL10#CL_FALSE FALSE} indicates that the OpenCL implementation may assume that system pointers are not passed as
+	 * kernel arguments and are not stored inside SVM allocations passed as kernel arguments.</p>
+	 * 
+	 * <p>{@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM} = {@link CL10#CL_TRUE TRUE} indicates that the OpenCL implementation must assume that system pointers might be passed as
 	 * kernel arguments and/or stored inside SVM allocations passed as kernel arguments. In this case, if the device to which the kernel is enqueued does not
 	 * support system SVM pointers, {@link CL10#clEnqueueNDRangeKernel EnqueueNDRangeKernel} will return a {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} error. If none of the devices in the context
-	 * associated with kernel support fine-grain system SVM allocations, {@code SetKernelExecInfo} will return a {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} error.
-	 * <p/>
-	 * If {@code SetKernelExecInfo} has not been called with a value for {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}, the default value is used for this
+	 * associated with kernel support fine-grain system SVM allocations, {@code SetKernelExecInfo} will return a {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} error.</p>
+	 * 
+	 * <p>If {@code SetKernelExecInfo} has not been called with a value for {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}, the default value is used for this
 	 * kernel attribute. The default value depends on whether the device on which the kernel is enqueued supports fine-grain system SVM allocations. If so, the
-	 * default value used is {@link CL10#CL_TRUE TRUE} (system pointers might be passed); otherwise, the default is {@link CL10#CL_FALSE FALSE}.
+	 * default value used is {@link CL10#CL_TRUE TRUE} (system pointers might be passed); otherwise, the default is {@link CL10#CL_FALSE FALSE}.</p>
 	 *
 	 * @param kernel           the kernel object being queried
 	 * @param param_name       the information to be passed to {@code kernel}

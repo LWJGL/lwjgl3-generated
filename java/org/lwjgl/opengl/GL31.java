@@ -17,8 +17,8 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * The core OpenGL 3.1 functionality. OpenGL 3.1 implementations support revision 1.40 of the OpenGL Shading Language.
- * <p/>
- * Extensions promoted to core in this release:
+ * 
+ * <p>Extensions promoted to core in this release:
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/draw_instanced.txt">ARB_draw_instanced</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/copy_buffer.txt">ARB_copy_buffer</a></li>
@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object.txt">ARB_texture_buffer_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_rectangle.txt">ARB_texture_rectangle</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/uniform_buffer_object.txt">ARB_uniform_buffer_object</a></li>
- * </ul>
+ * </ul></p>
  */
 public final class GL31 {
 
@@ -228,11 +228,11 @@ public final class GL31 {
 	public static native void nglDrawArraysInstanced(int mode, int first, int count, int primcount, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Draw multiple instances of a range of elements.
 	 *
-	 * @param mode      the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param first     the starting index in the enabled arrays
 	 * @param count     the number of indices to be rendered
 	 * @param primcount the number of instances of the specified range of indices to be rendered
@@ -260,13 +260,13 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsInstanced.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Draws multiple instances of a set of elements.
 	 *
-	 * @param mode      the kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
+	 * @param mode      the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param count     the number of elements to be rendered
-	 * @param type      the type of the values in {@code indices}. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param type      the type of the values in {@code indices}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indices   a pointer to the location where the indices are stored
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
@@ -320,8 +320,8 @@ public final class GL31 {
 	public static native void nglCopyBufferSubData(int readtarget, int writetarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Copies part of the data store of a buffer object to the data store of another buffer object.
 	 *
 	 * @param readtarget  the target from whose data store data should be read
@@ -344,8 +344,8 @@ public final class GL31 {
 	public static native void nglPrimitiveRestartIndex(int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the primitive restart index.
 	 *
 	 * @param index the value to be interpreted as the primitive restart index
@@ -364,31 +364,31 @@ public final class GL31 {
 	public static native void nglTexBuffer(int target, int internalformat, int buffer, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
 	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
 	 * attached. If {@code buffer} is non-zero, but is not the name of an existing buffer object, the error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.
-	 * <p/>
-	 * When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
-	 * buffer texture's texel array is given by
-	 * <p/>
-	 * <code>floor(buffer_size / (components * sizeof(base_type))</code>,
-	 * <p/>
-	 * where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
+	 * 
+	 * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
+	 * buffer texture's texel array is given by</p>
+	 * 
+	 * <p><code>floor(buffer_size / (components * sizeof(base_type))</code>,</p>
+	 * 
+	 * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
 	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit {@link #GL_MAX_TEXTURE_BUFFER_SIZE MAX_TEXTURE_BUFFER_SIZE}.
 	 * When a buffer texture is accessed in a shader, the results of a texel fetch are undefined if the specified texel number is greater than or equal to the
-	 * clamped number of texels in the texel array.
-	 * <p/>
-	 * When a buffer texture is accessed in a shader, an integer is provided to indicate the texel number being accessed. If no buffer object is bound to the
+	 * clamped number of texels in the texel array.</p>
+	 * 
+	 * <p>When a buffer texture is accessed in a shader, an integer is provided to indicate the texel number being accessed. If no buffer object is bound to the
 	 * buffer texture, the results of the texel access are undefined. Otherwise, the attached buffer object's data store is interpreted as an array of elements
 	 * of the GL data type corresponding to {@code internalformat}. Each texel consists of one to four elements that are mapped to texture components
 	 * (R, G, B, A, L, and I). Element {@code m} of the texel numbered {@code n} is taken from element {@code n} * {@code components} + {@code m} of the
 	 * attached buffer object's data store. Elements and texels are both numbered starting with zero. For texture formats with normalized components, the
 	 * extracted values are converted to floating-point values. The components of the texture are then converted to an (R,G,B,A) vector, and returned to the
-	 * shader as a four-component result vector with components of the appropriate data type for the texture's internal format.
+	 * shader as a four-component result vector with components of the appropriate data type for the texture's internal format.</p>
 	 *
-	 * @param target         the target of the operation. Must be:<p/>{@link #GL_TEXTURE_BUFFER TEXTURE_BUFFER}
+	 * @param target         the target of the operation. Must be:<br>{@link #GL_TEXTURE_BUFFER TEXTURE_BUFFER}
 	 * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
 	 * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
 	 */
@@ -415,8 +415,8 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformIndices.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the indices of a number of uniforms within a program object
 	 *
 	 * @param program        the name of a program containing uniforms whose indices to query
@@ -477,8 +477,8 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniforms.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Returns information about several active uniform variables for the specified program object.
 	 *
 	 * @param program        the program object to be queried
@@ -527,8 +527,8 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries the name of an active uniform.
 	 *
 	 * @param program      the program containing the active uniform index {@code uniformIndex}
@@ -587,8 +587,8 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformBlockIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the index of a named uniform block.
 	 *
 	 * @param program          the name of a program containing the uniform block
@@ -622,13 +622,13 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlock.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries information about an active uniform block.
 	 *
 	 * @param program           the name of a program containing the uniform block
 	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param pname             the name of the parameter to query. One of:<p/>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
+	 * @param pname             the name of the parameter to query. One of:<br>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
 	 * @param params            the address of a variable to receive the result of the query
 	 */
 	public static void glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
@@ -668,8 +668,8 @@ public final class GL31 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniformBlockName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the name of an active uniform block.
 	 *
 	 * @param program           the name of a program containing the uniform block
@@ -719,8 +719,8 @@ public final class GL31 {
 	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Assigns a binding point to an active uniform block.
 	 *
 	 * @param program             the name of a program object containing the active uniform block whose binding to assign

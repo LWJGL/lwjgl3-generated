@@ -15,15 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_render_texture.txt">WGL_ARB_render_texture</a> extension.
- * <p/>
- * This extension allows a color buffer to be used for both rendering and texturing. When a color buffer is bound to a texture target it cannot be
- * rendered to. Once it has been released from the texture it can be  rendered to once again.
- * <p/>
- * This extension may provide a performance boost and reduce memory requirements on architectures that support rendering to the same memory where textures
+ * 
+ * <p>This extension allows a color buffer to be used for both rendering and texturing. When a color buffer is bound to a texture target it cannot be
+ * rendered to. Once it has been released from the texture it can be  rendered to once again.</p>
+ * 
+ * <p>This extension may provide a performance boost and reduce memory requirements on architectures that support rendering to the same memory where textures
  * reside and in the same memory format and layout required by texturing. The functionality is similar to CopyTexImage1D and CopyTexImage2D. However, some
- * changes were made to make it easier to avoid copying data:
- * <p/>
- * <ul>
+ * changes were made to make it easier to avoid copying data:</p>
+ * 
+ * <p><ul>
  * <li>Only color buffers of a pbuffer can be bound as a texture. It is not possible to use the color buffer of a window as a texture.</li>
  * <li>The texture internal format is determined when the color buffer is associated with the texture, guaranteeing that the color buffer format is equivalent
  * to the texture internal format.</li>
@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a> is supported, they can be automatically generated when the color buffer is bound as a texture.</li>
  * <li>A texture target is associated with the pbuffer, so that cubemap images can be rendered into a single color buffer.</li>
  * </ul>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.
+ * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.</p>
  */
 public final class WGLARBRenderTexture {
 
@@ -150,7 +150,7 @@ public final class WGLARBRenderTexture {
 	 * the size of the  texture components are derived from attributes of pbuffer  specified by {@code pbuffer}.
 	 *
 	 * @param pbuffer a pbuffer handle
-	 * @param buffer  the target buffer. One of:<p/>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
+	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
 	 */
 	public static int wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().BindTexImageARB;
@@ -172,7 +172,7 @@ public final class WGLARBRenderTexture {
 	 * bound as textures.
 	 *
 	 * @param pbuffer a pbuffer handle
-	 * @param buffer  the target buffer. One of:<p/>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
+	 * @param buffer  the target buffer. One of:<br>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}, {@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}, {@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}, {@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}, {@link #WGL_AUX0_ARB AUX0_ARB}, WGL_AUX[1-9]_ARB
 	 */
 	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImageARB;

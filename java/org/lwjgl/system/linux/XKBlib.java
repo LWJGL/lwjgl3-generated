@@ -24,14 +24,14 @@ public final class XKBlib {
 	 * XkbAllXIClasses is used to get information about all device indicators, whether they're part of the indicator feedback class or the keyboard feedback class.
 	 * XkbAllXIIds is used to get information about all device indicator feedbacks without having to list them.
 	 * XkbXINone is used to indicate that no class or id has been specified.
-	 * <p/>
-	 * XkbLegalXILedClass(c) True if 'c' specifies a legal class with LEDs
+	 * 
+	 * <p>XkbLegalXILedClass(c) True if 'c' specifies a legal class with LEDs
 	 * XkbLegalXIBellClass(c) True if 'c' specifies a legal class with bells
 	 * XkbExplicitXIDevice(d) True if 'd' explicitly specifies a device
 	 * XkbExplicitXIClass(c) True if 'c' explicitly specifies a device class
 	 * XkbExplicitXIId(c) True if 'i' explicitly specifies a device id
 	 * XkbSingleXIClass(c) True if 'c' specifies exactly one device class, including the default.
-	 * XkbSingleXIId(i) True if 'i' specifies exactly one device identifier, including the default.
+	 * XkbSingleXIId(i) True if 'i' specifies exactly one device identifier, including the default.</p>
 	 */
 	public static final int
 		XkbUseCoreKbd   = 0x100,

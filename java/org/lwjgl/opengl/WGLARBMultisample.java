@@ -7,10 +7,10 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">WGL_ARB_multisample</a> extension.
- * <p/>
- * See {@link ARBMultisample} for details.
- * <p/>
- * Requires {@link WGLEXTExtensionsString WGL_EXT_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.
+ * 
+ * <p>See {@link ARBMultisample} for details.</p>
+ * 
+ * <p>Requires {@link WGLEXTExtensionsString WGL_EXT_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.</p>
  */
 public final class WGLARBMultisample {
 

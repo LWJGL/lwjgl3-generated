@@ -15,18 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/window_pos.txt">ARB_window_pos</a> extension.
- * <p/>
- * In order to set the current raster position to a specific window coordinate with the {@link GL11#glRasterPos2i RasterPos2i} command, the modelview matrix, projection matrix
+ * 
+ * <p>In order to set the current raster position to a specific window coordinate with the {@link GL11#glRasterPos2i RasterPos2i} command, the modelview matrix, projection matrix
  * and viewport must be set very carefully. Furthermore, if the desired window coordinate is outside of the window's bounds one must rely on a subtle
- * side-effect of the {@link GL11#glBitmap Bitmap} command in order to avoid frustum clipping.
- * <p/>
- * This extension provides a set of functions to directly set the current raster position in window coordinates, bypassing the modelview matrix, the
- * projection matrix and the viewport-to-window mapping. Furthermore, clip testing is not performed, so that the current raster position is always valid.
- * <p/>
- * This greatly simplifies the process of setting the current raster position to a specific window coordinate prior to calling {@link GL11#glDrawPixels DrawPixels},
- * {@link GL11#glCopyPixels CopyPixels} or {@link GL11#glBitmap Bitmap}. Many matrix operations can be avoided when mixing 2D and 3D rendering.
- * <p/>
- * Promoted to core in {@link GL14 OpenGL 1.4}.
+ * side-effect of the {@link GL11#glBitmap Bitmap} command in order to avoid frustum clipping.</p>
+ * 
+ * <p>This extension provides a set of functions to directly set the current raster position in window coordinates, bypassing the modelview matrix, the
+ * projection matrix and the viewport-to-window mapping. Furthermore, clip testing is not performed, so that the current raster position is always valid.</p>
+ * 
+ * <p>This greatly simplifies the process of setting the current raster position to a specific window coordinate prior to calling {@link GL11#glDrawPixels DrawPixels},
+ * {@link GL11#glCopyPixels CopyPixels} or {@link GL11#glBitmap Bitmap}. Many matrix operations can be avoided when mixing 2D and 3D rendering.</p>
+ * 
+ * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
 public final class ARBWindowPos {
 

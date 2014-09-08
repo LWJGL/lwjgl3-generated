@@ -12,23 +12,23 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a> extension.
- * <p/>
- * A common use case in GL for some applications is to be able to draw the same object, or groups of similar objects that share vertex data, primitive
+ * 
+ * <p>A common use case in GL for some applications is to be able to draw the same object, or groups of similar objects that share vertex data, primitive
  * count and type, multiple times. This extension provides a means of accelerating such use cases while restricting the number of API calls, and keeping
- * the amount of duplicate data to a minimum.
- * <p/>
- * In particular, this extension specifies an alternative to the read-only shader variable introduced by ARB_draw_instanced. It uses the same draw calls
- * introduced by that extension, but redefines them so that a vertex shader can instead use vertex array attributes as a source of instance data.
- * <p/>
- * This extension introduces an array "divisor" for generic vertex array attributes, which when non-zero specifies that the attribute is "instanced". An
- * instanced attribute does not advance per-vertex as usual, but rather after every <divisor> conceptual draw calls.
- * <p/>
- * (Attributes which aren't instanced are repeated in their entirety for every conceptual draw call.)
- * <p/>
- * By specifying transform data in an instanced attribute or series of instanced attributes, vertex shaders can, in concert with the instancing draw calls,
- * draw multiple instances of an object with one draw call.
- * <p/>
- * Promoted to core in {@link GL33 OpenGL 3.3}.
+ * the amount of duplicate data to a minimum.</p>
+ * 
+ * <p>In particular, this extension specifies an alternative to the read-only shader variable introduced by ARB_draw_instanced. It uses the same draw calls
+ * introduced by that extension, but redefines them so that a vertex shader can instead use vertex array attributes as a source of instance data.</p>
+ * 
+ * <p>This extension introduces an array "divisor" for generic vertex array attributes, which when non-zero specifies that the attribute is "instanced". An
+ * instanced attribute does not advance per-vertex as usual, but rather after every <divisor> conceptual draw calls.</p>
+ * 
+ * <p>(Attributes which aren't instanced are repeated in their entirety for every conceptual draw call.)</p>
+ * 
+ * <p>By specifying transform data in an instanced attribute or series of instanced attributes, vertex shaders can, in concert with the instancing draw calls,
+ * draw multiple instances of an object with one draw call.</p>
+ * 
+ * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
 public final class ARBInstancedArrays {
 

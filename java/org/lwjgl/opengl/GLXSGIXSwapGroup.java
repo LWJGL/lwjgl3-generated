@@ -14,11 +14,11 @@ import org.lwjgl.system.linux.X;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/swap_group.txt">GLX_SGIX_swap_group</a> extension.
- * <p/>
- * This extension provides the capability to synchronize the buffer swaps of a group of GLX drawables.  A swap group is created, and drawables are added as
- * members to the swap group. Buffer swaps to members of the swap group will then take place concurrently.
- * <p/>
- * This extension extends the set of conditions that must be met before a buffer swap can take place.
+ * 
+ * <p>This extension provides the capability to synchronize the buffer swaps of a group of GLX drawables.  A swap group is created, and drawables are added as
+ * members to the swap group. Buffer swaps to members of the swap group will then take place concurrently.</p>
+ * 
+ * <p>This extension extends the set of conditions that must be met before a buffer swap can take place.</p>
  */
 public final class GLXSGIXSwapGroup {
 

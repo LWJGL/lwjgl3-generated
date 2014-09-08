@@ -7,10 +7,10 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/glx_create_context.txt">GLX_ARB_create_context_profile</a> extension.
- * <p/>
- * Adds an attribute to {@link GLXARBCreateContext}, specifying the GL profile requested for a context of OpenGL 3.2 or later.
- * <p/>
- * Requires {@link GLX14 GLX 1.4} and {@link GL32 OpenGL 3.2}.
+ * 
+ * <p>Adds an attribute to {@link GLXARBCreateContext}, specifying the GL profile requested for a context of OpenGL 3.2 or later.</p>
+ * 
+ * <p>Requires {@link GLX14 GLX 1.4} and {@link GL32 OpenGL 3.2}.</p>
  */
 public final class GLXARBCreateContextProfile {
 

@@ -14,9 +14,9 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/swap_control.txt">GLX_EXT_swap_control</a> extension.
- * <p/>
- * This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods, for a particular drawable.
- * It also allows an application to query the swap interval and the implementation-dependent maximum swap interval of a drawable.
+ * 
+ * <p>This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods, for a particular drawable.
+ * It also allows an application to query the swap interval and the implementation-dependent maximum swap interval of a drawable.</p>
  */
 public final class GLXEXTSwapControl {
 

@@ -16,8 +16,8 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * The core OpenGL 4.0 functionality. OpenGL 4.0 implementations support revision 4.00 of the OpenGL Shading Language.
- * <p/>
- * Extensions promoted to core in this release:
+ * 
+ * <p>Extensions promoted to core in this release:
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_query_lod.txt">ARB_texture_query_lod</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/draw_buffers_blend.txt">ARB_draw_buffers_blend</a></li>
@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_gather.txt">ARB_texture_gather</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/transform_feedback2.txt">ARB_transform_feedback2</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/transform_feedback3.txt">ARB_transform_feedback3</a></li>
- * </ul>
+ * </ul></p>
  */
 public final class GL40 {
 
@@ -331,12 +331,12 @@ public final class GL40 {
 	public static native void nglBlendEquationi(int buf, int mode, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the given draw buffer.
 	 *
 	 * @param buf  the index of the draw buffer for which to set the blend equation
-	 * @param mode how source and destination colors are combined. One of:<p/>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
+	 * @param mode how source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationi;
@@ -352,13 +352,13 @@ public final class GL40 {
 	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Sets the RGB blend equation and the alpha blend equation separately for the given draw buffer.
 	 *
 	 * @param buf       the index of the draw buffer for which to set the blend equations
-	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<p/>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
-	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined. One of:<p/>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
+	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
+	 * @param modeAlpha the alpha blend equation, how the alpha component of the source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparatei;
@@ -374,8 +374,8 @@ public final class GL40 {
 	public static native void nglBlendFunci(int buf, int sfactor, int dfactor, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies pixel arithmetic for the given draw buffer.
 	 *
 	 * @param buf     the index of the draw buffer for which to set the blend function
@@ -396,8 +396,8 @@ public final class GL40 {
 	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies pixel arithmetic for RGB and alpha components separately for the given draw buffer.
 	 *
 	 * @param buf      the index of the draw buffer for which to set the blend functions
@@ -429,14 +429,14 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Renders primitives from array data, taking parameters from memory.
-	 * <p/>
-	 * {@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
-	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.
-	 * <p/>
-	 * The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
+	 * 
+	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
+	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
 	 * <pre><code>
 	 * typedef struct {
 	 * 	uint count;
@@ -446,9 +446,9 @@ public final class GL40 {
 	 * } DrawArraysIndirectCommand;
 	 * 	
 	 * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
-	 * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
+	 * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre></p>
 	 *
-	 * @param mode     what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
 	 * @param indirect a structure containing the draw parameters
 	 */
 	public static void glDrawArraysIndirect(int mode, ByteBuffer indirect) {
@@ -491,14 +491,14 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElementsIndirect.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Renders indexed primitives from array data, taking parameters from memory.
-	 * <p/>
-	 * {@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
-	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.
-	 * <p/>
-	 * The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
+	 * 
+	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
+	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
+	 * 
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
 	 * <pre><code>
 	 * typedef struct {
 	 * 	uint count;
@@ -506,9 +506,9 @@ public final class GL40 {
 	 * 	uint firstIndex;
 	 * 	uint baseVertex;
 	 * 	uint baseInstance;
-	 * } DrawElementsIndirectCommand;</code></pre>
-	 * <p/>
-	 * {@code glDrawElementsIndirect} is equivalent to:
+	 * } DrawElementsIndirectCommand;</code></pre></p>
+	 * 
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:
 	 * <pre><code>
 	 * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
 	 * 	const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
@@ -521,10 +521,10 @@ public final class GL40 {
 	 * 		cmd->baseVertex,
 	 * 		cmd->baseInstance
 	 * 	);
-	 * }</code></pre>
+	 * }</code></pre></p>
 	 *
-	 * @param mode     what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
-	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param indirect the address of a structure containing the draw parameters
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, ByteBuffer indirect) {
@@ -558,8 +558,8 @@ public final class GL40 {
 	public static native void nglUniform1d(int location, double x, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a double uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -579,8 +579,8 @@ public final class GL40 {
 	public static native void nglUniform2d(int location, double x, double y, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -601,8 +601,8 @@ public final class GL40 {
 	public static native void nglUniform3d(int location, double x, double y, double z, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -624,8 +624,8 @@ public final class GL40 {
 	public static native void nglUniform4d(int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a dvec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -657,8 +657,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -692,8 +692,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -727,8 +727,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -762,8 +762,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
@@ -797,8 +797,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -833,8 +833,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -869,8 +869,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -905,8 +905,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -941,8 +941,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -977,8 +977,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -1013,8 +1013,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -1049,8 +1049,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -1085,8 +1085,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -1121,8 +1121,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Returns the double value(s) of a uniform variable.
 	 *
 	 * @param program  the program object to be queried
@@ -1157,8 +1157,8 @@ public final class GL40 {
 	public static native void nglMinSampleShading(float value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the minimum rate at which sample shading takes place.
 	 *
 	 * @param value the rate at which samples are shaded within each covered pixel
@@ -1186,12 +1186,12 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineUniformLocation.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
 	 *
 	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param name       the name of the subroutine uniform whose index to query.
 	 */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, ByteBuffer name) {
@@ -1222,12 +1222,12 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSubroutineIndex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the index of a subroutine function of a given shader stage within a program.
 	 *
 	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for subroutine function index. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query for subroutine function index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param name       the name of the subroutine function whose index to query
 	 */
 	public static int glGetSubroutineIndex(int program, int shadertype, ByteBuffer name) {
@@ -1258,14 +1258,14 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries a property of an active shader subroutine uniform.
 	 *
 	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
-	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<p/>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
+	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
 	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
 	public static void glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname, ByteBuffer values) {
@@ -1305,12 +1305,12 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineUniformName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries the name of an active shader subroutine uniform.
 	 *
 	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
 	 * @param bufsize    the size of the buffer whose address is given in {@code name}
 	 * @param length     the address of a variable into which is written the number of characters copied into {@code name}
@@ -1366,12 +1366,12 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveSubroutineName.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries the name of an active shader subroutine.
 	 *
 	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query the subroutine name. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param index      the index of the shader subroutine uniform
 	 * @param bufsize    the size of the buffer whose address is given in {@code name}
 	 * @param length     a variable which is to receive the length of the shader subroutine uniform name
@@ -1427,11 +1427,11 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformSubroutines.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Loads active subroutine uniforms.
 	 *
-	 * @param shadertype the shader stage to update. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage to update. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param count      the number of uniform indices stored in {@code indices}
 	 * @param indices    an array holding the indices to load into the shader subroutine variables
 	 */
@@ -1469,11 +1469,11 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformSubroutine.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
 	 *
-	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param location   the location of the subroutine uniform
 	 * @param params     a variable to receive the value or values of the subroutine uniform
 	 */
@@ -1514,13 +1514,13 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramStage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Retrieves properties of a program object corresponding to a specified shader stage.
 	 *
 	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<p/>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
-	 * @param pname      the parameter of the shader to query. One of:<p/>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
+	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link #GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link #GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
+	 * @param pname      the parameter of the shader to query. One of:<br>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
 	 * @param values     a variable into which the queried value or values will be placed
 	 */
 	public static void glGetProgramStagei(int program, int shadertype, int pname, ByteBuffer values) {
@@ -1551,11 +1551,11 @@ public final class GL40 {
 	public static native void nglPatchParameteri(int pname, int value, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the integer value of the given parameter for patch primitives.
 	 *
-	 * @param pname the name of the parameter to set. Must be:<p/>{@link #GL_PATCH_VERTICES PATCH_VERTICES}
+	 * @param pname the name of the parameter to set. Must be:<br>{@link #GL_PATCH_VERTICES PATCH_VERTICES}
 	 * @param value the new value for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameteri(int pname, int value) {
@@ -1581,11 +1581,11 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies an array of float values for the given parameter for patch primitives.
 	 *
-	 * @param pname  the name of the parameter to set. One of:<p/>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
+	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameterf(int pname, ByteBuffer values) {
@@ -1610,11 +1610,11 @@ public final class GL40 {
 	public static native void nglBindTransformFeedback(int target, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Binds a transform feedback object.
 	 *
-	 * @param target the target to which to bind the transform feedback object {@code id}. Must be:<p/>{@link #GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
+	 * @param target the target to which to bind the transform feedback object {@code id}. Must be:<br>{@link #GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}
 	 * @param id     the name of a transform feedback object
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
@@ -1640,8 +1640,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Deletes transform feedback objects.
 	 *
 	 * @param n   the number of transform feedback objects to delete
@@ -1681,8 +1681,8 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Reserves transform feedback object names.
 	 *
 	 * @param n   the number of transform feedback object names to reserve
@@ -1714,8 +1714,8 @@ public final class GL40 {
 	public static native boolean nglIsTransformFeedback(int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Determines if a name corresponds to a transform feedback object.
 	 *
 	 * @param id a value that may be the name of a transform feedback object
@@ -1734,11 +1734,11 @@ public final class GL40 {
 	public static native void nglDrawTransformFeedback(int mode, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Render primitives using a count derived from a transform feedback object.
 	 *
-	 * @param mode what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param mode what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
 	 * @param id   the name of a transform feedback object from which to retrieve a primitive count
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
@@ -1755,11 +1755,11 @@ public final class GL40 {
 	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Renders primitives using a count derived from a specifed stream of a transform feedback object.
 	 *
-	 * @param mode   what kind of primitives to render. One of:<p/>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
+	 * @param mode   what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link #GL_PATCHES PATCHES}
 	 * @param id     the name of a transform feedback object from which to retrieve a primitive count
 	 * @param stream the index of the transform feedback stream from which to retrieve a primitive count
 	 */
@@ -1777,11 +1777,11 @@ public final class GL40 {
 	public static native void nglBeginQueryIndexed(int target, int index, int id, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Begins a query object on an indexed target
 	 *
-	 * @param target the target type of query object established between {@code glBeginQueryIndexed} and the subsequent {@link #glEndQueryIndexed EndQueryIndexed}. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the target type of query object established between {@code glBeginQueryIndexed} and the subsequent {@link #glEndQueryIndexed EndQueryIndexed}. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param index  the index of the query target upon which to begin the query
 	 * @param id     the name of a query object
 	 */
@@ -1799,11 +1799,11 @@ public final class GL40 {
 	public static native void nglEndQueryIndexed(int target, int index, long __functionAddress);
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Ends a query object on an indexed target
 	 *
-	 * @param target the target type of query object to be concluded. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the target type of query object to be concluded. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param index  the index of the query target upon which to end the query
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
@@ -1829,11 +1829,11 @@ public final class GL40 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Returns parameters of an indexed query object target.
 	 *
-	 * @param target a query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target a query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param index  the index of the query object target
 	 * @param pname  the symbolic name of a query object target parameter
 	 * @param params the requested data

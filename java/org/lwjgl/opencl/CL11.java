@@ -144,26 +144,26 @@ public final class CL11 {
 
 	/**
 	 * Creates a new buffer object (referred to as a sub-buffer object) from an existing buffer object.
-	 * <p/>
-	 * <strong>NOTE</strong>: Concurrent reading from, writing to and copying between both a buffer object and its sub-buffer object(s) is undefined.
+	 * 
+	 * <p><strong>NOTE</strong>: Concurrent reading from, writing to and copying between both a buffer object and its sub-buffer object(s) is undefined.
 	 * Concurrent reading from, writing to and copying between overlapping sub-buffer objects created with the same buffer object is undefined. Only reading
-	 * from both a buffer object and its sub-buffer objects or reading from multiple overlapping sub-buffer objects is defined.
+	 * from both a buffer object and its sub-buffer objects or reading from multiple overlapping sub-buffer objects is defined.</p>
 	 *
 	 * @param buffer             a valid buffer object and cannot be a sub-buffer object
 	 * @param flags              a bit-field that is used to specify allocation and usage information about the sub-buffer memory object being created.
-	 *                           <p/>
-	 *                           If the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} values are not specified in flags, they are
+	 *                           
+	 *                           <p>If the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} values are not specified in flags, they are
 	 *                           inherited from the corresponding memory access qualifers associated with buffer. The {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}
 	 *                           and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in flags but are inherited from the corresponding memory access qualifiers
 	 *                           associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the memory access qualifier values associated with buffer it does not
 	 *                           imply any additional copies when the sub-buffer is created from buffer. If the {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}
 	 *                           or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in flags, they are inherited from the corresponding memory access qualifiers
-	 *                           associated with buffer.
-	 * @param buffer_create_type the type of buffer object to be created. Must be:<p/>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}
+	 *                           associated with buffer.</p>
+	 * @param buffer_create_type the type of buffer object to be created. Must be:<br>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}
 	 * @param buffer_create_info details about the buffer object to be created.
-	 *                           <p/>
-	 *                           When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link cl_buffer_region}
-	 *                           structure. {@code (origin, size)} defines the offset and size in bytes in buffer.
+	 *                           
+	 *                           <p>When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link cl_buffer_region}
+	 *                           structure. {@code (origin, size)} defines the offset and size in bytes in buffer.</p>
 	 * @param errcode_ret        will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors in {@code errcode_ret}:
@@ -266,8 +266,8 @@ public final class CL11 {
 
 	/**
 	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
+	 * 
+	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
 	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
 	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:
 	 * <ul>
@@ -275,19 +275,19 @@ public final class CL11 {
 	 * read command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
 	 * @param blocking_read           indicates if the read operation is <em>blocking</em> or <em>nonblocking</em>.
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
-	 *                                been read and copied into memory pointed to by {@code ptr}.
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
+	 *                                been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
 	 *                                returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
 	 *                                returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
-	 *                                the buffer that {@code ptr} points to can be used by the application.
+	 *                                the buffer that {@code ptr} points to can be used by the application.</p>
 	 * @param buffer_offset           the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
 	 *                                should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
 	 * @param host_offset             the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
@@ -423,8 +423,8 @@ public final class CL11 {
 
 	/**
 	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
 	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
 	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
 	 * behavior:
@@ -432,19 +432,19 @@ public final class CL11 {
 	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
 	 * @param blocking_write          indicates if the write operation is <em>blocking</em> or <em>nonblocking</em>.
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
-	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.</p>
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
 	 *                                the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
 	 *                                {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
-	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.
+	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
 	 * @param buffer_offset           the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
 	 *                                should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
 	 * @param host_offset             the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
@@ -585,9 +585,9 @@ public final class CL11 {
 	 * description for {@code src_origin} and {@code dst_origin}. Each byte of the region's width is copied from the source offset to the destination offset.
 	 * After copying each width, the source and destination offsets are incremented by their respective source and destination row pitches. After copying each
 	 * 2D rectangle, the source and destination offsets are incremented by their respective source and destination slice pitches.
-	 * <p/>
-	 * <strong>NOTE</strong>: If {@code src_buffer} and {@code dst_buffer} are the same buffer object, {@code src_row_pitch} must equal {@code dst_row_pitch}
-	 * and {@code src_slice_pitch} must equal {@code dst_slice_pitch}.
+	 * 
+	 * <p><strong>NOTE</strong>: If {@code src_buffer} and {@code dst_buffer} are the same buffer object, {@code src_row_pitch} must equal {@code dst_row_pitch}
+	 * and {@code src_slice_pitch} must equal {@code dst_slice_pitch}.</p>
 	 *
 	 * @param command_queue           the command-queue in which the copy command will be queued. The OpenCL context associated with {@code command_queue}, {@code src_buffer} and
 	 *                                {@code dst_buffer} must be the same.
@@ -688,8 +688,8 @@ public final class CL11 {
 	/**
 	 * Creates a user event object. User events allow applications to enqueue commands that wait on a user event to finish before the command is executed by
 	 * the device.
-	 * <p/>
-	 * The execution status of the user event object created is set to {@link CL10#CL_SUBMITTED SUBMITTED}.
+	 * 
+	 * <p>The execution status of the user event object created is set to {@link CL10#CL_SUBMITTED SUBMITTED}.</p>
 	 *
 	 * @param context     a valid OpenCL context
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
@@ -723,12 +723,12 @@ public final class CL11 {
 
 	/**
 	 * Sets the execution status of a user event object.
-	 * <p/>
-	 * <strong>NOTE</strong>: Enqueued commands that specify user events in the {@code event_wait_list} argument of {@code clEnqueue***} commands must ensure
+	 * 
+	 * <p><strong>NOTE</strong>: Enqueued commands that specify user events in the {@code event_wait_list} argument of {@code clEnqueue***} commands must ensure
 	 * that the status of these user events being waited on are set using {@code clSetUserEventStatus} before any OpenCL APIs that release OpenCL objects
-	 * except for event objects are called; otherwise the behavior is undefined.
-	 * <p/>
-	 * For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.
+	 * except for event objects are called; otherwise the behavior is undefined.</p>
+	 * 
+	 * <p>For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.
 	 * <pre><code>
 	 * ev1 = clCreateUserEvent(ctx, NULL);
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
@@ -741,7 +741,7 @@ public final class CL11 {
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
 	 * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
 	 * clSetUserEventStatus(ev1, CL_COMPLETE);
-	 * clReleaseMemObject(buf2);</code></pre>
+	 * clReleaseMemObject(buf2);</code></pre></p>
 	 *
 	 * @param event            a user event object created using {@link #clCreateUserEvent CreateUserEvent}
 	 * @param execution_status the new execution status to be set and can be {@link CL10#CL_COMPLETE COMPLETE} or a negative integer value to indicate an error. A negative integer value
@@ -775,11 +775,11 @@ public final class CL11 {
 	/**
 	 * Registers a user callback function for a specific command execution status. The registered callback function will be called when the execution status of
 	 * command associated with event changes to an execution status equal to or past the status specified by {@code command_exec_status}.
-	 * <p/>
-	 * Each call to {@code clSetEventCallback} registers the specified user callback function on a callback stack associated with event. The order in which the
-	 * registered user callback functions are called is undefined.
-	 * <p/>
-	 * All callbacks registered for an event object must be called. All enqueued callbacks shall be called before the event object is destroyed. Callbacks must
+	 * 
+	 * <p>Each call to {@code clSetEventCallback} registers the specified user callback function on a callback stack associated with event. The order in which the
+	 * registered user callback functions are called is undefined.</p>
+	 * 
+	 * <p>All callbacks registered for an event object must be called. All enqueued callbacks shall be called before the event object is destroyed. Callbacks must
 	 * return promptly. The behavior of calling expensive system routines, OpenCL API calls to create contexts or command-queues, or blocking OpenCL operations
 	 * from the following list below, in a callback is undefined.
 	 * <ul>
@@ -794,14 +794,14 @@ public final class CL11 {
 	 * assign a completion callback to it to do the remainder of your work. Note that when a callback (or other code) enqueues commands to a command-queue, the
 	 * commands are not required to begin execution until the queue is flushed. In standard usage, blocking enqueue calls serve this role by implicitly
 	 * flushing the queue. Since blocking calls are not permitted in callbacks, those callbacks that enqueue commands on a command queue should either call
-	 * {@link CL10#clFlush Flush} on the queue before returning or arrange for {@link CL10#clFlush Flush} to be called later on another thread.
+	 * {@link CL10#clFlush Flush} on the queue before returning or arrange for {@link CL10#clFlush Flush} to be called later on another thread.</p>
 	 *
 	 * @param event                      a valid event object
 	 * @param command_exec_callback_type the command execution status for which the callback is registered. There is no guarantee that the callback functions registered for various
 	 *                                   execution status values for an event will be called in the exact order that the execution status of a command changes. Furthermore, it should be
 	 *                                   noted that receiving a call back for an event with a status other than {@link CL10#CL_COMPLETE COMPLETE}, in no way implies that the memory model or
 	 *                                   execution model as defined by the OpenCL specification has changed. For example, it is not valid to assume that a corresponding memory transfer has
-	 *                                   completed unless the event is in a state {@link CL10#CL_COMPLETE COMPLETE}. One of:<p/>{@link CL10#CL_SUBMITTED SUBMITTED}, {@link CL10#CL_RUNNING RUNNING}, {@link CL10#CL_COMPLETE COMPLETE}
+	 *                                   completed unless the event is in a state {@link CL10#CL_COMPLETE COMPLETE}. One of:<br>{@link CL10#CL_SUBMITTED SUBMITTED}, {@link CL10#CL_RUNNING RUNNING}, {@link CL10#CL_COMPLETE COMPLETE}
 	 * @param pfn_notify                 the event callback function that can be registered by the application. This callback function may be called asynchronously by the OpenCL
 	 *                                   implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
 	 * @param user_data                  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.

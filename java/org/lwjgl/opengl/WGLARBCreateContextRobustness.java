@@ -7,10 +7,10 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_create_context_robustness.txt">WGL_ARB_create_context_robustness</a> extension.
- * <p/>
- * This extension allows creating an OpenGL context supporting robust buffer access behavior and a specified graphics reset notification behavior.
- * <p/>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBCreateContext WGL_ARB_create_context} and {@link ARBRobustness ARB_robustness}.
+ * 
+ * <p>This extension allows creating an OpenGL context supporting robust buffer access behavior and a specified graphics reset notification behavior.</p>
+ * 
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBCreateContext WGL_ARB_create_context} and {@link ARBRobustness ARB_robustness}.</p>
  */
 public final class WGLARBCreateContextRobustness {
 

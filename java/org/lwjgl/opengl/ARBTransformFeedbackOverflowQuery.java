@@ -7,11 +7,11 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transform_feedback_overflow_query.txt">ARB_transform_feedback_overflow_query</a> extension.
- * <p/>
- * This extension adds new query types which can be used to detect overflow of transform feedback buffers. The new query types are also accepted by
- * conditional rendering commands.
- * <p/>
- * Requires {@link GL30 OpenGL 3.0}.
+ * 
+ * <p>This extension adds new query types which can be used to detect overflow of transform feedback buffers. The new query types are also accepted by
+ * conditional rendering commands.</p>
+ * 
+ * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
 public final class ARBTransformFeedbackOverflowQuery {
 

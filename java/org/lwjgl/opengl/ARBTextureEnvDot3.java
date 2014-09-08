@@ -7,10 +7,10 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_env_dot3.txt">ARB_texture_env_dot3</a> extension.
- * <p/>
- * Adds new dot product operation to the texture combiner operations.
- * <p/>
- * Requires {@link ContextCapabilities#GL_ARB_multitexture} and {@link ARBTextureEnvCombine ARB_texture_env_combine}. Promoted to core in {@link GL13 OpenGL 1.3}.
+ * 
+ * <p>Adds new dot product operation to the texture combiner operations.</p>
+ * 
+ * <p>Requires {@link ContextCapabilities#GL_ARB_multitexture} and {@link ARBTextureEnvCombine ARB_texture_env_combine}. Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
 public final class ARBTextureEnvDot3 {
 

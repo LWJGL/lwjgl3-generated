@@ -7,38 +7,38 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/fragment_program.txt">ARB_fragment_program</a> extension.
- * <p/>
- * Unextended OpenGL mandates a certain set of configurable per- fragment computations defining texture application, texture environment, color sum, and
+ * 
+ * <p>Unextended OpenGL mandates a certain set of configurable per- fragment computations defining texture application, texture environment, color sum, and
  * fog operations. Several extensions have added further per-fragment computations to OpenGL. For example, extensions have defined new texture environment
  * capabilities ({@link  ARB_texture_env_add}, {@link ARBTextureEnvCombine ARB_texture_env_combine}, {@link ARBTextureEnvDot3 ARB_texture_env_dot3}, {@link  ARB_texture_env_crossbar}),
  * per-fragment depth comparisons ({@link ARBDepthTexture ARB_depth_texture}, {@link ARBShadow ARB_shadow}, {@link ARBShadowAmbient ARB_shadow_ambient}, {@link  EXT_shadow_funcs}),
  * per-fragment lighting (<a href="http://www.opengl.org/registry/specs/EXT/fragment_lighting.txt">EXT_fragment_lighting</a>, <a href="http://www.opengl.org/registry/specs/EXT/light_texture.txt">EXT_light_texture</a>), and environment mapped bump
- * mapping (<a href="http://www.opengl.org/registry/specs/ATI/envmap_bumpmap.txt">ATI_envmap_bumpmap</a>).
- * <p/>
- * Each such extension adds a small set of relatively inflexible per-fragment computations.
- * <p/>
- * This inflexibility is in contrast to the typical flexibility provided by the underlying programmable floating point engines (whether micro-coded
+ * mapping (<a href="http://www.opengl.org/registry/specs/ATI/envmap_bumpmap.txt">ATI_envmap_bumpmap</a>).</p>
+ * 
+ * <p>Each such extension adds a small set of relatively inflexible per-fragment computations.</p>
+ * 
+ * <p>This inflexibility is in contrast to the typical flexibility provided by the underlying programmable floating point engines (whether micro-coded
  * fragment engines, DSPs, or CPUs) that are traditionally used to implement OpenGL's texturing computations. The purpose of this extension is to expose to
- * the OpenGL application writer a significant degree of per-fragment programmability for computing fragment parameters.
- * <p/>
- * For the purposes of discussing this extension, a fragment program is a sequence of floating-point 4-component vector operations that determines how a
+ * the OpenGL application writer a significant degree of per-fragment programmability for computing fragment parameters.</p>
+ * 
+ * <p>For the purposes of discussing this extension, a fragment program is a sequence of floating-point 4-component vector operations that determines how a
  * set of program parameters (not specific to an individual fragment) and an input set of per-fragment parameters are transformed to a set of per-fragment
- * result parameters.
- * <p/>
- * The per-fragment computations for standard OpenGL given a particular set of texture and fog application modes (along with any state for extensions
+ * result parameters.</p>
+ * 
+ * <p>The per-fragment computations for standard OpenGL given a particular set of texture and fog application modes (along with any state for extensions
  * defining per-fragment computations) is, in essence, a fragment program. However, the sequence of operations is defined implicitly by the current OpenGL
- * state settings rather than defined explicitly as a sequence of instructions.
- * <p/>
- * This extension provides an explicit mechanism for defining fragment program instruction sequences for application-defined fragment programs. In order to
+ * state settings rather than defined explicitly as a sequence of instructions.</p>
+ * 
+ * <p>This extension provides an explicit mechanism for defining fragment program instruction sequences for application-defined fragment programs. In order to
  * define such fragment programs, this extension defines a fragment programming model including a floating-point 4-component vector instruction set and a
- * relatively large set of floating-point 4-component registers.
- * <p/>
- * The extension's fragment programming model is designed for efficient hardware implementation and to support a wide variety of fragment programs. By
+ * relatively large set of floating-point 4-component registers.</p>
+ * 
+ * <p>The extension's fragment programming model is designed for efficient hardware implementation and to support a wide variety of fragment programs. By
  * design, the entire set of existing fragment programs defined by existing OpenGL per-fragment computation extensions can be implemented using the
- * extension's fragment programming model.
- * <p/>
- * <b>LWJGL</b>: This extension defines many functions and tokens that are also defined in {@link ARBVertexProgram ARB_vertex_program}. Since these two extensions are often
- * used together, the common functionality has only been exposed by {@link ARBVertexProgram ARB_vertex_program}, to avoid static import conflicts.
+ * extension's fragment programming model.</p>
+ * 
+ * <p><b>LWJGL</b>: This extension defines many functions and tokens that are also defined in {@link ARBVertexProgram ARB_vertex_program}. Since these two extensions are often
+ * used together, the common functionality has only been exposed by {@link ARBVertexProgram ARB_vertex_program}, to avoid static import conflicts.</p>
  */
 public final class ARBFragmentProgram {
 

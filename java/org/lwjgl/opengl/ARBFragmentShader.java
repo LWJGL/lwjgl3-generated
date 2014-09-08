@@ -7,14 +7,14 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/fragment_shader.txt">ARB_fragment_shader</a> extension.
- * <p/>
- * This extension adds functionality to define fragment shader objects. A fragment shader object is a shader object (see the ARB_shader_objects extension)
+ * 
+ * <p>This extension adds functionality to define fragment shader objects. A fragment shader object is a shader object (see the ARB_shader_objects extension)
  * that, when attached to a program object, can be compiled and linked to produce an executable that runs on the fragment processor in OpenGL. The fragment
  * processor is a programmable unit that replaces the OpenGL 1.4 fixed-function texturing, color sum and fog stages. This extension also defines how such
  * an executable interacts with the fixed functionality fragment processing of OpenGL 1.4. The language is defined in the OpenGL Shading Language
- * specification as the Fragment Shading Language.
- * <p/>
- * Promoted to core in {@link GL20 OpenGL 2.0}.
+ * specification as the Fragment Shading Language.</p>
+ * 
+ * <p>Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
 public final class ARBFragmentShader {
 

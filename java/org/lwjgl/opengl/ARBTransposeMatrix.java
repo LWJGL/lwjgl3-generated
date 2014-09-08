@@ -15,16 +15,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transpose_matrix.txt">ARB_transpose_matrix</a> extension.
- * <p/>
- * New functions and tokens are added allowing application matrices stored in row major order rather than column major order to be transferred to the
+ * 
+ * <p>New functions and tokens are added allowing application matrices stored in row major order rather than column major order to be transferred to the
  * OpenGL implementation. This allows an application to use standard C-language 2-dimensional arrays ({@code m[row][col]}) and have the array indices match the
  * expected matrix row and column indexes. These arrays are referred to as transpose matrices since they are the transpose of the standard matrices passed
- * to OpenGL.
- * <p/>
- * This extension adds an interface for transfering data to and from the OpenGL pipeline, it does not change any OpenGL processing or imply any changes in
- * state representation.
- * <p/>
- * Promoted to core in {@link GL13 OpenGL 1.3}.
+ * to OpenGL.</p>
+ * 
+ * <p>This extension adds an interface for transfering data to and from the OpenGL pipeline, it does not change any OpenGL processing or imply any changes in
+ * state representation.</p>
+ * 
+ * <p>Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
 public final class ARBTransposeMatrix {
 
@@ -87,14 +87,14 @@ public final class ARBTransposeMatrix {
 
 	/**
 	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
-	 * <p/>
-	 * The matrix is stored as 16 consecutive values, i.e. as:
+	 * 
+	 * <p>The matrix is stored as 16 consecutive values, i.e. as:
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
 	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
 	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
 	 * <tr><td>a13</td><td>a14</td><td>a15</td><td>a16</td></tr>
-	 * </table>
+	 * </table></p>
 	 *
 	 * @param m the matrix data
 	 */

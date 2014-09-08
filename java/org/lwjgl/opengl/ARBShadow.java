@@ -7,13 +7,13 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shadow.txt">ARB_shadow</a> extension.
- * <p/>
- * This extension supports comparing the texture R coordinate to a depth texture value in order to produce a boolean texture value. This can be used to
- * implement shadow maps.
- * <p/>
- * The extension is written in generic terms such that other texture comparison modes can be accommodated in the future.
- * <p/>
- * Requires {@link ARBDepthTexture ARB_depth_texture}. Promoted to core in {@link GL14 OpenGL 1.4}.
+ * 
+ * <p>This extension supports comparing the texture R coordinate to a depth texture value in order to produce a boolean texture value. This can be used to
+ * implement shadow maps.</p>
+ * 
+ * <p>The extension is written in generic terms such that other texture comparison modes can be accommodated in the future.</p>
+ * 
+ * <p>Requires {@link ARBDepthTexture ARB_depth_texture}. Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
 public final class ARBShadow {
 

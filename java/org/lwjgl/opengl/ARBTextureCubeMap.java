@@ -7,25 +7,25 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_cube_map.txt">ARB_texture_cube_map</a> extension.
- * <p/>
- * This extension provides a new texture generation scheme for cube map textures. Instead of the current texture providing a 1D, 2D, or 3D lookup into a
+ * 
+ * <p>This extension provides a new texture generation scheme for cube map textures. Instead of the current texture providing a 1D, 2D, or 3D lookup into a
  * 1D, 2D, or 3D texture image, the texture is a set of six 2D images representing the faces of a cube. The (s,t,r) texture coordinates are treated as a
  * direction vector emanating from the center of a cube. At texture generation time, the interpolated per-fragment (s,t,r) selects one cube face 2D image
  * based on the largest magnitude coordinate (the major axis). A new 2D (s,t) is calculated by dividing the two other coordinates (the minor axes values)
- * by the major axis value.  Then the new (s,t) is used to lookup into the selected 2D texture image face of the cube map.
- * <p/>
- * Unlike a standard 1D, 2D, or 3D texture that have just one target, a cube map texture has six targets, one for each of its six 2D texture image cube
- * faces. All these targets must be consistent, complete, and have equal width and height (ie, square dimensions).
- * <p/>
- * This extension also provides two new texture coordinate generation modes for use in conjunction with cube map texturing.  The reflection map mode
+ * by the major axis value.  Then the new (s,t) is used to lookup into the selected 2D texture image face of the cube map.</p>
+ * 
+ * <p>Unlike a standard 1D, 2D, or 3D texture that have just one target, a cube map texture has six targets, one for each of its six 2D texture image cube
+ * faces. All these targets must be consistent, complete, and have equal width and height (ie, square dimensions).</p>
+ * 
+ * <p>This extension also provides two new texture coordinate generation modes for use in conjunction with cube map texturing.  The reflection map mode
  * generates texture coordinates (s,t,r) matching the vertex's eye-space reflection vector. The reflection map mode is useful for environment mapping
  * without the singularity inherent in sphere mapping. The normal map mode generates texture coordinates (s,t,r) matching the vertex's transformed
- * eye-space normal. The normal map mode is useful for sophisticated cube map texturing-based diffuse lighting models.
- * <p/>
- * The intent of the new texgen functionality is that an application using cube map texturing can use the new texgen modes to automatically generate the
- * reflection or normal vectors used to look up into the cube map texture.
- * <p/>
- * Promoted to core in {@link GL13 OpenGL 1.3}.
+ * eye-space normal. The normal map mode is useful for sophisticated cube map texturing-based diffuse lighting models.</p>
+ * 
+ * <p>The intent of the new texgen functionality is that an application using cube map texturing can use the new texgen modes to automatically generate the
+ * reflection or normal vectors used to look up into the cube map texture.</p>
+ * 
+ * <p>Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
 public final class ARBTextureCubeMap {
 

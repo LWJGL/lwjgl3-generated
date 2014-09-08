@@ -9,13 +9,13 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/visual_rating.txt">GLX_EXT_visual_info</a> extension.
- * <p/>
- * This extension allows the user to request a particular X visual type to be associated with a GLX visual, and allows the user to query the X visual type
- * underlying a GLX visual.
- * <p/>
- * In addition, this extension provides a means to request a visual with a transparent pixel and to query whether a visual supports a transparent pixel
+ * 
+ * <p>This extension allows the user to request a particular X visual type to be associated with a GLX visual, and allows the user to query the X visual type
+ * underlying a GLX visual.</p>
+ * 
+ * <p>In addition, this extension provides a means to request a visual with a transparent pixel and to query whether a visual supports a transparent pixel
  * value and the value of the transparent pixel. Note that the notion of level and transparent pixels are orthogonal as both layer 1 and layer 0 visuals
- * may or may not have a transparent pixel value.
+ * may or may not have a transparent pixel value.</p>
  */
 public final class GLXEXTVisualInfo {
 

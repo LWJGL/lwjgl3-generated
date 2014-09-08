@@ -9,14 +9,14 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/visual_info.txt">GLX_EXT_visual_rating</a> extension.
- * <p/>
- * This extension allows servers to identify a particular GLX visual as undesirable. A new visual attribute is introduced, providing a way for servers to
+ * 
+ * <p>This extension allows servers to identify a particular GLX visual as undesirable. A new visual attribute is introduced, providing a way for servers to
  * specify caveats (e.g., slow) for a visual. The attribute  may be queried using {@link GLX#glXGetConfig GetConfig}, and can therefore be used by
  * application-specific visual selection routines. The new attribute is also used by {@link GLX#glXChooseVisual ChooseVisual} to discriminate against visuals with
- * caveats.
- * <p/>
- * This extension allows servers to export visuals with improved features or image quality, but lower performance or greater system burden, without having
- * to have these visuals selected preferentially.  It is intended to insure that most applications get the "right" visual, not that all applications do.
+ * caveats.</p>
+ * 
+ * <p>This extension allows servers to export visuals with improved features or image quality, but lower performance or greater system burden, without having
+ * to have these visuals selected preferentially.  It is intended to insure that most applications get the "right" visual, not that all applications do.</p>
  */
 public final class GLXEXTVisualRating {
 

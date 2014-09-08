@@ -12,17 +12,17 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <strong>khr_terminate_context</strong> extension.
- * <p/>
- * OpenCL provides an API to release a context. This operation is done only after all queues, memory object, programs and kernels are released, which in
+ * 
+ * <p>OpenCL provides an API to release a context. This operation is done only after all queues, memory object, programs and kernels are released, which in
  * turn might wait for all ongoing operations to complete. However, there are cases in which a fast release is required, or release operation cannot be
  * done, as commands are stuck in mid execution. An example of the first case can be program termination due to exception, or quick shutdown due to low
  * power. Examples of the second case are when a kernel is running too long, or gets stuck, or it may result from user action which makes the results of
- * the computation unnecessary.
- * <p/>
- * In many cases, the driver or the device is capable of speeding up the closure of ongoing operations when the results are no longer required in a much
- * more expedient manner than waiting for all previously enqueued operations to finish.
- * <p/>
- * This extension implements a new query to check whether a device can terminate an OpenCL context and adds an API to terminate a context.
+ * the computation unnecessary.</p>
+ * 
+ * <p>In many cases, the driver or the device is capable of speeding up the closure of ongoing operations when the results are no longer required in a much
+ * more expedient manner than waiting for all previously enqueued operations to finish.</p>
+ * 
+ * <p>This extension implements a new query to check whether a device can terminate an OpenCL context and adds an API to terminate a context.</p>
  */
 public final class KHRTerminateContext {
 
@@ -72,8 +72,8 @@ public final class KHRTerminateContext {
 	/**
 	 * Terminates all pending work associated with the context and renders all data owned by the context invalid. It is the responsibility of the application
 	 * to release all objects associated with the context being terminated.
-	 * <p/>
-	 * When a context is terminated:
+	 * 
+	 * <p>When a context is terminated:
 	 * <ul>
 	 * <li>The execution status of enqueued commands will be {@link #CL_TERMINATED_KHR TERMINATED_KHR}. Event objects can be queried using {@link CL10#clGetEventInfo GetEventInfo}. Event
 	 * callbacks can be registered and registered event callbacks will be called with {@code event_command_exec_status} set to {@link #CL_TERMINATED_KHR TERMINATED_KHR}.
@@ -87,7 +87,7 @@ public final class KHRTerminateContext {
 	 * that release OpenCL objects will continue to operate as though {@code clTerminateContextKHR} was not called.</li>
 	 * <li>The behavior of callbacks will remain unchanged, and will report appropriate error, if executing after termination of context. This behavior is
 	 * similar to enqueued commands, after the command queue has become invalid.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param context the context to terminate
 	 *

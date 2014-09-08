@@ -12,12 +12,12 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_buffer_region.txt">WGL_ARB_buffer_region</a> extension.
- * <p/>
- * The buffer region extension is a mechanism that allows an area of an OpenGL window to be saved in off-screen memory for quick restores. The off-screen
- * memory can either be frame buffer memory or system memory, although frame buffer memory might offer optimal performance.
- * <p/>
- * A buffer region can be created for the front color, back color, depth, and/or stencil buffer.  Multiple buffer regions for the same buffer type can
- * exist.
+ * 
+ * <p>The buffer region extension is a mechanism that allows an area of an OpenGL window to be saved in off-screen memory for quick restores. The off-screen
+ * memory can either be frame buffer memory or system memory, although frame buffer memory might offer optimal performance.</p>
+ * 
+ * <p>A buffer region can be created for the front color, back color, depth, and/or stencil buffer.  Multiple buffer regions for the same buffer type can
+ * exist.</p>
  */
 public final class WGLARBBufferRegion {
 
@@ -75,7 +75,7 @@ public final class WGLARBBufferRegion {
 	 * @param hdc        the device context for the device on which the buffer region is created
 	 * @param layerPlane the layer plane. Positive values identify overlay planes, negative values identify underlay planes. A value of 0 identifies the main plane.
 	 * @param type       a bitwise OR of any of the following values indicating which buffers can be saved or restored.  Multiple bits can be set and may result in better
-	 *                   performance if multiple buffers are saved or restored. One of:<p/>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}
+	 *                   performance if multiple buffers are saved or restored. One of:<br>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}, {@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}, {@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}, {@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = getInstance().CreateBufferRegionARB;
@@ -114,13 +114,13 @@ public final class WGLARBBufferRegion {
 
 	/**
 	 * Saves image, depth, and stencil data into the buffer region.
-	 * <p/>
-	 * Data outside the window for the specified rectangle is undefined. The OpenGL coordinate system is used for specifying the rectangle ({@code x} and
-	 * {@code y} specify the lower-left corner of the rectangle).
-	 * <p/>
-	 * If an RC is current to the calling thread, a flush will occur before the save operation.
-	 * <p/>
-	 * The saved buffer region area can be freed by calling {@code wglSaveBufferRegionARB} with {@code width} or {@code height} set to a value of 0.
+	 * 
+	 * <p>Data outside the window for the specified rectangle is undefined. The OpenGL coordinate system is used for specifying the rectangle ({@code x} and
+	 * {@code y} specify the lower-left corner of the rectangle).</p>
+	 * 
+	 * <p>If an RC is current to the calling thread, a flush will occur before the save operation.</p>
+	 * 
+	 * <p>The saved buffer region area can be freed by calling {@code wglSaveBufferRegionARB} with {@code width} or {@code height} set to a value of 0.</p>
 	 *
 	 * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB CreateBufferRegionARB}.
 	 * @param x      the window x-coordinate for the source rectangle

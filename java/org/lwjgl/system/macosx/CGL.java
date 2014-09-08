@@ -236,13 +236,13 @@ public final class CGL {
 
 	/**
 	 * Sets the specified rendering context as the current rendering context.
-	 * <p/>
-	 * There can be only one current rendering context. Subsequent OpenGL rendering calls operate on the current rendering context to modify the drawable
-	 * object associated with it.
-	 * <p/>
-	 * You can use AGL macros to bypass the current rendering context mechanism and maintain your own current rendering context.
-	 * <p/>
-	 * A context is current on a per-thread basis. Multiple threads must serialize calls into the same context.
+	 * 
+	 * <p>There can be only one current rendering context. Subsequent OpenGL rendering calls operate on the current rendering context to modify the drawable
+	 * object associated with it.</p>
+	 * 
+	 * <p>You can use AGL macros to bypass the current rendering context mechanism and maintain your own current rendering context.</p>
+	 * 
+	 * <p>A context is current on a per-thread basis. Multiple threads must serialize calls into the same context.</p>
 	 *
 	 * @param context the rendering context to set as the current rendering context. Pass {@code NULL} to release the current rendering context without assigning a new one.
 	 */
@@ -280,7 +280,7 @@ public final class CGL {
 	 *
 	 * @param attribs a 0 terminated array that contains a list of buffer and renderer attributes. Attributes can be Boolean or integer. If an attribute is integer, you
 	 *                must supply the desired value immediately following the attribute. If the attribute is Boolean, do not supply a value because its presence in the
-	 *                attributes array implies a true value. One of:<p/>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
+	 *                attributes array implies a true value. One of:<br>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
 	 * @param pix     the memory address of a pixel format object. On return, points to a new pixel format object that contains pixel format information and a list of
 	 *                virtual screens. If there are no pixel formats or virtual screens that satisfy the constraints of the buffer and renderer attributes, the value of
 	 *                pix is set to {@code NULL}.
@@ -331,7 +331,7 @@ public final class CGL {
 	 *
 	 * @param pix     the pixel format object to query
 	 * @param pix_num the virtual screen number whose attribute value you want to retrieve. This value must be between 0 and the number of virtual screens minus one.
-	 * @param attrib  the attribute whose value you want to obtain. One of:<p/>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
+	 * @param attrib  the attribute whose value you want to obtain. One of:<br>{@link #kCGLPFAAllRenderers PFAAllRenderers}, {@link #kCGLPFATripleBuffer PFATripleBuffer}, {@link #kCGLPFADoubleBuffer PFADoubleBuffer}, {@link #kCGLPFAStereo PFAStereo}, {@link #kCGLPFAColorSize PFAColorSize}, {@link #kCGLPFAAlphaSize PFAAlphaSize}, {@link #kCGLPFADepthSize PFADepthSize}, {@link #kCGLPFAStencilSize PFAStencilSize}, {@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}, {@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}, {@link #kCGLPFASampleBuffers PFASampleBuffers}, {@link #kCGLPFASamples PFASamples}, {@link #kCGLPFAColorFloat PFAColorFloat}, {@link #kCGLPFAMultisample PFAMultisample}, {@link #kCGLPFASupersample PFASupersample}, {@link #kCGLPFASampleAlpha PFASampleAlpha}, {@link #kCGLPFARendererID PFARendererID}, {@link #kCGLPFASingleRenderer PFASingleRenderer}, {@link #kCGLPFANoRecovery PFANoRecovery}, {@link #kCGLPFAAccelerated PFAAccelerated}, {@link #kCGLPFAClosestPolicy PFAClosestPolicy}, {@link #kCGLPFABackingStore PFABackingStore}, {@link #kCGLPFABackingVolatile PFABackingVolatile}, {@link #kCGLPFADisplayMask PFADisplayMask}, {@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}, {@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}, {@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}, {@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}, {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}, {@link #kCGLPFAAuxBuffers PFAAuxBuffers}, {@link #kCGLPFAAccumSize PFAAccumSize}, {@link #kCGLPFAOffScreen PFAOffScreen}, {@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}, {@link #kCGLPFAWindow PFAWindow}, {@link #kCGLPFACompliant PFACompliant}, {@link #kCGLPFAPBuffer PFAPBuffer}, {@link #kCGLPFARemotePBuffer PFARemotePBuffer}, {@link #kCGLPFARobust PFARobust}, {@link #kCGLPFAMPSafe PFAMPSafe}, {@link #kCGLPFAMultiScreen PFAMultiScreen}, {@link #kCGLPFAFullScreen PFAFullScreen}
 	 * @param value   on return, points to the value of the attribute
 	 */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, ByteBuffer value) {
@@ -359,11 +359,11 @@ public final class CGL {
 
 	/**
 	 * Decrements the reference count of a pixel format object.
-	 * <p/>
-	 * The system retains the pixel format object when you call the function {@link #CGLCreateContext CreateContext}, so you can release a pixel format object immediately
-	 * after passing it to the context creation function.
-	 * <p/>
-	 * Each call to CGLReleasePixelFormat decreases the reference count by 1. If the reference count reaches 0, the pixel format object is destroyed.
+	 * 
+	 * <p>The system retains the pixel format object when you call the function {@link #CGLCreateContext CreateContext}, so you can release a pixel format object immediately
+	 * after passing it to the context creation function.</p>
+	 * 
+	 * <p>Each call to CGLReleasePixelFormat decreases the reference count by 1. If the reference count reaches 0, the pixel format object is destroyed.</p>
 	 *
 	 * @param pix the pixel format object whose reference count should be decremented
 	 */
@@ -381,9 +381,9 @@ public final class CGL {
 
 	/**
 	 * Increments the receiver's reference count.
-	 * <p/>
-	 * Each call to CGLRetainPixelFormat increases the reference count by 1. Each call to CGLRetainPixelFormat must be matched with a call to
-	 * {@link #CGLReleasePixelFormat ReleasePixelFormat}.
+	 * 
+	 * <p>Each call to CGLRetainPixelFormat increases the reference count by 1. Each call to CGLRetainPixelFormat must be matched with a call to
+	 * {@link #CGLReleasePixelFormat ReleasePixelFormat}.</p>
 	 *
 	 * @param pix the pixel format object whose reference count should be incremented
 	 */
@@ -477,7 +477,7 @@ public final class CGL {
 	 * @param rend_num the index of the renderer inside the renderer information object — a value between 0 and the number of renderers minus one. The number of renderers
 	 *                 can be obtained by calling {@link #CGLDescribeRenderer DescribeRenderer}, passing in {@code rend}, renderer number 0, and the renderer property
 	 *                 {@link #kCGLRPRendererCount RPRendererCount}.
-	 * @param prop     the renderer property whose value you want to obtain. One of:<p/>{@link #kCGLRPOffScreen RPOffScreen}, {@link #kCGLRPRendererID RPRendererID}, {@link #kCGLRPAccelerated RPAccelerated}, {@link #kCGLRPBackingStore RPBackingStore}, {@link #kCGLRPWindow RPWindow}, {@link #kCGLRPCompliant RPCompliant}, {@link #kCGLRPDisplayMask RPDisplayMask}, {@link #kCGLRPBufferModes RPBufferModes}, {@link #kCGLRPColorModes RPColorModes}, {@link #kCGLRPAccumModes RPAccumModes}, {@link #kCGLRPDepthModes RPDepthModes}, {@link #kCGLRPStencilModes RPStencilModes}, {@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}, {@link #kCGLRPMaxSamples RPMaxSamples}, {@link #kCGLRPSampleModes RPSampleModes}, {@link #kCGLRPSampleAlpha RPSampleAlpha}, {@link #kCGLRPVideoMemory RPVideoMemory}, {@link #kCGLRPTextureMemory RPTextureMemory}, {@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}, {@link #kCGLRPRendererCount RPRendererCount}, {@link #kCGLRPOnline RPOnline}, {@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}, {@link #kCGLRPRobust RPRobust}, {@link #kCGLRPMPSafe RPMPSafe}, {@link #kCGLRPMultiScreen RPMultiScreen}, {@link #kCGLRPFullScreen RPFullScreen}
+	 * @param prop     the renderer property whose value you want to obtain. One of:<br>{@link #kCGLRPOffScreen RPOffScreen}, {@link #kCGLRPRendererID RPRendererID}, {@link #kCGLRPAccelerated RPAccelerated}, {@link #kCGLRPBackingStore RPBackingStore}, {@link #kCGLRPWindow RPWindow}, {@link #kCGLRPCompliant RPCompliant}, {@link #kCGLRPDisplayMask RPDisplayMask}, {@link #kCGLRPBufferModes RPBufferModes}, {@link #kCGLRPColorModes RPColorModes}, {@link #kCGLRPAccumModes RPAccumModes}, {@link #kCGLRPDepthModes RPDepthModes}, {@link #kCGLRPStencilModes RPStencilModes}, {@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}, {@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}, {@link #kCGLRPMaxSamples RPMaxSamples}, {@link #kCGLRPSampleModes RPSampleModes}, {@link #kCGLRPSampleAlpha RPSampleAlpha}, {@link #kCGLRPVideoMemory RPVideoMemory}, {@link #kCGLRPTextureMemory RPTextureMemory}, {@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}, {@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}, {@link #kCGLRPRendererCount RPRendererCount}, {@link #kCGLRPOnline RPOnline}, {@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}, {@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}, {@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}, {@link #kCGLRPRobust RPRobust}, {@link #kCGLRPMPSafe RPMPSafe}, {@link #kCGLRPMultiScreen RPMultiScreen}, {@link #kCGLRPFullScreen RPFullScreen}
 	 * @param value    on return, points to the value of the requested property
 	 */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, ByteBuffer value) {
@@ -540,10 +540,10 @@ public final class CGL {
 
 	/**
 	 * Frees the resources associated with a rendering context.
-	 * <p/>
-	 * Starting in Mac OS 10.5, CGL rendering contexts are reference counted. For compatibility reasons, calling CGLDestroyContext clears the drawable
+	 * 
+	 * <p>Starting in Mac OS 10.5, CGL rendering contexts are reference counted. For compatibility reasons, calling CGLDestroyContext clears the drawable
 	 * associated with the rendering context. Calling CGLDestroyContext is the equivalent of calling both {@link #CGLClearDrawable ClearDrawable} and
-	 * {@link #CGLReleaseContext ReleaseContext}.
+	 * {@link #CGLReleaseContext ReleaseContext}.</p>
 	 *
 	 * @param ctx the rendering context to destroy
 	 */
@@ -584,9 +584,9 @@ public final class CGL {
 
 	/**
 	 * Increments the retain count on a CGL rendering context.
-	 * <p/>
-	 * Each call to CGLRetainContext increases the retain count by 1. To prevent memory leaks, each retain call must be balanced with a call to
-	 * {@link #CGLReleaseContext ReleaseContext}.
+	 * 
+	 * <p>Each call to CGLRetainContext increases the retain count by 1. To prevent memory leaks, each retain call must be balanced with a call to
+	 * {@link #CGLReleaseContext ReleaseContext}.</p>
 	 *
 	 * @param ctx the rendering context to be retained
 	 *
@@ -606,13 +606,13 @@ public final class CGL {
 
 	/**
 	 * Decrements the retain count on a CGL rendering context.
-	 * <p/>
-	 * Each call to CGLReleaseContext decreases the retain count by 1.
-	 * <p/>
-	 * When the retain count reaches 0, all resources associated with the rendering context are freed. If the rendering context that you pass is the current
+	 * 
+	 * <p>Each call to CGLReleaseContext decreases the retain count by 1.</p>
+	 * 
+	 * <p>When the retain count reaches 0, all resources associated with the rendering context are freed. If the rendering context that you pass is the current
 	 * rendering context and it is freed, the current context is set to {@code NULL} and there is no current rendering context after the function executes. After the
 	 * context is freed, you must make sure you do not use the destroyed rendering context. This includes using CGL macros in which the rendering context is
-	 * explicitly passed to OpenGL.
+	 * explicitly passed to OpenGL.</p>
 	 *
 	 * @param ctx the rendering context to be released
 	 */
@@ -647,9 +647,9 @@ public final class CGL {
 
 	/**
 	 * Retrieves the current pixel format associated with a CGL rendering context.
-	 * <p/>
-	 * The pixel format object is not retained before being returned to your application. If your application needs to maintain this object, it should call
-	 * {@link #CGLRetainPixelFormat RetainPixelFormat}.
+	 * 
+	 * <p>The pixel format object is not retained before being returned to your application. If your application needs to maintain this object, it should call
+	 * {@link #CGLRetainPixelFormat RetainPixelFormat}.</p>
 	 *
 	 * @param ctx the CGL rendering context whose format you want to receive
 	 */
@@ -684,15 +684,15 @@ public final class CGL {
 
 	/**
 	 * Copies the back buffer of a double-buffered context to the front buffer.
-	 * <p/>
-	 * To create a double-buffered context, specify the {@link #kCGLPFADoubleBuffer PFADoubleBuffer} attribute when you create the pixel format object for the rendering
+	 * 
+	 * <p>To create a double-buffered context, specify the {@link #kCGLPFADoubleBuffer PFADoubleBuffer} attribute when you create the pixel format object for the rendering
 	 * context. If the backing store attribute is set to false, the buffers can be exchanged rather than copied. This is often the case in full-screen mode. If
-	 * the receiver is not a double-buffered context, this call does nothing.
-	 * <p/>
-	 * If you set the swap interval attribute ({@link #kCGLCPSwapInterval CPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
+	 * the receiver is not a double-buffered context, this call does nothing.</p>
+	 * 
+	 * <p>If you set the swap interval attribute ({@link #kCGLCPSwapInterval CPSwapInterval}) appropriately, the copy takes place during the vertical retrace of the display,
 	 * rather than immediately after CGLFlushDrawable is called. An implicit {@link GL11#glFlush} operation is performed by CGLFlushDrawable
 	 * before it returns. For optimal performance, an application should not call glFlush immediately before calling CGLFlushDrawable. Subsequent OpenGL
-	 * commands can be issued immediately after calling CGLFlushDrawable, but are not executed until the buffer copy is completed.
+	 * commands can be issued immediately after calling CGLFlushDrawable, but are not executed until the buffer copy is completed.</p>
 	 *
 	 * @param ctx the context object
 	 */
@@ -712,7 +712,7 @@ public final class CGL {
 	 * Enables an option for a rendering context.
 	 *
 	 * @param ctx   a rendering context
-	 * @param pname the option to enable. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
+	 * @param pname the option to enable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLEnable(long ctx, int pname) {
 		if ( LWJGLUtil.CHECKS )
@@ -730,7 +730,7 @@ public final class CGL {
 	 * Disables an option for a rendering context.
 	 *
 	 * @param ctx   a rendering context
-	 * @param pname the option to disable. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
+	 * @param pname the option to disable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLDisable(long ctx, int pname) {
 		if ( LWJGLUtil.CHECKS )
@@ -748,7 +748,7 @@ public final class CGL {
 	 * Reports whether an option is enabled for a rendering context.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the option to query. One of:<p/>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
+	 * @param pname  the option to query. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 * @param enable on return, enable is set to true if the option is enabled
 	 */
 	public static int CGLIsEnabled(long ctx, int pname, ByteBuffer enable) {
@@ -778,7 +778,7 @@ public final class CGL {
 	 * Sets the value of a rendering context parameter.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the parameter whose value you want to set. One of:<p/>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
+	 * @param pname  the parameter whose value you want to set. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params a pointer to the value to set the parameter to
 	 */
 	public static int CGLSetParameter(long ctx, int pname, ByteBuffer params) {
@@ -817,7 +817,7 @@ public final class CGL {
 	 * Retrieves the value of a rendering context parameter.
 	 *
 	 * @param ctx    a rendering context
-	 * @param pname  the parameter whose value you want to retrieve. One of:<p/>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
+	 * @param pname  the parameter whose value you want to retrieve. One of:<br>{@link #kCGLCPSwapRectangle CPSwapRectangle}, {@link #kCGLCPSwapInterval CPSwapInterval}, {@link #kCGLCPDispatchTableSize CPDispatchTableSize}, {@link #kCGLCPClientStorage CPClientStorage}, {@link #kCGLCPSurfaceTexture CPSurfaceTexture}, {@link #kCGLCPSurfaceOrder CPSurfaceOrder}, {@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}, {@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}, {@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}, {@link #kCGLCPReclaimResources CPReclaimResources}, {@link #kCGLCPCurrentRendererID CPCurrentRendererID}, {@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}, {@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}, {@link #kCGLCPHasDrawable CPHasDrawable}, {@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}
 	 * @param params on return, points to the value of the parameter
 	 */
 	public static int CGLGetParameter(long ctx, int pname, ByteBuffer params) {
@@ -845,11 +845,11 @@ public final class CGL {
 
 	/**
 	 * Forces subsequent OpenGL commands to the specified virtual screen.
-	 * <p/>
-	 * Setting the virtual screen forces the renderer associated with the virtual screen to process OpenGL commands issued to the specified context. Changing
+	 * 
+	 * <p>Setting the virtual screen forces the renderer associated with the virtual screen to process OpenGL commands issued to the specified context. Changing
 	 * the virtual screen changes the current renderer. You should use this function only when it is necessary to override the default behavior. The current
 	 * virtual screen is normally set automatically. Because the current virtual screen determines which OpenGL renderer is processing commands, the return
-	 * values of all glGetXXX functions can be affected by the current virtual screen.
+	 * values of all glGetXXX functions can be affected by the current virtual screen.</p>
 	 *
 	 * @param ctx    a rendering context
 	 * @param screen a virtual screen number, which must be a value between 0 and the number of virtual screens minus one. The number of virtual screens available in a
@@ -870,9 +870,9 @@ public final class CGL {
 
 	/**
 	 * Gets the current virtual screen number associated with a rendering context.
-	 * <p/>
-	 * The current virtual screen can change when a drawable object is moved or resized across graphics device boundaries. A change in the current virtual
-	 * screen can affect the return values of some OpenGL functions and in most cases also means that the renderer has changed.
+	 * 
+	 * <p>The current virtual screen can change when a drawable object is moved or resized across graphics device boundaries. A change in the current virtual
+	 * screen can affect the return values of some OpenGL functions and in most cases also means that the renderer has changed.</p>
 	 *
 	 * @param ctx    a rendering context
 	 * @param screen on return, points to the virtual screen associated with the context. The value is always 0 on a single-display system and –1 if the function fails
@@ -921,7 +921,7 @@ public final class CGL {
 	/**
 	 * Sets the value of a global option.
 	 *
-	 * @param pname  the name of the option whose value you want to set. One of:<p/>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
+	 * @param pname  the name of the option whose value you want to set. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params the value to set the option to
 	 */
 	public static int CGLSetGlobalOption(int pname, ByteBuffer params) {
@@ -953,7 +953,7 @@ public final class CGL {
 	/**
 	 * Retrieves the value of a global option.
 	 *
-	 * @param pname  the name of the option whose value you want to get. One of:<p/>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
+	 * @param pname  the name of the option whose value you want to get. One of:<br>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}, {@link #kCGLGOClearFormatCache GOClearFormatCache}, {@link #kCGLGORetainRenderers GORetainRenderers}, {@link #kCGLGOResetLibrary GOResetLibrary}, {@link #kCGLGOUseErrorHandler GOUseErrorHandler}, {@link #kCGLGOUseBuildCache GOUseBuildCache}
 	 * @param params on return, a pointer to the value of the option
 	 */
 	public static int CGLGetGlobalOption(int pname, ByteBuffer params) {
@@ -977,15 +977,15 @@ public final class CGL {
 
 	/**
 	 * Locks a CGL rendering context.
-	 * <p/>
-	 * The function CGLLockContext blocks the thread it is on until all other threads have unlocked the same context using the function
+	 * 
+	 * <p>The function CGLLockContext blocks the thread it is on until all other threads have unlocked the same context using the function
 	 * {@link #CGLUnlockContext UnlockContext}. You can use CGLLockContext recursively. Context-specific CGL calls by themselves do not require locking, but you can
 	 * guarantee serial processing for a group of calls by surrounding them with CGLLockContext and CGLUnlockContext. Keep in mind that calls from the OpenGL
-	 * API (the API provided by the Architecture Review Board) require locking.
-	 * <p/>
-	 * Applications that use NSOpenGL classes with multithreading can lock contexts using the functions CGLLockContext and CGLUnlockContext. To perform
+	 * API (the API provided by the Architecture Review Board) require locking.</p>
+	 * 
+	 * <p>Applications that use NSOpenGL classes with multithreading can lock contexts using the functions CGLLockContext and CGLUnlockContext. To perform
 	 * rendering in a thread other than the main one, you can lock the context that you want to access and safely execute OpenGL commands. The locking calls
-	 * must be placed around all OpenGL calls in all threads.
+	 * must be placed around all OpenGL calls in all threads.</p>
 	 *
 	 * @param context a rendering context
 	 */
@@ -1050,7 +1050,7 @@ public final class CGL {
 	/**
 	 * Returns a string that describes the specified result code.
 	 *
-	 * @param error the CGL result code constant returned from a CGL function. One of:<p/>{@link #kCGLNoError NoError}, {@link #kCGLBadAttribute BadAttribute}, {@link #kCGLBadProperty BadProperty}, {@link #kCGLBadPixelFormat BadPixelFormat}, {@link #kCGLBadRendererInfo BadRendererInfo}, {@link #kCGLBadContext BadContext}, {@link #kCGLBadDrawable BadDrawable}, {@link #kCGLBadDisplay BadDisplay}, {@link #kCGLBadState BadState}, {@link #kCGLBadValue BadValue}, {@link #kCGLBadMatch BadMatch}, {@link #kCGLBadEnumeration BadEnumeration}, {@link #kCGLBadOffScreen BadOffScreen}, {@link #kCGLBadFullScreen BadFullScreen}, {@link #kCGLBadWindow BadWindow}, {@link #kCGLBadAddress BadAddress}, {@link #kCGLBadCodeModule BadCodeModule}, {@link #kCGLBadAlloc BadAlloc}, {@link #kCGLBadConnection BadConnection}
+	 * @param error the CGL result code constant returned from a CGL function. One of:<br>{@link #kCGLNoError NoError}, {@link #kCGLBadAttribute BadAttribute}, {@link #kCGLBadProperty BadProperty}, {@link #kCGLBadPixelFormat BadPixelFormat}, {@link #kCGLBadRendererInfo BadRendererInfo}, {@link #kCGLBadContext BadContext}, {@link #kCGLBadDrawable BadDrawable}, {@link #kCGLBadDisplay BadDisplay}, {@link #kCGLBadState BadState}, {@link #kCGLBadValue BadValue}, {@link #kCGLBadMatch BadMatch}, {@link #kCGLBadEnumeration BadEnumeration}, {@link #kCGLBadOffScreen BadOffScreen}, {@link #kCGLBadFullScreen BadFullScreen}, {@link #kCGLBadWindow BadWindow}, {@link #kCGLBadAddress BadAddress}, {@link #kCGLBadCodeModule BadCodeModule}, {@link #kCGLBadAlloc BadAlloc}, {@link #kCGLBadConnection BadConnection}
 	 */
 	public static String CGLErrorString(int error) {
 		long __result = nCGLErrorString(error);

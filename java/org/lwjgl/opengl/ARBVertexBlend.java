@@ -15,12 +15,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_blend.txt">ARB_vertex_blend</a> extension.
- * <p/>
- * This extension provides the ability to replace the single modelview transformation with a set of n vertex units. (Where n is constrained to an
+ * 
+ * <p>This extension provides the ability to replace the single modelview transformation with a set of n vertex units. (Where n is constrained to an
  * implementation defined maximum.) Each unit has its own modelview transform matrix. For each unit, there is a current weight associated with the vertex.
  * When this extension is enabled the vertices are transformed by the modelview matrices of all of the enabled units. Afterward, these results are scaled
  * by the weights for the respective units and then summed to create the eye-space vertex. A similar procedure is followed for the normals, except they are
- * transformed by the inverse transpose of the modelview matrices.
+ * transformed by the inverse transpose of the modelview matrices.</p>
  */
 public final class ARBVertexBlend {
 
@@ -416,7 +416,7 @@ public final class ARBVertexBlend {
 	 * Specifies the location and organization of a weight array.
 	 *
 	 * @param size    the number of values per vertex that are stored in the array. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param type    the data type of the values stored in the array. One of:<p/>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
 	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer the weight data
 	 */

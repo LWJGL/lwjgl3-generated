@@ -290,9 +290,9 @@ public final class GLX {
 
 	/**
 	 * Destroys an OpenGL context.
-	 * <p/>
-	 * If {@code ctx} is still current to any thread, {@code ctx} is not destroyed until it is no longer current. In any event, the associated XID will be
-	 * destroyed and {@code ctx} cannot subsequently be made current to any thread.
+	 * 
+	 * <p>If {@code ctx} is still current to any thread, {@code ctx} is not destroyed until it is no longer current. In any event, the associated XID will be
+	 * destroyed and {@code ctx} cannot subsequently be made current to any thread.</p>
 	 *
 	 * @param display the connection to the X server
 	 * @param ctx     the GLXContext to destroy
@@ -319,10 +319,10 @@ public final class GLX {
 
 	/**
 	 * Prevents X requests from executing until any outstanding OpenGL rendering is done.
-	 * <p/>
-	 * OpenGL calls made prior to {@code glXWaitGL} are guaranteed to be executed before X rendering calls made after {@code glXWaitGL}. While the same result
+	 * 
+	 * <p>OpenGL calls made prior to {@code glXWaitGL} are guaranteed to be executed before X rendering calls made after {@code glXWaitGL}. While the same result
 	 * can be achieved using {@link GL11#glFinish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
-	 * where the client and server are on separate machines.
+	 * where the client and server are on separate machines.</p>
 	 */
 	public static native void glXWaitGL();
 
@@ -330,9 +330,9 @@ public final class GLX {
 
 	/**
 	 * Prevents the OpenGL command sequence from executing until any outstanding X requests are completed.
-	 * <p/>
-	 * X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
-	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.
+	 * 
+	 * <p>X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
+	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.</p>
 	 */
 	public static native void glXWaitX();
 
@@ -344,9 +344,9 @@ public final class GLX {
 
 	/**
 	 * For drawables that are double buffered, makes the contexts of the back buffer potentially visible (i.e., become the contents of the front buffer).
-	 * <p/>
-	 * The contents of the back buffer then become undefined. This operation is a no-op if draw was created with a non-double-buffered GLXFBConfig, or if draw
-	 * is a GLXPixmap.
+	 * 
+	 * <p>The contents of the back buffer then become undefined. This operation is a no-op if draw was created with a non-double-buffered GLXFBConfig, or if draw
+	 * is a GLXPixmap.</p>
 	 *
 	 * @param display the connection to the X server
 	 * @param draw    a double buffered GLXDrawable

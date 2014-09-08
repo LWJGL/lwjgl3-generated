@@ -18,8 +18,8 @@ import org.lwjgl.opengl.GL11;
 
 /**
  * Native bindings to the GLFW library.
- * <p/>
- * <b>Note</b>: All OpenGL related functionality has been stripped away.
+ * 
+ * <p><b>Note</b>: All OpenGL related functionality has been stripped away.</p>
  */
 public final class GLFW {
 
@@ -361,18 +361,18 @@ public final class GLFW {
 	/**
 	 * Initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before a program terminates GLFW should be
 	 * terminated in order to free any resources allocated during or after initialization.
-	 * <p/>
-	 * If this function fails, it calls {@link #glfwSetGammaRamp SetGammaRamp} before returning. If it succeeds, you should call {@link #glfwSetGammaRamp SetGammaRamp} before the program
-	 * exits.
-	 * <p/>
-	 * Additional calls to this function after successful initialization but before termination will return {@link GL11#GL_TRUE} immediately.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>If this function fails, it calls {@link #glfwSetGammaRamp SetGammaRamp} before returning. If it succeeds, you should call {@link #glfwSetGammaRamp SetGammaRamp} before the program
+	 * exits.</p>
+	 * 
+	 * <p>Additional calls to this function after successful initialization but before termination will return {@link GL11#GL_TRUE} immediately.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the
 	 * application's bundle, if present.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @return {@link GL11#GL_TRUE} if successful, or {@link GL11#GL_FALSE} if an error occured. Errors are reported to the error callback.
 	 */
@@ -391,16 +391,16 @@ public final class GLFW {
 	/**
 	 * Destroys all remaining windows, frees any allocated resources and sets the library to an uninitialized state. Once this is called, you must again call
 	 * {@link #glfwInit Init} successfully before you will be able to use most GLFW functions.
-	 * <p/>
-	 * If GLFW has been successfully initialized, this function should be called before the program exits. If initialization fails, there is no need to call
-	 * this function, as it is called by {@link #glfwInit Init} before it returns failure.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>If GLFW has been successfully initialized, this function should be called before the program exits. If initialization fails, there is no need to call
+	 * this function, as it is called by {@link #glfwInit Init} before it returns failure.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>No window's context may be current on another thread when this function is called.</li>
-	 * </ul>
+	 * </ul></p>
 	 */
 	public static void glfwTerminate() {
 		WindowCallback.clearAll();
@@ -416,13 +416,13 @@ public final class GLFW {
 	/**
 	 * Retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure
 	 * that you are using the minimum required version.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function always succeeds.</li>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may be called from any thread.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param major major version number
 	 * @param minor minor version number
@@ -456,13 +456,13 @@ public final class GLFW {
 	/**
 	 * Returns the compile-time generated version string of the GLFW library binary. It describes the version, platform, compiler and any platform-specific
 	 * compile-time options.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function always succeeds.</li>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may be called from any thread.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @return the GLFW version string
 	 */
@@ -479,8 +479,8 @@ public final class GLFW {
 
 	/**
 	 * Sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function always succeeds.</li>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
@@ -489,7 +489,7 @@ public final class GLFW {
 	 * written accordingly.</li>
 	 * <li>Because the description string provided to the callback may have been generated specifically for that error, it is not guaranteed to be valid after
 	 * the callback has returned. If you wish to use it after that, you need to make your own copy of it before returning.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param cbfun the new callback or {@code NULL} to remove the currently set callback
 	 *
@@ -512,14 +512,14 @@ public final class GLFW {
 
 	/**
 	 * Returns an array of handles for all currently connected monitors.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned array is allocated and freed by GLFW. You should not free it yourself.</li>
 	 * <li>The returned array is valid only until the monitor configuration changes. See {@link #glfwSetMonitorCallback SetMonitorCallback} to receive notifications of configuration
 	 * changes.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @return an array of monitor handlers, or {@code NULL} if an error occured. Errors are reported to the error callback.
 	 */
@@ -534,8 +534,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the primary monitor. This is usually the monitor where elements like the Windows task bar or the OS X menu bar is located.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @return the primary monitor, or {@code NULL} if an error occured. Errors are reported to the error callback.
 	 */
@@ -549,8 +549,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the position, in screen coordinates, of the upper-left corner of the specified monitor.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 * @param xpos    where to store the monitor x-coordinate, or {@code NULL}
@@ -583,13 +583,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the size, in millimetres, of the display area of the specified monitor.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>Some operating systems do not provide accurate information, either because the monitor's EDID data is incorrect, or because the driver does not
 	 * report it accurately.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor to query
 	 * @param width   where to store the width, in mm, of the monitor's display area, or {@code NULL}
@@ -622,8 +622,8 @@ public final class GLFW {
 
 	/**
 	 * Returns a human-readable name, encoded as UTF-8, of the specified monitor.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
 	 *
@@ -645,12 +645,12 @@ public final class GLFW {
 	/**
 	 * Sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the
 	 * system.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>X11</b>: This callback is not yet called on monitor configuration changes.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
 	 *
@@ -674,13 +674,13 @@ public final class GLFW {
 	/**
 	 * Returns an array of all video modes supported by the specified monitor. The returned array is sorted in ascending order, first by color bit depth (the
 	 * sum of all channel depths) and then by resolution area (the product of width and height).
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned array is allocated and freed by GLFW. You should not free it yourself.</li>
 	 * <li>The returned array is valid only until this function is called again for the specified monitor.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor to query
 	 *
@@ -714,12 +714,12 @@ public final class GLFW {
 	/**
 	 * Returns the current video mode of the specified monitor. if you are using a full screen window, the return value will therefore depend on whether it is
 	 * focused.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned struct is allocated and freed by GLFW. You should not free it yourself.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor to query
 	 *
@@ -740,13 +740,13 @@ public final class GLFW {
 
 	/**
 	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>You cannot generate sRGB gamma using this function, because although it is approximately 2.2 it cannot be accurately expressed as a single numerical
 	 * value.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor whose gamma ramp to set
 	 * @param gamma   the desired exponent
@@ -765,12 +765,12 @@ public final class GLFW {
 
 	/**
 	 * Retrieves the current gamma ramp of the specified monitor.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The value arrays of the returned ramp are allocated and freed by GLFW. You should not free them yourself.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor to query
 	 *
@@ -791,12 +791,12 @@ public final class GLFW {
 
 	/**
 	 * Sets the current gamma ramp for the specified monitor.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param monitor the monitor whose gamma ramp to set
 	 * @param ramp    the gamma ramp to use
@@ -813,8 +813,8 @@ public final class GLFW {
 
 	/**
 	 * Resets all window hints to their default values.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 */
 	public static native void glfwDefaultWindowHints();
 
@@ -823,8 +823,8 @@ public final class GLFW {
 	/**
 	 * Sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to glfwWindowHint or
 	 * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated with {@link #glfwTerminate Terminate}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param target the window hint to set
 	 * @param hint   the new value of the window hint
@@ -840,23 +840,23 @@ public final class GLFW {
 	/**
 	 * Creates a window and its associated context. Most of the options controlling how the window and its context should be created are specified through
 	 * {@link #glfwWindowHint WindowHint}.
-	 * <p/>
-	 * Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current using
-	 * {@link #glfwMakeContextCurrent MakeContextCurrent}.
-	 * <p/>
-	 * The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
+	 * 
+	 * <p>Successful creation does not change which context is current. Before you can use the newly created context, you need to make it current using
+	 * {@link #glfwMakeContextCurrent MakeContextCurrent}.</p>
+	 * 
+	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
 	 * size of the window, especially for full screen windows. To retrieve the actual attributes of the created window, framebuffer and context, use queries
-	 * like {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize}.
-	 * <p/>
-	 * To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, windowed mode will be used. Unless
-	 * you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor.
-	 * <p/>
-	 * By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
-	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its position and then show it.
-	 * <p/>
-	 * If a full screen window is active, the screensaver is prohibited from starting.
-	 * <p/>
-	 * Notes:
+	 * like {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize}.</p>
+	 * 
+	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, windowed mode will be used. Unless
+	 * you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor.</p>
+	 * 
+	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
+	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its position and then show it.</p>
+	 * 
+	 * <p>If a full screen window is active, the screensaver is prohibited from starting.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The swap interval is not set during window creation and the initial value may vary depending on driver settings and defaults.</li>
@@ -870,7 +870,7 @@ public final class GLFW {
 	 * Developer Library.</li>
 	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param width   the desired width, in screen coordinates, of the window
 	 * @param height  the desired height, in screen coordinates, of the window
@@ -906,14 +906,14 @@ public final class GLFW {
 
 	/**
 	 * Destroys the specified window. On calling this function, no further callbacks will be called for that window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>If the window's context is current on the main thread, it is detached before being destroyed.</li>
 	 * <li>The window's context must not be current on any other thread.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window to destroy
 	 */
@@ -932,8 +932,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the value of the close flag of the specified window.
-	 * <p/>
-	 * Note: This function may be called from any thread.
+	 * 
+	 * <p>Note: This function may be called from any thread.</p>
 	 *
 	 * @param window the window to query
 	 *
@@ -954,8 +954,8 @@ public final class GLFW {
 	/**
 	 * Sets the value of the close flag of the specified window. This can be used to override the user's attempt to close the window, or to signal that it
 	 * should be closed.
-	 * <p/>
-	 * Note: This function may be called from any thread.
+	 * 
+	 * <p>Note: This function may be called from any thread.</p>
 	 *
 	 * @param window the window whose flag to change
 	 * @param value  the new value
@@ -974,8 +974,8 @@ public final class GLFW {
 
 	/**
 	 * Sets the window title, encoded as UTF-8, of the specified window.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window whose title to change
 	 * @param title  the UTF-8 encoded window title
@@ -1004,8 +1004,8 @@ public final class GLFW {
 
 	/**
 	 * Retrieves the position, in screen coordinates, of the upper-left corner of the client area of the specified window.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 * @param xpos   where to store the x-coordinate of the upper-left corner of the client area, or {@code NULL}
@@ -1038,18 +1038,18 @@ public final class GLFW {
 
 	/**
 	 * Sets the position, in screen coordinates, of the upper-left corner of the client area of the window.
-	 * <p/>
-	 * If the specified window is a full screen window, this function does nothing.
-	 * <p/>
-	 * If you wish to set an initial window position you should create a hidden window (using {@link #glfwWindowHint WindowHint} and {@link #GLFW_VISIBLE VISIBLE}, set its
-	 * position and then show it.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>If the specified window is a full screen window, this function does nothing.</p>
+	 * 
+	 * <p>If you wish to set an initial window position you should create a hidden window (using {@link #glfwWindowHint WindowHint} and {@link #GLFW_VISIBLE VISIBLE}, set its
+	 * position and then show it.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>It is very rarely a good idea to move an already visible window, as it will confuse and annoy the user.</li>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The window manager may put limits on what positions are allowed.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window to query
 	 * @param xpos   the x-coordinate of the upper-left corner of the client area
@@ -1070,8 +1070,8 @@ public final class GLFW {
 	/**
 	 * Retrieves the size, in screen coordinates, of the client area of the specified window. If you wish to retrieve the size of the framebuffer in pixels,
 	 * see {@link #glfwGetFramebufferSize GetFramebufferSize}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window whose size to retrieve
 	 * @param width  where to store the width, in screen coordinates, of the client area, or {@code NULL}
@@ -1104,15 +1104,15 @@ public final class GLFW {
 
 	/**
 	 * Sets the size, in pixels, of the client area of the specified window.
-	 * <p/>
-	 * For full screen windows, this function selects and switches to the resolution closest to the specified size, without affecting the window's context. As
-	 * the context is unaffected, the bit depths of the framebuffer remain unchanged.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>For full screen windows, this function selects and switches to the resolution closest to the specified size, without affecting the window's context. As
+	 * the context is unaffected, the bit depths of the framebuffer remain unchanged.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The window manager may put limits on what window sizes are allowed.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window to resize
 	 * @param width  the desired width of the specified window
@@ -1133,8 +1133,8 @@ public final class GLFW {
 	/**
 	 * Retrieves the size, in pixels, of the framebuffer of the specified window. If you wish to retrieve the size of the window in screen coordinates, see
 	 * {@link #glfwGetWindowSize GetWindowSize}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window whose framebuffer to query
 	 * @param width  where to store the width, in pixels, of the framebuffer, or {@code NULL}
@@ -1168,13 +1168,13 @@ public final class GLFW {
 	/**
 	 * Retrieves the size, in screen coordinates, of each edge of the frame of the specified window. This size includes the title bar, if the window has one.
 	 * The size of the frame may vary depending on the window-related hints used to create it.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function retrieves the size of each window frame edge, not the offset along a screen coordinate axis, so the retrieved values will always be
 	 * zero or positive.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose frame size to query
 	 * @param left   where to store the size, in screen coordinates, of the left edge of the window frame
@@ -1214,8 +1214,8 @@ public final class GLFW {
 	/**
 	 * Iconifies/minimizes the specified window, if it was previously restored. If it is a fullscreen window, the original monitor resolution is restored until
 	 * the window is restored. If the window is already iconified, this function does nothing.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to iconify
 	 */
@@ -1234,8 +1234,8 @@ public final class GLFW {
 	/**
 	 * Restores the specified window, if it was previously iconified/minimized. If it is a full screen window, the resolution chosen for the window is restored
 	 * on the selected monitor. If the window is already restored, this function does nothing.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to restore
 	 */
@@ -1253,8 +1253,8 @@ public final class GLFW {
 
 	/**
 	 * Makes the specified window visible, if it was previously hidden. If the window is already visible or is in fullscreen mode, this function does nothing.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to make visible
 	 */
@@ -1272,8 +1272,8 @@ public final class GLFW {
 
 	/**
 	 * Hides the specified window, if it was previously visible.  If the window is already hidden or is in full screen mode, this function does nothing.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to hide
 	 */
@@ -1291,8 +1291,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the handle of the monitor that the specified window is in full screen on.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 *
@@ -1312,10 +1312,10 @@ public final class GLFW {
 
 	/**
 	 * Returns an attribute of the specified window.  There are many attributes, some related to the window and others to its context.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
-	 * @param window the window to query. One of:<p/>{@link #GLFW_FOCUSED FOCUSED}, {@link #GLFW_ICONIFIED ICONIFIED}, {@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}, {@link #GLFW_FLOATING FLOATING}
+	 * @param window the window to query. One of:<br>{@link #GLFW_FOCUSED FOCUSED}, {@link #GLFW_ICONIFIED ICONIFIED}, {@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}, {@link #GLFW_FLOATING FLOATING}
 	 * @param attrib the window attribute whose value to return
 	 *
 	 * @return the value of the attribute, or zero if an error occured. Errors are reported to the error callback.
@@ -1334,8 +1334,8 @@ public final class GLFW {
 
 	/**
 	 * Sets the user-defined pointer of the specified window. The current value is retained until the window is destroyed. The initial value is {@code NULL}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window  the window whose pointer to set
 	 * @param pointer the new value
@@ -1354,8 +1354,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the current value of the user-defined pointer of the specified window. The initial value is {@code NULL}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window whose pointer to return
 	 */
@@ -1374,12 +1374,12 @@ public final class GLFW {
 	/**
 	 * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the screen position of the
 	 * upper-left corner of the client area of the window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1401,12 +1401,12 @@ public final class GLFW {
 	/**
 	 * Sets the size callback of the specified window, which is called when the window is resized. The callback is provided with the size, in screen
 	 * coordinates, of the client area of the window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1428,17 +1428,17 @@ public final class GLFW {
 	/**
 	 * Sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in
 	 * the title bar.
-	 * <p/>
-	 * The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose SetWindowShouldClose}.
-	 * <p/>
-	 * The close callback is not triggered by {@link #glfwDestroyWindow DestroyWindow}.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose SetWindowShouldClose}.</p>
+	 * 
+	 * <p>The close callback is not triggered by {@link #glfwDestroyWindow DestroyWindow}.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
 	 * <li><b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1460,14 +1460,14 @@ public final class GLFW {
 	/**
 	 * Sets the refresh callback of the specified window, which is called when the client area of the window needs to be redrawn, for example if the window has
 	 * been exposed after having been covered by another window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
 	 * <li>On compositing window systems such as Aero, Compiz or Aqua, where the window contents are saved off-screen, this callback may be called only very
 	 * infrequently or never at all.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1488,15 +1488,15 @@ public final class GLFW {
 
 	/**
 	 * Sets the focus callback of the specified window, which is called when the window gains or loses focus.
-	 * <p/>
-	 * After the focus callback is called for a window that lost focus, synthetic key and mouse button release events will be generated for all such that had
-	 * been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>After the focus callback is called for a window that lost focus, synthetic key and mouse button release events will be generated for all such that had
+	 * been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1517,12 +1517,12 @@ public final class GLFW {
 
 	/**
 	 * Sets the iconification callback of the specified window, which is called when the window is iconified or restored.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1543,12 +1543,12 @@ public final class GLFW {
 
 	/**
 	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1569,20 +1569,20 @@ public final class GLFW {
 
 	/**
 	 * Processes all pending events.
-	 * <p/>
-	 * This function processes only those events that have already been received and then returns immediately. Processing events will cause the window and
-	 * input callbacks associated with those events to be called.
-	 * <p/>
-	 * This function is not required for joystick input to work.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>This function processes only those events that have already been received and then returns immediately. Processing events will cause the window and
+	 * input callbacks associated with those events to be called.</p>
+	 * 
+	 * <p>This function is not required for joystick input to work.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on
 	 * those platforms. You can use the window refresh callback to redraw the contents your window when necessary during the operation.</li>
 	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
-	 * </ul>
+	 * </ul></p>
 	 */
 	public static void glfwPollEvents() {
 		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.pollEvents(); return; }
@@ -1597,24 +1597,24 @@ public final class GLFW {
 
 	/**
 	 * Waits until events are pending and processes them.
-	 * <p/>
-	 * This function puts the calling thread to sleep until at least one event has been received. Once one or more events have been received, it behaves as if
+	 * 
+	 * <p>This function puts the calling thread to sleep until at least one event has been received. Once one or more events have been received, it behaves as if
 	 * {@link #glfwPollEvents PollEvents} was called, i.e. the events are processed and the function then returns immediately. Processing events will cause the window and input
-	 * callbacks associated with those events to be called.
-	 * <p/>
-	 * Since not all events are associated with callbacks, this function may return without a callback having been called even if you are monitoring all
-	 * callbacks.
-	 * <p/>
-	 * This function is not required for joystick input to work.
-	 * <p/>
-	 * Notes:
+	 * callbacks associated with those events to be called.</p>
+	 * 
+	 * <p>Since not all events are associated with callbacks, this function may return without a callback having been called even if you are monitoring all
+	 * callbacks.</p>
+	 * 
+	 * <p>This function is not required for joystick input to work.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on
 	 * those platforms. You can use the window refresh callback to redraw the contents your window when necessary during the operation.</li>
 	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
-	 * </ul>
+	 * </ul></p>
 	 */
 	public static void glfwWaitEvents() {
 		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.waitEvents(); return; }
@@ -1625,12 +1625,12 @@ public final class GLFW {
 
 	/**
 	 * Posts an empty event from the current thread to the main thread event queue, causing {@link #glfwWaitEvents WaitEvents} to return.
-	 * <p/>
-	 * <ul>
+	 * 
+	 * <p><ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>If no windows exist, this function returns immediately. For synchronization of threads in applications that do not create windows, use your
 	 * threading library of choice.</li>
-	 * </ul>
+	 * </ul></p>
 	 */
 	public static native void glfwPostEmptyEvent();
 
@@ -1642,11 +1642,11 @@ public final class GLFW {
 
 	/**
 	 * Returns the value of an input option for the specified window.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
-	 * @param mode   the input mode whose value to return. One of:<p/>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
+	 * @param mode   the input mode whose value to return. One of:<br>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 *
 	 * @return the input mode value
 	 */
@@ -1664,29 +1664,29 @@ public final class GLFW {
 
 	/**
 	 * Sets an input option for the specified window.
-	 * <p/>
-	 * If {@code mode} is {@link #GLFW_CURSOR CURSOR}, the value must be one of the supported input modes:
+	 * 
+	 * <p>If {@code mode} is {@link #GLFW_CURSOR CURSOR}, the value must be one of the supported input modes:
 	 * <ul>
 	 * <li>{@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
 	 * <li>{@link #GLFW_CURSOR_HIDDEN CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving. This is
 	 * useful if you wish to render your own cursor or have no visible cursor at all.</li>
 	 * <li>{@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera
 	 * controls.</li>
-	 * </ul>
-	 * <p/>
-	 * If {@code mode} is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE} to enable sticky keys, or {@link GL11#GL_FALSE} to disable it. If sticky keys are
+	 * </ul></p>
+	 * 
+	 * <p>If {@code mode} is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE} to enable sticky keys, or {@link GL11#GL_FALSE} to disable it. If sticky keys are
 	 * enabled, a key press will ensure that {@link #glfwGetKey GetKey} returns {@link #GLFW_PRESS PRESS} the next time it is called even if the key had been released before the call. This is
-	 * useful when you are only interested in whether keys have been pressed but not when or in which order.
-	 * <p/>
-	 * If {@code mode} is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE} to
+	 * useful when you are only interested in whether keys have been pressed but not when or in which order.</p>
+	 * 
+	 * <p>If {@code mode} is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE} to
 	 * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton GetMouseButton} returns {@link #GLFW_PRESS PRESS} the next
 	 * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
-	 * been pressed but not when or in which order.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * been pressed but not when or in which order.</p>
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window whose input mode to set
-	 * @param mode   the input mode to set. One of:<p/>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
+	 * @param mode   the input mode to set. One of:<br>{@link #GLFW_CURSOR CURSOR}, {@link #GLFW_STICKY_KEYS STICKY_KEYS}, {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}
 	 * @param value  the new value of the specified input mode
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
@@ -1704,20 +1704,20 @@ public final class GLFW {
 	/**
 	 * Returns the last state reported for the specified key to the specified window. The returned state is one of {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}. The higher-level state
 	 * {@link #GLFW_REPEAT REPEAT} is only reported to the key callback.
-	 * <p/>
-	 * If the {@link #GLFW_STICKY_KEYS STICKY_KEYS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call this function after a key has been pressed, even if the
-	 * key has already been released.
-	 * <p/>
-	 * The key functions deal with physical keys, with key tokens named after their use on the standard US keyboard layout. If you want to input text, use the
-	 * Unicode character callback instead.
-	 * <p/>
-	 * The modifier key bit masks are not key tokens and cannot be used with this function.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>If the {@link #GLFW_STICKY_KEYS STICKY_KEYS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call this function after a key has been pressed, even if the
+	 * key has already been released.</p>
+	 * 
+	 * <p>The key functions deal with physical keys, with key tokens named after their use on the standard US keyboard layout. If you want to input text, use the
+	 * Unicode character callback instead.</p>
+	 * 
+	 * <p>The modifier key bit masks are not key tokens and cannot be used with this function.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>{@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} is not a valid key for this function.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the desired window
 	 * @param key    the desired keyboard key
@@ -1738,11 +1738,11 @@ public final class GLFW {
 
 	/**
 	 * Returns the last state reported for the specified mouse button to the specified window.
-	 * <p/>
-	 * If the {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call this function after a mouse button has been
-	 * pressed, even if the mouse button has already been released.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>If the {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS} input mode is enabled, this function returns {@link #GLFW_PRESS PRESS} the first time you call this function after a mouse button has been
+	 * pressed, even if the mouse button has already been released.</p>
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param button the desired mouse button
@@ -1763,14 +1763,14 @@ public final class GLFW {
 
 	/**
 	 * Returns the last reported position of the cursor, in screen coordinates, relative to the upper-left corner of the client area of the specified window.
-	 * <p/>
-	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
-	 * <b>double</b>.
-	 * <p/>
-	 * The coordinate can be converted to their integer equivalents with the {@link Math#floor} function. Casting directly to an integer type works for positive
-	 * coordinates, but fails for negative ones.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
+	 * <b>double</b>.</p>
+	 * 
+	 * <p>The coordinate can be converted to their integer equivalents with the {@link Math#floor} function. Casting directly to an integer type works for positive
+	 * coordinates, but fails for negative ones.</p>
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param xpos   where to store the cursor x-coordinate, relative to the left edge of the client area, or {@code NULL}
@@ -1804,11 +1804,11 @@ public final class GLFW {
 	/**
 	 * Sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the client area of the specified window. The window must be
 	 * focused. If the window does not have focus when this function is called, it fails silently.
-	 * <p/>
-	 * If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
-	 * <b>double</b>.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
+	 * <b>double</b>.</p>
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param xpos   the desired x-coordinate, relative to the left edge of the client area
@@ -1829,10 +1829,10 @@ public final class GLFW {
 	/**
 	 * Creates a new cursor that can be made the system cursor for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
 	 * cursors are destroyed by {@link #glfwTerminate Terminate}.
-	 * <p/>
-	 * The specified image is in 32-bit RGBA format, so eight bits per channel.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>The specified image is in 32-bit RGBA format, so eight bits per channel.</p>
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param image the desired cursor image
 	 * @param xhot  the desired x-coordinate of the cursor hotspot
@@ -1854,8 +1854,8 @@ public final class GLFW {
 
 	/**
 	 * Destroys a cursor previously created with {@link #glfwCreateCursor CreateCursor}. Any remaining cursors will be destroyed by {@link #glfwTerminate Terminate}.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param cursor the cursor object to destroy
 	 */
@@ -1873,8 +1873,8 @@ public final class GLFW {
 
 	/**
 	 * Sets the system cursor for a given window.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to set the system cursor for
 	 * @param cursor he cursor to change to, or {@code NULL} to switch back to the default system cursor
@@ -1895,24 +1895,24 @@ public final class GLFW {
 
 	/**
 	 * Sets the key callback of the specific window, which is called when a key is pressed, repeated or released.
-	 * <p/>
-	 * The key functions deal with physical keys, with layout independent key tokens named after their values in the standard US keyboard layout. If you want
-	 * to input text, use {@link #glfwSetCharCallback SetCharCallback} instead.
-	 * <p/>
-	 * When a window loses focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by
+	 * 
+	 * <p>The key functions deal with physical keys, with layout independent key tokens named after their values in the standard US keyboard layout. If you want
+	 * to input text, use {@link #glfwSetCharCallback SetCharCallback} instead.</p>
+	 * 
+	 * <p>When a window loses focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by
 	 * the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED FOCUSED} will be false and the focus callback will have already
-	 * been called.
-	 * <p/>
-	 * The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have
-	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, their state is not saved and so it cannot be retrieved with {@link #glfwGetKey GetKey}.
-	 * <p/>
-	 * Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.
-	 * <p/>
-	 * Notes:
+	 * been called.</p>
+	 * 
+	 * <p>The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have
+	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, their state is not saved and so it cannot be retrieved with {@link #glfwGetKey GetKey}.</p>
+	 * 
+	 * <p>Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1933,19 +1933,19 @@ public final class GLFW {
 
 	/**
 	 * Sets the character callback of the specific window, which is called when a Unicode character is input.
-	 * <p/>
-	 * The character callback is intended for Unicode text input. As it deals with characters, it is keyboard layout dependent, whereas {@link #glfwSetKeyCallback SetKeyCallback} is
+	 * 
+	 * <p>The character callback is intended for Unicode text input. As it deals with characters, it is keyboard layout dependent, whereas {@link #glfwSetKeyCallback SetKeyCallback} is
 	 * not. Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key
-	 * was pressed or released, see the key callback instead.
-	 * <p/>
-	 * The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text
-	 * input on that platform, for example a Super (Command) key on OS X or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.
-	 * <p/>
-	 * Notes:
+	 * was pressed or released, see the key callback instead.</p>
+	 * 
+	 * <p>The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text
+	 * input on that platform, for example a Super (Command) key on OS X or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1967,17 +1967,17 @@ public final class GLFW {
 	/**
 	 * Sets the character with modifiers callback of the specific window, which is called when a Unicode character is input regardless of what modifier keys
 	 * are used.
-	 * <p/>
-	 * The character with modifiers callback is intended for implementing custom Unicode character input. For regular Unicode text input, see
+	 * 
+	 * <p>The character with modifiers callback is intended for implementing custom Unicode character input. For regular Unicode text input, see
 	 * {@link #glfwSetCharCallback SetCharCallback}. Like the character callback, the character with modifiers callback deals with characters and is keyboard layout dependent.
 	 * Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key was
-	 * pressed or released, see {@link #glfwSetKeyCallback SetKeyCallback} instead.
-	 * <p/>
-	 * Notes:
+	 * pressed or released, see {@link #glfwSetKeyCallback SetKeyCallback} instead.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1998,16 +1998,16 @@ public final class GLFW {
 
 	/**
 	 * Sets the mouse button callback of the specified window, which is called when a mouse button is pressed or released.
-	 * <p/>
-	 * When a window loses focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from
+	 * 
+	 * <p>When a window loses focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from
 	 * user-generated events by the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED FOCUSED} will be false and the focus
-	 * callback will have already been called.
-	 * <p/>
-	 * Notes:
+	 * callback will have already been called.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2029,12 +2029,12 @@ public final class GLFW {
 	/**
 	 * Sets the cursor position callback of the specified window, which is called when the cursor is moved. The callback is provided with the position, in
 	 * screen coordinates, relative to the upper-left corner of the client area of the window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2055,12 +2055,12 @@ public final class GLFW {
 
 	/**
 	 * Sets the cursor boundary crossing callback of the specified window, which is called when the cursor enters or leaves the client area of the window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2081,14 +2081,14 @@ public final class GLFW {
 
 	/**
 	 * Sets the scroll callback of the specified window, which is called when a scrolling device is used.
-	 * <p/>
-	 * The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2109,12 +2109,12 @@ public final class GLFW {
 
 	/**
 	 * Sets the file drop callback of the specified window, which is called when one or more dragged files are dropped on the window.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>LWJGL</b>: see {@link WindowCallback#set(long, WindowCallback, java.util.EnumSet)}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2131,8 +2131,8 @@ public final class GLFW {
 
 	/**
 	 * Returns whether the specified joystick is present.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param joy joystick to query
 	 *
@@ -2148,13 +2148,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the values of all axes of the specified joystick.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned array is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned array is valid only until the next call to {@link #glfwGetJoystickAxes GetJoystickAxes} for that joystick.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param joy the joystick to query
 	 *
@@ -2175,13 +2175,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the state of all buttons of the specified joystick.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned array is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned array is valid only until the next call to {@link #glfwGetJoystickButtons GetJoystickButtons} for that joystick.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param joy the joystick to query
 	 *
@@ -2202,13 +2202,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the name, encoded as UTF-8, of the specified joystick.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned string is valid only until the next call to {@link #glfwGetJoystickName GetJoystickName} for that joystick.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param joy the joystick to query
 	 *
@@ -2227,8 +2227,8 @@ public final class GLFW {
 
 	/**
 	 * Sets the system clipboard to the specified, UTF-8 encoded string. The string is copied before returning, so you don't have to retain it afterwards.
-	 * <p/>
-	 * Note: This function may only be called from the main thread.
+	 * 
+	 * <p>Note: This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window that will own the clipboard contents
 	 * @param string a UTF-8 encoded string
@@ -2257,13 +2257,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the contents of the system clipboard, if it contains or is convertible to a UTF-8 encoded string.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param window the window that will request the clipboard contents
 	 *
@@ -2280,13 +2280,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the value of the GLFW timer. Unless the timer has been set using {@link #glfwSetTime SetTime}, the timer measures time elapsed since GLFW was initialized.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>The resolution of the timer is system dependent, but is usually on the order of a few micro- or nanoseconds. It uses the highest-resolution
 	 * monotonic time source on each supported platform.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @return the current value, in seconds, or zero if an error occurred. Errors are reported to the error callback.
 	 */
@@ -2296,13 +2296,13 @@ public final class GLFW {
 
 	/**
 	 * Sets the value of the GLFW timer. It then continues to count up from that value.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The resolution of the timer is system dependent, but is usually on the order of a few micro- or nanoseconds. It uses the highest-resolution
 	 * monotonic time source on each supported platform.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param time new value, in seconds
 	 */
@@ -2317,8 +2317,8 @@ public final class GLFW {
 	/**
 	 * Makes the context of the specified window current on the calling thread. A context can only be made current on a single thread at a time and each
 	 * thread can have only a single current context at a time.
-	 * <p/>
-	 * Note: This function may be called from any thread.
+	 * 
+	 * <p>Note: This function may be called from any thread.</p>
 	 *
 	 * @param window the window whose context to make current, or {@code NULL} to detach the current context
 	 */
@@ -2330,8 +2330,8 @@ public final class GLFW {
 
 	/**
 	 * Returns the window whose context is current on the calling thread.
-	 * <p/>
-	 * Note: This function may be called from any thread.
+	 * 
+	 * <p>Note: This function may be called from any thread.</p>
 	 *
 	 * @return the window whose context is current, or {@code NULL} if no window's context is current
 	 */
@@ -2346,8 +2346,8 @@ public final class GLFW {
 	/**
 	 * Swaps the front and back buffers of the specified window. If the swap interval is greater than zero, the GPU driver waits the specified number of screen
 	 * updates before swapping the buffers.
-	 * <p/>
-	 * Note: This function may be called from any thread.
+	 * 
+	 * <p>Note: This function may be called from any thread.</p>
 	 *
 	 * @param window the window whose buffers to swap
 	 */
@@ -2362,18 +2362,18 @@ public final class GLFW {
 	/**
 	 * Sets the swap interval for the current context, i.e. the number of screen updates to wait before swapping the buffers of a window and returning from
 	 * {@link #glfwSwapBuffers SwapBuffers}. This is sometimes called 'vertical synchronization', 'vertical retrace synchronization' or 'vsync'.
-	 * <p/>
-	 * Contexts that support either of the {@code WGL_EXT_swap_control_tear} and {@code GLX_EXT_swap_control_tear} extensions also accept negative swap
+	 * 
+	 * <p>Contexts that support either of the {@code WGL_EXT_swap_control_tear} and {@code GLX_EXT_swap_control_tear} extensions also accept negative swap
 	 * intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions using
-	 * {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.
-	 * <p/>
-	 * Notes:
+	 * {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>This function is not called during window creation, leaving the swap interval set to whatever is the default on that platform. This is done because
 	 * some swap interval extensions used by GLFW do not allow the swap interval to be reset to zero once it has been set to a non-zero value.</li>
 	 * <li>Some GPU drivers do not honor the requested swap interval, either because of user settings that override the request or due to bugs in the driver.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
 	 */
@@ -2388,13 +2388,13 @@ public final class GLFW {
 	/**
 	 * Returns whether the specified OpenGL or context creation API extension is supported by the current context. For example, on Windows both the OpenGL and
 	 * WGL extension strings are checked.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>As this functions searches one or more extension strings on each call, it is recommended that you cache its results if it's going to be used
 	 * frequently. The extension strings will not change during the lifetime of a context, so there is no danger in doing this.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param extension the ASCII encoded name of the extension
 	 *
@@ -2420,13 +2420,13 @@ public final class GLFW {
 
 	/**
 	 * Returns the address of the specified client API or extension function if it is supported by the current context.
-	 * <p/>
-	 * Notes:
+	 * 
+	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>The addresses of these functions are not guaranteed to be the same for all contexts, especially if they use different client APIs or even different
 	 * context creation hints.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param procname the ASCII encoded name of the function
 	 *

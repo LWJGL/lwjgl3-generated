@@ -270,14 +270,14 @@ public final class AL10 {
 
 	/**
 	 * Obtains error information.
-	 * <p/>
-	 * Each detectable error is assigned a numeric code. When an error is detected by AL, a flag is set and the error code is recorded. Further errors, if they
+	 * 
+	 * <p>Each detectable error is assigned a numeric code. When an error is detected by AL, a flag is set and the error code is recorded. Further errors, if they
 	 * occur, do not affect this recorded code. When alGetError is called, the code is returned and the flag is cleared, so that a further error will again
 	 * record its code. If a call to alGetError returns AL_NO_ERROR then there has been no detectable error since the last call to alGetError (or since the AL
-	 * was initialized).
-	 * <p/>
-	 * Error codes can be mapped to strings. The alGetString function returns a pointer to a constant (literal) string that is identical to the identifier used
-	 * for the enumeration value, as defined in the specification.
+	 * was initialized).</p>
+	 * 
+	 * <p>Error codes can be mapped to strings. The alGetString function returns a pointer to a constant (literal) string that is identical to the identifier used
+	 * for the enumeration value, as defined in the specification.</p>
 	 */
 	public static int alGetError() {
 		long __functionAddress = getInstance().GetError;
@@ -367,7 +367,7 @@ public final class AL10 {
 	/**
 	 * Returns the integer value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static int alGetInteger(int paramName) {
 		long __functionAddress = getInstance().GetInteger;
@@ -385,7 +385,7 @@ public final class AL10 {
 	/**
 	 * Returns the float value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static float alGetFloat(int paramName) {
 		long __functionAddress = getInstance().GetFloat;
@@ -403,7 +403,7 @@ public final class AL10 {
 	/**
 	 * Returns the double value of the specified parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_DOPPLER_FACTOR DOPPLER_FACTOR}, {@link #AL_DISTANCE_MODEL DISTANCE_MODEL}, {@link AL11#AL_SPEED_OF_SOUND SPEED_OF_SOUND}
 	 */
 	public static double alGetDouble(int paramName) {
 		long __functionAddress = getInstance().GetDouble;
@@ -559,7 +559,7 @@ public final class AL10 {
 	/**
 	 * Returns the string value of the specified parameter
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_VENDOR VENDOR}, {@link #AL_VERSION VERSION}, {@link #AL_RENDERER RENDERER}, {@link #AL_EXTENSIONS EXTENSIONS}
 	 */
 	public static String alGetString(int paramName) {
 		long __result = nalGetString(paramName);
@@ -574,18 +574,18 @@ public final class AL10 {
 
 	/**
 	 * Sets the distance attenuation model.
-	 * <p/>
-	 * Samples usually use the entire dynamic range of the chosen format/encoding, independent of their real world intensity. For example, a jet engine and a
-	 * clockwork both will have samples with full amplitude. The application will then have to adjust source gain accordingly to account for relative differences.
-	 * <p/>
-	 * Source gain is then attenuated by distance. The effective attenuation of a source depends on many factors, among which distance attenuation and source
+	 * 
+	 * <p>Samples usually use the entire dynamic range of the chosen format/encoding, independent of their real world intensity. For example, a jet engine and a
+	 * clockwork both will have samples with full amplitude. The application will then have to adjust source gain accordingly to account for relative differences.</p>
+	 * 
+	 * <p>Source gain is then attenuated by distance. The effective attenuation of a source depends on many factors, among which distance attenuation and source
 	 * and listener gain are only some of the contributing factors. Even if the source and listener gain exceed 1.0 (amplification beyond the guaranteed
-	 * dynamic range), distance and other attenuation might ultimately limit the overall gain to a value below 1.0.
-	 * <p/>
-	 * OpenAL currently supports three modes of operation with respect to distance attenuation, including one that is similar to the IASIG I3DL2 model. The
-	 * application can choose one of these models (or chooses to disable distance-dependent attenuation) on a per-context basis.
+	 * dynamic range), distance and other attenuation might ultimately limit the overall gain to a value below 1.0.</p>
+	 * 
+	 * <p>OpenAL currently supports three modes of operation with respect to distance attenuation, including one that is similar to the IASIG I3DL2 model. The
+	 * application can choose one of these models (or chooses to disable distance-dependent attenuation) on a per-context basis.</p>
 	 *
-	 * @param modelName the distance attenuation model to set. One of:<p/>{@link #AL_INVERSE_DISTANCE INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE NONE}
+	 * @param modelName the distance attenuation model to set. One of:<br>{@link #AL_INVERSE_DISTANCE INVERSE_DISTANCE}, {@link #AL_INVERSE_DISTANCE_CLAMPED INVERSE_DISTANCE_CLAMPED}, {@link AL11#AL_LINEAR_DISTANCE LINEAR_DISTANCE}, {@link AL11#AL_LINEAR_DISTANCE_CLAMPED LINEAR_DISTANCE_CLAMPED}, {@link AL11#AL_EXPONENT_DISTANCE EXPONENT_DISTANCE}, {@link AL11#AL_EXPONENT_DISTANCE_CLAMPED EXPONENT_DISTANCE_CLAMPED}, {@link #AL_NONE NONE}
 	 */
 	public static void alDistanceModel(int modelName) {
 		long __functionAddress = getInstance().DistanceModel;
@@ -602,8 +602,8 @@ public final class AL10 {
 
 	/**
 	 * Sets the doppler effect factor.
-	 * <p/>
-	 * The Doppler Effect depends on the velocities of source and listener relative to the medium, and the propagation speed of sound in that medium. The
+	 * 
+	 * <p>The Doppler Effect depends on the velocities of source and listener relative to the medium, and the propagation speed of sound in that medium. The
 	 * application might want to emphasize or de-emphasize the Doppler Effect as physically accurate calculation might not give the desired results. The amount
 	 * of frequency shift (pitch change) is proportional to the speed of listener and source along their line of sight. The Doppler Effect as implemented by
 	 * OpenAL is described by the formula below. Effects of the medium (air, water) moving with respect to listener and source are ignored.
@@ -634,7 +634,7 @@ public final class AL10 {
 	 * 	
 	 * f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
 	 * The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
-	 * the calculation.
+	 * the calculation.</p>
 	 *
 	 * @param dopplerFactor the doppler factor
 	 */
@@ -653,8 +653,8 @@ public final class AL10 {
 
 	/**
 	 * Sets the doppler effect propagation velocity.
-	 * <p/>
-	 * The OpenAL 1.1 Doppler implementation is different than that of OpenAL 1.0, because the older implementation was confusing and not implemented
+	 * 
+	 * <p>The OpenAL 1.1 Doppler implementation is different than that of OpenAL 1.0, because the older implementation was confusing and not implemented
 	 * consistently. The new "speed of sound" property makes the 1.1 implementation more intuitive than the old implementation. If your implementation wants to
 	 * support the AL_DOPPLER_VELOCITY parameter (the alDopplerVelocity call will remain as an entry point so that 1.0 applications can link with a 1.1
 	 * library), the above formula can be changed to the following:
@@ -663,7 +663,7 @@ public final class AL10 {
 	 * vls = min(vls, (SS * DV)/DF)
 	 * 	
 	 * f' = f * (SS * DV - DF*vls) / (SS * DV - DF*vss)</code></pre>
-	 * OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).
+	 * OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
 	 *
 	 * @param dopplerVelocity the doppler velocity
 	 */
@@ -683,7 +683,7 @@ public final class AL10 {
 	/**
 	 * Sets the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to modify. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alListenerf(int paramName, float value) {
@@ -702,7 +702,7 @@ public final class AL10 {
 	/**
 	 * Integer version of {@link #alListenerf Listenerf}.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to modify. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter value
 	 */
 	public static void alListeneri(int paramName, int values) {
@@ -721,7 +721,7 @@ public final class AL10 {
 	/**
 	 * Sets the 3 dimensional float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to modify. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to modify. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value1    the first value
 	 * @param value2    the second value
 	 * @param value3    the third value
@@ -785,7 +785,7 @@ public final class AL10 {
 	/**
 	 * Returns the float value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alGetListenerf(int paramName, ByteBuffer value) {
@@ -827,7 +827,7 @@ public final class AL10 {
 	/**
 	 * Returns the integer value of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value     the parameter value
 	 */
 	public static void alGetListeneri(int paramName, ByteBuffer value) {
@@ -869,7 +869,7 @@ public final class AL10 {
 	/**
 	 * Returns the 3 dimensional values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param value1    the first parameter value
 	 * @param value2    the second parameter value
 	 * @param value3    the third parameter value
@@ -911,7 +911,7 @@ public final class AL10 {
 	/**
 	 * Returns float values of a listener parameter.
 	 *
-	 * @param paramName the parameter to query. One of:<p/>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
+	 * @param paramName the parameter to query. One of:<br>{@link #AL_ORIENTATION ORIENTATION}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}
 	 * @param values    the parameter values
 	 */
 	public static void alGetListenerfv(int paramName, ByteBuffer values) {
@@ -1034,7 +1034,7 @@ public final class AL10 {
 	 * Sets the float value of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to modify. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alSourcef(int source, int param, float value) {
@@ -1054,7 +1054,7 @@ public final class AL10 {
 	 * Sets the 3 dimensional values of a source parameter.
 	 *
 	 * @param source the source to modify
-	 * @param param  the parameter to modify. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to modify. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -1136,7 +1136,7 @@ public final class AL10 {
 	 * Returns the float value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcef(int source, int param, ByteBuffer value) {
@@ -1179,7 +1179,7 @@ public final class AL10 {
 	 * Returns the 3 dimensional values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param v1     the first parameter value
 	 * @param v2     the second parameter value
 	 * @param v3     the third parameter value
@@ -1222,7 +1222,7 @@ public final class AL10 {
 	 * Returns the float values of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param values the parameter values
 	 */
 	public static void alGetSourcefv(int source, int param, ByteBuffer values) {
@@ -1257,7 +1257,7 @@ public final class AL10 {
 	 * Returns the integer value of the specified source parameter.
 	 *
 	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<p/>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
 	 * @param value  the parameter value
 	 */
 	public static void alGetSourcei(int source, int param, ByteBuffer value) {
@@ -1298,10 +1298,10 @@ public final class AL10 {
 
 	/**
 	 * Queues up one or multiple buffer names to the specified source.
-	 * <p/>
-	 * The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
+	 * 
+	 * <p>The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
 	 * streaming, queuing has to be possible on a AL_PLAYING source). All buffers in a queue must have the same format and attributes, with the exception of
-	 * the NULL buffer (i.e., 0) which can always be queued.
+	 * the NULL buffer (i.e., 0) which can always be queued.</p>
 	 *
 	 * @param sourceName  the target source
 	 * @param numBuffers  the number of buffers to queue
@@ -1342,11 +1342,11 @@ public final class AL10 {
 
 	/**
 	 * Removes a number of buffer entries that have finished processing, in the order of apperance, from the queue of the specified source.
-	 * <p/>
-	 * Once a queue entry for a buffer has been appended to a queue and is pending processing, it should not be changed. Removal of a given queue entry is not
+	 * 
+	 * <p>Once a queue entry for a buffer has been appended to a queue and is pending processing, it should not be changed. Removal of a given queue entry is not
 	 * possible unless either the source is stopped (in which case then entire queue is considered processed), or if the queue entry has already been processed
 	 * (AL_PLAYING or AL_PAUSED source). A playing source will enter the AL_STOPPED state if it completes playback of the last buffer in its queue (the same
-	 * behavior as when a single buffer has been attached to a source and has finished playback).
+	 * behavior as when a single buffer has been attached to a source and has finished playback).</p>
 	 *
 	 * @param sourceName  the target source
 	 * @param numEntries  the number of buffers to unqueue
@@ -1378,12 +1378,12 @@ public final class AL10 {
 
 	/**
 	 * Sets the source state to AL_PLAYING.
-	 * <p/>
-	 * alSourcePlay applied to an AL_INITIAL source will promote the source to AL_PLAYING, thus the data found in the buffer will be fed into the processing,
+	 * 
+	 * <p>alSourcePlay applied to an AL_INITIAL source will promote the source to AL_PLAYING, thus the data found in the buffer will be fed into the processing,
 	 * starting at the beginning. alSourcePlay applied to a AL_PLAYING source will restart the source from the beginning. It will not affect the configuration,
 	 * and will leave the source in AL_PLAYING state, but reset the sampling offset to the beginning. alSourcePlay applied to a AL_PAUSED source will resume
 	 * processing using the source state as preserved at the alSourcePause operation. alSourcePlay applied to a AL_STOPPED source will propagate it to
-	 * AL_INITIAL then to AL_PLAYING immediately.
+	 * AL_INITIAL then to AL_PLAYING immediately.</p>
 	 *
 	 * @param source the source to play
 	 */
@@ -1402,10 +1402,10 @@ public final class AL10 {
 
 	/**
 	 * Sets the source state to AL_PAUSED.
-	 * <p/>
-	 * alSourcePause applied to an AL_INITIAL source is a legal NOP. alSourcePause applied to a AL_PLAYING source will change its state to AL_PAUSED. The
+	 * 
+	 * <p>alSourcePause applied to an AL_INITIAL source is a legal NOP. alSourcePause applied to a AL_PLAYING source will change its state to AL_PAUSED. The
 	 * source is exempt from processing, its current state is preserved. alSourcePause applied to a AL_PAUSED source is a legal NOP. alSourcePause applied to a
-	 * AL_STOPPED source is a legal NOP.
+	 * AL_STOPPED source is a legal NOP.</p>
 	 *
 	 * @param source the source to pause
 	 */
@@ -1424,10 +1424,10 @@ public final class AL10 {
 
 	/**
 	 * Sets the source state to AL_STOPPED.
-	 * <p/>
-	 * alSourceStop applied to an AL_INITIAL source is a legal NOP. alSourceStop applied to a AL_PLAYING source will change its state to AL_STOPPED. The source
+	 * 
+	 * <p>alSourceStop applied to an AL_INITIAL source is a legal NOP. alSourceStop applied to a AL_PLAYING source will change its state to AL_STOPPED. The source
 	 * is exempt from processing, its current state is preserved. alSourceStop applied to a AL_PAUSED source will change its state to AL_STOPPED, with the same
-	 * consequences as on a AL_PLAYING source. alSourceStop applied to a AL_STOPPED source is a legal NOP.
+	 * consequences as on a AL_PLAYING source. alSourceStop applied to a AL_STOPPED source is a legal NOP.</p>
 	 *
 	 * @param source the source to stop
 	 */
@@ -1446,11 +1446,11 @@ public final class AL10 {
 
 	/**
 	 * Sets the source state to AL_INITIAL.
-	 * <p/>
-	 * alSourceRewind applied to an AL_INITIAL source is a legal NOP. alSourceRewind applied to a AL_PLAYING source will change its state to AL_STOPPED then
+	 * 
+	 * <p>alSourceRewind applied to an AL_INITIAL source is a legal NOP. alSourceRewind applied to a AL_PLAYING source will change its state to AL_STOPPED then
 	 * AL_INITIAL. The source is exempt from processing: its current state is preserved, with the exception of the sampling offset, which is reset to the
 	 * beginning. alSourceRewind applied to a AL_PAUSED source will change its state to AL_INITIAL, with the same consequences as on a AL_PLAYING source.
-	 * alSourceRewind applied to an AL_STOPPED source promotes the source to AL_INITIAL, resetting the sampling offset to the beginning.
+	 * alSourceRewind applied to an AL_STOPPED source promotes the source to AL_INITIAL, resetting the sampling offset to the beginning.</p>
 	 *
 	 * @param source the source to rewind
 	 */
@@ -1699,7 +1699,7 @@ public final class AL10 {
 	 * Returns the float value of the specified buffer parameter.
 	 *
 	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferf(int bufferName, int paramName, ByteBuffer value) {
@@ -1742,7 +1742,7 @@ public final class AL10 {
 	 * Returns the integer value of the specified buffer parameter.
 	 *
 	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<p/>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
+	 * @param paramName  the parameter to query. One of:<br>{@link #AL_FREQUENCY FREQUENCY}, {@link #AL_BITS BITS}, {@link #AL_CHANNELS CHANNELS}, {@link #AL_SIZE SIZE}
 	 * @param value      the parameter value
 	 */
 	public static void alGetBufferi(int bufferName, int paramName, ByteBuffer value) {
@@ -1783,22 +1783,22 @@ public final class AL10 {
 
 	/**
 	 * Sets the sample data of the given buffer.
-	 * <p/>
-	 * The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
-	 * resampling, and filtering as needed.
-	 * <p/>
-	 * 8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.
-	 * <p/>
-	 * 16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
-	 * determined by the native format of the CPU.
-	 * <p/>
-	 * Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.
-	 * <p/>
-	 * Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
-	 * background music.
+	 * 
+	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
+	 * resampling, and filtering as needed.</p>
+	 * 
+	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
+	 * 
+	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
+	 * determined by the native format of the CPU.</p>
+	 * 
+	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
+	 * 
+	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
+	 * background music.</p>
 	 *
 	 * @param bufferName the buffer to modify
-	 * @param format     the data format. One of:<p/>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}, {@link #AL_FORMAT_MONO16 FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}
+	 * @param format     the data format. One of:<br>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}, {@link #AL_FORMAT_MONO16 FORMAT_MONO16}, {@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}, {@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}
 	 * @param data       the sample data
 	 * @param size       the data buffer size, in bytes
 	 * @param frequency  the data frequency
@@ -1873,12 +1873,12 @@ public final class AL10 {
 
 	/**
 	 * Retrieves extension entry points.
-	 * <p/>
-	 * Returns NULL if no entry point with the name funcName can be found. Implementations are free to return NULL if an entry point is present, but not
-	 * applicable for the current context. However the specification does not guarantee this behavior.
-	 * <p/>
-	 * Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
-	 * OpenAL DLL's as sound drivers.
+	 * 
+	 * <p>Returns NULL if no entry point with the name funcName can be found. Implementations are free to return NULL if an entry point is present, but not
+	 * applicable for the current context. However the specification does not guarantee this behavior.</p>
+	 * 
+	 * <p>Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
+	 * OpenAL DLL's as sound drivers.</p>
 	 *
 	 * @param funcName the function name
 	 */
@@ -1911,9 +1911,9 @@ public final class AL10 {
 
 	/**
 	 * Verifies that a given extension is available for the current context and the device it is associated with.
-	 * <p/>
-	 * Invalid and unsupported string tokens return ALC_FALSE. {@code extName} is not case sensitive – the implementation will convert the name to all
-	 * upper-case internally (and will express extension names in upper-case).
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. {@code extName} is not case sensitive – the implementation will convert the name to all
+	 * upper-case internally (and will express extension names in upper-case).</p>
 	 *
 	 * @param extName the extension name
 	 */

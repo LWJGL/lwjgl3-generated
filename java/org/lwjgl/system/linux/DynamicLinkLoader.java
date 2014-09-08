@@ -55,7 +55,7 @@ public final class DynamicLinkLoader {
 	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
 	 *
 	 * @param filename the name of the dynamic library to open, or {@code NULL}
-	 * @param mode     a bitfield. One or more of:<p/>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
+	 * @param mode     a bitfield. One or more of:<br>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
 	 */
 	public static long dlopen(ByteBuffer filename, int mode) {
 		if ( LWJGLUtil.CHECKS )

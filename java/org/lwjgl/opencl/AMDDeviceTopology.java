@@ -19,10 +19,10 @@ public final class AMDDeviceTopology {
 	 * } cl_device_topology_amd;</code></pre>
 	 * The type of the structure returned can be queried by reading the first unsigned int of the returned data. The developer can use this type to cast the
 	 * returned union into the right structure type.
-	 * <p/>
-	 * Currently, the only supported type in the structure above is {@link #CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD DEVICE_TOPOLOGY_TYPE_PCIE_AMD}. The information returned contains the PCI
+	 * 
+	 * <p>Currently, the only supported type in the structure above is {@link #CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD DEVICE_TOPOLOGY_TYPE_PCIE_AMD}. The information returned contains the PCI
 	 * Bus/Device/Function of the device, and is similar to the result of the lspci command in Linux. It enables the developer to match between the OpenCL
-	 * device ID and the physical PCI connection of the card.
+	 * device ID and the physical PCI connection of the card.</p>
 	 */
 	public static final int
 		CL_DEVICE_TOPOLOGY_AMD = 0x4037;

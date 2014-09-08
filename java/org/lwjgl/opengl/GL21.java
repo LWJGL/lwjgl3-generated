@@ -15,12 +15,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * The core OpenGL 2.1 functionality. OpenGL 2.1 implementations must support at least revision 1.20 of the OpenGL Shading Language.
- * <p/>
- * Extensions promoted to core in this release:
+ * 
+ * <p>Extensions promoted to core in this release:
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
- * </ul>
+ * </ul></p>
  */
 public final class GL21 {
 
@@ -121,8 +121,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -157,8 +157,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -193,8 +193,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -229,8 +229,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -265,8 +265,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified
@@ -301,8 +301,8 @@ public final class GL21 {
 	}
 
 	/**
-	 * <a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a>
-	 * <p/>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
 	 *
 	 * @param location  the location of the uniform variable to be modified

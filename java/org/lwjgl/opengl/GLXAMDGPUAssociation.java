@@ -17,15 +17,15 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/glx_gpu_association.txt">GLX_AMD_gpu_association</a> extension.
- * <p/>
- * There currently is no way for applications to efficiently use GPU resources in systems that contain more than one GPU. Vendors have provided methods
+ * 
+ * <p>There currently is no way for applications to efficiently use GPU resources in systems that contain more than one GPU. Vendors have provided methods
  * that attempt to split the workload for an application among the available GPU resources. This has proven to be very inefficient because most
- * applications were never written with these sorts of optimizations in mind.
- * <p/>
- * This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
- * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.
- * <p/>
- * Requires {@link GL15 OpenGL 1.5}, {@link GLX13 GLX 1.3}, {@link EXTFramebufferObject EXT_framebuffer_object} and {@link GLXARBGetProcAddress GLX_ARB_get_proc_address}.
+ * applications were never written with these sorts of optimizations in mind.</p>
+ * 
+ * <p>This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
+ * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.</p>
+ * 
+ * <p>Requires {@link GL15 OpenGL 1.5}, {@link GLX13 GLX 1.3}, {@link EXTFramebufferObject EXT_framebuffer_object} and {@link GLXARBGetProcAddress GLX_ARB_get_proc_address}.</p>
  */
 public final class GLXAMDGPUAssociation {
 
@@ -264,7 +264,7 @@ public final class GLXAMDGPUAssociation {
 	 * Queries GPU properties.
 	 *
 	 * @param id       
-	 * @param property one of:<p/>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}, {@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
+	 * @param property one of:<br>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}, {@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}, {@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}, {@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}, {@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}, {@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}, {@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}, {@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}, {@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}, {@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}
 	 * @param dataType 
 	 * @param size     
 	 * @param data     

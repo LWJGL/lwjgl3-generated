@@ -16,12 +16,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <strong>amd_bus_addressable_memory</strong> extension.
- * <p/>
- * This extension defines an API for peer-to-peer transfers between AMD GPUs and other PCIe device, such as third-party SDI I/O devices. Peer-to-peer
+ * 
+ * <p>This extension defines an API for peer-to-peer transfers between AMD GPUs and other PCIe device, such as third-party SDI I/O devices. Peer-to-peer
  * transfers have extremely low latencies by not having to use the host's main memory or the CPU. This extension allows sharing a memory allocated by the
  * graphics driver to be used by other devices on the PCIe bus (peer-to-peer transfers) by exposing a write-only bus address. It also allows memory
  * allocated on other PCIe devices (non-AMD GPU) to be directly accessed by AMD GPUs. One possible use of this is for a video capture device to directly
- * write into the GPU memory using its DMA. This extension is supported only on AMD FirePro™ professional graphics cards.
+ * write into the GPU memory using its DMA. This extension is supported only on AMD FirePro™ professional graphics cards.</p>
  */
 public final class AMDBusAddressableMemory {
 

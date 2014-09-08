@@ -15,15 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/matrix_palette.txt">ARB_matrix_palette</a> extension.
- * <p/>
- * This extension extends the abilities of {@link ARBVertexBlend} to include a palette of modelview matrices. The n vertex units use a palette of m modelview
+ * 
+ * <p>This extension extends the abilities of {@link ARBVertexBlend} to include a palette of modelview matrices. The n vertex units use a palette of m modelview
  * matrices. (Where n and m are constrained to implementation defined maxima.) Each vertex has a set of n indices into the palette, and a corresponding set
- * of n weights. Matrix indices can be changed for each vertex (between {@link GL11#glBegin Begin} and {@link GL11#glEnd End}).
- * <p/>
- * When this extension is utilized, the enabled units transform each vertex by the modelview matrices specified by the vertices' respective indices. These
- * results are subsequently scaled by the weights of the respective units and then summed to create the eyespace vertex.
- * <p/>
- * A similar procedure is followed for normals. Normals, however, are transformed by the inverse transpose of the modelview matrix.
+ * of n weights. Matrix indices can be changed for each vertex (between {@link GL11#glBegin Begin} and {@link GL11#glEnd End}).</p>
+ * 
+ * <p>When this extension is utilized, the enabled units transform each vertex by the modelview matrices specified by the vertices' respective indices. These
+ * results are subsequently scaled by the weights of the respective units and then summed to create the eyespace vertex.</p>
+ * 
+ * <p>A similar procedure is followed for normals. Normals, however, are transformed by the inverse transpose of the modelview matrix.</p>
  */
 public final class ARBMatrixPalette {
 
@@ -228,7 +228,7 @@ public final class ARBMatrixPalette {
 	 * 
 	 *
 	 * @param size    the number of index values per vertex that are stored in the array. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param type    the data type of the values stored in the array. One of:<p/>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}
 	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer the matrix index data
 	 */

@@ -16,11 +16,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">WGL_NV_DX_interop</a> extension.
- * <p/>
- * This extension allows OpenGL to directly access DirectX buffers and surfaces. A DirectX vertex buffer may be shared as an OpenGL buffer object and a
- * DirectX surface may be shared as an OpenGL texture or renderbuffer object.
- * <p/>
- * Requires {@link GL21 OpenGL 2.1}.
+ * 
+ * <p>This extension allows OpenGL to directly access DirectX buffers and surfaces. A DirectX vertex buffer may be shared as an OpenGL buffer object and a
+ * DirectX surface may be shared as an OpenGL texture or renderbuffer object.</p>
+ * 
+ * <p>Requires {@link GL21 OpenGL 2.1}.</p>
  */
 public final class WGLNVDXInterop {
 
@@ -149,7 +149,7 @@ public final class WGLNVDXInterop {
 	 * @param dxResource a pointer to a DirectX resource to be registered with the GL
 	 * @param name       the GL object name to be assigned to the DirectX resource in the namespace of the objects identified by {@code type} in the current GL context
 	 * @param type       the GL object type that will map to the DirectX resource being shared
-	 * @param access     indicates the intended usage of the resource in GL. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
+	 * @param access     indicates the intended usage of the resource in GL. One of:<br>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
 		long __functionAddress = getInstance().DXRegisterObjectNV;
@@ -193,7 +193,7 @@ public final class WGLNVDXInterop {
 	 * Modifies the access mode of an interop object, if a different access mode is required after the object has been registered.
 	 *
 	 * @param object the GL/DirectX interop object
-	 * @param access the new access mode. One of:<p/>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
+	 * @param access the new access mode. One of:<br>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}, {@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}, {@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}
 	 */
 	public static int wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = getInstance().DXObjectAccessNV;
@@ -223,13 +223,13 @@ public final class WGLNVDXInterop {
 
 	/**
 	 * Before a GL object which is associated with a DirectX resource may be used, it must be locked with this function.
-	 * <p/>
-	 * A return value of TRUE indicates that all objects were successfully locked.  A return value of FALSE indicates an error. If the function returns FALSE,
-	 * none of the objects will be locked.
-	 * <p/>
-	 * Attempting to access an interop object via GL when the object is not locked, or attempting to access the DirectX resource through the DirectX API when
+	 * 
+	 * <p>A return value of TRUE indicates that all objects were successfully locked.  A return value of FALSE indicates an error. If the function returns FALSE,
+	 * none of the objects will be locked.</p>
+	 * 
+	 * <p>Attempting to access an interop object via GL when the object is not locked, or attempting to access the DirectX resource through the DirectX API when
 	 * it is locked by GL, will result in undefined behavior and may result in data corruption or program termination. Likewise, passing invalid interop device
-	 * or object handles to this function has undefined results, including program termination.
+	 * or object handles to this function has undefined results, including program termination.</p>
 	 *
 	 * @param device  the GL/DirectX interop device handle
 	 * @param count   the number of objects to lock

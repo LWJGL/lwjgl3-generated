@@ -16,15 +16,15 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/occlusion_query.txt">ARB_occlusion_query</a> extension.
- * <p/>
- * This extension defines a mechanism whereby an application can query the number of pixels (or, more precisely, samples) drawn by a primitive or group of
- * primitives.
- * <p/>
- * The primary purpose of such a query (hereafter referred to as an "occlusion query") is to determine the visibility of an object. Typically, the
+ * 
+ * <p>This extension defines a mechanism whereby an application can query the number of pixels (or, more precisely, samples) drawn by a primitive or group of
+ * primitives.</p>
+ * 
+ * <p>The primary purpose of such a query (hereafter referred to as an "occlusion query") is to determine the visibility of an object. Typically, the
  * application will render the major occluders in the scene, then perform an occlusion query for the bounding box of each detail object in the scene. Only
- * if said bounding box is visible, i.e., if at least one sample is drawn, should the corresponding object be drawn.
- * <p/>
- * The earlier <a href="http://www.opengl.org/registry/specs/HP/occlusion_test.txt">HP_occlusion_test</a> extension defined a similar mechanism, but it had two major shortcomings.
+ * if said bounding box is visible, i.e., if at least one sample is drawn, should the corresponding object be drawn.</p>
+ * 
+ * <p>The earlier <a href="http://www.opengl.org/registry/specs/HP/occlusion_test.txt">HP_occlusion_test</a> extension defined a similar mechanism, but it had two major shortcomings.
  * <ul>
  * <li>It returned the result as a simple {@link GL11#GL_TRUE TRUE}/{@link GL11#GL_FALSE FALSE} result, when in fact it is often useful to know exactly how many samples were drawn.</li>
  * <li>It provided only a simple "stop-and-wait" model for using multiple queries. The application begins an occlusion test and ends it; then, at some
@@ -35,9 +35,9 @@ import static org.lwjgl.system.APIUtil.*;
  * This extension solves both of those problems. It returns as its result the number of samples that pass the depth and stencil tests, and it encapsulates
  * occlusion queries in "query objects" that allow applications to issue many queries before asking for the result of any one. As a result, they can
  * overlap the time it takes for the occlusion query results to be returned with other, more useful work, such as rendering other parts of the scene or
- * performing other computations on the CPU.
- * <p/>
- * There are many situations where a pixel/sample count, rather than a boolean result, is useful.
+ * performing other computations on the CPU.</p>
+ * 
+ * <p>There are many situations where a pixel/sample count, rather than a boolean result, is useful.
  * <ul>
  * <li>Objects that are visible but cover only a very small number of pixels can be skipped at a minimal reduction of image quality.</li>
  * <li>Knowing exactly how many pixels an object might cover may help the application decide which level-of-detail model should be used. If only a few
@@ -49,9 +49,9 @@ import static org.lwjgl.system.APIUtil.*;
  * <li>Occlusion queries can replace glReadPixels of the depth buffer to determine whether (for example) a light source is visible for the purposes of a
  * lens flare effect or a halo to simulate glare. Pixel counts allow you to compute the percentage of the light source that is visible, and the
  * brightness of these effects can be modulated accordingly.</li>
- * </ul>
- * <p/>
- * Promoted to core in {@link GL15 OpenGL 1.5}.
+ * </ul></p>
+ * 
+ * <p>Promoted to core in {@link GL15 OpenGL 1.5}.</p>
  */
 public final class ARBOcclusionQuery {
 
@@ -219,7 +219,7 @@ public final class ARBOcclusionQuery {
 	/**
 	 * Creates a query object and makes it active.
 	 *
-	 * @param target the target type of query object established. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the target type of query object established. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 * @param id     the name of a query object
 	 */
 	public static void glBeginQueryARB(int target, int id) {
@@ -238,7 +238,7 @@ public final class ARBOcclusionQuery {
 	/**
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
 	 *
-	 * @param target the query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param target the query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
 	 */
 	public static void glEndQueryARB(int target) {
 		long __functionAddress = getInstance().EndQueryARB;
@@ -265,8 +265,8 @@ public final class ARBOcclusionQuery {
 	/**
 	 * Returns parameters of a query object target.
 	 *
-	 * @param target the query object target. One of:<p/>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
-	 * @param pname  the symbolic name of a query object target parameter. One of:<p/>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
+	 * @param target the query object target. One of:<br>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}, {@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}, {@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}, {@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}, {@link GL33#GL_TIMESTAMP TIMESTAMP}, {@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}, {@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}
+	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
 	 * @param params the requested data
 	 */
 	public static void glGetQueryiARB(int target, int pname, ByteBuffer params) {
@@ -309,7 +309,7 @@ public final class ARBOcclusionQuery {
 	 * Returns the integer value of a query object parameter.
 	 *
 	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<p/>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectiARB(int id, int pname, ByteBuffer params) {
@@ -352,7 +352,7 @@ public final class ARBOcclusionQuery {
 	 * Unsigned version of {@link #glGetQueryObjecti GetQueryObjecti}.
 	 *
 	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<p/>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
+	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectuiARB(int id, int pname, ByteBuffer params) {

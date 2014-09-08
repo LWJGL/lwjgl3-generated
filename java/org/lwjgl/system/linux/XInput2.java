@@ -85,13 +85,13 @@ public final class XInput2 {
 
 	/**
 	 * Selects XI2 events.
-	 * <p/>
-	 * {@code XISelectEvents} sets the event mask for this client on win. Further events are only reported to this client if the event type matches the
-	 * selected event mask. The masks overrides the previously selected event mask for the given device.
-	 * <p/>
-	 * If deviceid is a valid device, the event mask is selected only for this device. If deviceid is XIAllDevices or XIAllMasterDevices, the event mask is
+	 * 
+	 * <p>{@code XISelectEvents} sets the event mask for this client on win. Further events are only reported to this client if the event type matches the
+	 * selected event mask. The masks overrides the previously selected event mask for the given device.</p>
+	 * 
+	 * <p>If deviceid is a valid device, the event mask is selected only for this device. If deviceid is XIAllDevices or XIAllMasterDevices, the event mask is
 	 * selected for all devices or all master devices, respectively. The effective event mask is the bit-wise OR of the XIAllDevices, XIAllMasterDevices and
-	 * the respective device's event mask.
+	 * the respective device's event mask.</p>
 	 *
 	 * @param display   the connection to the X server
 	 * @param w         the window

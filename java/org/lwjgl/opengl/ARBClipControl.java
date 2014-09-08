@@ -12,11 +12,11 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a> extension.
- * <p/>
- * This extension provides additional clip control modes to configure how clip space is mapped to window space.  This extension's goal is to 1) allow
- * OpenGL to effectively match Direct3D's coordinate system conventions, and 2) potentially improve the numerical precision of the Z coordinate mapping.
- * <p/>
- * Promoted to core in {@link GL45 OpenGL 4.5}.
+ * 
+ * <p>This extension provides additional clip control modes to configure how clip space is mapped to window space.  This extension's goal is to 1) allow
+ * OpenGL to effectively match Direct3D's coordinate system conventions, and 2) potentially improve the numerical precision of the Z coordinate mapping.</p>
+ * 
+ * <p>Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public final class ARBClipControl {
 
@@ -67,15 +67,15 @@ public final class ARBClipControl {
 
 	/**
 	 * Controls the clipping volume behavior.
-	 * <p/>
-	 * These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link #GL_LOWER_LEFT LOWER_LEFT} and
-	 * the initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.
-	 * <p/>
-	 * The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
-	 * execution of {@link GL11#glEnd End}.
+	 * 
+	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link #GL_LOWER_LEFT LOWER_LEFT} and
+	 * the initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
+	 * 
+	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
+	 * execution of {@link GL11#glEnd End}.</p>
 	 *
-	 * @param origin the clip origin. One of:<p/>{@link #GL_LOWER_LEFT LOWER_LEFT}, {@link #GL_UPPER_LEFT UPPER_LEFT}
-	 * @param depth  the clip depth mode. One of:<p/>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
+	 * @param origin the clip origin. One of:<br>{@link #GL_LOWER_LEFT LOWER_LEFT}, {@link #GL_UPPER_LEFT UPPER_LEFT}
+	 * @param depth  the clip depth mode. One of:<br>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = getInstance().ClipControl;

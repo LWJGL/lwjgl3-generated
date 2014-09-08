@@ -127,9 +127,9 @@ public final class ALC10 {
 
 	/**
 	 * Allows the application to connect to a device.
-	 * <p/>
-	 * If the function returns NULL, then no sound driver/device has been found. The argument is a null terminated string that requests a certain device or
-	 * device configuration. If NULL is specified, the implementation will provide an implementation specific default.
+	 * 
+	 * <p>If the function returns NULL, then no sound driver/device has been found. The argument is a null terminated string that requests a certain device or
+	 * device configuration. If NULL is specified, the implementation will provide an implementation specific default.</p>
 	 *
 	 * @param deviceSpecifier the requested device or device configuration
 	 */
@@ -153,9 +153,9 @@ public final class ALC10 {
 
 	/**
 	 * Allows the application to disconnect from a device.
-	 * <p/>
-	 * The return code will be ALC_TRUE or ALC_FALSE, indicating success or failure. Failure will occur if all the device's contexts and buffers have not been
-	 * destroyed. Once closed, the {@code deviceHandle} is invalid.
+	 * 
+	 * <p>The return code will be ALC_TRUE or ALC_FALSE, indicating success or failure. Failure will occur if all the device's contexts and buffers have not been
+	 * destroyed. Once closed, the {@code deviceHandle} is invalid.</p>
 	 *
 	 * @param deviceHandle the device to close
 	 */
@@ -189,7 +189,7 @@ public final class ALC10 {
 	 * Creates an AL context.
 	 *
 	 * @param deviceHandle a valid device
-	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<p/>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
+	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
 	 */
 	public static long alcCreateContext(long deviceHandle, ByteBuffer attrList) {
 		if ( LWJGLUtil.CHECKS )
@@ -212,12 +212,12 @@ public final class ALC10 {
 
 	/**
 	 * Makes a context current with respect to OpenAL operation.
-	 * <p/>
-	 * The context parameter can be NULL or a valid context pointer. Using NULL results in no context being current, which is useful when shutting OpenAL down.
-	 * The operation will apply to the device that the context was created for.
-	 * <p/>
-	 * For each OS process (usually this means for each application), only one context can be current at any given time. All AL commands apply to the current
-	 * context. Commands that affect objects shared among contexts (e.g. buffers) have side effects on other contexts.
+	 * 
+	 * <p>The context parameter can be NULL or a valid context pointer. Using NULL results in no context being current, which is useful when shutting OpenAL down.
+	 * The operation will apply to the device that the context was created for.</p>
+	 * 
+	 * <p>For each OS process (usually this means for each application), only one context can be current at any given time. All AL commands apply to the current
+	 * context. Commands that affect objects shared among contexts (e.g. buffers) have side effects on other contexts.</p>
 	 *
 	 * @param context the context to make current
 	 */
@@ -238,9 +238,9 @@ public final class ALC10 {
 	 * The current context is the only context accessible to state changes by AL commands (aside from state changes affecting shared objects). However,
 	 * multiple contexts can be processed at the same time. To indicate that a context should be processed (i.e. that internal execution state such as the
 	 * offset increments are to be performed), the application uses {@code alcProcessContext}.
-	 * <p/>
-	 * Repeated calls to alcProcessContext are legal, and do not affect a context that is already marked as processing. The default state of a context created
-	 * by alcCreateContext is that it is processing.
+	 * 
+	 * <p>Repeated calls to alcProcessContext are legal, and do not affect a context that is already marked as processing. The default state of a context created
+	 * by alcCreateContext is that it is processing.</p>
 	 *
 	 * @param context the context to mark for processing
 	 */
@@ -262,8 +262,8 @@ public final class ALC10 {
 	/**
 	 * The application can suspend any context from processing (including the current one). To indicate that a context should be suspended from processing
 	 * (i.e. that internal execution state such as offset increments are not to be changed), the application uses {@code alcSuspendContext}.
-	 * <p/>
-	 * Repeated calls to alcSuspendContext are legal, and do not affect a context that is already marked as suspended.
+	 * 
+	 * <p>Repeated calls to alcSuspendContext are legal, and do not affect a context that is already marked as suspended.</p>
 	 *
 	 * @param context the context to mark as suspended
 	 */
@@ -284,10 +284,10 @@ public final class ALC10 {
 
 	/**
 	 * Destroys a context.
-	 * <p/>
-	 * The correct way to destroy a context is to first release it using alcMakeCurrent with a NULL context. Applications should not attempt to destroy a
+	 * 
+	 * <p>The correct way to destroy a context is to first release it using alcMakeCurrent with a NULL context. Applications should not attempt to destroy a
 	 * current context – doing so will not work and will result in an ALC_INVALID_OPERATION error. All sources within a context will automatically be deleted
-	 * during context destruction.
+	 * during context destruction.</p>
 	 *
 	 * @param context the context to destroy
 	 */
@@ -351,9 +351,9 @@ public final class ALC10 {
 
 	/**
 	 * Verifies that a given extension is available for the current context and the device it is associated with.
-	 * <p/>
-	 * Invalid and unsupported string tokens return ALC_FALSE. A NULL deviceHandle is acceptable. {@code extName} is not case sensitive – the implementation
-	 * will convert the name to all upper-case internally (and will express extension names in upper-case).
+	 * 
+	 * <p>Invalid and unsupported string tokens return ALC_FALSE. A NULL deviceHandle is acceptable. {@code extName} is not case sensitive – the implementation
+	 * will convert the name to all upper-case internally (and will express extension names in upper-case).</p>
 	 *
 	 * @param deviceHandle the device to query
 	 * @param extName      the extension name
@@ -387,12 +387,12 @@ public final class ALC10 {
 
 	/**
 	 * Retrieves extension entry points.
-	 * <p/>
-	 * The application is expected to verify the applicability of an extension or core function entry point before requesting it by name, by use of
-	 * {@link #alcIsExtensionPresent IsExtensionPresent}.
-	 * <p/>
-	 * Entry points can be device specific, but are not context specific. Using a NULL device handle does not guarantee that the entry point is returned, even
-	 * if available for one of the available devices.
+	 * 
+	 * <p>The application is expected to verify the applicability of an extension or core function entry point before requesting it by name, by use of
+	 * {@link #alcIsExtensionPresent IsExtensionPresent}.</p>
+	 * 
+	 * <p>Entry points can be device specific, but are not context specific. Using a NULL device handle does not guarantee that the entry point is returned, even
+	 * if available for one of the available devices.</p>
 	 *
 	 * @param deviceHandle the device to query
 	 * @param funcName     the function name
@@ -426,9 +426,9 @@ public final class ALC10 {
 
 	/**
 	 * Returns extension enum values.
-	 * <p/>
-	 * Enumeration/token values are device independent, but tokens defined for extensions might not be present for a given device. Using a NULL handle is
-	 * legal, but only the tokens defined by the AL core are guaranteed. Availability of extension tokens depends on the ALC extension.
+	 * 
+	 * <p>Enumeration/token values are device independent, but tokens defined for extensions might not be present for a given device. Using a NULL handle is
+	 * legal, but only the tokens defined by the AL core are guaranteed. Availability of extension tokens depends on the ALC extension.</p>
 	 *
 	 * @param deviceHandle the device to query
 	 * @param enumName     the enum name
@@ -453,11 +453,11 @@ public final class ALC10 {
 
 	/**
 	 * Queries ALC errors.
-	 * <p/>
-	 * ALC uses the same conventions and mechanisms as AL for error handling. In particular, ALC does not use conventions derived from X11 (GLX) or Windows
-	 * (WGL).
-	 * <p/>
-	 * Error conditions are specific to the device, and (like AL) a call to alcGetError resets the error state.
+	 * 
+	 * <p>ALC uses the same conventions and mechanisms as AL for error handling. In particular, ALC does not use conventions derived from X11 (GLX) or Windows
+	 * (WGL).</p>
+	 * 
+	 * <p>Error conditions are specific to the device, and (like AL) a call to alcGetError resets the error state.</p>
 	 *
 	 * @param deviceHandle the device to query
 	 */
@@ -487,11 +487,11 @@ public final class ALC10 {
 
 	/**
 	 * Obtains string value(s) from ALC.
-	 * <p/>
-	 * <b>LWJGL note</b>: Use {@link ALC#getStringList} for those tokens that return multiple values.
+	 * 
+	 * <p><b>LWJGL note</b>: Use {@link ALC#getStringList} for those tokens that return multiple values.</p>
 	 *
 	 * @param deviceHandle the device to query
-	 * @param token        the information to query. One of:<p/>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}, {@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}, {@link #ALC_EXTENSIONS EXTENSIONS}, {@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}, {@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}
+	 * @param token        the information to query. One of:<br>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}, {@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}, {@link #ALC_EXTENSIONS EXTENSIONS}, {@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}, {@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}
 	 */
 	public static String alcGetString(long deviceHandle, int token) {
 		long __result = nalcGetString(deviceHandle, token);
@@ -517,7 +517,7 @@ public final class ALC10 {
 	 * Obtains integer value(s) from ALC.
 	 *
 	 * @param deviceHandle the device to query
-	 * @param token        the information to query. One of:<p/>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}, {@link #ALC_MINOR_VERSION MINOR_VERSION}, {@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}, {@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}, {@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}
+	 * @param token        the information to query. One of:<br>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}, {@link #ALC_MINOR_VERSION MINOR_VERSION}, {@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}, {@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}, {@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}
 	 * @param size         the size of the {@code dest} buffer
 	 * @param dest         the destination buffer
 	 */

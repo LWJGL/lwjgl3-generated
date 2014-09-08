@@ -82,16 +82,16 @@ public final class CL12GL {
 	 * <li>an OpenCL 1D image array object from an OpenGL 1D texture array object,</li>
 	 * <li>an OpenCL 3D image object from an OpenGL 3D texture object.</li>
 	 * </ul>
-	 * <p/>
-	 * If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D}, {@link GL12#glTexImage3D} or the values of the
+	 * 
+	 * <p>If the state of a GL texture object is modified through the GL API (e.g. {@link GL11#glTexImage2D}, {@link GL12#glTexImage3D} or the values of the
 	 * texture parameters {@link GL12#GL_TEXTURE_BASE_LEVEL} or {@link GL12#GL_TEXTURE_MAX_LEVEL} are modified) while there exists a corresponding CL image
-	 * object, subsequent use of the CL image object will result in undefined behavior.
-	 * <p/>
-	 * The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.
+	 * object, subsequent use of the CL image object will result in undefined behavior.</p>
+	 * 
+	 * <p>The {@link CL10#clRetainMemObject RetainMemObject} and {@link CL10#clReleaseMemObject ReleaseMemObject} functions can be used to retain and release the image objects.</p>
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
-	 * @param flags          a bit-field that is used to specify usage information. One of:<p/>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<p/>{@link GL11#GL_TEXTURE_1D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_2D_ARRAY}, {@link GL12#GL_TEXTURE_3D}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL31#GL_TEXTURE_RECTANGLE}
+	 * @param flags          a bit-field that is used to specify usage information. One of:<br>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. One of:<br>{@link GL11#GL_TEXTURE_1D}, {@link GL30#GL_TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_BUFFER}, {@link GL11#GL_TEXTURE_2D}, {@link GL30#GL_TEXTURE_2D_ARRAY}, {@link GL12#GL_TEXTURE_3D}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL31#GL_TEXTURE_RECTANGLE}
 	 * @param miplevel       the mipmap level to be used. Implementations may return {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} for {@code miplevel} values &gt; 0. If
 	 *                       {@code texture_target} is {@link GL31#GL_TEXTURE_BUFFER}, {@code miplevel} must be 0.
 	 * @param texture        the name of a GL 1D, 2D, 3D, 1D array, 2D array, cubemap, rectangle or buffer texture object. The texture object must be a complete texture as per

@@ -16,15 +16,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/gpu_affinity.txt">WGL_NV_gpu_affinity</a> extension.
- * <p/>
- * On systems with more than one GPU it is desirable to be able to select which GPU(s) in the system become the target for OpenGL rendering commands. This
+ * 
+ * <p>On systems with more than one GPU it is desirable to be able to select which GPU(s) in the system become the target for OpenGL rendering commands. This
  * extension introduces the concept of a GPU affinity mask. OpenGL rendering commands are directed to the GPU(s) specified by the affinity mask. GPU
- * affinity is immutable. Once set, it cannot be changed.
- * <p/>
- * This extension also introduces the concept called affinity-DC. An affinity-DC is a device context with a GPU affinity mask embedded in it. This
- * restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the affinity mask.
- * <p/>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
+ * affinity is immutable. Once set, it cannot be changed.</p>
+ * 
+ * <p>This extension also introduces the concept called affinity-DC. An affinity-DC is a device context with a GPU affinity mask embedded in it. This
+ * restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the affinity mask.</p>
+ * 
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
 public final class WGLNVGPUAffinity {
 
@@ -90,10 +90,10 @@ public final class WGLNVGPUAffinity {
 
 	/**
 	 * Returns the handles for all GPUs in a system.
-	 * <p/>
-	 * By looping over {@code wglEnumGpusNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles can be queried. If the function succeeds,
+	 * 
+	 * <p>By looping over {@code wglEnumGpusNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles can be queried. If the function succeeds,
 	 * the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The function fails if {@code gpuIndex} is
-	 * greater or equal than the number of GPUs supported by the system.
+	 * greater or equal than the number of GPUs supported by the system.</p>
 	 *
 	 * @param gpuIndex an index value that specifies a GPU
 	 * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
@@ -157,8 +157,8 @@ public final class WGLNVGPUAffinity {
 	 * device context with a GPU affinity mask embedded in it. This restricts the device context to only allow OpenGL commands to be sent to the GPU(s) in the
 	 * affinity mask. An affinity-DC can be created directly, using the new function {@code wglCreateAffinityDCNV} and also indirectly by calling
 	 * {@link WGLARBPbuffer#wglCreatePbufferARB CreatePbufferARB} followed by {@link WGLARBPbuffer#wglGetPbufferDCARB GetPbufferDCARB}.
-	 * <p/>
-	 * If successful, the function returns an affinity-DC handle. If it fails, NULL will be returned.
+	 * 
+	 * <p>If successful, the function returns an affinity-DC handle. If it fails, NULL will be returned.</p>
 	 *
 	 * @param gpuList a NULL-terminated array of GPU handles to which the affinity-DC will be restricted
 	 */
@@ -194,10 +194,10 @@ public final class WGLNVGPUAffinity {
 
 	/**
 	 * Retrieves a list of GPU handles that make up the affinity-mask of an affinity-DC.
-	 * <p/>
-	 * By looping over {@code wglEnumGpusFromAffinityDCNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles associated with the DC can
+	 * 
+	 * <p>By looping over {@code wglEnumGpusFromAffinityDCNV} and incrementing {@code gpuIndex}, starting at index 0, all GPU handles associated with the DC can
 	 * be queried. If the function succeeds, the return value is TRUE. If the function fails, the return value is FALSE and {@code gpu} will be unmodified. The
-	 * function fails if {@code gpuIndex} is greater or equal than the number of GPUs associated with {@code affinityDC}.
+	 * function fails if {@code gpuIndex} is greater or equal than the number of GPUs associated with {@code affinityDC}.</p>
 	 *
 	 * @param affinityDC a handle of the affinity-DC to query
 	 * @param gpuIndex   an index value of the GPU handle in the affinity mask of {@code affinityDC} to query

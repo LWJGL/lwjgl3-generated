@@ -595,7 +595,7 @@ public final class CL10 {
 	 * Returns information about the given OpenCL platform.
 	 *
 	 * @param platform             the platform to query
-	 * @param param_name           the parameter to query. One of:<p/>{@link #CL_PLATFORM_PROFILE PLATFORM_PROFILE}, {@link #CL_PLATFORM_VERSION PLATFORM_VERSION}, {@link #CL_PLATFORM_NAME PLATFORM_NAME}, {@link #CL_PLATFORM_VENDOR PLATFORM_VENDOR}, {@link #CL_PLATFORM_EXTENSIONS PLATFORM_EXTENSIONS}
+	 * @param param_name           the parameter to query. One of:<br>{@link #CL_PLATFORM_PROFILE PLATFORM_PROFILE}, {@link #CL_PLATFORM_VERSION PLATFORM_VERSION}, {@link #CL_PLATFORM_NAME PLATFORM_NAME}, {@link #CL_PLATFORM_VENDOR PLATFORM_VENDOR}, {@link #CL_PLATFORM_EXTENSIONS PLATFORM_EXTENSIONS}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          the memory location where appropriate values for a given {@code param_name} will be returned
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -645,7 +645,7 @@ public final class CL10 {
 	 *
 	 * @param platform    the platform to query
 	 * @param device_type a bitfield that identifies the type of OpenCL device. The {@code device_type} can be used to query specific OpenCL devices or all OpenCL devices
-	 *                    available. One or more of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
+	 *                    available. One or more of:<br>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
 	 * @param num_entries the number of {@code cl_device_id} entries that can be added to devices. If {@code devices} is not {@code NULL}, the {@code num_entries} must be greater
 	 *                    than zero.
 	 * @param devices     returns a list of OpenCL devices found. The {@code cl_device_id} values returned in {@code devices} can be used to identify a specific OpenCL
@@ -700,7 +700,7 @@ public final class CL10 {
 	 * {@link CL12#clCreateSubDevices CreateSubDevices}. If {@code device} is a sub-device, the specific information for the sub-device will be returned.
 	 *
 	 * @param device               the device to query
-	 * @param param_name           an enumeration constant tha identifies the device information being queried. One of:<p/>{@link #CL_DEVICE_TYPE DEVICE_TYPE}, {@link #CL_DEVICE_VENDOR_ID DEVICE_VENDOR_ID}, {@link #CL_DEVICE_MAX_COMPUTE_UNITS DEVICE_MAX_COMPUTE_UNITS}, {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS DEVICE_MAX_WORK_ITEM_DIMENSIONS}, {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE}, {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR DEVICE_PREFERRED_VECTOR_WIDTH_CHAR}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT DEVICE_PREFERRED_VECTOR_WIDTH_SHORT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_ DEVICE_PREFERRED_VECTOR_WIDTH_}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG DEVICE_PREFERRED_VECTOR_WIDTH_LONG}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE}, {@link #CL_DEVICE_MAX_CLOCK_FREQUENCY DEVICE_MAX_CLOCK_FREQUENCY}, {@link #CL_DEVICE_ADDRESS_BITS DEVICE_ADDRESS_BITS}, {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS DEVICE_MAX_READ_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS DEVICE_MAX_WRITE_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE DEVICE_MAX_MEM_ALLOC_SIZE}, {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH DEVICE_IMAGE2D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT DEVICE_IMAGE2D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT DEVICE_IMAGE3D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH DEVICE_IMAGE3D_MAX_DEPTH}, {@link #CL_DEVICE_IMAGE_SUPPORT DEVICE_IMAGE_SUPPORT}, {@link #CL_DEVICE_MAX_PARAMETER_SIZE DEVICE_MAX_PARAMETER_SIZE}, {@link #CL_DEVICE_MAX_SAMPLERS DEVICE_MAX_SAMPLERS}, {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN}, {@link #CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE DEVICE_MIN_DATA_TYPE_ALIGN_SIZE}, {@link #CL_DEVICE_SINGLE_FP_CONFIG DEVICE_SINGLE_FP_CONFIG}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_TYPE DEVICE_GLOBAL_MEM_CACHE_TYPE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE DEVICE_GLOBAL_MEM_CACHELINE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_SIZE DEVICE_GLOBAL_MEM_CACHE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_SIZE DEVICE_GLOBAL_MEM_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE DEVICE_MAX_CONSTANT_BUFFER_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_ARGS DEVICE_MAX_CONSTANT_ARGS}, {@link #CL_DEVICE_LOCAL_MEM_TYPE DEVICE_LOCAL_MEM_TYPE}, {@link #CL_DEVICE_LOCAL_MEM_SIZE DEVICE_LOCAL_MEM_SIZE}, {@link #CL_DEVICE_ERROR_CORRECTION_SUPPORT DEVICE_ERROR_CORRECTION_SUPPORT}, {@link #CL_DEVICE_PROFILING_TIMER_RESOLUTION DEVICE_PROFILING_TIMER_RESOLUTION}, {@link #CL_DEVICE_ENDIAN_LITTLE DEVICE_ENDIAN_LITTLE}, {@link #CL_DEVICE_AVAILABLE DEVICE_AVAILABLE}, {@link #CL_DEVICE_COMPILER_AVAILABLE DEVICE_COMPILER_AVAILABLE}, {@link #CL_DEVICE_EXECUTION_CAPABILITIES DEVICE_EXECUTION_CAPABILITIES}, {@link #CL_DEVICE_QUEUE_PROPERTIES DEVICE_QUEUE_PROPERTIES}, {@link #CL_DEVICE_NAME DEVICE_NAME}, {@link #CL_DEVICE_VENDOR DEVICE_VENDOR}, {@link #CL_DRIVER_VERSION DRIVER_VERSION}, {@link #CL_DEVICE_PROFILE DEVICE_PROFILE}, {@link #CL_DEVICE_VERSION DEVICE_VERSION}, {@link #CL_DEVICE_EXTENSIONS DEVICE_EXTENSIONS}, {@link #CL_DEVICE_PLATFORM DEVICE_PLATFORM}, {@link CL11#CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF DEVICE_PREFERRED_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_HOST_UNIFIED_MEMORY DEVICE_HOST_UNIFIED_MEMORY}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR DEVICE_NATIVE_VECTOR_WIDTH_CHAR}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT DEVICE_NATIVE_VECTOR_WIDTH_SHORT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_INT DEVICE_NATIVE_VECTOR_WIDTH_INT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG DEVICE_NATIVE_VECTOR_WIDTH_LONG}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT DEVICE_NATIVE_VECTOR_WIDTH_FLOAT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF DEVICE_NATIVE_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_OPENCL_C_VERSION DEVICE_OPENCL_C_VERSION}
+	 * @param param_name           an enumeration constant tha identifies the device information being queried. One of:<br>{@link #CL_DEVICE_TYPE DEVICE_TYPE}, {@link #CL_DEVICE_VENDOR_ID DEVICE_VENDOR_ID}, {@link #CL_DEVICE_MAX_COMPUTE_UNITS DEVICE_MAX_COMPUTE_UNITS}, {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS DEVICE_MAX_WORK_ITEM_DIMENSIONS}, {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE}, {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR DEVICE_PREFERRED_VECTOR_WIDTH_CHAR}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT DEVICE_PREFERRED_VECTOR_WIDTH_SHORT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_ DEVICE_PREFERRED_VECTOR_WIDTH_}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG DEVICE_PREFERRED_VECTOR_WIDTH_LONG}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT}, {@link #CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE}, {@link #CL_DEVICE_MAX_CLOCK_FREQUENCY DEVICE_MAX_CLOCK_FREQUENCY}, {@link #CL_DEVICE_ADDRESS_BITS DEVICE_ADDRESS_BITS}, {@link #CL_DEVICE_MAX_READ_IMAGE_ARGS DEVICE_MAX_READ_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_WRITE_IMAGE_ARGS DEVICE_MAX_WRITE_IMAGE_ARGS}, {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE DEVICE_MAX_MEM_ALLOC_SIZE}, {@link #CL_DEVICE_IMAGE2D_MAX_WIDTH DEVICE_IMAGE2D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE2D_MAX_HEIGHT DEVICE_IMAGE2D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_WIDTH DEVICE_IMAGE3D_MAX_WIDTH}, {@link #CL_DEVICE_IMAGE3D_MAX_HEIGHT DEVICE_IMAGE3D_MAX_HEIGHT}, {@link #CL_DEVICE_IMAGE3D_MAX_DEPTH DEVICE_IMAGE3D_MAX_DEPTH}, {@link #CL_DEVICE_IMAGE_SUPPORT DEVICE_IMAGE_SUPPORT}, {@link #CL_DEVICE_MAX_PARAMETER_SIZE DEVICE_MAX_PARAMETER_SIZE}, {@link #CL_DEVICE_MAX_SAMPLERS DEVICE_MAX_SAMPLERS}, {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN}, {@link #CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE DEVICE_MIN_DATA_TYPE_ALIGN_SIZE}, {@link #CL_DEVICE_SINGLE_FP_CONFIG DEVICE_SINGLE_FP_CONFIG}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_TYPE DEVICE_GLOBAL_MEM_CACHE_TYPE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE DEVICE_GLOBAL_MEM_CACHELINE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_CACHE_SIZE DEVICE_GLOBAL_MEM_CACHE_SIZE}, {@link #CL_DEVICE_GLOBAL_MEM_SIZE DEVICE_GLOBAL_MEM_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE DEVICE_MAX_CONSTANT_BUFFER_SIZE}, {@link #CL_DEVICE_MAX_CONSTANT_ARGS DEVICE_MAX_CONSTANT_ARGS}, {@link #CL_DEVICE_LOCAL_MEM_TYPE DEVICE_LOCAL_MEM_TYPE}, {@link #CL_DEVICE_LOCAL_MEM_SIZE DEVICE_LOCAL_MEM_SIZE}, {@link #CL_DEVICE_ERROR_CORRECTION_SUPPORT DEVICE_ERROR_CORRECTION_SUPPORT}, {@link #CL_DEVICE_PROFILING_TIMER_RESOLUTION DEVICE_PROFILING_TIMER_RESOLUTION}, {@link #CL_DEVICE_ENDIAN_LITTLE DEVICE_ENDIAN_LITTLE}, {@link #CL_DEVICE_AVAILABLE DEVICE_AVAILABLE}, {@link #CL_DEVICE_COMPILER_AVAILABLE DEVICE_COMPILER_AVAILABLE}, {@link #CL_DEVICE_EXECUTION_CAPABILITIES DEVICE_EXECUTION_CAPABILITIES}, {@link #CL_DEVICE_QUEUE_PROPERTIES DEVICE_QUEUE_PROPERTIES}, {@link #CL_DEVICE_NAME DEVICE_NAME}, {@link #CL_DEVICE_VENDOR DEVICE_VENDOR}, {@link #CL_DRIVER_VERSION DRIVER_VERSION}, {@link #CL_DEVICE_PROFILE DEVICE_PROFILE}, {@link #CL_DEVICE_VERSION DEVICE_VERSION}, {@link #CL_DEVICE_EXTENSIONS DEVICE_EXTENSIONS}, {@link #CL_DEVICE_PLATFORM DEVICE_PLATFORM}, {@link CL11#CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF DEVICE_PREFERRED_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_HOST_UNIFIED_MEMORY DEVICE_HOST_UNIFIED_MEMORY}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR DEVICE_NATIVE_VECTOR_WIDTH_CHAR}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT DEVICE_NATIVE_VECTOR_WIDTH_SHORT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_INT DEVICE_NATIVE_VECTOR_WIDTH_INT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG DEVICE_NATIVE_VECTOR_WIDTH_LONG}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT DEVICE_NATIVE_VECTOR_WIDTH_FLOAT}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE}, {@link CL11#CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF DEVICE_NATIVE_VECTOR_WIDTH_HALF}, {@link CL11#CL_DEVICE_OPENCL_C_VERSION DEVICE_OPENCL_C_VERSION}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -771,14 +771,14 @@ public final class CL10 {
 	 * command-queues, memory, program and kernel objects and for executing kernels on one or more devices specified in the context.
 	 *
 	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
-	 *                    list is terminated with 0. One of:<p/>{@link #CL_CONTEXT_PLATFORM CONTEXT_PLATFORM}, {@link CL12#CL_CONTEXT_INTEROP_USER_SYNC CONTEXT_INTEROP_USER_SYNC}, {@link KHRGLSharing#CL_GL_CONTEXT_KHR GL_CONTEXT_KHR}, {@link KHRGLSharing#CL_EGL_DISPLAY_KHR EGL_DISPLAY_KHR}, {@link KHRGLSharing#CL_GLX_DISPLAY_KHR GLX_DISPLAY_KHR}, {@link KHRGLSharing#CL_WGL_HDC_KHR WGL_HDC_KHR}, {@link KHRGLSharing#CL_CGL_SHAREGROUP_KHR CGL_SHAREGROUP_KHR}
+	 *                    list is terminated with 0. One of:<br>{@link #CL_CONTEXT_PLATFORM CONTEXT_PLATFORM}, {@link CL12#CL_CONTEXT_INTEROP_USER_SYNC CONTEXT_INTEROP_USER_SYNC}, {@link KHRGLSharing#CL_GL_CONTEXT_KHR GL_CONTEXT_KHR}, {@link KHRGLSharing#CL_EGL_DISPLAY_KHR EGL_DISPLAY_KHR}, {@link KHRGLSharing#CL_GLX_DISPLAY_KHR GLX_DISPLAY_KHR}, {@link KHRGLSharing#CL_WGL_HDC_KHR WGL_HDC_KHR}, {@link KHRGLSharing#CL_CGL_SHAREGROUP_KHR CGL_SHAREGROUP_KHR}
 	 * @param num_devices the number of devices specified in the {@code devices} argument
 	 * @param devices     a list of unique devices returned by {@link #clGetDeviceIDs GetDeviceIDs} or sub-devices created by {@link CL12#clCreateSubDevices CreateSubDevices} for a platform
 	 * @param pfn_notify  a callback function that can be registered by the application. This callback function will be used by the OpenCL implementation to report
 	 *                    information on errors during context creation as well as errors that occur at runtime in this context. This callback function may be called
 	 *                    asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
-	 *                    <p/>
-	 *                    If {@code pfn_notify} is {@code NULL}, no callback function is registered.
+	 *                    
+	 *                    <p>If {@code pfn_notify} is {@code NULL}, no callback function is registered.</p>
 	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
@@ -853,7 +853,7 @@ public final class CL10 {
 	 *
 	 * @param properties  a list of context property names and their corresponding values. Each property name is immediately followed by the corresponding desired value. The
 	 *                    list is terminated with 0.
-	 * @param device_type a bit-field that identifies the type of device. One of:<p/>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
+	 * @param device_type a bit-field that identifies the type of device. One of:<br>{@link #CL_DEVICE_TYPE_DEFAULT DEVICE_TYPE_DEFAULT}, {@link #CL_DEVICE_TYPE_CPU DEVICE_TYPE_CPU}, {@link #CL_DEVICE_TYPE_GPU DEVICE_TYPE_GPU}, {@link #CL_DEVICE_TYPE_ACCELERATOR DEVICE_TYPE_ACCELERATOR}, {@link #CL_DEVICE_TYPE_ALL DEVICE_TYPE_ALL}, {@link CL12#CL_DEVICE_TYPE_CUSTOM DEVICE_TYPE_CUSTOM}
 	 * @param pfn_notify  a callback function that can be registered by the application
 	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
@@ -886,10 +886,10 @@ public final class CL10 {
 
 	/**
 	 * Increments the context reference count.
-	 * <p/>
-	 * {@link #clCreateContext CreateContext} and {@link #clCreateContextFromType CreateContextFromType} perform an implicit retain. This is very helpful for 3rd party libraries, which typically get a context passed
+	 * 
+	 * <p>{@link #clCreateContext CreateContext} and {@link #clCreateContextFromType CreateContextFromType} perform an implicit retain. This is very helpful for 3rd party libraries, which typically get a context passed
 	 * to them by the application. However, it is possible that the application may delete the context without informing the library. Allowing functions to
-	 * attach to (i.e. retain) and release a context solves the problem of a context being used by a library no longer being valid.
+	 * attach to (i.e. retain) and release a context solves the problem of a context being used by a library no longer being valid.</p>
 	 *
 	 * @param context the context to retain
 	 *
@@ -917,9 +917,9 @@ public final class CL10 {
 
 	/**
 	 * Decrements the context reference count.
-	 * <p/>
-	 * After the context reference count becomes zero and all the objects attached to context (such as memory objects, command-queues) are released, the
-	 * context is deleted.
+	 * 
+	 * <p>After the context reference count becomes zero and all the objects attached to context (such as memory objects, command-queues) are released, the
+	 * context is deleted.</p>
 	 *
 	 * @param context the context to release
 	 *
@@ -963,7 +963,7 @@ public final class CL10 {
 	 * Queries information about a context.
 	 *
 	 * @param context              the OpenCL context being queried
-	 * @param param_name           an enumeration constant that specifies the information to query. One of:<p/>{@link #CL_CONTEXT_REFERENCE_COUNT CONTEXT_REFERENCE_COUNT}, {@link #CL_CONTEXT_DEVICES CONTEXT_DEVICES}, {@link #CL_CONTEXT_PROPERTIES CONTEXT_PROPERTIES}, {@link CL11#CL_CONTEXT_NUM_DEVICES CONTEXT_NUM_DEVICES}
+	 * @param param_name           an enumeration constant that specifies the information to query. One of:<br>{@link #CL_CONTEXT_REFERENCE_COUNT CONTEXT_REFERENCE_COUNT}, {@link #CL_CONTEXT_DEVICES CONTEXT_DEVICES}, {@link #CL_CONTEXT_PROPERTIES CONTEXT_PROPERTIES}, {@link CL11#CL_CONTEXT_NUM_DEVICES CONTEXT_NUM_DEVICES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -1026,16 +1026,16 @@ public final class CL10 {
 
 	/**
 	 * Creates a command-queue on a specific device.
-	 * <p/>
-	 * OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
+	 * 
+	 * <p>OpenCL objects such as memory, program and kernel objects are created using a context. Operations on these objects are performed using a command-queue.
 	 * The command-queue can be used to queue a set of operations (referred to as commands) in order. Having multiple command-queues allows applications to
 	 * queue multiple independent commands without requiring synchronization. Note that this should work as long as these objects are not being shared. Sharing
-	 * of objects across multiple command-queues will require the application to perform appropriate synchronization.
+	 * of objects across multiple command-queues will require the application to perform appropriate synchronization.</p>
 	 *
 	 * @param context     a valid OpenCL context
 	 * @param device      a device associated with context. It can either be in the list of devices specified when context is created using {@link #clCreateContext CreateContext} or have the same
 	 *                    device type as device type specified when context is created using {@link #clCreateContextFromType CreateContextFromType}.
-	 * @param properties  a bit-field of properties for the command-queue. One of:<p/>{@link #CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE}, {@link #CL_QUEUE_PROFILING_ENABLE QUEUE_PROFILING_ENABLE}
+	 * @param properties  a bit-field of properties for the command-queue. One of:<br>{@link #CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE}, {@link #CL_QUEUE_PROFILING_ENABLE QUEUE_PROFILING_ENABLE}
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
@@ -1070,10 +1070,10 @@ public final class CL10 {
 
 	/**
 	 * Increments the {@code command_queue} reference count.
-	 * <p/>
-	 * {@link #clCreateCommandQueue CreateCommandQueue} performs an implicit retain. This is very helpful for 3rd party libraries, which typically get a command-queue passed to them by the
+	 * 
+	 * <p>{@link #clCreateCommandQueue CreateCommandQueue} performs an implicit retain. This is very helpful for 3rd party libraries, which typically get a command-queue passed to them by the
 	 * application. However, it is possible that the application may delete the command-queue without informing the library. Allowing functions to attach to
-	 * (i.e. retain) and release a command-queue solves the problem of a command-queue being used by a library no longer being valid.
+	 * (i.e. retain) and release a command-queue solves the problem of a command-queue being used by a library no longer being valid.</p>
 	 *
 	 * @param command_queue the command-queue to retain
 	 *
@@ -1101,11 +1101,11 @@ public final class CL10 {
 
 	/**
 	 * Decrements the {@code command_queue} reference count.
-	 * <p/>
-	 * After the {@code command_queue} reference count becomes zero and all commands queued to {@code command_queue} have finished (eg. kernel executions,
-	 * memory object updates etc.), the command-queue is deleted.
-	 * <p/>
-	 * {@code clReleaseCommandQueue} performs an implicit flush to issue any previously queued OpenCL commands in command_queue.
+	 * 
+	 * <p>After the {@code command_queue} reference count becomes zero and all commands queued to {@code command_queue} have finished (eg. kernel executions,
+	 * memory object updates etc.), the command-queue is deleted.</p>
+	 * 
+	 * <p>{@code clReleaseCommandQueue} performs an implicit flush to issue any previously queued OpenCL commands in command_queue.</p>
 	 *
 	 * @param command_queue the command-queue to release
 	 *
@@ -1146,7 +1146,7 @@ public final class CL10 {
 	 * Queries information about a command-queue.
 	 *
 	 * @param command_queue        the command-queue being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_QUEUE_CONTEXT QUEUE_CONTEXT}, {@link #CL_QUEUE_DEVICE QUEUE_DEVICE}, {@link #CL_QUEUE_REFERENCE_COUNT QUEUE_REFERENCE_COUNT}, {@link #CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link CL20#CL_QUEUE_SIZE QUEUE_SIZE}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_QUEUE_CONTEXT QUEUE_CONTEXT}, {@link #CL_QUEUE_DEVICE QUEUE_DEVICE}, {@link #CL_QUEUE_REFERENCE_COUNT QUEUE_REFERENCE_COUNT}, {@link #CL_QUEUE_PROPERTIES QUEUE_PROPERTIES}, {@link CL20#CL_QUEUE_SIZE QUEUE_SIZE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -1218,7 +1218,7 @@ public final class CL10 {
 	 *
 	 * @param context     a valid OpenCL context used to create the buffer object
 	 * @param flags       a bit-field that is used to specify allocation and usage information such as the memory area that should be used to allocate the buffer object and
-	 *                    how it will be used. If value specified for flags is 0, the default is used which is {@link #CL_MEM_READ_WRITE MEM_READ_WRITE}. One of:<p/>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
+	 *                    how it will be used. If value specified for flags is 0, the default is used which is {@link #CL_MEM_READ_WRITE MEM_READ_WRITE}. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
 	 * @param size        the size in bytes of the buffer memory object to be allocated
 	 * @param host_ptr    a pointer to the buffer data that may already be allocated by the application. The size of the buffer that {@code host_ptr} points to must be
 	 *                    &#x2265; {@code size} bytes.
@@ -1308,8 +1308,8 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to read from a buffer object to host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
+	 * 
+	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
 	 * {@code host_ptr} is a pointer to the memory region specified when the buffer object being read is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet
 	 * the following requirements in order to avoid undefined behavior:
 	 * <ul>
@@ -1317,19 +1317,19 @@ public final class CL10 {
 	 * read command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
 	 * @param blocking_read           indicates if the read operation is <em>blocking</em> or <em>non-blocking</em>
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link #CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBuffer} does not return until the buffer data has been
-	 *                                read and copied into memory pointed to by {@code ptr}.
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link #CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBuffer} queues a non-blocking read command and
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link #CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBuffer} does not return until the buffer data has been
+	 *                                read and copied into memory pointed to by {@code ptr}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link #CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBuffer} queues a non-blocking read command and
 	 *                                returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
 	 *                                returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
-	 *                                the buffer that {@code ptr} points to can be used by the application.
+	 *                                the buffer that {@code ptr} points to can be used by the application.</p>
 	 * @param offset                  the offset in bytes in the buffer object to read from
 	 * @param size                    the size in bytes of data being read
 	 * @param ptr                     the pointer to buffer in host memory where data is to be read into
@@ -1434,27 +1434,27 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to write to a buffer object from host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
 	 * {@code host_ptr + offset}, where {@code host_ptr} is a pointer to the memory region specified when the buffer object being written is created with
 	 * {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:
 	 * <ul>
 	 * <li>The host memory region given by {@code (host_ptr + offset, cb)} contains the latest bits when the enqueued write command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
 	 * @param blocking_write          indicates if the write operation is <em>blocking</em> or <em>non-blocking</em>
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link #CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
-	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBuffer} call returns.
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link #CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a nonblocking write. As the write is non-blocking
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link #CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBuffer} call returns.</p>
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link #CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a nonblocking write. As the write is non-blocking
 	 *                                the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
 	 *                                {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
-	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.
+	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
 	 * @param offset                  the offset in bytes in the buffer object to write to
 	 * @param size                    the size in bytes of data being written
 	 * @param ptr                     the pointer to buffer in host memory where data is to be written from
@@ -1636,32 +1636,31 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to map a region of the buffer object given by buffer into the host address space and returns a pointer to this mapped region.
-	 * <p/>
-	 * <p/>
-	 * The pointer returned maps a region starting at {@code offset} and is at least {@code size} bytes in size. The result of a memory access outside this
-	 * region is undefined.
-	 * <p/>
-	 * If the buffer object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
+	 * 
+	 * <p>The pointer returned maps a region starting at {@code offset} and is at least {@code size} bytes in size. The result of a memory access outside this
+	 * region is undefined.</p>
+	 * 
+	 * <p>If the buffer object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
 	 * <ul>
 	 * <li>The {@code host_ptr} specified in {@link #clCreateBuffer CreateBuffer} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapBuffer} command has completed.</li>
 	 * <li>The pointer value returned by {@code clEnqueueMapBuffer} will be derived from the {@code host_ptr} specified when the buffer object is created.</li>
-	 * </ul>
-	 * <p/>
-	 * Mapped buffer objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.
+	 * </ul></p>
+	 * 
+	 * <p>Mapped buffer objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.</p>
 	 *
 	 * @param command_queue           a valid command-queue
 	 * @param buffer                  a valid buffer object. The OpenCL context associated with command_queue and buffer must be the same.
 	 * @param blocking_map            indicates if the map operation is blocking or non-blocking.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link #CL_TRUE TRUE}, {@code clEnqueueMapBuffer} does not return until the specified region in buffer is mapped into the host address
-	 *                                space and the application can access the contents of the mapped region using the pointer returned by {@code clEnqueueMapBuffer}.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link #CL_FALSE FALSE} i.e. map operation is non-blocking, the pointer to the mapped region returned by {@code clEnqueueMapBuffer}
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link #CL_TRUE TRUE}, {@code clEnqueueMapBuffer} does not return until the specified region in buffer is mapped into the host address
+	 *                                space and the application can access the contents of the mapped region using the pointer returned by {@code clEnqueueMapBuffer}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link #CL_FALSE FALSE} i.e. map operation is non-blocking, the pointer to the mapped region returned by {@code clEnqueueMapBuffer}
 	 *                                cannot be used until the map command has completed. The {@code event} argument returns an event object which can be used to query the execution
 	 *                                status of the map command. When the map command is completed, the application can access the contents of the mapped region using the pointer
-	 *                                returned by {@code clEnqueueMapBuffer}.
-	 * @param map_flags               a bit-field. One of:<p/>{@link #CL_MAP_READ MAP_READ}, {@link #CL_MAP_WRITE MAP_WRITE}, {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION MAP_WRITE_INVALIDATE_REGION}
+	 *                                returned by {@code clEnqueueMapBuffer}.</p>
+	 * @param map_flags               a bit-field. One of:<br>{@link #CL_MAP_READ MAP_READ}, {@link #CL_MAP_WRITE MAP_WRITE}, {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION MAP_WRITE_INVALIDATE_REGION}
 	 * @param offset                  the offset in bytes of the region in the buffer object that is being mapped
 	 * @param size                    the size in bytes of the region in the buffer object that is being mapped
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
@@ -1740,7 +1739,7 @@ public final class CL10 {
 	 * Creates a 2D image object.
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
-	 * @param flags           a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
+	 * @param flags           a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
 	 * @param image_format    a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
 	 * @param image_width     the width of the image in pixels
 	 * @param image_height    the height of the image in pixels
@@ -1836,7 +1835,7 @@ public final class CL10 {
 	 * Creates a 3D image object.
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
-	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
+	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
 	 * @param image_format      a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
 	 * @param image_width       the width of the image in pixels
 	 * @param image_height      the height of the image in pixels
@@ -1943,12 +1942,12 @@ public final class CL10 {
 	 * <li>Image type – 1D, 2D, or 3D image, 1D image buffer, 1D or 2D image array</li>
 	 * <li>Image object allocation information</li>
 	 * </ul>
-	 * <p/>
-	 * {@code clGetSupportedImageFormats} returns a union of image formats supported by all devices in the context.
+	 * 
+	 * <p>{@code clGetSupportedImageFormats} returns a union of image formats supported by all devices in the context.</p>
 	 *
 	 * @param context           a valid OpenCL context on which the image object(s) will be created
-	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<p/>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
-	 * @param image_type        the image type. One of:<p/>{@link CL12#CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, {@link #CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}, {@link #CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}, {@link CL12#CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}
+	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
+	 * @param image_type        the image type. One of:<br>{@link CL12#CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, {@link #CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}, {@link #CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}, {@link CL12#CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}
 	 * @param num_entries       the number of entries that can be returned in the memory location given by {@code image_formats}
 	 * @param image_formats     a pointer to a memory location where the list of supported image formats are returned. Each entry describes a {@link cl_image_format} structure
 	 *                          supported by the OpenCL implementation. If {@code image_formats} is {@code NULL}, it is ignored.
@@ -2001,8 +2000,8 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to read from an image or image array object to host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
+	 * 
+	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
 	 * <code>host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being read is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to
 	 * avoid undefined behavior:
@@ -2011,19 +2010,19 @@ public final class CL10 {
 	 * <li>The row_pitch and slice_pitch argument values in clEnqueueReadImage must be set to the image row pitch and slice pitch.</li>
 	 * <li>The image object is not mapped.</li>
 	 * <li>The image object is not used by any command-queue until the read command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
 	 * @param image                   a valid image or image array object
 	 * @param blocking_read           indicates if the read operation is blocking or non-blocking.
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link #CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadImage} does not return until the buffer data has
-	 *                                been read and copied into memory pointed to by {@code ptr}.
-	 *                                <p/>
-	 *                                If {@code blocking_read} is {@link #CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadImage} queues a non-blocking read command
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link #CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadImage} does not return until the buffer data has
+	 *                                been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_read} is {@link #CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadImage} queues a non-blocking read command
 	 *                                and returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
 	 *                                returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
-	 *                                the buffer that {@code ptr} points to can be used by the application.
+	 *                                the buffer that {@code ptr} points to can be used by the application.</p>
 	 * @param origin                  defines the {@code (x, y, z)} offset in pixels in the 1D, 2D or 3D image, the {@code (x, y)} offset and the image index in the 2D image array or the
 	 *                                {@code (x)} offset and the image index in the 1D image array. If {@code image} is a 2D image object, {@code origin[2]} must be 0. If {@code image}
 	 *                                is a 1D image or 1D image buffer object, {@code origin[1]} and {@code origin[2]} must be 0. If {@code image} is a 1D image array object,
@@ -2157,8 +2156,8 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to write to an image or image array object from host memory.
-	 * <p/>
-	 * Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
+	 * 
+	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
 	 * <code>host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being written is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order
 	 * to avoid undefined behavior:
@@ -2167,19 +2166,19 @@ public final class CL10 {
 	 * <li>The input_row_pitch and input_slice_pitch argument values in clEnqueueWriteImage must be set to the image row pitch and slice pitch.</li>
 	 * <li>The image object is not mapped.</li>
 	 * <li>The image object is not used by any command-queue until the write command has finished execution.</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
 	 * @param image                   a valid image or image array object
 	 * @param blocking_write          indicates if the read operation is blocking or non-blocking.
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link #CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write command in the
-	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteImage} call returns.
-	 *                                <p/>
-	 *                                If {@code blocking_write} is {@link #CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link #CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write command in the
+	 *                                command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteImage} call returns.</p>
+	 *                                
+	 *                                <p>If {@code blocking_write} is {@link #CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
 	 *                                the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
 	 *                                {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
-	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.
+	 *                                completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
 	 * @param origin                  defines the {@code (x, y, z)} offset in pixels in the 1D, 2D or 3D image, the {@code (x, y)} offset and the image index in the 2D image array or the
 	 *                                {@code (x)} offset and the image index in the 1D image array. If {@code image} is a 2D image object, {@code origin[2]} must be 0. If {@code image}
 	 *                                is a 1D image or 1D image buffer object, {@code origin[1]} and {@code origin[2]} must be 0. If {@code image} is a 1D image array object,
@@ -2612,31 +2611,31 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to map a region in the image object given by {@code image} into the host address space and returns a pointer to this mapped region.
-	 * <p/>
-	 * The pointer returned maps a 1D, 2D or 3D region starting at {@code origin} and is at least {@code region[0]} pixels in size for a 1D image, 1D image
+	 * 
+	 * <p>The pointer returned maps a 1D, 2D or 3D region starting at {@code origin} and is at least {@code region[0]} pixels in size for a 1D image, 1D image
 	 * buffer or 1D image array, {@code (image_row_pitch * region[1])} pixels in size for a 2D image or 2D image array, and
-	 * {@code (image_slice_pitch * region[2])} pixels in size for a 3D image. The result of a memory access outside this region is undefined.
-	 * <p/>
-	 * If the image object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
+	 * {@code (image_slice_pitch * region[2])} pixels in size for a 3D image. The result of a memory access outside this region is undefined.</p>
+	 * 
+	 * <p>If the image object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
 	 * <ul>
 	 * <li>The {@code host_ptr} specified in {@link CL12#clCreateImage CreateImage} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapImage} command has completed.</li>
 	 * <li>The pointer value returned by {@code clEnqueueMapImage} will be derived from the {@code host_ptr} specified when the image object is created.</li>
 	 * </ul>
-	 * Mapped image objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.
+	 * Mapped image objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.</p>
 	 *
 	 * @param command_queue           a valid command-queue
 	 * @param image                   a valid image object. The OpenCL context associated with {@code command_queue} and {@code image} must be the same.
 	 * @param blocking_map            indicates if the map operation is blocking or non-blocking.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link #CL_TRUE TRUE}, {@code clEnqueueMapImage} does not return until the specified region in image is mapped into the host address
-	 *                                space and the application can access the contents of the mapped region using the pointer returned by {@code clEnqueueMapImage}.
-	 *                                <p/>
-	 *                                If {@code blocking_map} is {@link #CL_FALSE FALSE} i.e. map operation is non-blocking, the pointer to the mapped region returned by {@code clEnqueueMapImage}
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link #CL_TRUE TRUE}, {@code clEnqueueMapImage} does not return until the specified region in image is mapped into the host address
+	 *                                space and the application can access the contents of the mapped region using the pointer returned by {@code clEnqueueMapImage}.</p>
+	 *                                
+	 *                                <p>If {@code blocking_map} is {@link #CL_FALSE FALSE} i.e. map operation is non-blocking, the pointer to the mapped region returned by {@code clEnqueueMapImage}
 	 *                                cannot be used until the map command has completed. The {@code event} argument returns an event object which can be used to query the execution
 	 *                                status of the map command. When the map command is completed, the application can access the contents of the mapped region using the pointer
-	 *                                returned by {@code clEnqueueMapImage}.
-	 * @param map_flags               a bit-field. One of:<p/>{@link #CL_MAP_READ MAP_READ}, {@link #CL_MAP_WRITE MAP_WRITE}, {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION MAP_WRITE_INVALIDATE_REGION}
+	 *                                returned by {@code clEnqueueMapImage}.</p>
+	 * @param map_flags               a bit-field. One of:<br>{@link #CL_MAP_READ MAP_READ}, {@link #CL_MAP_WRITE MAP_WRITE}, {@link CL12#CL_MAP_WRITE_INVALIDATE_REGION MAP_WRITE_INVALIDATE_REGION}
 	 * @param origin                  the {@code (x, y, z)} offset in pixels in the 1D, 2D or 3D image, the {@code (x, y)} offset and the image index in the 2D image array or the
 	 *                                {@code (x)} offset and the image index in the 1D image array. If {@code image} is a 2D image object, {@code origin[2]} must be 0. If {@code image}
 	 *                                is a 1D image or 1D image buffer object, {@code origin[1]} and {@code origin[2]} must be 0. If {@code image} is a 1D image array object,
@@ -2757,7 +2756,7 @@ public final class CL10 {
 	 * Returns information specific to an image object.
 	 *
 	 * @param image                the image object being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_IMAGE_FORMAT IMAGE_FORMAT}, {@link #CL_IMAGE_ELEMENT_SIZE IMAGE_ELEMENT_SIZE}, {@link #CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}, {@link #CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}, {@link #CL_IMAGE_WIDTH IMAGE_WIDTH}, {@link #CL_IMAGE_HEIGHT IMAGE_HEIGHT}, {@link #CL_IMAGE_DEPTH IMAGE_DEPTH}, {@link CL12#CL_IMAGE_ARRAY_SIZE IMAGE_ARRAY_SIZE}, {@link CL12#CL_IMAGE_BUFFER IMAGE_BUFFER}, {@link CL12#CL_IMAGE_NUM_MIP_LEVELS IMAGE_NUM_MIP_LEVELS}, {@link CL12#CL_IMAGE_NUM_SAMPLES IMAGE_NUM_SAMPLES}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_IMAGE_FORMAT IMAGE_FORMAT}, {@link #CL_IMAGE_ELEMENT_SIZE IMAGE_ELEMENT_SIZE}, {@link #CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}, {@link #CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}, {@link #CL_IMAGE_WIDTH IMAGE_WIDTH}, {@link #CL_IMAGE_HEIGHT IMAGE_HEIGHT}, {@link #CL_IMAGE_DEPTH IMAGE_DEPTH}, {@link CL12#CL_IMAGE_ARRAY_SIZE IMAGE_ARRAY_SIZE}, {@link CL12#CL_IMAGE_BUFFER IMAGE_BUFFER}, {@link CL12#CL_IMAGE_NUM_MIP_LEVELS IMAGE_NUM_MIP_LEVELS}, {@link CL12#CL_IMAGE_NUM_SAMPLES IMAGE_NUM_SAMPLES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -2808,8 +2807,8 @@ public final class CL10 {
 
 	/**
 	 * Increments the {@code memobj} reference count.
-	 * <p/>
-	 * {@link #clCreateBuffer CreateBuffer}, {@link CL11#clCreateSubBuffer CreateSubBuffer} and {@link CL12#clCreateImage CreateImage} perform an implicit retain.
+	 * 
+	 * <p>{@link #clCreateBuffer CreateBuffer}, {@link CL11#clCreateSubBuffer CreateSubBuffer} and {@link CL12#clCreateImage CreateImage} perform an implicit retain.</p>
 	 *
 	 * @param memobj the memory object to retain
 	 *
@@ -2837,10 +2836,10 @@ public final class CL10 {
 
 	/**
 	 * Decrements the {@code memobj} reference count.
-	 * <p/>
-	 * After the {@code memobj} reference count becomes zero and commands queued for execution on a command-queue(s) that use {@code memobj} have finished, the
+	 * 
+	 * <p>After the {@code memobj} reference count becomes zero and commands queued for execution on a command-queue(s) that use {@code memobj} have finished, the
 	 * memory object is deleted. If {@code memobj} is a buffer object, {@code memobj} cannot be deleted until all sub-buffer objects associated with
-	 * {@code memobj} are deleted.
+	 * {@code memobj} are deleted.</p>
 	 *
 	 * @param memobj the memory object to release
 	 *
@@ -2881,11 +2880,11 @@ public final class CL10 {
 	/**
 	 * Enqueues a command to unmap a previously mapped region of a memory object. Reads or writes from the host using the pointer returned by
 	 * {@link #clEnqueueMapBuffer EnqueueMapBuffer} or {@link #clEnqueueMapImage EnqueueMapImage} are considered to be complete.
-	 * <p/>
-	 * {@link #clEnqueueMapBuffer EnqueueMapBuffer}, and {@link #clEnqueueMapImage EnqueueMapImage} increments the mapped count of the memory object. The initial mapped count value of the memory object is zero.
+	 * 
+	 * <p>{@link #clEnqueueMapBuffer EnqueueMapBuffer}, and {@link #clEnqueueMapImage EnqueueMapImage} increments the mapped count of the memory object. The initial mapped count value of the memory object is zero.
 	 * Multiple calls to {@link #clEnqueueMapBuffer EnqueueMapBuffer}, or {@link #clEnqueueMapImage EnqueueMapImage} on the same memory object will increment this mapped count by appropriate number of calls.
 	 * {@code clEnqueueUnmapMemObject} decrements the mapped count of the memory object. {@link #clEnqueueMapBuffer EnqueueMapBuffer}, and {@link #clEnqueueMapImage EnqueueMapImage} act as synchronization points
-	 * for a region of the buffer object being mapped.
+	 * for a region of the buffer object being mapped.</p>
 	 *
 	 * @param command_queue           a valid command-queue
 	 * @param memobj                  a valid memory object. The OpenCL context associated with {@code command_queue} and {@code memobj} must be the same.
@@ -2948,7 +2947,7 @@ public final class CL10 {
 	 * Returns information that is common to all memory objects (buffer and image objects).
 	 *
 	 * @param memobj               the memory object being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_MEM_TYPE MEM_TYPE}, {@link #CL_MEM_FLAGS MEM_FLAGS}, {@link #CL_MEM_SIZE MEM_SIZE}, {@link #CL_MEM_HOST_PTR MEM_HOST_PTR}, {@link #CL_MEM_MAP_COUNT MEM_MAP_COUNT}, {@link #CL_MEM_REFERENCE_COUNT MEM_REFERENCE_COUNT}, {@link #CL_MEM_CONTEXT MEM_CONTEXT}, {@link CL11#CL_MEM_ASSOCIATED_MEMOBJECT MEM_ASSOCIATED_MEMOBJECT}, {@link CL11#CL_MEM_OFFSET MEM_OFFSET}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_MEM_TYPE MEM_TYPE}, {@link #CL_MEM_FLAGS MEM_FLAGS}, {@link #CL_MEM_SIZE MEM_SIZE}, {@link #CL_MEM_HOST_PTR MEM_HOST_PTR}, {@link #CL_MEM_MAP_COUNT MEM_MAP_COUNT}, {@link #CL_MEM_REFERENCE_COUNT MEM_REFERENCE_COUNT}, {@link #CL_MEM_CONTEXT MEM_CONTEXT}, {@link CL11#CL_MEM_ASSOCIATED_MEMOBJECT MEM_ASSOCIATED_MEMOBJECT}, {@link CL11#CL_MEM_OFFSET MEM_OFFSET}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -3017,15 +3016,15 @@ public final class CL10 {
 
 	/**
 	 * Creates a sampler object.
-	 * <p/>
-	 * A sampler object describes how to sample an image when the image is read in the kernel. The built-in functions to read from an image in a kernel take a
+	 * 
+	 * <p>A sampler object describes how to sample an image when the image is read in the kernel. The built-in functions to read from an image in a kernel take a
 	 * sampler as an argument. The sampler arguments to the image read function can be sampler objects created using OpenCL functions and passed as argument
-	 * values to the kernel or can be samplers declared inside a kernel.
+	 * values to the kernel or can be samplers declared inside a kernel.</p>
 	 *
 	 * @param context           a valid OpenCL context
 	 * @param normalized_coords determines if the image coordinates specified are normalized or not
-	 * @param addressing_mode   specifies how out-of-range image coordinates are handled when reading from an image. One of:<p/>{@link #CL_ADDRESS_NONE ADDRESS_NONE}, {@link #CL_ADDRESS_CLAMP_TO_EDGE ADDRESS_CLAMP_TO_EDGE}, {@link #CL_ADDRESS_CLAMP ADDRESS_CLAMP}, {@link #CL_ADDRESS_REPEAT ADDRESS_REPEAT}, {@link CL11#CL_ADDRESS_MIRRORED_REPEAT ADDRESS_MIRRORED_REPEAT}
-	 * @param filter_mode       the type of filter that must be applied when reading an image. One of:<p/>{@link #CL_FILTER_NEAREST FILTER_NEAREST}, {@link #CL_FILTER_LINEAR FILTER_LINEAR}
+	 * @param addressing_mode   specifies how out-of-range image coordinates are handled when reading from an image. One of:<br>{@link #CL_ADDRESS_NONE ADDRESS_NONE}, {@link #CL_ADDRESS_CLAMP_TO_EDGE ADDRESS_CLAMP_TO_EDGE}, {@link #CL_ADDRESS_CLAMP ADDRESS_CLAMP}, {@link #CL_ADDRESS_REPEAT ADDRESS_REPEAT}, {@link CL11#CL_ADDRESS_MIRRORED_REPEAT ADDRESS_MIRRORED_REPEAT}
+	 * @param filter_mode       the type of filter that must be applied when reading an image. One of:<br>{@link #CL_FILTER_NEAREST FILTER_NEAREST}, {@link #CL_FILTER_LINEAR FILTER_LINEAR}
 	 * @param errcode_ret       will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return a valid non-zero sampler object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the sampler object is created successfully. Otherwise, it returns a {@code NULL} value
@@ -3129,7 +3128,7 @@ public final class CL10 {
 	 * Returns information about a sampler object.
 	 *
 	 * @param sampler              the sampler being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_SAMPLER_REFERENCE_COUNT SAMPLER_REFERENCE_COUNT}, {@link #CL_SAMPLER_CONTEXT SAMPLER_CONTEXT}, {@link #CL_SAMPLER_NORMALIZED_COORDS SAMPLER_NORMALIZED_COORDS}, {@link #CL_SAMPLER_ADDRESSING_MODE SAMPLER_ADDRESSING_MODE}, {@link #CL_SAMPLER_FILTER_MODE SAMPLER_FILTER_MODE}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_SAMPLER_REFERENCE_COUNT SAMPLER_REFERENCE_COUNT}, {@link #CL_SAMPLER_CONTEXT SAMPLER_CONTEXT}, {@link #CL_SAMPLER_NORMALIZED_COORDS SAMPLER_NORMALIZED_COORDS}, {@link #CL_SAMPLER_ADDRESSING_MODE SAMPLER_ADDRESSING_MODE}, {@link #CL_SAMPLER_FILTER_MODE SAMPLER_FILTER_MODE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -3274,8 +3273,8 @@ public final class CL10 {
 
 	/**
 	 * Creates a program object for a context, and loads the binary bits specified by {@code binary} into the program object.
-	 * <p/>
-	 * The program binaries specified by {@code binaries} contain the bits that describe one of the following:
+	 * 
+	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:
 	 * <ul>
 	 * <li>a program executable to be run on the device(s) associated with {@code context},</li>
 	 * <li>a compiled program for device(s) associated with {@code context}, or</li>
@@ -3290,7 +3289,7 @@ public final class CL10 {
 	 * useful as it allows applications to load program source and then compile and link to generate a program executable online on its first instance for
 	 * appropriate OpenCL devices in the system. These executables can now be queried and cached by the application. Future instances of the application
 	 * launching will no longer need to compile and link the program executables. The cached executables can be read and loaded by the application, which can
-	 * help significantly reduce the application initialization time.
+	 * help significantly reduce the application initialization time.</p>
 	 *
 	 * @param context       a valid OpenCL context
 	 * @param num_devices   the number of devices listed in {@code device_list}
@@ -3448,8 +3447,8 @@ public final class CL10 {
 	 * {@code program} created using either {@link #clCreateProgramWithSource CreateProgramWithSource} or {@link #clCreateProgramWithBinary CreateProgramWithBinary} to build the program executable for one or more devices
 	 * associated with {@code program}. If {@code program} is created with {@link #clCreateProgramWithBinary CreateProgramWithBinary}, then the program binary must be an executable binary (not
 	 * a compiled binary or library).
-	 * <p/>
-	 * The executable binary can be queried using {@link #clGetProgramInfo GetProgramInfo} and can be specified to {@link #clCreateProgramWithBinary CreateProgramWithBinary} to create a new program object.
+	 * 
+	 * <p>The executable binary can be queried using {@link #clGetProgramInfo GetProgramInfo} and can be specified to {@link #clCreateProgramWithBinary CreateProgramWithBinary} to create a new program object.</p>
 	 *
 	 * @param program     the program object
 	 * @param num_devices the number of devices listed in {@code device_list}
@@ -3532,8 +3531,8 @@ public final class CL10 {
 	/**
 	 * Allows the implementation to release the resources allocated by the OpenCL compiler. This is a hint from the application and does not guarantee that the
 	 * compiler will not be used in the future or that the compiler will actually be unloaded by the implementation.
-	 * <p/>
-	 * Calls to {@link #clBuildProgram BuildProgram} after {@code clUnloadCompiler} will reload the compiler, if necessary, to build the appropriate program executable.
+	 * 
+	 * <p>Calls to {@link #clBuildProgram BuildProgram} after {@code clUnloadCompiler} will reload the compiler, if necessary, to build the appropriate program executable.</p>
 	 *
 	 * @return always {@link #CL_SUCCESS SUCCESS}
 	 */
@@ -3565,7 +3564,7 @@ public final class CL10 {
 	 * Returns information about a program object.
 	 *
 	 * @param program              the program object being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_PROGRAM_REFERENCE_COUNT PROGRAM_REFERENCE_COUNT}, {@link #CL_PROGRAM_CONTEXT PROGRAM_CONTEXT}, {@link #CL_PROGRAM_NUM_DEVICES PROGRAM_NUM_DEVICES}, {@link #CL_PROGRAM_DEVICES PROGRAM_DEVICES}, {@link #CL_PROGRAM_SOURCE PROGRAM_SOURCE}, {@link #CL_PROGRAM_BINARY_SIZES PROGRAM_BINARY_SIZES}, {@link #CL_PROGRAM_BINARIES PROGRAM_BINARIES}, {@link CL12#CL_PROGRAM_NUM_KERNELS PROGRAM_NUM_KERNELS}, {@link CL12#CL_PROGRAM_KERNEL_NAMES PROGRAM_KERNEL_NAMES}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_PROGRAM_REFERENCE_COUNT PROGRAM_REFERENCE_COUNT}, {@link #CL_PROGRAM_CONTEXT PROGRAM_CONTEXT}, {@link #CL_PROGRAM_NUM_DEVICES PROGRAM_NUM_DEVICES}, {@link #CL_PROGRAM_DEVICES PROGRAM_DEVICES}, {@link #CL_PROGRAM_SOURCE PROGRAM_SOURCE}, {@link #CL_PROGRAM_BINARY_SIZES PROGRAM_BINARY_SIZES}, {@link #CL_PROGRAM_BINARIES PROGRAM_BINARIES}, {@link CL12#CL_PROGRAM_NUM_KERNELS PROGRAM_NUM_KERNELS}, {@link CL12#CL_PROGRAM_KERNEL_NAMES PROGRAM_KERNEL_NAMES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -3633,7 +3632,7 @@ public final class CL10 {
 	 *
 	 * @param program              the program object being queried
 	 * @param device               the device for which build information is being queried. {@code device} must be a valid device associated with {@code program}.
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_PROGRAM_BUILD_STATUS PROGRAM_BUILD_STATUS}, {@link #CL_PROGRAM_BUILD_OPTIONS PROGRAM_BUILD_OPTIONS}, {@link #CL_PROGRAM_BUILD_LOG PROGRAM_BUILD_LOG}, {@link CL12#CL_PROGRAM_BINARY_TYPE PROGRAM_BINARY_TYPE}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_PROGRAM_BUILD_STATUS PROGRAM_BUILD_STATUS}, {@link #CL_PROGRAM_BUILD_OPTIONS PROGRAM_BUILD_OPTIONS}, {@link #CL_PROGRAM_BUILD_LOG PROGRAM_BUILD_LOG}, {@link CL12#CL_PROGRAM_BINARY_TYPE PROGRAM_BINARY_TYPE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -3696,17 +3695,17 @@ public final class CL10 {
 
 	/**
 	 * Creates a kernel object.
-	 * <p/>
-	 * A kernel is a function declared in a program. A kernel is identified by the {@code __kernel} qualifier applied to any function in a program. A kernel
+	 * 
+	 * <p>A kernel is a function declared in a program. A kernel is identified by the {@code __kernel} qualifier applied to any function in a program. A kernel
 	 * object encapsulates the specific {@code __kernel} function declared in a program and the argument values to be used when executing this {@code __kernel}
-	 * function.
-	 * <p/>
-	 * Kernel objects can only be created once you have a program object with a valid program source or binary loaded into the program object and the program
+	 * function.</p>
+	 * 
+	 * <p>Kernel objects can only be created once you have a program object with a valid program source or binary loaded into the program object and the program
 	 * executable has been successfully built for one or more devices associated with program. No changes to the program executable are allowed while there are
 	 * kernel objects associated with a program object. This means that calls to {@link #clBuildProgram BuildProgram} and {@link CL12#clCompileProgram CompileProgram} return
 	 * {@link #CL_INVALID_OPERATION INVALID_OPERATION} if there are kernel objects attached to a program object. The OpenCL context associated with program will be the context
 	 * associated with kernel. The list of devices associated with program are the devices associated with kernel. Devices associated with a program object for
-	 * which a valid program executable has been built can be used to execute kernels declared in the program object.
+	 * which a valid program executable has been built can be used to execute kernels declared in the program object.</p>
 	 *
 	 * @param program     a program object with a successfully built executable
 	 * @param kernel_name a function name in the program declared with the {@code __kernel} qualifier
@@ -3768,8 +3767,8 @@ public final class CL10 {
 	/**
 	 * Creates kernel objects for all kernel functions in {@code program}. Kernel objects are not created for any {@code __kernel} functions in {@code program}
 	 * that do not have the same function definition across all devices for which a program executable has been successfully built.
-	 * <p/>
-	 * See {@link #clCreateKernel CreateKernel} for more details.
+	 * 
+	 * <p>See {@link #clCreateKernel CreateKernel} for more details.</p>
 	 *
 	 * @param program         a program object with a successfully built executable
 	 * @param num_kernels     the size of memory pointed to by kernels specified as the number of cl_kernel entries
@@ -3836,9 +3835,9 @@ public final class CL10 {
 
 	/**
 	 * Decrements the {@code kernel} reference count.
-	 * <p/>
-	 * The kernel object is deleted once the number of instances that are retained to {@code kernel} become zero and the kernel object is no longer needed by
-	 * any enqueued commands that use {@code kernel}.
+	 * 
+	 * <p>The kernel object is deleted once the number of instances that are retained to {@code kernel} become zero and the kernel object is no longer needed by
+	 * any enqueued commands that use {@code kernel}.</p>
 	 *
 	 * @param kernel the kernel to release
 	 *
@@ -3881,8 +3880,8 @@ public final class CL10 {
 	 * @param kernel    a valid kernel object
 	 * @param arg_index the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
 	 *                  the total number of arguments declared by a kernel.
-	 *                  <p/>
-	 *                  For example, consider the following kernel:
+	 *                  
+	 *                  <p>For example, consider the following kernel:
 	 *                  <pre><code>
 	 *                  kernel void image_filter (
 	 *                  	int n, int m,
@@ -3893,10 +3892,10 @@ public final class CL10 {
 	 *                  	&hellip;
 	 *                  }</code></pre>
 	 *                  Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for
-	 *                  {@code dst_image}.
-	 *                  <p/>
-	 *                  <strong>NOTE</strong>: A kernel object does not update the reference count for objects such as memory, sampler objects specified as argument values
-	 *                  by {@code clSetKernelArg}, Users may not rely on a kernel object to retain objects specified as argument values to the kernel.
+	 *                  {@code dst_image}.</p>
+	 *                  
+	 *                  <p><strong>NOTE</strong>: A kernel object does not update the reference count for objects such as memory, sampler objects specified as argument values
+	 *                  by {@code clSetKernelArg}, Users may not rely on a kernel object to retain objects specified as argument values to the kernel.</p>
 	 * @param arg_size  the size of the argument value. If the argument is a memory object, the size is the size of the buffer or image object type. For arguments declared
 	 *                  with the {@code __local} qualifier, the size specified will be the size in bytes of the buffer that must be allocated for the {@code __local}
 	 *                  argument. If the argument is of type {@code sampler_t}, the {@code arg_size} value must be equal to {@code sizeof(cl_sampler)}. For all other
@@ -3905,27 +3904,27 @@ public final class CL10 {
 	 *                  {@code arg_value} is copied and the {@code arg_value} pointer can therefore be reused by the application after {@code clSetKernelArg} returns. The
 	 *                  argument value specified is the value used by all API calls that enqueue kernel ({@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} and {@link #clEnqueueTask EnqueueTask}) until
 	 *                  the argument value is changed by a call to {@code clSetKernelArg} for {@code kernel}.
-	 *                  <p/>
-	 *                  If the argument is a memory object (buffer, image or image array), the {@code arg_value} entry will be a pointer to the appropriate buffer, image or
+	 *                  
+	 *                  <p>If the argument is a memory object (buffer, image or image array), the {@code arg_value} entry will be a pointer to the appropriate buffer, image or
 	 *                  image array object. The memory object must be created with the context associated with the kernel object. If the argument is a buffer object, the
 	 *                  {@code arg_value} pointer can be {@code NULL} or point to a {@code NULL} value in which case a {@code NULL} value will be used as the value for the argument declared as
 	 *                  a pointer to {@code __global} or {@code __constant} memory in the kernel. If the argument is declared with the {@code __local} qualifier, the
 	 *                  {@code arg_value} entry must be {@code NULL}. If the argument is of type {@code sampler_t}, the {@code arg_value} entry must be a pointer to the sampler
-	 *                  object.
-	 *                  <p/>
-	 *                  If the argument is declared to be a pointer of a built-in scalar or vector type, or a user defined structure type in the global or constant address
+	 *                  object.</p>
+	 *                  
+	 *                  <p>If the argument is declared to be a pointer of a built-in scalar or vector type, or a user defined structure type in the global or constant address
 	 *                  space, the memory object specified as argument value must be a buffer object (or {@code NULL}). If the argument is declared with the {@code __constant}
 	 *                  qualifier, the size in bytes of the memory object cannot exceed {@link #CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE DEVICE_MAX_CONSTANT_BUFFER_SIZE} and the number of arguments declared as
-	 *                  pointers to {@code __constant} memory cannot exceed {@link #CL_DEVICE_MAX_CONSTANT_ARGS DEVICE_MAX_CONSTANT_ARGS}.
-	 *                  <p/>
-	 *                  The memory object specified as argument value must be a 2D image object if the argument is declared to be of type {@code image2d_t}. The memory
+	 *                  pointers to {@code __constant} memory cannot exceed {@link #CL_DEVICE_MAX_CONSTANT_ARGS DEVICE_MAX_CONSTANT_ARGS}.</p>
+	 *                  
+	 *                  <p>The memory object specified as argument value must be a 2D image object if the argument is declared to be of type {@code image2d_t}. The memory
 	 *                  object specified as argument value must be a 3D image object if argument is declared to be of type {@code image3d_t}. The memory object specified as
 	 *                  argument value must be a 1D image object if the argument is declared to be of type {@code image1d_t}. The memory object specified as argument value
 	 *                  must be a 1D image buffer object if the argument is declared to be of type {@code image1d_buffer_t}. The memory object specified as argument value
 	 *                  must be a 1D image array object if argument is declared to be of type {@code image1d_array_t}. The memory object specified as argument value must be
-	 *                  a 2D image array object if argument is declared to be of type {@code image2d_array_t}.
-	 *                  <p/>
-	 *                  For all other kernel arguments, the {@code arg_value} entry must be a pointer to the actual data to be used as argument value.
+	 *                  a 2D image array object if argument is declared to be of type {@code image2d_array_t}.</p>
+	 *                  
+	 *                  <p>For all other kernel arguments, the {@code arg_value} entry must be a pointer to the actual data to be used as argument value.</p>
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function was executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
@@ -4249,7 +4248,7 @@ public final class CL10 {
 	 * Returns information about a kernel object.
 	 *
 	 * @param kernel               the kernel object being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_KERNEL_FUNCTION_NAME KERNEL_FUNCTION_NAME}, {@link #CL_KERNEL_NUM_ARGS KERNEL_NUM_ARGS}, {@link #CL_KERNEL_REFERENCE_COUNT KERNEL_REFERENCE_COUNT}, {@link #CL_KERNEL_CONTEXT KERNEL_CONTEXT}, {@link #CL_KERNEL_PROGRAM KERNEL_PROGRAM}, {@link CL12#CL_KERNEL_ATTRIBUTES KERNEL_ATTRIBUTES}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_KERNEL_FUNCTION_NAME KERNEL_FUNCTION_NAME}, {@link #CL_KERNEL_NUM_ARGS KERNEL_NUM_ARGS}, {@link #CL_KERNEL_REFERENCE_COUNT KERNEL_REFERENCE_COUNT}, {@link #CL_KERNEL_CONTEXT KERNEL_CONTEXT}, {@link #CL_KERNEL_PROGRAM KERNEL_PROGRAM}, {@link CL12#CL_KERNEL_ATTRIBUTES KERNEL_ATTRIBUTES}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -4316,7 +4315,7 @@ public final class CL10 {
 	 * @param kernel               the kernel object being queried
 	 * @param device               identifies a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL context
 	 *                             that is associated with {@code kernel}. If the list of devices associated with {@code kernel} is a single device, {@code device} can be a {@code NULL} value.
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_KERNEL_WORK_GROUP_SIZE KERNEL_WORK_GROUP_SIZE}, {@link #CL_KERNEL_COMPILE_WORK_GROUP_SIZE KERNEL_COMPILE_WORK_GROUP_SIZE}, {@link #CL_KERNEL_LOCAL_MEM_SIZE KERNEL_LOCAL_MEM_SIZE}, {@link CL11#CL_KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE}, {@link CL11#CL_KERNEL_PRIVATE_MEM_SIZE KERNEL_PRIVATE_MEM_SIZE}, {@link CL12#CL_KERNEL_GLOBAL_WORK_SIZE KERNEL_GLOBAL_WORK_SIZE}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_KERNEL_WORK_GROUP_SIZE KERNEL_WORK_GROUP_SIZE}, {@link #CL_KERNEL_COMPILE_WORK_GROUP_SIZE KERNEL_COMPILE_WORK_GROUP_SIZE}, {@link #CL_KERNEL_LOCAL_MEM_SIZE KERNEL_LOCAL_MEM_SIZE}, {@link CL11#CL_KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE}, {@link CL11#CL_KERNEL_PRIVATE_MEM_SIZE KERNEL_PRIVATE_MEM_SIZE}, {@link CL12#CL_KERNEL_GLOBAL_WORK_SIZE KERNEL_GLOBAL_WORK_SIZE}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -4408,13 +4407,13 @@ public final class CL10 {
 	 *                                break the global work-items specified by {@code global_work_size} into appropriate work-group instances. If {@code local_work_size} is specified, the
 	 *                                values specified in <code>global_work_size[0], &hellip; global_work_size[work_dim - 1]</code> must be evenly divisible by the corresponding values
 	 *                                specified in <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>.
-	 *                                <p/>
-	 *                                The work-group size to be used for kernel can also be specified in the program source using the
+	 *                                
+	 *                                <p>The work-group size to be used for kernel can also be specified in the program source using the
 	 *                                <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier. In this case the size of work group specified by {@code local_work_size} must
-	 *                                match the value specified by the {@code reqd_work_group_size} attribute qualifier.
-	 *                                <p/>
-	 *                                {@code local_work_size} can also be a {@code NULL} value in which case the OpenCL implementation will determine how to be break the global work-items into
-	 *                                appropriate work-group instances.
+	 *                                match the value specified by the {@code reqd_work_group_size} attribute qualifier.</p>
+	 *                                
+	 *                                <p>{@code local_work_size} can also be a {@code NULL} value in which case the OpenCL implementation will determine how to be break the global work-items into
+	 *                                appropriate work-group instances.</p>
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
@@ -4508,9 +4507,9 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to execute a kernel on a device. The kernel is executed using a single work-item.
-	 * <p/>
-	 * {@code clEnqueueTask} is equivalent to calling {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} with {@code work_dim = 1}, {@code global_work_offset = NULL},
-	 * {@code global_work_size[0]} set to 1 and {@code local_work_size[0]} set to 1.
+	 * 
+	 * <p>{@code clEnqueueTask} is equivalent to calling {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} with {@code work_dim = 1}, {@code global_work_offset = NULL},
+	 * {@code global_work_size[0]} set to 1 and {@code local_work_size[0]} set to 1.</p>
 	 *
 	 * @param command_queue           a valid command-queue. The kernel will be queued for execution on the device associated with {@code command_queue}.
 	 * @param kernel                  a valid kernel object. The OpenCL context associated with {@code kernel} and {@code command_queue} must be the same.
@@ -4559,21 +4558,21 @@ public final class CL10 {
 
 	/**
 	 * Enqueues a command to execute a native C/C++ function not compiled using the OpenCL compiler.
-	 * <p/>
-	 * <strong>LWJGL note</strong>: For the versions of this method that accept a {@link CLNativeKernel}, the {@code args} argument must not be null and must
+	 * 
+	 * <p><strong>LWJGL note</strong>: For the versions of this method that accept a {@link CLNativeKernel}, the {@code args} argument must not be null and must
 	 * have enough extra space at the beginning to store two pointer values, i.e. 2&times; {@link Pointer#POINTER_SIZE} bytes. The application must not store
-	 * useful information there, as it will be overwritten by <em>LWJGL</em>.
+	 * useful information there, as it will be overwritten by <em>LWJGL</em>.</p>
 	 *
 	 * @param command_queue           a valid command-queue. A native user function can only be executed on a command-queue created on a device that has {@link #CL_EXEC_NATIVE_KERNEL EXEC_NATIVE_KERNEL}
 	 *                                capability set in {@link #CL_DEVICE_EXECUTION_CAPABILITIES DEVICE_EXECUTION_CAPABILITIES}.
 	 * @param user_func               a pointer to a host-callable user function
 	 * @param args                    a pointer to the args list that {@code user_func} should be called with
 	 * @param cb_args                 the size in bytes of the args list that {@code args} points to.
-	 *                                <p/>
-	 *                                The data pointed to by {@code args} and {@code cb_args} bytes in size will be copied and a pointer to this copied region will be passed to
+	 *                                
+	 *                                <p>The data pointed to by {@code args} and {@code cb_args} bytes in size will be copied and a pointer to this copied region will be passed to
 	 *                                {@code user_func}. The copy needs to be done because the memory objects (cl_mem values) that args may contain need to be modified and replaced by
 	 *                                appropriate pointers to global memory. When {@code clEnqueueNativeKernel} returns, the memory region pointed to by args can be reused by the
-	 *                                application.
+	 *                                application.</p>
 	 * @param num_mem_objects         the number of buffer objects that are passed in {@code args}
 	 * @param mem_list                a list of valid buffer objects, if {@code num_mem_objects} &gt; 0. The buffer object values specified in {@code mem_list} are memory object handles
 	 *                                (cl_mem values) returned by {@link #clCreateBuffer CreateBuffer} or {@code NULL}.
@@ -4719,13 +4718,13 @@ public final class CL10 {
 
 	/**
 	 * Returns information about an event object.
-	 * <p/>
-	 * Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}
+	 * 
+	 * <p>Using {@code clGetEventInfo} to determine if a command identified by event has finished execution (i.e. {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}
 	 * returns {@link #CL_COMPLETE COMPLETE}) is not a synchronization point. There are no guarantees that the memory objects being modified by command associated with
-	 * event will be visible to other enqueued commands.
+	 * event will be visible to other enqueued commands.</p>
 	 *
 	 * @param event                the event object being queried
-	 * @param param_name           the information to query. One of:<p/>{@link #CL_EVENT_COMMAND_QUEUE EVENT_COMMAND_QUEUE}, {@link #CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}, {@link #CL_EVENT_REFERENCE_COUNT EVENT_REFERENCE_COUNT}, {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}, {@link CL11#CL_EVENT_CONTEXT EVENT_CONTEXT}
+	 * @param param_name           the information to query. One of:<br>{@link #CL_EVENT_COMMAND_QUEUE EVENT_COMMAND_QUEUE}, {@link #CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}, {@link #CL_EVENT_REFERENCE_COUNT EVENT_REFERENCE_COUNT}, {@link #CL_EVENT_COMMAND_EXECUTION_STATUS EVENT_COMMAND_EXECUTION_STATUS}, {@link CL11#CL_EVENT_CONTEXT EVENT_CONTEXT}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -4804,17 +4803,17 @@ public final class CL10 {
 
 	/**
 	 * Decrements the event reference count.
-	 * <p/>
-	 * The event object is deleted once the reference count becomes zero, the specific command identified by this event has completed (or terminated) and there
-	 * are no commands in the command-queues of a context that require a wait for this event to complete.
-	 * <p/>
-	 * <strong>NOTE</strong>: Developers should be careful when releasing their last reference count on events created by {@link CL11#clCreateUserEvent CreateUserEvent} that
+	 * 
+	 * <p>The event object is deleted once the reference count becomes zero, the specific command identified by this event has completed (or terminated) and there
+	 * are no commands in the command-queues of a context that require a wait for this event to complete.</p>
+	 * 
+	 * <p><strong>NOTE</strong>: Developers should be careful when releasing their last reference count on events created by {@link CL11#clCreateUserEvent CreateUserEvent} that
 	 * have not yet been set to status of {@link #CL_COMPLETE COMPLETE} or an error. If the user event was used in the {@code event_wait_list} argument passed to a
 	 * clEnqueue*** API or another application host thread is waiting for it in {@link #clWaitForEvents WaitForEvents}, those commands and host threads will continue to wait for the
 	 * event status to reach {@link #CL_COMPLETE COMPLETE} or error, even after the user has released the object. Since in this scenario the developer has released his
 	 * last reference count to the user event, it would be in principle no longer valid for him to change the status of the event to unblock all the other
 	 * machinery. As a result the waiting tasks will wait forever, and associated events, cl_mem objects, command queues and contexts are likely to leak.
-	 * In-order command-queues caught up in this deadlock may cease to do any work.
+	 * In-order command-queues caught up in this deadlock may cease to do any work.</p>
 	 *
 	 * @param event the event to release
 	 *
@@ -4984,7 +4983,7 @@ public final class CL10 {
 	 * Returns profiling information for the command associated with {@code event}.
 	 *
 	 * @param event                the event object
-	 * @param param_name           the profiling data to query. One of:<p/>{@link #CL_PROFILING_COMMAND_QUEUED PROFILING_COMMAND_QUEUED}, {@link #CL_PROFILING_COMMAND_SUBMIT PROFILING_COMMAND_SUBMIT}, {@link #CL_PROFILING_COMMAND_START PROFILING_COMMAND_START}, {@link #CL_PROFILING_COMMAND_END PROFILING_COMMAND_END}
+	 * @param param_name           the profiling data to query. One of:<br>{@link #CL_PROFILING_COMMAND_QUEUED PROFILING_COMMAND_QUEUED}, {@link #CL_PROFILING_COMMAND_SUBMIT PROFILING_COMMAND_SUBMIT}, {@link #CL_PROFILING_COMMAND_START PROFILING_COMMAND_START}, {@link #CL_PROFILING_COMMAND_END PROFILING_COMMAND_END}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -5032,15 +5031,15 @@ public final class CL10 {
 	 * Issues all previously queued OpenCL commands in {@code command_queue} to the device associated with {@code command_queue}. {@code clFlush} only
 	 * guarantees that all queued commands to {@code command_queue} will eventually be submitted to the appropriate device. There is no guarantee that they
 	 * will be complete after {@code clFlush} returns.
-	 * <p/>
-	 * Any blocking commands queued in a command-queue and {@link #clReleaseCommandQueue ReleaseCommandQueue} perform an implicit flush of the command-queue. These blocking commands are
+	 * 
+	 * <p>Any blocking commands queued in a command-queue and {@link #clReleaseCommandQueue ReleaseCommandQueue} perform an implicit flush of the command-queue. These blocking commands are
 	 * {@link #clEnqueueReadBuffer EnqueueReadBuffer}, {@link CL11#clEnqueueReadBufferRect EnqueueReadBufferRect}, {@link #clEnqueueReadImage EnqueueReadImage}, with {@code blocking_read} set to {@link #CL_TRUE TRUE}; {@link #clEnqueueWriteBuffer EnqueueWriteBuffer},
 	 * {@link CL11#clEnqueueWriteBufferRect EnqueueWriteBufferRect}, {@link #clEnqueueWriteImage EnqueueWriteImage} with {@code blocking_write} set to {@link #CL_TRUE TRUE}; {@link #clEnqueueMapBuffer EnqueueMapBuffer}, {@link #clEnqueueMapImage EnqueueMapImage} with
-	 * {@code blocking_map} set to {@link #CL_TRUE TRUE}; or {@link #clWaitForEvents WaitForEvents}.
-	 * <p/>
-	 * To use event objects that refer to commands enqueued in a command-queue as event objects to wait on by commands enqueued in a different command-queue,
+	 * {@code blocking_map} set to {@link #CL_TRUE TRUE}; or {@link #clWaitForEvents WaitForEvents}.</p>
+	 * 
+	 * <p>To use event objects that refer to commands enqueued in a command-queue as event objects to wait on by commands enqueued in a different command-queue,
 	 * the application must call a {@code clFlush} or any blocking commands that perform an implicit flush of the command-queue where the commands that refer
-	 * to these event objects are enqueued.
+	 * to these event objects are enqueued.</p>
 	 *
 	 * @param command_queue the command-queue
 	 *
@@ -5103,10 +5102,10 @@ public final class CL10 {
 	 * function does not exist for the implementation. A non-{@code NULL} return value for {@code clGetExtensionFunctionAddress} does not guarantee that an extension
 	 * function is actually supported. The application must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
 	 * or <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
-	 * <p/>
-	 * {@code clGetExtensionFunctionAddress} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
+	 * 
+	 * <p>{@code clGetExtensionFunctionAddress} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
 	 * {@code clGetExtensionFunctionAddress}, implementations may choose to also export those functions statically from the object libraries implementing those
-	 * functions. However, portable applications cannot rely on this behavior.
+	 * functions. However, portable applications cannot rely on this behavior.</p>
 	 *
 	 * @param funcname the extension function name
 	 *

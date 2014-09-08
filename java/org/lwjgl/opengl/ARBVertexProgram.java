@@ -17,35 +17,35 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_program.txt">ARB_vertex_program</a> extension.
- * <p/>
- * Unextended OpenGL mandates a certain set of configurable per-vertex computations defining vertex transformation, texture coordinate generation and
+ * 
+ * <p>Unextended OpenGL mandates a certain set of configurable per-vertex computations defining vertex transformation, texture coordinate generation and
  * transformation, and lighting. Several extensions have added further per-vertex computations to OpenGL. For example, extensions have defined new texture
  * coordinate generation modes ({@link ARBTextureCubeMap ARB_texture_cube_map}, <a href="http://www.opengl.org/registry/specs/NV/texgen_reflection.txt">NV_texgen_reflection</a>, <a href="http://www.opengl.org/registry/specs/NV/texgen_emboss.txt">NV_texgen_emboss</a>),
  * new vertex transformation modes ({@link ARBVertexBlend ARB_vertex_blend}, <a href="http://www.opengl.org/registry/specs/EXT/vertex_weighting.txt">EXT_vertex_weighting</a>), new lighting modes (OpenGL 1.2's separate
  * specular and rescale normal functionality), several modes for fog distance generation (<a href="http://www.opengl.org/registry/specs/NV/fog_distance.txt">NV_fog_distance</a>), and eye-distance point
- * size attenuation ({@link ARBPointParameters ARB_point_parameters}).
- * <p/>
- * Each such extension adds a small set of relatively inflexible per-vertex computations.
- * <p/>
- * This inflexibility is in contrast to the typical flexibility provided by the underlying programmable floating point engines (whether micro-coded vertex
+ * size attenuation ({@link ARBPointParameters ARB_point_parameters}).</p>
+ * 
+ * <p>Each such extension adds a small set of relatively inflexible per-vertex computations.</p>
+ * 
+ * <p>This inflexibility is in contrast to the typical flexibility provided by the underlying programmable floating point engines (whether micro-coded vertex
  * engines, DSPs, or CPUs) that are traditionally used to implement OpenGL's per-vertex computations. The purpose of this extension is to expose to the
- * OpenGL application writer a significant degree of per-vertex programmability for computing vertex parameters.
- * <p/>
- * For the purposes of discussing this extension, a vertex program is a sequence of floating-point 4-component vector operations that determines how a set
+ * OpenGL application writer a significant degree of per-vertex programmability for computing vertex parameters.</p>
+ * 
+ * <p>For the purposes of discussing this extension, a vertex program is a sequence of floating-point 4-component vector operations that determines how a set
  * of program parameters (defined outside of OpenGL's {@link GL11#glBegin Begin}/{@link GL11#glEnd End} pair) and an input set of per-vertex parameters are transformed to a set of
- * per-vertex result parameters.
- * <p/>
- * The per-vertex computations for standard OpenGL given a particular set of lighting and texture coordinate generation modes (along with any state for
+ * per-vertex result parameters.</p>
+ * 
+ * <p>The per-vertex computations for standard OpenGL given a particular set of lighting and texture coordinate generation modes (along with any state for
  * extensions defining per-vertex computations) is, in essence, a vertex program. However, the sequence of operations is defined implicitly by the current
- * OpenGL state settings rather than defined explicitly as a sequence of instructions.
- * <p/>
- * This extension provides an explicit mechanism for defining vertex program instruction sequences for application-defined vertex programs. In order to
+ * OpenGL state settings rather than defined explicitly as a sequence of instructions.</p>
+ * 
+ * <p>This extension provides an explicit mechanism for defining vertex program instruction sequences for application-defined vertex programs. In order to
  * define such vertex programs, this extension defines a vertex programming model including a floating-point 4-component vector instruction set and a
- * relatively large set of floating-point 4-component registers.
- * <p/>
- * The extension's vertex programming model is designed for efficient hardware implementation and to support a wide variety of vertex programs. By design,
+ * relatively large set of floating-point 4-component registers.</p>
+ * 
+ * <p>The extension's vertex programming model is designed for efficient hardware implementation and to support a wide variety of vertex programs. By design,
  * the entire set of existing vertex programs defined by existing OpenGL per-vertex computation extensions can be implemented using the extension's vertex
- * programming model.
+ * programming model.</p>
  */
 public final class ARBVertexProgram {
 
@@ -1370,8 +1370,8 @@ public final class ARBVertexProgram {
 	 * Specifies the location and organization of a vertex attribute array.
 	 *
 	 * @param index      the vertex attribute index
-	 * @param size       the vertex attribute number of components. One of:<p/>1, 2, 3, 4
-	 * @param type       the data type of the values stored in the array. One of:<p/>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
+	 * @param size       the vertex attribute number of components. One of:<br>1, 2, 3, 4
+	 * @param type       the data type of the values stored in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}
 	 * @param normalized if {@link GL11#GL_TRUE TRUE}, fixed-point types are normalized when converted to floating-point
 	 * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer    the vertex attribute array data
@@ -1458,20 +1458,20 @@ public final class ARBVertexProgram {
 
 	/**
 	 * Updates the program string for the current program object for {@code target}.
-	 * <p/>
-	 * When a program string is loaded, it is interpreted according to syntactic and semantic rules corresponding to the program target specified by
+	 * 
+	 * <p>When a program string is loaded, it is interpreted according to syntactic and semantic rules corresponding to the program target specified by
 	 * {@code target}. If a program violates the syntactic or semantic restrictions of the program target, ProgramStringARB generates the error
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION}.
-	 * <p/>
-	 * Additionally, ProgramString will update the program error position ({@link #GL_PROGRAM_ERROR_POSITION_ARB PROGRAM_ERROR_POSITION_ARB}) and error string ({@link #GL_PROGRAM_ERROR_STRING_ARB PROGRAM_ERROR_STRING_ARB}). If a
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION}.</p>
+	 * 
+	 * <p>Additionally, ProgramString will update the program error position ({@link #GL_PROGRAM_ERROR_POSITION_ARB PROGRAM_ERROR_POSITION_ARB}) and error string ({@link #GL_PROGRAM_ERROR_STRING_ARB PROGRAM_ERROR_STRING_ARB}). If a
 	 * program fails to load, the value of the program error position is set to the ubyte offset into the specified program string indicating where the first
 	 * program error was detected. If the program fails to load because of a semantic restriction that is not detected until the program is fully scanned, the
 	 * error position is set to the value of {@code len}. If a program loads successfully, the error position is set to the value negative one. The
 	 * implementation-dependent program error string contains one or more error or warning messages.  If a program loads succesfully, the error string may
-	 * either contain warning messages or be empty.
+	 * either contain warning messages or be empty.</p>
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
-	 * @param format the format of the program string. Must be:<p/>{@link #GL_PROGRAM_FORMAT_ASCII_ARB PROGRAM_FORMAT_ASCII_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param format the format of the program string. Must be:<br>{@link #GL_PROGRAM_FORMAT_ASCII_ARB PROGRAM_FORMAT_ASCII_ARB}
 	 * @param len    the length of the program string, excluding the null-terminator
 	 * @param string an array of bytes representing the program string being loaded
 	 */
@@ -1496,7 +1496,7 @@ public final class ARBVertexProgram {
 	 * Creates a named program object by binding an unused program object name to a valid program target. Also can be used to bind an existing program object
 	 * to a program target.
 	 *
-	 * @param target  the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target  the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param program the program object to bind. If {@code program} is zero, the default program object for {@code target} is bound.  If {@code program} is the name of
 	 *                an existing program object whose associated program target is {@code target}, the named program object is bound.
 	 */
@@ -1589,7 +1589,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Double version of {@link #glProgramEnvParameter4fARB ProgramEnvParameter4fARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param x      the {@code x} parameter component
 	 * @param y      the {@code y} parameter component
@@ -1621,7 +1621,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Pointer version of {@link #glProgramEnvParameter4dARB ProgramEnvParameter4dARB}
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer from which to read the parameter value
 	 */
@@ -1647,7 +1647,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Updates the values of the program environment parameter numbered {@code index} for the given program target {@code target}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param x      the {@code x} parameter component
 	 * @param y      the {@code y} parameter component
@@ -1679,7 +1679,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Pointer version of {@link #glProgramEnvParameter4fARB ProgramEnvParameter4fARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer from which to read the parameter value
 	 */
@@ -1705,7 +1705,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Double version of {@link #glProgramLocalParameter4fARB ProgramLocalParameter4fARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param x      the {@code x} parameter component
 	 * @param y      the {@code y} parameter component
@@ -1737,7 +1737,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Pointer version of {@link #glProgramLocalParameter4dARB ProgramLocalParameter4dARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer from which to read the parameter value
 	 */
@@ -1763,7 +1763,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Updates the values of the program local parameter numbered {@code index} for the given program target {@code target}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param x      the {@code x} parameter component
 	 * @param y      the {@code y} parameter component
@@ -1795,7 +1795,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Pointer version of {@link #glProgramLocalParameter4fARB ProgramLocalParameter4fARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer from which to read the parameter value
 	 */
@@ -1830,7 +1830,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Double version of {@link #glGetProgramEnvParameterfvARB GetProgramEnvParameterfvARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer in which to place the current parameter value
 	 */
@@ -1866,7 +1866,7 @@ public final class ARBVertexProgram {
 	 * Obtain the current value for the program environment parameter numbered {@code index} for the given program target {@code target}, and places the
 	 * information in the array {@code params}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer in which to place the current parameter value
 	 */
@@ -1901,7 +1901,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Double version of {@link #glGetProgramLocalParameterfvARB GetProgramLocalParameterfvARB}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer in which to place the current parameter value
 	 */
@@ -1937,7 +1937,7 @@ public final class ARBVertexProgram {
 	 * Obtain the current value for the program local parameter numbered {@code index} for the given program target {@code target}, and places the
 	 * information in the array {@code params}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer in which to place the current parameter value
 	 */
@@ -1973,8 +1973,8 @@ public final class ARBVertexProgram {
 	 * Obtains program state for the program target {@code target}, writing the state into the array given by {@code params}. GetProgramivARB can be used to
 	 * determine the properties of the currently bound program object or implementation limits for {@code target}.
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}, {@link #GL_PROGRAM_FORMAT_ARB PROGRAM_FORMAT_ARB}, {@link #GL_PROGRAM_BINDING_ARB PROGRAM_BINDING_ARB}, {@link #GL_PROGRAM_INSTRUCTIONS_ARB PROGRAM_INSTRUCTIONS_ARB}, {@link #GL_MAX_PROGRAM_INSTRUCTIONS_ARB MAX_PROGRAM_INSTRUCTIONS_ARB}, {@link #GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB PROGRAM_NATIVE_INSTRUCTIONS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB}, {@link #GL_PROGRAM_TEMPORARIES_ARB PROGRAM_TEMPORARIES_ARB}, {@link #GL_MAX_PROGRAM_TEMPORARIES_ARB MAX_PROGRAM_TEMPORARIES_ARB}, {@link #GL_PROGRAM_NATIVE_TEMPORARIES_ARB PROGRAM_NATIVE_TEMPORARIES_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB MAX_PROGRAM_NATIVE_TEMPORARIES_ARB}, {@link #GL_PROGRAM_PARAMETERS_ARB PROGRAM_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_PARAMETERS_ARB MAX_PROGRAM_PARAMETERS_ARB}, {@link #GL_PROGRAM_NATIVE_PARAMETERS_ARB PROGRAM_NATIVE_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB MAX_PROGRAM_NATIVE_PARAMETERS_ARB}, {@link #GL_PROGRAM_ATTRIBS_ARB PROGRAM_ATTRIBS_ARB}, {@link #GL_MAX_PROGRAM_ATTRIBS_ARB MAX_PROGRAM_ATTRIBS_ARB}, {@link #GL_PROGRAM_NATIVE_ATTRIBS_ARB PROGRAM_NATIVE_ATTRIBS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB MAX_PROGRAM_NATIVE_ATTRIBS_ARB}, {@link #GL_PROGRAM_ADDRESS_REGISTERS_ARB PROGRAM_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB MAX_PROGRAM_ADDRESS_REGISTERS_ARB}, {@link #GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB MAX_PROGRAM_LOCAL_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_ENV_PARAMETERS_ARB MAX_PROGRAM_ENV_PARAMETERS_ARB}, {@link #GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB PROGRAM_UNDER_NATIVE_LIMITS_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param pname  the parameter to query. One of:<br>{@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}, {@link #GL_PROGRAM_FORMAT_ARB PROGRAM_FORMAT_ARB}, {@link #GL_PROGRAM_BINDING_ARB PROGRAM_BINDING_ARB}, {@link #GL_PROGRAM_INSTRUCTIONS_ARB PROGRAM_INSTRUCTIONS_ARB}, {@link #GL_MAX_PROGRAM_INSTRUCTIONS_ARB MAX_PROGRAM_INSTRUCTIONS_ARB}, {@link #GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB PROGRAM_NATIVE_INSTRUCTIONS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB}, {@link #GL_PROGRAM_TEMPORARIES_ARB PROGRAM_TEMPORARIES_ARB}, {@link #GL_MAX_PROGRAM_TEMPORARIES_ARB MAX_PROGRAM_TEMPORARIES_ARB}, {@link #GL_PROGRAM_NATIVE_TEMPORARIES_ARB PROGRAM_NATIVE_TEMPORARIES_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB MAX_PROGRAM_NATIVE_TEMPORARIES_ARB}, {@link #GL_PROGRAM_PARAMETERS_ARB PROGRAM_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_PARAMETERS_ARB MAX_PROGRAM_PARAMETERS_ARB}, {@link #GL_PROGRAM_NATIVE_PARAMETERS_ARB PROGRAM_NATIVE_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB MAX_PROGRAM_NATIVE_PARAMETERS_ARB}, {@link #GL_PROGRAM_ATTRIBS_ARB PROGRAM_ATTRIBS_ARB}, {@link #GL_MAX_PROGRAM_ATTRIBS_ARB MAX_PROGRAM_ATTRIBS_ARB}, {@link #GL_PROGRAM_NATIVE_ATTRIBS_ARB PROGRAM_NATIVE_ATTRIBS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB MAX_PROGRAM_NATIVE_ATTRIBS_ARB}, {@link #GL_PROGRAM_ADDRESS_REGISTERS_ARB PROGRAM_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB MAX_PROGRAM_ADDRESS_REGISTERS_ARB}, {@link #GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}, {@link #GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB MAX_PROGRAM_LOCAL_PARAMETERS_ARB}, {@link #GL_MAX_PROGRAM_ENV_PARAMETERS_ARB MAX_PROGRAM_ENV_PARAMETERS_ARB}, {@link #GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB PROGRAM_UNDER_NATIVE_LIMITS_ARB}
 	 * @param params an array in which to place the parameter value
 	 */
 	public static void glGetProgramiARB(int target, int pname, ByteBuffer params) {
@@ -2015,12 +2015,12 @@ public final class ARBVertexProgram {
 
 	/**
 	 * Obtains the program string for the program object bound to {@code target} and places the information in the array {@code string}.
-	 * <p/>
-	 * {@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramivARB GetProgramivARB} when
-	 * {@code pname} is {@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}. The program string is always returned using the format given when the program string was specified.
+	 * 
+	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramivARB GetProgramivARB} when
+	 * {@code pname} is {@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}. The program string is always returned using the format given when the program string was specified.</p>
 	 *
-	 * @param target the program target. One of:<p/>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
-	 * @param pname  the parameter to query. Must be:<p/>{@link #GL_PROGRAM_STRING_ARB PROGRAM_STRING_ARB}
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param pname  the parameter to query. Must be:<br>{@link #GL_PROGRAM_STRING_ARB PROGRAM_STRING_ARB}
 	 * @param string an array in which to place the program string
 	 */
 	public static void glGetProgramStringARB(int target, int pname, ByteBuffer string) {
@@ -2049,7 +2049,7 @@ public final class ARBVertexProgram {
 	 * Double version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
 	 *
 	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. Must be:<p/>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
+	 * @param pname  the parameter to query. Must be:<br>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
 	 * @param params an array in which to place the parameter value
 	 */
 	public static void glGetVertexAttribdARB(int index, int pname, ByteBuffer params) {
@@ -2085,7 +2085,7 @@ public final class ARBVertexProgram {
 	 * {@code params}.
 	 *
 	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. Must be:<p/>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
+	 * @param pname  the parameter to query. Must be:<br>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
 	 * @param params an array in which to place the parameter value
 	 */
 	public static void glGetVertexAttribfARB(int index, int pname, ByteBuffer params) {
@@ -2120,7 +2120,7 @@ public final class ARBVertexProgram {
 	 * Integer version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
 	 *
 	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. One of:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}, {@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
+	 * @param pname  the parameter to query. One of:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}, {@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
 	 * @param params an array in which to place the parameter value
 	 */
 	public static void glGetVertexAttribiARB(int index, int pname, ByteBuffer params) {
@@ -2163,7 +2163,7 @@ public final class ARBVertexProgram {
 	 * Obtains the pointer named {@code pname} for vertex attribute numbered {@code index} and places the information in the array {@code pointer}.
 	 *
 	 * @param index   the vertex attribute index
-	 * @param pname   the parameter to query. Must be:<p/>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}
+	 * @param pname   the parameter to query. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}
 	 * @param pointer an array in which to place the vertex attribute array pointer
 	 */
 	public static void glGetVertexAttribPointerARB(int index, int pname, ByteBuffer pointer) {

@@ -7,11 +7,11 @@ package org.lwjgl.opencl;
 
 /**
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_intel_thread_local_exec.txt">intel_thread_local_exec</a> extension.
- * <p/>
- * This extension allows the user to execute OpenCL tasks and kernels with the user application's threads. The extension defines a token that can be passed
- * to {@link CL10#clCreateCommandQueue CreateCommandQueue}, creating a queue with the "thread local exec" capability.
- * <p/>
- * All enqueue APIs (e.g., {@code clEnqueueRead}) submitted to such a queue never enqueue commands. An Enqueue API call is executed by the caller
+ * 
+ * <p>This extension allows the user to execute OpenCL tasks and kernels with the user application's threads. The extension defines a token that can be passed
+ * to {@link CL10#clCreateCommandQueue CreateCommandQueue}, creating a queue with the "thread local exec" capability.</p>
+ * 
+ * <p>All enqueue APIs (e.g., {@code clEnqueueRead}) submitted to such a queue never enqueue commands. An Enqueue API call is executed by the caller
  * host-thread itself without involving any of the OpenCL runtime threads, much like function calls. The queue would typically stay empty - the queue
  * handler argument is used only for compatibility of the enqueue APIs (i.e., keeping the same API signatures) and checking, at runtime, whether the
  * enqueue API needs to be executed in such a fashion. Enqueue API calls on a "local" command queue can still use event dependency lists and output
@@ -23,7 +23,7 @@ package org.lwjgl.opencl;
  * and have the exact same impact on the application. Calls to {@link CL10#clFinish Finish} and {@link CL10#clFlush Flush}, {@link CL10#clEnqueueBarrier EnqueueBarrier} and
  * {@link CL10#clEnqueueMarker EnqueueMarker} are valid although meaningless for these command queues. An optimal implementation of these APIs for Immediate command
  * queues will incur the minimal overhead of a function call and possibly an if-then-else to distinguish between a local command queue and a regular one.
- * {@link CL10#clEnqueueNDRangeKernel EnqueueNDRangeKernel} and {@link CL10#clEnqueueTask EnqueueTask} should have optimized implementations using a single execution thread.
+ * {@link CL10#clEnqueueNDRangeKernel EnqueueNDRangeKernel} and {@link CL10#clEnqueueTask EnqueueTask} should have optimized implementations using a single execution thread.</p>
  */
 public final class INTELThreadLocalExec {
 

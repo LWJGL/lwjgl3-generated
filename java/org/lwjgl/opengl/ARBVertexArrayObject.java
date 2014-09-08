@@ -16,15 +16,15 @@ import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_array_object.txt">ARB_vertex_array_object</a> extension.
- * <p/>
- * This extension introduces named vertex array objects which encapsulate vertex array state on the client side. These objects allow applications to
+ * 
+ * <p>This extension introduces named vertex array objects which encapsulate vertex array state on the client side. These objects allow applications to
  * rapidly switch between large sets of array state. In addition, layered libraries can return to the default array state by simply creating and binding a
- * new vertex array object.
- * <p/>
- * This extension differs from GL_APPLE_vertex_array_object in that client memory cannot be accessed through a non-zero vertex array object. It also
- * differs in that vertex array objects are explicitly not sharable between contexts.
- * <p/>
- * Promoted to core in {@link GL30 OpenGL 3.0}.
+ * new vertex array object.</p>
+ * 
+ * <p>This extension differs from GL_APPLE_vertex_array_object in that client memory cannot be accessed through a non-zero vertex array object. It also
+ * differs in that vertex array objects are explicitly not sharable between contexts.</p>
+ * 
+ * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
 public final class ARBVertexArrayObject {
 

@@ -7,12 +7,12 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_float.txt">ARB_texture_float</a> extension.
- * <p/>
- * This extension adds texture internal formats with 16- and 32-bit floating-point components. The 32-bit floating-point components are in the standard
+ * 
+ * <p>This extension adds texture internal formats with 16- and 32-bit floating-point components. The 32-bit floating-point components are in the standard
  * IEEE float format. The 16-bit floating-point components have 1 sign bit, 5 exponent bits, and 10 mantissa bits. Floating-point components are clamped to
- * the limits of the range representable by their format.
- * <p/>
- * Promoted to core in {@link GL30 OpenGL 3.0}.
+ * the limits of the range representable by their format.</p>
+ * 
+ * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
 public final class ARBTextureFloat {
 

@@ -15,29 +15,29 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * bindings to AL_SOFT_source_latency extension.
- * <p/>
- * This extension provides a method for applications to more accurately
+ * 
+ * <p>This extension provides a method for applications to more accurately
  * measure the playback latency of sources. Unextended OpenAL allows apps to
  * retrieve a source's playback offset in bytes, samples, or seconds, but
- * this is (typically) where the AL is processing the audio data.
- * <p/>
- * New 64-bit Integer and Double-Precision Floating Point Functions:
- * <p/>
- * In addition to the standard 32-bit integer (i) and single-precision
+ * this is (typically) where the AL is processing the audio data.</p>
+ * 
+ * <p>New 64-bit Integer and Double-Precision Floating Point Functions:</p>
+ * 
+ * <p>In addition to the standard 32-bit integer (i) and single-precision
  * floating point (f) types, source attributes may be changed or queried
- * using 64-bit integer (i64) and double-precision floating point (d) types.
- * <p/>
- * Any valid attribute for 32-bit integers will be valid for 64-bit integers,
+ * using 64-bit integer (i64) and double-precision floating point (d) types.</p>
+ * 
+ * <p>Any valid attribute for 32-bit integers will be valid for 64-bit integers,
  * and any attribute for single-precision floating point will be valid for
  * double-precision floating point. Note that the reverse is not necessarily
  * true. Specific 64-bit integer attributes may not work through the 32-bit
  * integer functions, and specific double-precision floating point attributes
  * may not work with the single-precision floating point functions, unless
- * otherwise specified.
- * <p/>
- * Also note that range restrictions still apply, so for example, attributes
+ * otherwise specified.</p>
+ * 
+ * <p>Also note that range restrictions still apply, so for example, attributes
  * that only allow up to INT_MAX will still only allow up to INT_MAX even
- * when set through 64-bit integer functions
+ * when set through 64-bit integer functions</p>
  */
 public final class SOFTSourceLatency {
 

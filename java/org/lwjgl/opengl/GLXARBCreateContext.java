@@ -17,13 +17,13 @@ import org.lwjgl.system.linux.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/glx_create_context.txt">GLX_ARB_create_context</a> extension.
- * <p/>
- * With the advent of new versions of OpenGL which deprecate features and/or break backward compatibility with older versions, there is a need and desire
+ * 
+ * <p>With the advent of new versions of OpenGL which deprecate features and/or break backward compatibility with older versions, there is a need and desire
  * to indicate at context creation which interface will be used. These extensions add a new context creation routine with attributes specifying the GL
  * version and context properties requested for the context, and additionally add an attribute specifying the GL profile requested for a context of OpenGL
- * 3.2 or later. It also allows making an OpenGL 3.0 or later context current without providing a default framebuffer.
- * <p/>
- * Requires {@link GLX14 GLX 1.4}.
+ * 3.2 or later. It also allows making an OpenGL 3.0 or later context current without providing a default framebuffer.</p>
+ * 
+ * <p>Requires {@link GLX14 GLX 1.4}.</p>
  */
 public final class GLXARBCreateContext {
 
@@ -86,14 +86,14 @@ public final class GLXARBCreateContext {
 
 	/**
 	 * Creates an OpenGL rendering context.
-	 * <p/>
-	 * If {@code glXCreateContextAttribsARB} succeeds, it initializes the context to the initial state defined by the OpenGL specification, and returns a
+	 * 
+	 * <p>If {@code glXCreateContextAttribsARB} succeeds, it initializes the context to the initial state defined by the OpenGL specification, and returns a
 	 * handle to it. This handle can be used to render to any GLX surface (window, pixmap, or pbuffer) compatible with {@code config}, subject to constraints
-	 * imposed by the OpenGL API version of the context.
-	 * <p/>
-	 * If {@code share_context} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all
+	 * imposed by the OpenGL API version of the context.</p>
+	 * 
+	 * <p>If {@code share_context} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all
 	 * other contexts {@code share_context} already shares with, and the newly created context. An arbitrary number of {@code GLXContexts} can share data in
-	 * this fashion. The server context state for all sharing contexts must exist in a single address space.
+	 * this fashion. The server context state for all sharing contexts must exist in a single address space.</p>
 	 *
 	 * @param display       the connection to the X server
 	 * @param config        the {@code GLXFBConfig}

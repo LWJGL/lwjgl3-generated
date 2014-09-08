@@ -15,12 +15,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_create_context.txt">WGL_ARB_create_context</a> extension.
- * <p/>
- * With the advent of new versions of OpenGL which deprecate features and/or break backward compatibility with older versions, there is a need and desire
+ * 
+ * <p>With the advent of new versions of OpenGL which deprecate features and/or break backward compatibility with older versions, there is a need and desire
  * to indicate at context creation which interface will be used. This extension add a new context creation routine with attributes specifying the GL
- * version and context properties requested for the context.
- * <p/>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.
+ * version and context properties requested for the context.</p>
+ * 
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
 public final class WGLARBCreateContext {
 
@@ -87,9 +87,9 @@ public final class WGLARBCreateContext {
 
 	/**
 	 * Creates an OpenGL context.
-	 * <p/>
-	 * If {@code shareContext} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code shareContext}, all
-	 * other contexts {@code shareContext} already shares with, and the newly created context. An arbitrary number of contexts can share data in this fashion.
+	 * 
+	 * <p>If {@code shareContext} is not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code shareContext}, all
+	 * other contexts {@code shareContext} already shares with, and the newly created context. An arbitrary number of contexts can share data in this fashion.</p>
 	 *
 	 * @param hdc          
 	 * @param shareContext 

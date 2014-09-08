@@ -7,21 +7,21 @@ package org.lwjgl.opengl;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_rg.txt">ARB_texture_rg</a> extension.
- * <p/>
- * Historically one- and two- component textures have been specified in OpenGL using the intensity, luminance or luminance-alpha (I/L/LA) formats. With the
- * advent of programmable shaders and render-to-texture capabilites these legacy formats carry some historical artifacts which are no longer useful.
- * <p/>
- * For example, when sampling from such textures, the luminance values are replicated across the color components, and the intensity values are replicated
- * across both the color and alpha components. This is no longer necessary with programmable shaders.
- * <p/>
- * It is also desirable to be able to render to one- and two- component format textures using capabilities such as framebuffer objects (FBO), but rendering
- * to I/L/LA formats is under-specified (specifically how to map R/G/B/A values to I/L/A texture channels).
- * <p/>
- * This extension adds new base internal formats for the one-component {@link #GL_RED RED} and two-component {@link #GL_RG RG} (red green) texture formats as well as sized internal
+ * 
+ * <p>Historically one- and two- component textures have been specified in OpenGL using the intensity, luminance or luminance-alpha (I/L/LA) formats. With the
+ * advent of programmable shaders and render-to-texture capabilites these legacy formats carry some historical artifacts which are no longer useful.</p>
+ * 
+ * <p>For example, when sampling from such textures, the luminance values are replicated across the color components, and the intensity values are replicated
+ * across both the color and alpha components. This is no longer necessary with programmable shaders.</p>
+ * 
+ * <p>It is also desirable to be able to render to one- and two- component format textures using capabilities such as framebuffer objects (FBO), but rendering
+ * to I/L/LA formats is under-specified (specifically how to map R/G/B/A values to I/L/A texture channels).</p>
+ * 
+ * <p>This extension adds new base internal formats for the one-component {@link #GL_RED RED} and two-component {@link #GL_RG RG} (red green) texture formats as well as sized internal
  * formats for fixed-point, floating-point and pure integer texture formats. The new texure formats can be used for texturing as well as for rendering into
- * with framebuffer objects.
- * <p/>
- * Promoted to core in {@link GL30 OpenGL 3.0}.
+ * with framebuffer objects.</p>
+ * 
+ * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
 public final class ARBTextureRG {
 

@@ -86,9 +86,9 @@ public final class ALC11 {
 
 	/**
 	 * Allows the application to connect to a capture device.
-	 * <p/>
-	 * The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If NULL is specified, the implementation
-	 * will provide an implementation specific default.
+	 * 
+	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If NULL is specified, the implementation
+	 * will provide an implementation specific default.</p>
 	 *
 	 * @param devicename the device or device configuration
 	 * @param frequency  the audio frequency
@@ -135,10 +135,10 @@ public final class ALC11 {
 
 	/**
 	 * Starts recording audio on the specific capture device.
-	 * <p/>
-	 * Once started, the device will record audio to an internal ring buffer, the size of which was specified when opening the device. The application may
+	 * 
+	 * <p>Once started, the device will record audio to an internal ring buffer, the size of which was specified when opening the device. The application may
 	 * query the capture device to discover how much data is currently available via the alcGetInteger with the ALC_CAPTURE_SAMPLES token. This will report the
-	 * number of sample frames currently available.
+	 * number of sample frames currently available.</p>
 	 *
 	 * @param device the capture device
 	 */
@@ -159,9 +159,9 @@ public final class ALC11 {
 
 	/**
 	 * Halts audio capturing without closing the capture device.
-	 * <p/>
-	 * The implementation is encouraged to optimize for this case. The amount of audio samples available after restarting a stopped capture device is reset to
-	 * zero. The application does not need to stop the capture device to read from it.
+	 * 
+	 * <p>The implementation is encouraged to optimize for this case. The amount of audio samples available after restarting a stopped capture device is reset to
+	 * zero. The application does not need to stop the capture device to read from it.</p>
 	 *
 	 * @param device the capture device
 	 */
@@ -193,8 +193,8 @@ public final class ALC11 {
 
 	/**
 	 * Obtains captured audio samples from the AL.
-	 * <p/>
-	 * The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.
+	 * 
+	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
 	 *
 	 * @param device  the capture device
 	 * @param buffer  the buffer that will receive the samples

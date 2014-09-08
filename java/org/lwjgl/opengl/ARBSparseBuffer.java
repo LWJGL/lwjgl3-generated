@@ -12,12 +12,12 @@ import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_buffer.txt">ARB_sparse_buffer</a> extension.
- * <p/>
- * This extension adds to GL a mechanism to decouple the virtual and physical storage requirements of textures and allows an application
+ * 
+ * <p>This extension adds to GL a mechanism to decouple the virtual and physical storage requirements of textures and allows an application
  * to create partially populated textures that would over-subscribe available graphics memory if made fully resident. This extension provides like
- * functionality for buffer objects, allowing applications to manage buffer object storage in a similar manner.
- * <p/>
- * Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}.
+ * functionality for buffer objects, allowing applications to manage buffer object storage in a similar manner.</p>
+ * 
+ * <p>Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}.</p>
  */
 public final class ARBSparseBuffer {
 
@@ -72,7 +72,7 @@ public final class ARBSparseBuffer {
 	/**
 	 * Commit and de-commits regions of sparse buffer storage.
 	 *
-	 * @param target buffer object target. One of:<p/>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param offset the region offset. Must be an integer multiple of the implementation dependent constant {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}.
 	 * @param size   the data size. must either be a multiple of {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}, or extend to the end of the buffer's data store.
 	 * @param commit If true, then pages contained in the specified range become committed and become physically backed. If false, then physical storage associated with

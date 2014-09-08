@@ -82,10 +82,10 @@ public final class CL12 {
 	/**
 	 * This property is followed by a {@link #CL_DEVICE_PARTITION_BY_COUNTS_LIST_END DEVICE_PARTITION_BY_COUNTS_LIST_END} terminated list of compute unit counts. For each nonzero count {@code m}
 	 * in the list, a sub-device is created with {@code m} compute units in it.
-	 * <p/>
-	 * The number of non-zero count entries in the list may not exceed {@link #CL_DEVICE_PARTITION_MAX_SUB_DEVICES DEVICE_PARTITION_MAX_SUB_DEVICES}.
-	 * <p/>
-	 * The total number of compute units specified may not exceed {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}.
+	 * 
+	 * <p>The number of non-zero count entries in the list may not exceed {@link #CL_DEVICE_PARTITION_MAX_SUB_DEVICES DEVICE_PARTITION_MAX_SUB_DEVICES}.</p>
+	 * 
+	 * <p>The total number of compute units specified may not exceed {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}.</p>
 	 */
 	public static final int
 		CL_DEVICE_PARTITION_BY_COUNTS = 0x1087;
@@ -335,9 +335,9 @@ public final class CL12 {
 	/**
 	 * Decrements the device reference count if {@code device} is a valid sub-device created by a call to {@link #clCreateSubDevices CreateSubDevices}. If {@code device} is a
 	 * root level device i.e. a {@code cl_device_id} returned by {@link CL10#clGetDeviceIDs GetDeviceIDs}, the device reference count remains unchanged.
-	 * <p/>
-	 * After the {@code device} reference count becomes zero and all the objects attached to {@code device} (such as command-queues) are released, the device
-	 * object is deleted.
+	 * 
+	 * <p>After the {@code device} reference count becomes zero and all the objects attached to {@code device} (such as command-queues) are released, the device
+	 * object is deleted.</p>
 	 *
 	 * @param device the device to release
 	 *
@@ -379,8 +379,8 @@ public final class CL12 {
 	 * given by {@code properties}. The output sub-devices may be used in every way that the root (or parent) device can be used, including creating contexts,
 	 * building programs, further calls to {@code clCreateSubDevices} and creating command-queues. When a command-queue is created against a sub-device, the
 	 * commands enqueued on the queue are executed only on the sub-device.
-	 * <p/>
-	 * A few examples that describe how to specify partition properties in {@code properties} argument to {@code clCreateSubDevices} are given below:
+	 * 
+	 * <p>A few examples that describe how to specify partition properties in {@code properties} argument to {@code clCreateSubDevices} are given below:
 	 * <ul>
 	 * <li>To partition a device containing 16 compute units into two sub-devices, each containing 8 compute units, pass the following in {@code properties}:<br>
 	 * [ {@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, 8, 0 ]</li>
@@ -389,11 +389,11 @@ public final class CL12 {
 	 * [ {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, 3, 1, {@link #CL_DEVICE_PARTITION_BY_COUNTS_LIST_END DEVICE_PARTITION_BY_COUNTS_LIST_END}, 0 ]</li>
 	 * <li>To split a device along the outermost cache line (if any), pass the following in {@code properties} argument:<br>
 	 * [ {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}, {@link #CL_DEVICE_AFFINITY_DOMAIN_NEXT_PARTITIONABLE DEVICE_AFFINITY_DOMAIN_NEXT_PARTITIONABLE}, 0 ]</li>
-	 * </ul>
+	 * </ul></p>
 	 *
 	 * @param in_device       the device to be partitioned
 	 * @param properties      specifies how {@code in_device} is to be partition described by a partition name and its corresponding value. Each partition name is immediately
-	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<p/>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}
+	 *                        followed by the corresponding desired value. The list is terminated with 0. Only one partitioning scheme can be specified in {@code properties}. One of:<br>{@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}
 	 * @param num_devices     the size of memory pointed to by {@code out_devices} specified as the number of {@code cl_device_id} entries.
 	 * @param out_devices     the buffer where the OpenCL sub-devices will be returned. If {@code out_devices} is {@code NULL}, this argument is ignored. If {@code out_devices} is not
 	 *                        {@code NULL}, {@code num_devices} must be greater than or equal to the number of sub-devices that device may be partitioned into according to the
@@ -454,29 +454,29 @@ public final class CL12 {
 
 	/**
 	 * Creates a 1D image, 1D image buffer, 1D image array, 2D image, 2D image array or 3D image object.
-	 * <p/>
-	 * For a 3D image or 2D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 2D image slices or 2D images
-	 * respectively. Each 2D image is a linear sequence of adjacent scanlines. Each scanline is a linear sequence of image elements.
-	 * <p/>
-	 * For a 2D image, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent scanlines. Each scanline is a linear sequence of
-	 * image elements.
-	 * <p/>
-	 * For a 1D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 1D images respectively. Each 1D image or
-	 * 1D image buffer is a single scanline which is a linear sequence of adjacent elements.
+	 * 
+	 * <p>For a 3D image or 2D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 2D image slices or 2D images
+	 * respectively. Each 2D image is a linear sequence of adjacent scanlines. Each scanline is a linear sequence of image elements.</p>
+	 * 
+	 * <p>For a 2D image, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent scanlines. Each scanline is a linear sequence of
+	 * image elements.</p>
+	 * 
+	 * <p>For a 1D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 1D images respectively. Each 1D image or
+	 * 1D image buffer is a single scanline which is a linear sequence of adjacent elements.</p>
 	 *
 	 * @param context      a valid OpenCL context on which the image object is to be created
 	 * @param flags        a bit-field that is used to specify allocation and usage information about the image memory object being created.
-	 *                     <p/>
-	 *                     For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
-	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.
-	 *                     <p/>
-	 *                     For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
+	 *                     
+	 *                     <p>For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
+	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.</p>
+	 *                     
+	 *                     <p>For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
 	 *                     values are not specified in {@code flags}, they are inherited from the corresponding memory access qualifers associated with buffer. The
 	 *                     {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in {@code flags}
 	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
 	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
 	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
-	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<p/>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</p>
 	 * @param image_format a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
 	 * @param image_desc   a pointer to a {@link cl_image_desc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
@@ -565,9 +565,9 @@ public final class CL12 {
 	 * @param num_devices  the number of devices listed in {@code device_list}
 	 * @param device_list  a pointer to a list of devices that are in {@code context}. {@code device_list} must be a non-{@code NULL} value. The built-in kernels are loaded for
 	 *                     devices specified in this list.
-	 *                     <p/>
-	 *                     The devices associated with the program object will be the list of devices specified by {@code device_list}. The list of devices specified by
-	 *                     {@code device_list} must be devices associated with {@code context}.
+	 *                     
+	 *                     <p>The devices associated with the program object will be the list of devices specified by {@code device_list}. The list of devices specified by
+	 *                     {@code device_list} must be devices associated with {@code context}.</p>
 	 * @param kernel_names a semi-colon separated list of built-in kernel names
 	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
@@ -652,14 +652,14 @@ public final class CL12 {
 	 *                             compile option. If multiple entries in {@code header_include_names} refer to the same header name, the first one encountered will be used.
 	 * @param pfn_notify           a function pointer to a notification routine. The notification routine is a callback function that an application can register and which will be
 	 *                             called when the program executable has been built (successfully or unsuccessfully).
-	 *                             <p/>
-	 *                             If {@code pfn_notify} is not {@code NULL}, {@code clCompileProgram} does not need to wait for the compiler to complete and can return immediately once the
+	 *                             
+	 *                             <p>If {@code pfn_notify} is not {@code NULL}, {@code clCompileProgram} does not need to wait for the compiler to complete and can return immediately once the
 	 *                             compilation can begin. The compilation can begin if the context, program whose sources are being compiled, list of devices, input headers, programs
 	 *                             that describe input headers and compiler options specified are all valid and appropriate host and device resources needed to perform the compile are
-	 *                             available.
-	 *                             <p/>
-	 *                             If {@code pfn_notify} is {@code NULL}, {@code clCompileProgram} does not return until the compiler has completed. This callback function may be called
-	 *                             asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
+	 *                             available.</p>
+	 *                             
+	 *                             <p>If {@code pfn_notify} is {@code NULL}, {@code clCompileProgram} does not return until the compiler has completed. This callback function may be called
+	 *                             asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.</p>
 	 * @param user_data            will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
@@ -749,9 +749,9 @@ public final class CL12 {
 	 * {@code clLinkProgram} creates a new program object which contains this executable. The executable binary can be queried using
 	 * {@link CL10#clGetProgramInfo GetProgramInfo}(program, {@link CL10#CL_PROGRAM_BINARIES PROGRAM_BINARIES}, &hellip;) and can be specified to {@link CL10#clCreateProgramWithBinary CreateProgramWithBinary} to
 	 * create a new program object.
-	 * <p/>
-	 * The devices associated with the returned program object will be the list of devices specified by {@code device_list} or if {@code device_list} is {@code NULL}
-	 * it will be the list of devices associated with context.
+	 * 
+	 * <p>The devices associated with the returned program object will be the list of devices specified by {@code device_list} or if {@code device_list} is {@code NULL}
+	 * it will be the list of devices associated with context.</p>
 	 *
 	 * @param context            a valid OpenCL context
 	 * @param num_devices        the number of devices listed in {@code device_list}
@@ -771,26 +771,26 @@ public final class CL12 {
 	 *                           </ul>
 	 * @param pfn_notify         a function pointer to a notification routine. The notification routine is a callback function that an application can register and which will be
 	 *                           called when the program executable has been built (successfully or unsuccessfully).
-	 *                           <p/>
-	 *                           If {@code pfn_notify} is not {@code NULL}, {@code clLinkProgram} does not need to wait for the linker to complete and can return immediately once the
+	 *                           
+	 *                           <p>If {@code pfn_notify} is not {@code NULL}, {@code clLinkProgram} does not need to wait for the linker to complete and can return immediately once the
 	 *                           linking operation can begin. Once the linker has completed, the {@code pfn_notify} callback function is called which returns the program object
 	 *                           returned by {@code clLinkProgram}. The application can query the link status and log for this program object. This callback function may be called
-	 *                           asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
-	 *                           <p/>
-	 *                           If {@code pfn_notify} is {@code NULL}, {@code clLinkProgram} does not return until the linker has completed.
+	 *                           asynchronously by the OpenCL implementation. It is the application's responsibility to ensure that the callback function is thread-safe.</p>
+	 *                           
+	 *                           <p>If {@code pfn_notify} is {@code NULL}, {@code clLinkProgram} does not return until the linker has completed.</p>
 	 * @param user_data          will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
 	 *
 	 * @return a valid non-zero program object, if the linking operation can begin. The linking operation can begin if the context, list of devices, input programs and
 	 *         linker options specified are all valid and appropriate host and device resources needed to perform the link are available.
-	 *         <p/>
-	 *         If {@code pfn_notify} is NULL, the {@code errcode_ret} will be set to {@link CL10#CL_SUCCESS SUCCESS} if the link operation was successful and {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if
-	 *         there is a failure to link the compiled binaries and/or libraries.
-	 *         <p/>
-	 *         If {@code pfn_notify} is not NULL, {@code clLinkProgram} does not have to wait until the linker to complete and can return {@link CL10#CL_SUCCESS SUCCESS} in {@code errcode_ret}
+	 *         
+	 *         <p>If {@code pfn_notify} is NULL, the {@code errcode_ret} will be set to {@link CL10#CL_SUCCESS SUCCESS} if the link operation was successful and {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if
+	 *         there is a failure to link the compiled binaries and/or libraries.</p>
+	 *         
+	 *         <p>If {@code pfn_notify} is not NULL, {@code clLinkProgram} does not have to wait until the linker to complete and can return {@link CL10#CL_SUCCESS SUCCESS} in {@code errcode_ret}
 	 *         if the linking operation can begin. The {@code pfn_notify} callback function will return a {@link CL10#CL_SUCCESS SUCCESS} or {@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if the
-	 *         linking operation was successful or not.
-	 *         <p/>
-	 *         Otherwise {@code clLinkProgram} returns a {@code NULL} program object with an appropriate error in {@code errcode_ret}. The application should query the linker status
+	 *         linking operation was successful or not.</p>
+	 *         
+	 *         <p>Otherwise {@code clLinkProgram} returns a {@code NULL} program object with an appropriate error in {@code errcode_ret}. The application should query the linker status
 	 *         of this program object to check if the link was successful or not. The list of errors that can be returned are:
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
@@ -810,7 +810,7 @@ public final class CL12 {
 	 *         <li>{@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if there is a failure to link the compiled binaries and/or libraries.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         </ul>
+	 *         </ul></p>
 	 */
 	public static long clLinkProgram(long context, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_programs, ByteBuffer input_programs, long pfn_notify, long user_data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -902,7 +902,7 @@ public final class CL12 {
 	 * @param kernel               specifies the kernel object being queried
 	 * @param arg_indx             the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
 	 *                             the total number of arguments declared by a kernel.
-	 * @param param_name           the argument information to query. One of:<p/>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}, {@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}, {@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}, {@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}, {@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}
+	 * @param param_name           the argument information to query. One of:<br>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}, {@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}, {@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}, {@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}, {@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
@@ -1128,18 +1128,18 @@ public final class CL12 {
 	 * has been marked {@link CL10#CL_COMPLETE COMPLETE} the memory objects specified in {@code mem_objects} have been successfully migrated to the device associated
 	 * with {@code command_queue}. The migrated memory object shall remain resident on the device until another command is enqueued that either implicitly or
 	 * explicitly migrates it away.
-	 * <p/>
-	 * {@code clEnqueueMigrateMemObjects} can also be used to direct the initial placement of a memory object, after creation, possibly avoiding the initial
-	 * overhead of instantiating the object on the first enqueued command to use it.
-	 * <p/>
-	 * The user is responsible for managing the event dependencies, associated with this command, in order to avoid overlapping access to memory objects.
-	 * Improperly specified event dependencies passed to {@code clEnqueueMigrateMemObjects} could result in undefined results.
+	 * 
+	 * <p>{@code clEnqueueMigrateMemObjects} can also be used to direct the initial placement of a memory object, after creation, possibly avoiding the initial
+	 * overhead of instantiating the object on the first enqueued command to use it.</p>
+	 * 
+	 * <p>The user is responsible for managing the event dependencies, associated with this command, in order to avoid overlapping access to memory objects.
+	 * Improperly specified event dependencies passed to {@code clEnqueueMigrateMemObjects} could result in undefined results.</p>
 	 *
 	 * @param command_queue           a valid command-queue. The specified set of memory objects in {@code mem_objects} will be migrated to the OpenCL device associated with
 	 *                                {@code command_queue} or to the host if the {@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST} has been specified.
 	 * @param num_mem_objects         the number of memory objects specified in {@code mem_objects}
 	 * @param mem_objects             a pointer to a list of memory objects
-	 * @param flags                   a bit-field that is used to specify migration options. One of:<p/>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}, {@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}
+	 * @param flags                   a bit-field that is used to specify migration options. One of:<br>{@link #CL_MIGRATE_MEM_OBJECT_HOST MIGRATE_MEM_OBJECT_HOST}, {@link #CL_MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED MIGRATE_MEM_OBJECT_CONTENT_UNDEFINED}
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in

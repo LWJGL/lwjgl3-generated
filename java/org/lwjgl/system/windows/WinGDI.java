@@ -160,7 +160,7 @@ public final class WinGDI {
 	 * zero or until all of the objects have been enumerated.
 	 *
 	 * @param hdc        a handle to the DC
-	 * @param objectType the object type. One of:<p/>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
+	 * @param objectType the object type. One of:<br>{@link #OBJ_BRUSH}, {@link #OBJ_PEN}
 	 * @param objectFunc the application-defined callback function
 	 * @param param      the data passed to the callback function along with the object information.
 	 */
@@ -268,19 +268,19 @@ public final class WinGDI {
 	 *                   that you pass {@code NULL} to {@code lpszDriver} because GDI ignores {@code lpszDriver} for printer devices.
 	 * @param lpszDevice A pointer to a null-terminated character string that specifies the name of the specific output device being used, as shown by the Print Manager (for
 	 *                   example, Epson FX-80). It is not the printer model name. The {@code lpszDevice} parameter must be used.
-	 *                   <p/>
-	 *                   To obtain valid names for displays, call {@link #EnumDisplayDevices}.
-	 *                   <p/>
-	 *                   If {@code lpszDriver} is DISPLAY or the device name of a specific display device, then {@code lpszDevice} must be {@code NULL} or that same device name. If
-	 *                   {@code lpszDevice} is {@code NULL}, then a DC is created for the primary display device.
-	 *                   <p/>
-	 *                   If there are multiple monitors on the system, calling {@code CreateDC(TEXT("DISPLAY"),NULL,NULL,NULL)} will create a DC covering all the monitors.
+	 *                   
+	 *                   <p>To obtain valid names for displays, call {@link #EnumDisplayDevices}.</p>
+	 *                   
+	 *                   <p>If {@code lpszDriver} is DISPLAY or the device name of a specific display device, then {@code lpszDevice} must be {@code NULL} or that same device name. If
+	 *                   {@code lpszDevice} is {@code NULL}, then a DC is created for the primary display device.</p>
+	 *                   
+	 *                   <p>If there are multiple monitors on the system, calling {@code CreateDC(TEXT("DISPLAY"),NULL,NULL,NULL)} will create a DC covering all the monitors.</p>
 	 * @param lpszOutput this parameter is ignored and should be set to {@code NULL}
 	 * @param lpInitData A pointer to a {@link DEVMODE} structure containing device-specific initialization data for the device driver. The {@code DocumentProperties}
 	 *                   function retrieves this structure filled in for a specified device. The {@code lpInitData} parameter must be {@code NULL} if the device driver is to use
 	 *                   the default initialization (if any) specified by the user.
-	 *                   <p/>
-	 *                   If {@code lpszDriver} is DISPLAY, {@code lpInitData} must be {@code NULL}; GDI then uses the display device's current {@link DEVMODE}.
+	 *                   
+	 *                   <p>If {@code lpszDriver} is DISPLAY, {@code lpInitData} must be {@code NULL}; GDI then uses the display device's current {@link DEVMODE}.</p>
 	 */
 	public static long CreateDC(ByteBuffer lpszDriver, ByteBuffer lpszDevice, ByteBuffer lpszOutput, ByteBuffer lpInitData) {
 		if ( LWJGLUtil.CHECKS ) {
