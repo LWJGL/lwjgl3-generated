@@ -18,7 +18,7 @@ package org.lwjgl.opengl;
  * <p>However, non-power-of-two sized textures have limitations that do not apply to power-of-two sized textures. NPOTS textures may not use mipmap filtering;
  * POTS textures support both mipmapped and non-mipmapped filtering. NPOTS textures support only the {@link GL11#GL_CLAMP CLAMP}, {@link GL12#GL_CLAMP_TO_EDGE CLAMP_TO_EDGE}, and
  * {@link GL13#GL_CLAMP_TO_BORDER CLAMP_TO_BORDER} wrap modes; POTS textures support {@link GL12#GL_CLAMP_TO_EDGE CLAMP_TO_EDGE}, {@link GL11#GL_REPEAT REPEAT}, {@link GL11#GL_CLAMP CLAMP}, {@link GL14#GL_MIRRORED_REPEAT MIRRORED_REPEAT}, and {@link GL13#GL_CLAMP_TO_BORDER CLAMP_TO_BORDER}
- * (and {@link ATITextureMirrorOnce#GL_MIRROR_CLAMP_ATI MIRROR_CLAMP_ATI} and {@link ATITextureMirrorOnce#GL_MIRROR_CLAMP_TO_EDGE_ATI MIRROR_CLAMP_TO_EDGE_ATI} if {@link ATITextureMirrorOnce ATI_texture_mirror_once} is
+ * (and {@link ATITextureMirrorOnce#GL_MIRROR_CLAMP_ATI MIRROR_CLAMP_ATI} and {@link ATITextureMirrorOnce#GL_MIRROR_CLAMP_TO_EDGE_ATI MIRROR_CLAMP_TO_EDGE_ATI} if <a href="http://www.opengl.org/registry/specs/ATI/texture_mirror_once.txt">ATI_texture_mirror_once</a> is
  * supported). NPOTS textures do not support an optional 1-texel border; POTS textures do support an optional 1-texel border.</p>
  * 
  * <p>NPOTS textures are accessed by dimension-dependent (aka non-normalized) texture coordinates. So instead of thinking of the texture image lying in a

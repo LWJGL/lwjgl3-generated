@@ -31,7 +31,7 @@ import static org.lwjgl.system.Checks.*;
  * object is attached to a buffer texture, a size is not specified; rather, the number of texels in the texture is taken by dividing the size of the buffer
  * object by the size of each texel.</p>
  * 
- * <p>Requires {@link GL20 OpenGL 2.0} and {@link NVGPUProgram4 NV_gpu_program4} or {@link EXTGPUShader4 EXT_gpu_shader4}. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
+ * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
 public final class ARBTextureBufferObject {
 
@@ -92,7 +92,7 @@ public final class ARBTextureBufferObject {
 	 * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
 	 * buffer texture's texel array is given by</p>
 	 * 
-	 * <p><code>floor(buffer_size / (components * sizeof(base_type))</code>,</p>
+	 * <p><code style="font-family: monospace">floor(buffer_size / (components * sizeof(base_type))</code>,</p>
 	 * 
 	 * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
 	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit

@@ -95,7 +95,7 @@ public final class ARBInstancedArrays {
 	public static native void nglVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor, long __functionAddress);
 
 	/**
-	 * {@link EXTDirectStateAccess EXT_direct_state_access} version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
+	 * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
 	 *
 	 * @param vaobj   the vertex array object
 	 * @param index   the attribute index

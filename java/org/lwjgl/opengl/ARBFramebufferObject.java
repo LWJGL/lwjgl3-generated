@@ -25,10 +25,10 @@ import org.lwjgl.system.linux.*;
  * <li>Reflect FBO-related functionality found in the OpenGL 3.0 specification.</li>
  * <li>Integrate multiple disjoint extensions into a single ARB extension. These extensions are:
  * <ul>
- * <li>{@link EXTFramebufferObject EXT_framebuffer_object}</li>
- * <li>{@link EXTFramebufferBlit EXT_framebuffer_blit}</li>
- * <li>{@link EXTFramebufferMultisample EXT_framebuffer_multisample}</li>
- * <li>{@link EXTPackedDepthStencil EXT_packed_depth_stencil}</li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a></li>
+ * <li><a href="http://www.opengl.org/registry/specs/EXT/packed_depth_stencil.txt">EXT_packed_depth_stencil</a></li>
  * </ul></li>
  * <li>Where appropriate, relax some of the constraints expressed by previous FBO-related extensions. In particular the requirement of matching attachment
  * dimensions and component sizes has been relaxed, to allow implementations the freedom to support more flexible usages where possible.</li>

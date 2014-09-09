@@ -58,24 +58,20 @@ public final class ARBCopyBuffer {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** JNI method for {@link #glCopyBufferSubData CopyBufferSubData} */
-	@JavadocExclude
-	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
-
 	/**
 	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
 	 * 
-	 * <p>An INVALID_VALUE error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
+	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
 	 * bound to readtarget, or if writeoffset+size exceeds the size of the buffer object bound to writetarget.</p>
 	 * 
-	 * <p>An INVALID_VALUE error is generated if the same buffer object is bound to both readtarget and writetarget, and the ranges [readoffset, readoffset+size)
+	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if the same buffer object is bound to both readtarget and writetarget, and the ranges [readoffset, readoffset+size)
 	 * and [writeoffset, writeoffset+size) overlap.</p>
 	 * 
-	 * <p>An INVALID_OPERATION error is generated if zero is bound to readtarget or writetarget.</p>
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if zero is bound to readtarget or writetarget.</p>
 	 * 
-	 * <p>An INVALID_OPERATION error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
 	 *
-	 * @param readTarget  the source buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link #GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}
+	 * @param readTarget  the source buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link #GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link #GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link #GL_UNIFORM_BUFFER UNIFORM_BUFFER}
 	 * @param writeTarget the destination buffer object target
 	 * @param readOffset  the source buffer object offset, in bytes
 	 * @param writeOffset the destination buffer object offset, in bytes
@@ -85,7 +81,7 @@ public final class ARBCopyBuffer {
 		long __functionAddress = getInstance().CopyBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
+		GL31.nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
 	}
 
 }

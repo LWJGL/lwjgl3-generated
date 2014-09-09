@@ -684,9 +684,9 @@ public final class ARBDirectStateAccess {
 	 *
 	 * @param readBuffer  the source buffer object name
 	 * @param writeBuffer the destination buffer object name
-	 * @param readOffset  the offset, in basic machine units, within the data store of {@code readtarget} from which data should be read
-	 * @param writeOffset the offset, in basic machine units, within the data store of {@code writetarget} to which data should be written
-	 * @param size        the size, in basic machine units, of the data to be copied from {@code readtarget} to {@code writetarget}
+	 * @param readOffset  the source buffer object offset, in bytes
+	 * @param writeOffset the destination buffer object offset, in bytes
+	 * @param size        the number of bytes to copy
 	 */
 	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyNamedBufferSubData;

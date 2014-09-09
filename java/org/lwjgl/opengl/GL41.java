@@ -638,7 +638,7 @@ public final class GL41 {
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
 	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * const GLuint shader = glCreateShader(type);
 	 * if (shader) {
 	 * 	glShaderSource(shader, count, strings, NULL);

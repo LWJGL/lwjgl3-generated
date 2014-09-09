@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
  * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.</p>
  * 
- * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link EXTFramebufferObject EXT_framebuffer_object}.</p>
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a>.</p>
  */
 public final class WGLAMDGPUAssociation {
 

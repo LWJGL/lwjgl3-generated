@@ -317,24 +317,34 @@ public final class GL31 {
 
 	/** JNI method for {@link #glCopyBufferSubData CopyBufferSubData} */
 	@JavadocExclude
-	public static native void nglCopyBufferSubData(int readtarget, int writetarget, long readOffset, long writeOffset, long size, long __functionAddress);
+	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Copies part of the data store of a buffer object to the data store of another buffer object.
+	 * Copies all or part of one buffer object's data store to the data store of another buffer object.
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if any of readoffset, writeoffset, or size are negative, if readoffset+size exceeds the size of the buffer object
+	 * bound to readtarget, or if writeoffset+size exceeds the size of the buffer object bound to writetarget.</p>
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if the same buffer object is bound to both readtarget and writetarget, and the ranges [readoffset, readoffset+size)
+	 * and [writeoffset, writeoffset+size) overlap.</p>
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if zero is bound to readtarget or writetarget.</p>
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the buffer objects bound to either readtarget or writetarget are mapped.</p>
 	 *
-	 * @param readtarget  the target from whose data store data should be read
-	 * @param writetarget the target to whose data store data should be written
-	 * @param readOffset  the offset, in basic machine units, within the data store of {@code readtarget} from which data should be read
-	 * @param writeOffset the offset, in basic machine units, within the data store of {@code writetarget} to which data should be written
-	 * @param size        the size, in basic machine units, of the data to be copied from {@code readtarget} to {@code writetarget}
+	 * @param readTarget  the source buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link #GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link #GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link #GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link #GL_UNIFORM_BUFFER UNIFORM_BUFFER}
+	 * @param writeTarget the destination buffer object target
+	 * @param readOffset  the source buffer object offset, in bytes
+	 * @param writeOffset the destination buffer object offset, in bytes
+	 * @param size        the number of bytes to copy
 	 */
-	public static void glCopyBufferSubData(int readtarget, int writetarget, long readOffset, long writeOffset, long size) {
+	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCopyBufferSubData(readtarget, writetarget, readOffset, writeOffset, size, __functionAddress);
+		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
 	}
 
 	// --- [ glPrimitiveRestartIndex ] ---
@@ -373,7 +383,7 @@ public final class GL31 {
 	 * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
 	 * buffer texture's texel array is given by</p>
 	 * 
-	 * <p><code>floor(buffer_size / (components * sizeof(base_type))</code>,</p>
+	 * <p><code style="font-family: monospace">floor(buffer_size / (components * sizeof(base_type))</code>,</p>
 	 * 
 	 * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
 	 * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit {@link #GL_MAX_TEXTURE_BUFFER_SIZE MAX_TEXTURE_BUFFER_SIZE}.

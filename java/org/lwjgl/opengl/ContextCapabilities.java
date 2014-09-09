@@ -11,95 +11,100 @@ import java.util.Set;
 /** Defines the capabilities of an OpenGL context. */
 public final class ContextCapabilities {
 
-	final GL11                    __GL11;
-	final GL12                    __GL12;
-	final GL13                    __GL13;
-	final GL14                    __GL14;
-	final GL15                    __GL15;
-	final GL20                    __GL20;
-	final GL21                    __GL21;
-	final GL30                    __GL30;
-	final GL31                    __GL31;
-	final GL32                    __GL32;
-	final GL33                    __GL33;
-	final GL40                    __GL40;
-	final GL41                    __GL41;
-	final GL42                    __GL42;
-	final GL43                    __GL43;
-	final GL44                    __GL44;
-	final GL45                    __GL45;
-	final GLX11                   __GLX11;
-	final GLX12                   __GLX12;
-	final GLX13                   __GLX13;
-	final GLX14                   __GLX14;
-	final GLXAMDGPUAssociation    __GLXAMDGPUAssociation;
-	final GLXARBCreateContext     __GLXARBCreateContext;
-	final GLXARBGetProcAddress    __GLXARBGetProcAddress;
-	final GLXEXTImportContext     __GLXEXTImportContext;
-	final GLXEXTSwapControl       __GLXEXTSwapControl;
-	final GLXEXTTextureFromPixmap __GLXEXTTextureFromPixmap;
-	final GLXNVCopyImage          __GLXNVCopyImage;
-	final GLXNVDelayBeforeSwap    __GLXNVDelayBeforeSwap;
-	final GLXSGIMakeCurrentRead   __GLXSGIMakeCurrentRead;
-	final GLXSGISwapControl       __GLXSGISwapControl;
-	final GLXSGIVideoSync         __GLXSGIVideoSync;
-	final GLXSGIXFBConfig         __GLXSGIXFBConfig;
-	final GLXSGIXPBuffer          __GLXSGIXPBuffer;
-	final GLXSGIXSwapBarrier      __GLXSGIXSwapBarrier;
-	final GLXSGIXSwapGroup        __GLXSGIXSwapGroup;
-	final AMDDebugOutput          __AMDDebugOutput;
-	final AMDOcclusionQueryEvent  __AMDOcclusionQueryEvent;
-	final ARBBufferStorage        __ARBBufferStorage;
-	final ARBCLEvent              __ARBCLEvent;
-	final ARBClearTexture         __ARBClearTexture;
-	final ARBClipControl          __ARBClipControl;
-	final ARBColorBufferFloat     __ARBColorBufferFloat;
-	final ARBCopyBuffer           __ARBCopyBuffer;
-	final ARBDirectStateAccess    __ARBDirectStateAccess;
-	final ARBDrawBuffers          __ARBDrawBuffers;
-	final ARBDrawBuffersBlend     __ARBDrawBuffersBlend;
-	final ARBDrawInstanced        __ARBDrawInstanced;
-	final ARBES31Compatibility    __ARBES31Compatibility;
-	final ARBFramebufferObject    __ARBFramebufferObject;
-	final ARBGeometryShader4      __ARBGeometryShader4;
-	final ARBGetTextureSubImage   __ARBGetTextureSubImage;
-	final ARBImaging              __ARBImaging;
-	final ARBInstancedArrays      __ARBInstancedArrays;
-	final ARBMapBufferRange       __ARBMapBufferRange;
-	final ARBMatrixPalette        __ARBMatrixPalette;
-	final ARBMultiBind            __ARBMultiBind;
-	final ARBMultisample          __ARBMultisample;
-	final ARBOcclusionQuery       __ARBOcclusionQuery;
-	final ARBPointParameters      __ARBPointParameters;
-	final ARBShaderObjects        __ARBShaderObjects;
-	final ARBSparseBuffer         __ARBSparseBuffer;
-	final ARBSync                 __ARBSync;
-	final ARBTextureBarrier       __ARBTextureBarrier;
-	final ARBTextureBufferObject  __ARBTextureBufferObject;
-	final ARBTextureCompression   __ARBTextureCompression;
-	final ARBTransposeMatrix      __ARBTransposeMatrix;
-	final ARBUniformBufferObject  __ARBUniformBufferObject;
-	final ARBVertexArrayObject    __ARBVertexArrayObject;
-	final ARBVertexBlend          __ARBVertexBlend;
-	final ARBVertexBufferObject   __ARBVertexBufferObject;
-	final ARBVertexProgram        __ARBVertexProgram;
-	final ARBVertexShader         __ARBVertexShader;
-	final ARBWindowPos            __ARBWindowPos;
-	final KHRRobustness           __KHRRobustness;
-	final WGLAMDGPUAssociation    __WGLAMDGPUAssociation;
-	final WGLARBBufferRegion      __WGLARBBufferRegion;
-	final WGLARBCreateContext     __WGLARBCreateContext;
-	final WGLARBExtensionsString  __WGLARBExtensionsString;
-	final WGLARBMakeCurrentRead   __WGLARBMakeCurrentRead;
-	final WGLARBPbuffer           __WGLARBPbuffer;
-	final WGLARBPixelFormat       __WGLARBPixelFormat;
-	final WGLARBRenderTexture     __WGLARBRenderTexture;
-	final WGLEXTExtensionsString  __WGLEXTExtensionsString;
-	final WGLEXTSwapControl       __WGLEXTSwapControl;
-	final WGLNVCopyImage          __WGLNVCopyImage;
-	final WGLNVDelayBeforeSwap    __WGLNVDelayBeforeSwap;
-	final WGLNVDXInterop          __WGLNVDXInterop;
-	final WGLNVGPUAffinity        __WGLNVGPUAffinity;
+	final GL11                      __GL11;
+	final GL12                      __GL12;
+	final GL13                      __GL13;
+	final GL14                      __GL14;
+	final GL15                      __GL15;
+	final GL20                      __GL20;
+	final GL21                      __GL21;
+	final GL30                      __GL30;
+	final GL31                      __GL31;
+	final GL32                      __GL32;
+	final GL33                      __GL33;
+	final GL40                      __GL40;
+	final GL41                      __GL41;
+	final GL42                      __GL42;
+	final GL43                      __GL43;
+	final GL44                      __GL44;
+	final GL45                      __GL45;
+	final GLX11                     __GLX11;
+	final GLX12                     __GLX12;
+	final GLX13                     __GLX13;
+	final GLX14                     __GLX14;
+	final GLXAMDGPUAssociation      __GLXAMDGPUAssociation;
+	final GLXARBCreateContext       __GLXARBCreateContext;
+	final GLXARBGetProcAddress      __GLXARBGetProcAddress;
+	final GLXEXTImportContext       __GLXEXTImportContext;
+	final GLXEXTSwapControl         __GLXEXTSwapControl;
+	final GLXEXTTextureFromPixmap   __GLXEXTTextureFromPixmap;
+	final GLXNVCopyImage            __GLXNVCopyImage;
+	final GLXNVDelayBeforeSwap      __GLXNVDelayBeforeSwap;
+	final GLXSGIMakeCurrentRead     __GLXSGIMakeCurrentRead;
+	final GLXSGISwapControl         __GLXSGISwapControl;
+	final GLXSGIVideoSync           __GLXSGIVideoSync;
+	final GLXSGIXFBConfig           __GLXSGIXFBConfig;
+	final GLXSGIXPBuffer            __GLXSGIXPBuffer;
+	final GLXSGIXSwapBarrier        __GLXSGIXSwapBarrier;
+	final GLXSGIXSwapGroup          __GLXSGIXSwapGroup;
+	final AMDDebugOutput            __AMDDebugOutput;
+	final AMDOcclusionQueryEvent    __AMDOcclusionQueryEvent;
+	final ARBBufferStorage          __ARBBufferStorage;
+	final ARBCLEvent                __ARBCLEvent;
+	final ARBClearTexture           __ARBClearTexture;
+	final ARBClipControl            __ARBClipControl;
+	final ARBColorBufferFloat       __ARBColorBufferFloat;
+	final ARBCopyBuffer             __ARBCopyBuffer;
+	final ARBDirectStateAccess      __ARBDirectStateAccess;
+	final ARBDrawBuffers            __ARBDrawBuffers;
+	final ARBDrawBuffersBlend       __ARBDrawBuffersBlend;
+	final ARBDrawElementsBaseVertex __ARBDrawElementsBaseVertex;
+	final ARBDrawInstanced          __ARBDrawInstanced;
+	final ARBES31Compatibility      __ARBES31Compatibility;
+	final ARBFramebufferObject      __ARBFramebufferObject;
+	final ARBGeometryShader4        __ARBGeometryShader4;
+	final ARBGetTextureSubImage     __ARBGetTextureSubImage;
+	final ARBImaging                __ARBImaging;
+	final ARBInstancedArrays        __ARBInstancedArrays;
+	final ARBMapBufferRange         __ARBMapBufferRange;
+	final ARBMatrixPalette          __ARBMatrixPalette;
+	final ARBMultiBind              __ARBMultiBind;
+	final ARBMultisample            __ARBMultisample;
+	final ARBOcclusionQuery         __ARBOcclusionQuery;
+	final ARBPointParameters        __ARBPointParameters;
+	final ARBProvokingVertex        __ARBProvokingVertex;
+	final ARBRobustness             __ARBRobustness;
+	final ARBSampleShading          __ARBSampleShading;
+	final ARBShaderObjects          __ARBShaderObjects;
+	final ARBSparseBuffer           __ARBSparseBuffer;
+	final ARBSync                   __ARBSync;
+	final ARBTextureBarrier         __ARBTextureBarrier;
+	final ARBTextureBufferObject    __ARBTextureBufferObject;
+	final ARBTextureCompression     __ARBTextureCompression;
+	final ARBTextureMultisample     __ARBTextureMultisample;
+	final ARBTransposeMatrix        __ARBTransposeMatrix;
+	final ARBUniformBufferObject    __ARBUniformBufferObject;
+	final ARBVertexArrayObject      __ARBVertexArrayObject;
+	final ARBVertexBlend            __ARBVertexBlend;
+	final ARBVertexBufferObject     __ARBVertexBufferObject;
+	final ARBVertexProgram          __ARBVertexProgram;
+	final ARBVertexShader           __ARBVertexShader;
+	final ARBWindowPos              __ARBWindowPos;
+	final KHRRobustness             __KHRRobustness;
+	final WGLAMDGPUAssociation      __WGLAMDGPUAssociation;
+	final WGLARBBufferRegion        __WGLARBBufferRegion;
+	final WGLARBCreateContext       __WGLARBCreateContext;
+	final WGLARBExtensionsString    __WGLARBExtensionsString;
+	final WGLARBMakeCurrentRead     __WGLARBMakeCurrentRead;
+	final WGLARBPbuffer             __WGLARBPbuffer;
+	final WGLARBPixelFormat         __WGLARBPixelFormat;
+	final WGLARBRenderTexture       __WGLARBRenderTexture;
+	final WGLEXTExtensionsString    __WGLEXTExtensionsString;
+	final WGLEXTSwapControl         __WGLEXTSwapControl;
+	final WGLNVCopyImage            __WGLNVCopyImage;
+	final WGLNVDelayBeforeSwap      __WGLNVDelayBeforeSwap;
+	final WGLNVDXInterop            __WGLNVDXInterop;
+	final WGLNVGPUAffinity          __WGLNVGPUAffinity;
 
 	/** When true, {@link GL11} is supported. */
 	public final boolean OpenGL11;
@@ -364,6 +369,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_cull_distance;
 	/** When true, {@link ARBDepthBufferFloat} is supported. */
 	public final boolean GL_ARB_depth_buffer_float;
+	/** When true, {@link ARBDepthClamp} is supported. */
+	public final boolean GL_ARB_depth_clamp;
 	/** When true, {@link ARBDepthTexture} is supported. */
 	public final boolean GL_ARB_depth_texture;
 	/**
@@ -380,6 +387,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_draw_buffers;
 	/** When true, {@link ARBDrawBuffersBlend} is supported. */
 	public final boolean GL_ARB_draw_buffers_blend;
+	/** When true, {@link ARBDrawElementsBaseVertex} is supported. */
+	public final boolean GL_ARB_draw_elements_base_vertex;
 	/** When true, {@link ARBDrawInstanced} is supported. */
 	public final boolean GL_ARB_draw_instanced;
 	/** When true, {@link ARBEnhancedLayouts} is supported. */
@@ -400,6 +409,36 @@ public final class ContextCapabilities {
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/fragment_coord_conventions.txt">ARB_fragment_coord_conventions</a> extension is supported.
 	 * 
 	 * <p>This extension provides alternative conventions for the fragment coordinate XY location available for programmable fragment processing.</p>
+	 * 
+	 * <p>The scope of this extension deals *only* with how the fragment coordinate XY location appears during programming fragment processing. Beyond the scope
+	 * of this extension are coordinate conventions used for rasterization or transformation.</p>
+	 * 
+	 * <p>In the case of the coordinate conventions for rasterization and transformation, some combination of the viewport, depth range, culling state, and
+	 * projection matrix state can be reconfigured to adopt other arbitrary clip-space and window-space coordinate space conventions. Adopting other clip-space
+	 * and window-space conventions involves adjusting existing OpenGL state. However it is non-trivial to massage an arbitrary fragment shader or program to
+	 * adopt a different window-space coordinate system because such shaders are encoded in various textual representations.</p>
+	 * 
+	 * <p>The dominant 2D and 3D rendering APIs make two basic choices of convention when locating fragments in window space. The two choices are:
+	 * <ol>
+	 * <li>Is the origin nearest the lower-left- or upper-left-most pixel of the window?</li>
+	 * <li>Is the (x,y) location of the pixel nearest the origin at (0,0) or (0.5,0.5)?</li>
+	 * </ol>
+	 * OpenGL assumes a lower-left origin for window coordinates and assumes pixel centers are located at half-pixel coordinates. This means the XY location
+	 * (0.5,0.5) corresponds to the lower-left-most pixel in a window.</p>
+	 * 
+	 * <p>Other window coordinate conventions exist for other rendering APIs. X11, GDI, and Direct3D version through DirectX 9 assume an upper-left window origin
+	 * and locate pixel centers at integer XY values. By this alternative convention, the XY location (0,0) corresponds to the upper-left-most pixel in a window.</p>
+	 * 
+	 * <p>Direct3D for DirectX 10 assumes an upper-left origin (as do prior DirectX versions) yet assumes half-pixel coordinates (unlike prior DirectX versions).
+	 * By the DirectX 10 convention, the XY location (0.5,0.5) corresponds to the upper-left-most pixel in a window.</p>
+	 * 
+	 * <p>Fragment shaders can directly access the location of a given processed fragment in window space. We call this location the "fragment coordinate".</p>
+	 * 
+	 * <p>This extension provides a means for fragment shaders written in GLSL or OpenGL assembly extensions to specify alternative conventions for determining
+	 * the fragment coordinate value accessed during programmable fragment processing.</p>
+	 * 
+	 * <p>The motivation for this extension is to provide an easy, efficient means for fragment shaders accessing a fragment's window-space location to adopt the
+	 * fragment coordinate convention for which the shader was originally written.</p>
 	 * 
 	 * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
 	 */
@@ -471,6 +510,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_point_parameters;
 	/** When true, {@link ARBPointSprite} is supported. */
 	public final boolean GL_ARB_point_sprite;
+	/** When true, {@link ARBProvokingVertex} is supported. */
+	public final boolean GL_ARB_provoking_vertex;
 	/** When true, {@link ARBQueryBufferObject} is supported. */
 	public final boolean GL_ARB_query_buffer_object;
 	/**
@@ -485,6 +526,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link #GL_ARB_robustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
 	public final boolean GL_ARB_robust_buffer_access_behavior;
+	/** When true, {@link ARBRobustness} is supported. */
+	public final boolean GL_ARB_robustness;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/robustness_isolation.txt">ARB_robustness_isolation</a> extension is supported.
 	 * 
@@ -494,6 +537,10 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link #GL_ARB_robustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
 	public final boolean GL_ARB_robustness_isolation;
+	/** When true, {@link ARBSampleShading} is supported. */
+	public final boolean GL_ARB_sample_shading;
+	/** When true, {@link ARBSeamlessCubeMap} is supported. */
+	public final boolean GL_ARB_seamless_cube_map;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_bit_encoding.txt">ARB_shader_bit_encoding</a> extension is supported.
 	 * 
@@ -560,7 +607,7 @@ public final class ContextCapabilities {
 	 * return undefined texels for anisotropic texture fetches.</p>
 	 * 
 	 * <p>The existing isotropic vertex texture functions:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * texture1DLod,   texture1DProjLod,
 	 * texture2DLod,   texture2DProjLod,
 	 * texture3DLod,   texture3DProjLod,
@@ -571,7 +618,7 @@ public final class ContextCapabilities {
 	 * <p>are added to the built-in functions for fragment shaders.</p>
 	 * 
 	 * <p>New anisotropic texture functions, providing explicit derivatives:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * texture1DGradARB(
 	 * 	sampler1D sampler,
 	 * 	float P, float dPdx, float dPdy);
@@ -692,6 +739,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_compression_rgtc;
 	/** When true, {@link ARBTextureCubeMap} is supported. */
 	public final boolean GL_ARB_texture_cube_map;
+	/** When true, {@link ARBTextureCubeMapArray} is supported. */
+	public final boolean GL_ARB_texture_cube_map_array;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_env_add.txt">ARB_texture_env_add</a> extension is supported.
 	 * 
@@ -716,10 +765,14 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_env_dot3;
 	/** When true, {@link ARBTextureFloat} is supported. */
 	public final boolean GL_ARB_texture_float;
+	/** When true, {@link ARBTextureGather} is supported. */
+	public final boolean GL_ARB_texture_gather;
 	/** When true, {@link ARBTextureMirrorClampToEdge} is supported. */
 	public final boolean GL_ARB_texture_mirror_clamp_to_edge;
 	/** When true, {@link ARBTextureMirroredRepeat} is supported. */
 	public final boolean GL_ARB_texture_mirrored_repeat;
+	/** When true, {@link ARBTextureMultisample} is supported. */
+	public final boolean GL_ARB_texture_multisample;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_non_power_of_two.txt">ARB_texture_non_power_of_two</a> extension is supported.
 	 * 
@@ -757,6 +810,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_transpose_matrix;
 	/** When true, {@link ARBUniformBufferObject} is supported. */
 	public final boolean GL_ARB_uniform_buffer_object;
+	/** When true, {@link ARBVertexArrayBGRA} is supported. */
+	public final boolean GL_ARB_vertex_array_bgra;
 	/** When true, {@link ARBVertexArrayObject} is supported. */
 	public final boolean GL_ARB_vertex_array_object;
 	/** When true, {@link ARBVertexBlend} is supported. */
@@ -906,7 +961,7 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> extension is supported.
 	 * 
-	 * <p>This extension extends the existing {@link #WGL_EXT_swap_control} extension by allowing a negative {@code interval} parameter to
+	 * <p>This extension extends the existing {@link WGLEXTSwapControl WGL_EXT_swap_control} extension by allowing a negative {@code interval} parameter to
 	 * {@link WGLEXTSwapControl#wglSwapIntervalEXT}. The negative {@code interval} allows late swaps to occur without synchronization to the video frame. This
 	 * reduces the visual stutter on late frames and reduces the stall on subsequent frames.</p>
 	 */
@@ -920,9 +975,9 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/DX_interop2.txt">WGL_NV_DX_interop2</a> extension is supported.
 	 * 
-	 * <p>This extension expands on the specification of {@link #WGL_NV_DX_interop} to add support for DirectX version 10, 10.1 and 11 resources.</p>
+	 * <p>This extension expands on the specification of <a href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">NV_DX_interop</a> to add support for DirectX version 10, 10.1 and 11 resources.</p>
 	 * 
-	 * <p>Requires {@link GL20 OpenGL 2.0} and {@link #WGL_NV_DX_interop}</p>
+	 * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">NV_DX_interop</a>.</p>
 	 */
 	public final boolean WGL_NV_DX_interop2;
 	/** When true, {@link WGLNVGPUAffinity} is supported. */
@@ -1003,11 +1058,13 @@ public final class ContextCapabilities {
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
 		GL_ARB_cull_distance = ext.contains("GL_ARB_cull_distance");
 		GL_ARB_depth_buffer_float = ext.contains("GL_ARB_depth_buffer_float");
+		GL_ARB_depth_clamp = ext.contains("GL_ARB_depth_clamp");
 		GL_ARB_depth_texture = ext.contains("GL_ARB_depth_texture");
 		GL_ARB_derivative_control = ext.contains("GL_ARB_derivative_control");
 		GL_ARB_direct_state_access = (__ARBDirectStateAccess = ARBDirectStateAccess.create(ext, provider)) != null;
 		GL_ARB_draw_buffers = (__ARBDrawBuffers = ARBDrawBuffers.create(ext, provider)) != null;
 		GL_ARB_draw_buffers_blend = (__ARBDrawBuffersBlend = ARBDrawBuffersBlend.create(ext, provider)) != null;
+		GL_ARB_draw_elements_base_vertex = (__ARBDrawElementsBaseVertex = ARBDrawElementsBaseVertex.create(ext, provider)) != null;
 		GL_ARB_draw_instanced = (__ARBDrawInstanced = ARBDrawInstanced.create(ext, provider)) != null;
 		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
 		GL_ARB_ES3_1_compatibility = (__ARBES31Compatibility = ARBES31Compatibility.create(ext, provider)) != null;
@@ -1035,9 +1092,13 @@ public final class ContextCapabilities {
 		GL_ARB_pixel_buffer_object = ext.contains("GL_ARB_pixel_buffer_object");
 		GL_ARB_point_parameters = (__ARBPointParameters = ARBPointParameters.create(ext, provider)) != null;
 		GL_ARB_point_sprite = ext.contains("GL_ARB_point_sprite");
+		GL_ARB_provoking_vertex = (__ARBProvokingVertex = ARBProvokingVertex.create(ext, provider)) != null;
 		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
 		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
+		GL_ARB_robustness = (__ARBRobustness = ARBRobustness.create(ext, provider)) != null;
 		GL_ARB_robustness_isolation = ext.contains("GL_ARB_robustness_isolation");
+		GL_ARB_sample_shading = (__ARBSampleShading = ARBSampleShading.create(ext, provider)) != null;
+		GL_ARB_seamless_cube_map = ext.contains("GL_ARB_seamless_cube_map");
 		GL_ARB_shader_bit_encoding = ext.contains("GL_ARB_shader_bit_encoding");
 		GL_ARB_shader_image_size = ext.contains("GL_ARB_shader_image_size");
 		GL_ARB_shader_objects = (__ARBShaderObjects = ARBShaderObjects.create(ext, provider)) != null;
@@ -1059,13 +1120,16 @@ public final class ContextCapabilities {
 		GL_ARB_texture_compression = (__ARBTextureCompression = ARBTextureCompression.create(ext, provider)) != null;
 		GL_ARB_texture_compression_rgtc = ext.contains("GL_ARB_texture_compression_rgtc");
 		GL_ARB_texture_cube_map = ext.contains("GL_ARB_texture_cube_map");
+		GL_ARB_texture_cube_map_array = ext.contains("GL_ARB_texture_cube_map_array");
 		GL_ARB_texture_env_add = ext.contains("GL_ARB_texture_env_add");
 		GL_ARB_texture_env_combine = ext.contains("GL_ARB_texture_env_combine");
 		GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
 		GL_ARB_texture_env_dot3 = ext.contains("GL_ARB_texture_env_dot3");
 		GL_ARB_texture_float = ext.contains("GL_ARB_texture_float");
+		GL_ARB_texture_gather = ext.contains("GL_ARB_texture_gather");
 		GL_ARB_texture_mirror_clamp_to_edge = ext.contains("GL_ARB_texture_mirror_clamp_to_edge");
 		GL_ARB_texture_mirrored_repeat = ext.contains("GL_ARB_texture_mirrored_repeat");
+		GL_ARB_texture_multisample = (__ARBTextureMultisample = ARBTextureMultisample.create(ext, provider)) != null;
 		GL_ARB_texture_non_power_of_two = ext.contains("GL_ARB_texture_non_power_of_two");
 		GL_ARB_texture_query_levels = ext.contains("GL_ARB_texture_query_levels");
 		GL_ARB_texture_query_lod = ext.contains("GL_ARB_texture_query_lod");
@@ -1074,6 +1138,7 @@ public final class ContextCapabilities {
 		GL_ARB_transform_feedback_overflow_query = ext.contains("GL_ARB_transform_feedback_overflow_query");
 		GL_ARB_transpose_matrix = (__ARBTransposeMatrix = ARBTransposeMatrix.create(ext, provider)) != null;
 		GL_ARB_uniform_buffer_object = (__ARBUniformBufferObject = ARBUniformBufferObject.create(ext, provider)) != null;
+		GL_ARB_vertex_array_bgra = ext.contains("GL_ARB_vertex_array_bgra");
 		GL_ARB_vertex_array_object = (__ARBVertexArrayObject = ARBVertexArrayObject.create(ext, provider)) != null;
 		GL_ARB_vertex_blend = (__ARBVertexBlend = ARBVertexBlend.create(ext, provider)) != null;
 		GL_ARB_vertex_buffer_object = (__ARBVertexBufferObject = ARBVertexBufferObject.create(ext, provider)) != null;

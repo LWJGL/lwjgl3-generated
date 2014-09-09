@@ -363,7 +363,7 @@ public final class GL44 {
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
 	 * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
 	 * of an existing buffer object. It is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
 	 * 		glBindBufferBase(target, first + i, 0);
@@ -412,7 +412,7 @@ public final class GL44 {
 	 * If {@code buffers} is {@code NULL}, all bindings from {@code first} through {@code first+count-1} are reset to their unbound (zero) state. In this
 	 * case, the offsets and sizes associated with the binding points are set to default values, ignoring {@code offsets} and {@code sizes}. It is equivalent
 	 * to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
 	 * 		glBindBufferRange(target, first + i, 0, 0, 0);
@@ -477,7 +477,7 @@ public final class GL44 {
 	 * through {@code first+count-1} is reset to its default texture.
 	 * 
 	 * <p>{@code BindTextures} is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	uint texture;
 	 * 	if ( textures == NULL ) {
@@ -540,7 +540,7 @@ public final class GL44 {
 	 * each affected texture image unit from {@code first} through {@code first+count-1} will be reset to have no bound sampler object.
 	 * 
 	 * <p>{@code BindSamplers} is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( samplers == NULL ) {
 	 * 		glBindSampler(first + i, 0);
@@ -599,7 +599,7 @@ public final class GL44 {
 	 * reset to their default values of zero, {@link GL11#GL_FALSE FALSE}, 0, and {@link GL30#GL_R8 R8}, respectively.</p>
 	 * 
 	 * <p>{@code BindImageTextures} is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( textures == NULL || textures[i] = 0 ) {
 	 * 		glBindImageTexture(first + i, 0, 0, FALSE, 0, READ_ONLY, R8);
@@ -654,7 +654,7 @@ public final class GL44 {
 	 * {@code offsets} and {@code strides}.
 	 * 
 	 * <p>{@code BindVertexBuffers} is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
 	 * 		glBindVertexBuffer(first + i, 0, 0, 16);

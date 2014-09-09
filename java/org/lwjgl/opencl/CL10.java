@@ -1594,8 +1594,8 @@ public final class CL10 {
 	 *         not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
 	 *         <li>{@link #CL_MEM_COPY_OVERLAP MEM_COPY_OVERLAP} if {@code src_buffer} and {@code dst_buffer} are the same buffer or sub-buffer object and the source and destination
 	 *         regions overlap or if {@code src_buffer} and {@code dst_buffer} are different sub-buffers of the same associated buffer object and they overlap. The
-	 *         regions overlap if <code>src_offset &#x2264 dst_offset &#x2264 src_offset + size – 1</code> or if
-	 *         <code>dst_offset &#x2264 src_offset &#x2264 dst_offset + size – 1</code>.</li>
+	 *         regions overlap if <code style="font-family: monospace">src_offset &#x2264 dst_offset &#x2264 src_offset + size – 1</code> or if
+	 *         <code style="font-family: monospace">dst_offset &#x2264 src_offset &#x2264 dst_offset + size – 1</code>.</li>
 	 *         <li>{@link #CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code src_buffer} or {@code dst_buffer}.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
@@ -2002,7 +2002,7 @@ public final class CL10 {
 	 * Enqueues a command to read from an image or image array object to host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
-	 * <code>host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
+	 * <code style="font-family: monospace">host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being read is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to
 	 * avoid undefined behavior:
 	 * <ul>
@@ -2158,7 +2158,7 @@ public final class CL10 {
 	 * Enqueues a command to write to an image or image array object from host memory.
 	 * 
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
-	 * <code>host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
+	 * <code style="font-family: monospace">host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being written is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order
 	 * to avoid undefined behavior:
 	 * <ul>
@@ -2439,11 +2439,11 @@ public final class CL10 {
 	 *                                and {@code region[2]} must be 1. If {@code src_image} is a 1D image array object, {@code region[2]} must be 1. The values in {@code region} cannot
 	 *                                be 0.
 	 * @param dst_offset              the offset where to begin copying data into {@code dst_buffer}. The size in bytes of the region to be copied referred to as {@code dst_cb} is
-	 *                                computed as <code>width * height * depth * bytes/image element</code> if {@code src_image} is a 3D image object, is computed as
-	 *                                <code>width * height * bytes/image element</code> if {@code src_image} is a 2D image, is computed as
-	 *                                <code>width * height * arraysize * bytes/image element</code> if {@code src_image} is a 2D image array object, is computed as
-	 *                                <code>width * bytes/image element</code> if {@code src_image} is a 1D image or 1D image buffer object and is computed as
-	 *                                <code>width * arraysize * bytes/image element</code> if {@code src_image} is a 1D image array object.
+	 *                                computed as <code style="font-family: monospace">width * height * depth * bytes/image element</code> if {@code src_image} is a 3D image object, is computed as
+	 *                                <code style="font-family: monospace">width * height * bytes/image element</code> if {@code src_image} is a 2D image, is computed as
+	 *                                <code style="font-family: monospace">width * height * arraysize * bytes/image element</code> if {@code src_image} is a 2D image array object, is computed as
+	 *                                <code style="font-family: monospace">width * bytes/image element</code> if {@code src_image} is a 1D image or 1D image buffer object and is computed as
+	 *                                <code style="font-family: monospace">width * arraysize * bytes/image element</code> if {@code src_image} is a 1D image array object.
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
@@ -3882,7 +3882,7 @@ public final class CL10 {
 	 *                  the total number of arguments declared by a kernel.
 	 *                  
 	 *                  <p>For example, consider the following kernel:
-	 *                  <pre><code>
+	 *                  <pre><code style="font-family: monospace">
 	 *                  kernel void image_filter (
 	 *                  	int n, int m,
 	 *                  	__constant float *filter_weights,
@@ -4395,21 +4395,21 @@ public final class CL10 {
 	 * @param work_dim                the number of dimensions used to specify the global work-items and work-items in the work-group. {@code work_dim} must be greater than zero and less
 	 *                                than or equal to {@link #CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS DEVICE_MAX_WORK_ITEM_DIMENSIONS}.
 	 * @param global_work_offset      can be used to specify an array of {@code work_dim} unsigned values that describe the offset used to calculate the global ID of a work-item. If
-	 *                                {@code global_work_offset} is {@code NULL}, the global IDs start at offset <code>(0, 0, &hellip; 0)</code>.
+	 *                                {@code global_work_offset} is {@code NULL}, the global IDs start at offset <code style="font-family: monospace">(0, 0, &hellip; 0)</code>.
 	 * @param global_work_size        points to an array of {@code work_dim} unsigned values that describe the number of global work-items in {@code work_dim} dimensions that will
-	 *                                execute the kernel function. The total number of global work-items is computed as <code>global_work_size[0] * &hellip; * global_work_size[work_dim – 1]</code>.
+	 *                                execute the kernel function. The total number of global work-items is computed as <code style="font-family: monospace">global_work_size[0] * &hellip; * global_work_size[work_dim – 1]</code>.
 	 * @param local_work_size         points to an array of {@code work_dim} unsigned values that describe the number of work-items that make up a work-group (also referred to as the
 	 *                                size of the work-group) that will execute the kernel specified by {@code kernel}. The total number of work-items in a work-group is computed as
-	 *                                <code>local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code>. The total number of work-items in the work-group must be less than or equal to
-	 *                                the {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE} value and the number of work-items specified in <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
-	 *                                must be less than or equal to the corresponding values specified by {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}<code>[0]</code>, &hellip;
-	 *                                {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}<code>[work_dim – 1]</code>. The explicitly specified {@code local_work_size} will be used to determine how to
+	 *                                <code style="font-family: monospace">local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code>. The total number of work-items in the work-group must be less than or equal to
+	 *                                the {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE} value and the number of work-items specified in <code style="font-family: monospace">local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
+	 *                                must be less than or equal to the corresponding values specified by {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}<code style="font-family: monospace">[0]</code>, &hellip;
+	 *                                {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}<code style="font-family: monospace">[work_dim – 1]</code>. The explicitly specified {@code local_work_size} will be used to determine how to
 	 *                                break the global work-items specified by {@code global_work_size} into appropriate work-group instances. If {@code local_work_size} is specified, the
-	 *                                values specified in <code>global_work_size[0], &hellip; global_work_size[work_dim - 1]</code> must be evenly divisible by the corresponding values
-	 *                                specified in <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>.
+	 *                                values specified in <code style="font-family: monospace">global_work_size[0], &hellip; global_work_size[work_dim - 1]</code> must be evenly divisible by the corresponding values
+	 *                                specified in <code style="font-family: monospace">local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>.
 	 *                                
 	 *                                <p>The work-group size to be used for kernel can also be specified in the program source using the
-	 *                                <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier. In this case the size of work group specified by {@code local_work_size} must
+	 *                                <code style="font-family: monospace">__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier. In this case the size of work group specified by {@code local_work_size} must
 	 *                                match the value specified by the {@code reqd_work_group_size} attribute qualifier.</p>
 	 *                                
 	 *                                <p>{@code local_work_size} can also be a {@code NULL} value in which case the OpenCL implementation will determine how to be break the global work-items into
@@ -4433,18 +4433,18 @@ public final class CL10 {
 	 *         <li>{@link #CL_INVALID_KERNEL_ARGS INVALID_KERNEL_ARGS} if the kernel argument values have not been specified.</li>
 	 *         <li>{@link #CL_INVALID_WORK_DIMENSION INVALID_WORK_DIMENSION} if {@code work_dim} is not a valid value (i.e. a value between 1 and 3).</li>
 	 *         <li>{@link #CL_INVALID_GLOBAL_WORK_SIZE INVALID_GLOBAL_WORK_SIZE} if {@code global_work_size} is {@code NULL}, or if any of the values specified in
-	 *         <code>global_work_size[0], &hellip; global_work_size[work_dim – 1]</code> are 0 or exceed the range given by the {@code sizeof(size_t)} for the device
+	 *         <code style="font-family: monospace">global_work_size[0], &hellip; global_work_size[work_dim – 1]</code> are 0 or exceed the range given by the {@code sizeof(size_t)} for the device
 	 *         on which the kernel execution will be enqueued.</li>
 	 *         <li>{@link #CL_INVALID_GLOBAL_OFFSET INVALID_GLOBAL_OFFSET} if the value specified in {@code global_work_size} + the corresponding values in {@code global_work_offset} for
 	 *         any dimensions is greater than the {@code sizeof(size_t)} for the device on which the kernel execution will be enqueued.</li>
 	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is specified and number of work-items specified by {@code global_work_size} is not
 	 *         evenly divisible by size of work-group given by {@code local_work_size} or does not match the work-group size specified for kernel using the
-	 *         <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier in program source.</li>
+	 *         <code style="font-family: monospace">__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier in program source.</li>
 	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is specified and the total number of work-items in the work-group computed as
-	 *         <code>local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code> is greater than the value specified by {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE}</li>
-	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is {@code NULL} and the <code>__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier
+	 *         <code style="font-family: monospace">local_work_size[0] * &hellip; * local_work_size[work_dim – 1]</code> is greater than the value specified by {@link #CL_DEVICE_MAX_WORK_GROUP_SIZE DEVICE_MAX_WORK_GROUP_SIZE}</li>
+	 *         <li>{@link #CL_INVALID_WORK_GROUP_SIZE INVALID_WORK_GROUP_SIZE} if {@code local_work_size} is {@code NULL} and the <code style="font-family: monospace">__attribute__((reqd_work_group_size(X, Y, Z)))</code> qualifier
 	 *         is used to declare the work-group size for kernel in the program source.</li>
-	 *         <li>{@link #CL_INVALID_WORK_ITEM_SIZE INVALID_WORK_ITEM_SIZE} if the number of work-items specified in any of <code>local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
+	 *         <li>{@link #CL_INVALID_WORK_ITEM_SIZE INVALID_WORK_ITEM_SIZE} if the number of work-items specified in any of <code style="font-family: monospace">local_work_size[0], &hellip; local_work_size[work_dim – 1]</code>
 	 *         is greater than the corresponding values specified by {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}{@code [0]}, &hellip; {@link #CL_DEVICE_MAX_WORK_ITEM_SIZES DEVICE_MAX_WORK_ITEM_SIZES}{@code [work_dim – 1]}.</li>
 	 *         <li>{@link CL11#CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if a sub-buffer object is specified as the value for an argument that is a buffer object and the offset
 	 *         specified when the sub-buffer object is created is not aligned to {@link #CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
@@ -5100,8 +5100,8 @@ public final class CL10 {
 	 * Returns the address of the extension function named by {@code funcname}. The pointer returned should be cast to a function pointer type matching the
 	 * extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL} indicates that the specified
 	 * function does not exist for the implementation. A non-{@code NULL} return value for {@code clGetExtensionFunctionAddress} does not guarantee that an extension
-	 * function is actually supported. The application must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
-	 * or <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
+	 * function is actually supported. The application must also make a corresponding query using <code style="font-family: monospace">clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
+	 * or <code style="font-family: monospace">clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
 	 * 
 	 * <p>{@code clGetExtensionFunctionAddress} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
 	 * {@code clGetExtensionFunctionAddress}, implementations may choose to also export those functions statically from the object libraries implementing those

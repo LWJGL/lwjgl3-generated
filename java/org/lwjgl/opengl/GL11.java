@@ -3030,7 +3030,7 @@ public final class GL11 {
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArrays.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices. Elements {@code first} through
-	 * <code>first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
+	 * <code style="font-family: monospace">first + count &ndash; 1</code> of each enabled non-instanced array are transferred to the GL.
 	 * 
 	 * <p>If an array corresponding to an attribute required by a vertex shader is not enabled, then the corresponding element is taken from the current attribute
 	 * state. If an array is enabled, the corresponding current vertex attribute value is unaffected by the execution of this function.</p>
@@ -5913,7 +5913,7 @@ Clears the selection name stack.
 	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
 	 * @param vstride the number of values in the v-dimension in each block of storage
 	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
+	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, ByteBuffer points) {
 		if ( LWJGLUtil.CHECKS )
@@ -5957,7 +5957,7 @@ Clears the selection name stack.
 	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
 	 * @param vstride the number of values in the v-dimension in each block of storage
 	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
+	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, ByteBuffer points) {
 		if ( LWJGLUtil.CHECKS )
@@ -6283,9 +6283,9 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFrustum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
-	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
+	 * Manipulates the current matrix with a matrix that produces perspective projection, in such a way that the coordinates <code style="font-family: monospace">(lb &ndash; n)<sup>T</sup></code>
+	 * and <code style="font-family: monospace">(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
@@ -6695,9 +6695,9 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glOrtho.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code>(lb &ndash; n)<sup>T</sup></code>
-	 * and <code>(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
-	 * window, respectively (assuming that the eye is located at <code>(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
+	 * Manipulates the current matrix with a matrix that produces parallel projection, in such a way that the coordinates <code style="font-family: monospace">(lb &ndash; n)<sup>T</sup></code>
+	 * and <code style="font-family: monospace">(rt &ndash; n)<sup>T</sup></code> specify the points on the near clipping plane that are mapped to the lower left and upper right corners of the
+	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
 	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
@@ -8386,7 +8386,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Manipulates the current matrix with a rotation matrix.
 	 * 
-	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code>v = (x y z)<sup>T</sup></code>. The computed matrix
+	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code style="font-family: monospace">v = (x y z)<sup>T</sup></code>. The computed matrix
 	 * is a counter-clockwise rotation about the line through the origin with the specified axis when that axis is pointing up (i.e. the right-hand rule
 	 * determines the sense of the rotation angle). The matrix is thus
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
@@ -8403,7 +8403,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * <tr><td>-y'</td><td>x'</td><td>0</td></tr>
 	 * </table></p>
 	 * 
-	 * <p>then <code><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
+	 * <p>then <code style="font-family: monospace"><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
 	 *
 	 * @param angle the angle of rotation in degrees
 	 * @param x     the x coordinate of the rotation vector
@@ -8503,7 +8503,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Defines the scissor rectangle for all viewports. The scissor test is enabled or disabled for all viewports using {@link #glEnable Enable} or {@link #glDisable Disable}
 	 * with the symbolic constant {@link #GL_SCISSOR_TEST SCISSOR_TEST}. When disabled, it is as if the scissor test always passes. When enabled, if
-	 * <code>left <= x<sub>w</sub> < left + width</code> and <code>bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
+	 * <code style="font-family: monospace">left <= x<sub>w</sub> < left + width</code> and <code style="font-family: monospace">bottom <= y<sub>w</sub> < bottom + height</code> for the scissor rectangle, then the scissor
 	 * test passes. Otherwise, the test fails and the fragment is discarded.
 	 *
 	 * @param x      the left scissor rectangle coordinate

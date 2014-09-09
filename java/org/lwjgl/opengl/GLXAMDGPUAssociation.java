@@ -25,7 +25,7 @@ import org.lwjgl.system.linux.*;
  * <p>This extension provides a mechanism for applications to explicitly use the GPU resources on a given system individually. By providing this
  * functionality, a driver allows applications to make appropriate decisions regarding where and when to distribute rendering tasks.</p>
  * 
- * <p>Requires {@link GL15 OpenGL 1.5}, {@link GLX13 GLX 1.3}, {@link EXTFramebufferObject EXT_framebuffer_object} and {@link GLXARBGetProcAddress GLX_ARB_get_proc_address}.</p>
+ * <p>Requires {@link GL15 OpenGL 1.5}, {@link GLX13 GLX 1.3}, <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a> and {@link GLXARBGetProcAddress GLX_ARB_get_proc_address}.</p>
  */
 public final class GLXAMDGPUAssociation {
 

@@ -437,7 +437,7 @@ public final class GL40 {
 	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
 	 * 
 	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
@@ -499,7 +499,7 @@ public final class GL40 {
 	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
 	 * 
 	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
@@ -509,7 +509,7 @@ public final class GL40 {
 	 * } DrawElementsIndirectCommand;</code></pre></p>
 	 * 
 	 * <p>{@code glDrawElementsIndirect} is equivalent to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
 	 * 	const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
 	 * 	glDrawElementsInstancedBaseVertexBaseInstance(

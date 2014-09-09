@@ -11,7 +11,7 @@ public final class AMDDeviceTopology {
 	/**
 	 * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. Returns a description of the topology used to connect the device to the
 	 * host, using the following 32-bytes union of structures:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef union
 	 * {
 	 * 	struct { cl_uint type; cl_uint data[5]; } raw;

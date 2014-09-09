@@ -33,7 +33,7 @@ import static org.lwjgl.system.Checks.*;
  * <li></li>
  * <li></li>
  * </ul>
- * Requires {@link GL44 OpenGL 4.4}, {@link ARBES2Compatibility ARB_ES2_compatibility}, {@link ARBES3Compatibility ARB_ES3_compatibility}. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
+ * Requires {@link GL44 OpenGL 4.4}, <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public final class ARBES31Compatibility {
 

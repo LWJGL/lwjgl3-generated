@@ -4,6 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
+#include "OpenGL.h"
 
 typedef GLvoid (APIENTRY *glDrawBuffersARBPROC) (GLsizei, const GLenum *);
 

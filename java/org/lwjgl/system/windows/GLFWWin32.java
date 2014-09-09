@@ -43,7 +43,7 @@ public final class GLFWWin32 {
 	public static native long nglfwGetWin32Window(long window);
 
 	/**
-	 * Returns the <code>HWND</code> of the given GLFW window.
+	 * Returns the <code style="font-family: monospace">HWND</code> of the given GLFW window.
 	 *
 	 * @param window the GLFW window
 	 */
@@ -60,7 +60,7 @@ public final class GLFWWin32 {
 	public static native long nglfwGetWGLContext(long window);
 
 	/**
-	 * Returns the <code>HGLRC</code> of the given GLFW window.
+	 * Returns the <code style="font-family: monospace">HGLRC</code> of the given GLFW window.
 	 *
 	 * @param window the GLFW window
 	 */

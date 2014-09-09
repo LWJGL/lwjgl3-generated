@@ -710,7 +710,7 @@ public final class GL43 {
 	 * Launches one or more compute work groups using parameters stored in a buffer.
 	 * 
 	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint num_groups_x;
 	 * 	uint num_groups_y;
@@ -718,7 +718,7 @@ public final class GL43 {
 	 * } DispatchIndirectCommand;</code></pre></p>
 	 * 
 	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * cmd = (const DispatchIndirectCommand *)indirect;
 	 * glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre></p>
 	 *
@@ -1521,7 +1521,7 @@ public final class GL43 {
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
 	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
@@ -1530,7 +1530,7 @@ public final class GL43 {
 	 * } DrawArraysIndirectCommand;</code></pre></p>
 	 * 
 	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
 	 * 	DrawArraysIndirect(mode, (DrawArraysIndirectCommand*)ptr);
@@ -1572,7 +1572,7 @@ public final class GL43 {
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
 	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
@@ -1582,7 +1582,7 @@ public final class GL43 {
 	 * } DrawElementsIndirectCommand;</code></pre></p>
 	 * 
 	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:
-	 * <pre><code>
+	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
 	 * 	DrawElementsIndirect(mode, type, (DrawElementsIndirectCommand *)ptr);

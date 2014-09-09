@@ -72,17 +72,13 @@ public final class ARBClearTexture {
 
 	// --- [ glClearTexSubImage ] ---
 
-	/** JNI method for {@link #glClearTexSubImage ClearTexSubImage} */
-	@JavadocExclude
-	public static native void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
 	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
 	}
 
 	/**
@@ -114,34 +110,30 @@ public final class ARBClearTexture {
 	 *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
 	 */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** DoubleBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearTexImage ] ---
-
-	/** JNI method for {@link #glClearTexImage ClearTexImage} */
-	@JavadocExclude
-	public static native void nglClearTexImage(int texture, int level, int format, int type, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
 	@JavadocExclude
@@ -149,7 +141,7 @@ public final class ARBClearTexture {
 		long __functionAddress = getInstance().ClearTexImage;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearTexImage(texture, level, format, type, data, __functionAddress);
+		GL44.nglClearTexImage(texture, level, format, type, data, __functionAddress);
 	}
 
 	/**
@@ -165,7 +157,7 @@ public final class ARBClearTexture {
 	 * @param data    
 	 */
 	public static void glClearTexImage(int texture, int level, int format, int type, ByteBuffer data) {
-		nglClearTexImage(texture, level, format, type, memAddress(data));
+		GL44.nglClearTexImage(texture, level, format, type, memAddress(data));
 	}
 
 }
