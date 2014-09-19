@@ -45,6 +45,8 @@ typedef GLvoid (APIENTRY *glBindTransformFeedbackPROC) (GLenum, GLuint);
 typedef GLvoid (APIENTRY *glDeleteTransformFeedbacksPROC) (GLsizei, const GLuint *);
 typedef GLvoid (APIENTRY *glGenTransformFeedbacksPROC) (GLsizei, GLuint *);
 typedef GLboolean (APIENTRY *glIsTransformFeedbackPROC) (GLuint);
+typedef GLvoid (APIENTRY *glPauseTransformFeedbackPROC) (void);
+typedef GLvoid (APIENTRY *glResumeTransformFeedbackPROC) (void);
 typedef GLvoid (APIENTRY *glDrawTransformFeedbackPROC) (GLenum, GLuint);
 typedef GLvoid (APIENTRY *glDrawTransformFeedbackStreamPROC) (GLenum, GLuint, GLuint);
 typedef GLvoid (APIENTRY *glBeginQueryIndexedPROC) (GLenum, GLuint, GLuint);
@@ -314,6 +316,18 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL40_nglIsTransformFeedback(JNI
 	glIsTransformFeedbackPROC glIsTransformFeedback = (glIsTransformFeedbackPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)glIsTransformFeedback(id);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPauseTransformFeedback(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
+	glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glPauseTransformFeedback();
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglResumeTransformFeedback(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
+	glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glResumeTransformFeedback();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id, jlong __functionAddress) {
