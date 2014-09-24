@@ -6,6 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
+typedef GLvoid (APIENTRY *glReleaseShaderCompilerPROC) (void);
 typedef GLvoid (APIENTRY *glShaderBinaryPROC) (GLsizei, const GLuint *, GLenum, const GLvoid *, GLsizei);
 typedef GLvoid (APIENTRY *glGetShaderPrecisionFormatPROC) (GLenum, GLenum, GLint *, GLint *);
 typedef GLvoid (APIENTRY *glDepthRangefPROC) (GLfloat, GLfloat);
@@ -91,8 +92,16 @@ typedef GLvoid (APIENTRY *glScissorIndexedPROC) (GLuint, GLint, GLint, GLsizei, 
 typedef GLvoid (APIENTRY *glScissorIndexedvPROC) (GLuint, const GLint *);
 typedef GLvoid (APIENTRY *glDepthRangeArrayvPROC) (GLuint, GLsizei, const GLdouble *);
 typedef GLvoid (APIENTRY *glDepthRangeIndexedPROC) (GLuint, GLdouble, GLdouble);
+typedef GLvoid (APIENTRY *glGetFloati_vPROC) (GLenum, GLuint, GLfloat *);
+typedef GLvoid (APIENTRY *glGetDoublei_vPROC) (GLenum, GLuint, GLdouble *);
 
 EXTERN_C_ENTER
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglReleaseShaderCompiler(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
+	glReleaseShaderCompilerPROC glReleaseShaderCompiler = (glReleaseShaderCompilerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glReleaseShaderCompiler();
+}
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglShaderBinary(JNIEnv *__env, jclass clazz, jint count, jlong shadersAddress, jint binaryformat, jlong binaryAddress, jint length, jlong __functionAddress) {
 	const GLuint *shaders = (const GLuint *)(intptr_t)shadersAddress;
@@ -661,6 +670,20 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglDepthRangeIndexed(JNIEnv *_
 	glDepthRangeIndexedPROC glDepthRangeIndexed = (glDepthRangeIndexedPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDepthRangeIndexed(index, zNear, zFar);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGetFloati_1v(JNIEnv *__env, jclass clazz, jint target, jint index, jlong dataAddress, jlong __functionAddress) {
+	GLfloat *data = (GLfloat *)(intptr_t)dataAddress;
+	glGetFloati_vPROC glGetFloati_v = (glGetFloati_vPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetFloati_v(target, index, data);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL41_nglGetDoublei_1v(JNIEnv *__env, jclass clazz, jint target, jint index, jlong dataAddress, jlong __functionAddress) {
+	GLdouble *data = (GLdouble *)(intptr_t)dataAddress;
+	glGetDoublei_vPROC glGetDoublei_v = (glGetDoublei_vPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetDoublei_v(target, index, data);
 }
 
 EXTERN_C_EXIT

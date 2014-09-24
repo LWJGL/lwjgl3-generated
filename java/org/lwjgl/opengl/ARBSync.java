@@ -230,11 +230,15 @@ public final class ARBSync {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64(int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 3);
 		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 

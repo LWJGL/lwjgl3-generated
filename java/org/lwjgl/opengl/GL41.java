@@ -107,6 +107,7 @@ public final class GL41 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
+		ReleaseShaderCompiler,
 		ShaderBinary,
 		GetShaderPrecisionFormat,
 		DepthRangef,
@@ -191,10 +192,13 @@ public final class GL41 {
 		ScissorIndexed,
 		ScissorIndexedv,
 		DepthRangeArrayv,
-		DepthRangeIndexed;
+		DepthRangeIndexed,
+		GetFloati_v,
+		GetDoublei_v;
 
 	@JavadocExclude
 	public GL41(FunctionProvider provider) {
+		ReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
 		ShaderBinary = provider.getFunctionAddress("glShaderBinary");
 		GetShaderPrecisionFormat = provider.getFunctionAddress("glGetShaderPrecisionFormat");
 		DepthRangef = provider.getFunctionAddress("glDepthRangef");
@@ -280,6 +284,8 @@ public final class GL41 {
 		ScissorIndexedv = provider.getFunctionAddress("glScissorIndexedv");
 		DepthRangeArrayv = provider.getFunctionAddress("glDepthRangeArrayv");
 		DepthRangeIndexed = provider.getFunctionAddress("glDepthRangeIndexed");
+		GetFloati_v = provider.getFunctionAddress("glGetFloati_v");
+		GetDoublei_v = provider.getFunctionAddress("glGetDoublei_v");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -295,26 +301,44 @@ public final class GL41 {
 		GL41 funcs = new GL41(provider);
 
 		boolean supported = checkFunctions(
-			funcs.ShaderBinary, funcs.GetShaderPrecisionFormat, funcs.DepthRangef, funcs.ClearDepthf, funcs.GetProgramBinary, funcs.ProgramBinary, 
-			funcs.ProgramParameteri, funcs.UseProgramStages, funcs.ActiveShaderProgram, funcs.CreateShaderProgramv, funcs.BindProgramPipeline, 
-			funcs.DeleteProgramPipelines, funcs.GenProgramPipelines, funcs.IsProgramPipeline, funcs.GetProgramPipelineiv, funcs.ProgramUniform1i, 
-			funcs.ProgramUniform2i, funcs.ProgramUniform3i, funcs.ProgramUniform4i, funcs.ProgramUniform1ui, funcs.ProgramUniform2ui, funcs.ProgramUniform3ui, 
-			funcs.ProgramUniform4ui, funcs.ProgramUniform1f, funcs.ProgramUniform2f, funcs.ProgramUniform3f, funcs.ProgramUniform4f, funcs.ProgramUniform1d, 
-			funcs.ProgramUniform2d, funcs.ProgramUniform3d, funcs.ProgramUniform4d, funcs.ProgramUniform1iv, funcs.ProgramUniform2iv, funcs.ProgramUniform3iv, 
-			funcs.ProgramUniform4iv, funcs.ProgramUniform1uiv, funcs.ProgramUniform2uiv, funcs.ProgramUniform3uiv, funcs.ProgramUniform4uiv, 
-			funcs.ProgramUniform1fv, funcs.ProgramUniform2fv, funcs.ProgramUniform3fv, funcs.ProgramUniform4fv, funcs.ProgramUniform1dv, 
-			funcs.ProgramUniform2dv, funcs.ProgramUniform3dv, funcs.ProgramUniform4dv, funcs.ProgramUniformMatrix2fv, funcs.ProgramUniformMatrix3fv, 
-			funcs.ProgramUniformMatrix4fv, funcs.ProgramUniformMatrix2dv, funcs.ProgramUniformMatrix3dv, funcs.ProgramUniformMatrix4dv, 
-			funcs.ProgramUniformMatrix2x3fv, funcs.ProgramUniformMatrix3x2fv, funcs.ProgramUniformMatrix2x4fv, funcs.ProgramUniformMatrix4x2fv, 
-			funcs.ProgramUniformMatrix3x4fv, funcs.ProgramUniformMatrix4x3fv, funcs.ProgramUniformMatrix2x3dv, funcs.ProgramUniformMatrix3x2dv, 
-			funcs.ProgramUniformMatrix2x4dv, funcs.ProgramUniformMatrix4x2dv, funcs.ProgramUniformMatrix3x4dv, funcs.ProgramUniformMatrix4x3dv, 
-			funcs.ValidateProgramPipeline, funcs.GetProgramPipelineInfoLog, funcs.VertexAttribL1d, funcs.VertexAttribL2d, funcs.VertexAttribL3d, 
-			funcs.VertexAttribL4d, funcs.VertexAttribL1dv, funcs.VertexAttribL2dv, funcs.VertexAttribL3dv, funcs.VertexAttribL4dv, funcs.VertexAttribLPointer, 
-			funcs.GetVertexAttribLdv, funcs.ViewportArrayv, funcs.ViewportIndexedf, funcs.ViewportIndexedfv, funcs.ScissorArrayv, funcs.ScissorIndexed, 
-			funcs.ScissorIndexedv, funcs.DepthRangeArrayv, funcs.DepthRangeIndexed
+			funcs.ReleaseShaderCompiler, funcs.ShaderBinary, funcs.GetShaderPrecisionFormat, funcs.DepthRangef, funcs.ClearDepthf, funcs.GetProgramBinary, 
+			funcs.ProgramBinary, funcs.ProgramParameteri, funcs.UseProgramStages, funcs.ActiveShaderProgram, funcs.CreateShaderProgramv, 
+			funcs.BindProgramPipeline, funcs.DeleteProgramPipelines, funcs.GenProgramPipelines, funcs.IsProgramPipeline, funcs.GetProgramPipelineiv, 
+			funcs.ProgramUniform1i, funcs.ProgramUniform2i, funcs.ProgramUniform3i, funcs.ProgramUniform4i, funcs.ProgramUniform1ui, funcs.ProgramUniform2ui, 
+			funcs.ProgramUniform3ui, funcs.ProgramUniform4ui, funcs.ProgramUniform1f, funcs.ProgramUniform2f, funcs.ProgramUniform3f, funcs.ProgramUniform4f, 
+			funcs.ProgramUniform1d, funcs.ProgramUniform2d, funcs.ProgramUniform3d, funcs.ProgramUniform4d, funcs.ProgramUniform1iv, funcs.ProgramUniform2iv, 
+			funcs.ProgramUniform3iv, funcs.ProgramUniform4iv, funcs.ProgramUniform1uiv, funcs.ProgramUniform2uiv, funcs.ProgramUniform3uiv, 
+			funcs.ProgramUniform4uiv, funcs.ProgramUniform1fv, funcs.ProgramUniform2fv, funcs.ProgramUniform3fv, funcs.ProgramUniform4fv, 
+			funcs.ProgramUniform1dv, funcs.ProgramUniform2dv, funcs.ProgramUniform3dv, funcs.ProgramUniform4dv, funcs.ProgramUniformMatrix2fv, 
+			funcs.ProgramUniformMatrix3fv, funcs.ProgramUniformMatrix4fv, funcs.ProgramUniformMatrix2dv, funcs.ProgramUniformMatrix3dv, 
+			funcs.ProgramUniformMatrix4dv, funcs.ProgramUniformMatrix2x3fv, funcs.ProgramUniformMatrix3x2fv, funcs.ProgramUniformMatrix2x4fv, 
+			funcs.ProgramUniformMatrix4x2fv, funcs.ProgramUniformMatrix3x4fv, funcs.ProgramUniformMatrix4x3fv, funcs.ProgramUniformMatrix2x3dv, 
+			funcs.ProgramUniformMatrix3x2dv, funcs.ProgramUniformMatrix2x4dv, funcs.ProgramUniformMatrix4x2dv, funcs.ProgramUniformMatrix3x4dv, 
+			funcs.ProgramUniformMatrix4x3dv, funcs.ValidateProgramPipeline, funcs.GetProgramPipelineInfoLog, funcs.VertexAttribL1d, funcs.VertexAttribL2d, 
+			funcs.VertexAttribL3d, funcs.VertexAttribL4d, funcs.VertexAttribL1dv, funcs.VertexAttribL2dv, funcs.VertexAttribL3dv, funcs.VertexAttribL4dv, 
+			funcs.VertexAttribLPointer, funcs.GetVertexAttribLdv, funcs.ViewportArrayv, funcs.ViewportIndexedf, funcs.ViewportIndexedfv, funcs.ScissorArrayv, 
+			funcs.ScissorIndexed, funcs.ScissorIndexedv, funcs.DepthRangeArrayv, funcs.DepthRangeIndexed, funcs.GetFloati_v, funcs.GetDoublei_v
 		);
 
 		return GL.checkExtension("OpenGL41", funcs, supported);
+	}
+
+	// --- [ glReleaseShaderCompiler ] ---
+
+	/** JNI method for {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
+	@JavadocExclude
+	public static native void nglReleaseShaderCompiler(long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReleaseShaderCompiler.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler.
+	 */
+	public static void glReleaseShaderCompiler() {
+		long __functionAddress = getInstance().ReleaseShaderCompiler;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglReleaseShaderCompiler(__functionAddress);
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -3118,6 +3142,96 @@ public final class GL41 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDepthRangeIndexed(index, zNear, zFar, __functionAddress);
+	}
+
+	// --- [ glGetFloati_v ] ---
+
+	/** JNI method for {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	@JavadocExclude
+	public static native void nglGetFloati_v(int target, int index, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	@JavadocExclude
+	public static void nglGetFloati_v(int target, int index, long data) {
+		long __functionAddress = getInstance().GetFloati_v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetFloati_v(target, index, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFloati.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the float value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
+	public static void glGetFloati(int target, int index, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 1 << 2);
+		nglGetFloati_v(target, index, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	public static void glGetFloati(int target, int index, FloatBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 1);
+		nglGetFloati_v(target, index, memAddress(data));
+	}
+
+	/** Single return value version of: {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	public static float glGetFloati(int target, int index) {
+		APIBuffer __buffer = apiBuffer();
+		int data = __buffer.floatParam();
+		nglGetFloati_v(target, index, __buffer.address() + data);
+		return __buffer.floatValue(data);
+	}
+
+	// --- [ glGetDoublei_v ] ---
+
+	/** JNI method for {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	@JavadocExclude
+	public static native void nglGetDoublei_v(int target, int index, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	@JavadocExclude
+	public static void nglGetDoublei_v(int target, int index, long data) {
+		long __functionAddress = getInstance().GetDoublei_v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetDoublei_v(target, index, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetDoublei.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the double value of an indexed state variable.
+	 *
+	 * @param target the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param data   a scalar or buffer in which to place the returned data
+	 */
+	public static void glGetDoublei(int target, int index, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 1 << 3);
+		nglGetDoublei_v(target, index, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	public static void glGetDoublei(int target, int index, DoubleBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 1);
+		nglGetDoublei_v(target, index, memAddress(data));
+	}
+
+	/** Single return value version of: {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	public static double glGetDoublei(int target, int index) {
+		APIBuffer __buffer = apiBuffer();
+		int data = __buffer.doubleParam();
+		nglGetDoublei_v(target, index, __buffer.address() + data);
+		return __buffer.doubleValue(data);
 	}
 
 }

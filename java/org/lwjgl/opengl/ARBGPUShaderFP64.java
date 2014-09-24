@@ -40,7 +40,7 @@ import static org.lwjgl.system.APIUtil.*;
  * overloading rules specified by the ARB_gpu_shader5 extension to resolve ambiguities.</p>
  * 
  * <p>This extension provides API functions for specifying double-precision uniforms in the default uniform block, including functions similar to the uniform
- * functions added by <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">ARB_gpu_shader_fp64</a> (if supported).</p>
+ * functions added by <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> (if supported).</p>
  * 
  * <p>This extension provides an "LF" suffix for specifying double-precision constants. Floating-point constants without a suffix in GLSL are treated as
  * single-precision values for backward compatibility with versions not supporting doubles; similar constants are treated as double-precision values in the
@@ -48,11 +48,11 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>This extension does not support interpolation of double-precision values; doubles used as fragment shader inputs must be qualified as "flat".
  * Additionally, this extension does not allow vertex attributes with 64-bit components. That support is added separately by
- * <a href="http://www.opengl.org/registry/specs/EXT/vertex_attrib_64bit.txt">ARB_gpu_shader_fp64</a>.</p>
+ * <a href="http://www.opengl.org/registry/specs/EXT/vertex_attrib_64bit.txt">EXT_vertex_attrib_64bit</a>.</p>
  * 
  * <p>Requires {@link GL32 GL32} and GLSL 1.50. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARB_GPUShaderFP64 {
+public final class ARBGPUShaderFP64 {
 
 	/** Returned in the {@code type} parameter of GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -109,7 +109,7 @@ public final class ARB_GPUShaderFP64 {
 		ProgramUniformMatrix4x3dvEXT;
 
 	@JavadocExclude
-	public ARB_GPUShaderFP64(FunctionProvider provider) {
+	public ARBGPUShaderFP64(FunctionProvider provider) {
 		Uniform1d = provider.getFunctionAddress("glUniform1d");
 		Uniform2d = provider.getFunctionAddress("glUniform2d");
 		Uniform3d = provider.getFunctionAddress("glUniform3d");
@@ -149,15 +149,15 @@ public final class ARB_GPUShaderFP64 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARB_GPUShaderFP64} instance for the current context. */
-	public static ARB_GPUShaderFP64 getInstance() {
-		return GL.getCapabilities().__ARB_GPUShaderFP64;
+	/** Returns the {@link ARBGPUShaderFP64} instance for the current context. */
+	public static ARBGPUShaderFP64 getInstance() {
+		return GL.getCapabilities().__ARBGPUShaderFP64;
 	}
 
-	static ARB_GPUShaderFP64 create(java.util.Set<String> ext, FunctionProvider provider) {
+	static ARBGPUShaderFP64 create(java.util.Set<String> ext, FunctionProvider provider) {
 		if ( !ext.contains("GL_ARB_gpu_shader_fp64") ) return null;
 
-		ARB_GPUShaderFP64 funcs = new ARB_GPUShaderFP64(provider);
+		ARBGPUShaderFP64 funcs = new ARBGPUShaderFP64(provider);
 
 		boolean supported = checkFunctions(
 			funcs.Uniform1d, funcs.Uniform2d, funcs.Uniform3d, funcs.Uniform4d, funcs.Uniform1dv, funcs.Uniform2dv, funcs.Uniform3dv, funcs.Uniform4dv, 

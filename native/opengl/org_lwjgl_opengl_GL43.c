@@ -16,6 +16,7 @@ typedef GLvoid (APIENTRY *glDebugMessageInsertPROC) (GLenum, GLenum, GLuint, GLe
 typedef GLvoid (APIENTRY *glDebugMessageCallbackPROC) (GLDEBUGPROC, void *);
 typedef GLuint (APIENTRY *glGetDebugMessageLogPROC) (GLuint, GLsizei, GLenum *, GLenum *, GLuint *, GLenum *, GLsizei *, GLchar *);
 typedef GLvoid (APIENTRY *glPushDebugGroupPROC) (GLenum, GLuint, GLsizei, const GLchar *);
+typedef GLvoid (APIENTRY *glPopDebugGroupPROC) (void);
 typedef GLvoid (APIENTRY *glObjectLabelPROC) (GLenum, GLuint, GLsizei, const GLchar *);
 typedef GLvoid (APIENTRY *glGetObjectLabelPROC) (GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
 typedef GLvoid (APIENTRY *glObjectPtrLabelPROC) (void *, GLsizei, const GLchar *);
@@ -122,6 +123,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglPushDebugGroup(JNIEnv *__en
 	glPushDebugGroupPROC glPushDebugGroup = (glPushDebugGroupPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPushDebugGroup(source, id, length, message);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglPopDebugGroup(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
+	glPopDebugGroupPROC glPopDebugGroup = (glPopDebugGroupPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glPopDebugGroup();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglObjectLabel(JNIEnv *__env, jclass clazz, jint identifier, jint name, jint length, jlong labelAddress, jlong __functionAddress) {

@@ -217,6 +217,7 @@ public final class GL42 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
+		GetActiveAtomicCounterBufferiv,
 		TexStorage1D,
 		TexStorage2D,
 		TexStorage3D,
@@ -231,6 +232,7 @@ public final class GL42 {
 
 	@JavadocExclude
 	public GL42(FunctionProvider provider) {
+		GetActiveAtomicCounterBufferiv = provider.getFunctionAddress("glGetActiveAtomicCounterBufferiv");
 		TexStorage1D = provider.getFunctionAddress("glTexStorage1D");
 		TexStorage2D = provider.getFunctionAddress("glTexStorage2D");
 		TexStorage3D = provider.getFunctionAddress("glTexStorage3D");
@@ -257,12 +259,58 @@ public final class GL42 {
 		GL42 funcs = new GL42(provider);
 
 		boolean supported = checkFunctions(
-			funcs.TexStorage1D, funcs.TexStorage2D, funcs.TexStorage3D, funcs.DrawTransformFeedbackInstanced, funcs.DrawTransformFeedbackStreamInstanced, 
-			funcs.DrawArraysInstancedBaseInstance, funcs.DrawElementsInstancedBaseInstance, funcs.DrawElementsInstancedBaseVertexBaseInstance, 
-			funcs.BindImageTexture, funcs.MemoryBarrier, funcs.GetInternalformativ
+			funcs.GetActiveAtomicCounterBufferiv, funcs.TexStorage1D, funcs.TexStorage2D, funcs.TexStorage3D, funcs.DrawTransformFeedbackInstanced, 
+			funcs.DrawTransformFeedbackStreamInstanced, funcs.DrawArraysInstancedBaseInstance, funcs.DrawElementsInstancedBaseInstance, 
+			funcs.DrawElementsInstancedBaseVertexBaseInstance, funcs.BindImageTexture, funcs.MemoryBarrier, funcs.GetInternalformativ
 		);
 
 		return GL.checkExtension("OpenGL42", funcs, supported);
+	}
+
+	// --- [ glGetActiveAtomicCounterBufferiv ] ---
+
+	/** JNI method for {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	@JavadocExclude
+	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	@JavadocExclude
+	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
+		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Obtains information about the set of active atomic counter buffers for a program.
+	 *
+	 * @param program     the name of a program object for which the command {@link GL20#glLinkProgram LinkProgram} has been issued in the past
+	 * @param bufferIndex the index of an active atomic counter buffer
+	 * @param pname       the parameter to query. One of:<br>{@link #GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE ATOMIC_COUNTER_BUFFER_DATA_SIZE}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER}
+	 * @param params      a buffer in which to place the returned value
+	 */
+	public static void glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 2);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+	}
+
+	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	public static void glGetActiveAtomicCounterBuffer(int program, int bufferIndex, int pname, IntBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.intParam();
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address() + params);
+		return __buffer.intValue(params);
 	}
 
 	// --- [ glTexStorage1D ] ---

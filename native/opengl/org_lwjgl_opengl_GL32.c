@@ -23,6 +23,7 @@ typedef GLvoid (APIENTRY *glDeleteSyncPROC) (GLsync);
 typedef GLenum (APIENTRY *glClientWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
 typedef GLvoid (APIENTRY *glWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
 typedef GLvoid (APIENTRY *glGetInteger64vPROC) (GLenum, GLint64 *);
+typedef GLvoid (APIENTRY *glGetInteger64i_vPROC) (GLenum, GLuint, GLint64 *);
 typedef GLvoid (APIENTRY *glGetSyncivPROC) (GLsync, GLenum, GLsizei, GLsizei *, GLint *);
 
 EXTERN_C_ENTER
@@ -140,6 +141,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetInteger64v(JNIEnv *__env
 	glGetInteger64vPROC glGetInteger64v = (glGetInteger64vPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetInteger64v(pname, params);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetInteger64i_1v(JNIEnv *__env, jclass clazz, jint pname, jint index, jlong paramsAddress, jlong __functionAddress) {
+	GLint64 *params = (GLint64 *)(intptr_t)paramsAddress;
+	glGetInteger64i_vPROC glGetInteger64i_v = (glGetInteger64i_vPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetInteger64i_v(pname, index, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetSynciv(JNIEnv *__env, jclass clazz, jlong syncAddress, jint pname, jint bufSize, jlong lengthAddress, jlong valuesAddress, jlong __functionAddress) {

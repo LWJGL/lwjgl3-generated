@@ -228,6 +228,7 @@ public final class GL32 {
 		ClientWaitSync,
 		WaitSync,
 		GetInteger64v,
+		GetInteger64i_v,
 		GetSynciv;
 
 	@JavadocExclude
@@ -249,6 +250,7 @@ public final class GL32 {
 		ClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
 		WaitSync = provider.getFunctionAddress("glWaitSync");
 		GetInteger64v = provider.getFunctionAddress("glGetInteger64v");
+		GetInteger64i_v = provider.getFunctionAddress("glGetInteger64i_v");
 		GetSynciv = provider.getFunctionAddress("glGetSynciv");
 	}
 
@@ -268,7 +270,7 @@ public final class GL32 {
 			funcs.GetBufferParameteri64v, funcs.DrawElementsBaseVertex, funcs.DrawRangeElementsBaseVertex, funcs.DrawElementsInstancedBaseVertex, 
 			funcs.MultiDrawElementsBaseVertex, funcs.ProvokingVertex, funcs.TexImage2DMultisample, funcs.TexImage3DMultisample, funcs.GetMultisamplefv, 
 			funcs.SampleMaski, funcs.FramebufferTexture, funcs.FenceSync, funcs.IsSync, funcs.DeleteSync, funcs.ClientWaitSync, funcs.WaitSync, 
-			funcs.GetInteger64v, funcs.GetSynciv
+			funcs.GetInteger64v, funcs.GetInteger64i_v, funcs.GetSynciv
 		);
 
 		return GL.checkExtension("OpenGL32", funcs, supported);
@@ -889,11 +891,15 @@ public final class GL32 {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64(int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 3);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
 	public static void glGetInteger64(int pname, LongBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
@@ -902,6 +908,51 @@ public final class GL32 {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
 		nglGetInteger64v(pname, __buffer.address() + params);
+		return __buffer.longValue(params);
+	}
+
+	// --- [ glGetInteger64i_v ] ---
+
+	/** JNI method for {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	@JavadocExclude
+	public static native void nglGetInteger64i_v(int pname, int index, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	@JavadocExclude
+	public static void nglGetInteger64i_v(int pname, int index, long params) {
+		long __functionAddress = getInstance().GetInteger64i_v;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetInteger64i_v(pname, index, params, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the 64bit integer value of an indexed state variable.
+	 *
+	 * @param pname  the indexed state to query
+	 * @param index  the index of the element being queried
+	 * @param params the value or values of the specified parameter
+	 */
+	public static void glGetInteger64i(int pname, int index, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 3);
+		nglGetInteger64i_v(pname, index, memAddress(params));
+	}
+
+	/** Alternative version of: {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	public static void glGetInteger64i(int pname, int index, LongBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
+		nglGetInteger64i_v(pname, index, memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	public static long glGetInteger64i(int pname, int index) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.longParam();
+		nglGetInteger64i_v(pname, index, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 

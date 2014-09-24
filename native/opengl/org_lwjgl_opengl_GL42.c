@@ -6,6 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
+typedef GLvoid (APIENTRY *glGetActiveAtomicCounterBufferivPROC) (GLuint, GLuint, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glTexStorage1DPROC) (GLenum, GLsizei, GLenum, GLsizei);
 typedef GLvoid (APIENTRY *glTexStorage2DPROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei);
 typedef GLvoid (APIENTRY *glTexStorage3DPROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei);
@@ -19,6 +20,13 @@ typedef GLvoid (APIENTRY *glMemoryBarrierPROC) (GLbitfield);
 typedef GLvoid (APIENTRY *glGetInternalformativPROC) (GLenum, GLenum, GLenum, GLsizei, GLint *);
 
 EXTERN_C_ENTER
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglGetActiveAtomicCounterBufferiv(JNIEnv *__env, jclass clazz, jint program, jint bufferIndex, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLint *params = (GLint *)(intptr_t)paramsAddress;
+	glGetActiveAtomicCounterBufferivPROC glGetActiveAtomicCounterBufferiv = (glGetActiveAtomicCounterBufferivPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params);
+}
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglTexStorage1D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jlong __functionAddress) {
 	glTexStorage1DPROC glTexStorage1D = (glTexStorage1DPROC)(intptr_t)__functionAddress;
