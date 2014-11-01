@@ -70,8 +70,8 @@ typedef GLvoid (APIENTRY *glCopyTextureSubImage3DPROC) (GLuint, GLint, GLint, GL
 typedef GLvoid (APIENTRY *glTextureParameterfPROC) (GLuint, GLenum, GLfloat);
 typedef GLvoid (APIENTRY *glTextureParameterfvPROC) (GLuint, GLenum, const GLfloat *);
 typedef GLvoid (APIENTRY *glTextureParameteriPROC) (GLuint, GLenum, GLint);
-typedef GLvoid (APIENTRY *glTextureParameterIivPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glTextureParameterIuivPROC) (GLuint, GLenum, GLuint *);
+typedef GLvoid (APIENTRY *glTextureParameterIivPROC) (GLuint, GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glTextureParameterIuivPROC) (GLuint, GLenum, const GLuint *);
 typedef GLvoid (APIENTRY *glTextureParameterivPROC) (GLuint, GLenum, const GLint *);
 typedef GLvoid (APIENTRY *glGenerateTextureMipmapPROC) (GLuint);
 typedef GLvoid (APIENTRY *glBindTextureUnitPROC) (GLuint, GLuint);
@@ -530,14 +530,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL45_nglTextureParameteri(JNIEnv *_
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL45_nglTextureParameterIiv(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLint *params = (GLint *)(intptr_t)paramsAddress;
+	const GLint *params = (const GLint *)(intptr_t)paramsAddress;
 	glTextureParameterIivPROC glTextureParameterIiv = (glTextureParameterIivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureParameterIiv(texture, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL45_nglTextureParameterIuiv(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLuint *params = (GLuint *)(intptr_t)paramsAddress;
+	const GLuint *params = (const GLuint *)(intptr_t)paramsAddress;
 	glTextureParameterIuivPROC glTextureParameterIuiv = (glTextureParameterIuivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureParameterIuiv(texture, pname, params);

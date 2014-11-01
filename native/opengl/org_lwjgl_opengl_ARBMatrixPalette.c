@@ -7,9 +7,9 @@
 #include "OpenGL.h"
 
 typedef GLvoid (APIENTRY *glCurrentPaletteMatrixARBPROC) (GLint);
+typedef GLvoid (APIENTRY *glMatrixIndexuivARBPROC) (GLint, GLuint *);
 typedef GLvoid (APIENTRY *glMatrixIndexubvARBPROC) (GLint, GLubyte *);
 typedef GLvoid (APIENTRY *glMatrixIndexusvARBPROC) (GLint, GLushort *);
-typedef GLvoid (APIENTRY *glMatrixIndexuivARBPROC) (GLint, GLuint *);
 typedef GLvoid (APIENTRY *glMatrixIndexPointerARBPROC) (GLint, GLenum, GLsizei, GLvoid *);
 
 EXTERN_C_ENTER
@@ -18,6 +18,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglCurrentPaletteM
 	glCurrentPaletteMatrixARBPROC glCurrentPaletteMatrixARB = (glCurrentPaletteMatrixARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCurrentPaletteMatrixARB(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexuivARB(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress, jlong __functionAddress) {
+	GLuint *indices = (GLuint *)(intptr_t)indicesAddress;
+	glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glMatrixIndexuivARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexubvARB(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress, jlong __functionAddress) {
@@ -32,13 +39,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexusvA
 	glMatrixIndexusvARBPROC glMatrixIndexusvARB = (glMatrixIndexusvARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMatrixIndexusvARB(size, indices);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexuivARB(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress, jlong __functionAddress) {
-	GLuint *indices = (GLuint *)(intptr_t)indicesAddress;
-	glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glMatrixIndexuivARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexPointerARB(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {

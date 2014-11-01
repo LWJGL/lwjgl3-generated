@@ -50,13 +50,18 @@ public final class ContextCapabilities {
 	final AMDDebugOutput                __AMDDebugOutput;
 	final AMDOcclusionQueryEvent        __AMDOcclusionQueryEvent;
 	final ARBBaseInstance               __ARBBaseInstance;
+	final ARBBindlessTexture            __ARBBindlessTexture;
 	final ARBBlendFuncExtended          __ARBBlendFuncExtended;
 	final ARBBufferStorage              __ARBBufferStorage;
 	final ARBCLEvent                    __ARBCLEvent;
+	final ARBClearBufferObject          __ARBClearBufferObject;
 	final ARBClearTexture               __ARBClearTexture;
 	final ARBClipControl                __ARBClipControl;
 	final ARBColorBufferFloat           __ARBColorBufferFloat;
+	final ARBComputeShader              __ARBComputeShader;
+	final ARBComputeVariableGroupSize   __ARBComputeVariableGroupSize;
 	final ARBCopyBuffer                 __ARBCopyBuffer;
+	final ARBCopyImage                  __ARBCopyImage;
 	final ARBDebugOutput                __ARBDebugOutput;
 	final ARBDirectStateAccess          __ARBDirectStateAccess;
 	final ARBDrawBuffers                __ARBDrawBuffers;
@@ -66,20 +71,26 @@ public final class ContextCapabilities {
 	final ARBDrawInstanced              __ARBDrawInstanced;
 	final ARBES2Compatibility           __ARBES2Compatibility;
 	final ARBES31Compatibility          __ARBES31Compatibility;
+	final ARBFramebufferNoAttachments   __ARBFramebufferNoAttachments;
 	final ARBFramebufferObject          __ARBFramebufferObject;
 	final ARBGeometryShader4            __ARBGeometryShader4;
 	final ARBGetProgramBinary           __ARBGetProgramBinary;
 	final ARBGetTextureSubImage         __ARBGetTextureSubImage;
 	final ARBGPUShaderFP64              __ARBGPUShaderFP64;
 	final ARBImaging                    __ARBImaging;
+	final ARBIndirectParameters         __ARBIndirectParameters;
 	final ARBInstancedArrays            __ARBInstancedArrays;
 	final ARBInternalformatQuery        __ARBInternalformatQuery;
+	final ARBInternalformatQuery2       __ARBInternalformatQuery2;
+	final ARBInvalidateSubdata          __ARBInvalidateSubdata;
 	final ARBMapBufferRange             __ARBMapBufferRange;
 	final ARBMatrixPalette              __ARBMatrixPalette;
 	final ARBMultiBind                  __ARBMultiBind;
+	final ARBMultiDrawIndirect          __ARBMultiDrawIndirect;
 	final ARBMultisample                __ARBMultisample;
 	final ARBOcclusionQuery             __ARBOcclusionQuery;
 	final ARBPointParameters            __ARBPointParameters;
+	final ARBProgramInterfaceQuery      __ARBProgramInterfaceQuery;
 	final ARBProvokingVertex            __ARBProvokingVertex;
 	final ARBRobustness                 __ARBRobustness;
 	final ARBSampleShading              __ARBSampleShading;
@@ -88,16 +99,21 @@ public final class ContextCapabilities {
 	final ARBShaderAtomicCounters       __ARBShaderAtomicCounters;
 	final ARBShaderImageLoadStore       __ARBShaderImageLoadStore;
 	final ARBShaderObjects              __ARBShaderObjects;
+	final ARBShaderStorageBufferObject  __ARBShaderStorageBufferObject;
 	final ARBShaderSubroutine           __ARBShaderSubroutine;
 	final ARBShadingLanguageInclude     __ARBShadingLanguageInclude;
 	final ARBSparseBuffer               __ARBSparseBuffer;
+	final ARBSparseTexture              __ARBSparseTexture;
 	final ARBSync                       __ARBSync;
 	final ARBTessellationShader         __ARBTessellationShader;
 	final ARBTextureBarrier             __ARBTextureBarrier;
 	final ARBTextureBufferObject        __ARBTextureBufferObject;
+	final ARBTextureBufferRange         __ARBTextureBufferRange;
 	final ARBTextureCompression         __ARBTextureCompression;
 	final ARBTextureMultisample         __ARBTextureMultisample;
 	final ARBTextureStorage             __ARBTextureStorage;
+	final ARBTextureStorageMultisample  __ARBTextureStorageMultisample;
+	final ARBTextureView                __ARBTextureView;
 	final ARBTimerQuery                 __ARBTimerQuery;
 	final ARBTransformFeedback2         __ARBTransformFeedback2;
 	final ARBTransformFeedback3         __ARBTransformFeedback3;
@@ -106,6 +122,7 @@ public final class ContextCapabilities {
 	final ARBUniformBufferObject        __ARBUniformBufferObject;
 	final ARBVertexArrayObject          __ARBVertexArrayObject;
 	final ARBVertexAttrib64Bit          __ARBVertexAttrib64Bit;
+	final ARBVertexAttribBinding        __ARBVertexAttribBinding;
 	final ARBVertexBlend                __ARBVertexBlend;
 	final ARBVertexBufferObject         __ARBVertexBufferObject;
 	final ARBVertexProgram              __ARBVertexProgram;
@@ -113,8 +130,22 @@ public final class ContextCapabilities {
 	final ARBVertexType2_10_10_10_REV   __ARBVertexType2_10_10_10_REV;
 	final ARBViewportArray              __ARBViewportArray;
 	final ARBWindowPos                  __ARBWindowPos;
+	final EXTBindableUniform            __EXTBindableUniform;
+	final EXTBlendColor                 __EXTBlendColor;
+	final EXTBlendEquationSeparate      __EXTBlendEquationSeparate;
+	final EXTBlendFuncSeparate          __EXTBlendFuncSeparate;
+	final EXTBlendMinmax                __EXTBlendMinmax;
+	final EXTDepthBoundsTest            __EXTDepthBoundsTest;
+	final EXTDirectStateAccess          __EXTDirectStateAccess;
+	final EXTTextureInteger             __EXTTextureInteger;
+	final EXTTransformFeedback          __EXTTransformFeedback;
+	final KHRBlendEquationAdvanced      __KHRBlendEquationAdvanced;
 	final KHRDebug                      __KHRDebug;
 	final KHRRobustness                 __KHRRobustness;
+	final NVConditionalRender           __NVConditionalRender;
+	final NVPointSprite                 __NVPointSprite;
+	final NVShaderBufferLoad            __NVShaderBufferLoad;
+	final NVVertexBufferUnifiedMemory   __NVVertexBufferUnifiedMemory;
 	final WGLAMDGPUAssociation          __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion            __WGLARBBufferRegion;
 	final WGLARBCreateContext           __WGLARBCreateContext;
@@ -356,12 +387,16 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_arrays_of_arrays;
 	/** When true, {@link ARBBaseInstance} is supported. */
 	public final boolean GL_ARB_base_instance;
+	/** When true, {@link ARBBindlessTexture} is supported. */
+	public final boolean GL_ARB_bindless_texture;
 	/** When true, {@link ARBBlendFuncExtended} is supported. */
 	public final boolean GL_ARB_blend_func_extended;
 	/** When true, {@link ARBBufferStorage} is supported. */
 	public final boolean GL_ARB_buffer_storage;
 	/** When true, {@link ARBCLEvent} is supported. */
 	public final boolean GL_ARB_cl_event;
+	/** When true, {@link ARBClearBufferObject} is supported. */
+	public final boolean GL_ARB_clear_buffer_object;
 	/** When true, {@link ARBClearTexture} is supported. */
 	public final boolean GL_ARB_clear_texture;
 	/** When true, {@link ARBClipControl} is supported. */
@@ -376,6 +411,10 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_compatibility;
 	/** When true, {@link ARBCompressedTexturePixelStorage} is supported. */
 	public final boolean GL_ARB_compressed_texture_pixel_storage;
+	/** When true, {@link ARBComputeShader} is supported. */
+	public final boolean GL_ARB_compute_shader;
+	/** When true, {@link ARBComputeVariableGroupSize} is supported. */
+	public final boolean GL_ARB_compute_variable_group_size;
 	/** When true, {@link ARBConditionalRenderInverted} is supported. */
 	public final boolean GL_ARB_conditional_render_inverted;
 	/**
@@ -395,6 +434,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_conservative_depth;
 	/** When true, {@link ARBCopyBuffer} is supported. */
 	public final boolean GL_ARB_copy_buffer;
+	/** When true, {@link ARBCopyImage} is supported. */
+	public final boolean GL_ARB_copy_image;
 	/** When true, {@link ARBCullDistance} is supported. */
 	public final boolean GL_ARB_cull_distance;
 	/** When true, {@link ARBDebugOutput} is supported. */
@@ -409,6 +450,27 @@ public final class ContextCapabilities {
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/derivative_control.txt">ARB_derivative_control</a> extension is supported.
 	 * 
 	 * <p>This extension provides control over the spacial granularity at which the underlying implementation computes derivatives.</p>
+	 * 
+	 * <p>For example, for the coarse-granularity derivative, a single x derivative could be computed for each 2x2 group of pixels, using that same derivative
+	 * value for all 4 pixels. For the fine-granularity derivative, two derivatives could be computed for each 2x2 group of pixels; one for the top row and one
+	 * for the bottom row. Implementations vary somewhat on how this is done.</p>
+	 * 
+	 * <p>To select the coarse derivative, use:
+	 * <pre><code style="font-family: monospace">
+	 * dFdxCoarse(p)
+	 * dFdyCoarse(p)
+	 * fwidthCoarse(p)</code></pre>
+	 * To select the fine derivative, use:
+	 * <pre><code style="font-family: monospace">
+	 * dFdxFine(p)
+	 * dFdyFine(p)
+	 * fwidthFine(p)</code></pre>
+	 * To select which ever is "better" (based on performance, API hints, or other factors), use:
+	 * <pre><code style="font-family: monospace">
+	 * dFdx(p)
+	 * dFdy(p)
+	 * fwidth(p)</code></pre>
+	 * This last set is the set of previously existing built-ins for derivatives, and continues to work in a backward compatible way.</p>
 	 * 
 	 * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
 	 */
@@ -431,6 +493,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_ES2_compatibility;
 	/** When true, {@link ARBES31Compatibility} is supported. */
 	public final boolean GL_ARB_ES3_1_compatibility;
+	/** When true, {@link ARBES3Compatibility} is supported. */
+	public final boolean GL_ARB_ES3_compatibility;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/explicit_attrib_location.txt">ARB_explicit_attrib_location</a> extension is supported.
 	 * 
@@ -441,6 +505,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL20 OpenGL 2.0} or {@link #GL_ARB_vertex_shader ARB_vertex_shader}. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
 	 */
 	public final boolean GL_ARB_explicit_attrib_location;
+	/** When true, {@link ARBExplicitUniformLocation} is supported. */
+	public final boolean GL_ARB_explicit_uniform_location;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/fragment_coord_conventions.txt">ARB_fragment_coord_conventions</a> extension is supported.
 	 * 
@@ -504,6 +570,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_fragment_program_shadow;
 	/** When true, {@link ARBFragmentShader} is supported. */
 	public final boolean GL_ARB_fragment_shader;
+	/** When true, {@link ARBFramebufferNoAttachments} is supported. */
+	public final boolean GL_ARB_framebuffer_no_attachments;
 	/** When true, {@link ARBFramebufferObject} is supported. */
 	public final boolean GL_ARB_framebuffer_object;
 	/** When true, {@link ARBFramebufferSRGB} is supported. */
@@ -524,10 +592,16 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_half_float_vertex;
 	/** When true, {@link ARBImaging} is supported. */
 	public final boolean GL_ARB_imaging;
+	/** When true, {@link ARBIndirectParameters} is supported. */
+	public final boolean GL_ARB_indirect_parameters;
 	/** When true, {@link ARBInstancedArrays} is supported. */
 	public final boolean GL_ARB_instanced_arrays;
 	/** When true, {@link ARBInternalformatQuery} is supported. */
 	public final boolean GL_ARB_internalformat_query;
+	/** When true, {@link ARBInternalformatQuery2} is supported. */
+	public final boolean GL_ARB_internalformat_query2;
+	/** When true, {@link ARBInvalidateSubdata} is supported. */
+	public final boolean GL_ARB_invalidate_subdata;
 	/** When true, {@link ARBMapBufferAlignment} is supported. */
 	public final boolean GL_ARB_map_buffer_alignment;
 	/** When true, {@link ARBMapBufferRange} is supported. */
@@ -536,6 +610,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_matrix_palette;
 	/** When true, {@link ARBMultiBind} is supported. */
 	public final boolean GL_ARB_multi_bind;
+	/** When true, {@link ARBMultiDrawIndirect} is supported. */
+	public final boolean GL_ARB_multi_draw_indirect;
 	/** When true, {@link ARBMultisample} is supported. */
 	public final boolean GL_ARB_multisample;
 	/**
@@ -558,6 +634,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_point_parameters;
 	/** When true, {@link ARBPointSprite} is supported. */
 	public final boolean GL_ARB_point_sprite;
+	/** When true, {@link ARBProgramInterfaceQuery} is supported. */
+	public final boolean GL_ARB_program_interface_query;
 	/** When true, {@link ARBProvokingVertex} is supported. */
 	public final boolean GL_ARB_provoking_vertex;
 	/** When true, {@link ARBQueryBufferObject} is supported. */
@@ -571,7 +649,7 @@ public final class ContextCapabilities {
 	 * buffer object and program area they reference. These additional robustness guarantees apply to contexts created with the
 	 * {@code CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB} feature enabled.</p>
 	 * 
-	 * <p>Requires {@link #GL_ARB_robustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
+	 * <p>Requires {@link ARBRobustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
 	public final boolean GL_ARB_robust_buffer_access_behavior;
 	/** When true, {@link ARBRobustness} is supported. */
@@ -579,10 +657,15 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/robustness_isolation.txt">ARB_robustness_isolation</a> extension is supported.
 	 * 
-	 * <p>GL_ARB_robustness and supporting window system extensions allow creating an OpenGL context supporting graphics reset notification behavior.
-	 * GL_ARB_robustness_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
+	 * <p>{@link ARBRobustness ARB_robustness} and supporting window system extensions allow creating an OpenGL context supporting graphics reset notification behavior. This
+	 * extension provides stronger guarantees about the possible side-effects of a graphics reset.</p>
 	 * 
-	 * <p>Requires {@link #GL_ARB_robustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
+	 * <p>It is expected that there may be a performance cost associated with isolating an application or share group from other contexts on the GPU. For this
+	 * reason, ARB_robustness_isolation is phrased as an opt-in mechanism, with a new context creation bit defined in the window system bindings. It is
+	 * expected that implementations might only advertise the strings in this extension if both the implementation supports the desired isolation properties,
+	 * and the context was created with the appropriate reset isolation bit.</p>
+	 * 
+	 * <p>Requires {@link ARBRobustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
 	public final boolean GL_ARB_robustness_isolation;
 	/** When true, {@link ARBSampleShading} is supported. */
@@ -591,6 +674,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_sampler_objects;
 	/** When true, {@link ARBSeamlessCubeMap} is supported. */
 	public final boolean GL_ARB_seamless_cube_map;
+	/** When true, {@link ARBSeamlessCubemapPerTexture} is supported. */
+	public final boolean GL_ARB_seamless_cubemap_per_texture;
 	/** When true, {@link ARBSeparateShaderObjects} is supported. */
 	public final boolean GL_ARB_separate_shader_objects;
 	/** When true, {@link ARBShaderAtomicCounters} is supported. */
@@ -603,6 +688,65 @@ public final class ContextCapabilities {
 	 * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
 	 */
 	public final boolean GL_ARB_shader_bit_encoding;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_draw_parameters.txt">ARB_shader_draw_parameters</a> extension is supported.
+	 * 
+	 * <p>In unextended GL, vertex shaders have inputs named {@code gl_VertexID} and {@code gl_InstanceID}, which contain, respectively the index of the vertex
+	 * and instance. The value of {@code gl_VertexID} is the implicitly passed index of the vertex being processed, which includes the value of baseVertex, for
+	 * those commands that accept it. Meanwhile, {@code gl_InstanceID} is the integer index of the current instance being processed, but, even for commands
+	 * that accept a baseInstance parameter, it does not include the value of this argument. Furthermore, the equivalents to these variables in other graphics
+	 * APIs do not necessarily follow these conventions. The reason for this inconsistency is that there are legitimate use cases for both inclusion and
+	 * exclusion of the baseVertex or baseInstance parameters in {@code gl_VertexID} and {@code gl_InstanceID}, respectively.</p>
+	 * 
+	 * <p>Rather than change the semantics of either built-in variable, this extension adds two new built-in variables to the GL shading language,
+	 * {@code gl_BaseVertexARB} and {@code gl_BaseInstanceARB}, which contain the values passed in the baseVertex and baseInstance parameters, respectively.
+	 * Shaders provided by the application may use these variables to offset {@code gl_VertexID} or {@code gl_InstanceID} if desired, or use them for any other
+	 * purpose.</p>
+	 * 
+	 * <p>Additionally, this extension adds a further built-in variable, {@code gl_DrawID} to the shading language. This variable contains the index of the draw
+	 * currently being processed by a Multi* variant of a drawing command (such as GL14#MultiDrawElements() or GL43#MultiDrawArraysIndirect()).</p>
+	 * 
+	 * <p>Requires {@link GL31 OpenGL 3.1}. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
+	 */
+	public final boolean GL_ARB_shader_draw_parameters;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">ARB_shader_group_vote</a> extension is supported.
+	 * 
+	 * <p>This extension provides new built-in functions to compute the composite of a set of boolean conditions across a group of shader invocations. These
+	 * composite results may be used to execute shaders more efficiently on a single-instruction multiple-data (SIMD) processor. The set of shader invocations
+	 * across which boolean conditions are evaluated is implementation-dependent, and this extension provides no guarantee over how individual shader
+	 * invocations are assigned to such sets. In particular, the set of shader invocations has no necessary relationship with the compute shader local work
+	 * group -- a pair of shader invocations in a single compute shader work group may end up in different sets used by these built-ins.</p>
+	 * 
+	 * <p>Compute shaders operate on an explicitly specified group of threads (a local work group), but many implementations of OpenGL 4.3 will even group
+	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like
+	 * <pre><code style="font-family: monospace">
+	 * if (condition) {
+	 * 	result = do_fast_path();
+	 * } else {
+	 * 	result = do_general_path();
+	 * }</code></pre>
+	 * where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
+	 * is true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where {@code condition} is
+	 * false and leave the other invocations dormant. In this case, the shader executes *both* the fast and the general path and might be better off just using
+	 * the general path for all invocations.</p>
+	 * 
+	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:
+	 * <pre><code style="font-family: monospace">
+	 * if (allInvocationsARB(condition)) {
+	 * 	result = do_fast_path();
+	 * } else {
+	 * 	result = do_general_path();
+	 * }</code></pre>
+	 * The built-in function allInvocationsARB() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
+	 * or do_general_path(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation
+	 * of the result and then refining the approximation. Some input values may require a small number of iterations to generate an accurate result
+	 * (do_fast_path) while others require a larger number (do_general_path). In another example, shader code might want to evaluate a complex function
+	 * (do_general_path) that can be greatly simplified when assuming a specific value for one of its inputs (do_fast_path).</p>
+	 * 
+	 * <p>Requires {@link GL43 OpenGL 4.3} or {@link ARBComputeShader ARB_compute_shader}.</p>
+	 */
+	public final boolean GL_ARB_shader_group_vote;
 	/** When true, {@link ARBShaderImageLoadStore} is supported. */
 	public final boolean GL_ARB_shader_image_load_store;
 	/**
@@ -638,6 +782,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link #GL_ARB_fragment_shader ARB_fragment_shader}.</p>
 	 */
 	public final boolean GL_ARB_shader_stencil_export;
+	/** When true, {@link ARBShaderStorageBufferObject} is supported. */
+	public final boolean GL_ARB_shader_storage_buffer_object;
 	/** When true, {@link ARBShaderSubroutine} is supported. */
 	public final boolean GL_ARB_shader_subroutine;
 	/**
@@ -791,6 +937,10 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_shadow_ambient;
 	/** When true, {@link ARBSparseBuffer} is supported. */
 	public final boolean GL_ARB_sparse_buffer;
+	/** When true, {@link ARBSparseTexture} is supported. */
+	public final boolean GL_ARB_sparse_texture;
+	/** When true, {@link ARBStencilTexturing} is supported. */
+	public final boolean GL_ARB_stencil_texturing;
 	/** When true, {@link ARBSync} is supported. */
 	public final boolean GL_ARB_sync;
 	/** When true, {@link ARBTessellationShader} is supported. */
@@ -810,6 +960,8 @@ public final class ContextCapabilities {
 	 * <p>Promoted to core in {@link GL40 OpenGL 4.0}.</p>
 	 */
 	public final boolean GL_ARB_texture_buffer_object_rgb32;
+	/** When true, {@link ARBTextureBufferRange} is supported. */
+	public final boolean GL_ARB_texture_buffer_range;
 	/** When true, {@link ARBTextureCompression} is supported. */
 	public final boolean GL_ARB_texture_compression;
 	/** When true, {@link ARBTextureCompressionBPTC} is supported. */
@@ -865,7 +1017,16 @@ public final class ContextCapabilities {
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_query_levels.txt">ARB_texture_query_levels</a> extension is supported.
 	 * 
 	 * <p>This extension provides a new set of texture functions ({@code textureQueryLevels}) in the OpenGL Shading Language that exposes the number of accessible
-	 * mipmap levels in the texture associated with a GLSL sampler variable.</p>
+	 * mipmap levels in the texture associated with a GLSL sampler variable. The set of accessible levels includes all the levels of the texture defined either
+	 * through TexImage*, TexStorage*, or TextureView* ({@link ARBTextureView ARB_texture_view}) APIs that are not below the GL12#TEXTURE_BASE_LEVEL or above the
+	 * GL12#TEXTURE_MAX_LEVEL parameters. For textures defined with TexImage*, the set of resident levels is somewhat implementation-dependent. For fully
+	 * defined results, applications should use TexStorage*&#47;TextureView unless the texture has a full mipmap chain and is used with a mipmapped minification
+	 * filter.</p>
+	 * 
+	 * <p>These functions means that shaders are not required to manually recompute, approximate, or maintain a uniform holding a pre-computed level count, since
+	 * the true level count is already available to the implementation. This value can be used to avoid black or leaking pixel artifacts for rendering methods
+	 * which are using texture images as memory pages (eg: virtual textures); methods that can't only rely on the fixed pipeline texture functions which take
+	 * advantage of GL12#TEXTURE_MAX_LEVEL for their sampling.</p>
 	 * 
 	 * <p>Requires {@link GL30 OpenGL 3.0} and GLSL 1.30. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
@@ -885,10 +1046,23 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_texture_rg;
 	/** When true, {@link ARBTextureRGB10_A2UI} is supported. */
 	public final boolean GL_ARB_texture_rgb10_a2ui;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a> extension is supported.
+	 * 
+	 * <p>This extension accepts GL30#STENCIL_INDEX8 as a texture internal format, and adds STENCIL_INDEX8 to the required internal format list. This removes the
+	 * need to use renderbuffers if a stencil-only format is desired.</p>
+	 * 
+	 * <p>Promoted to core in {@link GL44 OpenGL 4.4}.</p>
+	 */
+	public final boolean GL_ARB_texture_stencil8;
 	/** When true, {@link ARBTextureStorage} is supported. */
 	public final boolean GL_ARB_texture_storage;
+	/** When true, {@link ARBTextureStorageMultisample} is supported. */
+	public final boolean GL_ARB_texture_storage_multisample;
 	/** When true, {@link ARBTextureSwizzle} is supported. */
 	public final boolean GL_ARB_texture_swizzle;
+	/** When true, {@link ARBTextureView} is supported. */
+	public final boolean GL_ARB_texture_view;
 	/** When true, {@link ARBTimerQuery} is supported. */
 	public final boolean GL_ARB_timer_query;
 	/** When true, {@link ARBTransformFeedback2} is supported. */
@@ -909,6 +1083,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_vertex_array_object;
 	/** When true, {@link ARBVertexAttrib64Bit} is supported. */
 	public final boolean GL_ARB_vertex_attrib_64bit;
+	/** When true, {@link ARBVertexAttribBinding} is supported. */
+	public final boolean GL_ARB_vertex_attrib_binding;
 	/** When true, {@link ARBVertexBlend} is supported. */
 	public final boolean GL_ARB_vertex_blend;
 	/** When true, {@link ARBVertexBufferObject} is supported. */
@@ -917,6 +1093,17 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_vertex_program;
 	/** When true, {@link ARBVertexShader} is supported. */
 	public final boolean GL_ARB_vertex_shader;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a> extension is supported.
+	 * 
+	 * <p>This extension a new vertex attribute data format: a packed 11.11.10 unsigned float vertex data format. This vertex data format can be used to describe
+	 * a compressed 3 component stream of values that can be represented by 10- or 11-bit unsigned floating point values.</p>
+	 * 
+	 * <p>The GL30#UNSIGNED_INT_10F_11F_11F_REV vertex attribute type is equivalent to the GL30#R11F_G11F_B10F texture internal format.</p>
+	 * 
+	 * <p>Requires {@link GL30 OpenGL 3.0} and {@link ARBVertexType2_10_10_10_REV ARB_vertex_type_2_10_10_10_rev}. Promoted to core in {@link GL44 OpenGL 4.4}.</p>
+	 */
+	public final boolean GL_ARB_vertex_type_10f_11f_11f_rev;
 	/** When true, {@link ARBVertexType2_10_10_10_REV} is supported. */
 	public final boolean GL_ARB_vertex_type_2_10_10_10_rev;
 	/** When true, {@link ARBViewportArray} is supported. */
@@ -925,6 +1112,26 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_window_pos;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/ATI/shader_texture_lod.txt">ATI_shader_texture_lod</a> extension is supported. */
 	public final boolean GL_ATI_shader_texture_lod;
+	/** When true, {@link EXTABGR} is supported. */
+	public final boolean GL_EXT_abgr;
+	/** When true, {@link EXTBGRA} is supported. */
+	public final boolean GL_EXT_bgra;
+	/** When true, {@link EXTBindableUniform} is supported. */
+	public final boolean GL_EXT_bindable_uniform;
+	/** When true, {@link EXTBlendColor} is supported. */
+	public final boolean GL_EXT_blend_color;
+	/** When true, {@link EXTBlendEquationSeparate} is supported. */
+	public final boolean GL_EXT_blend_equation_separate;
+	/** When true, {@link EXTBlendFuncSeparate} is supported. */
+	public final boolean GL_EXT_blend_func_separate;
+	/** When true, {@link EXTBlendMinmax} is supported. */
+	public final boolean GL_EXT_blend_minmax;
+	/** When true, {@link EXTBlendSubtract} is supported. */
+	public final boolean GL_EXT_blend_subtract;
+	/** When true, {@link EXTDepthBoundsTest} is supported. */
+	public final boolean GL_EXT_depth_bounds_test;
+	/** When true, {@link EXTDirectStateAccess} is supported. */
+	public final boolean GL_EXT_direct_state_access;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a> extension is supported.
 	 * 
@@ -934,6 +1141,18 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link #GL_ARB_depth_texture ARB_depth_texture} and {@link #GL_ARB_shadow ARB_shadow}.</p>
 	 */
 	public final boolean GL_EXT_shadow_funcs;
+	/** When true, {@link EXTStencilWrap} is supported. */
+	public final boolean GL_EXT_stencil_wrap;
+	/** When true, {@link EXTTextureFilterAnisotropic} is supported. */
+	public final boolean GL_EXT_texture_filter_anisotropic;
+	/** When true, {@link EXTTextureInteger} is supported. */
+	public final boolean GL_EXT_texture_integer;
+	/** When true, {@link EXTTransformFeedback} is supported. */
+	public final boolean GL_EXT_transform_feedback;
+	/** When true, {@link KHRBlendEquationAdvanced} is supported. */
+	public final boolean GL_KHR_blend_equation_advanced;
+	/** When true, {@link KHRBlendEquationAdvancedCoherent} is supported. */
+	public final boolean GL_KHR_blend_equation_advanced_coherent;
 	/** When true, {@link KHRContextFlushControl} is supported. */
 	public final boolean GL_KHR_context_flush_control;
 	/** When true, {@link KHRDebug} is supported. */
@@ -955,13 +1174,15 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/KHR/texture_compression_astc_hdr.txt">KHR_texture_compression_astc_hdr</a> extension is supported.
 	 * 
-	 * <p>This extension corresponds to the ASTC HDR Profile, see {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr} for details.</p>
+	 * <p>This extension corresponds to the ASTC HDR Profile, see {@link #GL_KHR_texture_compression_astc_ldr KHR_texture_compression_astc_ldr} for details.</p>
 	 */
 	public final boolean GL_KHR_texture_compression_astc_hdr;
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a> extension is supported. */
 	public final boolean GL_NV_blend_square;
+	/** When true, {@link NVConditionalRender} is supported. */
+	public final boolean GL_NV_conditional_render;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program4.txt">NV_fragment_program4</a> extension is supported. */
 	public final boolean GL_NV_fragment_program4;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program_option.txt">NV_fragment_program_option</a> extension is supported. */
@@ -987,6 +1208,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL20 OpenGL 2.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4} and {@link #GL_NV_parameter_buffer_object NV_parameter_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_parameter_buffer_object2;
+	/** When true, {@link NVPointSprite} is supported. */
+	public final boolean GL_NV_point_sprite;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_counters.txt">NV_shader_atomic_counters</a> extension is supported.
 	 * 
@@ -1009,6 +1232,8 @@ public final class ContextCapabilities {
 	 * for these operations is also provided if {@link #GL_NV_gpu_program5 NV_gpu_program5} is supported.</p>
 	 */
 	public final boolean GL_NV_shader_atomic_float;
+	/** When true, {@link NVShaderBufferLoad} is supported. */
+	public final boolean GL_NV_shader_buffer_load;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_storage_buffer_object.txt">NV_shader_storage_buffer_object</a> extension is supported.
 	 * 
@@ -1019,6 +1244,8 @@ public final class ContextCapabilities {
 	 * {@link #GL_ARB_shader_storage_buffer_object ARB_shader_storage_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_shader_storage_buffer_object;
+	/** When true, {@link NVVertexBufferUnifiedMemory} is supported. */
+	public final boolean GL_NV_vertex_buffer_unified_memory;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/vertex_program1_1.txt">NV_vertex_program1_1</a> extension is supported. */
 	public final boolean GL_NV_vertex_program1_1;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/vertex_program2.txt">NV_vertex_program2</a> extension is supported. */
@@ -1157,17 +1384,22 @@ public final class ContextCapabilities {
 		GL_AMD_vertex_shader_viewport_index = ext.contains("GL_AMD_vertex_shader_viewport_index");
 		GL_ARB_arrays_of_arrays = ext.contains("GL_ARB_arrays_of_arrays");
 		GL_ARB_base_instance = (__ARBBaseInstance = ARBBaseInstance.create(ext, provider)) != null;
+		GL_ARB_bindless_texture = (__ARBBindlessTexture = ARBBindlessTexture.create(ext, provider)) != null;
 		GL_ARB_blend_func_extended = (__ARBBlendFuncExtended = ARBBlendFuncExtended.create(ext, provider)) != null;
 		GL_ARB_buffer_storage = (__ARBBufferStorage = ARBBufferStorage.create(ext, provider)) != null;
 		GL_ARB_cl_event = (__ARBCLEvent = ARBCLEvent.create(ext, provider)) != null;
+		GL_ARB_clear_buffer_object = (__ARBClearBufferObject = ARBClearBufferObject.create(ext, provider)) != null;
 		GL_ARB_clear_texture = (__ARBClearTexture = ARBClearTexture.create(ext, provider)) != null;
 		GL_ARB_clip_control = (__ARBClipControl = ARBClipControl.create(ext, provider)) != null;
 		GL_ARB_color_buffer_float = (__ARBColorBufferFloat = ARBColorBufferFloat.create(ext, provider)) != null;
 		GL_ARB_compatibility = ext.contains("GL_ARB_compatibility");
 		GL_ARB_compressed_texture_pixel_storage = ext.contains("GL_ARB_compressed_texture_pixel_storage");
+		GL_ARB_compute_shader = (__ARBComputeShader = ARBComputeShader.create(ext, provider)) != null;
+		GL_ARB_compute_variable_group_size = (__ARBComputeVariableGroupSize = ARBComputeVariableGroupSize.create(ext, provider)) != null;
 		GL_ARB_conditional_render_inverted = ext.contains("GL_ARB_conditional_render_inverted");
 		GL_ARB_conservative_depth = ext.contains("GL_ARB_conservative_depth");
 		GL_ARB_copy_buffer = (__ARBCopyBuffer = ARBCopyBuffer.create(ext, provider)) != null;
+		GL_ARB_copy_image = (__ARBCopyImage = ARBCopyImage.create(ext, provider)) != null;
 		GL_ARB_cull_distance = ext.contains("GL_ARB_cull_distance");
 		GL_ARB_debug_output = (__ARBDebugOutput = ARBDebugOutput.create(ext, provider)) != null;
 		GL_ARB_depth_buffer_float = ext.contains("GL_ARB_depth_buffer_float");
@@ -1183,12 +1415,15 @@ public final class ContextCapabilities {
 		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
 		GL_ARB_ES2_compatibility = (__ARBES2Compatibility = ARBES2Compatibility.create(ext, provider)) != null;
 		GL_ARB_ES3_1_compatibility = (__ARBES31Compatibility = ARBES31Compatibility.create(ext, provider)) != null;
+		GL_ARB_ES3_compatibility = ext.contains("GL_ARB_ES3_compatibility");
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
+		GL_ARB_explicit_uniform_location = ext.contains("GL_ARB_explicit_uniform_location");
 		GL_ARB_fragment_coord_conventions = ext.contains("GL_ARB_fragment_coord_conventions");
 		GL_ARB_fragment_layer_viewport = ext.contains("GL_ARB_fragment_layer_viewport");
 		GL_ARB_fragment_program = ext.contains("GL_ARB_fragment_program");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_fragment_shader = ext.contains("GL_ARB_fragment_shader");
+		GL_ARB_framebuffer_no_attachments = (__ARBFramebufferNoAttachments = ARBFramebufferNoAttachments.create(ext, provider)) != null;
 		GL_ARB_framebuffer_object = (__ARBFramebufferObject = ARBFramebufferObject.create(ext, provider)) != null;
 		GL_ARB_framebuffer_sRGB = ext.contains("GL_ARB_framebuffer_sRGB");
 		GL_ARB_geometry_shader4 = (__ARBGeometryShader4 = ARBGeometryShader4.create(ext, provider)) != null;
@@ -1199,12 +1434,16 @@ public final class ContextCapabilities {
 		GL_ARB_half_float_pixel = ext.contains("GL_ARB_half_float_pixel");
 		GL_ARB_half_float_vertex = ext.contains("GL_ARB_half_float_vertex");
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
+		GL_ARB_indirect_parameters = (__ARBIndirectParameters = ARBIndirectParameters.create(ext, provider)) != null;
 		GL_ARB_instanced_arrays = (__ARBInstancedArrays = ARBInstancedArrays.create(ext, provider)) != null;
 		GL_ARB_internalformat_query = (__ARBInternalformatQuery = ARBInternalformatQuery.create(ext, provider)) != null;
+		GL_ARB_internalformat_query2 = (__ARBInternalformatQuery2 = ARBInternalformatQuery2.create(ext, provider)) != null;
+		GL_ARB_invalidate_subdata = (__ARBInvalidateSubdata = ARBInvalidateSubdata.create(ext, provider)) != null;
 		GL_ARB_map_buffer_alignment = ext.contains("GL_ARB_map_buffer_alignment");
 		GL_ARB_map_buffer_range = (__ARBMapBufferRange = ARBMapBufferRange.create(ext, provider)) != null;
 		GL_ARB_matrix_palette = (__ARBMatrixPalette = ARBMatrixPalette.create(ext, provider)) != null;
 		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
+		GL_ARB_multi_draw_indirect = (__ARBMultiDrawIndirect = ARBMultiDrawIndirect.create(ext, provider)) != null;
 		GL_ARB_multisample = (__ARBMultisample = ARBMultisample.create(ext, provider)) != null;
 		GL_ARB_multitexture = ext.contains("GL_ARB_multitexture");
 		GL_ARB_occlusion_query = (__ARBOcclusionQuery = ARBOcclusionQuery.create(ext, provider)) != null;
@@ -1213,6 +1452,7 @@ public final class ContextCapabilities {
 		GL_ARB_pixel_buffer_object = ext.contains("GL_ARB_pixel_buffer_object");
 		GL_ARB_point_parameters = (__ARBPointParameters = ARBPointParameters.create(ext, provider)) != null;
 		GL_ARB_point_sprite = ext.contains("GL_ARB_point_sprite");
+		GL_ARB_program_interface_query = (__ARBProgramInterfaceQuery = ARBProgramInterfaceQuery.create(ext, provider)) != null;
 		GL_ARB_provoking_vertex = (__ARBProvokingVertex = ARBProvokingVertex.create(ext, provider)) != null;
 		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
 		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
@@ -1221,14 +1461,18 @@ public final class ContextCapabilities {
 		GL_ARB_sample_shading = (__ARBSampleShading = ARBSampleShading.create(ext, provider)) != null;
 		GL_ARB_sampler_objects = (__ARBSamplerObjects = ARBSamplerObjects.create(ext, provider)) != null;
 		GL_ARB_seamless_cube_map = ext.contains("GL_ARB_seamless_cube_map");
+		GL_ARB_seamless_cubemap_per_texture = ext.contains("GL_ARB_seamless_cubemap_per_texture");
 		GL_ARB_separate_shader_objects = (__ARBSeparateShaderObjects = ARBSeparateShaderObjects.create(ext, provider)) != null;
 		GL_ARB_shader_atomic_counters = (__ARBShaderAtomicCounters = ARBShaderAtomicCounters.create(ext, provider)) != null;
 		GL_ARB_shader_bit_encoding = ext.contains("GL_ARB_shader_bit_encoding");
+		GL_ARB_shader_draw_parameters = ext.contains("GL_ARB_shader_draw_parameters");
+		GL_ARB_shader_group_vote = ext.contains("GL_ARB_shader_group_vote");
 		GL_ARB_shader_image_load_store = (__ARBShaderImageLoadStore = ARBShaderImageLoadStore.create(ext, provider)) != null;
 		GL_ARB_shader_image_size = ext.contains("GL_ARB_shader_image_size");
 		GL_ARB_shader_objects = (__ARBShaderObjects = ARBShaderObjects.create(ext, provider)) != null;
 		GL_ARB_shader_precision = ext.contains("GL_ARB_shader_precision");
 		GL_ARB_shader_stencil_export = ext.contains("GL_ARB_shader_stencil_export");
+		GL_ARB_shader_storage_buffer_object = (__ARBShaderStorageBufferObject = ARBShaderStorageBufferObject.create(ext, provider)) != null;
 		GL_ARB_shader_subroutine = (__ARBShaderSubroutine = ARBShaderSubroutine.create(ext, provider)) != null;
 		GL_ARB_shader_texture_image_samples = ext.contains("GL_ARB_shader_texture_image_samples");
 		GL_ARB_shader_texture_lod = ext.contains("GL_ARB_shader_texture_lod");
@@ -1239,12 +1483,15 @@ public final class ContextCapabilities {
 		GL_ARB_shadow = ext.contains("GL_ARB_shadow");
 		GL_ARB_shadow_ambient = ext.contains("GL_ARB_shadow_ambient");
 		GL_ARB_sparse_buffer = (__ARBSparseBuffer = ARBSparseBuffer.create(ext, provider)) != null;
+		GL_ARB_sparse_texture = (__ARBSparseTexture = ARBSparseTexture.create(ext, provider)) != null;
+		GL_ARB_stencil_texturing = ext.contains("GL_ARB_stencil_texturing");
 		GL_ARB_sync = (__ARBSync = ARBSync.create(ext, provider)) != null;
 		GL_ARB_tessellation_shader = (__ARBTessellationShader = ARBTessellationShader.create(ext, provider)) != null;
 		GL_ARB_texture_barrier = (__ARBTextureBarrier = ARBTextureBarrier.create(ext, provider)) != null;
 		GL_ARB_texture_border_clamp = ext.contains("GL_ARB_texture_border_clamp");
 		GL_ARB_texture_buffer_object = (__ARBTextureBufferObject = ARBTextureBufferObject.create(ext, provider)) != null;
 		GL_ARB_texture_buffer_object_rgb32 = ext.contains("GL_ARB_texture_buffer_object_rgb32");
+		GL_ARB_texture_buffer_range = (__ARBTextureBufferRange = ARBTextureBufferRange.create(ext, provider)) != null;
 		GL_ARB_texture_compression = (__ARBTextureCompression = ARBTextureCompression.create(ext, provider)) != null;
 		GL_ARB_texture_compression_bptc = ext.contains("GL_ARB_texture_compression_bptc");
 		GL_ARB_texture_compression_rgtc = ext.contains("GL_ARB_texture_compression_rgtc");
@@ -1265,8 +1512,11 @@ public final class ContextCapabilities {
 		GL_ARB_texture_rectangle = ext.contains("GL_ARB_texture_rectangle");
 		GL_ARB_texture_rg = ext.contains("GL_ARB_texture_rg");
 		GL_ARB_texture_rgb10_a2ui = ext.contains("GL_ARB_texture_rgb10_a2ui");
+		GL_ARB_texture_stencil8 = ext.contains("GL_ARB_texture_stencil8");
 		GL_ARB_texture_storage = (__ARBTextureStorage = ARBTextureStorage.create(ext, provider)) != null;
+		GL_ARB_texture_storage_multisample = (__ARBTextureStorageMultisample = ARBTextureStorageMultisample.create(ext, provider)) != null;
 		GL_ARB_texture_swizzle = ext.contains("GL_ARB_texture_swizzle");
+		GL_ARB_texture_view = (__ARBTextureView = ARBTextureView.create(ext, provider)) != null;
 		GL_ARB_timer_query = (__ARBTimerQuery = ARBTimerQuery.create(ext, provider)) != null;
 		GL_ARB_transform_feedback2 = (__ARBTransformFeedback2 = ARBTransformFeedback2.create(ext, provider)) != null;
 		GL_ARB_transform_feedback3 = (__ARBTransformFeedback3 = ARBTransformFeedback3.create(ext, provider)) != null;
@@ -1277,15 +1527,33 @@ public final class ContextCapabilities {
 		GL_ARB_vertex_array_bgra = ext.contains("GL_ARB_vertex_array_bgra");
 		GL_ARB_vertex_array_object = (__ARBVertexArrayObject = ARBVertexArrayObject.create(ext, provider)) != null;
 		GL_ARB_vertex_attrib_64bit = (__ARBVertexAttrib64Bit = ARBVertexAttrib64Bit.create(ext, provider)) != null;
+		GL_ARB_vertex_attrib_binding = (__ARBVertexAttribBinding = ARBVertexAttribBinding.create(ext, provider)) != null;
 		GL_ARB_vertex_blend = (__ARBVertexBlend = ARBVertexBlend.create(ext, provider)) != null;
 		GL_ARB_vertex_buffer_object = (__ARBVertexBufferObject = ARBVertexBufferObject.create(ext, provider)) != null;
 		GL_ARB_vertex_program = (__ARBVertexProgram = ARBVertexProgram.create(ext, provider)) != null;
 		GL_ARB_vertex_shader = (__ARBVertexShader = ARBVertexShader.create(ext, provider)) != null;
+		GL_ARB_vertex_type_10f_11f_11f_rev = ext.contains("GL_ARB_vertex_type_10f_11f_11f_rev");
 		GL_ARB_vertex_type_2_10_10_10_rev = (__ARBVertexType2_10_10_10_REV = ARBVertexType2_10_10_10_REV.create(ext, provider, fc)) != null;
 		GL_ARB_viewport_array = (__ARBViewportArray = ARBViewportArray.create(ext, provider)) != null;
 		GL_ARB_window_pos = (__ARBWindowPos = ARBWindowPos.create(ext, provider)) != null;
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
+		GL_EXT_abgr = ext.contains("GL_EXT_abgr");
+		GL_EXT_bgra = ext.contains("GL_EXT_bgra");
+		GL_EXT_bindable_uniform = (__EXTBindableUniform = EXTBindableUniform.create(ext, provider)) != null;
+		GL_EXT_blend_color = (__EXTBlendColor = EXTBlendColor.create(ext, provider)) != null;
+		GL_EXT_blend_equation_separate = (__EXTBlendEquationSeparate = EXTBlendEquationSeparate.create(ext, provider)) != null;
+		GL_EXT_blend_func_separate = (__EXTBlendFuncSeparate = EXTBlendFuncSeparate.create(ext, provider)) != null;
+		GL_EXT_blend_minmax = (__EXTBlendMinmax = EXTBlendMinmax.create(ext, provider)) != null;
+		GL_EXT_blend_subtract = ext.contains("GL_EXT_blend_subtract");
+		GL_EXT_depth_bounds_test = (__EXTDepthBoundsTest = EXTDepthBoundsTest.create(ext, provider)) != null;
+		GL_EXT_direct_state_access = (__EXTDirectStateAccess = EXTDirectStateAccess.create(ext, provider)) != null;
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
+		GL_EXT_stencil_wrap = ext.contains("GL_EXT_stencil_wrap");
+		GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
+		GL_EXT_texture_integer = (__EXTTextureInteger = EXTTextureInteger.create(ext, provider)) != null;
+		GL_EXT_transform_feedback = (__EXTTransformFeedback = EXTTransformFeedback.create(ext, provider)) != null;
+		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
+		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");
 		GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
 		GL_KHR_debug = (__KHRDebug = KHRDebug.create(ext, provider)) != null;
 		GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
@@ -1293,13 +1561,17 @@ public final class ContextCapabilities {
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
 		GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
 		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
+		GL_NV_conditional_render = (__NVConditionalRender = NVConditionalRender.create(ext, provider)) != null;
 		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
 		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
 		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
+		GL_NV_point_sprite = (__NVPointSprite = NVPointSprite.create(ext, provider)) != null;
 		GL_NV_shader_atomic_counters = ext.contains("GL_NV_shader_atomic_counters");
 		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
+		GL_NV_shader_buffer_load = (__NVShaderBufferLoad = NVShaderBufferLoad.create(ext, provider)) != null;
 		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
+		GL_NV_vertex_buffer_unified_memory = (__NVVertexBufferUnifiedMemory = NVVertexBufferUnifiedMemory.create(ext, provider)) != null;
 		GL_NV_vertex_program1_1 = ext.contains("GL_NV_vertex_program1_1");
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");

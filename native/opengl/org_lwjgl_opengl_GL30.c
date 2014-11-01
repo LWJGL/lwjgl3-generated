@@ -70,8 +70,8 @@ typedef GLvoid (APIENTRY *glFramebufferRenderbufferPROC) (GLenum, GLenum, GLenum
 typedef GLvoid (APIENTRY *glGetFramebufferAttachmentParameterivPROC) (GLenum, GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glBlitFramebufferPROC) (GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);
 typedef GLvoid (APIENTRY *glGenerateMipmapPROC) (GLenum);
-typedef GLvoid (APIENTRY *glTexParameterIivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glTexParameterIuivPROC) (GLenum, GLenum, GLuint *);
+typedef GLvoid (APIENTRY *glTexParameterIivPROC) (GLenum, GLenum, const GLint *);
+typedef GLvoid (APIENTRY *glTexParameterIuivPROC) (GLenum, GLenum, const GLuint *);
 typedef GLvoid (APIENTRY *glGetTexParameterIivPROC) (GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetTexParameterIuivPROC) (GLenum, GLenum, GLuint *);
 typedef GLvoid (APIENTRY *glColorMaskiPROC) (GLuint, GLboolean, GLboolean, GLboolean, GLboolean);
@@ -509,14 +509,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglGenerateMipmap(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglTexParameterIiv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLint *params = (GLint *)(intptr_t)paramsAddress;
+	const GLint *params = (const GLint *)(intptr_t)paramsAddress;
 	glTexParameterIivPROC glTexParameterIiv = (glTexParameterIivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexParameterIiv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL30_nglTexParameterIuiv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLuint *params = (GLuint *)(intptr_t)paramsAddress;
+	const GLuint *params = (const GLuint *)(intptr_t)paramsAddress;
 	glTexParameterIuivPROC glTexParameterIuiv = (glTexParameterIuivPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexParameterIuiv(target, pname, params);

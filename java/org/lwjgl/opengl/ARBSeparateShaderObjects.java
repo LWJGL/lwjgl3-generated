@@ -322,12 +322,14 @@ public final class ARBSeparateShaderObjects {
 	 * @param strings an array of pointers to source code strings from which to create the program object
 	 */
 	public static int glCreateShaderProgram(int type, int count, ByteBuffer strings) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(strings, count << POINTER_SHIFT);
 		return GL41.nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
 
 	/** Alternative version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, int count, PointerBuffer strings) {
-		return GL41.nglCreateShaderProgramv(type, count, memAddress(strings));
+	public static int glCreateShaderProgram(int type, PointerBuffer strings) {
+		return GL41.nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
 	}
 
 	/** Array version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */

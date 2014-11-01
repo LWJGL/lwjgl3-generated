@@ -672,9 +672,29 @@ public final class ARBDirectStateAccess {
 		GL45.nglNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/** ByteBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		GL45.nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
+	}
+
+	/** ShortBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	public static void glNamedBufferSubData(int buffer, long offset, ShortBuffer data) {
+		GL45.nglNamedBufferSubData(buffer, offset, data.remaining() << 1, memAddress(data));
+	}
+
+	/** IntBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	public static void glNamedBufferSubData(int buffer, long offset, IntBuffer data) {
+		GL45.nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+	}
+
+	/** FloatBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	public static void glNamedBufferSubData(int buffer, long offset, FloatBuffer data) {
+		GL45.nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+	}
+
+	/** DoubleBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	public static void glNamedBufferSubData(int buffer, long offset, DoubleBuffer data) {
+		GL45.nglNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
 	}
 
 	// --- [ glCopyNamedBufferSubData ] ---
@@ -889,11 +909,15 @@ public final class ARBDirectStateAccess {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteri(int buffer, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 2);
 		GL45.nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteri(int, int, ByteBuffer) GetNamedBufferParameteri} */
 	public static void glGetNamedBufferParameter(int buffer, int pname, IntBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		GL45.nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
@@ -924,11 +948,15 @@ public final class ARBDirectStateAccess {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteri64(int buffer, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 3);
 		GL45.nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteri64(int, int, ByteBuffer) GetNamedBufferParameteri64} */
 	public static void glGetNamedBufferParameter(int buffer, int pname, LongBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		GL45.nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
@@ -959,11 +987,15 @@ public final class ARBDirectStateAccess {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetNamedBufferPointer(int buffer, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << POINTER_SHIFT);
 		GL45.nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferPointer(int, int, ByteBuffer) GetNamedBufferPointer} */
 	public static void glGetNamedBufferPointer(int buffer, int pname, PointerBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		GL45.nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 

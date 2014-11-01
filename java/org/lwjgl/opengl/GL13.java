@@ -373,10 +373,10 @@ public final class GL13 {
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(data, imageSize);
+			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddress(data));
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
@@ -387,10 +387,10 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
-	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, ByteBuffer data) {
+	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, 0, data.remaining(), memAddress(data));
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexImage2D ] ---
@@ -424,10 +424,10 @@ public final class GL13 {
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(data, imageSize);
+			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddress(data));
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, memAddressSafe(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
@@ -438,10 +438,10 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
-	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, ByteBuffer data) {
+	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage2D(target, level, internalformat, width, height, 0, data.remaining(), memAddress(data));
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexImage1D ] ---
@@ -474,10 +474,10 @@ public final class GL13 {
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(data, imageSize);
+			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddress(data));
+		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, memAddressSafe(data));
 	}
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
@@ -488,10 +488,10 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
-	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, ByteBuffer data) {
+	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglCompressedTexImage1D(target, level, internalformat, width, 0, data.remaining(), memAddress(data));
+		nglCompressedTexImage1D(target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexSubImage3D ] ---

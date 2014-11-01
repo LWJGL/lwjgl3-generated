@@ -38,8 +38,6 @@ typedef GLvoid (APIENTRY *glResetMinmaxPROC) (GLenum);
 typedef GLvoid (APIENTRY *glGetMinmaxPROC) (GLenum, GLboolean, GLenum, GLenum, GLvoid *);
 typedef GLvoid (APIENTRY *glGetMinmaxParameterivPROC) (GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetMinmaxParameterfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glBlendColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glBlendEquationPROC) (GLenum);
 
 EXTERN_C_ENTER
 
@@ -258,18 +256,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetMinmaxParameterfv(
 	glGetMinmaxParameterfvPROC glGetMinmaxParameterfv = (glGetMinmaxParameterfvPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetMinmaxParameterfv(target, pname, params);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglBlendColor(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue, jfloat alpha, jlong __functionAddress) {
-	glBlendColorPROC glBlendColor = (glBlendColorPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glBlendColor(red, green, blue, alpha);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglBlendEquation(JNIEnv *__env, jclass clazz, jint mode, jlong __functionAddress) {
-	glBlendEquationPROC glBlendEquation = (glBlendEquationPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glBlendEquation(mode);
 }
 
 EXTERN_C_EXIT

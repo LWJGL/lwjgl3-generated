@@ -9598,6 +9598,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglTexCoordPointer(size, type, stride, pointerOffset);
 	}
 
+	/** GL_HALF_FLOAT version of: {@link #glTexCoordPointer TexCoordPointer} */
+	public static void glTexCoordPointer(int size, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglTexCoordPointer(size, GL30.GL_HALF_FLOAT, stride, memAddress(pointer));
+	}
+
 	/** GL_FLOAT version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )

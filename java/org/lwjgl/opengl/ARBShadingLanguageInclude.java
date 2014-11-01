@@ -21,17 +21,17 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension introduces a {@code &#35;include} GLSL directive to allow reusing the same shader text in multiple shaders and defines the semantics and syntax of
  * the names allowed in {@code &#35;include} directives. It also defines API mechanisms to define the named string backing a {@code &#35;include}.</p>
  * 
- * <p><h3>Introduction</h3></p>
+ * <h3>Introduction</h3>
  * 
  * <p>The GLSL {@code &#35;include} mechanism looks up paths in a tree built through the OpenGL API. This appendix describes the syntax and semantic model of the tree and
  * paths into the tree. How the tree is used is up to users of the tree, like the OpenGL API or GLSL.</p>
  * 
- * <p><h3>The Tree</h3></p>
+ * <h3>The Tree</h3>
  * 
  * <p>The tree is a singly rooted hierarchy of tree locations. The root may have one or more child locations, and any location may in turn have its own
  * children. Except for the root, each location has exactly one parent; the root has no parent.</p>
  * 
- * <p><h3>Paths into the Tree</h3></p>
+ * <h3>Paths into the Tree</h3>
  * 
  * <p>The locations in the tree are created or looked up by path strings. The path string "/" locates the root of the tree. The path "/foo" locates the child
  * "foo" of the root. Formally, a valid path is a sequence of tokens delimited by the beginning of the string, by the path-separator forward slash ( / ),
@@ -56,7 +56,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>Any other token is considered the name of a child of the current location, and walks to that child. (If there is no child of that name, this may result
  * in a failed lookup or in the child being created, as specified by the user of the tree for the operation being performed.)</p>
  * 
- * <p><h3>Associated Strings</h3></p>
+ * <h3>Associated Strings</h3>
  * 
  * <p>Each location in the tree can have an additional string associated with it (that a user like the {@code &#35;include} mechanism can use as an included string). This
  * is true even for locations that have children: "/foo/bar" can exist in the tree at the same time that "/foo" has an additional string associated with
@@ -387,17 +387,22 @@ public final class ARBShadingLanguageInclude {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, namelen);
 			checkNT1(name);
+			checkBuffer(params, 1 << 2);
 		}
 		nglGetNamedStringivARB(namelen, memAddress(name), pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
 	public static void glGetNamedStringARB(ByteBuffer name, int pname, IntBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
 	}
 
 	/** CharSequence version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
 	public static void glGetNamedStringiARB(CharSequence name, int pname, IntBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		ByteBuffer nameEncoded = memEncodeASCII(name);
 		nglGetNamedStringivARB(name.length(), memAddress(nameEncoded), pname, memAddress(params));
 	}

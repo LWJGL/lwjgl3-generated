@@ -190,13 +190,13 @@ public final class ARBVertexProgram {
 		VertexAttrib3svARB,
 		VertexAttrib3fvARB,
 		VertexAttrib3dvARB,
+		VertexAttrib4fvARB,
 		VertexAttrib4bvARB,
 		VertexAttrib4svARB,
 		VertexAttrib4ivARB,
 		VertexAttrib4ubvARB,
 		VertexAttrib4usvARB,
 		VertexAttrib4uivARB,
-		VertexAttrib4fvARB,
 		VertexAttrib4dvARB,
 		VertexAttrib4NbvARB,
 		VertexAttrib4NsvARB,
@@ -219,14 +219,14 @@ public final class ARBVertexProgram {
 		ProgramLocalParameter4dvARB,
 		ProgramLocalParameter4fARB,
 		ProgramLocalParameter4fvARB,
-		GetProgramEnvParameterdvARB,
 		GetProgramEnvParameterfvARB,
-		GetProgramLocalParameterdvARB,
+		GetProgramEnvParameterdvARB,
 		GetProgramLocalParameterfvARB,
+		GetProgramLocalParameterdvARB,
 		GetProgramivARB,
 		GetProgramStringARB,
-		GetVertexAttribdvARB,
 		GetVertexAttribfvARB,
+		GetVertexAttribdvARB,
 		GetVertexAttribivARB,
 		GetVertexAttribPointervARB,
 		IsProgramARB;
@@ -255,13 +255,13 @@ public final class ARBVertexProgram {
 		VertexAttrib3svARB = provider.getFunctionAddress("glVertexAttrib3svARB");
 		VertexAttrib3fvARB = provider.getFunctionAddress("glVertexAttrib3fvARB");
 		VertexAttrib3dvARB = provider.getFunctionAddress("glVertexAttrib3dvARB");
+		VertexAttrib4fvARB = provider.getFunctionAddress("glVertexAttrib4fvARB");
 		VertexAttrib4bvARB = provider.getFunctionAddress("glVertexAttrib4bvARB");
 		VertexAttrib4svARB = provider.getFunctionAddress("glVertexAttrib4svARB");
 		VertexAttrib4ivARB = provider.getFunctionAddress("glVertexAttrib4ivARB");
 		VertexAttrib4ubvARB = provider.getFunctionAddress("glVertexAttrib4ubvARB");
 		VertexAttrib4usvARB = provider.getFunctionAddress("glVertexAttrib4usvARB");
 		VertexAttrib4uivARB = provider.getFunctionAddress("glVertexAttrib4uivARB");
-		VertexAttrib4fvARB = provider.getFunctionAddress("glVertexAttrib4fvARB");
 		VertexAttrib4dvARB = provider.getFunctionAddress("glVertexAttrib4dvARB");
 		VertexAttrib4NbvARB = provider.getFunctionAddress("glVertexAttrib4NbvARB");
 		VertexAttrib4NsvARB = provider.getFunctionAddress("glVertexAttrib4NsvARB");
@@ -284,14 +284,14 @@ public final class ARBVertexProgram {
 		ProgramLocalParameter4dvARB = provider.getFunctionAddress("glProgramLocalParameter4dvARB");
 		ProgramLocalParameter4fARB = provider.getFunctionAddress("glProgramLocalParameter4fARB");
 		ProgramLocalParameter4fvARB = provider.getFunctionAddress("glProgramLocalParameter4fvARB");
-		GetProgramEnvParameterdvARB = provider.getFunctionAddress("glGetProgramEnvParameterdvARB");
 		GetProgramEnvParameterfvARB = provider.getFunctionAddress("glGetProgramEnvParameterfvARB");
-		GetProgramLocalParameterdvARB = provider.getFunctionAddress("glGetProgramLocalParameterdvARB");
+		GetProgramEnvParameterdvARB = provider.getFunctionAddress("glGetProgramEnvParameterdvARB");
 		GetProgramLocalParameterfvARB = provider.getFunctionAddress("glGetProgramLocalParameterfvARB");
+		GetProgramLocalParameterdvARB = provider.getFunctionAddress("glGetProgramLocalParameterdvARB");
 		GetProgramivARB = provider.getFunctionAddress("glGetProgramivARB");
 		GetProgramStringARB = provider.getFunctionAddress("glGetProgramStringARB");
-		GetVertexAttribdvARB = provider.getFunctionAddress("glGetVertexAttribdvARB");
 		GetVertexAttribfvARB = provider.getFunctionAddress("glGetVertexAttribfvARB");
+		GetVertexAttribdvARB = provider.getFunctionAddress("glGetVertexAttribdvARB");
 		GetVertexAttribivARB = provider.getFunctionAddress("glGetVertexAttribivARB");
 		GetVertexAttribPointervARB = provider.getFunctionAddress("glGetVertexAttribPointervARB");
 		IsProgramARB = provider.getFunctionAddress("glIsProgramARB");
@@ -314,15 +314,15 @@ public final class ARBVertexProgram {
 			funcs.VertexAttrib2dARB, funcs.VertexAttrib3sARB, funcs.VertexAttrib3fARB, funcs.VertexAttrib3dARB, funcs.VertexAttrib4sARB, 
 			funcs.VertexAttrib4fARB, funcs.VertexAttrib4dARB, funcs.VertexAttrib4NubARB, funcs.VertexAttrib1svARB, funcs.VertexAttrib1fvARB, 
 			funcs.VertexAttrib1dvARB, funcs.VertexAttrib2svARB, funcs.VertexAttrib2fvARB, funcs.VertexAttrib2dvARB, funcs.VertexAttrib3svARB, 
-			funcs.VertexAttrib3fvARB, funcs.VertexAttrib3dvARB, funcs.VertexAttrib4bvARB, funcs.VertexAttrib4svARB, funcs.VertexAttrib4ivARB, 
-			funcs.VertexAttrib4ubvARB, funcs.VertexAttrib4usvARB, funcs.VertexAttrib4uivARB, funcs.VertexAttrib4fvARB, funcs.VertexAttrib4dvARB, 
+			funcs.VertexAttrib3fvARB, funcs.VertexAttrib3dvARB, funcs.VertexAttrib4fvARB, funcs.VertexAttrib4bvARB, funcs.VertexAttrib4svARB, 
+			funcs.VertexAttrib4ivARB, funcs.VertexAttrib4ubvARB, funcs.VertexAttrib4usvARB, funcs.VertexAttrib4uivARB, funcs.VertexAttrib4dvARB, 
 			funcs.VertexAttrib4NbvARB, funcs.VertexAttrib4NsvARB, funcs.VertexAttrib4NivARB, funcs.VertexAttrib4NubvARB, funcs.VertexAttrib4NusvARB, 
 			funcs.VertexAttrib4NuivARB, funcs.VertexAttribPointerARB, funcs.EnableVertexAttribArrayARB, funcs.DisableVertexAttribArrayARB, 
 			funcs.ProgramStringARB, funcs.BindProgramARB, funcs.DeleteProgramsARB, funcs.GenProgramsARB, funcs.ProgramEnvParameter4dARB, 
 			funcs.ProgramEnvParameter4dvARB, funcs.ProgramEnvParameter4fARB, funcs.ProgramEnvParameter4fvARB, funcs.ProgramLocalParameter4dARB, 
-			funcs.ProgramLocalParameter4dvARB, funcs.ProgramLocalParameter4fARB, funcs.ProgramLocalParameter4fvARB, funcs.GetProgramEnvParameterdvARB, 
-			funcs.GetProgramEnvParameterfvARB, funcs.GetProgramLocalParameterdvARB, funcs.GetProgramLocalParameterfvARB, funcs.GetProgramivARB, 
-			funcs.GetProgramStringARB, funcs.GetVertexAttribdvARB, funcs.GetVertexAttribfvARB, funcs.GetVertexAttribivARB, funcs.GetVertexAttribPointervARB, 
+			funcs.ProgramLocalParameter4dvARB, funcs.ProgramLocalParameter4fARB, funcs.ProgramLocalParameter4fvARB, funcs.GetProgramEnvParameterfvARB, 
+			funcs.GetProgramEnvParameterdvARB, funcs.GetProgramLocalParameterfvARB, funcs.GetProgramLocalParameterdvARB, funcs.GetProgramivARB, 
+			funcs.GetProgramStringARB, funcs.GetVertexAttribfvARB, funcs.GetVertexAttribdvARB, funcs.GetVertexAttribivARB, funcs.GetVertexAttribPointervARB, 
 			funcs.IsProgramARB
 		);
 
@@ -903,6 +903,40 @@ public final class ARBVertexProgram {
 		nglVertexAttrib3dvARB(index, memAddress(v));
 	}
 
+	// --- [ glVertexAttrib4fvARB ] ---
+
+	/** JNI method for {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
+	@JavadocExclude
+	public static native void nglVertexAttrib4fvARB(int index, long v, long __functionAddress);
+
+	/** Unsafe version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
+	@JavadocExclude
+	public static void nglVertexAttrib4fvARB(int index, long v) {
+		long __functionAddress = getInstance().VertexAttrib4fvARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglVertexAttrib4fvARB(index, v, __functionAddress);
+	}
+
+	/**
+	 * Pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 *
+	 * @param index the vertex attribute index
+	 * @param v     a buffer from which to read the attribute value
+	 */
+	public static void glVertexAttrib4fARB(int index, ByteBuffer v) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(v, 4 << 2);
+		nglVertexAttrib4fvARB(index, memAddress(v));
+	}
+
+	/** Alternative version of: {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
+	public static void glVertexAttrib4ARB(int index, FloatBuffer v) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(v, 4);
+		nglVertexAttrib4fvARB(index, memAddress(v));
+	}
+
 	// --- [ glVertexAttrib4bvARB ] ---
 
 	/** JNI method for {@link #glVertexAttrib4bARB(int, ByteBuffer) VertexAttrib4bARB} */
@@ -919,7 +953,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Byte version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
+	 * Byte version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -980,7 +1014,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Integer version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
+	 * Integer version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1014,7 +1048,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned byte version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
+	 * Unsigned byte version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1041,7 +1075,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned short version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
+	 * Unsigned short version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1075,7 +1109,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned integer version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
+	 * Unsigned integer version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1091,40 +1125,6 @@ public final class ARBVertexProgram {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4uivARB(index, memAddress(v));
-	}
-
-	// --- [ glVertexAttrib4fvARB ] ---
-
-	/** JNI method for {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4fvARB(int index, long v, long __functionAddress);
-
-	/** Unsafe version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
-	@JavadocExclude
-	public static void nglVertexAttrib4fvARB(int index, long v) {
-		long __functionAddress = getInstance().VertexAttrib4fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib4fvARB(index, v, __functionAddress);
-	}
-
-	/**
-	 * Pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
-	public static void glVertexAttrib4fARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(v, 4 << 2);
-		nglVertexAttrib4fvARB(index, memAddress(v));
-	}
-
-	/** Alternative version of: {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
-	public static void glVertexAttrib4ARB(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(v, 4);
-		nglVertexAttrib4fvARB(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttrib4dvARB ] ---
@@ -1812,41 +1812,6 @@ public final class ARBVertexProgram {
 		nglProgramLocalParameter4fvARB(target, index, memAddress(params));
 	}
 
-	// --- [ glGetProgramEnvParameterdvARB ] ---
-
-	/** JNI method for {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
-	@JavadocExclude
-	public static native void nglGetProgramEnvParameterdvARB(int target, int index, long params, long __functionAddress);
-
-	/** Unsafe version of {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
-	@JavadocExclude
-	public static void nglGetProgramEnvParameterdvARB(int target, int index, long params) {
-		long __functionAddress = getInstance().GetProgramEnvParameterdvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetProgramEnvParameterdvARB(target, index, params, __functionAddress);
-	}
-
-	/**
-	 * Double version of {@link #glGetProgramEnvParameterfvARB GetProgramEnvParameterfvARB}.
-	 *
-	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
-	 * @param index  the environment parameter index
-	 * @param params a buffer in which to place the current parameter value
-	 */
-	public static void glGetProgramEnvParameterdARB(int target, int index, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 3);
-		nglGetProgramEnvParameterdvARB(target, index, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
-	public static void glGetProgramEnvParameterARB(int target, int index, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
-		nglGetProgramEnvParameterdvARB(target, index, memAddress(params));
-	}
-
 	// --- [ glGetProgramEnvParameterfvARB ] ---
 
 	/** JNI method for {@link #glGetProgramEnvParameterfARB(int, int, ByteBuffer) GetProgramEnvParameterfARB} */
@@ -1883,39 +1848,39 @@ public final class ARBVertexProgram {
 		nglGetProgramEnvParameterfvARB(target, index, memAddress(params));
 	}
 
-	// --- [ glGetProgramLocalParameterdvARB ] ---
+	// --- [ glGetProgramEnvParameterdvARB ] ---
 
-	/** JNI method for {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
+	/** JNI method for {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
 	@JavadocExclude
-	public static native void nglGetProgramLocalParameterdvARB(int target, int index, long params, long __functionAddress);
+	public static native void nglGetProgramEnvParameterdvARB(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
+	/** Unsafe version of {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
 	@JavadocExclude
-	public static void nglGetProgramLocalParameterdvARB(int target, int index, long params) {
-		long __functionAddress = getInstance().GetProgramLocalParameterdvARB;
+	public static void nglGetProgramEnvParameterdvARB(int target, int index, long params) {
+		long __functionAddress = getInstance().GetProgramEnvParameterdvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetProgramLocalParameterdvARB(target, index, params, __functionAddress);
+		nglGetProgramEnvParameterdvARB(target, index, params, __functionAddress);
 	}
 
 	/**
-	 * Double version of {@link #glGetProgramLocalParameterfvARB GetProgramLocalParameterfvARB}.
+	 * Double version of {@link #glGetProgramEnvParameterfARB(int, int, ByteBuffer) GetProgramEnvParameterfARB}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
 	 * @param params a buffer in which to place the current parameter value
 	 */
-	public static void glGetProgramLocalParameterdARB(int target, int index, ByteBuffer params) {
+	public static void glGetProgramEnvParameterdARB(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
-		nglGetProgramLocalParameterdvARB(target, index, memAddress(params));
+		nglGetProgramEnvParameterdvARB(target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
-	public static void glGetProgramLocalParameterARB(int target, int index, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetProgramEnvParameterdARB(int, int, ByteBuffer) GetProgramEnvParameterdARB} */
+	public static void glGetProgramEnvParameterARB(int target, int index, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
-		nglGetProgramLocalParameterdvARB(target, index, memAddress(params));
+		nglGetProgramEnvParameterdvARB(target, index, memAddress(params));
 	}
 
 	// --- [ glGetProgramLocalParameterfvARB ] ---
@@ -1952,6 +1917,41 @@ public final class ARBVertexProgram {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetProgramLocalParameterfvARB(target, index, memAddress(params));
+	}
+
+	// --- [ glGetProgramLocalParameterdvARB ] ---
+
+	/** JNI method for {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
+	@JavadocExclude
+	public static native void nglGetProgramLocalParameterdvARB(int target, int index, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
+	@JavadocExclude
+	public static void nglGetProgramLocalParameterdvARB(int target, int index, long params) {
+		long __functionAddress = getInstance().GetProgramLocalParameterdvARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetProgramLocalParameterdvARB(target, index, params, __functionAddress);
+	}
+
+	/**
+	 * Double version of {@link #glGetProgramLocalParameterfARB(int, int, ByteBuffer) GetProgramLocalParameterfARB}.
+	 *
+	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
+	 * @param index  the environment parameter index
+	 * @param params a buffer in which to place the current parameter value
+	 */
+	public static void glGetProgramLocalParameterdARB(int target, int index, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 4 << 3);
+		nglGetProgramLocalParameterdvARB(target, index, memAddress(params));
+	}
+
+	/** Alternative version of: {@link #glGetProgramLocalParameterdARB(int, int, ByteBuffer) GetProgramLocalParameterdARB} */
+	public static void glGetProgramLocalParameterARB(int target, int index, DoubleBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 4);
+		nglGetProgramLocalParameterdvARB(target, index, memAddress(params));
 	}
 
 	// --- [ glGetProgramivARB ] ---
@@ -2016,7 +2016,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Obtains the program string for the program object bound to {@code target} and places the information in the array {@code string}.
 	 * 
-	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramivARB GetProgramivARB} when
+	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramiARB(int, int, ByteBuffer) GetProgramiARB} when
 	 * {@code pname} is {@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}. The program string is always returned using the format given when the program string was specified.</p>
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
@@ -2028,41 +2028,6 @@ public final class ARBVertexProgram {
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(string, glGetProgramiARB(target, GL_PROGRAM_LENGTH_ARB));
 		nglGetProgramStringARB(target, pname, memAddress(string));
-	}
-
-	// --- [ glGetVertexAttribdvARB ] ---
-
-	/** JNI method for {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribdvARB(int index, int pname, long params, long __functionAddress);
-
-	/** Unsafe version of {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
-	@JavadocExclude
-	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
-		long __functionAddress = getInstance().GetVertexAttribdvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglGetVertexAttribdvARB(index, pname, params, __functionAddress);
-	}
-
-	/**
-	 * Double version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
-	 *
-	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. Must be:<br>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
-	 * @param params an array in which to place the parameter value
-	 */
-	public static void glGetVertexAttribdARB(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4 << 3);
-		nglGetVertexAttribdvARB(index, pname, memAddress(params));
-	}
-
-	/** Alternative version of: {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
-	public static void glGetVertexAttribARB(int index, int pname, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(params, 4);
-		nglGetVertexAttribdvARB(index, pname, memAddress(params));
 	}
 
 	// --- [ glGetVertexAttribfvARB ] ---
@@ -2101,6 +2066,41 @@ public final class ARBVertexProgram {
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
 	}
 
+	// --- [ glGetVertexAttribdvARB ] ---
+
+	/** JNI method for {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
+	@JavadocExclude
+	public static native void nglGetVertexAttribdvARB(int index, int pname, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
+	@JavadocExclude
+	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
+		long __functionAddress = getInstance().GetVertexAttribdvARB;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetVertexAttribdvARB(index, pname, params, __functionAddress);
+	}
+
+	/**
+	 * Double version of {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB}.
+	 *
+	 * @param index  the vertex attribute index
+	 * @param pname  the parameter to query. Must be:<br>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
+	 * @param params an array in which to place the parameter value
+	 */
+	public static void glGetVertexAttribdARB(int index, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 4 << 3);
+		nglGetVertexAttribdvARB(index, pname, memAddress(params));
+	}
+
+	/** Alternative version of: {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
+	public static void glGetVertexAttribARB(int index, int pname, DoubleBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 4);
+		nglGetVertexAttribdvARB(index, pname, memAddress(params));
+	}
+
 	// --- [ glGetVertexAttribivARB ] ---
 
 	/** JNI method for {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB} */
@@ -2117,7 +2117,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Integer version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
+	 * Integer version of {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB}.
 	 *
 	 * @param index  the vertex attribute index
 	 * @param pname  the parameter to query. One of:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}, {@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}

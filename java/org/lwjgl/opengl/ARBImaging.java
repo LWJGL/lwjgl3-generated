@@ -1443,10 +1443,6 @@ public final class ARBImaging {
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor BlendColor} */
-	@JavadocExclude
-	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
-
 	/**
 	 * Specifies the constant color C<sub>c</sub> to be used in blending.
 	 *
@@ -1459,14 +1455,10 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().BlendColor;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglBlendColor(red, green, blue, alpha, __functionAddress);
+		GL14.nglBlendColor(red, green, blue, alpha, __functionAddress);
 	}
 
 	// --- [ glBlendEquation ] ---
-
-	/** JNI method for {@link #glBlendEquation BlendEquation} */
-	@JavadocExclude
-	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
 	 * Controls the blend equations used for per-fragment blending.
@@ -1477,7 +1469,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().BlendEquation;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglBlendEquation(mode, __functionAddress);
+		GL14.nglBlendEquation(mode, __functionAddress);
 	}
 
 }

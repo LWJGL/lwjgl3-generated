@@ -28,13 +28,13 @@ typedef GLvoid (APIENTRY *glVertexAttrib2dvARBPROC) (GLuint, const GLdouble *);
 typedef GLvoid (APIENTRY *glVertexAttrib3svARBPROC) (GLuint, const GLshort *);
 typedef GLvoid (APIENTRY *glVertexAttrib3fvARBPROC) (GLuint, const GLfloat *);
 typedef GLvoid (APIENTRY *glVertexAttrib3dvARBPROC) (GLuint, const GLdouble *);
+typedef GLvoid (APIENTRY *glVertexAttrib4fvARBPROC) (GLuint, const GLfloat *);
 typedef GLvoid (APIENTRY *glVertexAttrib4bvARBPROC) (GLuint, const GLbyte *);
 typedef GLvoid (APIENTRY *glVertexAttrib4svARBPROC) (GLuint, const GLshort *);
 typedef GLvoid (APIENTRY *glVertexAttrib4ivARBPROC) (GLuint, const GLint *);
 typedef GLvoid (APIENTRY *glVertexAttrib4ubvARBPROC) (GLuint, const GLubyte *);
 typedef GLvoid (APIENTRY *glVertexAttrib4usvARBPROC) (GLuint, const GLushort *);
 typedef GLvoid (APIENTRY *glVertexAttrib4uivARBPROC) (GLuint, const GLuint *);
-typedef GLvoid (APIENTRY *glVertexAttrib4fvARBPROC) (GLuint, const GLfloat *);
 typedef GLvoid (APIENTRY *glVertexAttrib4dvARBPROC) (GLuint, const GLdouble *);
 typedef GLvoid (APIENTRY *glVertexAttrib4NbvARBPROC) (GLuint, const GLbyte *);
 typedef GLvoid (APIENTRY *glVertexAttrib4NsvARBPROC) (GLuint, const GLshort *);
@@ -57,14 +57,14 @@ typedef GLvoid (APIENTRY *glProgramLocalParameter4dARBPROC) (GLenum, GLuint, GLd
 typedef GLvoid (APIENTRY *glProgramLocalParameter4dvARBPROC) (GLenum, GLuint, const GLdouble *);
 typedef GLvoid (APIENTRY *glProgramLocalParameter4fARBPROC) (GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
 typedef GLvoid (APIENTRY *glProgramLocalParameter4fvARBPROC) (GLenum, GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramEnvParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
 typedef GLvoid (APIENTRY *glGetProgramEnvParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramLocalParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
+typedef GLvoid (APIENTRY *glGetProgramEnvParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
 typedef GLvoid (APIENTRY *glGetProgramLocalParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
+typedef GLvoid (APIENTRY *glGetProgramLocalParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
 typedef GLvoid (APIENTRY *glGetProgramivARBPROC) (GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetProgramStringARBPROC) (GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glGetVertexAttribdvARBPROC) (GLuint, GLenum, GLdouble *);
 typedef GLvoid (APIENTRY *glGetVertexAttribfvARBPROC) (GLuint, GLenum, GLfloat *);
+typedef GLvoid (APIENTRY *glGetVertexAttribdvARBPROC) (GLuint, GLenum, GLdouble *);
 typedef GLvoid (APIENTRY *glGetVertexAttribivARBPROC) (GLuint, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetVertexAttribPointervARBPROC) (GLuint, GLenum, GLvoid **);
 typedef GLboolean (APIENTRY *glIsProgramARBPROC) (GLuint);
@@ -212,6 +212,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib3dv
 	glVertexAttrib3dvARB(index, v);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4fvARB(JNIEnv *__env, jclass clazz, jint index, jlong vAddress, jlong __functionAddress) {
+	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
+	glVertexAttrib4fvARBPROC glVertexAttrib4fvARB = (glVertexAttrib4fvARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glVertexAttrib4fvARB(index, v);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4bvARB(JNIEnv *__env, jclass clazz, jint index, jlong vAddress, jlong __functionAddress) {
 	const GLbyte *v = (const GLbyte *)(intptr_t)vAddress;
 	glVertexAttrib4bvARBPROC glVertexAttrib4bvARB = (glVertexAttrib4bvARBPROC)(intptr_t)__functionAddress;
@@ -252,13 +259,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4ui
 	glVertexAttrib4uivARBPROC glVertexAttrib4uivARB = (glVertexAttrib4uivARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glVertexAttrib4uivARB(index, v);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4fvARB(JNIEnv *__env, jclass clazz, jint index, jlong vAddress, jlong __functionAddress) {
-	const GLfloat *v = (const GLfloat *)(intptr_t)vAddress;
-	glVertexAttrib4fvARBPROC glVertexAttrib4fvARB = (glVertexAttrib4fvARBPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glVertexAttrib4fvARB(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4dvARB(JNIEnv *__env, jclass clazz, jint index, jlong vAddress, jlong __functionAddress) {
@@ -408,13 +408,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramLocalPar
 	glProgramLocalParameter4fvARB(target, index, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramEnvParameterdvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
-	GLdouble *params = (GLdouble *)(intptr_t)paramsAddress;
-	glGetProgramEnvParameterdvARBPROC glGetProgramEnvParameterdvARB = (glGetProgramEnvParameterdvARBPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glGetProgramEnvParameterdvARB(target, index, params);
-}
-
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramEnvParameterfvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
 	GLfloat *params = (GLfloat *)(intptr_t)paramsAddress;
 	glGetProgramEnvParameterfvARBPROC glGetProgramEnvParameterfvARB = (glGetProgramEnvParameterfvARBPROC)(intptr_t)__functionAddress;
@@ -422,11 +415,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramEnvPa
 	glGetProgramEnvParameterfvARB(target, index, params);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramLocalParameterdvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramEnvParameterdvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
 	GLdouble *params = (GLdouble *)(intptr_t)paramsAddress;
-	glGetProgramLocalParameterdvARBPROC glGetProgramLocalParameterdvARB = (glGetProgramLocalParameterdvARBPROC)(intptr_t)__functionAddress;
+	glGetProgramEnvParameterdvARBPROC glGetProgramEnvParameterdvARB = (glGetProgramEnvParameterdvARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glGetProgramLocalParameterdvARB(target, index, params);
+	glGetProgramEnvParameterdvARB(target, index, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramLocalParameterfvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
@@ -434,6 +427,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramLocal
 	glGetProgramLocalParameterfvARBPROC glGetProgramLocalParameterfvARB = (glGetProgramLocalParameterfvARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetProgramLocalParameterfvARB(target, index, params);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramLocalParameterdvARB(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
+	GLdouble *params = (GLdouble *)(intptr_t)paramsAddress;
+	glGetProgramLocalParameterdvARBPROC glGetProgramLocalParameterdvARB = (glGetProgramLocalParameterdvARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetProgramLocalParameterdvARB(target, index, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramivARB(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
@@ -450,18 +450,18 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramStrin
 	glGetProgramStringARB(target, pname, string);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttribdvARB(JNIEnv *__env, jclass clazz, jint index, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLdouble *params = (GLdouble *)(intptr_t)paramsAddress;
-	glGetVertexAttribdvARBPROC glGetVertexAttribdvARB = (glGetVertexAttribdvARBPROC)(intptr_t)__functionAddress;
-	UNUSED_PARAMS(__env, clazz)
-	glGetVertexAttribdvARB(index, pname, params);
-}
-
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttribfvARB(JNIEnv *__env, jclass clazz, jint index, jint pname, jlong paramsAddress, jlong __functionAddress) {
 	GLfloat *params = (GLfloat *)(intptr_t)paramsAddress;
 	glGetVertexAttribfvARBPROC glGetVertexAttribfvARB = (glGetVertexAttribfvARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetVertexAttribfvARB(index, pname, params);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttribdvARB(JNIEnv *__env, jclass clazz, jint index, jint pname, jlong paramsAddress, jlong __functionAddress) {
+	GLdouble *params = (GLdouble *)(intptr_t)paramsAddress;
+	glGetVertexAttribdvARBPROC glGetVertexAttribdvARB = (glGetVertexAttribdvARBPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glGetVertexAttribdvARB(index, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttribivARB(JNIEnv *__env, jclass clazz, jint index, jint pname, jlong paramsAddress, jlong __functionAddress) {
