@@ -13,8 +13,7 @@ public final class AMDDeviceBoardName {
 	 * 
 	 * <p>Currently, this is only for GPU devices. The returned name is a 128-character value.</p>
 	 */
-	public static final int
-		CL_DEVICE_BOARD_NAME_AMD = 0x4038;
+	public static final int CL_DEVICE_BOARD_NAME_AMD = 0x4038;
 
 	private AMDDeviceBoardName() {}
 

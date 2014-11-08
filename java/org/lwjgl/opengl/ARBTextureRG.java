@@ -53,8 +53,7 @@ public final class ARBTextureRG {
 		GL_COMPRESSED_RG  = 0x8226;
 
 	/** Accepted by the {@code format} parameter of TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and ReadPixels. */
-	public static final int
-		GL_RG_INTEGER = 0x8228;
+	public static final int GL_RG_INTEGER = 0x8228;
 
 	private ARBTextureRG() {}
 

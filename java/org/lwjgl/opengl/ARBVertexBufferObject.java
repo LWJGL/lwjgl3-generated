@@ -77,8 +77,7 @@ public final class ARBVertexBufferObject {
 		GL_WEIGHT_ARRAY_BUFFER_BINDING_ARB          = 0x889E;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttribivARB. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB = 0x889F;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB = 0x889F;
 
 	/** Accepted by the {@code usage} parameter of BufferDataARB. */
 	public static final int
@@ -106,8 +105,7 @@ public final class ARBVertexBufferObject {
 		GL_BUFFER_MAPPED_ARB = 0x88BC;
 
 	/** Accepted by the {@code pname} parameter of GetBufferPointervARB. */
-	public static final int
-		GL_BUFFER_MAP_POINTER_ARB = 0x88BD;
+	public static final int GL_BUFFER_MAP_POINTER_ARB = 0x88BD;
 
 	/** Function address. */
 	@JavadocExclude

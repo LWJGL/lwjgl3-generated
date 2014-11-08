@@ -37,16 +37,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class GL14 {
 
 	/** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
-	public static final int
-		GL_GENERATE_MIPMAP = 0x8191;
+	public static final int GL_GENERATE_MIPMAP = 0x8191;
 
 	/** Accepted by the {@code target} parameter of Hint, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_GENERATE_MIPMAP_HINT = 0x8192;
+	public static final int GL_GENERATE_MIPMAP_HINT = 0x8192;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_COLOR = 0x8005;
+	public static final int GL_BLEND_COLOR = 0x8005;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int
@@ -55,8 +52,7 @@ public final class GL14 {
 		GL_MAX      = 0x8008;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_EQUATION = 0x8009;
+	public static final int GL_BLEND_EQUATION = 0x8009;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int
@@ -70,12 +66,10 @@ public final class GL14 {
 		GL_DEPTH_COMPONENT32 = 0x81A7;
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameterfv and GetTexLevelParameteriv. */
-	public static final int
-		GL_TEXTURE_DEPTH_SIZE = 0x884A;
+	public static final int GL_TEXTURE_DEPTH_SIZE = 0x884A;
 
 	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_DEPTH_TEXTURE_MODE = 0x884B;
+	public static final int GL_DEPTH_TEXTURE_MODE = 0x884B;
 
 	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
 	public static final int
@@ -86,12 +80,10 @@ public final class GL14 {
 	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
 	 * TEXTURE_COMPARE_MODE.
 	 */
-	public static final int
-		GL_COMPARE_R_TO_TEXTURE = 0x884E;
+	public static final int GL_COMPARE_R_TO_TEXTURE = 0x884E;
 
 	/** Accepted by the {@code pname} parameter of Fogi and Fogf. */
-	public static final int
-		GL_FOG_COORDINATE_SOURCE = 0x8450;
+	public static final int GL_FOG_COORDINATE_SOURCE = 0x8450;
 
 	/** Accepted by the {@code param} parameter of Fogi and Fogf. */
 	public static final int
@@ -105,12 +97,10 @@ public final class GL14 {
 		GL_FOG_COORDINATE_ARRAY_STRIDE = 0x8455;
 
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_FOG_COORDINATE_ARRAY_POINTER = 0x8456;
+	public static final int GL_FOG_COORDINATE_ARRAY_POINTER = 0x8456;
 
 	/** Accepted by the {@code array} parameter of EnableClientState and DisableClientState. */
-	public static final int
-		GL_FOG_COORDINATE_ARRAY = 0x8457;
+	public static final int GL_FOG_COORDINATE_ARRAY = 0x8457;
 
 	/** Accepted by the {@code pname} parameter of PointParameterfARB, and the {@code pname} of Get. */
 	public static final int
@@ -123,8 +113,7 @@ public final class GL14 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_COLOR_SUM = 0x8458;
+	public static final int GL_COLOR_SUM = 0x8458;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -134,12 +123,10 @@ public final class GL14 {
 		GL_SECONDARY_COLOR_ARRAY_STRIDE = 0x845C;
 
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_SECONDARY_COLOR_ARRAY_POINTER = 0x845D;
+	public static final int GL_SECONDARY_COLOR_ARRAY_POINTER = 0x845D;
 
 	/** Accepted by the {@code array} parameter of EnableClientState and DisableClientState. */
-	public static final int
-		GL_SECONDARY_COLOR_ARRAY = 0x845E;
+	public static final int GL_SECONDARY_COLOR_ARRAY = 0x845E;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -154,26 +141,22 @@ public final class GL14 {
 		GL_DECR_WRAP = 0x8508;
 
 	/** Accepted by the {@code target} parameters of GetTexEnvfv, GetTexEnviv, TexEnvi, TexEnvf, Texenviv, and TexEnvfv. */
-	public static final int
-		GL_TEXTURE_FILTER_CONTROL = 0x8500;
+	public static final int GL_TEXTURE_FILTER_CONTROL = 0x8500;
 
 	/**
 	 * When the {@code target} parameter of GetTexEnvfv, GetTexEnviv, TexEnvi, TexEnvf, TexEnviv, and TexEnvfv is TEXTURE_FILTER_CONTROL, then the value of
 	 * {@code pname} may be.
 	 */
-	public static final int
-		GL_TEXTURE_LOD_BIAS = 0x8501;
+	public static final int GL_TEXTURE_LOD_BIAS = 0x8501;
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_TEXTURE_LOD_BIAS = 0x84FD;
+	public static final int GL_MAX_TEXTURE_LOD_BIAS = 0x84FD;
 
 	/**
 	 * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
 	 * when their {@code pname} parameter is TEXTURE_WRAP_S, TEXTURE_WRAP_T, or TEXTURE_WRAP_R.
 	 */
-	public static final int
-		GL_MIRRORED_REPEAT = 0x8370;
+	public static final int GL_MIRRORED_REPEAT = 0x8370;
 
 	/** Function address. */
 	@JavadocExclude

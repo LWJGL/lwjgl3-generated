@@ -9,8 +9,7 @@ package org.lwjgl.openal;
 public final class EXTSourceDistanceModel {
 
 	/** AL_EXT_source_distance_model tokens. */
-	public static final int
-		AL_SOURCE_DISTANCE_MODEL = 0x200;
+	public static final int AL_SOURCE_DISTANCE_MODEL = 0x200;
 
 	private EXTSourceDistanceModel() {}
 

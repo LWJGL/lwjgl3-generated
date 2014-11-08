@@ -51,8 +51,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class EXTTextureInteger {
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_RGBA_INTEGER_MODE_EXT = 0x8D9E;
+	public static final int GL_RGBA_INTEGER_MODE_EXT = 0x8D9E;
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int

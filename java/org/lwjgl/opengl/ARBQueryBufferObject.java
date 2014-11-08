@@ -27,8 +27,7 @@ package org.lwjgl.opengl;
 public final class ARBQueryBufferObject {
 
 	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}. */
-	public static final int
-		GL_QUERY_RESULT_NO_WAIT = 0x9194;
+	public static final int GL_QUERY_RESULT_NO_WAIT = 0x9194;
 
 	/**
 	 * Accepted by the {@code target} parameter of {@link GL15#glBindBuffer BindBuffer}, {@link GL15#glBufferData BufferData}, {@link GL15#glBufferSubData BufferSubData},
@@ -36,19 +35,16 @@ public final class ARBQueryBufferObject {
 	 * {@link GL15#glGetBufferParameteri GetBufferParameteri}, {@link GL32#glGetBufferParameteri64 GetBufferParameteri64}, {@link GL15#glGetBufferPointer GetBufferPointer},
 	 * {@link GL43#glClearBufferSubData ClearBufferSubData}, and the {@code readtarget} and {@code writetarget} parameters of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 */
-	public static final int
-		GL_QUERY_BUFFER = 0x9192;
+	public static final int GL_QUERY_BUFFER = 0x9192;
 
 	/**
 	 * Accepted by the {@code pname} parameter of {@link GL11#glGetBoolean GetBoolean}, {@link GL11#glGetInteger GetInteger}, {@link GL11#glGetFloat GetFloat},
 	 * and {@link GL11#glGetDouble GetDouble}.
 	 */
-	public static final int
-		GL_QUERY_BUFFER_BINDING = 0x9193;
+	public static final int GL_QUERY_BUFFER_BINDING = 0x9193;
 
 	/** Accepted in the {@code barriers} bitfield in {@link GL42#glMemoryBarrier MemoryBarrier}. */
-	public static final int
-		GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
+	public static final int GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
 
 	private ARBQueryBufferObject() {}
 

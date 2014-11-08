@@ -24,8 +24,7 @@ public final class ARBHalfFloatVertex {
 	 * Accepted by the {@code type} argument of VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, FogCoordPointer, TexCoordPointer, and
 	 * VertexAttribPointer.
 	 */
-	public static final int
-		GL_HALF_FLOAT = 0x140B;
+	public static final int GL_HALF_FLOAT = 0x140B;
 
 	private ARBHalfFloatVertex() {}
 

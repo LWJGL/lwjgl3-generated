@@ -24,8 +24,7 @@ public final class ARBTextureBorderClamp {
 	 * Accepted by the {@code param} parameter of {@link GL11#glTexParameteri TexParameteri} and {@link GL11#glTexParameterf TexParameterf}, and by the {@code params} parameter of {@link GL11#glTexParameteri TexParameteri}
 	 * and {@link GL11#glTexParameterf TexParameterf}, when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}.
 	 */
-	public static final int
-		GL_CLAMP_TO_BORDER_ARB = 0x812D;
+	public static final int GL_CLAMP_TO_BORDER_ARB = 0x812D;
 
 	private ARBTextureBorderClamp() {}
 

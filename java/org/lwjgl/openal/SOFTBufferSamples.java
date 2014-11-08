@@ -70,8 +70,7 @@ public final class SOFTBufferSamples {
 		AL_SAMPLE_LENGTH_SOFT   = 0x200A;
 
 	/** Accepted by the {@code channels} parameter of alGetBufferf and alGetBufferfv. */
-	public static final int
-		AL_SEC_LENGTH_SOFT = 0x200B;
+	public static final int AL_SEC_LENGTH_SOFT = 0x200B;
 
 	/** Accepted by the {@code channels} parameter of alGetSourceiv and alGetSourcefv (these are the same as in AL_SOFT_buffer_sub_data). */
 	public static final int

@@ -85,12 +85,10 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBUniformBufferObject {
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_UNIFORM_BUFFER = 0x8A11;
+	public static final int GL_UNIFORM_BUFFER = 0x8A11;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_UNIFORM_BUFFER_BINDING = 0x8A28;
+	public static final int GL_UNIFORM_BUFFER_BINDING = 0x8A28;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v. */
 	public static final int
@@ -138,8 +136,7 @@ public final class ARBUniformBufferObject {
 		GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER = 0x8A46;
 
 	/** Returned by GetActiveUniformsiv and GetUniformBlockIndex. */
-	public static final int
-		GL_INVALID_INDEX = 0xFFFFFFFF;
+	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
 	/** Function address. */
 	@JavadocExclude

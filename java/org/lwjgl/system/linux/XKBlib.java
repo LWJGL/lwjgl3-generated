@@ -43,8 +43,7 @@ public final class XKBlib {
 		XkbXINone       = 0xFF00;
 
 	/**  */
-	public static final int
-		XkbNumKbdGroups = 0x4;
+	public static final int XkbNumKbdGroups = 0x4;
 
 	/** Assorted constants and limits. */
 	public static final int

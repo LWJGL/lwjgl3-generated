@@ -14,8 +14,7 @@ package org.lwjgl.opengl;
 public final class GLXARBContextFlushControl {
 
 	/** Accepted as an attribute name in the {@code *attrib_list} argument to {@link GLXARBCreateContext#glXCreateContextAttribsARB CreateContextAttribsARB}. */
-	public static final int
-		GLX_CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
+	public static final int GLX_CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
 
 	/**
 	 * Accepted as an attribute value for {@link #GLX_CONTEXT_RELEASE_BEHAVIOR_ARB CONTEXT_RELEASE_BEHAVIOR_ARB} in the {@code *attrib_list} argument to

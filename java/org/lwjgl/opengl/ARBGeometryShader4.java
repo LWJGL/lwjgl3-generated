@@ -35,8 +35,7 @@ import static org.lwjgl.system.Checks.*;
 public final class ARBGeometryShader4 {
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
-	public static final int
-		GL_GEOMETRY_SHADER_ARB = 0x8DD9;
+	public static final int GL_GEOMETRY_SHADER_ARB = 0x8DD9;
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteriARB and GetProgramiv. */
 	public static final int
@@ -74,8 +73,7 @@ public final class ARBGeometryShader4 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetFloatv, GetDoublev, and
 	 * GetBooleanv.
 	 */
-	public static final int
-		GL_PROGRAM_POINT_SIZE_ARB = 0x8642;
+	public static final int GL_PROGRAM_POINT_SIZE_ARB = 0x8642;
 
 	/** Function address. */
 	@JavadocExclude

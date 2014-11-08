@@ -24,8 +24,7 @@ public final class EXTEfx {
 		ALC_MAX_AUXILIARY_SENDS = 0x20003;
 
 	/** Listener properties. */
-	public static final int
-		AL_METERS_PER_UNIT  = 0x20004;
+	public static final int AL_METERS_PER_UNIT  = 0x20004;
 
 	/** Source properties. */
 	public static final int
@@ -155,8 +154,7 @@ public final class EXTEfx {
 		AL_AUTOWAH_PEAK_GAIN    = 0x4;
 
 	/** Compressor effect parameters. */
-	public static final int
-		AL_COMPRESSOR_ONOFF = 0x1;
+	public static final int AL_COMPRESSOR_ONOFF = 0x1;
 
 	/** Equalizer effect parameters. */
 	public static final int

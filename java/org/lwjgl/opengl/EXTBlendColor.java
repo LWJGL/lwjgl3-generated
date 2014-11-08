@@ -28,8 +28,7 @@ public final class EXTBlendColor {
 		GL_ONE_MINUS_CONSTANT_ALPHA_EXT = 0x8004;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_COLOR_EXT = 0x8005;
+	public static final int GL_BLEND_COLOR_EXT = 0x8005;
 
 	/** Function address. */
 	@JavadocExclude

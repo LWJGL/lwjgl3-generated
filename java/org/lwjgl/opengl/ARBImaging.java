@@ -53,39 +53,34 @@ public final class ARBImaging {
 		GL_COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
 	/** ErrorCode */
-	public static final int
-		GL_TABLE_TOO_LARGE = 0x8031;
+	public static final int GL_TABLE_TOO_LARGE = 0x8031;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of ConvolutionFilter1D, CopyConvolutionFilter1D, GetConvolutionFilter, ConvolutionParameteri,
 	 * ConvolutionParameterf, ConvolutionParameteriv, ConvolutionParameterfv, GetConvolutionParameteriv, and GetConvolutionParameterfv.
 	 */
-	public static final int
-		GL_CONVOLUTION_1D = 0x8010;
+	public static final int GL_CONVOLUTION_1D = 0x8010;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of ConvolutionFilter2D, CopyConvolutionFilter2D, GetConvolutionFilter, ConvolutionParameteri,
 	 * ConvolutionParameterf, ConvolutionParameteriv, ConvolutionParameterfv, GetConvolutionParameteriv, and GetConvolutionParameterfv.
 	 */
-	public static final int
-		GL_CONVOLUTION_2D = 0x8011;
+	public static final int GL_CONVOLUTION_2D = 0x8011;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of SeparableFilter2D, SeparableFilter2D, GetSeparableFilter, ConvolutionParameteri,
 	 * ConvolutionParameterf, ConvolutionParameteriv, ConvolutionParameterfv, GetConvolutionParameteriv, and GetConvolutionParameterfv.
 	 */
-	public static final int
-		GL_SEPARABLE_2D = 0x8012;
+	public static final int GL_SEPARABLE_2D = 0x8012;
 
 	/**
 	 * Accepted by the {@code pname} parameter of ConvolutionParameteri, ConvolutionParameterf, ConvolutionParameteriv, ConvolutionParameterfv,
 	 * GetConvolutionParameteriv, and GetConvolutionParameterfv.
 	 */
-	public static final int
-		GL_CONVOLUTION_BORDER_MODE = 0x8013;
+	public static final int GL_CONVOLUTION_BORDER_MODE = 0x8013;
 
 	/** Accepted by the {@code pname} parameter of ConvolutionParameteriv, ConvolutionParameterfv, GetConvolutionParameteriv, and GetConvolutionParameterfv. */
 	public static final int
@@ -96,8 +91,7 @@ public final class ARBImaging {
 	 * Accepted by the {@code param} parameter of ConvolutionParameteri, and ConvolutionParameterf, and by the {@code params} parameter of
 	 * ConvolutionParameteriv and ConvolutionParameterfv, when the {@code pname} parameter is CONVOLUTION_BORDER_MODE.
 	 */
-	public static final int
-		GL_REDUCE = 0x8016;
+	public static final int GL_REDUCE = 0x8016;
 
 	/** Accepted by the {@code pname} parameter of GetConvolutionParameteriv and GetConvolutionParameterfv. */
 	public static final int
@@ -130,8 +124,7 @@ public final class ARBImaging {
 		GL_REPLICATE_BORDER = 0x8153;
 
 	/** Accepted by the {@code pname} parameter of ConvolutionParameteriv, ConvolutionParameterfv, GetConvolutionParameteriv, and GetConvolutionParameterfv. */
-	public static final int
-		GL_CONVOLUTION_BORDER_COLOR = 0x8154;
+	public static final int GL_CONVOLUTION_BORDER_COLOR = 0x8154;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -155,12 +148,10 @@ public final class ARBImaging {
 	 * GetDoublev, and by the {@code target} parameter of Histogram, ResetHistogram, GetHistogram, GetHistogramParameteriv, and
 	 * GetHistogramParameterfv.
 	 */
-	public static final int
-		GL_HISTOGRAM = 0x8024;
+	public static final int GL_HISTOGRAM = 0x8024;
 
 	/** Accepted by the {@code target} parameter of Histogram, GetHistogramParameteriv, and GetHistogramParameterfv. */
-	public static final int
-		GL_PROXY_HISTOGRAM = 0x8025;
+	public static final int GL_PROXY_HISTOGRAM = 0x8025;
 
 	/** Accepted by the {@code pname} parameter of GetHistogramParameteriv and GetHistogramParameterfv. */
 	public static final int
@@ -177,8 +168,7 @@ public final class ARBImaging {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of Minmax, ResetMinmax, GetMinmax, GetMinmaxParameteriv, and GetMinmaxParameterfv.
 	 */
-	public static final int
-		GL_MINMAX = 0x802E;
+	public static final int GL_MINMAX = 0x802E;
 
 	/** Accepted by the {@code pname} parameter of GetMinmaxParameteriv and GetMinmaxParameterfv. */
 	public static final int
@@ -186,8 +176,7 @@ public final class ARBImaging {
 		GL_MINMAX_SINK   = 0x8030;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_COLOR = 0x8005;
+	public static final int GL_BLEND_COLOR = 0x8005;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int
@@ -196,8 +185,7 @@ public final class ARBImaging {
 		GL_MAX      = 0x8008;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_EQUATION = 0x8009;
+	public static final int GL_BLEND_EQUATION = 0x8009;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int

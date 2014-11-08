@@ -30,20 +30,16 @@ public final class ARBES3Compatibility {
 		GL_COMPRESSED_SIGNED_RG11_EAC                = 0x9273;
 
 	/** Accepted by the {@code target} parameter of Enable and Disable. */
-	public static final int
-		GL_PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
+	public static final int GL_PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, GetQueryIndexediv and GetQueryiv. */
-	public static final int
-		GL_ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
+	public static final int GL_ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
 	/** Accepted by the {@code value} parameter of the GetInteger functions. */
-	public static final int
-		GL_MAX_ELEMENT_INDEX = 0x8D6B;
+	public static final int GL_MAX_ELEMENT_INDEX = 0x8D6B;
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
+	public static final int GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 	private ARBES3Compatibility() {}
 

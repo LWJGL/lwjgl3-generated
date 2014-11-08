@@ -87,8 +87,7 @@ public final class ARBDebugOutput {
 	 * also concurrently call their designated callbacks, and the application is responsible for handling thread safety in that situation even if
 	 * DEBUG_OUTPUT_SYNCHRONOUS_ARB is enabled in all contexts.</p>
 	 */
-	public static final int
-		GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB = 0x8242;
+	public static final int GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB = 0x8242;
 
 	/** Tokens accepted by the {@code value} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int

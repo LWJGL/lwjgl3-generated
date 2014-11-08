@@ -37,8 +37,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBTransformFeedback2 {
 
 	/** Accepted by the {@code target} parameter of BindTransformFeedback. */
-	public static final int
-		GL_TRANSFORM_FEEDBACK = 0x8E22;
+	public static final int GL_TRANSFORM_FEEDBACK = 0x8E22;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int

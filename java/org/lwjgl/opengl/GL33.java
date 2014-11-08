@@ -43,23 +43,19 @@ public final class GL33 {
 		GL_ONE_MINUS_SRC1_ALPHA = 0x88FB;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
-	public static final int
-		GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
+	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int
-		GL_ANY_SAMPLES_PASSED = 0x8C2F;
+	public static final int GL_ANY_SAMPLES_PASSED = 0x8C2F;
 
 	/** Accepted by the {@code value} parameter of the GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv and GetDoublev functions. */
-	public static final int
-		GL_SAMPLER_BINDING = 0x8919;
+	public static final int GL_SAMPLER_BINDING = 0x8919;
 
 	/**
 	 * Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, RenderbufferStorage and
 	 * RenderbufferStorageMultisample.
 	 */
-	public static final int
-		GL_RGB10_A2UI = 0x906F;
+	public static final int GL_RGB10_A2UI = 0x906F;
 
 	/** Accepted by the {@code pname} parameters of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameterfv, and GetTexParameteriv. */
 	public static final int
@@ -69,30 +65,25 @@ public final class GL33 {
 		GL_TEXTURE_SWIZZLE_A = 0x8E45;
 
 	/** Accepted by the {@code pname} parameters of TexParameteriv,  TexParameterfv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_SWIZZLE_RGBA = 0x8E46;
+	public static final int GL_TEXTURE_SWIZZLE_RGBA = 0x8E46;
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int
-		GL_TIME_ELAPSED = 0x88BF;
+	public static final int GL_TIME_ELAPSED = 0x88BF;
 
 	/**
 	 * Accepted by the {@code target} parameter of GetQueryiv and QueryCounter. Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv,
 	 * GetInteger64v, GetFloatv, and GetDoublev.
 	 */
-	public static final int
-		GL_TIMESTAMP = 0x8E28;
+	public static final int GL_TIMESTAMP = 0x8E28;
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR = 0x88FE;
 
 	/**
 	 * Accepted by the {@code type} parameter of VertexAttribPointer, VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, TexCoordPointer,
 	 * VertexAttribP{1234}ui, VertexP*, TexCoordP*, MultiTexCoordP*, NormalP3ui, ColorP*, SecondaryColorP* and VertexAttribP*.
 	 */
-	public static final int
-		GL_INT_2_10_10_10_REV = 0x8D9F;
+	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
 	/** Function address. */
 	@JavadocExclude

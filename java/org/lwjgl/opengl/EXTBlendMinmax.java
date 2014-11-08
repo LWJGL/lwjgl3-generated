@@ -30,8 +30,7 @@ public final class EXTBlendMinmax {
 		GL_MAX_EXT      = 0x8008;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_BLEND_EQUATION_EXT = 0x8009;
+	public static final int GL_BLEND_EQUATION_EXT = 0x8009;
 
 	/** Function address. */
 	@JavadocExclude

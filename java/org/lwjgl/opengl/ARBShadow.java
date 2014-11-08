@@ -26,8 +26,7 @@ public final class ARBShadow {
 	 * Accepted by the {@code param} parameter of TexParameterf, TexParameteri, TexParameterfv, and TexParameteriv when the {@code pname} parameter is
 	 * TEXTURE_COMPARE_MODE_ARB.
 	 */
-	public static final int
-		GL_COMPARE_R_TO_TEXTURE_ARB = 0x884E;
+	public static final int GL_COMPARE_R_TO_TEXTURE_ARB = 0x884E;
 
 	private ARBShadow() {}
 

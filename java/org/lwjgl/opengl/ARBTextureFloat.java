@@ -27,8 +27,7 @@ public final class ARBTextureFloat {
 		GL_TEXTURE_DEPTH_TYPE_ARB     = 0x8C16;
 
 	/** Returned by the {@code params} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_UNSIGNED_NORMALIZED_ARB = 0x8C17;
+	public static final int GL_UNSIGNED_NORMALIZED_ARB = 0x8C17;
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int

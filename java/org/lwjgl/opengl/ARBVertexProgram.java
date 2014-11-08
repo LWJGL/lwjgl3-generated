@@ -54,8 +54,7 @@ public final class ARBVertexProgram {
 	 * GetDoublev, and by the {@code target} parameter of ProgramStringARB, BindProgramARB, ProgramEnvParameter4[df][v]ARB, ProgramLocalParameter4[df][v]ARB,
 	 * GetProgramEnvParameter[df]vARB, GetProgramLocalParameter[df]vARB, GetProgramivARB, and GetProgramStringARB.
 	 */
-	public static final int
-		GL_VERTEX_PROGRAM_ARB = 0x8620;
+	public static final int GL_VERTEX_PROGRAM_ARB = 0x8620;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -67,8 +66,7 @@ public final class ARBVertexProgram {
 		GL_COLOR_SUM_ARB                 = 0x8458;
 
 	/** Accepted by the {@code format} parameter of ProgramStringARB. */
-	public static final int
-		GL_PROGRAM_FORMAT_ASCII_ARB = 0x8875;
+	public static final int GL_PROGRAM_FORMAT_ASCII_ARB = 0x8875;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttrib[dfi]vARB. */
 	public static final int
@@ -80,8 +78,7 @@ public final class ARBVertexProgram {
 		GL_CURRENT_VERTEX_ATTRIB_ARB          = 0x8626;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttribPointervARB. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB = 0x8645;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB = 0x8645;
 
 	/** Accepted by the {@code pname} parameter of GetProgramivARB. */
 	public static final int
@@ -113,8 +110,7 @@ public final class ARBVertexProgram {
 		GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB          = 0x88B6;
 
 	/** Accepted by the {@code pname} parameter of GetProgramStringARB. */
-	public static final int
-		GL_PROGRAM_STRING_ARB = 0x8628;
+	public static final int GL_PROGRAM_STRING_ARB = 0x8628;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -127,8 +123,7 @@ public final class ARBVertexProgram {
 		GL_MAX_PROGRAM_MATRIX_STACK_DEPTH_ARB = 0x862E;
 
 	/** Accepted by the {@code name} parameter of GetString. */
-	public static final int
-		GL_PROGRAM_ERROR_STRING_ARB = 0x8874;
+	public static final int GL_PROGRAM_ERROR_STRING_ARB = 0x8874;
 
 	/** Accepted by the {@code mode} parameter of MatrixMode. */
 	public static final int

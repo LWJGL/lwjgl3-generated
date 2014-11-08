@@ -73,8 +73,7 @@ public final class ARBVertexBlend {
 		GL_MODELVIEW31_ARB = 0x873F;
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_CURRENT_WEIGHT_ARB = 0x86A8;
+	public static final int GL_CURRENT_WEIGHT_ARB = 0x86A8;
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -83,15 +82,13 @@ public final class ARBVertexBlend {
 		GL_WEIGHT_ARRAY_SIZE_ARB   = 0x86AB;
 
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_WEIGHT_ARRAY_POINTER_ARB = 0x86AC;
+	public static final int GL_WEIGHT_ARRAY_POINTER_ARB = 0x86AC;
 
 	/**
 	 * Accepted by the {@code cap} parameters of EnableClientState and DisableClientState, by the {@code value} parameter of IsEnabled, GetBooleanv,
 	 * GetIntegerv, GetFloatv, and GetDoublev.
 	 */
-	public static final int
-		GL_WEIGHT_ARRAY_ARB = 0x86AD;
+	public static final int GL_WEIGHT_ARRAY_ARB = 0x86AD;
 
 	/** Function address. */
 	@JavadocExclude

@@ -40,16 +40,13 @@ public final class GL40 {
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
 	 * MapBufferRange, FlushMappedBufferRange, GetBufferParameteriv, and CopyBufferSubData.
 	 */
-	public static final int
-		GL_DRAW_INDIRECT_BUFFER = 0x8F3F;
+	public static final int GL_DRAW_INDIRECT_BUFFER = 0x8F3F;
 
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
+	public static final int GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_GEOMETRY_SHADER_INVOCATIONS = 0x887F;
+	public static final int GL_GEOMETRY_SHADER_INVOCATIONS = 0x887F;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, and GetInteger64v. */
 	public static final int
@@ -77,12 +74,10 @@ public final class GL40 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_SAMPLE_SHADING = 0x8C36;
+	public static final int GL_SAMPLE_SHADING = 0x8C36;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_MIN_SAMPLE_SHADING_VALUE = 0x8C37;
+	public static final int GL_MIN_SAMPLE_SHADING_VALUE = 0x8C37;
 
 	/** Accepted by the {@code pname} parameter of GetProgramStageiv. */
 	public static final int
@@ -103,12 +98,10 @@ public final class GL40 {
 		GL_COMPATIBLE_SUBROUTINES     = 0x8E4B;
 
 	/** Accepted by the {@code mode} parameter of Begin and all vertex array functions that implicitly call Begin. */
-	public static final int
-		GL_PATCHES = 0xE;
+	public static final int GL_PATCHES = 0xE;
 
 	/** Accepted by the {@code pname} parameter of PatchParameteri, GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int
-		GL_PATCH_VERTICES = 0x8E72;
+	public static final int GL_PATCH_VERTICES = 0x8E72;
 
 	/** Accepted by the {@code pname} parameter of PatchParameterfv, GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv, and GetInteger64v. */
 	public static final int
@@ -124,8 +117,7 @@ public final class GL40 {
 		GL_TESS_GEN_POINT_MODE          = 0x8E79;
 
 	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_MODE. */
-	public static final int
-		GL_ISOLINES = 0x8E7A;
+	public static final int GL_ISOLINES = 0x8E7A;
 
 	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_SPACING. */
 	public static final int
@@ -162,16 +154,13 @@ public final class GL40 {
 		GL_TESS_CONTROL_SHADER    = 0x8E88;
 
 	/** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, BindTexture, and GenerateMipmap. */
-	public static final int
-		GL_TEXTURE_CUBE_MAP_ARRAY = 0x9009;
+	public static final int GL_TEXTURE_CUBE_MAP_ARRAY = 0x9009;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_TEXTURE_BINDING_CUBE_MAP_ARRAY = 0x900A;
+	public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY = 0x900A;
 
 	/** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CompressedTeximage3D, CompressedTexSubImage3D and CopyTexSubImage3D. */
-	public static final int
-		GL_PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
+	public static final int GL_PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
 	public static final int
@@ -187,8 +176,7 @@ public final class GL40 {
 		GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS = 0x8F9F;
 
 	/** Accepted by the {@code target} parameter of BindTransformFeedback. */
-	public static final int
-		GL_TRANSFORM_FEEDBACK = 0x8E22;
+	public static final int GL_TRANSFORM_FEEDBACK = 0x8E22;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int

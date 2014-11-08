@@ -36,12 +36,10 @@ public final class ARBDrawIndirect {
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
 	 * MapBufferRange, FlushMappedBufferRange, GetBufferParameteriv, and CopyBufferSubData.
 	 */
-	public static final int
-		GL_DRAW_INDIRECT_BUFFER = 0x8F3F;
+	public static final int GL_DRAW_INDIRECT_BUFFER = 0x8F3F;
 
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
+	public static final int GL_DRAW_INDIRECT_BUFFER_BINDING = 0x8F43;
 
 	/** Function address. */
 	@JavadocExclude

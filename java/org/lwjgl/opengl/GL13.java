@@ -41,8 +41,7 @@ public final class GL13 {
 		GL_COMPRESSED_RGBA            = 0x84EE;
 
 	/** Accepted by the {@code target} parameter of Hint and the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_COMPRESSION_HINT = 0x84EF;
+	public static final int GL_TEXTURE_COMPRESSION_HINT = 0x84EF;
 
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
 	public static final int
@@ -65,12 +64,10 @@ public final class GL13 {
 	 * GetIntegerv, GetFloatv, and GetDoublev, and by the {@code target} parameter of BindTexture, GetTexParameterfv, GetTexParameteriv, TexParameterf,
 	 * TexParameteri, TexParameterfv, and TexParameteriv.
 	 */
-	public static final int
-		GL_TEXTURE_CUBE_MAP = 0x8513;
+	public static final int GL_TEXTURE_CUBE_MAP = 0x8513;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BINDING_CUBE_MAP = 0x8514;
+	public static final int GL_TEXTURE_BINDING_CUBE_MAP = 0x8514;
 
 	/**
 	 * Accepted by the {@code target} parameter of GetTexImage, GetTexLevelParameteriv, GetTexLevelParameterfv, TexImage2D, CopyTexImage2D, TexSubImage2D, and
@@ -85,12 +82,10 @@ public final class GL13 {
 		GL_TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x851A;
 
 	/** Accepted by the {@code target} parameter of GetTexLevelParameteriv, GetTexLevelParameterfv, GetTexParameteriv, and TexImage2D. */
-	public static final int
-		GL_PROXY_TEXTURE_CUBE_MAP = 0x851B;
+	public static final int GL_PROXY_TEXTURE_CUBE_MAP = 0x851B;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
+	public static final int GL_MAX_CUBE_MAP_TEXTURE_SIZE = 0x851C;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -103,8 +98,7 @@ public final class GL13 {
 		GL_SAMPLE_COVERAGE          = 0x80A0;
 
 	/** Accepted by the {@code mask} parameter of PushAttrib. */
-	public static final int
-		GL_MULTISAMPLE_BIT = 0x20000000;
+	public static final int GL_MULTISAMPLE_BIT = 0x20000000;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int
@@ -155,8 +149,7 @@ public final class GL13 {
 		GL_MAX_TEXTURE_UNITS     = 0x84E2;
 
 	/** Accepted by the {@code params} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code pname} parameter value is TEXTURE_ENV_MODE. */
-	public static final int
-		GL_COMBINE = 0x8570;
+	public static final int GL_COMBINE = 0x8570;
 
 	/** Accepted by the {@code pname} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code target} parameter value is TEXTURE_ENV. */
 	public static final int
@@ -203,8 +196,7 @@ public final class GL13 {
 	 * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
 	 * when their {@code pname} parameter is TEXTURE_WRAP_S, TEXTURE_WRAP_T, or TEXTURE_WRAP_R.
 	 */
-	public static final int
-		GL_CLAMP_TO_BORDER = 0x812D;
+	public static final int GL_CLAMP_TO_BORDER = 0x812D;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int

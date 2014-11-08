@@ -21,22 +21,19 @@ public final class KHRGLSharing {
 	 * Returned by {@link CL10#clCreateContext CreateContext}, {@link CL10#clCreateContextFromType CreateContextFromType}, and {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} when an invalid OpenGL context or
 	 * share group object handle is specified in {@code properties}.
 	 */
-	public static final int
-		CL_INVALID_GL_SHAREGROUP_REFERENCE_KHR = 0xFFFFFC18;
+	public static final int CL_INVALID_GL_SHAREGROUP_REFERENCE_KHR = 0xFFFFFC18;
 
 	/**
 	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR}. Returns a list of all CL devices which may be associated with the
 	 * specified OpenGL context.
 	 */
-	public static final int
-		CL_DEVICES_FOR_GL_CONTEXT_KHR = 0x2007;
+	public static final int CL_DEVICES_FOR_GL_CONTEXT_KHR = 0x2007;
 
 	/**
 	 * Accepted as the {@code param_name} argument of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR}. Returns the CL device currently associated with the specified OpenGL
 	 * context.
 	 */
-	public static final int
-		CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR = 0x2006;
+	public static final int CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR = 0x2006;
 
 	/** Accepted as an attribute name in the {@code properties} argument of {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType}. */
 	public static final int

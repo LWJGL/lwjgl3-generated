@@ -17,8 +17,7 @@ public final class KHRInitializeMemory {
 	 * <li>{@code CL_CONTEXT_MEMORY_INITIALIZE_PRIVATE_KHR} &ndash; Initialize private memory to zeros.</li>
 	 * </ul></p>
 	 */
-	public static final int
-		CL_CONTEXT_MEMORY_INITIALIZE_KHR = 0x200E;
+	public static final int CL_CONTEXT_MEMORY_INITIALIZE_KHR = 0x200E;
 
 	private KHRInitializeMemory() {}
 

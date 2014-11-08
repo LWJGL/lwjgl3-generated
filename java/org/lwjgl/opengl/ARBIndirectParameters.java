@@ -35,12 +35,10 @@ public final class ARBIndirectParameters {
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
 	 * MapBufferRange, FlushMappedBufferRange, GetBufferParameteriv, and CopyBufferSubData.
 	 */
-	public static final int
-		GL_PARAMETER_BUFFER_ARB = 0x80EE;
+	public static final int GL_PARAMETER_BUFFER_ARB = 0x80EE;
 
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
+	public static final int GL_PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
 	/** Function address. */
 	@JavadocExclude

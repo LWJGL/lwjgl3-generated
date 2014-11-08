@@ -46,8 +46,7 @@ public final class GL31 {
 		GL_RGBA16_SNORM = 0x8F9B;
 
 	/** Returned by GetTexLevelParameter and GetFramebufferAttachmentParameter. */
-	public static final int
-		GL_SIGNED_NORMALIZED = 0x8F9C;
+	public static final int GL_SIGNED_NORMALIZED = 0x8F9C;
 
 	/**
 	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
@@ -58,20 +57,17 @@ public final class GL31 {
 		GL_COPY_WRITE_BUFFER = 0x8F37;
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable and IsEnabled. */
-	public static final int
-		GL_PRIMITIVE_RESTART = 0x8F9D;
+	public static final int GL_PRIMITIVE_RESTART = 0x8F9D;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PRIMITIVE_RESTART_INDEX = 0x8F9E;
+	public static final int GL_PRIMITIVE_RESTART_INDEX = 0x8F9E;
 
 	/**
 	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBuffer, MapBufferRange, BindTexture, UnmapBuffer,
 	 * GetBufferSubData, GetBufferParameteriv, GetBufferPointerv, and TexBuffer, and the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, and
 	 * GetIntegerv.
 	 */
-	public static final int
-		GL_TEXTURE_BUFFER = 0x8C2A;
+	public static final int GL_TEXTURE_BUFFER = 0x8C2A;
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
 	public static final int
@@ -85,39 +81,31 @@ public final class GL31 {
 	 * GetDoublev; and by the {@code target} parameter of BindTexture, GetTexParameterfv, GetTexParameteriv, TexParameterf, TexParameteri, TexParameterfv and
 	 * TexParameteriv.
 	 */
-	public static final int
-		GL_TEXTURE_RECTANGLE = 0x84F5;
+	public static final int GL_TEXTURE_RECTANGLE = 0x84F5;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BINDING_RECTANGLE = 0x84F6;
+	public static final int GL_TEXTURE_BINDING_RECTANGLE = 0x84F6;
 
 	/** Accepted by the {@code target} parameter of GetTexLevelParameteriv, GetTexLevelParameterfv, GetTexParameteriv and TexImage2D. */
-	public static final int
-		GL_PROXY_TEXTURE_RECTANGLE = 0x84F7;
+	public static final int GL_PROXY_TEXTURE_RECTANGLE = 0x84F7;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_MAX_RECTANGLE_TEXTURE_SIZE = 0x84F8;
+	public static final int GL_MAX_RECTANGLE_TEXTURE_SIZE = 0x84F8;
 
 	/** Returned by {@code type} parameter of GetActiveUniform when the location {@code index} for program object {@code program} is of type sampler2DRect. */
-	public static final int
-		GL_SAMPLER_2D_RECT = 0x8B63;
+	public static final int GL_SAMPLER_2D_RECT = 0x8B63;
 
 	/**
 	 * Returned by {@code type} parameter of GetActiveUniform when the location {@code index} for program object {@code program} is of type
 	 * sampler2DRectShadow.
 	 */
-	public static final int
-		GL_SAMPLER_2D_RECT_SHADOW = 0x8B64;
+	public static final int GL_SAMPLER_2D_RECT_SHADOW = 0x8B64;
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_UNIFORM_BUFFER = 0x8A11;
+	public static final int GL_UNIFORM_BUFFER = 0x8A11;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_UNIFORM_BUFFER_BINDING = 0x8A28;
+	public static final int GL_UNIFORM_BUFFER_BINDING = 0x8A28;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v. */
 	public static final int
@@ -165,8 +153,7 @@ public final class GL31 {
 		GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER = 0x8A46;
 
 	/** Returned by GetActiveUniformsiv and GetUniformBlockIndex. */
-	public static final int
-		GL_INVALID_INDEX = 0xFFFFFFFF;
+	public static final int GL_INVALID_INDEX = 0xFFFFFFFF;
 
 	/** Function address. */
 	@JavadocExclude

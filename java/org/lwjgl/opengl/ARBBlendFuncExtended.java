@@ -39,8 +39,7 @@ public final class ARBBlendFuncExtended {
 		GL_ONE_MINUS_SRC1_ALPHA = 0x88FB;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
-	public static final int
-		GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
+	public static final int GL_MAX_DUAL_SOURCE_DRAW_BUFFERS = 0x88FC;
 
 	/** Function address. */
 	@JavadocExclude

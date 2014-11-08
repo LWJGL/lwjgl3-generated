@@ -32,8 +32,7 @@ public final class ARBFramebufferSRGB {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_FRAMEBUFFER_SRGB = 0x8DB9;
+	public static final int GL_FRAMEBUFFER_SRGB = 0x8DB9;
 
 	private ARBFramebufferSRGB() {}
 

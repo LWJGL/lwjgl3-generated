@@ -9,8 +9,7 @@ package org.lwjgl.openal;
 public final class SOFTDirectChannels {
 
 	/** Accepted by the {@code paramName} parameter of alSourcei, alSourceiv, alGetSourcei, and alGetSourceiv. */
-	public static final int
-		AL_DIRECT_CHANNELS_SOFT = 0x1033;
+	public static final int AL_DIRECT_CHANNELS_SOFT = 0x1033;
 
 	private SOFTDirectChannels() {}
 

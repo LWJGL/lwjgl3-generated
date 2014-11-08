@@ -40,8 +40,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBShaderObjects {
 
 	/** Accepted by the {@code pname} argument of GetHandleARB. */
-	public static final int
-		GL_PROGRAM_OBJECT_ARB = 0x8B40;
+	public static final int GL_PROGRAM_OBJECT_ARB = 0x8B40;
 
 	/** Accepted by the {@code pname} parameter of GetObjectParameter{fi}vARB. */
 	public static final int
@@ -58,8 +57,7 @@ public final class ARBShaderObjects {
 		GL_OBJECT_SHADER_SOURCE_LENGTH_ARB      = 0x8B88;
 
 	/** Returned by the {@code params} parameter of GetObjectParameter{fi}vARB. */
-	public static final int
-		GL_SHADER_OBJECT_ARB = 0x8B48;
+	public static final int GL_SHADER_OBJECT_ARB = 0x8B48;
 
 	/** Returned by the {@code type} parameter of GetActiveUniformARB. */
 	public static final int

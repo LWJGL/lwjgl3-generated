@@ -75,16 +75,13 @@ public final class ARBSeparateShaderObjects {
 		GL_ALL_SHADER_BITS            = 0xFFFFFFFF;
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
-	public static final int
-		GL_PROGRAM_SEPARABLE = 0x8258;
+	public static final int GL_PROGRAM_SEPARABLE = 0x8258;
 
 	/** Accepted by {@code type} parameter to GetProgramPipelineiv. */
-	public static final int
-		GL_ACTIVE_PROGRAM = 0x8259;
+	public static final int GL_ACTIVE_PROGRAM = 0x8259;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PROGRAM_PIPELINE_BINDING = 0x825A;
+	public static final int GL_PROGRAM_PIPELINE_BINDING = 0x825A;
 
 	/** Function address. */
 	@JavadocExclude

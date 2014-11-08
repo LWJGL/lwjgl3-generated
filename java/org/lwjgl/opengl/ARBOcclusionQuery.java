@@ -56,8 +56,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBOcclusionQuery {
 
 	/** Accepted by the {@code target} parameter of BeginQueryARB, EndQueryARB, and GetQueryivARB. */
-	public static final int
-		GL_SAMPLES_PASSED_ARB = 0x8914;
+	public static final int GL_SAMPLES_PASSED_ARB = 0x8914;
 
 	/** Accepted by the {@code pname} parameter of GetQueryivARB. */
 	public static final int

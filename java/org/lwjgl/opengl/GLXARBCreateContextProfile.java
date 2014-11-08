@@ -15,8 +15,7 @@ package org.lwjgl.opengl;
 public final class GLXARBCreateContextProfile {
 
 	/** Accepted as an attribute name in {@code attrib_list}. */
-	public static final int
-		GLX_CONTEXT_PROFILE_MASK_ARB = 0x9126;
+	public static final int GLX_CONTEXT_PROFILE_MASK_ARB = 0x9126;
 
 	/** Accepted as bits in the attribute value for {@link #GLX_CONTEXT_PROFILE_MASK_ARB CONTEXT_PROFILE_MASK_ARB} in {@code attrib_list}. */
 	public static final int
@@ -24,8 +23,7 @@ public final class GLXARBCreateContextProfile {
 		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
 
 	/** GLX error. */
-	public static final int
-		GLXBadProfileARB = 0xD;
+	public static final int GLXBadProfileARB = 0xD;
 
 	private GLXARBCreateContextProfile() {}
 

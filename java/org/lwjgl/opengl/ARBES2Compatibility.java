@@ -36,8 +36,7 @@ public final class ARBES2Compatibility {
 		GL_IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
 
 	/** Accepted by the {@code type} parameter of VertexAttribPointer. */
-	public static final int
-		GL_FIXED = 0x140C;
+	public static final int GL_FIXED = 0x140C;
 
 	/** Accepted by the {@code precisiontype} parameter of GetShaderPrecisionFormat. */
 	public static final int
@@ -49,8 +48,7 @@ public final class ARBES2Compatibility {
 		GL_HIGH_INT     = 0x8DF5;
 
 	/** Accepted by the {@code format} parameter of most commands taking sized internal formats. */
-	public static final int
-		GL_RGB565 = 0x8D62;
+	public static final int GL_RGB565 = 0x8D62;
 
 	/** Function address. */
 	@JavadocExclude

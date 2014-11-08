@@ -34,8 +34,7 @@ public final class ARBDepthBufferFloat {
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage.
 	 */
-	public static final int
-		GL_FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
+	public static final int GL_FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 	private ARBDepthBufferFloat() {}
 

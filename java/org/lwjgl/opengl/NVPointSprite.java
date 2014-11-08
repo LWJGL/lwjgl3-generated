@@ -37,22 +37,19 @@ public final class NVPointSprite {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of TexEnvi, TexEnviv, TexEnvf, TexEnvfv, GetTexEnviv, and GetTexEnvfv.
 	 */
-	public static final int
-		GL_POINT_SPRITE_NV = 0x8861;
+	public static final int GL_POINT_SPRITE_NV = 0x8861;
 
 	/**
 	 * When the {@code target} parameter of TexEnvf, TexEnvfv, TexEnvi, TexEnviv, GetTexEnvfv, or GetTexEnviv is POINT_SPRITE_NV, then the value of
 	 * {@code pname} may be.
 	 */
-	public static final int
-		GL_COORD_REPLACE_NV = 0x8862;
+	public static final int GL_COORD_REPLACE_NV = 0x8862;
 
 	/**
 	 * Accepted by the {@code pname} parameter of PointParameteriNV, PointParameterfEXT, PointParameterivNV, PointParameterfvEXT, GetBooleanv, GetIntegerv,
 	 * GetFloatv, and GetDoublev.
 	 */
-	public static final int
-		GL_POINT_SPRITE_R_MODE_NV = 0x8863;
+	public static final int GL_POINT_SPRITE_R_MODE_NV = 0x8863;
 
 	/** Function address. */
 	@JavadocExclude

@@ -32,8 +32,7 @@ public final class ARBTextureSwizzle {
 		GL_TEXTURE_SWIZZLE_A = 0x8E45;
 
 	/** Accepted by the {@code pname} parameters of TexParameteriv, TexParameterfv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_SWIZZLE_RGBA = 0x8E46;
+	public static final int GL_TEXTURE_SWIZZLE_RGBA = 0x8E46;
 
 	private ARBTextureSwizzle() {}
 

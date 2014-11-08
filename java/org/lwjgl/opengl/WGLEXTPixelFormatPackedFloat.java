@@ -19,8 +19,7 @@ public final class WGLEXTPixelFormatPackedFloat {
 	 * Accepted as a value in the {@code attribIList} parameter array of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}, and returned in the {@code values}
 	 * parameter array of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}.
 	 */
-	public static final int
-		WGL_TYPE_RGBA_UNSIGNED_FLOAT_EXT = 0x20A8;
+	public static final int WGL_TYPE_RGBA_UNSIGNED_FLOAT_EXT = 0x20A8;
 
 	private WGLEXTPixelFormatPackedFloat() {}
 

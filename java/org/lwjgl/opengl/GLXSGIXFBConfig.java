@@ -36,12 +36,10 @@ public final class GLXSGIXFBConfig {
 	 * by the {@code attribute} parameter of {@link GLXSGIXPbuffer#glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} and by the {@code attribute} parameter of
 	 * {@link GLXEXTImportContext#glXQueryContextInfoEXT QueryContextInfoEXT}.
 	 */
-	public static final int
-		GLX_FBCONFIG_ID_SGIX = 0x8013;
+	public static final int GLX_FBCONFIG_ID_SGIX = 0x8013;
 
 	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}. */
-	public static final int
-		GLX_SCREEN_EXT = 0x800C;
+	public static final int GLX_SCREEN_EXT = 0x800C;
 
 	/**
 	 * Returned by {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} (when {@code attribute} is set to {@link #GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX}) and accepted by the {@code attrib_list}

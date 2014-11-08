@@ -36,8 +36,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class ARBClearTexture {
 
 	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
-	public static final int
-		GL_CLEAR_TEXTURE = 0x9365;
+	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
 	/** Function address. */
 	@JavadocExclude

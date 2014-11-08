@@ -15,8 +15,7 @@ package org.lwjgl.opengl;
 public final class ARBTextureEnvCombine {
 
 	/** Accepted by the {@code params} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code pname} parameter value is TEXTURE_ENV_MODE. */
-	public static final int
-		GL_COMBINE_ARB = 0x8570;
+	public static final int GL_COMBINE_ARB = 0x8570;
 
 	/** Accepted by the {@code pname} parameter of TexEnvf, TexEnvi, TexEnvfv, and TexEnviv when the {@code target} parameter value is TEXTURE_ENV. */
 	public static final int

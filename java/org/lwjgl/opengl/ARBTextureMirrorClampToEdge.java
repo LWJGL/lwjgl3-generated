@@ -23,8 +23,7 @@ public final class ARBTextureMirrorClampToEdge {
 	 * TexParameter{if}v, TexParameterI{i ui}v and SamplerParameterI{i ui}v when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or
 	 * {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}.
 	 */
-	public static final int
-		GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
+	public static final int GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
 
 	private ARBTextureMirrorClampToEdge() {}
 

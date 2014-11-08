@@ -31,8 +31,7 @@ import static org.lwjgl.system.Checks.*;
 public final class ARBTextureStorage {
 
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
-	public static final int
-		GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
+	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 	/** Function address. */
 	@JavadocExclude

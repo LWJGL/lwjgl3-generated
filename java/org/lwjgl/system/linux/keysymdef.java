@@ -25,8 +25,7 @@ public final class keysymdef {
 		XK_Delete      = 0xFFFF;
 
 	/** International & multi-key character composition */
-	public static final int
-		XK_Multi_key = 0xFF20;
+	public static final int XK_Multi_key = 0xFF20;
 
 	/** Japanese keyboard support */
 	public static final int

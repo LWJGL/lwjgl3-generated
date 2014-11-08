@@ -40,8 +40,7 @@ public final class WGLARBPbuffer {
 	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
 	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}.
 	 */
-	public static final int
-		WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
+	public static final int WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
 
 	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}. */
 	public static final int
@@ -50,8 +49,7 @@ public final class WGLARBPbuffer {
 		WGL_MAX_PBUFFER_HEIGHT_ARB = 0x2030;
 
 	/** Accepted by the {@code attribList} parameter of {@link #wglCreatePbufferARB CreatePbufferARB}. */
-	public static final int
-		WGL_PBUFFER_LARGEST_ARB = 0x2033;
+	public static final int WGL_PBUFFER_LARGEST_ARB = 0x2033;
 
 	/** Accepted by the {@code attribute} parameter of {@link #wglQueryPbufferARB QueryPbufferARB}. */
 	public static final int

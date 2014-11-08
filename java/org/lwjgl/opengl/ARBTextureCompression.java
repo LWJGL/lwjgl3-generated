@@ -48,8 +48,7 @@ public final class ARBTextureCompression {
 		GL_COMPRESSED_RGBA_ARB            = 0x84EE;
 
 	/** Accepted by the {@code target} parameter of Hint and the {@code value} parameter of GetIntegerv, GetBooleanv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_COMPRESSION_HINT_ARB = 0x84EF;
+	public static final int GL_TEXTURE_COMPRESSION_HINT_ARB = 0x84EF;
 
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
 	public static final int

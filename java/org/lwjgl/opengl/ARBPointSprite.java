@@ -27,15 +27,13 @@ public final class ARBPointSprite {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of TexEnvi, TexEnviv, TexEnvf, TexEnvfv, GetTexEnviv, and GetTexEnvfv.
 	 */
-	public static final int
-		GL_POINT_SPRITE_ARB = 0x8861;
+	public static final int GL_POINT_SPRITE_ARB = 0x8861;
 
 	/**
 	 * When the {@code target} parameter of TexEnvf, TexEnvfv, TexEnvi, TexEnviv, GetTexEnvfv, or GetTexEnviv is POINT_SPRITE_ARB, then the value of
 	 * {@code pname} may be.
 	 */
-	public static final int
-		GL_COORD_REPLACE_ARB = 0x8862;
+	public static final int GL_COORD_REPLACE_ARB = 0x8862;
 
 	private ARBPointSprite() {}
 

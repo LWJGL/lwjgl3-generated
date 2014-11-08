@@ -24,12 +24,10 @@ public final class AMDDeviceTopology {
 	 * Bus/Device/Function of the device, and is similar to the result of the lspci command in Linux. It enables the developer to match between the OpenCL
 	 * device ID and the physical PCI connection of the card.</p>
 	 */
-	public static final int
-		CL_DEVICE_TOPOLOGY_AMD = 0x4037;
+	public static final int CL_DEVICE_TOPOLOGY_AMD = 0x4037;
 
 	/** Indicates the type of the struct returned by {@link #CL_DEVICE_TOPOLOGY_AMD DEVICE_TOPOLOGY_AMD}. */
-	public static final int
-		CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD = 0x1;
+	public static final int CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD = 0x1;
 
 	private AMDDeviceTopology() {}
 

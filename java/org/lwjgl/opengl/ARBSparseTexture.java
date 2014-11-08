@@ -31,8 +31,7 @@ public final class ARBSparseTexture {
 		GL_VIRTUAL_PAGE_SIZE_INDEX_ARB = 0x91A7;
 
 	/** Accepted by the {@code pname} parameter of GetTexParameter{if}v and GetTexParameterIi{u}v. */
-	public static final int
-		GL_NUM_SPARSE_LEVELS_ARB = 0x91AA;
+	public static final int GL_NUM_SPARSE_LEVELS_ARB = 0x91AA;
 
 	/** Accepted by the {@code pname} parameter to GetInternalformativ. */
 	public static final int

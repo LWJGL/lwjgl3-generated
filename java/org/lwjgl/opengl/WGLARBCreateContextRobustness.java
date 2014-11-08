@@ -18,12 +18,10 @@ public final class WGLARBCreateContextRobustness {
 	 * Accepted as a bit in the attribute value for {@link WGLARBCreateContext#WGL_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
 	 * {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}.
 	 */
-	public static final int
-		WGL_CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x4;
+	public static final int WGL_CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x4;
 
 	/** Accepted as an attribute name in the {@code attrib_list} argument to {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}. */
-	public static final int
-		WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
+	public static final int WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
 
 	/**
 	 * Accepted as an attribute value for {@link #WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB} in the {@code attrib_list} argument to

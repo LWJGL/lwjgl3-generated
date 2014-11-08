@@ -17,8 +17,7 @@ package org.lwjgl.opengl;
 public final class ARBShadowAmbient {
 
 	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_COMPARE_FAIL_VALUE_ARB = 0x80BF;
+	public static final int GL_TEXTURE_COMPARE_FAIL_VALUE_ARB = 0x80BF;
 
 	private ARBShadowAmbient() {}
 

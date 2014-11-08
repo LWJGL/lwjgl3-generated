@@ -31,8 +31,7 @@ public final class ARBMatrixPalette {
 	 * Accepted by the {@code pname} parameters of GetFloatv, GetDoublev, and IsEnabled, by the {@code mode} parameter of MatrixMode, and by the {@code cap}
 	 * parameters of Enable and Disable.
 	 */
-	public static final int
-		GL_MATRIX_PALETTE_ARB = 0x8840;
+	public static final int GL_MATRIX_PALETTE_ARB = 0x8840;
 
 	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -41,12 +40,10 @@ public final class ARBMatrixPalette {
 		GL_CURRENT_PALETTE_MATRIX_ARB         = 0x8843;
 
 	/** Accepted by the {@code cap} parameters of EnableClientState and DisableClientState and by the {@code pname} parameter of IsEnabled. */
-	public static final int
-		GL_MATRIX_INDEX_ARRAY_ARB = 0x8844;
+	public static final int GL_MATRIX_INDEX_ARRAY_ARB = 0x8844;
 
 	/** Accepted by the {@code pname} parameter of GetFloatv. */
-	public static final int
-		GL_CURRENT_MATRIX_INDEX_ARB = 0x8845;
+	public static final int GL_CURRENT_MATRIX_INDEX_ARB = 0x8845;
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int
@@ -55,8 +52,7 @@ public final class ARBMatrixPalette {
 		GL_MATRIX_INDEX_ARRAY_STRIDE_ARB = 0x8848;
 
 	/** Accepted by the {@code pname} parameter of GetPointerv. */
-	public static final int
-		GL_MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
+	public static final int GL_MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
 
 	/** Function address. */
 	@JavadocExclude

@@ -45,8 +45,7 @@ public final class ARBBufferStorage {
 		GL_BUFFER_STORAGE_FLAGS     = 0x8220;
 
 	/** Accepted by the {@code barriers} parameter of {@link GL42#glMemoryBarrier MemoryBarrier}. */
-	public static final int
-		GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
+	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
 
 	/** Function address. */
 	@JavadocExclude

@@ -49,8 +49,7 @@ public final class KHRRobustness {
 		GL_NO_RESET_NOTIFICATION = 0x8261;
 
 	/** Returned by {@link GL11#glGetError GetError}. */
-	public static final int
-		GL_CONTEXT_LOST = 0x507;
+	public static final int GL_CONTEXT_LOST = 0x507;
 
 	/** Function address. */
 	@JavadocExclude

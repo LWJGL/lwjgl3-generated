@@ -31,35 +31,28 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBTextureMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
-	public static final int
-		GL_SAMPLE_POSITION = 0x8E50;
+	public static final int GL_SAMPLE_POSITION = 0x8E50;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_SAMPLE_MASK = 0x8E51;
+	public static final int GL_SAMPLE_MASK = 0x8E51;
 
 	/** Accepted by the {@code target} parameter of GetBooleani_v and GetIntegeri_v. */
-	public static final int
-		GL_SAMPLE_MASK_VALUE = 0x8E52;
+	public static final int GL_SAMPLE_MASK_VALUE = 0x8E52;
 
 	/** Accepted by the {@code target} parameter of BindTexture and TexImage2DMultisample. */
-	public static final int
-		GL_TEXTURE_2D_MULTISAMPLE = 0x9100;
+	public static final int GL_TEXTURE_2D_MULTISAMPLE = 0x9100;
 
 	/** Accepted by the {@code target} parameter of TexImage2DMultisample. */
-	public static final int
-		GL_PROXY_TEXTURE_2D_MULTISAMPLE = 0x9101;
+	public static final int GL_PROXY_TEXTURE_2D_MULTISAMPLE = 0x9101;
 
 	/** Accepted by the {@code target} parameter of BindTexture and TexImage3DMultisample. */
-	public static final int
-		GL_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
+	public static final int GL_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
 
 	/** Accepted by the {@code target} parameter of TexImage3DMultisample. */
-	public static final int
-		GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
+	public static final int GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int

@@ -9,12 +9,10 @@ package org.lwjgl.opencl;
 public final class KHRICD {
 
 	/** Accepted as {@code param_name} to the function {@link CL10#clGetPlatformInfo GetPlatformInfo}. */
-	public static final int
-		CL_PLATFORM_ICD_SUFFIX_KHR = 0x920;
+	public static final int CL_PLATFORM_ICD_SUFFIX_KHR = 0x920;
 
 	/** Returned by {@link CL10#clGetPlatformIDs GetPlatformIDs} when no platforms are found. */
-	public static final int
-		CL_PLATFORM_NOT_FOUND_KHR = 0xFFFFFC17;
+	public static final int CL_PLATFORM_NOT_FOUND_KHR = 0xFFFFFC17;
 
 	private KHRICD() {}
 

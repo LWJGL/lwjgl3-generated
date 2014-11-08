@@ -40,8 +40,7 @@ public final class ARBTextureBufferObject {
 	 * GetBufferSubData, GetBufferParameteriv, GetBufferPointerv, and TexBufferARB, and the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, and
 	 * GetIntegerv.
 	 */
-	public static final int
-		GL_TEXTURE_BUFFER_ARB = 0x8C2A;
+	public static final int GL_TEXTURE_BUFFER_ARB = 0x8C2A;
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv. */
 	public static final int

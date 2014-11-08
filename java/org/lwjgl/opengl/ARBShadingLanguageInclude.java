@@ -70,8 +70,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBShadingLanguageInclude {
 
 	/** Accepted by the {@code type} parameter of NamedStringARB. */
-	public static final int
-		GL_SHADER_INCLUDE_ARB = 0x8DAE;
+	public static final int GL_SHADER_INCLUDE_ARB = 0x8DAE;
 
 	/** Accepted by the {@code pname} parameter of GetNamedStringivARB. */
 	public static final int

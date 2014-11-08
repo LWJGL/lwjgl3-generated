@@ -24,12 +24,10 @@ public final class ARBDepthTexture {
 		GL_DEPTH_COMPONENT32_ARB = 0x81A7;
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameterfv and GetTexLevelParameteriv. */
-	public static final int
-		GL_TEXTURE_DEPTH_SIZE_ARB = 0x884A;
+	public static final int GL_TEXTURE_DEPTH_SIZE_ARB = 0x884A;
 
 	/** Accepted by the {@code pname} parameter of TexParameterf, TexParameteri, TexParameterfv, TexParameteriv, GetTexParameterfv, and GetTexParameteriv. */
-	public static final int
-		GL_DEPTH_TEXTURE_MODE_ARB = 0x884B;
+	public static final int GL_DEPTH_TEXTURE_MODE_ARB = 0x884B;
 
 	private ARBDepthTexture() {}
 

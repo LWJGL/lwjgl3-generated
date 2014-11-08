@@ -42,8 +42,7 @@ public final class GL41 {
 		GL_IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
 
 	/** Accepted by the {@code type} parameter of VertexAttribPointer. */
-	public static final int
-		GL_FIXED = 0x140C;
+	public static final int GL_FIXED = 0x140C;
 
 	/** Accepted by the {@code precisiontype} parameter of GetShaderPrecisionFormat. */
 	public static final int
@@ -55,16 +54,13 @@ public final class GL41 {
 		GL_HIGH_INT     = 0x8DF5;
 
 	/** Accepted by the {@code format} parameter of most commands taking sized internal formats. */
-	public static final int
-		GL_RGB565 = 0x8D62;
+	public static final int GL_RGB565 = 0x8D62;
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
-	public static final int
-		GL_PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
+	public static final int GL_PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_PROGRAM_BINARY_LENGTH = 0x8741;
+	public static final int GL_PROGRAM_BINARY_LENGTH = 0x8741;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv and GetDoublev. */
 	public static final int
@@ -81,16 +77,13 @@ public final class GL41 {
 		GL_ALL_SHADER_BITS            = 0xFFFFFFFF;
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
-	public static final int
-		GL_PROGRAM_SEPARABLE = 0x8258;
+	public static final int GL_PROGRAM_SEPARABLE = 0x8258;
 
 	/** Accepted by {@code type} parameter to GetProgramPipelineiv. */
-	public static final int
-		GL_ACTIVE_PROGRAM = 0x8259;
+	public static final int GL_ACTIVE_PROGRAM = 0x8259;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_PROGRAM_PIPELINE_BINDING = 0x825A;
+	public static final int GL_PROGRAM_PIPELINE_BINDING = 0x825A;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -101,8 +94,7 @@ public final class GL41 {
 		GL_VIEWPORT_INDEX_PROVOKING_VERTEX = 0x825F;
 
 	/** Returned in the {@code data} parameter from a Get query with a {@code pname} of LAYER_PROVOKING_VERTEX or VIEWPORT_INDEX_PROVOKING_VERTEX. */
-	public static final int
-		GL_UNDEFINED_VERTEX = 0x8260;
+	public static final int GL_UNDEFINED_VERTEX = 0x8260;
 
 	/** Function address. */
 	@JavadocExclude

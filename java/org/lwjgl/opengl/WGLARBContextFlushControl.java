@@ -14,8 +14,7 @@ package org.lwjgl.opengl;
 public final class WGLARBContextFlushControl {
 
 	/** Accepted as an attribute name in the {@code *attrib_list} argument to {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB}. */
-	public static final int
-		WGL_CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
+	public static final int WGL_CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
 
 	/**
 	 * Accepted as an attribute value for {@link #WGL_CONTEXT_RELEASE_BEHAVIOR_ARB CONTEXT_RELEASE_BEHAVIOR_ARB} in the {@code *attrib_list} argument to

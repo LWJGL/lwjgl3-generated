@@ -34,8 +34,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class GL32 {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
-	public static final int
-		GL_CONTEXT_PROFILE_MASK = 0x9126;
+	public static final int GL_CONTEXT_PROFILE_MASK = 0x9126;
 
 	/** Context profile bits. */
 	public static final int
@@ -63,39 +62,31 @@ public final class GL32 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
+	public static final int GL_TEXTURE_CUBE_MAP_SEAMLESS = 0x884F;
 
 	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
-	public static final int
-		GL_SAMPLE_POSITION = 0x8E50;
+	public static final int GL_SAMPLE_POSITION = 0x8E50;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_SAMPLE_MASK = 0x8E51;
+	public static final int GL_SAMPLE_MASK = 0x8E51;
 
 	/** Accepted by the {@code target} parameter of GetBooleani_v and GetIntegeri_v. */
-	public static final int
-		GL_SAMPLE_MASK_VALUE = 0x8E52;
+	public static final int GL_SAMPLE_MASK_VALUE = 0x8E52;
 
 	/** Accepted by the {@code target} parameter of BindTexture and TexImage2DMultisample. */
-	public static final int
-		GL_TEXTURE_2D_MULTISAMPLE = 0x9100;
+	public static final int GL_TEXTURE_2D_MULTISAMPLE = 0x9100;
 
 	/** Accepted by the {@code target} parameter of TexImage2DMultisample. */
-	public static final int
-		GL_PROXY_TEXTURE_2D_MULTISAMPLE = 0x9101;
+	public static final int GL_PROXY_TEXTURE_2D_MULTISAMPLE = 0x9101;
 
 	/** Accepted by the {@code target} parameter of BindTexture and TexImage3DMultisample. */
-	public static final int
-		GL_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
+	public static final int GL_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9102;
 
 	/** Accepted by the {@code target} parameter of TexImage3DMultisample. */
-	public static final int
-		GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
+	public static final int GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY = 0x9103;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int
@@ -124,12 +115,10 @@ public final class GL32 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_DEPTH_CLAMP = 0x864F;
+	public static final int GL_DEPTH_CLAMP = 0x864F;
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
-	public static final int
-		GL_GEOMETRY_SHADER = 0x8DD9;
+	public static final int GL_GEOMETRY_SHADER = 0x8DD9;
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
 	public static final int
@@ -159,19 +148,16 @@ public final class GL32 {
 		GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT   = 0x8DA9;
 
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachment- Parameteriv. */
-	public static final int
-		GL_FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
+	public static final int GL_FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetFloatv, GetDoublev, and
 	 * GetBooleanv.
 	 */
-	public static final int
-		GL_PROGRAM_POINT_SIZE = 0x8642;
+	public static final int GL_PROGRAM_POINT_SIZE = 0x8642;
 
 	/** Accepted as the {@code pname} parameter of GetInteger64v. */
-	public static final int
-		GL_MAX_SERVER_WAIT_TIMEOUT = 0x9111;
+	public static final int GL_MAX_SERVER_WAIT_TIMEOUT = 0x9111;
 
 	/** Accepted as the {@code pname} parameter of GetSynciv. */
 	public static final int
@@ -181,12 +167,10 @@ public final class GL32 {
 		GL_SYNC_FLAGS     = 0x9115;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} OBJECT_TYPE. */
-	public static final int
-		GL_SYNC_FENCE = 0x9116;
+	public static final int GL_SYNC_FENCE = 0x9116;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} SYNC_CONDITION. */
-	public static final int
-		GL_SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
+	public static final int GL_SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} SYNC_STATUS. */
 	public static final int
@@ -194,12 +178,10 @@ public final class GL32 {
 		GL_SIGNALED   = 0x9119;
 
 	/** Accepted in the {@code flags} parameter of ClientWaitSync. */
-	public static final int
-		GL_SYNC_FLUSH_COMMANDS_BIT = 0x1;
+	public static final int GL_SYNC_FLUSH_COMMANDS_BIT = 0x1;
 
 	/** Accepted in the {@code timeout} parameter of WaitSync. */
-	public static final long
-		GL_TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFFl;
+	public static final long GL_TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFFl;
 
 	/** Returned by ClientWaitSync. */
 	public static final int

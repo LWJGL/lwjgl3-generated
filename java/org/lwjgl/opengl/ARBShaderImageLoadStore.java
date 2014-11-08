@@ -114,8 +114,7 @@ public final class ARBShaderImageLoadStore {
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x906C;
 
 	/** Accepted by the {@code value} parameter of GetTexParameteriv, GetTexParameterfv, GetTexParameterIiv, and GetTexParameterIuiv. */
-	public static final int
-		GL_IMAGE_FORMAT_COMPATIBILITY_TYPE = 0x90C7;
+	public static final int GL_IMAGE_FORMAT_COMPATIBILITY_TYPE = 0x90C7;
 
 	/**
 	 * Returned in the {@code data} parameter of GetTexParameteriv, GetTexParameterfv, GetTexParameterIiv, and GetTexParameterIuiv when {@code value} is

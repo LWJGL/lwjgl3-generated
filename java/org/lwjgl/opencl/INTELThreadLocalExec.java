@@ -28,8 +28,7 @@ package org.lwjgl.opencl;
 public final class INTELThreadLocalExec {
 
 	/** cl_command_queue_properties */
-	public static final int
-		CL_QUEUE_THREAD_LOCAL_EXEC_ENABLE_INTEL = 1 << 31;
+	public static final int CL_QUEUE_THREAD_LOCAL_EXEC_ENABLE_INTEL = 1 << 31;
 
 	private INTELThreadLocalExec() {}
 

@@ -47,8 +47,7 @@ public final class ARBFragmentProgram {
 	 * GetDoublev, and by the {@code target} parameter of ProgramStringARB, BindProgramARB, ProgramEnvParameter4[df][v]ARB, ProgramLocalParameter4[df][v]ARB,
 	 * GetProgramEnvParameter[df]vARB, GetProgramLocalParameter[df]vARB, GetProgramivARB and GetProgramStringARB.
 	 */
-	public static final int
-		GL_FRAGMENT_PROGRAM_ARB = 0x8804;
+	public static final int GL_FRAGMENT_PROGRAM_ARB = 0x8804;
 
 	/** Accepted by the {@code pname} parameter of GetProgramivARB. */
 	public static final int

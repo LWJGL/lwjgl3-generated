@@ -33,8 +33,7 @@ import static org.lwjgl.system.Checks.*;
 public final class ARBInstancedArrays {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
 
 	/** Function address. */
 	@JavadocExclude

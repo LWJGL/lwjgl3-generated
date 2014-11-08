@@ -87,16 +87,13 @@ import static org.lwjgl.system.APIUtil.*;
 public final class NVShaderBufferLoad {
 
 	/** Accepted by the {@code pname} parameter of GetBufferParameterui64vNV, GetNamedBufferParameterui64vNV. */
-	public static final int
-		GL_BUFFER_GPU_ADDRESS_NV = 0x8F1D;
+	public static final int GL_BUFFER_GPU_ADDRESS_NV = 0x8F1D;
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
-	public static final int
-		GL_GPU_ADDRESS_NV = 0x8F34;
+	public static final int GL_GPU_ADDRESS_NV = 0x8F34;
 
 	/** Accepted by the {@code value} parameter of GetIntegerui64vNV. */
-	public static final int
-		GL_MAX_SHADER_BUFFER_ADDRESS_NV = 0x8F35;
+	public static final int GL_MAX_SHADER_BUFFER_ADDRESS_NV = 0x8F35;
 
 	/** Function address. */
 	@JavadocExclude

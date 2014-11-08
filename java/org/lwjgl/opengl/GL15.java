@@ -67,8 +67,7 @@ public final class GL15 {
 		GL_WEIGHT_ARRAY_BUFFER_BINDING          = 0x889E;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttribiv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
 	/** Accepted by the {@code usage} parameter of BufferData. */
 	public static final int
@@ -96,12 +95,10 @@ public final class GL15 {
 		GL_BUFFER_MAPPED = 0x88BC;
 
 	/** Accepted by the {@code pname} parameter of GetBufferPointerv. */
-	public static final int
-		GL_BUFFER_MAP_POINTER = 0x88BD;
+	public static final int GL_BUFFER_MAP_POINTER = 0x88BD;
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int
-		GL_SAMPLES_PASSED = 0x8914;
+	public static final int GL_SAMPLES_PASSED = 0x8914;
 
 	/** Accepted by the {@code pname} parameter of GetQueryiv. */
 	public static final int

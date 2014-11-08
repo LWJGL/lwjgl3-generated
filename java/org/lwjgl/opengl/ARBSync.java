@@ -34,8 +34,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBSync {
 
 	/** Accepted as the {@code pname} parameter of GetInteger64v. */
-	public static final int
-		GL_MAX_SERVER_WAIT_TIMEOUT = 0x9111;
+	public static final int GL_MAX_SERVER_WAIT_TIMEOUT = 0x9111;
 
 	/** Accepted as the {@code pname} parameter of GetSynciv. */
 	public static final int
@@ -45,12 +44,10 @@ public final class ARBSync {
 		GL_SYNC_FLAGS     = 0x9115;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} OBJECT_TYPE. */
-	public static final int
-		GL_SYNC_FENCE = 0x9116;
+	public static final int GL_SYNC_FENCE = 0x9116;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} SYNC_CONDITION. */
-	public static final int
-		GL_SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
+	public static final int GL_SYNC_GPU_COMMANDS_COMPLETE = 0x9117;
 
 	/** Returned in {@code values} for GetSynciv {@code pname} SYNC_STATUS. */
 	public static final int
@@ -58,12 +55,10 @@ public final class ARBSync {
 		GL_SIGNALED   = 0x9119;
 
 	/** Accepted in the {@code flags} parameter of ClientWaitSync. */
-	public static final int
-		GL_SYNC_FLUSH_COMMANDS_BIT = 0x1;
+	public static final int GL_SYNC_FLUSH_COMMANDS_BIT = 0x1;
 
 	/** Accepted in the {@code timeout} parameter of WaitSync. */
-	public static final long
-		GL_TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFFl;
+	public static final long GL_TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFFl;
 
 	/** Returned by ClientWaitSync. */
 	public static final int

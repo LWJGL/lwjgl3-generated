@@ -35,12 +35,10 @@ public final class ARBSampleShading {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_SAMPLE_SHADING_ARB = 0x8C36;
+	public static final int GL_SAMPLE_SHADING_ARB = 0x8C36;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
+	public static final int GL_MIN_SAMPLE_SHADING_VALUE_ARB = 0x8C37;
 
 	/** Function address. */
 	@JavadocExclude

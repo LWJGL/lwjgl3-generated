@@ -38,8 +38,7 @@ import static org.lwjgl.system.Checks.*;
 public final class ARBComputeShader {
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned in the {@code params} parameter by GetShaderiv. */
-	public static final int
-		GL_COMPUTE_SHADER = 0x91B9;
+	public static final int GL_COMPUTE_SHADER = 0x91B9;
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -59,28 +58,22 @@ public final class ARBComputeShader {
 		GL_MAX_COMPUTE_WORK_GROUP_SIZE  = 0x91BF;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_COMPUTE_WORK_GROUP_SIZE = 0x8267;
+	public static final int GL_COMPUTE_WORK_GROUP_SIZE = 0x8267;
 
 	/** Accepted by the {@code pname} parameter of GetActiveUniformBlockiv. */
-	public static final int
-		GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
+	public static final int GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
 
 	/** Accepted by the {@code pname} parameter of GetActiveAtomicCounterBufferiv. */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
+	public static final int GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_DISPATCH_INDIRECT_BUFFER = 0x90EE;
+	public static final int GL_DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
+	public static final int GL_DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
 
 	/** Accepted by the {@code stages} parameter of UseProgramStages. */
-	public static final int
-		GL_COMPUTE_SHADER_BIT = 0x20;
+	public static final int GL_COMPUTE_SHADER_BIT = 0x20;
 
 	/** Function address. */
 	@JavadocExclude

@@ -24,8 +24,7 @@ public final class CL11 {
 		CL_INVALID_PROPERTY                          = -64;
 
 	/** OpenCL Version. */
-	public static final int
-		CL_VERSION_1_1 = 0x1;
+	public static final int CL_VERSION_1_1 = 0x1;
 
 	/** cl_device_info. */
 	public static final int
@@ -41,12 +40,10 @@ public final class CL11 {
 		CL_DEVICE_OPENCL_C_VERSION            = 0x103D;
 
 	/** cl_device_fp_config - bitfield. */
-	public static final int
-		CL_FP_SOFT_FLOAT = 1 << 6;
+	public static final int CL_FP_SOFT_FLOAT = 1 << 6;
 
 	/** cl_context_info. */
-	public static final int
-		CL_CONTEXT_NUM_DEVICES = 0x1083;
+	public static final int CL_CONTEXT_NUM_DEVICES = 0x1083;
 
 	/** cl_channel_order. */
 	public static final int
@@ -60,8 +57,7 @@ public final class CL11 {
 		CL_MEM_OFFSET               = 0x1108;
 
 	/** cl_addressing_mode. */
-	public static final int
-		CL_ADDRESS_MIRRORED_REPEAT = 0x1134;
+	public static final int CL_ADDRESS_MIRRORED_REPEAT = 0x1134;
 
 	/** cl_kernel_work_group_info. */
 	public static final int
@@ -69,8 +65,7 @@ public final class CL11 {
 		CL_KERNEL_PRIVATE_MEM_SIZE                   = 0x11B4;
 
 	/** cl_event_info. */
-	public static final int
-		CL_EVENT_CONTEXT = 0x11D4;
+	public static final int CL_EVENT_CONTEXT = 0x11D4;
 
 	/** cl_command_type. */
 	public static final int
@@ -80,8 +75,7 @@ public final class CL11 {
 		CL_COMMAND_USER              = 0x1204;
 
 	/** cl_buffer_create_type. */
-	public static final int
-		CL_BUFFER_CREATE_TYPE_REGION = 0x1220;
+	public static final int CL_BUFFER_CREATE_TYPE_REGION = 0x1220;
 
 	/** Function address. */
 	@JavadocExclude

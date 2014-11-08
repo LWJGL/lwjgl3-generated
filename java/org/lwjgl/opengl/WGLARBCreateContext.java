@@ -37,8 +37,7 @@ public final class WGLARBCreateContext {
 		WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x2;
 
 	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
-	public static final int
-		ERROR_INVALID_VERSION_ARB = 0x2095;
+	public static final int ERROR_INVALID_VERSION_ARB = 0x2095;
 
 	/** Function address. */
 	@JavadocExclude

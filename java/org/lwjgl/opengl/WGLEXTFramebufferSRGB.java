@@ -18,8 +18,7 @@ public final class WGLEXTFramebufferSRGB {
 	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} and the {@code attribIList} of
 	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}.
 	 */
-	public static final int
-		WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20A9;
+	public static final int WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB = 0x20A9;
 
 	private WGLEXTFramebufferSRGB() {}
 

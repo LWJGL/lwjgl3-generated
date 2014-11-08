@@ -57,8 +57,7 @@ package org.lwjgl.opengl;
 public final class ARBGPUShader5 {
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_GEOMETRY_SHADER_INVOCATIONS = 0x887F;
+	public static final int GL_GEOMETRY_SHADER_INVOCATIONS = 0x887F;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, and GetInteger64v. */
 	public static final int

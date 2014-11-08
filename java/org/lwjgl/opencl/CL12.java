@@ -31,8 +31,7 @@ public final class CL12 {
 		CL_INVALID_DEVICE_PARTITION_COUNT = -68;
 
 	/** OpenCL Version. */
-	public static final int
-		CL_VERSION_1_2 = 0x1;
+	public static final int CL_VERSION_1_2 = 0x1;
 
 	/** cl_bool */
 	public static final int
@@ -40,8 +39,7 @@ public final class CL12 {
 		CL_NON_BLOCKING = CL10.CL_FALSE;
 
 	/** cl_device_type - bitfield */
-	public static final int
-		CL_DEVICE_TYPE_CUSTOM = 1 << 4;
+	public static final int CL_DEVICE_TYPE_CUSTOM = 1 << 4;
 
 	/** cl_device_info */
 	public static final int
@@ -60,24 +58,20 @@ public final class CL12 {
 		CL_DEVICE_PRINTF_BUFFER_SIZE          = 0x1049;
 
 	/** cl_device_fp_config - bitfield */
-	public static final int
-		CL_FP_CORRECTLY_ROUNDED_DIVIDE_SQRT = 1 << 7;
+	public static final int CL_FP_CORRECTLY_ROUNDED_DIVIDE_SQRT = 1 << 7;
 
 	/** cl_context_properties */
-	public static final int
-		CL_CONTEXT_INTEROP_USER_SYNC = 0x1085;
+	public static final int CL_CONTEXT_INTEROP_USER_SYNC = 0x1085;
 
 	/** cl_device_partition_property list null-terminator */
-	public static final int
-		CL_DEVICE_PARTITION_BY_COUNTS_LIST_END = 0x0;
+	public static final int CL_DEVICE_PARTITION_BY_COUNTS_LIST_END = 0x0;
 
 	/**
 	 * Split the aggregate device into as many smaller aggregate devices as can be created, each containing {@code n} compute units. The value {@code n} is
 	 * passed as the value accompanying this property. If {@code n} does not divide evenly into {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}, then the
 	 * remaining compute units are not used.
 	 */
-	public static final int
-		CL_DEVICE_PARTITION_EQUALLY = 0x1086;
+	public static final int CL_DEVICE_PARTITION_EQUALLY = 0x1086;
 
 	/**
 	 * This property is followed by a {@link #CL_DEVICE_PARTITION_BY_COUNTS_LIST_END DEVICE_PARTITION_BY_COUNTS_LIST_END} terminated list of compute unit counts. For each nonzero count {@code m}
@@ -87,8 +81,7 @@ public final class CL12 {
 	 * 
 	 * <p>The total number of compute units specified may not exceed {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}.</p>
 	 */
-	public static final int
-		CL_DEVICE_PARTITION_BY_COUNTS = 0x1087;
+	public static final int CL_DEVICE_PARTITION_BY_COUNTS = 0x1087;
 
 	/**
 	 * Split the device into smaller aggregate devices containing one or more compute units that all share part of a cache hierarchy. The value accompanying
@@ -105,8 +98,7 @@ public final class CL12 {
 	 * </ul>
 	 * The user may determine what happened by calling {@link CL10#clGetDeviceInfo GetDeviceInfo}({@link #CL_DEVICE_PARTITION_TYPE DEVICE_PARTITION_TYPE}) on the sub-devices.
 	 */
-	public static final int
-		CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN = 0x1088;
+	public static final int CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN = 0x1088;
 
 	/** cl_device_affinity_domain */
 	public static final int
@@ -143,8 +135,7 @@ public final class CL12 {
 		CL_IMAGE_NUM_SAMPLES    = 0x111A;
 
 	/** cl_map_flags - bitfield */
-	public static final int
-		CL_MAP_WRITE_INVALIDATE_REGION = 1 << 2;
+	public static final int CL_MAP_WRITE_INVALIDATE_REGION = 1 << 2;
 
 	/** cl_program_info */
 	public static final int
@@ -152,8 +143,7 @@ public final class CL12 {
 		CL_PROGRAM_KERNEL_NAMES = 0x1168;
 
 	/** cl_program_build_info */
-	public static final int
-		CL_PROGRAM_BINARY_TYPE = 0x1184;
+	public static final int CL_PROGRAM_BINARY_TYPE = 0x1184;
 
 	/** cl_program_binary_type */
 	public static final int
@@ -163,8 +153,7 @@ public final class CL12 {
 		CL_PROGRAM_BINARY_TYPE_EXECUTABLE      = 0x4;
 
 	/** cl_kernel_info */
-	public static final int
-		CL_KERNEL_ATTRIBUTES = 0x1195;
+	public static final int CL_KERNEL_ATTRIBUTES = 0x1195;
 
 	/** cl_kernel_arg_info */
 	public static final int
@@ -196,8 +185,7 @@ public final class CL12 {
 		CL_CL_KERNEL_ARG_TYPE_VOLATILE = 1 << 2;
 
 	/** cl_kernel_work_group_info */
-	public static final int
-		CL_KERNEL_GLOBAL_WORK_SIZE = 0x11B5;
+	public static final int CL_KERNEL_GLOBAL_WORK_SIZE = 0x11B5;
 
 	/** cl_command_type */
 	public static final int

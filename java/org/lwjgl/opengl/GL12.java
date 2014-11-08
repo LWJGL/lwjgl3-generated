@@ -61,24 +61,19 @@ public final class GL12 {
 	 * GetDoublev, and by the {@code target} parameter of TexImage3D, GetTexImage, GetTexLevelParameteriv, GetTexLevelParameterfv, GetTexParameteriv, and
 	 * GetTexParameterfv.
 	 */
-	public static final int
-		GL_TEXTURE_3D = 0x806F;
+	public static final int GL_TEXTURE_3D = 0x806F;
 
 	/** Accepted by the {@code target} parameter of TexImage3D, GetTexLevelParameteriv, and GetTexLevelParameterfv. */
-	public static final int
-		GL_PROXY_TEXTURE_3D = 0x8070;
+	public static final int GL_PROXY_TEXTURE_3D = 0x8070;
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameteriv and GetTexLevelParameterfv. */
-	public static final int
-		GL_TEXTURE_DEPTH = 0x8071;
+	public static final int GL_TEXTURE_DEPTH = 0x8071;
 
 	/** Accepted by the {@code pname} parameter of TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
-	public static final int
-		GL_TEXTURE_WRAP_R = 0x8072;
+	public static final int GL_TEXTURE_WRAP_R = 0x8072;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_3D_TEXTURE_SIZE = 0x8073;
+	public static final int GL_MAX_3D_TEXTURE_SIZE = 0x8073;
 
 	/** Accepted by the {@code format} parameter of DrawPixels, GetTexImage, ReadPixels, TexImage1D, and TexImage2D. */
 	public static final int
@@ -108,12 +103,10 @@ public final class GL12 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_RESCALE_NORMAL = 0x803A;
+	public static final int GL_RESCALE_NORMAL = 0x803A;
 
 	/** Accepted by the {@code pname} parameter of LightModel*, and also by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_LIGHT_MODEL_COLOR_CONTROL = 0x81F8;
+	public static final int GL_LIGHT_MODEL_COLOR_CONTROL = 0x81F8;
 
 	/** Accepted by the {@code param} parameter of LightModel* when {@code pname} is  LIGHT_MODEL_COLOR_CONTROL. */
 	public static final int
@@ -124,8 +117,7 @@ public final class GL12 {
 	 * Accepted by the {@code param} parameter of TexParameteri and TexParameterf, and by the {@code params} parameter of TexParameteriv and TexParameterfv,
 	 * when their {@code pname} parameter is TEXTURE_WRAP_S, TEXTURE_WRAP_T, or TEXTURE_WRAP_R.
 	 */
-	public static final int
-		GL_CLAMP_TO_EDGE = 0x812F;
+	public static final int GL_CLAMP_TO_EDGE = 0x812F;
 
 	/** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
 	public static final int

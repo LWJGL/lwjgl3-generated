@@ -29,8 +29,7 @@ public final class ALC11 {
 		ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER = 0x311;
 
 	/** Integer queries. */
-	public static final int
-		ALC_CAPTURE_SAMPLES = 0x312;
+	public static final int ALC_CAPTURE_SAMPLES = 0x312;
 
 	/** Function address. */
 	@JavadocExclude

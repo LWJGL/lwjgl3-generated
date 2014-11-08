@@ -34,12 +34,10 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBGetProgramBinary {
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
-	public static final int
-		GL_PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
+	public static final int GL_PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_PROGRAM_BINARY_LENGTH = 0x8741;
+	public static final int GL_PROGRAM_BINARY_LENGTH = 0x8741;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv and GetDoublev. */
 	public static final int

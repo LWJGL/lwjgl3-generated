@@ -29,8 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBVertexShader {
 
 	/** Accepted by the {@code shaderType} argument of CreateShaderObjectARB and returned by the {@code params} parameter of GetObjectParameter{if}vARB. */
-	public static final int
-		GL_VERTEX_SHADER_ARB = 0x8B31;
+	public static final int GL_VERTEX_SHADER_ARB = 0x8B31;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -65,8 +64,7 @@ public final class ARBVertexShader {
 		GL_CURRENT_VERTEX_ATTRIB_ARB          = 0x8626;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttribPointervARB. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB = 0x8645;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB = 0x8645;
 
 	/** Returned by the {@code type} parameter of GetActiveAttribARB. */
 	public static final int

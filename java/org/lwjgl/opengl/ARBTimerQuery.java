@@ -34,15 +34,13 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBTimerQuery {
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
-	public static final int
-		GL_TIME_ELAPSED = 0x88BF;
+	public static final int GL_TIME_ELAPSED = 0x88BF;
 
 	/**
 	 * Accepted by the {@code target} parameter of GetQueryiv and QueryCounter. Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv,
 	 * GetInteger64v, GetFloatv, and GetDoublev.
 	 */
-	public static final int
-		GL_TIMESTAMP = 0x8E28;
+	public static final int GL_TIMESTAMP = 0x8E28;
 
 	/** Function address. */
 	@JavadocExclude

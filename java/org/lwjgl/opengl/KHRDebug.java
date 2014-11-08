@@ -91,8 +91,7 @@ public final class KHRDebug {
 		GL_DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
-	public static final int
-		GL_CONTEXT_FLAG_DEBUG_BIT = 0x2;
+	public static final int GL_CONTEXT_FLAG_DEBUG_BIT = 0x2;
 
 	/** Tokens accepted by the {@code value} parameters of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int

@@ -209,8 +209,7 @@ public final class ARBFramebufferObject {
 	 * Accepted by the {@code target} parameter of BindRenderbuffer, RenderbufferStorage, and GetRenderbufferParameteriv, and returned by
 	 * GetFramebufferAttachmentParameteriv.
 	 */
-	public static final int
-		GL_RENDERBUFFER = 0x8D41;
+	public static final int GL_RENDERBUFFER = 0x8D41;
 
 	/** Accepted by the {@code internalformat} parameter of RenderbufferStorage. */
 	public static final int
@@ -276,8 +275,7 @@ public final class ARBFramebufferObject {
 		GL_DEPTH_STENCIL_ATTACHMENT = 0x821A;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_SAMPLES = 0x8D57;
+	public static final int GL_MAX_SAMPLES = 0x8D57;
 
 	/** Returned by CheckFramebufferStatus(). */
 	public static final int
@@ -300,34 +298,29 @@ public final class ARBFramebufferObject {
 		GL_MAX_RENDERBUFFER_SIZE    = 0x84E8;
 
 	/** Returned by GetError(). */
-	public static final int
-		GL_INVALID_FRAMEBUFFER_OPERATION = 0x506;
+	public static final int GL_INVALID_FRAMEBUFFER_OPERATION = 0x506;
 
 	/**
 	 * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage, by the {@code type} parameter of CopyPixels, by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D,
 	 * CopyTexImage2D, and RenderbufferStorage, and returned in the {@code data} parameter of GetTexLevelParameter and GetRenderbufferParameteriv.
 	 */
-	public static final int
-		GL_DEPTH_STENCIL = 0x84F9;
+	public static final int GL_DEPTH_STENCIL = 0x84F9;
 
 	/**
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage.
 	 */
-	public static final int
-		GL_UNSIGNED_INT_24_8 = 0x84FA;
+	public static final int GL_UNSIGNED_INT_24_8 = 0x84FA;
 
 	/**
 	 * Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorage, and
 	 * returned in the {@code data} parameter of GetTexLevelParameter and GetRenderbufferParameteriv.
 	 */
-	public static final int
-		GL_DEPTH24_STENCIL8 = 0x88F0;
+	public static final int GL_DEPTH24_STENCIL8 = 0x88F0;
 
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_STENCIL_SIZE = 0x88F1;
+	public static final int GL_TEXTURE_STENCIL_SIZE = 0x88F1;
 
 	/** Function address. */
 	@JavadocExclude

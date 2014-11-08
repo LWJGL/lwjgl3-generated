@@ -29,8 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBVertexArrayObject {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_VERTEX_ARRAY_BINDING = 0x85B5;
+	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
 	/** Function address. */
 	@JavadocExclude

@@ -81,8 +81,7 @@ public final class AL10 {
 		AL_STOPPED = 0x1014;
 
 	/** Listener attributes. */
-	public static final int
-		AL_ORIENTATION = 0x100F;
+	public static final int AL_ORIENTATION = 0x100F;
 
 	/** Queue state. */
 	public static final int

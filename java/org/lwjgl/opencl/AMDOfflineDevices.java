@@ -13,8 +13,7 @@ public final class AMDOfflineDevices {
 	 * not installed on the system. When, during context creation, {@link #CL_CONTEXT_OFFLINE_DEVICES_AMD CONTEXT_OFFLINE_DEVICES_AMD} is passed in the context properties, all supported
 	 * devices, whether online or offline, are reported and can be used to create OpenCL binary images.
 	 */
-	public static final int
-		CL_CONTEXT_OFFLINE_DEVICES_AMD = 0x403F;
+	public static final int CL_CONTEXT_OFFLINE_DEVICES_AMD = 0x403F;
 
 	private AMDOfflineDevices() {}
 

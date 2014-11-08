@@ -28,19 +28,16 @@ public final class DynamicLinkLoader {
 	 * If the following bit is set in the {@code mode} argument to {@link #dlopen}, the symbols of the loaded object and its dependencies are made visible as
 	 * if the object were linked directly into the program.
 	 */
-	public static final int
-		RTLD_GLOBAL = 0x100;
+	public static final int RTLD_GLOBAL = 0x100;
 
 	/**
 	 * Unix98 demands the following flag which is the inverse to {@link #RTLD_GLOBAL}. The implementation does this by default and so we can define the value
 	 * to zero.
 	 */
-	public static final int
-		RTLD_LOCAL = 0x0;
+	public static final int RTLD_LOCAL = 0x0;
 
 	/** Do not delete object when closed. */
-	public static final int
-		RTLD_NODELETE = 0x1000;
+	public static final int RTLD_NODELETE = 0x1000;
 
 	private DynamicLinkLoader() {}
 

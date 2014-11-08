@@ -16,8 +16,7 @@ package org.lwjgl.opengl;
 public final class GLXINTELSwapEvent {
 
 	/** Accepted by the {@code mask} parameter of {@link GLX13#glXSelectEvent SelectEvent} and returned in the {@code mask} parameter of {@link GLX13#glXGetSelectedEvent GetSelectedEvent}. */
-	public static final int
-		GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x4000000;
+	public static final int GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x4000000;
 
 	/** Returned in the {@code event_type} field of a "swap complete" event. */
 	public static final int

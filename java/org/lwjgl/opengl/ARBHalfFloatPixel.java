@@ -26,8 +26,7 @@ public final class ARBHalfFloatPixel {
 	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, GetConvolutionFilter, SeparableFilter2D, GetSeparableFilter,
 	 * ColorTable, ColorSubTable, and GetColorTable.
 	 */
-	public static final int
-		GL_HALF_FLOAT_ARB = 0x140B;
+	public static final int GL_HALF_FLOAT_ARB = 0x140B;
 
 	private ARBHalfFloatPixel() {}
 

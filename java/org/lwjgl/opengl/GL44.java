@@ -32,8 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class GL44 {
 
 	/** Implementation-dependent state which constrains the maximum value of stride parameters to vertex array pointer-setting commands. */
-	public static final int
-		GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
+	public static final int GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
 	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link EXTDirectStateAccess#glNamedBufferStorageEXT NamedBufferStorageEXT}. */
 	public static final int
@@ -48,12 +47,10 @@ public final class GL44 {
 		GL_BUFFER_STORAGE_FLAGS     = 0x8220;
 
 	/** Accepted by the {@code barriers} parameter of {@link GL42#glMemoryBarrier MemoryBarrier}. */
-	public static final int
-		GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
+	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
 
 	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
-	public static final int
-		GL_CLEAR_TEXTURE = 0x9365;
+	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
 	/** Accepted in the {@code props} array of {@link GL43#glGetProgramResourcei GetProgramResourcei}. */
 	public static final int
@@ -62,8 +59,7 @@ public final class GL44 {
 		GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
 	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}. */
-	public static final int
-		GL_QUERY_RESULT_NO_WAIT = 0x9194;
+	public static final int GL_QUERY_RESULT_NO_WAIT = 0x9194;
 
 	/**
 	 * Accepted by the {@code target} parameter of {@link GL15#glBindBuffer BindBuffer}, {@link GL15#glBufferData BufferData}, {@link GL15#glBufferSubData BufferSubData},
@@ -71,27 +67,23 @@ public final class GL44 {
 	 * {@link GL15#glGetBufferParameteri GetBufferParameteri}, {@link GL32#glGetBufferParameteri64 GetBufferParameteri64}, {@link GL15#glGetBufferPointer GetBufferPointer},
 	 * {@link GL43#glClearBufferSubData ClearBufferSubData}, and the {@code readtarget} and {@code writetarget} parameters of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 */
-	public static final int
-		GL_QUERY_BUFFER = 0x9192;
+	public static final int GL_QUERY_BUFFER = 0x9192;
 
 	/**
 	 * Accepted by the {@code pname} parameter of {@link GL11#glGetBoolean GetBoolean}, {@link GL11#glGetInteger GetInteger}, {@link GL11#glGetFloat GetFloat},
 	 * and {@link GL11#glGetDouble GetDouble}.
 	 */
-	public static final int
-		GL_QUERY_BUFFER_BINDING = 0x9193;
+	public static final int GL_QUERY_BUFFER_BINDING = 0x9193;
 
 	/** Accepted in the {@code barriers} bitfield in {@link GL42#glMemoryBarrier MemoryBarrier}. */
-	public static final int
-		GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
+	public static final int GL_QUERY_BUFFER_BARRIER_BIT = 0x8000;
 
 	/**
 	 * Accepted by the {@code param} parameter of TexParameter{if}, SamplerParameter{if} and SamplerParameter{if}v, and by the {@code params} parameter of
 	 * TexParameter{if}v, TexParameterI{i ui}v and SamplerParameterI{i ui}v when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or
 	 * {@link GL11#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R},
 	 */
-	public static final int
-		GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
+	public static final int GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
 
 	/** Function address. */
 	@JavadocExclude

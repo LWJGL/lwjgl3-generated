@@ -460,8 +460,7 @@ public final class WinUser {
 		WS_EX_NOACTIVATE       = 0x8000000;
 
 	/** May be used in {@link #CreateWindowEx} for the x, y, width, height parameters. */
-	public static final int
-		CW_USEDEFAULT = 0x80000000;
+	public static final int CW_USEDEFAULT = 0x80000000;
 
 	/** Key state masks for mouse messages. */
 	public static final int
@@ -1111,8 +1110,7 @@ public final class WinUser {
 		XBUTTON2 = 0x2;
 
 	/** Value for rolling one detent. */
-	public static final int
-		WHEEL_DELTA = 0x78;
+	public static final int WHEEL_DELTA = 0x78;
 
 	/** {@link TRACKMOUSEEVENT} flags. */
 	public static final int

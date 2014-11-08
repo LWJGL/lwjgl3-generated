@@ -46,8 +46,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBBindlessTexture {
 
 	/** Accepted by the {@code type} parameter of VertexAttribLPointer. */
-	public static final int
-		GL_UNSIGNED_INT64_ARB = 0x140F;
+	public static final int GL_UNSIGNED_INT64_ARB = 0x140F;
 
 	/** Function address. */
 	@JavadocExclude

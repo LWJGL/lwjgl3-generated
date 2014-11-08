@@ -9,8 +9,7 @@ package org.lwjgl.opencl;
 public final class KHRDepthImages {
 
 	/** cl_channel_order */
-	public static final int
-		CL_DEPTH = 0x10BD;
+	public static final int CL_DEPTH = 0x10BD;
 
 	private KHRDepthImages() {}
 

@@ -19,8 +19,7 @@ public final class KHRBlendEquationAdvancedCoherent {
 	 * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv,
 	 * GetDoublev and GetInteger64v.
 	 */
-	public static final int
-		GL_BLEND_ADVANCED_COHERENT_KHR = 0x9285;
+	public static final int GL_BLEND_ADVANCED_COHERENT_KHR = 0x9285;
 
 	private KHRBlendEquationAdvancedCoherent() {}
 

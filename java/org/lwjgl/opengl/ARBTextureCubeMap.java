@@ -40,12 +40,10 @@ public final class ARBTextureCubeMap {
 	 * GetIntegerv, GetFloatv, and GetDoublev, and by the {@code target} parameter of BindTexture, GetTexParameterfv, GetTexParameteriv, TexParameterf,
 	 * TexParameteri, TexParameterfv, and TexParameteriv.
 	 */
-	public static final int
-		GL_TEXTURE_CUBE_MAP_ARB = 0x8513;
+	public static final int GL_TEXTURE_CUBE_MAP_ARB = 0x8513;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BINDING_CUBE_MAP_ARB = 0x8514;
+	public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARB = 0x8514;
 
 	/**
 	 * Accepted by the {@code target} parameter of GetTexImage, GetTexLevelParameteriv, GetTexLevelParameterfv, TexImage2D, CopyTexImage2D, TexSubImage2D, and
@@ -60,12 +58,10 @@ public final class ARBTextureCubeMap {
 		GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB = 0x851A;
 
 	/** Accepted by the {@code target} parameter of GetTexLevelParameteriv, GetTexLevelParameterfv, GetTexParameteriv, and TexImage2D. */
-	public static final int
-		GL_PROXY_TEXTURE_CUBE_MAP_ARB = 0x851B;
+	public static final int GL_PROXY_TEXTURE_CUBE_MAP_ARB = 0x851B;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB = 0x851C;
+	public static final int GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB = 0x851C;
 
 	private ARBTextureCubeMap() {}
 

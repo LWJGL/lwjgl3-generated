@@ -69,8 +69,7 @@ public final class CL10 {
 		CL_INVALID_GLOBAL_WORK_SIZE        = -63;
 
 	/** OpenCL Version */
-	public static final int
-		CL_VERSION_1_0 = 0x1;
+	public static final int CL_VERSION_1_0 = 0x1;
 
 	/** cl_bool */
 	public static final int
@@ -183,8 +182,7 @@ public final class CL10 {
 		CL_CONTEXT_PROPERTIES      = 0x1082;
 
 	/** cl_context_info + cl_context_properties */
-	public static final int
-		CL_CONTEXT_PLATFORM = 0x1084;
+	public static final int CL_CONTEXT_PLATFORM = 0x1084;
 
 	/** cl_command_queue_info */
 	public static final int

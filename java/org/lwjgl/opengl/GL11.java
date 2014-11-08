@@ -494,8 +494,7 @@ public final class GL11 {
 		GL_LUMINANCE_ALPHA = 0x190A;
 
 	/** PixelType */
-	public static final int
-		GL_BITMAP = 0x1A00;
+	public static final int GL_BITMAP = 0x1A00;
 
 	/** PolygonMode */
 	public static final int
@@ -546,8 +545,7 @@ public final class GL11 {
 		GL_TEXTURE_ENV_COLOR = 0x2201;
 
 	/** TextureEnvTarget */
-	public static final int
-		GL_TEXTURE_ENV = 0x2300;
+	public static final int GL_TEXTURE_ENV = 0x2300;
 
 	/** TextureGenMode */
 	public static final int

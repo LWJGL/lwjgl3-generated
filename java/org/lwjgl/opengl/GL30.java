@@ -64,8 +64,7 @@ public final class GL30 {
 		GL_MAX_VARYING_COMPONENTS = GL20.GL_MAX_VARYING_FLOATS;
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, GetVertexAttribiv, GetVertexAttribIuiv and GetVertexAttribIiv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_INTEGER = 0x88FD;
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
 	public static final int
@@ -123,8 +122,7 @@ public final class GL30 {
 		GL_BUFFER_MAP_OFFSET    = 0x9121;
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_RGBA_FLOAT_MODE = 0x8820;
+	public static final int GL_RGBA_FLOAT_MODE = 0x8820;
 
 	/** Accepted by the {@code target} parameter of ClampColor and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -133,8 +131,7 @@ public final class GL30 {
 		GL_CLAMP_READ_COLOR     = 0x891C;
 
 	/** Accepted by the {@code clamp} parameter of ClampColor. */
-	public static final int
-		GL_FIXED_ONLY = 0x891D;
+	public static final int GL_FIXED_ONLY = 0x891D;
 
 	/**
 	 * Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorage, and
@@ -148,8 +145,7 @@ public final class GL30 {
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage.
 	 */
-	public static final int
-		GL_FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
+	public static final int GL_FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
 	public static final int
@@ -162,8 +158,7 @@ public final class GL30 {
 		GL_TEXTURE_DEPTH_TYPE     = 0x8C16;
 
 	/** Returned by the {@code params} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_UNSIGNED_NORMALIZED = 0x8C17;
+	public static final int GL_UNSIGNED_NORMALIZED = 0x8C17;
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int
@@ -173,32 +168,27 @@ public final class GL30 {
 		GL_RGB16F  = 0x881B;
 
 	/** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorage. */
-	public static final int
-		GL_R11F_G11F_B10F = 0x8C3A;
+	public static final int GL_R11F_G11F_B10F = 0x8C3A;
 
 	/**
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
 	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
 	 * GetSeparableFilter, ColorTable, ColorSubTable, and GetColorTable.
 	 */
-	public static final int
-		GL_UNSIGNED_INT_10F_11F_11F_REV = 0x8C3B;
+	public static final int GL_UNSIGNED_INT_10F_11F_11F_REV = 0x8C3B;
 
 	/** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorage. */
-	public static final int
-		GL_RGB9_E5 = 0x8C3D;
+	public static final int GL_RGB9_E5 = 0x8C3D;
 
 	/**
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, GetTexImage, TexImage3D, TexSubImage1D, TexSubImage2D,
 	 * TexSubImage3D, GetHistogram, GetMinmax, ConvolutionFilter1D, ConvolutionFilter2D, ConvolutionFilter3D, GetConvolutionFilter, SeparableFilter2D,
 	 * GetSeparableFilter, ColorTable, ColorSubTable, and GetColorTable.
 	 */
-	public static final int
-		GL_UNSIGNED_INT_5_9_9_9_REV = 0x8C3E;
+	public static final int GL_UNSIGNED_INT_5_9_9_9_REV = 0x8C3E;
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameterfv and GetTexLevelParameteriv. */
-	public static final int
-		GL_TEXTURE_SHARED_SIZE = 0x8C3F;
+	public static final int GL_TEXTURE_SHARED_SIZE = 0x8C3F;
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture{1D|2D|3D}, FramebufferRenderbuffer, and
@@ -213,8 +203,7 @@ public final class GL30 {
 	 * Accepted by the {@code target} parameter of BindRenderbuffer, RenderbufferStorage, and GetRenderbufferParameteriv, and returned by
 	 * GetFramebufferAttachmentParameteriv.
 	 */
-	public static final int
-		GL_RENDERBUFFER = 0x8D41;
+	public static final int GL_RENDERBUFFER = 0x8D41;
 
 	/** Accepted by the {@code internalformat} parameter of RenderbufferStorage. */
 	public static final int
@@ -280,8 +269,7 @@ public final class GL30 {
 		GL_DEPTH_STENCIL_ATTACHMENT = 0x821A;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_SAMPLES = 0x8D57;
+	public static final int GL_MAX_SAMPLES = 0x8D57;
 
 	/** Returned by CheckFramebufferStatus(). */
 	public static final int
@@ -304,34 +292,29 @@ public final class GL30 {
 		GL_MAX_RENDERBUFFER_SIZE    = 0x84E8;
 
 	/** Returned by GetError(). */
-	public static final int
-		GL_INVALID_FRAMEBUFFER_OPERATION = 0x506;
+	public static final int GL_INVALID_FRAMEBUFFER_OPERATION = 0x506;
 
 	/**
 	 * Accepted by the {@code format} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage, by the {@code type} parameter of CopyPixels, by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D,
 	 * CopyTexImage2D, and RenderbufferStorage, and returned in the {@code data} parameter of GetTexLevelParameter and GetRenderbufferParameteriv.
 	 */
-	public static final int
-		GL_DEPTH_STENCIL = 0x84F9;
+	public static final int GL_DEPTH_STENCIL = 0x84F9;
 
 	/**
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and
 	 * GetTexImage.
 	 */
-	public static final int
-		GL_UNSIGNED_INT_24_8 = 0x84FA;
+	public static final int GL_UNSIGNED_INT_24_8 = 0x84FA;
 
 	/**
 	 * Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorage, and
 	 * returned in the {@code data} parameter of GetTexLevelParameter and GetRenderbufferParameteriv.
 	 */
-	public static final int
-		GL_DEPTH24_STENCIL8 = 0x88F0;
+	public static final int GL_DEPTH24_STENCIL8 = 0x88F0;
 
 	/** Accepted by the {@code value} parameter of GetTexLevelParameter. */
-	public static final int
-		GL_TEXTURE_STENCIL_SIZE = 0x88F1;
+	public static final int GL_TEXTURE_STENCIL_SIZE = 0x88F1;
 
 	/**
 	 * Accepted by the {@code type} parameter of DrawPixels, ReadPixels, TexImage1D, TexImage2D, TexImage3D, GetTexImage, TexSubImage1D, TexSubImage2D,
@@ -341,12 +324,10 @@ public final class GL30 {
 	 * <p>Accepted by the {@code type} argument of VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, FogCoordPointer, TexCoordPointer, and
 	 * VertexAttribPointer.</p>
 	 */
-	public static final int
-		GL_HALF_FLOAT = 0x140B;
+	public static final int GL_HALF_FLOAT = 0x140B;
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_RGBA_INTEGER_MODE = 0x8D9E;
+	public static final int GL_RGBA_INTEGER_MODE = 0x8D9E;
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int
@@ -380,15 +361,13 @@ public final class GL30 {
 		GL_TEXTURE_2D_ARRAY = 0x8C1A;
 
 	/** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CopyTexSubImage3D, CompressedTexImage3D, and CompressedTexSubImage3D. */
-	public static final int
-		GL_PROXY_TEXTURE_2D_ARRAY = 0x8C1B;
+	public static final int GL_PROXY_TEXTURE_2D_ARRAY = 0x8C1B;
 
 	/**
 	 * Accepted by the {@code target} parameter of TexImage2D, TexSubImage2D, CopyTexImage2D, CopyTexSubImage2D, CompressedTexImage2D, and
 	 * CompressedTexSubImage2D.
 	 */
-	public static final int
-		GL_PROXY_TEXTURE_1D_ARRAY = 0x8C19;
+	public static final int GL_PROXY_TEXTURE_1D_ARRAY = 0x8C19;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
 	public static final int
@@ -433,15 +412,13 @@ public final class GL30 {
 		GL_COMPRESSED_RG  = 0x8226;
 
 	/** Accepted by the {@code format} parameter of TexImage3D, TexImage2D, TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D, and ReadPixels. */
-	public static final int
-		GL_RG_INTEGER = 0x8228;
+	public static final int GL_RG_INTEGER = 0x8228;
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
 	 * BindBufferRange, BindBufferOffset and BindBufferBase.
 	 */
-	public static final int
-		GL_TRANSFORM_FEEDBACK_BUFFER = 0x8C8E;
+	public static final int GL_TRANSFORM_FEEDBACK_BUFFER = 0x8C8E;
 
 	/** Accepted by the {@code param} parameter of GetIntegeri_v and GetBooleani_v. */
 	public static final int
@@ -452,8 +429,7 @@ public final class GL30 {
 	 * Accepted by the {@code param} parameter of GetIntegeri_v and GetBooleani_v, and by the {@code pname} parameter of GetBooleanv,
 	 * GetDoublev, GetIntegerv, and GetFloatv.
 	 */
-	public static final int
-		GL_TRANSFORM_FEEDBACK_BUFFER_BINDING = 0x8C8F;
+	public static final int GL_TRANSFORM_FEEDBACK_BUFFER_BINDING = 0x8C8F;
 
 	/** Accepted by the {@code bufferMode} parameter of TransformFeedbackVaryings. */
 	public static final int
@@ -469,8 +445,7 @@ public final class GL30 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_RASTERIZER_DISCARD = 0x8C89;
+	public static final int GL_RASTERIZER_DISCARD = 0x8C89;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int
@@ -485,15 +460,13 @@ public final class GL30 {
 		GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH = 0x8C76;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_VERTEX_ARRAY_BINDING = 0x85B5;
+	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_FRAMEBUFFER_SRGB = 0x8DB9;
+	public static final int GL_FRAMEBUFFER_SRGB = 0x8DB9;
 
 	/** Function address. */
 	@JavadocExclude

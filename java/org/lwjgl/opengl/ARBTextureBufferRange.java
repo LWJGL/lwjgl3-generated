@@ -28,8 +28,7 @@ public final class ARBTextureBufferRange {
 		GL_TEXTURE_BUFFER_SIZE   = 0x919E;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
+	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 	/** Function address. */
 	@JavadocExclude

@@ -9,8 +9,7 @@ package org.lwjgl.opencl;
 public final class AMDDeviceProfilingTimerOffset {
 
 	/** Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. Returns the offset in nanoseconds between event timestamps. */
-	public static final int
-		CL_DEVICE_PROFILING_TIMER_OFFSET_AMD = 0x4036;
+	public static final int CL_DEVICE_PROFILING_TIMER_OFFSET_AMD = 0x4036;
 
 	private AMDDeviceProfilingTimerOffset() {}
 

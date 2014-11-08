@@ -28,8 +28,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	 * Accepted by the {@code type} parameter of VertexAttribPointer, VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, TexCoordPointer,
 	 * VertexAttribP{1234}ui, VertexP*, TexCoordP*, MultiTexCoordP*, NormalP3ui, ColorP*, SecondaryColorP and VertexAttribP*.
 	 */
-	public static final int
-		GL_INT_2_10_10_10_REV = 0x8D9F;
+	public static final int GL_INT_2_10_10_10_REV = 0x8D9F;
 
 	/** Function address. */
 	@JavadocExclude

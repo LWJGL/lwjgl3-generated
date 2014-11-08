@@ -25,8 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class GL21 {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_CURRENT_RASTER_SECONDARY_COLOR = 0x845F;
+	public static final int GL_CURRENT_RASTER_SECONDARY_COLOR = 0x845F;
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
 	public static final int

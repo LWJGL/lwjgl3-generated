@@ -42,12 +42,10 @@ public final class EXTDepthBoundsTest {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_DEPTH_BOUNDS_TEST_EXT = 0x8890;
+	public static final int GL_DEPTH_BOUNDS_TEST_EXT = 0x8890;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DEPTH_BOUNDS_EXT = 0x8891;
+	public static final int GL_DEPTH_BOUNDS_EXT = 0x8891;
 
 	/** Function address. */
 	@JavadocExclude

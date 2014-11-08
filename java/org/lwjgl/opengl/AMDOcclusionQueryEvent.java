@@ -25,8 +25,7 @@ public final class AMDOcclusionQueryEvent {
 	 * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui},
 	 * {@link GL33#glGetQueryObjecti64 GetQueryObjecti64}, and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}.
 	 */
-	public static final int
-		GL_OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
+	public static final int GL_OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
 
 	/** Accepted by the {@code param} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}. */
 	public static final int

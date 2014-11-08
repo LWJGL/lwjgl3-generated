@@ -46,15 +46,13 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBShaderAtomicCounters {
 
 	/** Accepted by the {@code target} parameter of BindBufferBase and BindBufferRange. */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER = 0x92C0;
+	public static final int GL_ATOMIC_COUNTER_BUFFER = 0x92C0;
 
 	/**
 	 * Accepted by the {@code pname} parameter of GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, GetInteger64i_v, GetBooleanv, GetIntegerv,
 	 * GetInteger64v, GetFloatv, GetDoublev, and GetActiveAtomicCounterBufferiv.
 	 */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER_BINDING = 0x92C1;
+	public static final int GL_ATOMIC_COUNTER_BUFFER_BINDING = 0x92C1;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_64v. */
 	public static final int
@@ -90,16 +88,13 @@ public final class ARBShaderAtomicCounters {
 		GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS         = 0x92DC;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_ACTIVE_ATOMIC_COUNTER_BUFFERS = 0x92D9;
+	public static final int GL_ACTIVE_ATOMIC_COUNTER_BUFFERS = 0x92D9;
 
 	/** Accepted by the {@code pname} parameter of GetActiveUniformsiv. */
-	public static final int
-		GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX = 0x92DA;
+	public static final int GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX = 0x92DA;
 
 	/** Returned in {@code params} by GetActiveUniform and GetActiveUniformsiv. */
-	public static final int
-		GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
+	public static final int GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
 
 	/** Function address. */
 	@JavadocExclude

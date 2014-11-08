@@ -49,12 +49,10 @@ import static org.lwjgl.system.APIUtil.*;
 public final class GL43 {
 
 	/** No. of supported Shading Language Versions. Accepted by the {@code pname} parameter of GetIntegerv. */
-	public static final int
-		GL_NUM_SHADING_LANGUAGE_VERSIONS = 0x82E9;
+	public static final int GL_NUM_SHADING_LANGUAGE_VERSIONS = 0x82E9;
 
 	/** Vertex attrib array has unconverted doubles. Accepted by the {@code pname} parameter of GetVertexAttribiv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_LONG = 0x874E;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_LONG = 0x874E;
 
 	/** Accepted by the {@code internalformat} parameter of CompressedTexImage2D. */
 	public static final int
@@ -70,24 +68,19 @@ public final class GL43 {
 		GL_COMPRESSED_SIGNED_RG11_EAC                = 0x9273;
 
 	/** Accepted by the {@code target} parameter of Enable and Disable. */
-	public static final int
-		GL_PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
+	public static final int GL_PRIMITIVE_RESTART_FIXED_INDEX = 0x8D69;
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, GetQueryIndexediv and GetQueryiv. */
-	public static final int
-		GL_ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
+	public static final int GL_ANY_SAMPLES_PASSED_CONSERVATIVE = 0x8D6A;
 
 	/** Accepted by the {@code value} parameter of the GetInteger* functions. */
-	public static final int
-		GL_MAX_ELEMENT_INDEX = 0x8D6B;
+	public static final int GL_MAX_ELEMENT_INDEX = 0x8D6B;
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and  GetTexParameteriv. */
-	public static final int
-		GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
+	public static final int GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned in the {@code params} parameter by GetShaderiv. */
-	public static final int
-		GL_COMPUTE_SHADER = 0x91B9;
+	public static final int GL_COMPUTE_SHADER = 0x91B9;
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -107,28 +100,22 @@ public final class GL43 {
 		GL_MAX_COMPUTE_WORK_GROUP_SIZE  = 0x91BF;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_COMPUTE_WORK_GROUP_SIZE = 0x8267;
+	public static final int GL_COMPUTE_WORK_GROUP_SIZE = 0x8267;
 
 	/** Accepted by the {@code pname} parameter of GetActiveUniformBlockiv. */
-	public static final int
-		GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
+	public static final int GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER = 0x90EC;
 
 	/** Accepted by the {@code pname} parameter of GetActiveAtomicCounterBufferiv. */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
+	public static final int GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER = 0x90ED;
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_DISPATCH_INDIRECT_BUFFER = 0x90EE;
+	public static final int GL_DISPATCH_INDIRECT_BUFFER = 0x90EE;
 
 	/** Accepted by the {@code value} parameter of GetIntegerv, GetBooleanv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
+	public static final int GL_DISPATCH_INDIRECT_BUFFER_BINDING = 0x90EF;
 
 	/** Accepted by the {@code stages} parameter of UseProgramStages. */
-	public static final int
-		GL_COMPUTE_SHADER_BIT = 0x20;
+	public static final int GL_COMPUTE_SHADER_BIT = 0x20;
 
 	/** Tokens accepted by the {@code target} parameters of Enable, Disable, and  IsEnabled. */
 	public static final int
@@ -136,8 +123,7 @@ public final class GL43 {
 		GL_DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
-	public static final int
-		GL_CONTEXT_FLAG_DEBUG_BIT = 0x2;
+	public static final int GL_CONTEXT_FLAG_DEBUG_BIT = 0x2;
 
 	/** Tokens accepted by the {@code value} parameters of GetBooleanv, GetIntegerv,  GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -205,8 +191,7 @@ public final class GL43 {
 		GL_DISPLAY_LIST     = 0x82E7;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, and GetInteger64v. */
-	public static final int
-		GL_MAX_UNIFORM_LOCATIONS = 0x826E;
+	public static final int GL_MAX_UNIFORM_LOCATIONS = 0x826E;
 
 	/**
 	 * Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv, NamedFramebufferParameteriEXT, and
@@ -391,15 +376,13 @@ public final class GL43 {
 		GL_IS_PER_PATCH                         = 0x92E7;
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_SHADER_STORAGE_BUFFER = 0x90D2;
+	public static final int GL_SHADER_STORAGE_BUFFER = 0x90D2;
 
 	/**
 	 * Accepted by the {@code pname} parameter of GetIntegerv, GetIntegeri_v, GetBooleanv, GetInteger64v, GetFloatv, GetDoublev, GetBooleani_v, GetIntegeri_v,
 	 * GetFloati_v, GetDoublei_v, and GetInteger64i_v.
 	 */
-	public static final int
-		GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
+	public static final int GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, and GetInteger64i_v. */
 	public static final int
@@ -420,16 +403,13 @@ public final class GL43 {
 		GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT    = 0x90DF;
 
 	/** Accepted in the {@code barriers} bitfield in glMemoryBarrier. */
-	public static final int
-		GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
+	public static final int GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
 
 	/** Alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
-	public static final int
-		GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
+	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
 	/** Accepted by the {@code pname} parameter of TexParameter* and GetTexParameter*. */
-	public static final int
-		GL_DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
+	public static final int GL_DEPTH_STENCIL_TEXTURE_MODE = 0x90EA;
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
 	public static final int
@@ -437,8 +417,7 @@ public final class GL43 {
 		GL_TEXTURE_BUFFER_SIZE   = 0x919E;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
+	public static final int GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT = 0x919F;
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and  GetTexParameteriv. */
 	public static final int

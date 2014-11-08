@@ -26,8 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class KHRGLEvent {
 
 	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
-	public static final int
-		CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
+	public static final int CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
 
 	/** Function address. */
 	@JavadocExclude

@@ -28,16 +28,13 @@ package org.lwjgl.opengl;
 public final class ARBTextureCubeMapArray {
 
 	/** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, BindTexture, and GenerateMipmap. */
-	public static final int
-		GL_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x9009;
+	public static final int GL_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x9009;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB = 0x900A;
+	public static final int GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB = 0x900A;
 
 	/** Accepted by the {@code target} parameter of TexImage3D, TexSubImage3D, CompressedTeximage3D, CompressedTexSubImage3D and CopyTexSubImage3D. */
-	public static final int
-		GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x900B;
+	public static final int GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB = 0x900B;
 
 	/** TEXTURE_CUBE_MAP_ARRAY_ARB Returned by the {@code type} parameter of GetActiveUniform. */
 	public static final int

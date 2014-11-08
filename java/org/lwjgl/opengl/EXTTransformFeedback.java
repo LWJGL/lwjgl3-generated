@@ -43,8 +43,7 @@ public final class EXTTransformFeedback {
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
 	 * BindBufferRangeEXT, BindBufferOffsetEXT and BindBufferBaseEXT.
 	 */
-	public static final int
-		GL_TRANSFORM_FEEDBACK_BUFFER_EXT = 0x8C8E;
+	public static final int GL_TRANSFORM_FEEDBACK_BUFFER_EXT = 0x8C8E;
 
 	/** Accepted by the {@code param} parameter of GetIntegerIndexedvEXT and GetBooleanIndexedvEXT. */
 	public static final int
@@ -55,8 +54,7 @@ public final class EXTTransformFeedback {
 	 * Accepted by the {@code param} parameter of GetIntegerIndexedvEXT and GetBooleanIndexedvEXT, and by the {@code pname} parameter of GetBooleanv,
 	 * GetDoublev, GetIntegerv, and GetFloatv.
 	 */
-	public static final int
-		GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT = 0x8C8F;
+	public static final int GL_TRANSFORM_FEEDBACK_BUFFER_BINDING_EXT = 0x8C8F;
 
 	/** Accepted by the {@code bufferMode} parameter of TransformFeedbackVaryingsEXT. */
 	public static final int
@@ -72,8 +70,7 @@ public final class EXTTransformFeedback {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev.
 	 */
-	public static final int
-		GL_RASTERIZER_DISCARD_EXT = 0x8C89;
+	public static final int GL_RASTERIZER_DISCARD_EXT = 0x8C89;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int

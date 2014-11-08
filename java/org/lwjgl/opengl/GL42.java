@@ -62,15 +62,13 @@ public final class GL42 {
 		GL_PACK_COMPRESSED_BLOCK_SIZE     = 0x912E;
 
 	/** Accepted by the {@code target} parameter of BindBufferBase and BindBufferRange. */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER = 0x92C0;
+	public static final int GL_ATOMIC_COUNTER_BUFFER = 0x92C0;
 
 	/**
 	 * Accepted by the {@code pname} parameter of GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, GetInteger64i_v, GetBooleanv, GetIntegerv,
 	 * GetInteger64v, GetFloatv, GetDoublev, and GetActiveAtomicCounterBufferiv.
 	 */
-	public static final int
-		GL_ATOMIC_COUNTER_BUFFER_BINDING = 0x92C1;
+	public static final int GL_ATOMIC_COUNTER_BUFFER_BINDING = 0x92C1;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_64v. */
 	public static final int
@@ -106,20 +104,16 @@ public final class GL42 {
 		GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS         = 0x92DC;
 
 	/** Accepted by the {@code pname} parameter of GetProgramiv. */
-	public static final int
-		GL_ACTIVE_ATOMIC_COUNTER_BUFFERS = 0x92D9;
+	public static final int GL_ACTIVE_ATOMIC_COUNTER_BUFFERS = 0x92D9;
 
 	/** Accepted by the {@code pname} parameter of GetActiveUniformsiv. */
-	public static final int
-		GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX = 0x92DA;
+	public static final int GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX = 0x92DA;
 
 	/** Returned in {@code params} by GetActiveUniform and GetActiveUniformsiv. */
-	public static final int
-		GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
+	public static final int GL_UNSIGNED_INT_ATOMIC_COUNTER = 0x92DB;
 
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
-	public static final int
-		GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
+	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, and GetInteger64v. */
 	public static final int
@@ -195,8 +189,7 @@ public final class GL42 {
 		GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY = 0x906C;
 
 	/** Accepted by the {@code value} parameter of GetTexParameteriv, GetTexParameterfv, GetTexParameterIiv, and GetTexParameterIuiv. */
-	public static final int
-		GL_IMAGE_FORMAT_COMPATIBILITY_TYPE = 0x90C7;
+	public static final int GL_IMAGE_FORMAT_COMPATIBILITY_TYPE = 0x90C7;
 
 	/**
 	 * Returned in the {@code data} parameter of GetTexParameteriv, GetTexParameterfv, GetTexParameterIiv, and GetTexParameterIuiv when {@code value} is
@@ -207,12 +200,10 @@ public final class GL42 {
 		GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS = 0x90C9;
 
 	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
-	public static final int
-		GL_NUM_SAMPLE_COUNTS = 0x9380;
+	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
+	public static final int GL_MIN_MAP_BUFFER_ALIGNMENT = 0x90BC;
 
 	/** Function address. */
 	@JavadocExclude

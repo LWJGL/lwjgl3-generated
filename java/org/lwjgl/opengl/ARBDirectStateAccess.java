@@ -33,16 +33,13 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBDirectStateAccess {
 
 	/** Accepted by the {@code pname} parameter of GetTextureParameter{if}v and GetTextureParameterI{i ui}v. */
-	public static final int
-		GL_TEXTURE_TARGET = 0x1006;
+	public static final int GL_TEXTURE_TARGET = 0x1006;
 
 	/** Accepted by the {@code pname} parameter of GetQueryObjectiv. */
-	public static final int
-		GL_QUERY_TARGET = 0x82EA;
+	public static final int GL_QUERY_TARGET = 0x82EA;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v. */
-	public static final int
-		GL_TEXTURE_BINDING = 0x82EB;
+	public static final int GL_TEXTURE_BINDING = 0x82EB;
 
 	/** Function address. */
 	@JavadocExclude

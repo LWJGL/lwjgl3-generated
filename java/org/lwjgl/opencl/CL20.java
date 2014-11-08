@@ -18,8 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class CL20 {
 
 	/** OpenCL Version. */
-	public static final int
-		CL_VERSION_2_0 = 0x1;
+	public static final int CL_VERSION_2_0 = 0x1;
 
 	/** Error Codes */
 	public static final int
@@ -58,8 +57,7 @@ public final class CL20 {
 		CL_DEVICE_SVM_ATOMICS             = 1 << 3;
 
 	/** cl_command_queue_info */
-	public static final int
-		CL_QUEUE_SIZE = 0x1094;
+	public static final int CL_QUEUE_SIZE = 0x1094;
 
 	/** cl_svm_mem_flags */
 	public static final int
@@ -67,12 +65,10 @@ public final class CL20 {
 		CL_MEM_SVM_ATOMICS           = 1 << 11;
 
 	/** cl_mem_object_type */
-	public static final int
-		CL_MEM_OBJECT_PIPE = 0x10F7;
+	public static final int CL_MEM_OBJECT_PIPE = 0x10F7;
 
 	/** cl_mem_info */
-	public static final int
-		CL_MEM_USES_SVM_POINTER = 0x1109;
+	public static final int CL_MEM_USES_SVM_POINTER = 0x1109;
 
 	/** cl_channel_order */
 	public static final int
@@ -94,12 +90,10 @@ public final class CL20 {
 		CL_SAMPLER_LOD_MAX         = 0x1157;
 
 	/** cl_program_build_info */
-	public static final int
-		CL_PROGRAM_BUILD_GLOBAL_VARIABLE_TOTAL_SIZE = 0x1185;
+	public static final int CL_PROGRAM_BUILD_GLOBAL_VARIABLE_TOTAL_SIZE = 0x1185;
 
 	/** cl_kernel_arg_type_qualifer */
-	public static final int
-		CL_KERNEL_ARG_TYPE_PIPE = 1 << 3;
+	public static final int CL_KERNEL_ARG_TYPE_PIPE = 1 << 3;
 
 	/** cl_kernel_exec_info */
 	public static final int
@@ -115,8 +109,7 @@ public final class CL20 {
 		CL_COMMAND_SVM_UNMAP   = 0x120D;
 
 	/** cl_profiling_info */
-	public static final int
-		CL_PROFILING_COMMAND_COMPLETE = 0x1284;
+	public static final int CL_PROFILING_COMMAND_COMPLETE = 0x1284;
 
 	/** Function address. */
 	@JavadocExclude

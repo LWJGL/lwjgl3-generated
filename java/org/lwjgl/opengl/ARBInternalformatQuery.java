@@ -28,8 +28,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ARBInternalformatQuery {
 
 	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
-	public static final int
-		GL_NUM_SAMPLE_COUNTS = 0x9380;
+	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
 
 	/** Function address. */
 	@JavadocExclude

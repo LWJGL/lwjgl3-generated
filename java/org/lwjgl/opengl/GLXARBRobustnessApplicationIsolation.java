@@ -20,8 +20,7 @@ public final class GLXARBRobustnessApplicationIsolation {
 	 * Accepted as a bit in the attribute value for {@link GLXARBCreateContext#GLX_CONTEXT_FLAGS_ARB CONTEXT_FLAGS_ARB} in the {@code attrib_list} argument to
 	 * {@link GLXARBCreateContext#glXCreateContextAttribsARB CreateContextAttribsARB}.
 	 */
-	public static final int
-		GLX_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
+	public static final int GLX_CONTEXT_RESET_ISOLATION_BIT_ARB = 0x8;
 
 	private GLXARBRobustnessApplicationIsolation() {}
 

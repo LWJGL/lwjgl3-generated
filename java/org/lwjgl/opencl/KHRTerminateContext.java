@@ -30,12 +30,10 @@ public final class KHRTerminateContext {
 	 * Describes the termination capability of the OpenCL device. This is a bitfield where a value of {@code CL_DEVICE_TERMINATE_CAPABILITY_CONTEXT_KHR}
 	 * indicates that context termination is supported.
 	 */
-	public static final int
-		CL_DEVICE_TERMINATE_CAPABILITY_KHR = 0x200F;
+	public static final int CL_DEVICE_TERMINATE_CAPABILITY_KHR = 0x200F;
 
 	/** Specifies whether the context can be terminated. The default value is {@link CL10#CL_FALSE FALSE}. */
-	public static final int
-		CL_CONTEXT_TERMINATE_KHR = 0x2010;
+	public static final int CL_CONTEXT_TERMINATE_KHR = 0x2010;
 
 	/** Function address. */
 	@JavadocExclude

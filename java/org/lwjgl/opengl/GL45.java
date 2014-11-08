@@ -63,24 +63,19 @@ public final class GL45 {
 		GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES = 0x82FA;
 
 	/** Accepted by the {@code pname} parameter of GetTextureParameter{if}v and GetTextureParameterI{i ui}v. */
-	public static final int
-		GL_TEXTURE_TARGET = 0x1006;
+	public static final int GL_TEXTURE_TARGET = 0x1006;
 
 	/** Accepted by the {@code pname} parameter of GetQueryObjectiv. */
-	public static final int
-		GL_QUERY_TARGET = 0x82EA;
+	public static final int GL_QUERY_TARGET = 0x82EA;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v. */
-	public static final int
-		GL_TEXTURE_BINDING = 0x82EB;
+	public static final int GL_TEXTURE_BINDING = 0x82EB;
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
-	public static final int
-		GL_CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
+	public static final int GL_CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
 	/** Returned in {@code data} by GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v when {@code pname} is {@link #GL_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}. */
-	public static final int
-		GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
+	public static final int GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
 
 	/** Returned by {@link #glGetGraphicsResetStatus GetGraphicsResetStatus}. */
 	public static final int
@@ -100,8 +95,7 @@ public final class GL45 {
 		GL_NO_RESET_NOTIFICATION = 0x8261;
 
 	/** Returned by {@link GL11#glGetError GetError}. */
-	public static final int
-		GL_CONTEXT_LOST = 0x507;
+	public static final int GL_CONTEXT_LOST = 0x507;
 
 	/** Function address. */
 	@JavadocExclude

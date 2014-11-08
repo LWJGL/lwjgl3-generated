@@ -41,8 +41,7 @@ public final class ARBMultisample {
 		GL_SAMPLE_COVERAGE_ARB          = 0x80A0;
 
 	/** Accepted by the {@code mask} parameter of PushAttrib. */
-	public static final int
-		GL_MULTISAMPLE_BIT_ARB = 0x20000000;
+	public static final int GL_MULTISAMPLE_BIT_ARB = 0x20000000;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int

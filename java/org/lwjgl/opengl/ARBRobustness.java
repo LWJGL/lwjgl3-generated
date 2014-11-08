@@ -80,8 +80,7 @@ public final class ARBRobustness {
 		GL_UNKNOWN_CONTEXT_RESET_ARB  = 0x8255;
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
+	public static final int GL_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
 
 	/** Returned by GetIntegerv and related simple queries when {@code value} is RESET_NOTIFICATION_STRATEGY_ARB. */
 	public static final int
@@ -89,8 +88,7 @@ public final class ARBRobustness {
 		GL_NO_RESET_NOTIFICATION_ARB = 0x8261;
 
 	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
-	public static final int
-		GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x4;
+	public static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB = 0x4;
 
 	/** Function address. */
 	@JavadocExclude

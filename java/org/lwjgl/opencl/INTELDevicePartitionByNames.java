@@ -29,12 +29,10 @@ package org.lwjgl.opencl;
 public final class INTELDevicePartitionByNames {
 
 	/** Accepted in the {@code properties} argument of {@link CL12#clCreateSubDevices CreateSubDevices}. */
-	public static final int
-		CL_DEVICE_PARTITION_BY_NAMES_INTEL = 0x4052;
+	public static final int CL_DEVICE_PARTITION_BY_NAMES_INTEL = 0x4052;
 
 	/** The name list terminator. */
-	public static final int
-		CL_PARTITION_BY_NAMES_LIST_END_INTEL = -1;
+	public static final int CL_PARTITION_BY_NAMES_LIST_END_INTEL = -1;
 
 	private INTELDevicePartitionByNames() {}
 

@@ -32,12 +32,10 @@ import static org.lwjgl.system.APIUtil.*;
 public final class GL20 {
 
 	/** Accepted by the {@code name} parameter of GetString. */
-	public static final int
-		GL_SHADING_LANGUAGE_VERSION = 0x8B8C;
+	public static final int GL_SHADING_LANGUAGE_VERSION = 0x8B8C;
 
 	/** Accepted by the {@code pname} parameter of GetInteger. */
-	public static final int
-		GL_CURRENT_PROGRAM = 0x8B8D;
+	public static final int GL_CURRENT_PROGRAM = 0x8B8D;
 
 	/** Accepted by the {@code pname} parameter of GetShaderiv. */
 	public static final int
@@ -77,8 +75,7 @@ public final class GL20 {
 		GL_SAMPLER_2D_SHADOW = 0x8B62;
 
 	/** Accepted by the {@code type} argument of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
-	public static final int
-		GL_VERTEX_SHADER = 0x8B31;
+	public static final int GL_VERTEX_SHADER = 0x8B31;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -108,20 +105,16 @@ public final class GL20 {
 		GL_CURRENT_VERTEX_ATTRIB          = 0x8626;
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttribPointerv. */
-	public static final int
-		GL_VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
+	public static final int GL_VERTEX_ATTRIB_ARRAY_POINTER = 0x8645;
 
 	/** Accepted by the {@code type} argument of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
-	public static final int
-		GL_FRAGMENT_SHADER = 0x8B30;
+	public static final int GL_FRAGMENT_SHADER = 0x8B30;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
+	public static final int GL_MAX_FRAGMENT_UNIFORM_COMPONENTS = 0x8B49;
 
 	/** Accepted by the {@code target} parameter of Hint and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
+	public static final int GL_FRAGMENT_SHADER_DERIVATIVE_HINT = 0x8B8B;
 
 	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -147,19 +140,16 @@ public final class GL20 {
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
 	 * GetDoublev, and by the {@code target} parameter of TexEnvi, TexEnviv, TexEnvf, TexEnvfv, GetTexEnviv, and GetTexEnvfv.
 	 */
-	public static final int
-		GL_POINT_SPRITE = 0x8861;
+	public static final int GL_POINT_SPRITE = 0x8861;
 
 	/**
 	 * When the {@code target} parameter of TexEnvf, TexEnvfv, TexEnvi, TexEnviv, GetTexEnvfv, or GetTexEnviv is POINT_SPRITE, then the value of
 	 * {@code pname} may be.
 	 */
-	public static final int
-		GL_COORD_REPLACE = 0x8862;
+	public static final int GL_COORD_REPLACE = 0x8862;
 
 	/** Accepted by the {@code pname} parameter of PointParameter{if}v. */
-	public static final int
-		GL_POINT_SPRITE_COORD_ORIGIN = 0x8CA0;
+	public static final int GL_POINT_SPRITE_COORD_ORIGIN = 0x8CA0;
 
 	/** Accepted by the {@code param} parameter of PointParameter{if}v. */
 	public static final int

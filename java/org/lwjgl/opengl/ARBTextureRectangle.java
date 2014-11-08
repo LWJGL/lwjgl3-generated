@@ -33,34 +33,28 @@ public final class ARBTextureRectangle {
 	 * GetDoublev; and by the {@code target} parameter of BindTexture, GetTexParameterfv, GetTexParameteriv, TexParameterf, TexParameteri, TexParameterfv and
 	 * TexParameteriv.
 	 */
-	public static final int
-		GL_TEXTURE_RECTANGLE_ARB = 0x84F5;
+	public static final int GL_TEXTURE_RECTANGLE_ARB = 0x84F5;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and GetDoublev. */
-	public static final int
-		GL_TEXTURE_BINDING_RECTANGLE_ARB = 0x84F6;
+	public static final int GL_TEXTURE_BINDING_RECTANGLE_ARB = 0x84F6;
 
 	/** Accepted by the {@code target} parameter of GetTexLevelParameteriv, GetTexLevelParameterfv, GetTexParameteriv and TexImage2D. */
-	public static final int
-		GL_PROXY_TEXTURE_RECTANGLE_ARB = 0x84F7;
+	public static final int GL_PROXY_TEXTURE_RECTANGLE_ARB = 0x84F7;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv and GetFloatv. */
-	public static final int
-		GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB = 0x84F8;
+	public static final int GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB = 0x84F8;
 
 	/**
 	 * TEXTURE_RECTANGLE_ARB Returned by {@code type} parameter of GetActiveUniform when the location {@code index} for program object {@code program} is of
 	 * type sampler2DRect.
 	 */
-	public static final int
-		GL_SAMPLER_2D_RECT_ARB = 0x8B63;
+	public static final int GL_SAMPLER_2D_RECT_ARB = 0x8B63;
 
 	/**
 	 * Returned by {@code type} parameter of GetActiveUniform when the location {@code index} for program object {@code program} is of type
 	 * sampler2DRectShadow.
 	 */
-	public static final int
-		GL_SAMPLER_2D_RECT_SHADOW_ARB = 0x8B64;
+	public static final int GL_SAMPLER_2D_RECT_SHADOW_ARB = 0x8B64;
 
 	private ARBTextureRectangle() {}
 

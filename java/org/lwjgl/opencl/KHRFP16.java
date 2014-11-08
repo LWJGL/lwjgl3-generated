@@ -9,8 +9,7 @@ package org.lwjgl.opencl;
 public final class KHRFP16 {
 
 	/** cl_device_info */
-	public static final int
-		CL_DEVICE_HALF_FP_CONFIG = 0x1033;
+	public static final int CL_DEVICE_HALF_FP_CONFIG = 0x1033;
 
 	private KHRFP16() {}
 

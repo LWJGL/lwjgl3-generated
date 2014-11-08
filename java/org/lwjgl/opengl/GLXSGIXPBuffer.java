@@ -35,8 +35,7 @@ public final class GLXSGIXPBuffer {
 	 * accepted by the {@code attrib_list} parameter of {@link GLXSGIXFBConfig#glXChooseFBConfigSGIX ChooseFBConfigSGIX} (following the
 	 * {@link GLXSGIXFBConfig#GLX_DRAWABLE_TYPE_SGIX DRAWABLE_TYPE_SGIX} token).
 	 */
-	public static final int
-		GLX_PBUFFER_BIT_SGIX = 0x4;
+	public static final int GLX_PBUFFER_BIT_SGIX = 0x4;
 
 	/** Accepted by the {@code attrib_list} parameter of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} and by the {@code attribute} parameter of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX}. */
 	public static final int
@@ -50,8 +49,7 @@ public final class GLXSGIXPBuffer {
 		GLX_EVENT_MASK_SGIX = 0x801F;
 
 	/** Accepted by the {@code mask} parameter of {@link #glXSelectEventSGIX SelectEventSGIX} and returned in the {@code mask} parameter of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX}. */
-	public static final int
-		GLX_BUFFER_CLOBBER_MASK_SGIX = 0x8000000;
+	public static final int GLX_BUFFER_CLOBBER_MASK_SGIX = 0x8000000;
 
 	/** Returned in the {@code event_type} field of a "buffer clobber" event. */
 	public static final int

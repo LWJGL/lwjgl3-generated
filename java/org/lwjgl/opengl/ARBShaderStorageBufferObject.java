@@ -38,15 +38,13 @@ import static org.lwjgl.system.Checks.*;
 public final class ARBShaderStorageBufferObject {
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_SHADER_STORAGE_BUFFER = 0x90D2;
+	public static final int GL_SHADER_STORAGE_BUFFER = 0x90D2;
 
 	/**
 	 * Accepted by the {@code pname} parameter of GetIntegerv, GetIntegeri_v, GetBooleanv, GetInteger64v, GetFloatv, GetDoublev, GetBooleani_v, GetIntegeri_v,
 	 * GetFloati_v, GetDoublei_v, and GetInteger64i_v.
 	 */
-	public static final int
-		GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
+	public static final int GL_SHADER_STORAGE_BUFFER_BINDING = 0x90D3;
 
 	/** Accepted by the {@code pname} parameter of GetIntegeri_v, GetBooleani_v, GetIntegeri_v, GetFloati_v, GetDoublei_v, and GetInteger64i_v. */
 	public static final int
@@ -67,12 +65,10 @@ public final class ARBShaderStorageBufferObject {
 		GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT    = 0x90DF;
 
 	/** Accepted in the {@code barriers} bitfield in glMemoryBarrier. */
-	public static final int
-		GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
+	public static final int GL_SHADER_STORAGE_BARRIER_BIT = 0x2000;
 
 	/** Also, add a new alias for the existing token MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS. */
-	public static final int
-		GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
+	public static final int GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES = 0x8F39;
 
 	/** Function address. */
 	@JavadocExclude

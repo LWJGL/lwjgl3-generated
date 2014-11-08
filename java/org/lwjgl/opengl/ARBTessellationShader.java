@@ -57,12 +57,10 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class ARBTessellationShader {
 
 	/** Accepted by the {@code mode} parameter of Begin and all vertex array functions that implicitly call Begin. */
-	public static final int
-		GL_PATCHES = 0xE;
+	public static final int GL_PATCHES = 0xE;
 
 	/** Accepted by the {@code pname} parameter of PatchParameteri, GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */
-	public static final int
-		GL_PATCH_VERTICES = 0x8E72;
+	public static final int GL_PATCH_VERTICES = 0x8E72;
 
 	/** Accepted by the {@code pname} parameter of PatchParameterfv, GetBooleanv, GetDoublev, GetFloatv, and GetIntegerv, and GetInteger64v. */
 	public static final int
@@ -78,8 +76,7 @@ public final class ARBTessellationShader {
 		GL_TESS_GEN_POINT_MODE          = 0x8E79;
 
 	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_MODE. */
-	public static final int
-		GL_ISOLINES = 0x8E7A;
+	public static final int GL_ISOLINES = 0x8E7A;
 
 	/** Returned by GetProgramiv when {@code pname} is TESS_GEN_SPACING. */
 	public static final int

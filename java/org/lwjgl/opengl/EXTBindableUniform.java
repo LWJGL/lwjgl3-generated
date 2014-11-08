@@ -35,8 +35,7 @@ public final class EXTBindableUniform {
 		GL_UNIFORM_BUFFER_BINDING_EXT         = 0x8DEF;
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
-	public static final int
-		GL_UNIFORM_BUFFER_EXT = 0x8DEE;
+	public static final int GL_UNIFORM_BUFFER_EXT = 0x8DEE;
 
 	/** Function address. */
 	@JavadocExclude
