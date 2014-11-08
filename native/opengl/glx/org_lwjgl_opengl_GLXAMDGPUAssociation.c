@@ -4,7 +4,6 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "OpenGL.h"
 #include <GL/glx.h>
 
 typedef void (APIENTRY *glXBlitContextFramebufferAMDPROC) (GLXContext, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum);
