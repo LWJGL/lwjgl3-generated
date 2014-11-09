@@ -11,15 +11,21 @@
 
 EXTERN_C_ENTER
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_GLFWLinux_glfwGetX11Display(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)glfwGetX11Display();
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_GLFWLinux_nglfwGetX11Adapter(JNIEnv *__env, jclass clazz, jlong monitorAddress) {
+	GLFWmonitor *monitor = (GLFWmonitor *)(intptr_t)monitorAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)glfwGetX11Adapter(monitor);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_GLFWLinux_nglfwGetX11Monitor(JNIEnv *__env, jclass clazz, jlong monitorAddress) {
 	GLFWmonitor *monitor = (GLFWmonitor *)(intptr_t)monitorAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)glfwGetX11Monitor(monitor);
-}
-
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_GLFWLinux_glfwGetX11Display(JNIEnv *__env, jclass clazz) {
-	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)glfwGetX11Display();
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_GLFWLinux_nglfwGetX11Window(JNIEnv *__env, jclass clazz, jlong windowAddress) {

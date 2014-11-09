@@ -1174,7 +1174,7 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/KHR/texture_compression_astc_hdr.txt">KHR_texture_compression_astc_hdr</a> extension is supported.
 	 * 
-	 * <p>This extension corresponds to the ASTC HDR Profile, see {@link #GL_KHR_texture_compression_astc_ldr KHR_texture_compression_astc_ldr} for details.</p>
+	 * <p>This extension corresponds to the ASTC HDR Profile, see {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr} for details.</p>
 	 */
 	public final boolean GL_KHR_texture_compression_astc_hdr;
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */

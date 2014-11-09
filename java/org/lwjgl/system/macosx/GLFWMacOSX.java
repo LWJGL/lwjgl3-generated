@@ -22,9 +22,15 @@ public final class GLFWMacOSX {
 	public static native long nglfwGetCocoaMonitor(long monitor);
 
 	/**
-	 * Returns the {@code CGDirectDisplayID} of the specified monitor.
+	 * Returns the <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor.
+	 * 
+	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param monitor the GLFW monitor
+	 *
+	 * @return The <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor, or kCGNullDirectDisplay` if an error occurred.
+	 *
+	 * @since GLFW 3.1
 	 */
 	public static long glfwGetCocoaMonitor(long monitor) {
 		if ( LWJGLUtil.CHECKS )
@@ -40,8 +46,14 @@ public final class GLFWMacOSX {
 
 	/**
 	 * Returns the <code style="font-family: monospace">NSWindow</code> of the given GLFW window.
+	 * 
+	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
+	 *
+	 * @return The <code style="font-family: monospace">NSWindow</code> of the specified window, or nil if an error occurred.
+	 *
+	 * @since GLFW 3.0
 	 */
 	public static long glfwGetCocoaWindow(long window) {
 		if ( LWJGLUtil.CHECKS )
@@ -57,8 +69,14 @@ public final class GLFWMacOSX {
 
 	/**
 	 * Returns the <code style="font-family: monospace">NSOpenGLContext</code> of the given GLFW window.
+	 * 
+	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
 	 * @param window the GLFW window
+	 *
+	 * @return The <code style="font-family: monospace">NSOpenGLContext</code> of the specified window, or nil if an error occurred.
+	 *
+	 * @since GLFW 3.0
 	 */
 	public static long glfwGetNSGLContext(long window) {
 		if ( LWJGLUtil.CHECKS )
