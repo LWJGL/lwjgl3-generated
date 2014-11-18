@@ -1088,11 +1088,15 @@ public final class AL10 {
 	 * @param values the parameter values
 	 */
 	public static void alSourcef(int source, int param, ByteBuffer values) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(values, 1 << 2);
 		nalSourcefv(source, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alSourcef(int, int, ByteBuffer) Sourcef} */
 	public static void alSource(int source, int param, FloatBuffer values) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(values, 1);
 		nalSourcefv(source, param, memAddress(values));
 	}
 
@@ -1514,12 +1518,14 @@ public final class AL10 {
 	 * @param sources the sources to pause
 	 */
 	public static void alSourcePause(int n, ByteBuffer sources) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(sources, n << 2);
 		nalSourcePausev(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourcePause(int, ByteBuffer) SourcePause} */
-	public static void alSourcePause(int n, IntBuffer sources) {
-		nalSourcePausev(n, memAddress(sources));
+	public static void alSourcePause(IntBuffer sources) {
+		nalSourcePausev(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourceStopv ] ---
@@ -1544,12 +1550,14 @@ public final class AL10 {
 	 * @param sources the sources to stop
 	 */
 	public static void alSourceStop(int n, ByteBuffer sources) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(sources, n << 2);
 		nalSourceStopv(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourceStop(int, ByteBuffer) SourceStop} */
-	public static void alSourceStop(int n, IntBuffer sources) {
-		nalSourceStopv(n, memAddress(sources));
+	public static void alSourceStop(IntBuffer sources) {
+		nalSourceStopv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alSourceRewindv ] ---
@@ -1574,12 +1582,14 @@ public final class AL10 {
 	 * @param sources the sources to rewind
 	 */
 	public static void alSourceRewind(int n, ByteBuffer sources) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(sources, n << 2);
 		nalSourceRewindv(n, memAddress(sources));
 	}
 
 	/** Alternative version of: {@link #alSourceRewind(int, ByteBuffer) SourceRewind} */
-	public static void alSourceRewind(int n, IntBuffer sources) {
-		nalSourceRewindv(n, memAddress(sources));
+	public static void alSourceRewind(IntBuffer sources) {
+		nalSourceRewindv(sources.remaining(), memAddress(sources));
 	}
 
 	// --- [ alGenBuffers ] ---
