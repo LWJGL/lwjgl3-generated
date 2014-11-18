@@ -13,6 +13,8 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to <sys/ioctl.h>. */
 public final class SysIOctl {
 
+	static { Sys.touch(); }
+
 	private SysIOctl() {}
 
 	// --- [ ioctl ] ---

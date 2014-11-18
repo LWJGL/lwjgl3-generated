@@ -43,6 +43,8 @@ public final class XInput2 {
 		XI_RawTouchUpdate   = 0x17,
 		XI_RawTouchEnd      = 0x18;
 
+	static { Sys.touch(); }
+
 	private XInput2() {}
 
 	// --- [ XIQueryVersion ] ---

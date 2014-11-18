@@ -16,6 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to the GLFW library's Win32 native access functions. */
 public final class GLFWWin32 {
 
+	static { Sys.touch(); }
+
 	private GLFWWin32() {}
 
 	// --- [ glfwGetWin32Adapter ] ---

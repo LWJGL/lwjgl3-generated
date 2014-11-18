@@ -16,6 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <unistd.h>. */
 public final class Unistd {
 
+	static { Sys.touch(); }
+
 	private Unistd() {}
 
 	// --- [ close ] ---

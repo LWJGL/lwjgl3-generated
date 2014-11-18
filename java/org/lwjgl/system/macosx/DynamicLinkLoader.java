@@ -30,6 +30,8 @@ public final class DynamicLinkLoader {
 		RTLD_SELF      = 0xFFFFFFFFFFFFFFFDL,
 		RTLD_MAIN_ONLY = 0xFFFFFFFFFFFFFFFBL;
 
+	static { Sys.touch(); }
+
 	private DynamicLinkLoader() {}
 
 	// --- [ dlopen ] ---

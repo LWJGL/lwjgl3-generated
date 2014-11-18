@@ -29,6 +29,8 @@ public final class Time {
 		CLOCK_REALTIME_ALARM     = 0x8,
 		CLOCK_BOOTTIME_ALARM     = 0x9;
 
+	static { Sys.touch(); }
+
 	private Time() {}
 
 	// --- [ clock_getres ] ---

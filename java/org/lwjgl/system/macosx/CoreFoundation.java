@@ -44,6 +44,8 @@ public final class CoreFoundation {
 		kCFURLHFSPathStyle     = 0x1,
 		kCFURLWindowsPathStyle = 0x2;
 
+	static { Sys.touch(); }
+
 	private CoreFoundation() {}
 
 	// --- [ kCFAllocatorDefault ] ---

@@ -13,6 +13,8 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to the GLFW library's Linux native access functions. */
 public final class GLFWLinux {
 
+	static { Sys.touch(); }
+
 	private GLFWLinux() {}
 
 	// --- [ glfwGetX11Display ] ---

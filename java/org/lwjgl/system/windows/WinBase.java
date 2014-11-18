@@ -40,6 +40,8 @@ public final class WinBase {
 		GHND                = GMEM_MOVEABLE | GMEM_ZEROINIT,
 		GPTR                = GMEM_FIXED | GMEM_ZEROINIT;
 
+	static { Sys.touch(); }
+
 	private WinBase() {}
 
 	// --- [ GetVersionEx ] ---

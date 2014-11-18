@@ -13,6 +13,8 @@ import static org.lwjgl.system.Checks.*;
 /** Defines methods that return platform-specific constant values that are used by {@link LibFFI}. */
 final class LibFFIConstants {
 
+	static { Sys.touch(); }
+
 	private LibFFIConstants() {}
 
 	// --- [ FFI_TYPE_DOUBLE ] ---

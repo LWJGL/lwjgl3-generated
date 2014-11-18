@@ -55,6 +55,8 @@ public final class WGL {
 		WGL_SWAP_UNDERLAY14 = 0x20000000,
 		WGL_SWAP_UNDERLAY15 = 0x40000000;
 
+	static { Sys.touch(); }
+
 	private WGL() {}
 
 	// --- [ wglCreateContext ] ---

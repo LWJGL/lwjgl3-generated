@@ -71,6 +71,8 @@ public final class XKBlib {
 		XkbGeometryMask      = 1<<6,
 		XkbAllComponentsMask = 0x7F;
 
+	static { Sys.touch(); }
+
 	private XKBlib() {}
 
 	// --- [ XkbQueryExtension ] ---

@@ -83,6 +83,8 @@ public final class Xrandr {
 		RR_DoubleClock    = 0x1000,
 		RR_ClockDivideBy2 = 0x2000;
 
+	static { Sys.touch(); }
+
 	private Xrandr() {}
 
 	// --- [ XRRQueryExtension ] ---

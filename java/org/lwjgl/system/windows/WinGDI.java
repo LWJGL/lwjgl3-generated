@@ -137,6 +137,8 @@ public final class WinGDI {
 		PFD_OVERLAY_PLANE  = 0x1,
 		PFD_UNDERLAY_PLANE = 0xFFFFFFFF;
 
+	static { Sys.touch(); }
+
 	private WinGDI() {}
 
 	// --- [ GetStockObject ] ---

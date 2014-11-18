@@ -381,6 +381,8 @@ public final class GLFW {
 		GLFW_RELEASE_BEHAVIOR_FLUSH = 0x35001,
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
 
+	static { Sys.touch(); }
+
 	private GLFW() {}
 
 	// --- [ glfwInit ] ---
@@ -409,7 +411,6 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static int glfwInit() {
-		Sys.touch();
 		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.initSharedApplication();
 		return nglfwInit();
 	}

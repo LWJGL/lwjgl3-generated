@@ -92,6 +92,8 @@ public final class LibFFI {
 		ffi_type_longdouble = ffi_type_longdouble(),
 		ffi_type_pointer    = ffi_type_pointer();
 
+	static { Sys.touch(); }
+
 	private LibFFI() {}
 
 	// --- [ ffi_prep_cif ] ---

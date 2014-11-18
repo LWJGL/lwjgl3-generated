@@ -64,6 +64,8 @@ public final class GLX {
 		GLX_BAD_VALUE     = 0x6,
 		GLX_BAD_ENUM      = 0x7;
 
+	static { Sys.touch(); }
+
 	private GLX() {}
 
 	// --- [ glXQueryExtension ] ---

@@ -19,6 +19,8 @@ public final class Joystick {
 		JS_EVENT_AXIS   = 0x2,
 		JS_EVENT_INIT   = 0x80;
 
+	static { Sys.touch(); }
+
 	private Joystick() {}
 
 	// --- [ JSIOCGVERSION ] ---

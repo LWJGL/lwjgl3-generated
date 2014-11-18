@@ -28,6 +28,8 @@ public final class Xlib {
 		QueuedAfterReading = 0x1,
 		QueuedAfterFlush   = 0x2;
 
+	static { Sys.touch(); }
+
 	private Xlib() {}
 
 	// --- [ XInitThreads ] ---
