@@ -97,7 +97,7 @@ public final class ARBDrawIndirect {
 	 * 	uint first;
 	 * 	uint baseInstance; // must be 0 unless OpenGL 4.2 is supported
 	 * } DrawArraysIndirectCommand;
-	 * 	
+	 * 
 	 * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
 	 * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre></p>
 	 *

@@ -999,8 +999,8 @@ public final class GLFW {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(title);
 		long __result = nglfwCreateWindow(width, height, memAddress(title), monitor, share);
-		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
-			WindowCallback.set(__result, new WindowCallbackAdapter());
+		if ( __result != NULL )
+			WindowCallback.windowCreated(__result);
 		return __result;
 	}
 
@@ -1008,8 +1008,8 @@ public final class GLFW {
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
 		ByteBuffer titleEncoded = memEncodeUTF8(title);
 		long __result = nglfwCreateWindow(width, height, memAddress(titleEncoded), monitor, share);
-		if ( __result != NULL && LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX )
-			WindowCallback.set(__result, new WindowCallbackAdapter());
+		if ( __result != NULL )
+			WindowCallback.windowCreated(__result);
 		return __result;
 	}
 
@@ -1542,7 +1542,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 1.0
 	 */
@@ -1572,7 +1572,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 1.0
 	 */
@@ -1607,7 +1607,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 2.5
 	 */
@@ -1640,7 +1640,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 2.5
 	 */
@@ -1672,7 +1672,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 3.0
 	 */
@@ -1701,7 +1701,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 3.0
 	 */
@@ -1730,7 +1730,7 @@ public final class GLFW {
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
 	 *
 	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
-	 *         <a href=\"http://www.glfw.org/docs/latest/intro.html#intro_init\">initialized</a>
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
 	 *
 	 * @since GLFW 3.0
 	 */
@@ -1768,7 +1768,7 @@ public final class GLFW {
 	 * </ul></p>
 	 */
 	public static void glfwPollEvents() {
-		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.pollEvents(); return; }
+		if ( WindowCallback.pollEventsOverride() ) return;
 		nglfwPollEvents();
 	}
 
@@ -1805,7 +1805,7 @@ public final class GLFW {
 	 * </ul></p>
 	 */
 	public static void glfwWaitEvents() {
-		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) { WindowCallbackMacOSX.waitEvents(); return; }
+		if ( WindowCallback.waitEventsOverride() ) return;
 		nglfwWaitEvents();
 	}
 

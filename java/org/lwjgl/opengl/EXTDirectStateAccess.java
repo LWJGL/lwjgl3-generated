@@ -97,7 +97,7 @@ import static org.lwjgl.system.APIUtil.*;
  * void setModelviewMatrix(const GLfloat matrix[16])
  * {
  * 	GLenum savedMatrixMode;
- * 	
+ * 
  * 	glGetIntegerv(GL_MATRIX_MODE, &savedMatrixMode);
  * 	glMatrixMode(GL_MODELVIEW);
  * 	glLoadMatrixf(matrix);
@@ -639,13 +639,11 @@ public final class EXTDirectStateAccess {
 			ext.contains("OpenGL13") ? funcs.GetMultiTexLevelParameterivEXT : -1L, ext.contains("OpenGL13") ? funcs.MultiTexImage3DEXT : -1L, 
 			ext.contains("OpenGL13") ? funcs.MultiTexSubImage3DEXT : -1L, ext.contains("OpenGL13") ? funcs.CopyMultiTexSubImage3DEXT : -1L, 
 			ext.contains("OpenGL13") ? funcs.EnableClientStateIndexedEXT : -1L, ext.contains("OpenGL13") ? funcs.DisableClientStateIndexedEXT : -1L, 
-			ext.contains("OpenGL30") ? funcs.EnableClientStateiEXT : -1L, ext.contains("OpenGL30") ? funcs.DisableClientStateiEXT : -1L, 
 			ext.contains("OpenGL13") ? funcs.GetFloatIndexedvEXT : -1L, ext.contains("OpenGL13") ? funcs.GetDoubleIndexedvEXT : -1L, 
-			ext.contains("OpenGL13") ? funcs.GetPointerIndexedvEXT : -1L, ext.contains("OpenGL30") ? funcs.GetFloati_vEXT : -1L, 
-			ext.contains("OpenGL30") ? funcs.GetDoublei_vEXT : -1L, ext.contains("OpenGL30") ? funcs.GetPointeri_vEXT : -1L, 
-			ext.contains("OpenGL13") ? funcs.EnableIndexedEXT : -1L, ext.contains("OpenGL13") ? funcs.DisableIndexedEXT : -1L, 
-			ext.contains("OpenGL13") ? funcs.IsEnabledIndexedEXT : -1L, ext.contains("OpenGL13") ? funcs.GetIntegerIndexedvEXT : -1L, 
-			ext.contains("OpenGL13") ? funcs.GetBooleanIndexedvEXT : -1L, ext.contains("GL_ARB_vertex_program") ? funcs.NamedProgramStringEXT : -1L, 
+			ext.contains("OpenGL13") ? funcs.GetPointerIndexedvEXT : -1L, ext.contains("OpenGL13") ? funcs.EnableIndexedEXT : -1L, 
+			ext.contains("OpenGL13") ? funcs.DisableIndexedEXT : -1L, ext.contains("OpenGL13") ? funcs.IsEnabledIndexedEXT : -1L, 
+			ext.contains("OpenGL13") ? funcs.GetIntegerIndexedvEXT : -1L, ext.contains("OpenGL13") ? funcs.GetBooleanIndexedvEXT : -1L, 
+			ext.contains("GL_ARB_vertex_program") ? funcs.NamedProgramStringEXT : -1L, 
 			ext.contains("GL_ARB_vertex_program") ? funcs.NamedProgramLocalParameter4dEXT : -1L, 
 			ext.contains("GL_ARB_vertex_program") ? funcs.NamedProgramLocalParameter4dvEXT : -1L, 
 			ext.contains("GL_ARB_vertex_program") ? funcs.NamedProgramLocalParameter4fEXT : -1L, 

@@ -12,7 +12,7 @@ package org.lwjgl.opengl;
  * capabilities of version 1.50 of the OpenGL Shading Language. Shaders using the new functionality provided by this extension should enable this
  * functionality via the construct:
  * <pre><code style="font-family: monospace">
- * {@link #GL_extension extension} GL_ARB_gpu_shader5 : require     (or enable)</code></pre>
+ * #extension GL_ARB_gpu_shader5 : require     (or enable)</code></pre>
  * This extension provides a variety of new features for all shader types, including:
  * <ul>
  * <li>support for indexing into arrays of samplers using non-constant indices, as long as the index doesn't diverge if multiple shader invocations are run

@@ -28,30 +28,30 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>For example consider the (very contrived and simple) example of drawing two triangles to form a quad. In the typical example you have the following
  * setup:
  * <pre><code style="font-family: monospace">
- * vertices         indices
- * ----------        -----
+ *     vertices         indices
+ *    ----------        -----
  * 0 | (-1,  1) |    0 |  0  |
  * 1 | (-1, -1) |    1 |  1  |
  * 2 | ( 1, -1) |    2 |  2  |
  * 3 | ( 1,  1) |    3 |  3  |
- * ----------     4 |  0  |
- * 5 |  2  |
- * -----</code></pre>
+ *    ----------     4 |  0  |
+ *                   5 |  2  |
+ *                      -----</code></pre>
  * which is normally rendered with the call
  * <pre><code style="font-family: monospace">
  * DrawElements(TRIANGLES, 6, UNSIGNED_BYTE, &indices).</code></pre>
  * Now consider the case where the vertices you want to draw are not at the start of a vertex array but are instead located at offset 100 into a larger
  * array:
  * <pre><code style="font-family: monospace">
- * vertices2         indices2
- * ----------        -----
- * ....        0 | 100 |
+ *      vertices2         indices2
+ *      ----------        -----
+ *         ....        0 | 100 |
  * 100 | (-1,  1) |    1 | 101 |
  * 101 | (-1, -1) |    2 | 102 |
  * 102 | ( 1, -1) |    3 | 103 |
  * 103 | ( 1,  1) |    4 | 100 |
- * ....        5 | 102 |
- * ----------        -----</code></pre>
+ *         ....        5 | 102 |
+ *      ----------        -----</code></pre>
  * The typical choices for rendering this are to rebind your vertex attributes with an additional offset of 100*stride, or to create an new array of
  * indices (as indices2 in the example). However both rebinding vertex attributes and rebuilding index arrays can be quite costly activities.</p>
  * 

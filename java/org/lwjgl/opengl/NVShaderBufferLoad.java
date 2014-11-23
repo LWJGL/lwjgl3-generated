@@ -39,14 +39,14 @@ import static org.lwjgl.system.APIUtil.*;
  * <pre><code style="font-family: monospace">
  * struct MyObjectType {
  * 	mat4x4 modelView;
- * vec4 materialPropertyX;
- * // etc.
+ *     vec4 materialPropertyX;
+ *     // etc.
  * };
  * uniform MyObjectType *allObjects;
  * in int objectID; // bound to attrLoc
- * 	
+ * 
  * ...
- * 	
+ * 
  * mat4x4 thisObjectsMatrix = allObjects[objectID].modelView;
  * // do transform, shading, etc.</code></pre>
  * This is beneficial in much the same way that texture arrays allow choosing between similar, but independent, texture maps with a single coordinate
@@ -59,25 +59,25 @@ import static org.lwjgl.system.APIUtil.*;
  * <pre><code style="font-family: monospace">
  * GenBuffers(N, dataBuffers);
  * GenBuffers(1, &pointerBuffer);
- * 	
+ * 
  * GLuint64EXT gpuAddrs[N];
  * for (i = 0; i < N; ++i) {
- * BindBuffer(target, dataBuffers[i]);
- * BufferData(target, size[i], myData[i], STATIC_DRAW);
- * 	
- * // get the address of this buffer and make it resident.
- * GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
- * gpuaddrs[i]);
- * MakeBufferResidentNV(target, READ_ONLY);
+ *     BindBuffer(target, dataBuffers[i]);
+ *     BufferData(target, size[i], myData[i], STATIC_DRAW);
+ * 
+ *     // get the address of this buffer and make it resident.
+ *     GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
+ *                               gpuaddrs[i]);
+ *     MakeBufferResidentNV(target, READ_ONLY);
  * }
- * 	
+ * 
  * GLuint64EXT pointerBufferAddr;
  * BindBuffer(target, pointerBuffer);
  * BufferData(target, sizeof(GLuint64EXT)*N, gpuAddrs, STATIC_DRAW);
  * GetBufferParameterui64vNV(target, BUFFER_GPU_ADDRESS,
- * &pointerBufferAddr);
+ *                           &pointerBufferAddr);
  * MakeBufferResidentNV(target, READ_ONLY);
- * 	
+ * 
  * // now in the shader, we can use a double indirection
  * vec4 **ptrToBuffers = pointerBufferAddr;
  * vec4 *ptrToBufferI = ptrToBuffers[i];</code></pre>
