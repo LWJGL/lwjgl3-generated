@@ -1366,11 +1366,12 @@ public final class AL10 {
 		nalSourceUnqueueBuffers(sourceName, bufferNames.remaining(), memAddress(bufferNames));
 	}
 
-	/** Single value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
-	public static void alSourceUnqueueBuffers(int sourceName, int bufferName) {
+	/** Single return value version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
+	public static int alSourceUnqueueBuffers(int sourceName) {
 		APIBuffer __buffer = apiBuffer();
-		int bufferNames = __buffer.intParam(bufferName);
+		int bufferNames = __buffer.intParam();
 		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address() + bufferNames);
+		return __buffer.intValue(bufferNames);
 	}
 
 	// --- [ alSourcePlay ] ---
