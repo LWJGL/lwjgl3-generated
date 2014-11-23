@@ -22,6 +22,7 @@ typedef GLvoid (APIENTRY *glClearPROC) (GLbitfield);
 typedef GLvoid (APIENTRY *glClearAccumPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
 typedef GLvoid (APIENTRY *glClearColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
 typedef GLvoid (APIENTRY *glClearDepthPROC) (GLdouble);
+typedef GLvoid (APIENTRY *glClearIndexPROC) (GLfloat);
 typedef GLvoid (APIENTRY *glClearStencilPROC) (GLint);
 typedef GLvoid (APIENTRY *glClipPlanePROC) (GLenum, const GLdouble *);
 typedef GLvoid (APIENTRY *glColor3bPROC) (GLbyte, GLbyte, GLbyte);
@@ -128,6 +129,18 @@ typedef GLvoid (APIENTRY *glGetTexLevelParameterfvPROC) (GLenum, GLint, GLenum, 
 typedef GLvoid (APIENTRY *glGetTexParameterivPROC) (GLenum, GLenum, GLint *);
 typedef GLvoid (APIENTRY *glGetTexParameterfvPROC) (GLenum, GLenum, GLfloat *);
 typedef GLvoid (APIENTRY *glHintPROC) (GLenum, GLenum);
+typedef GLvoid (APIENTRY *glIndexiPROC) (GLint);
+typedef GLvoid (APIENTRY *glIndexubPROC) (GLubyte);
+typedef GLvoid (APIENTRY *glIndexsPROC) (GLshort);
+typedef GLvoid (APIENTRY *glIndexfPROC) (GLfloat);
+typedef GLvoid (APIENTRY *glIndexdPROC) (GLdouble);
+typedef GLvoid (APIENTRY *glIndexivPROC) (const GLint *);
+typedef GLvoid (APIENTRY *glIndexubvPROC) (const GLubyte *);
+typedef GLvoid (APIENTRY *glIndexsvPROC) (const GLshort *);
+typedef GLvoid (APIENTRY *glIndexfvPROC) (const GLfloat *);
+typedef GLvoid (APIENTRY *glIndexdvPROC) (const GLdouble *);
+typedef GLvoid (APIENTRY *glIndexMaskPROC) (GLuint);
+typedef GLvoid (APIENTRY *glIndexPointerPROC) (GLenum, GLsizei, const GLvoid *);
 typedef GLvoid (APIENTRY *glInitNamesPROC) (void);
 typedef GLvoid (APIENTRY *glInterleavedArraysPROC) (GLenum, GLsizei, const GLvoid *);
 typedef GLboolean (APIENTRY *glIsEnabledPROC) (GLenum);
@@ -430,6 +443,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglClearDepth(JNIEnv *__env, j
 	glClearDepthPROC glClearDepth = (glClearDepthPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glClearDepth(depth);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglClearIndex(JNIEnv *__env, jclass clazz, jfloat index, jlong __functionAddress) {
+	glClearIndexPROC glClearIndex = (glClearIndexPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glClearIndex(index);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglClearStencil(JNIEnv *__env, jclass clazz, jint s, jlong __functionAddress) {
@@ -1124,6 +1143,84 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglHint(JNIEnv *__env, jclass 
 	glHintPROC glHint = (glHintPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glHint(target, hint);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexi(JNIEnv *__env, jclass clazz, jint index, jlong __functionAddress) {
+	glIndexiPROC glIndexi = (glIndexiPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexi(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexub(JNIEnv *__env, jclass clazz, jbyte index, jlong __functionAddress) {
+	glIndexubPROC glIndexub = (glIndexubPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexub(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexs(JNIEnv *__env, jclass clazz, jshort index, jlong __functionAddress) {
+	glIndexsPROC glIndexs = (glIndexsPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexs(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexf(JNIEnv *__env, jclass clazz, jfloat index, jlong __functionAddress) {
+	glIndexfPROC glIndexf = (glIndexfPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexf(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexd(JNIEnv *__env, jclass clazz, jdouble index, jlong __functionAddress) {
+	glIndexdPROC glIndexd = (glIndexdPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexd(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexiv(JNIEnv *__env, jclass clazz, jlong indexAddress, jlong __functionAddress) {
+	const GLint *index = (const GLint *)(intptr_t)indexAddress;
+	glIndexivPROC glIndexiv = (glIndexivPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexiv(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexubv(JNIEnv *__env, jclass clazz, jlong indexAddress, jlong __functionAddress) {
+	const GLubyte *index = (const GLubyte *)(intptr_t)indexAddress;
+	glIndexubvPROC glIndexubv = (glIndexubvPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexubv(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexsv(JNIEnv *__env, jclass clazz, jlong indexAddress, jlong __functionAddress) {
+	const GLshort *index = (const GLshort *)(intptr_t)indexAddress;
+	glIndexsvPROC glIndexsv = (glIndexsvPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexsv(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexfv(JNIEnv *__env, jclass clazz, jlong indexAddress, jlong __functionAddress) {
+	const GLfloat *index = (const GLfloat *)(intptr_t)indexAddress;
+	glIndexfvPROC glIndexfv = (glIndexfvPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexfv(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexdv(JNIEnv *__env, jclass clazz, jlong indexAddress, jlong __functionAddress) {
+	const GLdouble *index = (const GLdouble *)(intptr_t)indexAddress;
+	glIndexdvPROC glIndexdv = (glIndexdvPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexdv(index);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexMask(JNIEnv *__env, jclass clazz, jint mask, jlong __functionAddress) {
+	glIndexMaskPROC glIndexMask = (glIndexMaskPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexMask(mask);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
+	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	glIndexPointerPROC glIndexPointer = (glIndexPointerPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glIndexPointer(type, stride, pointer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglInitNames(JNIEnv *__env, jclass clazz, jlong __functionAddress) {

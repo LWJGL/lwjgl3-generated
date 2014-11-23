@@ -88,6 +88,7 @@ public final class ContextCapabilities {
 	final ARBMultiBind                  __ARBMultiBind;
 	final ARBMultiDrawIndirect          __ARBMultiDrawIndirect;
 	final ARBMultisample                __ARBMultisample;
+	final ARBMultitexture               __ARBMultitexture;
 	final ARBOcclusionQuery             __ARBOcclusionQuery;
 	final ARBPointParameters            __ARBPointParameters;
 	final ARBProgramInterfaceQuery      __ARBProgramInterfaceQuery;
@@ -137,6 +138,7 @@ public final class ContextCapabilities {
 	final EXTBlendMinmax                __EXTBlendMinmax;
 	final EXTDepthBoundsTest            __EXTDepthBoundsTest;
 	final EXTDirectStateAccess          __EXTDirectStateAccess;
+	final EXTPointParameters            __EXTPointParameters;
 	final EXTTextureInteger             __EXTTextureInteger;
 	final EXTTransformFeedback          __EXTTransformFeedback;
 	final KHRBlendEquationAdvanced      __KHRBlendEquationAdvanced;
@@ -614,13 +616,7 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_multi_draw_indirect;
 	/** When true, {@link ARBMultisample} is supported. */
 	public final boolean GL_ARB_multisample;
-	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/multitexture.txt">ARB_multitexture</a> extension is supported.
-	 * 
-	 * <p>This extension allows application of multiple textures to a fragment in one rendering pass.</p>
-	 * 
-	 * <p>Promoted to core in {@link GL12 OpenGL 1.2}.</p>
-	 */
+	/** When true, {@link ARBMultitexture} is supported. */
 	public final boolean GL_ARB_multitexture;
 	/** When true, {@link ARBOcclusionQuery} is supported. */
 	public final boolean GL_ARB_occlusion_query;
@@ -850,7 +846,7 @@ public final class ContextCapabilities {
 	 * textureCubeGradARB(
 	 * 	samplerCube sampler,
 	 * 	vec3 P, vec3 dPdx, vec3 dPdy);
-	 * 	
+	 * 
 	 * shadow1DGradARB(
 	 * 	sampler1DShadow sampler,
 	 * 	vec3 P, float dPdx, float dPdy);
@@ -863,7 +859,7 @@ public final class ContextCapabilities {
 	 * shadow2DProjGradARB(
 	 * 	sampler2DShadow sampler,
 	 * 	vec4 P, vec2 dPdx, vec2 dPdy);
-	 * 	
+	 * 
 	 * texture2DRectGradARB(
 	 * 	sampler2DRect sampler,
 	 * 	vec2 P, vec2 dPdx, vec2 dPdy);
@@ -873,7 +869,7 @@ public final class ContextCapabilities {
 	 * texture2DRectProjGradARB(
 	 * 	sampler2DRect sampler,
 	 * 	vec4 P, vec2 dPdx, vec2 dPdy);
-	 * 	
+	 * 
 	 * shadow2DRectGradARB(
 	 * 	sampler2DRectShadow sampler,
 	 * 	vec3 P, vec2 dPdx, vec2 dPdy);
@@ -1132,6 +1128,8 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_depth_bounds_test;
 	/** When true, {@link EXTDirectStateAccess} is supported. */
 	public final boolean GL_EXT_direct_state_access;
+	/** When true, {@link EXTPointParameters} is supported. */
+	public final boolean GL_EXT_point_parameters;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a> extension is supported.
 	 * 
@@ -1141,8 +1139,12 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link #GL_ARB_depth_texture ARB_depth_texture} and {@link #GL_ARB_shadow ARB_shadow}.</p>
 	 */
 	public final boolean GL_EXT_shadow_funcs;
+	/** When true, {@link EXTSharedTexturePalette} is supported. */
+	public final boolean GL_EXT_shared_texture_palette;
 	/** When true, {@link EXTStencilWrap} is supported. */
 	public final boolean GL_EXT_stencil_wrap;
+	/** When true, {@link EXTTextureCompressionS3TC} is supported. */
+	public final boolean GL_EXT_texture_compression_s3tc;
 	/** When true, {@link EXTTextureFilterAnisotropic} is supported. */
 	public final boolean GL_EXT_texture_filter_anisotropic;
 	/** When true, {@link EXTTextureInteger} is supported. */
@@ -1445,7 +1447,7 @@ public final class ContextCapabilities {
 		GL_ARB_multi_bind = (__ARBMultiBind = ARBMultiBind.create(ext, provider)) != null;
 		GL_ARB_multi_draw_indirect = (__ARBMultiDrawIndirect = ARBMultiDrawIndirect.create(ext, provider)) != null;
 		GL_ARB_multisample = (__ARBMultisample = ARBMultisample.create(ext, provider)) != null;
-		GL_ARB_multitexture = ext.contains("GL_ARB_multitexture");
+		GL_ARB_multitexture = (__ARBMultitexture = ARBMultitexture.create(ext, provider)) != null;
 		GL_ARB_occlusion_query = (__ARBOcclusionQuery = ARBOcclusionQuery.create(ext, provider)) != null;
 		GL_ARB_occlusion_query2 = ext.contains("GL_ARB_occlusion_query2");
 		GL_ARB_pipeline_statistics_query = ext.contains("GL_ARB_pipeline_statistics_query");
@@ -1547,8 +1549,11 @@ public final class ContextCapabilities {
 		GL_EXT_blend_subtract = ext.contains("GL_EXT_blend_subtract");
 		GL_EXT_depth_bounds_test = (__EXTDepthBoundsTest = EXTDepthBoundsTest.create(ext, provider)) != null;
 		GL_EXT_direct_state_access = (__EXTDirectStateAccess = EXTDirectStateAccess.create(ext, provider)) != null;
+		GL_EXT_point_parameters = (__EXTPointParameters = EXTPointParameters.create(ext, provider)) != null;
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
+		GL_EXT_shared_texture_palette = ext.contains("GL_EXT_shared_texture_palette");
 		GL_EXT_stencil_wrap = ext.contains("GL_EXT_stencil_wrap");
+		GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
 		GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
 		GL_EXT_texture_integer = (__EXTTextureInteger = EXTTextureInteger.create(ext, provider)) != null;
 		GL_EXT_transform_feedback = (__EXTTransformFeedback = EXTTransformFeedback.create(ext, provider)) != null;

@@ -466,7 +466,8 @@ public final class GL11 {
 	public static final int
 		GL_EMISSION            = 0x1600,
 		GL_SHININESS           = 0x1601,
-		GL_AMBIENT_AND_DIFFUSE = 0x1602;
+		GL_AMBIENT_AND_DIFFUSE = 0x1602,
+		GL_COLOR_INDEXES       = 0x1603;
 
 	/** MatrixMode */
 	public static final int
@@ -482,6 +483,7 @@ public final class GL11 {
 
 	/** PixelFormat */
 	public static final int
+		GL_COLOR_INDEX     = 0x1900,
 		GL_STENCIL_INDEX   = 0x1901,
 		GL_DEPTH_COMPONENT = 0x1902,
 		GL_RED             = 0x1903,
@@ -706,6 +708,7 @@ public final class GL11 {
 		ClearAccum,
 		ClearColor,
 		ClearDepth,
+		ClearIndex,
 		ClearStencil,
 		ClipPlane,
 		Color3b,
@@ -812,6 +815,18 @@ public final class GL11 {
 		GetTexParameteriv,
 		GetTexParameterfv,
 		Hint,
+		Indexi,
+		Indexub,
+		Indexs,
+		Indexf,
+		Indexd,
+		Indexiv,
+		Indexubv,
+		Indexsv,
+		Indexfv,
+		Indexdv,
+		IndexMask,
+		IndexPointer,
 		InitNames,
 		InterleavedArrays,
 		IsEnabled,
@@ -1032,6 +1047,7 @@ public final class GL11 {
 		ClearAccum = GL.getFunctionAddress(provider, "glClearAccum", fc);
 		ClearColor = provider.getFunctionAddress("glClearColor");
 		ClearDepth = provider.getFunctionAddress("glClearDepth");
+		ClearIndex = GL.getFunctionAddress(provider, "glClearIndex", fc);
 		ClearStencil = provider.getFunctionAddress("glClearStencil");
 		ClipPlane = provider.getFunctionAddress("glClipPlane");
 		Color3b = GL.getFunctionAddress(provider, "glColor3b", fc);
@@ -1138,6 +1154,18 @@ public final class GL11 {
 		GetTexParameteriv = provider.getFunctionAddress("glGetTexParameteriv");
 		GetTexParameterfv = provider.getFunctionAddress("glGetTexParameterfv");
 		Hint = provider.getFunctionAddress("glHint");
+		Indexi = GL.getFunctionAddress(provider, "glIndexi", fc);
+		Indexub = GL.getFunctionAddress(provider, "glIndexub", fc);
+		Indexs = GL.getFunctionAddress(provider, "glIndexs", fc);
+		Indexf = GL.getFunctionAddress(provider, "glIndexf", fc);
+		Indexd = GL.getFunctionAddress(provider, "glIndexd", fc);
+		Indexiv = GL.getFunctionAddress(provider, "glIndexiv", fc);
+		Indexubv = GL.getFunctionAddress(provider, "glIndexubv", fc);
+		Indexsv = GL.getFunctionAddress(provider, "glIndexsv", fc);
+		Indexfv = GL.getFunctionAddress(provider, "glIndexfv", fc);
+		Indexdv = GL.getFunctionAddress(provider, "glIndexdv", fc);
+		IndexMask = GL.getFunctionAddress(provider, "glIndexMask", fc);
+		IndexPointer = GL.getFunctionAddress(provider, "glIndexPointer", fc);
 		InitNames = GL.getFunctionAddress(provider, "glInitNames", fc);
 		InterleavedArrays = provider.getFunctionAddress("glInterleavedArrays");
 		IsEnabled = provider.getFunctionAddress("glIsEnabled");
@@ -1355,37 +1383,38 @@ public final class GL11 {
 
 		boolean supported = (fc || checkFunctions(
 			funcs.Accum, funcs.AlphaFunc, funcs.AreTexturesResident, funcs.Begin, funcs.Bitmap, funcs.CallList, funcs.CallLists, funcs.ClearAccum, 
-			funcs.Color3b, funcs.Color3s, funcs.Color3i, funcs.Color3f, funcs.Color3d, funcs.Color3ub, funcs.Color3us, funcs.Color3ui, funcs.Color3bv, 
-			funcs.Color3sv, funcs.Color3iv, funcs.Color3fv, funcs.Color3dv, funcs.Color3ubv, funcs.Color3usv, funcs.Color3uiv, funcs.Color4b, funcs.Color4s, 
-			funcs.Color4i, funcs.Color4f, funcs.Color4d, funcs.Color4ub, funcs.Color4us, funcs.Color4ui, funcs.Color4bv, funcs.Color4sv, funcs.Color4iv, 
-			funcs.Color4fv, funcs.Color4dv, funcs.Color4ubv, funcs.Color4usv, funcs.Color4uiv, funcs.ColorMaterial, funcs.ColorPointer, funcs.DeleteLists, 
-			funcs.DisableClientState, funcs.DrawPixels, funcs.EdgeFlag, funcs.EdgeFlagv, funcs.EdgeFlagPointer, funcs.EnableClientState, funcs.End, 
-			funcs.EvalCoord1f, funcs.EvalCoord1fv, funcs.EvalCoord1d, funcs.EvalCoord1dv, funcs.EvalCoord2f, funcs.EvalCoord2fv, funcs.EvalCoord2d, 
+			funcs.ClearIndex, funcs.Color3b, funcs.Color3s, funcs.Color3i, funcs.Color3f, funcs.Color3d, funcs.Color3ub, funcs.Color3us, funcs.Color3ui, 
+			funcs.Color3bv, funcs.Color3sv, funcs.Color3iv, funcs.Color3fv, funcs.Color3dv, funcs.Color3ubv, funcs.Color3usv, funcs.Color3uiv, funcs.Color4b, 
+			funcs.Color4s, funcs.Color4i, funcs.Color4f, funcs.Color4d, funcs.Color4ub, funcs.Color4us, funcs.Color4ui, funcs.Color4bv, funcs.Color4sv, 
+			funcs.Color4iv, funcs.Color4fv, funcs.Color4dv, funcs.Color4ubv, funcs.Color4usv, funcs.Color4uiv, funcs.ColorMaterial, funcs.ColorPointer, 
+			funcs.DeleteLists, funcs.DisableClientState, funcs.DrawPixels, funcs.EdgeFlag, funcs.EdgeFlagv, funcs.EdgeFlagPointer, funcs.EnableClientState, 
+			funcs.End, funcs.EvalCoord1f, funcs.EvalCoord1fv, funcs.EvalCoord1d, funcs.EvalCoord1dv, funcs.EvalCoord2f, funcs.EvalCoord2fv, funcs.EvalCoord2d, 
 			funcs.EvalCoord2dv, funcs.EvalMesh1, funcs.EvalMesh2, funcs.EvalPoint1, funcs.EvalPoint2, funcs.FeedbackBuffer, funcs.Fogi, funcs.Fogiv, funcs.Fogf, 
 			funcs.Fogfv, funcs.GenLists, funcs.GetLightiv, funcs.GetLightfv, funcs.GetMapiv, funcs.GetMapfv, funcs.GetMapdv, funcs.GetMaterialiv, 
 			funcs.GetMaterialfv, funcs.GetPixelMapfv, funcs.GetPixelMapusv, funcs.GetPixelMapuiv, funcs.GetPolygonStipple, funcs.GetTexGeniv, funcs.GetTexGenfv, 
-			funcs.GetTexGendv, funcs.InitNames, funcs.IsList, funcs.LightModeli, funcs.LightModelf, funcs.LightModeliv, funcs.LightModelfv, funcs.Lighti, 
-			funcs.Lightf, funcs.Lightiv, funcs.Lightfv, funcs.LineStipple, funcs.ListBase, funcs.LoadMatrixf, funcs.LoadMatrixd, funcs.LoadIdentity, 
-			funcs.LoadName, funcs.Map1f, funcs.Map1d, funcs.Map2f, funcs.Map2d, funcs.MapGrid1f, funcs.MapGrid1d, funcs.MapGrid2f, funcs.MapGrid2d, 
-			funcs.Materiali, funcs.Materialf, funcs.Materialiv, funcs.Materialfv, funcs.MatrixMode, funcs.MultMatrixf, funcs.MultMatrixd, funcs.Frustum, 
-			funcs.NewList, funcs.EndList, funcs.Normal3f, funcs.Normal3b, funcs.Normal3s, funcs.Normal3i, funcs.Normal3d, funcs.Normal3fv, funcs.Normal3bv, 
-			funcs.Normal3sv, funcs.Normal3iv, funcs.Normal3dv, funcs.NormalPointer, funcs.Ortho, funcs.PassThrough, funcs.PixelMapfv, funcs.PixelMapusv, 
-			funcs.PixelMapuiv, funcs.PixelTransferi, funcs.PixelTransferf, funcs.PixelZoom, funcs.PolygonStipple, funcs.PushAttrib, funcs.PushClientAttrib, 
-			funcs.PopAttrib, funcs.PopClientAttrib, funcs.PopMatrix, funcs.PopName, funcs.PrioritizeTextures, funcs.PushMatrix, funcs.PushName, 
-			funcs.RasterPos2i, funcs.RasterPos2s, funcs.RasterPos2f, funcs.RasterPos2d, funcs.RasterPos2iv, funcs.RasterPos2sv, funcs.RasterPos2fv, 
-			funcs.RasterPos2dv, funcs.RasterPos3i, funcs.RasterPos3s, funcs.RasterPos3f, funcs.RasterPos3d, funcs.RasterPos3iv, funcs.RasterPos3sv, 
-			funcs.RasterPos3fv, funcs.RasterPos3dv, funcs.RasterPos4i, funcs.RasterPos4s, funcs.RasterPos4f, funcs.RasterPos4d, funcs.RasterPos4iv, 
-			funcs.RasterPos4sv, funcs.RasterPos4fv, funcs.RasterPos4dv, funcs.Recti, funcs.Rects, funcs.Rectf, funcs.Rectd, funcs.Rectiv, funcs.Rectsv, 
-			funcs.Rectfv, funcs.Rectdv, funcs.RenderMode, funcs.Rotatef, funcs.Rotated, funcs.Scalef, funcs.Scaled, funcs.SelectBuffer, funcs.ShadeModel, 
-			funcs.TexCoord1f, funcs.TexCoord1s, funcs.TexCoord1i, funcs.TexCoord1d, funcs.TexCoord1fv, funcs.TexCoord1sv, funcs.TexCoord1iv, funcs.TexCoord1dv, 
-			funcs.TexCoord2f, funcs.TexCoord2s, funcs.TexCoord2i, funcs.TexCoord2d, funcs.TexCoord2fv, funcs.TexCoord2sv, funcs.TexCoord2iv, funcs.TexCoord2dv, 
-			funcs.TexCoord3f, funcs.TexCoord3s, funcs.TexCoord3i, funcs.TexCoord3d, funcs.TexCoord3fv, funcs.TexCoord3sv, funcs.TexCoord3iv, funcs.TexCoord3dv, 
-			funcs.TexCoord4f, funcs.TexCoord4s, funcs.TexCoord4i, funcs.TexCoord4d, funcs.TexCoord4fv, funcs.TexCoord4sv, funcs.TexCoord4iv, funcs.TexCoord4dv, 
-			funcs.TexCoordPointer, funcs.TexGeni, funcs.TexGeniv, funcs.TexGenf, funcs.TexGenfv, funcs.TexGend, funcs.TexGendv, funcs.Translatef, 
-			funcs.Translated, funcs.Vertex2f, funcs.Vertex2s, funcs.Vertex2i, funcs.Vertex2d, funcs.Vertex2fv, funcs.Vertex2sv, funcs.Vertex2iv, 
-			funcs.Vertex2dv, funcs.Vertex3f, funcs.Vertex3s, funcs.Vertex3i, funcs.Vertex3d, funcs.Vertex3fv, funcs.Vertex3sv, funcs.Vertex3iv, funcs.Vertex3dv, 
-			funcs.Vertex4f, funcs.Vertex4s, funcs.Vertex4i, funcs.Vertex4d, funcs.Vertex4fv, funcs.Vertex4sv, funcs.Vertex4iv, funcs.Vertex4dv, 
-			funcs.VertexPointer
+			funcs.GetTexGendv, funcs.Indexi, funcs.Indexub, funcs.Indexs, funcs.Indexf, funcs.Indexd, funcs.Indexiv, funcs.Indexubv, funcs.Indexsv, 
+			funcs.Indexfv, funcs.Indexdv, funcs.IndexMask, funcs.IndexPointer, funcs.InitNames, funcs.IsList, funcs.LightModeli, funcs.LightModelf, 
+			funcs.LightModeliv, funcs.LightModelfv, funcs.Lighti, funcs.Lightf, funcs.Lightiv, funcs.Lightfv, funcs.LineStipple, funcs.ListBase, 
+			funcs.LoadMatrixf, funcs.LoadMatrixd, funcs.LoadIdentity, funcs.LoadName, funcs.Map1f, funcs.Map1d, funcs.Map2f, funcs.Map2d, funcs.MapGrid1f, 
+			funcs.MapGrid1d, funcs.MapGrid2f, funcs.MapGrid2d, funcs.Materiali, funcs.Materialf, funcs.Materialiv, funcs.Materialfv, funcs.MatrixMode, 
+			funcs.MultMatrixf, funcs.MultMatrixd, funcs.Frustum, funcs.NewList, funcs.EndList, funcs.Normal3f, funcs.Normal3b, funcs.Normal3s, funcs.Normal3i, 
+			funcs.Normal3d, funcs.Normal3fv, funcs.Normal3bv, funcs.Normal3sv, funcs.Normal3iv, funcs.Normal3dv, funcs.NormalPointer, funcs.Ortho, 
+			funcs.PassThrough, funcs.PixelMapfv, funcs.PixelMapusv, funcs.PixelMapuiv, funcs.PixelTransferi, funcs.PixelTransferf, funcs.PixelZoom, 
+			funcs.PolygonStipple, funcs.PushAttrib, funcs.PushClientAttrib, funcs.PopAttrib, funcs.PopClientAttrib, funcs.PopMatrix, funcs.PopName, 
+			funcs.PrioritizeTextures, funcs.PushMatrix, funcs.PushName, funcs.RasterPos2i, funcs.RasterPos2s, funcs.RasterPos2f, funcs.RasterPos2d, 
+			funcs.RasterPos2iv, funcs.RasterPos2sv, funcs.RasterPos2fv, funcs.RasterPos2dv, funcs.RasterPos3i, funcs.RasterPos3s, funcs.RasterPos3f, 
+			funcs.RasterPos3d, funcs.RasterPos3iv, funcs.RasterPos3sv, funcs.RasterPos3fv, funcs.RasterPos3dv, funcs.RasterPos4i, funcs.RasterPos4s, 
+			funcs.RasterPos4f, funcs.RasterPos4d, funcs.RasterPos4iv, funcs.RasterPos4sv, funcs.RasterPos4fv, funcs.RasterPos4dv, funcs.Recti, funcs.Rects, 
+			funcs.Rectf, funcs.Rectd, funcs.Rectiv, funcs.Rectsv, funcs.Rectfv, funcs.Rectdv, funcs.RenderMode, funcs.Rotatef, funcs.Rotated, funcs.Scalef, 
+			funcs.Scaled, funcs.SelectBuffer, funcs.ShadeModel, funcs.TexCoord1f, funcs.TexCoord1s, funcs.TexCoord1i, funcs.TexCoord1d, funcs.TexCoord1fv, 
+			funcs.TexCoord1sv, funcs.TexCoord1iv, funcs.TexCoord1dv, funcs.TexCoord2f, funcs.TexCoord2s, funcs.TexCoord2i, funcs.TexCoord2d, funcs.TexCoord2fv, 
+			funcs.TexCoord2sv, funcs.TexCoord2iv, funcs.TexCoord2dv, funcs.TexCoord3f, funcs.TexCoord3s, funcs.TexCoord3i, funcs.TexCoord3d, funcs.TexCoord3fv, 
+			funcs.TexCoord3sv, funcs.TexCoord3iv, funcs.TexCoord3dv, funcs.TexCoord4f, funcs.TexCoord4s, funcs.TexCoord4i, funcs.TexCoord4d, funcs.TexCoord4fv, 
+			funcs.TexCoord4sv, funcs.TexCoord4iv, funcs.TexCoord4dv, funcs.TexCoordPointer, funcs.TexGeni, funcs.TexGeniv, funcs.TexGenf, funcs.TexGenfv, 
+			funcs.TexGend, funcs.TexGendv, funcs.Translatef, funcs.Translated, funcs.Vertex2f, funcs.Vertex2s, funcs.Vertex2i, funcs.Vertex2d, funcs.Vertex2fv, 
+			funcs.Vertex2sv, funcs.Vertex2iv, funcs.Vertex2dv, funcs.Vertex3f, funcs.Vertex3s, funcs.Vertex3i, funcs.Vertex3d, funcs.Vertex3fv, funcs.Vertex3sv, 
+			funcs.Vertex3iv, funcs.Vertex3dv, funcs.Vertex4f, funcs.Vertex4s, funcs.Vertex4i, funcs.Vertex4d, funcs.Vertex4fv, funcs.Vertex4sv, funcs.Vertex4iv, 
+			funcs.Vertex4dv, funcs.VertexPointer
 		)) && checkFunctions(
 			funcs.Enable, funcs.Disable, funcs.ArrayElement, funcs.BindTexture, funcs.BlendFunc, funcs.Clear, funcs.ClearColor, funcs.ClearDepth, 
 			funcs.ClearStencil, funcs.ClipPlane, funcs.ColorMask, funcs.CopyPixels, funcs.CullFace, funcs.DepthFunc, funcs.DepthMask, funcs.DepthRange, 
@@ -1821,6 +1850,28 @@ public final class GL11 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglClearDepth(depth, __functionAddress);
+	}
+
+	// --- [ glClearIndex ] ---
+
+	/** JNI method for {@link #glClearIndex ClearIndex} */
+	@JavadocExclude
+	public static native void nglClearIndex(float index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * sets the clear color index. index is converted to a fixed-point value with unspecified precision to the left of the binary point; the integer part of
+	 * this value is then masked with <code style="font-family: monospace">2<sup>m</sup> &ndash; 1</code>, where {@code m} is the number of bits in a color index value stored in the
+	 * framebuffer.
+	 *
+	 * @param index the value to which to clear the color buffer in color index mode
+	 */
+	public static void glClearIndex(float index) {
+		long __functionAddress = getInstance().ClearIndex;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglClearIndex(index, __functionAddress);
 	}
 
 	// --- [ glClearStencil ] ---
@@ -5214,6 +5265,368 @@ Causes all previously issued GL commands to complete in finite time (although su
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglHint(target, hint, __functionAddress);
+	}
+
+	// --- [ glIndexi ] ---
+
+	/** JNI method for {@link #glIndexi Indexi} */
+	@JavadocExclude
+	public static native void nglIndexi(int index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Updates the current (single-valued) color index.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexi(int index) {
+		long __functionAddress = getInstance().Indexi;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexi(index, __functionAddress);
+	}
+
+	// --- [ glIndexub ] ---
+
+	/** JNI method for {@link #glIndexub Indexub} */
+	@JavadocExclude
+	public static native void nglIndexub(byte index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Unsigned byte version of {@link #glIndexi Indexi}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexub(byte index) {
+		long __functionAddress = getInstance().Indexub;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexub(index, __functionAddress);
+	}
+
+	// --- [ glIndexs ] ---
+
+	/** JNI method for {@link #glIndexs Indexs} */
+	@JavadocExclude
+	public static native void nglIndexs(short index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexs.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Short version of {@link #glIndexi Indexi}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexs(short index) {
+		long __functionAddress = getInstance().Indexs;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexs(index, __functionAddress);
+	}
+
+	// --- [ glIndexf ] ---
+
+	/** JNI method for {@link #glIndexf Indexf} */
+	@JavadocExclude
+	public static native void nglIndexf(float index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Float version of {@link #glIndexi Indexi}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexf(float index) {
+		long __functionAddress = getInstance().Indexf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexf(index, __functionAddress);
+	}
+
+	// --- [ glIndexd ] ---
+
+	/** JNI method for {@link #glIndexd Indexd} */
+	@JavadocExclude
+	public static native void nglIndexd(double index, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Double version of {@link #glIndexi Indexi}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexd(double index) {
+		long __functionAddress = getInstance().Indexd;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexd(index, __functionAddress);
+	}
+
+	// --- [ glIndexiv ] ---
+
+	/** JNI method for {@link #glIndexi(ByteBuffer) Indexi} */
+	@JavadocExclude
+	public static native void nglIndexiv(long index, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexi(ByteBuffer) Indexi} */
+	@JavadocExclude
+	public static void nglIndexiv(long index) {
+		long __functionAddress = getInstance().Indexiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexiv(index, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glIndexi Indexi}
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexi(ByteBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1 << 2);
+		nglIndexiv(memAddress(index));
+	}
+
+	/** Alternative version of: {@link #glIndexi(ByteBuffer) Indexi} */
+	public static void glIndex(IntBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1);
+		nglIndexiv(memAddress(index));
+	}
+
+	// --- [ glIndexubv ] ---
+
+	/** JNI method for {@link #glIndexub(ByteBuffer) Indexub} */
+	@JavadocExclude
+	public static native void nglIndexubv(long index, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexub(ByteBuffer) Indexub} */
+	@JavadocExclude
+	public static void nglIndexubv(long index) {
+		long __functionAddress = getInstance().Indexubv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexubv(index, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glIndexub Indexub}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexub(ByteBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1);
+		nglIndexubv(memAddress(index));
+	}
+
+	// --- [ glIndexsv ] ---
+
+	/** JNI method for {@link #glIndexs(ByteBuffer) Indexs} */
+	@JavadocExclude
+	public static native void nglIndexsv(long index, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexs(ByteBuffer) Indexs} */
+	@JavadocExclude
+	public static void nglIndexsv(long index) {
+		long __functionAddress = getInstance().Indexsv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexsv(index, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glIndexs Indexs}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexs(ByteBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1 << 1);
+		nglIndexsv(memAddress(index));
+	}
+
+	/** Alternative version of: {@link #glIndexs(ByteBuffer) Indexs} */
+	public static void glIndex(ShortBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1);
+		nglIndexsv(memAddress(index));
+	}
+
+	// --- [ glIndexfv ] ---
+
+	/** JNI method for {@link #glIndexf(ByteBuffer) Indexf} */
+	@JavadocExclude
+	public static native void nglIndexfv(long index, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexf(ByteBuffer) Indexf} */
+	@JavadocExclude
+	public static void nglIndexfv(long index) {
+		long __functionAddress = getInstance().Indexfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexfv(index, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glIndexf Indexf}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexf(ByteBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1 << 2);
+		nglIndexfv(memAddress(index));
+	}
+
+	/** Alternative version of: {@link #glIndexf(ByteBuffer) Indexf} */
+	public static void glIndex(FloatBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1);
+		nglIndexfv(memAddress(index));
+	}
+
+	// --- [ glIndexdv ] ---
+
+	/** JNI method for {@link #glIndexd(ByteBuffer) Indexd} */
+	@JavadocExclude
+	public static native void nglIndexdv(long index, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexd(ByteBuffer) Indexd} */
+	@JavadocExclude
+	public static void nglIndexdv(long index) {
+		long __functionAddress = getInstance().Indexdv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexdv(index, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Pointer version of {@link #glIndexd Indexd}.
+	 *
+	 * @param index the value to which the current color index should be set
+	 */
+	public static void glIndexd(ByteBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1 << 3);
+		nglIndexdv(memAddress(index));
+	}
+
+	/** Alternative version of: {@link #glIndexd(ByteBuffer) Indexd} */
+	public static void glIndex(DoubleBuffer index) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(index, 1);
+		nglIndexdv(memAddress(index));
+	}
+
+	// --- [ glIndexMask ] ---
+
+	/** JNI method for {@link #glIndexMask IndexMask} */
+	@JavadocExclude
+	public static native void nglIndexMask(int mask, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexMask.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * The least significant n bits of mask, where n is the number of bits in a color index buffer, specify a mask. Where a 1 appears in this mask, the
+	 * corresponding bit in the color index buffer (or buffers) is written; where a 0 appears, the bit is not written. This mask applies only in color index
+	 * mode.
+	 *
+	 * @param mask the color index mask value
+	 */
+	public static void glIndexMask(int mask) {
+		long __functionAddress = getInstance().IndexMask;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexMask(mask, __functionAddress);
+	}
+
+	// --- [ glIndexPointer ] ---
+
+	/** JNI method for {@link #glIndexPointer IndexPointer} */
+	@JavadocExclude
+	public static native void nglIndexPointer(int type, int stride, long pointer, long __functionAddress);
+
+	/** Unsafe version of {@link #glIndexPointer IndexPointer} */
+	@JavadocExclude
+	public static void nglIndexPointer(int type, int stride, long pointer) {
+		long __functionAddress = getInstance().IndexPointer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglIndexPointer(type, stride, pointer, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Specifies the location and organization of a color index array.
+	 *
+	 * @param type    the data type of the values stored in the array. One of:<br>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link #GL_SHORT SHORT}, {@link #GL_INT INT}, {@link #GL_FLOAT FLOAT}, {@link #GL_DOUBLE DOUBLE}
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the color index array data
+	 */
+	public static void glIndexPointer(int type, int stride, ByteBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(type, stride, memAddress(pointer));
+	}
+
+	/** Buffer object offset version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int type, int stride, long pointerOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
+		nglIndexPointer(type, stride, pointerOffset);
+	}
+
+	/** GL_UNSIGNED_BYTE version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int stride, ByteBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
+	}
+
+	/** GL_SHORT version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(GL11.GL_SHORT, stride, memAddress(pointer));
+	}
+
+	/** GL_INT version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(GL11.GL_INT, stride, memAddress(pointer));
+	}
+
+	/** GL_FLOAT version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int stride, FloatBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** GL_DOUBLE version of: {@link #glIndexPointer IndexPointer} */
+	public static void glIndexPointer(int stride, DoubleBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglIndexPointer(GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
 
 	// --- [ glInitNames ] ---
