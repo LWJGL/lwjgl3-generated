@@ -10,7 +10,12 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 
-/** Native bindings to the EXT_thread_local_context ALC extension. */
+/**
+ * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/EXT_thread_local_context.txt">EXT_thread_local_context</a> extension.
+ * 
+ * <p>This extension introduces the concept of a current thread-local context, with each thread able to have its own current context. The current context is
+ * what the al- functions work on, effectively allowing multiple threads to independently drive separate OpenAL playback contexts.</p>
+ */
 public final class EXTThreadLocalContext {
 
 	/** Function address. */
@@ -51,8 +56,8 @@ public final class EXTThreadLocalContext {
 	public static native boolean nalcSetThreadContext(long context, long __functionAddress);
 
 	/**
-	 * Makes a context current with respect to OpenAL operation on the current thread. The context parameter can be NULL or a valid context pointer. Using NULL
-	 * results in no thread-specific context being current in the calling thread, which is useful when shutting OpenAL down.
+	 * Makes a context current with respect to OpenAL operation on the current thread. The context parameter can be {@code NULL} or a valid context pointer. Using
+	 * {@code NULL} results in no thread-specific context being current in the calling thread, which is useful when shutting OpenAL down.
 	 *
 	 * @param context the context to make current
 	 */
@@ -71,10 +76,7 @@ public final class EXTThreadLocalContext {
 	@JavadocExclude
 	public static native long nalcGetThreadContext(long __functionAddress);
 
-	/**
-	 * Returns a handle for the context that is currently affecting the thread. This will return a handle to the current thread-specific context if it is not
-	 * NULL, otherwise it will return the last set process-wide context.
-	 */
+	/** Retrieve a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread- specific context is set. */
 	public static long alcGetThreadContext() {
 		long __functionAddress = getInstance().GetThreadContext;
 		if ( LWJGLUtil.CHECKS )

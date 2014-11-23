@@ -613,24 +613,24 @@ public final class AL10 {
 	 * vss: Source velocity scalar (scalar, projected on source-to-listener vector)
 	 * f: Frequency of sample
 	 * f': effective Doppler shifted frequency
-	 * 	
+	 * 
 	 * 3D Mathematical representation of vls and vss:
-	 * 	
+	 * 
 	 * Mag(vector) = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z)
 	 * DotProduct(v1, v2) = (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z)
-	 * 	
+	 * 
 	 * SL = source to listener vector
 	 * SV = Source velocity vector
 	 * LV = Listener velocity vector
-	 * 	
+	 * 
 	 * vls = DotProduct(SL, LV) / Mag(SL)
 	 * vss = DotProduct(SL, SV) / Mag(SL)
-	 * 	
+	 * 
 	 * Dopper Calculation:
-	 * 	
+	 * 
 	 * vss = min(vss, SS / DF)
 	 * vls = min(vls, SS / DF)
-	 * 	
+	 * 
 	 * f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
 	 * The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
 	 * the calculation.</p>
@@ -660,7 +660,7 @@ public final class AL10 {
 	 * <pre><code style="font-family: monospace">
 	 * vss = min(vss, (SS * DV)/DF)
 	 * vls = min(vls, (SS * DV)/DF)
-	 * 	
+	 * 
 	 * f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 * OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
 	 *

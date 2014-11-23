@@ -15,6 +15,7 @@ public final class ALCCapabilities {
 	final ALC11                 __ALC11;
 	final EXTThreadLocalContext __EXTThreadLocalContext;
 	final SOFTLoopback          __SOFTLoopback;
+	final SOFTPauseDevice       __SOFTPauseDevice;
 
 	/** Indicates whether an ALC functionality is available or not. */
 	public final boolean
@@ -26,7 +27,8 @@ public final class ALCCapabilities {
 		ALC_EXT_disconnect,
 		ALC_EXT_EFX,
 		ALC_EXT_thread_local_context,
-		ALC_SOFT_loopback;
+		ALC_SOFT_loopback,
+		ALC_SOFT_pause_device;
 
 	ALCCapabilities(FunctionProviderLocal provider, long device, Set<String> ext) {
 		OpenALC10 = (__ALC10 = ALC10.create(ext, provider)) != null;
@@ -38,5 +40,6 @@ public final class ALCCapabilities {
 		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
 		ALC_EXT_thread_local_context = (__EXTThreadLocalContext = EXTThreadLocalContext.create(ext, provider, device)) != null;
 		ALC_SOFT_loopback = (__SOFTLoopback = SOFTLoopback.create(ext, provider, device)) != null;
+		ALC_SOFT_pause_device = (__SOFTPauseDevice = SOFTPauseDevice.create(ext, provider, device)) != null;
 	}
 }
