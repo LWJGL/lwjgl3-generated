@@ -138,6 +138,9 @@ public final class ContextCapabilities {
 	final EXTBlendMinmax                __EXTBlendMinmax;
 	final EXTDepthBoundsTest            __EXTDepthBoundsTest;
 	final EXTDirectStateAccess          __EXTDirectStateAccess;
+	final EXTFramebufferBlit            __EXTFramebufferBlit;
+	final EXTFramebufferMultisample     __EXTFramebufferMultisample;
+	final EXTFramebufferObject          __EXTFramebufferObject;
 	final EXTPointParameters            __EXTPointParameters;
 	final EXTTextureInteger             __EXTTextureInteger;
 	final EXTTransformFeedback          __EXTTransformFeedback;
@@ -1128,6 +1131,16 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_depth_bounds_test;
 	/** When true, {@link EXTDirectStateAccess} is supported. */
 	public final boolean GL_EXT_direct_state_access;
+	/** When true, {@link EXTFramebufferBlit} is supported. */
+	public final boolean GL_EXT_framebuffer_blit;
+	/** When true, {@link EXTFramebufferMultisample} is supported. */
+	public final boolean GL_EXT_framebuffer_multisample;
+	/** When true, {@link EXTFramebufferMultisampleBlitScaled} is supported. */
+	public final boolean GL_EXT_framebuffer_multisample_blit_scaled;
+	/** When true, {@link EXTFramebufferObject} is supported. */
+	public final boolean GL_EXT_framebuffer_object;
+	/** When true, {@link EXTFramebufferSRGB} is supported. */
+	public final boolean GL_EXT_framebuffer_sRGB;
 	/** When true, {@link EXTPointParameters} is supported. */
 	public final boolean GL_EXT_point_parameters;
 	/**
@@ -1549,6 +1562,11 @@ public final class ContextCapabilities {
 		GL_EXT_blend_subtract = ext.contains("GL_EXT_blend_subtract");
 		GL_EXT_depth_bounds_test = (__EXTDepthBoundsTest = EXTDepthBoundsTest.create(ext, provider)) != null;
 		GL_EXT_direct_state_access = (__EXTDirectStateAccess = EXTDirectStateAccess.create(ext, provider)) != null;
+		GL_EXT_framebuffer_blit = (__EXTFramebufferBlit = EXTFramebufferBlit.create(ext, provider)) != null;
+		GL_EXT_framebuffer_multisample = (__EXTFramebufferMultisample = EXTFramebufferMultisample.create(ext, provider)) != null;
+		GL_EXT_framebuffer_multisample_blit_scaled = ext.contains("GL_EXT_framebuffer_multisample_blit_scaled");
+		GL_EXT_framebuffer_object = (__EXTFramebufferObject = EXTFramebufferObject.create(ext, provider)) != null;
+		GL_EXT_framebuffer_sRGB = ext.contains("GL_EXT_framebuffer_sRGB");
 		GL_EXT_point_parameters = (__EXTPointParameters = EXTPointParameters.create(ext, provider)) != null;
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
 		GL_EXT_shared_texture_palette = ext.contains("GL_EXT_shared_texture_palette");
