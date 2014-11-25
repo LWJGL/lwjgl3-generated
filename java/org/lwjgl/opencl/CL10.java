@@ -590,7 +590,7 @@ public final class CL10 {
 	}
 
 	/**
-	 * Returns information about the given OpenCL platform.
+	 * Returns information about the specified OpenCL platform.
 	 *
 	 * @param platform             the platform to query
 	 * @param param_name           the parameter to query. One of:<br>{@link #CL_PLATFORM_PROFILE PLATFORM_PROFILE}, {@link #CL_PLATFORM_VERSION PLATFORM_VERSION}, {@link #CL_PLATFORM_NAME PLATFORM_NAME}, {@link #CL_PLATFORM_VENDOR PLATFORM_VENDOR}, {@link #CL_PLATFORM_EXTENSIONS PLATFORM_EXTENSIONS}

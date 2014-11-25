@@ -1640,7 +1640,7 @@ public final class ARBVertexProgram {
 	public static native void nglProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w, long __functionAddress);
 
 	/**
-	 * Updates the values of the program environment parameter numbered {@code index} for the given program target {@code target}.
+	 * Updates the values of the program environment parameter numbered {@code index} for the specified program target {@code target}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
@@ -1756,7 +1756,7 @@ public final class ARBVertexProgram {
 	public static native void nglProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w, long __functionAddress);
 
 	/**
-	 * Updates the values of the program local parameter numbered {@code index} for the given program target {@code target}.
+	 * Updates the values of the program local parameter numbered {@code index} for the specified program target {@code target}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
@@ -1823,7 +1823,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Obtain the current value for the program environment parameter numbered {@code index} for the given program target {@code target}, and places the
+	 * Obtain the current value for the program environment parameter numbered {@code index} for the specified program target {@code target}, and places the
 	 * information in the array {@code params}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
@@ -1894,7 +1894,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Obtain the current value for the program local parameter numbered {@code index} for the given program target {@code target}, and places the
+	 * Obtain the current value for the program local parameter numbered {@code index} for the specified program target {@code target}, and places the
 	 * information in the array {@code params}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}

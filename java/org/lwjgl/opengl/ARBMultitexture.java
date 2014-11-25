@@ -209,7 +209,7 @@ public final class ARBMultitexture {
 	public static native void nglMultiTexCoord1fARB(int texture, float s, long __functionAddress);
 
 	/**
-	 * Sets the current one-dimensional texture coordinate for the given texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
+	 * Sets the current one-dimensional texture coordinate for the specified texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -421,7 +421,7 @@ public final class ARBMultitexture {
 	public static native void nglMultiTexCoord2fARB(int texture, float s, float t, long __functionAddress);
 
 	/**
-	 * Sets the current two-dimensional texture coordinate for the given texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
+	 * Sets the current two-dimensional texture coordinate for the specified texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -637,7 +637,7 @@ public final class ARBMultitexture {
 	public static native void nglMultiTexCoord3fARB(int texture, float s, float t, float r, long __functionAddress);
 
 	/**
-	 * Sets the current three-dimensional texture coordinate for the given texture coordinate set. {@code q} is implicitly set to 1.
+	 * Sets the current three-dimensional texture coordinate for the specified texture coordinate set. {@code q} is implicitly set to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -857,7 +857,7 @@ public final class ARBMultitexture {
 	public static native void nglMultiTexCoord4fARB(int texture, float s, float t, float r, float q, long __functionAddress);
 
 	/**
-	 * Sets the current four-dimensional texture coordinate for the given texture coordinate set.
+	 * Sets the current four-dimensional texture coordinate for the specified texture coordinate set.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates

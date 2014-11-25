@@ -146,7 +146,7 @@ public final class ARBTessellationShader {
 	// --- [ glPatchParameteri ] ---
 
 	/**
-	 * Specifies the integer value of the given parameter for patch primitives.
+	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
 	 * @param pname the name of the parameter to set. Must be:<br>{@link #GL_PATCH_VERTICES PATCH_VERTICES}
 	 * @param value the new value for the parameter given by {@code pname}
@@ -170,7 +170,7 @@ public final class ARBTessellationShader {
 	}
 
 	/**
-	 * Specifies an array of float values for the given parameter for patch primitives.
+	 * Specifies an array of float values for the specified parameter for patch primitives.
 	 *
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}

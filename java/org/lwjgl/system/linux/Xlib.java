@@ -1028,7 +1028,7 @@ public final class Xlib {
 	public static native int nXGetEventData(long display, long cookie);
 
 	/**
-	 * Retrieves extra data from the given cookie.
+	 * Retrieves extra data from the specified cookie.
 	 *
 	 * @param display the connection to the X server
 	 * @param cookie  a pointer to a {@link XGenericEventCookie} structure.

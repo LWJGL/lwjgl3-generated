@@ -47,7 +47,7 @@ public final class GLFWMacOSX {
 	public static native long nglfwGetCocoaWindow(long window);
 
 	/**
-	 * Returns the <code style="font-family: monospace">NSWindow</code> of the given GLFW window.
+	 * Returns the <code style="font-family: monospace">NSWindow</code> of the specified GLFW window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *
@@ -70,7 +70,7 @@ public final class GLFWMacOSX {
 	public static native long nglfwGetNSGLContext(long window);
 
 	/**
-	 * Returns the <code style="font-family: monospace">NSOpenGLContext</code> of the given GLFW window.
+	 * Returns the <code style="font-family: monospace">NSOpenGLContext</code> of the specified GLFW window.
 	 * 
 	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
 	 *

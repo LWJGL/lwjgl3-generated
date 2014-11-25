@@ -1012,7 +1012,7 @@ public final class AL10 {
 	public static native boolean nalIsSource(int sourceName, long __functionAddress);
 
 	/**
-	 * Verifies whether the given object name is a source name.
+	 * Verifies whether the specified object name is a source name.
 	 *
 	 * @param sourceName a value that may be a source name
 	 */
@@ -1679,7 +1679,7 @@ public final class AL10 {
 	public static native boolean nalIsBuffer(int bufferName, long __functionAddress);
 
 	/**
-	 * Verifies whether the given object name is a buffer name.
+	 * Verifies whether the specified object name is a buffer name.
 	 *
 	 * @param bufferName a value that may be a buffer name
 	 */
@@ -1792,7 +1792,7 @@ public final class AL10 {
 	}
 
 	/**
-	 * Sets the sample data of the given buffer.
+	 * Sets the sample data of the specified buffer.
 	 * 
 	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
 	 * resampling, and filtering as needed.</p>

@@ -201,9 +201,11 @@ public final class GL11 {
 	/** GetTarget */
 	public static final int
 		GL_CURRENT_COLOR                 = 0xB00,
+		GL_CURRENT_INDEX                 = 0xB01,
 		GL_CURRENT_NORMAL                = 0xB02,
 		GL_CURRENT_TEXTURE_COORDS        = 0xB03,
 		GL_CURRENT_RASTER_COLOR          = 0xB04,
+		GL_CURRENT_RASTER_INDEX          = 0xB05,
 		GL_CURRENT_RASTER_TEXTURE_COORDS = 0xB06,
 		GL_CURRENT_RASTER_POSITION       = 0xB07,
 		GL_CURRENT_RASTER_POSITION_VALID = 0xB08,
@@ -239,6 +241,7 @@ public final class GL11 {
 		GL_COLOR_MATERIAL_PARAMETER      = 0xB56,
 		GL_COLOR_MATERIAL                = 0xB57,
 		GL_FOG                           = 0xB60,
+		GL_FOG_INDEX                     = 0xB61,
 		GL_FOG_DENSITY                   = 0xB62,
 		GL_FOG_START                     = 0xB63,
 		GL_FOG_END                       = 0xB64,
@@ -278,14 +281,18 @@ public final class GL11 {
 		GL_BLEND_SRC                     = 0xBE1,
 		GL_BLEND                         = 0xBE2,
 		GL_LOGIC_OP_MODE                 = 0xBF0,
+		GL_INDEX_LOGIC_OP                = 0xBF1,
 		GL_COLOR_LOGIC_OP                = 0xBF2,
 		GL_AUX_BUFFERS                   = 0xC00,
 		GL_DRAW_BUFFER                   = 0xC01,
 		GL_READ_BUFFER                   = 0xC02,
 		GL_SCISSOR_BOX                   = 0xC10,
 		GL_SCISSOR_TEST                  = 0xC11,
+		GL_INDEX_CLEAR_VALUE             = 0xC20,
+		GL_INDEX_WRITEMASK               = 0xC21,
 		GL_COLOR_CLEAR_VALUE             = 0xC22,
 		GL_COLOR_WRITEMASK               = 0xC23,
+		GL_INDEX_MODE                    = 0xC30,
 		GL_RGBA_MODE                     = 0xC31,
 		GL_DOUBLEBUFFER                  = 0xC32,
 		GL_STEREO                        = 0xC33,
@@ -360,6 +367,7 @@ public final class GL11 {
 		GL_MAX_VIEWPORT_DIMS             = 0xD3A,
 		GL_MAX_CLIENT_ATTRIB_STACK_DEPTH = 0xD3B,
 		GL_SUBPIXEL_BITS                 = 0xD50,
+		GL_INDEX_BITS                    = 0xD51,
 		GL_RED_BITS                      = 0xD52,
 		GL_GREEN_BITS                    = 0xD53,
 		GL_BLUE_BITS                     = 0xD54,
@@ -373,6 +381,7 @@ public final class GL11 {
 		GL_NAME_STACK_DEPTH              = 0xD70,
 		GL_AUTO_NORMAL                   = 0xD80,
 		GL_MAP1_COLOR_4                  = 0xD90,
+		GL_MAP1_INDEX                    = 0xD91,
 		GL_MAP1_NORMAL                   = 0xD92,
 		GL_MAP1_TEXTURE_COORD_1          = 0xD93,
 		GL_MAP1_TEXTURE_COORD_2          = 0xD94,
@@ -381,6 +390,7 @@ public final class GL11 {
 		GL_MAP1_VERTEX_3                 = 0xD97,
 		GL_MAP1_VERTEX_4                 = 0xD98,
 		GL_MAP2_COLOR_4                  = 0xDB0,
+		GL_MAP2_INDEX                    = 0xDB1,
 		GL_MAP2_NORMAL                   = 0xDB2,
 		GL_MAP2_TEXTURE_COORD_1          = 0xDB3,
 		GL_MAP2_TEXTURE_COORD_2          = 0xDB4,
@@ -655,6 +665,7 @@ public final class GL11 {
 		GL_VERTEX_ARRAY                = 0x8074,
 		GL_NORMAL_ARRAY                = 0x8075,
 		GL_COLOR_ARRAY                 = 0x8076,
+		GL_INDEX_ARRAY                 = 0x8077,
 		GL_TEXTURE_COORD_ARRAY         = 0x8078,
 		GL_EDGE_FLAG_ARRAY             = 0x8079,
 		GL_VERTEX_ARRAY_SIZE           = 0x807A,
@@ -665,6 +676,8 @@ public final class GL11 {
 		GL_COLOR_ARRAY_SIZE            = 0x8081,
 		GL_COLOR_ARRAY_TYPE            = 0x8082,
 		GL_COLOR_ARRAY_STRIDE          = 0x8083,
+		GL_INDEX_ARRAY_TYPE            = 0x8085,
+		GL_INDEX_ARRAY_STRIDE          = 0x8086,
 		GL_TEXTURE_COORD_ARRAY_SIZE    = 0x8088,
 		GL_TEXTURE_COORD_ARRAY_TYPE    = 0x8089,
 		GL_TEXTURE_COORD_ARRAY_STRIDE  = 0x808A,
@@ -672,6 +685,7 @@ public final class GL11 {
 		GL_VERTEX_ARRAY_POINTER        = 0x808E,
 		GL_NORMAL_ARRAY_POINTER        = 0x808F,
 		GL_COLOR_ARRAY_POINTER         = 0x8090,
+		GL_INDEX_ARRAY_POINTER         = 0x8091,
 		GL_TEXTURE_COORD_ARRAY_POINTER = 0x8092,
 		GL_EDGE_FLAG_ARRAY_POINTER     = 0x8093,
 		GL_V2F                         = 0x2A20,
@@ -4685,7 +4699,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * 
 	 * Returns a pointer in the current GL context.
 	 *
-	 * @param pname  the pointer to return
+	 * @param pname  the pointer to return. One of:<br>{@link #GL_FEEDBACK_BUFFER_POINTER FEEDBACK_BUFFER_POINTER}, {@link #GL_SELECTION_BUFFER_POINTER SELECTION_BUFFER_POINTER}, {@link #GL_VERTEX_ARRAY_POINTER VERTEX_ARRAY_POINTER}, {@link #GL_NORMAL_ARRAY_POINTER NORMAL_ARRAY_POINTER}, {@link #GL_COLOR_ARRAY_POINTER COLOR_ARRAY_POINTER}, {@link #GL_INDEX_ARRAY_POINTER INDEX_ARRAY_POINTER}, {@link #GL_TEXTURE_COORD_ARRAY_POINTER TEXTURE_COORD_ARRAY_POINTER}, {@link #GL_EDGE_FLAG_ARRAY_POINTER EDGE_FLAG_ARRAY_POINTER}, {@link GL14#GL_SECONDARY_COLOR_ARRAY_POINTER SECONDARY_COLOR_ARRAY_POINTER}, {@link GL15#GL_FOG_COORD_ARRAY_POINTER FOG_COORD_ARRAY_POINTER}, {@link GL43#GL_DEBUG_CALLBACK_FUNCTION DEBUG_CALLBACK_FUNCTION}, {@link GL43#GL_DEBUG_CALLBACK_USER_PARAM DEBUG_CALLBACK_USER_PARAM}
 	 * @param params a buffer in which to place the returned pointer
 	 */
 	public static void glGetPointer(int pname, ByteBuffer params) {

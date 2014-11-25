@@ -325,7 +325,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the given draw buffer.
+	 * Specifies the equation used for both the RGB blend equation and the Alpha blend equation for the specified draw buffer.
 	 *
 	 * @param buf  the index of the draw buffer for which to set the blend equation
 	 * @param mode how source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
@@ -346,7 +346,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Sets the RGB blend equation and the alpha blend equation separately for the given draw buffer.
+	 * Sets the RGB blend equation and the alpha blend equation separately for the specified draw buffer.
 	 *
 	 * @param buf       the index of the draw buffer for which to set the blend equations
 	 * @param modeRGB   the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined. One of:<br>{@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}, {@link GL14#GL_MIN MIN}, {@link GL14#GL_MAX MAX}
@@ -368,7 +368,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies pixel arithmetic for the given draw buffer.
+	 * Specifies pixel arithmetic for the specified draw buffer.
 	 *
 	 * @param buf     the index of the draw buffer for which to set the blend function
 	 * @param sfactor how the red, green, blue, and alpha source blending factors are computed
@@ -390,7 +390,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies pixel arithmetic for RGB and alpha components separately for the given draw buffer.
+	 * Specifies pixel arithmetic for RGB and alpha components separately for the specified draw buffer.
 	 *
 	 * @param buf      the index of the draw buffer for which to set the blend functions
 	 * @param srcRGB   how the red, green, and blue blending factors are computed
@@ -1545,7 +1545,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the integer value of the given parameter for patch primitives.
+	 * Specifies the integer value of the specified parameter for patch primitives.
 	 *
 	 * @param pname the name of the parameter to set. Must be:<br>{@link #GL_PATCH_VERTICES PATCH_VERTICES}
 	 * @param value the new value for the parameter given by {@code pname}
@@ -1575,7 +1575,7 @@ public final class GL40 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies an array of float values for the given parameter for patch primitives.
+	 * Specifies an array of float values for the specified parameter for patch primitives.
 	 *
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}

@@ -158,7 +158,7 @@ public final class Xrandr {
 	public static native long nXRRGetScreenResources(long display, long w);
 
 	/**
-	 * Returns a {@link XRRScreenResources} structure for the given window.
+	 * Returns a {@link XRRScreenResources} structure for the specified window.
 	 *
 	 * @param display the connection to the X server
 	 * @param w       the window
@@ -177,7 +177,7 @@ public final class Xrandr {
 	public static native void nXRRFreeScreenResources(long resources);
 
 	/**
-	 * Frees the given {@link XRRScreenResources} structure.
+	 * Frees the specified {@link XRRScreenResources} structure.
 	 *
 	 * @param resources the {@link XRRScreenResources} structure to free
 	 */
@@ -401,7 +401,7 @@ public final class Xrandr {
 	public static native long nXRRAllocGamma(int size);
 
 	/**
-	 * Allocates a {@link XRRCrtcGamma} structure of the given {@code size}.
+	 * Allocates a {@link XRRCrtcGamma} structure of the specified {@code size}.
 	 *
 	 * @param size the gamma size
 	 */
@@ -417,7 +417,7 @@ public final class Xrandr {
 	public static native void nXRRFreeGamma(long gamma);
 
 	/**
-	 * Frees the given {@link XRRCrtcGamma} structure.
+	 * Frees the specified {@link XRRCrtcGamma} structure.
 	 *
 	 * @param gamma the {@link XRRCrtcGamma} structure to free
 	 */

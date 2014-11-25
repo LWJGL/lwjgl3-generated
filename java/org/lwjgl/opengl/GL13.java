@@ -767,7 +767,7 @@ public final class GL13 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Sets the current one-dimensional texture coordinate for the given texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
+	 * Sets the current one-dimensional texture coordinate for the specified texture coordinate set. {@code t} and {@code r} are implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -995,7 +995,7 @@ public final class GL13 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Sets the current two-dimensional texture coordinate for the given texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
+	 * Sets the current two-dimensional texture coordinate for the specified texture coordinate set. {@code r} is implicitly set to 0 and {@code q} to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -1227,7 +1227,7 @@ public final class GL13 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Sets the current three-dimensional texture coordinate for the given texture coordinate set. {@code q} is implicitly set to 1.
+	 * Sets the current three-dimensional texture coordinate for the specified texture coordinate set. {@code q} is implicitly set to 1.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates
@@ -1463,7 +1463,7 @@ public final class GL13 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Sets the current four-dimensional texture coordinate for the given texture coordinate set.
+	 * Sets the current four-dimensional texture coordinate for the specified texture coordinate set.
 	 *
 	 * @param texture the coordinate set to be modified
 	 * @param s       the s component of the current texture coordinates

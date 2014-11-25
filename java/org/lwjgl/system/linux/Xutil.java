@@ -185,7 +185,7 @@ public final class Xutil {
 	public static native int nXDeleteContext(long display, long rid, int context);
 
 	/**
-	 * Deletes an entry for the given resource ID and type.
+	 * Deletes an entry for the specified resource ID and type.
 	 *
 	 * @param display the connection to the X server
 	 * @param rid     the resource ID with which the data is associated
