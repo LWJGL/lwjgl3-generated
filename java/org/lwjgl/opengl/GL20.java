@@ -176,8 +176,10 @@ public final class GL20 {
 	public final long
 		CreateProgram,
 		DeleteProgram,
+		IsProgram,
 		CreateShader,
 		DeleteShader,
+		IsShader,
 		AttachShader,
 		DetachShader,
 		ShaderSource,
@@ -270,8 +272,10 @@ public final class GL20 {
 	public GL20(FunctionProvider provider) {
 		CreateProgram = provider.getFunctionAddress("glCreateProgram");
 		DeleteProgram = provider.getFunctionAddress("glDeleteProgram");
+		IsProgram = provider.getFunctionAddress("glIsProgram");
 		CreateShader = provider.getFunctionAddress("glCreateShader");
 		DeleteShader = provider.getFunctionAddress("glDeleteShader");
+		IsShader = provider.getFunctionAddress("glIsShader");
 		AttachShader = provider.getFunctionAddress("glAttachShader");
 		DetachShader = provider.getFunctionAddress("glDetachShader");
 		ShaderSource = provider.getFunctionAddress("glShaderSource");
@@ -374,21 +378,22 @@ public final class GL20 {
 		GL20 funcs = new GL20(provider);
 
 		boolean supported = checkFunctions(
-			funcs.CreateProgram, funcs.DeleteProgram, funcs.CreateShader, funcs.DeleteShader, funcs.AttachShader, funcs.DetachShader, funcs.ShaderSource, 
-			funcs.CompileShader, funcs.LinkProgram, funcs.UseProgram, funcs.ValidateProgram, funcs.Uniform1f, funcs.Uniform2f, funcs.Uniform3f, funcs.Uniform4f, 
-			funcs.Uniform1i, funcs.Uniform2i, funcs.Uniform3i, funcs.Uniform4i, funcs.Uniform1fv, funcs.Uniform2fv, funcs.Uniform3fv, funcs.Uniform4fv, 
-			funcs.Uniform1iv, funcs.Uniform2iv, funcs.Uniform3iv, funcs.Uniform4iv, funcs.UniformMatrix2fv, funcs.UniformMatrix3fv, funcs.UniformMatrix4fv, 
-			funcs.GetShaderiv, funcs.GetProgramiv, funcs.GetShaderInfoLog, funcs.GetProgramInfoLog, funcs.GetAttachedShaders, funcs.GetUniformLocation, 
-			funcs.GetActiveUniform, funcs.GetUniformfv, funcs.GetUniformiv, funcs.GetShaderSource, funcs.VertexAttrib1f, funcs.VertexAttrib1s, 
-			funcs.VertexAttrib1d, funcs.VertexAttrib2f, funcs.VertexAttrib2s, funcs.VertexAttrib2d, funcs.VertexAttrib3f, funcs.VertexAttrib3s, 
-			funcs.VertexAttrib3d, funcs.VertexAttrib4f, funcs.VertexAttrib4s, funcs.VertexAttrib4d, funcs.VertexAttrib4Nub, funcs.VertexAttrib1fv, 
-			funcs.VertexAttrib1sv, funcs.VertexAttrib1dv, funcs.VertexAttrib2fv, funcs.VertexAttrib2sv, funcs.VertexAttrib2dv, funcs.VertexAttrib3fv, 
-			funcs.VertexAttrib3sv, funcs.VertexAttrib3dv, funcs.VertexAttrib4fv, funcs.VertexAttrib4sv, funcs.VertexAttrib4dv, funcs.VertexAttrib4iv, 
-			funcs.VertexAttrib4bv, funcs.VertexAttrib4ubv, funcs.VertexAttrib4usv, funcs.VertexAttrib4uiv, funcs.VertexAttrib4Nbv, funcs.VertexAttrib4Nsv, 
-			funcs.VertexAttrib4Niv, funcs.VertexAttrib4Nubv, funcs.VertexAttrib4Nusv, funcs.VertexAttrib4Nuiv, funcs.VertexAttribPointer, 
-			funcs.EnableVertexAttribArray, funcs.DisableVertexAttribArray, funcs.BindAttribLocation, funcs.GetActiveAttrib, funcs.GetAttribLocation, 
-			funcs.GetVertexAttribiv, funcs.GetVertexAttribfv, funcs.GetVertexAttribdv, funcs.GetVertexAttribPointerv, funcs.DrawBuffers, 
-			funcs.BlendEquationSeparate, funcs.StencilOpSeparate, funcs.StencilFuncSeparate, funcs.StencilMaskSeparate
+			funcs.CreateProgram, funcs.DeleteProgram, funcs.IsProgram, funcs.CreateShader, funcs.DeleteShader, funcs.IsShader, funcs.AttachShader, 
+			funcs.DetachShader, funcs.ShaderSource, funcs.CompileShader, funcs.LinkProgram, funcs.UseProgram, funcs.ValidateProgram, funcs.Uniform1f, 
+			funcs.Uniform2f, funcs.Uniform3f, funcs.Uniform4f, funcs.Uniform1i, funcs.Uniform2i, funcs.Uniform3i, funcs.Uniform4i, funcs.Uniform1fv, 
+			funcs.Uniform2fv, funcs.Uniform3fv, funcs.Uniform4fv, funcs.Uniform1iv, funcs.Uniform2iv, funcs.Uniform3iv, funcs.Uniform4iv, 
+			funcs.UniformMatrix2fv, funcs.UniformMatrix3fv, funcs.UniformMatrix4fv, funcs.GetShaderiv, funcs.GetProgramiv, funcs.GetShaderInfoLog, 
+			funcs.GetProgramInfoLog, funcs.GetAttachedShaders, funcs.GetUniformLocation, funcs.GetActiveUniform, funcs.GetUniformfv, funcs.GetUniformiv, 
+			funcs.GetShaderSource, funcs.VertexAttrib1f, funcs.VertexAttrib1s, funcs.VertexAttrib1d, funcs.VertexAttrib2f, funcs.VertexAttrib2s, 
+			funcs.VertexAttrib2d, funcs.VertexAttrib3f, funcs.VertexAttrib3s, funcs.VertexAttrib3d, funcs.VertexAttrib4f, funcs.VertexAttrib4s, 
+			funcs.VertexAttrib4d, funcs.VertexAttrib4Nub, funcs.VertexAttrib1fv, funcs.VertexAttrib1sv, funcs.VertexAttrib1dv, funcs.VertexAttrib2fv, 
+			funcs.VertexAttrib2sv, funcs.VertexAttrib2dv, funcs.VertexAttrib3fv, funcs.VertexAttrib3sv, funcs.VertexAttrib3dv, funcs.VertexAttrib4fv, 
+			funcs.VertexAttrib4sv, funcs.VertexAttrib4dv, funcs.VertexAttrib4iv, funcs.VertexAttrib4bv, funcs.VertexAttrib4ubv, funcs.VertexAttrib4usv, 
+			funcs.VertexAttrib4uiv, funcs.VertexAttrib4Nbv, funcs.VertexAttrib4Nsv, funcs.VertexAttrib4Niv, funcs.VertexAttrib4Nubv, funcs.VertexAttrib4Nusv, 
+			funcs.VertexAttrib4Nuiv, funcs.VertexAttribPointer, funcs.EnableVertexAttribArray, funcs.DisableVertexAttribArray, funcs.BindAttribLocation, 
+			funcs.GetActiveAttrib, funcs.GetAttribLocation, funcs.GetVertexAttribiv, funcs.GetVertexAttribfv, funcs.GetVertexAttribdv, 
+			funcs.GetVertexAttribPointerv, funcs.DrawBuffers, funcs.BlendEquationSeparate, funcs.StencilOpSeparate, funcs.StencilFuncSeparate, 
+			funcs.StencilMaskSeparate
 		);
 
 		return GL.checkExtension("OpenGL20", funcs, supported);
@@ -432,6 +437,27 @@ Creates a program object.
 		nglDeleteProgram(program, __functionAddress);
 	}
 
+	// --- [ glIsProgram ] ---
+
+	/** JNI method for {@link #glIsProgram IsProgram} */
+	@JavadocExclude
+	public static native boolean nglIsProgram(int program, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns {@link GL11#GL_TRUE TRUE} if {@code program} is the name of a program object. If {@code program} is zero, or a non-zero value that is not the name of a program
+	 * object, IsProgram returns {@link GL11#GL_FALSE FALSE}. No error is generated if program is not a valid program object name.
+	 *
+	 * @param program the program object name to query
+	 */
+	public static boolean glIsProgram(int program) {
+		long __functionAddress = getInstance().IsProgram;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglIsProgram(program, __functionAddress);
+	}
+
 	// --- [ glCreateShader ] ---
 
 	/** JNI method for {@link #glCreateShader CreateShader} */
@@ -470,6 +496,27 @@ Creates a program object.
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglDeleteShader(shader, __functionAddress);
+	}
+
+	// --- [ glIsShader ] ---
+
+	/** JNI method for {@link #glIsShader IsShader} */
+	@JavadocExclude
+	public static native boolean nglIsShader(int shader, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsShader.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Returns {@link GL11#GL_TRUE TRUE} if {@code shader} is the name of a shader object. If {@code shader} is zero, or a nonzero value that is not the name of a shader
+	 * object, IsShader returns {@link GL11#GL_FALSE FALSE}. No error is generated if shader is not a valid shader object name.
+	 *
+	 * @param shader the shader object name to query
+	 */
+	public static boolean glIsShader(int shader) {
+		long __functionAddress = getInstance().IsShader;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		return nglIsShader(shader, __functionAddress);
 	}
 
 	// --- [ glAttachShader ] ---
@@ -550,7 +597,7 @@ Creates a program object.
 	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
 	 * parsed at this time; they are simply copied into the specified shader object.
 	 *
-	 * @param shader  the handle of the shader object whose source code is to be replaced
+	 * @param shader  the shader object whose source code is to be replaced
 	 * @param count   the number of elements in the string and length arrays
 	 * @param strings an array of pointers to strings containing the source code to be loaded into the shader
 	 * @param length  an array of string lengths
@@ -623,7 +670,7 @@ Creates a program object.
 	 * 
 	 * Links a program object.
 	 *
-	 * @param program the handle of the program object to be linked
+	 * @param program the program object to be linked
 	 */
 	public static void glLinkProgram(int program) {
 		long __functionAddress = getInstance().LinkProgram;
@@ -643,7 +690,7 @@ Creates a program object.
 	 * 
 	 * Installs a program object as part of current rendering state.
 	 *
-	 * @param program the handle of the program object whose executables are to be used as part of current rendering state
+	 * @param program the program object whose executables are to be used as part of current rendering state
 	 */
 	public static void glUseProgram(int program) {
 		long __functionAddress = getInstance().UseProgram;
@@ -663,7 +710,7 @@ Creates a program object.
 	 * 
 	 * Validates a program object.
 	 *
-	 * @param program the handle of the program object to be validated
+	 * @param program the program object to be validated
 	 */
 	public static void glValidateProgram(int program) {
 		long __functionAddress = getInstance().ValidateProgram;
@@ -1466,7 +1513,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttachedShaders.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Returns the handles of the shader objects attached to a program object.
+	 * Returns the shader objects attached to a program object.
 	 *
 	 * @param program  the program object to be queried
 	 * @param maxCount the size of the array for storing the returned object names
@@ -2990,7 +3037,7 @@ Creates a program object.
 	 * 
 	 * Associates a generic vertex attribute index with a named attribute variable.
 	 *
-	 * @param program the handle of the program object in which the association is to be made
+	 * @param program the program object in which the association is to be made
 	 * @param index   the index of the generic vertex attribute to be bound
 	 * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
 	 */

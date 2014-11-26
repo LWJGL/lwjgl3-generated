@@ -8,8 +8,10 @@
 
 typedef GLuint (APIENTRY *glCreateProgramPROC) (void);
 typedef GLvoid (APIENTRY *glDeleteProgramPROC) (GLuint);
+typedef GLboolean (APIENTRY *glIsProgramPROC) (GLuint);
 typedef GLuint (APIENTRY *glCreateShaderPROC) (GLenum);
 typedef GLvoid (APIENTRY *glDeleteShaderPROC) (GLuint);
+typedef GLboolean (APIENTRY *glIsShaderPROC) (GLuint);
 typedef GLvoid (APIENTRY *glAttachShaderPROC) (GLuint, GLuint);
 typedef GLvoid (APIENTRY *glDetachShaderPROC) (GLuint, GLuint);
 typedef GLvoid (APIENTRY *glShaderSourcePROC) (GLuint, GLsizei, const GLchar **, const GLint *);
@@ -112,6 +114,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglDeleteProgram(JNIEnv *__env
 	glDeleteProgram(program);
 }
 
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL20_nglIsProgram(JNIEnv *__env, jclass clazz, jint program, jlong __functionAddress) {
+	glIsProgramPROC glIsProgram = (glIsProgramPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jboolean)glIsProgram(program);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL20_nglCreateShader(JNIEnv *__env, jclass clazz, jint type, jlong __functionAddress) {
 	glCreateShaderPROC glCreateShader = (glCreateShaderPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -122,6 +130,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglDeleteShader(JNIEnv *__env,
 	glDeleteShaderPROC glDeleteShader = (glDeleteShaderPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDeleteShader(shader);
+}
+
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL20_nglIsShader(JNIEnv *__env, jclass clazz, jint shader, jlong __functionAddress) {
+	glIsShaderPROC glIsShader = (glIsShaderPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jboolean)glIsShader(shader);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL20_nglAttachShader(JNIEnv *__env, jclass clazz, jint program, jint shader, jlong __functionAddress) {
