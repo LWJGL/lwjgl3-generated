@@ -489,8 +489,6 @@ public final class GL43 {
 		VertexAttribBinding,
 		VertexBindingDivisor;
 
-	long refDEBUGPROC;
-
 	@JavadocExclude
 	public GL43(FunctionProvider provider) {
 		ClearBufferData = provider.getFunctionAddress("glClearBufferData");
@@ -910,21 +908,11 @@ public final class GL43 {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallback(long callback, long userParam) {
-		GL43 __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallback;
+	public static void glDebugMessageCallback(DEBUGPROC callback, long userParam) {
+		long __functionAddress = getInstance().DebugMessageCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallback(callback, userParam, __functionAddress);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageCallback DebugMessageCallback} */
-	public static void glDebugMessageCallback(DEBUGPROC callback) {
-		GL43 __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallback(callback == null ? NULL : DEBUGPROC.Util.CALLBACK, DEBUGPROC.Util.register(__instance, callback), __functionAddress);
+		nglDebugMessageCallback(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---
@@ -2260,6 +2248,22 @@ public final class GL43 {
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
 		nglVertexBindingDivisor(bindingindex, divisor, __functionAddress);
+	}
+
+     /**
+	 * Creates a {@link DEBUGPROC} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link DEBUGPROC} instance
+	 */
+	public static DEBUGPROC DEBUGPROC(final DEBUGPROC.SAM sam) {
+		return new DEBUGPROC() {
+			@Override
+			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+				sam.invoke(source, type, id, severity, length, message, userParam);
+			}
+		};
 	}
 
 }

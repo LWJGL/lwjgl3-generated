@@ -77,8 +77,6 @@ public final class AMDDebugOutput {
 		DebugMessageCallbackAMD,
 		GetDebugMessageLogAMD;
 
-	long refDEBUGPROCAMD;
-
 	@JavadocExclude
 	public AMDDebugOutput(FunctionProvider provider) {
 		DebugMessageEnableAMD = provider.getFunctionAddress("glDebugMessageEnableAMD");
@@ -250,21 +248,11 @@ public final class AMDDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackAMD(long callback, long userParam) {
-		AMDDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallbackAMD;
+	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback, long userParam) {
+		long __functionAddress = getInstance().DebugMessageCallbackAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallbackAMD(callback, userParam, __functionAddress);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageCallbackAMD DebugMessageCallbackAMD} */
-	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback) {
-		AMDDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallbackAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallbackAMD(callback == null ? NULL : DEBUGPROCAMD.Util.CALLBACK, DEBUGPROCAMD.Util.register(__instance, callback), __functionAddress);
+		nglDebugMessageCallbackAMD(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---
@@ -339,6 +327,22 @@ public final class AMDDebugOutput {
 		}
 		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
 		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
+	}
+
+     /**
+	 * Creates a {@link DEBUGPROCAMD} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link DEBUGPROCAMD} instance
+	 */
+	public static DEBUGPROCAMD DEBUGPROCAMD(final DEBUGPROCAMD.SAM sam) {
+		return new DEBUGPROCAMD() {
+			@Override
+			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
+				sam.invoke(id, category, severity, length, message, userParam);
+			}
+		};
 	}
 
 }

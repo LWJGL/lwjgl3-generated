@@ -61,13 +61,8 @@ public final class Xlib {
 	 *
 	 * @return the previous error handler
 	 */
-	public static long XSetErrorHandler(long handler) {
-		return nXSetErrorHandler(handler);
-	}
-
-	/** Alternative version of: {@link #XSetErrorHandler} */
-	public static long XSetErrorHandler(XErrorHandler handler) {
-		return nXSetErrorHandler(XErrorHandler.Util.register(handler));
+	public static XErrorHandler XSetErrorHandler(XErrorHandler handler) {
+		return XErrorHandler.create(nXSetErrorHandler(handler == null ? NULL : handler.getPointer()));
 	}
 
 	// --- [ XGetErrorText ] ---

@@ -166,22 +166,10 @@ public final class WinGDI {
 	 * @param objectFunc the application-defined callback function
 	 * @param param      the data passed to the callback function along with the object information.
 	 */
-	public static int EnumObjects(long hdc, int objectType, long objectFunc, long param) {
+	public static int EnumObjects(long hdc, int objectType, EnumObjectsProc objectFunc, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nEnumObjects(hdc, objectType, objectFunc, param);
-	}
-
-	/** Alternative version of: {@link #EnumObjects} */
-	public static int EnumObjects(long hdc, int objectType, EnumObjectsProc objectFunc) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hdc);
-		long param = memGlobalRefNew(objectFunc);
-		try {
-			return nEnumObjects(hdc, objectType, EnumObjectsProc.Util.CALLBACK, param);
-		} finally {
-			memGlobalRefDelete(param);
-		}
+		return nEnumObjects(hdc, objectType, objectFunc.getPointer(), param);
 	}
 
 	// --- [ SelectObject ] ---
@@ -584,6 +572,22 @@ public final class WinGDI {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dc);
 		return nSwapBuffers(dc);
+	}
+
+     /**
+	 * Creates a {@link EnumObjectsProc} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link EnumObjectsProc} instance
+	 */
+	public static EnumObjectsProc EnumObjectsProc(final EnumObjectsProc.SAM sam) {
+		return new EnumObjectsProc() {
+			@Override
+			public int invoke(long logObject, long data) {
+				return sam.invoke(logObject, data);
+			}
+		};
 	}
 
 }

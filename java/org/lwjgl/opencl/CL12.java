@@ -671,48 +671,39 @@ public final class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clCompileProgram(long program, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_headers, ByteBuffer input_headers, ByteBuffer header_include_names, long pfn_notify, long user_data) {
+	public static int clCompileProgram(long program, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_headers, ByteBuffer input_headers, ByteBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
 			checkNT1(options);
 			if ( input_headers != null ) checkBuffer(input_headers, num_input_headers << POINTER_SHIFT);
 			if ( header_include_names != null ) checkBuffer(header_include_names, num_input_headers << POINTER_SHIFT);
 		}
-		return nclCompileProgram(program, num_devices, memAddressSafe(device_list), memAddress(options), num_input_headers, memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify, user_data);
+		return nclCompileProgram(program, num_devices, memAddressSafe(device_list), memAddress(options), num_input_headers, memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Alternative version of: {@link #clCompileProgram CompileProgram} */
-	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
 		if ( LWJGLUtil.CHECKS )
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** CharSequence version of: {@link #clCompileProgram CompileProgram} */
-	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
 		if ( LWJGLUtil.CHECKS )
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
 		ByteBuffer optionsEncoded = memEncodeASCII(options);
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Single value version of: {@link #clCompileProgram CompileProgram} */
-	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallback pfn_notify) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallback pfn_notify, long user_data) {
 		ByteBuffer optionsEncoded = memEncodeASCII(options);
 		APIBuffer __buffer = apiBuffer();
 		int input_headers = __buffer.pointerParam(input_header);
 		ByteBuffer header_include_nameBuffer = memEncodeASCII(header_include_name);
 		int header_include_names = __buffer.pointerParam(memAddress(header_include_nameBuffer));
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, __buffer.address() + input_headers, __buffer.address() + header_include_names, pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, __buffer.address() + input_headers, __buffer.address() + header_include_names, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clLinkProgram ] ---
@@ -800,41 +791,32 @@ public final class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul></p>
 	 */
-	public static long clLinkProgram(long context, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_programs, ByteBuffer input_programs, long pfn_notify, long user_data) {
+	public static long clLinkProgram(long context, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_programs, ByteBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
 			checkNT1(options);
 			if ( input_programs != null ) checkBuffer(input_programs, num_input_programs << POINTER_SHIFT);
 		}
-		return nclLinkProgram(context, num_devices, memAddressSafe(device_list), memAddress(options), num_input_programs, memAddressSafe(input_programs), pfn_notify, user_data);
+		return nclLinkProgram(context, num_devices, memAddressSafe(device_list), memAddress(options), num_input_programs, memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Alternative version of: {@link #clLinkProgram LinkProgram} */
-	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallback pfn_notify) {
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		long __result = nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result == NULL && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
+		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** CharSequence version of: {@link #clLinkProgram LinkProgram} */
-	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallback pfn_notify) {
+	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
 		ByteBuffer optionsEncoded = memEncodeASCII(options);
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		long __result = nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result == NULL && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Single value version of: {@link #clLinkProgram LinkProgram} */
-	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallback pfn_notify) {
+	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallback pfn_notify, long user_data) {
 		ByteBuffer optionsEncoded = memEncodeASCII(options);
 		APIBuffer __buffer = apiBuffer();
 		int input_programs = __buffer.pointerParam(input_program);
-		long user_data = CLProgramCallback.Util.register(pfn_notify);
-		long __result = nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, __buffer.address() + input_programs, pfn_notify == null ? NULL : CLProgramCallback.Util.CALLBACK, user_data);
-		if ( __result == NULL && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, __buffer.address() + input_programs, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clUnloadPlatformCompiler ] ---

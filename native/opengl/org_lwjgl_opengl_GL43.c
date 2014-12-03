@@ -13,7 +13,7 @@ typedef GLvoid (APIENTRY *glDispatchComputeIndirectPROC) (GLintptr);
 typedef GLvoid (APIENTRY *glCopyImageSubDataPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
 typedef GLvoid (APIENTRY *glDebugMessageControlPROC) (GLenum, GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
 typedef GLvoid (APIENTRY *glDebugMessageInsertPROC) (GLenum, GLenum, GLuint, GLenum, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glDebugMessageCallbackPROC) (GLDEBUGPROC, void *);
+typedef GLvoid (APIENTRY *glDebugMessageCallbackPROC) (GLDEBUGPROC, const void *);
 typedef GLuint (APIENTRY *glGetDebugMessageLogPROC) (GLuint, GLsizei, GLenum *, GLenum *, GLuint *, GLenum *, GLsizei *, GLchar *);
 typedef GLvoid (APIENTRY *glPushDebugGroupPROC) (GLenum, GLuint, GLsizei, const GLchar *);
 typedef GLvoid (APIENTRY *glPopDebugGroupPROC) (void);
@@ -100,7 +100,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageInsert(JNIEnv *
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageCallback(JNIEnv *__env, jclass clazz, jlong callbackAddress, jlong userParamAddress, jlong __functionAddress) {
 	GLDEBUGPROC callback = (GLDEBUGPROC)(intptr_t)callbackAddress;
-	void *userParam = (void *)(intptr_t)userParamAddress;
+	const void *userParam = (const void *)(intptr_t)userParamAddress;
 	glDebugMessageCallbackPROC glDebugMessageCallback = (glDebugMessageCallbackPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDebugMessageCallback(callback, userParam);

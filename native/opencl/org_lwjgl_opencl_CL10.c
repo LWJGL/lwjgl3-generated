@@ -59,7 +59,7 @@ typedef cl_int (APIENTRY *clGetKernelInfoPROC) (cl_kernel, cl_kernel_info, size_
 typedef cl_int (APIENTRY *clGetKernelWorkGroupInfoPROC) (cl_kernel, cl_device_id, cl_kernel_work_group_info, size_t, void *, size_t *);
 typedef cl_int (APIENTRY *clEnqueueNDRangeKernelPROC) (cl_command_queue, cl_kernel, cl_uint, const size_t *, const size_t *, const size_t *, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clEnqueueTaskPROC) (cl_command_queue, cl_kernel, cl_uint, const cl_event *, cl_event *);
-typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel_func, void *, size_t, cl_uint, const cl_mem *, const void **, cl_uint, const cl_event *, cl_event *);
+typedef cl_int (APIENTRY *clEnqueueNativeKernelPROC) (cl_command_queue, cl_native_kernel, void *, size_t, cl_uint, const cl_mem *, const void **, cl_uint, const cl_event *, cl_event *);
 typedef cl_int (APIENTRY *clWaitForEventsPROC) (cl_uint, const cl_event *);
 typedef cl_int (APIENTRY *clGetEventInfoPROC) (cl_event, cl_event_info, size_t, void *, size_t *);
 typedef cl_int (APIENTRY *clRetainEventPROC) (cl_event);
@@ -578,7 +578,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueTask(JNIEnv *__env, 
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL10_nclEnqueueNativeKernel(JNIEnv *__env, jclass clazz, jlong command_queueAddress, jlong user_funcAddress, jlong argsAddress, jlong cb_args, jint num_mem_objects, jlong mem_listAddress, jlong args_mem_locAddress, jint num_events_in_wait_list, jlong event_wait_listAddress, jlong eventAddress, jlong __functionAddress) {
 	cl_command_queue command_queue = (cl_command_queue)(intptr_t)command_queueAddress;
-	cl_native_kernel_func user_func = (cl_native_kernel_func)(intptr_t)user_funcAddress;
+	cl_native_kernel user_func = (cl_native_kernel)(intptr_t)user_funcAddress;
 	void *args = (void *)(intptr_t)argsAddress;
 	const cl_mem *mem_list = (const cl_mem *)(intptr_t)mem_listAddress;
 	const void **args_mem_loc = (const void **)(intptr_t)args_mem_locAddress;

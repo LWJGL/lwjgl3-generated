@@ -488,23 +488,20 @@ public final class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMFree(long command_queue, int num_svm_pointers, ByteBuffer svm_pointers, long pfn_free_func, ByteBuffer user_data, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueSVMFree(long command_queue, int num_svm_pointers, ByteBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, ByteBuffer user_data, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(svm_pointers, num_svm_pointers << POINTER_SHIFT);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueSVMFree(command_queue, num_svm_pointers, memAddress(svm_pointers), pfn_free_func, memAddressSafe(user_data), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMFree(command_queue, num_svm_pointers, memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.getPointer(), memAddressSafe(user_data), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueSVMFree EnqueueSVMFree} */
-	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, ByteBuffer user_data, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		long user_data = CLSVMFreeCallback.Util.register(pfn_free_func);
-		int __result = nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), pfn_free_func == null ? NULL : CLSVMFreeCallback.Util.CALLBACK, user_data, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
-		if ( __result != CL10.CL_SUCCESS && user_data != NULL ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.getPointer(), memAddressSafe(user_data), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemcpy ] ---
@@ -959,6 +956,22 @@ public final class CL20 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateSamplerWithProperties(context, memAddressSafe(sampler_properties), memAddressSafe(errcode_ret));
+	}
+
+     /**
+	 * Creates a {@link CLSVMFreeCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLSVMFreeCallback} instance
+	 */
+	public static CLSVMFreeCallback CLSVMFreeCallback(final CLSVMFreeCallback.SAM sam) {
+		return new CLSVMFreeCallback() {
+			@Override
+			public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
+				sam.invoke(queue, num_svm_pointers, svm_pointers, user_data);
+			}
+		};
 	}
 
 }

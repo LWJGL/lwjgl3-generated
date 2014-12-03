@@ -142,8 +142,6 @@ public final class ARBDebugOutput {
 		DebugMessageCallbackARB,
 		GetDebugMessageLogARB;
 
-	long refDEBUGPROCARB;
-
 	@JavadocExclude
 	public ARBDebugOutput(FunctionProvider provider) {
 		DebugMessageControlARB = provider.getFunctionAddress("glDebugMessageControlARB");
@@ -313,21 +311,11 @@ public final class ARBDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackARB(long callback, long userParam) {
-		ARBDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallbackARB;
+	public static void glDebugMessageCallbackARB(DEBUGPROCARB callback, long userParam) {
+		long __functionAddress = getInstance().DebugMessageCallbackARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallbackARB(callback, userParam, __functionAddress);
-	}
-
-	/** Alternative version of: {@link #glDebugMessageCallbackARB DebugMessageCallbackARB} */
-	public static void glDebugMessageCallbackARB(DEBUGPROCARB callback) {
-		ARBDebugOutput __instance = getInstance();
-		long __functionAddress = __instance.DebugMessageCallbackARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
-		nglDebugMessageCallbackARB(callback == null ? NULL : DEBUGPROCARB.Util.CALLBACK, DEBUGPROCARB.Util.register(__instance, callback), __functionAddress);
+		nglDebugMessageCallbackARB(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
 	// --- [ glGetDebugMessageLogARB ] ---
@@ -410,6 +398,22 @@ public final class ARBDebugOutput {
 		}
 		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
 		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
+	}
+
+     /**
+	 * Creates a {@link DEBUGPROCARB} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link DEBUGPROCARB} instance
+	 */
+	public static DEBUGPROCARB DEBUGPROCARB(final DEBUGPROCARB.SAM sam) {
+		return new DEBUGPROCARB() {
+			@Override
+			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+				sam.invoke(source, type, id, severity, length, message, userParam);
+			}
+		};
 	}
 
 }

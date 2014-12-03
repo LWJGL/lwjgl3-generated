@@ -2251,4 +2251,20 @@ public final class WinUser {
 	/** Closes the clipboard. */
 	public static native int CloseClipboard();
 
+     /**
+	 * Creates a {@link WindowProc} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link WindowProc} instance
+	 */
+	public static WindowProc WindowProc(final WindowProc.SAM sam) {
+		return new WindowProc() {
+			@Override
+			public long invoke(long hwnd, int uMsg, long wParam, long lParam) {
+				return sam.invoke(hwnd, uMsg, wParam, lParam);
+			}
+		};
+	}
+
 }

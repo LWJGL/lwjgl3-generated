@@ -72,7 +72,7 @@ public final class ffi_cif {
 		int abi,
 		int nargs,
 		ByteBuffer arg_types,
-		ByteBuffer rtype,
+		long rtype,
 		int bytes,
 		int flags
 	) {
@@ -93,7 +93,6 @@ public final class ffi_cif {
 	public static void arg_types(ByteBuffer ffi_cif, long arg_types) { PointerBuffer.put(ffi_cif, ffi_cif.position() + ARG_TYPES, arg_types); }
 	public static void arg_types(ByteBuffer ffi_cif, ByteBuffer arg_types) { arg_types(ffi_cif, memAddress(arg_types)); }
 	public static void rtype(ByteBuffer ffi_cif, long rtype) { PointerBuffer.put(ffi_cif, ffi_cif.position() + RTYPE, rtype); }
-	public static void rtype(ByteBuffer ffi_cif, ByteBuffer rtype) { rtype(ffi_cif, memAddress(rtype)); }
 	public static void bytes(ByteBuffer ffi_cif, int bytes) { ffi_cif.putInt(ffi_cif.position() + BYTES, bytes); }
 	public static void flags(ByteBuffer ffi_cif, int flags) { ffi_cif.putInt(ffi_cif.position() + FLAGS, flags); }
 
@@ -102,7 +101,6 @@ public final class ffi_cif {
 	public static long arg_types(ByteBuffer ffi_cif) { return PointerBuffer.get(ffi_cif, ffi_cif.position() + ARG_TYPES); }
 	public static ByteBuffer arg_types(ByteBuffer ffi_cif, int size) { long address = arg_types(ffi_cif); return address == NULL ? null : memByteBuffer(address, size); }
 	public static long rtype(ByteBuffer ffi_cif) { return PointerBuffer.get(ffi_cif, ffi_cif.position() + RTYPE); }
-	public static ByteBuffer rtypeb(ByteBuffer ffi_cif) { return memByteBuffer(rtype(ffi_cif), ffi_type.SIZEOF); }
 	public static int bytes(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + BYTES); }
 	public static int flags(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + FLAGS); }
 

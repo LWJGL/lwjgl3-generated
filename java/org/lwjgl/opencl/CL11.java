@@ -218,26 +218,13 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data) {
+	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
 		}
-		return nclSetMemObjectDestructorCallback(memobj, pfn_notify, user_data, __functionAddress);
-	}
-
-	/** Alternative version of: {@link #clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} */
-	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify) {
-		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(memobj);
-		}
-		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetMemObjectDestructorCallback(memobj, CLMemObjectDestructorCallback.Util.CALLBACK, user_data, __functionAddress);
-		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
-		return __result;
+		return nclSetMemObjectDestructorCallback(memobj, pfn_notify.getPointer(), user_data, __functionAddress);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
@@ -810,26 +797,45 @@ public final class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data) {
+	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
 		}
-		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify, user_data, __functionAddress);
+		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.getPointer(), user_data, __functionAddress);
 	}
 
-	/** Alternative version of: {@link #clSetEventCallback SetEventCallback} */
-	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify) {
-		long __functionAddress = getInstance().SetEventCallback;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(event);
-		}
-		long user_data = memGlobalRefNew(pfn_notify); // this global reference is deleted in native code (after invoke)
-		int __result = nclSetEventCallback(event, command_exec_callback_type, CLEventCallback.Util.CALLBACK, user_data, __functionAddress);
-		if ( __result != CL10.CL_SUCCESS ) memGlobalRefDelete(user_data);
-		return __result;
+     /**
+	 * Creates a {@link CLMemObjectDestructorCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLMemObjectDestructorCallback} instance
+	 */
+	public static CLMemObjectDestructorCallback CLMemObjectDestructorCallback(final CLMemObjectDestructorCallback.SAM sam) {
+		return new CLMemObjectDestructorCallback() {
+			@Override
+			public void invoke(long memobj, long user_data) {
+				sam.invoke(memobj, user_data);
+			}
+		};
+	}
+
+     /**
+	 * Creates a {@link CLEventCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLEventCallback} instance
+	 */
+	public static CLEventCallback CLEventCallback(final CLEventCallback.SAM sam) {
+		return new CLEventCallback() {
+			@Override
+			public void invoke(long event, int event_command_exec_status, long user_data) {
+				sam.invoke(event, event_command_exec_status, user_data);
+			}
+		};
 	}
 
 }
