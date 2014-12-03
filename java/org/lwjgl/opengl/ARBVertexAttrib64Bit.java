@@ -196,14 +196,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL1d(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
-		GL41.nglVertexAttribL1dv(index, memAddress(v));
+		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
 	public static void glVertexAttribL1(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		GL41.nglVertexAttribL1dv(index, memAddress(v));
+		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL2dv ] ---
@@ -226,14 +226,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL2d(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
-		GL41.nglVertexAttribL2dv(index, memAddress(v));
+		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
 	public static void glVertexAttribL2(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		GL41.nglVertexAttribL2dv(index, memAddress(v));
+		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL3dv ] ---
@@ -256,14 +256,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL3d(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
-		GL41.nglVertexAttribL3dv(index, memAddress(v));
+		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
 	public static void glVertexAttribL3(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		GL41.nglVertexAttribL3dv(index, memAddress(v));
+		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL4dv ] ---
@@ -286,14 +286,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL4d(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
-		GL41.nglVertexAttribL4dv(index, memAddress(v));
+		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
 	public static void glVertexAttribL4(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		GL41.nglVertexAttribL4dv(index, memAddress(v));
+		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribLPointer ] ---
@@ -321,21 +321,21 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		GL41.nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
+		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointerOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		GL41.nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
+		nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
 	}
 
 	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		GL41.nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
+		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
 
 	// --- [ glGetVertexAttribLdv ] ---
@@ -357,12 +357,12 @@ public final class ARBVertexAttrib64Bit {
 	 * @param params the requested data
 	 */
 	public static void glGetVertexAttribLd(int index, int pname, ByteBuffer params) {
-		GL41.nglGetVertexAttribLdv(index, pname, memAddress(params));
+		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
 	public static void glGetVertexAttribL(int index, int pname, DoubleBuffer params) {
-		GL41.nglGetVertexAttribLdv(index, pname, memAddress(params));
+		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---

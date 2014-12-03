@@ -111,21 +111,21 @@ public final class ARBTimerQuery {
 	public static void glGetQueryObjecti64(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		GL33.nglGetQueryObjecti64v(id, pname, memAddress(params));
+		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64(int, int, ByteBuffer) GetQueryObjecti64} */
 	public static void glGetQueryObject(int id, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL33.nglGetQueryObjecti64v(id, pname, memAddress(params));
+		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjecti64(int, int, ByteBuffer) GetQueryObjecti64} */
 	public static long glGetQueryObjecti64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		GL33.nglGetQueryObjecti64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjecti64v(id, pname, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 
@@ -150,21 +150,21 @@ public final class ARBTimerQuery {
 	public static void glGetQueryObjectui64(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		GL33.nglGetQueryObjectui64v(id, pname, memAddress(params));
+		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64(int, int, ByteBuffer) GetQueryObjectui64} */
 	public static void glGetQueryObjectu(int id, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL33.nglGetQueryObjectui64v(id, pname, memAddress(params));
+		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjectui64(int, int, ByteBuffer) GetQueryObjectui64} */
 	public static long glGetQueryObjectui64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		GL33.nglGetQueryObjectui64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjectui64v(id, pname, __buffer.address() + params);
 		return __buffer.longValue(params);
 	}
 

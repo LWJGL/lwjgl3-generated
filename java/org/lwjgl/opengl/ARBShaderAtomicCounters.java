@@ -146,21 +146,21 @@ public final class ARBShaderAtomicCounters {
 	public static void glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
 	public static void glGetActiveAtomicCounterBuffer(int program, int bufferIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address() + params);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 

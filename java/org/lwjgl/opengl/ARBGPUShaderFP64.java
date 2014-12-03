@@ -272,12 +272,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniform1d(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
-		GL40.nglUniform1dv(location, count, memAddress(value));
+		nglUniform1dv(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
 	public static void glUniform1(int location, DoubleBuffer value) {
-		GL40.nglUniform1dv(location, value.remaining(), memAddress(value));
+		nglUniform1dv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2dv ] ---
@@ -301,12 +301,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniform2d(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
-		GL40.nglUniform2dv(location, count, memAddress(value));
+		nglUniform2dv(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
 	public static void glUniform2(int location, DoubleBuffer value) {
-		GL40.nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
+		nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3dv ] ---
@@ -330,12 +330,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniform3d(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
-		GL40.nglUniform3dv(location, count, memAddress(value));
+		nglUniform3dv(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
 	public static void glUniform3(int location, DoubleBuffer value) {
-		GL40.nglUniform3dv(location, value.remaining() / 3, memAddress(value));
+		nglUniform3dv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4dv ] ---
@@ -359,12 +359,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniform4d(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
-		GL40.nglUniform4dv(location, count, memAddress(value));
+		nglUniform4dv(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
 	public static void glUniform4(int location, DoubleBuffer value) {
-		GL40.nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
+		nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2dv ] ---
@@ -389,12 +389,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix2d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
-		GL40.nglUniformMatrix2dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
 	public static void glUniformMatrix2(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
+		nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3dv ] ---
@@ -419,12 +419,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix3d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
-		GL40.nglUniformMatrix3dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
 	public static void glUniformMatrix3(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
+		nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4dv ] ---
@@ -449,12 +449,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix4d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
-		GL40.nglUniformMatrix4dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
 	public static void glUniformMatrix4(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
+		nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x3dv ] ---
@@ -479,12 +479,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix2x3d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
-		GL40.nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
 	public static void glUniformMatrix2x3(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
+		nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4dv ] ---
@@ -509,12 +509,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix2x4d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
-		GL40.nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
 	public static void glUniformMatrix2x4(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
+		nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2dv ] ---
@@ -539,12 +539,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix3x2d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
-		GL40.nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
 	public static void glUniformMatrix3x2(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
+		nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4dv ] ---
@@ -569,12 +569,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix3x4d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
-		GL40.nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
 	public static void glUniformMatrix3x4(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
+		nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2dv ] ---
@@ -599,12 +599,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix4x2d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
-		GL40.nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
 	public static void glUniformMatrix4x2(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
+		nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3dv ] ---
@@ -629,12 +629,12 @@ public final class ARBGPUShaderFP64 {
 	public static void glUniformMatrix4x3d(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
-		GL40.nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
+		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
 	public static void glUniformMatrix4x3(int location, boolean transpose, DoubleBuffer value) {
-		GL40.nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
+		nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glGetUniformdv ] ---
@@ -658,21 +658,21 @@ public final class ARBGPUShaderFP64 {
 	public static void glGetUniformd(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		GL40.nglGetUniformdv(program, location, memAddress(params));
+		nglGetUniformdv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
 	public static void glGetUniform(int program, int location, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL40.nglGetUniformdv(program, location, memAddress(params));
+		nglGetUniformdv(program, location, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
 	public static double glGetUniformd(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		GL40.nglGetUniformdv(program, location, __buffer.address() + params);
+		nglGetUniformdv(program, location, __buffer.address() + params);
 		return __buffer.doubleValue(params);
 	}
 

@@ -157,35 +157,35 @@ public final class KHRRobustness {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
-		GL45.nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
+		nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		GL45.nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
+		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		GL45.nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
+		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		GL45.nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		GL45.nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	// --- [ glGetnUniformfv ] ---
@@ -210,12 +210,12 @@ public final class KHRRobustness {
 	public static void glGetnUniformf(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
-		GL45.nglGetnUniformfv(program, location, bufSize, memAddress(params));
+		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
 	public static void glGetnUniform(int program, int location, FloatBuffer params) {
-		GL45.nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
+		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformiv ] ---
@@ -240,12 +240,12 @@ public final class KHRRobustness {
 	public static void glGetnUniformi(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
-		GL45.nglGetnUniformiv(program, location, bufSize, memAddress(params));
+		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
 	public static void glGetnUniformi(int program, int location, FloatBuffer params) {
-		GL45.nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
+		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformuiv ] ---
@@ -270,12 +270,12 @@ public final class KHRRobustness {
 	public static void glGetnUniformui(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
-		GL45.nglGetnUniformuiv(program, location, bufSize, memAddress(params));
+		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
 	public static void glGetnUniformui(int program, int location, FloatBuffer params) {
-		GL45.nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
+		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
 	}
 
 }

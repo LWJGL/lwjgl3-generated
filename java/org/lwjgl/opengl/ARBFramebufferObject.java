@@ -442,19 +442,19 @@ public final class ARBFramebufferObject {
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(renderbuffers, n << 2);
-		GL30.nglDeleteRenderbuffers(n, memAddress(renderbuffers));
+		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
 	}
 
 	/** Alternative version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
-		GL30.nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
+		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
 	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam(renderbuffer);
-		GL30.nglDeleteRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglDeleteRenderbuffers(1, __buffer.address() + renderbuffers);
 	}
 
 	// --- [ glGenRenderbuffers ] ---
@@ -477,19 +477,19 @@ public final class ARBFramebufferObject {
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(renderbuffers, n << 2);
-		GL30.nglGenRenderbuffers(n, memAddress(renderbuffers));
+		nglGenRenderbuffers(n, memAddress(renderbuffers));
 	}
 
 	/** Alternative version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
-		GL30.nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
+		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
 	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static int glGenRenderbuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		GL30.nglGenRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglGenRenderbuffers(1, __buffer.address() + renderbuffers);
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -551,21 +551,21 @@ public final class ARBFramebufferObject {
 	public static void glGetRenderbufferParameteri(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL30.nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	public static void glGetRenderbufferParameter(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL30.nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL30.nglGetRenderbufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetRenderbufferParameteriv(target, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -618,19 +618,19 @@ public final class ARBFramebufferObject {
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(framebuffers, n << 2);
-		GL30.nglDeleteFramebuffers(n, memAddress(framebuffers));
+		nglDeleteFramebuffers(n, memAddress(framebuffers));
 	}
 
 	/** Alternative version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
-		GL30.nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
+		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
 	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam(framebuffer);
-		GL30.nglDeleteFramebuffers(1, __buffer.address() + framebuffers);
+		nglDeleteFramebuffers(1, __buffer.address() + framebuffers);
 	}
 
 	// --- [ glGenFramebuffers ] ---
@@ -653,19 +653,19 @@ public final class ARBFramebufferObject {
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(framebuffers, n << 2);
-		GL30.nglGenFramebuffers(n, memAddress(framebuffers));
+		nglGenFramebuffers(n, memAddress(framebuffers));
 	}
 
 	/** Alternative version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
-		GL30.nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
+		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
 	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static int glGenFramebuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		GL30.nglGenFramebuffers(1, __buffer.address() + framebuffers);
+		nglGenFramebuffers(1, __buffer.address() + framebuffers);
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -795,21 +795,21 @@ public final class ARBFramebufferObject {
 	public static void glGetFramebufferAttachmentParameteri(int target, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	public static void glGetFramebufferAttachmentParameter(int target, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address() + params);
+		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 

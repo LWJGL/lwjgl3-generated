@@ -321,12 +321,12 @@ public final class ARBSeparateShaderObjects {
 	public static int glCreateShaderProgram(int type, int count, ByteBuffer strings) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
-		return GL41.nglCreateShaderProgramv(type, count, memAddress(strings));
+		return nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
 
 	/** Alternative version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
 	public static int glCreateShaderProgram(int type, PointerBuffer strings) {
-		return GL41.nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
+		return nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
 	}
 
 	/** Array version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
@@ -336,7 +336,7 @@ public final class ARBSeparateShaderObjects {
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
-		return GL41.nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress);
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
@@ -344,7 +344,7 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return GL41.nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress);
 	}
 
 	// --- [ glBindProgramPipeline ] ---
@@ -381,19 +381,19 @@ public final class ARBSeparateShaderObjects {
 	public static void glDeleteProgramPipelines(int n, ByteBuffer pipelines) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pipelines, n << 2);
-		GL41.nglDeleteProgramPipelines(n, memAddress(pipelines));
+		nglDeleteProgramPipelines(n, memAddress(pipelines));
 	}
 
 	/** Alternative version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines} */
 	public static void glDeleteProgramPipelines(IntBuffer pipelines) {
-		GL41.nglDeleteProgramPipelines(pipelines.remaining(), memAddress(pipelines));
+		nglDeleteProgramPipelines(pipelines.remaining(), memAddress(pipelines));
 	}
 
 	/** Single value version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines} */
 	public static void glDeleteProgramPipelines(int pipeline) {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam(pipeline);
-		GL41.nglDeleteProgramPipelines(1, __buffer.address() + pipelines);
+		nglDeleteProgramPipelines(1, __buffer.address() + pipelines);
 	}
 
 	// --- [ glGenProgramPipelines ] ---
@@ -416,19 +416,19 @@ public final class ARBSeparateShaderObjects {
 	public static void glGenProgramPipelines(int n, ByteBuffer pipelines) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pipelines, n << 2);
-		GL41.nglGenProgramPipelines(n, memAddress(pipelines));
+		nglGenProgramPipelines(n, memAddress(pipelines));
 	}
 
 	/** Alternative version of: {@link #glGenProgramPipelines GenProgramPipelines} */
 	public static void glGenProgramPipelines(IntBuffer pipelines) {
-		GL41.nglGenProgramPipelines(pipelines.remaining(), memAddress(pipelines));
+		nglGenProgramPipelines(pipelines.remaining(), memAddress(pipelines));
 	}
 
 	/** Single return value version of: {@link #glGenProgramPipelines GenProgramPipelines} */
 	public static int glGenProgramPipelines() {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam();
-		GL41.nglGenProgramPipelines(1, __buffer.address() + pipelines);
+		nglGenProgramPipelines(1, __buffer.address() + pipelines);
 		return __buffer.intValue(pipelines);
 	}
 
@@ -483,21 +483,21 @@ public final class ARBSeparateShaderObjects {
 	public static void glGetProgramPipelinei(int pipeline, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL41.nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
+		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
 	public static void glGetProgramPipeline(int pipeline, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL41.nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
+		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
 	public static int glGetProgramPipelinei(int pipeline, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL41.nglGetProgramPipelineiv(pipeline, pname, __buffer.address() + params);
+		nglGetProgramPipelineiv(pipeline, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -803,12 +803,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform1i(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
-		GL41.nglProgramUniform1iv(program, location, count, memAddress(value));
+		nglProgramUniform1iv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
 	public static void glProgramUniform1(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform1iv(program, location, value.remaining(), memAddress(value));
+		nglProgramUniform1iv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2iv ] ---
@@ -833,12 +833,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform2i(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
-		GL41.nglProgramUniform2iv(program, location, count, memAddress(value));
+		nglProgramUniform2iv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
 	public static void glProgramUniform2(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value));
+		nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3iv ] ---
@@ -863,12 +863,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform3i(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
-		GL41.nglProgramUniform3iv(program, location, count, memAddress(value));
+		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
 	public static void glProgramUniform3(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4iv ] ---
@@ -893,12 +893,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform4i(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
-		GL41.nglProgramUniform4iv(program, location, count, memAddress(value));
+		nglProgramUniform4iv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
 	public static void glProgramUniform4(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value));
+		nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1uiv ] ---
@@ -923,12 +923,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform1ui(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
-		GL41.nglProgramUniform1uiv(program, location, count, memAddress(value));
+		nglProgramUniform1uiv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
 	public static void glProgramUniform1u(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform1uiv(program, location, value.remaining(), memAddress(value));
+		nglProgramUniform1uiv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2uiv ] ---
@@ -953,12 +953,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform2ui(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
-		GL41.nglProgramUniform2uiv(program, location, count, memAddress(value));
+		nglProgramUniform2uiv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
 	public static void glProgramUniform2u(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value));
+		nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3uiv ] ---
@@ -983,12 +983,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform3ui(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
-		GL41.nglProgramUniform3uiv(program, location, count, memAddress(value));
+		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
 	public static void glProgramUniform3u(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uiv ] ---
@@ -1013,12 +1013,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform4ui(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
-		GL41.nglProgramUniform4uiv(program, location, count, memAddress(value));
+		nglProgramUniform4uiv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
 	public static void glProgramUniform4u(int program, int location, IntBuffer value) {
-		GL41.nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value));
+		nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1fv ] ---
@@ -1043,12 +1043,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform1f(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
-		GL41.nglProgramUniform1fv(program, location, count, memAddress(value));
+		nglProgramUniform1fv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
 	public static void glProgramUniform1(int program, int location, FloatBuffer value) {
-		GL41.nglProgramUniform1fv(program, location, value.remaining(), memAddress(value));
+		nglProgramUniform1fv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2fv ] ---
@@ -1073,12 +1073,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform2f(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
-		GL41.nglProgramUniform2fv(program, location, count, memAddress(value));
+		nglProgramUniform2fv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
 	public static void glProgramUniform2(int program, int location, FloatBuffer value) {
-		GL41.nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value));
+		nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3fv ] ---
@@ -1103,12 +1103,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform3f(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
-		GL41.nglProgramUniform3fv(program, location, count, memAddress(value));
+		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
 	public static void glProgramUniform3(int program, int location, FloatBuffer value) {
-		GL41.nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4fv ] ---
@@ -1133,12 +1133,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform4f(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
-		GL41.nglProgramUniform4fv(program, location, count, memAddress(value));
+		nglProgramUniform4fv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
 	public static void glProgramUniform4(int program, int location, FloatBuffer value) {
-		GL41.nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value));
+		nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1dv ] ---
@@ -1163,12 +1163,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform1d(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
-		GL41.nglProgramUniform1dv(program, location, count, memAddress(value));
+		nglProgramUniform1dv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
 	public static void glProgramUniform1(int program, int location, DoubleBuffer value) {
-		GL41.nglProgramUniform1dv(program, location, value.remaining(), memAddress(value));
+		nglProgramUniform1dv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2dv ] ---
@@ -1193,12 +1193,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform2d(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
-		GL41.nglProgramUniform2dv(program, location, count, memAddress(value));
+		nglProgramUniform2dv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
 	public static void glProgramUniform2(int program, int location, DoubleBuffer value) {
-		GL41.nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value));
+		nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3dv ] ---
@@ -1223,12 +1223,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform3d(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
-		GL41.nglProgramUniform3dv(program, location, count, memAddress(value));
+		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
 	public static void glProgramUniform3(int program, int location, DoubleBuffer value) {
-		GL41.nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4dv ] ---
@@ -1253,12 +1253,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniform4d(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
-		GL41.nglProgramUniform4dv(program, location, count, memAddress(value));
+		nglProgramUniform4dv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
 	public static void glProgramUniform4(int program, int location, DoubleBuffer value) {
-		GL41.nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value));
+		nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2fv ] ---
@@ -1284,12 +1284,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
-		GL41.nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
 	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value));
+		nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3fv ] ---
@@ -1315,12 +1315,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
-		GL41.nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
 	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
+		nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fv ] ---
@@ -1346,12 +1346,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
-		GL41.nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
 	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value));
+		nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2dv ] ---
@@ -1377,12 +1377,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
-		GL41.nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
 	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value));
+		nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3dv ] ---
@@ -1408,12 +1408,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
-		GL41.nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
 	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value));
+		nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4dv ] ---
@@ -1439,12 +1439,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
-		GL41.nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
 	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value));
+		nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3fv ] ---
@@ -1470,12 +1470,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
-		GL41.nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
 	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value));
+		nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2fv ] ---
@@ -1501,12 +1501,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
-		GL41.nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
 	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value));
+		nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4fv ] ---
@@ -1532,12 +1532,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
-		GL41.nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
 	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
+		nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2fv ] ---
@@ -1563,12 +1563,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
-		GL41.nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
 	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
+		nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4fv ] ---
@@ -1594,12 +1594,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
-		GL41.nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
 	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value));
+		nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3fv ] ---
@@ -1625,12 +1625,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
-		GL41.nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
 	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, FloatBuffer value) {
-		GL41.nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value));
+		nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3dv ] ---
@@ -1656,12 +1656,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
-		GL41.nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
 	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value));
+		nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2dv ] ---
@@ -1687,12 +1687,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
-		GL41.nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
 	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value));
+		nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4dv ] ---
@@ -1718,12 +1718,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix2x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
-		GL41.nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
 	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
+		nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2dv ] ---
@@ -1749,12 +1749,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
-		GL41.nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
 	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
+		nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4dv ] ---
@@ -1780,12 +1780,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix3x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
-		GL41.nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
 	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value));
+		nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3dv ] ---
@@ -1811,12 +1811,12 @@ public final class ARBSeparateShaderObjects {
 	public static void glProgramUniformMatrix4x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
-		GL41.nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
+		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
 	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, DoubleBuffer value) {
-		GL41.nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value));
+		nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glValidateProgramPipeline ] ---
@@ -1857,14 +1857,14 @@ public final class ARBSeparateShaderObjects {
 			checkBuffer(infoLog, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL41.nglGetProgramPipelineInfoLog(pipeline, bufSize, memAddressSafe(length), memAddress(infoLog));
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, memAddressSafe(length), memAddress(infoLog));
 	}
 
 	/** Alternative version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, ByteBuffer infoLog) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL41.nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
+		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
 	/** String return version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
@@ -1872,7 +1872,7 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		GL41.nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
 	}
 
@@ -1882,7 +1882,7 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		GL41.nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
 	}
 

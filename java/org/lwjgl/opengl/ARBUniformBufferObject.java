@@ -210,14 +210,14 @@ public final class ARBUniformBufferObject {
 			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
 			checkBuffer(uniformIndices, uniformCount << 2);
 		}
-		GL31.nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices));
+		nglGetUniformIndices(program, uniformCount, memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
 	/** Alternative version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(uniformIndices, uniformNames.remaining());
-		GL31.nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
+		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
 	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
@@ -229,7 +229,7 @@ public final class ARBUniformBufferObject {
 		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
 		for ( int i = 0; i < uniformNames.length; i++ )
 			__buffer.pointerParam(uniformNamesAddress, i, memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
-		GL31.nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices));
+		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices));
 	}
 
 	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
@@ -238,7 +238,7 @@ public final class ARBUniformBufferObject {
 		ByteBuffer uniformNameBuffers = memEncodeASCII(uniformName, true);
 		int uniformNamesAddress = __buffer.pointerParam(memAddress(uniformNameBuffers));
 		int uniformIndices = __buffer.intParam();
-		GL31.nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices);
+		nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices);
 		return __buffer.intValue(uniformIndices);
 	}
 
@@ -267,14 +267,14 @@ public final class ARBUniformBufferObject {
 			checkBuffer(uniformIndices, uniformCount << 2);
 			checkBuffer(params, uniformCount << 2);
 		}
-		GL31.nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
+		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
 	public static void glGetActiveUniforms(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
-		GL31.nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
+		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
 
 	/** Single value version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
@@ -282,7 +282,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
 		int uniformIndices = __buffer.intParam(uniformIndex);
-		GL31.nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params);
+		nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -311,14 +311,14 @@ public final class ARBUniformBufferObject {
 			checkBuffer(uniformName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL31.nglGetActiveUniformName(program, uniformIndex, bufSize, memAddressSafe(length), memAddress(uniformName));
+		nglGetActiveUniformName(program, uniformIndex, bufSize, memAddressSafe(length), memAddress(uniformName));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL31.nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
+		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
 	}
 
 	/** String return version of: {@link #glGetActiveUniformName GetActiveUniformName} */
@@ -326,7 +326,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		GL31.nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
 	}
 
@@ -336,7 +336,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		GL31.nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
 	}
 
@@ -360,13 +360,13 @@ public final class ARBUniformBufferObject {
 	public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(uniformBlockName);
-		return GL31.nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
+		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
 	}
 
 	/** CharSequence version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
 		ByteBuffer uniformBlockNameEncoded = memEncodeASCII(uniformBlockName);
-		return GL31.nglGetUniformBlockIndex(program, memAddress(uniformBlockNameEncoded));
+		return nglGetUniformBlockIndex(program, memAddress(uniformBlockNameEncoded));
 	}
 
 	// --- [ glGetActiveUniformBlockiv ] ---
@@ -391,21 +391,21 @@ public final class ARBUniformBufferObject {
 	public static void glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL31.nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
 	public static void glGetActiveUniformBlock(int program, int uniformBlockIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL31.nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL31.nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address() + params);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 
@@ -434,14 +434,14 @@ public final class ARBUniformBufferObject {
 			checkBuffer(uniformBlockName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL31.nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName));
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL31.nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
 	/** String return version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
@@ -449,7 +449,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		GL31.nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
 	}
 
@@ -459,7 +459,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		GL31.nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
 		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
 	}
 
@@ -518,21 +518,21 @@ public final class ARBUniformBufferObject {
 	public static void glGetIntegeri(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
-		GL30.nglGetIntegeri_v(target, index, memAddress(data));
+		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	public static void glGetInteger(int target, int index, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		GL30.nglGetIntegeri_v(target, index, memAddress(data));
+		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetIntegeri(int, int, ByteBuffer) GetIntegeri} */
 	public static int glGetIntegeri(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		GL30.nglGetIntegeri_v(target, index, __buffer.address() + data);
+		nglGetIntegeri_v(target, index, __buffer.address() + data);
 		return __buffer.intValue(data);
 	}
 

@@ -103,14 +103,14 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		GL43.nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
+		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
 	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, long indirectOffset, int primcount, int stride) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		GL43.nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
+		nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
@@ -119,7 +119,7 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		GL43.nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
+		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
 	// --- [ glMultiDrawElementsIndirect ] ---
@@ -168,14 +168,14 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		GL43.nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
+		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
 	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, long indirectOffset, int primcount, int stride) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		GL43.nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
+		nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
@@ -184,7 +184,7 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		GL43.nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
+		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
 }

@@ -122,19 +122,19 @@ public final class ARBTransformFeedback2 {
 	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		GL40.nglDeleteTransformFeedbacks(n, memAddress(ids));
+		nglDeleteTransformFeedbacks(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
-		GL40.nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
+		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		GL40.nglDeleteTransformFeedbacks(1, __buffer.address() + ids);
+		nglDeleteTransformFeedbacks(1, __buffer.address() + ids);
 	}
 
 	// --- [ glGenTransformFeedbacks ] ---
@@ -157,19 +157,19 @@ public final class ARBTransformFeedback2 {
 	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		GL40.nglGenTransformFeedbacks(n, memAddress(ids));
+		nglGenTransformFeedbacks(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
-		GL40.nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
+		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		GL40.nglGenTransformFeedbacks(1, __buffer.address() + ids);
+		nglGenTransformFeedbacks(1, __buffer.address() + ids);
 		return __buffer.intValue(ids);
 	}
 

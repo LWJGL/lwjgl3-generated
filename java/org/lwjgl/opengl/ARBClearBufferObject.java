@@ -85,22 +85,22 @@ public final class ARBClearBufferObject {
 	 * @param data           a memory location storing the data to be replicated into the buffer's data store
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddress(data));
 	}
 
 	// --- [ glClearBufferSubData ] ---
@@ -126,22 +126,22 @@ public final class ARBClearBufferObject {
 	 * @param data           a memory location storing the data to be replicated into the buffer's data store
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
 	}
 
 	// --- [ glClearNamedBufferDataEXT ] ---

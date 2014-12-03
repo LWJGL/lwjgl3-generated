@@ -176,21 +176,21 @@ public final class ARBTextureMultisample {
 	public static void glGetMultisamplef(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1 << 2);
-		GL32.nglGetMultisamplefv(pname, index, memAddress(val));
+		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
 	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	public static void glGetMultisample(int pname, int index, FloatBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1);
-		GL32.nglGetMultisamplefv(pname, index, memAddress(val));
+		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
 	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
-		GL32.nglGetMultisamplefv(pname, index, __buffer.address() + val);
+		nglGetMultisamplefv(pname, index, __buffer.address() + val);
 		return __buffer.floatValue(val);
 	}
 

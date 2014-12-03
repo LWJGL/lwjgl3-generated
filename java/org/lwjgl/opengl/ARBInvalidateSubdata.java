@@ -172,19 +172,19 @@ public final class ARBInvalidateSubdata {
 	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
-		GL43.nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
+		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
 	}
 
 	/** Alternative version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
-		GL43.nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
+		nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
 	}
 
 	/** Single value version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		GL43.nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments);
+		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments);
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
@@ -212,19 +212,19 @@ public final class ARBInvalidateSubdata {
 	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
-		GL43.nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
+		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
 	}
 
 	/** Alternative version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
-		GL43.nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
+		nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
 	}
 
 	/** Single value version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		GL43.nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height);
+		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height);
 	}
 
 }
