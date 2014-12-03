@@ -86,9 +86,9 @@ public final class XClassHint {
 
 	public static long res_name(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_NAME); }
 	public static ByteBuffer res_nameGetb(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String res_nameGets(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memDecodeASCII(memByteBufferNT1(address)); }
+	public static String res_nameGets(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
 	public static long res_class(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_CLASS); }
 	public static ByteBuffer res_classGetb(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String res_classGets(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memDecodeASCII(memByteBufferNT1(address)); }
+	public static String res_classGets(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
 
 }

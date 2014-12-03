@@ -700,7 +700,7 @@ public final class GL30 {
 	 */
 	public static String glGetStringi(int name, int index) {
 		long __result = nglGetStringi(name, index);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ glClearBufferiv ] ---

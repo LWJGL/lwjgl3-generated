@@ -1056,7 +1056,7 @@ public final class CGL {
 	 */
 	public static String CGLErrorString(int error) {
 		long __result = nCGLErrorString(error);
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 }

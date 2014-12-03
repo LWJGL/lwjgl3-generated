@@ -66,7 +66,7 @@ public final class WGLEXTExtensionsString {
 	 */
 	public static String wglGetExtensionsStringEXT() {
 		long __result = nwglGetExtensionsStringEXT();
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 }

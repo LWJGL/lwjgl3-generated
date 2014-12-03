@@ -4782,7 +4782,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static String glGetString(int name) {
 		long __result = nglGetString(name);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ glGetTexEnviv ] ---

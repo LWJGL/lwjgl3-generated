@@ -495,7 +495,7 @@ public final class ALC10 {
 	 */
 	public static String alcGetString(long deviceHandle, int token) {
 		long __result = nalcGetString(deviceHandle, token);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ alcGetIntegerv ] ---

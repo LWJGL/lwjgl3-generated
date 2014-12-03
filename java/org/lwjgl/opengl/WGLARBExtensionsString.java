@@ -75,7 +75,7 @@ public final class WGLARBExtensionsString {
 	 */
 	public static String wglGetExtensionsStringARB(long hdc) {
 		long __result = nwglGetExtensionsStringARB(hdc);
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 }

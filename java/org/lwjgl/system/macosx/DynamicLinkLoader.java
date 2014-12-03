@@ -122,7 +122,7 @@ public final class DynamicLinkLoader {
 	 */
 	public static String dlerror() {
 		long __result = ndlerror();
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 	// --- [ dlsym ] ---

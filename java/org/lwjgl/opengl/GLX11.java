@@ -80,7 +80,7 @@ public final class GLX11 {
 	 */
 	public static String glXQueryExtensionsString(long display, int screen) {
 		long __result = nglXQueryExtensionsString(display, screen);
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 	// --- [ glXGetClientString ] ---
@@ -108,7 +108,7 @@ public final class GLX11 {
 	 */
 	public static String glXGetClientString(long display, int name) {
 		long __result = nglXGetClientString(display, name);
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 	// --- [ glXQueryServerString ] ---
@@ -137,7 +137,7 @@ public final class GLX11 {
 	 */
 	public static String glXQueryServerString(long display, int screen, int name) {
 		long __result = nglXQueryServerString(display, screen, name);
-		return memDecodeASCII(memByteBufferNT1(__result));
+		return memDecodeASCII(__result);
 	}
 
 }

@@ -185,10 +185,10 @@ public final class WNDCLASSEX {
 	public static long background(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + BACKGROUND); }
 	public static long menuName(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + MENUNAME); }
 	public static ByteBuffer menuNameGetb(ByteBuffer wndclassex) { long address = menuName(wndclassex); return address == NULL ? null : memByteBufferNT2(address); }
-	public static String menuNameGets(ByteBuffer wndclassex) { long address = menuName(wndclassex); return address == NULL ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static String menuNameGets(ByteBuffer wndclassex) { long address = menuName(wndclassex); return address == NULL ? null : memDecodeUTF16(address); }
 	public static long className(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + CLASSNAME); }
 	public static ByteBuffer classNameGetb(ByteBuffer wndclassex) { long address = className(wndclassex); return address == NULL ? null : memByteBufferNT2(address); }
-	public static String classNameGets(ByteBuffer wndclassex) { long address = className(wndclassex); return address == NULL ? null : memDecodeUTF16(memByteBufferNT2(address)); }
+	public static String classNameGets(ByteBuffer wndclassex) { long address = className(wndclassex); return address == NULL ? null : memDecodeUTF16(address); }
 	public static long iconSm(ByteBuffer wndclassex) { return PointerBuffer.get(wndclassex, wndclassex.position() + ICONSM); }
 
 }

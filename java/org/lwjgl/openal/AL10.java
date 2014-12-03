@@ -562,7 +562,7 @@ public final class AL10 {
 	 */
 	public static String alGetString(int paramName) {
 		long __result = nalGetString(paramName);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ alDistanceModel ] ---

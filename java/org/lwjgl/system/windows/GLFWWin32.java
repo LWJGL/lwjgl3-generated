@@ -41,7 +41,7 @@ public final class GLFWWin32 {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
 		long __result = nglfwGetWin32Adapter(monitor);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ glfwGetWin32Monitor ] ---
@@ -65,7 +65,7 @@ public final class GLFWWin32 {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
 		long __result = nglfwGetWin32Monitor(monitor);
-		return memDecodeUTF8(memByteBufferNT1(__result));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ glfwGetWin32Window ] ---
