@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Video mode. */
-public final class GLFWvidmode {
+public final class GLFWvidmode implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,7 +39,43 @@ public final class GLFWvidmode {
 		REFRESHRATE = offsets.get(5);
 	}
 
-	private GLFWvidmode() {}
+	private final ByteBuffer struct;
+
+	public GLFWvidmode() {
+		this(malloc());
+	}
+
+	public GLFWvidmode(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setRedBits(int redBits) { redBits(struct, redBits); }
+	public void setGreenBits(int greenBits) { greenBits(struct, greenBits); }
+	public void setBlueBits(int blueBits) { blueBits(struct, blueBits); }
+	public void setRefreshRate(int refreshRate) { refreshRate(struct, refreshRate); }
+
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public int getRedBits() { return redBits(struct); }
+	public int getGreenBits() { return greenBits(struct); }
+	public int getBlueBits() { return blueBits(struct); }
+	public int getRefreshRate() { return refreshRate(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

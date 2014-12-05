@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image format struct. */
-public final class cl_image_format {
+public final class cl_image_format implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class cl_image_format {
 		IMAGE_CHANNEL_DATA_TYPE = offsets.get(1);
 	}
 
-	private cl_image_format() {}
+	private final ByteBuffer struct;
+
+	public cl_image_format() {
+		this(malloc());
+	}
+
+	public cl_image_format(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setImageChannelOrder(int image_channel_order) { image_channel_order(struct, image_channel_order); }
+	public void setImageChannelDataType(int image_channel_data_type) { image_channel_data_type(struct, image_channel_data_type); }
+
+	public int getImageChannelOrder() { return image_channel_order(struct); }
+	public int getImageChannelDataType() { return image_channel_data_type(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

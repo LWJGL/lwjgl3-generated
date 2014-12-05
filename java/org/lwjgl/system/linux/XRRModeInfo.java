@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xrandr mode info struct. */
-public final class XRRModeInfo {
+public final class XRRModeInfo implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -55,7 +55,61 @@ public final class XRRModeInfo {
 		MODEFLAGS = offsets.get(13);
 	}
 
-	private XRRModeInfo() {}
+	private final ByteBuffer struct;
+
+	public XRRModeInfo() {
+		this(malloc());
+	}
+
+	public XRRModeInfo(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setId(long id) { id(struct, id); }
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setDotClock(long dotClock) { dotClock(struct, dotClock); }
+	public void setHSyncStart(int hSyncStart) { hSyncStart(struct, hSyncStart); }
+	public void setHSyncEnd(int hSyncEnd) { hSyncEnd(struct, hSyncEnd); }
+	public void setHTotal(int hTotal) { hTotal(struct, hTotal); }
+	public void setHSkew(int hSkew) { hSkew(struct, hSkew); }
+	public void setVSyncStart(int vSyncStart) { vSyncStart(struct, vSyncStart); }
+	public void setVSyncEnd(int vSyncEnd) { vSyncEnd(struct, vSyncEnd); }
+	public void setVTotal(int vTotal) { vTotal(struct, vTotal); }
+	public void setName(long name) { name(struct, name); }
+	public void setName(ByteBuffer name) { name(struct, name); }
+	public void setNameLength(int nameLength) { nameLength(struct, nameLength); }
+	public void setModeFlags(long modeFlags) { modeFlags(struct, modeFlags); }
+
+	public long getId() { return id(struct); }
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public long getDotClock() { return dotClock(struct); }
+	public int getHSyncStart() { return hSyncStart(struct); }
+	public int getHSyncEnd() { return hSyncEnd(struct); }
+	public int getHTotal() { return hTotal(struct); }
+	public int getHSkew() { return hSkew(struct); }
+	public int getVSyncStart() { return vSyncStart(struct); }
+	public int getVSyncEnd() { return vSyncEnd(struct); }
+	public int getVTotal() { return vTotal(struct); }
+	public long getName() { return name(struct); }
+	public ByteBuffer getName(int size) { return name(struct, size); }
+	public int getNameLength() { return nameLength(struct); }
+	public long getModeFlags() { return modeFlags(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Describes an Xkb keyboard. */
-public final class XkbDescRec {
+public final class XkbDescRec implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,7 +37,43 @@ public final class XkbDescRec {
 		NAMES = offsets.get(4);
 	}
 
-	private XkbDescRec() {}
+	private final ByteBuffer struct;
+
+	public XkbDescRec() {
+		this(malloc());
+	}
+
+	public XkbDescRec(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setDpy(long dpy) { dpy(struct, dpy); }
+	public void setDeviceSpec(int device_spec) { device_spec(struct, device_spec); }
+	public void setMinKeyCode(int min_key_code) { min_key_code(struct, min_key_code); }
+	public void setMaxKeyCode(int max_key_code) { max_key_code(struct, max_key_code); }
+	public void setNames(long names) { names(struct, names); }
+	public void setNames(ByteBuffer names) { names(struct, names); }
+
+	public long getDpy() { return dpy(struct); }
+	public int getDeviceSpec() { return device_spec(struct); }
+	public int getMinKeyCode() { return min_key_code(struct); }
+	public int getMaxKeyCode() { return max_key_code(struct); }
+	public long getNames() { return names(struct); }
+	public ByteBuffer getNamesBuf() { return namesb(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

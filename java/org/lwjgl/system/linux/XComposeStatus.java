@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Compose sequence status structure, used in calling {@link Xutil#XLookupString}. */
-public final class XComposeStatus {
+public final class XComposeStatus implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,37 @@ public final class XComposeStatus {
 		CHARS_MATCHED = offsets.get(1);
 	}
 
-	private XComposeStatus() {}
+	private final ByteBuffer struct;
+
+	public XComposeStatus() {
+		this(malloc());
+	}
+
+	public XComposeStatus(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setComposePtr(long compose_ptr) { compose_ptr(struct, compose_ptr); }
+	public void setComposePtr(ByteBuffer compose_ptr) { compose_ptr(struct, compose_ptr); }
+	public void setCharsMatched(int chars_matched) { chars_matched(struct, chars_matched); }
+
+	public long getComposePtr() { return compose_ptr(struct); }
+	public ByteBuffer getComposePtr(int size) { return compose_ptr(struct, size); }
+	public int getCharsMatched() { return chars_matched(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

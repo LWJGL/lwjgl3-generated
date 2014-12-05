@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xrandr CrtcGamma struct. */
-public final class XRRCrtcGamma {
+public final class XRRCrtcGamma implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,45 @@ public final class XRRCrtcGamma {
 		BLUE = offsets.get(3);
 	}
 
-	private XRRCrtcGamma() {}
+	private final ByteBuffer struct;
+
+	public XRRCrtcGamma() {
+		this(malloc());
+	}
+
+	public XRRCrtcGamma(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(int size) { size(struct, size); }
+	public void setRed(long red) { red(struct, red); }
+	public void setRed(ByteBuffer red) { red(struct, red); }
+	public void setGreen(long green) { green(struct, green); }
+	public void setGreen(ByteBuffer green) { green(struct, green); }
+	public void setBlue(long blue) { blue(struct, blue); }
+	public void setBlue(ByteBuffer blue) { blue(struct, blue); }
+
+	public int getSize() { return size(struct); }
+	public long getRed() { return red(struct); }
+	public ByteBuffer getRed(int size) { return red(struct, size); }
+	public long getGreen() { return green(struct); }
+	public ByteBuffer getGreen(int size) { return green(struct, size); }
+	public long getBlue() { return blue(struct); }
+	public ByteBuffer getBlue(int size) { return blue(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

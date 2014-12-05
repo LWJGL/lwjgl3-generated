@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** XInput2 valuator state. */
-public final class XIValuatorState {
+public final class XIValuatorState implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,7 +33,41 @@ public final class XIValuatorState {
 		VALUES = offsets.get(2);
 	}
 
-	private XIValuatorState() {}
+	private final ByteBuffer struct;
+
+	public XIValuatorState() {
+		this(malloc());
+	}
+
+	public XIValuatorState(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setMaskLen(int mask_len) { mask_len(struct, mask_len); }
+	public void setMask(long mask) { mask(struct, mask); }
+	public void setMask(ByteBuffer mask) { mask(struct, mask); }
+	public void setValues(long values) { values(struct, values); }
+	public void setValues(ByteBuffer values) { values(struct, values); }
+
+	public int getMaskLen() { return mask_len(struct); }
+	public long getMask() { return mask(struct); }
+	public ByteBuffer getMask(int size) { return mask(struct, size); }
+	public long getValues() { return values(struct); }
+	public ByteBuffer getValues(int size) { return values(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** XInput2 modifier state. */
-public final class XIModifierState {
+public final class XIModifierState implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,39 @@ public final class XIModifierState {
 		EFFECTIVE = offsets.get(3);
 	}
 
-	private XIModifierState() {}
+	private final ByteBuffer struct;
+
+	public XIModifierState() {
+		this(malloc());
+	}
+
+	public XIModifierState(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setBase(int base) { base(struct, base); }
+	public void setLatched(int latched) { latched(struct, latched); }
+	public void setLocked(int locked) { locked(struct, locked); }
+	public void setEffective(int effective) { effective(struct, effective); }
+
+	public int getBase() { return base(struct); }
+	public int getLatched() { return latched(struct); }
+	public int getLocked() { return locked(struct); }
+	public int getEffective() { return effective(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

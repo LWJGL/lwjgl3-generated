@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Selection event structure. */
-public final class XSelectionEvent {
+public final class XSelectionEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -45,7 +45,49 @@ public final class XSelectionEvent {
 		TIME = offsets.get(8);
 	}
 
-	private XSelectionEvent() {}
+	private final ByteBuffer struct;
+
+	public XSelectionEvent() {
+		this(malloc());
+	}
+
+	public XSelectionEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setRequestor(long requestor) { requestor(struct, requestor); }
+	public void setSelection(long selection) { selection(struct, selection); }
+	public void setTarget(long target) { target(struct, target); }
+	public void setProperty(long property) { property(struct, property); }
+	public void setTime(long time) { time(struct, time); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getRequestor() { return requestor(struct); }
+	public long getSelection() { return selection(struct); }
+	public long getTarget() { return target(struct); }
+	public long getProperty() { return property(struct); }
+	public long getTime() { return time(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

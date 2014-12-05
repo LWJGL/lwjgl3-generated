@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class WINDOWPOS {
+public final class WINDOWPOS implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -40,7 +40,45 @@ public final class WINDOWPOS {
 		FLAGS = offsets.get(6);
 	}
 
-	private WINDOWPOS() {}
+	private final ByteBuffer struct;
+
+	public WINDOWPOS() {
+		this(malloc());
+	}
+
+	public WINDOWPOS(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setHwnd(long hwnd) { hwnd(struct, hwnd); }
+	public void setHwndInsertAfter(long hwndInsertAfter) { hwndInsertAfter(struct, hwndInsertAfter); }
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setCx(int cx) { cx(struct, cx); }
+	public void setCy(int cy) { cy(struct, cy); }
+	public void setFlags(int flags) { flags(struct, flags); }
+
+	public long getHwnd() { return hwnd(struct); }
+	public long getHwndInsertAfter() { return hwndInsertAfter(struct); }
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getCx() { return cx(struct); }
+	public int getCy() { return cy(struct); }
+	public int getFlags() { return flags(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

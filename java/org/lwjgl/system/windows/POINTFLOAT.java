@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class POINTFLOAT {
+public final class POINTFLOAT implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -30,7 +30,35 @@ public final class POINTFLOAT {
 		Y = offsets.get(1);
 	}
 
-	private POINTFLOAT() {}
+	private final ByteBuffer struct;
+
+	public POINTFLOAT() {
+		this(malloc());
+	}
+
+	public POINTFLOAT(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setX(float x) { x(struct, x); }
+	public void setY(float y) { y(struct, y); }
+
+	public float getX() { return x(struct); }
+	public float getY() { return y(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

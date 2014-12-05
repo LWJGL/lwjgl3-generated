@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about a libffi call interface. */
-public final class ffi_cif {
+public final class ffi_cif implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,7 +39,45 @@ public final class ffi_cif {
 		FLAGS = offsets.get(5);
 	}
 
-	private ffi_cif() {}
+	private final ByteBuffer struct;
+
+	public ffi_cif() {
+		this(malloc());
+	}
+
+	public ffi_cif(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setAbi(int abi) { abi(struct, abi); }
+	public void setNargs(int nargs) { nargs(struct, nargs); }
+	public void setArgTypes(long arg_types) { arg_types(struct, arg_types); }
+	public void setArgTypes(ByteBuffer arg_types) { arg_types(struct, arg_types); }
+	public void setRtype(long rtype) { rtype(struct, rtype); }
+	public void setBytes(int bytes) { bytes(struct, bytes); }
+	public void setFlags(int flags) { flags(struct, flags); }
+
+	public int getAbi() { return abi(struct); }
+	public int getNargs() { return nargs(struct); }
+	public long getArgTypes() { return arg_types(struct); }
+	public ByteBuffer getArgTypes(int size) { return arg_types(struct, size); }
+	public long getRtype() { return rtype(struct); }
+	public int getBytes() { return bytes(struct); }
+	public int getFlags() { return flags(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

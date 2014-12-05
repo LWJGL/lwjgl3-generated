@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains extended information about the joystick position, point-of-view position, and button state. */
-public final class JOYINFOEX {
+public final class JOYINFOEX implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -53,7 +53,57 @@ public final class JOYINFOEX {
 		RESERVED2 = offsets.get(12);
 	}
 
-	private JOYINFOEX() {}
+	private final ByteBuffer struct;
+
+	public JOYINFOEX() {
+		this(malloc());
+	}
+
+	public JOYINFOEX(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(int size) { size(struct, size); }
+	public void setFlags(int flags) { flags(struct, flags); }
+	public void setXPos(int xPos) { xPos(struct, xPos); }
+	public void setYPos(int yPos) { yPos(struct, yPos); }
+	public void setZPos(int zPos) { zPos(struct, zPos); }
+	public void setRPos(int rPos) { rPos(struct, rPos); }
+	public void setUPos(int uPos) { uPos(struct, uPos); }
+	public void setVPos(int vPos) { vPos(struct, vPos); }
+	public void setButtons(int buttons) { buttons(struct, buttons); }
+	public void setButtonNumber(int buttonNumber) { buttonNumber(struct, buttonNumber); }
+	public void setPOV(int POV) { POV(struct, POV); }
+	public void setReserved1(int reserved1) { reserved1(struct, reserved1); }
+	public void setReserved2(int reserved2) { reserved2(struct, reserved2); }
+
+	public int getSize() { return size(struct); }
+	public int getFlags() { return flags(struct); }
+	public int getXPos() { return xPos(struct); }
+	public int getYPos() { return yPos(struct); }
+	public int getZPos() { return zPos(struct); }
+	public int getRPos() { return rPos(struct); }
+	public int getUPos() { return uPos(struct); }
+	public int getVPos() { return vPos(struct); }
+	public int getButtons() { return buttons(struct); }
+	public int getButtonNumber() { return buttonNumber(struct); }
+	public int getPOV() { return POV(struct); }
+	public int getReserved1() { return reserved1(struct); }
+	public int getReserved2() { return reserved2(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

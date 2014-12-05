@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Any event. */
-public final class XAnyEvent {
+public final class XAnyEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,7 +37,41 @@ public final class XAnyEvent {
 		WINDOW = offsets.get(4);
 	}
 
-	private XAnyEvent() {}
+	private final ByteBuffer struct;
+
+	public XAnyEvent() {
+		this(malloc());
+	}
+
+	public XAnyEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setWindow(long window) { window(struct, window); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getWindow() { return window(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Property event. */
-public final class XPropertyEvent {
+public final class XPropertyEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -43,7 +43,47 @@ public final class XPropertyEvent {
 		STATE = offsets.get(7);
 	}
 
-	private XPropertyEvent() {}
+	private final ByteBuffer struct;
+
+	public XPropertyEvent() {
+		this(malloc());
+	}
+
+	public XPropertyEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setWindow(long window) { window(struct, window); }
+	public void setAtom(long atom) { atom(struct, atom); }
+	public void setTime(long time) { time(struct, time); }
+	public void setState(int state) { state(struct, state); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getWindow() { return window(struct); }
+	public long getAtom() { return atom(struct); }
+	public long getTime() { return time(struct); }
+	public int getState() { return state(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

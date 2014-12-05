@@ -17,7 +17,7 @@ import org.lwjgl.system.windows.*;
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
  * function.
  */
-public final class GPU_DEVICE {
+public final class GPU_DEVICE implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -42,7 +42,61 @@ public final class GPU_DEVICE {
 		VIRTUALSCREEN = offsets.get(4);
 	}
 
-	private GPU_DEVICE() {}
+	private final ByteBuffer struct;
+
+	public GPU_DEVICE() {
+		this(malloc());
+	}
+
+	public GPU_DEVICE(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setCb(int cb) { cb(struct, cb); }
+	public void setDeviceName(long DeviceName, int bytes) { DeviceNameSet(struct, DeviceName, bytes); }
+	public void setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceName(CharSequence DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceString(long DeviceString, int bytes) { DeviceStringSet(struct, DeviceString, bytes); }
+	public void setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setDeviceString(CharSequence DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setFlags(int Flags) { Flags(struct, Flags); }
+	public void setVirtualScreen(long virtualScreen) { virtualScreenSet(struct, virtualScreen); }
+	public void setVirtualScreen(ByteBuffer virtualScreen) { virtualScreenSet(struct, virtualScreen); }
+	public void setVirtualScreenLeft(int left) { virtualScreenLeft(struct, left); }
+	public void setVirtualScreenTop(int top) { virtualScreenTop(struct, top); }
+	public void setVirtualScreenRight(int right) { virtualScreenRight(struct, right); }
+	public void setVirtualScreenBottom(int bottom) { virtualScreenBottom(struct, bottom); }
+
+	public int getCb() { return cb(struct); }
+	public void getDeviceName(long DeviceName, int bytes) { DeviceNameGet(struct, DeviceName, bytes); }
+	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }
+	public String getDeviceNameStr() { return DeviceNameGets(struct); }
+	public String getDeviceNameStr(int size) { return DeviceNameGets(struct, size); }
+	public void getDeviceString(long DeviceString, int bytes) { DeviceStringGet(struct, DeviceString, bytes); }
+	public void getDeviceString(ByteBuffer DeviceString) { DeviceStringGet(struct, DeviceString); }
+	public String getDeviceStringStr() { return DeviceStringGets(struct); }
+	public String getDeviceStringStr(int size) { return DeviceStringGets(struct, size); }
+	public int getFlags() { return Flags(struct); }
+	public void getVirtualScreen(long virtualScreen) { virtualScreenGet(struct, virtualScreen); }
+	public void getVirtualScreen(ByteBuffer virtualScreen) { virtualScreenGet(struct, virtualScreen); }
+	public int getVirtualScreenLeft() { return virtualScreenLeft(struct); }
+	public int getVirtualScreenTop() { return virtualScreenTop(struct); }
+	public int getVirtualScreenRight() { return virtualScreenRight(struct); }
+	public int getVirtualScreenBottom() { return virtualScreenBottom(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

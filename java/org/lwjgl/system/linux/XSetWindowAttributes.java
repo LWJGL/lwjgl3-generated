@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Data structure for setting window attributes. */
-public final class XSetWindowAttributes {
+public final class XSetWindowAttributes implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -57,7 +57,61 @@ public final class XSetWindowAttributes {
 		CURSOR = offsets.get(14);
 	}
 
-	private XSetWindowAttributes() {}
+	private final ByteBuffer struct;
+
+	public XSetWindowAttributes() {
+		this(malloc());
+	}
+
+	public XSetWindowAttributes(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setBackgroundPixmap(long background_pixmap) { background_pixmap(struct, background_pixmap); }
+	public void setBackgroundPixel(long background_pixel) { background_pixel(struct, background_pixel); }
+	public void setBorderPixmap(long border_pixmap) { border_pixmap(struct, border_pixmap); }
+	public void setBorderPixel(long border_pixel) { border_pixel(struct, border_pixel); }
+	public void setBitGravity(int bit_gravity) { bit_gravity(struct, bit_gravity); }
+	public void setWinGravity(int win_gravity) { win_gravity(struct, win_gravity); }
+	public void setBackingStore(int backing_store) { backing_store(struct, backing_store); }
+	public void setBackingPlanes(long backing_planes) { backing_planes(struct, backing_planes); }
+	public void setBackingPixel(long backing_pixel) { backing_pixel(struct, backing_pixel); }
+	public void setSaveUnder(int save_under) { save_under(struct, save_under); }
+	public void setEventMask(long event_mask) { event_mask(struct, event_mask); }
+	public void setDoNotPropagateMask(long do_not_propagate_mask) { do_not_propagate_mask(struct, do_not_propagate_mask); }
+	public void setOverrideRedirect(int override_redirect) { override_redirect(struct, override_redirect); }
+	public void setColormap(long colormap) { colormap(struct, colormap); }
+	public void setCursor(long cursor) { cursor(struct, cursor); }
+
+	public long getBackgroundPixmap() { return background_pixmap(struct); }
+	public long getBackgroundPixel() { return background_pixel(struct); }
+	public long getBorderPixmap() { return border_pixmap(struct); }
+	public long getBorderPixel() { return border_pixel(struct); }
+	public int getBitGravity() { return bit_gravity(struct); }
+	public int getWinGravity() { return win_gravity(struct); }
+	public int getBackingStore() { return backing_store(struct); }
+	public long getBackingPlanes() { return backing_planes(struct); }
+	public long getBackingPixel() { return backing_pixel(struct); }
+	public int getSaveUnder() { return save_under(struct); }
+	public long getEventMask() { return event_mask(struct); }
+	public long getDoNotPropagateMask() { return do_not_propagate_mask(struct); }
+	public int getOverrideRedirect() { return override_redirect(struct); }
+	public long getColormap() { return colormap(struct); }
+	public long getCursor() { return cursor(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

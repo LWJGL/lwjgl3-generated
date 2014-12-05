@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Buffer region struct. */
-public final class cl_buffer_region {
+public final class cl_buffer_region implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class cl_buffer_region {
 		SIZE = offsets.get(1);
 	}
 
-	private cl_buffer_region() {}
+	private final ByteBuffer struct;
+
+	public cl_buffer_region() {
+		this(malloc());
+	}
+
+	public cl_buffer_region(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setOrigin(long origin) { origin(struct, origin); }
+	public void setSize(long size) { size(struct, size); }
+
+	public long getOrigin() { return origin(struct); }
+	public long getSize() { return size(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

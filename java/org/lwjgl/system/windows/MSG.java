@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains message information from a thread's message queue. */
-public final class MSG {
+public final class MSG implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,7 +39,49 @@ public final class MSG {
 		POINT = offsets.get(5);
 	}
 
-	private MSG() {}
+	private final ByteBuffer struct;
+
+	public MSG() {
+		this(malloc());
+	}
+
+	public MSG(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setWindow(long window) { window(struct, window); }
+	public void setMessage(int message) { message(struct, message); }
+	public void setWParam(long wParam) { wParam(struct, wParam); }
+	public void setLParam(long lParam) { lParam(struct, lParam); }
+	public void setTime(int time) { time(struct, time); }
+	public void setPoint(long point) { pointSet(struct, point); }
+	public void setPoint(ByteBuffer point) { pointSet(struct, point); }
+	public void setPointX(int x) { pointX(struct, x); }
+	public void setPointY(int y) { pointY(struct, y); }
+
+	public long getWindow() { return window(struct); }
+	public int getMessage() { return message(struct); }
+	public long getWParam() { return wParam(struct); }
+	public long getLParam() { return lParam(struct); }
+	public int getTime() { return time(struct); }
+	public void getPoint(long point) { pointGet(struct, point); }
+	public void getPoint(ByteBuffer point) { pointGet(struct, point); }
+	public int getPointX() { return pointX(struct); }
+	public int getPointY() { return pointY(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

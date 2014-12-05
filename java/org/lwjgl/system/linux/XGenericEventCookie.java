@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Additional information for an {@code XGenericEvent}. */
-public final class XGenericEventCookie {
+public final class XGenericEventCookie implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -43,7 +43,49 @@ public final class XGenericEventCookie {
 		DATA = offsets.get(7);
 	}
 
-	private XGenericEventCookie() {}
+	private final ByteBuffer struct;
+
+	public XGenericEventCookie() {
+		this(malloc());
+	}
+
+	public XGenericEventCookie(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setExtension(int extension) { extension(struct, extension); }
+	public void setEvtype(int evtype) { evtype(struct, evtype); }
+	public void setCookie(int cookie) { cookie(struct, cookie); }
+	public void setData(long data) { data(struct, data); }
+	public void setData(ByteBuffer data) { data(struct, data); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public int getExtension() { return extension(struct); }
+	public int getEvtype() { return evtype(struct); }
+	public int getCookie() { return cookie(struct); }
+	public long getData() { return data(struct); }
+	public ByteBuffer getData(int size) { return data(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used by {@link Xlib#XSetSizeHints}. */
-public final class XSizeHints {
+public final class XSizeHints implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -67,7 +67,67 @@ public final class XSizeHints {
 		WIN_GRAVITY = offsets.get(19);
 	}
 
-	private XSizeHints() {}
+	private final ByteBuffer struct;
+
+	public XSizeHints() {
+		this(malloc());
+	}
+
+	public XSizeHints(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setFlags(long flags) { flags(struct, flags); }
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setMinWidth(int min_width) { min_width(struct, min_width); }
+	public void setMinHeight(int min_height) { min_height(struct, min_height); }
+	public void setMaxWidth(int max_width) { max_width(struct, max_width); }
+	public void setMaxHeight(int max_height) { max_height(struct, max_height); }
+	public void setWidthInc(int width_inc) { width_inc(struct, width_inc); }
+	public void setHeightInc(int height_inc) { height_inc(struct, height_inc); }
+	public void setMinAspectX(int x) { min_aspectX(struct, x); }
+	public void setMinAspectY(int y) { min_aspectY(struct, y); }
+	public void setMaxAspectX(int x) { max_aspectX(struct, x); }
+	public void setMaxAspectY(int y) { max_aspectY(struct, y); }
+	public void setBaseWidth(int base_width) { base_width(struct, base_width); }
+	public void setBaseHeight(int base_height) { base_height(struct, base_height); }
+	public void setWinGravity(int win_gravity) { win_gravity(struct, win_gravity); }
+
+	public long getFlags() { return flags(struct); }
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public int getMinWidth() { return min_width(struct); }
+	public int getMinHeight() { return min_height(struct); }
+	public int getMaxWidth() { return max_width(struct); }
+	public int getMaxHeight() { return max_height(struct); }
+	public int getWidthInc() { return width_inc(struct); }
+	public int getHeightInc() { return height_inc(struct); }
+	public int getMinAspectX() { return min_aspectX(struct); }
+	public int getMinAspectY() { return min_aspectY(struct); }
+	public int getMaxAspectX() { return max_aspectX(struct); }
+	public int getMaxAspectY() { return max_aspectY(struct); }
+	public int getBaseWidth() { return base_width(struct); }
+	public int getBaseHeight() { return base_height(struct); }
+	public int getWinGravity() { return win_gravity(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

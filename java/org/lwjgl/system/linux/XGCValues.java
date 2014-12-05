@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Data structure for setting graphics context. */
-public final class XGCValues {
+public final class XGCValues implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -73,7 +73,77 @@ public final class XGCValues {
 		DASHES = offsets.get(22);
 	}
 
-	private XGCValues() {}
+	private final ByteBuffer struct;
+
+	public XGCValues() {
+		this(malloc());
+	}
+
+	public XGCValues(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setFunction(int function) { function(struct, function); }
+	public void setPlaneMask(long plane_mask) { plane_mask(struct, plane_mask); }
+	public void setForeground(long foreground) { foreground(struct, foreground); }
+	public void setBackground(long background) { background(struct, background); }
+	public void setLineWidth(int line_width) { line_width(struct, line_width); }
+	public void setLineStyle(int line_style) { line_style(struct, line_style); }
+	public void setCapStyle(int cap_style) { cap_style(struct, cap_style); }
+	public void setJoinStyle(int join_style) { join_style(struct, join_style); }
+	public void setFillStyle(int fill_style) { fill_style(struct, fill_style); }
+	public void setFillRule(int fill_rule) { fill_rule(struct, fill_rule); }
+	public void setArcMode(int arc_mode) { arc_mode(struct, arc_mode); }
+	public void setTile(long tile) { tile(struct, tile); }
+	public void setStipple(long stipple) { stipple(struct, stipple); }
+	public void setTsXOrigin(int ts_x_origin) { ts_x_origin(struct, ts_x_origin); }
+	public void setTsYOrigin(int ts_y_origin) { ts_y_origin(struct, ts_y_origin); }
+	public void setFont(long font) { font(struct, font); }
+	public void setSubwindowMode(int subwindow_mode) { subwindow_mode(struct, subwindow_mode); }
+	public void setGraphicsExposures(int graphics_exposures) { graphics_exposures(struct, graphics_exposures); }
+	public void setClipXOrigin(int clip_x_origin) { clip_x_origin(struct, clip_x_origin); }
+	public void setClipYOrigin(int clip_y_origin) { clip_y_origin(struct, clip_y_origin); }
+	public void setClipMask(long clip_mask) { clip_mask(struct, clip_mask); }
+	public void setDashOffset(int dash_offset) { dash_offset(struct, dash_offset); }
+	public void setDashes(int dashes) { dashes(struct, dashes); }
+
+	public int getFunction() { return function(struct); }
+	public long getPlaneMask() { return plane_mask(struct); }
+	public long getForeground() { return foreground(struct); }
+	public long getBackground() { return background(struct); }
+	public int getLineWidth() { return line_width(struct); }
+	public int getLineStyle() { return line_style(struct); }
+	public int getCapStyle() { return cap_style(struct); }
+	public int getJoinStyle() { return join_style(struct); }
+	public int getFillStyle() { return fill_style(struct); }
+	public int getFillRule() { return fill_rule(struct); }
+	public int getArcMode() { return arc_mode(struct); }
+	public long getTile() { return tile(struct); }
+	public long getStipple() { return stipple(struct); }
+	public int getTsXOrigin() { return ts_x_origin(struct); }
+	public int getTsYOrigin() { return ts_y_origin(struct); }
+	public long getFont() { return font(struct); }
+	public int getSubwindowMode() { return subwindow_mode(struct); }
+	public int getGraphicsExposures() { return graphics_exposures(struct); }
+	public int getClipXOrigin() { return clip_x_origin(struct); }
+	public int getClipYOrigin() { return clip_y_origin(struct); }
+	public long getClipMask() { return clip_mask(struct); }
+	public int getDashOffset() { return dash_offset(struct); }
+	public int getDashes() { return dashes(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

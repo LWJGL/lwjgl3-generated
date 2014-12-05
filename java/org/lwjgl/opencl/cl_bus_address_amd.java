@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}. */
-public final class cl_bus_address_amd {
+public final class cl_bus_address_amd implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class cl_bus_address_amd {
 		MARKER_BUS_ADDRESS = offsets.get(1);
 	}
 
-	private cl_bus_address_amd() {}
+	private final ByteBuffer struct;
+
+	public cl_bus_address_amd() {
+		this(malloc());
+	}
+
+	public cl_bus_address_amd(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSurfaceBusAddress(long surface_bus_address) { surface_bus_address(struct, surface_bus_address); }
+	public void setMarkerBusAddress(long marker_bus_address) { marker_bus_address(struct, marker_bus_address); }
+
+	public long getSurfaceBusAddress() { return surface_bus_address(struct); }
+	public long getMarkerBusAddress() { return marker_bus_address(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

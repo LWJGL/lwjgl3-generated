@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about the joystick capabilities. */
-public final class JOYCAPS {
+public final class JOYCAPS implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -75,7 +75,94 @@ public final class JOYCAPS {
 		OEMVXD = offsets.get(23);
 	}
 
-	private JOYCAPS() {}
+	private final ByteBuffer struct;
+
+	public JOYCAPS() {
+		this(malloc());
+	}
+
+	public JOYCAPS(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setMid(int mid) { mid(struct, mid); }
+	public void setPid(int pid) { pid(struct, pid); }
+	public void setPname(long pname, int bytes) { pnameSet(struct, pname, bytes); }
+	public void setPname(ByteBuffer pname) { pnameSet(struct, pname); }
+	public void setPname(CharSequence pname) { pnameSet(struct, pname); }
+	public void setXmin(int xmin) { xmin(struct, xmin); }
+	public void setXmax(int xmax) { xmax(struct, xmax); }
+	public void setYmin(int ymin) { ymin(struct, ymin); }
+	public void setYmax(int ymax) { ymax(struct, ymax); }
+	public void setZmin(int zmin) { zmin(struct, zmin); }
+	public void setZmax(int zmax) { zmax(struct, zmax); }
+	public void setNumButtons(int numButtons) { numButtons(struct, numButtons); }
+	public void setPeriodMin(int periodMin) { periodMin(struct, periodMin); }
+	public void setPeriodMax(int periodMax) { periodMax(struct, periodMax); }
+	public void setRmin(int rmin) { rmin(struct, rmin); }
+	public void setRmax(int rmax) { rmax(struct, rmax); }
+	public void setUmin(int umin) { umin(struct, umin); }
+	public void setUmax(int umax) { umax(struct, umax); }
+	public void setVmin(int vmin) { vmin(struct, vmin); }
+	public void setVmax(int vmax) { vmax(struct, vmax); }
+	public void setCaps(int caps) { caps(struct, caps); }
+	public void setMaxAxes(int maxAxes) { maxAxes(struct, maxAxes); }
+	public void setNumAxes(int numAxes) { numAxes(struct, numAxes); }
+	public void setMaxButtons(int maxButtons) { maxButtons(struct, maxButtons); }
+	public void setRegKey(long regKey, int bytes) { regKeySet(struct, regKey, bytes); }
+	public void setRegKey(ByteBuffer regKey) { regKeySet(struct, regKey); }
+	public void setRegKey(CharSequence regKey) { regKeySet(struct, regKey); }
+	public void setOEMVxD(long OEMVxD, int bytes) { OEMVxDSet(struct, OEMVxD, bytes); }
+	public void setOEMVxD(ByteBuffer OEMVxD) { OEMVxDSet(struct, OEMVxD); }
+	public void setOEMVxD(CharSequence OEMVxD) { OEMVxDSet(struct, OEMVxD); }
+
+	public int getMid() { return mid(struct); }
+	public int getPid() { return pid(struct); }
+	public void getPname(long pname, int bytes) { pnameGet(struct, pname, bytes); }
+	public void getPname(ByteBuffer pname) { pnameGet(struct, pname); }
+	public String getPnameStr() { return pnameGets(struct); }
+	public String getPnameStr(int size) { return pnameGets(struct, size); }
+	public int getXmin() { return xmin(struct); }
+	public int getXmax() { return xmax(struct); }
+	public int getYmin() { return ymin(struct); }
+	public int getYmax() { return ymax(struct); }
+	public int getZmin() { return zmin(struct); }
+	public int getZmax() { return zmax(struct); }
+	public int getNumButtons() { return numButtons(struct); }
+	public int getPeriodMin() { return periodMin(struct); }
+	public int getPeriodMax() { return periodMax(struct); }
+	public int getRmin() { return rmin(struct); }
+	public int getRmax() { return rmax(struct); }
+	public int getUmin() { return umin(struct); }
+	public int getUmax() { return umax(struct); }
+	public int getVmin() { return vmin(struct); }
+	public int getVmax() { return vmax(struct); }
+	public int getCaps() { return caps(struct); }
+	public int getMaxAxes() { return maxAxes(struct); }
+	public int getNumAxes() { return numAxes(struct); }
+	public int getMaxButtons() { return maxButtons(struct); }
+	public void getRegKey(long regKey, int bytes) { regKeyGet(struct, regKey, bytes); }
+	public void getRegKey(ByteBuffer regKey) { regKeyGet(struct, regKey); }
+	public String getRegKeyStr() { return regKeyGets(struct); }
+	public String getRegKeyStr(int size) { return regKeyGets(struct, size); }
+	public void getOEMVxD(long OEMVxD, int bytes) { OEMVxDGet(struct, OEMVxD, bytes); }
+	public void getOEMVxD(ByteBuffer OEMVxD) { OEMVxDGet(struct, OEMVxD); }
+	public String getOEMVxDStr() { return OEMVxDGets(struct); }
+	public String getOEMVxDStr(int size) { return OEMVxDGets(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** XInput2 event mask. */
-public final class XIEventMask {
+public final class XIEventMask implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,7 +33,39 @@ public final class XIEventMask {
 		MASK_LEN = offsets.get(2);
 	}
 
-	private XIEventMask() {}
+	private final ByteBuffer struct;
+
+	public XIEventMask() {
+		this(malloc());
+	}
+
+	public XIEventMask(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setDeviceid(int deviceid) { deviceid(struct, deviceid); }
+	public void setMask(long mask) { mask(struct, mask); }
+	public void setMask(ByteBuffer mask) { mask(struct, mask); }
+	public void setMaskLen(int mask_len) { mask_len(struct, mask_len); }
+
+	public int getDeviceid() { return deviceid(struct); }
+	public long getMask() { return mask(struct); }
+	public ByteBuffer getMask(int size) { return mask(struct, size); }
+	public int getMaskLen() { return mask_len(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

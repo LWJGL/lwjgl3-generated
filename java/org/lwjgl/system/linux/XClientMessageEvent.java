@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Client message event. */
-public final class XClientMessageEvent {
+public final class XClientMessageEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -49,7 +49,57 @@ public final class XClientMessageEvent {
 			DATA_L = offsets.get(10);
 	}
 
-	private XClientMessageEvent() {}
+	private final ByteBuffer struct;
+
+	public XClientMessageEvent() {
+		this(malloc());
+	}
+
+	public XClientMessageEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setWindow(long window) { window(struct, window); }
+	public void setMessageType(long message_type) { message_type(struct, message_type); }
+	public void setFormat(int format) { format(struct, format); }
+	public void setDataB(long b, int bytes) { dataBSet(struct, b, bytes); }
+	public void setDataB(ByteBuffer b) { dataBSet(struct, b); }
+	public void setDataS(long s, int bytes) { dataSSet(struct, s, bytes); }
+	public void setDataS(ByteBuffer s) { dataSSet(struct, s); }
+	public void setDataL(long l, int bytes) { dataLSet(struct, l, bytes); }
+	public void setDataL(ByteBuffer l) { dataLSet(struct, l); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getWindow() { return window(struct); }
+	public long getMessageType() { return message_type(struct); }
+	public int getFormat() { return format(struct); }
+	public void getDataB(long b, int bytes) { dataBGet(struct, b, bytes); }
+	public void getDataB(ByteBuffer b) { dataBGet(struct, b); }
+	public void getDataS(long s, int bytes) { dataSGet(struct, s, bytes); }
+	public void getDataS(ByteBuffer s) { dataSGet(struct, s); }
+	public void getDataL(long l, int bytes) { dataLGet(struct, l, bytes); }
+	public void getDataL(ByteBuffer l) { dataLGet(struct, l); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

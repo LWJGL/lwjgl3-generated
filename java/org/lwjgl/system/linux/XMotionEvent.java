@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Motion event. */
-public final class XMotionEvent {
+public final class XMotionEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -57,7 +57,61 @@ public final class XMotionEvent {
 		SAME_SCREEN = offsets.get(14);
 	}
 
-	private XMotionEvent() {}
+	private final ByteBuffer struct;
+
+	public XMotionEvent() {
+		this(malloc());
+	}
+
+	public XMotionEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setWindow(long window) { window(struct, window); }
+	public void setRoot(long root) { root(struct, root); }
+	public void setSubwindow(long subwindow) { subwindow(struct, subwindow); }
+	public void setTime(long time) { time(struct, time); }
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setXRoot(int x_root) { x_root(struct, x_root); }
+	public void setYRoot(int y_root) { y_root(struct, y_root); }
+	public void setState(int state) { state(struct, state); }
+	public void setIsHint(int is_hint) { is_hint(struct, is_hint); }
+	public void setSameScreen(int same_screen) { same_screen(struct, same_screen); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getWindow() { return window(struct); }
+	public long getRoot() { return root(struct); }
+	public long getSubwindow() { return subwindow(struct); }
+	public long getTime() { return time(struct); }
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getXRoot() { return x_root(struct); }
+	public int getYRoot() { return y_root(struct); }
+	public int getState() { return state(struct); }
+	public int getIsHint() { return is_hint(struct); }
+	public int getSameScreen() { return same_screen(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

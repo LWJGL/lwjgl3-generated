@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used by {@link Xlib#XSetWMHints}. */
-public final class XWMHints {
+public final class XWMHints implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -45,7 +45,49 @@ public final class XWMHints {
 		WINDOW_GROUP = offsets.get(8);
 	}
 
-	private XWMHints() {}
+	private final ByteBuffer struct;
+
+	public XWMHints() {
+		this(malloc());
+	}
+
+	public XWMHints(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setFlags(long flags) { flags(struct, flags); }
+	public void setInput(int input) { input(struct, input); }
+	public void setInitialState(int initial_state) { initial_state(struct, initial_state); }
+	public void setIconPixmap(long icon_pixmap) { icon_pixmap(struct, icon_pixmap); }
+	public void setIconWindow(long icon_window) { icon_window(struct, icon_window); }
+	public void setIconX(int icon_x) { icon_x(struct, icon_x); }
+	public void setIconY(int icon_y) { icon_y(struct, icon_y); }
+	public void setIconMask(long icon_mask) { icon_mask(struct, icon_mask); }
+	public void setWindowGroup(long window_group) { window_group(struct, window_group); }
+
+	public long getFlags() { return flags(struct); }
+	public int getInput() { return input(struct); }
+	public int getInitialState() { return initial_state(struct); }
+	public long getIconPixmap() { return icon_pixmap(struct); }
+	public long getIconWindow() { return icon_window(struct); }
+	public int getIconX() { return icon_x(struct); }
+	public int getIconY() { return icon_y(struct); }
+	public long getIconMask() { return icon_mask(struct); }
+	public long getWindowGroup() { return window_group(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about the joystick position and button state. */
-public final class JOYINFO {
+public final class JOYINFO implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,39 @@ public final class JOYINFO {
 		BUTTONS = offsets.get(3);
 	}
 
-	private JOYINFO() {}
+	private final ByteBuffer struct;
+
+	public JOYINFO() {
+		this(malloc());
+	}
+
+	public JOYINFO(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setXPos(int xPos) { xPos(struct, xPos); }
+	public void setYPos(int yPos) { yPos(struct, yPos); }
+	public void setZPos(int zPos) { zPos(struct, zPos); }
+	public void setButtons(int buttons) { buttons(struct, buttons); }
+
+	public int getXPos() { return xPos(struct); }
+	public int getYPos() { return yPos(struct); }
+	public int getZPos() { return zPos(struct); }
+	public int getButtons() { return buttons(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

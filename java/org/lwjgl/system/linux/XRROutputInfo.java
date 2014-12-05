@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xrandr output info struct. */
-public final class XRROutputInfo {
+public final class XRROutputInfo implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -57,7 +57,69 @@ public final class XRROutputInfo {
 		MODES = offsets.get(14);
 	}
 
-	private XRROutputInfo() {}
+	private final ByteBuffer struct;
+
+	public XRROutputInfo() {
+		this(malloc());
+	}
+
+	public XRROutputInfo(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setTimestamp(long timestamp) { timestamp(struct, timestamp); }
+	public void setCrtc(long crtc) { crtc(struct, crtc); }
+	public void setName(long name) { name(struct, name); }
+	public void setName(ByteBuffer name) { name(struct, name); }
+	public void setNameLen(int nameLen) { nameLen(struct, nameLen); }
+	public void setMmWidth(long mm_width) { mm_width(struct, mm_width); }
+	public void setMmHeight(long mm_height) { mm_height(struct, mm_height); }
+	public void setConnection(int connection) { connection(struct, connection); }
+	public void setSubpixelOrder(int subpixel_order) { subpixel_order(struct, subpixel_order); }
+	public void setNcrtc(int ncrtc) { ncrtc(struct, ncrtc); }
+	public void setCrtcs(long crtcs) { crtcs(struct, crtcs); }
+	public void setCrtcs(ByteBuffer crtcs) { crtcs(struct, crtcs); }
+	public void setNclone(int nclone) { nclone(struct, nclone); }
+	public void setClones(long clones) { clones(struct, clones); }
+	public void setClones(ByteBuffer clones) { clones(struct, clones); }
+	public void setNmode(int nmode) { nmode(struct, nmode); }
+	public void setNpreferred(int npreferred) { npreferred(struct, npreferred); }
+	public void setModes(long modes) { modes(struct, modes); }
+	public void setModes(ByteBuffer modes) { modes(struct, modes); }
+
+	public long getTimestamp() { return timestamp(struct); }
+	public long getCrtc() { return crtc(struct); }
+	public long getName() { return name(struct); }
+	public ByteBuffer getName(int size) { return name(struct, size); }
+	public int getNameLen() { return nameLen(struct); }
+	public long getMmWidth() { return mm_width(struct); }
+	public long getMmHeight() { return mm_height(struct); }
+	public int getConnection() { return connection(struct); }
+	public int getSubpixelOrder() { return subpixel_order(struct); }
+	public int getNcrtc() { return ncrtc(struct); }
+	public long getCrtcs() { return crtcs(struct); }
+	public ByteBuffer getCrtcs(int size) { return crtcs(struct, size); }
+	public int getNclone() { return nclone(struct); }
+	public long getClones() { return clones(struct); }
+	public ByteBuffer getClones(int size) { return clones(struct, size); }
+	public int getNmode() { return nmode(struct); }
+	public int getNpreferred() { return npreferred(struct); }
+	public long getModes() { return modes(struct); }
+	public ByteBuffer getModes(int size) { return modes(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

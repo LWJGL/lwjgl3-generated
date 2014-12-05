@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** XInput2 button state. */
-public final class XIButtonState {
+public final class XIButtonState implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,37 @@ public final class XIButtonState {
 		MASK = offsets.get(1);
 	}
 
-	private XIButtonState() {}
+	private final ByteBuffer struct;
+
+	public XIButtonState() {
+		this(malloc());
+	}
+
+	public XIButtonState(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setMaskLen(int mask_len) { mask_len(struct, mask_len); }
+	public void setMask(long mask) { mask(struct, mask); }
+	public void setMask(ByteBuffer mask) { mask(struct, mask); }
+
+	public int getMaskLen() { return mask_len(struct); }
+	public long getMask() { return mask(struct); }
+	public ByteBuffer getMask(int size) { return mask(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

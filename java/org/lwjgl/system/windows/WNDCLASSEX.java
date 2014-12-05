@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains the window class attributes that are registered by the {@link WinUser#RegisterClassEx} function. */
-public final class WNDCLASSEX {
+public final class WNDCLASSEX implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -51,7 +51,63 @@ public final class WNDCLASSEX {
 		ICONSM = offsets.get(11);
 	}
 
-	private WNDCLASSEX() {}
+	private final ByteBuffer struct;
+
+	public WNDCLASSEX() {
+		this(malloc());
+	}
+
+	public WNDCLASSEX(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(int size) { size(struct, size); }
+	public void setStyle(int style) { style(struct, style); }
+	public void setWndProc(long wndProc) { wndProc(struct, wndProc); }
+	public void setClsExtra(int clsExtra) { clsExtra(struct, clsExtra); }
+	public void setWndExtra(int wndExtra) { wndExtra(struct, wndExtra); }
+	public void setInstance(long instance) { instance(struct, instance); }
+	public void setIcon(long icon) { icon(struct, icon); }
+	public void setCursor(long cursor) { cursor(struct, cursor); }
+	public void setBackground(long background) { background(struct, background); }
+	public void setMenuName(long menuName) { menuName(struct, menuName); }
+	public void setMenuName(ByteBuffer menuName) { menuNameSet(struct, menuName); }
+	public void setMenuName(CharSequence menuName) { menuNameSet(struct, menuName); }
+	public void setClassName(long className) { className(struct, className); }
+	public void setClassName(ByteBuffer className) { classNameSet(struct, className); }
+	public void setClassName(CharSequence className) { classNameSet(struct, className); }
+	public void setIconSm(long iconSm) { iconSm(struct, iconSm); }
+
+	public int getSize() { return size(struct); }
+	public int getStyle() { return style(struct); }
+	public long getWndProc() { return wndProc(struct); }
+	public int getClsExtra() { return clsExtra(struct); }
+	public int getWndExtra() { return wndExtra(struct); }
+	public long getInstance() { return instance(struct); }
+	public long getIcon() { return icon(struct); }
+	public long getCursor() { return cursor(struct); }
+	public long getBackground() { return background(struct); }
+	public long getMenuName() { return menuName(struct); }
+	public ByteBuffer getMenuNameBuf() { return menuNameGetb(struct); }
+	public String getMenuNameStr() { return menuNameGets(struct); }
+	public long getClassName() { return className(struct); }
+	public ByteBuffer getClassNameBuf() { return classNameGetb(struct); }
+	public String getClassNameStr() { return classNameGets(struct); }
+	public long getIconSm() { return iconSm(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

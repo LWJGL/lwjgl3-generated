@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Describes an Xkb keyboard. */
-public final class XkbNamesRec {
+public final class XkbNamesRec implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -57,7 +57,73 @@ public final class XkbNamesRec {
 		NUM_RG = offsets.get(14);
 	}
 
-	private XkbNamesRec() {}
+	private final ByteBuffer struct;
+
+	public XkbNamesRec() {
+		this(malloc());
+	}
+
+	public XkbNamesRec(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setKeycodes(long keycodes) { keycodes(struct, keycodes); }
+	public void setGeometry(long geometry) { geometry(struct, geometry); }
+	public void setSymbols(long symbols) { symbols(struct, symbols); }
+	public void setTypes(long types) { types(struct, types); }
+	public void setCompat(long compat) { compat(struct, compat); }
+	public void setVmods(long vmods, int bytes) { vmodsSet(struct, vmods, bytes); }
+	public void setVmods(ByteBuffer vmods) { vmodsSet(struct, vmods); }
+	public void setIndicators(long indicators, int bytes) { indicatorsSet(struct, indicators, bytes); }
+	public void setIndicators(ByteBuffer indicators) { indicatorsSet(struct, indicators); }
+	public void setGroups(long groups, int bytes) { groupsSet(struct, groups, bytes); }
+	public void setGroups(ByteBuffer groups) { groupsSet(struct, groups); }
+	public void setKeys(long keys) { keys(struct, keys); }
+	public void setKeys(ByteBuffer keys) { keys(struct, keys); }
+	public void setKeyAliases(long key_aliases) { key_aliases(struct, key_aliases); }
+	public void setKeyAliases(ByteBuffer key_aliases) { key_aliases(struct, key_aliases); }
+	public void setRadioGroups(long radio_groups) { radio_groups(struct, radio_groups); }
+	public void setRadioGroups(ByteBuffer radio_groups) { radio_groups(struct, radio_groups); }
+	public void setPhysSymbols(long phys_symbols) { phys_symbols(struct, phys_symbols); }
+	public void setNumKeys(int num_keys) { num_keys(struct, num_keys); }
+	public void setNumKeyAliases(int num_key_aliases) { num_key_aliases(struct, num_key_aliases); }
+	public void setNumRg(int num_rg) { num_rg(struct, num_rg); }
+
+	public long getKeycodes() { return keycodes(struct); }
+	public long getGeometry() { return geometry(struct); }
+	public long getSymbols() { return symbols(struct); }
+	public long getTypes() { return types(struct); }
+	public long getCompat() { return compat(struct); }
+	public void getVmods(long vmods, int bytes) { vmodsGet(struct, vmods, bytes); }
+	public void getVmods(ByteBuffer vmods) { vmodsGet(struct, vmods); }
+	public void getIndicators(long indicators, int bytes) { indicatorsGet(struct, indicators, bytes); }
+	public void getIndicators(ByteBuffer indicators) { indicatorsGet(struct, indicators); }
+	public void getGroups(long groups, int bytes) { groupsGet(struct, groups, bytes); }
+	public void getGroups(ByteBuffer groups) { groupsGet(struct, groups); }
+	public long getKeys() { return keys(struct); }
+	public ByteBuffer getKeysBuf() { return keysb(struct); }
+	public long getKeyAliases() { return key_aliases(struct); }
+	public ByteBuffer getKeyAliasesBuf() { return key_aliasesb(struct); }
+	public long getRadioGroups() { return radio_groups(struct); }
+	public ByteBuffer getRadioGroups(int size) { return radio_groups(struct, size); }
+	public long getPhysSymbols() { return phys_symbols(struct); }
+	public int getNumKeys() { return num_keys(struct); }
+	public int getNumKeyAliases() { return num_key_aliases(struct); }
+	public int getNumRg() { return num_rg(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

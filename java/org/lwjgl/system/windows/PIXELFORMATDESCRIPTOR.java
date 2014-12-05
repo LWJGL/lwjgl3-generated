@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Describes the pixel format of a drawing surface. */
-public final class PIXELFORMATDESCRIPTOR {
+public final class PIXELFORMATDESCRIPTOR implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -79,7 +79,83 @@ public final class PIXELFORMATDESCRIPTOR {
 		DAMAGEMASK = offsets.get(25);
 	}
 
-	private PIXELFORMATDESCRIPTOR() {}
+	private final ByteBuffer struct;
+
+	public PIXELFORMATDESCRIPTOR() {
+		this(malloc());
+	}
+
+	public PIXELFORMATDESCRIPTOR(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(int size) { size(struct, size); }
+	public void setVersion(int version) { version(struct, version); }
+	public void setFlags(int flags) { flags(struct, flags); }
+	public void setPixelType(int pixelType) { pixelType(struct, pixelType); }
+	public void setColorBits(int colorBits) { colorBits(struct, colorBits); }
+	public void setRedBits(int redBits) { redBits(struct, redBits); }
+	public void setRedShirt(int redShirt) { redShirt(struct, redShirt); }
+	public void setGreenBits(int greenBits) { greenBits(struct, greenBits); }
+	public void setGreenShift(int greenShift) { greenShift(struct, greenShift); }
+	public void setBlueBits(int blueBits) { blueBits(struct, blueBits); }
+	public void setBlueShift(int blueShift) { blueShift(struct, blueShift); }
+	public void setAlphaBits(int alphaBits) { alphaBits(struct, alphaBits); }
+	public void setAlphaShift(int alphaShift) { alphaShift(struct, alphaShift); }
+	public void setAccumBits(int accumBits) { accumBits(struct, accumBits); }
+	public void setAccumRedBits(int accumRedBits) { accumRedBits(struct, accumRedBits); }
+	public void setAccumGreenBits(int accumGreenBits) { accumGreenBits(struct, accumGreenBits); }
+	public void setAccumBlueBits(int accumBlueBits) { accumBlueBits(struct, accumBlueBits); }
+	public void setAccumAlphaBits(int accumAlphaBits) { accumAlphaBits(struct, accumAlphaBits); }
+	public void setDepthBits(int depthBits) { depthBits(struct, depthBits); }
+	public void setStencilBits(int stencilBits) { stencilBits(struct, stencilBits); }
+	public void setAuxBuffers(int auxBuffers) { auxBuffers(struct, auxBuffers); }
+	public void setLayerType(int layerType) { layerType(struct, layerType); }
+	public void setReserved(int reserved) { reserved(struct, reserved); }
+	public void setLayerMask(int layerMask) { layerMask(struct, layerMask); }
+	public void setVisibleMask(int visibleMask) { visibleMask(struct, visibleMask); }
+	public void setDamageMask(int damageMask) { damageMask(struct, damageMask); }
+
+	public int getSize() { return size(struct); }
+	public int getVersion() { return version(struct); }
+	public int getFlags() { return flags(struct); }
+	public int getPixelType() { return pixelType(struct); }
+	public int getColorBits() { return colorBits(struct); }
+	public int getRedBits() { return redBits(struct); }
+	public int getRedShirt() { return redShirt(struct); }
+	public int getGreenBits() { return greenBits(struct); }
+	public int getGreenShift() { return greenShift(struct); }
+	public int getBlueBits() { return blueBits(struct); }
+	public int getBlueShift() { return blueShift(struct); }
+	public int getAlphaBits() { return alphaBits(struct); }
+	public int getAlphaShift() { return alphaShift(struct); }
+	public int getAccumBits() { return accumBits(struct); }
+	public int getAccumRedBits() { return accumRedBits(struct); }
+	public int getAccumGreenBits() { return accumGreenBits(struct); }
+	public int getAccumBlueBits() { return accumBlueBits(struct); }
+	public int getAccumAlphaBits() { return accumAlphaBits(struct); }
+	public int getDepthBits() { return depthBits(struct); }
+	public int getStencilBits() { return stencilBits(struct); }
+	public int getAuxBuffers() { return auxBuffers(struct); }
+	public int getLayerType() { return layerType(struct); }
+	public int getReserved() { return reserved(struct); }
+	public int getLayerMask() { return layerMask(struct); }
+	public int getVisibleMask() { return visibleMask(struct); }
+	public int getDamageMask() { return damageMask(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

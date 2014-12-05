@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Timezone structure */
-public final class timezone {
+public final class timezone implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class timezone {
 		TZ_DSTTIME = offsets.get(1);
 	}
 
-	private timezone() {}
+	private final ByteBuffer struct;
+
+	public timezone() {
+		this(malloc());
+	}
+
+	public timezone(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setTzMinuteswest(int tz_minuteswest) { tz_minuteswest(struct, tz_minuteswest); }
+	public void setTzDsttime(int tz_dsttime) { tz_dsttime(struct, tz_dsttime); }
+
+	public int getTzMinuteswest() { return tz_minuteswest(struct); }
+	public int getTzDsttime() { return tz_dsttime(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

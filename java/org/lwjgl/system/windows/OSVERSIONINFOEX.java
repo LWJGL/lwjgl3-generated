@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * version numbers, a build number, a platform identifier, and information about product
  * suites and the latest Service Pack installed on the system.
  */
-public final class OSVERSIONINFOEX {
+public final class OSVERSIONINFOEX implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -51,7 +51,56 @@ public final class OSVERSIONINFOEX {
 		PRODUCTTYPE = offsets.get(9);
 	}
 
-	private OSVERSIONINFOEX() {}
+	private final ByteBuffer struct;
+
+	public OSVERSIONINFOEX() {
+		this(malloc());
+	}
+
+	public OSVERSIONINFOEX(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setOsVersionInfoSize(int osVersionInfoSize) { osVersionInfoSize(struct, osVersionInfoSize); }
+	public void setMajorVersion(int majorVersion) { majorVersion(struct, majorVersion); }
+	public void setMinorVersion(int minorVersion) { minorVersion(struct, minorVersion); }
+	public void setBuildNumber(int buildNumber) { buildNumber(struct, buildNumber); }
+	public void setPlatformId(int platformId) { platformId(struct, platformId); }
+	public void setCsdVersion(long csdVersion, int bytes) { csdVersionSet(struct, csdVersion, bytes); }
+	public void setCsdVersion(ByteBuffer csdVersion) { csdVersionSet(struct, csdVersion); }
+	public void setCsdVersion(CharSequence csdVersion) { csdVersionSet(struct, csdVersion); }
+	public void setServicePackMajor(int servicePackMajor) { servicePackMajor(struct, servicePackMajor); }
+	public void setServicePackMinor(int servicePackMinor) { servicePackMinor(struct, servicePackMinor); }
+	public void setSuiteMask(int suiteMask) { suiteMask(struct, suiteMask); }
+	public void setProductType(int productType) { productType(struct, productType); }
+
+	public int getOsVersionInfoSize() { return osVersionInfoSize(struct); }
+	public int getMajorVersion() { return majorVersion(struct); }
+	public int getMinorVersion() { return minorVersion(struct); }
+	public int getBuildNumber() { return buildNumber(struct); }
+	public int getPlatformId() { return platformId(struct); }
+	public void getCsdVersion(long csdVersion, int bytes) { csdVersionGet(struct, csdVersion, bytes); }
+	public void getCsdVersion(ByteBuffer csdVersion) { csdVersionGet(struct, csdVersion); }
+	public String getCsdVersionStr() { return csdVersionGets(struct); }
+	public String getCsdVersionStr(int size) { return csdVersionGets(struct, size); }
+	public int getServicePackMajor() { return servicePackMajor(struct); }
+	public int getServicePackMinor() { return servicePackMinor(struct); }
+	public int getSuiteMask() { return suiteMask(struct); }
+	public int getProductType() { return productType(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains the coordinates of a point. */
-public final class POINTL {
+public final class POINTL implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class POINTL {
 		Y = offsets.get(1);
 	}
 
-	private POINTL() {}
+	private final ByteBuffer struct;
+
+	public POINTL() {
+		this(malloc());
+	}
+
+	public POINTL(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

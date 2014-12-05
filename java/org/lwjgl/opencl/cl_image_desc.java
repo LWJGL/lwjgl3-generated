@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image description struct. */
-public final class cl_image_desc {
+public final class cl_image_desc implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -47,7 +47,51 @@ public final class cl_image_desc {
 		BUFFER = offsets.get(9);
 	}
 
-	private cl_image_desc() {}
+	private final ByteBuffer struct;
+
+	public cl_image_desc() {
+		this(malloc());
+	}
+
+	public cl_image_desc(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setImageType(int image_type) { image_type(struct, image_type); }
+	public void setImageWidth(long image_width) { image_width(struct, image_width); }
+	public void setImageHeight(long image_height) { image_height(struct, image_height); }
+	public void setImageDepth(long image_depth) { image_depth(struct, image_depth); }
+	public void setImageArraySize(long image_array_size) { image_array_size(struct, image_array_size); }
+	public void setImageRowPitch(long image_row_pitch) { image_row_pitch(struct, image_row_pitch); }
+	public void setImageSlicePitch(long image_slice_pitch) { image_slice_pitch(struct, image_slice_pitch); }
+	public void setNumMipLevels(int num_mip_levels) { num_mip_levels(struct, num_mip_levels); }
+	public void setNumSamples(int num_samples) { num_samples(struct, num_samples); }
+	public void setBuffer(long buffer) { buffer(struct, buffer); }
+
+	public int getImageType() { return image_type(struct); }
+	public long getImageWidth() { return image_width(struct); }
+	public long getImageHeight() { return image_height(struct); }
+	public long getImageDepth() { return image_depth(struct); }
+	public long getImageArraySize() { return image_array_size(struct); }
+	public long getImageRowPitch() { return image_row_pitch(struct); }
+	public long getImageSlicePitch() { return image_slice_pitch(struct); }
+	public int getNumMipLevels() { return num_mip_levels(struct); }
+	public int getNumSamples() { return num_samples(struct); }
+	public long getBuffer() { return buffer(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

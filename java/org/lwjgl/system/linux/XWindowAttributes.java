@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Data structure for window attributes. */
-public final class XWindowAttributes {
+public final class XWindowAttributes implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -73,7 +73,79 @@ public final class XWindowAttributes {
 		SCREEN = offsets.get(22);
 	}
 
-	private XWindowAttributes() {}
+	private final ByteBuffer struct;
+
+	public XWindowAttributes() {
+		this(malloc());
+	}
+
+	public XWindowAttributes(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setBorderWidth(int border_width) { border_width(struct, border_width); }
+	public void setDepth(int depth) { depth(struct, depth); }
+	public void setVisual(long visual) { visual(struct, visual); }
+	public void setVisual(ByteBuffer visual) { visual(struct, visual); }
+	public void setRoot(long root) { root(struct, root); }
+	public void setClazz(int clazz) { clazz(struct, clazz); }
+	public void setBitGravity(int bit_gravity) { bit_gravity(struct, bit_gravity); }
+	public void setWinGravity(int win_gravity) { win_gravity(struct, win_gravity); }
+	public void setBackingStore(int backing_store) { backing_store(struct, backing_store); }
+	public void setBackingPlanes(long backing_planes) { backing_planes(struct, backing_planes); }
+	public void setBackingPixel(long backing_pixel) { backing_pixel(struct, backing_pixel); }
+	public void setSaveUnder(int save_under) { save_under(struct, save_under); }
+	public void setColormap(long colormap) { colormap(struct, colormap); }
+	public void setMapInstalled(int map_installed) { map_installed(struct, map_installed); }
+	public void setMapState(int map_state) { map_state(struct, map_state); }
+	public void setAllEventMasks(long all_event_masks) { all_event_masks(struct, all_event_masks); }
+	public void setYourEventMask(long your_event_mask) { your_event_mask(struct, your_event_mask); }
+	public void setDoNotPropagateMask(long do_not_propagate_mask) { do_not_propagate_mask(struct, do_not_propagate_mask); }
+	public void setOverrideRedirect(int override_redirect) { override_redirect(struct, override_redirect); }
+	public void setScreen(long screen) { screen(struct, screen); }
+
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public int getBorderWidth() { return border_width(struct); }
+	public int getDepth() { return depth(struct); }
+	public long getVisual() { return visual(struct); }
+	public ByteBuffer getVisualBuf() { return visualb(struct); }
+	public long getRoot() { return root(struct); }
+	public int getClazz() { return clazz(struct); }
+	public int getBitGravity() { return bit_gravity(struct); }
+	public int getWinGravity() { return win_gravity(struct); }
+	public int getBackingStore() { return backing_store(struct); }
+	public long getBackingPlanes() { return backing_planes(struct); }
+	public long getBackingPixel() { return backing_pixel(struct); }
+	public int getSaveUnder() { return save_under(struct); }
+	public long getColormap() { return colormap(struct); }
+	public int getMapInstalled() { return map_installed(struct); }
+	public int getMapState() { return map_state(struct); }
+	public long getAllEventMasks() { return all_event_masks(struct); }
+	public long getYourEventMask() { return your_event_mask(struct); }
+	public long getDoNotPropagateMask() { return do_not_propagate_mask(struct); }
+	public int getOverrideRedirect() { return override_redirect(struct); }
+	public long getScreen() { return screen(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

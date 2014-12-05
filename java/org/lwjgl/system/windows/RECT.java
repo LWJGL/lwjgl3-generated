@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Defines the coordinates of the upper-left and lower-right corners of a rectangle. */
-public final class RECT {
+public final class RECT implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,39 @@ public final class RECT {
 		BOTTOM = offsets.get(3);
 	}
 
-	private RECT() {}
+	private final ByteBuffer struct;
+
+	public RECT() {
+		this(malloc());
+	}
+
+	public RECT(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setLeft(int left) { left(struct, left); }
+	public void setTop(int top) { top(struct, top); }
+	public void setRight(int right) { right(struct, right); }
+	public void setBottom(int bottom) { bottom(struct, bottom); }
+
+	public int getLeft() { return left(struct); }
+	public int getTop() { return top(struct); }
+	public int getRight() { return right(struct); }
+	public int getBottom() { return bottom(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

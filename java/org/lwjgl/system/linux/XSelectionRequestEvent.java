@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** SelectionRequest event structure. */
-public final class XSelectionRequestEvent {
+public final class XSelectionRequestEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -47,7 +47,51 @@ public final class XSelectionRequestEvent {
 		TIME = offsets.get(9);
 	}
 
-	private XSelectionRequestEvent() {}
+	private final ByteBuffer struct;
+
+	public XSelectionRequestEvent() {
+		this(malloc());
+	}
+
+	public XSelectionRequestEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setOwner(long owner) { owner(struct, owner); }
+	public void setRequestor(long requestor) { requestor(struct, requestor); }
+	public void setSelection(long selection) { selection(struct, selection); }
+	public void setTarget(long target) { target(struct, target); }
+	public void setProperty(long property) { property(struct, property); }
+	public void setTime(long time) { time(struct, time); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getOwner() { return owner(struct); }
+	public long getRequestor() { return requestor(struct); }
+	public long getSelection() { return selection(struct); }
+	public long getTarget() { return target(struct); }
+	public long getProperty() { return property(struct); }
+	public long getTime() { return time(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

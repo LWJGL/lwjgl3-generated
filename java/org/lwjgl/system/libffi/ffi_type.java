@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about a libffi type. */
-public final class ffi_type {
+public final class ffi_type implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,41 @@ public final class ffi_type {
 		ELEMENTS = offsets.get(3);
 	}
 
-	private ffi_type() {}
+	private final ByteBuffer struct;
+
+	public ffi_type() {
+		this(malloc());
+	}
+
+	public ffi_type(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(long size) { size(struct, size); }
+	public void setAlignment(int alignment) { alignment(struct, alignment); }
+	public void setType(int type) { type(struct, type); }
+	public void setElements(long elements) { elements(struct, elements); }
+	public void setElements(ByteBuffer elements) { elements(struct, elements); }
+
+	public long getSize() { return size(struct); }
+	public int getAlignment() { return alignment(struct); }
+	public int getType() { return type(struct); }
+	public long getElements() { return elements(struct); }
+	public ByteBuffer getElements(int size) { return elements(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contents of the WM_STATE property. */
-public final class PropertyWMState {
+public final class PropertyWMState implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class PropertyWMState {
 		ICON = offsets.get(1);
 	}
 
-	private PropertyWMState() {}
+	private final ByteBuffer struct;
+
+	public PropertyWMState() {
+		this(malloc());
+	}
+
+	public PropertyWMState(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setState(int state) { state(struct, state); }
+	public void setIcon(long icon) { icon(struct, icon); }
+
+	public int getState() { return state(struct); }
+	public long getIcon() { return icon(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

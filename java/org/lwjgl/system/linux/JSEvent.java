@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Joystick event. */
-public final class JSEvent {
+public final class JSEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,39 @@ public final class JSEvent {
 		NUMBER = offsets.get(3);
 	}
 
-	private JSEvent() {}
+	private final ByteBuffer struct;
+
+	public JSEvent() {
+		this(malloc());
+	}
+
+	public JSEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setTime(int time) { time(struct, time); }
+	public void setValue(int value) { value(struct, value); }
+	public void setType(int type) { type(struct, type); }
+	public void setNumber(int number) { number(struct, number); }
+
+	public int getTime() { return time(struct); }
+	public int getValue() { return value(struct); }
+	public int getType() { return type(struct); }
+	public int getNumber() { return number(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

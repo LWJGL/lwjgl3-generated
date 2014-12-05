@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xkb key alias record. */
-public final class XkbKeyAliasRec {
+public final class XkbKeyAliasRec implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,43 @@ public final class XkbKeyAliasRec {
 		ALIAS = offsets.get(1);
 	}
 
-	private XkbKeyAliasRec() {}
+	private final ByteBuffer struct;
+
+	public XkbKeyAliasRec() {
+		this(malloc());
+	}
+
+	public XkbKeyAliasRec(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setReal(long real, int bytes) { realSet(struct, real, bytes); }
+	public void setReal(ByteBuffer real) { realSet(struct, real); }
+	public void setReal(CharSequence real) { realSet(struct, real); }
+	public void setAlias(long alias, int bytes) { aliasSet(struct, alias, bytes); }
+	public void setAlias(ByteBuffer alias) { aliasSet(struct, alias); }
+	public void setAlias(CharSequence alias) { aliasSet(struct, alias); }
+
+	public void getReal(long real, int bytes) { realGet(struct, real, bytes); }
+	public void getReal(ByteBuffer real) { realGet(struct, real); }
+	public String getRealStr() { return realGets(struct); }
+	public void getAlias(long alias, int bytes) { aliasGet(struct, alias, bytes); }
+	public void getAlias(ByteBuffer alias) { aliasGet(struct, alias); }
+	public String getAliasStr() { return aliasGets(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

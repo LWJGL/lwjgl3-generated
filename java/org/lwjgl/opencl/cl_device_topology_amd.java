@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}. */
-public final class cl_device_topology_amd {
+public final class cl_device_topology_amd implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -45,7 +45,49 @@ public final class cl_device_topology_amd {
 			PCIE_FUNCTION = offsets.get(8);
 	}
 
-	private cl_device_topology_amd() {}
+	private final ByteBuffer struct;
+
+	public cl_device_topology_amd() {
+		this(malloc());
+	}
+
+	public cl_device_topology_amd(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setRawType(int type) { rawType(struct, type); }
+	public void setRawData(long data, int bytes) { rawDataSet(struct, data, bytes); }
+	public void setRawData(ByteBuffer data) { rawDataSet(struct, data); }
+	public void setPcieType(int type) { pcieType(struct, type); }
+	public void setPcieUnused(long unused, int bytes) { pcieUnusedSet(struct, unused, bytes); }
+	public void setPcieUnused(ByteBuffer unused) { pcieUnusedSet(struct, unused); }
+	public void setPcieBus(int bus) { pcieBus(struct, bus); }
+	public void setPcieDevice(int device) { pcieDevice(struct, device); }
+	public void setPcieFunction(int function) { pcieFunction(struct, function); }
+
+	public int getRawType() { return rawType(struct); }
+	public void getRawData(long data, int bytes) { rawDataGet(struct, data, bytes); }
+	public void getRawData(ByteBuffer data) { rawDataGet(struct, data); }
+	public int getPcieType() { return pcieType(struct); }
+	public void getPcieUnused(long unused, int bytes) { pcieUnusedGet(struct, unused, bytes); }
+	public void getPcieUnused(ByteBuffer unused) { pcieUnusedGet(struct, unused); }
+	public int getPcieBus() { return pcieBus(struct); }
+	public int getPcieDevice() { return pcieDevice(struct); }
+	public int getPcieFunction() { return pcieFunction(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Used by the {@link WinUser#TrackMouseEvent} function to track when the mouse pointer leaves a window or hovers over a window for a specified amount
  * of time.
  */
-public final class TRACKMOUSEEVENT {
+public final class TRACKMOUSEEVENT implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -38,7 +38,39 @@ public final class TRACKMOUSEEVENT {
 		HOVERTIME = offsets.get(3);
 	}
 
-	private TRACKMOUSEEVENT() {}
+	private final ByteBuffer struct;
+
+	public TRACKMOUSEEVENT() {
+		this(malloc());
+	}
+
+	public TRACKMOUSEEVENT(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSize(int size) { size(struct, size); }
+	public void setFlags(int flags) { flags(struct, flags); }
+	public void setHwndTrack(long hwndTrack) { hwndTrack(struct, hwndTrack); }
+	public void setHoverTime(int hoverTime) { hoverTime(struct, hoverTime); }
+
+	public int getSize() { return size(struct); }
+	public int getFlags() { return flags(struct); }
+	public long getHwndTrack() { return hwndTrack(struct); }
+	public int getHoverTime() { return hoverTime(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about the initialization and environment of a printer or a display device. */
-public final class DEVMODE {
+public final class DEVMODE implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -53,7 +53,68 @@ public final class DEVMODE {
 		DISPLAYFREQUENCY = offsets.get(12);
 	}
 
-	private DEVMODE() {}
+	private final ByteBuffer struct;
+
+	public DEVMODE() {
+		this(malloc());
+	}
+
+	public DEVMODE(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setDeviceName(long deviceName, int bytes) { deviceNameSet(struct, deviceName, bytes); }
+	public void setDeviceName(ByteBuffer deviceName) { deviceNameSet(struct, deviceName); }
+	public void setDeviceName(CharSequence deviceName) { deviceNameSet(struct, deviceName); }
+	public void setSpecVersion(int specVersion) { specVersion(struct, specVersion); }
+	public void setDriverVersion(int driverVersion) { driverVersion(struct, driverVersion); }
+	public void setSize(int size) { size(struct, size); }
+	public void setDriverExtra(int driverExtra) { driverExtra(struct, driverExtra); }
+	public void setFields(int fields) { fields(struct, fields); }
+	public void setPosition(long position) { positionSet(struct, position); }
+	public void setPosition(ByteBuffer position) { positionSet(struct, position); }
+	public void setPositionX(int x) { positionX(struct, x); }
+	public void setPositionY(int y) { positionY(struct, y); }
+	public void setLogPixels(int logPixels) { logPixels(struct, logPixels); }
+	public void setBitsPerPel(int bitsPerPel) { bitsPerPel(struct, bitsPerPel); }
+	public void setPelsWidth(int pelsWidth) { pelsWidth(struct, pelsWidth); }
+	public void setPelsHeight(int pelsHeight) { pelsHeight(struct, pelsHeight); }
+	public void setDisplayFlags(int displayFlags) { displayFlags(struct, displayFlags); }
+	public void setDisplayFrequency(int displayFrequency) { displayFrequency(struct, displayFrequency); }
+
+	public void getDeviceName(long deviceName, int bytes) { deviceNameGet(struct, deviceName, bytes); }
+	public void getDeviceName(ByteBuffer deviceName) { deviceNameGet(struct, deviceName); }
+	public String getDeviceNameStr() { return deviceNameGets(struct); }
+	public String getDeviceNameStr(int size) { return deviceNameGets(struct, size); }
+	public int getSpecVersion() { return specVersion(struct); }
+	public int getDriverVersion() { return driverVersion(struct); }
+	public int getSize() { return size(struct); }
+	public int getDriverExtra() { return driverExtra(struct); }
+	public int getFields() { return fields(struct); }
+	public void getPosition(long position) { positionGet(struct, position); }
+	public void getPosition(ByteBuffer position) { positionGet(struct, position); }
+	public int getPositionX() { return positionX(struct); }
+	public int getPositionY() { return positionY(struct); }
+	public int getLogPixels() { return logPixels(struct); }
+	public int getBitsPerPel() { return bitsPerPel(struct); }
+	public int getPelsWidth() { return pelsWidth(struct); }
+	public int getPelsHeight() { return pelsHeight(struct); }
+	public int getDisplayFlags() { return displayFlags(struct); }
+	public int getDisplayFrequency() { return displayFrequency(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

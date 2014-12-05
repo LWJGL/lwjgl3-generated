@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class LOGPEN {
+public final class LOGPEN implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -32,7 +32,43 @@ public final class LOGPEN {
 		LOPNCOLOR = offsets.get(2);
 	}
 
-	private LOGPEN() {}
+	private final ByteBuffer struct;
+
+	public LOGPEN() {
+		this(malloc());
+	}
+
+	public LOGPEN(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setLopnStyle(int lopnStyle) { lopnStyle(struct, lopnStyle); }
+	public void setLopnWidth(long lopnWidth) { lopnWidthSet(struct, lopnWidth); }
+	public void setLopnWidth(ByteBuffer lopnWidth) { lopnWidthSet(struct, lopnWidth); }
+	public void setLopnWidthX(int x) { lopnWidthX(struct, x); }
+	public void setLopnWidthY(int y) { lopnWidthY(struct, y); }
+	public void setLopnColor(int lopnColor) { lopnColor(struct, lopnColor); }
+
+	public int getLopnStyle() { return lopnStyle(struct); }
+	public void getLopnWidth(long lopnWidth) { lopnWidthGet(struct, lopnWidth); }
+	public void getLopnWidth(ByteBuffer lopnWidth) { lopnWidthGet(struct, lopnWidth); }
+	public int getLopnWidthX() { return lopnWidthX(struct); }
+	public int getLopnWidthY() { return lopnWidthY(struct); }
+	public int getLopnColor() { return lopnColor(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

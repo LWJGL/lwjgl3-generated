@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about the placement and orientation of a glyph in a character cell. */
-public final class GLYPHMETRICSFLOAT {
+public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,7 +37,47 @@ public final class GLYPHMETRICSFLOAT {
 		CELLINCY = offsets.get(4);
 	}
 
-	private GLYPHMETRICSFLOAT() {}
+	private final ByteBuffer struct;
+
+	public GLYPHMETRICSFLOAT() {
+		this(malloc());
+	}
+
+	public GLYPHMETRICSFLOAT(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setBlackBoxX(float blackBoxX) { blackBoxX(struct, blackBoxX); }
+	public void setBlockBoxY(float blockBoxY) { blockBoxY(struct, blockBoxY); }
+	public void setGlyphOrigin(long glyphOrigin) { glyphOriginSet(struct, glyphOrigin); }
+	public void setGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginSet(struct, glyphOrigin); }
+	public void setGlyphOriginX(float x) { glyphOriginX(struct, x); }
+	public void setGlyphOriginY(float y) { glyphOriginY(struct, y); }
+	public void setCellIncX(float cellIncX) { cellIncX(struct, cellIncX); }
+	public void setCellIncY(float cellIncY) { cellIncY(struct, cellIncY); }
+
+	public float getBlackBoxX() { return blackBoxX(struct); }
+	public float getBlockBoxY() { return blockBoxY(struct); }
+	public void getGlyphOrigin(long glyphOrigin) { glyphOriginGet(struct, glyphOrigin); }
+	public void getGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginGet(struct, glyphOrigin); }
+	public float getGlyphOriginX() { return glyphOriginX(struct); }
+	public float getGlyphOriginY() { return glyphOriginY(struct); }
+	public float getCellIncX() { return cellIncX(struct); }
+	public float getCellIncY() { return cellIncY(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

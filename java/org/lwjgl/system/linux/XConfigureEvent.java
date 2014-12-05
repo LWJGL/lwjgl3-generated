@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Motion event. */
-public final class XConfigureEvent {
+public final class XConfigureEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -53,7 +53,57 @@ public final class XConfigureEvent {
 		OVERRIDE_REDIRECT = offsets.get(12);
 	}
 
-	private XConfigureEvent() {}
+	private final ByteBuffer struct;
+
+	public XConfigureEvent() {
+		this(malloc());
+	}
+
+	public XConfigureEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setEvent(long event) { event(struct, event); }
+	public void setWindow(long window) { window(struct, window); }
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setBorderWidth(int border_width) { border_width(struct, border_width); }
+	public void setAbove(long above) { above(struct, above); }
+	public void setOverrideRedirect(int override_redirect) { override_redirect(struct, override_redirect); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getEvent() { return event(struct); }
+	public long getWindow() { return window(struct); }
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public int getBorderWidth() { return border_width(struct); }
+	public long getAbove() { return above(struct); }
+	public int getOverrideRedirect() { return override_redirect(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

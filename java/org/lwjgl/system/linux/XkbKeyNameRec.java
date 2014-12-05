@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xkb key name record. */
-public final class XkbKeyNameRec {
+public final class XkbKeyNameRec implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -29,7 +29,37 @@ public final class XkbKeyNameRec {
 		NAME = offsets.get(0);
 	}
 
-	private XkbKeyNameRec() {}
+	private final ByteBuffer struct;
+
+	public XkbKeyNameRec() {
+		this(malloc());
+	}
+
+	public XkbKeyNameRec(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setName(long name, int bytes) { nameSet(struct, name, bytes); }
+	public void setName(ByteBuffer name) { nameSet(struct, name); }
+	public void setName(CharSequence name) { nameSet(struct, name); }
+
+	public void getName(long name, int bytes) { nameGet(struct, name, bytes); }
+	public void getName(ByteBuffer name) { nameGet(struct, name); }
+	public String getNameStr() { return nameGets(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

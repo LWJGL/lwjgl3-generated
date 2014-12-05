@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xrandr Crtc info struct. */
-public final class XRRCrtcInfo {
+public final class XRRCrtcInfo implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -51,7 +51,59 @@ public final class XRRCrtcInfo {
 		POSSIBLE = offsets.get(11);
 	}
 
-	private XRRCrtcInfo() {}
+	private final ByteBuffer struct;
+
+	public XRRCrtcInfo() {
+		this(malloc());
+	}
+
+	public XRRCrtcInfo(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setTimestamp(long timestamp) { timestamp(struct, timestamp); }
+	public void setX(int x) { x(struct, x); }
+	public void setY(int y) { y(struct, y); }
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setMode(long mode) { mode(struct, mode); }
+	public void setRotation(int rotation) { rotation(struct, rotation); }
+	public void setNoutput(int noutput) { noutput(struct, noutput); }
+	public void setOutputs(long outputs) { outputs(struct, outputs); }
+	public void setOutputs(ByteBuffer outputs) { outputs(struct, outputs); }
+	public void setRotations(int rotations) { rotations(struct, rotations); }
+	public void setNpossible(int npossible) { npossible(struct, npossible); }
+	public void setPossible(long possible) { possible(struct, possible); }
+	public void setPossible(ByteBuffer possible) { possible(struct, possible); }
+
+	public long getTimestamp() { return timestamp(struct); }
+	public int getX() { return x(struct); }
+	public int getY() { return y(struct); }
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public long getMode() { return mode(struct); }
+	public int getRotation() { return rotation(struct); }
+	public int getNoutput() { return noutput(struct); }
+	public long getOutputs() { return outputs(struct); }
+	public ByteBuffer getOutputs(int size) { return outputs(struct, size); }
+	public int getRotations() { return rotations(struct); }
+	public int getNpossible() { return npossible(struct); }
+	public long getPossible() { return possible(struct); }
+	public ByteBuffer getPossible(int size) { return possible(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

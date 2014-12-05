@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** XInput2 device event. */
-public final class XIDeviceEvent {
+public final class XIDeviceEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -71,7 +71,115 @@ public final class XIDeviceEvent {
 		GROUP = offsets.get(21);
 	}
 
-	private XIDeviceEvent() {}
+	private final ByteBuffer struct;
+
+	public XIDeviceEvent() {
+		this(malloc());
+	}
+
+	public XIDeviceEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setSendEvent(int send_event) { send_event(struct, send_event); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setExtension(int extension) { extension(struct, extension); }
+	public void setEvtype(int evtype) { evtype(struct, evtype); }
+	public void setTime(long time) { time(struct, time); }
+	public void setDeviceid(int deviceid) { deviceid(struct, deviceid); }
+	public void setSourceid(int sourceid) { sourceid(struct, sourceid); }
+	public void setDetail(int detail) { detail(struct, detail); }
+	public void setRoot(long root) { root(struct, root); }
+	public void setEvent(long event) { event(struct, event); }
+	public void setChild(long child) { child(struct, child); }
+	public void setRootX(double root_x) { root_x(struct, root_x); }
+	public void setRootY(double root_y) { root_y(struct, root_y); }
+	public void setEventX(double event_x) { event_x(struct, event_x); }
+	public void setEventY(double event_y) { event_y(struct, event_y); }
+	public void setFlags(int flags) { flags(struct, flags); }
+	public void setButtons(long buttons) { buttonsSet(struct, buttons); }
+	public void setButtons(ByteBuffer buttons) { buttonsSet(struct, buttons); }
+	public void setButtonsMaskLen(int mask_len) { buttonsMask_len(struct, mask_len); }
+	public void setButtonsMask(long mask) { buttonsMask(struct, mask); }
+	public void setButtonsMask(ByteBuffer mask) { buttonsMask(struct, mask); }
+	public void setValuators(long valuators) { valuatorsSet(struct, valuators); }
+	public void setValuators(ByteBuffer valuators) { valuatorsSet(struct, valuators); }
+	public void setValuatorsMaskLen(int mask_len) { valuatorsMask_len(struct, mask_len); }
+	public void setValuatorsMask(long mask) { valuatorsMask(struct, mask); }
+	public void setValuatorsMask(ByteBuffer mask) { valuatorsMask(struct, mask); }
+	public void setValuatorsValues(long values) { valuatorsValues(struct, values); }
+	public void setValuatorsValues(ByteBuffer values) { valuatorsValues(struct, values); }
+	public void setMods(long mods) { modsSet(struct, mods); }
+	public void setMods(ByteBuffer mods) { modsSet(struct, mods); }
+	public void setModsBase(int base) { modsBase(struct, base); }
+	public void setModsLatched(int latched) { modsLatched(struct, latched); }
+	public void setModsLocked(int locked) { modsLocked(struct, locked); }
+	public void setModsEffective(int effective) { modsEffective(struct, effective); }
+	public void setGroup(long group) { groupSet(struct, group); }
+	public void setGroup(ByteBuffer group) { groupSet(struct, group); }
+	public void setGroupBase(int base) { groupBase(struct, base); }
+	public void setGroupLatched(int latched) { groupLatched(struct, latched); }
+	public void setGroupLocked(int locked) { groupLocked(struct, locked); }
+	public void setGroupEffective(int effective) { groupEffective(struct, effective); }
+
+	public int getType() { return type(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getSendEvent() { return send_event(struct); }
+	public long getDisplay() { return display(struct); }
+	public int getExtension() { return extension(struct); }
+	public int getEvtype() { return evtype(struct); }
+	public long getTime() { return time(struct); }
+	public int getDeviceid() { return deviceid(struct); }
+	public int getSourceid() { return sourceid(struct); }
+	public int getDetail() { return detail(struct); }
+	public long getRoot() { return root(struct); }
+	public long getEvent() { return event(struct); }
+	public long getChild() { return child(struct); }
+	public double getRootX() { return root_x(struct); }
+	public double getRootY() { return root_y(struct); }
+	public double getEventX() { return event_x(struct); }
+	public double getEventY() { return event_y(struct); }
+	public int getFlags() { return flags(struct); }
+	public void getButtons(long buttons) { buttonsGet(struct, buttons); }
+	public void getButtons(ByteBuffer buttons) { buttonsGet(struct, buttons); }
+	public int getButtonsMaskLen() { return buttonsMask_len(struct); }
+	public long getButtonsMask() { return buttonsMask(struct); }
+	public ByteBuffer getButtonsMask(int size) { return buttonsMask(struct, size); }
+	public void getValuators(long valuators) { valuatorsGet(struct, valuators); }
+	public void getValuators(ByteBuffer valuators) { valuatorsGet(struct, valuators); }
+	public int getValuatorsMaskLen() { return valuatorsMask_len(struct); }
+	public long getValuatorsMask() { return valuatorsMask(struct); }
+	public ByteBuffer getValuatorsMask(int size) { return valuatorsMask(struct, size); }
+	public long getValuatorsValues() { return valuatorsValues(struct); }
+	public ByteBuffer getValuatorsValues(int size) { return valuatorsValues(struct, size); }
+	public void getMods(long mods) { modsGet(struct, mods); }
+	public void getMods(ByteBuffer mods) { modsGet(struct, mods); }
+	public int getModsBase() { return modsBase(struct); }
+	public int getModsLatched() { return modsLatched(struct); }
+	public int getModsLocked() { return modsLocked(struct); }
+	public int getModsEffective() { return modsEffective(struct); }
+	public void getGroup(long group) { groupGet(struct, group); }
+	public void getGroup(ByteBuffer group) { groupGet(struct, group); }
+	public int getGroupBase() { return groupBase(struct); }
+	public int getGroupLatched() { return groupLatched(struct); }
+	public int getGroupLocked() { return groupLocked(struct); }
+	public int getGroupEffective() { return groupEffective(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

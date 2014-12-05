@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class LOGBRUSH {
+public final class LOGBRUSH implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -32,7 +32,37 @@ public final class LOGBRUSH {
 		LBHATCH = offsets.get(2);
 	}
 
-	private LOGBRUSH() {}
+	private final ByteBuffer struct;
+
+	public LOGBRUSH() {
+		this(malloc());
+	}
+
+	public LOGBRUSH(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setLbStyle(int lbStyle) { lbStyle(struct, lbStyle); }
+	public void setLbColor(int lbColor) { lbColor(struct, lbColor); }
+	public void setLbHatch(long lbHatch) { lbHatch(struct, lbHatch); }
+
+	public int getLbStyle() { return lbStyle(struct); }
+	public int getLbColor() { return lbColor(struct); }
+	public long getLbHatch() { return lbHatch(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

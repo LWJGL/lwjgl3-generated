@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Receives information about the display device specified by the devNum parameter of the {@link WinUser#EnumDisplayDevices} function. */
-public final class DISPLAY_DEVICE {
+public final class DISPLAY_DEVICE implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,7 +39,63 @@ public final class DISPLAY_DEVICE {
 		DEVICEKEY = offsets.get(5);
 	}
 
-	private DISPLAY_DEVICE() {}
+	private final ByteBuffer struct;
+
+	public DISPLAY_DEVICE() {
+		this(malloc());
+	}
+
+	public DISPLAY_DEVICE(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setCb(int cb) { cb(struct, cb); }
+	public void setDeviceName(long DeviceName, int bytes) { DeviceNameSet(struct, DeviceName, bytes); }
+	public void setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceName(CharSequence DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceString(long DeviceString, int bytes) { DeviceStringSet(struct, DeviceString, bytes); }
+	public void setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setDeviceString(CharSequence DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setStateFlags(int StateFlags) { StateFlags(struct, StateFlags); }
+	public void setDeviceID(long DeviceID, int bytes) { DeviceIDSet(struct, DeviceID, bytes); }
+	public void setDeviceID(ByteBuffer DeviceID) { DeviceIDSet(struct, DeviceID); }
+	public void setDeviceID(CharSequence DeviceID) { DeviceIDSet(struct, DeviceID); }
+	public void setDeviceKey(long DeviceKey, int bytes) { DeviceKeySet(struct, DeviceKey, bytes); }
+	public void setDeviceKey(ByteBuffer DeviceKey) { DeviceKeySet(struct, DeviceKey); }
+	public void setDeviceKey(CharSequence DeviceKey) { DeviceKeySet(struct, DeviceKey); }
+
+	public int getCb() { return cb(struct); }
+	public void getDeviceName(long DeviceName, int bytes) { DeviceNameGet(struct, DeviceName, bytes); }
+	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }
+	public String getDeviceNameStr() { return DeviceNameGets(struct); }
+	public String getDeviceNameStr(int size) { return DeviceNameGets(struct, size); }
+	public void getDeviceString(long DeviceString, int bytes) { DeviceStringGet(struct, DeviceString, bytes); }
+	public void getDeviceString(ByteBuffer DeviceString) { DeviceStringGet(struct, DeviceString); }
+	public String getDeviceStringStr() { return DeviceStringGets(struct); }
+	public String getDeviceStringStr(int size) { return DeviceStringGets(struct, size); }
+	public int getStateFlags() { return StateFlags(struct); }
+	public void getDeviceID(long DeviceID, int bytes) { DeviceIDGet(struct, DeviceID, bytes); }
+	public void getDeviceID(ByteBuffer DeviceID) { DeviceIDGet(struct, DeviceID); }
+	public String getDeviceIDStr() { return DeviceIDGets(struct); }
+	public String getDeviceIDStr(int size) { return DeviceIDGets(struct, size); }
+	public void getDeviceKey(long DeviceKey, int bytes) { DeviceKeyGet(struct, DeviceKey, bytes); }
+	public void getDeviceKey(ByteBuffer DeviceKey) { DeviceKeyGet(struct, DeviceKey); }
+	public String getDeviceKeyStr() { return DeviceKeyGets(struct); }
+	public String getDeviceKeyStr(int size) { return DeviceKeyGets(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

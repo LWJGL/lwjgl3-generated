@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Error event. */
-public final class XErrorEvent {
+public final class XErrorEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,7 +41,45 @@ public final class XErrorEvent {
 		RESOURCEID = offsets.get(6);
 	}
 
-	private XErrorEvent() {}
+	private final ByteBuffer struct;
+
+	public XErrorEvent() {
+		this(malloc());
+	}
+
+	public XErrorEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setDisplay(long display) { display(struct, display); }
+	public void setSerial(long serial) { serial(struct, serial); }
+	public void setErrorCode(int error_code) { error_code(struct, error_code); }
+	public void setRequestCode(int request_code) { request_code(struct, request_code); }
+	public void setMinorCode(int minor_code) { minor_code(struct, minor_code); }
+	public void setResourceid(long resourceid) { resourceid(struct, resourceid); }
+
+	public int getType() { return type(struct); }
+	public long getDisplay() { return display(struct); }
+	public long getSerial() { return serial(struct); }
+	public int getErrorCode() { return error_code(struct); }
+	public int getRequestCode() { return request_code(struct); }
+	public int getMinorCode() { return minor_code(struct); }
+	public long getResourceid() { return resourceid(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

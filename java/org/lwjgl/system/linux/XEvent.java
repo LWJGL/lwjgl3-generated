@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** This union is defined so Xlib can always use the same sized event structure internally, to avoid memory fragmentation. */
-public final class XEvent {
+public final class XEvent implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -53,7 +53,319 @@ public final class XEvent {
 		PAD = offsets.get(12);
 	}
 
-	private XEvent() {}
+	private final ByteBuffer struct;
+
+	public XEvent() {
+		this(malloc());
+	}
+
+	public XEvent(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setType(int type) { type(struct, type); }
+	public void setXany(long xany) { xanySet(struct, xany); }
+	public void setXany(ByteBuffer xany) { xanySet(struct, xany); }
+	public void setXanyType(int type) { xanyType(struct, type); }
+	public void setXanySerial(long serial) { xanySerial(struct, serial); }
+	public void setXanySendEvent(int send_event) { xanySend_event(struct, send_event); }
+	public void setXanyDisplay(long display) { xanyDisplay(struct, display); }
+	public void setXanyWindow(long window) { xanyWindow(struct, window); }
+	public void setXkey(long xkey) { xkeySet(struct, xkey); }
+	public void setXkey(ByteBuffer xkey) { xkeySet(struct, xkey); }
+	public void setXkeyType(int type) { xkeyType(struct, type); }
+	public void setXkeySerial(long serial) { xkeySerial(struct, serial); }
+	public void setXkeySendEvent(int send_event) { xkeySend_event(struct, send_event); }
+	public void setXkeyDisplay(long display) { xkeyDisplay(struct, display); }
+	public void setXkeyWindow(long window) { xkeyWindow(struct, window); }
+	public void setXkeyRoot(long root) { xkeyRoot(struct, root); }
+	public void setXkeySubwindow(long subwindow) { xkeySubwindow(struct, subwindow); }
+	public void setXkeyTime(long time) { xkeyTime(struct, time); }
+	public void setXkeyX(int x) { xkeyX(struct, x); }
+	public void setXkeyY(int y) { xkeyY(struct, y); }
+	public void setXkeyXRoot(int x_root) { xkeyX_root(struct, x_root); }
+	public void setXkeyYRoot(int y_root) { xkeyY_root(struct, y_root); }
+	public void setXkeyState(int state) { xkeyState(struct, state); }
+	public void setXkeyKeycode(int keycode) { xkeyKeycode(struct, keycode); }
+	public void setXkeySameScreen(int same_screen) { xkeySame_screen(struct, same_screen); }
+	public void setXbutton(long xbutton) { xbuttonSet(struct, xbutton); }
+	public void setXbutton(ByteBuffer xbutton) { xbuttonSet(struct, xbutton); }
+	public void setXbuttonType(int type) { xbuttonType(struct, type); }
+	public void setXbuttonSerial(long serial) { xbuttonSerial(struct, serial); }
+	public void setXbuttonSendEvent(int send_event) { xbuttonSend_event(struct, send_event); }
+	public void setXbuttonDisplay(long display) { xbuttonDisplay(struct, display); }
+	public void setXbuttonWindow(long window) { xbuttonWindow(struct, window); }
+	public void setXbuttonRoot(long root) { xbuttonRoot(struct, root); }
+	public void setXbuttonSubwindow(long subwindow) { xbuttonSubwindow(struct, subwindow); }
+	public void setXbuttonTime(long time) { xbuttonTime(struct, time); }
+	public void setXbuttonX(int x) { xbuttonX(struct, x); }
+	public void setXbuttonY(int y) { xbuttonY(struct, y); }
+	public void setXbuttonXRoot(int x_root) { xbuttonX_root(struct, x_root); }
+	public void setXbuttonYRoot(int y_root) { xbuttonY_root(struct, y_root); }
+	public void setXbuttonState(int state) { xbuttonState(struct, state); }
+	public void setXbuttonButton(int button) { xbuttonButton(struct, button); }
+	public void setXbuttonSameScreen(int same_screen) { xbuttonSame_screen(struct, same_screen); }
+	public void setXmotion(long xmotion) { xmotionSet(struct, xmotion); }
+	public void setXmotion(ByteBuffer xmotion) { xmotionSet(struct, xmotion); }
+	public void setXmotionType(int type) { xmotionType(struct, type); }
+	public void setXmotionSerial(long serial) { xmotionSerial(struct, serial); }
+	public void setXmotionSendEvent(int send_event) { xmotionSend_event(struct, send_event); }
+	public void setXmotionDisplay(long display) { xmotionDisplay(struct, display); }
+	public void setXmotionWindow(long window) { xmotionWindow(struct, window); }
+	public void setXmotionRoot(long root) { xmotionRoot(struct, root); }
+	public void setXmotionSubwindow(long subwindow) { xmotionSubwindow(struct, subwindow); }
+	public void setXmotionTime(long time) { xmotionTime(struct, time); }
+	public void setXmotionX(int x) { xmotionX(struct, x); }
+	public void setXmotionY(int y) { xmotionY(struct, y); }
+	public void setXmotionXRoot(int x_root) { xmotionX_root(struct, x_root); }
+	public void setXmotionYRoot(int y_root) { xmotionY_root(struct, y_root); }
+	public void setXmotionState(int state) { xmotionState(struct, state); }
+	public void setXmotionIsHint(int is_hint) { xmotionIs_hint(struct, is_hint); }
+	public void setXmotionSameScreen(int same_screen) { xmotionSame_screen(struct, same_screen); }
+	public void setXconfigure(long xconfigure) { xconfigureSet(struct, xconfigure); }
+	public void setXconfigure(ByteBuffer xconfigure) { xconfigureSet(struct, xconfigure); }
+	public void setXconfigureType(int type) { xconfigureType(struct, type); }
+	public void setXconfigureSerial(long serial) { xconfigureSerial(struct, serial); }
+	public void setXconfigureSendEvent(int send_event) { xconfigureSend_event(struct, send_event); }
+	public void setXconfigureDisplay(long display) { xconfigureDisplay(struct, display); }
+	public void setXconfigureEvent(long event) { xconfigureEvent(struct, event); }
+	public void setXconfigureWindow(long window) { xconfigureWindow(struct, window); }
+	public void setXconfigureX(int x) { xconfigureX(struct, x); }
+	public void setXconfigureY(int y) { xconfigureY(struct, y); }
+	public void setXconfigureWidth(int width) { xconfigureWidth(struct, width); }
+	public void setXconfigureHeight(int height) { xconfigureHeight(struct, height); }
+	public void setXconfigureBorderWidth(int border_width) { xconfigureBorder_width(struct, border_width); }
+	public void setXconfigureAbove(long above) { xconfigureAbove(struct, above); }
+	public void setXconfigureOverrideRedirect(int override_redirect) { xconfigureOverride_redirect(struct, override_redirect); }
+	public void setXproperty(long xproperty) { xpropertySet(struct, xproperty); }
+	public void setXproperty(ByteBuffer xproperty) { xpropertySet(struct, xproperty); }
+	public void setXpropertyType(int type) { xpropertyType(struct, type); }
+	public void setXpropertySerial(long serial) { xpropertySerial(struct, serial); }
+	public void setXpropertySendEvent(int send_event) { xpropertySend_event(struct, send_event); }
+	public void setXpropertyDisplay(long display) { xpropertyDisplay(struct, display); }
+	public void setXpropertyWindow(long window) { xpropertyWindow(struct, window); }
+	public void setXpropertyAtom(long atom) { xpropertyAtom(struct, atom); }
+	public void setXpropertyTime(long time) { xpropertyTime(struct, time); }
+	public void setXpropertyState(int state) { xpropertyState(struct, state); }
+	public void setXselectionrequest(long xselectionrequest) { xselectionrequestSet(struct, xselectionrequest); }
+	public void setXselectionrequest(ByteBuffer xselectionrequest) { xselectionrequestSet(struct, xselectionrequest); }
+	public void setXselectionrequestType(int type) { xselectionrequestType(struct, type); }
+	public void setXselectionrequestSerial(long serial) { xselectionrequestSerial(struct, serial); }
+	public void setXselectionrequestSendEvent(int send_event) { xselectionrequestSend_event(struct, send_event); }
+	public void setXselectionrequestDisplay(long display) { xselectionrequestDisplay(struct, display); }
+	public void setXselectionrequestOwner(long owner) { xselectionrequestOwner(struct, owner); }
+	public void setXselectionrequestRequestor(long requestor) { xselectionrequestRequestor(struct, requestor); }
+	public void setXselectionrequestSelection(long selection) { xselectionrequestSelection(struct, selection); }
+	public void setXselectionrequestTarget(long target) { xselectionrequestTarget(struct, target); }
+	public void setXselectionrequestProperty(long property) { xselectionrequestProperty(struct, property); }
+	public void setXselectionrequestTime(long time) { xselectionrequestTime(struct, time); }
+	public void setXselection(long xselection) { xselectionSet(struct, xselection); }
+	public void setXselection(ByteBuffer xselection) { xselectionSet(struct, xselection); }
+	public void setXselectionType(int type) { xselectionType(struct, type); }
+	public void setXselectionSerial(long serial) { xselectionSerial(struct, serial); }
+	public void setXselectionSendEvent(int send_event) { xselectionSend_event(struct, send_event); }
+	public void setXselectionDisplay(long display) { xselectionDisplay(struct, display); }
+	public void setXselectionRequestor(long requestor) { xselectionRequestor(struct, requestor); }
+	public void setXselectionSelection(long selection) { xselectionSelection(struct, selection); }
+	public void setXselectionTarget(long target) { xselectionTarget(struct, target); }
+	public void setXselectionProperty(long property) { xselectionProperty(struct, property); }
+	public void setXselectionTime(long time) { xselectionTime(struct, time); }
+	public void setXclient(long xclient) { xclientSet(struct, xclient); }
+	public void setXclient(ByteBuffer xclient) { xclientSet(struct, xclient); }
+	public void setXclientType(int type) { xclientType(struct, type); }
+	public void setXclientSerial(long serial) { xclientSerial(struct, serial); }
+	public void setXclientSendEvent(int send_event) { xclientSend_event(struct, send_event); }
+	public void setXclientDisplay(long display) { xclientDisplay(struct, display); }
+	public void setXclientWindow(long window) { xclientWindow(struct, window); }
+	public void setXclientMessageType(long message_type) { xclientMessage_type(struct, message_type); }
+	public void setXclientFormat(int format) { xclientFormat(struct, format); }
+	public void setXclientDataB(long b, int bytes) { xclientDataBSet(struct, b, bytes); }
+	public void setXclientDataB(ByteBuffer b) { xclientDataBSet(struct, b); }
+	public void setXclientDataS(long s, int bytes) { xclientDataSSet(struct, s, bytes); }
+	public void setXclientDataS(ByteBuffer s) { xclientDataSSet(struct, s); }
+	public void setXclientDataL(long l, int bytes) { xclientDataLSet(struct, l, bytes); }
+	public void setXclientDataL(ByteBuffer l) { xclientDataLSet(struct, l); }
+	public void setXerror(long xerror) { xerrorSet(struct, xerror); }
+	public void setXerror(ByteBuffer xerror) { xerrorSet(struct, xerror); }
+	public void setXerrorType(int type) { xerrorType(struct, type); }
+	public void setXerrorDisplay(long display) { xerrorDisplay(struct, display); }
+	public void setXerrorSerial(long serial) { xerrorSerial(struct, serial); }
+	public void setXerrorErrorCode(int error_code) { xerrorError_code(struct, error_code); }
+	public void setXerrorRequestCode(int request_code) { xerrorRequest_code(struct, request_code); }
+	public void setXerrorMinorCode(int minor_code) { xerrorMinor_code(struct, minor_code); }
+	public void setXerrorResourceid(long resourceid) { xerrorResourceid(struct, resourceid); }
+	public void setXcookie(long xcookie) { xcookieSet(struct, xcookie); }
+	public void setXcookie(ByteBuffer xcookie) { xcookieSet(struct, xcookie); }
+	public void setXcookieType(int type) { xcookieType(struct, type); }
+	public void setXcookieSerial(long serial) { xcookieSerial(struct, serial); }
+	public void setXcookieSendEvent(int send_event) { xcookieSend_event(struct, send_event); }
+	public void setXcookieDisplay(long display) { xcookieDisplay(struct, display); }
+	public void setXcookieExtension(int extension) { xcookieExtension(struct, extension); }
+	public void setXcookieEvtype(int evtype) { xcookieEvtype(struct, evtype); }
+	public void setXcookieCookie(int cookie) { xcookieCookie(struct, cookie); }
+	public void setXcookieData(long data) { xcookieData(struct, data); }
+	public void setXcookieData(ByteBuffer data) { xcookieData(struct, data); }
+	public void setPad(long pad, int bytes) { padSet(struct, pad, bytes); }
+	public void setPad(ByteBuffer pad) { padSet(struct, pad); }
+
+	public int getType() { return type(struct); }
+	public void getXany(long xany) { xanyGet(struct, xany); }
+	public void getXany(ByteBuffer xany) { xanyGet(struct, xany); }
+	public int getXanyType() { return xanyType(struct); }
+	public long getXanySerial() { return xanySerial(struct); }
+	public int getXanySendEvent() { return xanySend_event(struct); }
+	public long getXanyDisplay() { return xanyDisplay(struct); }
+	public long getXanyWindow() { return xanyWindow(struct); }
+	public void getXkey(long xkey) { xkeyGet(struct, xkey); }
+	public void getXkey(ByteBuffer xkey) { xkeyGet(struct, xkey); }
+	public int getXkeyType() { return xkeyType(struct); }
+	public long getXkeySerial() { return xkeySerial(struct); }
+	public int getXkeySendEvent() { return xkeySend_event(struct); }
+	public long getXkeyDisplay() { return xkeyDisplay(struct); }
+	public long getXkeyWindow() { return xkeyWindow(struct); }
+	public long getXkeyRoot() { return xkeyRoot(struct); }
+	public long getXkeySubwindow() { return xkeySubwindow(struct); }
+	public long getXkeyTime() { return xkeyTime(struct); }
+	public int getXkeyX() { return xkeyX(struct); }
+	public int getXkeyY() { return xkeyY(struct); }
+	public int getXkeyXRoot() { return xkeyX_root(struct); }
+	public int getXkeyYRoot() { return xkeyY_root(struct); }
+	public int getXkeyState() { return xkeyState(struct); }
+	public int getXkeyKeycode() { return xkeyKeycode(struct); }
+	public int getXkeySameScreen() { return xkeySame_screen(struct); }
+	public void getXbutton(long xbutton) { xbuttonGet(struct, xbutton); }
+	public void getXbutton(ByteBuffer xbutton) { xbuttonGet(struct, xbutton); }
+	public int getXbuttonType() { return xbuttonType(struct); }
+	public long getXbuttonSerial() { return xbuttonSerial(struct); }
+	public int getXbuttonSendEvent() { return xbuttonSend_event(struct); }
+	public long getXbuttonDisplay() { return xbuttonDisplay(struct); }
+	public long getXbuttonWindow() { return xbuttonWindow(struct); }
+	public long getXbuttonRoot() { return xbuttonRoot(struct); }
+	public long getXbuttonSubwindow() { return xbuttonSubwindow(struct); }
+	public long getXbuttonTime() { return xbuttonTime(struct); }
+	public int getXbuttonX() { return xbuttonX(struct); }
+	public int getXbuttonY() { return xbuttonY(struct); }
+	public int getXbuttonXRoot() { return xbuttonX_root(struct); }
+	public int getXbuttonYRoot() { return xbuttonY_root(struct); }
+	public int getXbuttonState() { return xbuttonState(struct); }
+	public int getXbuttonButton() { return xbuttonButton(struct); }
+	public int getXbuttonSameScreen() { return xbuttonSame_screen(struct); }
+	public void getXmotion(long xmotion) { xmotionGet(struct, xmotion); }
+	public void getXmotion(ByteBuffer xmotion) { xmotionGet(struct, xmotion); }
+	public int getXmotionType() { return xmotionType(struct); }
+	public long getXmotionSerial() { return xmotionSerial(struct); }
+	public int getXmotionSendEvent() { return xmotionSend_event(struct); }
+	public long getXmotionDisplay() { return xmotionDisplay(struct); }
+	public long getXmotionWindow() { return xmotionWindow(struct); }
+	public long getXmotionRoot() { return xmotionRoot(struct); }
+	public long getXmotionSubwindow() { return xmotionSubwindow(struct); }
+	public long getXmotionTime() { return xmotionTime(struct); }
+	public int getXmotionX() { return xmotionX(struct); }
+	public int getXmotionY() { return xmotionY(struct); }
+	public int getXmotionXRoot() { return xmotionX_root(struct); }
+	public int getXmotionYRoot() { return xmotionY_root(struct); }
+	public int getXmotionState() { return xmotionState(struct); }
+	public int getXmotionIsHint() { return xmotionIs_hint(struct); }
+	public int getXmotionSameScreen() { return xmotionSame_screen(struct); }
+	public void getXconfigure(long xconfigure) { xconfigureGet(struct, xconfigure); }
+	public void getXconfigure(ByteBuffer xconfigure) { xconfigureGet(struct, xconfigure); }
+	public int getXconfigureType() { return xconfigureType(struct); }
+	public long getXconfigureSerial() { return xconfigureSerial(struct); }
+	public int getXconfigureSendEvent() { return xconfigureSend_event(struct); }
+	public long getXconfigureDisplay() { return xconfigureDisplay(struct); }
+	public long getXconfigureEvent() { return xconfigureEvent(struct); }
+	public long getXconfigureWindow() { return xconfigureWindow(struct); }
+	public int getXconfigureX() { return xconfigureX(struct); }
+	public int getXconfigureY() { return xconfigureY(struct); }
+	public int getXconfigureWidth() { return xconfigureWidth(struct); }
+	public int getXconfigureHeight() { return xconfigureHeight(struct); }
+	public int getXconfigureBorderWidth() { return xconfigureBorder_width(struct); }
+	public long getXconfigureAbove() { return xconfigureAbove(struct); }
+	public int getXconfigureOverrideRedirect() { return xconfigureOverride_redirect(struct); }
+	public void getXproperty(long xproperty) { xpropertyGet(struct, xproperty); }
+	public void getXproperty(ByteBuffer xproperty) { xpropertyGet(struct, xproperty); }
+	public int getXpropertyType() { return xpropertyType(struct); }
+	public long getXpropertySerial() { return xpropertySerial(struct); }
+	public int getXpropertySendEvent() { return xpropertySend_event(struct); }
+	public long getXpropertyDisplay() { return xpropertyDisplay(struct); }
+	public long getXpropertyWindow() { return xpropertyWindow(struct); }
+	public long getXpropertyAtom() { return xpropertyAtom(struct); }
+	public long getXpropertyTime() { return xpropertyTime(struct); }
+	public int getXpropertyState() { return xpropertyState(struct); }
+	public void getXselectionrequest(long xselectionrequest) { xselectionrequestGet(struct, xselectionrequest); }
+	public void getXselectionrequest(ByteBuffer xselectionrequest) { xselectionrequestGet(struct, xselectionrequest); }
+	public int getXselectionrequestType() { return xselectionrequestType(struct); }
+	public long getXselectionrequestSerial() { return xselectionrequestSerial(struct); }
+	public int getXselectionrequestSendEvent() { return xselectionrequestSend_event(struct); }
+	public long getXselectionrequestDisplay() { return xselectionrequestDisplay(struct); }
+	public long getXselectionrequestOwner() { return xselectionrequestOwner(struct); }
+	public long getXselectionrequestRequestor() { return xselectionrequestRequestor(struct); }
+	public long getXselectionrequestSelection() { return xselectionrequestSelection(struct); }
+	public long getXselectionrequestTarget() { return xselectionrequestTarget(struct); }
+	public long getXselectionrequestProperty() { return xselectionrequestProperty(struct); }
+	public long getXselectionrequestTime() { return xselectionrequestTime(struct); }
+	public void getXselection(long xselection) { xselectionGet(struct, xselection); }
+	public void getXselection(ByteBuffer xselection) { xselectionGet(struct, xselection); }
+	public int getXselectionType() { return xselectionType(struct); }
+	public long getXselectionSerial() { return xselectionSerial(struct); }
+	public int getXselectionSendEvent() { return xselectionSend_event(struct); }
+	public long getXselectionDisplay() { return xselectionDisplay(struct); }
+	public long getXselectionRequestor() { return xselectionRequestor(struct); }
+	public long getXselectionSelection() { return xselectionSelection(struct); }
+	public long getXselectionTarget() { return xselectionTarget(struct); }
+	public long getXselectionProperty() { return xselectionProperty(struct); }
+	public long getXselectionTime() { return xselectionTime(struct); }
+	public void getXclient(long xclient) { xclientGet(struct, xclient); }
+	public void getXclient(ByteBuffer xclient) { xclientGet(struct, xclient); }
+	public int getXclientType() { return xclientType(struct); }
+	public long getXclientSerial() { return xclientSerial(struct); }
+	public int getXclientSendEvent() { return xclientSend_event(struct); }
+	public long getXclientDisplay() { return xclientDisplay(struct); }
+	public long getXclientWindow() { return xclientWindow(struct); }
+	public long getXclientMessageType() { return xclientMessage_type(struct); }
+	public int getXclientFormat() { return xclientFormat(struct); }
+	public void getXclientDataB(long b, int bytes) { xclientDataBGet(struct, b, bytes); }
+	public void getXclientDataB(ByteBuffer b) { xclientDataBGet(struct, b); }
+	public void getXclientDataS(long s, int bytes) { xclientDataSGet(struct, s, bytes); }
+	public void getXclientDataS(ByteBuffer s) { xclientDataSGet(struct, s); }
+	public void getXclientDataL(long l, int bytes) { xclientDataLGet(struct, l, bytes); }
+	public void getXclientDataL(ByteBuffer l) { xclientDataLGet(struct, l); }
+	public void getXerror(long xerror) { xerrorGet(struct, xerror); }
+	public void getXerror(ByteBuffer xerror) { xerrorGet(struct, xerror); }
+	public int getXerrorType() { return xerrorType(struct); }
+	public long getXerrorDisplay() { return xerrorDisplay(struct); }
+	public long getXerrorSerial() { return xerrorSerial(struct); }
+	public int getXerrorErrorCode() { return xerrorError_code(struct); }
+	public int getXerrorRequestCode() { return xerrorRequest_code(struct); }
+	public int getXerrorMinorCode() { return xerrorMinor_code(struct); }
+	public long getXerrorResourceid() { return xerrorResourceid(struct); }
+	public void getXcookie(long xcookie) { xcookieGet(struct, xcookie); }
+	public void getXcookie(ByteBuffer xcookie) { xcookieGet(struct, xcookie); }
+	public int getXcookieType() { return xcookieType(struct); }
+	public long getXcookieSerial() { return xcookieSerial(struct); }
+	public int getXcookieSendEvent() { return xcookieSend_event(struct); }
+	public long getXcookieDisplay() { return xcookieDisplay(struct); }
+	public int getXcookieExtension() { return xcookieExtension(struct); }
+	public int getXcookieEvtype() { return xcookieEvtype(struct); }
+	public int getXcookieCookie() { return xcookieCookie(struct); }
+	public long getXcookieData() { return xcookieData(struct); }
+	public ByteBuffer getXcookieData(int size) { return xcookieData(struct, size); }
+	public void getPad(long pad, int bytes) { padGet(struct, pad, bytes); }
+	public void getPad(ByteBuffer pad) { padGet(struct, pad); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

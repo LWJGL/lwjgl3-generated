@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Time structure */
-public final class timeval {
+public final class timeval implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,35 @@ public final class timeval {
 		USEC = offsets.get(1);
 	}
 
-	private timeval() {}
+	private final ByteBuffer struct;
+
+	public timeval() {
+		this(malloc());
+	}
+
+	public timeval(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setSec(long sec) { sec(struct, sec); }
+	public void setUsec(long usec) { usec(struct, usec); }
+
+	public long getSec() { return sec(struct); }
+	public long getUsec() { return usec(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

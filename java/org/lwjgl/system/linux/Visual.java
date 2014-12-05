@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Visual structure; contains information about colormapping possible. */
-public final class Visual {
+public final class Visual implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,7 +41,45 @@ public final class Visual {
 		MAP_ENTRIES = offsets.get(6);
 	}
 
-	private Visual() {}
+	private final ByteBuffer struct;
+
+	public Visual() {
+		this(malloc());
+	}
+
+	public Visual(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setVisualid(long visualid) { visualid(struct, visualid); }
+	public void setClazz(int clazz) { clazz(struct, clazz); }
+	public void setRedMask(long red_mask) { red_mask(struct, red_mask); }
+	public void setGreenMask(long green_mask) { green_mask(struct, green_mask); }
+	public void setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); }
+	public void setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); }
+	public void setMapEntries(int map_entries) { map_entries(struct, map_entries); }
+
+	public long getVisualid() { return visualid(struct); }
+	public int getClazz() { return clazz(struct); }
+	public long getRedMask() { return red_mask(struct); }
+	public long getGreenMask() { return green_mask(struct); }
+	public long getBlueMask() { return blue_mask(struct); }
+	public int getBitsPerRgb() { return bits_per_rgb(struct); }
+	public int getMapEntries() { return map_entries(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

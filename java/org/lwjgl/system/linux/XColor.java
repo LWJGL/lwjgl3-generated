@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Data structure used by color operations. */
-public final class XColor {
+public final class XColor implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,7 +39,43 @@ public final class XColor {
 		PAD = offsets.get(5);
 	}
 
-	private XColor() {}
+	private final ByteBuffer struct;
+
+	public XColor() {
+		this(malloc());
+	}
+
+	public XColor(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setPixel(long pixel) { pixel(struct, pixel); }
+	public void setRed(int red) { red(struct, red); }
+	public void setGreen(int green) { green(struct, green); }
+	public void setBlue(int blue) { blue(struct, blue); }
+	public void setFlags(int flags) { flags(struct, flags); }
+	public void setPad(int pad) { pad(struct, pad); }
+
+	public long getPixel() { return pixel(struct); }
+	public int getRed() { return red(struct); }
+	public int getGreen() { return green(struct); }
+	public int getBlue() { return blue(struct); }
+	public int getFlags() { return flags(struct); }
+	public int getPad() { return pad(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image data. */
-public final class GLFWimage {
+public final class GLFWimage implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,7 +33,39 @@ public final class GLFWimage {
 		PIXELS = offsets.get(2);
 	}
 
-	private GLFWimage() {}
+	private final ByteBuffer struct;
+
+	public GLFWimage() {
+		this(malloc());
+	}
+
+	public GLFWimage(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setWidth(int width) { width(struct, width); }
+	public void setHeight(int height) { height(struct, height); }
+	public void setPixels(long pixels) { pixels(struct, pixels); }
+	public void setPixels(ByteBuffer pixels) { pixels(struct, pixels); }
+
+	public int getWidth() { return width(struct); }
+	public int getHeight() { return height(struct); }
+	public long getPixels() { return pixels(struct); }
+	public ByteBuffer getPixels(int size) { return pixels(struct, size); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

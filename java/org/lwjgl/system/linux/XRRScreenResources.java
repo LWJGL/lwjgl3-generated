@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Xrandr screen resources struct. */
-public final class XRRScreenResources {
+public final class XRRScreenResources implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -43,7 +43,53 @@ public final class XRRScreenResources {
 		MODES = offsets.get(7);
 	}
 
-	private XRRScreenResources() {}
+	private final ByteBuffer struct;
+
+	public XRRScreenResources() {
+		this(malloc());
+	}
+
+	public XRRScreenResources(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setTimestamp(long timestamp) { timestamp(struct, timestamp); }
+	public void setConfigTimestamp(long configTimestamp) { configTimestamp(struct, configTimestamp); }
+	public void setNcrtc(int ncrtc) { ncrtc(struct, ncrtc); }
+	public void setCrtcs(long crtcs) { crtcs(struct, crtcs); }
+	public void setCrtcs(ByteBuffer crtcs) { crtcs(struct, crtcs); }
+	public void setNoutput(int noutput) { noutput(struct, noutput); }
+	public void setOutputs(long outputs) { outputs(struct, outputs); }
+	public void setOutputs(ByteBuffer outputs) { outputs(struct, outputs); }
+	public void setNmode(int nmode) { nmode(struct, nmode); }
+	public void setModes(long modes) { modes(struct, modes); }
+	public void setModes(ByteBuffer modes) { modes(struct, modes); }
+
+	public long getTimestamp() { return timestamp(struct); }
+	public long getConfigTimestamp() { return configTimestamp(struct); }
+	public int getNcrtc() { return ncrtc(struct); }
+	public long getCrtcs() { return crtcs(struct); }
+	public ByteBuffer getCrtcs(int size) { return crtcs(struct, size); }
+	public int getNoutput() { return noutput(struct); }
+	public long getOutputs() { return outputs(struct); }
+	public ByteBuffer getOutputs(int size) { return outputs(struct, size); }
+	public int getNmode() { return nmode(struct); }
+	public long getModes() { return modes(struct); }
+	public ByteBuffer getModesBuf() { return modesb(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

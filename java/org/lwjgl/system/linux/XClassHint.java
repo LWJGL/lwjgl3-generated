@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used by {@link Xlib#XSetClassHint}. */
-public final class XClassHint {
+public final class XClassHint implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -31,7 +31,43 @@ public final class XClassHint {
 		RES_CLASS = offsets.get(1);
 	}
 
-	private XClassHint() {}
+	private final ByteBuffer struct;
+
+	public XClassHint() {
+		this(malloc());
+	}
+
+	public XClassHint(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setResName(long res_name) { res_name(struct, res_name); }
+	public void setResName(ByteBuffer res_name) { res_nameSet(struct, res_name); }
+	public void setResName(CharSequence res_name) { res_nameSet(struct, res_name); }
+	public void setResClass(long res_class) { res_class(struct, res_class); }
+	public void setResClass(ByteBuffer res_class) { res_classSet(struct, res_class); }
+	public void setResClass(CharSequence res_class) { res_classSet(struct, res_class); }
+
+	public long getResName() { return res_name(struct); }
+	public ByteBuffer getResNameBuf() { return res_nameGetb(struct); }
+	public String getResNameStr() { return res_nameGets(struct); }
+	public long getResClass() { return res_class(struct); }
+	public ByteBuffer getResClassBuf() { return res_classGetb(struct); }
+	public String getResClassStr() { return res_classGets(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 

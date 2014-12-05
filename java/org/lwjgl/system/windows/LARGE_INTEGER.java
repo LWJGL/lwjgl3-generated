@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class LARGE_INTEGER {
+public final class LARGE_INTEGER implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -28,7 +28,33 @@ public final class LARGE_INTEGER {
 		QUADPART = offsets.get(0);
 	}
 
-	private LARGE_INTEGER() {}
+	private final ByteBuffer struct;
+
+	public LARGE_INTEGER() {
+		this(malloc());
+	}
+
+	public LARGE_INTEGER(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+
+		this.struct = struct;
+	}
+
+	public ByteBuffer buffer() {
+		return struct;
+	}
+
+	@Override
+	public long getPointer() {
+		return memAddress(struct);
+	}
+
+	public void setQuadPart(long QuadPart) { QuadPart(struct, QuadPart); }
+
+	public long getQuadPart() { return QuadPart(struct); }
+
+	// -----------------------------------
 
 	private static native int offsets(long buffer);
 
