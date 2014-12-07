@@ -41,9 +41,9 @@ public abstract class CLEventCallback extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetAddress(POINTER_SIZE * 2 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
 	/**

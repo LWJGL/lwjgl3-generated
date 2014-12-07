@@ -248,7 +248,7 @@ public final class AMDDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackAMD(DEBUGPROCAMD callback, long userParam) {
+	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -330,14 +330,14 @@ public final class AMDDebugOutput {
 	}
 
      /**
-	 * Creates a {@link DEBUGPROCAMD} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link DEBUGPROCAMD} instance
+	 * @return the {@link GLDebugMessageAMDCallback} instance
 	 */
-	public static DEBUGPROCAMD DEBUGPROCAMD(final DEBUGPROCAMD.SAM sam) {
-		return new DEBUGPROCAMD() {
+	public static GLDebugMessageAMDCallback GLDebugMessageAMDCallback(final GLDebugMessageAMDCallback.SAM sam) {
+		return new GLDebugMessageAMDCallback() {
 			@Override
 			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
 				sam.invoke(id, category, severity, length, message, userParam);

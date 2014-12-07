@@ -311,7 +311,7 @@ public final class ARBDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackARB(DEBUGPROCARB callback, long userParam) {
+	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -401,14 +401,14 @@ public final class ARBDebugOutput {
 	}
 
      /**
-	 * Creates a {@link DEBUGPROCARB} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLDebugMessageARBCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link DEBUGPROCARB} instance
+	 * @return the {@link GLDebugMessageARBCallback} instance
 	 */
-	public static DEBUGPROCARB DEBUGPROCARB(final DEBUGPROCARB.SAM sam) {
-		return new DEBUGPROCARB() {
+	public static GLDebugMessageARBCallback GLDebugMessageARBCallback(final GLDebugMessageARBCallback.SAM sam) {
+		return new GLDebugMessageARBCallback() {
 			@Override
 			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
 				sam.invoke(source, type, id, severity, length, message, userParam);

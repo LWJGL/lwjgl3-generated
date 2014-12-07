@@ -349,7 +349,7 @@ public final class KHRDebug {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallback(DEBUGPROC callback, long userParam) {
+	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
@@ -689,14 +689,14 @@ public final class KHRDebug {
 	}
 
      /**
-	 * Creates a {@link DEBUGPROC} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLDebugMessageCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link DEBUGPROC} instance
+	 * @return the {@link GLDebugMessageCallback} instance
 	 */
-	public static DEBUGPROC DEBUGPROC(final DEBUGPROC.SAM sam) {
-		return new DEBUGPROC() {
+	public static GLDebugMessageCallback GLDebugMessageCallback(final GLDebugMessageCallback.SAM sam) {
+		return new GLDebugMessageCallback() {
 			@Override
 			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
 				sam.invoke(source, type, id, severity, length, message, userParam);

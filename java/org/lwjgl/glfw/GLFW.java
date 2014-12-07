@@ -530,8 +530,8 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun cbfun) {
-		return GLFWerrorfun.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.getPointer()));
+	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
+		return GLFWErrorCallback.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwGetMonitors ] ---
@@ -703,8 +703,8 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun) {
-		return GLFWmonitorfun.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.getPointer()));
+	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
+		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
@@ -1519,10 +1519,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWwindowposfun glfwSetWindowPosCallback(long window, GLFWwindowposfun cbfun) {
+	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowposfun.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowSizeCallback ] ---
@@ -1545,10 +1545,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWwindowsizefun glfwSetWindowSizeCallback(long window, GLFWwindowsizefun cbfun) {
+	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowsizefun.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowCloseCallback ] ---
@@ -1579,10 +1579,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.5
 	 */
-	public static GLFWwindowclosefun glfwSetWindowCloseCallback(long window, GLFWwindowclosefun cbfun) {
+	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowclosefun.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
@@ -1608,10 +1608,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.5
 	 */
-	public static GLFWwindowrefreshfun glfwSetWindowRefreshCallback(long window, GLFWwindowrefreshfun cbfun) {
+	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowrefreshfun.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowFocusCallback ] ---
@@ -1636,10 +1636,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWwindowfocusfun glfwSetWindowFocusCallback(long window, GLFWwindowfocusfun cbfun) {
+	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowfocusfun.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
@@ -1661,10 +1661,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWwindowiconifyfun glfwSetWindowIconifyCallback(long window, GLFWwindowiconifyfun cbfun) {
+	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWwindowiconifyfun.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
@@ -1686,10 +1686,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWframebuffersizefun glfwSetFramebufferSizeCallback(long window, GLFWframebuffersizefun cbfun) {
+	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWframebuffersizefun.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwPollEvents ] ---
@@ -2077,10 +2077,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWkeyfun glfwSetKeyCallback(long window, GLFWkeyfun cbfun) {
+	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWkeyfun.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCharCallback ] ---
@@ -2108,10 +2108,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.4
 	 */
-	public static GLFWcharfun glfwSetCharCallback(long window, GLFWcharfun cbfun) {
+	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWcharfun.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCharCallback.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCharModsCallback ] ---
@@ -2138,10 +2138,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.1
 	 */
-	public static GLFWcharmodsfun glfwSetCharModsCallback(long window, GLFWcharmodsfun cbfun) {
+	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWcharmodsfun.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetMouseButtonCallback ] ---
@@ -2166,10 +2166,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWmousebuttonfun glfwSetMouseButtonCallback(long window, GLFWmousebuttonfun cbfun) {
+	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWmousebuttonfun.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCursorPosCallback ] ---
@@ -2191,10 +2191,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWcursorposfun glfwSetCursorPosCallback(long window, GLFWcursorposfun cbfun) {
+	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWcursorposfun.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCursorEnterCallback ] ---
@@ -2215,10 +2215,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWcursorenterfun glfwSetCursorEnterCallback(long window, GLFWcursorenterfun cbfun) {
+	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWcursorenterfun.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetScrollCallback ] ---
@@ -2241,10 +2241,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.1
 	 */
-	public static GLFWscrollfun glfwSetScrollCallback(long window, GLFWscrollfun cbfun) {
+	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWscrollfun.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetDropCallback ] ---
@@ -2268,10 +2268,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.1
 	 */
-	public static GLFWdropfun glfwSetDropCallback(long window, GLFWdropfun cbfun) {
+	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWdropfun.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWDropCallback.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwJoystickPresent ] ---
@@ -2623,14 +2623,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWerrorfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWErrorCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWerrorfun} instance
+	 * @return the {@link GLFWErrorCallback} instance
 	 */
-	public static GLFWerrorfun GLFWerrorfun(final GLFWerrorfun.SAM sam) {
-		return new GLFWerrorfun() {
+	public static GLFWErrorCallback GLFWErrorCallback(final GLFWErrorCallback.SAM sam) {
+		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
 				sam.invoke(error, description);
@@ -2639,14 +2639,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWmonitorfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWMonitorCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWmonitorfun} instance
+	 * @return the {@link GLFWMonitorCallback} instance
 	 */
-	public static GLFWmonitorfun GLFWmonitorfun(final GLFWmonitorfun.SAM sam) {
-		return new GLFWmonitorfun() {
+	public static GLFWMonitorCallback GLFWMonitorCallback(final GLFWMonitorCallback.SAM sam) {
+		return new GLFWMonitorCallback() {
 			@Override
 			public void invoke(long monitor, int event) {
 				sam.invoke(monitor, event);
@@ -2655,14 +2655,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowposfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowPosCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowposfun} instance
+	 * @return the {@link GLFWWindowPosCallback} instance
 	 */
-	public static GLFWwindowposfun GLFWwindowposfun(final GLFWwindowposfun.SAM sam) {
-		return new GLFWwindowposfun() {
+	public static GLFWWindowPosCallback GLFWWindowPosCallback(final GLFWWindowPosCallback.SAM sam) {
+		return new GLFWWindowPosCallback() {
 			@Override
 			public void invoke(long window, int xpos, int ypos) {
 				sam.invoke(window, xpos, ypos);
@@ -2671,14 +2671,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowsizefun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowSizeCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowsizefun} instance
+	 * @return the {@link GLFWWindowSizeCallback} instance
 	 */
-	public static GLFWwindowsizefun GLFWwindowsizefun(final GLFWwindowsizefun.SAM sam) {
-		return new GLFWwindowsizefun() {
+	public static GLFWWindowSizeCallback GLFWWindowSizeCallback(final GLFWWindowSizeCallback.SAM sam) {
+		return new GLFWWindowSizeCallback() {
 			@Override
 			public void invoke(long window, int width, int height) {
 				sam.invoke(window, width, height);
@@ -2687,14 +2687,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowclosefun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowCloseCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowclosefun} instance
+	 * @return the {@link GLFWWindowCloseCallback} instance
 	 */
-	public static GLFWwindowclosefun GLFWwindowclosefun(final GLFWwindowclosefun.SAM sam) {
-		return new GLFWwindowclosefun() {
+	public static GLFWWindowCloseCallback GLFWWindowCloseCallback(final GLFWWindowCloseCallback.SAM sam) {
+		return new GLFWWindowCloseCallback() {
 			@Override
 			public void invoke(long window) {
 				sam.invoke(window);
@@ -2703,14 +2703,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowrefreshfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowRefreshCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowrefreshfun} instance
+	 * @return the {@link GLFWWindowRefreshCallback} instance
 	 */
-	public static GLFWwindowrefreshfun GLFWwindowrefreshfun(final GLFWwindowrefreshfun.SAM sam) {
-		return new GLFWwindowrefreshfun() {
+	public static GLFWWindowRefreshCallback GLFWWindowRefreshCallback(final GLFWWindowRefreshCallback.SAM sam) {
+		return new GLFWWindowRefreshCallback() {
 			@Override
 			public void invoke(long window) {
 				sam.invoke(window);
@@ -2719,14 +2719,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowfocusfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowFocusCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowfocusfun} instance
+	 * @return the {@link GLFWWindowFocusCallback} instance
 	 */
-	public static GLFWwindowfocusfun GLFWwindowfocusfun(final GLFWwindowfocusfun.SAM sam) {
-		return new GLFWwindowfocusfun() {
+	public static GLFWWindowFocusCallback GLFWWindowFocusCallback(final GLFWWindowFocusCallback.SAM sam) {
+		return new GLFWWindowFocusCallback() {
 			@Override
 			public void invoke(long window, int focused) {
 				sam.invoke(window, focused);
@@ -2735,14 +2735,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWwindowiconifyfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWWindowIconifyCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWwindowiconifyfun} instance
+	 * @return the {@link GLFWWindowIconifyCallback} instance
 	 */
-	public static GLFWwindowiconifyfun GLFWwindowiconifyfun(final GLFWwindowiconifyfun.SAM sam) {
-		return new GLFWwindowiconifyfun() {
+	public static GLFWWindowIconifyCallback GLFWWindowIconifyCallback(final GLFWWindowIconifyCallback.SAM sam) {
+		return new GLFWWindowIconifyCallback() {
 			@Override
 			public void invoke(long window, int iconified) {
 				sam.invoke(window, iconified);
@@ -2751,14 +2751,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWframebuffersizefun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWFramebufferSizeCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWframebuffersizefun} instance
+	 * @return the {@link GLFWFramebufferSizeCallback} instance
 	 */
-	public static GLFWframebuffersizefun GLFWframebuffersizefun(final GLFWframebuffersizefun.SAM sam) {
-		return new GLFWframebuffersizefun() {
+	public static GLFWFramebufferSizeCallback GLFWFramebufferSizeCallback(final GLFWFramebufferSizeCallback.SAM sam) {
+		return new GLFWFramebufferSizeCallback() {
 			@Override
 			public void invoke(long window, int width, int height) {
 				sam.invoke(window, width, height);
@@ -2767,14 +2767,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWkeyfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWKeyCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWkeyfun} instance
+	 * @return the {@link GLFWKeyCallback} instance
 	 */
-	public static GLFWkeyfun GLFWkeyfun(final GLFWkeyfun.SAM sam) {
-		return new GLFWkeyfun() {
+	public static GLFWKeyCallback GLFWKeyCallback(final GLFWKeyCallback.SAM sam) {
+		return new GLFWKeyCallback() {
 			@Override
 			public void invoke(long window, int key, int scancode, int action, int mods) {
 				sam.invoke(window, key, scancode, action, mods);
@@ -2783,14 +2783,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWcharfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWCharCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWcharfun} instance
+	 * @return the {@link GLFWCharCallback} instance
 	 */
-	public static GLFWcharfun GLFWcharfun(final GLFWcharfun.SAM sam) {
-		return new GLFWcharfun() {
+	public static GLFWCharCallback GLFWCharCallback(final GLFWCharCallback.SAM sam) {
+		return new GLFWCharCallback() {
 			@Override
 			public void invoke(long window, int codepoint) {
 				sam.invoke(window, codepoint);
@@ -2799,14 +2799,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWcharmodsfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWCharModsCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWcharmodsfun} instance
+	 * @return the {@link GLFWCharModsCallback} instance
 	 */
-	public static GLFWcharmodsfun GLFWcharmodsfun(final GLFWcharmodsfun.SAM sam) {
-		return new GLFWcharmodsfun() {
+	public static GLFWCharModsCallback GLFWCharModsCallback(final GLFWCharModsCallback.SAM sam) {
+		return new GLFWCharModsCallback() {
 			@Override
 			public void invoke(long window, int codepoint, int mods) {
 				sam.invoke(window, codepoint, mods);
@@ -2815,14 +2815,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWmousebuttonfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWMouseButtonCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWmousebuttonfun} instance
+	 * @return the {@link GLFWMouseButtonCallback} instance
 	 */
-	public static GLFWmousebuttonfun GLFWmousebuttonfun(final GLFWmousebuttonfun.SAM sam) {
-		return new GLFWmousebuttonfun() {
+	public static GLFWMouseButtonCallback GLFWMouseButtonCallback(final GLFWMouseButtonCallback.SAM sam) {
+		return new GLFWMouseButtonCallback() {
 			@Override
 			public void invoke(long window, int button, int action, int mods) {
 				sam.invoke(window, button, action, mods);
@@ -2831,14 +2831,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWcursorposfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWCursorPosCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWcursorposfun} instance
+	 * @return the {@link GLFWCursorPosCallback} instance
 	 */
-	public static GLFWcursorposfun GLFWcursorposfun(final GLFWcursorposfun.SAM sam) {
-		return new GLFWcursorposfun() {
+	public static GLFWCursorPosCallback GLFWCursorPosCallback(final GLFWCursorPosCallback.SAM sam) {
+		return new GLFWCursorPosCallback() {
 			@Override
 			public void invoke(long window, double xpos, double ypos) {
 				sam.invoke(window, xpos, ypos);
@@ -2847,14 +2847,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWcursorenterfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWCursorEnterCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWcursorenterfun} instance
+	 * @return the {@link GLFWCursorEnterCallback} instance
 	 */
-	public static GLFWcursorenterfun GLFWcursorenterfun(final GLFWcursorenterfun.SAM sam) {
-		return new GLFWcursorenterfun() {
+	public static GLFWCursorEnterCallback GLFWCursorEnterCallback(final GLFWCursorEnterCallback.SAM sam) {
+		return new GLFWCursorEnterCallback() {
 			@Override
 			public void invoke(long window, int entered) {
 				sam.invoke(window, entered);
@@ -2863,14 +2863,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWscrollfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWScrollCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWscrollfun} instance
+	 * @return the {@link GLFWScrollCallback} instance
 	 */
-	public static GLFWscrollfun GLFWscrollfun(final GLFWscrollfun.SAM sam) {
-		return new GLFWscrollfun() {
+	public static GLFWScrollCallback GLFWScrollCallback(final GLFWScrollCallback.SAM sam) {
+		return new GLFWScrollCallback() {
 			@Override
 			public void invoke(long window, double xoffset, double yoffset) {
 				sam.invoke(window, xoffset, yoffset);
@@ -2879,14 +2879,14 @@ public final class GLFW {
 	}
 
      /**
-	 * Creates a {@link GLFWdropfun} that delegates the callback to the specified functional interface.
+	 * Creates a {@link GLFWDropCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link GLFWdropfun} instance
+	 * @return the {@link GLFWDropCallback} instance
 	 */
-	public static GLFWdropfun GLFWdropfun(final GLFWdropfun.SAM sam) {
-		return new GLFWdropfun() {
+	public static GLFWDropCallback GLFWDropCallback(final GLFWDropCallback.SAM sam) {
+		return new GLFWDropCallback() {
 			@Override
 			public void invoke(long window, int count, long names) {
 				sam.invoke(window, count, names);

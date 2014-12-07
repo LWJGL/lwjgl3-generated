@@ -42,10 +42,10 @@ public abstract class WindowProc extends Closure.Ptr {
 	@Override
 	protected long callback(long args) {
 		return invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetAddress(POINTER_SIZE * 2 + args),
-			memGetAddress(POINTER_SIZE * 3 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 3 + args))
 		);
 	}
 	/**

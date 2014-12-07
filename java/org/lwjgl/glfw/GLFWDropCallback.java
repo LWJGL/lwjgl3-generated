@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback} method. */
-public abstract class GLFWdropfun extends Closure.Void {
+public abstract class GLFWDropCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(3);
@@ -26,10 +26,10 @@ public abstract class GLFWdropfun extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWdropfun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWDropCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWdropfun() {
+	protected GLFWDropCallback() {
 		super(CIF);
 	}
 
@@ -41,9 +41,9 @@ public abstract class GLFWdropfun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetAddress(POINTER_SIZE * 2 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
 	/**
@@ -55,7 +55,7 @@ public abstract class GLFWdropfun extends Closure.Void {
 	 */
 	public abstract void invoke(long window, int count, long names);
 
-	/** A functional interface for {@link GLFWdropfun}. */
+	/** A functional interface for {@link GLFWDropCallback}. */
 	public interface SAM {
 		void invoke(long window, int count, long names);
 	}

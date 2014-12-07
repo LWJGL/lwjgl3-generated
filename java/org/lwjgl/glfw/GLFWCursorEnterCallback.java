@@ -13,8 +13,10 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback} method. */
-public abstract class GLFWmonitorfun extends Closure.Void {
+import org.lwjgl.opengl.GL11;
+
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback} method. */
+public abstract class GLFWCursorEnterCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(2);
@@ -25,10 +27,10 @@ public abstract class GLFWmonitorfun extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWmonitorfun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWCursorEnterCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWmonitorfun() {
+	protected GLFWCursorEnterCallback() {
 		super(CIF);
 	}
 
@@ -40,21 +42,21 @@ public abstract class GLFWmonitorfun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
 	/**
-	 * Will be called when a monitor is connected to or disconnected from the system.
+	 * Will be called when the cursor enters or leaves the client area of the window.
 	 *
-	 * @param monitor the monitor that was connected or disconnected
-	 * @param event   one of {@link {@link GLFW#GLFW_CONNECTED}} or {@link {@link GLFW#GLFW_DISCONNECTED}}
+	 * @param window  the window that received the event
+	 * @param entered {@link GL11#GL_TRUE} if the cursor entered the window's client area, or {@link GL11#GL_FALSE} if it left it
 	 */
-	public abstract void invoke(long monitor, int event);
+	public abstract void invoke(long window, int entered);
 
-	/** A functional interface for {@link GLFWmonitorfun}. */
+	/** A functional interface for {@link GLFWCursorEnterCallback}. */
 	public interface SAM {
-		void invoke(long monitor, int event);
+		void invoke(long window, int entered);
 	}
 
 }

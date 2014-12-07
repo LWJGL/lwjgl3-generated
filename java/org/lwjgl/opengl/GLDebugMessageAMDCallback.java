@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD} method. */
-public abstract class DEBUGPROCAMD extends Closure.Void {
+public abstract class GLDebugMessageAMDCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(6);
@@ -29,10 +29,10 @@ public abstract class DEBUGPROCAMD extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare DEBUGPROCAMD callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLDebugMessageAMDCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected DEBUGPROCAMD() {
+	protected GLDebugMessageAMDCallback() {
 		super(CIF);
 	}
 
@@ -44,12 +44,12 @@ public abstract class DEBUGPROCAMD extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetInt(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetInt(POINTER_SIZE * 2 + args),
-			memGetInt(POINTER_SIZE * 3 + args),
-			memGetAddress(POINTER_SIZE * 4 + args),
-			memGetAddress(POINTER_SIZE * 5 + args)
+			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 2 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 3 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 4 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 5 + args))
 		);
 	}
 	/**
@@ -64,7 +64,7 @@ public abstract class DEBUGPROCAMD extends Closure.Void {
 	 */
 	public abstract void invoke(int id, int category, int severity, int length, long message, long userParam);
 
-	/** A functional interface for {@link DEBUGPROCAMD}. */
+	/** A functional interface for {@link GLDebugMessageAMDCallback}. */
 	public interface SAM {
 		void invoke(int id, int category, int severity, int length, long message, long userParam);
 	}

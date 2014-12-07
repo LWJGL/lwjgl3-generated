@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback} method. */
-public abstract class GLFWwindowsizefun extends Closure.Void {
+public abstract class GLFWWindowSizeCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(3);
@@ -26,10 +26,10 @@ public abstract class GLFWwindowsizefun extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWwindowsizefun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWWindowSizeCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWwindowsizefun() {
+	protected GLFWWindowSizeCallback() {
 		super(CIF);
 	}
 
@@ -41,9 +41,9 @@ public abstract class GLFWwindowsizefun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetInt(POINTER_SIZE * 2 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
 	/**
@@ -55,7 +55,7 @@ public abstract class GLFWwindowsizefun extends Closure.Void {
 	 */
 	public abstract void invoke(long window, int width, int height);
 
-	/** A functional interface for {@link GLFWwindowsizefun}. */
+	/** A functional interface for {@link GLFWWindowSizeCallback}. */
 	public interface SAM {
 		void invoke(long window, int width, int height);
 	}

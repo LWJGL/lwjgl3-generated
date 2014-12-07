@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowRefreshCallback} method. */
-public abstract class GLFWwindowrefreshfun extends Closure.Void {
+public abstract class GLFWWindowRefreshCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(1);
@@ -24,10 +24,10 @@ public abstract class GLFWwindowrefreshfun extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWwindowrefreshfun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWWindowRefreshCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWwindowrefreshfun() {
+	protected GLFWWindowRefreshCallback() {
 		super(CIF);
 	}
 
@@ -39,7 +39,7 @@ public abstract class GLFWwindowrefreshfun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
 		);
 	}
 	/**
@@ -50,7 +50,7 @@ public abstract class GLFWwindowrefreshfun extends Closure.Void {
 	 */
 	public abstract void invoke(long window);
 
-	/** A functional interface for {@link GLFWwindowrefreshfun}. */
+	/** A functional interface for {@link GLFWWindowRefreshCallback}. */
 	public interface SAM {
 		void invoke(long window);
 	}

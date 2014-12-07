@@ -13,22 +13,22 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback} method. */
-public abstract class GLFWcharfun extends Closure.Void {
+/** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback} method. */
+public abstract class GLFWErrorCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_uint32);
+		ARGS.put(0, ffi_type_sint32);
+		ARGS.put(1, ffi_type_pointer);
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWcharfun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWErrorCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWcharfun() {
+	protected GLFWErrorCallback() {
 		super(CIF);
 	}
 
@@ -40,21 +40,21 @@ public abstract class GLFWcharfun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args)
+			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
 	/**
-	 * Will be called when a Unicode character is input.
+	 * Will be called with an error code and a human-readable description when a GLFW error occurs.
 	 *
-	 * @param window    the window that received the event
-	 * @param codepoint the Unicode code point of the character
+	 * @param error       the error code
+	 * @param description a pointer to a UTF-8 encoded string describing the error
 	 */
-	public abstract void invoke(long window, int codepoint);
+	public abstract void invoke(int error, long description);
 
-	/** A functional interface for {@link GLFWcharfun}. */
+	/** A functional interface for {@link GLFWErrorCallback}. */
 	public interface SAM {
-		void invoke(long window, int codepoint);
+		void invoke(int error, long description);
 	}
 
 }

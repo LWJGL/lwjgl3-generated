@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback} method. */
-public abstract class GLFWkeyfun extends Closure.Void {
+public abstract class GLFWKeyCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = ffi_cif.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(5);
@@ -28,10 +28,10 @@ public abstract class GLFWkeyfun extends Closure.Void {
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWkeyfun callback interface. Status: 0x%X", status));
+			throw new IllegalStateException(String.format("Failed to prepare GLFWKeyCallback callback interface. Status: 0x%X", status));
 	}
 
-	protected GLFWkeyfun() {
+	protected GLFWKeyCallback() {
 		super(CIF);
 	}
 
@@ -43,11 +43,11 @@ public abstract class GLFWkeyfun extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetAddress(POINTER_SIZE * 0 + args),
-			memGetInt(POINTER_SIZE * 1 + args),
-			memGetInt(POINTER_SIZE * 2 + args),
-			memGetInt(POINTER_SIZE * 3 + args),
-			memGetInt(POINTER_SIZE * 4 + args)
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 2 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 3 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 4 + args))
 		);
 	}
 	/**
@@ -61,7 +61,7 @@ public abstract class GLFWkeyfun extends Closure.Void {
 	 */
 	public abstract void invoke(long window, int key, int scancode, int action, int mods);
 
-	/** A functional interface for {@link GLFWkeyfun}. */
+	/** A functional interface for {@link GLFWKeyCallback}. */
 	public interface SAM {
 		void invoke(long window, int key, int scancode, int action, int mods);
 	}
