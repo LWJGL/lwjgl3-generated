@@ -5257,7 +5257,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Explicit size alternative version of: {@link #glMapNamedBufferEXT MapNamedBufferEXT} */
-	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, int length, ByteBuffer old_buffer) {
+	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}

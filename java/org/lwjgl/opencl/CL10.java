@@ -2708,7 +2708,7 @@ public final class CL10 {
 	}
 
 	/** Explicit size alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */
-	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, int length, ByteBuffer old_buffer) {
+	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, long length, ByteBuffer old_buffer) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(origin, 3);
 			checkBuffer(region, 3);

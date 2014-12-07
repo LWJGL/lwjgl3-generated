@@ -822,7 +822,7 @@ public final class ARBDirectStateAccess {
 	}
 
 	/** Explicit size alternative version of: {@link #glMapNamedBuffer MapNamedBuffer} */
-	public static ByteBuffer glMapNamedBuffer(int buffer, int access, int length, ByteBuffer old_buffer) {
+	public static ByteBuffer glMapNamedBuffer(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}

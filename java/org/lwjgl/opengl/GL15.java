@@ -533,7 +533,7 @@ public final class GL15 {
 	}
 
 	/** Explicit size alternative version of: {@link #glMapBuffer MapBuffer} */
-	public static ByteBuffer glMapBuffer(int target, int access, int length, ByteBuffer old_buffer) {
+	public static ByteBuffer glMapBuffer(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBuffer(target, access);
 		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
 	}
