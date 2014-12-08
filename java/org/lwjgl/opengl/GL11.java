@@ -2927,6 +2927,13 @@ public final class GL11 {
 		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer));
 	}
 
+	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glColorPointer ColorPointer} */
+	public static void glColorPointer(int size, boolean unsigned, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, stride, memAddress(pointer));
+	}
+
 	/** GL_FLOAT version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )

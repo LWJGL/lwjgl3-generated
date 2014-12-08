@@ -1375,14 +1375,14 @@ public final class ARBVertexProgram {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** GL_BYTE version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean normalized, int stride, ByteBuffer pointer) {
-		nglVertexAttribPointerARB(index, size, GL11.GL_BYTE, normalized, stride, memAddress(pointer));
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	public static void glVertexAttribPointerARB(int index, int size, boolean unsigned, boolean normalized, int stride, ByteBuffer pointer) {
+		nglVertexAttribPointerARB(index, size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, normalized, stride, memAddress(pointer));
 	}
 
-	/** GL_SHORT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean normalized, int stride, ShortBuffer pointer) {
-		nglVertexAttribPointerARB(index, size, GL11.GL_SHORT, normalized, stride, memAddress(pointer));
+	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	public static void glVertexAttribPointerARB(int index, int size, boolean unsigned, boolean normalized, int stride, ShortBuffer pointer) {
+		nglVertexAttribPointerARB(index, size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, normalized, stride, memAddress(pointer));
 	}
 
 	/** GL_INT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */

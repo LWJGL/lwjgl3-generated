@@ -1143,7 +1143,7 @@ public final class GL14 {
 	 * 
 	 * Specifies the location and organization of a secondary color array.
 	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. One of:<br>3, {@link GL12#GL_BGRA BGRA}
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br>3
 	 * @param type    the data type of the values stored in the array. One of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL11#GL_DOUBLE DOUBLE}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}
 	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
 	 * @param pointer the secondary color array data
@@ -1166,6 +1166,13 @@ public final class GL14 {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer));
+	}
+
+	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
+	public static void glSecondaryColorPointer(int size, boolean unsigned, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, stride, memAddress(pointer));
 	}
 
 	/** GL_FLOAT version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */

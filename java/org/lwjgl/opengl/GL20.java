@@ -2949,11 +2949,18 @@ Creates a program object.
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset);
 	}
 
-	/** GL_SHORT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, ShortBuffer pointer) {
+	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	public static void glVertexAttribPointer(int index, int size, boolean unsigned, boolean normalized, int stride, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointer(index, size, GL11.GL_SHORT, normalized, stride, memAddress(pointer));
+		nglVertexAttribPointer(index, size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, normalized, stride, memAddress(pointer));
+	}
+
+	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	public static void glVertexAttribPointer(int index, int size, boolean unsigned, boolean normalized, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglVertexAttribPointer(index, size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, normalized, stride, memAddress(pointer));
 	}
 
 	/** GL_INT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
