@@ -13,6 +13,8 @@ package org.lwjgl.opengl;
  * 
  * <p>This extension supports DXT1, DXT3, and DXT5 texture compression formats. For the DXT1 image format, this specification supports an RGB-only mode and a
  * special RGBA mode with single-bit "transparent" alpha.</p>
+ * 
+ * <p>Requires {@link ARBTextureCompression ARB_texture_compression}.</p>
  */
 public final class EXTTextureCompressionS3TC {
 

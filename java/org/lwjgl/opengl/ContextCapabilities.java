@@ -142,6 +142,8 @@ public final class ContextCapabilities {
 	final EXTFramebufferMultisample     __EXTFramebufferMultisample;
 	final EXTFramebufferObject          __EXTFramebufferObject;
 	final EXTPointParameters            __EXTPointParameters;
+	final EXTSecondaryColor             __EXTSecondaryColor;
+	final EXTTextureArray               __EXTTextureArray;
 	final EXTTextureInteger             __EXTTextureInteger;
 	final EXTTransformFeedback          __EXTTransformFeedback;
 	final KHRBlendEquationAdvanced      __KHRBlendEquationAdvanced;
@@ -1141,8 +1143,14 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_framebuffer_object;
 	/** When true, {@link EXTFramebufferSRGB} is supported. */
 	public final boolean GL_EXT_framebuffer_sRGB;
+	/** When true, {@link EXTPackedDepthStencil} is supported. */
+	public final boolean GL_EXT_packed_depth_stencil;
+	/** When true, {@link EXTPackedFloat} is supported. */
+	public final boolean GL_EXT_packed_float;
 	/** When true, {@link EXTPointParameters} is supported. */
 	public final boolean GL_EXT_point_parameters;
+	/** When true, {@link EXTSecondaryColor} is supported. */
+	public final boolean GL_EXT_secondary_color;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a> extension is supported.
 	 * 
@@ -1156,12 +1164,24 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_shared_texture_palette;
 	/** When true, {@link EXTStencilWrap} is supported. */
 	public final boolean GL_EXT_stencil_wrap;
+	/** When true, {@link EXTTextureArray} is supported. */
+	public final boolean GL_EXT_texture_array;
+	/** When true, {@link EXTTextureCompressionLATC} is supported. */
+	public final boolean GL_EXT_texture_compression_latc;
+	/** When true, {@link EXTTextureCompressionRGTC} is supported. */
+	public final boolean GL_EXT_texture_compression_rgtc;
 	/** When true, {@link EXTTextureCompressionS3TC} is supported. */
 	public final boolean GL_EXT_texture_compression_s3tc;
 	/** When true, {@link EXTTextureFilterAnisotropic} is supported. */
 	public final boolean GL_EXT_texture_filter_anisotropic;
 	/** When true, {@link EXTTextureInteger} is supported. */
 	public final boolean GL_EXT_texture_integer;
+	/** When true, {@link EXTTextureMirrorClamp} is supported. */
+	public final boolean GL_EXT_texture_mirror_clamp;
+	/** When true, {@link EXTTextureSharedExponent} is supported. */
+	public final boolean GL_EXT_texture_shared_exponent;
+	/** When true, {@link EXTTextureSRGB} is supported. */
+	public final boolean GL_EXT_texture_sRGB;
 	/** When true, {@link EXTTransformFeedback} is supported. */
 	public final boolean GL_EXT_transform_feedback;
 	/** When true, {@link KHRBlendEquationAdvanced} is supported. */
@@ -1567,13 +1587,22 @@ public final class ContextCapabilities {
 		GL_EXT_framebuffer_multisample_blit_scaled = ext.contains("GL_EXT_framebuffer_multisample_blit_scaled");
 		GL_EXT_framebuffer_object = (__EXTFramebufferObject = EXTFramebufferObject.create(ext, provider)) != null;
 		GL_EXT_framebuffer_sRGB = ext.contains("GL_EXT_framebuffer_sRGB");
+		GL_EXT_packed_depth_stencil = ext.contains("GL_EXT_packed_depth_stencil");
+		GL_EXT_packed_float = ext.contains("GL_EXT_packed_float");
 		GL_EXT_point_parameters = (__EXTPointParameters = EXTPointParameters.create(ext, provider)) != null;
+		GL_EXT_secondary_color = (__EXTSecondaryColor = EXTSecondaryColor.create(ext, provider)) != null;
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
 		GL_EXT_shared_texture_palette = ext.contains("GL_EXT_shared_texture_palette");
 		GL_EXT_stencil_wrap = ext.contains("GL_EXT_stencil_wrap");
+		GL_EXT_texture_array = (__EXTTextureArray = EXTTextureArray.create(ext, provider)) != null;
+		GL_EXT_texture_compression_latc = ext.contains("GL_EXT_texture_compression_latc");
+		GL_EXT_texture_compression_rgtc = ext.contains("GL_EXT_texture_compression_rgtc");
 		GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
 		GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
 		GL_EXT_texture_integer = (__EXTTextureInteger = EXTTextureInteger.create(ext, provider)) != null;
+		GL_EXT_texture_mirror_clamp = ext.contains("GL_EXT_texture_mirror_clamp");
+		GL_EXT_texture_shared_exponent = ext.contains("GL_EXT_texture_shared_exponent");
+		GL_EXT_texture_sRGB = ext.contains("GL_EXT_texture_sRGB");
 		GL_EXT_transform_feedback = (__EXTTransformFeedback = EXTTransformFeedback.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");
