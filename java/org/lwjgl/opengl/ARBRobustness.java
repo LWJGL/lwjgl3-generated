@@ -469,7 +469,7 @@ public final class ARBRobustness {
 	/** Alternative version of: {@link #glGetnPolygonStippleARB GetnPolygonStippleARB} */
 	public static void glGetnPolygonStippleARB(ByteBuffer pattern) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnPolygonStippleARB(pattern.remaining(), memAddress(pattern));
 	}
 
@@ -706,7 +706,7 @@ public final class ARBRobustness {
 	/** Alternative version of: {@link #glGetnConvolutionFilterARB GetnConvolutionFilterARB} */
 	public static void glGetnConvolutionFilterARB(int target, int format, int type, ByteBuffer image) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnConvolutionFilterARB(target, format, type, image.remaining(), memAddress(image));
 	}
 
@@ -756,19 +756,15 @@ public final class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
 	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		}
 		nglGetnSeparableFilterARB(target, format, type, rowBufSize, memAddress(row), columnBufSize, columnOffset, memAddressSafe(span));
 	}
 
 	/** Alternative version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
 	public static void glGetnSeparableFilterARB(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		}
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnSeparableFilterARB(target, format, type, row.remaining(), memAddress(row), column.remaining(), memAddress(column), memAddressSafe(span));
 	}
 
@@ -815,7 +811,7 @@ public final class ARBRobustness {
 	/** Alternative version of: {@link #glGetnHistogramARB GetnHistogramARB} */
 	public static void glGetnHistogramARB(int target, boolean reset, int format, int type, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnHistogramARB(target, reset, format, type, values.remaining(), memAddress(values));
 	}
 
@@ -863,7 +859,7 @@ public final class ARBRobustness {
 	/** Alternative version of: {@link #glGetnMinmaxARB GetnMinmaxARB} */
 	public static void glGetnMinmaxARB(int target, boolean reset, int format, int type, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnMinmaxARB(target, reset, format, type, values.remaining(), memAddress(values));
 	}
 
@@ -912,7 +908,7 @@ public final class ARBRobustness {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetnCompressedTexImageARB(target, level, img.remaining(), memAddress(img));
 	}

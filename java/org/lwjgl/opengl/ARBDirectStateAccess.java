@@ -2045,7 +2045,7 @@ public final class ARBDirectStateAccess {
 	/** Alternative version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
 
@@ -2091,7 +2091,7 @@ public final class ARBDirectStateAccess {
 	/** Alternative version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
 
@@ -2139,7 +2139,7 @@ public final class ARBDirectStateAccess {
 	/** Alternative version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
@@ -2513,7 +2513,7 @@ public final class ARBDirectStateAccess {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetCompressedTextureImage(texture, level, pixels.remaining(), memAddress(pixels));
 	}

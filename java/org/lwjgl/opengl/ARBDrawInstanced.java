@@ -127,7 +127,7 @@ public final class ARBDrawInstanced {
 	/** Alternative version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount);
 	}
 

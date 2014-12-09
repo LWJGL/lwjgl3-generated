@@ -413,7 +413,7 @@ public final class GL12 {
 	/** Alternative version of: {@link #glDrawRangeElements DrawRangeElements} */
 	public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices));
 	}
 

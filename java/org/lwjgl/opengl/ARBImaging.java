@@ -853,10 +853,8 @@ public final class ARBImaging {
 
 	/** Buffer object offset version of: {@link #glSeparableFilter2D SeparableFilter2D} */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, long columnOffset) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		}
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), columnOffset);
 	}
 
@@ -902,10 +900,8 @@ public final class ARBImaging {
 
 	/** Buffer object offset version of: {@link #glGetSeparableFilter GetSeparableFilter} */
 	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		}
 		nglGetSeparableFilter(target, format, type, memAddress(row), columnOffset, memAddressSafe(span));
 	}
 

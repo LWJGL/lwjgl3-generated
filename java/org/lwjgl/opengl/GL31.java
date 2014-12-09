@@ -275,7 +275,7 @@ public final class GL31 {
 	/** Alternative version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount);
 	}
 

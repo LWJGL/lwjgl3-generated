@@ -3184,7 +3184,7 @@ public final class GL11 {
 	/** Alternative version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
@@ -4587,7 +4587,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static void glGetPixelMap(int map, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapfv(map, memAddress(data));
 	}
@@ -4634,7 +4634,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static void glGetPixelMapu(int map, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapusv(map, memAddress(data));
 	}
@@ -4681,7 +4681,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static void glGetPixelMapu(int map, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetPixelMapuiv(map, memAddress(data));
 	}
@@ -7218,7 +7218,7 @@ Clears the selection name stack.
 	/** Alternative version of: {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
 	public static void glPixelMap(int map, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapfv(map, values.remaining(), memAddress(values));
 	}
 
@@ -7264,7 +7264,7 @@ Clears the selection name stack.
 	/** Alternative version of: {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
 	public static void glPixelMapu(int map, ShortBuffer values) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapusv(map, values.remaining(), memAddress(values));
 	}
 
@@ -7310,7 +7310,7 @@ Clears the selection name stack.
 	/** Alternative version of: {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
 	public static void glPixelMapu(int map, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapuiv(map, values.remaining(), memAddress(values));
 	}
 
