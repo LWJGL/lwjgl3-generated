@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}. */
-public final class cl_bus_address_amd implements Pointer {
+public final class CLBusAddressAMD implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,11 +33,11 @@ public final class cl_bus_address_amd implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public cl_bus_address_amd() {
+	public CLBusAddressAMD() {
 		this(malloc());
 	}
 
-	public cl_bus_address_amd(ByteBuffer struct) {
+	public CLBusAddressAMD(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 

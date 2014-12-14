@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about a libffi call interface. */
-public final class ffi_cif implements Pointer {
+public final class FFICIF implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,11 +41,11 @@ public final class ffi_cif implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public ffi_cif() {
+	public FFICIF() {
 		this(malloc());
 	}
 
-	public ffi_cif(ByteBuffer struct) {
+	public FFICIF(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 

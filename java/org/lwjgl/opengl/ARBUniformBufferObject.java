@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>Prior to this extension, the existing interface for modification of uniform values allowed modification of large numbers of values using glUniform*
  * calls, but only for a single uniform name (or a uniform array) at a time. However, updating uniforms in this manner may not map well to heterogenous
  * uniform data structures defined for a GL application and in these cases, the application is forced to either:
- * <ol  type=A>
+ * <ol type=A>
  * <li>restructure their uniform data definitions into arrays or</li>
  * <li>make an excessive number of calls through the GL interface to one of the Uniform* variants.</li>
  * </ol></p>
@@ -66,7 +66,7 @@ import static org.lwjgl.system.APIUtil.*;
  * "location" because "uniform blocks" are not updated directly. The buffer object APIs are used instead.</p>
  * 
  * <p>Properties of Uniforms and uniform blocks:
- * <ol  type=a>
+ * <ol type=a>
  * <li>A uniform is "active" if it exists in the database and has a valid u_index.</li>
  * <li>A "uniform block" is "active" if it exists in the database and has a valid ub_index.</li>
  * <li>Uniforms and "uniform blocks" can be inactive because they don't exist in the source, or because they have been removed by dead code elimination.</li>

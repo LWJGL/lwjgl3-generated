@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image description struct. */
-public final class cl_image_desc implements Pointer {
+public final class CLImageDesc implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -49,11 +49,11 @@ public final class cl_image_desc implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public cl_image_desc() {
+	public CLImageDesc() {
 		this(malloc());
 	}
 
-	public cl_image_desc(ByteBuffer struct) {
+	public CLImageDesc(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 

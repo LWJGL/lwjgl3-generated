@@ -6,7 +6,7 @@
 package org.lwjgl.opencl;
 
 /**
- * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_intel_thread_local_exec.txt">intel_thread_local_exec</a> extension.
+ * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/intel/cl_intel_thread_local_exec.txt">intel_thread_local_exec</a> extension.
  * 
  * <p>This extension allows the user to execute OpenCL tasks and kernels with the user application's threads. The extension defines a token that can be passed
  * to {@link CL10#clCreateCommandQueue CreateCommandQueue}, creating a queue with the "thread local exec" capability.</p>

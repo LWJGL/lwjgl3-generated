@@ -116,7 +116,7 @@ public final class LibFFI {
 	 */
 	public static int ffi_prep_cif(ByteBuffer cif, int abi, int nargs, long rtype, ByteBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			if ( atypes != null ) checkBuffer(atypes, nargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
@@ -126,7 +126,7 @@ public final class LibFFI {
 	/** Alternative version of: {@link #ffi_prep_cif prep_cif} */
 	public static int ffi_prep_cif(ByteBuffer cif, int abi, long rtype, PointerBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(rtype);
 		}
 		return nffi_prep_cif(memAddress(cif), abi, atypes == null ? 0 : atypes.remaining(), rtype, memAddressSafe(atypes));
@@ -153,7 +153,7 @@ public final class LibFFI {
 	 */
 	public static int ffi_prep_cif_var(ByteBuffer cif, int abi, int nfixedargs, int ntotalargs, long rtype, ByteBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkBuffer(atypes, ntotalargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
@@ -163,7 +163,7 @@ public final class LibFFI {
 	/** Alternative version of: {@link #ffi_prep_cif_var prep_cif_var} */
 	public static int ffi_prep_cif_var(ByteBuffer cif, int abi, int nfixedargs, long rtype, PointerBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(rtype);
 		}
 		return nffi_prep_cif_var(memAddress(cif), abi, nfixedargs, atypes.remaining(), rtype, memAddress(atypes));
@@ -186,7 +186,7 @@ public final class LibFFI {
 	 */
 	public static void ffi_call(ByteBuffer cif, long fn, ByteBuffer rvalue, ByteBuffer avalue) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(fn);
 		}
 		nffi_call(memAddress(cif), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
@@ -195,7 +195,7 @@ public final class LibFFI {
 	/** Alternative version of: {@link #ffi_call call} */
 	public static void ffi_call(ByteBuffer cif, long fn, ByteBuffer rvalue, PointerBuffer avalue) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(fn);
 		}
 		nffi_call(memAddress(cif), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
@@ -262,8 +262,8 @@ public final class LibFFI {
 	 */
 	public static int ffi_prep_closure_loc(ByteBuffer closure, ByteBuffer cif, long fun, long user_data, long codeloc) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(closure, ffi_closure.SIZEOF);
-			checkBuffer(cif, ffi_cif.SIZEOF);
+			checkBuffer(closure, FFIClosure.SIZEOF);
+			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(fun);
 			checkPointer(codeloc);
 		}

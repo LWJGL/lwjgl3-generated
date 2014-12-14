@@ -1726,7 +1726,7 @@ public final class CL10 {
 	 *
 	 * @param context         a valid OpenCL context on which the image object is to be created
 	 * @param flags           a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
-	 * @param image_format    a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
+	 * @param image_format    a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
 	 * @param image_width     the width of the image in pixels
 	 * @param image_height    the height of the image in pixels
 	 * @param image_row_pitch the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &#x2265; {@code image_width * size} of element in
@@ -1758,7 +1758,7 @@ public final class CL10 {
 	 */
 	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1767,7 +1767,7 @@ public final class CL10 {
 	/** Alternative version of: {@link #clCreateImage2D CreateImage2D} */
 	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1776,7 +1776,7 @@ public final class CL10 {
 	/** ShortBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1785,7 +1785,7 @@ public final class CL10 {
 	/** IntBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1794,7 +1794,7 @@ public final class CL10 {
 	/** FloatBuffer version of: {@link #clCreateImage2D CreateImage2D} */
 	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1822,7 +1822,7 @@ public final class CL10 {
 	 *
 	 * @param context           a valid OpenCL context on which the image object is to be created
 	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
-	 * @param image_format      a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
+	 * @param image_format      a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
 	 * @param image_width       the width of the image in pixels
 	 * @param image_height      the height of the image in pixels
 	 * @param image_depth       the depth of the image in pixels. This must be a value &gt; 1.
@@ -1861,7 +1861,7 @@ public final class CL10 {
 	 */
 	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1870,7 +1870,7 @@ public final class CL10 {
 	/** Alternative version of: {@link #clCreateImage3D CreateImage3D} */
 	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1879,7 +1879,7 @@ public final class CL10 {
 	/** ShortBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1888,7 +1888,7 @@ public final class CL10 {
 	/** IntBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1897,7 +1897,7 @@ public final class CL10 {
 	/** FloatBuffer version of: {@link #clCreateImage3D CreateImage3D} */
 	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -1935,7 +1935,7 @@ public final class CL10 {
 	 * @param flags             a bit-field that is used to specify allocation and usage information about the image memory object being created. One of:<br>{@link #CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link #CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link #CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link #CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link #CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}
 	 * @param image_type        the image type. One of:<br>{@link CL12#CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, {@link #CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}, {@link #CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}, {@link CL12#CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}, {@link CL12#CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}
 	 * @param num_entries       the number of entries that can be returned in the memory location given by {@code image_formats}
-	 * @param image_formats     a pointer to a memory location where the list of supported image formats are returned. Each entry describes a {@link cl_image_format} structure
+	 * @param image_formats     a pointer to a memory location where the list of supported image formats are returned. Each entry describes a {@link CLImageFormat} structure
 	 *                          supported by the OpenCL implementation. If {@code image_formats} is {@code NULL}, it is ignored.
 	 * @param num_image_formats the actual number of supported image formats for a specific context and values specified by {@code flags}. If {@code num_image_formats} is {@code NULL}, it
 	 *                          is ignored.
@@ -1950,8 +1950,7 @@ public final class CL10 {
 	 */
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, ByteBuffer image_formats, ByteBuffer num_image_formats) {
 		if ( LWJGLUtil.CHECKS ) {
-			if ( image_formats != null ) checkBuffer(image_formats, num_entries * cl_image_format.SIZEOF);
-			if ( image_formats != null ) checkBuffer(image_formats, cl_image_format.SIZEOF);
+			if ( image_formats != null ) checkBuffer(image_formats, num_entries * CLImageFormat.SIZEOF * CLImageFormat.SIZEOF);
 			if ( num_image_formats != null ) checkBuffer(num_image_formats, 1 << 2);
 		}
 		return nclGetSupportedImageFormats(context, flags, image_type, num_entries, memAddressSafe(image_formats), memAddressSafe(num_image_formats));
@@ -1959,11 +1958,9 @@ public final class CL10 {
 
 	/** Alternative version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, ByteBuffer image_formats, IntBuffer num_image_formats) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( image_formats != null ) checkBuffer(image_formats, cl_image_format.SIZEOF);
+		if ( LWJGLUtil.CHECKS )
 			if ( num_image_formats != null ) checkBuffer(num_image_formats, 1);
-		}
-		return nclGetSupportedImageFormats(context, flags, image_type, image_formats == null ? 0 : image_formats.remaining() / cl_image_format.SIZEOF, memAddressSafe(image_formats), memAddressSafe(num_image_formats));
+		return nclGetSupportedImageFormats(context, flags, image_type, image_formats == null ? 0 : image_formats.remaining() / CLImageFormat.SIZEOF, memAddressSafe(image_formats), memAddressSafe(num_image_formats));
 	}
 
 	// --- [ clEnqueueReadImage ] ---

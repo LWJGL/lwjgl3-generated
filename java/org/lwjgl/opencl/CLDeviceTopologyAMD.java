@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}. */
-public final class cl_device_topology_amd implements Pointer {
+public final class CLDeviceTopologyAMD implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -47,11 +47,11 @@ public final class cl_device_topology_amd implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public cl_device_topology_amd() {
+	public CLDeviceTopologyAMD() {
 		this(malloc());
 	}
 
-	public cl_device_topology_amd(ByteBuffer struct) {
+	public CLDeviceTopologyAMD(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 

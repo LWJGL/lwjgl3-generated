@@ -5,7 +5,11 @@
  */
 package org.lwjgl.opencl;
 
-/** Native bindings to the <strong>amd_device_board_name</strong> extension. */
+/**
+ * Native bindings to the <strong>amd_device_board_name</strong> extension.
+ * 
+ * <p>This query enables the developer to get the name of the GPU board and model of the specific device. Currently, this is only for GPU devices.</p>
+ */
 public final class AMDDeviceBoardName {
 
 	/**

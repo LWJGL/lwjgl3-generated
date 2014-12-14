@@ -5,7 +5,11 @@
  */
 package org.lwjgl.opencl;
 
-/** Native bindings to the <strong>amd_device_topology</strong> extension. */
+/**
+ * Native bindings to the <strong>amd_device_topology</strong> extension.
+ * 
+ * <p>This extension enables the developer to get a description of the topology used to connect the device to the host.</p>
+ */
 public final class AMDDeviceTopology {
 
 	/**

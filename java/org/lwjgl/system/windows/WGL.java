@@ -271,7 +271,7 @@ public final class WGL {
 	public static int wglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, ByteBuffer glyphMetrics) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hdc);
-			if ( glyphMetrics != null ) checkBuffer(glyphMetrics, count * GLYPHMETRICSFLOAT.SIZEOF);
+			if ( glyphMetrics != null ) checkBuffer(glyphMetrics, count * GLYPHMETRICSFLOAT.SIZEOF * GLYPHMETRICSFLOAT.SIZEOF);
 		}
 		return nwglUseFontOutlines(hdc, first, count, listBase, deviation, extrusion, format, memAddressSafe(glyphMetrics));
 	}

@@ -103,18 +103,15 @@ public final class XInput2 {
 	public static int XISelectEvents(long display, long w, ByteBuffer masks, int num_masks) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(masks, XIEventMask.SIZEOF);
-			checkBuffer(masks, num_masks);
+			checkBuffer(masks, num_masks * XIEventMask.SIZEOF);
 		}
 		return nXISelectEvents(display, w, memAddress(masks), num_masks);
 	}
 
 	/** Alternative version of: {@link #XISelectEvents} */
 	public static int XISelectEvents(long display, long w, ByteBuffer masks) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-			checkBuffer(masks, XIEventMask.SIZEOF);
-		}
 		return nXISelectEvents(display, w, memAddress(masks), masks.remaining());
 	}
 

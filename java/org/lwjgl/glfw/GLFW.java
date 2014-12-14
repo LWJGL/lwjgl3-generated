@@ -1301,24 +1301,24 @@ public final class GLFW {
 	public static void glfwGetWindowFrameSize(long window, ByteBuffer left, ByteBuffer top, ByteBuffer right, ByteBuffer bottom) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
-			checkBuffer(left, 1 << 2);
-			checkBuffer(top, 1 << 2);
-			checkBuffer(right, 1 << 2);
-			checkBuffer(bottom, 1 << 2);
+			if ( left != null ) checkBuffer(left, 1 << 2);
+			if ( top != null ) checkBuffer(top, 1 << 2);
+			if ( right != null ) checkBuffer(right, 1 << 2);
+			if ( bottom != null ) checkBuffer(bottom, 1 << 2);
 		}
-		nglfwGetWindowFrameSize(window, memAddress(left), memAddress(top), memAddress(right), memAddress(bottom));
+		nglfwGetWindowFrameSize(window, memAddressSafe(left), memAddressSafe(top), memAddressSafe(right), memAddressSafe(bottom));
 	}
 
 	/** Alternative version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(window);
-			checkBuffer(left, 1);
-			checkBuffer(top, 1);
-			checkBuffer(right, 1);
-			checkBuffer(bottom, 1);
+			if ( left != null ) checkBuffer(left, 1);
+			if ( top != null ) checkBuffer(top, 1);
+			if ( right != null ) checkBuffer(right, 1);
+			if ( bottom != null ) checkBuffer(bottom, 1);
 		}
-		nglfwGetWindowFrameSize(window, memAddress(left), memAddress(top), memAddress(right), memAddress(bottom));
+		nglfwGetWindowFrameSize(window, memAddressSafe(left), memAddressSafe(top), memAddressSafe(right), memAddressSafe(bottom));
 	}
 
 	// --- [ glfwIconifyWindow ] ---
@@ -2035,15 +2035,13 @@ public final class GLFW {
 	 * <p>This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to set the system cursor for
-	 * @param cursor he cursor to change to, or {@code NULL} to switch back to the default system cursor
+	 * @param cursor the cursor to change to, or {@code NULL} to switch back to the default system cursor
 	 *
 	 * @since GLFW 3.1
 	 */
 	public static void glfwSetCursor(long window, long cursor) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-			checkPointer(cursor);
-		}
 		nglfwSetCursor(window, cursor);
 	}
 

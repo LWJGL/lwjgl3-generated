@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Buffer region struct. */
-public final class cl_buffer_region implements Pointer {
+public final class CLBufferRegion implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,11 +33,11 @@ public final class cl_buffer_region implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public cl_buffer_region() {
+	public CLBufferRegion() {
 		this(malloc());
 	}
 
-	public cl_buffer_region(ByteBuffer struct) {
+	public CLBufferRegion(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 

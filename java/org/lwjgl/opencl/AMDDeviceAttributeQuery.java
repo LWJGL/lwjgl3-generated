@@ -5,11 +5,16 @@
  */
 package org.lwjgl.opencl;
 
-/** Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_amd_device_attribute_query.txt">amd_device_attribute_query</a> extension. */
+/**
+ * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_device_attribute_query.txt">amd_device_attribute_query</a> extension.
+ * 
+ * <p>This extension provides a means to query AMD-specific device attributes.</p>
+ */
 public final class AMDDeviceAttributeQuery {
 
 	/** Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. */
 	public static final int
+		CL_DEVICE_PROFILING_TIMER_OFFSET_AMD          = 0x4036,
 		CL_DEVICE_GLOBAL_FREE_MEMORY_AMD              = 0x4039,
 		CL_DEVICE_SIMD_PER_COMPUTE_UNIT_AMD           = 0x4040,
 		CL_DEVICE_SIMD_WIDTH_AMD                      = 0x4041,

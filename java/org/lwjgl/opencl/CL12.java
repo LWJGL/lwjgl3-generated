@@ -465,8 +465,8 @@ public final class CL12 {
 	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
 	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
 	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}, {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}, {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</p>
-	 * @param image_format a pointer to a {@link cl_image_format} structure that describes format properties of the image to be allocated
-	 * @param image_desc   a pointer to a {@link cl_image_desc} structure that describes type and dimensions of the image to be allocated
+	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
+	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
 	 *                     {@code host_ptr} points to must be.
 	 *                     <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
@@ -482,8 +482,8 @@ public final class CL12 {
 	 */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
-			checkBuffer(image_desc, cl_image_desc.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
+			checkBuffer(image_desc, CLImageDesc.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		return nclCreateImage(context, flags, memAddress(image_format), memAddress(image_desc), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -492,8 +492,8 @@ public final class CL12 {
 	/** Alternative version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
-			checkBuffer(image_desc, cl_image_desc.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
+			checkBuffer(image_desc, CLImageDesc.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage(context, flags, memAddress(image_format), memAddress(image_desc), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -502,8 +502,8 @@ public final class CL12 {
 	/** ShortBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
-			checkBuffer(image_desc, cl_image_desc.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
+			checkBuffer(image_desc, CLImageDesc.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage(context, flags, memAddress(image_format), memAddress(image_desc), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -512,8 +512,8 @@ public final class CL12 {
 	/** IntBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
-			checkBuffer(image_desc, cl_image_desc.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
+			checkBuffer(image_desc, CLImageDesc.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage(context, flags, memAddress(image_format), memAddress(image_desc), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
@@ -522,8 +522,8 @@ public final class CL12 {
 	/** FloatBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, cl_image_format.SIZEOF);
-			checkBuffer(image_desc, cl_image_desc.SIZEOF);
+			checkBuffer(image_format, CLImageFormat.SIZEOF);
+			checkBuffer(image_desc, CLImageDesc.SIZEOF);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateImage(context, flags, memAddress(image_format), memAddress(image_desc), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));

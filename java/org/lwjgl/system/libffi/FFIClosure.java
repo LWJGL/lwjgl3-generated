@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The libffi closure structure. */
-public final class ffi_closure implements Pointer {
+public final class FFIClosure implements Pointer {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,7 +35,7 @@ public final class ffi_closure implements Pointer {
 
 	private final ByteBuffer struct;
 
-	public ffi_closure(ByteBuffer struct) {
+	public FFIClosure(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 
@@ -70,7 +70,7 @@ public final class ffi_closure implements Pointer {
 	public static void user_data(ByteBuffer ffi_closure, long user_data) { PointerBuffer.put(ffi_closure, ffi_closure.position() + USER_DATA, user_data); }
 
 	public static long cif(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + CIF); }
-	public static ByteBuffer cifb(ByteBuffer ffi_closure) { return memByteBuffer(cif(ffi_closure), ffi_cif.SIZEOF); }
+	public static ByteBuffer cifb(ByteBuffer ffi_closure) { return memByteBuffer(cif(ffi_closure), FFICIF.SIZEOF); }
 	public static long fun(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + FUN); }
 	public static long user_data(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + USER_DATA); }
 

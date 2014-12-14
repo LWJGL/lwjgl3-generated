@@ -24,7 +24,7 @@ import static org.lwjgl.system.APIUtil.*;
  * properties supported for an internal format in addition to the multisample-related information that was added in ARB_internalformat_query.</p>
  * 
  * <p>The goals of this extension are to:
- * <ol  type=a>
+ * <ol type=a>
  * <li>provide a mechanism for implementations to declare support *above* the minimum required by the specification</li>
  * <li>provide API to allow universally constant information to be queried</li>
  * <li>provide a user-friendly way of finding out about version- or implementation-specific limitations.</li>

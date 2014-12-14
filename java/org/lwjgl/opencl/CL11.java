@@ -156,7 +156,7 @@ public final class CL11 {
 	 * @param buffer_create_type the type of buffer object to be created. Must be:<br>{@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}
 	 * @param buffer_create_info details about the buffer object to be created.
 	 *                           
-	 *                           <p>When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link cl_buffer_region}
+	 *                           <p>When {@code buffer_create_type} is {@link #CL_BUFFER_CREATE_TYPE_REGION BUFFER_CREATE_TYPE_REGION}, then {@code buffer_create_info} is a pointer to a {@link CLBufferRegion}
 	 *                           structure. {@code (origin, size)} defines the offset and size in bytes in buffer.</p>
 	 * @param errcode_ret        will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
