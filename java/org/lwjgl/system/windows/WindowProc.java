@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** An application-defined function that processes messages sent to a window. */
 public abstract class WindowProc extends Closure.Ptr {
 
-	private static final ByteBuffer    CIF  = ffi_cif.malloc();
+	private static final ByteBuffer    CIF  = FFICIF.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(4);
 
 	static {

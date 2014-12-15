@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback} method. */
 public abstract class GLFWMouseButtonCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = ffi_cif.malloc();
+	private static final ByteBuffer    CIF  = FFICIF.malloc();
 	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(4);
 
 	static {
