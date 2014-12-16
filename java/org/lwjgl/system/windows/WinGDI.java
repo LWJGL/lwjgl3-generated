@@ -293,18 +293,12 @@ public final class WinGDI {
 
 	// --- [ CreateCompatibleDC ] ---
 
-	/** JNI method for {@link #CreateCompatibleDC} */
-	@JavadocExclude
-	public static native long nCreateCompatibleDC(long hdc);
-
 	/**
 	 * Creates a memory device context (DC) compatible with the specified device.
 	 *
 	 * @param hdc a handle to an existing DC. If this handle is {@code NULL}, the function creates a memory DC compatible with the application's current screen.
 	 */
-	public static long CreateCompatibleDC(long hdc) {
-		return nCreateCompatibleDC(hdc);
-	}
+	public static native long CreateCompatibleDC(long hdc);
 
 	// --- [ DeleteDC ] ---
 

@@ -1603,19 +1603,13 @@ public final class WinUser {
 
 	// --- [ GetDC ] ---
 
-	/** JNI method for {@link #GetDC} */
-	@JavadocExclude
-	public static native long nGetDC(long window);
-
 	/**
 	 * Retrieves a handle to a device context (DC) for the client area of a specified window or for the entire screen. You can use the returned handle in
 	 * subsequent GDI functions to draw in the DC. The device context is an opaque data structure, whose values are used internally by GDI.
 	 *
 	 * @param window a handle to the window whose DC is to be retrieved. If this value is {@code NULL}, {@code GetDC} retrieves the DC for the entire screen.
 	 */
-	public static long GetDC(long window) {
-		return nGetDC(window);
-	}
+	public static native long GetDC(long window);
 
 	// --- [ ReleaseDC ] ---
 
@@ -1787,10 +1781,6 @@ public final class WinUser {
 
 	// --- [ SystemParametersInfo ] ---
 
-	/** JNI method for {@link #SystemParametersInfo} */
-	@JavadocExclude
-	public static native int nSystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni);
-
 	/**
 	 * Retrieves or sets the value of one of the system-wide parameters. This function can also update the user profile while setting a parameter.
 	 *
@@ -1804,9 +1794,7 @@ public final class WinUser {
 	 *                 
 	 *                 <p>This parameter can be zero if you do not want to update the user profile or broadcast the {@link #WM_SETTINGCHANGE} message.</p>
 	 */
-	public static int SystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni) {
-		return nSystemParametersInfo(uiAction, uiParam, pvParam, fWinIni);
-	}
+	public static native int SystemParametersInfo(int uiAction, int uiParam, long pvParam, int fWinIni);
 
 	// --- [ AdjustWindowRectEx ] ---
 
@@ -1967,10 +1955,6 @@ public final class WinUser {
 
 	// --- [ SetFocus ] ---
 
-	/** JNI method for {@link #SetFocus} */
-	@JavadocExclude
-	public static native long nSetFocus(long hWnd);
-
 	/**
 	 * Sets the keyboard focus to the specified window. The window must be attached to the calling thread's message queue.
 	 *
@@ -1979,9 +1963,7 @@ public final class WinUser {
 	 * @return the handle to the window that previously had the keyboard focus. If the {@code hWnd} parameter is invalid or the window is not attached to the calling
 	 *         thread's message queue, the return value is {@code NULL}.
 	 */
-	public static long SetFocus(long hWnd) {
-		return nSetFocus(hWnd);
-	}
+	public static native long SetFocus(long hWnd);
 
 	// --- [ SetWindowLongPtr ] ---
 
@@ -2111,10 +2093,6 @@ public final class WinUser {
 
 	// --- [ SetCursor ] ---
 
-	/** JNI method for {@link #SetCursor} */
-	@JavadocExclude
-	public static native long nSetCursor(long hCursor);
-
 	/**
 	 * Sets the cursor shape.
 	 * 
@@ -2135,9 +2113,7 @@ public final class WinUser {
 	 *
 	 * @return the handle to the previous cursor, if there was one
 	 */
-	public static long SetCursor(long hCursor) {
-		return nSetCursor(hCursor);
-	}
+	public static native long SetCursor(long hCursor);
 
 	// --- [ MapVirtualKey ] ---
 
@@ -2176,18 +2152,12 @@ public final class WinUser {
 
 	// --- [ OpenClipboard ] ---
 
-	/** JNI method for {@link #OpenClipboard} */
-	@JavadocExclude
-	public static native int nOpenClipboard(long hWndNewOwner);
-
 	/**
 	 * Opens the clipboard for examination and prevents other applications from modifying the clipboard content.
 	 *
 	 * @param hWndNewOwner a handle to the window to be associated with the open clipboard. If this parameter is {@code NULL}, the open clipboard is associated with the current task.
 	 */
-	public static int OpenClipboard(long hWndNewOwner) {
-		return nOpenClipboard(hWndNewOwner);
-	}
+	public static native int OpenClipboard(long hWndNewOwner);
 
 	// --- [ EmptyClipboard ] ---
 

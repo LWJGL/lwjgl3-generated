@@ -49,7 +49,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WGL_nwglGetProcAddress(JNI
 	return (jlong)(intptr_t)wglGetProcAddress(proc);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WGL_nwglMakeCurrent(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong contextAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WGL_wglMakeCurrent(JNIEnv *__env, jclass clazz, jlong hdcAddress, jlong contextAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	HGLRC context = (HGLRC)(intptr_t)contextAddress;
 	UNUSED_PARAMS(__env, clazz)

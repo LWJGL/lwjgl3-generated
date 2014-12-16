@@ -150,7 +150,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nDefWindowProc(JNI
 	return (jlong)DefWindowProc(window, msg, (WPARAM)wParam, (LPARAM)lParam);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nGetDC(JNIEnv *__env, jclass clazz, jlong windowAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_GetDC(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	HWND window = (HWND)(intptr_t)windowAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)GetDC(window);
@@ -199,7 +199,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nChangeDisplaySetti
 	return (jint)ChangeDisplaySettingsEx(deviceName, devMode, window, flags, param);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSystemParametersInfo(JNIEnv *__env, jclass clazz, jint uiAction, jint uiParam, jlong pvParamAddress, jint fWinIni) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_SystemParametersInfo(JNIEnv *__env, jclass clazz, jint uiAction, jint uiParam, jlong pvParamAddress, jint fWinIni) {
 	PVOID pvParam = (PVOID)(intptr_t)pvParamAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)SystemParametersInfo(uiAction, uiParam, pvParam, fWinIni);
@@ -256,7 +256,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nSetForegroundWindo
 	return (jint)SetForegroundWindow(hWnd);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetFocus(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_SetFocus(JNIEnv *__env, jclass clazz, jlong hWndAddress) {
 	HWND hWnd = (HWND)(intptr_t)hWndAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)SetFocus(hWnd);
@@ -306,7 +306,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_ShowCursor(JNIEnv *
 	return (jint)ShowCursor(show);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_nSetCursor(JNIEnv *__env, jclass clazz, jlong hCursorAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_SetCursor(JNIEnv *__env, jclass clazz, jlong hCursorAddress) {
 	HCURSOR hCursor = (HCURSOR)(intptr_t)hCursorAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)SetCursor(hCursor);
@@ -328,7 +328,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinUser_GetForegroundWindo
 	return (jlong)(intptr_t)GetForegroundWindow();
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_nOpenClipboard(JNIEnv *__env, jclass clazz, jlong hWndNewOwnerAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinUser_OpenClipboard(JNIEnv *__env, jclass clazz, jlong hWndNewOwnerAddress) {
 	HWND hWndNewOwner = (HWND)(intptr_t)hWndNewOwnerAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)OpenClipboard(hWndNewOwner);

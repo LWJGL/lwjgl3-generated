@@ -54,7 +54,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_nCreateDC(JNIEnv *_
 	return (jlong)(intptr_t)CreateDC(lpszDriver, lpszDevice, lpszOutput, lpInitData);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_nCreateCompatibleDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinGDI_CreateCompatibleDC(JNIEnv *__env, jclass clazz, jlong hdcAddress) {
 	HDC hdc = (HDC)(intptr_t)hdcAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)CreateCompatibleDC(hdc);

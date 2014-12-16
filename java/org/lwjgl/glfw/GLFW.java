@@ -2463,10 +2463,6 @@ public final class GLFW {
 
 	// --- [ glfwMakeContextCurrent ] ---
 
-	/** JNI method for {@link #glfwMakeContextCurrent MakeContextCurrent} */
-	@JavadocExclude
-	public static native void nglfwMakeContextCurrent(long window);
-
 	/**
 	 * Makes the OpenGL or OpenGL ES context of the specified window current on the calling thread. A context can only be made current on a single thread at a
 	 * time and each thread can have only a single current context at a time.
@@ -2481,9 +2477,7 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static void glfwMakeContextCurrent(long window) {
-		nglfwMakeContextCurrent(window);
-	}
+	public static native void glfwMakeContextCurrent(long window);
 
 	// --- [ glfwGetCurrentContext ] ---
 

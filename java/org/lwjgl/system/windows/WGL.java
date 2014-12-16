@@ -175,10 +175,6 @@ public final class WGL {
 
 	// --- [ wglMakeCurrent ] ---
 
-	/** JNI method for {@link #wglMakeCurrent MakeCurrent} */
-	@JavadocExclude
-	public static native int nwglMakeCurrent(long hdc, long context);
-
 	/**
 	 * Makes a specified OpenGL rendering context the calling thread's current rendering context. All subsequent OpenGL calls made by the thread are drawn on
 	 * the device identified by device. You can also use MakeCurrent to change the calling thread's current rendering context so it's no longer current.
@@ -188,9 +184,7 @@ public final class WGL {
 	 *                makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
 	 *                this case, {@code hdc} is ignored.
 	 */
-	public static int wglMakeCurrent(long hdc, long context) {
-		return nwglMakeCurrent(hdc, context);
-	}
+	public static native int wglMakeCurrent(long hdc, long context);
 
 	// --- [ wglShareLists ] ---
 

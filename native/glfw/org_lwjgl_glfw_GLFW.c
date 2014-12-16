@@ -468,7 +468,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_glfwSetTime(JNIEnv *__env, jclas
 	glfwSetTime(time);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nglfwMakeContextCurrent(JNIEnv *__env, jclass clazz, jlong windowAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_glfwMakeContextCurrent(JNIEnv *__env, jclass clazz, jlong windowAddress) {
 	GLFWwindow *window = (GLFWwindow *)(intptr_t)windowAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glfwMakeContextCurrent(window);
