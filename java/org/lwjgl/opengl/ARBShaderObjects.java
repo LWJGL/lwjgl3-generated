@@ -818,12 +818,14 @@ public final class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform1iARB(int location, int count, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, count << 2);
 		nglUniform1ivARB(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform1iARB(int, int, ByteBuffer) Uniform1iARB} */
-	public static void glUniform1ARB(int location, int count, IntBuffer value) {
-		nglUniform1ivARB(location, count, memAddress(value));
+	public static void glUniform1ARB(int location, IntBuffer value) {
+		nglUniform1ivARB(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2ivARB ] ---
@@ -849,12 +851,14 @@ public final class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform2iARB(int location, int count, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, (count << 1) << 2);
 		nglUniform2ivARB(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform2iARB(int, int, ByteBuffer) Uniform2iARB} */
-	public static void glUniform2ARB(int location, int count, IntBuffer value) {
-		nglUniform2ivARB(location, count, memAddress(value));
+	public static void glUniform2ARB(int location, IntBuffer value) {
+		nglUniform2ivARB(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3ivARB ] ---
@@ -880,12 +884,14 @@ public final class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform3iARB(int location, int count, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, (count * 3) << 2);
 		nglUniform3ivARB(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform3iARB(int, int, ByteBuffer) Uniform3iARB} */
-	public static void glUniform3ARB(int location, int count, IntBuffer value) {
-		nglUniform3ivARB(location, count, memAddress(value));
+	public static void glUniform3ARB(int location, IntBuffer value) {
+		nglUniform3ivARB(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4ivARB ] ---
@@ -911,12 +917,14 @@ public final class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform4iARB(int location, int count, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, (count << 2) << 2);
 		nglUniform4ivARB(location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glUniform4iARB(int, int, ByteBuffer) Uniform4iARB} */
-	public static void glUniform4ARB(int location, int count, IntBuffer value) {
-		nglUniform4ivARB(location, count, memAddress(value));
+	public static void glUniform4ARB(int location, IntBuffer value) {
+		nglUniform4ivARB(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2fvARB ] ---
