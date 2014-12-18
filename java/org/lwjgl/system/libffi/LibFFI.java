@@ -25,15 +25,15 @@ import static org.lwjgl.system.libffi.LibFFIConstants.*;
  * <p>libffi assumes that you have a pointer to the function you wish to call and that you know the number and types of arguments to pass it, as well as the
  * return type of the function.</p>
  * 
- * <p>The first thing you must do is create an {@link ffi_cif} object that matches the signature of the function you wish to call. This is a separate step
- * because it is common to make multiple calls using a single {@link ffi_cif}. The {@code cif} in {@code ffi_cif} stands for Call InterFace. To prepare a
+ * <p>The first thing you must do is create an {@link FFICIF} object that matches the signature of the function you wish to call. This is a separate step
+ * because it is common to make multiple calls using a single {@link FFICIF}. The {@code cif} in {@code ffi_cif} stands for Call InterFace. To prepare a
  * call interface object, use the function {@link #ffi_prep_cif prep_cif}. To call a function using an initialized {@code ffi_cif}, use the {@link #ffi_call call} function.</p>
  * 
  * <p><strong>LWJGL note</strong>: The closure and raw APIs are not exposed.</p>
  */
 public final class LibFFI {
 
-	/** Types used to create custom {@link ffi_cif}. */
+	/** Types used to create custom {@link FFICIF}. */
 	public static final int
 		FFI_TYPE_VOID       = 0x0,
 		FFI_TYPE_INT        = 0x1,
@@ -68,7 +68,7 @@ public final class LibFFI {
 		FFI_BAD_TYPEDEF = 0x1,
 		FFI_BAD_ABI     = 0x2;
 
-	/** Data types. These are the addresses of libffi's predefined {@link ffi_type} structs. */
+	/** Data types. These are the addresses of libffi's predefined {@link FFIType} structs. */
 	public static final long
 		ffi_type_void       = ffi_type_void(),
 		ffi_type_uint8      = ffi_type_uint8(),
@@ -103,12 +103,12 @@ public final class LibFFI {
 	public static native int nffi_prep_cif(long cif, int abi, int nargs, long rtype, long atypes);
 
 	/**
-	 * Prepares an {@link ffi_cif} structure for use with {@link #ffi_call call}.
+	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call}.
 	 *
-	 * @param cif    the {@link ffi_cif} structure to prepare
+	 * @param cif    the {@link FFICIF} structure to prepare
 	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nargs  the number of arguments
-	 * @param rtype  points to an {@link ffi_type} that describes the data type, size and alignment of the return value
+	 * @param rtype  points to an {@link FFIType} that describes the data type, size and alignment of the return value
 	 * @param atypes an array of {@code nargs} pointers to {@link ffi_type} structs that describe the data type, size and alignment of each argument
 	 *
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
@@ -139,14 +139,14 @@ public final class LibFFI {
 	public static native int nffi_prep_cif_var(long cif, int abi, int nfixedargs, int ntotalargs, long rtype, long atypes);
 
 	/**
-	 * Prepares an {@link ffi_cif} structure for use with {@link #ffi_call call} for variadic functions.
+	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call} for variadic functions.
 	 *
-	 * @param cif        the {@link ffi_cif} structure to prepare
+	 * @param cif        the {@link FFICIF} structure to prepare
 	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nfixedargs the number of fixed (non-variadic) arguments
 	 * @param ntotalargs the total number of arguments
-	 * @param rtype      points to an {@link ffi_type} that describes the data type, size and alignment of the return value
-	 * @param atypes     an array of {@code ntotalargs} pointers to {@link ffi_type} structs that describe the data type, size and alignment of each argument
+	 * @param rtype      points to an {@link FFIType} that describes the data type, size and alignment of the return value
+	 * @param atypes     an array of {@code ntotalargs} pointers to {@link FFIType} structs that describe the data type, size and alignment of each argument
 	 *
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
@@ -178,7 +178,7 @@ public final class LibFFI {
 	/**
 	 * Provides a simple mechanism for invoking a function without requiring knowledge of the function's interface at compile time.
 	 *
-	 * @param cif    a {@link ffi_cif} structure. It must be initialized with {@link #ffi_prep_cif prep_cif} or {@link #ffi_prep_cif_var prep_cif_var} before it is used with {@code ffi_call}.
+	 * @param cif    a {@link FFICIF} structure. It must be initialized with {@link #ffi_prep_cif prep_cif} or {@link #ffi_prep_cif_var prep_cif_var} before it is used with {@code ffi_call}.
 	 * @param fn     the function to call
 	 * @param rvalue a pointer to storage in which to place the returned value. The storage must be sizeof(ffi_arg) or larger for non-floating point types. For
 	 *               smaller-sized return value types, the ffi_arg or ffi_sarg integral type must be used to hold the return value.
@@ -208,9 +208,9 @@ public final class LibFFI {
 	public static native long nffi_closure_alloc(long size, long code);
 
 	/**
-	 * Allocates an {@link ffi_closure} structure.
+	 * Allocates an {@link FFIClosure} structure.
 	 *
-	 * @param size the number of bytes to allocate. Must be:<br>{@link ffi_closure#SIZEOF}
+	 * @param size the number of bytes to allocate. Must be:<br>{@link FFIClosure#SIZEOF}
 	 * @param code a buffer in which to place the returned executable address
 	 *
 	 * @return a pointer to the writable address
@@ -239,7 +239,7 @@ public final class LibFFI {
 	/**
 	 * Frees memory allocated using {@link #ffi_closure_alloc closure_alloc}.
 	 *
-	 * @param writable the address of an {@link ffi_closure} structure
+	 * @param writable the address of an {@link FFIClosure} structure
 	 */
 	public static void ffi_closure_free(ByteBuffer writable) {
 		nffi_closure_free(memAddress(writable));
@@ -254,8 +254,8 @@ public final class LibFFI {
 	/**
 	 * 
 	 *
-	 * @param closure   the address of an {@link ffi_closure} object; this is the writable address returned by {@link #ffi_closure_alloc closure_alloc}.
-	 * @param cif       the {@link ffi_cif} describing the function parameters
+	 * @param closure   the address of an {@link FFIClosure} object; this is the writable address returned by {@link #ffi_closure_alloc closure_alloc}.
+	 * @param cif       the {@link FFICIF} describing the function parameters
 	 * @param fun       the function which will be called when the closure is invoked
 	 * @param user_data an arbitrary datum that is passed, uninterpreted, to your closure function
 	 * @param codeloc   the executable address returned by {@link #ffi_closure_alloc closure_alloc}.
