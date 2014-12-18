@@ -172,33 +172,33 @@ public final class GL33 {
 		VertexP2ui = GL.getFunctionAddress(provider, "glVertexP2ui", fc);
 		VertexP3ui = GL.getFunctionAddress(provider, "glVertexP3ui", fc);
 		VertexP4ui = GL.getFunctionAddress(provider, "glVertexP4ui", fc);
-		VertexP2uiv = provider.getFunctionAddress("glVertexP2uiv");
-		VertexP3uiv = provider.getFunctionAddress("glVertexP3uiv");
-		VertexP4uiv = provider.getFunctionAddress("glVertexP4uiv");
+		VertexP2uiv = GL.getFunctionAddress(provider, "glVertexP2uiv", fc);
+		VertexP3uiv = GL.getFunctionAddress(provider, "glVertexP3uiv", fc);
+		VertexP4uiv = GL.getFunctionAddress(provider, "glVertexP4uiv", fc);
 		TexCoordP1ui = GL.getFunctionAddress(provider, "glTexCoordP1ui", fc);
 		TexCoordP2ui = GL.getFunctionAddress(provider, "glTexCoordP2ui", fc);
 		TexCoordP3ui = GL.getFunctionAddress(provider, "glTexCoordP3ui", fc);
 		TexCoordP4ui = GL.getFunctionAddress(provider, "glTexCoordP4ui", fc);
-		TexCoordP1uiv = provider.getFunctionAddress("glTexCoordP1uiv");
-		TexCoordP2uiv = provider.getFunctionAddress("glTexCoordP2uiv");
-		TexCoordP3uiv = provider.getFunctionAddress("glTexCoordP3uiv");
-		TexCoordP4uiv = provider.getFunctionAddress("glTexCoordP4uiv");
+		TexCoordP1uiv = GL.getFunctionAddress(provider, "glTexCoordP1uiv", fc);
+		TexCoordP2uiv = GL.getFunctionAddress(provider, "glTexCoordP2uiv", fc);
+		TexCoordP3uiv = GL.getFunctionAddress(provider, "glTexCoordP3uiv", fc);
+		TexCoordP4uiv = GL.getFunctionAddress(provider, "glTexCoordP4uiv", fc);
 		MultiTexCoordP1ui = GL.getFunctionAddress(provider, "glMultiTexCoordP1ui", fc);
 		MultiTexCoordP2ui = GL.getFunctionAddress(provider, "glMultiTexCoordP2ui", fc);
 		MultiTexCoordP3ui = GL.getFunctionAddress(provider, "glMultiTexCoordP3ui", fc);
 		MultiTexCoordP4ui = GL.getFunctionAddress(provider, "glMultiTexCoordP4ui", fc);
-		MultiTexCoordP1uiv = provider.getFunctionAddress("glMultiTexCoordP1uiv");
-		MultiTexCoordP2uiv = provider.getFunctionAddress("glMultiTexCoordP2uiv");
-		MultiTexCoordP3uiv = provider.getFunctionAddress("glMultiTexCoordP3uiv");
-		MultiTexCoordP4uiv = provider.getFunctionAddress("glMultiTexCoordP4uiv");
-		NormalP3ui = provider.getFunctionAddress("glNormalP3ui");
-		NormalP3uiv = provider.getFunctionAddress("glNormalP3uiv");
-		ColorP3ui = provider.getFunctionAddress("glColorP3ui");
-		ColorP4ui = provider.getFunctionAddress("glColorP4ui");
-		ColorP3uiv = provider.getFunctionAddress("glColorP3uiv");
-		ColorP4uiv = provider.getFunctionAddress("glColorP4uiv");
-		SecondaryColorP3ui = provider.getFunctionAddress("glSecondaryColorP3ui");
-		SecondaryColorP3uiv = provider.getFunctionAddress("glSecondaryColorP3uiv");
+		MultiTexCoordP1uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP1uiv", fc);
+		MultiTexCoordP2uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP2uiv", fc);
+		MultiTexCoordP3uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP3uiv", fc);
+		MultiTexCoordP4uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP4uiv", fc);
+		NormalP3ui = GL.getFunctionAddress(provider, "glNormalP3ui", fc);
+		NormalP3uiv = GL.getFunctionAddress(provider, "glNormalP3uiv", fc);
+		ColorP3ui = GL.getFunctionAddress(provider, "glColorP3ui", fc);
+		ColorP4ui = GL.getFunctionAddress(provider, "glColorP4ui", fc);
+		ColorP3uiv = GL.getFunctionAddress(provider, "glColorP3uiv", fc);
+		ColorP4uiv = GL.getFunctionAddress(provider, "glColorP4uiv", fc);
+		SecondaryColorP3ui = GL.getFunctionAddress(provider, "glSecondaryColorP3ui", fc);
+		SecondaryColorP3uiv = GL.getFunctionAddress(provider, "glSecondaryColorP3uiv", fc);
 		VertexAttribP1ui = provider.getFunctionAddress("glVertexAttribP1ui");
 		VertexAttribP2ui = provider.getFunctionAddress("glVertexAttribP2ui");
 		VertexAttribP3ui = provider.getFunctionAddress("glVertexAttribP3ui");
@@ -222,16 +222,16 @@ public final class GL33 {
 		GL33 funcs = new GL33(provider, fc);
 
 		boolean supported = (fc || checkFunctions(
-			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.TexCoordP1ui, funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, 
-			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui
+			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.VertexP2uiv, funcs.VertexP3uiv, funcs.VertexP4uiv, funcs.TexCoordP1ui, 
+			funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, 
+			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui, funcs.MultiTexCoordP1uiv, 
+			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
+			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv
 		)) && checkFunctions(
 			funcs.BindFragDataLocationIndexed, funcs.GetFragDataIndex, funcs.GenSamplers, funcs.DeleteSamplers, funcs.IsSampler, funcs.BindSampler, 
 			funcs.SamplerParameteri, funcs.SamplerParameterf, funcs.SamplerParameteriv, funcs.SamplerParameterfv, funcs.SamplerParameterIiv, 
 			funcs.SamplerParameterIuiv, funcs.GetSamplerParameteriv, funcs.GetSamplerParameterfv, funcs.GetSamplerParameterIiv, funcs.GetSamplerParameterIuiv, 
-			funcs.QueryCounter, funcs.GetQueryObjecti64v, funcs.GetQueryObjectui64v, funcs.VertexAttribDivisor, funcs.VertexP2uiv, funcs.VertexP3uiv, 
-			funcs.VertexP4uiv, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, funcs.MultiTexCoordP1uiv, 
-			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
-			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv, funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, 
+			funcs.QueryCounter, funcs.GetQueryObjecti64v, funcs.GetQueryObjectui64v, funcs.VertexAttribDivisor, funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, 
 			funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, funcs.VertexAttribP3uiv, funcs.VertexAttribP4uiv
 		);
 
@@ -1001,7 +1001,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexP2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP2ui VertexP2ui}.
 	 *
@@ -1037,7 +1037,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP3ui VertexP3ui}.
 	 *
@@ -1073,7 +1073,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexP4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glVertexP4ui VertexP4ui}.
 	 *
@@ -1193,7 +1193,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP1.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP1ui TexCoordP1ui}.
 	 *
@@ -1229,7 +1229,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP2ui TexCoordP2ui}.
 	 *
@@ -1265,7 +1265,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP3ui TexCoordP3ui}.
 	 *
@@ -1301,7 +1301,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexCoordP4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glTexCoordP4ui TexCoordP4ui}.
 	 *
@@ -1425,7 +1425,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP1.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP1ui MultiTexCoordP1ui}.
 	 *
@@ -1462,7 +1462,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP2.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP2ui MultiTexCoordP2ui}.
 	 *
@@ -1499,7 +1499,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP3ui MultiTexCoordP3ui}.
 	 *
@@ -1536,7 +1536,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiTexCoordP4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glMultiTexCoordP4ui MultiTexCoordP4ui}.
 	 *
@@ -1564,7 +1564,7 @@ public final class GL33 {
 	public static native void nglNormalP3ui(int type, int coords, long __functionAddress);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glNormal3f Normal3f}.
 	 *
@@ -1594,7 +1594,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNormalP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version {@link #glNormalP3ui NormalP3ui}.
 	 *
@@ -1621,7 +1621,7 @@ public final class GL33 {
 	public static native void nglColorP3ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorP3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glColor3f Color3f}.
 	 *
@@ -1642,7 +1642,7 @@ public final class GL33 {
 	public static native void nglColorP4ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorP4ui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL11#glColor4f Color4f}.
 	 *
@@ -1672,7 +1672,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColorP3ui ColorP3ui}.
 	 *
@@ -1708,7 +1708,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorP4.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glColorP4ui ColorP4ui}.
 	 *
@@ -1735,7 +1735,7 @@ public final class GL33 {
 	public static native void nglSecondaryColorP3ui(int type, int color, long __functionAddress);
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Packed component version of {@link GL14#glSecondaryColor3f SecondaryColor3f}.
 	 *
@@ -1765,7 +1765,7 @@ public final class GL33 {
 	}
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSecondaryColorP3.xhtml">OpenGL SDK Reference</a></p>
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
 	 * Pointer version of {@link #glSecondaryColorP3ui SecondaryColorP3ui}.
 	 *
