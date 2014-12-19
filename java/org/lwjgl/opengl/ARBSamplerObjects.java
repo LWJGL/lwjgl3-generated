@@ -265,7 +265,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Float version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -292,7 +292,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -319,7 +319,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Unsigned pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -385,7 +385,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Float version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Float version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
@@ -424,7 +424,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
@@ -463,7 +463,7 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Unsigned pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter

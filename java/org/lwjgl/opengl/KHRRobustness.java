@@ -230,7 +230,7 @@ public final class KHRRobustness {
 	}
 
 	/**
-	 * Integer version of {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf}.
+	 * Integer version of {@link #glGetnUniformf GetnUniformf}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
@@ -260,7 +260,7 @@ public final class KHRRobustness {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi}.
+	 * Unsigned version of {@link #glGetnUniformi GetnUniformi}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location

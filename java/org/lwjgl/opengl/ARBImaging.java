@@ -427,7 +427,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glColorTableParameteri(int, int, ByteBuffer) ColorTableParameteri}.
+	 * Float version of {@link #glColorTableParameteri ColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to set
@@ -562,7 +562,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetColorTableParameteri(int, int, ByteBuffer) GetColorTableParameteri}.
+	 * Float version of {@link #glGetColorTableParameteri GetColorTableParameteri}.
 	 *
 	 * @param target the color table target
 	 * @param pname  the parameter to query
@@ -1074,7 +1074,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetConvolutionParameteri(int, int, ByteBuffer) GetConvolutionParameteri}.
+	 * Float version of {@link #glGetConvolutionParameteri GetConvolutionParameteri}.
 	 *
 	 * @param target the filter target
 	 * @param pname  the parameter to query
@@ -1236,7 +1236,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetHistogramParameteri(int, int, ByteBuffer) GetHistogramParameteri}.
+	 * Float version of {@link #glGetHistogramParameteri GetHistogramParameteri}.
 	 *
 	 * @param target the histogram target
 	 * @param pname  the parameter to query
@@ -1398,7 +1398,7 @@ public final class ARBImaging {
 	}
 
 	/**
-	 * Float version of {@link #glGetMinmaxParameteri(int, int, ByteBuffer) GetMinmaxParameteri}.
+	 * Float version of {@link #glGetMinmaxParameteri GetMinmaxParameteri}.
 	 *
 	 * @param target the minmax target. Must be:<br>{@link #GL_MINMAX MINMAX}
 	 * @param pname  the parameter to query

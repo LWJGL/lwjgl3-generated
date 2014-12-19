@@ -4236,7 +4236,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Integer version of {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf}.
+	 * Integer version of {@link #glGetnUniformf GetnUniformf}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
@@ -4272,7 +4272,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi}.
+	 * Unsigned version of {@link #glGetnUniformi GetnUniformi}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location

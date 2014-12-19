@@ -109,7 +109,7 @@ public final class LibFFI {
 	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nargs  the number of arguments
 	 * @param rtype  points to an {@link FFIType} that describes the data type, size and alignment of the return value
-	 * @param atypes an array of {@code nargs} pointers to {@link ffi_type} structs that describe the data type, size and alignment of each argument
+	 * @param atypes an array of {@code nargs} pointers to {@link FFIType} structs that describe the data type, size and alignment of each argument
 	 *
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.

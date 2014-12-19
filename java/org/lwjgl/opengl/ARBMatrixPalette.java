@@ -157,7 +157,7 @@ public final class ARBMatrixPalette {
 	}
 
 	/**
-	 * Byte version of {@link #glMatrixIndexuiARB(int, ByteBuffer) MatrixIndexuiARB}.
+	 * Byte version of {@link #glMatrixIndexuiARB MatrixIndexuiARB}.
 	 *
 	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values
@@ -189,7 +189,7 @@ public final class ARBMatrixPalette {
 	}
 
 	/**
-	 * Short version of {@link #glMatrixIndexuiARB(int, ByteBuffer) MatrixIndexuiARB}.
+	 * Short version of {@link #glMatrixIndexuiARB MatrixIndexuiARB}.
 	 *
 	 * @param size    the number of index values to set. Must be a value between 1 and {@link ARBVertexBlend#GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param indices the matrix index values

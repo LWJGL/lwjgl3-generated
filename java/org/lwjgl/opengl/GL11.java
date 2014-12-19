@@ -4317,7 +4317,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti}.
+	 * Float version of {@link #glGetLighti GetLighti}.
 	 *
 	 * @param light the light for which to return information
 	 * @param pname the light parameter to query
@@ -4407,7 +4407,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi}.
+	 * Float version of {@link #glGetMapi GetMapi}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
@@ -4452,7 +4452,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Double version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi}.
+	 * Double version of {@link #glGetMapi GetMapi}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
@@ -4530,7 +4530,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali}.
+	 * Float version of {@link #glGetMateriali GetMateriali}.
 	 *
 	 * @param face  the material face for which to return information
 	 * @param pname the information to query
@@ -4610,7 +4610,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned short version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
+	 * Unsigned short version of {@link #glGetPixelMapf GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data a buffer in which to place the returned data
@@ -4657,7 +4657,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned integer version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf}.
+	 * Unsigned integer version of {@link #glGetPixelMapf GetPixelMapf}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data a buffer in which to place the returned data
@@ -4855,7 +4855,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi}.
+	 * Float version of {@link #glGetTexEnvi GetTexEnvi}.
 	 *
 	 * @param env   the texture environment to query
 	 * @param pname the parameter to query
@@ -4945,7 +4945,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
+	 * Float version of {@link #glGetTexGeni GetTexGeni}.
 	 *
 	 * @param coord the coord to query
 	 * @param pname the parameter to query
@@ -4990,7 +4990,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Double version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni}.
+	 * Double version of {@link #glGetTexGeni GetTexGeni}.
 	 *
 	 * @param coord the coord to query
 	 * @param pname the parameter to query
@@ -5148,7 +5148,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri}.
+	 * Float version of {@link #glGetTexLevelParameteri GetTexLevelParameteri}.
 	 *
 	 * @param target the texture image target
 	 * @param level  the level-of-detail number
@@ -5239,7 +5239,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri}.
+	 * Float version of {@link #glGetTexParameteri GetTexParameteri}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to query
@@ -7240,7 +7240,7 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned short version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf}.
+	 * Unsigned short version of {@link #glPixelMapf PixelMapf}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size
@@ -7286,7 +7286,7 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned integer version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf}.
+	 * Unsigned integer version of {@link #glPixelMapf PixelMapf}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size

@@ -402,7 +402,7 @@ public final class ARBBindlessTexture {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformHandleui64ARB(int, int, ByteBuffer) UniformHandleui64ARB}.
+	 * DSA version of {@link #glUniformHandleui64ARB UniformHandleui64ARB}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location

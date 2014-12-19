@@ -905,7 +905,7 @@ public final class GL15 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti}.
+	 * Unsigned version of {@link #glGetQueryObjecti GetQueryObjecti}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT QUERY_RESULT}, {@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}

@@ -948,7 +948,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Byte version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
+	 * Byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1009,7 +1009,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Integer version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
+	 * Integer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1043,7 +1043,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned byte version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
+	 * Unsigned byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1070,7 +1070,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned short version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
+	 * Unsigned short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1104,7 +1104,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Unsigned integer version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB}
+	 * Unsigned integer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1859,7 +1859,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Double version of {@link #glGetProgramEnvParameterfARB(int, int, ByteBuffer) GetProgramEnvParameterfARB}.
+	 * Double version of {@link #glGetProgramEnvParameterfARB GetProgramEnvParameterfARB}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
@@ -1930,7 +1930,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Double version of {@link #glGetProgramLocalParameterfARB(int, int, ByteBuffer) GetProgramLocalParameterfARB}.
+	 * Double version of {@link #glGetProgramLocalParameterfARB GetProgramLocalParameterfARB}.
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
 	 * @param index  the environment parameter index
@@ -2011,7 +2011,7 @@ public final class ARBVertexProgram {
 	/**
 	 * Obtains the program string for the program object bound to {@code target} and places the information in the array {@code string}.
 	 * 
-	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramiARB(int, int, ByteBuffer) GetProgramiARB} when
+	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramiARB GetProgramiARB} when
 	 * {@code pname} is {@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}. The program string is always returned using the format given when the program string was specified.</p>
 	 *
 	 * @param target the program target. One of:<br>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}, {@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}
@@ -2077,7 +2077,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Double version of {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB}.
+	 * Double version of {@link #glGetVertexAttribfARB GetVertexAttribfARB}.
 	 *
 	 * @param index  the vertex attribute index
 	 * @param pname  the parameter to query. Must be:<br>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}
@@ -2112,7 +2112,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Integer version of {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB}.
+	 * Integer version of {@link #glGetVertexAttribfARB GetVertexAttribfARB}.
 	 *
 	 * @param index  the vertex attribute index
 	 * @param pname  the parameter to query. One of:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}, {@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}

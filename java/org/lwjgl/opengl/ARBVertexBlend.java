@@ -186,7 +186,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Byte version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Byte version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -218,7 +218,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned byte version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Unsigned byte version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -250,7 +250,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Short version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Short version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -282,7 +282,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned short version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Unsigned short version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -314,7 +314,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Integer version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Integer version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -346,7 +346,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned integer version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Unsigned integer version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
@@ -378,7 +378,7 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Double version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB}.
+	 * Double version of {@link #glWeightfARB WeightfARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights

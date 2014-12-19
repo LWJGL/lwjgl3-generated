@@ -189,7 +189,7 @@ public final class WGLARBPixelFormat {
 	}
 
 	/**
-	 * Float version of {@link #wglGetPixelFormatAttribiARB(long, int, int, int, ByteBuffer, ByteBuffer) GetPixelFormatAttribiARB}.
+	 * Float version of {@link #wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}.
 	 *
 	 * @param hdc         the device context on which the pixel format is supported
 	 * @param pixelFormat an index that specifies the pixel format

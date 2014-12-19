@@ -3216,7 +3216,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi}.
+	 * Float version of {@link #glGetVertexAttribi GetVertexAttribi}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
@@ -3253,7 +3253,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Double version of {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi}.
+	 * Double version of {@link #glGetVertexAttribi GetVertexAttribi}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried

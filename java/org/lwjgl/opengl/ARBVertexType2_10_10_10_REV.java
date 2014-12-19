@@ -77,33 +77,33 @@ public final class ARBVertexType2_10_10_10_REV {
 		VertexP2ui = GL.getFunctionAddress(provider, "glVertexP2ui", fc);
 		VertexP3ui = GL.getFunctionAddress(provider, "glVertexP3ui", fc);
 		VertexP4ui = GL.getFunctionAddress(provider, "glVertexP4ui", fc);
-		VertexP2uiv = provider.getFunctionAddress("glVertexP2uiv");
-		VertexP3uiv = provider.getFunctionAddress("glVertexP3uiv");
-		VertexP4uiv = provider.getFunctionAddress("glVertexP4uiv");
+		VertexP2uiv = GL.getFunctionAddress(provider, "glVertexP2uiv", fc);
+		VertexP3uiv = GL.getFunctionAddress(provider, "glVertexP3uiv", fc);
+		VertexP4uiv = GL.getFunctionAddress(provider, "glVertexP4uiv", fc);
 		TexCoordP1ui = GL.getFunctionAddress(provider, "glTexCoordP1ui", fc);
 		TexCoordP2ui = GL.getFunctionAddress(provider, "glTexCoordP2ui", fc);
 		TexCoordP3ui = GL.getFunctionAddress(provider, "glTexCoordP3ui", fc);
 		TexCoordP4ui = GL.getFunctionAddress(provider, "glTexCoordP4ui", fc);
-		TexCoordP1uiv = provider.getFunctionAddress("glTexCoordP1uiv");
-		TexCoordP2uiv = provider.getFunctionAddress("glTexCoordP2uiv");
-		TexCoordP3uiv = provider.getFunctionAddress("glTexCoordP3uiv");
-		TexCoordP4uiv = provider.getFunctionAddress("glTexCoordP4uiv");
+		TexCoordP1uiv = GL.getFunctionAddress(provider, "glTexCoordP1uiv", fc);
+		TexCoordP2uiv = GL.getFunctionAddress(provider, "glTexCoordP2uiv", fc);
+		TexCoordP3uiv = GL.getFunctionAddress(provider, "glTexCoordP3uiv", fc);
+		TexCoordP4uiv = GL.getFunctionAddress(provider, "glTexCoordP4uiv", fc);
 		MultiTexCoordP1ui = GL.getFunctionAddress(provider, "glMultiTexCoordP1ui", fc);
 		MultiTexCoordP2ui = GL.getFunctionAddress(provider, "glMultiTexCoordP2ui", fc);
 		MultiTexCoordP3ui = GL.getFunctionAddress(provider, "glMultiTexCoordP3ui", fc);
 		MultiTexCoordP4ui = GL.getFunctionAddress(provider, "glMultiTexCoordP4ui", fc);
-		MultiTexCoordP1uiv = provider.getFunctionAddress("glMultiTexCoordP1uiv");
-		MultiTexCoordP2uiv = provider.getFunctionAddress("glMultiTexCoordP2uiv");
-		MultiTexCoordP3uiv = provider.getFunctionAddress("glMultiTexCoordP3uiv");
-		MultiTexCoordP4uiv = provider.getFunctionAddress("glMultiTexCoordP4uiv");
-		NormalP3ui = provider.getFunctionAddress("glNormalP3ui");
-		NormalP3uiv = provider.getFunctionAddress("glNormalP3uiv");
-		ColorP3ui = provider.getFunctionAddress("glColorP3ui");
-		ColorP4ui = provider.getFunctionAddress("glColorP4ui");
-		ColorP3uiv = provider.getFunctionAddress("glColorP3uiv");
-		ColorP4uiv = provider.getFunctionAddress("glColorP4uiv");
-		SecondaryColorP3ui = provider.getFunctionAddress("glSecondaryColorP3ui");
-		SecondaryColorP3uiv = provider.getFunctionAddress("glSecondaryColorP3uiv");
+		MultiTexCoordP1uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP1uiv", fc);
+		MultiTexCoordP2uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP2uiv", fc);
+		MultiTexCoordP3uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP3uiv", fc);
+		MultiTexCoordP4uiv = GL.getFunctionAddress(provider, "glMultiTexCoordP4uiv", fc);
+		NormalP3ui = GL.getFunctionAddress(provider, "glNormalP3ui", fc);
+		NormalP3uiv = GL.getFunctionAddress(provider, "glNormalP3uiv", fc);
+		ColorP3ui = GL.getFunctionAddress(provider, "glColorP3ui", fc);
+		ColorP4ui = GL.getFunctionAddress(provider, "glColorP4ui", fc);
+		ColorP3uiv = GL.getFunctionAddress(provider, "glColorP3uiv", fc);
+		ColorP4uiv = GL.getFunctionAddress(provider, "glColorP4uiv", fc);
+		SecondaryColorP3ui = GL.getFunctionAddress(provider, "glSecondaryColorP3ui", fc);
+		SecondaryColorP3uiv = GL.getFunctionAddress(provider, "glSecondaryColorP3uiv", fc);
 		VertexAttribP1ui = provider.getFunctionAddress("glVertexAttribP1ui");
 		VertexAttribP2ui = provider.getFunctionAddress("glVertexAttribP2ui");
 		VertexAttribP3ui = provider.getFunctionAddress("glVertexAttribP3ui");
@@ -127,14 +127,14 @@ public final class ARBVertexType2_10_10_10_REV {
 		ARBVertexType2_10_10_10_REV funcs = new ARBVertexType2_10_10_10_REV(provider, fc);
 
 		boolean supported = (fc || checkFunctions(
-			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.TexCoordP1ui, funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, 
-			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui
+			funcs.VertexP2ui, funcs.VertexP3ui, funcs.VertexP4ui, funcs.VertexP2uiv, funcs.VertexP3uiv, funcs.VertexP4uiv, funcs.TexCoordP1ui, 
+			funcs.TexCoordP2ui, funcs.TexCoordP3ui, funcs.TexCoordP4ui, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, 
+			funcs.MultiTexCoordP1ui, funcs.MultiTexCoordP2ui, funcs.MultiTexCoordP3ui, funcs.MultiTexCoordP4ui, funcs.MultiTexCoordP1uiv, 
+			funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, funcs.ColorP3ui, funcs.ColorP4ui, 
+			funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv
 		)) && checkFunctions(
-			funcs.VertexP2uiv, funcs.VertexP3uiv, funcs.VertexP4uiv, funcs.TexCoordP1uiv, funcs.TexCoordP2uiv, funcs.TexCoordP3uiv, funcs.TexCoordP4uiv, 
-			funcs.MultiTexCoordP1uiv, funcs.MultiTexCoordP2uiv, funcs.MultiTexCoordP3uiv, funcs.MultiTexCoordP4uiv, funcs.NormalP3ui, funcs.NormalP3uiv, 
-			funcs.ColorP3ui, funcs.ColorP4ui, funcs.ColorP3uiv, funcs.ColorP4uiv, funcs.SecondaryColorP3ui, funcs.SecondaryColorP3uiv, funcs.VertexAttribP1ui, 
-			funcs.VertexAttribP2ui, funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, funcs.VertexAttribP3uiv, 
-			funcs.VertexAttribP4uiv
+			funcs.VertexAttribP1ui, funcs.VertexAttribP2ui, funcs.VertexAttribP3ui, funcs.VertexAttribP4ui, funcs.VertexAttribP1uiv, funcs.VertexAttribP2uiv, 
+			funcs.VertexAttribP3uiv, funcs.VertexAttribP4uiv
 		);
 
 		return GL.checkExtension("GL_ARB_vertex_type_2_10_10_10_rev", funcs, supported);

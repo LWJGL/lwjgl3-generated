@@ -141,7 +141,7 @@ public final class ARBTimerQuery {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetQueryObjecti64(int, int, ByteBuffer) GetQueryObjecti64}.
+	 * Unsigned version of {@link #glGetQueryObjecti64 GetQueryObjecti64}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter

@@ -1519,7 +1519,7 @@ public final class ARBVertexShader {
 	}
 
 	/**
-	 * Float version of {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB}.
+	 * Float version of {@link #glGetVertexAttribiARB GetVertexAttribiARB}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
@@ -1554,7 +1554,7 @@ public final class ARBVertexShader {
 	}
 
 	/**
-	 * Double version of {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB}.
+	 * Double version of {@link #glGetVertexAttribiARB GetVertexAttribiARB}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried

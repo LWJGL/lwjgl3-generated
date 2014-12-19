@@ -529,7 +529,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -562,7 +562,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -595,7 +595,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned pure integer version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
@@ -673,7 +673,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Float version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
@@ -718,7 +718,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
@@ -763,7 +763,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned pure integer version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
@@ -874,7 +874,7 @@ public final class GL33 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetQueryObjecti64(int, int, ByteBuffer) GetQueryObjecti64}.
+	 * Unsigned version of {@link #glGetQueryObjecti64 GetQueryObjecti64}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter

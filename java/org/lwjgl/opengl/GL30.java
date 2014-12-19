@@ -1325,7 +1325,7 @@ public final class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4b.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Byte version of {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i}.
+	 * Byte version of {@link #glVertexAttribI4i VertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1354,7 +1354,7 @@ public final class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Short version of {@link #glVertexAttribI4i(int, ByteBuffer) VertexAttribI4i}.
+	 * Short version of {@link #glVertexAttribI4i VertexAttribI4i}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1390,7 +1390,7 @@ public final class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4ub.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Byte version of {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui}.
+	 * Byte version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1419,7 +1419,7 @@ public final class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Short version of {@link #glVertexAttribI4ui(int, ByteBuffer) VertexAttribI4ui}.
+	 * Short version of {@link #glVertexAttribI4ui VertexAttribI4ui}.
 	 *
 	 * @param index the index of the pure integer generic vertex attribute to be modified
 	 * @param v     the pure integer vertex attribute buffer
@@ -1555,7 +1555,7 @@ public final class GL30 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetVertexAttribIi(int, int, ByteBuffer) GetVertexAttribIi}.
+	 * Unsigned version of {@link #glGetVertexAttribIi GetVertexAttribIi}.
 	 *
 	 * @param index  the index of the pure integer generic vertex attribute to be modified
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. Must be:<br>{@link GL20#GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}
