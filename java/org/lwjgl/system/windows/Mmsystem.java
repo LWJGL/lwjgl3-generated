@@ -138,7 +138,7 @@ public final class Mmsystem {
 		JOYCAPS_POV4DIR = 0x20,
 		JOYCAPS_POVCTS  = 0x40;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private Mmsystem() {}
 

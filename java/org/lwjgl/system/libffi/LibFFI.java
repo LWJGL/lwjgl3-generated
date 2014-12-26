@@ -92,7 +92,7 @@ public final class LibFFI {
 		ffi_type_longdouble = ffi_type_longdouble(),
 		ffi_type_pointer    = ffi_type_pointer();
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private LibFFI() {}
 

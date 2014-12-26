@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to <sys/select.h>. */
 public final class SysSelect {
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private SysSelect() {}
 

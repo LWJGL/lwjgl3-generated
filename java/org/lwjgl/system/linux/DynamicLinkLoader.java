@@ -39,7 +39,7 @@ public final class DynamicLinkLoader {
 	/** Do not delete object when closed. */
 	public static final int RTLD_NODELETE = 0x1000;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private DynamicLinkLoader() {}
 

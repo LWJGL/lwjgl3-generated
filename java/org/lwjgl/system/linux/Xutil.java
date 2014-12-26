@@ -48,7 +48,7 @@ public final class Xutil {
 		PBaseSize   = 1 << 8,
 		PWinGravity = 1 << 9;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private Xutil() {}
 

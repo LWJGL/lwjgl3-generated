@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to &lt;X11/extensions/xf86vmode.h&gt;. */
 public final class Xf86vmode {
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private Xf86vmode() {}
 

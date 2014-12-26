@@ -1141,7 +1141,7 @@ public final class WinUser {
 		CF_DIBV5        = 0x11,
 		CF_MAX          = 0x12;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private WinUser() {}
 

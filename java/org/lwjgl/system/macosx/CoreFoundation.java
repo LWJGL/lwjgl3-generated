@@ -44,7 +44,7 @@ public final class CoreFoundation {
 		kCFURLHFSPathStyle     = 0x1,
 		kCFURLWindowsPathStyle = 0x2;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private CoreFoundation() {}
 

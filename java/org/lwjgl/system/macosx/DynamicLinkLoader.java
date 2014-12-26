@@ -30,7 +30,7 @@ public final class DynamicLinkLoader {
 		RTLD_SELF      = 0xFFFFFFFFFFFFFFFDL,
 		RTLD_MAIN_ONLY = 0xFFFFFFFFFFFFFFFBL;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private DynamicLinkLoader() {}
 

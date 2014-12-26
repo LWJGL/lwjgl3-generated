@@ -221,7 +221,7 @@ public final class CGL {
 		kCGLSupersampleBit = 0x1,
 		kCGLMultisampleBit = 0x2;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private CGL() {}
 

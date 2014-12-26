@@ -13,7 +13,7 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to the GLFW library's MacOS X native access functions. */
 public final class GLFWMacOSX {
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private GLFWMacOSX() {}
 

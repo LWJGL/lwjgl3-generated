@@ -29,7 +29,7 @@ public final class Time {
 		CLOCK_REALTIME_ALARM     = 0x8,
 		CLOCK_BOOTTIME_ALARM     = 0x9;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private Time() {}
 

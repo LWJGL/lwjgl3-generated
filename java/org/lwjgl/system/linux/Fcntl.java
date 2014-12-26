@@ -37,7 +37,7 @@ public final class Fcntl {
 		O_NOATIME   = 0x1000000,
 		O_CLOEXEC   = 0x2000000;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private Fcntl() {}
 

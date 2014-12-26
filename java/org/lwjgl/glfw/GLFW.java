@@ -381,7 +381,7 @@ public final class GLFW {
 		GLFW_RELEASE_BEHAVIOR_FLUSH = 0x35001,
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
 
-	static { Sys.touch(); }
+	static { LWJGLUtil.initialize(); }
 
 	private GLFW() {}
 
