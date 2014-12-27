@@ -411,7 +411,7 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static int glfwInit() {
-		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.initSharedApplication();
+		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.checkFirstThread();
 		return nglfwInit();
 	}
 
