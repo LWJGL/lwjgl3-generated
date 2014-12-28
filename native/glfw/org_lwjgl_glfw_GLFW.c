@@ -354,6 +354,11 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_glfw_GLFW_nglfwCreateCursor(JNIEnv *__env
 	return (jlong)(intptr_t)glfwCreateCursor(image, xhot, yhot);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_glfw_GLFW_glfwCreateStandardCursor(JNIEnv *__env, jclass clazz, jint shape) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)glfwCreateStandardCursor(shape);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nglfwDestroyCursor(JNIEnv *__env, jclass clazz, jlong cursorAddress) {
 	GLFWcursor *cursor = (GLFWcursor *)(intptr_t)cursorAddress;
 	UNUSED_PARAMS(__env, clazz)

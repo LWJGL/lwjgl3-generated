@@ -319,6 +319,15 @@ public final class GLFW {
 		GLFW_CURSOR_HIDDEN   = 0x34002,
 		GLFW_CURSOR_DISABLED = 0x34003;
 
+	/** Standard cursor shapes. */
+	public static final int
+		GLFW_ARROW_CURSOR     = 0x36001,
+		GLFW_IBEAM_CURSOR     = 0x36002,
+		GLFW_CROSSHAIR_CURSOR = 0x36003,
+		GLFW_HAND_CURSOR      = 0x36004,
+		GLFW_HRESIZE_CURSOR   = 0x36005,
+		GLFW_VRESIZE_CURSOR   = 0x36006;
+
 	/** Monitor events. */
 	public static final int
 		GLFW_CONNECTED    = 0x40001,
@@ -404,6 +413,9 @@ public final class GLFW {
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
 	 * bundle, if present.</li>
+	 * <li><b>X11</b>: If the {@code LC_CTYPE} category of the current locale is set to {@code "C"} then the environment's locale will be applied to that
+	 * category. This is done because character input will not function when {@code LC_CTYPE} is set to {@code "C"}. If another locale was set before this
+	 * function was called, it will be left untouched.</li>
 	 * </ul></p>
 	 *
 	 * @return {@link GL11#GL_TRUE} if successful, or {@link GL11#GL_FALSE} if an error occured.
@@ -936,7 +948,7 @@ public final class GLFW {
 	 * <p>For full screen windows, the specified size becomes the resolution of the window's desired video mode. As long as a full screen window has input focus,
 	 * the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full screen windows,
 	 * including the creation of so called windowed full screen or borderless full screen windows, see
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_full_screen window">full screen</a>.</p>
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_full_screen">full screen</a>.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
 	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
@@ -957,6 +969,7 @@ public final class GLFW {
 	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
 	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
 	 * uses information from the application's bundle. For more information on bundles, see the
@@ -1997,6 +2010,26 @@ public final class GLFW {
 			checkBuffer(image, GLFWimage.SIZEOF);
 		return nglfwCreateCursor(memAddress(image), xhot, yhot);
 	}
+
+	// --- [ glfwCreateStandardCursor ] ---
+
+	/**
+	 * Returns a cursor with a standard shape, which can be made the system cursor for a window with {@link #glfwSetCursor SetCursor}.
+	 * 
+	 * <p>Notes:
+	 * <ul>
+	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function may not be called from a callback.</li>
+	 * <li>The specified image data is copied before this function returns.</li>
+	 * </ul></p>
+	 *
+	 * @param shape one of the standard shapes. One of:<br>{@link #GLFW_ARROW_CURSOR ARROW_CURSOR}, {@link #GLFW_IBEAM_CURSOR IBEAM_CURSOR}, {@link #GLFW_CROSSHAIR_CURSOR CROSSHAIR_CURSOR}, {@link #GLFW_HAND_CURSOR HAND_CURSOR}, {@link #GLFW_HRESIZE_CURSOR HRESIZE_CURSOR}, {@link #GLFW_VRESIZE_CURSOR VRESIZE_CURSOR}
+	 *
+	 * @return a new cursor ready to use or {@code NULL} if an error occurred
+	 *
+	 * @since GLFW 3.1
+	 */
+	public static native long glfwCreateStandardCursor(int shape);
 
 	// --- [ glfwDestroyCursor ] ---
 
