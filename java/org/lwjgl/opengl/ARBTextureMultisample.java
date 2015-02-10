@@ -190,7 +190,7 @@ public final class ARBTextureMultisample {
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
-		nglGetMultisamplefv(pname, index, __buffer.address() + val);
+		nglGetMultisamplefv(pname, index, __buffer.address(val));
 		return __buffer.floatValue(val);
 	}
 

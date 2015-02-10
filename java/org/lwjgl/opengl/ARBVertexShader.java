@@ -1369,7 +1369,7 @@ public final class ARBVertexShader {
 	public static void glBindAttribLocationARB(int programObj, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindAttribLocationARB(programObj, index, __buffer.address() + nameEncoded);
+		nglBindAttribLocationARB(programObj, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetActiveAttribARB ] ---
@@ -1414,8 +1414,8 @@ public final class ARBVertexShader {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
@@ -1424,8 +1424,8 @@ public final class ARBVertexShader {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttribLocationARB ] ---
@@ -1459,7 +1459,7 @@ public final class ARBVertexShader {
 	public static int glGetAttribLocationARB(int programObj, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetAttribLocationARB(programObj, __buffer.address() + nameEncoded);
+		return nglGetAttribLocationARB(programObj, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetVertexAttribivARB ] ---
@@ -1501,7 +1501,7 @@ public final class ARBVertexShader {
 	public static int glGetVertexAttribiARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetVertexAttribivARB(index, pname, __buffer.address() + params);
+		nglGetVertexAttribivARB(index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1614,7 +1614,7 @@ public final class ARBVertexShader {
 	public static long glGetVertexAttribPointerARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int pointer = __buffer.pointerParam();
-		nglGetVertexAttribPointervARB(index, pname, __buffer.address() + pointer);
+		nglGetVertexAttribPointervARB(index, pname, __buffer.address(pointer));
 		return __buffer.pointerValue(pointer);
 	}
 

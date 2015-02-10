@@ -454,7 +454,7 @@ public final class ARBFramebufferObject {
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
 	}
 
 	// --- [ glGenRenderbuffers ] ---
@@ -489,7 +489,7 @@ public final class ARBFramebufferObject {
 	public static int glGenRenderbuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglGenRenderbuffers(1, __buffer.address(renderbuffers));
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -565,7 +565,7 @@ public final class ARBFramebufferObject {
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetRenderbufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -630,7 +630,7 @@ public final class ARBFramebufferObject {
 	public static void glDeleteFramebuffers(int framebuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffers(1, __buffer.address() + framebuffers);
+		nglDeleteFramebuffers(1, __buffer.address(framebuffers));
 	}
 
 	// --- [ glGenFramebuffers ] ---
@@ -665,7 +665,7 @@ public final class ARBFramebufferObject {
 	public static int glGenFramebuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		nglGenFramebuffers(1, __buffer.address() + framebuffers);
+		nglGenFramebuffers(1, __buffer.address(framebuffers));
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -809,7 +809,7 @@ public final class ARBFramebufferObject {
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address() + params);
+		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -229,7 +229,7 @@ public final class ARBUniformBufferObject {
 		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
 		for ( int i = 0; i < uniformNames.length; i++ )
 			__buffer.pointerParam(uniformNamesAddress, i, memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
-		nglGetUniformIndices(program, uniformNames.length, __buffer.address() + uniformNamesAddress, memAddress(uniformIndices));
+		nglGetUniformIndices(program, uniformNames.length, __buffer.address(uniformNamesAddress), memAddress(uniformIndices));
 	}
 
 	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
@@ -238,7 +238,7 @@ public final class ARBUniformBufferObject {
 		ByteBuffer uniformNameBuffers = memEncodeASCII(uniformName, true);
 		int uniformNamesAddress = __buffer.pointerParam(memAddress(uniformNameBuffers));
 		int uniformIndices = __buffer.intParam();
-		nglGetUniformIndices(program, 1, __buffer.address() + uniformNamesAddress, __buffer.address() + uniformIndices);
+		nglGetUniformIndices(program, 1, __buffer.address(uniformNamesAddress), __buffer.address(uniformIndices));
 		return __buffer.intValue(uniformIndices);
 	}
 
@@ -282,7 +282,7 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
 		int uniformIndices = __buffer.intParam(uniformIndex);
-		nglGetActiveUniformsiv(program, 1, __buffer.address() + uniformIndices, pname, __buffer.address() + params);
+		nglGetActiveUniformsiv(program, 1, __buffer.address(uniformIndices), pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -326,8 +326,8 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address(length), __buffer.address(uniformName));
+		return memDecodeASCII(memByteBuffer(__buffer.address(uniformName), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformName GetActiveUniformName} */
@@ -336,8 +336,8 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformName);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformName, __buffer.intValue(length)));
+		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address(length), __buffer.address(uniformName));
+		return memDecodeASCII(memByteBuffer(__buffer.address(uniformName), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetUniformBlockIndex ] ---
@@ -367,7 +367,7 @@ public final class ARBUniformBufferObject {
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
 		APIBuffer __buffer = apiBuffer();
 		int uniformBlockNameEncoded = __buffer.stringParamASCII(uniformBlockName, true);
-		return nglGetUniformBlockIndex(program, __buffer.address() + uniformBlockNameEncoded);
+		return nglGetUniformBlockIndex(program, __buffer.address(uniformBlockNameEncoded));
 	}
 
 	// --- [ glGetActiveUniformBlockiv ] ---
@@ -406,7 +406,7 @@ public final class ARBUniformBufferObject {
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address() + params);
+		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -450,8 +450,8 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
+		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
@@ -460,8 +460,8 @@ public final class ARBUniformBufferObject {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address() + length, __buffer.address() + uniformBlockName);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + uniformBlockName, __buffer.intValue(length)));
+		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
+		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
 	}
 
 	// --- [ glBindBufferRange ] ---
@@ -533,7 +533,7 @@ public final class ARBUniformBufferObject {
 	public static int glGetIntegeri(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetIntegeri_v(target, index, __buffer.address() + data);
+		nglGetIntegeri_v(target, index, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 

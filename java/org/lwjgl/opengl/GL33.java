@@ -273,7 +273,7 @@ public final class GL33 {
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address() + nameEncoded);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -309,7 +309,7 @@ public final class GL33 {
 	public static int glGetFragDataIndex(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndex(program, __buffer.address() + nameEncoded);
+		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGenSamplers ] ---
@@ -350,7 +350,7 @@ public final class GL33 {
 	public static int glGenSamplers() {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam();
-		nglGenSamplers(1, __buffer.address() + samplers);
+		nglGenSamplers(1, __buffer.address(samplers));
 		return __buffer.intValue(samplers);
 	}
 
@@ -392,7 +392,7 @@ public final class GL33 {
 	public static void glDeleteSamplers(int sampler) {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam(sampler);
-		nglDeleteSamplers(1, __buffer.address() + samplers);
+		nglDeleteSamplers(1, __buffer.address(samplers));
 	}
 
 	// --- [ glIsSampler ] ---
@@ -653,7 +653,7 @@ public final class GL33 {
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameteriv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameteriv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -698,7 +698,7 @@ public final class GL33 {
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetSamplerParameterfv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterfv(sampler, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -743,7 +743,7 @@ public final class GL33 {
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIiv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterIiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -788,7 +788,7 @@ public final class GL33 {
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -854,7 +854,7 @@ public final class GL33 {
 	public static long glGetQueryObjecti64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjecti64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -899,7 +899,7 @@ public final class GL33 {
 	public static long glGetQueryObjectui64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjectui64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

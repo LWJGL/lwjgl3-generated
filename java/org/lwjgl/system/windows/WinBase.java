@@ -132,7 +132,7 @@ public final class WinBase {
 	public static long LoadLibrary(CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF16(name, true);
-		return nLoadLibrary(__buffer.address() + nameEncoded);
+		return nLoadLibrary(__buffer.address(nameEncoded));
 	}
 
 	// --- [ GetProcAddress ] ---
@@ -162,7 +162,7 @@ public final class WinBase {
 			checkPointer(handle);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nGetProcAddress(handle, __buffer.address() + nameEncoded);
+		return nGetProcAddress(handle, __buffer.address(nameEncoded));
 	}
 
 	// --- [ FreeLibrary ] ---

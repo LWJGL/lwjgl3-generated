@@ -431,7 +431,7 @@ public final class AL11 {
 	public static int alGetBufferi(int buffer, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetBufferi(buffer, param, __buffer.address() + value);
+		nalGetBufferi(buffer, param, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -509,7 +509,7 @@ public final class AL11 {
 	public static float alGetBufferf(int buffer, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetBufferf(buffer, param, __buffer.address() + value);
+		nalGetBufferf(buffer, param, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 

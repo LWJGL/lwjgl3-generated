@@ -1577,7 +1577,7 @@ public final class GL11 {
 			checkBuffer(residences, 1);
 		APIBuffer __buffer = apiBuffer();
 		int textures = __buffer.intParam(texture);
-		return nglAreTexturesResident(1, __buffer.address() + textures, memAddress(residences));
+		return nglAreTexturesResident(1, __buffer.address(textures), memAddress(residences));
 	}
 
 	// --- [ glArrayElement ] ---
@@ -3960,7 +3960,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGenTextures() {
 		APIBuffer __buffer = apiBuffer();
 		int textures = __buffer.intParam();
-		nglGenTextures(1, __buffer.address() + textures);
+		nglGenTextures(1, __buffer.address(textures));
 		return __buffer.intValue(textures);
 	}
 
@@ -4008,7 +4008,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static void glDeleteTextures(int texture) {
 		APIBuffer __buffer = apiBuffer();
 		int textures = __buffer.intParam(texture);
-		nglDeleteTextures(1, __buffer.address() + textures);
+		nglDeleteTextures(1, __buffer.address(textures));
 	}
 
 	// --- [ glGetClipPlane ] ---
@@ -4085,7 +4085,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static boolean glGetBoolean(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.booleanParam();
-		nglGetBooleanv(pname, __buffer.address() + params);
+		nglGetBooleanv(pname, __buffer.address(params));
 		return __buffer.booleanValue(params);
 	}
 
@@ -4133,7 +4133,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetFloat(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetFloatv(pname, __buffer.address() + params);
+		nglGetFloatv(pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -4181,7 +4181,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetInteger(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetIntegerv(pname, __buffer.address() + params);
+		nglGetIntegerv(pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -4229,7 +4229,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static double glGetDouble(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetDoublev(pname, __buffer.address() + params);
+		nglGetDoublev(pname, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 
@@ -4295,7 +4295,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetLighti(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetLightiv(light, pname, __buffer.address() + data);
+		nglGetLightiv(light, pname, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -4340,7 +4340,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetLightf(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetLightfv(light, pname, __buffer.address() + data);
+		nglGetLightfv(light, pname, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -4385,7 +4385,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetMapi(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetMapiv(target, query, __buffer.address() + data);
+		nglGetMapiv(target, query, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -4430,7 +4430,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetMapf(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetMapfv(target, query, __buffer.address() + data);
+		nglGetMapfv(target, query, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -4475,7 +4475,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static double glGetMapd(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetMapdv(target, query, __buffer.address() + data);
+		nglGetMapdv(target, query, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 
@@ -4726,7 +4726,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static long glGetPointer(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetPointerv(pname, __buffer.address() + params);
+		nglGetPointerv(pname, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 
@@ -4833,7 +4833,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetTexEnvi(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetTexEnviv(env, pname, __buffer.address() + data);
+		nglGetTexEnviv(env, pname, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -4878,7 +4878,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetTexEnvf(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetTexEnvfv(env, pname, __buffer.address() + data);
+		nglGetTexEnvfv(env, pname, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -4923,7 +4923,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetTexGeni(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetTexGeniv(coord, pname, __buffer.address() + data);
+		nglGetTexGeniv(coord, pname, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -4968,7 +4968,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetTexGenf(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetTexGenfv(coord, pname, __buffer.address() + data);
+		nglGetTexGenfv(coord, pname, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -5013,7 +5013,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static double glGetTexGend(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetTexGendv(coord, pname, __buffer.address() + data);
+		nglGetTexGendv(coord, pname, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 
@@ -5126,7 +5126,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetTexLevelParameteri(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexLevelParameteriv(target, level, pname, __buffer.address() + params);
+		nglGetTexLevelParameteriv(target, level, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -5172,7 +5172,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetTexLevelParameterf(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTexLevelParameterfv(target, level, pname, __buffer.address() + params);
+		nglGetTexLevelParameterfv(target, level, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -5217,7 +5217,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static int glGetTexParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexParameteriv(target, pname, __buffer.address() + params);
+		nglGetTexParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -5262,7 +5262,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	public static float glGetTexParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTexParameterfv(target, pname, __buffer.address() + params);
+		nglGetTexParameterfv(target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 

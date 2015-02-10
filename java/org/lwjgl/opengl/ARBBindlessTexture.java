@@ -544,7 +544,7 @@ public final class ARBBindlessTexture {
 	public static long glGetVertexAttribLui64ARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetVertexAttribLui64vARB(index, pname, __buffer.address() + params);
+		nglGetVertexAttribLui64vARB(index, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

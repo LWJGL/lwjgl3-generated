@@ -134,7 +134,7 @@ public final class ARBTransformFeedback2 {
 	public static void glDeleteTransformFeedbacks(int id) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDeleteTransformFeedbacks(1, __buffer.address() + ids);
+		nglDeleteTransformFeedbacks(1, __buffer.address(ids));
 	}
 
 	// --- [ glGenTransformFeedbacks ] ---
@@ -169,7 +169,7 @@ public final class ARBTransformFeedback2 {
 	public static int glGenTransformFeedbacks() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglGenTransformFeedbacks(1, __buffer.address() + ids);
+		nglGenTransformFeedbacks(1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 

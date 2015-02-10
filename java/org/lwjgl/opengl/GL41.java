@@ -420,7 +420,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address() + precision);
+		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
 		return __buffer.intValue(precision);
 	}
 
@@ -516,8 +516,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary);
-		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
+		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -528,8 +528,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary);
-		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
+		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
 	}
 
 	// --- [ glProgramBinary ] ---
@@ -700,7 +700,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
-		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
@@ -708,7 +708,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, 1, __buffer.address(stringsAddress));
 	}
 
 	// --- [ glBindProgramPipeline ] ---
@@ -769,7 +769,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	public static void glDeleteProgramPipelines(int pipeline) {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam(pipeline);
-		nglDeleteProgramPipelines(1, __buffer.address() + pipelines);
+		nglDeleteProgramPipelines(1, __buffer.address(pipelines));
 	}
 
 	// --- [ glGenProgramPipelines ] ---
@@ -810,7 +810,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	public static int glGenProgramPipelines() {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam();
-		nglGenProgramPipelines(1, __buffer.address() + pipelines);
+		nglGenProgramPipelines(1, __buffer.address(pipelines));
 		return __buffer.intValue(pipelines);
 	}
 
@@ -875,7 +875,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	public static int glGetProgramPipelinei(int pipeline, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramPipelineiv(pipeline, pname, __buffer.address() + params);
+		nglGetProgramPipelineiv(pipeline, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2562,8 +2562,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
@@ -2572,8 +2572,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	// --- [ glVertexAttribL1d ] ---
@@ -3179,7 +3179,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	public static float glGetFloati(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetFloati_v(target, index, __buffer.address() + data);
+		nglGetFloati_v(target, index, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -3224,7 +3224,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	public static double glGetDoublei(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetDoublei_v(target, index, __buffer.address() + data);
+		nglGetDoublei_v(target, index, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 

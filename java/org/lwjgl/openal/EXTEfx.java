@@ -775,7 +775,7 @@ public final class EXTEfx {
 	public static int alGenEffects() {
 		APIBuffer __buffer = apiBuffer();
 		int effects = __buffer.intParam();
-		nalGenEffects(1, __buffer.address() + effects);
+		nalGenEffects(1, __buffer.address(effects));
 		return __buffer.intValue(effects);
 	}
 
@@ -815,7 +815,7 @@ public final class EXTEfx {
 	public static void alDeleteEffects(int effect) {
 		APIBuffer __buffer = apiBuffer();
 		int effects = __buffer.intParam(effect);
-		nalDeleteEffects(1, __buffer.address() + effects);
+		nalDeleteEffects(1, __buffer.address(effects));
 	}
 
 	// --- [ alIsEffect ] ---
@@ -977,7 +977,7 @@ public final class EXTEfx {
 	public static int alGetEffecti(int effect, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetEffecti(effect, param, __buffer.address() + value);
+		nalGetEffecti(effect, param, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -1055,7 +1055,7 @@ public final class EXTEfx {
 	public static float alGetEffectf(int effect, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetEffectf(effect, param, __buffer.address() + value);
+		nalGetEffectf(effect, param, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 
@@ -1130,7 +1130,7 @@ public final class EXTEfx {
 	public static int alGenFilters() {
 		APIBuffer __buffer = apiBuffer();
 		int filters = __buffer.intParam();
-		nalGenFilters(1, __buffer.address() + filters);
+		nalGenFilters(1, __buffer.address(filters));
 		return __buffer.intValue(filters);
 	}
 
@@ -1170,7 +1170,7 @@ public final class EXTEfx {
 	public static void alDeleteFilters(int filter) {
 		APIBuffer __buffer = apiBuffer();
 		int filters = __buffer.intParam(filter);
-		nalDeleteFilters(1, __buffer.address() + filters);
+		nalDeleteFilters(1, __buffer.address(filters));
 	}
 
 	// --- [ alIsFilter ] ---
@@ -1332,7 +1332,7 @@ public final class EXTEfx {
 	public static int alGetFilteri(int filter, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetFilteri(filter, param, __buffer.address() + value);
+		nalGetFilteri(filter, param, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -1410,7 +1410,7 @@ public final class EXTEfx {
 	public static float alGetFilterf(int filter, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetFilterf(filter, param, __buffer.address() + value);
+		nalGetFilterf(filter, param, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 
@@ -1485,7 +1485,7 @@ public final class EXTEfx {
 	public static int alGenAuxiliaryEffectSlots() {
 		APIBuffer __buffer = apiBuffer();
 		int effectSlots = __buffer.intParam();
-		nalGenAuxiliaryEffectSlots(1, __buffer.address() + effectSlots);
+		nalGenAuxiliaryEffectSlots(1, __buffer.address(effectSlots));
 		return __buffer.intValue(effectSlots);
 	}
 
@@ -1525,7 +1525,7 @@ public final class EXTEfx {
 	public static void alDeleteAuxiliaryEffectSlots(int effectSlot) {
 		APIBuffer __buffer = apiBuffer();
 		int effectSlots = __buffer.intParam(effectSlot);
-		nalDeleteAuxiliaryEffectSlots(1, __buffer.address() + effectSlots);
+		nalDeleteAuxiliaryEffectSlots(1, __buffer.address(effectSlots));
 	}
 
 	// --- [ alIsAuxiliaryEffectSlot ] ---
@@ -1687,7 +1687,7 @@ public final class EXTEfx {
 	public static int alGetAuxiliaryEffectSloti(int effectSlot, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetAuxiliaryEffectSloti(effectSlot, param, __buffer.address() + value);
+		nalGetAuxiliaryEffectSloti(effectSlot, param, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -1765,7 +1765,7 @@ public final class EXTEfx {
 	public static float alGetAuxiliaryEffectSlotf(int effectSlot, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetAuxiliaryEffectSlotf(effectSlot, param, __buffer.address() + value);
+		nalGetAuxiliaryEffectSlotf(effectSlot, param, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 

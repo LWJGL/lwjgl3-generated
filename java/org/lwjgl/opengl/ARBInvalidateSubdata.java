@@ -184,7 +184,7 @@ public final class ARBInvalidateSubdata {
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments);
+		nglInvalidateFramebuffer(target, 1, __buffer.address(attachments));
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
@@ -224,7 +224,7 @@ public final class ARBInvalidateSubdata {
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height);
+		nglInvalidateSubFramebuffer(target, 1, __buffer.address(attachments), x, y, width, height);
 	}
 
 }

@@ -148,7 +148,7 @@ public final class ARBOcclusionQuery {
 	public static int glGenQueriesARB() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglGenQueriesARB(1, __buffer.address() + ids);
+		nglGenQueriesARB(1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 
@@ -188,7 +188,7 @@ public final class ARBOcclusionQuery {
 	public static void glDeleteQueriesARB(int id) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDeleteQueriesARB(1, __buffer.address() + ids);
+		nglDeleteQueriesARB(1, __buffer.address(ids));
 	}
 
 	// --- [ glIsQueryARB ] ---
@@ -285,7 +285,7 @@ public final class ARBOcclusionQuery {
 	public static int glGetQueryiARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryivARB(target, pname, __buffer.address() + params);
+		nglGetQueryivARB(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -328,7 +328,7 @@ public final class ARBOcclusionQuery {
 	public static int glGetQueryObjectiARB(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectivARB(id, pname, __buffer.address() + params);
+		nglGetQueryObjectivARB(id, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -371,7 +371,7 @@ public final class ARBOcclusionQuery {
 	public static int glGetQueryObjectuiARB(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectuivARB(id, pname, __buffer.address() + params);
+		nglGetQueryObjectuivARB(id, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -804,7 +804,7 @@ public final class AL10 {
 	public static float alGetListenerf(int paramName) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetListenerf(paramName, __buffer.address() + value);
+		nalGetListenerf(paramName, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 
@@ -846,7 +846,7 @@ public final class AL10 {
 	public static int alGetListeneri(int paramName) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetListeneri(paramName, __buffer.address() + value);
+		nalGetListeneri(paramName, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -962,7 +962,7 @@ public final class AL10 {
 	public static int alGenSources() {
 		APIBuffer __buffer = apiBuffer();
 		int srcNames = __buffer.intParam();
-		nalGenSources(1, __buffer.address() + srcNames);
+		nalGenSources(1, __buffer.address(srcNames));
 		return __buffer.intValue(srcNames);
 	}
 
@@ -1002,7 +1002,7 @@ public final class AL10 {
 	public static void alDeleteSources(int source) {
 		APIBuffer __buffer = apiBuffer();
 		int sources = __buffer.intParam(source);
-		nalDeleteSources(1, __buffer.address() + sources);
+		nalDeleteSources(1, __buffer.address(sources));
 	}
 
 	// --- [ alIsSource ] ---
@@ -1159,7 +1159,7 @@ public final class AL10 {
 	public static float alGetSourcef(int source, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetSourcef(source, param, __buffer.address() + value);
+		nalGetSourcef(source, param, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 
@@ -1280,7 +1280,7 @@ public final class AL10 {
 	public static int alGetSourcei(int source, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetSourcei(source, param, __buffer.address() + value);
+		nalGetSourcei(source, param, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -1325,7 +1325,7 @@ public final class AL10 {
 	public static void alSourceQueueBuffers(int sourceName, int bufferName) {
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam(bufferName);
-		nalSourceQueueBuffers(sourceName, 1, __buffer.address() + bufferNames);
+		nalSourceQueueBuffers(sourceName, 1, __buffer.address(bufferNames));
 	}
 
 	// --- [ alSourceUnqueueBuffers ] ---
@@ -1370,7 +1370,7 @@ public final class AL10 {
 	public static int alSourceUnqueueBuffers(int sourceName) {
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam();
-		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address() + bufferNames);
+		nalSourceUnqueueBuffers(sourceName, 1, __buffer.address(bufferNames));
 		return __buffer.intValue(bufferNames);
 	}
 
@@ -1629,7 +1629,7 @@ public final class AL10 {
 	public static int alGenBuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam();
-		nalGenBuffers(1, __buffer.address() + bufferNames);
+		nalGenBuffers(1, __buffer.address(bufferNames));
 		return __buffer.intValue(bufferNames);
 	}
 
@@ -1669,7 +1669,7 @@ public final class AL10 {
 	public static void alDeleteBuffers(int bufferName) {
 		APIBuffer __buffer = apiBuffer();
 		int bufferNames = __buffer.intParam(bufferName);
-		nalDeleteBuffers(1, __buffer.address() + bufferNames);
+		nalDeleteBuffers(1, __buffer.address(bufferNames));
 	}
 
 	// --- [ alIsBuffer ] ---
@@ -1729,7 +1729,7 @@ public final class AL10 {
 	public static float alGetBufferf(int bufferName, int paramName) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.floatParam();
-		nalGetBufferf(bufferName, paramName, __buffer.address() + value);
+		nalGetBufferf(bufferName, paramName, __buffer.address(value));
 		return __buffer.floatValue(value);
 	}
 
@@ -1772,7 +1772,7 @@ public final class AL10 {
 	public static int alGetBufferi(int bufferName, int paramName) {
 		APIBuffer __buffer = apiBuffer();
 		int value = __buffer.intParam();
-		nalGetBufferi(bufferName, paramName, __buffer.address() + value);
+		nalGetBufferi(bufferName, paramName, __buffer.address(value));
 		return __buffer.intValue(value);
 	}
 
@@ -1864,7 +1864,7 @@ public final class AL10 {
 	public static int alGetEnumValue(CharSequence enumName) {
 		APIBuffer __buffer = apiBuffer();
 		int enumNameEncoded = __buffer.stringParamASCII(enumName, true);
-		return nalGetEnumValue(__buffer.address() + enumNameEncoded);
+		return nalGetEnumValue(__buffer.address(enumNameEncoded));
 	}
 
 	// --- [ alGetProcAddress ] ---
@@ -1903,7 +1903,7 @@ public final class AL10 {
 	public static long alGetProcAddress(CharSequence funcName) {
 		APIBuffer __buffer = apiBuffer();
 		int funcNameEncoded = __buffer.stringParamASCII(funcName, true);
-		return nalGetProcAddress(__buffer.address() + funcNameEncoded);
+		return nalGetProcAddress(__buffer.address(funcNameEncoded));
 	}
 
 	// --- [ alIsExtensionPresent ] ---
@@ -1939,7 +1939,7 @@ public final class AL10 {
 	public static boolean alIsExtensionPresent(CharSequence extName) {
 		APIBuffer __buffer = apiBuffer();
 		int extNameEncoded = __buffer.stringParamASCII(extName, true);
-		return nalIsExtensionPresent(__buffer.address() + extNameEncoded);
+		return nalIsExtensionPresent(__buffer.address(extNameEncoded));
 	}
 
 }

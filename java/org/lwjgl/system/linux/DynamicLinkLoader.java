@@ -113,7 +113,7 @@ public final class DynamicLinkLoader {
 			checkPointer(handle);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return ndlsym(handle, __buffer.address() + nameEncoded);
+		return ndlsym(handle, __buffer.address(nameEncoded));
 	}
 
 	// --- [ dlclose ] ---

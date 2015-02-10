@@ -213,7 +213,7 @@ public final class AMDDebugOutput {
 		APIBuffer __buffer = apiBuffer();
 		int bufEncoded = __buffer.stringParamUTF8(buf, false);
 		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
-		nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, __buffer.address() + bufEncoded);
+		nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, __buffer.address(bufEncoded));
 	}
 
 	// --- [ glDebugMessageCallbackAMD ] ---

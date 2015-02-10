@@ -172,7 +172,7 @@ public final class ARBTransformFeedback3 {
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryIndexediv(target, index, pname, __buffer.address() + params);
+		nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

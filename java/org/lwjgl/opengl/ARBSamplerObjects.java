@@ -126,7 +126,7 @@ public final class ARBSamplerObjects {
 	public static int glGenSamplers() {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam();
-		nglGenSamplers(1, __buffer.address() + samplers);
+		nglGenSamplers(1, __buffer.address(samplers));
 		return __buffer.intValue(samplers);
 	}
 
@@ -162,7 +162,7 @@ public final class ARBSamplerObjects {
 	public static void glDeleteSamplers(int sampler) {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam(sampler);
-		nglDeleteSamplers(1, __buffer.address() + samplers);
+		nglDeleteSamplers(1, __buffer.address(samplers));
 	}
 
 	// --- [ glIsSampler ] ---
@@ -369,7 +369,7 @@ public final class ARBSamplerObjects {
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameteriv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameteriv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -408,7 +408,7 @@ public final class ARBSamplerObjects {
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetSamplerParameterfv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterfv(sampler, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -447,7 +447,7 @@ public final class ARBSamplerObjects {
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIiv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterIiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -486,7 +486,7 @@ public final class ARBSamplerObjects {
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address() + params);
+		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

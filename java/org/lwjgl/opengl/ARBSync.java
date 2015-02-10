@@ -241,7 +241,7 @@ public final class ARBSync {
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInteger64v(pname, __buffer.address() + params);
+		nglGetInteger64v(pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -288,7 +288,7 @@ public final class ARBSync {
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values);
+		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 

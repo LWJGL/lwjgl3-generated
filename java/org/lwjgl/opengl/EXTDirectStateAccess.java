@@ -1729,7 +1729,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetTextureParameterfEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTextureParameterfvEXT(texture, target, pname, __buffer.address() + params);
+		nglGetTextureParameterfvEXT(texture, target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1773,7 +1773,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetTextureParameteriEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameterivEXT(texture, target, pname, __buffer.address() + params);
+		nglGetTextureParameterivEXT(texture, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1818,7 +1818,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetTextureLevelParameterfEXT(int texture, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTextureLevelParameterfvEXT(texture, target, level, pname, __buffer.address() + params);
+		nglGetTextureLevelParameterfvEXT(texture, target, level, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1863,7 +1863,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetTextureLevelParameteriEXT(int texture, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureLevelParameterivEXT(texture, target, level, pname, __buffer.address() + params);
+		nglGetTextureLevelParameterivEXT(texture, target, level, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2433,7 +2433,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetMultiTexEnvfEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetMultiTexEnvfvEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexEnvfvEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -2477,7 +2477,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexEnviEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexEnvivEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexEnvivEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2521,7 +2521,7 @@ public final class EXTDirectStateAccess {
 	public static double glGetMultiTexGendEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetMultiTexGendvEXT(texunit, coord, pname, __buffer.address() + params);
+		nglGetMultiTexGendvEXT(texunit, coord, pname, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 
@@ -2565,7 +2565,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetMultiTexGenfEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetMultiTexGenfvEXT(texunit, coord, pname, __buffer.address() + params);
+		nglGetMultiTexGenfvEXT(texunit, coord, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -2609,7 +2609,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexGeniEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexGenivEXT(texunit, coord, pname, __buffer.address() + params);
+		nglGetMultiTexGenivEXT(texunit, coord, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -3211,7 +3211,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetMultiTexParameterfEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetMultiTexParameterfvEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexParameterfvEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -3255,7 +3255,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexParameteriEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexParameterivEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexParameterivEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -3300,7 +3300,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetMultiTexLevelParameterfEXT(int texunit, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetMultiTexLevelParameterfvEXT(texunit, target, level, pname, __buffer.address() + params);
+		nglGetMultiTexLevelParameterfvEXT(texunit, target, level, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -3345,7 +3345,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexLevelParameteriEXT(int texunit, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexLevelParameterivEXT(texunit, target, level, pname, __buffer.address() + params);
+		nglGetMultiTexLevelParameterivEXT(texunit, target, level, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -3634,7 +3634,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetFloatIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetFloatIndexedvEXT(target, index, __buffer.address() + params);
+		nglGetFloatIndexedvEXT(target, index, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -3677,7 +3677,7 @@ public final class EXTDirectStateAccess {
 	public static double glGetDoubleIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetDoubleIndexedvEXT(target, index, __buffer.address() + params);
+		nglGetDoubleIndexedvEXT(target, index, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 
@@ -3720,7 +3720,7 @@ public final class EXTDirectStateAccess {
 	public static long glGetPointerIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetPointerIndexedvEXT(target, index, __buffer.address() + params);
+		nglGetPointerIndexedvEXT(target, index, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 
@@ -3763,7 +3763,7 @@ public final class EXTDirectStateAccess {
 	public static float glGetFloatiEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetFloati_vEXT(pname, index, __buffer.address() + params);
+		nglGetFloati_vEXT(pname, index, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -3806,7 +3806,7 @@ public final class EXTDirectStateAccess {
 	public static double glGetDoubleiEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetDoublei_vEXT(pname, index, __buffer.address() + params);
+		nglGetDoublei_vEXT(pname, index, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 
@@ -3849,7 +3849,7 @@ public final class EXTDirectStateAccess {
 	public static long glGetPointeriEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetPointeri_vEXT(pname, index, __buffer.address() + params);
+		nglGetPointeri_vEXT(pname, index, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 
@@ -3949,7 +3949,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetIntegerIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetIntegerIndexedvEXT(target, index, __buffer.address() + params);
+		nglGetIntegerIndexedvEXT(target, index, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -3985,7 +3985,7 @@ public final class EXTDirectStateAccess {
 	public static boolean glGetBooleanIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.booleanParam();
-		nglGetBooleanIndexedvEXT(target, index, __buffer.address() + params);
+		nglGetBooleanIndexedvEXT(target, index, __buffer.address(params));
 		return __buffer.booleanValue(params);
 	}
 
@@ -4256,7 +4256,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetNamedProgramiEXT(int program, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedProgramivEXT(program, target, pname, __buffer.address() + params);
+		nglGetNamedProgramivEXT(program, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -5319,7 +5319,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetNamedBufferParameteriEXT(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedBufferParameterivEXT(buffer, pname, __buffer.address() + params);
+		nglGetNamedBufferParameterivEXT(buffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -6290,7 +6290,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetTextureParameterIiEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameterIivEXT(texture, target, pname, __buffer.address() + params);
+		nglGetTextureParameterIivEXT(texture, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -6334,7 +6334,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetTextureParameterIuiEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameterIuivEXT(texture, target, pname, __buffer.address() + params);
+		nglGetTextureParameterIuivEXT(texture, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -6450,7 +6450,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexParameterIiEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexParameterIivEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexParameterIivEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -6494,7 +6494,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetMultiTexParameterIuiEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMultiTexParameterIuivEXT(texunit, target, pname, __buffer.address() + params);
+		nglGetMultiTexParameterIuivEXT(texunit, target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -7077,7 +7077,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetNamedRenderbufferParameteriEXT(int renderbuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedRenderbufferParameterivEXT(renderbuffer, pname, __buffer.address() + params);
+		nglGetNamedRenderbufferParameterivEXT(renderbuffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -7273,7 +7273,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetNamedFramebufferAttachmentParameteriEXT(int framebuffer, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, __buffer.address() + params);
+		nglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -7425,7 +7425,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetFramebufferParameteriEXT(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetFramebufferParameterivEXT(framebuffer, pname, __buffer.address() + param);
+		nglGetFramebufferParameterivEXT(framebuffer, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -7923,7 +7923,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetVertexArrayIntegerEXT(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetVertexArrayIntegervEXT(vaobj, pname, __buffer.address() + param);
+		nglGetVertexArrayIntegervEXT(vaobj, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -7966,7 +7966,7 @@ public final class EXTDirectStateAccess {
 	public static long glGetVertexArrayPointerEXT(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.pointerParam();
-		nglGetVertexArrayPointervEXT(vaobj, pname, __buffer.address() + param);
+		nglGetVertexArrayPointervEXT(vaobj, pname, __buffer.address(param));
 		return __buffer.pointerValue(param);
 	}
 
@@ -8010,7 +8010,7 @@ public final class EXTDirectStateAccess {
 	public static int glGetVertexArrayIntegeriEXT(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetVertexArrayIntegeri_vEXT(vaobj, index, pname, __buffer.address() + param);
+		nglGetVertexArrayIntegeri_vEXT(vaobj, index, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -8054,7 +8054,7 @@ public final class EXTDirectStateAccess {
 	public static long glGetVertexArrayPointeriEXT(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.pointerParam();
-		nglGetVertexArrayPointeri_vEXT(vaobj, index, pname, __buffer.address() + param);
+		nglGetVertexArrayPointeri_vEXT(vaobj, index, pname, __buffer.address(param));
 		return __buffer.pointerValue(param);
 	}
 

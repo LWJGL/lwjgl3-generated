@@ -195,7 +195,7 @@ public final class Xlib {
 			checkPointer(display);
 		APIBuffer __buffer = apiBuffer();
 		int atom_nameEncoded = __buffer.stringParamASCII(atom_name, true);
-		return nXInternAtom(display, __buffer.address() + atom_nameEncoded, only_if_exists);
+		return nXInternAtom(display, __buffer.address(atom_nameEncoded), only_if_exists);
 	}
 
 	// --- [ XDefaultScreen ] ---
@@ -388,7 +388,7 @@ public final class Xlib {
 			checkPointer(display);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nXQueryExtension(display, __buffer.address() + nameEncoded, memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
+		return nXQueryExtension(display, __buffer.address(nameEncoded), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
 	}
 
 	// --- [ XFlush ] ---
@@ -1252,7 +1252,7 @@ public final class Xlib {
 		APIBuffer __buffer = apiBuffer();
 		int window_nameEncoded = __buffer.stringParamUTF8(window_name, true);
 		int icon_nameEncoded = __buffer.stringParamUTF8(icon_name, true);
-		nXutf8SetWMProperties(display, w, __buffer.address() + window_nameEncoded, __buffer.address() + icon_nameEncoded, memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
+		nXutf8SetWMProperties(display, w, __buffer.address(window_nameEncoded), __buffer.address(icon_nameEncoded), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	// --- [ XChangeProperty ] ---

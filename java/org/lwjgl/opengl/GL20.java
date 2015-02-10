@@ -627,7 +627,7 @@ Creates a program object.
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
-		nglShaderSource(shader, strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths);
+		nglShaderSource(shader, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsLengths));
 	}
 
 	/** Single string version of: {@link #glShaderSource ShaderSource} */
@@ -636,7 +636,7 @@ Creates a program object.
 		int stringsLengths = __buffer.intParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		nglShaderSource(shader, 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths);
+		nglShaderSource(shader, 1, __buffer.address(stringsAddress), __buffer.address(stringsLengths));
 	}
 
 	// --- [ glCompileShader ] ---
@@ -1328,7 +1328,7 @@ Creates a program object.
 	public static int glGetShaderi(int shader, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetShaderiv(shader, pname, __buffer.address() + params);
+		nglGetShaderiv(shader, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1373,7 +1373,7 @@ Creates a program object.
 	public static int glGetProgrami(int program, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramiv(program, pname, __buffer.address() + params);
+		nglGetProgramiv(program, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1422,8 +1422,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetShaderInfoLog(shader, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetShaderInfoLog(shader, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
@@ -1432,8 +1432,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetShaderInfoLog(shader, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetShaderInfoLog(shader, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetProgramInfoLog ] ---
@@ -1481,8 +1481,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetProgramInfoLog(program, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramInfoLog(program, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
@@ -1491,8 +1491,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetProgramInfoLog(program, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramInfoLog(program, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttachedShaders ] ---
@@ -1540,8 +1540,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		int shaders = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedShaders(program, maxCount, __buffer.address() + count, __buffer.address() + shaders);
-		return memIntBuffer(__buffer.address() + shaders, __buffer.intValue(count));
+		nglGetAttachedShaders(program, maxCount, __buffer.address(count), __buffer.address(shaders));
+		return memIntBuffer(__buffer.address(shaders), __buffer.intValue(count));
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedShaders GetAttachedShaders} */
@@ -1550,8 +1550,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		int shaders = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedShaders(program, maxCount, __buffer.address() + count, __buffer.address() + shaders);
-		return memIntBuffer(__buffer.address() + shaders, __buffer.intValue(count));
+		nglGetAttachedShaders(program, maxCount, __buffer.address(count), __buffer.address(shaders));
+		return memIntBuffer(__buffer.address(shaders), __buffer.intValue(count));
 	}
 
 	// --- [ glGetUniformLocation ] ---
@@ -1587,7 +1587,7 @@ Creates a program object.
 	public static int glGetUniformLocation(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetUniformLocation(program, __buffer.address() + nameEncoded);
+		return nglGetUniformLocation(program, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetActiveUniform ] ---
@@ -1647,8 +1647,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveUniform(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
@@ -1661,8 +1661,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniform(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveUniform(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetUniformfv ] ---
@@ -1706,7 +1706,7 @@ Creates a program object.
 	public static float glGetUniformf(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetUniformfv(program, location, __buffer.address() + params);
+		nglGetUniformfv(program, location, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1751,7 +1751,7 @@ Creates a program object.
 	public static int glGetUniformi(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetUniformiv(program, location, __buffer.address() + params);
+		nglGetUniformiv(program, location, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1800,8 +1800,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
+		nglGetShaderSource(shader, maxLength, __buffer.address(length), __buffer.address(source));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderSource GetShaderSource} */
@@ -1810,8 +1810,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSource(shader, maxLength, __buffer.address() + length, __buffer.address() + source);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
+		nglGetShaderSource(shader, maxLength, __buffer.address(length), __buffer.address(source));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
 	}
 
 	// --- [ glVertexAttrib1f ] ---
@@ -3059,7 +3059,7 @@ Creates a program object.
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindAttribLocation(program, index, __buffer.address() + nameEncoded);
+		nglBindAttribLocation(program, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetActiveAttrib ] ---
@@ -3106,8 +3106,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveAttrib(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
@@ -3116,8 +3116,8 @@ Creates a program object.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveAttrib(program, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveAttrib(program, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttribLocation ] ---
@@ -3153,7 +3153,7 @@ Creates a program object.
 	public static int glGetAttribLocation(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetAttribLocation(program, __buffer.address() + nameEncoded);
+		return nglGetAttribLocation(program, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetVertexAttribiv ] ---
@@ -3197,7 +3197,7 @@ Creates a program object.
 	public static int glGetVertexAttribi(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetVertexAttribiv(index, pname, __buffer.address() + params);
+		nglGetVertexAttribiv(index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -3316,7 +3316,7 @@ Creates a program object.
 	public static long glGetVertexAttribPointer(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int pointer = __buffer.pointerParam();
-		nglGetVertexAttribPointerv(index, pname, __buffer.address() + pointer);
+		nglGetVertexAttribPointerv(index, pname, __buffer.address(pointer));
 		return __buffer.pointerValue(pointer);
 	}
 
@@ -3358,7 +3358,7 @@ Creates a program object.
 	public static void glDrawBuffers(int buf) {
 		APIBuffer __buffer = apiBuffer();
 		int bufs = __buffer.intParam(buf);
-		nglDrawBuffers(1, __buffer.address() + bufs);
+		nglDrawBuffers(1, __buffer.address(bufs));
 	}
 
 	// --- [ glBlendEquationSeparate ] ---

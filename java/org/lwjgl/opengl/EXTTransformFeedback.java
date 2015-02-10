@@ -266,7 +266,7 @@ public final class EXTTransformFeedback {
 		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
 		for ( int i = 0; i < varyings.length; i++ )
 			__buffer.pointerParam(varyingsAddress, i, memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
-		nglTransformFeedbackVaryingsEXT(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode);
+		nglTransformFeedbackVaryingsEXT(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
 	}
 
 	/** Single varying version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
@@ -274,7 +274,7 @@ public final class EXTTransformFeedback {
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
 		int varyingsAddress = __buffer.pointerParam(memAddress(varyingBuffers));
-		nglTransformFeedbackVaryingsEXT(program, 1, __buffer.address() + varyingsAddress, bufferMode);
+		nglTransformFeedbackVaryingsEXT(program, 1, __buffer.address(varyingsAddress), bufferMode);
 	}
 
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
@@ -332,8 +332,8 @@ public final class EXTTransformFeedback {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
@@ -348,8 +348,8 @@ public final class EXTTransformFeedback {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
@@ -391,7 +391,7 @@ public final class EXTTransformFeedback {
 	public static int glGetIntegerIndexedEXT(int param, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetIntegerIndexedvEXT(param, index, __buffer.address() + values);
+		nglGetIntegerIndexedvEXT(param, index, __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 
@@ -427,7 +427,7 @@ public final class EXTTransformFeedback {
 	public static boolean glGetBooleanIndexedEXT(int param, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.booleanParam();
-		nglGetBooleanIndexedvEXT(param, index, __buffer.address() + values);
+		nglGetBooleanIndexedvEXT(param, index, __buffer.address(values));
 		return __buffer.booleanValue(values);
 	}
 

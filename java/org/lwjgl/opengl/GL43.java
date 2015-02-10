@@ -817,7 +817,7 @@ public final class GL43 {
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDebugMessageControl(source, type, severity, 1, __buffer.address() + ids, enabled);
+		nglDebugMessageControl(source, type, severity, 1, __buffer.address(ids), enabled);
 	}
 
 	// --- [ glDebugMessageInsert ] ---
@@ -872,7 +872,7 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address() + messageEncoded);
+		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -1045,7 +1045,7 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address() + messageEncoded);
+		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -1113,7 +1113,7 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address() + labelEncoded);
+		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -1162,8 +1162,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
@@ -1172,8 +1172,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -1218,7 +1218,7 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address() + labelEncoded);
+		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -1268,8 +1268,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
@@ -1278,8 +1278,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -1345,7 +1345,7 @@ public final class GL43 {
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1390,7 +1390,7 @@ public final class GL43 {
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address() + params);
+		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -1523,7 +1523,7 @@ public final class GL43 {
 	public static void glInvalidateFramebuffer(int target, int attachment) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateFramebuffer(target, 1, __buffer.address() + attachments);
+		nglInvalidateFramebuffer(target, 1, __buffer.address(attachments));
 	}
 
 	// --- [ glInvalidateSubFramebuffer ] ---
@@ -1569,7 +1569,7 @@ public final class GL43 {
 	public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateSubFramebuffer(target, 1, __buffer.address() + attachments, x, y, width, height);
+		nglInvalidateSubFramebuffer(target, 1, __buffer.address(attachments), x, y, width, height);
 	}
 
 	// --- [ glMultiDrawArraysIndirect ] ---
@@ -1754,7 +1754,7 @@ public final class GL43 {
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address() + params);
+		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1792,7 +1792,7 @@ public final class GL43 {
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nglGetProgramResourceIndex(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -1842,8 +1842,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
@@ -1852,8 +1852,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
@@ -1906,8 +1906,8 @@ public final class GL43 {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int params = __buffer.bufferParam(bufSize << 2);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address() + length, __buffer.address() + params);
-		return memIntBuffer(__buffer.address() + params, __buffer.intValue(length));
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), __buffer.address(params));
+		return memIntBuffer(__buffer.address(params), __buffer.intValue(length));
 	}
 
 	// --- [ glGetProgramResourceLocation ] ---
@@ -1944,7 +1944,7 @@ public final class GL43 {
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocation(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -1981,7 +1981,7 @@ public final class GL43 {
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---

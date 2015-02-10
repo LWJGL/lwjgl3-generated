@@ -175,7 +175,7 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address() + params);
+		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -207,7 +207,7 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nglGetProgramResourceIndex(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -251,8 +251,8 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
@@ -261,8 +261,8 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address() + length, __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
@@ -309,8 +309,8 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int params = __buffer.bufferParam(bufSize << 2);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address() + length, __buffer.address() + params);
-		return memIntBuffer(__buffer.address() + params, __buffer.intValue(length));
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), __buffer.address(params));
+		return memIntBuffer(__buffer.address(params), __buffer.intValue(length));
 	}
 
 	// --- [ glGetProgramResourceLocation ] ---
@@ -341,7 +341,7 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocation(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -372,7 +372,7 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address() + nameEncoded);
+		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 }

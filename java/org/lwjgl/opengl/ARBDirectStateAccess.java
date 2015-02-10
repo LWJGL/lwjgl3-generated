@@ -307,7 +307,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateTransformFeedbacks() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglCreateTransformFeedbacks(1, __buffer.address() + ids);
+		nglCreateTransformFeedbacks(1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 
@@ -380,7 +380,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTransformFeedbacki(int xfb, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetTransformFeedbackiv(xfb, pname, __buffer.address() + param);
+		nglGetTransformFeedbackiv(xfb, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -420,7 +420,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTransformFeedbacki(int xfb, int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetTransformFeedbacki_v(xfb, pname, index, __buffer.address() + param);
+		nglGetTransformFeedbacki_v(xfb, pname, index, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -460,7 +460,7 @@ public final class ARBDirectStateAccess {
 	public static long glGetTransformFeedbacki64(int xfb, int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.longParam();
-		nglGetTransformFeedbacki64_v(xfb, pname, index, __buffer.address() + param);
+		nglGetTransformFeedbacki64_v(xfb, pname, index, __buffer.address(param));
 		return __buffer.longValue(param);
 	}
 
@@ -497,7 +497,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateBuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam();
-		nglCreateBuffers(1, __buffer.address() + buffers);
+		nglCreateBuffers(1, __buffer.address(buffers));
 		return __buffer.intValue(buffers);
 	}
 
@@ -928,7 +928,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetNamedBufferParameteri(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedBufferParameteriv(buffer, pname, __buffer.address() + params);
+		nglGetNamedBufferParameteriv(buffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -967,7 +967,7 @@ public final class ARBDirectStateAccess {
 	public static long glGetNamedBufferParameteri64(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetNamedBufferParameteri64v(buffer, pname, __buffer.address() + params);
+		nglGetNamedBufferParameteri64v(buffer, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -1006,7 +1006,7 @@ public final class ARBDirectStateAccess {
 	public static long glGetNamedBufferPointer(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetNamedBufferPointerv(buffer, pname, __buffer.address() + params);
+		nglGetNamedBufferPointerv(buffer, pname, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 
@@ -1092,7 +1092,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateFramebuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		nglCreateFramebuffers(1, __buffer.address() + framebuffers);
+		nglCreateFramebuffers(1, __buffer.address(framebuffers));
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -1212,7 +1212,7 @@ public final class ARBDirectStateAccess {
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int buf) {
 		APIBuffer __buffer = apiBuffer();
 		int bufs = __buffer.intParam(buf);
-		nglNamedFramebufferDrawBuffers(framebuffer, 1, __buffer.address() + bufs);
+		nglNamedFramebufferDrawBuffers(framebuffer, 1, __buffer.address(bufs));
 	}
 
 	// --- [ glNamedFramebufferReadBuffer ] ---
@@ -1263,7 +1263,7 @@ public final class ARBDirectStateAccess {
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int attachment) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateNamedFramebufferData(framebuffer, 1, __buffer.address() + attachments);
+		nglInvalidateNamedFramebufferData(framebuffer, 1, __buffer.address(attachments));
 	}
 
 	// --- [ glInvalidateNamedFramebufferSubData ] ---
@@ -1303,7 +1303,7 @@ public final class ARBDirectStateAccess {
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int attachment, int x, int y, int width, int height) {
 		APIBuffer __buffer = apiBuffer();
 		int attachments = __buffer.intParam(attachment);
-		nglInvalidateNamedFramebufferSubData(framebuffer, 1, __buffer.address() + attachments, x, y, width, height);
+		nglInvalidateNamedFramebufferSubData(framebuffer, 1, __buffer.address(attachments), x, y, width, height);
 	}
 
 	// --- [ glClearNamedFramebufferiv ] ---
@@ -1496,7 +1496,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetNamedFramebufferParameteri(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedFramebufferParameteriv(framebuffer, pname, __buffer.address() + params);
+		nglGetNamedFramebufferParameteriv(framebuffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1536,7 +1536,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, __buffer.address() + params);
+		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1572,7 +1572,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateRenderbuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		nglCreateRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglCreateRenderbuffers(1, __buffer.address(renderbuffers));
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -1646,7 +1646,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetNamedRenderbufferParameteri(int renderbuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, __buffer.address() + params);
+		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1683,7 +1683,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateTextures(int target) {
 		APIBuffer __buffer = apiBuffer();
 		int textures = __buffer.intParam();
-		nglCreateTextures(target, 1, __buffer.address() + textures);
+		nglCreateTextures(target, 1, __buffer.address(textures));
 		return __buffer.intValue(textures);
 	}
 
@@ -2309,7 +2309,7 @@ public final class ARBDirectStateAccess {
 	public static void glTextureParameterIi(int texture, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTextureParameterIiv(texture, pname, __buffer.address() + params);
+		nglTextureParameterIiv(texture, pname, __buffer.address(params));
 	}
 
 	// --- [ glTextureParameterIuiv ] ---
@@ -2347,7 +2347,7 @@ public final class ARBDirectStateAccess {
 	public static void glTextureParameterIui(int texture, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTextureParameterIuiv(texture, pname, __buffer.address() + params);
+		nglTextureParameterIuiv(texture, pname, __buffer.address(params));
 	}
 
 	// --- [ glTextureParameteriv ] ---
@@ -2560,7 +2560,7 @@ public final class ARBDirectStateAccess {
 	public static float glGetTextureLevelParameterf(int texture, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTextureLevelParameterfv(texture, level, pname, __buffer.address() + params);
+		nglGetTextureLevelParameterfv(texture, level, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -2600,7 +2600,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTextureLevelParameteri(int texture, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureLevelParameteriv(texture, level, pname, __buffer.address() + params);
+		nglGetTextureLevelParameteriv(texture, level, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2639,7 +2639,7 @@ public final class ARBDirectStateAccess {
 	public static float glGetTextureParameterf(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetTextureParameterfv(texture, pname, __buffer.address() + params);
+		nglGetTextureParameterfv(texture, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -2678,7 +2678,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTextureParameterIi(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameterIiv(texture, pname, __buffer.address() + params);
+		nglGetTextureParameterIiv(texture, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2717,7 +2717,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTextureParameterIui(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameterIuiv(texture, pname, __buffer.address() + params);
+		nglGetTextureParameterIuiv(texture, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2756,7 +2756,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetTextureParameteri(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTextureParameteriv(texture, pname, __buffer.address() + params);
+		nglGetTextureParameteriv(texture, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2792,7 +2792,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateVertexArrays() {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam();
-		nglCreateVertexArrays(1, __buffer.address() + arrays);
+		nglCreateVertexArrays(1, __buffer.address(arrays));
 		return __buffer.intValue(arrays);
 	}
 
@@ -3021,7 +3021,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetVertexArrayi(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetVertexArrayiv(vaobj, pname, __buffer.address() + param);
+		nglGetVertexArrayiv(vaobj, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -3061,7 +3061,7 @@ public final class ARBDirectStateAccess {
 	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
-		nglGetVertexArrayIndexediv(vaobj, index, pname, __buffer.address() + param);
+		nglGetVertexArrayIndexediv(vaobj, index, pname, __buffer.address(param));
 		return __buffer.intValue(param);
 	}
 
@@ -3101,7 +3101,7 @@ public final class ARBDirectStateAccess {
 	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.longParam();
-		nglGetVertexArrayIndexed64iv(vaobj, index, pname, __buffer.address() + param);
+		nglGetVertexArrayIndexed64iv(vaobj, index, pname, __buffer.address(param));
 		return __buffer.longValue(param);
 	}
 
@@ -3137,7 +3137,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateSamplers() {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam();
-		nglCreateSamplers(1, __buffer.address() + samplers);
+		nglCreateSamplers(1, __buffer.address(samplers));
 		return __buffer.intValue(samplers);
 	}
 
@@ -3173,7 +3173,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateProgramPipelines() {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam();
-		nglCreateProgramPipelines(1, __buffer.address() + pipelines);
+		nglCreateProgramPipelines(1, __buffer.address(pipelines));
 		return __buffer.intValue(pipelines);
 	}
 
@@ -3210,7 +3210,7 @@ public final class ARBDirectStateAccess {
 	public static int glCreateQueries(int target) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglCreateQueries(target, 1, __buffer.address() + ids);
+		nglCreateQueries(target, 1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 

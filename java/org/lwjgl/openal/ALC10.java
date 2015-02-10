@@ -369,7 +369,7 @@ public final class ALC10 {
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
 		APIBuffer __buffer = apiBuffer();
 		int extNameEncoded = __buffer.stringParamASCII(extName, true);
-		return nalcIsExtensionPresent(deviceHandle, __buffer.address() + extNameEncoded);
+		return nalcIsExtensionPresent(deviceHandle, __buffer.address(extNameEncoded));
 	}
 
 	// --- [ alcGetProcAddress ] ---
@@ -409,7 +409,7 @@ public final class ALC10 {
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
 		APIBuffer __buffer = apiBuffer();
 		int funcNameEncoded = __buffer.stringParamASCII(funcName, true);
-		return nalcGetProcAddress(deviceHandle, __buffer.address() + funcNameEncoded);
+		return nalcGetProcAddress(deviceHandle, __buffer.address(funcNameEncoded));
 	}
 
 	// --- [ alcGetEnumValue ] ---
@@ -446,7 +446,7 @@ public final class ALC10 {
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
 		APIBuffer __buffer = apiBuffer();
 		int enumNameEncoded = __buffer.stringParamASCII(enumName, true);
-		return nalcGetEnumValue(deviceHandle, __buffer.address() + enumNameEncoded);
+		return nalcGetEnumValue(deviceHandle, __buffer.address(enumNameEncoded));
 	}
 
 	// --- [ alcGetError ] ---
@@ -540,7 +540,7 @@ public final class ALC10 {
 	public static int alcGetInteger(long deviceHandle, int token) {
 		APIBuffer __buffer = apiBuffer();
 		int dest = __buffer.intParam();
-		nalcGetIntegerv(deviceHandle, token, 1, __buffer.address() + dest);
+		nalcGetIntegerv(deviceHandle, token, 1, __buffer.address(dest));
 		return __buffer.intValue(dest);
 	}
 

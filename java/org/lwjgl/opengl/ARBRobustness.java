@@ -243,7 +243,7 @@ public final class ARBRobustness {
 	public static double glGetnMapdARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetnMapdvARB(target, query, 1, __buffer.address() + data);
+		nglGetnMapdvARB(target, query, 1, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 
@@ -285,7 +285,7 @@ public final class ARBRobustness {
 	public static float glGetnMapfARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetnMapfvARB(target, query, 1, __buffer.address() + data);
+		nglGetnMapfvARB(target, query, 1, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -327,7 +327,7 @@ public final class ARBRobustness {
 	public static int glGetnMapiARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetnMapivARB(target, query, 1, __buffer.address() + data);
+		nglGetnMapivARB(target, query, 1, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -951,7 +951,7 @@ public final class ARBRobustness {
 	public static float glGetnUniformfARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetnUniformfvARB(program, location, 1, __buffer.address() + params);
+		nglGetnUniformfvARB(program, location, 1, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -993,7 +993,7 @@ public final class ARBRobustness {
 	public static int glGetnUniformiARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetnUniformivARB(program, location, 1, __buffer.address() + params);
+		nglGetnUniformivARB(program, location, 1, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1035,7 +1035,7 @@ public final class ARBRobustness {
 	public static int glGetnUniformuiARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetnUniformuivARB(program, location, 1, __buffer.address() + params);
+		nglGetnUniformuivARB(program, location, 1, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1077,7 +1077,7 @@ public final class ARBRobustness {
 	public static double glGetnUniformdARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetnUniformdvARB(program, location, 1, __buffer.address() + params);
+		nglGetnUniformdvARB(program, location, 1, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 

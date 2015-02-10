@@ -166,7 +166,7 @@ public final class GLX13 {
 	public static PointerBuffer glXGetFBConfigs(long display, int screen) {
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXGetFBConfigs(display, screen, __buffer.address() + nelements);
+		long __result = nglXGetFBConfigs(display, screen, __buffer.address(nelements));
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
@@ -199,7 +199,7 @@ public final class GLX13 {
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
+		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 
@@ -209,7 +209,7 @@ public final class GLX13 {
 			if ( attrib_list != null ) checkNT(attrib_list);
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
-		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address() + nelements);
+		long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), __buffer.address(nelements));
 		return memPointerBuffer(__result, __buffer.intValue(nelements));
 	}
 

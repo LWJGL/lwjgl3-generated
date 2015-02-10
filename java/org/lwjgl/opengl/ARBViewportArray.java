@@ -327,7 +327,7 @@ public final class ARBViewportArray {
 	public static float glGetFloati(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		nglGetFloati_v(target, index, __buffer.address() + data);
+		nglGetFloati_v(target, index, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -366,7 +366,7 @@ public final class ARBViewportArray {
 	public static double glGetDoublei(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		nglGetDoublei_v(target, index, __buffer.address() + data);
+		nglGetDoublei_v(target, index, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 

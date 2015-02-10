@@ -65,7 +65,7 @@ public final class Fcntl {
 	public static int open(CharSequence pathname, int flags) {
 		APIBuffer __buffer = apiBuffer();
 		int pathnameEncoded = __buffer.stringParamASCII(pathname, true);
-		return nopen(__buffer.address() + pathnameEncoded, flags);
+		return nopen(__buffer.address(pathnameEncoded), flags);
 	}
 
 }

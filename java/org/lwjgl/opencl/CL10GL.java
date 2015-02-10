@@ -542,7 +542,7 @@ public final class CL10GL {
 			if ( event != null ) checkBuffer(event, 1);
 		APIBuffer __buffer = apiBuffer();
 		int mem_objects = __buffer.pointerParam(mem_object);
-		return nclEnqueueAcquireGLObjects(command_queue, 1, __buffer.address() + mem_objects, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueAcquireGLObjects(command_queue, 1, __buffer.address(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueReleaseGLObjects ] ---
@@ -620,7 +620,7 @@ public final class CL10GL {
 			if ( event != null ) checkBuffer(event, 1);
 		APIBuffer __buffer = apiBuffer();
 		int mem_objects = __buffer.pointerParam(mem_object);
-		return nclEnqueueReleaseGLObjects(command_queue, 1, __buffer.address() + mem_objects, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReleaseGLObjects(command_queue, 1, __buffer.address(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 }

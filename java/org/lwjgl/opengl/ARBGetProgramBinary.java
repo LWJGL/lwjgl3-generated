@@ -122,8 +122,8 @@ public final class ARBGetProgramBinary {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary);
-		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
+		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -134,8 +134,8 @@ public final class ARBGetProgramBinary {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address() + length, memAddress(binaryFormat), __buffer.address() + binary);
-		return memByteBuffer(__buffer.address() + binary, __buffer.intValue(length));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
+		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
 	}
 
 	// --- [ glProgramBinary ] ---

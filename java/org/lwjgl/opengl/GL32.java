@@ -299,7 +299,7 @@ public final class GL32 {
 	public static long glGetBufferParameteri64(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetBufferParameteri64v(target, pname, __buffer.address() + params);
+		nglGetBufferParameteri64v(target, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -676,7 +676,7 @@ public final class GL32 {
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
-		nglGetMultisamplefv(pname, index, __buffer.address() + val);
+		nglGetMultisamplefv(pname, index, __buffer.address(val));
 		return __buffer.floatValue(val);
 	}
 
@@ -893,7 +893,7 @@ public final class GL32 {
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInteger64v(pname, __buffer.address() + params);
+		nglGetInteger64v(pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -938,7 +938,7 @@ public final class GL32 {
 	public static long glGetInteger64i(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInteger64i_v(pname, index, __buffer.address() + params);
+		nglGetInteger64i_v(pname, index, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -991,7 +991,7 @@ public final class GL32 {
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address() + values);
+		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 

@@ -1533,7 +1533,7 @@ public final class GL30 {
 	public static int glGetVertexAttribIi(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetVertexAttribIiv(index, pname, __buffer.address() + params);
+		nglGetVertexAttribIiv(index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1578,7 +1578,7 @@ public final class GL30 {
 	public static int glGetVertexAttribIui(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetVertexAttribIuiv(index, pname, __buffer.address() + params);
+		nglGetVertexAttribIuiv(index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1853,7 +1853,7 @@ public final class GL30 {
 	public static int glGetUniformui(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetUniformuiv(program, location, __buffer.address() + params);
+		nglGetUniformuiv(program, location, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1891,7 +1891,7 @@ public final class GL30 {
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocation(program, colorNumber, __buffer.address() + nameEncoded);
+		nglBindFragDataLocation(program, colorNumber, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetFragDataLocation ] ---
@@ -1927,7 +1927,7 @@ public final class GL30 {
 	public static int glGetFragDataLocation(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataLocation(program, __buffer.address() + nameEncoded);
+		return nglGetFragDataLocation(program, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glBeginConditionalRender ] ---
@@ -2133,7 +2133,7 @@ Ends conditional rendering.
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
 	}
 
 	// --- [ glGenRenderbuffers ] ---
@@ -2174,7 +2174,7 @@ Ends conditional rendering.
 	public static int glGenRenderbuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffers(1, __buffer.address() + renderbuffers);
+		nglGenRenderbuffers(1, __buffer.address(renderbuffers));
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -2268,7 +2268,7 @@ Ends conditional rendering.
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetRenderbufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2351,7 +2351,7 @@ Ends conditional rendering.
 	public static void glDeleteFramebuffers(int framebuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffers(1, __buffer.address() + framebuffers);
+		nglDeleteFramebuffers(1, __buffer.address(framebuffers));
 	}
 
 	// --- [ glGenFramebuffers ] ---
@@ -2392,7 +2392,7 @@ Ends conditional rendering.
 	public static int glGenFramebuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		nglGenFramebuffers(1, __buffer.address() + framebuffers);
+		nglGenFramebuffers(1, __buffer.address(framebuffers));
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -2578,7 +2578,7 @@ Ends conditional rendering.
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address() + params);
+		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2672,7 +2672,7 @@ Ends conditional rendering.
 	public static void glTexParameterIi(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTexParameterIiv(target, pname, __buffer.address() + params);
+		nglTexParameterIiv(target, pname, __buffer.address(params));
 	}
 
 	// --- [ glTexParameterIuiv ] ---
@@ -2716,7 +2716,7 @@ Ends conditional rendering.
 	public static void glTexParameterIui(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTexParameterIuiv(target, pname, __buffer.address() + params);
+		nglTexParameterIuiv(target, pname, __buffer.address(params));
 	}
 
 	// --- [ glGetTexParameterIiv ] ---
@@ -2760,7 +2760,7 @@ Ends conditional rendering.
 	public static int glGetTexParameterIi(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexParameterIiv(target, pname, __buffer.address() + params);
+		nglGetTexParameterIiv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2805,7 +2805,7 @@ Ends conditional rendering.
 	public static int glGetTexParameterIui(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexParameterIuiv(target, pname, __buffer.address() + params);
+		nglGetTexParameterIuiv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2867,7 +2867,7 @@ Ends conditional rendering.
 	public static boolean glGetBooleani(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.booleanParam();
-		nglGetBooleani_v(target, index, __buffer.address() + data);
+		nglGetBooleani_v(target, index, __buffer.address(data));
 		return __buffer.booleanValue(data);
 	}
 
@@ -2912,7 +2912,7 @@ Ends conditional rendering.
 	public static int glGetIntegeri(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
-		nglGetIntegeri_v(target, index, __buffer.address() + data);
+		nglGetIntegeri_v(target, index, __buffer.address(data));
 		return __buffer.intValue(data);
 	}
 
@@ -3106,7 +3106,7 @@ Ends transform feedback operation.
 		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
 		for ( int i = 0; i < varyings.length; i++ )
 			__buffer.pointerParam(varyingsAddress, i, memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
-		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address() + varyingsAddress, bufferMode);
+		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
 	}
 
 	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
@@ -3114,7 +3114,7 @@ Ends transform feedback operation.
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
 		int varyingsAddress = __buffer.pointerParam(memAddress(varyingBuffers));
-		nglTransformFeedbackVaryings(program, 1, __buffer.address() + varyingsAddress, bufferMode);
+		nglTransformFeedbackVaryings(program, 1, __buffer.address(varyingsAddress), bufferMode);
 	}
 
 	// --- [ glGetTransformFeedbackVarying ] ---
@@ -3174,8 +3174,8 @@ Ends transform feedback operation.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
@@ -3188,8 +3188,8 @@ Ends transform feedback operation.
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeASCII(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glBindVertexArray ] ---
@@ -3250,7 +3250,7 @@ Ends transform feedback operation.
 	public static void glDeleteVertexArrays(int array) {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArrays(1, __buffer.address() + arrays);
+		nglDeleteVertexArrays(1, __buffer.address(arrays));
 	}
 
 	// --- [ glGenVertexArrays ] ---
@@ -3291,7 +3291,7 @@ Ends transform feedback operation.
 	public static int glGenVertexArrays() {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam();
-		nglGenVertexArrays(1, __buffer.address() + arrays);
+		nglGenVertexArrays(1, __buffer.address(arrays));
 		return __buffer.intValue(arrays);
 	}
 

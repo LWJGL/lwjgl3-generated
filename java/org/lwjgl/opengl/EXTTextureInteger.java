@@ -226,7 +226,7 @@ public final class EXTTextureInteger {
 	public static void glTexParameterIiEXT(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTexParameterIivEXT(target, pname, __buffer.address() + params);
+		nglTexParameterIivEXT(target, pname, __buffer.address(params));
 	}
 
 	// --- [ glTexParameterIuivEXT ] ---
@@ -268,7 +268,7 @@ public final class EXTTextureInteger {
 	public static void glTexParameterIuiEXT(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		nglTexParameterIuivEXT(target, pname, __buffer.address() + params);
+		nglTexParameterIuivEXT(target, pname, __buffer.address(params));
 	}
 
 	// --- [ glGetTexParameterIivEXT ] ---
@@ -310,7 +310,7 @@ public final class EXTTextureInteger {
 	public static int glGetTexParameterIiEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexParameterIivEXT(target, pname, __buffer.address() + params);
+		nglGetTexParameterIivEXT(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -353,7 +353,7 @@ public final class EXTTextureInteger {
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetTexParameterIuivEXT(target, pname, __buffer.address() + params);
+		nglGetTexParameterIuivEXT(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -172,7 +172,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address() + precision);
+		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
 		return __buffer.intValue(precision);
 	}
 

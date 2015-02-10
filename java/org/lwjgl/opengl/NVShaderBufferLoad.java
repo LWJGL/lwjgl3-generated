@@ -302,7 +302,7 @@ public final class NVShaderBufferLoad {
 	public static long glGetBufferParameterui64NV(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetBufferParameterui64vNV(target, pname, __buffer.address() + params);
+		nglGetBufferParameterui64vNV(target, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -345,7 +345,7 @@ public final class NVShaderBufferLoad {
 	public static long glGetNamedBufferParameterui64NV(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetNamedBufferParameterui64vNV(buffer, pname, __buffer.address() + params);
+		nglGetNamedBufferParameterui64vNV(buffer, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -387,7 +387,7 @@ public final class NVShaderBufferLoad {
 	public static long glGetIntegerui64NV(int value) {
 		APIBuffer __buffer = apiBuffer();
 		int result = __buffer.longParam();
-		nglGetIntegerui64vNV(value, __buffer.address() + result);
+		nglGetIntegerui64vNV(value, __buffer.address(result));
 		return __buffer.longValue(result);
 	}
 
@@ -482,7 +482,7 @@ public final class NVShaderBufferLoad {
 	public static long glGetUniformui64NV(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetUniformui64vNV(program, location, __buffer.address() + params);
+		nglGetUniformui64vNV(program, location, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

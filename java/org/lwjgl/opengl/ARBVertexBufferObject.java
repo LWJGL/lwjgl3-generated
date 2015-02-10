@@ -212,7 +212,7 @@ public final class ARBVertexBufferObject {
 	public static void glDeleteBuffersARB(int buffer) {
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam(buffer);
-		nglDeleteBuffersARB(1, __buffer.address() + buffers);
+		nglDeleteBuffersARB(1, __buffer.address(buffers));
 	}
 
 	// --- [ glGenBuffersARB ] ---
@@ -251,7 +251,7 @@ public final class ARBVertexBufferObject {
 	public static int glGenBuffersARB() {
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam();
-		nglGenBuffersARB(1, __buffer.address() + buffers);
+		nglGenBuffersARB(1, __buffer.address(buffers));
 		return __buffer.intValue(buffers);
 	}
 
@@ -540,7 +540,7 @@ public final class ARBVertexBufferObject {
 	public static int glGetBufferParameteriARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetBufferParameterivARB(target, pname, __buffer.address() + params);
+		nglGetBufferParameterivARB(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -579,7 +579,7 @@ public final class ARBVertexBufferObject {
 	public static long glGetBufferPointerARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetBufferPointervARB(target, pname, __buffer.address() + params);
+		nglGetBufferPointervARB(target, pname, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 

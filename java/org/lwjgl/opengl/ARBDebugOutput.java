@@ -265,7 +265,7 @@ public final class ARBDebugOutput {
 		APIBuffer __buffer = apiBuffer();
 		int bufEncoded = __buffer.stringParamUTF8(buf, false);
 		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
-		nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, __buffer.address() + bufEncoded);
+		nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, __buffer.address(bufEncoded));
 	}
 
 	// --- [ glDebugMessageCallbackARB ] ---

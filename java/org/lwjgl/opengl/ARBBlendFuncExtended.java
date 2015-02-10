@@ -102,7 +102,7 @@ public final class ARBBlendFuncExtended {
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address() + nameEncoded);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -132,7 +132,7 @@ public final class ARBBlendFuncExtended {
 	public static int glGetFragDataIndex(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndex(program, __buffer.address() + nameEncoded);
+		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
 	}
 
 }

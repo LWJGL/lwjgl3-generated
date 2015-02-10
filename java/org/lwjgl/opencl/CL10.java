@@ -822,7 +822,7 @@ public final class CL10 {
 		}
 		APIBuffer __buffer = apiBuffer();
 		int devices = __buffer.pointerParam(device);
-		return nclCreateContext(memAddress(properties), 1, __buffer.address() + devices, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContext(memAddress(properties), 1, __buffer.address(devices), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateContextFromType ] ---
@@ -3223,7 +3223,7 @@ public final class CL10 {
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
-		return nclCreateProgramWithSource(context, strings.length, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret));
+		return nclCreateProgramWithSource(context, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsLengths), memAddressSafe(errcode_ret));
 	}
 
 	/** Single string version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
@@ -3234,7 +3234,7 @@ public final class CL10 {
 		int stringsLengths = __buffer.pointerParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nclCreateProgramWithSource(context, 1, __buffer.address() + stringsAddress, __buffer.address() + stringsLengths, memAddressSafe(errcode_ret));
+		return nclCreateProgramWithSource(context, 1, __buffer.address(stringsAddress), __buffer.address(stringsLengths), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateProgramWithBinary ] ---
@@ -3336,7 +3336,7 @@ public final class CL10 {
 		int binariesAddress = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
 		for ( int i = 0; i < binaries.length; i++ )
 			__buffer.pointerParam(binariesAddress, i, memAddress(binaries[i]));
-		return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), __buffer.address() + binariesLengths, __buffer.address() + binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), __buffer.address(binariesLengths), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
 	}
 
 	/** Single binary version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
@@ -3349,7 +3349,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int binariesLengths = __buffer.pointerParam(binary.remaining());
 		int binariesAddress = __buffer.pointerParam(memAddress(binary));
-		return nclCreateProgramWithBinary(context, 1, memAddress(device_list), __buffer.address() + binariesLengths, __buffer.address() + binariesAddress, memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		return nclCreateProgramWithBinary(context, 1, memAddress(device_list), __buffer.address(binariesLengths), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clRetainProgram ] ---
@@ -3486,7 +3486,7 @@ public final class CL10 {
 	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address() + optionsEncoded, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
@@ -3494,7 +3494,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
 		int device_list = __buffer.pointerParam(device);
-		return nclBuildProgram(program, 1, __buffer.address() + device_list, __buffer.address() + optionsEncoded, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, 1, __buffer.address(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -3720,7 +3720,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		APIBuffer __buffer = apiBuffer();
 		int kernel_nameEncoded = __buffer.stringParamASCII(kernel_name, true);
-		return nclCreateKernel(program, __buffer.address() + kernel_nameEncoded, memAddressSafe(errcode_ret));
+		return nclCreateKernel(program, __buffer.address(kernel_nameEncoded), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateKernelsInProgram ] ---
@@ -3969,7 +3969,7 @@ public final class CL10 {
 	public static int clSetKernelArg1b(long kernel, int arg_index, byte arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.byteParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 1, __buffer.address(arg_value));
 	}
 
 	/** byte2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -3977,7 +3977,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.byteParam(arg0);
 		__buffer.byteParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 2, __buffer.address(arg_value));
 	}
 
 	/** byte3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -3986,7 +3986,7 @@ public final class CL10 {
 		int arg_value = __buffer.byteParam(arg0);
 		__buffer.byteParam(arg1);
 		__buffer.byteParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 3, __buffer.address(arg_value));
 	}
 
 	/** byte4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -3996,14 +3996,14 @@ public final class CL10 {
 		__buffer.byteParam(arg1);
 		__buffer.byteParam(arg2);
 		__buffer.byteParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 0) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single short value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1s(long kernel, int arg_index, short arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.shortParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 1, __buffer.address(arg_value));
 	}
 
 	/** short2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4011,7 +4011,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.shortParam(arg0);
 		__buffer.shortParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 2, __buffer.address(arg_value));
 	}
 
 	/** short3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4020,7 +4020,7 @@ public final class CL10 {
 		int arg_value = __buffer.shortParam(arg0);
 		__buffer.shortParam(arg1);
 		__buffer.shortParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 3, __buffer.address(arg_value));
 	}
 
 	/** short4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4030,14 +4030,14 @@ public final class CL10 {
 		__buffer.shortParam(arg1);
 		__buffer.shortParam(arg2);
 		__buffer.shortParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 1) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single int value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1i(long kernel, int arg_index, int arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.intParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address(arg_value));
 	}
 
 	/** int2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4045,7 +4045,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.intParam(arg0);
 		__buffer.intParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address(arg_value));
 	}
 
 	/** int3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4054,7 +4054,7 @@ public final class CL10 {
 		int arg_value = __buffer.intParam(arg0);
 		__buffer.intParam(arg1);
 		__buffer.intParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address(arg_value));
 	}
 
 	/** int4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4064,14 +4064,14 @@ public final class CL10 {
 		__buffer.intParam(arg1);
 		__buffer.intParam(arg2);
 		__buffer.intParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single long value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1l(long kernel, int arg_index, long arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.longParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address(arg_value));
 	}
 
 	/** long2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4079,7 +4079,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.longParam(arg0);
 		__buffer.longParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address(arg_value));
 	}
 
 	/** long3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4088,7 +4088,7 @@ public final class CL10 {
 		int arg_value = __buffer.longParam(arg0);
 		__buffer.longParam(arg1);
 		__buffer.longParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address(arg_value));
 	}
 
 	/** long4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4098,14 +4098,14 @@ public final class CL10 {
 		__buffer.longParam(arg1);
 		__buffer.longParam(arg2);
 		__buffer.longParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single float value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1f(long kernel, int arg_index, float arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.floatParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 1, __buffer.address(arg_value));
 	}
 
 	/** float2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4113,7 +4113,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.floatParam(arg0);
 		__buffer.floatParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 2, __buffer.address(arg_value));
 	}
 
 	/** float3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4122,7 +4122,7 @@ public final class CL10 {
 		int arg_value = __buffer.floatParam(arg0);
 		__buffer.floatParam(arg1);
 		__buffer.floatParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 3, __buffer.address(arg_value));
 	}
 
 	/** float4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4132,14 +4132,14 @@ public final class CL10 {
 		__buffer.floatParam(arg1);
 		__buffer.floatParam(arg2);
 		__buffer.floatParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 2) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single double value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1d(long kernel, int arg_index, double arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.doubleParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 1, __buffer.address(arg_value));
 	}
 
 	/** double2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4147,7 +4147,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.doubleParam(arg0);
 		__buffer.doubleParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 2, __buffer.address(arg_value));
 	}
 
 	/** double3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4156,7 +4156,7 @@ public final class CL10 {
 		int arg_value = __buffer.doubleParam(arg0);
 		__buffer.doubleParam(arg1);
 		__buffer.doubleParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 3, __buffer.address(arg_value));
 	}
 
 	/** double4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4166,14 +4166,14 @@ public final class CL10 {
 		__buffer.doubleParam(arg1);
 		__buffer.doubleParam(arg2);
 		__buffer.doubleParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << 3) * 4, __buffer.address(arg_value));
 	}
 
 	/** Single pointer value version of: {@link #clSetKernelArg SetKernelArg} */
 	public static int clSetKernelArg1p(long kernel, int arg_index, long arg0) {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.pointerParam(arg0);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 1, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 1, __buffer.address(arg_value));
 	}
 
 	/** pointer2 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4181,7 +4181,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int arg_value = __buffer.pointerParam(arg0);
 		__buffer.pointerParam(arg1);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 2, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 2, __buffer.address(arg_value));
 	}
 
 	/** pointer3 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4190,7 +4190,7 @@ public final class CL10 {
 		int arg_value = __buffer.pointerParam(arg0);
 		__buffer.pointerParam(arg1);
 		__buffer.pointerParam(arg2);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 3, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 3, __buffer.address(arg_value));
 	}
 
 	/** pointer4 value version of: {@link #clSetKernelArg SetKernelArg} */
@@ -4200,7 +4200,7 @@ public final class CL10 {
 		__buffer.pointerParam(arg1);
 		__buffer.pointerParam(arg2);
 		__buffer.pointerParam(arg3);
-		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 4, __buffer.address() + arg_value);
+		return nclSetKernelArg(kernel, arg_index, (1 << POINTER_SHIFT) * 4, __buffer.address(arg_value));
 	}
 
 	// --- [ clGetKernelInfo ] ---
@@ -4608,7 +4608,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int mem_list = __buffer.pointerParam(memobj);
 		int args_mem_loc = __buffer.pointerParam(memobj_loc);
-		return nclEnqueueNativeKernel(command_queue, user_func.getPointer(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address() + mem_list, __buffer.address() + args_mem_loc, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueNativeKernel(command_queue, user_func.getPointer(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address(mem_list), __buffer.address(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clWaitForEvents ] ---
@@ -4658,7 +4658,7 @@ public final class CL10 {
 	public static int clWaitForEvents(long event) {
 		APIBuffer __buffer = apiBuffer();
 		int event_list = __buffer.pointerParam(event);
-		return nclWaitForEvents(1, __buffer.address() + event_list);
+		return nclWaitForEvents(1, __buffer.address(event_list));
 	}
 
 	// --- [ clGetEventInfo ] ---
@@ -4921,7 +4921,7 @@ public final class CL10 {
 	public static int clEnqueueWaitForEvents(long command_queue, long event) {
 		APIBuffer __buffer = apiBuffer();
 		int event_list = __buffer.pointerParam(event);
-		return nclEnqueueWaitForEvents(command_queue, 1, __buffer.address() + event_list);
+		return nclEnqueueWaitForEvents(command_queue, 1, __buffer.address(event_list));
 	}
 
 	// --- [ clGetEventProfilingInfo ] ---
@@ -5083,7 +5083,7 @@ public final class CL10 {
 	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
 		APIBuffer __buffer = apiBuffer();
 		int funcnameEncoded = __buffer.stringParamASCII(funcname, true);
-		return nclGetExtensionFunctionAddress(__buffer.address() + funcnameEncoded);
+		return nclGetExtensionFunctionAddress(__buffer.address(funcnameEncoded));
 	}
 
      /**

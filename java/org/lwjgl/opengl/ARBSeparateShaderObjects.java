@@ -336,7 +336,7 @@ public final class ARBSeparateShaderObjects {
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
 		for ( int i = 0; i < strings.length; i++ )
 			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
-		return nglCreateShaderProgramv(type, strings.length, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
@@ -344,7 +344,7 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nglCreateShaderProgramv(type, 1, __buffer.address() + stringsAddress);
+		return nglCreateShaderProgramv(type, 1, __buffer.address(stringsAddress));
 	}
 
 	// --- [ glBindProgramPipeline ] ---
@@ -393,7 +393,7 @@ public final class ARBSeparateShaderObjects {
 	public static void glDeleteProgramPipelines(int pipeline) {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam(pipeline);
-		nglDeleteProgramPipelines(1, __buffer.address() + pipelines);
+		nglDeleteProgramPipelines(1, __buffer.address(pipelines));
 	}
 
 	// --- [ glGenProgramPipelines ] ---
@@ -428,7 +428,7 @@ public final class ARBSeparateShaderObjects {
 	public static int glGenProgramPipelines() {
 		APIBuffer __buffer = apiBuffer();
 		int pipelines = __buffer.intParam();
-		nglGenProgramPipelines(1, __buffer.address() + pipelines);
+		nglGenProgramPipelines(1, __buffer.address(pipelines));
 		return __buffer.intValue(pipelines);
 	}
 
@@ -497,7 +497,7 @@ public final class ARBSeparateShaderObjects {
 	public static int glGetProgramPipelinei(int pipeline, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramPipelineiv(pipeline, pname, __buffer.address() + params);
+		nglGetProgramPipelineiv(pipeline, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1872,8 +1872,8 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
@@ -1882,8 +1882,8 @@ public final class ARBSeparateShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
-		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 }

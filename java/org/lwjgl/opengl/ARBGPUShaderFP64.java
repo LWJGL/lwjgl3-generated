@@ -672,7 +672,7 @@ public final class ARBGPUShaderFP64 {
 	public static double glGetUniformd(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
-		nglGetUniformdv(program, location, __buffer.address() + params);
+		nglGetUniformdv(program, location, __buffer.address(params));
 		return __buffer.doubleValue(params);
 	}
 

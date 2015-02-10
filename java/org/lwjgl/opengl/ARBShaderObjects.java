@@ -333,7 +333,7 @@ public final class ARBShaderObjects {
 		ByteBuffer[] stringBuffers = new ByteBuffer[string.length];
 		for ( int i = 0; i < string.length; i++ )
 			__buffer.pointerParam(stringAddress, i, memAddress(stringBuffers[i] = memEncodeUTF8(string[i], false)));
-		nglShaderSourceARB(shaderObj, string.length, __buffer.address() + stringAddress, __buffer.address() + stringLengths);
+		nglShaderSourceARB(shaderObj, string.length, __buffer.address(stringAddress), __buffer.address(stringLengths));
 	}
 
 	/** Single string version of: {@link #glShaderSourceARB ShaderSourceARB} */
@@ -342,7 +342,7 @@ public final class ARBShaderObjects {
 		int stringLengths = __buffer.intParam(string.length());
 		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
 		int stringAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		nglShaderSourceARB(shaderObj, 1, __buffer.address() + stringAddress, __buffer.address() + stringLengths);
+		nglShaderSourceARB(shaderObj, 1, __buffer.address(stringAddress), __buffer.address(stringLengths));
 	}
 
 	// --- [ glCompileShaderARB ] ---
@@ -1103,7 +1103,7 @@ public final class ARBShaderObjects {
 	public static int glGetObjectParameteriARB(int obj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetObjectParameterivARB(obj, pname, __buffer.address() + params);
+		nglGetObjectParameterivARB(obj, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1162,8 +1162,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetInfoLogARB(obj, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetInfoLogARB(obj, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetInfoLogARB GetInfoLogARB} */
@@ -1172,8 +1172,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(maxLength);
-		nglGetInfoLogARB(obj, maxLength, __buffer.address() + length, __buffer.address() + infoLog);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + infoLog, __buffer.intValue(length)));
+		nglGetInfoLogARB(obj, maxLength, __buffer.address(length), __buffer.address(infoLog));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetAttachedObjectsARB ] ---
@@ -1221,8 +1221,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		int obj = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address() + count, __buffer.address() + obj);
-		return memIntBuffer(__buffer.address() + obj, __buffer.intValue(count));
+		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), __buffer.address(obj));
+		return memIntBuffer(__buffer.address(obj), __buffer.intValue(count));
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
@@ -1231,8 +1231,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		int obj = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address() + count, __buffer.address() + obj);
-		return memIntBuffer(__buffer.address() + obj, __buffer.intValue(count));
+		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), __buffer.address(obj));
+		return memIntBuffer(__buffer.address(obj), __buffer.intValue(count));
 	}
 
 	// --- [ glGetUniformLocationARB ] ---
@@ -1276,7 +1276,7 @@ public final class ARBShaderObjects {
 	public static int glGetUniformLocationARB(int programObj, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nglGetUniformLocationARB(programObj, __buffer.address() + nameEncoded);
+		return nglGetUniformLocationARB(programObj, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetActiveUniformARB ] ---
@@ -1356,8 +1356,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniformARB(programObj, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveUniformARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
@@ -1370,8 +1370,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
-		nglGetActiveUniformARB(programObj, index, maxLength, __buffer.address() + length, memAddress(size), memAddress(type), __buffer.address() + name);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + name, __buffer.intValue(length)));
+		nglGetActiveUniformARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
 	}
 
 	// --- [ glGetUniformfvARB ] ---
@@ -1413,7 +1413,7 @@ public final class ARBShaderObjects {
 	public static float glGetUniformfARB(int programObj, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetUniformfvARB(programObj, location, __buffer.address() + params);
+		nglGetUniformfvARB(programObj, location, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1456,7 +1456,7 @@ public final class ARBShaderObjects {
 	public static int glGetUniformiARB(int programObj, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetUniformivARB(programObj, location, __buffer.address() + params);
+		nglGetUniformivARB(programObj, location, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1508,8 +1508,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSourceARB(obj, maxLength, __buffer.address() + length, __buffer.address() + source);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
+		nglGetShaderSourceARB(obj, maxLength, __buffer.address(length), __buffer.address(source));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
@@ -1518,8 +1518,8 @@ public final class ARBShaderObjects {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(maxLength);
-		nglGetShaderSourceARB(obj, maxLength, __buffer.address() + length, __buffer.address() + source);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + source, __buffer.intValue(length)));
+		nglGetShaderSourceARB(obj, maxLength, __buffer.address(length), __buffer.address(source));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
 	}
 
 }

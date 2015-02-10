@@ -125,7 +125,7 @@ public final class ARBTimerQuery {
 	public static long glGetQueryObjecti64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjecti64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -164,7 +164,7 @@ public final class ARBTimerQuery {
 	public static long glGetQueryObjectui64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address() + params);
+		nglGetQueryObjectui64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

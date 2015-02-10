@@ -1192,7 +1192,7 @@ public final class WinUser {
 			checkPointer(instance);
 		APIBuffer __buffer = apiBuffer();
 		int classNameEncoded = __buffer.stringParamUTF16(className, true);
-		return nUnregisterClass(__buffer.address() + classNameEncoded, instance);
+		return nUnregisterClass(__buffer.address(classNameEncoded), instance);
 	}
 
 	// --- [ GetClassInfoEx ] ---
@@ -1225,7 +1225,7 @@ public final class WinUser {
 			checkBuffer(classEx, WNDCLASSEX.SIZEOF);
 		APIBuffer __buffer = apiBuffer();
 		int classNameEncoded = __buffer.stringParamUTF16(className, true);
-		return nGetClassInfoEx(instance, __buffer.address() + classNameEncoded, memAddress(classEx));
+		return nGetClassInfoEx(instance, __buffer.address(classNameEncoded), memAddress(classEx));
 	}
 
 	// --- [ GetClassLongPtr ] ---
@@ -1289,7 +1289,7 @@ public final class WinUser {
 	public static long LoadIcon(long instance, CharSequence iconName) {
 		APIBuffer __buffer = apiBuffer();
 		int iconNameEncoded = __buffer.stringParamUTF16(iconName, true);
-		return nLoadIcon(instance, __buffer.address() + iconNameEncoded);
+		return nLoadIcon(instance, __buffer.address(iconNameEncoded));
 	}
 
 	// --- [ LoadCursor ] ---
@@ -1318,7 +1318,7 @@ public final class WinUser {
 			checkPointer(instance);
 		APIBuffer __buffer = apiBuffer();
 		int cursorNameEncoded = __buffer.stringParamUTF16(cursorName, true);
-		return nLoadCursor(instance, __buffer.address() + cursorNameEncoded);
+		return nLoadCursor(instance, __buffer.address(cursorNameEncoded));
 	}
 
 	// --- [ GetSystemMetrics ] ---
@@ -1368,7 +1368,7 @@ public final class WinUser {
 		APIBuffer __buffer = apiBuffer();
 		int classNameEncoded = __buffer.stringParamUTF16(className, true);
 		int windowNameEncoded = __buffer.stringParamUTF16(windowName, true);
-		return nCreateWindowEx(exStyle, __buffer.address() + classNameEncoded, __buffer.address() + windowNameEncoded, style, x, y, width, height, parent, menu, instance, param);
+		return nCreateWindowEx(exStyle, __buffer.address(classNameEncoded), __buffer.address(windowNameEncoded), style, x, y, width, height, parent, menu, instance, param);
 	}
 
 	// --- [ DestroyWindow ] ---
@@ -1481,7 +1481,7 @@ public final class WinUser {
 			checkPointer(window);
 		APIBuffer __buffer = apiBuffer();
 		int stringEncoded = __buffer.stringParamUTF16(string, true);
-		return nSetWindowText(window, __buffer.address() + stringEncoded);
+		return nSetWindowText(window, __buffer.address(stringEncoded));
 	}
 
 	// --- [ GetMessage ] ---
@@ -1733,7 +1733,7 @@ public final class WinUser {
 			checkBuffer(devMode, DEVMODE.SIZEOF);
 		APIBuffer __buffer = apiBuffer();
 		int deviceNameEncoded = __buffer.stringParamUTF16(deviceName, true);
-		return nEnumDisplaySettingsEx(__buffer.address() + deviceNameEncoded, modeNum, memAddress(devMode), flags);
+		return nEnumDisplaySettingsEx(__buffer.address(deviceNameEncoded), modeNum, memAddress(devMode), flags);
 	}
 
 	// --- [ ChangeDisplaySettings ] ---
@@ -1787,7 +1787,7 @@ public final class WinUser {
 			if ( devMode != null ) checkBuffer(devMode, DEVMODE.SIZEOF);
 		APIBuffer __buffer = apiBuffer();
 		int deviceNameEncoded = __buffer.stringParamUTF16(deviceName, true);
-		return nChangeDisplaySettingsEx(__buffer.address() + deviceNameEncoded, memAddressSafe(devMode), window, flags, param);
+		return nChangeDisplaySettingsEx(__buffer.address(deviceNameEncoded), memAddressSafe(devMode), window, flags, param);
 	}
 
 	// --- [ SystemParametersInfo ] ---

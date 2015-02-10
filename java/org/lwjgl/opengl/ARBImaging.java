@@ -542,7 +542,7 @@ public final class ARBImaging {
 	public static int glGetColorTableParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetColorTableParameteriv(target, pname, __buffer.address() + params);
+		nglGetColorTableParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -585,7 +585,7 @@ public final class ARBImaging {
 	public static float glGetColorTableParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetColorTableParameterfv(target, pname, __buffer.address() + params);
+		nglGetColorTableParameterfv(target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1054,7 +1054,7 @@ public final class ARBImaging {
 	public static int glGetConvolutionParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetConvolutionParameteriv(target, pname, __buffer.address() + params);
+		nglGetConvolutionParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1097,7 +1097,7 @@ public final class ARBImaging {
 	public static float glGetConvolutionParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetConvolutionParameterfv(target, pname, __buffer.address() + params);
+		nglGetConvolutionParameterfv(target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1216,7 +1216,7 @@ public final class ARBImaging {
 	public static int glGetHistogramParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetHistogramParameteriv(target, pname, __buffer.address() + params);
+		nglGetHistogramParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1259,7 +1259,7 @@ public final class ARBImaging {
 	public static float glGetHistogramParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetHistogramParameterfv(target, pname, __buffer.address() + params);
+		nglGetHistogramParameterfv(target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -1378,7 +1378,7 @@ public final class ARBImaging {
 	public static int glGetMinmaxParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetMinmaxParameteriv(target, pname, __buffer.address() + params);
+		nglGetMinmaxParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -1421,7 +1421,7 @@ public final class ARBImaging {
 	public static float glGetMinmaxParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetMinmaxParameterfv(target, pname, __buffer.address() + params);
+		nglGetMinmaxParameterfv(target, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 

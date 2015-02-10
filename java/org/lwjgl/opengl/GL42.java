@@ -300,7 +300,7 @@ public final class GL42 {
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address() + params);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -673,7 +673,7 @@ public final class GL42 {
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address() + params);
+		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -236,7 +236,7 @@ public final class ARBInternalformatQuery2 {
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address() + params);
+		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

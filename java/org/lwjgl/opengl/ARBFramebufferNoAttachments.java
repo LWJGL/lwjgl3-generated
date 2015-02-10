@@ -151,7 +151,7 @@ public final class ARBFramebufferNoAttachments {
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -214,7 +214,7 @@ public final class ARBFramebufferNoAttachments {
 	public static int glGetNamedFramebufferParameteriEXT(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, __buffer.address() + params);
+		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

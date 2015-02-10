@@ -160,7 +160,7 @@ public final class ARBShaderAtomicCounters {
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address() + params);
+		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -1571,7 +1571,7 @@ public final class ARBVertexProgram {
 	public static int glGenProgramsARB() {
 		APIBuffer __buffer = apiBuffer();
 		int programs = __buffer.intParam();
-		nglGenProgramsARB(1, __buffer.address() + programs);
+		nglGenProgramsARB(1, __buffer.address(programs));
 		return __buffer.intValue(programs);
 	}
 
@@ -1989,7 +1989,7 @@ public final class ARBVertexProgram {
 	public static int glGetProgramiARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetProgramivARB(target, pname, __buffer.address() + params);
+		nglGetProgramivARB(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2135,7 +2135,7 @@ public final class ARBVertexProgram {
 	public static int glGetVertexAttribiARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetVertexAttribivARB(index, pname, __buffer.address() + params);
+		nglGetVertexAttribivARB(index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -2178,7 +2178,7 @@ public final class ARBVertexProgram {
 	public static long glGetVertexAttribPointerARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int pointer = __buffer.pointerParam();
-		nglGetVertexAttribPointervARB(index, pname, __buffer.address() + pointer);
+		nglGetVertexAttribPointervARB(index, pname, __buffer.address(pointer));
 		return __buffer.pointerValue(pointer);
 	}
 

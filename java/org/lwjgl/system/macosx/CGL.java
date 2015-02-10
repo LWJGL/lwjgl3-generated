@@ -806,7 +806,7 @@ public final class CGL {
 			checkPointer(ctx);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		return nCGLSetParameter(ctx, pname, __buffer.address() + params);
+		return nCGLSetParameter(ctx, pname, __buffer.address(params));
 	}
 
 	// --- [ CGLGetParameter ] ---
@@ -943,7 +943,7 @@ public final class CGL {
 	public static int CGLSetGlobalOption(int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
-		return nCGLSetGlobalOption(pname, __buffer.address() + params);
+		return nCGLSetGlobalOption(pname, __buffer.address(params));
 	}
 
 	// --- [ CGLGetGlobalOption ] ---

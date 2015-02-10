@@ -278,7 +278,7 @@ public final class EXTFramebufferObject {
 	public static void glDeleteRenderbuffersEXT(int renderbuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffersEXT(1, __buffer.address() + renderbuffers);
+		nglDeleteRenderbuffersEXT(1, __buffer.address(renderbuffers));
 	}
 
 	// --- [ glGenRenderbuffersEXT ] ---
@@ -317,7 +317,7 @@ public final class EXTFramebufferObject {
 	public static int glGenRenderbuffersEXT() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffersEXT(1, __buffer.address() + renderbuffers);
+		nglGenRenderbuffersEXT(1, __buffer.address(renderbuffers));
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -381,7 +381,7 @@ public final class EXTFramebufferObject {
 	public static int glGetRenderbufferParameteriEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetRenderbufferParameterivEXT(target, pname, __buffer.address() + params);
+		nglGetRenderbufferParameterivEXT(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -458,7 +458,7 @@ public final class EXTFramebufferObject {
 	public static void glDeleteFramebuffersEXT(int framebuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffersEXT(1, __buffer.address() + framebuffers);
+		nglDeleteFramebuffersEXT(1, __buffer.address(framebuffers));
 	}
 
 	// --- [ glGenFramebuffersEXT ] ---
@@ -497,7 +497,7 @@ public final class EXTFramebufferObject {
 	public static int glGenFramebuffersEXT() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		nglGenFramebuffersEXT(1, __buffer.address() + framebuffers);
+		nglGenFramebuffersEXT(1, __buffer.address(framebuffers));
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -647,7 +647,7 @@ public final class EXTFramebufferObject {
 	public static int glGetFramebufferAttachmentParameteriEXT(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, __buffer.address() + params);
+		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

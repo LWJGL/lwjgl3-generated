@@ -373,7 +373,7 @@ public final class NVVertexBufferUnifiedMemory {
 	public static long glGetIntegerui64iNV(int value, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int result = __buffer.longParam();
-		nglGetIntegerui64i_vNV(value, index, __buffer.address() + result);
+		nglGetIntegerui64i_vNV(value, index, __buffer.address(result));
 		return __buffer.longValue(result);
 	}
 

@@ -264,7 +264,7 @@ public final class KHRDebug {
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDebugMessageControl(source, type, severity, 1, __buffer.address() + ids, enabled);
+		nglDebugMessageControl(source, type, severity, 1, __buffer.address(ids), enabled);
 	}
 
 	// --- [ glDebugMessageInsert ] ---
@@ -313,7 +313,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address() + messageEncoded);
+		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -468,7 +468,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address() + messageEncoded);
+		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -524,7 +524,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address() + labelEncoded);
+		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -567,8 +567,8 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
@@ -577,8 +577,8 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectLabel(identifier, name, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -617,7 +617,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address() + labelEncoded);
+		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -661,8 +661,8 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
@@ -671,8 +671,8 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address() + length, __buffer.address() + label);
-		return memDecodeUTF8(memByteBuffer(__buffer.address() + label, __buffer.intValue(length)));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
 	}
 
      /**

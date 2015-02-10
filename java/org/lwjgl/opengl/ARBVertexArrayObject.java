@@ -112,7 +112,7 @@ public final class ARBVertexArrayObject {
 	public static void glDeleteVertexArrays(int array) {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArrays(1, __buffer.address() + arrays);
+		nglDeleteVertexArrays(1, __buffer.address(arrays));
 	}
 
 	// --- [ glGenVertexArrays ] ---
@@ -147,7 +147,7 @@ public final class ARBVertexArrayObject {
 	public static int glGenVertexArrays() {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam();
-		nglGenVertexArrays(1, __buffer.address() + arrays);
+		nglGenVertexArrays(1, __buffer.address(arrays));
 		return __buffer.intValue(arrays);
 	}
 

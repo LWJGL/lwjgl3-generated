@@ -172,7 +172,7 @@ public final class WGL {
 	public static long wglGetProcAddress(CharSequence proc) {
 		APIBuffer __buffer = apiBuffer();
 		int procEncoded = __buffer.stringParamASCII(proc, true);
-		return nwglGetProcAddress(__buffer.address() + procEncoded);
+		return nwglGetProcAddress(__buffer.address(procEncoded));
 	}
 
 	// --- [ wglMakeCurrent ] ---

@@ -567,7 +567,7 @@ public final class GLFW {
 	public static PointerBuffer glfwGetMonitors() {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		long __result = nglfwGetMonitors(__buffer.address() + count);
+		long __result = nglfwGetMonitors(__buffer.address(count));
 		return memPointerBuffer(__result, __buffer.intValue(count));
 	}
 
@@ -1002,7 +1002,7 @@ public final class GLFW {
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
 		APIBuffer __buffer = apiBuffer();
 		int titleEncoded = __buffer.stringParamUTF8(title, true);
-		return nglfwCreateWindow(width, height, __buffer.address() + titleEncoded, monitor, share);
+		return nglfwCreateWindow(width, height, __buffer.address(titleEncoded), monitor, share);
 	}
 
 	// --- [ glfwDestroyWindow ] ---
@@ -1109,7 +1109,7 @@ public final class GLFW {
 			checkPointer(window);
 		APIBuffer __buffer = apiBuffer();
 		int titleEncoded = __buffer.stringParamUTF8(title, true);
-		nglfwSetWindowTitle(window, __buffer.address() + titleEncoded);
+		nglfwSetWindowTitle(window, __buffer.address(titleEncoded));
 	}
 
 	// --- [ glfwGetWindowPos ] ---
@@ -2345,7 +2345,7 @@ public final class GLFW {
 	public static FloatBuffer glfwGetJoystickAxes(int joy) {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		long __result = nglfwGetJoystickAxes(joy, __buffer.address() + count);
+		long __result = nglfwGetJoystickAxes(joy, __buffer.address(count));
 		return memFloatBuffer(__result, __buffer.intValue(count));
 	}
 
@@ -2372,7 +2372,7 @@ public final class GLFW {
 	public static ByteBuffer glfwGetJoystickButtons(int joy) {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		long __result = nglfwGetJoystickButtons(joy, __buffer.address() + count);
+		long __result = nglfwGetJoystickButtons(joy, __buffer.address(count));
 		return memByteBuffer(__result, __buffer.intValue(count));
 	}
 
@@ -2433,7 +2433,7 @@ public final class GLFW {
 			checkPointer(window);
 		APIBuffer __buffer = apiBuffer();
 		int stringEncoded = __buffer.stringParamUTF8(string, true);
-		nglfwSetClipboardString(window, __buffer.address() + stringEncoded);
+		nglfwSetClipboardString(window, __buffer.address(stringEncoded));
 	}
 
 	// --- [ glfwGetClipboardString ] ---
@@ -2610,7 +2610,7 @@ public final class GLFW {
 	public static int glfwExtensionSupported(CharSequence extension) {
 		APIBuffer __buffer = apiBuffer();
 		int extensionEncoded = __buffer.stringParamASCII(extension, true);
-		return nglfwExtensionSupported(__buffer.address() + extensionEncoded);
+		return nglfwExtensionSupported(__buffer.address(extensionEncoded));
 	}
 
 	// --- [ glfwGetProcAddress ] ---
@@ -2649,7 +2649,7 @@ public final class GLFW {
 	public static long glfwGetProcAddress(CharSequence procname) {
 		APIBuffer __buffer = apiBuffer();
 		int procnameEncoded = __buffer.stringParamASCII(procname, true);
-		return nglfwGetProcAddress(__buffer.address() + procnameEncoded);
+		return nglfwGetProcAddress(__buffer.address(procnameEncoded));
 	}
 
      /**

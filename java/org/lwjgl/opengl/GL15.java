@@ -236,7 +236,7 @@ public final class GL15 {
 	public static void glDeleteBuffers(int buffer) {
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam(buffer);
-		nglDeleteBuffers(1, __buffer.address() + buffers);
+		nglDeleteBuffers(1, __buffer.address(buffers));
 	}
 
 	// --- [ glGenBuffers ] ---
@@ -277,7 +277,7 @@ public final class GL15 {
 	public static int glGenBuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int buffers = __buffer.intParam();
-		nglGenBuffers(1, __buffer.address() + buffers);
+		nglGenBuffers(1, __buffer.address(buffers));
 		return __buffer.intValue(buffers);
 	}
 
@@ -604,7 +604,7 @@ public final class GL15 {
 	public static int glGetBufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetBufferParameteriv(target, pname, __buffer.address() + params);
+		nglGetBufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -649,7 +649,7 @@ public final class GL15 {
 	public static long glGetBufferPointer(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
-		nglGetBufferPointerv(target, pname, __buffer.address() + params);
+		nglGetBufferPointerv(target, pname, __buffer.address(params));
 		return __buffer.pointerValue(params);
 	}
 
@@ -691,7 +691,7 @@ public final class GL15 {
 	public static int glGenQueries() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglGenQueries(1, __buffer.address() + ids);
+		nglGenQueries(1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 
@@ -733,7 +733,7 @@ public final class GL15 {
 	public static void glDeleteQueries(int id) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDeleteQueries(1, __buffer.address() + ids);
+		nglDeleteQueries(1, __buffer.address(ids));
 	}
 
 	// --- [ glIsQuery ] ---
@@ -838,7 +838,7 @@ public final class GL15 {
 	public static int glGetQueryi(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryiv(target, pname, __buffer.address() + params);
+		nglGetQueryiv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -883,7 +883,7 @@ public final class GL15 {
 	public static int glGetQueryObjecti(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectiv(id, pname, __buffer.address() + params);
+		nglGetQueryObjectiv(id, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -928,7 +928,7 @@ public final class GL15 {
 	public static int glGetQueryObjectui(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryObjectuiv(id, pname, __buffer.address() + params);
+		nglGetQueryObjectuiv(id, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
