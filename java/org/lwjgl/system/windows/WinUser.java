@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WinUser.h. */
 public final class WinUser {
@@ -1189,8 +1190,9 @@ public final class WinUser {
 	public static int UnregisterClass(CharSequence className, long instance) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		ByteBuffer classNameEncoded = memEncodeUTF16(className);
-		return nUnregisterClass(memAddress(classNameEncoded), instance);
+		APIBuffer __buffer = apiBuffer();
+		int classNameEncoded = __buffer.stringParamUTF16(className, true);
+		return nUnregisterClass(__buffer.address() + classNameEncoded, instance);
 	}
 
 	// --- [ GetClassInfoEx ] ---
@@ -1221,8 +1223,9 @@ public final class WinUser {
 	public static int GetClassInfoEx(long instance, CharSequence className, ByteBuffer classEx) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(classEx, WNDCLASSEX.SIZEOF);
-		ByteBuffer classNameEncoded = memEncodeUTF16(className);
-		return nGetClassInfoEx(instance, memAddress(classNameEncoded), memAddress(classEx));
+		APIBuffer __buffer = apiBuffer();
+		int classNameEncoded = __buffer.stringParamUTF16(className, true);
+		return nGetClassInfoEx(instance, __buffer.address() + classNameEncoded, memAddress(classEx));
 	}
 
 	// --- [ GetClassLongPtr ] ---
@@ -1284,8 +1287,9 @@ public final class WinUser {
 
 	/** CharSequence version of: {@link #LoadIcon} */
 	public static long LoadIcon(long instance, CharSequence iconName) {
-		ByteBuffer iconNameEncoded = memEncodeUTF16(iconName);
-		return nLoadIcon(instance, memAddress(iconNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int iconNameEncoded = __buffer.stringParamUTF16(iconName, true);
+		return nLoadIcon(instance, __buffer.address() + iconNameEncoded);
 	}
 
 	// --- [ LoadCursor ] ---
@@ -1312,8 +1316,9 @@ public final class WinUser {
 	public static long LoadCursor(long instance, CharSequence cursorName) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		ByteBuffer cursorNameEncoded = memEncodeUTF16(cursorName);
-		return nLoadCursor(instance, memAddress(cursorNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int cursorNameEncoded = __buffer.stringParamUTF16(cursorName, true);
+		return nLoadCursor(instance, __buffer.address() + cursorNameEncoded);
 	}
 
 	// --- [ GetSystemMetrics ] ---
@@ -1360,9 +1365,10 @@ public final class WinUser {
 	public static long CreateWindowEx(int exStyle, CharSequence className, CharSequence windowName, int style, int x, int y, int width, int height, long parent, long menu, long instance, long param) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(instance);
-		ByteBuffer classNameEncoded = memEncodeUTF16(className);
-		ByteBuffer windowNameEncoded = memEncodeUTF16(windowName);
-		return nCreateWindowEx(exStyle, memAddress(classNameEncoded), memAddress(windowNameEncoded), style, x, y, width, height, parent, menu, instance, param);
+		APIBuffer __buffer = apiBuffer();
+		int classNameEncoded = __buffer.stringParamUTF16(className, true);
+		int windowNameEncoded = __buffer.stringParamUTF16(windowName, true);
+		return nCreateWindowEx(exStyle, __buffer.address() + classNameEncoded, __buffer.address() + windowNameEncoded, style, x, y, width, height, parent, menu, instance, param);
 	}
 
 	// --- [ DestroyWindow ] ---
@@ -1473,8 +1479,9 @@ public final class WinUser {
 	public static int SetWindowText(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		ByteBuffer stringEncoded = memEncodeUTF16(string);
-		return nSetWindowText(window, memAddress(stringEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int stringEncoded = __buffer.stringParamUTF16(string, true);
+		return nSetWindowText(window, __buffer.address() + stringEncoded);
 	}
 
 	// --- [ GetMessage ] ---
@@ -1659,8 +1666,9 @@ public final class WinUser {
 	public static int EnumDisplayDevices(CharSequence device, int devNum, ByteBuffer displayDevice, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(displayDevice, DISPLAY_DEVICE.SIZEOF);
-		ByteBuffer deviceEncoded = memEncodeUTF16(device);
-		return nEnumDisplayDevices(memAddressSafe(deviceEncoded), devNum, memAddress(displayDevice), flags);
+		APIBuffer __buffer = apiBuffer();
+		int deviceEncoded = __buffer.stringParamUTF16(device, true);
+		return nEnumDisplayDevices(__buffer.addressSafe(device, deviceEncoded), devNum, memAddress(displayDevice), flags);
 	}
 
 	// --- [ EnumDisplaySettings ] ---
@@ -1691,8 +1699,9 @@ public final class WinUser {
 	public static int EnumDisplaySettings(CharSequence deviceName, int modeNum, ByteBuffer devMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
-		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
-		return nEnumDisplaySettings(memAddressSafe(deviceNameEncoded), modeNum, memAddress(devMode));
+		APIBuffer __buffer = apiBuffer();
+		int deviceNameEncoded = __buffer.stringParamUTF16(deviceName, true);
+		return nEnumDisplaySettings(__buffer.addressSafe(deviceName, deviceNameEncoded), modeNum, memAddress(devMode));
 	}
 
 	// --- [ EnumDisplaySettingsEx ] ---
@@ -1722,8 +1731,9 @@ public final class WinUser {
 	public static int EnumDisplaySettingsEx(CharSequence deviceName, int modeNum, ByteBuffer devMode, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(devMode, DEVMODE.SIZEOF);
-		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
-		return nEnumDisplaySettingsEx(memAddress(deviceNameEncoded), modeNum, memAddress(devMode), flags);
+		APIBuffer __buffer = apiBuffer();
+		int deviceNameEncoded = __buffer.stringParamUTF16(deviceName, true);
+		return nEnumDisplaySettingsEx(__buffer.address() + deviceNameEncoded, modeNum, memAddress(devMode), flags);
 	}
 
 	// --- [ ChangeDisplaySettings ] ---
@@ -1775,8 +1785,9 @@ public final class WinUser {
 	public static int ChangeDisplaySettingsEx(CharSequence deviceName, ByteBuffer devMode, long window, int flags, long param) {
 		if ( LWJGLUtil.CHECKS )
 			if ( devMode != null ) checkBuffer(devMode, DEVMODE.SIZEOF);
-		ByteBuffer deviceNameEncoded = memEncodeUTF16(deviceName);
-		return nChangeDisplaySettingsEx(memAddress(deviceNameEncoded), memAddressSafe(devMode), window, flags, param);
+		APIBuffer __buffer = apiBuffer();
+		int deviceNameEncoded = __buffer.stringParamUTF16(deviceName, true);
+		return nChangeDisplaySettingsEx(__buffer.address() + deviceNameEncoded, memAddressSafe(devMode), window, flags, param);
 	}
 
 	// --- [ SystemParametersInfo ] ---

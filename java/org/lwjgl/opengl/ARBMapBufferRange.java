@@ -100,13 +100,13 @@ public final class ARBMapBufferRange {
 	 */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
 		long __result = nglMapBufferRange(target, offset, length, access);
-		return memByteBuffer(__result, length);
+		return memByteBuffer(__result, (int)length);
 	}
 
 	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRange(target, offset, length, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
 	}
 
 	// --- [ glFlushMappedBufferRange ] ---

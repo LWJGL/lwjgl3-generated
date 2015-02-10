@@ -53,11 +53,11 @@ public final class XkbKeyNameRec implements Pointer {
 
 	public void setName(long name, int bytes) { nameSet(struct, name, bytes); }
 	public void setName(ByteBuffer name) { nameSet(struct, name); }
-	public void setName(CharSequence name) { nameSet(struct, name); }
+	public void setName(CharSequence name) { name(struct, name); }
 
 	public void getName(long name, int bytes) { nameGet(struct, name, bytes); }
 	public void getName(ByteBuffer name) { nameGet(struct, name); }
-	public String getNameStr() { return nameGets(struct); }
+	public String getNameString() { return nameString(struct); }
 
 	// -----------------------------------
 
@@ -95,7 +95,7 @@ public final class XkbKeyNameRec implements Pointer {
 	) {
 		ByteBuffer xkbkeynamerec = malloc();
 
-		nameSet(xkbkeynamerec, name);
+		name(xkbkeynamerec, name);
 
 		return xkbkeynamerec;
 	}
@@ -106,7 +106,7 @@ public final class XkbKeyNameRec implements Pointer {
 		checkBufferGT(name, 4 * 1);
 		nameSet(xkbkeynamerec, memAddress(name), name.remaining());
 	}
-	public static void nameSet(ByteBuffer xkbkeynamerec, CharSequence name) { ByteBuffer buffer = memEncodeASCII(name, false); nameSet(xkbkeynamerec, memAddress(buffer), buffer.capacity()); }
+	public static void name(ByteBuffer xkbkeynamerec, CharSequence name) { memEncodeASCII(name, false, xkbkeynamerec, NAME); }
 
 	public static void nameGet(ByteBuffer xkbkeynamerec, long name, int bytes) {
 		memCopy(memAddress(xkbkeynamerec) + NAME, name, bytes);
@@ -115,6 +115,6 @@ public final class XkbKeyNameRec implements Pointer {
 		checkBufferGT(name, 4 * 1);
 		nameGet(xkbkeynamerec, memAddress(name), name.remaining());
 	}
-	public static String nameGets(ByteBuffer xkbkeynamerec) { return memDecodeASCII(xkbkeynamerec, 4, NAME); }
+	public static String nameString(ByteBuffer xkbkeynamerec) { return memDecodeASCII(xkbkeynamerec, 4, NAME); }
 
 }

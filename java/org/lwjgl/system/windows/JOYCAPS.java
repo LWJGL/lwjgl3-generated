@@ -101,7 +101,7 @@ public final class JOYCAPS implements Pointer {
 	public void setPid(int pid) { pid(struct, pid); }
 	public void setPname(long pname, int bytes) { pnameSet(struct, pname, bytes); }
 	public void setPname(ByteBuffer pname) { pnameSet(struct, pname); }
-	public void setPname(CharSequence pname) { pnameSet(struct, pname); }
+	public void setPname(CharSequence pname) { pname(struct, pname); }
 	public void setXmin(int xmin) { xmin(struct, xmin); }
 	public void setXmax(int xmax) { xmax(struct, xmax); }
 	public void setYmin(int ymin) { ymin(struct, ymin); }
@@ -123,17 +123,17 @@ public final class JOYCAPS implements Pointer {
 	public void setMaxButtons(int maxButtons) { maxButtons(struct, maxButtons); }
 	public void setRegKey(long regKey, int bytes) { regKeySet(struct, regKey, bytes); }
 	public void setRegKey(ByteBuffer regKey) { regKeySet(struct, regKey); }
-	public void setRegKey(CharSequence regKey) { regKeySet(struct, regKey); }
+	public void setRegKey(CharSequence regKey) { regKey(struct, regKey); }
 	public void setOEMVxD(long OEMVxD, int bytes) { OEMVxDSet(struct, OEMVxD, bytes); }
 	public void setOEMVxD(ByteBuffer OEMVxD) { OEMVxDSet(struct, OEMVxD); }
-	public void setOEMVxD(CharSequence OEMVxD) { OEMVxDSet(struct, OEMVxD); }
+	public void setOEMVxD(CharSequence OEMVxD) { OEMVxD(struct, OEMVxD); }
 
 	public int getMid() { return mid(struct); }
 	public int getPid() { return pid(struct); }
 	public void getPname(long pname, int bytes) { pnameGet(struct, pname, bytes); }
 	public void getPname(ByteBuffer pname) { pnameGet(struct, pname); }
-	public String getPnameStr() { return pnameGets(struct); }
-	public String getPnameStr(int size) { return pnameGets(struct, size); }
+	public String getPnameString() { return pnameString(struct); }
+	public String getPnameString(int size) { return pnameString(struct, size); }
 	public int getXmin() { return xmin(struct); }
 	public int getXmax() { return xmax(struct); }
 	public int getYmin() { return ymin(struct); }
@@ -155,12 +155,12 @@ public final class JOYCAPS implements Pointer {
 	public int getMaxButtons() { return maxButtons(struct); }
 	public void getRegKey(long regKey, int bytes) { regKeyGet(struct, regKey, bytes); }
 	public void getRegKey(ByteBuffer regKey) { regKeyGet(struct, regKey); }
-	public String getRegKeyStr() { return regKeyGets(struct); }
-	public String getRegKeyStr(int size) { return regKeyGets(struct, size); }
+	public String getRegKeyString() { return regKeyString(struct); }
+	public String getRegKeyString(int size) { return regKeyString(struct, size); }
 	public void getOEMVxD(long OEMVxD, int bytes) { OEMVxDGet(struct, OEMVxD, bytes); }
 	public void getOEMVxD(ByteBuffer OEMVxD) { OEMVxDGet(struct, OEMVxD); }
-	public String getOEMVxDStr() { return OEMVxDGets(struct); }
-	public String getOEMVxDStr(int size) { return OEMVxDGets(struct, size); }
+	public String getOEMVxDString() { return OEMVxDString(struct); }
+	public String getOEMVxDString(int size) { return OEMVxDString(struct, size); }
 
 	// -----------------------------------
 
@@ -317,7 +317,7 @@ public final class JOYCAPS implements Pointer {
 
 		mid(joycaps, mid);
 		pid(joycaps, pid);
-		pnameSet(joycaps, pname);
+		pname(joycaps, pname);
 		xmin(joycaps, xmin);
 		xmax(joycaps, xmax);
 		ymin(joycaps, ymin);
@@ -337,8 +337,8 @@ public final class JOYCAPS implements Pointer {
 		maxAxes(joycaps, maxAxes);
 		numAxes(joycaps, numAxes);
 		maxButtons(joycaps, maxButtons);
-		regKeySet(joycaps, regKey);
-		OEMVxDSet(joycaps, OEMVxD);
+		regKey(joycaps, regKey);
+		OEMVxD(joycaps, OEMVxD);
 
 		return joycaps;
 	}
@@ -351,7 +351,7 @@ public final class JOYCAPS implements Pointer {
 		checkBufferGT(pname, 32 * 2);
 		pnameSet(joycaps, memAddress(pname), pname.remaining());
 	}
-	public static void pnameSet(ByteBuffer joycaps, CharSequence pname) { ByteBuffer buffer = memEncodeUTF16(pname, true); pnameSet(joycaps, memAddress(buffer), buffer.capacity()); }
+	public static void pname(ByteBuffer joycaps, CharSequence pname) { memEncodeUTF16(pname, true, joycaps, PNAME); }
 	public static void xmin(ByteBuffer joycaps, int xmin) { joycaps.putInt(joycaps.position() + XMIN, xmin); }
 	public static void xmax(ByteBuffer joycaps, int xmax) { joycaps.putInt(joycaps.position() + XMAX, xmax); }
 	public static void ymin(ByteBuffer joycaps, int ymin) { joycaps.putInt(joycaps.position() + YMIN, ymin); }
@@ -377,14 +377,14 @@ public final class JOYCAPS implements Pointer {
 		checkBufferGT(regKey, 32 * 2);
 		regKeySet(joycaps, memAddress(regKey), regKey.remaining());
 	}
-	public static void regKeySet(ByteBuffer joycaps, CharSequence regKey) { ByteBuffer buffer = memEncodeUTF16(regKey, true); regKeySet(joycaps, memAddress(buffer), buffer.capacity()); }
+	public static void regKey(ByteBuffer joycaps, CharSequence regKey) { memEncodeUTF16(regKey, true, joycaps, REGKEY); }
 	public static void OEMVxDSet(ByteBuffer joycaps, long OEMVxD, int bytes) { memCopy(OEMVxD, memAddress(joycaps) + OEMVXD, bytes); }
 	public static void OEMVxDSet(ByteBuffer joycaps, ByteBuffer OEMVxD) {
 		checkNT2(OEMVxD);
 		checkBufferGT(OEMVxD, 260 * 2);
 		OEMVxDSet(joycaps, memAddress(OEMVxD), OEMVxD.remaining());
 	}
-	public static void OEMVxDSet(ByteBuffer joycaps, CharSequence OEMVxD) { ByteBuffer buffer = memEncodeUTF16(OEMVxD, true); OEMVxDSet(joycaps, memAddress(buffer), buffer.capacity()); }
+	public static void OEMVxD(ByteBuffer joycaps, CharSequence OEMVxD) { memEncodeUTF16(OEMVxD, true, joycaps, OEMVXD); }
 
 	public static int mid(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + MID); }
 	public static int pid(ByteBuffer joycaps) { return joycaps.getShort(joycaps.position() + PID); }
@@ -395,8 +395,8 @@ public final class JOYCAPS implements Pointer {
 		checkBufferGT(pname, 32 * 2);
 		pnameGet(joycaps, memAddress(pname), pname.remaining());
 	}
-	public static String pnameGets(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, PNAME), PNAME); }
-	public static String pnameGets(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, PNAME); }
+	public static String pnameString(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, PNAME), PNAME); }
+	public static String pnameString(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, PNAME); }
 	public static int xmin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMIN); }
 	public static int xmax(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + XMAX); }
 	public static int ymin(ByteBuffer joycaps) { return joycaps.getInt(joycaps.position() + YMIN); }
@@ -423,8 +423,8 @@ public final class JOYCAPS implements Pointer {
 		checkBufferGT(regKey, 32 * 2);
 		regKeyGet(joycaps, memAddress(regKey), regKey.remaining());
 	}
-	public static String regKeyGets(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, REGKEY), REGKEY); }
-	public static String regKeyGets(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, REGKEY); }
+	public static String regKeyString(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, REGKEY), REGKEY); }
+	public static String regKeyString(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, REGKEY); }
 	public static void OEMVxDGet(ByteBuffer joycaps, long OEMVxD, int bytes) {
 		memCopy(memAddress(joycaps) + OEMVXD, OEMVxD, bytes);
 	}
@@ -432,7 +432,7 @@ public final class JOYCAPS implements Pointer {
 		checkBufferGT(OEMVxD, 260 * 2);
 		OEMVxDGet(joycaps, memAddress(OEMVxD), OEMVxD.remaining());
 	}
-	public static String OEMVxDGets(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, OEMVXD), OEMVXD); }
-	public static String OEMVxDGets(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, OEMVXD); }
+	public static String OEMVxDString(ByteBuffer joycaps) { return memDecodeUTF16(joycaps, memStrLen2(joycaps, OEMVXD), OEMVXD); }
+	public static String OEMVxDString(ByteBuffer joycaps, int size) { return memDecodeUTF16(joycaps, size, OEMVXD); }
 
 }

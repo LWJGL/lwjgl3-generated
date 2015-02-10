@@ -87,7 +87,7 @@ public final class XRRScreenResources implements Pointer {
 	public ByteBuffer getOutputs(int size) { return outputs(struct, size); }
 	public int getNmode() { return nmode(struct); }
 	public long getModes() { return modes(struct); }
-	public ByteBuffer getModesBuf() { return modesb(struct); }
+	public ByteBuffer getModesBuffer() { return modesBuffer(struct); }
 
 	// -----------------------------------
 
@@ -168,6 +168,6 @@ public final class XRRScreenResources implements Pointer {
 	public static ByteBuffer outputs(ByteBuffer xrrscreenresources, int size) { long address = outputs(xrrscreenresources); return address == NULL ? null : memByteBuffer(address, size); }
 	public static int nmode(ByteBuffer xrrscreenresources) { return xrrscreenresources.getInt(xrrscreenresources.position() + NMODE); }
 	public static long modes(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + MODES); }
-	public static ByteBuffer modesb(ByteBuffer xrrscreenresources) { return memByteBuffer(modes(xrrscreenresources), XRRModeInfo.SIZEOF); }
+	public static ByteBuffer modesBuffer(ByteBuffer xrrscreenresources) { return memByteBuffer(modes(xrrscreenresources), XRRModeInfo.SIZEOF); }
 
 }

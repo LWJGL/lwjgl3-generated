@@ -13,6 +13,7 @@ import java.nio.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to Xlib.h. */
 public final class Xlib {
@@ -141,8 +142,9 @@ public final class Xlib {
 
 	/** CharSequence version of: {@link #XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
-		ByteBuffer display_nameEncoded = memEncodeASCII(display_name);
-		return nXOpenDisplay(memAddressSafe(display_nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int display_nameEncoded = __buffer.stringParamASCII(display_name, true);
+		return nXOpenDisplay(__buffer.addressSafe(display_name, display_nameEncoded));
 	}
 
 	// --- [ XCloseDisplay ] ---
@@ -191,8 +193,9 @@ public final class Xlib {
 	public static long XInternAtom(long display, CharSequence atom_name, int only_if_exists) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		ByteBuffer atom_nameEncoded = memEncodeASCII(atom_name);
-		return nXInternAtom(display, memAddress(atom_nameEncoded), only_if_exists);
+		APIBuffer __buffer = apiBuffer();
+		int atom_nameEncoded = __buffer.stringParamASCII(atom_name, true);
+		return nXInternAtom(display, __buffer.address() + atom_nameEncoded, only_if_exists);
 	}
 
 	// --- [ XDefaultScreen ] ---
@@ -383,8 +386,9 @@ public final class Xlib {
 	public static int XQueryExtension(long display, CharSequence name, IntBuffer major_opcode_return, IntBuffer first_event_return, IntBuffer first_error_return) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nXQueryExtension(display, memAddress(nameEncoded), memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nXQueryExtension(display, __buffer.address() + nameEncoded, memAddress(major_opcode_return), memAddress(first_event_return), memAddress(first_error_return));
 	}
 
 	// --- [ XFlush ] ---
@@ -1245,9 +1249,10 @@ public final class Xlib {
 			if ( wm_hints != null ) checkBuffer(wm_hints, XWMHints.SIZEOF);
 			if ( class_hints != null ) checkBuffer(class_hints, XClassHint.SIZEOF);
 		}
-		ByteBuffer window_nameEncoded = memEncodeUTF8(window_name);
-		ByteBuffer icon_nameEncoded = memEncodeUTF8(icon_name);
-		nXutf8SetWMProperties(display, w, memAddress(window_nameEncoded), memAddress(icon_nameEncoded), memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
+		APIBuffer __buffer = apiBuffer();
+		int window_nameEncoded = __buffer.stringParamUTF8(window_name, true);
+		int icon_nameEncoded = __buffer.stringParamUTF8(icon_name, true);
+		nXutf8SetWMProperties(display, w, __buffer.address() + window_nameEncoded, __buffer.address() + icon_nameEncoded, memAddressSafe(argv), argv == null ? 0 : argv.remaining(), memAddressSafe(normal_hints), memAddressSafe(wm_hints), memAddressSafe(class_hints));
 	}
 
 	// --- [ XChangeProperty ] ---

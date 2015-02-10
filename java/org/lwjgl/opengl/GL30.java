@@ -1889,8 +1889,9 @@ public final class GL30 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocation BindFragDataLocation} */
 	public static void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglBindFragDataLocation(program, colorNumber, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		nglBindFragDataLocation(program, colorNumber, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetFragDataLocation ] ---
@@ -1924,8 +1925,9 @@ public final class GL30 {
 
 	/** CharSequence version of: {@link #glGetFragDataLocation GetFragDataLocation} */
 	public static int glGetFragDataLocation(int program, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetFragDataLocation(program, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetFragDataLocation(program, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glBeginConditionalRender ] ---
@@ -2000,13 +2002,13 @@ Ends conditional rendering.
 	 */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
 		long __result = nglMapBufferRange(target, offset, length, access);
-		return memByteBuffer(__result, length);
+		return memByteBuffer(__result, (int)length);
 	}
 
 	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRange(target, offset, length, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
 	}
 
 	// --- [ glFlushMappedBufferRange ] ---

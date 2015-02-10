@@ -1862,8 +1862,9 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int alGetEnumValue(CharSequence enumName) {
-		ByteBuffer enumNameEncoded = memEncodeASCII(enumName);
-		return nalGetEnumValue(memAddress(enumNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int enumNameEncoded = __buffer.stringParamASCII(enumName, true);
+		return nalGetEnumValue(__buffer.address() + enumNameEncoded);
 	}
 
 	// --- [ alGetProcAddress ] ---
@@ -1900,8 +1901,9 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long alGetProcAddress(CharSequence funcName) {
-		ByteBuffer funcNameEncoded = memEncodeASCII(funcName);
-		return nalGetProcAddress(memAddress(funcNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int funcNameEncoded = __buffer.stringParamASCII(funcName, true);
+		return nalGetProcAddress(__buffer.address() + funcNameEncoded);
 	}
 
 	// --- [ alIsExtensionPresent ] ---
@@ -1935,8 +1937,9 @@ public final class AL10 {
 
 	/** CharSequence version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean alIsExtensionPresent(CharSequence extName) {
-		ByteBuffer extNameEncoded = memEncodeASCII(extName);
-		return nalIsExtensionPresent(memAddress(extNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int extNameEncoded = __buffer.stringParamASCII(extName, true);
+		return nalIsExtensionPresent(__buffer.address() + extNameEncoded);
 	}
 
 }

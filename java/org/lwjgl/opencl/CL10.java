@@ -1691,7 +1691,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return memByteBuffer(__result, size);
+		return memByteBuffer(__result, (int)size);
 	}
 
 	/** Alternative version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
@@ -1701,7 +1701,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == size ? old_buffer : memByteBuffer(__result, size);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == size ? old_buffer : memByteBuffer(__result, (int)size);
 	}
 
 	// --- [ clCreateImage2D ] ---
@@ -2686,7 +2686,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return memByteBuffer(__result, (int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE));
+		return memByteBuffer(__result, (int)(int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE));
 	}
 
 	/** Alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */
@@ -2715,7 +2715,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
 	}
 
 	// --- [ clGetImageInfo ] ---
@@ -3484,16 +3484,17 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
-		ByteBuffer optionsEncoded = memEncodeASCII(options);
-		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		APIBuffer __buffer = apiBuffer();
+		int optionsEncoded = __buffer.stringParamASCII(options, true);
+		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address() + optionsEncoded, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, long device, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
-		ByteBuffer optionsEncoded = memEncodeASCII(options);
 		APIBuffer __buffer = apiBuffer();
+		int optionsEncoded = __buffer.stringParamASCII(options, true);
 		int device_list = __buffer.pointerParam(device);
-		return nclBuildProgram(program, 1, __buffer.address() + device_list, memAddress(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, 1, __buffer.address() + device_list, __buffer.address() + optionsEncoded, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -3717,8 +3718,9 @@ public final class CL10 {
 	public static long clCreateKernel(long program, CharSequence kernel_name, IntBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		ByteBuffer kernel_nameEncoded = memEncodeASCII(kernel_name);
-		return nclCreateKernel(program, memAddress(kernel_nameEncoded), memAddressSafe(errcode_ret));
+		APIBuffer __buffer = apiBuffer();
+		int kernel_nameEncoded = __buffer.stringParamASCII(kernel_name, true);
+		return nclCreateKernel(program, __buffer.address() + kernel_nameEncoded, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateKernelsInProgram ] ---
@@ -5079,8 +5081,9 @@ public final class CL10 {
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	public static long clGetExtensionFunctionAddress(CharSequence funcname) {
-		ByteBuffer funcnameEncoded = memEncodeASCII(funcname);
-		return nclGetExtensionFunctionAddress(memAddress(funcnameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int funcnameEncoded = __buffer.stringParamASCII(funcname, true);
+		return nclGetExtensionFunctionAddress(__buffer.address() + funcnameEncoded);
 	}
 
      /**

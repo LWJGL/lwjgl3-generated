@@ -80,7 +80,7 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public void setPlatformId(int platformId) { platformId(struct, platformId); }
 	public void setCsdVersion(long csdVersion, int bytes) { csdVersionSet(struct, csdVersion, bytes); }
 	public void setCsdVersion(ByteBuffer csdVersion) { csdVersionSet(struct, csdVersion); }
-	public void setCsdVersion(CharSequence csdVersion) { csdVersionSet(struct, csdVersion); }
+	public void setCsdVersion(CharSequence csdVersion) { csdVersion(struct, csdVersion); }
 	public void setServicePackMajor(int servicePackMajor) { servicePackMajor(struct, servicePackMajor); }
 	public void setServicePackMinor(int servicePackMinor) { servicePackMinor(struct, servicePackMinor); }
 	public void setSuiteMask(int suiteMask) { suiteMask(struct, suiteMask); }
@@ -93,8 +93,8 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public int getPlatformId() { return platformId(struct); }
 	public void getCsdVersion(long csdVersion, int bytes) { csdVersionGet(struct, csdVersion, bytes); }
 	public void getCsdVersion(ByteBuffer csdVersion) { csdVersionGet(struct, csdVersion); }
-	public String getCsdVersionStr() { return csdVersionGets(struct); }
-	public String getCsdVersionStr(int size) { return csdVersionGets(struct, size); }
+	public String getCsdVersionString() { return csdVersionString(struct); }
+	public String getCsdVersionString(int size) { return csdVersionString(struct, size); }
 	public int getServicePackMajor() { return servicePackMajor(struct); }
 	public int getServicePackMinor() { return servicePackMinor(struct); }
 	public int getSuiteMask() { return suiteMask(struct); }
@@ -186,7 +186,7 @@ public final class OSVERSIONINFOEX implements Pointer {
 		minorVersion(osversioninfoex, minorVersion);
 		buildNumber(osversioninfoex, buildNumber);
 		platformId(osversioninfoex, platformId);
-		csdVersionSet(osversioninfoex, csdVersion);
+		csdVersion(osversioninfoex, csdVersion);
 		servicePackMajor(osversioninfoex, servicePackMajor);
 		servicePackMinor(osversioninfoex, servicePackMinor);
 		suiteMask(osversioninfoex, suiteMask);
@@ -206,7 +206,7 @@ public final class OSVERSIONINFOEX implements Pointer {
 		checkBufferGT(csdVersion, 128 * 2);
 		csdVersionSet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
-	public static void csdVersionSet(ByteBuffer osversioninfoex, CharSequence csdVersion) { ByteBuffer buffer = memEncodeUTF16(csdVersion, true); csdVersionSet(osversioninfoex, memAddress(buffer), buffer.capacity()); }
+	public static void csdVersion(ByteBuffer osversioninfoex, CharSequence csdVersion) { memEncodeUTF16(csdVersion, true, osversioninfoex, CSDVERSION); }
 	public static void servicePackMajor(ByteBuffer osversioninfoex, int servicePackMajor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
 	public static void servicePackMinor(ByteBuffer osversioninfoex, int servicePackMinor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMINOR, (short)servicePackMinor); }
 	public static void suiteMask(ByteBuffer osversioninfoex, int suiteMask) { osversioninfoex.putShort(osversioninfoex.position() + SUITEMASK, (short)suiteMask); }
@@ -224,8 +224,8 @@ public final class OSVERSIONINFOEX implements Pointer {
 		checkBufferGT(csdVersion, 128 * 2);
 		csdVersionGet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
 	}
-	public static String csdVersionGets(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }
-	public static String csdVersionGets(ByteBuffer osversioninfoex, int size) { return memDecodeUTF16(osversioninfoex, size, CSDVERSION); }
+	public static String csdVersionString(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }
+	public static String csdVersionString(ByteBuffer osversioninfoex, int size) { return memDecodeUTF16(osversioninfoex, size, CSDVERSION); }
 	public static int servicePackMajor(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMAJOR); }
 	public static int servicePackMinor(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SERVICEPACKMINOR); }
 	public static int suiteMask(ByteBuffer osversioninfoex) { return osversioninfoex.getShort(osversioninfoex.position() + SUITEMASK); }

@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/SOFT_loopback.txt">SOFT_loopback</a> extension.
@@ -117,8 +118,9 @@ public final class SOFTLoopback {
 
 	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
-		ByteBuffer deviceNameEncoded = memEncodeUTF8(deviceName);
-		return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int deviceNameEncoded = __buffer.stringParamUTF8(deviceName, true);
+		return nalcLoopbackOpenDeviceSOFT(__buffer.addressSafe(deviceName, deviceNameEncoded));
 	}
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---

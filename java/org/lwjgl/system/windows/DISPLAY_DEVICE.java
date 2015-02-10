@@ -64,36 +64,36 @@ public final class DISPLAY_DEVICE implements Pointer {
 	public void setCb(int cb) { cb(struct, cb); }
 	public void setDeviceName(long DeviceName, int bytes) { DeviceNameSet(struct, DeviceName, bytes); }
 	public void setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); }
-	public void setDeviceName(CharSequence DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceName(CharSequence DeviceName) { DeviceName(struct, DeviceName); }
 	public void setDeviceString(long DeviceString, int bytes) { DeviceStringSet(struct, DeviceString, bytes); }
 	public void setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); }
-	public void setDeviceString(CharSequence DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setDeviceString(CharSequence DeviceString) { DeviceString(struct, DeviceString); }
 	public void setStateFlags(int StateFlags) { StateFlags(struct, StateFlags); }
 	public void setDeviceID(long DeviceID, int bytes) { DeviceIDSet(struct, DeviceID, bytes); }
 	public void setDeviceID(ByteBuffer DeviceID) { DeviceIDSet(struct, DeviceID); }
-	public void setDeviceID(CharSequence DeviceID) { DeviceIDSet(struct, DeviceID); }
+	public void setDeviceID(CharSequence DeviceID) { DeviceID(struct, DeviceID); }
 	public void setDeviceKey(long DeviceKey, int bytes) { DeviceKeySet(struct, DeviceKey, bytes); }
 	public void setDeviceKey(ByteBuffer DeviceKey) { DeviceKeySet(struct, DeviceKey); }
-	public void setDeviceKey(CharSequence DeviceKey) { DeviceKeySet(struct, DeviceKey); }
+	public void setDeviceKey(CharSequence DeviceKey) { DeviceKey(struct, DeviceKey); }
 
 	public int getCb() { return cb(struct); }
 	public void getDeviceName(long DeviceName, int bytes) { DeviceNameGet(struct, DeviceName, bytes); }
 	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }
-	public String getDeviceNameStr() { return DeviceNameGets(struct); }
-	public String getDeviceNameStr(int size) { return DeviceNameGets(struct, size); }
+	public String getDeviceNameString() { return DeviceNameString(struct); }
+	public String getDeviceNameString(int size) { return DeviceNameString(struct, size); }
 	public void getDeviceString(long DeviceString, int bytes) { DeviceStringGet(struct, DeviceString, bytes); }
 	public void getDeviceString(ByteBuffer DeviceString) { DeviceStringGet(struct, DeviceString); }
-	public String getDeviceStringStr() { return DeviceStringGets(struct); }
-	public String getDeviceStringStr(int size) { return DeviceStringGets(struct, size); }
+	public String getDeviceStringString() { return DeviceStringString(struct); }
+	public String getDeviceStringString(int size) { return DeviceStringString(struct, size); }
 	public int getStateFlags() { return StateFlags(struct); }
 	public void getDeviceID(long DeviceID, int bytes) { DeviceIDGet(struct, DeviceID, bytes); }
 	public void getDeviceID(ByteBuffer DeviceID) { DeviceIDGet(struct, DeviceID); }
-	public String getDeviceIDStr() { return DeviceIDGets(struct); }
-	public String getDeviceIDStr(int size) { return DeviceIDGets(struct, size); }
+	public String getDeviceIDString() { return DeviceIDString(struct); }
+	public String getDeviceIDString(int size) { return DeviceIDString(struct, size); }
 	public void getDeviceKey(long DeviceKey, int bytes) { DeviceKeyGet(struct, DeviceKey, bytes); }
 	public void getDeviceKey(ByteBuffer DeviceKey) { DeviceKeyGet(struct, DeviceKey); }
-	public String getDeviceKeyStr() { return DeviceKeyGets(struct); }
-	public String getDeviceKeyStr(int size) { return DeviceKeyGets(struct, size); }
+	public String getDeviceKeyString() { return DeviceKeyString(struct); }
+	public String getDeviceKeyString(int size) { return DeviceKeyString(struct, size); }
 
 	// -----------------------------------
 
@@ -160,11 +160,11 @@ public final class DISPLAY_DEVICE implements Pointer {
 		ByteBuffer display_device = malloc();
 
 		cb(display_device, cb);
-		DeviceNameSet(display_device, DeviceName);
-		DeviceStringSet(display_device, DeviceString);
+		DeviceName(display_device, DeviceName);
+		DeviceString(display_device, DeviceString);
 		StateFlags(display_device, StateFlags);
-		DeviceIDSet(display_device, DeviceID);
-		DeviceKeySet(display_device, DeviceKey);
+		DeviceID(display_device, DeviceID);
+		DeviceKey(display_device, DeviceKey);
 
 		return display_device;
 	}
@@ -176,14 +176,14 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceName, 32 * 2);
 		DeviceNameSet(display_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static void DeviceNameSet(ByteBuffer display_device, CharSequence DeviceName) { ByteBuffer buffer = memEncodeUTF16(DeviceName, true); DeviceNameSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceName(ByteBuffer display_device, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, display_device, DEVICENAME); }
 	public static void DeviceStringSet(ByteBuffer display_device, long DeviceString, int bytes) { memCopy(DeviceString, memAddress(display_device) + DEVICESTRING, bytes); }
 	public static void DeviceStringSet(ByteBuffer display_device, ByteBuffer DeviceString) {
 		checkNT2(DeviceString);
 		checkBufferGT(DeviceString, 128 * 2);
 		DeviceStringSet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static void DeviceStringSet(ByteBuffer display_device, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceString(ByteBuffer display_device, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, display_device, DEVICESTRING); }
 	public static void StateFlags(ByteBuffer display_device, int StateFlags) { display_device.putInt(display_device.position() + STATEFLAGS, StateFlags); }
 	public static void DeviceIDSet(ByteBuffer display_device, long DeviceID, int bytes) { memCopy(DeviceID, memAddress(display_device) + DEVICEID, bytes); }
 	public static void DeviceIDSet(ByteBuffer display_device, ByteBuffer DeviceID) {
@@ -191,14 +191,14 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceID, 128 * 2);
 		DeviceIDSet(display_device, memAddress(DeviceID), DeviceID.remaining());
 	}
-	public static void DeviceIDSet(ByteBuffer display_device, CharSequence DeviceID) { ByteBuffer buffer = memEncodeUTF16(DeviceID, true); DeviceIDSet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceID(ByteBuffer display_device, CharSequence DeviceID) { memEncodeUTF16(DeviceID, true, display_device, DEVICEID); }
 	public static void DeviceKeySet(ByteBuffer display_device, long DeviceKey, int bytes) { memCopy(DeviceKey, memAddress(display_device) + DEVICEKEY, bytes); }
 	public static void DeviceKeySet(ByteBuffer display_device, ByteBuffer DeviceKey) {
 		checkNT2(DeviceKey);
 		checkBufferGT(DeviceKey, 128 * 2);
 		DeviceKeySet(display_device, memAddress(DeviceKey), DeviceKey.remaining());
 	}
-	public static void DeviceKeySet(ByteBuffer display_device, CharSequence DeviceKey) { ByteBuffer buffer = memEncodeUTF16(DeviceKey, true); DeviceKeySet(display_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceKey(ByteBuffer display_device, CharSequence DeviceKey) { memEncodeUTF16(DeviceKey, true, display_device, DEVICEKEY); }
 
 	public static int cb(ByteBuffer display_device) { return display_device.getInt(display_device.position() + CB); }
 	public static void DeviceNameGet(ByteBuffer display_device, long DeviceName, int bytes) {
@@ -208,8 +208,8 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceName, 32 * 2);
 		DeviceNameGet(display_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static String DeviceNameGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICENAME), DEVICENAME); }
-	public static String DeviceNameGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICENAME); }
+	public static String DeviceNameString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICENAME), DEVICENAME); }
+	public static String DeviceNameString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICENAME); }
 	public static void DeviceStringGet(ByteBuffer display_device, long DeviceString, int bytes) {
 		memCopy(memAddress(display_device) + DEVICESTRING, DeviceString, bytes);
 	}
@@ -217,8 +217,8 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceString, 128 * 2);
 		DeviceStringGet(display_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static String DeviceStringGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
-	public static String DeviceStringGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
+	public static String DeviceStringString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
+	public static String DeviceStringString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
 	public static int StateFlags(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
 	public static void DeviceIDGet(ByteBuffer display_device, long DeviceID, int bytes) {
 		memCopy(memAddress(display_device) + DEVICEID, DeviceID, bytes);
@@ -227,8 +227,8 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceID, 128 * 2);
 		DeviceIDGet(display_device, memAddress(DeviceID), DeviceID.remaining());
 	}
-	public static String DeviceIDGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEID), DEVICEID); }
-	public static String DeviceIDGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEID); }
+	public static String DeviceIDString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEID), DEVICEID); }
+	public static String DeviceIDString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEID); }
 	public static void DeviceKeyGet(ByteBuffer display_device, long DeviceKey, int bytes) {
 		memCopy(memAddress(display_device) + DEVICEKEY, DeviceKey, bytes);
 	}
@@ -236,7 +236,7 @@ public final class DISPLAY_DEVICE implements Pointer {
 		checkBufferGT(DeviceKey, 128 * 2);
 		DeviceKeyGet(display_device, memAddress(DeviceKey), DeviceKey.remaining());
 	}
-	public static String DeviceKeyGets(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEKEY), DEVICEKEY); }
-	public static String DeviceKeyGets(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEKEY); }
+	public static String DeviceKeyString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEKEY), DEVICEKEY); }
+	public static String DeviceKeyString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEKEY); }
 
 }

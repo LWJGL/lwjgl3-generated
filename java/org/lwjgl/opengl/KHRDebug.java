@@ -298,10 +298,8 @@ public final class KHRDebug {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-			checkNT1(message);
-		}
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
 
@@ -312,8 +310,10 @@ public final class KHRDebug {
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-		ByteBuffer messageEncoded = memEncodeUTF8(message);
-		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(messageEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int messageEncoded = __buffer.stringParamUTF8(message, false);
+		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
+		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address() + messageEncoded);
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -424,19 +424,6 @@ public final class KHRDebug {
 		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, CharSequence messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
-		}
-		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
-	}
-
 	// --- [ glPushDebugGroup ] ---
 
 	/** Unsafe version of {@link #glPushDebugGroup PushDebugGroup} */
@@ -466,10 +453,8 @@ public final class KHRDebug {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-			checkNT1(message);
-		}
 		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
 
@@ -480,8 +465,10 @@ public final class KHRDebug {
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
-		ByteBuffer messageEncoded = memEncodeUTF8(message);
-		nglPushDebugGroup(source, id, message.length(), memAddress(messageEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int messageEncoded = __buffer.stringParamUTF8(message, false);
+		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
+		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address() + messageEncoded);
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -522,10 +509,8 @@ public final class KHRDebug {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-			checkNT1(label);
-		}
 		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
 
@@ -536,8 +521,10 @@ public final class KHRDebug {
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
-		ByteBuffer labelEncoded = memEncodeUTF8(label);
-		nglObjectLabel(identifier, name, label.length(), memAddress(labelEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int labelEncoded = __buffer.stringParamUTF8(label, false);
+		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
+		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address() + labelEncoded);
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -615,10 +602,8 @@ public final class KHRDebug {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-			checkNT1(label);
-		}
 		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
 
@@ -629,8 +614,10 @@ public final class KHRDebug {
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		ByteBuffer labelEncoded = memEncodeUTF8(label);
-		nglObjectPtrLabel(ptr, label.length(), memAddress(labelEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int labelEncoded = __buffer.stringParamUTF8(label, false);
+		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
+		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address() + labelEncoded);
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---

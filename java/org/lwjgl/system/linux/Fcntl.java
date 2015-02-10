@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to <fcntl.h>. */
 public final class Fcntl {
@@ -62,8 +63,9 @@ public final class Fcntl {
 
 	/** CharSequence version of: {@link #open} */
 	public static int open(CharSequence pathname, int flags) {
-		ByteBuffer pathnameEncoded = memEncodeASCII(pathname);
-		return nopen(memAddress(pathnameEncoded), flags);
+		APIBuffer __buffer = apiBuffer();
+		int pathnameEncoded = __buffer.stringParamASCII(pathname, true);
+		return nopen(__buffer.address() + pathnameEncoded, flags);
 	}
 
 }

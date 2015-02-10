@@ -141,8 +141,9 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcOpenDevice OpenDevice} */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
-		ByteBuffer deviceSpecifierEncoded = memEncodeUTF8(deviceSpecifier);
-		return nalcOpenDevice(memAddressSafe(deviceSpecifierEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int deviceSpecifierEncoded = __buffer.stringParamUTF8(deviceSpecifier, true);
+		return nalcOpenDevice(__buffer.addressSafe(deviceSpecifier, deviceSpecifierEncoded));
 	}
 
 	// --- [ alcCloseDevice ] ---
@@ -366,8 +367,9 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcIsExtensionPresent IsExtensionPresent} */
 	public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
-		ByteBuffer extNameEncoded = memEncodeASCII(extName);
-		return nalcIsExtensionPresent(deviceHandle, memAddress(extNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int extNameEncoded = __buffer.stringParamASCII(extName, true);
+		return nalcIsExtensionPresent(deviceHandle, __buffer.address() + extNameEncoded);
 	}
 
 	// --- [ alcGetProcAddress ] ---
@@ -405,8 +407,9 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcGetProcAddress GetProcAddress} */
 	public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
-		ByteBuffer funcNameEncoded = memEncodeASCII(funcName);
-		return nalcGetProcAddress(deviceHandle, memAddress(funcNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int funcNameEncoded = __buffer.stringParamASCII(funcName, true);
+		return nalcGetProcAddress(deviceHandle, __buffer.address() + funcNameEncoded);
 	}
 
 	// --- [ alcGetEnumValue ] ---
@@ -441,8 +444,9 @@ public final class ALC10 {
 
 	/** CharSequence version of: {@link #alcGetEnumValue GetEnumValue} */
 	public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
-		ByteBuffer enumNameEncoded = memEncodeASCII(enumName);
-		return nalcGetEnumValue(deviceHandle, memAddress(enumNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int enumNameEncoded = __buffer.stringParamASCII(enumName, true);
+		return nalcGetEnumValue(deviceHandle, __buffer.address() + enumNameEncoded);
 	}
 
 	// --- [ alcGetError ] ---

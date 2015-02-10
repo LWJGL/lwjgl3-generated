@@ -30,11 +30,10 @@ public final class XEvent implements Pointer {
 		XSELECTION,
 		XCLIENT,
 		XERROR,
-		XCOOKIE,
-		PAD;
+		XCOOKIE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(13);
+		IntBuffer offsets = BufferUtils.createIntBuffer(12);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -50,7 +49,6 @@ public final class XEvent implements Pointer {
 		XCLIENT = offsets.get(9);
 		XERROR = offsets.get(10);
 		XCOOKIE = offsets.get(11);
-		PAD = offsets.get(12);
 	}
 
 	private final ByteBuffer struct;
@@ -193,10 +191,13 @@ public final class XEvent implements Pointer {
 	public void setXclientFormat(int format) { xclientFormat(struct, format); }
 	public void setXclientDataB(long b, int bytes) { xclientDataBSet(struct, b, bytes); }
 	public void setXclientDataB(ByteBuffer b) { xclientDataBSet(struct, b); }
+	public void setXclientDataB(int index, byte element) { xclientDataBSet(struct, index, element); }
 	public void setXclientDataS(long s, int bytes) { xclientDataSSet(struct, s, bytes); }
 	public void setXclientDataS(ByteBuffer s) { xclientDataSSet(struct, s); }
+	public void setXclientDataS(int index, short element) { xclientDataSSet(struct, index, element); }
 	public void setXclientDataL(long l, int bytes) { xclientDataLSet(struct, l, bytes); }
 	public void setXclientDataL(ByteBuffer l) { xclientDataLSet(struct, l); }
+	public void setXclientDataL(int index, long element) { xclientDataLSet(struct, index, element); }
 	public void setXerror(long xerror) { xerrorSet(struct, xerror); }
 	public void setXerror(ByteBuffer xerror) { xerrorSet(struct, xerror); }
 	public void setXerrorType(int type) { xerrorType(struct, type); }
@@ -217,8 +218,6 @@ public final class XEvent implements Pointer {
 	public void setXcookieCookie(int cookie) { xcookieCookie(struct, cookie); }
 	public void setXcookieData(long data) { xcookieData(struct, data); }
 	public void setXcookieData(ByteBuffer data) { xcookieData(struct, data); }
-	public void setPad(long pad, int bytes) { padSet(struct, pad, bytes); }
-	public void setPad(ByteBuffer pad) { padSet(struct, pad); }
 
 	public int getType() { return type(struct); }
 	public void getXany(long xany) { xanyGet(struct, xany); }
@@ -362,8 +361,6 @@ public final class XEvent implements Pointer {
 	public int getXcookieCookie() { return xcookieCookie(struct); }
 	public long getXcookieData() { return xcookieData(struct); }
 	public ByteBuffer getXcookieData(int size) { return xcookieData(struct, size); }
-	public void getPad(long pad, int bytes) { padGet(struct, pad, bytes); }
-	public void getPad(ByteBuffer pad) { padGet(struct, pad); }
 
 	// -----------------------------------
 
@@ -385,9 +382,7 @@ public final class XEvent implements Pointer {
 		long xselection,
 		long xclient,
 		long xerror,
-		long xcookie,
-		long pad,
-		int padBytes
+		long xcookie
 	) {
 		ByteBuffer xevent = malloc();
 
@@ -403,7 +398,6 @@ public final class XEvent implements Pointer {
 		xclientSet(xevent, xclient);
 		xerrorSet(xevent, xerror);
 		xcookieSet(xevent, xcookie);
-		padSet(xevent, pad, padBytes);
 
 		return xevent;
 	}
@@ -421,8 +415,7 @@ public final class XEvent implements Pointer {
 		ByteBuffer xselection,
 		ByteBuffer xclient,
 		ByteBuffer xerror,
-		ByteBuffer xcookie,
-		ByteBuffer pad
+		ByteBuffer xcookie
 	) {
 		ByteBuffer xevent = malloc();
 
@@ -438,7 +431,6 @@ public final class XEvent implements Pointer {
 		xclientSet(xevent, xclient);
 		xerrorSet(xevent, xerror);
 		xcookieSet(xevent, xcookie);
-		padSet(xevent, pad);
 
 		return xevent;
 	}
@@ -564,16 +556,19 @@ public final class XEvent implements Pointer {
 		checkBufferGT(b, 20 * 1);
 		xclientDataBSet(xevent, memAddress(b), b.remaining());
 	}
+	public static void xclientDataBSet(ByteBuffer xevent, int index, byte element) { xevent.put(XCLIENT + XClientMessageEvent.DATA_B + index, element); }
 	public static void xclientDataSSet(ByteBuffer xevent, long s, int bytes) { memCopy(s, memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_S, bytes); }
 	public static void xclientDataSSet(ByteBuffer xevent, ByteBuffer s) {
 		checkBufferGT(s, 10 * 2);
 		xclientDataSSet(xevent, memAddress(s), s.remaining());
 	}
+	public static void xclientDataSSet(ByteBuffer xevent, int index, short element) { xevent.putShort(XCLIENT + XClientMessageEvent.DATA_S + index * 2, element); }
 	public static void xclientDataLSet(ByteBuffer xevent, long l, int bytes) { memCopy(l, memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_L, bytes); }
 	public static void xclientDataLSet(ByteBuffer xevent, ByteBuffer l) {
-		checkBufferGT(l, 5 * 8);
+		checkBufferGT(l, 5 * POINTER_SIZE);
 		xclientDataLSet(xevent, memAddress(l), l.remaining());
 	}
+	public static void xclientDataLSet(ByteBuffer xevent, int index, long element) { PointerBuffer.put(xevent, XCLIENT + XClientMessageEvent.DATA_L + index * POINTER_SIZE, element); }
 	public static void xerrorSet(ByteBuffer xevent, long xerror) { if ( xerror != NULL ) memCopy(xerror, memAddress(xevent) + XERROR, XErrorEvent.SIZEOF); }
 	public static void xerrorSet(ByteBuffer xevent, ByteBuffer xerror) { xerrorSet(xevent, memAddressSafe(xerror)); }
 	public static void xerrorType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XERROR + XErrorEvent.TYPE, type); }
@@ -594,11 +589,6 @@ public final class XEvent implements Pointer {
 	public static void xcookieCookie(ByteBuffer xevent, int cookie) { xevent.putInt(xevent.position() + XCOOKIE + XGenericEventCookie.COOKIE, cookie); }
 	public static void xcookieData(ByteBuffer xevent, long data) { PointerBuffer.put(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.DATA, data); }
 	public static void xcookieData(ByteBuffer xevent, ByteBuffer data) { xcookieData(xevent, memAddress(data)); }
-	public static void padSet(ByteBuffer xevent, long pad, int bytes) { memCopy(pad, memAddress(xevent) + PAD, bytes); }
-	public static void padSet(ByteBuffer xevent, ByteBuffer pad) {
-		checkBufferGT(pad, 24 * 8);
-		padSet(xevent, memAddress(pad), pad.remaining());
-	}
 
 	public static int type(ByteBuffer xevent) { return xevent.getInt(xevent.position() + TYPE); }
 	public static void xanyGet(ByteBuffer xevent, long xany) { memCopy(memAddress(xevent) + XANY, xany, XAnyEvent.SIZEOF); }
@@ -757,12 +747,5 @@ public final class XEvent implements Pointer {
 	public static int xcookieCookie(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.COOKIE); }
 	public static long xcookieData(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.DATA); }
 	public static ByteBuffer xcookieData(ByteBuffer xevent, int size) { long address = xcookieData(xevent); return address == NULL ? null : memByteBuffer(address, size); }
-	public static void padGet(ByteBuffer xevent, long pad, int bytes) {
-		memCopy(memAddress(xevent) + PAD, pad, bytes);
-	}
-	public static void padGet(ByteBuffer xevent, ByteBuffer pad) {
-		checkBufferGT(pad, 24 * 8);
-		padGet(xevent, memAddress(pad), pad.remaining());
-	}
 
 }

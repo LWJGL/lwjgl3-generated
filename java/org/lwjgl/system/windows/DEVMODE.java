@@ -77,7 +77,7 @@ public final class DEVMODE implements Pointer {
 
 	public void setDeviceName(long deviceName, int bytes) { deviceNameSet(struct, deviceName, bytes); }
 	public void setDeviceName(ByteBuffer deviceName) { deviceNameSet(struct, deviceName); }
-	public void setDeviceName(CharSequence deviceName) { deviceNameSet(struct, deviceName); }
+	public void setDeviceName(CharSequence deviceName) { deviceName(struct, deviceName); }
 	public void setSpecVersion(int specVersion) { specVersion(struct, specVersion); }
 	public void setDriverVersion(int driverVersion) { driverVersion(struct, driverVersion); }
 	public void setSize(int size) { size(struct, size); }
@@ -96,8 +96,8 @@ public final class DEVMODE implements Pointer {
 
 	public void getDeviceName(long deviceName, int bytes) { deviceNameGet(struct, deviceName, bytes); }
 	public void getDeviceName(ByteBuffer deviceName) { deviceNameGet(struct, deviceName); }
-	public String getDeviceNameStr() { return deviceNameGets(struct); }
-	public String getDeviceNameStr(int size) { return deviceNameGets(struct, size); }
+	public String getDeviceNameString() { return deviceNameString(struct); }
+	public String getDeviceNameString(int size) { return deviceNameString(struct, size); }
 	public int getSpecVersion() { return specVersion(struct); }
 	public int getDriverVersion() { return driverVersion(struct); }
 	public int getSize() { return size(struct); }
@@ -210,7 +210,7 @@ public final class DEVMODE implements Pointer {
 	) {
 		ByteBuffer devmode = malloc();
 
-		deviceNameSet(devmode, deviceName);
+		deviceName(devmode, deviceName);
 		specVersion(devmode, specVersion);
 		driverVersion(devmode, driverVersion);
 		size(devmode, size);
@@ -233,7 +233,7 @@ public final class DEVMODE implements Pointer {
 		checkBufferGT(deviceName, 32 * 2);
 		deviceNameSet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
-	public static void deviceNameSet(ByteBuffer devmode, CharSequence deviceName) { ByteBuffer buffer = memEncodeUTF16(deviceName, true); deviceNameSet(devmode, memAddress(buffer), buffer.capacity()); }
+	public static void deviceName(ByteBuffer devmode, CharSequence deviceName) { memEncodeUTF16(deviceName, true, devmode, DEVICENAME); }
 	public static void specVersion(ByteBuffer devmode, int specVersion) { devmode.putShort(devmode.position() + SPECVERSION, (short)specVersion); }
 	public static void driverVersion(ByteBuffer devmode, int driverVersion) { devmode.putShort(devmode.position() + DRIVERVERSION, (short)driverVersion); }
 	public static void size(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
@@ -257,8 +257,8 @@ public final class DEVMODE implements Pointer {
 		checkBufferGT(deviceName, 32 * 2);
 		deviceNameGet(devmode, memAddress(deviceName), deviceName.remaining());
 	}
-	public static String deviceNameGets(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
-	public static String deviceNameGets(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
+	public static String deviceNameString(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
+	public static String deviceNameString(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
 	public static int specVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SPECVERSION); }
 	public static int driverVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVERVERSION); }
 	public static int size(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }

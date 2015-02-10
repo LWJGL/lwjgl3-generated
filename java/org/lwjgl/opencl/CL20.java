@@ -392,14 +392,14 @@ public final class CL20 {
 	 *         <li>Values specified in {@code flags} do not follow rules for supported values.</li>
 	 *         <li>{@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER} or {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS} is specified in flags and these are not supported by at least one device in context.</li>
 	 *         <li>The values specified in {@code flags} are not valid.</li>
-	 *         <li>{@code size} is {@code 0} or &gt; {@link #CL_DEVICE_MAX_MEM_ALLOC_SIZE DEVICE_MAX_MEM_ALLOC_SIZE} value for any device in context.</li>
+	 *         <li>{@code size} is {@code 0} or &gt; {@link CL10#CL_DEVICE_MAX_MEM_ALLOC_SIZE DEVICE_MAX_MEM_ALLOC_SIZE} value for any device in context.</li>
 	 *         <li>{@code alignment} is not a power of two or the OpenCL implementation cannot support the specified alignment for at least one device in context.</li>
 	 *         <li>There was a failure to allocate resources.</li>
 	 *         </ul>
 	 */
 	public static ByteBuffer clSVMAlloc(long context, long flags, long size, int alignment) {
 		long __result = nclSVMAlloc(context, flags, size, alignment);
-		return memByteBuffer(__result, size);
+		return memByteBuffer(__result, (int)size);
 	}
 
 	// --- [ clSVMFree ] ---

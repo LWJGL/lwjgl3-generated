@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WinGDI.h */
 public final class WinGDI {
@@ -282,13 +283,13 @@ public final class WinGDI {
 	}
 
 	/** CharSequence version of: {@link #CreateDC} */
-	public static long CreateDC(CharSequence lpszDriver, CharSequence lpszDevice, CharSequence lpszOutput, ByteBuffer lpInitData) {
+	public static long CreateDC(CharSequence lpszDriver, CharSequence lpszDevice, ByteBuffer lpszOutput, ByteBuffer lpInitData) {
 		if ( LWJGLUtil.CHECKS )
 			if ( lpInitData != null ) checkBuffer(lpInitData, DEVMODE.SIZEOF);
-		ByteBuffer lpszDriverEncoded = memEncodeUTF16(lpszDriver);
-		ByteBuffer lpszDeviceEncoded = memEncodeUTF16(lpszDevice);
-		ByteBuffer lpszOutputEncoded = memEncodeUTF16(lpszOutput);
-		return nCreateDC(memAddressSafe(lpszDriverEncoded), memAddressSafe(lpszDeviceEncoded), memAddressSafe(lpszOutputEncoded), memAddressSafe(lpInitData));
+		APIBuffer __buffer = apiBuffer();
+		int lpszDriverEncoded = __buffer.stringParamUTF16(lpszDriver, true);
+		int lpszDeviceEncoded = __buffer.stringParamUTF16(lpszDevice, true);
+		return nCreateDC(__buffer.addressSafe(lpszDriver, lpszDriverEncoded), __buffer.addressSafe(lpszDevice, lpszDeviceEncoded), memAddressSafe(lpszOutput), memAddressSafe(lpInitData));
 	}
 
 	// --- [ CreateCompatibleDC ] ---

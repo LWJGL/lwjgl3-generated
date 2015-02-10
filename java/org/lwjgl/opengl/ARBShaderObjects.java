@@ -1274,8 +1274,9 @@ public final class ARBShaderObjects {
 
 	/** CharSequence version of: {@link #glGetUniformLocationARB GetUniformLocationARB} */
 	public static int glGetUniformLocationARB(int programObj, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeUTF8(name);
-		return nglGetUniformLocationARB(programObj, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamUTF8(name, true);
+		return nglGetUniformLocationARB(programObj, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetActiveUniformARB ] ---

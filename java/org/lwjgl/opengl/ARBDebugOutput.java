@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a> extension.
@@ -249,10 +250,8 @@ public final class ARBDebugOutput {
 	 * @param buf      the string representation of the message
 	 */
 	public static void glDebugMessageInsertARB(int source, int type, int id, int severity, int length, ByteBuffer buf) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(buf, length);
-			checkNT1(buf);
-		}
 		nglDebugMessageInsertARB(source, type, id, severity, length, memAddress(buf));
 	}
 
@@ -263,8 +262,10 @@ public final class ARBDebugOutput {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
 	public static void glDebugMessageInsertARB(int source, int type, int id, int severity, CharSequence buf) {
-		ByteBuffer bufEncoded = memEncodeUTF8(buf);
-		nglDebugMessageInsertARB(source, type, id, severity, buf.length(), memAddress(bufEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int bufEncoded = __buffer.stringParamUTF8(buf, false);
+		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
+		nglDebugMessageInsertARB(source, type, id, severity, bufEncodedLen, __buffer.address() + bufEncoded);
 	}
 
 	// --- [ glDebugMessageCallbackARB ] ---
@@ -385,19 +386,6 @@ public final class ARBDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
-	}
-
-	/** CharSequence version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
-	public static int glGetDebugMessageLogARB(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, CharSequence messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
-		}
-		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
-		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
 	}
 
      /**

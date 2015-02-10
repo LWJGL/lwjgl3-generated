@@ -57,7 +57,7 @@ public final class FFIClosure implements Pointer {
 	public void setUserData(long user_data) { user_data(struct, user_data); }
 
 	public long getCif() { return cif(struct); }
-	public ByteBuffer getCifBuf() { return cifb(struct); }
+	public ByteBuffer getCifBuffer() { return cifBuffer(struct); }
 	public long getFun() { return fun(struct); }
 	public long getUserData() { return user_data(struct); }
 
@@ -70,7 +70,7 @@ public final class FFIClosure implements Pointer {
 	public static void user_data(ByteBuffer ffi_closure, long user_data) { PointerBuffer.put(ffi_closure, ffi_closure.position() + USER_DATA, user_data); }
 
 	public static long cif(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + CIF); }
-	public static ByteBuffer cifb(ByteBuffer ffi_closure) { return memByteBuffer(cif(ffi_closure), FFICIF.SIZEOF); }
+	public static ByteBuffer cifBuffer(ByteBuffer ffi_closure) { return memByteBuffer(cif(ffi_closure), FFICIF.SIZEOF); }
 	public static long fun(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + FUN); }
 	public static long user_data(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + USER_DATA); }
 

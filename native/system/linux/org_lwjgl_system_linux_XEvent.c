@@ -26,7 +26,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XEvent_offsets(JNIEnv *__env,
 	buffer[9] = (jint)(offsetof(XEvent, xclient));
 	buffer[10] = (jint)(offsetof(XEvent, xerror));
 	buffer[11] = (jint)(offsetof(XEvent, xcookie));
-	buffer[12] = (jint)(offsetof(XEvent, pad));
 
 	return sizeof(XEvent);
 }

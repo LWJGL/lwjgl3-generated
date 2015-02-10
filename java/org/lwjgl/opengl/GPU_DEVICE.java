@@ -67,10 +67,10 @@ public final class GPU_DEVICE implements Pointer {
 	public void setCb(int cb) { cb(struct, cb); }
 	public void setDeviceName(long DeviceName, int bytes) { DeviceNameSet(struct, DeviceName, bytes); }
 	public void setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); }
-	public void setDeviceName(CharSequence DeviceName) { DeviceNameSet(struct, DeviceName); }
+	public void setDeviceName(CharSequence DeviceName) { DeviceName(struct, DeviceName); }
 	public void setDeviceString(long DeviceString, int bytes) { DeviceStringSet(struct, DeviceString, bytes); }
 	public void setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); }
-	public void setDeviceString(CharSequence DeviceString) { DeviceStringSet(struct, DeviceString); }
+	public void setDeviceString(CharSequence DeviceString) { DeviceString(struct, DeviceString); }
 	public void setFlags(int Flags) { Flags(struct, Flags); }
 	public void setVirtualScreen(long virtualScreen) { virtualScreenSet(struct, virtualScreen); }
 	public void setVirtualScreen(ByteBuffer virtualScreen) { virtualScreenSet(struct, virtualScreen); }
@@ -82,12 +82,12 @@ public final class GPU_DEVICE implements Pointer {
 	public int getCb() { return cb(struct); }
 	public void getDeviceName(long DeviceName, int bytes) { DeviceNameGet(struct, DeviceName, bytes); }
 	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }
-	public String getDeviceNameStr() { return DeviceNameGets(struct); }
-	public String getDeviceNameStr(int size) { return DeviceNameGets(struct, size); }
+	public String getDeviceNameString() { return DeviceNameString(struct); }
+	public String getDeviceNameString(int size) { return DeviceNameString(struct, size); }
 	public void getDeviceString(long DeviceString, int bytes) { DeviceStringGet(struct, DeviceString, bytes); }
 	public void getDeviceString(ByteBuffer DeviceString) { DeviceStringGet(struct, DeviceString); }
-	public String getDeviceStringStr() { return DeviceStringGets(struct); }
-	public String getDeviceStringStr(int size) { return DeviceStringGets(struct, size); }
+	public String getDeviceStringString() { return DeviceStringString(struct); }
+	public String getDeviceStringString(int size) { return DeviceStringString(struct, size); }
 	public int getFlags() { return Flags(struct); }
 	public void getVirtualScreen(long virtualScreen) { virtualScreenGet(struct, virtualScreen); }
 	public void getVirtualScreen(ByteBuffer virtualScreen) { virtualScreenGet(struct, virtualScreen); }
@@ -154,8 +154,8 @@ public final class GPU_DEVICE implements Pointer {
 		ByteBuffer gpu_device = malloc();
 
 		cb(gpu_device, cb);
-		DeviceNameSet(gpu_device, DeviceName);
-		DeviceStringSet(gpu_device, DeviceString);
+		DeviceName(gpu_device, DeviceName);
+		DeviceString(gpu_device, DeviceString);
 		Flags(gpu_device, Flags);
 		virtualScreenSet(gpu_device, virtualScreen);
 
@@ -169,14 +169,14 @@ public final class GPU_DEVICE implements Pointer {
 		checkBufferGT(DeviceName, 32 * 2);
 		DeviceNameSet(gpu_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static void DeviceNameSet(ByteBuffer gpu_device, CharSequence DeviceName) { ByteBuffer buffer = memEncodeUTF16(DeviceName, true); DeviceNameSet(gpu_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceName(ByteBuffer gpu_device, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, gpu_device, DEVICENAME); }
 	public static void DeviceStringSet(ByteBuffer gpu_device, long DeviceString, int bytes) { memCopy(DeviceString, memAddress(gpu_device) + DEVICESTRING, bytes); }
 	public static void DeviceStringSet(ByteBuffer gpu_device, ByteBuffer DeviceString) {
 		checkNT2(DeviceString);
 		checkBufferGT(DeviceString, 128 * 2);
 		DeviceStringSet(gpu_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static void DeviceStringSet(ByteBuffer gpu_device, CharSequence DeviceString) { ByteBuffer buffer = memEncodeUTF16(DeviceString, true); DeviceStringSet(gpu_device, memAddress(buffer), buffer.capacity()); }
+	public static void DeviceString(ByteBuffer gpu_device, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, gpu_device, DEVICESTRING); }
 	public static void Flags(ByteBuffer gpu_device, int Flags) { gpu_device.putInt(gpu_device.position() + FLAGS, Flags); }
 	public static void virtualScreenSet(ByteBuffer gpu_device, long virtualScreen) { if ( virtualScreen != NULL ) memCopy(virtualScreen, memAddress(gpu_device) + VIRTUALSCREEN, RECT.SIZEOF); }
 	public static void virtualScreenSet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { virtualScreenSet(gpu_device, memAddressSafe(virtualScreen)); }
@@ -193,8 +193,8 @@ public final class GPU_DEVICE implements Pointer {
 		checkBufferGT(DeviceName, 32 * 2);
 		DeviceNameGet(gpu_device, memAddress(DeviceName), DeviceName.remaining());
 	}
-	public static String DeviceNameGets(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICENAME), DEVICENAME); }
-	public static String DeviceNameGets(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICENAME); }
+	public static String DeviceNameString(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICENAME), DEVICENAME); }
+	public static String DeviceNameString(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICENAME); }
 	public static void DeviceStringGet(ByteBuffer gpu_device, long DeviceString, int bytes) {
 		memCopy(memAddress(gpu_device) + DEVICESTRING, DeviceString, bytes);
 	}
@@ -202,8 +202,8 @@ public final class GPU_DEVICE implements Pointer {
 		checkBufferGT(DeviceString, 128 * 2);
 		DeviceStringGet(gpu_device, memAddress(DeviceString), DeviceString.remaining());
 	}
-	public static String DeviceStringGets(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICESTRING), DEVICESTRING); }
-	public static String DeviceStringGets(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICESTRING); }
+	public static String DeviceStringString(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICESTRING), DEVICESTRING); }
+	public static String DeviceStringString(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICESTRING); }
 	public static int Flags(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + FLAGS); }
 	public static void virtualScreenGet(ByteBuffer gpu_device, long virtualScreen) { memCopy(memAddress(gpu_device) + VIRTUALSCREEN, virtualScreen, RECT.SIZEOF); }
 	public static void virtualScreenGet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { checkBuffer(virtualScreen, RECT.SIZEOF); virtualScreenGet(gpu_device, memAddress(virtualScreen)); }

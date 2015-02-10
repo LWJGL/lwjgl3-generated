@@ -71,7 +71,7 @@ public final class XkbDescRec implements Pointer {
 	public int getMinKeyCode() { return min_key_code(struct); }
 	public int getMaxKeyCode() { return max_key_code(struct); }
 	public long getNames() { return names(struct); }
-	public ByteBuffer getNamesBuf() { return namesb(struct); }
+	public ByteBuffer getNamesBuffer() { return namesBuffer(struct); }
 
 	// -----------------------------------
 
@@ -130,6 +130,6 @@ public final class XkbDescRec implements Pointer {
 	public static int min_key_code(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MIN_KEY_CODE) & 0xFF; }
 	public static int max_key_code(ByteBuffer xkbdescrec) { return xkbdescrec.get(xkbdescrec.position() + MAX_KEY_CODE) & 0xFF; }
 	public static long names(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + NAMES); }
-	public static ByteBuffer namesb(ByteBuffer xkbdescrec) { return memByteBuffer(names(xkbdescrec), XkbNamesRec.SIZEOF); }
+	public static ByteBuffer namesBuffer(ByteBuffer xkbdescrec) { return memByteBuffer(names(xkbdescrec), XkbNamesRec.SIZEOF); }
 
 }

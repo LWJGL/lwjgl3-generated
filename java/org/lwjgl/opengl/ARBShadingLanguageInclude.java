@@ -147,22 +147,24 @@ public final class ARBShadingLanguageInclude {
 	public static void glNamedStringARB(int type, int namelen, ByteBuffer name, int stringlen, ByteBuffer string) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, namelen);
-			checkNT1(name);
-			checkNT1(string);
+			checkBuffer(string, stringlen);
 		}
 		nglNamedStringARB(type, namelen, memAddress(name), stringlen, memAddress(string));
 	}
 
 	/** Alternative version of: {@link #glNamedStringARB NamedStringARB} */
-	public static void glNamedStringARB(int type, ByteBuffer name, int stringlen, ByteBuffer string) {
-		nglNamedStringARB(type, name.remaining(), memAddress(name), stringlen, memAddress(string));
+	public static void glNamedStringARB(int type, ByteBuffer name, ByteBuffer string) {
+		nglNamedStringARB(type, name.remaining(), memAddress(name), string.remaining(), memAddress(string));
 	}
 
 	/** CharSequence version of: {@link #glNamedStringARB NamedStringARB} */
-	public static void glNamedStringARB(int type, CharSequence name, int stringlen, CharSequence string) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		ByteBuffer stringEncoded = memEncodeUTF8(string);
-		nglNamedStringARB(type, name.length(), memAddress(nameEncoded), stringlen, memAddress(stringEncoded));
+	public static void glNamedStringARB(int type, CharSequence name, CharSequence string) {
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
+		int stringEncoded = __buffer.stringParamUTF8(string, false);
+		int stringEncodedLen = __buffer.getOffset() - stringEncoded;
+		nglNamedStringARB(type, nameEncodedLen, __buffer.address() + nameEncoded, stringEncodedLen, __buffer.address() + stringEncoded);
 	}
 
 	// --- [ glDeleteNamedStringARB ] ---
@@ -187,10 +189,8 @@ public final class ARBShadingLanguageInclude {
 	 * @param name    the name associated with the string
 	 */
 	public static void glDeleteNamedStringARB(int namelen, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(name, namelen);
-			checkNT1(name);
-		}
 		nglDeleteNamedStringARB(namelen, memAddress(name));
 	}
 
@@ -201,8 +201,10 @@ public final class ARBShadingLanguageInclude {
 
 	/** CharSequence version of: {@link #glDeleteNamedStringARB DeleteNamedStringARB} */
 	public static void glDeleteNamedStringARB(CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglDeleteNamedStringARB(name.length(), memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
+		nglDeleteNamedStringARB(nameEncodedLen, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glCompileShaderIncludeARB ] ---
@@ -270,10 +272,8 @@ public final class ARBShadingLanguageInclude {
 	 * @param name    the name associated with the string
 	 */
 	public static boolean glIsNamedStringARB(int namelen, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(name, namelen);
-			checkNT1(name);
-		}
 		return nglIsNamedStringARB(namelen, memAddress(name));
 	}
 
@@ -284,8 +284,10 @@ public final class ARBShadingLanguageInclude {
 
 	/** CharSequence version of: {@link #glIsNamedStringARB IsNamedStringARB} */
 	public static boolean glIsNamedStringARB(CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglIsNamedStringARB(name.length(), memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
+		return nglIsNamedStringARB(nameEncodedLen, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetNamedStringARB ] ---
@@ -316,7 +318,6 @@ public final class ARBShadingLanguageInclude {
 	public static void glGetNamedStringARB(int namelen, ByteBuffer name, int bufSize, ByteBuffer stringlen, ByteBuffer string) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, namelen);
-			checkNT1(name);
 			checkBuffer(string, bufSize);
 			if ( stringlen != null ) checkBuffer(stringlen, 1 << 2);
 		}
@@ -334,28 +335,32 @@ public final class ARBShadingLanguageInclude {
 	public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
 		if ( LWJGLUtil.CHECKS )
 			if ( stringlen != null ) checkBuffer(stringlen, 1);
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglGetNamedStringARB(name.length(), memAddress(nameEncoded), string.remaining(), memAddressSafe(stringlen), memAddress(string));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
+		nglGetNamedStringARB(nameEncodedLen, __buffer.address() + nameEncoded, string.remaining(), memAddressSafe(stringlen), memAddress(string));
 	}
 
 	/** String return version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static String glGetNamedStringARB(CharSequence name, int bufSize) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
 		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
 		int stringlen = __buffer.intParam();
 		int string = __buffer.bufferParam(bufSize);
-		nglGetNamedStringARB(name.length(), memAddress(nameEncoded), bufSize, __buffer.address() + stringlen, __buffer.address() + string);
+		nglGetNamedStringARB(nameEncodedLen, __buffer.address() + nameEncoded, bufSize, __buffer.address() + stringlen, __buffer.address() + string);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + string, __buffer.intValue(stringlen)));
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static String glGetNamedStringARB(CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
 		int bufSize = glGetNamedStringiARB(name, GL_NAMED_STRING_LENGTH_ARB);
 		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
 		int stringlen = __buffer.intParam();
 		int string = __buffer.bufferParam(bufSize);
-		nglGetNamedStringARB(name.length(), memAddress(nameEncoded), bufSize, __buffer.address() + stringlen, __buffer.address() + string);
+		nglGetNamedStringARB(nameEncodedLen, __buffer.address() + nameEncoded, bufSize, __buffer.address() + stringlen, __buffer.address() + string);
 		return memDecodeUTF8(memByteBuffer(__buffer.address() + string, __buffer.intValue(stringlen)));
 	}
 
@@ -385,7 +390,6 @@ public final class ARBShadingLanguageInclude {
 	public static void glGetNamedStringiARB(int namelen, ByteBuffer name, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, namelen);
-			checkNT1(name);
 			checkBuffer(params, 1 << 2);
 		}
 		nglGetNamedStringivARB(namelen, memAddress(name), pname, memAddress(params));
@@ -402,16 +406,19 @@ public final class ARBShadingLanguageInclude {
 	public static void glGetNamedStringiARB(CharSequence name, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglGetNamedStringivARB(name.length(), memAddress(nameEncoded), pname, memAddress(params));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
+		nglGetNamedStringivARB(nameEncodedLen, __buffer.address() + nameEncoded, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
 	public static int glGetNamedStringiARB(CharSequence name, int pname) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
 		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, false);
+		int nameEncodedLen = __buffer.getOffset() - nameEncoded;
 		int params = __buffer.intParam();
-		nglGetNamedStringivARB(name.length(), memAddress(nameEncoded), pname, __buffer.address() + params);
+		nglGetNamedStringivARB(nameEncodedLen, __buffer.address() + nameEncoded, pname, __buffer.address() + params);
 		return __buffer.intValue(params);
 	}
 

@@ -466,7 +466,7 @@ public final class ARBVertexBufferObject {
 	 */
 	public static ByteBuffer glMapBufferARB(int target, int access) {
 		long __result = nglMapBufferARB(target, access);
-		return memByteBuffer(__result, glGetBufferParameteriARB(target, GL_BUFFER_SIZE_ARB));
+		return memByteBuffer(__result, (int)glGetBufferParameteriARB(target, GL_BUFFER_SIZE_ARB));
 	}
 
 	/** Alternative version of: {@link #glMapBufferARB MapBufferARB} */
@@ -479,7 +479,7 @@ public final class ARBVertexBufferObject {
 	/** Explicit size alternative version of: {@link #glMapBufferARB MapBufferARB} */
 	public static ByteBuffer glMapBufferARB(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBufferARB(target, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
 	}
 
 	// --- [ glUnmapBufferARB ] ---

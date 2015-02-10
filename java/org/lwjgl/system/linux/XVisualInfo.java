@@ -82,7 +82,7 @@ public final class XVisualInfo implements Pointer {
 	public void setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); }
 
 	public long getVisual() { return visual(struct); }
-	public ByteBuffer getVisualBuf() { return visualb(struct); }
+	public ByteBuffer getVisualBuffer() { return visualBuffer(struct); }
 	public long getVisualid() { return visualid(struct); }
 	public int getScreen() { return screen(struct); }
 	public int getDepth() { return depth(struct); }
@@ -171,7 +171,7 @@ public final class XVisualInfo implements Pointer {
 	public static void bits_per_rgb(ByteBuffer xvisualinfo, int bits_per_rgb) { xvisualinfo.putInt(xvisualinfo.position() + BITS_PER_RGB, bits_per_rgb); }
 
 	public static long visual(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUAL); }
-	public static ByteBuffer visualb(ByteBuffer xvisualinfo) { return memByteBuffer(visual(xvisualinfo), Visual.SIZEOF); }
+	public static ByteBuffer visualBuffer(ByteBuffer xvisualinfo) { return memByteBuffer(visual(xvisualinfo), Visual.SIZEOF); }
 	public static long visualid(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUALID); }
 	public static int screen(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + SCREEN); }
 	public static int depth(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + DEPTH); }

@@ -587,25 +587,28 @@ public final class GL43 {
 	 * @param internalformat the internal format with which the data will be stored in the buffer object
 	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
 	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
-	 * @param data           a memory location storing the data to be replicated into the buffer's data store
+	 * @param data           buffer containing the data to be used as the source of the constant fill value.
+	 *                       The elements of data are converted by the GL into the format specified by internalformat,
+	 *                       and then used to fill the specified range of the destination buffer.
+	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddress(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearBufferSubData ] ---
@@ -634,25 +637,28 @@ public final class GL43 {
 	 * @param size           the size, in basic machine units of the range of the data store to fill
 	 * @param format         the format of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
 	 * @param type           the type of the data in memory addressed by {@code data}. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
-	 * @param data           a memory location storing the data to be replicated into the buffer's data store
+	 * @param data           buffer containing the data to be used as the source of the constant fill value.
+	 *                       The elements of data are converted by the GL into the format specified by internalformat,
+	 *                       and then used to fill the specified range of the destination buffer.
+	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddress(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glDispatchCompute ] ---
@@ -851,10 +857,8 @@ public final class GL43 {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-			checkNT1(message);
-		}
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
 
@@ -865,8 +869,10 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-		ByteBuffer messageEncoded = memEncodeUTF8(message);
-		nglDebugMessageInsert(source, type, id, severity, message.length(), memAddress(messageEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int messageEncoded = __buffer.stringParamUTF8(message, false);
+		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
+		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address() + messageEncoded);
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -989,19 +995,6 @@ public final class GL43 {
 		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
-	/** CharSequence version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
-	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, CharSequence messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
-		}
-		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
-	}
-
 	// --- [ glPushDebugGroup ] ---
 
 	/** JNI method for {@link #glPushDebugGroup PushDebugGroup} */
@@ -1037,10 +1030,8 @@ public final class GL43 {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-			checkNT1(message);
-		}
 		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
 
@@ -1051,8 +1042,10 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, CharSequence message) {
-		ByteBuffer messageEncoded = memEncodeUTF8(message);
-		nglPushDebugGroup(source, id, message.length(), memAddress(messageEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int messageEncoded = __buffer.stringParamUTF8(message, false);
+		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
+		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address() + messageEncoded);
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -1105,10 +1098,8 @@ public final class GL43 {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-			checkNT1(label);
-		}
 		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
 
@@ -1119,8 +1110,10 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, CharSequence label) {
-		ByteBuffer labelEncoded = memEncodeUTF8(label);
-		nglObjectLabel(identifier, name, label.length(), memAddress(labelEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int labelEncoded = __buffer.stringParamUTF8(label, false);
+		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
+		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address() + labelEncoded);
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -1210,10 +1203,8 @@ public final class GL43 {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-			checkNT1(label);
-		}
 		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
 
@@ -1224,8 +1215,10 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, CharSequence label) {
-		ByteBuffer labelEncoded = memEncodeUTF8(label);
-		nglObjectPtrLabel(ptr, label.length(), memAddress(labelEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int labelEncoded = __buffer.stringParamUTF8(label, false);
+		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
+		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address() + labelEncoded);
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -1797,8 +1790,9 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeUTF8(name);
-		return nglGetProgramResourceIndex(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamUTF8(name, true);
+		return nglGetProgramResourceIndex(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -1948,8 +1942,9 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetProgramResourceLocation(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetProgramResourceLocation(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -1984,8 +1979,9 @@ public final class GL43 {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glShaderStorageBlockBinding ] ---

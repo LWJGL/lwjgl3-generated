@@ -54,18 +54,16 @@ public final class XClassHint implements Pointer {
 	}
 
 	public void setResName(long res_name) { res_name(struct, res_name); }
-	public void setResName(ByteBuffer res_name) { res_nameSet(struct, res_name); }
-	public void setResName(CharSequence res_name) { res_nameSet(struct, res_name); }
+	public void setResName(ByteBuffer res_name) { res_name(struct, res_name); }
 	public void setResClass(long res_class) { res_class(struct, res_class); }
-	public void setResClass(ByteBuffer res_class) { res_classSet(struct, res_class); }
-	public void setResClass(CharSequence res_class) { res_classSet(struct, res_class); }
+	public void setResClass(ByteBuffer res_class) { res_class(struct, res_class); }
 
 	public long getResName() { return res_name(struct); }
-	public ByteBuffer getResNameBuf() { return res_nameGetb(struct); }
-	public String getResNameStr() { return res_nameGets(struct); }
+	public ByteBuffer getResNameBuffer() { return res_nameBuffer(struct); }
+	public String getResNameString() { return res_nameString(struct); }
 	public long getResClass() { return res_class(struct); }
-	public ByteBuffer getResClassBuf() { return res_classGetb(struct); }
-	public String getResClassStr() { return res_classGets(struct); }
+	public ByteBuffer getResClassBuffer() { return res_classBuffer(struct); }
+	public String getResClassString() { return res_classString(struct); }
 
 	// -----------------------------------
 
@@ -94,37 +92,22 @@ public final class XClassHint implements Pointer {
 	) {
 		ByteBuffer xclasshint = malloc();
 
-		res_nameSet(xclasshint, res_name);
-		res_classSet(xclasshint, res_class);
-
-		return xclasshint;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		CharSequence res_name,
-		CharSequence res_class
-	) {
-		ByteBuffer xclasshint = malloc();
-
-		res_nameSet(xclasshint, res_name);
-		res_classSet(xclasshint, res_class);
+		res_name(xclasshint, res_name);
+		res_class(xclasshint, res_class);
 
 		return xclasshint;
 	}
 
 	public static void res_name(ByteBuffer xclasshint, long res_name) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_NAME, res_name); }
-	public static void res_nameSet(ByteBuffer xclasshint, ByteBuffer res_name) { res_name(xclasshint, res_name == null ? NULL : memAddress(checkNT1(res_name))); }
-	public static void res_nameSet(ByteBuffer xclasshint, CharSequence res_name) { ByteBuffer res_nameEncoded; res_name(xclasshint, res_name == null ? NULL : memAddress(res_nameEncoded = memEncodeASCII(res_name))); }
+	public static void res_name(ByteBuffer xclasshint, ByteBuffer res_name) { res_name(xclasshint, res_name == null ? NULL : memAddress(checkNT1(res_name))); }
 	public static void res_class(ByteBuffer xclasshint, long res_class) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_CLASS, res_class); }
-	public static void res_classSet(ByteBuffer xclasshint, ByteBuffer res_class) { res_class(xclasshint, res_class == null ? NULL : memAddress(checkNT1(res_class))); }
-	public static void res_classSet(ByteBuffer xclasshint, CharSequence res_class) { ByteBuffer res_classEncoded; res_class(xclasshint, res_class == null ? NULL : memAddress(res_classEncoded = memEncodeASCII(res_class))); }
+	public static void res_class(ByteBuffer xclasshint, ByteBuffer res_class) { res_class(xclasshint, res_class == null ? NULL : memAddress(checkNT1(res_class))); }
 
 	public static long res_name(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_NAME); }
-	public static ByteBuffer res_nameGetb(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String res_nameGets(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
+	public static ByteBuffer res_nameBuffer(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
+	public static String res_nameString(ByteBuffer xclasshint) { long address = res_name(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
 	public static long res_class(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_CLASS); }
-	public static ByteBuffer res_classGetb(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String res_classGets(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
+	public static ByteBuffer res_classBuffer(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memByteBufferNT1(address); }
+	public static String res_classString(ByteBuffer xclasshint) { long address = res_class(xclasshint); return address == NULL ? null : memDecodeASCII(address); }
 
 }

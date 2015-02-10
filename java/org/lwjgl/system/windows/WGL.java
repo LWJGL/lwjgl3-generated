@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WGL functionality. */
 public final class WGL {
@@ -169,8 +170,9 @@ public final class WGL {
 
 	/** CharSequence version of: {@link #wglGetProcAddress GetProcAddress} */
 	public static long wglGetProcAddress(CharSequence proc) {
-		ByteBuffer procEncoded = memEncodeASCII(proc);
-		return nwglGetProcAddress(memAddress(procEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int procEncoded = __buffer.stringParamASCII(proc, true);
+		return nwglGetProcAddress(__buffer.address() + procEncoded);
 	}
 
 	// --- [ wglMakeCurrent ] ---

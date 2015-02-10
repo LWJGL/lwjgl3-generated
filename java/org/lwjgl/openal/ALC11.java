@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to ALC 1.1 functionality. */
 public final class ALC11 {
@@ -102,8 +103,9 @@ public final class ALC11 {
 
 	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
-		ByteBuffer devicenameEncoded = memEncodeUTF8(devicename);
-		return nalcCaptureOpenDevice(memAddressSafe(devicenameEncoded), frequency, format, buffersize);
+		APIBuffer __buffer = apiBuffer();
+		int devicenameEncoded = __buffer.stringParamUTF8(devicename, true);
+		return nalcCaptureOpenDevice(__buffer.addressSafe(devicename, devicenameEncoded), frequency, format, buffersize);
 	}
 
 	// --- [ alcCaptureCloseDevice ] ---

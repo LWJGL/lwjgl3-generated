@@ -1000,8 +1000,9 @@ public final class GLFW {
 
 	/** CharSequence version of: {@link #glfwCreateWindow CreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
-		ByteBuffer titleEncoded = memEncodeUTF8(title);
-		return nglfwCreateWindow(width, height, memAddress(titleEncoded), monitor, share);
+		APIBuffer __buffer = apiBuffer();
+		int titleEncoded = __buffer.stringParamUTF8(title, true);
+		return nglfwCreateWindow(width, height, __buffer.address() + titleEncoded, monitor, share);
 	}
 
 	// --- [ glfwDestroyWindow ] ---
@@ -1106,8 +1107,9 @@ public final class GLFW {
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		ByteBuffer titleEncoded = memEncodeUTF8(title);
-		nglfwSetWindowTitle(window, memAddress(titleEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int titleEncoded = __buffer.stringParamUTF8(title, true);
+		nglfwSetWindowTitle(window, __buffer.address() + titleEncoded);
 	}
 
 	// --- [ glfwGetWindowPos ] ---
@@ -2429,8 +2431,9 @@ public final class GLFW {
 	public static void glfwSetClipboardString(long window, CharSequence string) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		ByteBuffer stringEncoded = memEncodeUTF8(string);
-		nglfwSetClipboardString(window, memAddress(stringEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int stringEncoded = __buffer.stringParamUTF8(string, true);
+		nglfwSetClipboardString(window, __buffer.address() + stringEncoded);
 	}
 
 	// --- [ glfwGetClipboardString ] ---
@@ -2605,8 +2608,9 @@ public final class GLFW {
 
 	/** CharSequence version of: {@link #glfwExtensionSupported ExtensionSupported} */
 	public static int glfwExtensionSupported(CharSequence extension) {
-		ByteBuffer extensionEncoded = memEncodeASCII(extension);
-		return nglfwExtensionSupported(memAddress(extensionEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int extensionEncoded = __buffer.stringParamASCII(extension, true);
+		return nglfwExtensionSupported(__buffer.address() + extensionEncoded);
 	}
 
 	// --- [ glfwGetProcAddress ] ---
@@ -2643,8 +2647,9 @@ public final class GLFW {
 
 	/** CharSequence version of: {@link #glfwGetProcAddress GetProcAddress} */
 	public static long glfwGetProcAddress(CharSequence procname) {
-		ByteBuffer procnameEncoded = memEncodeASCII(procname);
-		return nglfwGetProcAddress(memAddress(procnameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int procnameEncoded = __buffer.stringParamASCII(procname, true);
+		return nglfwGetProcAddress(__buffer.address() + procnameEncoded);
 	}
 
      /**

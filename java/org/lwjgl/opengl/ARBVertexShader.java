@@ -1367,8 +1367,9 @@ public final class ARBVertexShader {
 
 	/** CharSequence version of: {@link #glBindAttribLocationARB BindAttribLocationARB} */
 	public static void glBindAttribLocationARB(int programObj, int index, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglBindAttribLocationARB(programObj, index, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		nglBindAttribLocationARB(programObj, index, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetActiveAttribARB ] ---
@@ -1456,8 +1457,9 @@ public final class ARBVertexShader {
 
 	/** CharSequence version of: {@link #glGetAttribLocationARB GetAttribLocationARB} */
 	public static int glGetAttribLocationARB(int programObj, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetAttribLocationARB(programObj, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetAttribLocationARB(programObj, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetVertexAttribivARB ] ---

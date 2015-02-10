@@ -1194,8 +1194,9 @@ public final class GL40 {
 
 	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetSubroutineUniformLocation(program, shadertype, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetSubroutineIndex ] ---
@@ -1230,8 +1231,9 @@ public final class GL40 {
 
 	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetSubroutineIndex(program, shadertype, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetSubroutineIndex(program, shadertype, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---

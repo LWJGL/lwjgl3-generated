@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WinBase.h. */
 public final class WinBase {
@@ -94,8 +95,9 @@ public final class WinBase {
 
 	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
-		ByteBuffer moduleNameEncoded = memEncodeUTF16(moduleName);
-		return nGetModuleHandle(memAddressSafe(moduleNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int moduleNameEncoded = __buffer.stringParamUTF16(moduleName, true);
+		return nGetModuleHandle(__buffer.addressSafe(moduleName, moduleNameEncoded));
 	}
 
 	// --- [ LoadLibrary ] ---
@@ -128,8 +130,9 @@ public final class WinBase {
 
 	/** CharSequence version of: {@link #LoadLibrary} */
 	public static long LoadLibrary(CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeUTF16(name);
-		return nLoadLibrary(memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamUTF16(name, true);
+		return nLoadLibrary(__buffer.address() + nameEncoded);
 	}
 
 	// --- [ GetProcAddress ] ---
@@ -157,8 +160,9 @@ public final class WinBase {
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nGetProcAddress(handle, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nGetProcAddress(handle, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ FreeLibrary ] ---

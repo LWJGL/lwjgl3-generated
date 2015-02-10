@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/debug_output.txt">AMD_debug_output</a> extension.
@@ -197,10 +198,8 @@ public final class AMDDebugOutput {
 	 * @param buf      the message characters
 	 */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, int length, ByteBuffer buf) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(buf, length);
-			checkNT1(buf);
-		}
 		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf));
 	}
 
@@ -211,8 +210,10 @@ public final class AMDDebugOutput {
 
 	/** CharSequence version of: {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
-		ByteBuffer bufEncoded = memEncodeUTF8(buf);
-		nglDebugMessageInsertAMD(category, severity, id, buf.length(), memAddress(bufEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int bufEncoded = __buffer.stringParamUTF8(buf, false);
+		int bufEncodedLen = __buffer.getOffset() - bufEncoded;
+		nglDebugMessageInsertAMD(category, severity, id, bufEncodedLen, __buffer.address() + bufEncoded);
 	}
 
 	// --- [ glDebugMessageCallbackAMD ] ---
@@ -315,18 +316,6 @@ public final class AMDDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
-	}
-
-	/** CharSequence version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
-	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, CharSequence messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( categories != null ) checkBuffer(categories, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
-		}
-		ByteBuffer messageLogEncoded = memEncodeUTF8(messageLog);
-		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.length(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLogEncoded));
 	}
 
      /**

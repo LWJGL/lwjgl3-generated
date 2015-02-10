@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/blend_func_extended.txt">ARB_blend_func_extended</a> extension.
@@ -99,8 +100,9 @@ public final class ARBBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -128,8 +130,9 @@ public final class ARBBlendFuncExtended {
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetFragDataIndex(program, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetFragDataIndex(program, __buffer.address() + nameEncoded);
 	}
 
 }

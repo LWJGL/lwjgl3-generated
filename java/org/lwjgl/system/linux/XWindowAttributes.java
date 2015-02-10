@@ -127,7 +127,7 @@ public final class XWindowAttributes implements Pointer {
 	public int getBorderWidth() { return border_width(struct); }
 	public int getDepth() { return depth(struct); }
 	public long getVisual() { return visual(struct); }
-	public ByteBuffer getVisualBuf() { return visualb(struct); }
+	public ByteBuffer getVisualBuffer() { return visualBuffer(struct); }
 	public long getRoot() { return root(struct); }
 	public int getClazz() { return clazz(struct); }
 	public int getBitGravity() { return bit_gravity(struct); }
@@ -294,7 +294,7 @@ public final class XWindowAttributes implements Pointer {
 	public static int border_width(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BORDER_WIDTH); }
 	public static int depth(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + DEPTH); }
 	public static long visual(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + VISUAL); }
-	public static ByteBuffer visualb(ByteBuffer xwindowattributes) { return memByteBuffer(visual(xwindowattributes), Visual.SIZEOF); }
+	public static ByteBuffer visualBuffer(ByteBuffer xwindowattributes) { return memByteBuffer(visual(xwindowattributes), Visual.SIZEOF); }
 	public static long root(ByteBuffer xwindowattributes) { return PointerBuffer.get(xwindowattributes, xwindowattributes.position() + ROOT); }
 	public static int clazz(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + CLAZZ); }
 	public static int bit_gravity(ByteBuffer xwindowattributes) { return xwindowattributes.getInt(xwindowattributes.position() + BIT_GRAVITY); }

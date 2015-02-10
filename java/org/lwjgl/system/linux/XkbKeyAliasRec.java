@@ -55,17 +55,17 @@ public final class XkbKeyAliasRec implements Pointer {
 
 	public void setReal(long real, int bytes) { realSet(struct, real, bytes); }
 	public void setReal(ByteBuffer real) { realSet(struct, real); }
-	public void setReal(CharSequence real) { realSet(struct, real); }
+	public void setReal(CharSequence real) { real(struct, real); }
 	public void setAlias(long alias, int bytes) { aliasSet(struct, alias, bytes); }
 	public void setAlias(ByteBuffer alias) { aliasSet(struct, alias); }
-	public void setAlias(CharSequence alias) { aliasSet(struct, alias); }
+	public void setAlias(CharSequence alias) { alias(struct, alias); }
 
 	public void getReal(long real, int bytes) { realGet(struct, real, bytes); }
 	public void getReal(ByteBuffer real) { realGet(struct, real); }
-	public String getRealStr() { return realGets(struct); }
+	public String getRealString() { return realString(struct); }
 	public void getAlias(long alias, int bytes) { aliasGet(struct, alias, bytes); }
 	public void getAlias(ByteBuffer alias) { aliasGet(struct, alias); }
-	public String getAliasStr() { return aliasGets(struct); }
+	public String getAliasString() { return aliasString(struct); }
 
 	// -----------------------------------
 
@@ -109,8 +109,8 @@ public final class XkbKeyAliasRec implements Pointer {
 	) {
 		ByteBuffer xkbkeyaliasrec = malloc();
 
-		realSet(xkbkeyaliasrec, real);
-		aliasSet(xkbkeyaliasrec, alias);
+		real(xkbkeyaliasrec, real);
+		alias(xkbkeyaliasrec, alias);
 
 		return xkbkeyaliasrec;
 	}
@@ -121,14 +121,14 @@ public final class XkbKeyAliasRec implements Pointer {
 		checkBufferGT(real, 4 * 1);
 		realSet(xkbkeyaliasrec, memAddress(real), real.remaining());
 	}
-	public static void realSet(ByteBuffer xkbkeyaliasrec, CharSequence real) { ByteBuffer buffer = memEncodeASCII(real, false); realSet(xkbkeyaliasrec, memAddress(buffer), buffer.capacity()); }
+	public static void real(ByteBuffer xkbkeyaliasrec, CharSequence real) { memEncodeASCII(real, false, xkbkeyaliasrec, REAL); }
 	public static void aliasSet(ByteBuffer xkbkeyaliasrec, long alias, int bytes) { memCopy(alias, memAddress(xkbkeyaliasrec) + ALIAS, bytes); }
 	public static void aliasSet(ByteBuffer xkbkeyaliasrec, ByteBuffer alias) {
 		checkNT1(alias);
 		checkBufferGT(alias, 4 * 1);
 		aliasSet(xkbkeyaliasrec, memAddress(alias), alias.remaining());
 	}
-	public static void aliasSet(ByteBuffer xkbkeyaliasrec, CharSequence alias) { ByteBuffer buffer = memEncodeASCII(alias, false); aliasSet(xkbkeyaliasrec, memAddress(buffer), buffer.capacity()); }
+	public static void alias(ByteBuffer xkbkeyaliasrec, CharSequence alias) { memEncodeASCII(alias, false, xkbkeyaliasrec, ALIAS); }
 
 	public static void realGet(ByteBuffer xkbkeyaliasrec, long real, int bytes) {
 		memCopy(memAddress(xkbkeyaliasrec) + REAL, real, bytes);
@@ -137,7 +137,7 @@ public final class XkbKeyAliasRec implements Pointer {
 		checkBufferGT(real, 4 * 1);
 		realGet(xkbkeyaliasrec, memAddress(real), real.remaining());
 	}
-	public static String realGets(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, REAL); }
+	public static String realString(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, REAL); }
 	public static void aliasGet(ByteBuffer xkbkeyaliasrec, long alias, int bytes) {
 		memCopy(memAddress(xkbkeyaliasrec) + ALIAS, alias, bytes);
 	}
@@ -145,6 +145,6 @@ public final class XkbKeyAliasRec implements Pointer {
 		checkBufferGT(alias, 4 * 1);
 		aliasGet(xkbkeyaliasrec, memAddress(alias), alias.remaining());
 	}
-	public static String aliasGets(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, ALIAS); }
+	public static String aliasString(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, ALIAS); }
 
 }

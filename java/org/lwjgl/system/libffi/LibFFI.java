@@ -219,7 +219,7 @@ public final class LibFFI {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(code, 1 << POINTER_SHIFT);
 		long __result = nffi_closure_alloc(size, memAddress(code));
-		return memByteBuffer(__result, size);
+		return memByteBuffer(__result, (int)size);
 	}
 
 	/** Alternative version of: {@link #ffi_closure_alloc closure_alloc} */
@@ -227,7 +227,7 @@ public final class LibFFI {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(code, 1);
 		long __result = nffi_closure_alloc(size, memAddress(code));
-		return memByteBuffer(__result, size);
+		return memByteBuffer(__result, (int)size);
 	}
 
 	// --- [ ffi_closure_free ] ---

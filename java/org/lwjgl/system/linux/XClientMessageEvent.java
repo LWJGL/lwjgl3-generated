@@ -80,10 +80,13 @@ public final class XClientMessageEvent implements Pointer {
 	public void setFormat(int format) { format(struct, format); }
 	public void setDataB(long b, int bytes) { dataBSet(struct, b, bytes); }
 	public void setDataB(ByteBuffer b) { dataBSet(struct, b); }
+	public void setDataB(int index, byte element) { dataBSet(struct, index, element); }
 	public void setDataS(long s, int bytes) { dataSSet(struct, s, bytes); }
 	public void setDataS(ByteBuffer s) { dataSSet(struct, s); }
+	public void setDataS(int index, short element) { dataSSet(struct, index, element); }
 	public void setDataL(long l, int bytes) { dataLSet(struct, l, bytes); }
 	public void setDataL(ByteBuffer l) { dataLSet(struct, l); }
+	public void setDataL(int index, long element) { dataLSet(struct, index, element); }
 
 	public int getType() { return type(struct); }
 	public long getSerial() { return serial(struct); }
@@ -179,16 +182,19 @@ public final class XClientMessageEvent implements Pointer {
 		checkBufferGT(b, 20 * 1);
 		dataBSet(xclientmessageevent, memAddress(b), b.remaining());
 	}
+	public static void dataBSet(ByteBuffer xclientmessageevent, int index, byte element) { xclientmessageevent.put(DATA_B + index, element); }
 	public static void dataSSet(ByteBuffer xclientmessageevent, long s, int bytes) { memCopy(s, memAddress(xclientmessageevent) + DATA_S, bytes); }
 	public static void dataSSet(ByteBuffer xclientmessageevent, ByteBuffer s) {
 		checkBufferGT(s, 10 * 2);
 		dataSSet(xclientmessageevent, memAddress(s), s.remaining());
 	}
+	public static void dataSSet(ByteBuffer xclientmessageevent, int index, short element) { xclientmessageevent.putShort(DATA_S + index * 2, element); }
 	public static void dataLSet(ByteBuffer xclientmessageevent, long l, int bytes) { memCopy(l, memAddress(xclientmessageevent) + DATA_L, bytes); }
 	public static void dataLSet(ByteBuffer xclientmessageevent, ByteBuffer l) {
-		checkBufferGT(l, 5 * 8);
+		checkBufferGT(l, 5 * POINTER_SIZE);
 		dataLSet(xclientmessageevent, memAddress(l), l.remaining());
 	}
+	public static void dataLSet(ByteBuffer xclientmessageevent, int index, long element) { PointerBuffer.put(xclientmessageevent, DATA_L + index * POINTER_SIZE, element); }
 
 	public static int type(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + TYPE); }
 	public static long serial(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + SERIAL); }

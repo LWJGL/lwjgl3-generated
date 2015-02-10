@@ -271,8 +271,9 @@ public final class GL33 {
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -306,8 +307,9 @@ public final class GL33 {
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetFragDataIndex(program, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetFragDataIndex(program, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGenSamplers ] ---

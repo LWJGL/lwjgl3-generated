@@ -365,8 +365,9 @@ public final class ARBUniformBufferObject {
 
 	/** CharSequence version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
-		ByteBuffer uniformBlockNameEncoded = memEncodeASCII(uniformBlockName);
-		return nglGetUniformBlockIndex(program, memAddress(uniformBlockNameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int uniformBlockNameEncoded = __buffer.stringParamASCII(uniformBlockName, true);
+		return nglGetUniformBlockIndex(program, __buffer.address() + uniformBlockNameEncoded);
 	}
 
 	// --- [ glGetActiveUniformBlockiv ] ---

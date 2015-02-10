@@ -149,8 +149,12 @@ public final class ContextCapabilities {
 	final KHRBlendEquationAdvanced      __KHRBlendEquationAdvanced;
 	final KHRDebug                      __KHRDebug;
 	final KHRRobustness                 __KHRRobustness;
+	final NVBindlessTexture             __NVBindlessTexture;
 	final NVConditionalRender           __NVConditionalRender;
+	final NVConservativeRaster          __NVConservativeRaster;
+	final NVDrawTexture                 __NVDrawTexture;
 	final NVPointSprite                 __NVPointSprite;
+	final NVSampleLocations             __NVSampleLocations;
 	final NVShaderBufferLoad            __NVShaderBufferLoad;
 	final NVVertexBufferUnifiedMemory   __NVVertexBufferUnifiedMemory;
 	final WGLAMDGPUAssociation          __WGLAMDGPUAssociation;
@@ -1214,14 +1218,58 @@ public final class ContextCapabilities {
 	public final boolean GL_KHR_texture_compression_astc_hdr;
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
+	/** When true, {@link NVBindlessTexture} is supported. */
+	public final boolean GL_NV_bindless_texture;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a> extension is supported. */
 	public final boolean GL_NV_blend_square;
 	/** When true, {@link NVConditionalRender} is supported. */
 	public final boolean GL_NV_conditional_render;
+	/** When true, {@link NVConservativeRaster} is supported. */
+	public final boolean GL_NV_conservative_raster;
+	/** When true, {@link NVCopyDepthToColor} is supported. */
+	public final boolean GL_NV_copy_depth_to_color;
+	/** When true, {@link NVDrawTexture} is supported. */
+	public final boolean GL_NV_draw_texture;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program4.txt">NV_fragment_program4</a> extension is supported. */
 	public final boolean GL_NV_fragment_program4;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program_option.txt">NV_fragment_program_option</a> extension is supported. */
 	public final boolean GL_NV_fragment_program_option;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_shader_interlock.txt">NV_fragment_shader_interlock</a> extension is supported.
+	 * 
+	 * <p>In unextended OpenGL 4.3, applications may produce a large number of fragment shader invocations that perform loads and stores to memory using image
+	 * uniforms, atomic counter uniforms, buffer variables, or pointers. The order in which loads and stores to common addresses are performed by different
+	 * fragment shader invocations is largely undefined. For algorithms that use shader writes and touch the same pixels more than once, one or more of the
+	 * following techniques may be required to ensure proper execution ordering:
+	 * <ul>
+	 * <li>inserting Finish or WaitSync commands to drain the pipeline between different "passes" or "layers";</li>
+	 * <li>using only atomic memory operations to write to shader memory (which may be relatively slow and limits how memory may be updated); or</li>
+	 * <li>injecting spin loops into shaders to prevent multiple shader invocations from touching the same memory concurrently.</li>
+	 * </ul>
+	 * This extension provides new GLSL built-in functions beginInvocationInterlockNV() and endInvocationInterlockNV() that delimit a critical section of
+	 * fragment shader code. For pairs of shader invocations with "overlapping" coverage in a given pixel, the OpenGL implementation will guarantee that the
+	 * critical section of the fragment shader will be executed for only one fragment at a time.</p>
+	 * 
+	 * <p>There are four different interlock modes supported by this extension, which are identified by layout qualifiers. The qualifiers
+	 * "pixel_interlock_ordered" and "pixel_interlock_unordered" provides mutual exclusion in the critical section for any pair of fragments corresponding to
+	 * the same pixel. When using multisampling, the qualifiers "sample_interlock_ordered" and "sample_interlock_unordered" only provide mutual exclusion for
+	 * pairs of fragments that both cover at least one common sample in the same pixel; these are recommended for performance if shaders use per-sample data
+	 * structures.</p>
+	 * 
+	 * <p>Additionally, when the "pixel_interlock_ordered" or "sample_interlock_ordered" layout qualifier is used, the interlock also guarantees that the
+	 * critical section for multiple shader invocations with "overlapping" coverage will be executed in the order in which the primitives were processed by
+	 * the GL. Such a guarantee is useful for applications like blending in the fragment shader, where an application requires that fragment values to be
+	 * composited in the framebuffer in primitive order.</p>
+	 * 
+	 * <p>This extension can be useful for algorithms that need to access per-pixel data structures via shader loads and stores. Such algorithms using this
+	 * extension can access such data structures in the critical section without worrying about other invocations for the same pixel accessing the data
+	 * structures concurrently. Additionally, the ordering guarantees are useful for cases where the API ordering of fragments is meaningful. For example,
+	 * applications may be able to execute programmable blending operations in the fragment shader, where the destination buffer is read via image loads and
+	 * the final value is written via image stores.</p>
+	 * 
+	 * <p>Requires {@link GL43 OpenGL 4.3} and GLSL 4.30.</p>
+	 */
+	public final boolean GL_NV_fragment_shader_interlock;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/geometry_shader4.txt">NV_geometry_shader4</a> extension is supported.
 	 * 
@@ -1235,6 +1283,8 @@ public final class ContextCapabilities {
 	 * Requires {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader4;
+	/** When true, {@link NVPackedDepthStencil} is supported. */
+	public final boolean GL_NV_packed_depth_stencil;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/parameter_buffer_object2.txt">NV_parameter_buffer_object2</a> extension is supported.
 	 * 
@@ -1245,6 +1295,8 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_parameter_buffer_object2;
 	/** When true, {@link NVPointSprite} is supported. */
 	public final boolean GL_NV_point_sprite;
+	/** When true, {@link NVSampleLocations} is supported. */
+	public final boolean GL_NV_sample_locations;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_counters.txt">NV_shader_atomic_counters</a> extension is supported.
 	 * 
@@ -1279,6 +1331,8 @@ public final class ContextCapabilities {
 	 * {@link #GL_ARB_shader_storage_buffer_object ARB_shader_storage_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_shader_storage_buffer_object;
+	/** When true, {@link NVShaderThreadGroup} is supported. */
+	public final boolean GL_NV_shader_thread_group;
 	/** When true, {@link NVVertexBufferUnifiedMemory} is supported. */
 	public final boolean GL_NV_vertex_buffer_unified_memory;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/vertex_program1_1.txt">NV_vertex_program1_1</a> extension is supported. */
@@ -1287,6 +1341,20 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_vertex_program2;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/vertex_program4.txt">NV_vertex_program4</a> extension is supported. */
 	public final boolean GL_NV_vertex_program4;
+	/**
+	 * This extension provides new support allowing a single primitive to be broadcast to multiple viewports and/or multiple layers. A shader output
+	 * gl_ViewportMask[] is provided, allowing a single primitive to be output to multiple viewports simultaneously. Also, a new shader option is provided to
+	 * control whether the effective viewport index is added into gl_Layer. These capabilities allow a single primitive to be output to multiple layers
+	 * simultaneously.
+	 * 
+	 * <p>The gl_ViewportMask[] output is available in vertex, tessellation control, tessellation evaluation, and geometry shaders. gl_ViewportIndex and gl_Layer
+	 * are also made available in all these shader stages. The actual viewport index or mask and render target layer values are taken from the last active
+	 * shader stage from this set of stages.</p>
+	 * 
+	 * <p>This extension is a superset of the GL_AMD_vertex_shader_layer and GL_AMD_vertex_shader_viewport_index extensions, and thus those extension strings are
+	 * expected to be exported if GL_NV_viewport_array2 is supported.</p>
+	 */
+	public final boolean GL_NV_viewport_array2;
 	/** When true, {@link WGLAMDGPUAssociation} is supported. */
 	public final boolean WGL_AMD_gpu_association;
 	/** When true, {@link WGLARBBufferRegion} is supported. */
@@ -1612,21 +1680,30 @@ public final class ContextCapabilities {
 		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
 		GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
+		GL_NV_bindless_texture = (__NVBindlessTexture = NVBindlessTexture.create(ext, provider)) != null;
 		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
 		GL_NV_conditional_render = (__NVConditionalRender = NVConditionalRender.create(ext, provider)) != null;
+		GL_NV_conservative_raster = (__NVConservativeRaster = NVConservativeRaster.create(ext, provider)) != null;
+		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
+		GL_NV_draw_texture = (__NVDrawTexture = NVDrawTexture.create(ext, provider)) != null;
 		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
 		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");
+		GL_NV_fragment_shader_interlock = ext.contains("GL_NV_fragment_shader_interlock");
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
+		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
 		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
 		GL_NV_point_sprite = (__NVPointSprite = NVPointSprite.create(ext, provider)) != null;
+		GL_NV_sample_locations = (__NVSampleLocations = NVSampleLocations.create(ext, provider)) != null;
 		GL_NV_shader_atomic_counters = ext.contains("GL_NV_shader_atomic_counters");
 		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
 		GL_NV_shader_buffer_load = (__NVShaderBufferLoad = NVShaderBufferLoad.create(ext, provider)) != null;
 		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
+		GL_NV_shader_thread_group = ext.contains("GL_NV_shader_thread_group");
 		GL_NV_vertex_buffer_unified_memory = (__NVVertexBufferUnifiedMemory = NVVertexBufferUnifiedMemory.create(ext, provider)) != null;
 		GL_NV_vertex_program1_1 = ext.contains("GL_NV_vertex_program1_1");
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
+		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
 		WGL_AMD_gpu_association = (__WGLAMDGPUAssociation = WGLAMDGPUAssociation.create(ext, provider)) != null;
 		WGL_ARB_buffer_region = (__WGLARBBufferRegion = WGLARBBufferRegion.create(ext, provider)) != null;
 		WGL_ARB_context_flush_control = ext.contains("WGL_ARB_context_flush_control");

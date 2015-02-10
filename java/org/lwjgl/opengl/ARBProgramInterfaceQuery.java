@@ -205,8 +205,9 @@ public final class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeUTF8(name);
-		return nglGetProgramResourceIndex(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamUTF8(name, true);
+		return nglGetProgramResourceIndex(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -338,8 +339,9 @@ public final class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetProgramResourceLocation(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetProgramResourceLocation(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -368,8 +370,9 @@ public final class ARBProgramInterfaceQuery {
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address() + nameEncoded);
 	}
 
 }

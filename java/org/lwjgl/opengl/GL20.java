@@ -1585,8 +1585,9 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glGetUniformLocation GetUniformLocation} */
 	public static int glGetUniformLocation(int program, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetUniformLocation(program, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetUniformLocation(program, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetActiveUniform ] ---
@@ -3056,8 +3057,9 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glBindAttribLocation BindAttribLocation} */
 	public static void glBindAttribLocation(int program, int index, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		nglBindAttribLocation(program, index, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		nglBindAttribLocation(program, index, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetActiveAttrib ] ---
@@ -3149,8 +3151,9 @@ Creates a program object.
 
 	/** CharSequence version of: {@link #glGetAttribLocation GetAttribLocation} */
 	public static int glGetAttribLocation(int program, CharSequence name) {
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return nglGetAttribLocation(program, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return nglGetAttribLocation(program, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ glGetVertexAttribiv ] ---

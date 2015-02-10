@@ -86,10 +86,13 @@ public final class XkbNamesRec implements Pointer {
 	public void setCompat(long compat) { compat(struct, compat); }
 	public void setVmods(long vmods, int bytes) { vmodsSet(struct, vmods, bytes); }
 	public void setVmods(ByteBuffer vmods) { vmodsSet(struct, vmods); }
+	public void setVmods(int index, long element) { vmodsSet(struct, index, element); }
 	public void setIndicators(long indicators, int bytes) { indicatorsSet(struct, indicators, bytes); }
 	public void setIndicators(ByteBuffer indicators) { indicatorsSet(struct, indicators); }
+	public void setIndicators(int index, long element) { indicatorsSet(struct, index, element); }
 	public void setGroups(long groups, int bytes) { groupsSet(struct, groups, bytes); }
 	public void setGroups(ByteBuffer groups) { groupsSet(struct, groups); }
+	public void setGroups(int index, long element) { groupsSet(struct, index, element); }
 	public void setKeys(long keys) { keys(struct, keys); }
 	public void setKeys(ByteBuffer keys) { keys(struct, keys); }
 	public void setKeyAliases(long key_aliases) { key_aliases(struct, key_aliases); }
@@ -113,9 +116,9 @@ public final class XkbNamesRec implements Pointer {
 	public void getGroups(long groups, int bytes) { groupsGet(struct, groups, bytes); }
 	public void getGroups(ByteBuffer groups) { groupsGet(struct, groups); }
 	public long getKeys() { return keys(struct); }
-	public ByteBuffer getKeysBuf() { return keysb(struct); }
+	public ByteBuffer getKeysBuffer() { return keysBuffer(struct); }
 	public long getKeyAliases() { return key_aliases(struct); }
-	public ByteBuffer getKeyAliasesBuf() { return key_aliasesb(struct); }
+	public ByteBuffer getKeyAliasesBuffer() { return key_aliasesBuffer(struct); }
 	public long getRadioGroups() { return radio_groups(struct); }
 	public ByteBuffer getRadioGroups(int size) { return radio_groups(struct, size); }
 	public long getPhysSymbols() { return phys_symbols(struct); }
@@ -218,19 +221,22 @@ public final class XkbNamesRec implements Pointer {
 	public static void compat(ByteBuffer xkbnamesrec, long compat) { PointerBuffer.put(xkbnamesrec, xkbnamesrec.position() + COMPAT, compat); }
 	public static void vmodsSet(ByteBuffer xkbnamesrec, long vmods, int bytes) { memCopy(vmods, memAddress(xkbnamesrec) + VMODS, bytes); }
 	public static void vmodsSet(ByteBuffer xkbnamesrec, ByteBuffer vmods) {
-		checkBufferGT(vmods, 16 * 8);
+		checkBufferGT(vmods, 16 * POINTER_SIZE);
 		vmodsSet(xkbnamesrec, memAddress(vmods), vmods.remaining());
 	}
+	public static void vmodsSet(ByteBuffer xkbnamesrec, int index, long element) { PointerBuffer.put(xkbnamesrec, VMODS + index * POINTER_SIZE, element); }
 	public static void indicatorsSet(ByteBuffer xkbnamesrec, long indicators, int bytes) { memCopy(indicators, memAddress(xkbnamesrec) + INDICATORS, bytes); }
 	public static void indicatorsSet(ByteBuffer xkbnamesrec, ByteBuffer indicators) {
-		checkBufferGT(indicators, 32 * 8);
+		checkBufferGT(indicators, 32 * POINTER_SIZE);
 		indicatorsSet(xkbnamesrec, memAddress(indicators), indicators.remaining());
 	}
+	public static void indicatorsSet(ByteBuffer xkbnamesrec, int index, long element) { PointerBuffer.put(xkbnamesrec, INDICATORS + index * POINTER_SIZE, element); }
 	public static void groupsSet(ByteBuffer xkbnamesrec, long groups, int bytes) { memCopy(groups, memAddress(xkbnamesrec) + GROUPS, bytes); }
 	public static void groupsSet(ByteBuffer xkbnamesrec, ByteBuffer groups) {
-		checkBufferGT(groups, 4 * 8);
+		checkBufferGT(groups, 4 * POINTER_SIZE);
 		groupsSet(xkbnamesrec, memAddress(groups), groups.remaining());
 	}
+	public static void groupsSet(ByteBuffer xkbnamesrec, int index, long element) { PointerBuffer.put(xkbnamesrec, GROUPS + index * POINTER_SIZE, element); }
 	public static void keys(ByteBuffer xkbnamesrec, long keys) { PointerBuffer.put(xkbnamesrec, xkbnamesrec.position() + KEYS, keys); }
 	public static void keys(ByteBuffer xkbnamesrec, ByteBuffer keys) { keys(xkbnamesrec, memAddress(keys)); }
 	public static void key_aliases(ByteBuffer xkbnamesrec, long key_aliases) { PointerBuffer.put(xkbnamesrec, xkbnamesrec.position() + KEY_ALIASES, key_aliases); }
@@ -269,9 +275,9 @@ public final class XkbNamesRec implements Pointer {
 		groupsGet(xkbnamesrec, memAddress(groups), groups.remaining());
 	}
 	public static long keys(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEYS); }
-	public static ByteBuffer keysb(ByteBuffer xkbnamesrec) { return memByteBuffer(keys(xkbnamesrec), XkbKeyNameRec.SIZEOF); }
+	public static ByteBuffer keysBuffer(ByteBuffer xkbnamesrec) { return memByteBuffer(keys(xkbnamesrec), XkbKeyNameRec.SIZEOF); }
 	public static long key_aliases(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEY_ALIASES); }
-	public static ByteBuffer key_aliasesb(ByteBuffer xkbnamesrec) { return memByteBuffer(key_aliases(xkbnamesrec), XkbKeyAliasRec.SIZEOF); }
+	public static ByteBuffer key_aliasesBuffer(ByteBuffer xkbnamesrec) { return memByteBuffer(key_aliases(xkbnamesrec), XkbKeyAliasRec.SIZEOF); }
 	public static long radio_groups(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + RADIO_GROUPS); }
 	public static ByteBuffer radio_groups(ByteBuffer xkbnamesrec, int size) { long address = radio_groups(xkbnamesrec); return address == NULL ? null : memByteBuffer(address, size); }
 	public static long phys_symbols(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + PHYS_SYMBOLS); }

@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to <dlfcn.h>. */
 public final class DynamicLinkLoader {
@@ -64,8 +65,9 @@ public final class DynamicLinkLoader {
 
 	/** CharSequence version of: {@link #dlopen} */
 	public static long dlopen(CharSequence filename, int mode) {
-		ByteBuffer filenameEncoded = memEncodeASCII(filename);
-		return ndlopen(memAddressSafe(filenameEncoded), mode);
+		APIBuffer __buffer = apiBuffer();
+		int filenameEncoded = __buffer.stringParamASCII(filename, true);
+		return ndlopen(__buffer.addressSafe(filename, filenameEncoded), mode);
 	}
 
 	// --- [ dlerror ] ---
@@ -109,8 +111,9 @@ public final class DynamicLinkLoader {
 	public static long dlsym(long handle, CharSequence name) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(handle);
-		ByteBuffer nameEncoded = memEncodeASCII(name);
-		return ndlsym(handle, memAddress(nameEncoded));
+		APIBuffer __buffer = apiBuffer();
+		int nameEncoded = __buffer.stringParamASCII(name, true);
+		return ndlsym(handle, __buffer.address() + nameEncoded);
 	}
 
 	// --- [ dlclose ] ---
