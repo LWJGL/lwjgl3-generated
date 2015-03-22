@@ -31,7 +31,7 @@ public final class GLFW {
 	public static final int GLFW_VERSION_MINOR = 0x1;
 
 	/** The revision number of the GLFW library. This is incremented when a bug fix release is made that does not contain any API changes. */
-	public static final int GLFW_VERSION_REVISION = 0x0;
+	public static final int GLFW_VERSION_REVISION = 0x2;
 
 	/** The key or button was released. */
 	public static final int GLFW_RELEASE = 0x0;
@@ -184,7 +184,7 @@ public final class GLFW {
 	/** If this bit is set one or more Super keys were held down. */
 	public static final int GLFW_MOD_SUPER = 0x8;
 
-	/** Mouse buttons. */
+	/** Mouse buttons. See <a href="http://www.glfw.org/docs/latest/input.html#input_mouse_button">mouse button input</a> for how these are used. */
 	public static final int
 		GLFW_MOUSE_BUTTON_1      = 0x0,
 		GLFW_MOUSE_BUTTON_2      = 0x1,
@@ -199,7 +199,7 @@ public final class GLFW {
 		GLFW_MOUSE_BUTTON_RIGHT  = GLFW_MOUSE_BUTTON_2,
 		GLFW_MOUSE_BUTTON_MIDDLE = GLFW_MOUSE_BUTTON_3;
 
-	/** Joysticks. */
+	/** Joysticks. See <a href="http://www.glfw.org/docs/latest/input.html#joystick">joystick input</a> for how these are used. */
 	public static final int
 		GLFW_JOYSTICK_1    = 0x0,
 		GLFW_JOYSTICK_2    = 0x1,
@@ -258,19 +258,20 @@ public final class GLFW {
 	public static final int GLFW_OUT_OF_MEMORY = 0x10005;
 
 	/**
-	 * GLFW could not find support for the requested client API on the system.
+	 * GLFW could not find support for the requested client API on the system. If emitted by functions other than @ref glfwCreateWindow, no supported client
+	 * API was found.
 	 * 
-	 * <p>The installed graphics driver does not support the requested client API, or does not support it via the chosen context creation backend. Below are a few
-	 * examples:</p>
+	 * <p>The installed graphics driver does not support the requested client API, or does not support it via the chosen context creation backend. Below are a
+	 * few examples:</p>
 	 * 
-	 * <p>Some pre-installed Windows graphics drivers do not support OpenGL. AMD only supports OpenGL ES via EGL, while nVidia and Intel only supports it via a
-	 * WGL or GLX extension. OS X does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the nVidia binary
+	 * <p>Some pre-installed Windows graphics drivers do not support OpenGL. AMD only supports OpenGL ES via EGL, while Nvidia and Intel only support it via a
+	 * WGL or GLX extension. OS X does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the Nvidia binary
 	 * driver.</p>
 	 */
 	public static final int GLFW_API_UNAVAILABLE = 0x10006;
 
 	/**
-	 * The requested OpenGL or OpenGL ES version (including any requested profile or context option) is not available on this machine.
+	 * The requested OpenGL or OpenGL ES version (including any requested context or framebuffer hints) is not available on this machine.
 	 * 
 	 * <p>The machine does not support your requirements. If your application is sufficiently flexible, downgrade your requirements and try again. Otherwise,
 	 * inform the user that their machine does not match your requirements.</p>
@@ -283,7 +284,8 @@ public final class GLFW {
 	/**
 	 * A platform-specific error occurred that does not match any of the more specific categories.
 	 * 
-	 * <p>A bug in GLFW or the underlying operating system. Report the bug to our <a href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
+	 * <p>A bug or configuration error in GLFW, the underlying operating system or its drivers, or a lack of required resources. Report the issue to our
+	 * <a href="https://github.com/glfw/glfw/issues">issue tracker</a>.</p>
 	 */
 	public static final int GLFW_PLATFORM_ERROR = 0x10008;
 
@@ -319,7 +321,7 @@ public final class GLFW {
 		GLFW_CURSOR_HIDDEN   = 0x34002,
 		GLFW_CURSOR_DISABLED = 0x34003;
 
-	/** Standard cursor shapes. */
+	/** Standard cursor shapes. See <a href="http://www.glfw.org/docs/latest/input.html#cursor_standard">standard cursor creation</a> for how these are used. */
 	public static final int
 		GLFW_ARROW_CURSOR     = 0x36001,
 		GLFW_IBEAM_CURSOR     = 0x36002,
@@ -440,6 +442,7 @@ public final class GLFW {
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may only be called from the main thread.</li>
+	 * <li>This function may not be called from a callback.</li>
 	 * <li>No window's context may be current on another thread when this function is called.</li>
 	 * </ul></p>
 	 */
@@ -498,6 +501,9 @@ public final class GLFW {
 	 * Returns the compile-time generated version string of the GLFW library binary. It describes the version, platform, compiler and any platform-specific
 	 * compile-time options.
 	 * 
+	 * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the
+	 * running library binary.</p>
+	 * 
 	 * <p>Notes:
 	 * <ul>
 	 * <li>This function always succeeds.</li>
@@ -529,6 +535,8 @@ public final class GLFW {
 	 * 
 	 * <p>Because the description string may have been generated specifically for that error, it is not guaranteed to be valid after the callback has returned. If
 	 * you wish to use it after the callback returns, you need to make a copy.</p>
+	 * 
+	 * <p>Once set, the error callback remains set even after the library has been terminated.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
@@ -626,43 +634,46 @@ public final class GLFW {
 
 	/** JNI method for {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	@JavadocExclude
-	public static native void nglfwGetMonitorPhysicalSize(long monitor, long width, long height);
+	public static native void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM);
 
 	/**
 	 * Returns the size, in millimetres, of the display area of the specified monitor.
+	 * 
+	 * <p>Some systems do not provide accurate monitor size information, either because the monitor
+	 * <a href="https://en.wikipedia.org/wiki/Extended_display_identification_data">EDID</a> data is incorrect or because the driver does not report it
+	 * accurately.</p>
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
-	 * <li>Some systems do not provide accurate monitor size information, either because the EDID data is incorrect, or because the driver does not report it
-	 * accurately.</li>
+	 * <li><b>Windows</b>: The OS calculates the returned physical size from the current resolution and system DPI instead of querying the monitor EDID data.</li>
 	 * </ul></p>
 	 *
-	 * @param monitor the monitor to query
-	 * @param width   where to store the width, in mm, of the monitor's display area, or {@code NULL}
-	 * @param height  where to store the height, in mm, of the monitor's display area, or {@code NULL}
+	 * @param monitor  the monitor to query
+	 * @param widthMM  where to store the width, in millimetres, of the monitor's display area, or {@code NULL}
+	 * @param heightMM where to store the height, in millimetres, of the monitor's display area, or {@code NULL}
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer width, ByteBuffer height) {
+	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer widthMM, ByteBuffer heightMM) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
-			if ( width != null ) checkBuffer(width, 1 << 2);
-			if ( height != null ) checkBuffer(height, 1 << 2);
+			if ( widthMM != null ) checkBuffer(widthMM, 1 << 2);
+			if ( heightMM != null ) checkBuffer(heightMM, 1 << 2);
 		}
-		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(width), memAddressSafe(height));
+		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(widthMM), memAddressSafe(heightMM));
 	}
 
 	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
-	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer width, IntBuffer height) {
+	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(monitor);
-			if ( width != null ) checkBuffer(width, 1);
-			if ( height != null ) checkBuffer(height, 1);
+			if ( widthMM != null ) checkBuffer(widthMM, 1);
+			if ( heightMM != null ) checkBuffer(heightMM, 1);
 		}
-		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(width), memAddressSafe(height));
+		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(widthMM), memAddressSafe(heightMM));
 	}
 
 	// --- [ glfwGetMonitorName ] ---
@@ -795,7 +806,8 @@ public final class GLFW {
 	public static native void nglfwSetGamma(long monitor, float gamma);
 
 	/**
-	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it.
+	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it. The value must be a finite number greater than
+	 * zero.
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
@@ -851,6 +863,7 @@ public final class GLFW {
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
+	 * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
 	 * <li>The specified gamma ramp is copied before this function returns.</li>
 	 * </ul></p>
 	 *
@@ -947,19 +960,19 @@ public final class GLFW {
 	 * 
 	 * <p>For full screen windows, the specified size becomes the resolution of the window's desired video mode. As long as a full screen window has input focus,
 	 * the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full screen windows,
-	 * including the creation of so called windowed full screen or borderless full screen windows, see
-	 * <a href="http://www.glfw.org/docs/latest/window.html#window_full_screen">full screen</a>.</p>
+	 * including the creation of so called <i>windowed full screen</i> or <i>borderless full screen windows</i>, see
+	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
 	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
 	 * 
-	 * <p>If a full screen window is focused, the screensaver is prohibited from starting.</p>
+	 * <p>If a full screen window has input focus, the screensaver is prohibited from starting.</p>
 	 * 
 	 * <p>Window systems put limits on window sizes. Very large or very small window dimensions may be overridden by the window system on creation. Check the
 	 * actual <a href="http://www.glfw.org/docs/latest/window.html#window_size">size</a> after creation.</p>
 	 * 
-	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#window_swap">swap interval</a> is not set during window creation and the initial value may vary
+	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
 	 * depending on driver settings and defaults.</p>
 	 * 
 	 * <p>Notes:
@@ -978,6 +991,10 @@ public final class GLFW {
 	 * <li><b>OS X</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
 	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
 	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
+	 * <li><b>OS X</b>: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
+	 * {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For more information, see
+	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
+	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
 	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * </ul></p>
@@ -1160,12 +1177,12 @@ public final class GLFW {
 	 * Sets the position, in screen coordinates, of the upper-left corner of the client area of the specified windowed mode window. If the window is a full
 	 * screen window, this function does nothing.
 	 * 
-	 * <p>Notes:
-	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>It is very rarely a good idea to move an already visible window, as it will confuse and annoy the user.</li>
-	 * <li>The window manager may put limits on what positions are allowed.</li>
-	 * </ul></p>
+	 * <p><b>Do not use this function</b> to move an already visible window unless you have very good reasons for doing so, as it will confuse and annoy the
+	 * user.</p>
+	 * 
+	 * <p>The window manager may put limits on what positions are allowed. GLFW cannot and should not override these limits.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to query
 	 * @param xpos   the x-coordinate of the upper-left corner of the client area
@@ -1186,8 +1203,8 @@ public final class GLFW {
 	public static native void nglfwGetWindowSize(long window, long width, long height);
 
 	/**
-	 * Retrieves the size, in screen coordinates, of the client area of the specified window. If you wish to retrieve the size of the framebuffer in pixels,
-	 * see {@link #glfwGetFramebufferSize GetFramebufferSize}.
+	 * Retrieves the size, in screen coordinates, of the client area of the specified window. If you wish to retrieve the size of the framebuffer of the
+	 * window in pixels, see {@link #glfwGetFramebufferSize GetFramebufferSize}.
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
@@ -1230,11 +1247,9 @@ public final class GLFW {
 	 * <p>For full screen windows, this function selects and switches to the resolution closest to the specified size, without affecting the window's context. As
 	 * the context is unaffected, the bit depths of the framebuffer remain unchanged.</p>
 	 * 
-	 * <p>Notes:
-	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li>The window manager may put limits on what window sizes are allowed.</li>
-	 * </ul></p>
+	 * <p>The window manager may put limits on what sizes are allowed. GLFW cannot and should not override these limits.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to resize
 	 * @param width  the desired width of the specified window
@@ -1636,10 +1651,10 @@ public final class GLFW {
 	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
-	 * Sets the focus callback of the specified window, which is called when the window gains or loses focus.
+	 * Sets the focus callback of the specified window, which is called when the window gains or loses input focus.
 	 * 
-	 * <p>After the focus callback is called for a window that lost focus, synthetic key and mouse button release events will be generated for all such that had
-	 * been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.</p>
+	 * <p>After the focus callback is called for a window that lost input focus, synthetic key and mouse button release events will be generated for all such
+	 * that had been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.</p>
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
@@ -1748,6 +1763,8 @@ public final class GLFW {
 	 * those platforms. You can use the <a href="http://www.glfw.org/docs/latest/window.html#window_refresh">window refresh callback</a> to redraw the
 	 * contents of your window when necessary during such operations.</p>
 	 * 
+	 * <p>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</p>
+	 * 
 	 * <p>If no windows exist, this function returns immediately. For synchronization of threads in applications that do not create windows, use your threading
 	 * library of choice.</p>
 	 * 
@@ -1810,8 +1827,7 @@ public final class GLFW {
 	 * <p>If {@code mode} is {@link #GLFW_CURSOR CURSOR}, the value must be one of the following cursor modes:
 	 * <ul>
 	 * <li>{@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
-	 * <li>{@link #GLFW_CURSOR_HIDDEN CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving. This is
-	 * useful if you wish to render your own cursor or have no visible cursor at all.</li>
+	 * <li>{@link #GLFW_CURSOR_HIDDEN CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving.</li>
 	 * <li>{@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera
 	 * controls.</li>
 	 * </ul></p>
@@ -1911,7 +1927,7 @@ public final class GLFW {
 	public static native void nglfwGetCursorPos(long window, long xpos, long ypos);
 
 	/**
-	 * Returns the last reported position of the cursor, in screen coordinates, relative to the upper-left corner of the client area of the specified window.
+	 * Returns the position of the cursor, in screen coordinates, relative to the upper-left corner of the client area of the specified window.
 	 * 
 	 * <p>If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
 	 * <b>double</b>.</p>
@@ -1955,11 +1971,13 @@ public final class GLFW {
 	public static native void nglfwSetCursorPos(long window, double xpos, double ypos);
 
 	/**
-	 * Sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the client area of the specified window. The window must be
-	 * focused. If the window does not have focus when this function is called, it fails silently.
+	 * Sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the client area of the specified window. The window must
+	 * have input focus. If the window does not have input focus when this function is called, it fails silently.
 	 * 
-	 * <p>If the cursor is disabled (with {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}) then the cursor position is unbounded and limited only by the minimum and maximum values of a
-	 * <b>double</b>.</p>
+	 * <p><b>Do not use this function</b> to implement things like camera controls. GLFW already provides the {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} cursor mode that hides the cursor,
+	 * transparently re-centers it and provides unconstrained cursor motion. See {@link #glfwSetInputMode SetInputMode} for more information.</p>
+	 * 
+	 * <p>If the cursor mode is {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} then the cursor position is unconstrained and limited only by the minimum and maximum values of <b>double</b>.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
@@ -1987,10 +2005,14 @@ public final class GLFW {
 	public static native long nglfwCreateCursor(long image, int xhot, int yhot);
 
 	/**
-	 * Creates a new cursor that can be made the system cursor for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
+	 * Creates a new custom cursor image that can be set for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
 	 * cursors are destroyed by {@link #glfwTerminate Terminate}.
 	 * 
-	 * <p>The image data is 32-bit RGBA, i.e. eight bits per channel. The pixels are arranged canonically as sequental rows, starting from the top-left corner.</p>
+	 * <p>The pixels are 32-bit little-endian RGBA, i.e. eight bits per channel. They are arranged canonically as packed sequential rows, starting from the
+	 * top-left corner.</p>
+	 * 
+	 * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
+	 * points to the right and the Y-axis points down.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
@@ -2000,10 +2022,10 @@ public final class GLFW {
 	 * </ul></p>
 	 *
 	 * @param image the desired cursor image
-	 * @param xhot  the desired x-coordinate of the cursor hotspot
-	 * @param yhot  the desired y-coordinate of the cursor hotspot
+	 * @param xhot  the desired x-coordinate, in pixels, of the cursor hotspot
+	 * @param yhot  the desired y-coordinate, in pixels, of the cursor hotspot
 	 *
-	 * @return a new cursor ready to use or {@code NULL} if an error occurred
+	 * @return the handle of the created cursor, or {@code NULL} if an error occurred
 	 *
 	 * @since GLFW 3.1
 	 */
@@ -2016,7 +2038,7 @@ public final class GLFW {
 	// --- [ glfwCreateStandardCursor ] ---
 
 	/**
-	 * Returns a cursor with a standard shape, which can be made the system cursor for a window with {@link #glfwSetCursor SetCursor}.
+	 * Returns a cursor with a standard shape, that can be set for a window with {@link #glfwSetCursor SetCursor}.
 	 * 
 	 * <p>Notes:
 	 * <ul>
@@ -2065,12 +2087,15 @@ public final class GLFW {
 	public static native void nglfwSetCursor(long window, long cursor);
 
 	/**
-	 * Sets the system cursor for the specified window.
+	 * Sets the cursor image to be used when the cursor is over the client area of the specified window. The set cursor will only be visible when the
+	 * <a href="http://www.glfw.org/docs/latest/input.html#cursor_mode">cursor mode</a> of the window is {@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL}.
+	 * 
+	 * <p>On some platforms, the set cursor may not be visible unless the window also has input focus.</p>
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
 	 * @param window the window to set the system cursor for
-	 * @param cursor the cursor to change to, or {@code NULL} to switch back to the default system cursor
+	 * @param cursor the cursor to set, or {@code NULL} to switch back to the default arrow cursor
 	 *
 	 * @since GLFW 3.1
 	 */
@@ -2092,9 +2117,9 @@ public final class GLFW {
 	 * <p>The key functions deal with physical keys, with layout independent key tokens named after their values in the standard US keyboard layout. If you want
 	 * to input text, use {@link #glfwSetCharCallback SetCharCallback} instead.</p>
 	 * 
-	 * <p>When a window loses focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by
-	 * the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED FOCUSED} will be false and the focus callback will have already
-	 * been called.</p>
+	 * <p>When a window loses input focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated
+	 * events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the window focus callback has been
+	 * called.</p>
 	 * 
 	 * <p>The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have
 	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, their state is not saved and so it cannot be queried with {@link #glfwGetKey GetKey}.</p>
@@ -2186,9 +2211,9 @@ public final class GLFW {
 	/**
 	 * Sets the mouse button callback of the specified window, which is called when a mouse button is pressed or released.
 	 * 
-	 * <p>When a window loses focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from
-	 * user-generated events by the fact that the synthetic ones are generated after the window has lost focus, i.e. {@link #GLFW_FOCUSED FOCUSED} will be false and the focus
-	 * callback will have already been called.</p>
+	 * <p>When a window loses input focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from
+	 * user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the window focus
+	 * callback has been called.</p>
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
@@ -2487,11 +2512,15 @@ public final class GLFW {
 	// --- [ glfwSetTime ] ---
 
 	/**
-	 * Sets the value of the GLFW timer. It then continues to count up from that value.
+	 * Sets the value of the GLFW timer. It then continues to count up from that value. The value must be a positive finite number less than or equal to
+	 * 18446744073.0, which is approximately 584.5 years.
+	 * 
+	 * <p>The upper limit of the timer is calculated as <code style="font-family: monospace">floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
+	 * in 64 bits. The limit may be increased in the future.</p>
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
-	 * @param time new value, in seconds
+	 * @param time the new value, in seconds
 	 *
 	 * @since GLFW 2.2
 	 */
@@ -2554,7 +2583,7 @@ public final class GLFW {
 
 	/**
 	 * Sets the swap interval for the current context, i.e. the number of screen updates to wait from the time {@link #glfwSwapBuffers SwapBuffers} was called before swapping the
-	 * buffers and returning. This is sometimes called <i>vertical synchronization</i>, <i>vertical retrace synchronization</i> or <i>vsync</i>.
+	 * buffers and returning. This is sometimes called <i>vertical synchronization</i>, <i>vertical retrace synchronization</i> or just <i>vsync</i>.
 	 * 
 	 * <p>Contexts that support either of the <a href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
 	 * <a href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept negative swap
@@ -2568,7 +2597,8 @@ public final class GLFW {
 	 * <li>This function may be called from any thread.</li>
 	 * <li>This function is not called during window creation, leaving the swap interval set to whatever is the default on that platform. This is done because
 	 * some swap interval extensions used by GLFW do not allow the swap interval to be reset to zero once it has been set to a non-zero value.</li>
-	 * <li>Some GPU drivers do not honor the requested swap interval, either because of user settings that override the request or due to bugs in the driver.</li>
+	 * <li>Some GPU drivers do not honor the requested swap interval, either because of a user setting that overrides the application's request or due to bugs
+	 * in the driver.</li>
 	 * </ul></p>
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
@@ -2584,8 +2614,8 @@ public final class GLFW {
 	public static native int nglfwExtensionSupported(long extension);
 
 	/**
-	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current OpenGL
-	 * or OpenGL ES context. It searches both for OpenGL and OpenGL ES extension and platform-specific context creation API extensions.
+	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
+	 * OpenGL or OpenGL ES context. It searches both for OpenGL and OpenGL ES extension and platform-specific context creation API extensions.
 	 * 
 	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
@@ -2620,17 +2650,18 @@ public final class GLFW {
 	public static native long nglfwGetProcAddress(long procname);
 
 	/**
-	 * Returns the address of the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">client API or extension function</a>, if it is
+	 * Returns the address of the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension function</a>, if it is
 	 * supported by the current context.
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a `GLFW_NO_CURRENT_CONTEXT` error.</p>
 	 * 
-	 * <p>The returned function pointer is valid until the context is destroyed or the library is terminated.</p>
-	 * 
 	 * <p>Notes:
 	 * <ul>
-	 * <li>This function may be called from any thread.</li>
 	 * <li>The addresses of a given function is not guaranteed to be the same between contexts.</li>
+	 * <li>This function may return a non-{@code NULL} address despite the associated version or extension not being available. Always check the context version or
+	 * extension string presence first.</li>
+	 * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
+	 * <li>This function may be called from any thread.</li>
 	 * </ul></p>
 	 *
 	 * @param procname the ASCII encoded name of the function

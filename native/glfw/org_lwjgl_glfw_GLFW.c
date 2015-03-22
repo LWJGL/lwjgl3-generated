@@ -56,12 +56,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nglfwGetMonitorPos(JNIEnv *__env
 	glfwGetMonitorPos(monitor, xpos, ypos);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nglfwGetMonitorPhysicalSize(JNIEnv *__env, jclass clazz, jlong monitorAddress, jlong widthAddress, jlong heightAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_glfw_GLFW_nglfwGetMonitorPhysicalSize(JNIEnv *__env, jclass clazz, jlong monitorAddress, jlong widthMMAddress, jlong heightMMAddress) {
 	GLFWmonitor *monitor = (GLFWmonitor *)(intptr_t)monitorAddress;
-	int *width = (int *)(intptr_t)widthAddress;
-	int *height = (int *)(intptr_t)heightAddress;
+	int *widthMM = (int *)(intptr_t)widthMMAddress;
+	int *heightMM = (int *)(intptr_t)heightMMAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glfwGetMonitorPhysicalSize(monitor, width, height);
+	glfwGetMonitorPhysicalSize(monitor, widthMM, heightMM);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_glfw_GLFW_nglfwGetMonitorName(JNIEnv *__env, jclass clazz, jlong monitorAddress) {
