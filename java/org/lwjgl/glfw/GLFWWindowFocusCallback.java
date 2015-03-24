@@ -49,8 +49,8 @@ public abstract class GLFWWindowFocusCallback extends Closure.Void {
 	/**
 	 * Will be called when the specified window gains or loses focus.
 	 *
-	 * @param window  the window that gained or lost input focus
-	 * @param focused {@link GL11#GL_TRUE} if the window was given input focus, or {@link GL11#GL_FALSE} if it lost it
+	 * @param window  the window that was focused or defocused
+	 * @param focused {@link GL11#GL_TRUE} if the window was focused, or {@link GL11#GL_FALSE} if it was defocused
 	 */
 	public abstract void invoke(long window, int focused);
 

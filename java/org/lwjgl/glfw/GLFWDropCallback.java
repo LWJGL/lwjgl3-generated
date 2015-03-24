@@ -51,7 +51,7 @@ public abstract class GLFWDropCallback extends Closure.Void {
 	 *
 	 * @param window the window that received the event
 	 * @param count  the number of dropped files
-	 * @param names  pointer to the array of UTF-8 encoded file and/or directory path names
+	 * @param names  pointer to the array of UTF-8 encoded path names of the dropped files
 	 */
 	public abstract void invoke(long window, int count, long names);
 

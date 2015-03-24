@@ -31,7 +31,7 @@ public final class GLFW {
 	public static final int GLFW_VERSION_MINOR = 0x1;
 
 	/** The revision number of the GLFW library. This is incremented when a bug fix release is made that does not contain any API changes. */
-	public static final int GLFW_VERSION_REVISION = 0x2;
+	public static final int GLFW_VERSION_REVISION = 0x1;
 
 	/** The key or button was released. */
 	public static final int GLFW_RELEASE = 0x0;
