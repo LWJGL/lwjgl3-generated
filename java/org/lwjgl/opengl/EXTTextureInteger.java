@@ -189,11 +189,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glTexParameterIiEXT(int, int, ByteBuffer) TexParameterIiEXT} */
+	/** JNI method for {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterIiEXT(int, int, ByteBuffer) TexParameterIiEXT} */
+	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
@@ -209,20 +209,20 @@ public final class EXTTextureInteger {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glTexParameterIiEXT(int target, int pname, ByteBuffer params) {
+	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterIiEXT(int, int, ByteBuffer) TexParameterIiEXT} */
-	public static void glTexParameterIEXT(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
+	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIiEXT(int, int, ByteBuffer) TexParameterIiEXT} */
+	/** Single value version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIiEXT(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -231,11 +231,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glTexParameterIuiEXT(int, int, ByteBuffer) TexParameterIuiEXT} */
+	/** JNI method for {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterIuiEXT(int, int, ByteBuffer) TexParameterIuiEXT} */
+	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
@@ -251,20 +251,20 @@ public final class EXTTextureInteger {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glTexParameterIuiEXT(int target, int pname, ByteBuffer params) {
+	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterIuiEXT(int, int, ByteBuffer) TexParameterIuiEXT} */
-	public static void glTexParameterIuEXT(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
+	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTexParameterIuiEXT(int, int, ByteBuffer) TexParameterIuiEXT} */
+	/** Single value version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuiEXT(int target, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -273,11 +273,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIiEXT(int, int, ByteBuffer) GetTexParameterIiEXT} */
+	/** JNI method for {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglGetTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterIiEXT(int, int, ByteBuffer) GetTexParameterIiEXT} */
+	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
@@ -293,20 +293,20 @@ public final class EXTTextureInteger {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetTexParameterIiEXT(int target, int pname, ByteBuffer params) {
+	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterIiEXT(int, int, ByteBuffer) GetTexParameterIiEXT} */
-	public static void glGetTexParameterIEXT(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
+	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIiEXT(int, int, ByteBuffer) GetTexParameterIiEXT} */
+	/** Single return value version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static int glGetTexParameterIiEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -316,11 +316,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIuiEXT(int, int, ByteBuffer) GetTexParameterIuiEXT} */
+	/** JNI method for {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglGetTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterIuiEXT(int, int, ByteBuffer) GetTexParameterIuiEXT} */
+	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
@@ -336,20 +336,20 @@ public final class EXTTextureInteger {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetTexParameterIuiEXT(int target, int pname, ByteBuffer params) {
+	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterIuiEXT(int, int, ByteBuffer) GetTexParameterIuiEXT} */
-	public static void glGetTexParameterIuEXT(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
+	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterIuiEXT(int, int, ByteBuffer) GetTexParameterIuiEXT} */
+	/** Single return value version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static int glGetTexParameterIuiEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

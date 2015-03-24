@@ -29,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * set with the Uniform* commands. Atomic counters may also NOT be grouped into uniform blocks.</p>
  * 
  * <p>Active atomic counters can be discovered by the commands {@link GL31#glGetUniformIndices GetUniformIndices}, {@link GL31#glGetActiveUniformName GetActiveUniformName}, {@link GL20#glGetActiveUniform GetActiveUniform} and
- * {@link GL31#glGetActiveUniformsi GetActiveUniformsi}.</p>
+ * {@link GL31#glGetActiveUniformsiv GetActiveUniformsiv}.</p>
  * 
  * <p>Like samplers, the opaque handles of the atomic counters and are ONLY used in some GLSL built-in functions.</p>
  * 
@@ -126,7 +126,7 @@ public final class ARBShaderAtomicCounters {
 
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
-	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
@@ -143,20 +143,20 @@ public final class ARBShaderAtomicCounters {
 	 * @param pname       the parameter to query. One of:<br>{@link #GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE ATOMIC_COUNTER_BUFFER_DATA_SIZE}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER}
 	 * @param params      a buffer in which to place the returned value
 	 */
-	public static void glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname, ByteBuffer params) {
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
-	public static void glGetActiveAtomicCounterBuffer(int program, int bufferIndex, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

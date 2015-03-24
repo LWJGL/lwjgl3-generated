@@ -366,11 +366,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glGetNamedStringivARB ] ---
 
-	/** JNI method for {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
+	/** JNI method for {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	@JavadocExclude
 	public static native void nglGetNamedStringivARB(int namelen, long name, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
+	/** Unsafe version of {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	@JavadocExclude
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedStringivARB;
@@ -387,7 +387,7 @@ public final class ARBShadingLanguageInclude {
 	 * @param pname   the parameter to query. One of:<br>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}, {@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}
 	 * @param params  a buffer in which to place the returned value
 	 */
-	public static void glGetNamedStringiARB(int namelen, ByteBuffer name, int pname, ByteBuffer params) {
+	public static void glGetNamedStringivARB(int namelen, ByteBuffer name, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, namelen);
 			checkBuffer(params, 1 << 2);
@@ -395,15 +395,15 @@ public final class ARBShadingLanguageInclude {
 		nglGetNamedStringivARB(namelen, memAddress(name), pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
-	public static void glGetNamedStringARB(ByteBuffer name, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+	public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
 	}
 
-	/** CharSequence version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
-	public static void glGetNamedStringiARB(CharSequence name, int pname, IntBuffer params) {
+	/** CharSequence version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+	public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		APIBuffer __buffer = apiBuffer();
@@ -412,7 +412,7 @@ public final class ARBShadingLanguageInclude {
 		nglGetNamedStringivARB(nameEncodedLen, __buffer.address(nameEncoded), pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedStringiARB(int, ByteBuffer, int, ByteBuffer) GetNamedStringiARB} */
+	/** Single return value version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	public static int glGetNamedStringiARB(CharSequence name, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, false);

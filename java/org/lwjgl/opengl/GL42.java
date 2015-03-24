@@ -260,11 +260,11 @@ public final class GL42 {
 
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
-	/** JNI method for {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	/** JNI method for {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	@JavadocExclude
 	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
@@ -283,20 +283,20 @@ public final class GL42 {
 	 * @param pname       the parameter to query. One of:<br>{@link #GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE ATOMIC_COUNTER_BUFFER_DATA_SIZE}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS}, {@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER}
 	 * @param params      a buffer in which to place the returned value
 	 */
-	public static void glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname, ByteBuffer params) {
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
-	public static void glGetActiveAtomicCounterBuffer(int program, int bufferIndex, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferi(int, int, int, ByteBuffer) GetActiveAtomicCounterBufferi} */
+	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -634,11 +634,11 @@ public final class GL42 {
 
 	// --- [ glGetInternalformativ ] ---
 
-	/** JNI method for {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
+	/** JNI method for {@link #glGetInternalformativ GetInternalformativ} */
 	@JavadocExclude
 	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
+	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
@@ -658,18 +658,18 @@ public final class GL42 {
 	 * @param bufSize        the maximum number of values that may be written to params by the function
 	 * @param params         a variable into which to write the retrieved information
 	 */
-	public static void glGetInternalformati(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
+	public static void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
-	public static void glGetInternalformat(int target, int internalformat, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetInternalformativ GetInternalformativ} */
+	public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
 		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
+	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

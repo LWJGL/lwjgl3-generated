@@ -844,11 +844,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
+	/** JNI method for {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
+	/** Unsafe version of {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
@@ -865,14 +865,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1f(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1fv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1f(int, ByteBuffer) MultiTexCoord1f} */
-	public static void glMultiTexCoord1(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
+	public static void glMultiTexCoord1fv(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1fv(texture, memAddress(v));
@@ -880,11 +880,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
+	/** JNI method for {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
+	/** Unsafe version of {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
@@ -901,14 +901,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1s(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1sv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1s(int, ByteBuffer) MultiTexCoord1s} */
-	public static void glMultiTexCoord1(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
+	public static void glMultiTexCoord1sv(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1sv(texture, memAddress(v));
@@ -916,11 +916,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
+	/** JNI method for {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
+	/** Unsafe version of {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
@@ -937,14 +937,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1i(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1iv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1i(int, ByteBuffer) MultiTexCoord1i} */
-	public static void glMultiTexCoord1(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
+	public static void glMultiTexCoord1iv(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1iv(texture, memAddress(v));
@@ -952,11 +952,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
+	/** JNI method for {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
+	/** Unsafe version of {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
@@ -973,14 +973,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1d(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1dv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1d(int, ByteBuffer) MultiTexCoord1d} */
-	public static void glMultiTexCoord1(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
+	public static void glMultiTexCoord1dv(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1dv(texture, memAddress(v));
@@ -1076,11 +1076,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
+	/** JNI method for {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
+	/** Unsafe version of {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
@@ -1097,14 +1097,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2f(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2fv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2f(int, ByteBuffer) MultiTexCoord2f} */
-	public static void glMultiTexCoord2(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
+	public static void glMultiTexCoord2fv(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2fv(texture, memAddress(v));
@@ -1112,11 +1112,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
+	/** JNI method for {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
+	/** Unsafe version of {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
@@ -1133,14 +1133,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2s(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2sv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2s(int, ByteBuffer) MultiTexCoord2s} */
-	public static void glMultiTexCoord2(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
+	public static void glMultiTexCoord2sv(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2sv(texture, memAddress(v));
@@ -1148,11 +1148,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
+	/** JNI method for {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
+	/** Unsafe version of {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
@@ -1169,14 +1169,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2i(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2iv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2i(int, ByteBuffer) MultiTexCoord2i} */
-	public static void glMultiTexCoord2(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
+	public static void glMultiTexCoord2iv(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2iv(texture, memAddress(v));
@@ -1184,11 +1184,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
+	/** JNI method for {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
+	/** Unsafe version of {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
@@ -1205,14 +1205,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2d(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2dv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2d(int, ByteBuffer) MultiTexCoord2d} */
-	public static void glMultiTexCoord2(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
+	public static void glMultiTexCoord2dv(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2dv(texture, memAddress(v));
@@ -1312,11 +1312,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
+	/** JNI method for {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
+	/** Unsafe version of {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
@@ -1333,14 +1333,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3f(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3fv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3f(int, ByteBuffer) MultiTexCoord3f} */
-	public static void glMultiTexCoord3(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
+	public static void glMultiTexCoord3fv(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3fv(texture, memAddress(v));
@@ -1348,11 +1348,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
+	/** JNI method for {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
+	/** Unsafe version of {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
@@ -1369,14 +1369,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3s(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3sv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3s(int, ByteBuffer) MultiTexCoord3s} */
-	public static void glMultiTexCoord3(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
+	public static void glMultiTexCoord3sv(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3sv(texture, memAddress(v));
@@ -1384,11 +1384,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
+	/** JNI method for {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
+	/** Unsafe version of {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
@@ -1405,14 +1405,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3i(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3iv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3i(int, ByteBuffer) MultiTexCoord3i} */
-	public static void glMultiTexCoord3(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
+	public static void glMultiTexCoord3iv(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3iv(texture, memAddress(v));
@@ -1420,11 +1420,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
+	/** JNI method for {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
+	/** Unsafe version of {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
@@ -1441,14 +1441,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3d(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3dv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3d(int, ByteBuffer) MultiTexCoord3d} */
-	public static void glMultiTexCoord3(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
+	public static void glMultiTexCoord3dv(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3dv(texture, memAddress(v));
@@ -1552,11 +1552,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4fv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
+	/** JNI method for {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4fv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
+	/** Unsafe version of {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
@@ -1573,14 +1573,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4f(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4fv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4f(int, ByteBuffer) MultiTexCoord4f} */
-	public static void glMultiTexCoord4(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
+	public static void glMultiTexCoord4fv(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4fv(texture, memAddress(v));
@@ -1588,11 +1588,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
+	/** JNI method for {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4sv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
+	/** Unsafe version of {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
@@ -1609,14 +1609,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4s(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4sv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4s(int, ByteBuffer) MultiTexCoord4s} */
-	public static void glMultiTexCoord4(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
+	public static void glMultiTexCoord4sv(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4sv(texture, memAddress(v));
@@ -1624,11 +1624,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
+	/** JNI method for {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4iv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
+	/** Unsafe version of {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
@@ -1645,14 +1645,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4i(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4iv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4i(int, ByteBuffer) MultiTexCoord4i} */
-	public static void glMultiTexCoord4(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
+	public static void glMultiTexCoord4iv(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4iv(texture, memAddress(v));
@@ -1660,11 +1660,11 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
+	/** JNI method for {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4dv(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
+	/** Unsafe version of {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
@@ -1681,14 +1681,14 @@ public final class GL13 {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4d(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4dv(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4d(int, ByteBuffer) MultiTexCoord4d} */
-	public static void glMultiTexCoord4(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
+	public static void glMultiTexCoord4dv(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4dv(texture, memAddress(v));
@@ -1731,7 +1731,7 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
-	public static void glLoadTransposeMatrix(FloatBuffer m) {
+	public static void glLoadTransposeMatrixf(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixf(memAddress(m));
@@ -1766,7 +1766,7 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
-	public static void glLoadTransposeMatrix(DoubleBuffer m) {
+	public static void glLoadTransposeMatrixd(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixd(memAddress(m));
@@ -1801,7 +1801,7 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
-	public static void glMultTransposeMatrix(FloatBuffer m) {
+	public static void glMultTransposeMatrixf(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixf(memAddress(m));
@@ -1836,7 +1836,7 @@ public final class GL13 {
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
-	public static void glMultTransposeMatrix(DoubleBuffer m) {
+	public static void glMultTransposeMatrixd(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixd(memAddress(m));

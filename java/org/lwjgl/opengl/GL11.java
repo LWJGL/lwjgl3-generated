@@ -2122,11 +2122,11 @@ public final class GL11 {
 
 	// --- [ glColor3bv ] ---
 
-	/** JNI method for {@link #glColor3b(ByteBuffer) Color3b} */
+	/** JNI method for {@link #glColor3bv Color3bv} */
 	@JavadocExclude
 	public static native void nglColor3bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3b(ByteBuffer) Color3b} */
+	/** Unsafe version of {@link #glColor3bv Color3bv} */
 	@JavadocExclude
 	public static void nglColor3bv(long v) {
 		long __functionAddress = getInstance().Color3bv;
@@ -2142,7 +2142,7 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3b(ByteBuffer v) {
+	public static void glColor3bv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3bv(memAddress(v));
@@ -2150,11 +2150,11 @@ public final class GL11 {
 
 	// --- [ glColor3sv ] ---
 
-	/** JNI method for {@link #glColor3s(ByteBuffer) Color3s} */
+	/** JNI method for {@link #glColor3sv Color3sv} */
 	@JavadocExclude
 	public static native void nglColor3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3s(ByteBuffer) Color3s} */
+	/** Unsafe version of {@link #glColor3sv Color3sv} */
 	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
@@ -2170,14 +2170,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3s(ByteBuffer v) {
+	public static void glColor3sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglColor3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3s(ByteBuffer) Color3s} */
-	public static void glColor3(ShortBuffer v) {
+	/** Alternative version of: {@link #glColor3sv Color3sv} */
+	public static void glColor3sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3sv(memAddress(v));
@@ -2185,11 +2185,11 @@ public final class GL11 {
 
 	// --- [ glColor3iv ] ---
 
-	/** JNI method for {@link #glColor3i(ByteBuffer) Color3i} */
+	/** JNI method for {@link #glColor3iv Color3iv} */
 	@JavadocExclude
 	public static native void nglColor3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3i(ByteBuffer) Color3i} */
+	/** Unsafe version of {@link #glColor3iv Color3iv} */
 	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
@@ -2205,14 +2205,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3i(ByteBuffer v) {
+	public static void glColor3iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3i(ByteBuffer) Color3i} */
-	public static void glColor3(IntBuffer v) {
+	/** Alternative version of: {@link #glColor3iv Color3iv} */
+	public static void glColor3iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3iv(memAddress(v));
@@ -2220,11 +2220,11 @@ public final class GL11 {
 
 	// --- [ glColor3fv ] ---
 
-	/** JNI method for {@link #glColor3f(ByteBuffer) Color3f} */
+	/** JNI method for {@link #glColor3fv Color3fv} */
 	@JavadocExclude
 	public static native void nglColor3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3f(ByteBuffer) Color3f} */
+	/** Unsafe version of {@link #glColor3fv Color3fv} */
 	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
@@ -2240,14 +2240,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3f(ByteBuffer v) {
+	public static void glColor3fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3f(ByteBuffer) Color3f} */
-	public static void glColor3(FloatBuffer v) {
+	/** Alternative version of: {@link #glColor3fv Color3fv} */
+	public static void glColor3fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3fv(memAddress(v));
@@ -2255,11 +2255,11 @@ public final class GL11 {
 
 	// --- [ glColor3dv ] ---
 
-	/** JNI method for {@link #glColor3d(ByteBuffer) Color3d} */
+	/** JNI method for {@link #glColor3dv Color3dv} */
 	@JavadocExclude
 	public static native void nglColor3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3d(ByteBuffer) Color3d} */
+	/** Unsafe version of {@link #glColor3dv Color3dv} */
 	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
@@ -2275,14 +2275,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3d(ByteBuffer v) {
+	public static void glColor3dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglColor3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3d(ByteBuffer) Color3d} */
-	public static void glColor3(DoubleBuffer v) {
+	/** Alternative version of: {@link #glColor3dv Color3dv} */
+	public static void glColor3dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3dv(memAddress(v));
@@ -2290,11 +2290,11 @@ public final class GL11 {
 
 	// --- [ glColor3ubv ] ---
 
-	/** JNI method for {@link #glColor3ub(ByteBuffer) Color3ub} */
+	/** JNI method for {@link #glColor3ubv Color3ubv} */
 	@JavadocExclude
 	public static native void nglColor3ubv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3ub(ByteBuffer) Color3ub} */
+	/** Unsafe version of {@link #glColor3ubv Color3ubv} */
 	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
@@ -2310,7 +2310,7 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3ub(ByteBuffer v) {
+	public static void glColor3ubv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3ubv(memAddress(v));
@@ -2318,11 +2318,11 @@ public final class GL11 {
 
 	// --- [ glColor3usv ] ---
 
-	/** JNI method for {@link #glColor3us(ByteBuffer) Color3us} */
+	/** JNI method for {@link #glColor3usv Color3usv} */
 	@JavadocExclude
 	public static native void nglColor3usv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3us(ByteBuffer) Color3us} */
+	/** Unsafe version of {@link #glColor3usv Color3usv} */
 	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
@@ -2338,14 +2338,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3us(ByteBuffer v) {
+	public static void glColor3usv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglColor3usv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3us(ByteBuffer) Color3us} */
-	public static void glColor3u(ShortBuffer v) {
+	/** Alternative version of: {@link #glColor3usv Color3usv} */
+	public static void glColor3usv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3usv(memAddress(v));
@@ -2353,11 +2353,11 @@ public final class GL11 {
 
 	// --- [ glColor3uiv ] ---
 
-	/** JNI method for {@link #glColor3ui(ByteBuffer) Color3ui} */
+	/** JNI method for {@link #glColor3uiv Color3uiv} */
 	@JavadocExclude
 	public static native void nglColor3uiv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor3ui(ByteBuffer) Color3ui} */
+	/** Unsafe version of {@link #glColor3uiv Color3uiv} */
 	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
@@ -2373,14 +2373,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor3ui(ByteBuffer v) {
+	public static void glColor3uiv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3uiv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor3ui(ByteBuffer) Color3ui} */
-	public static void glColor3u(IntBuffer v) {
+	/** Alternative version of: {@link #glColor3uiv Color3uiv} */
+	public static void glColor3uiv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglColor3uiv(memAddress(v));
@@ -2572,11 +2572,11 @@ public final class GL11 {
 
 	// --- [ glColor4bv ] ---
 
-	/** JNI method for {@link #glColor4b(ByteBuffer) Color4b} */
+	/** JNI method for {@link #glColor4bv Color4bv} */
 	@JavadocExclude
 	public static native void nglColor4bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4b(ByteBuffer) Color4b} */
+	/** Unsafe version of {@link #glColor4bv Color4bv} */
 	@JavadocExclude
 	public static void nglColor4bv(long v) {
 		long __functionAddress = getInstance().Color4bv;
@@ -2592,7 +2592,7 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4b(ByteBuffer v) {
+	public static void glColor4bv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4bv(memAddress(v));
@@ -2600,11 +2600,11 @@ public final class GL11 {
 
 	// --- [ glColor4sv ] ---
 
-	/** JNI method for {@link #glColor4s(ByteBuffer) Color4s} */
+	/** JNI method for {@link #glColor4sv Color4sv} */
 	@JavadocExclude
 	public static native void nglColor4sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4s(ByteBuffer) Color4s} */
+	/** Unsafe version of {@link #glColor4sv Color4sv} */
 	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
@@ -2620,14 +2620,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4s(ByteBuffer v) {
+	public static void glColor4sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglColor4sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4s(ByteBuffer) Color4s} */
-	public static void glColor4(ShortBuffer v) {
+	/** Alternative version of: {@link #glColor4sv Color4sv} */
+	public static void glColor4sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4sv(memAddress(v));
@@ -2635,11 +2635,11 @@ public final class GL11 {
 
 	// --- [ glColor4iv ] ---
 
-	/** JNI method for {@link #glColor4i(ByteBuffer) Color4i} */
+	/** JNI method for {@link #glColor4iv Color4iv} */
 	@JavadocExclude
 	public static native void nglColor4iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4i(ByteBuffer) Color4i} */
+	/** Unsafe version of {@link #glColor4iv Color4iv} */
 	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
@@ -2655,14 +2655,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4i(ByteBuffer v) {
+	public static void glColor4iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4i(ByteBuffer) Color4i} */
-	public static void glColor4(IntBuffer v) {
+	/** Alternative version of: {@link #glColor4iv Color4iv} */
+	public static void glColor4iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4iv(memAddress(v));
@@ -2670,11 +2670,11 @@ public final class GL11 {
 
 	// --- [ glColor4fv ] ---
 
-	/** JNI method for {@link #glColor4f(ByteBuffer) Color4f} */
+	/** JNI method for {@link #glColor4fv Color4fv} */
 	@JavadocExclude
 	public static native void nglColor4fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4f(ByteBuffer) Color4f} */
+	/** Unsafe version of {@link #glColor4fv Color4fv} */
 	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
@@ -2690,14 +2690,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4f(ByteBuffer v) {
+	public static void glColor4fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4f(ByteBuffer) Color4f} */
-	public static void glColor4(FloatBuffer v) {
+	/** Alternative version of: {@link #glColor4fv Color4fv} */
+	public static void glColor4fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4fv(memAddress(v));
@@ -2705,11 +2705,11 @@ public final class GL11 {
 
 	// --- [ glColor4dv ] ---
 
-	/** JNI method for {@link #glColor4d(ByteBuffer) Color4d} */
+	/** JNI method for {@link #glColor4dv Color4dv} */
 	@JavadocExclude
 	public static native void nglColor4dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4d(ByteBuffer) Color4d} */
+	/** Unsafe version of {@link #glColor4dv Color4dv} */
 	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
@@ -2725,14 +2725,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4d(ByteBuffer v) {
+	public static void glColor4dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglColor4dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4d(ByteBuffer) Color4d} */
-	public static void glColor4(DoubleBuffer v) {
+	/** Alternative version of: {@link #glColor4dv Color4dv} */
+	public static void glColor4dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4dv(memAddress(v));
@@ -2740,11 +2740,11 @@ public final class GL11 {
 
 	// --- [ glColor4ubv ] ---
 
-	/** JNI method for {@link #glColor4ub(ByteBuffer) Color4ub} */
+	/** JNI method for {@link #glColor4ubv Color4ubv} */
 	@JavadocExclude
 	public static native void nglColor4ubv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4ub(ByteBuffer) Color4ub} */
+	/** Unsafe version of {@link #glColor4ubv Color4ubv} */
 	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
@@ -2760,7 +2760,7 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4ub(ByteBuffer v) {
+	public static void glColor4ubv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4ubv(memAddress(v));
@@ -2768,11 +2768,11 @@ public final class GL11 {
 
 	// --- [ glColor4usv ] ---
 
-	/** JNI method for {@link #glColor4us(ByteBuffer) Color4us} */
+	/** JNI method for {@link #glColor4usv Color4usv} */
 	@JavadocExclude
 	public static native void nglColor4usv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4us(ByteBuffer) Color4us} */
+	/** Unsafe version of {@link #glColor4usv Color4usv} */
 	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
@@ -2788,14 +2788,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4us(ByteBuffer v) {
+	public static void glColor4usv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglColor4usv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4us(ByteBuffer) Color4us} */
-	public static void glColor4u(ShortBuffer v) {
+	/** Alternative version of: {@link #glColor4usv Color4usv} */
+	public static void glColor4usv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4usv(memAddress(v));
@@ -2803,11 +2803,11 @@ public final class GL11 {
 
 	// --- [ glColor4uiv ] ---
 
-	/** JNI method for {@link #glColor4ui(ByteBuffer) Color4ui} */
+	/** JNI method for {@link #glColor4uiv Color4uiv} */
 	@JavadocExclude
 	public static native void nglColor4uiv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glColor4ui(ByteBuffer) Color4ui} */
+	/** Unsafe version of {@link #glColor4uiv Color4uiv} */
 	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
@@ -2823,14 +2823,14 @@ public final class GL11 {
 	 *
 	 * @param v the color buffer
 	 */
-	public static void glColor4ui(ByteBuffer v) {
+	public static void glColor4uiv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4uiv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glColor4ui(ByteBuffer) Color4ui} */
-	public static void glColor4u(IntBuffer v) {
+	/** Alternative version of: {@link #glColor4uiv Color4uiv} */
+	public static void glColor4uiv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglColor4uiv(memAddress(v));
@@ -3297,11 +3297,11 @@ public final class GL11 {
 
 	// --- [ glEdgeFlagv ] ---
 
-	/** JNI method for {@link #glEdgeFlag(ByteBuffer) EdgeFlag} */
+	/** JNI method for {@link #glEdgeFlagv EdgeFlagv} */
 	@JavadocExclude
 	public static native void nglEdgeFlagv(long flag, long __functionAddress);
 
-	/** Unsafe version of {@link #glEdgeFlag(ByteBuffer) EdgeFlag} */
+	/** Unsafe version of {@link #glEdgeFlagv EdgeFlagv} */
 	@JavadocExclude
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = getInstance().EdgeFlagv;
@@ -3317,7 +3317,7 @@ public final class GL11 {
 	 *
 	 * @param flag the edge flag buffer
 	 */
-	public static void glEdgeFlag(ByteBuffer flag) {
+	public static void glEdgeFlagv(ByteBuffer flag) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(flag, 1);
 		nglEdgeFlagv(memAddress(flag));
@@ -3419,11 +3419,11 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord1fv ] ---
 
-	/** JNI method for {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
+	/** JNI method for {@link #glEvalCoord1fv EvalCoord1fv} */
 	@JavadocExclude
 	public static native void nglEvalCoord1fv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
+	/** Unsafe version of {@link #glEvalCoord1fv EvalCoord1fv} */
 	@JavadocExclude
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = getInstance().EvalCoord1fv;
@@ -3439,12 +3439,12 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 *
 	 * @param u the domain coordinate buffer
 	 */
-	public static void glEvalCoord1f(ByteBuffer u) {
+	public static void glEvalCoord1fv(ByteBuffer u) {
 		nglEvalCoord1fv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord1f(ByteBuffer) EvalCoord1f} */
-	public static void glEvalCoord1(FloatBuffer u) {
+	/** Alternative version of: {@link #glEvalCoord1fv EvalCoord1fv} */
+	public static void glEvalCoord1fv(FloatBuffer u) {
 		nglEvalCoord1fv(memAddress(u));
 	}
 
@@ -3470,11 +3470,11 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord1dv ] ---
 
-	/** JNI method for {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
+	/** JNI method for {@link #glEvalCoord1dv EvalCoord1dv} */
 	@JavadocExclude
 	public static native void nglEvalCoord1dv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
+	/** Unsafe version of {@link #glEvalCoord1dv EvalCoord1dv} */
 	@JavadocExclude
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = getInstance().EvalCoord1dv;
@@ -3490,12 +3490,12 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 *
 	 * @param u the domain coordinate buffer
 	 */
-	public static void glEvalCoord1d(ByteBuffer u) {
+	public static void glEvalCoord1dv(ByteBuffer u) {
 		nglEvalCoord1dv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord1d(ByteBuffer) EvalCoord1d} */
-	public static void glEvalCoord1(DoubleBuffer u) {
+	/** Alternative version of: {@link #glEvalCoord1dv EvalCoord1dv} */
+	public static void glEvalCoord1dv(DoubleBuffer u) {
 		nglEvalCoord1dv(memAddress(u));
 	}
 
@@ -3522,11 +3522,11 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord2fv ] ---
 
-	/** JNI method for {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
+	/** JNI method for {@link #glEvalCoord2fv EvalCoord2fv} */
 	@JavadocExclude
 	public static native void nglEvalCoord2fv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
+	/** Unsafe version of {@link #glEvalCoord2fv EvalCoord2fv} */
 	@JavadocExclude
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = getInstance().EvalCoord2fv;
@@ -3542,12 +3542,12 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 *
 	 * @param u the domain coordinate buffer
 	 */
-	public static void glEvalCoord2f(ByteBuffer u) {
+	public static void glEvalCoord2fv(ByteBuffer u) {
 		nglEvalCoord2fv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord2f(ByteBuffer) EvalCoord2f} */
-	public static void glEvalCoord2(FloatBuffer u) {
+	/** Alternative version of: {@link #glEvalCoord2fv EvalCoord2fv} */
+	public static void glEvalCoord2fv(FloatBuffer u) {
 		nglEvalCoord2fv(memAddress(u));
 	}
 
@@ -3574,11 +3574,11 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord2dv ] ---
 
-	/** JNI method for {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
+	/** JNI method for {@link #glEvalCoord2dv EvalCoord2dv} */
 	@JavadocExclude
 	public static native void nglEvalCoord2dv(long u, long __functionAddress);
 
-	/** Unsafe version of {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
+	/** Unsafe version of {@link #glEvalCoord2dv EvalCoord2dv} */
 	@JavadocExclude
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = getInstance().EvalCoord2dv;
@@ -3594,12 +3594,12 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 *
 	 * @param u the domain coordinate buffer
 	 */
-	public static void glEvalCoord2d(ByteBuffer u) {
+	public static void glEvalCoord2dv(ByteBuffer u) {
 		nglEvalCoord2dv(memAddress(u));
 	}
 
-	/** Alternative version of: {@link #glEvalCoord2d(ByteBuffer) EvalCoord2d} */
-	public static void glEvalCoord2(DoubleBuffer u) {
+	/** Alternative version of: {@link #glEvalCoord2dv EvalCoord2dv} */
+	public static void glEvalCoord2dv(DoubleBuffer u) {
 		nglEvalCoord2dv(memAddress(u));
 	}
 
@@ -3785,11 +3785,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glFogiv ] ---
 
-	/** JNI method for {@link #glFogi(int, ByteBuffer) Fogi} */
+	/** JNI method for {@link #glFogiv Fogiv} */
 	@JavadocExclude
 	public static native void nglFogiv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogi(int, ByteBuffer) Fogi} */
+	/** Unsafe version of {@link #glFogiv Fogiv} */
 	@JavadocExclude
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = getInstance().Fogiv;
@@ -3806,14 +3806,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the fog parameter. One of:<br>{@link #GL_FOG_MODE FOG_MODE}, {@link GL15#GL_FOG_COORD_SRC FOG_COORD_SRC}
 	 * @param params the fog parameter buffer
 	 */
-	public static void glFogi(int pname, ByteBuffer params) {
+	public static void glFogiv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglFogiv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glFogi(int, ByteBuffer) Fogi} */
-	public static void glFog(int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glFogiv Fogiv} */
+	public static void glFogiv(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglFogiv(pname, memAddress(params));
@@ -3842,11 +3842,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glFogfv ] ---
 
-	/** JNI method for {@link #glFogf(int, ByteBuffer) Fogf} */
+	/** JNI method for {@link #glFogfv Fogfv} */
 	@JavadocExclude
 	public static native void nglFogfv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glFogf(int, ByteBuffer) Fogf} */
+	/** Unsafe version of {@link #glFogfv Fogfv} */
 	@JavadocExclude
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = getInstance().Fogfv;
@@ -3863,14 +3863,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the fog parameter. One of:<br>{@link #GL_FOG_DENSITY FOG_DENSITY}, {@link #GL_FOG_START FOG_START}, {@link #GL_FOG_END FOG_END}
 	 * @param params the fog parameter buffer
 	 */
-	public static void glFogf(int pname, ByteBuffer params) {
+	public static void glFogfv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglFogfv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glFogf(int, ByteBuffer) Fogf} */
-	public static void glFog(int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glFogfv Fogfv} */
+	public static void glFogfv(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglFogfv(pname, memAddress(params));
@@ -4050,11 +4050,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetBooleanv ] ---
 
-	/** JNI method for {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
+	/** JNI method for {@link #glGetBooleanv GetBooleanv} */
 	@JavadocExclude
 	public static native void nglGetBooleanv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
+	/** Unsafe version of {@link #glGetBooleanv GetBooleanv} */
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
@@ -4075,13 +4075,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the state variable
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetBoolean(int pname, ByteBuffer params) {
+	public static void glGetBooleanv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBooleanv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBoolean(int, ByteBuffer) GetBoolean} */
+	/** Single return value version of: {@link #glGetBooleanv GetBooleanv} */
 	public static boolean glGetBoolean(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.booleanParam();
@@ -4091,11 +4091,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetFloatv ] ---
 
-	/** JNI method for {@link #glGetFloat(int, ByteBuffer) GetFloat} */
+	/** JNI method for {@link #glGetFloatv GetFloatv} */
 	@JavadocExclude
 	public static native void nglGetFloatv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFloat(int, ByteBuffer) GetFloat} */
+	/** Unsafe version of {@link #glGetFloatv GetFloatv} */
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
@@ -4116,20 +4116,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the state variable
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetFloat(int pname, ByteBuffer params) {
+	public static void glGetFloatv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFloatv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFloat(int, ByteBuffer) GetFloat} */
-	public static void glGetFloat(int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetFloatv GetFloatv} */
+	public static void glGetFloatv(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFloatv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFloat(int, ByteBuffer) GetFloat} */
+	/** Single return value version of: {@link #glGetFloatv GetFloatv} */
 	public static float glGetFloat(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -4139,11 +4139,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetIntegerv ] ---
 
-	/** JNI method for {@link #glGetInteger(int, ByteBuffer) GetInteger} */
+	/** JNI method for {@link #glGetIntegerv GetIntegerv} */
 	@JavadocExclude
 	public static native void nglGetIntegerv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInteger(int, ByteBuffer) GetInteger} */
+	/** Unsafe version of {@link #glGetIntegerv GetIntegerv} */
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
@@ -4164,20 +4164,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the state variable
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetInteger(int pname, ByteBuffer params) {
+	public static void glGetIntegerv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger(int, ByteBuffer) GetInteger} */
-	public static void glGetInteger(int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetIntegerv GetIntegerv} */
+	public static void glGetIntegerv(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger(int, ByteBuffer) GetInteger} */
+	/** Single return value version of: {@link #glGetIntegerv GetIntegerv} */
 	public static int glGetInteger(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -4187,11 +4187,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetDoublev ] ---
 
-	/** JNI method for {@link #glGetDouble(int, ByteBuffer) GetDouble} */
+	/** JNI method for {@link #glGetDoublev GetDoublev} */
 	@JavadocExclude
 	public static native void nglGetDoublev(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetDouble(int, ByteBuffer) GetDouble} */
+	/** Unsafe version of {@link #glGetDoublev GetDoublev} */
 	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
@@ -4212,20 +4212,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the state variable
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetDouble(int pname, ByteBuffer params) {
+	public static void glGetDoublev(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetDoublev(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetDouble(int, ByteBuffer) GetDouble} */
-	public static void glGetDouble(int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetDoublev GetDoublev} */
+	public static void glGetDoublev(int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetDoublev(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetDouble(int, ByteBuffer) GetDouble} */
+	/** Single return value version of: {@link #glGetDoublev GetDoublev} */
 	public static double glGetDouble(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -4256,11 +4256,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetLightiv ] ---
 
-	/** JNI method for {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
+	/** JNI method for {@link #glGetLightiv GetLightiv} */
 	@JavadocExclude
 	public static native void nglGetLightiv(int light, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
+	/** Unsafe version of {@link #glGetLightiv GetLightiv} */
 	@JavadocExclude
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightiv;
@@ -4278,20 +4278,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname the light parameter to query. One of:<br>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetLighti(int light, int pname, ByteBuffer data) {
+	public static void glGetLightiv(int light, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetLightiv(light, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
-	public static void glGetLight(int light, int pname, IntBuffer data) {
+	/** Alternative version of: {@link #glGetLightiv GetLightiv} */
+	public static void glGetLightiv(int light, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightiv(light, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetLighti(int, int, ByteBuffer) GetLighti} */
+	/** Single return value version of: {@link #glGetLightiv GetLightiv} */
 	public static int glGetLighti(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4301,11 +4301,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetLightfv ] ---
 
-	/** JNI method for {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
+	/** JNI method for {@link #glGetLightfv GetLightfv} */
 	@JavadocExclude
 	public static native void nglGetLightfv(int light, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
+	/** Unsafe version of {@link #glGetLightfv GetLightfv} */
 	@JavadocExclude
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
@@ -4317,26 +4317,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetLighti GetLighti}.
+	 * Float version of {@link #glGetLightiv GetLightiv}.
 	 *
 	 * @param light the light for which to return information
 	 * @param pname the light parameter to query
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetLightf(int light, int pname, ByteBuffer data) {
+	public static void glGetLightfv(int light, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetLightfv(light, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
-	public static void glGetLight(int light, int pname, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetLightfv GetLightfv} */
+	public static void glGetLightfv(int light, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightfv(light, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetLightf(int, int, ByteBuffer) GetLightf} */
+	/** Single return value version of: {@link #glGetLightfv GetLightfv} */
 	public static float glGetLightf(int light, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4346,11 +4346,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapiv ] ---
 
-	/** JNI method for {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
+	/** JNI method for {@link #glGetMapiv GetMapiv} */
 	@JavadocExclude
 	public static native void nglGetMapiv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
+	/** Unsafe version of {@link #glGetMapiv GetMapiv} */
 	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
@@ -4368,20 +4368,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param query  the information to query. One of:<br>{@link #GL_ORDER ORDER}, {@link #GL_COEFF COEFF}, {@link #GL_DOMAIN DOMAIN}
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMapi(int target, int query, ByteBuffer data) {
+	public static void glGetMapiv(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
-	public static void glGetMap(int target, int query, IntBuffer data) {
+	/** Alternative version of: {@link #glGetMapiv GetMapiv} */
+	public static void glGetMapiv(int target, int query, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapi(int, int, ByteBuffer) GetMapi} */
+	/** Single return value version of: {@link #glGetMapiv GetMapiv} */
 	public static int glGetMapi(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4391,11 +4391,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapfv ] ---
 
-	/** JNI method for {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
+	/** JNI method for {@link #glGetMapfv GetMapfv} */
 	@JavadocExclude
 	public static native void nglGetMapfv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
+	/** Unsafe version of {@link #glGetMapfv GetMapfv} */
 	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
@@ -4407,26 +4407,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetMapi GetMapi}.
+	 * Float version of {@link #glGetMapiv GetMapiv}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMapf(int target, int query, ByteBuffer data) {
+	public static void glGetMapfv(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
-	public static void glGetMap(int target, int query, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetMapfv GetMapfv} */
+	public static void glGetMapfv(int target, int query, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapf(int, int, ByteBuffer) GetMapf} */
+	/** Single return value version of: {@link #glGetMapfv GetMapfv} */
 	public static float glGetMapf(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4436,11 +4436,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapdv ] ---
 
-	/** JNI method for {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
+	/** JNI method for {@link #glGetMapdv GetMapdv} */
 	@JavadocExclude
 	public static native void nglGetMapdv(int target, int query, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
+	/** Unsafe version of {@link #glGetMapdv GetMapdv} */
 	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
@@ -4452,26 +4452,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Double version of {@link #glGetMapi GetMapi}.
+	 * Double version of {@link #glGetMapiv GetMapiv}.
 	 *
 	 * @param target the evaluator map
 	 * @param query  the information to query
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMapd(int target, int query, ByteBuffer data) {
+	public static void glGetMapdv(int target, int query, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 3);
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
-	public static void glGetMap(int target, int query, DoubleBuffer data) {
+	/** Alternative version of: {@link #glGetMapdv GetMapdv} */
+	public static void glGetMapdv(int target, int query, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetMapd(int, int, ByteBuffer) GetMapd} */
+	/** Single return value version of: {@link #glGetMapdv GetMapdv} */
 	public static double glGetMapd(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
@@ -4481,11 +4481,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMaterialiv ] ---
 
-	/** JNI method for {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
+	/** JNI method for {@link #glGetMaterialiv GetMaterialiv} */
 	@JavadocExclude
 	public static native void nglGetMaterialiv(int face, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
+	/** Unsafe version of {@link #glGetMaterialiv GetMaterialiv} */
 	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
@@ -4503,22 +4503,22 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname the information to query. One of:<br>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}, {@link #GL_SHININESS SHININESS}
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMateriali(int face, int pname, ByteBuffer data) {
+	public static void glGetMaterialiv(int face, int pname, ByteBuffer data) {
 		nglGetMaterialiv(face, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMateriali(int, int, ByteBuffer) GetMateriali} */
-	public static void glGetMaterial(int face, int pname, IntBuffer data) {
+	/** Alternative version of: {@link #glGetMaterialiv GetMaterialiv} */
+	public static void glGetMaterialiv(int face, int pname, IntBuffer data) {
 		nglGetMaterialiv(face, pname, memAddress(data));
 	}
 
 	// --- [ glGetMaterialfv ] ---
 
-	/** JNI method for {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
+	/** JNI method for {@link #glGetMaterialfv GetMaterialfv} */
 	@JavadocExclude
 	public static native void nglGetMaterialfv(int face, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
+	/** Unsafe version of {@link #glGetMaterialfv GetMaterialfv} */
 	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
@@ -4530,28 +4530,28 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetMateriali GetMateriali}.
+	 * Float version of {@link #glGetMaterialiv GetMaterialiv}.
 	 *
 	 * @param face  the material face for which to return information
 	 * @param pname the information to query
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetMaterialf(int face, int pname, ByteBuffer data) {
+	public static void glGetMaterialfv(int face, int pname, ByteBuffer data) {
 		nglGetMaterialfv(face, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetMaterialf(int, int, ByteBuffer) GetMaterialf} */
-	public static void glGetMaterial(int face, int pname, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetMaterialfv GetMaterialfv} */
+	public static void glGetMaterialfv(int face, int pname, FloatBuffer data) {
 		nglGetMaterialfv(face, pname, memAddress(data));
 	}
 
 	// --- [ glGetPixelMapfv ] ---
 
-	/** JNI method for {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
+	/** JNI method for {@link #glGetPixelMapfv GetPixelMapfv} */
 	@JavadocExclude
 	public static native void nglGetPixelMapfv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
+	/** Unsafe version of {@link #glGetPixelMapfv GetPixelMapfv} */
 	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
@@ -4568,7 +4568,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param map  the pixel map parameter to query. One of:<br>{@link #GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}, {@link #GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}, {@link #GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}, {@link #GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}, {@link #GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}, {@link #GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}, {@link #GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}, {@link #GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}, {@link #GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}, {@link #GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}
 	 * @param data a buffer in which to place the returned data
 	 */
-	public static void glGetPixelMapf(int map, ByteBuffer data) {
+	public static void glGetPixelMapfv(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32 << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4576,15 +4576,15 @@ Causes all previously issued GL commands to complete in finite time (although su
 		nglGetPixelMapfv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
-	public static void glGetPixelMapf(int map, long dataOffset) {
+	/** Buffer object offset version of: {@link #glGetPixelMapfv GetPixelMapfv} */
+	public static void glGetPixelMapfv(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapfv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapf(int, ByteBuffer) GetPixelMapf} */
-	public static void glGetPixelMap(int map, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetPixelMapfv GetPixelMapfv} */
+	public static void glGetPixelMapfv(int map, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4594,11 +4594,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPixelMapusv ] ---
 
-	/** JNI method for {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
+	/** JNI method for {@link #glGetPixelMapusv GetPixelMapusv} */
 	@JavadocExclude
 	public static native void nglGetPixelMapusv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
+	/** Unsafe version of {@link #glGetPixelMapusv GetPixelMapusv} */
 	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
@@ -4610,12 +4610,12 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned short version of {@link #glGetPixelMapf GetPixelMapf}.
+	 * Unsigned short version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data a buffer in which to place the returned data
 	 */
-	public static void glGetPixelMapus(int map, ByteBuffer data) {
+	public static void glGetPixelMapusv(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32 << 1);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4623,15 +4623,15 @@ Causes all previously issued GL commands to complete in finite time (although su
 		nglGetPixelMapusv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
-	public static void glGetPixelMapus(int map, long dataOffset) {
+	/** Buffer object offset version of: {@link #glGetPixelMapusv GetPixelMapusv} */
+	public static void glGetPixelMapusv(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapusv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapus(int, ByteBuffer) GetPixelMapus} */
-	public static void glGetPixelMapu(int map, ShortBuffer data) {
+	/** Alternative version of: {@link #glGetPixelMapusv GetPixelMapusv} */
+	public static void glGetPixelMapusv(int map, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4641,11 +4641,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPixelMapuiv ] ---
 
-	/** JNI method for {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
+	/** JNI method for {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	@JavadocExclude
 	public static native void nglGetPixelMapuiv(int map, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
+	/** Unsafe version of {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
@@ -4657,12 +4657,12 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned integer version of {@link #glGetPixelMapf GetPixelMapf}.
+	 * Unsigned integer version of {@link #glGetPixelMapfv GetPixelMapfv}.
 	 *
 	 * @param map  the pixel map parameter to query
 	 * @param data a buffer in which to place the returned data
 	 */
-	public static void glGetPixelMapui(int map, ByteBuffer data) {
+	public static void glGetPixelMapuiv(int map, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32 << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4670,15 +4670,15 @@ Causes all previously issued GL commands to complete in finite time (although su
 		nglGetPixelMapuiv(map, memAddress(data));
 	}
 
-	/** Buffer object offset version of: {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
-	public static void glGetPixelMapui(int map, long dataOffset) {
+	/** Buffer object offset version of: {@link #glGetPixelMapuiv GetPixelMapuiv} */
+	public static void glGetPixelMapuiv(int map, long dataOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapuiv(map, dataOffset);
 	}
 
-	/** Alternative version of: {@link #glGetPixelMapui(int, ByteBuffer) GetPixelMapui} */
-	public static void glGetPixelMapu(int map, IntBuffer data) {
+	/** Alternative version of: {@link #glGetPixelMapuiv GetPixelMapuiv} */
+	public static void glGetPixelMapuiv(int map, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4688,11 +4688,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPointerv ] ---
 
-	/** JNI method for {@link #glGetPointer(int, ByteBuffer) GetPointer} */
+	/** JNI method for {@link #glGetPointerv GetPointerv} */
 	@JavadocExclude
 	public static native void nglGetPointerv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPointer(int, ByteBuffer) GetPointer} */
+	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
 	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
@@ -4709,20 +4709,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the pointer to return. One of:<br>{@link #GL_FEEDBACK_BUFFER_POINTER FEEDBACK_BUFFER_POINTER}, {@link #GL_SELECTION_BUFFER_POINTER SELECTION_BUFFER_POINTER}, {@link #GL_VERTEX_ARRAY_POINTER VERTEX_ARRAY_POINTER}, {@link #GL_NORMAL_ARRAY_POINTER NORMAL_ARRAY_POINTER}, {@link #GL_COLOR_ARRAY_POINTER COLOR_ARRAY_POINTER}, {@link #GL_INDEX_ARRAY_POINTER INDEX_ARRAY_POINTER}, {@link #GL_TEXTURE_COORD_ARRAY_POINTER TEXTURE_COORD_ARRAY_POINTER}, {@link #GL_EDGE_FLAG_ARRAY_POINTER EDGE_FLAG_ARRAY_POINTER}, {@link GL14#GL_SECONDARY_COLOR_ARRAY_POINTER SECONDARY_COLOR_ARRAY_POINTER}, {@link GL15#GL_FOG_COORD_ARRAY_POINTER FOG_COORD_ARRAY_POINTER}, {@link GL43#GL_DEBUG_CALLBACK_FUNCTION DEBUG_CALLBACK_FUNCTION}, {@link GL43#GL_DEBUG_CALLBACK_USER_PARAM DEBUG_CALLBACK_USER_PARAM}
 	 * @param params a buffer in which to place the returned pointer
 	 */
-	public static void glGetPointer(int pname, ByteBuffer params) {
+	public static void glGetPointerv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetPointer(int, ByteBuffer) GetPointer} */
-	public static void glGetPointer(int pname, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetPointerv GetPointerv} */
+	public static void glGetPointerv(int pname, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetPointer(int, ByteBuffer) GetPointer} */
+	/** Single return value version of: {@link #glGetPointerv GetPointerv} */
 	public static long glGetPointer(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -4794,11 +4794,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexEnviv ] ---
 
-	/** JNI method for {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
+	/** JNI method for {@link #glGetTexEnviv GetTexEnviv} */
 	@JavadocExclude
 	public static native void nglGetTexEnviv(int env, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
+	/** Unsafe version of {@link #glGetTexEnviv GetTexEnviv} */
 	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
@@ -4816,20 +4816,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}, {@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}, {@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL13#GL_COMBINE_RGB COMBINE_RGB}, {@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}, {@link GL15#GL_SRC0_RGB SRC0_RGB}, {@link GL15#GL_SRC1_RGB SRC1_RGB}, {@link GL15#GL_SRC2_RGB SRC2_RGB}, {@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}, {@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}, {@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}, {@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}, {@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}, {@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}, {@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}, {@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}, {@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}, {@link GL13#GL_RGB_SCALE RGB_SCALE}, {@link #GL_ALPHA_SCALE ALPHA_SCALE}
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexEnvi(int env, int pname, ByteBuffer data) {
+	public static void glGetTexEnviv(int env, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
-	public static void glGetTexEnv(int env, int pname, IntBuffer data) {
+	/** Alternative version of: {@link #glGetTexEnviv GetTexEnviv} */
+	public static void glGetTexEnviv(int env, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexEnvi(int, int, ByteBuffer) GetTexEnvi} */
+	/** Single return value version of: {@link #glGetTexEnviv GetTexEnviv} */
 	public static int glGetTexEnvi(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4839,11 +4839,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexEnvfv ] ---
 
-	/** JNI method for {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
+	/** JNI method for {@link #glGetTexEnvfv GetTexEnvfv} */
 	@JavadocExclude
 	public static native void nglGetTexEnvfv(int env, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
+	/** Unsafe version of {@link #glGetTexEnvfv GetTexEnvfv} */
 	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
@@ -4855,26 +4855,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexEnvi GetTexEnvi}.
+	 * Float version of {@link #glGetTexEnviv GetTexEnviv}.
 	 *
 	 * @param env   the texture environment to query
 	 * @param pname the parameter to query
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexEnvf(int env, int pname, ByteBuffer data) {
+	public static void glGetTexEnvfv(int env, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
-	public static void glGetTexEnv(int env, int pname, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetTexEnvfv GetTexEnvfv} */
+	public static void glGetTexEnvfv(int env, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexEnvf(int, int, ByteBuffer) GetTexEnvf} */
+	/** Single return value version of: {@link #glGetTexEnvfv GetTexEnvfv} */
 	public static float glGetTexEnvf(int env, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4884,11 +4884,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGeniv ] ---
 
-	/** JNI method for {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
+	/** JNI method for {@link #glGetTexGeniv GetTexGeniv} */
 	@JavadocExclude
 	public static native void nglGetTexGeniv(int coord, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
+	/** Unsafe version of {@link #glGetTexGeniv GetTexGeniv} */
 	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
@@ -4906,20 +4906,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname the parameter to query. One of:<br>{@link #GL_EYE_PLANE EYE_PLANE}, {@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGeni(int coord, int pname, ByteBuffer data) {
+	public static void glGetTexGeniv(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
-	public static void glGetTexGen(int coord, int pname, IntBuffer data) {
+	/** Alternative version of: {@link #glGetTexGeniv GetTexGeniv} */
+	public static void glGetTexGeniv(int coord, int pname, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGeni(int, int, ByteBuffer) GetTexGeni} */
+	/** Single return value version of: {@link #glGetTexGeniv GetTexGeniv} */
 	public static int glGetTexGeni(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -4929,11 +4929,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGenfv ] ---
 
-	/** JNI method for {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
+	/** JNI method for {@link #glGetTexGenfv GetTexGenfv} */
 	@JavadocExclude
 	public static native void nglGetTexGenfv(int coord, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
+	/** Unsafe version of {@link #glGetTexGenfv GetTexGenfv} */
 	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
@@ -4945,26 +4945,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Float version of {@link #glGetTexGeni GetTexGeni}.
+	 * Float version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
 	 * @param coord the coord to query
 	 * @param pname the parameter to query
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGenf(int coord, int pname, ByteBuffer data) {
+	public static void glGetTexGenfv(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
-	public static void glGetTexGen(int coord, int pname, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetTexGenfv GetTexGenfv} */
+	public static void glGetTexGenfv(int coord, int pname, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGenf(int, int, ByteBuffer) GetTexGenf} */
+	/** Single return value version of: {@link #glGetTexGenfv GetTexGenfv} */
 	public static float glGetTexGenf(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -4974,11 +4974,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGendv ] ---
 
-	/** JNI method for {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
+	/** JNI method for {@link #glGetTexGendv GetTexGendv} */
 	@JavadocExclude
 	public static native void nglGetTexGendv(int coord, int pname, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
+	/** Unsafe version of {@link #glGetTexGendv GetTexGendv} */
 	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
@@ -4990,26 +4990,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Double version of {@link #glGetTexGeni GetTexGeni}.
+	 * Double version of {@link #glGetTexGeniv GetTexGeniv}.
 	 *
 	 * @param coord the coord to query
 	 * @param pname the parameter to query
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexGend(int coord, int pname, ByteBuffer data) {
+	public static void glGetTexGendv(int coord, int pname, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4 << 3);
 		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
-	public static void glGetTexGen(int coord, int pname, DoubleBuffer data) {
+	/** Alternative version of: {@link #glGetTexGendv GetTexGendv} */
+	public static void glGetTexGendv(int coord, int pname, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetTexGend(int, int, ByteBuffer) GetTexGend} */
+	/** Single return value version of: {@link #glGetTexGendv GetTexGendv} */
 	public static double glGetTexGend(int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
@@ -5086,11 +5086,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
+	/** JNI method for {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	@JavadocExclude
 	public static native void nglGetTexLevelParameteriv(int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
+	/** Unsafe version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
@@ -5109,20 +5109,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the parameter to query. One of:<br>{@link #GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link #GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link #GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link #GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link #GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link #GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link #GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link #GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link #GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link #GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexLevelParameteri(int target, int level, int pname, ByteBuffer params) {
+	public static void glGetTexLevelParameteriv(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
-	public static void glGetTexLevelParameter(int target, int level, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
+	public static void glGetTexLevelParameteriv(int target, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri} */
+	/** Single return value version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	public static int glGetTexLevelParameteri(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -5132,11 +5132,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
+	/** JNI method for {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	@JavadocExclude
 	public static native void nglGetTexLevelParameterfv(int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
+	/** Unsafe version of {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
@@ -5148,27 +5148,27 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexLevelParameteri GetTexLevelParameteri}.
+	 * Float version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
 	 * @param target the texture image target
 	 * @param level  the level-of-detail number
 	 * @param pname  the parameter to query
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexLevelParameterf(int target, int level, int pname, ByteBuffer params) {
+	public static void glGetTexLevelParameterfv(int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
-	public static void glGetTexLevelParameter(int target, int level, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
+	public static void glGetTexLevelParameterfv(int target, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf} */
+	/** Single return value version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	public static float glGetTexLevelParameterf(int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -5178,11 +5178,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
+	/** JNI method for {@link #glGetTexParameteriv GetTexParameteriv} */
 	@JavadocExclude
 	public static native void nglGetTexParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
+	/** Unsafe version of {@link #glGetTexParameteriv GetTexParameteriv} */
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
@@ -5200,20 +5200,20 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pname  the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link #GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexParameteri(int target, int pname, ByteBuffer params) {
+	public static void glGetTexParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
-	public static void glGetTexParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTexParameteriv GetTexParameteriv} */
+	public static void glGetTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri} */
+	/** Single return value version of: {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static int glGetTexParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -5223,11 +5223,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
+	/** JNI method for {@link #glGetTexParameterfv GetTexParameterfv} */
 	@JavadocExclude
 	public static native void nglGetTexParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
+	/** Unsafe version of {@link #glGetTexParameterfv GetTexParameterfv} */
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
@@ -5239,26 +5239,26 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetTexParameteri GetTexParameteri}.
+	 * Float version of {@link #glGetTexParameteriv GetTexParameteriv}.
 	 *
 	 * @param target the texture target
 	 * @param pname  the parameter to query
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTexParameterf(int target, int pname, ByteBuffer params) {
+	public static void glGetTexParameterfv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
-	public static void glGetTexParameter(int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTexParameterfv GetTexParameterfv} */
+	public static void glGetTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf} */
+	/** Single return value version of: {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static float glGetTexParameterf(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -5390,11 +5390,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexiv ] ---
 
-	/** JNI method for {@link #glIndexi(ByteBuffer) Indexi} */
+	/** JNI method for {@link #glIndexiv Indexiv} */
 	@JavadocExclude
 	public static native void nglIndexiv(long index, long __functionAddress);
 
-	/** Unsafe version of {@link #glIndexi(ByteBuffer) Indexi} */
+	/** Unsafe version of {@link #glIndexiv Indexiv} */
 	@JavadocExclude
 	public static void nglIndexiv(long index) {
 		long __functionAddress = getInstance().Indexiv;
@@ -5410,14 +5410,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexi(ByteBuffer index) {
+	public static void glIndexiv(ByteBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1 << 2);
 		nglIndexiv(memAddress(index));
 	}
 
-	/** Alternative version of: {@link #glIndexi(ByteBuffer) Indexi} */
-	public static void glIndex(IntBuffer index) {
+	/** Alternative version of: {@link #glIndexiv Indexiv} */
+	public static void glIndexiv(IntBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1);
 		nglIndexiv(memAddress(index));
@@ -5425,11 +5425,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexubv ] ---
 
-	/** JNI method for {@link #glIndexub(ByteBuffer) Indexub} */
+	/** JNI method for {@link #glIndexubv Indexubv} */
 	@JavadocExclude
 	public static native void nglIndexubv(long index, long __functionAddress);
 
-	/** Unsafe version of {@link #glIndexub(ByteBuffer) Indexub} */
+	/** Unsafe version of {@link #glIndexubv Indexubv} */
 	@JavadocExclude
 	public static void nglIndexubv(long index) {
 		long __functionAddress = getInstance().Indexubv;
@@ -5445,7 +5445,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexub(ByteBuffer index) {
+	public static void glIndexubv(ByteBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1);
 		nglIndexubv(memAddress(index));
@@ -5453,11 +5453,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexsv ] ---
 
-	/** JNI method for {@link #glIndexs(ByteBuffer) Indexs} */
+	/** JNI method for {@link #glIndexsv Indexsv} */
 	@JavadocExclude
 	public static native void nglIndexsv(long index, long __functionAddress);
 
-	/** Unsafe version of {@link #glIndexs(ByteBuffer) Indexs} */
+	/** Unsafe version of {@link #glIndexsv Indexsv} */
 	@JavadocExclude
 	public static void nglIndexsv(long index) {
 		long __functionAddress = getInstance().Indexsv;
@@ -5473,14 +5473,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexs(ByteBuffer index) {
+	public static void glIndexsv(ByteBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1 << 1);
 		nglIndexsv(memAddress(index));
 	}
 
-	/** Alternative version of: {@link #glIndexs(ByteBuffer) Indexs} */
-	public static void glIndex(ShortBuffer index) {
+	/** Alternative version of: {@link #glIndexsv Indexsv} */
+	public static void glIndexsv(ShortBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1);
 		nglIndexsv(memAddress(index));
@@ -5488,11 +5488,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexfv ] ---
 
-	/** JNI method for {@link #glIndexf(ByteBuffer) Indexf} */
+	/** JNI method for {@link #glIndexfv Indexfv} */
 	@JavadocExclude
 	public static native void nglIndexfv(long index, long __functionAddress);
 
-	/** Unsafe version of {@link #glIndexf(ByteBuffer) Indexf} */
+	/** Unsafe version of {@link #glIndexfv Indexfv} */
 	@JavadocExclude
 	public static void nglIndexfv(long index) {
 		long __functionAddress = getInstance().Indexfv;
@@ -5508,14 +5508,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexf(ByteBuffer index) {
+	public static void glIndexfv(ByteBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1 << 2);
 		nglIndexfv(memAddress(index));
 	}
 
-	/** Alternative version of: {@link #glIndexf(ByteBuffer) Indexf} */
-	public static void glIndex(FloatBuffer index) {
+	/** Alternative version of: {@link #glIndexfv Indexfv} */
+	public static void glIndexfv(FloatBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1);
 		nglIndexfv(memAddress(index));
@@ -5523,11 +5523,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexdv ] ---
 
-	/** JNI method for {@link #glIndexd(ByteBuffer) Indexd} */
+	/** JNI method for {@link #glIndexdv Indexdv} */
 	@JavadocExclude
 	public static native void nglIndexdv(long index, long __functionAddress);
 
-	/** Unsafe version of {@link #glIndexd(ByteBuffer) Indexd} */
+	/** Unsafe version of {@link #glIndexdv Indexdv} */
 	@JavadocExclude
 	public static void nglIndexdv(long index) {
 		long __functionAddress = getInstance().Indexdv;
@@ -5543,14 +5543,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 *
 	 * @param index the value to which the current color index should be set
 	 */
-	public static void glIndexd(ByteBuffer index) {
+	public static void glIndexdv(ByteBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1 << 3);
 		nglIndexdv(memAddress(index));
 	}
 
-	/** Alternative version of: {@link #glIndexd(ByteBuffer) Indexd} */
-	public static void glIndex(DoubleBuffer index) {
+	/** Alternative version of: {@link #glIndexdv Indexdv} */
+	public static void glIndexdv(DoubleBuffer index) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(index, 1);
 		nglIndexdv(memAddress(index));
@@ -5837,11 +5837,11 @@ Clears the selection name stack.
 
 	// --- [ glLightModeliv ] ---
 
-	/** JNI method for {@link #glLightModeli(int, ByteBuffer) LightModeli} */
+	/** JNI method for {@link #glLightModeliv LightModeliv} */
 	@JavadocExclude
 	public static native void nglLightModeliv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightModeli(int, ByteBuffer) LightModeli} */
+	/** Unsafe version of {@link #glLightModeliv LightModeliv} */
 	@JavadocExclude
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = getInstance().LightModeliv;
@@ -5858,14 +5858,14 @@ Clears the selection name stack.
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glLightModeli(int pname, ByteBuffer params) {
+	public static void glLightModeliv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightModeliv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightModeli(int, ByteBuffer) LightModeli} */
-	public static void glLightModel(int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glLightModeliv LightModeliv} */
+	public static void glLightModeliv(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglLightModeliv(pname, memAddress(params));
@@ -5873,11 +5873,11 @@ Clears the selection name stack.
 
 	// --- [ glLightModelfv ] ---
 
-	/** JNI method for {@link #glLightModelf(int, ByteBuffer) LightModelf} */
+	/** JNI method for {@link #glLightModelfv LightModelfv} */
 	@JavadocExclude
 	public static native void nglLightModelfv(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightModelf(int, ByteBuffer) LightModelf} */
+	/** Unsafe version of {@link #glLightModelfv LightModelfv} */
 	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
@@ -5894,14 +5894,14 @@ Clears the selection name stack.
 	 * @param pname  the lighting model parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glLightModelf(int pname, ByteBuffer params) {
+	public static void glLightModelfv(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightModelfv(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightModelf(int, ByteBuffer) LightModelf} */
-	public static void glLightModel(int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glLightModelfv LightModelfv} */
+	public static void glLightModelfv(int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglLightModelfv(pname, memAddress(params));
@@ -5953,11 +5953,11 @@ Clears the selection name stack.
 
 	// --- [ glLightiv ] ---
 
-	/** JNI method for {@link #glLighti(int, int, ByteBuffer) Lighti} */
+	/** JNI method for {@link #glLightiv Lightiv} */
 	@JavadocExclude
 	public static native void nglLightiv(int light, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLighti(int, int, ByteBuffer) Lighti} */
+	/** Unsafe version of {@link #glLightiv Lightiv} */
 	@JavadocExclude
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightiv;
@@ -5975,14 +5975,14 @@ Clears the selection name stack.
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glLighti(int light, int pname, ByteBuffer params) {
+	public static void glLightiv(int light, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightiv(light, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLighti(int, int, ByteBuffer) Lighti} */
-	public static void glLight(int light, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glLightiv Lightiv} */
+	public static void glLightiv(int light, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglLightiv(light, pname, memAddress(params));
@@ -5990,11 +5990,11 @@ Clears the selection name stack.
 
 	// --- [ glLightfv ] ---
 
-	/** JNI method for {@link #glLightf(int, int, ByteBuffer) Lightf} */
+	/** JNI method for {@link #glLightfv Lightfv} */
 	@JavadocExclude
 	public static native void nglLightfv(int light, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glLightf(int, int, ByteBuffer) Lightf} */
+	/** Unsafe version of {@link #glLightfv Lightfv} */
 	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
@@ -6012,14 +6012,14 @@ Clears the selection name stack.
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glLightf(int light, int pname, ByteBuffer params) {
+	public static void glLightfv(int light, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightfv(light, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glLightf(int, int, ByteBuffer) Lightf} */
-	public static void glLight(int light, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glLightfv Lightfv} */
+	public static void glLightfv(int light, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglLightfv(light, pname, memAddress(params));
@@ -6128,7 +6128,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glLoadMatrixf LoadMatrixf} */
-	public static void glLoadMatrix(FloatBuffer m) {
+	public static void glLoadMatrixf(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadMatrixf(memAddress(m));
@@ -6163,7 +6163,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glLoadMatrixd LoadMatrixd} */
-	public static void glLoadMatrix(DoubleBuffer m) {
+	public static void glLoadMatrixd(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadMatrixd(memAddress(m));
@@ -6270,7 +6270,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMap1f Map1f} */
-	public static void glMap1(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
+	public static void glMap1f(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(points, order * stride);
 		nglMap1f(target, u1, u2, stride, order, memAddress(points));
@@ -6310,7 +6310,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMap1d Map1d} */
-	public static void glMap1(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
+	public static void glMap1d(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(points, stride * order);
 		nglMap1d(target, u1, u2, stride, order, memAddress(points));
@@ -6354,7 +6354,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMap2f Map2f} */
-	public static void glMap2(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
+	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(points, ustride * uorder * vstride * vorder);
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
@@ -6398,7 +6398,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMap2d Map2d} */
-	public static void glMap2(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
+	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(points, ustride * uorder * vstride * vorder);
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
@@ -6544,11 +6544,11 @@ Clears the selection name stack.
 
 	// --- [ glMaterialiv ] ---
 
-	/** JNI method for {@link #glMateriali(int, int, ByteBuffer) Materiali} */
+	/** JNI method for {@link #glMaterialiv Materialiv} */
 	@JavadocExclude
 	public static native void nglMaterialiv(int face, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMateriali(int, int, ByteBuffer) Materiali} */
+	/** Unsafe version of {@link #glMaterialiv Materialiv} */
 	@JavadocExclude
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialiv;
@@ -6566,14 +6566,14 @@ Clears the selection name stack.
 	 * @param pname  the parameter to set. One of:<br>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}
 	 * @param params the parameter value
 	 */
-	public static void glMateriali(int face, int pname, ByteBuffer params) {
+	public static void glMaterialiv(int face, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMaterialiv(face, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMateriali(int, int, ByteBuffer) Materiali} */
-	public static void glMaterial(int face, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glMaterialiv Materialiv} */
+	public static void glMaterialiv(int face, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMaterialiv(face, pname, memAddress(params));
@@ -6581,11 +6581,11 @@ Clears the selection name stack.
 
 	// --- [ glMaterialfv ] ---
 
-	/** JNI method for {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
+	/** JNI method for {@link #glMaterialfv Materialfv} */
 	@JavadocExclude
 	public static native void nglMaterialfv(int face, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
+	/** Unsafe version of {@link #glMaterialfv Materialfv} */
 	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
@@ -6603,14 +6603,14 @@ Clears the selection name stack.
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glMaterialf(int face, int pname, ByteBuffer params) {
+	public static void glMaterialfv(int face, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMaterialfv(face, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMaterialf(int, int, ByteBuffer) Materialf} */
-	public static void glMaterial(int face, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glMaterialfv Materialfv} */
+	public static void glMaterialfv(int face, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMaterialfv(face, pname, memAddress(params));
@@ -6665,7 +6665,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMultMatrixf MultMatrixf} */
-	public static void glMultMatrix(FloatBuffer m) {
+	public static void glMultMatrixf(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultMatrixf(memAddress(m));
@@ -6700,7 +6700,7 @@ Clears the selection name stack.
 	}
 
 	/** Alternative version of: {@link #glMultMatrixd MultMatrixd} */
-	public static void glMultMatrix(DoubleBuffer m) {
+	public static void glMultMatrixd(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultMatrixd(memAddress(m));
@@ -6894,11 +6894,11 @@ Clears the selection name stack.
 
 	// --- [ glNormal3fv ] ---
 
-	/** JNI method for {@link #glNormal3f(ByteBuffer) Normal3f} */
+	/** JNI method for {@link #glNormal3fv Normal3fv} */
 	@JavadocExclude
 	public static native void nglNormal3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3f(ByteBuffer) Normal3f} */
+	/** Unsafe version of {@link #glNormal3fv Normal3fv} */
 	@JavadocExclude
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = getInstance().Normal3fv;
@@ -6914,14 +6914,14 @@ Clears the selection name stack.
 	 *
 	 * @param v the normal buffer
 	 */
-	public static void glNormal3f(ByteBuffer v) {
+	public static void glNormal3fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglNormal3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3f(ByteBuffer) Normal3f} */
-	public static void glNormal3(FloatBuffer v) {
+	/** Alternative version of: {@link #glNormal3fv Normal3fv} */
+	public static void glNormal3fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3fv(memAddress(v));
@@ -6929,11 +6929,11 @@ Clears the selection name stack.
 
 	// --- [ glNormal3bv ] ---
 
-	/** JNI method for {@link #glNormal3b(ByteBuffer) Normal3b} */
+	/** JNI method for {@link #glNormal3bv Normal3bv} */
 	@JavadocExclude
 	public static native void nglNormal3bv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3b(ByteBuffer) Normal3b} */
+	/** Unsafe version of {@link #glNormal3bv Normal3bv} */
 	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
@@ -6949,7 +6949,7 @@ Clears the selection name stack.
 	 *
 	 * @param v the normal buffer
 	 */
-	public static void glNormal3b(ByteBuffer v) {
+	public static void glNormal3bv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3bv(memAddress(v));
@@ -6957,11 +6957,11 @@ Clears the selection name stack.
 
 	// --- [ glNormal3sv ] ---
 
-	/** JNI method for {@link #glNormal3s(ByteBuffer) Normal3s} */
+	/** JNI method for {@link #glNormal3sv Normal3sv} */
 	@JavadocExclude
 	public static native void nglNormal3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3s(ByteBuffer) Normal3s} */
+	/** Unsafe version of {@link #glNormal3sv Normal3sv} */
 	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
@@ -6977,14 +6977,14 @@ Clears the selection name stack.
 	 *
 	 * @param v the normal buffer
 	 */
-	public static void glNormal3s(ByteBuffer v) {
+	public static void glNormal3sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglNormal3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3s(ByteBuffer) Normal3s} */
-	public static void glNormal3(ShortBuffer v) {
+	/** Alternative version of: {@link #glNormal3sv Normal3sv} */
+	public static void glNormal3sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3sv(memAddress(v));
@@ -6992,11 +6992,11 @@ Clears the selection name stack.
 
 	// --- [ glNormal3iv ] ---
 
-	/** JNI method for {@link #glNormal3i(ByteBuffer) Normal3i} */
+	/** JNI method for {@link #glNormal3iv Normal3iv} */
 	@JavadocExclude
 	public static native void nglNormal3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3i(ByteBuffer) Normal3i} */
+	/** Unsafe version of {@link #glNormal3iv Normal3iv} */
 	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
@@ -7012,14 +7012,14 @@ Clears the selection name stack.
 	 *
 	 * @param v the normal buffer
 	 */
-	public static void glNormal3i(ByteBuffer v) {
+	public static void glNormal3iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglNormal3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3i(ByteBuffer) Normal3i} */
-	public static void glNormal3(IntBuffer v) {
+	/** Alternative version of: {@link #glNormal3iv Normal3iv} */
+	public static void glNormal3iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3iv(memAddress(v));
@@ -7027,11 +7027,11 @@ Clears the selection name stack.
 
 	// --- [ glNormal3dv ] ---
 
-	/** JNI method for {@link #glNormal3d(ByteBuffer) Normal3d} */
+	/** JNI method for {@link #glNormal3dv Normal3dv} */
 	@JavadocExclude
 	public static native void nglNormal3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNormal3d(ByteBuffer) Normal3d} */
+	/** Unsafe version of {@link #glNormal3dv Normal3dv} */
 	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
@@ -7047,14 +7047,14 @@ Clears the selection name stack.
 	 *
 	 * @param v the normal buffer
 	 */
-	public static void glNormal3d(ByteBuffer v) {
+	public static void glNormal3dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglNormal3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNormal3d(ByteBuffer) Normal3d} */
-	public static void glNormal3(DoubleBuffer v) {
+	/** Alternative version of: {@link #glNormal3dv Normal3dv} */
+	public static void glNormal3dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3dv(memAddress(v));
@@ -7178,11 +7178,11 @@ Clears the selection name stack.
 
 	// --- [ glPixelMapfv ] ---
 
-	/** JNI method for {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
+	/** JNI method for {@link #glPixelMapfv PixelMapfv} */
 	@JavadocExclude
 	public static native void nglPixelMapfv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
+	/** Unsafe version of {@link #glPixelMapfv PixelMapfv} */
 	@JavadocExclude
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapfv;
@@ -7200,7 +7200,7 @@ Clears the selection name stack.
 	 * @param size   the map size
 	 * @param values the map values
 	 */
-	public static void glPixelMapf(int map, int size, ByteBuffer values) {
+	public static void glPixelMapfv(int map, int size, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(values, size << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -7208,15 +7208,15 @@ Clears the selection name stack.
 		nglPixelMapfv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
-	public static void glPixelMapf(int map, int size, long valuesOffset) {
+	/** Buffer object offset version of: {@link #glPixelMapfv PixelMapfv} */
+	public static void glPixelMapfv(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapfv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapf(int, int, ByteBuffer) PixelMapf} */
-	public static void glPixelMap(int map, FloatBuffer values) {
+	/** Alternative version of: {@link #glPixelMapfv PixelMapfv} */
+	public static void glPixelMapfv(int map, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapfv(map, values.remaining(), memAddress(values));
@@ -7224,11 +7224,11 @@ Clears the selection name stack.
 
 	// --- [ glPixelMapusv ] ---
 
-	/** JNI method for {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
+	/** JNI method for {@link #glPixelMapusv PixelMapusv} */
 	@JavadocExclude
 	public static native void nglPixelMapusv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
+	/** Unsafe version of {@link #glPixelMapusv PixelMapusv} */
 	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
@@ -7240,13 +7240,13 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned short version of {@link #glPixelMapf PixelMapf}.
+	 * Unsigned short version of {@link #glPixelMapfv PixelMapfv}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size
 	 * @param values the map values
 	 */
-	public static void glPixelMapus(int map, int size, ByteBuffer values) {
+	public static void glPixelMapusv(int map, int size, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(values, size << 1);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -7254,15 +7254,15 @@ Clears the selection name stack.
 		nglPixelMapusv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
-	public static void glPixelMapus(int map, int size, long valuesOffset) {
+	/** Buffer object offset version of: {@link #glPixelMapusv PixelMapusv} */
+	public static void glPixelMapusv(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapusv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapus(int, int, ByteBuffer) PixelMapus} */
-	public static void glPixelMapu(int map, ShortBuffer values) {
+	/** Alternative version of: {@link #glPixelMapusv PixelMapusv} */
+	public static void glPixelMapusv(int map, ShortBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapusv(map, values.remaining(), memAddress(values));
@@ -7270,11 +7270,11 @@ Clears the selection name stack.
 
 	// --- [ glPixelMapuiv ] ---
 
-	/** JNI method for {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
+	/** JNI method for {@link #glPixelMapuiv PixelMapuiv} */
 	@JavadocExclude
 	public static native void nglPixelMapuiv(int map, int size, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
+	/** Unsafe version of {@link #glPixelMapuiv PixelMapuiv} */
 	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
@@ -7286,13 +7286,13 @@ Clears the selection name stack.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Unsigned integer version of {@link #glPixelMapf PixelMapf}.
+	 * Unsigned integer version of {@link #glPixelMapfv PixelMapfv}.
 	 *
 	 * @param map    the map to set
 	 * @param size   the map size
 	 * @param values the map values
 	 */
-	public static void glPixelMapui(int map, int size, ByteBuffer values) {
+	public static void glPixelMapuiv(int map, int size, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(values, size << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -7300,15 +7300,15 @@ Clears the selection name stack.
 		nglPixelMapuiv(map, size, memAddress(values));
 	}
 
-	/** Buffer object offset version of: {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
-	public static void glPixelMapui(int map, int size, long valuesOffset) {
+	/** Buffer object offset version of: {@link #glPixelMapuiv PixelMapuiv} */
+	public static void glPixelMapuiv(int map, int size, long valuesOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapuiv(map, size, valuesOffset);
 	}
 
-	/** Alternative version of: {@link #glPixelMapui(int, int, ByteBuffer) PixelMapui} */
-	public static void glPixelMapu(int map, IntBuffer values) {
+	/** Alternative version of: {@link #glPixelMapuiv PixelMapuiv} */
+	public static void glPixelMapuiv(int map, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapuiv(map, values.remaining(), memAddress(values));
@@ -7835,11 +7835,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2iv ] ---
 
-	/** JNI method for {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
+	/** JNI method for {@link #glRasterPos2iv RasterPos2iv} */
 	@JavadocExclude
 	public static native void nglRasterPos2iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
+	/** Unsafe version of {@link #glRasterPos2iv RasterPos2iv} */
 	@JavadocExclude
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = getInstance().RasterPos2iv;
@@ -7855,14 +7855,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos2i(ByteBuffer coords) {
+	public static void glRasterPos2iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglRasterPos2iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2i(ByteBuffer) RasterPos2i} */
-	public static void glRasterPos2(IntBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos2iv RasterPos2iv} */
+	public static void glRasterPos2iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2iv(memAddress(coords));
@@ -7870,11 +7870,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2sv ] ---
 
-	/** JNI method for {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
+	/** JNI method for {@link #glRasterPos2sv RasterPos2sv} */
 	@JavadocExclude
 	public static native void nglRasterPos2sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
+	/** Unsafe version of {@link #glRasterPos2sv RasterPos2sv} */
 	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
@@ -7890,14 +7890,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos2s(ByteBuffer coords) {
+	public static void glRasterPos2sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 1);
 		nglRasterPos2sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2s(ByteBuffer) RasterPos2s} */
-	public static void glRasterPos2(ShortBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos2sv RasterPos2sv} */
+	public static void glRasterPos2sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2sv(memAddress(coords));
@@ -7905,11 +7905,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2fv ] ---
 
-	/** JNI method for {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
+	/** JNI method for {@link #glRasterPos2fv RasterPos2fv} */
 	@JavadocExclude
 	public static native void nglRasterPos2fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
+	/** Unsafe version of {@link #glRasterPos2fv RasterPos2fv} */
 	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
@@ -7925,14 +7925,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos2f(ByteBuffer coords) {
+	public static void glRasterPos2fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglRasterPos2fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2f(ByteBuffer) RasterPos2f} */
-	public static void glRasterPos2(FloatBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos2fv RasterPos2fv} */
+	public static void glRasterPos2fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2fv(memAddress(coords));
@@ -7940,11 +7940,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2dv ] ---
 
-	/** JNI method for {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
+	/** JNI method for {@link #glRasterPos2dv RasterPos2dv} */
 	@JavadocExclude
 	public static native void nglRasterPos2dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
+	/** Unsafe version of {@link #glRasterPos2dv RasterPos2dv} */
 	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
@@ -7960,14 +7960,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos2d(ByteBuffer coords) {
+	public static void glRasterPos2dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 3);
 		nglRasterPos2dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos2d(ByteBuffer) RasterPos2d} */
-	public static void glRasterPos2(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos2dv RasterPos2dv} */
+	public static void glRasterPos2dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2dv(memAddress(coords));
@@ -8063,11 +8063,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3iv ] ---
 
-	/** JNI method for {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
+	/** JNI method for {@link #glRasterPos3iv RasterPos3iv} */
 	@JavadocExclude
 	public static native void nglRasterPos3iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
+	/** Unsafe version of {@link #glRasterPos3iv RasterPos3iv} */
 	@JavadocExclude
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = getInstance().RasterPos3iv;
@@ -8083,14 +8083,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos3i(ByteBuffer coords) {
+	public static void glRasterPos3iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglRasterPos3iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3i(ByteBuffer) RasterPos3i} */
-	public static void glRasterPos3(IntBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos3iv RasterPos3iv} */
+	public static void glRasterPos3iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3iv(memAddress(coords));
@@ -8098,11 +8098,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3sv ] ---
 
-	/** JNI method for {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
+	/** JNI method for {@link #glRasterPos3sv RasterPos3sv} */
 	@JavadocExclude
 	public static native void nglRasterPos3sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
+	/** Unsafe version of {@link #glRasterPos3sv RasterPos3sv} */
 	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
@@ -8118,14 +8118,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos3s(ByteBuffer coords) {
+	public static void glRasterPos3sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 1);
 		nglRasterPos3sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3s(ByteBuffer) RasterPos3s} */
-	public static void glRasterPos3(ShortBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos3sv RasterPos3sv} */
+	public static void glRasterPos3sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3sv(memAddress(coords));
@@ -8133,11 +8133,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3fv ] ---
 
-	/** JNI method for {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
+	/** JNI method for {@link #glRasterPos3fv RasterPos3fv} */
 	@JavadocExclude
 	public static native void nglRasterPos3fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
+	/** Unsafe version of {@link #glRasterPos3fv RasterPos3fv} */
 	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
@@ -8153,14 +8153,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos3f(ByteBuffer coords) {
+	public static void glRasterPos3fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglRasterPos3fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3f(ByteBuffer) RasterPos3f} */
-	public static void glRasterPos3(FloatBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos3fv RasterPos3fv} */
+	public static void glRasterPos3fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3fv(memAddress(coords));
@@ -8168,11 +8168,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3dv ] ---
 
-	/** JNI method for {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
+	/** JNI method for {@link #glRasterPos3dv RasterPos3dv} */
 	@JavadocExclude
 	public static native void nglRasterPos3dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
+	/** Unsafe version of {@link #glRasterPos3dv RasterPos3dv} */
 	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
@@ -8188,14 +8188,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos3d(ByteBuffer coords) {
+	public static void glRasterPos3dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 3);
 		nglRasterPos3dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos3d(ByteBuffer) RasterPos3d} */
-	public static void glRasterPos3(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos3dv RasterPos3dv} */
+	public static void glRasterPos3dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3dv(memAddress(coords));
@@ -8295,11 +8295,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4iv ] ---
 
-	/** JNI method for {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
+	/** JNI method for {@link #glRasterPos4iv RasterPos4iv} */
 	@JavadocExclude
 	public static native void nglRasterPos4iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
+	/** Unsafe version of {@link #glRasterPos4iv RasterPos4iv} */
 	@JavadocExclude
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = getInstance().RasterPos4iv;
@@ -8315,14 +8315,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos4i(ByteBuffer coords) {
+	public static void glRasterPos4iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglRasterPos4iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4i(ByteBuffer) RasterPos4i} */
-	public static void glRasterPos4(IntBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos4iv RasterPos4iv} */
+	public static void glRasterPos4iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4iv(memAddress(coords));
@@ -8330,11 +8330,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4sv ] ---
 
-	/** JNI method for {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
+	/** JNI method for {@link #glRasterPos4sv RasterPos4sv} */
 	@JavadocExclude
 	public static native void nglRasterPos4sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
+	/** Unsafe version of {@link #glRasterPos4sv RasterPos4sv} */
 	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
@@ -8350,14 +8350,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos4s(ByteBuffer coords) {
+	public static void glRasterPos4sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 1);
 		nglRasterPos4sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4s(ByteBuffer) RasterPos4s} */
-	public static void glRasterPos4(ShortBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos4sv RasterPos4sv} */
+	public static void glRasterPos4sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4sv(memAddress(coords));
@@ -8365,11 +8365,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4fv ] ---
 
-	/** JNI method for {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
+	/** JNI method for {@link #glRasterPos4fv RasterPos4fv} */
 	@JavadocExclude
 	public static native void nglRasterPos4fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
+	/** Unsafe version of {@link #glRasterPos4fv RasterPos4fv} */
 	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
@@ -8385,14 +8385,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos4f(ByteBuffer coords) {
+	public static void glRasterPos4fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglRasterPos4fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4f(ByteBuffer) RasterPos4f} */
-	public static void glRasterPos4(FloatBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos4fv RasterPos4fv} */
+	public static void glRasterPos4fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4fv(memAddress(coords));
@@ -8400,11 +8400,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4dv ] ---
 
-	/** JNI method for {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
+	/** JNI method for {@link #glRasterPos4dv RasterPos4dv} */
 	@JavadocExclude
 	public static native void nglRasterPos4dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
+	/** Unsafe version of {@link #glRasterPos4dv RasterPos4dv} */
 	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
@@ -8420,14 +8420,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the raster position buffer
 	 */
-	public static void glRasterPos4d(ByteBuffer coords) {
+	public static void glRasterPos4dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 3);
 		nglRasterPos4dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glRasterPos4d(ByteBuffer) RasterPos4d} */
-	public static void glRasterPos4(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glRasterPos4dv RasterPos4dv} */
+	public static void glRasterPos4dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4dv(memAddress(coords));
@@ -8629,11 +8629,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectiv ] ---
 
-	/** JNI method for {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
+	/** JNI method for {@link #glRectiv Rectiv} */
 	@JavadocExclude
 	public static native void nglRectiv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
+	/** Unsafe version of {@link #glRectiv Rectiv} */
 	@JavadocExclude
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectiv;
@@ -8650,7 +8650,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
-	public static void glRecti(ByteBuffer v1, ByteBuffer v2) {
+	public static void glRectiv(ByteBuffer v1, ByteBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2 << 2);
 			checkBuffer(v2, 2 << 2);
@@ -8658,8 +8658,8 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglRectiv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRecti(ByteBuffer, ByteBuffer) Recti} */
-	public static void glRect(IntBuffer v1, IntBuffer v2) {
+	/** Alternative version of: {@link #glRectiv Rectiv} */
+	public static void glRectiv(IntBuffer v1, IntBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
@@ -8669,11 +8669,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectsv ] ---
 
-	/** JNI method for {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
+	/** JNI method for {@link #glRectsv Rectsv} */
 	@JavadocExclude
 	public static native void nglRectsv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
+	/** Unsafe version of {@link #glRectsv Rectsv} */
 	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
@@ -8690,7 +8690,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
-	public static void glRects(ByteBuffer v1, ByteBuffer v2) {
+	public static void glRectsv(ByteBuffer v1, ByteBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2 << 1);
 			checkBuffer(v2, 2 << 1);
@@ -8698,8 +8698,8 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglRectsv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRects(ByteBuffer, ByteBuffer) Rects} */
-	public static void glRect(ShortBuffer v1, ShortBuffer v2) {
+	/** Alternative version of: {@link #glRectsv Rectsv} */
+	public static void glRectsv(ShortBuffer v1, ShortBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
@@ -8709,11 +8709,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectfv ] ---
 
-	/** JNI method for {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
+	/** JNI method for {@link #glRectfv Rectfv} */
 	@JavadocExclude
 	public static native void nglRectfv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
+	/** Unsafe version of {@link #glRectfv Rectfv} */
 	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
@@ -8730,7 +8730,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
-	public static void glRectf(ByteBuffer v1, ByteBuffer v2) {
+	public static void glRectfv(ByteBuffer v1, ByteBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2 << 2);
 			checkBuffer(v2, 2 << 2);
@@ -8738,8 +8738,8 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglRectfv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRectf(ByteBuffer, ByteBuffer) Rectf} */
-	public static void glRect(FloatBuffer v1, FloatBuffer v2) {
+	/** Alternative version of: {@link #glRectfv Rectfv} */
+	public static void glRectfv(FloatBuffer v1, FloatBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
@@ -8749,11 +8749,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectdv ] ---
 
-	/** JNI method for {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
+	/** JNI method for {@link #glRectdv Rectdv} */
 	@JavadocExclude
 	public static native void nglRectdv(long v1, long v2, long __functionAddress);
 
-	/** Unsafe version of {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
+	/** Unsafe version of {@link #glRectdv Rectdv} */
 	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
@@ -8770,7 +8770,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v1 the first vertex buffer
 	 * @param v2 the second vertex buffer
 	 */
-	public static void glRectd(ByteBuffer v1, ByteBuffer v2) {
+	public static void glRectdv(ByteBuffer v1, ByteBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2 << 3);
 			checkBuffer(v2, 2 << 3);
@@ -8778,8 +8778,8 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglRectdv(memAddress(v1), memAddress(v2));
 	}
 
-	/** Alternative version of: {@link #glRectd(ByteBuffer, ByteBuffer) Rectd} */
-	public static void glRect(DoubleBuffer v1, DoubleBuffer v2) {
+	/** Alternative version of: {@link #glRectdv Rectdv} */
+	public static void glRectdv(DoubleBuffer v1, DoubleBuffer v2) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
@@ -9170,11 +9170,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1fv ] ---
 
-	/** JNI method for {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
+	/** JNI method for {@link #glTexCoord1fv TexCoord1fv} */
 	@JavadocExclude
 	public static native void nglTexCoord1fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
+	/** Unsafe version of {@link #glTexCoord1fv TexCoord1fv} */
 	@JavadocExclude
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = getInstance().TexCoord1fv;
@@ -9190,14 +9190,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord1f(ByteBuffer v) {
+	public static void glTexCoord1fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglTexCoord1fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1f(ByteBuffer) TexCoord1f} */
-	public static void glTexCoord1(FloatBuffer v) {
+	/** Alternative version of: {@link #glTexCoord1fv TexCoord1fv} */
+	public static void glTexCoord1fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1fv(memAddress(v));
@@ -9205,11 +9205,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1sv ] ---
 
-	/** JNI method for {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
+	/** JNI method for {@link #glTexCoord1sv TexCoord1sv} */
 	@JavadocExclude
 	public static native void nglTexCoord1sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
+	/** Unsafe version of {@link #glTexCoord1sv TexCoord1sv} */
 	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
@@ -9225,14 +9225,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord1s(ByteBuffer v) {
+	public static void glTexCoord1sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglTexCoord1sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1s(ByteBuffer) TexCoord1s} */
-	public static void glTexCoord1(ShortBuffer v) {
+	/** Alternative version of: {@link #glTexCoord1sv TexCoord1sv} */
+	public static void glTexCoord1sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1sv(memAddress(v));
@@ -9240,11 +9240,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1iv ] ---
 
-	/** JNI method for {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
+	/** JNI method for {@link #glTexCoord1iv TexCoord1iv} */
 	@JavadocExclude
 	public static native void nglTexCoord1iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
+	/** Unsafe version of {@link #glTexCoord1iv TexCoord1iv} */
 	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
@@ -9260,14 +9260,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord1i(ByteBuffer v) {
+	public static void glTexCoord1iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglTexCoord1iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1i(ByteBuffer) TexCoord1i} */
-	public static void glTexCoord1(IntBuffer v) {
+	/** Alternative version of: {@link #glTexCoord1iv TexCoord1iv} */
+	public static void glTexCoord1iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1iv(memAddress(v));
@@ -9275,11 +9275,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1dv ] ---
 
-	/** JNI method for {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
+	/** JNI method for {@link #glTexCoord1dv TexCoord1dv} */
 	@JavadocExclude
 	public static native void nglTexCoord1dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
+	/** Unsafe version of {@link #glTexCoord1dv TexCoord1dv} */
 	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
@@ -9295,14 +9295,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord1d(ByteBuffer v) {
+	public static void glTexCoord1dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglTexCoord1dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord1d(ByteBuffer) TexCoord1d} */
-	public static void glTexCoord1(DoubleBuffer v) {
+	/** Alternative version of: {@link #glTexCoord1dv TexCoord1dv} */
+	public static void glTexCoord1dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1dv(memAddress(v));
@@ -9394,11 +9394,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2fv ] ---
 
-	/** JNI method for {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
+	/** JNI method for {@link #glTexCoord2fv TexCoord2fv} */
 	@JavadocExclude
 	public static native void nglTexCoord2fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
+	/** Unsafe version of {@link #glTexCoord2fv TexCoord2fv} */
 	@JavadocExclude
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = getInstance().TexCoord2fv;
@@ -9414,14 +9414,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord2f(ByteBuffer v) {
+	public static void glTexCoord2fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglTexCoord2fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2f(ByteBuffer) TexCoord2f} */
-	public static void glTexCoord2(FloatBuffer v) {
+	/** Alternative version of: {@link #glTexCoord2fv TexCoord2fv} */
+	public static void glTexCoord2fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2fv(memAddress(v));
@@ -9429,11 +9429,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2sv ] ---
 
-	/** JNI method for {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
+	/** JNI method for {@link #glTexCoord2sv TexCoord2sv} */
 	@JavadocExclude
 	public static native void nglTexCoord2sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
+	/** Unsafe version of {@link #glTexCoord2sv TexCoord2sv} */
 	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
@@ -9449,14 +9449,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord2s(ByteBuffer v) {
+	public static void glTexCoord2sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglTexCoord2sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2s(ByteBuffer) TexCoord2s} */
-	public static void glTexCoord2(ShortBuffer v) {
+	/** Alternative version of: {@link #glTexCoord2sv TexCoord2sv} */
+	public static void glTexCoord2sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2sv(memAddress(v));
@@ -9464,11 +9464,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2iv ] ---
 
-	/** JNI method for {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
+	/** JNI method for {@link #glTexCoord2iv TexCoord2iv} */
 	@JavadocExclude
 	public static native void nglTexCoord2iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
+	/** Unsafe version of {@link #glTexCoord2iv TexCoord2iv} */
 	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
@@ -9484,14 +9484,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord2i(ByteBuffer v) {
+	public static void glTexCoord2iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglTexCoord2iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2i(ByteBuffer) TexCoord2i} */
-	public static void glTexCoord2(IntBuffer v) {
+	/** Alternative version of: {@link #glTexCoord2iv TexCoord2iv} */
+	public static void glTexCoord2iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2iv(memAddress(v));
@@ -9499,11 +9499,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2dv ] ---
 
-	/** JNI method for {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
+	/** JNI method for {@link #glTexCoord2dv TexCoord2dv} */
 	@JavadocExclude
 	public static native void nglTexCoord2dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
+	/** Unsafe version of {@link #glTexCoord2dv TexCoord2dv} */
 	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
@@ -9519,14 +9519,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord2d(ByteBuffer v) {
+	public static void glTexCoord2dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglTexCoord2dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord2d(ByteBuffer) TexCoord2d} */
-	public static void glTexCoord2(DoubleBuffer v) {
+	/** Alternative version of: {@link #glTexCoord2dv TexCoord2dv} */
+	public static void glTexCoord2dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2dv(memAddress(v));
@@ -9622,11 +9622,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3fv ] ---
 
-	/** JNI method for {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
+	/** JNI method for {@link #glTexCoord3fv TexCoord3fv} */
 	@JavadocExclude
 	public static native void nglTexCoord3fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
+	/** Unsafe version of {@link #glTexCoord3fv TexCoord3fv} */
 	@JavadocExclude
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = getInstance().TexCoord3fv;
@@ -9642,14 +9642,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord3f(ByteBuffer v) {
+	public static void glTexCoord3fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglTexCoord3fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3f(ByteBuffer) TexCoord3f} */
-	public static void glTexCoord3(FloatBuffer v) {
+	/** Alternative version of: {@link #glTexCoord3fv TexCoord3fv} */
+	public static void glTexCoord3fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3fv(memAddress(v));
@@ -9657,11 +9657,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3sv ] ---
 
-	/** JNI method for {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
+	/** JNI method for {@link #glTexCoord3sv TexCoord3sv} */
 	@JavadocExclude
 	public static native void nglTexCoord3sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
+	/** Unsafe version of {@link #glTexCoord3sv TexCoord3sv} */
 	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
@@ -9677,14 +9677,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord3s(ByteBuffer v) {
+	public static void glTexCoord3sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglTexCoord3sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3s(ByteBuffer) TexCoord3s} */
-	public static void glTexCoord3(ShortBuffer v) {
+	/** Alternative version of: {@link #glTexCoord3sv TexCoord3sv} */
+	public static void glTexCoord3sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3sv(memAddress(v));
@@ -9692,11 +9692,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3iv ] ---
 
-	/** JNI method for {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
+	/** JNI method for {@link #glTexCoord3iv TexCoord3iv} */
 	@JavadocExclude
 	public static native void nglTexCoord3iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
+	/** Unsafe version of {@link #glTexCoord3iv TexCoord3iv} */
 	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
@@ -9712,14 +9712,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord3i(ByteBuffer v) {
+	public static void glTexCoord3iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglTexCoord3iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3i(ByteBuffer) TexCoord3i} */
-	public static void glTexCoord3(IntBuffer v) {
+	/** Alternative version of: {@link #glTexCoord3iv TexCoord3iv} */
+	public static void glTexCoord3iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3iv(memAddress(v));
@@ -9727,11 +9727,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3dv ] ---
 
-	/** JNI method for {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
+	/** JNI method for {@link #glTexCoord3dv TexCoord3dv} */
 	@JavadocExclude
 	public static native void nglTexCoord3dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
+	/** Unsafe version of {@link #glTexCoord3dv TexCoord3dv} */
 	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
@@ -9747,14 +9747,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord3d(ByteBuffer v) {
+	public static void glTexCoord3dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglTexCoord3dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord3d(ByteBuffer) TexCoord3d} */
-	public static void glTexCoord3(DoubleBuffer v) {
+	/** Alternative version of: {@link #glTexCoord3dv TexCoord3dv} */
+	public static void glTexCoord3dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3dv(memAddress(v));
@@ -9854,11 +9854,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4fv ] ---
 
-	/** JNI method for {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
+	/** JNI method for {@link #glTexCoord4fv TexCoord4fv} */
 	@JavadocExclude
 	public static native void nglTexCoord4fv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
+	/** Unsafe version of {@link #glTexCoord4fv TexCoord4fv} */
 	@JavadocExclude
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = getInstance().TexCoord4fv;
@@ -9874,14 +9874,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord4f(ByteBuffer v) {
+	public static void glTexCoord4fv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglTexCoord4fv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4f(ByteBuffer) TexCoord4f} */
-	public static void glTexCoord4(FloatBuffer v) {
+	/** Alternative version of: {@link #glTexCoord4fv TexCoord4fv} */
+	public static void glTexCoord4fv(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4fv(memAddress(v));
@@ -9889,11 +9889,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4sv ] ---
 
-	/** JNI method for {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
+	/** JNI method for {@link #glTexCoord4sv TexCoord4sv} */
 	@JavadocExclude
 	public static native void nglTexCoord4sv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
+	/** Unsafe version of {@link #glTexCoord4sv TexCoord4sv} */
 	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
@@ -9909,14 +9909,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord4s(ByteBuffer v) {
+	public static void glTexCoord4sv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglTexCoord4sv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4s(ByteBuffer) TexCoord4s} */
-	public static void glTexCoord4(ShortBuffer v) {
+	/** Alternative version of: {@link #glTexCoord4sv TexCoord4sv} */
+	public static void glTexCoord4sv(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4sv(memAddress(v));
@@ -9924,11 +9924,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4iv ] ---
 
-	/** JNI method for {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
+	/** JNI method for {@link #glTexCoord4iv TexCoord4iv} */
 	@JavadocExclude
 	public static native void nglTexCoord4iv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
+	/** Unsafe version of {@link #glTexCoord4iv TexCoord4iv} */
 	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
@@ -9944,14 +9944,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord4i(ByteBuffer v) {
+	public static void glTexCoord4iv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglTexCoord4iv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4i(ByteBuffer) TexCoord4i} */
-	public static void glTexCoord4(IntBuffer v) {
+	/** Alternative version of: {@link #glTexCoord4iv TexCoord4iv} */
+	public static void glTexCoord4iv(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4iv(memAddress(v));
@@ -9959,11 +9959,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4dv ] ---
 
-	/** JNI method for {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
+	/** JNI method for {@link #glTexCoord4dv TexCoord4dv} */
 	@JavadocExclude
 	public static native void nglTexCoord4dv(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
+	/** Unsafe version of {@link #glTexCoord4dv TexCoord4dv} */
 	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
@@ -9979,14 +9979,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param v the texture coordinate buffer
 	 */
-	public static void glTexCoord4d(ByteBuffer v) {
+	public static void glTexCoord4dv(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglTexCoord4dv(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glTexCoord4d(ByteBuffer) TexCoord4d} */
-	public static void glTexCoord4(DoubleBuffer v) {
+	/** Alternative version of: {@link #glTexCoord4dv TexCoord4dv} */
+	public static void glTexCoord4dv(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4dv(memAddress(v));
@@ -10069,11 +10069,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexEnviv ] ---
 
-	/** JNI method for {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
+	/** JNI method for {@link #glTexEnviv TexEnviv} */
 	@JavadocExclude
 	public static native void nglTexEnviv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
+	/** Unsafe version of {@link #glTexEnviv TexEnviv} */
 	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
@@ -10091,14 +10091,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set. Must be:<br>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}
 	 * @param params the parameter value
 	 */
-	public static void glTexEnvi(int target, int pname, ByteBuffer params) {
+	public static void glTexEnviv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexEnviv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexEnvi(int, int, ByteBuffer) TexEnvi} */
-	public static void glTexEnv(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTexEnviv TexEnviv} */
+	public static void glTexEnviv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexEnviv(target, pname, memAddress(params));
@@ -10128,11 +10128,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexEnvfv ] ---
 
-	/** JNI method for {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
+	/** JNI method for {@link #glTexEnvfv TexEnvfv} */
 	@JavadocExclude
 	public static native void nglTexEnvfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
+	/** Unsafe version of {@link #glTexEnvfv TexEnvfv} */
 	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
@@ -10150,14 +10150,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set. Must be:<br>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}
 	 * @param params the parameter value
 	 */
-	public static void glTexEnvf(int target, int pname, ByteBuffer params) {
+	public static void glTexEnvfv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexEnvfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexEnvf(int, int, ByteBuffer) TexEnvf} */
-	public static void glTexEnv(int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glTexEnvfv TexEnvfv} */
+	public static void glTexEnvfv(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexEnvfv(target, pname, memAddress(params));
@@ -10195,11 +10195,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGeniv ] ---
 
-	/** JNI method for {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
+	/** JNI method for {@link #glTexGeniv TexGeniv} */
 	@JavadocExclude
 	public static native void nglTexGeniv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
+	/** Unsafe version of {@link #glTexGeniv TexGeniv} */
 	@JavadocExclude
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGeniv;
@@ -10217,14 +10217,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set. One of:<br>{@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_EYE_PLANE EYE_PLANE}
 	 * @param params the parameter value
 	 */
-	public static void glTexGeni(int coord, int pname, ByteBuffer params) {
+	public static void glTexGeniv(int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexGeniv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGeni(int, int, ByteBuffer) TexGeni} */
-	public static void glTexGen(int coord, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTexGeniv TexGeniv} */
+	public static void glTexGeniv(int coord, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexGeniv(coord, pname, memAddress(params));
@@ -10254,11 +10254,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGenfv ] ---
 
-	/** JNI method for {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
+	/** JNI method for {@link #glTexGenfv TexGenfv} */
 	@JavadocExclude
 	public static native void nglTexGenfv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
+	/** Unsafe version of {@link #glTexGenfv TexGenfv} */
 	@JavadocExclude
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGenfv;
@@ -10276,14 +10276,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set. One of:<br>{@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_EYE_PLANE EYE_PLANE}
 	 * @param params the parameter value
 	 */
-	public static void glTexGenf(int coord, int pname, ByteBuffer params) {
+	public static void glTexGenfv(int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexGenfv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGenf(int, int, ByteBuffer) TexGenf} */
-	public static void glTexGen(int coord, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glTexGenfv TexGenfv} */
+	public static void glTexGenfv(int coord, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexGenfv(coord, pname, memAddress(params));
@@ -10313,11 +10313,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGendv ] ---
 
-	/** JNI method for {@link #glTexGend(int, int, ByteBuffer) TexGend} */
+	/** JNI method for {@link #glTexGendv TexGendv} */
 	@JavadocExclude
 	public static native void nglTexGendv(int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexGend(int, int, ByteBuffer) TexGend} */
+	/** Unsafe version of {@link #glTexGendv TexGendv} */
 	@JavadocExclude
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGendv;
@@ -10335,14 +10335,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glTexGend(int coord, int pname, ByteBuffer params) {
+	public static void glTexGendv(int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglTexGendv(coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexGend(int, int, ByteBuffer) TexGend} */
-	public static void glTexGen(int coord, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glTexGendv TexGendv} */
+	public static void glTexGendv(int coord, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexGendv(coord, pname, memAddress(params));
@@ -10640,11 +10640,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexParameteriv ] ---
 
-	/** JNI method for {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
+	/** JNI method for {@link #glTexParameteriv TexParameteriv} */
 	@JavadocExclude
 	public static native void nglTexParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
+	/** Unsafe version of {@link #glTexParameteriv TexParameteriv} */
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
@@ -10662,14 +10662,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glTexParameteri(int target, int pname, ByteBuffer params) {
+	public static void glTexParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameteri(int, int, ByteBuffer) TexParameteri} */
-	public static void glTexParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTexParameteriv TexParameteriv} */
+	public static void glTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexParameteriv(target, pname, memAddress(params));
@@ -10699,11 +10699,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexParameterfv ] ---
 
-	/** JNI method for {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
+	/** JNI method for {@link #glTexParameterfv TexParameterfv} */
 	@JavadocExclude
 	public static native void nglTexParameterfv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
+	/** Unsafe version of {@link #glTexParameterfv TexParameterfv} */
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
@@ -10721,14 +10721,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pname  the parameter to set
 	 * @param params the parameter value
 	 */
-	public static void glTexParameterf(int target, int pname, ByteBuffer params) {
+	public static void glTexParameterfv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTexParameterf(int, int, ByteBuffer) TexParameterf} */
-	public static void glTexParameter(int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glTexParameterfv TexParameterfv} */
+	public static void glTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTexParameterfv(target, pname, memAddress(params));
@@ -11014,11 +11014,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2fv ] ---
 
-	/** JNI method for {@link #glVertex2f(ByteBuffer) Vertex2f} */
+	/** JNI method for {@link #glVertex2fv Vertex2fv} */
 	@JavadocExclude
 	public static native void nglVertex2fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2f(ByteBuffer) Vertex2f} */
+	/** Unsafe version of {@link #glVertex2fv Vertex2fv} */
 	@JavadocExclude
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = getInstance().Vertex2fv;
@@ -11034,14 +11034,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex2f(ByteBuffer coords) {
+	public static void glVertex2fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglVertex2fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2f(ByteBuffer) Vertex2f} */
-	public static void glVertex2(FloatBuffer coords) {
+	/** Alternative version of: {@link #glVertex2fv Vertex2fv} */
+	public static void glVertex2fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2fv(memAddress(coords));
@@ -11049,11 +11049,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2sv ] ---
 
-	/** JNI method for {@link #glVertex2s(ByteBuffer) Vertex2s} */
+	/** JNI method for {@link #glVertex2sv Vertex2sv} */
 	@JavadocExclude
 	public static native void nglVertex2sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2s(ByteBuffer) Vertex2s} */
+	/** Unsafe version of {@link #glVertex2sv Vertex2sv} */
 	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
@@ -11069,14 +11069,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex2s(ByteBuffer coords) {
+	public static void glVertex2sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 1);
 		nglVertex2sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2s(ByteBuffer) Vertex2s} */
-	public static void glVertex2(ShortBuffer coords) {
+	/** Alternative version of: {@link #glVertex2sv Vertex2sv} */
+	public static void glVertex2sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2sv(memAddress(coords));
@@ -11084,11 +11084,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2iv ] ---
 
-	/** JNI method for {@link #glVertex2i(ByteBuffer) Vertex2i} */
+	/** JNI method for {@link #glVertex2iv Vertex2iv} */
 	@JavadocExclude
 	public static native void nglVertex2iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2i(ByteBuffer) Vertex2i} */
+	/** Unsafe version of {@link #glVertex2iv Vertex2iv} */
 	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
@@ -11104,14 +11104,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex2i(ByteBuffer coords) {
+	public static void glVertex2iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglVertex2iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2i(ByteBuffer) Vertex2i} */
-	public static void glVertex2(IntBuffer coords) {
+	/** Alternative version of: {@link #glVertex2iv Vertex2iv} */
+	public static void glVertex2iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2iv(memAddress(coords));
@@ -11119,11 +11119,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2dv ] ---
 
-	/** JNI method for {@link #glVertex2d(ByteBuffer) Vertex2d} */
+	/** JNI method for {@link #glVertex2dv Vertex2dv} */
 	@JavadocExclude
 	public static native void nglVertex2dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex2d(ByteBuffer) Vertex2d} */
+	/** Unsafe version of {@link #glVertex2dv Vertex2dv} */
 	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
@@ -11139,14 +11139,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex2d(ByteBuffer coords) {
+	public static void glVertex2dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2 << 3);
 		nglVertex2dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex2d(ByteBuffer) Vertex2d} */
-	public static void glVertex2(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glVertex2dv Vertex2dv} */
+	public static void glVertex2dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2dv(memAddress(coords));
@@ -11243,11 +11243,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3fv ] ---
 
-	/** JNI method for {@link #glVertex3f(ByteBuffer) Vertex3f} */
+	/** JNI method for {@link #glVertex3fv Vertex3fv} */
 	@JavadocExclude
 	public static native void nglVertex3fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3f(ByteBuffer) Vertex3f} */
+	/** Unsafe version of {@link #glVertex3fv Vertex3fv} */
 	@JavadocExclude
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = getInstance().Vertex3fv;
@@ -11263,14 +11263,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex3f(ByteBuffer coords) {
+	public static void glVertex3fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglVertex3fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3f(ByteBuffer) Vertex3f} */
-	public static void glVertex3(FloatBuffer coords) {
+	/** Alternative version of: {@link #glVertex3fv Vertex3fv} */
+	public static void glVertex3fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3fv(memAddress(coords));
@@ -11278,11 +11278,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3sv ] ---
 
-	/** JNI method for {@link #glVertex3s(ByteBuffer) Vertex3s} */
+	/** JNI method for {@link #glVertex3sv Vertex3sv} */
 	@JavadocExclude
 	public static native void nglVertex3sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3s(ByteBuffer) Vertex3s} */
+	/** Unsafe version of {@link #glVertex3sv Vertex3sv} */
 	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
@@ -11298,14 +11298,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex3s(ByteBuffer coords) {
+	public static void glVertex3sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 1);
 		nglVertex3sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3s(ByteBuffer) Vertex3s} */
-	public static void glVertex3(ShortBuffer coords) {
+	/** Alternative version of: {@link #glVertex3sv Vertex3sv} */
+	public static void glVertex3sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3sv(memAddress(coords));
@@ -11313,11 +11313,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3iv ] ---
 
-	/** JNI method for {@link #glVertex3i(ByteBuffer) Vertex3i} */
+	/** JNI method for {@link #glVertex3iv Vertex3iv} */
 	@JavadocExclude
 	public static native void nglVertex3iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3i(ByteBuffer) Vertex3i} */
+	/** Unsafe version of {@link #glVertex3iv Vertex3iv} */
 	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
@@ -11333,14 +11333,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex3i(ByteBuffer coords) {
+	public static void glVertex3iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglVertex3iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3i(ByteBuffer) Vertex3i} */
-	public static void glVertex3(IntBuffer coords) {
+	/** Alternative version of: {@link #glVertex3iv Vertex3iv} */
+	public static void glVertex3iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3iv(memAddress(coords));
@@ -11348,11 +11348,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3dv ] ---
 
-	/** JNI method for {@link #glVertex3d(ByteBuffer) Vertex3d} */
+	/** JNI method for {@link #glVertex3dv Vertex3dv} */
 	@JavadocExclude
 	public static native void nglVertex3dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex3d(ByteBuffer) Vertex3d} */
+	/** Unsafe version of {@link #glVertex3dv Vertex3dv} */
 	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
@@ -11368,14 +11368,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex3d(ByteBuffer coords) {
+	public static void glVertex3dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3 << 3);
 		nglVertex3dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex3d(ByteBuffer) Vertex3d} */
-	public static void glVertex3(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glVertex3dv Vertex3dv} */
+	public static void glVertex3dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3dv(memAddress(coords));
@@ -11475,11 +11475,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4fv ] ---
 
-	/** JNI method for {@link #glVertex4f(ByteBuffer) Vertex4f} */
+	/** JNI method for {@link #glVertex4fv Vertex4fv} */
 	@JavadocExclude
 	public static native void nglVertex4fv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4f(ByteBuffer) Vertex4f} */
+	/** Unsafe version of {@link #glVertex4fv Vertex4fv} */
 	@JavadocExclude
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = getInstance().Vertex4fv;
@@ -11495,14 +11495,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex4f(ByteBuffer coords) {
+	public static void glVertex4fv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglVertex4fv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4f(ByteBuffer) Vertex4f} */
-	public static void glVertex4(FloatBuffer coords) {
+	/** Alternative version of: {@link #glVertex4fv Vertex4fv} */
+	public static void glVertex4fv(FloatBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4fv(memAddress(coords));
@@ -11510,11 +11510,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4sv ] ---
 
-	/** JNI method for {@link #glVertex4s(ByteBuffer) Vertex4s} */
+	/** JNI method for {@link #glVertex4sv Vertex4sv} */
 	@JavadocExclude
 	public static native void nglVertex4sv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4s(ByteBuffer) Vertex4s} */
+	/** Unsafe version of {@link #glVertex4sv Vertex4sv} */
 	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
@@ -11530,14 +11530,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex4s(ByteBuffer coords) {
+	public static void glVertex4sv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 1);
 		nglVertex4sv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4s(ByteBuffer) Vertex4s} */
-	public static void glVertex4(ShortBuffer coords) {
+	/** Alternative version of: {@link #glVertex4sv Vertex4sv} */
+	public static void glVertex4sv(ShortBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4sv(memAddress(coords));
@@ -11545,11 +11545,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4iv ] ---
 
-	/** JNI method for {@link #glVertex4i(ByteBuffer) Vertex4i} */
+	/** JNI method for {@link #glVertex4iv Vertex4iv} */
 	@JavadocExclude
 	public static native void nglVertex4iv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4i(ByteBuffer) Vertex4i} */
+	/** Unsafe version of {@link #glVertex4iv Vertex4iv} */
 	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
@@ -11565,14 +11565,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex4i(ByteBuffer coords) {
+	public static void glVertex4iv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglVertex4iv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4i(ByteBuffer) Vertex4i} */
-	public static void glVertex4(IntBuffer coords) {
+	/** Alternative version of: {@link #glVertex4iv Vertex4iv} */
+	public static void glVertex4iv(IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4iv(memAddress(coords));
@@ -11580,11 +11580,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4dv ] ---
 
-	/** JNI method for {@link #glVertex4d(ByteBuffer) Vertex4d} */
+	/** JNI method for {@link #glVertex4dv Vertex4dv} */
 	@JavadocExclude
 	public static native void nglVertex4dv(long coords, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertex4d(ByteBuffer) Vertex4d} */
+	/** Unsafe version of {@link #glVertex4dv Vertex4dv} */
 	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
@@ -11600,14 +11600,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 *
 	 * @param coords the vertex buffer
 	 */
-	public static void glVertex4d(ByteBuffer coords) {
+	public static void glVertex4dv(ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4 << 3);
 		nglVertex4dv(memAddress(coords));
 	}
 
-	/** Alternative version of: {@link #glVertex4d(ByteBuffer) Vertex4d} */
-	public static void glVertex4(DoubleBuffer coords) {
+	/** Alternative version of: {@link #glVertex4dv Vertex4dv} */
+	public static void glVertex4dv(DoubleBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4dv(memAddress(coords));

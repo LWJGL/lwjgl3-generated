@@ -665,11 +665,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform1fvARB ] ---
 
-	/** JNI method for {@link #glUniform1fARB(int, int, ByteBuffer) Uniform1fARB} */
+	/** JNI method for {@link #glUniform1fvARB Uniform1fvARB} */
 	@JavadocExclude
 	public static native void nglUniform1fvARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1fARB(int, int, ByteBuffer) Uniform1fARB} */
+	/** Unsafe version of {@link #glUniform1fvARB Uniform1fvARB} */
 	@JavadocExclude
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fvARB;
@@ -685,24 +685,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of float values to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform1fARB(int location, int count, ByteBuffer value) {
+	public static void glUniform1fvARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1fvARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1fARB(int, int, ByteBuffer) Uniform1fARB} */
-	public static void glUniform1ARB(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform1fvARB Uniform1fvARB} */
+	public static void glUniform1fvARB(int location, FloatBuffer value) {
 		nglUniform1fvARB(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2fvARB ] ---
 
-	/** JNI method for {@link #glUniform2fARB(int, int, ByteBuffer) Uniform2fARB} */
+	/** JNI method for {@link #glUniform2fvARB Uniform2fvARB} */
 	@JavadocExclude
 	public static native void nglUniform2fvARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2fARB(int, int, ByteBuffer) Uniform2fARB} */
+	/** Unsafe version of {@link #glUniform2fvARB Uniform2fvARB} */
 	@JavadocExclude
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fvARB;
@@ -718,24 +718,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of vec2 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform2fARB(int location, int count, ByteBuffer value) {
+	public static void glUniform2fvARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2fvARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2fARB(int, int, ByteBuffer) Uniform2fARB} */
-	public static void glUniform2ARB(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform2fvARB Uniform2fvARB} */
+	public static void glUniform2fvARB(int location, FloatBuffer value) {
 		nglUniform2fvARB(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3fvARB ] ---
 
-	/** JNI method for {@link #glUniform3fARB(int, int, ByteBuffer) Uniform3fARB} */
+	/** JNI method for {@link #glUniform3fvARB Uniform3fvARB} */
 	@JavadocExclude
 	public static native void nglUniform3fvARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3fARB(int, int, ByteBuffer) Uniform3fARB} */
+	/** Unsafe version of {@link #glUniform3fvARB Uniform3fvARB} */
 	@JavadocExclude
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fvARB;
@@ -751,24 +751,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of vec3 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform3fARB(int location, int count, ByteBuffer value) {
+	public static void glUniform3fvARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3fvARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3fARB(int, int, ByteBuffer) Uniform3fARB} */
-	public static void glUniform3ARB(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform3fvARB Uniform3fvARB} */
+	public static void glUniform3fvARB(int location, FloatBuffer value) {
 		nglUniform3fvARB(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4fvARB ] ---
 
-	/** JNI method for {@link #glUniform4fARB(int, int, ByteBuffer) Uniform4fARB} */
+	/** JNI method for {@link #glUniform4fvARB Uniform4fvARB} */
 	@JavadocExclude
 	public static native void nglUniform4fvARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4fARB(int, int, ByteBuffer) Uniform4fARB} */
+	/** Unsafe version of {@link #glUniform4fvARB Uniform4fvARB} */
 	@JavadocExclude
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fvARB;
@@ -784,24 +784,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of vec4 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform4fARB(int location, int count, ByteBuffer value) {
+	public static void glUniform4fvARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4fvARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4fARB(int, int, ByteBuffer) Uniform4fARB} */
-	public static void glUniform4ARB(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform4fvARB Uniform4fvARB} */
+	public static void glUniform4fvARB(int location, FloatBuffer value) {
 		nglUniform4fvARB(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniform1ivARB ] ---
 
-	/** JNI method for {@link #glUniform1iARB(int, int, ByteBuffer) Uniform1iARB} */
+	/** JNI method for {@link #glUniform1ivARB Uniform1ivARB} */
 	@JavadocExclude
 	public static native void nglUniform1ivARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1iARB(int, int, ByteBuffer) Uniform1iARB} */
+	/** Unsafe version of {@link #glUniform1ivARB Uniform1ivARB} */
 	@JavadocExclude
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ivARB;
@@ -817,24 +817,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of integer values to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform1iARB(int location, int count, ByteBuffer value) {
+	public static void glUniform1ivARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1ivARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1iARB(int, int, ByteBuffer) Uniform1iARB} */
-	public static void glUniform1ARB(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform1ivARB Uniform1ivARB} */
+	public static void glUniform1ivARB(int location, IntBuffer value) {
 		nglUniform1ivARB(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2ivARB ] ---
 
-	/** JNI method for {@link #glUniform2iARB(int, int, ByteBuffer) Uniform2iARB} */
+	/** JNI method for {@link #glUniform2ivARB Uniform2ivARB} */
 	@JavadocExclude
 	public static native void nglUniform2ivARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2iARB(int, int, ByteBuffer) Uniform2iARB} */
+	/** Unsafe version of {@link #glUniform2ivARB Uniform2ivARB} */
 	@JavadocExclude
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ivARB;
@@ -850,24 +850,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of ivec2 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform2iARB(int location, int count, ByteBuffer value) {
+	public static void glUniform2ivARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2ivARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2iARB(int, int, ByteBuffer) Uniform2iARB} */
-	public static void glUniform2ARB(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform2ivARB Uniform2ivARB} */
+	public static void glUniform2ivARB(int location, IntBuffer value) {
 		nglUniform2ivARB(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3ivARB ] ---
 
-	/** JNI method for {@link #glUniform3iARB(int, int, ByteBuffer) Uniform3iARB} */
+	/** JNI method for {@link #glUniform3ivARB Uniform3ivARB} */
 	@JavadocExclude
 	public static native void nglUniform3ivARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3iARB(int, int, ByteBuffer) Uniform3iARB} */
+	/** Unsafe version of {@link #glUniform3ivARB Uniform3ivARB} */
 	@JavadocExclude
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ivARB;
@@ -883,24 +883,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of ivec3 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform3iARB(int location, int count, ByteBuffer value) {
+	public static void glUniform3ivARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3ivARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3iARB(int, int, ByteBuffer) Uniform3iARB} */
-	public static void glUniform3ARB(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform3ivARB Uniform3ivARB} */
+	public static void glUniform3ivARB(int location, IntBuffer value) {
 		nglUniform3ivARB(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4ivARB ] ---
 
-	/** JNI method for {@link #glUniform4iARB(int, int, ByteBuffer) Uniform4iARB} */
+	/** JNI method for {@link #glUniform4ivARB Uniform4ivARB} */
 	@JavadocExclude
 	public static native void nglUniform4ivARB(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4iARB(int, int, ByteBuffer) Uniform4iARB} */
+	/** Unsafe version of {@link #glUniform4ivARB Uniform4ivARB} */
 	@JavadocExclude
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ivARB;
@@ -916,24 +916,24 @@ public final class ARBShaderObjects {
 	 * @param count    the number of ivec4 vectors to load
 	 * @param value    the values to load
 	 */
-	public static void glUniform4iARB(int location, int count, ByteBuffer value) {
+	public static void glUniform4ivARB(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4ivARB(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4iARB(int, int, ByteBuffer) Uniform4iARB} */
-	public static void glUniform4ARB(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform4ivARB Uniform4ivARB} */
+	public static void glUniform4ivARB(int location, IntBuffer value) {
 		nglUniform4ivARB(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix2fARB(int, int, boolean, ByteBuffer) UniformMatrix2fARB} */
+	/** JNI method for {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2fARB(int, int, boolean, ByteBuffer) UniformMatrix2fARB} */
+	/** Unsafe version of {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fvARB;
@@ -950,24 +950,24 @@ public final class ARBShaderObjects {
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix2fARB(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2fvARB(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniformMatrix2fvARB(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2fARB(int, int, boolean, ByteBuffer) UniformMatrix2fARB} */
-	public static void glUniformMatrix2ARB(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
+	public static void glUniformMatrix2fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2fvARB(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix3fARB(int, int, boolean, ByteBuffer) UniformMatrix3fARB} */
+	/** JNI method for {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3fARB(int, int, boolean, ByteBuffer) UniformMatrix3fARB} */
+	/** Unsafe version of {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fvARB;
@@ -984,24 +984,24 @@ public final class ARBShaderObjects {
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix3fARB(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3fvARB(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglUniformMatrix3fvARB(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3fARB(int, int, boolean, ByteBuffer) UniformMatrix3fARB} */
-	public static void glUniformMatrix3ARB(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
+	public static void glUniformMatrix3fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3fvARB(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix4fARB(int, int, boolean, ByteBuffer) UniformMatrix4fARB} */
+	/** JNI method for {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4fARB(int, int, boolean, ByteBuffer) UniformMatrix4fARB} */
+	/** Unsafe version of {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fvARB;
@@ -1018,24 +1018,24 @@ public final class ARBShaderObjects {
 	 * @param transpose if {@link GL11#GL_FALSE FALSE}, the matrix is specified in column major order, otherwise in row major order
 	 * @param value     the matrix values to load
 	 */
-	public static void glUniformMatrix4fARB(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4fvARB(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglUniformMatrix4fvARB(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4fARB(int, int, boolean, ByteBuffer) UniformMatrix4fARB} */
-	public static void glUniformMatrix4ARB(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
+	public static void glUniformMatrix4fvARB(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4fvARB(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glGetObjectParameterfvARB ] ---
 
-	/** JNI method for {@link #glGetObjectParameterfARB(int, int, ByteBuffer) GetObjectParameterfARB} */
+	/** JNI method for {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	@JavadocExclude
 	public static native void nglGetObjectParameterfvARB(int obj, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetObjectParameterfARB(int, int, ByteBuffer) GetObjectParameterfARB} */
+	/** Unsafe version of {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	@JavadocExclude
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterfvARB;
@@ -1051,14 +1051,14 @@ public final class ARBShaderObjects {
 	 * @param pname  the parameter to query
 	 * @param params a buffer in which to return the parameter value
 	 */
-	public static void glGetObjectParameterfARB(int obj, int pname, ByteBuffer params) {
+	public static void glGetObjectParameterfvARB(int obj, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetObjectParameterfARB(int, int, ByteBuffer) GetObjectParameterfARB} */
-	public static void glGetObjectParameterARB(int obj, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
+	public static void glGetObjectParameterfvARB(int obj, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
@@ -1066,11 +1066,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetObjectParameterivARB ] ---
 
-	/** JNI method for {@link #glGetObjectParameteriARB(int, int, ByteBuffer) GetObjectParameteriARB} */
+	/** JNI method for {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	@JavadocExclude
 	public static native void nglGetObjectParameterivARB(int obj, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetObjectParameteriARB(int, int, ByteBuffer) GetObjectParameteriARB} */
+	/** Unsafe version of {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	@JavadocExclude
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterivARB;
@@ -1086,20 +1086,20 @@ public final class ARBShaderObjects {
 	 * @param pname  the parameter to query. One of:<br>{@link #GL_OBJECT_TYPE_ARB OBJECT_TYPE_ARB}, {@link #GL_OBJECT_SUBTYPE_ARB OBJECT_SUBTYPE_ARB}, {@link #GL_OBJECT_DELETE_STATUS_ARB OBJECT_DELETE_STATUS_ARB}, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, {@link #GL_OBJECT_LINK_STATUS_ARB OBJECT_LINK_STATUS_ARB}, {@link #GL_OBJECT_VALIDATE_STATUS_ARB OBJECT_VALIDATE_STATUS_ARB}, {@link #GL_OBJECT_INFO_LOG_LENGTH_ARB OBJECT_INFO_LOG_LENGTH_ARB}, {@link #GL_OBJECT_ATTACHED_OBJECTS_ARB OBJECT_ATTACHED_OBJECTS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORMS_ARB OBJECT_ACTIVE_UNIFORMS_ARB}, {@link #GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB}, {@link #GL_OBJECT_SHADER_SOURCE_LENGTH_ARB OBJECT_SHADER_SOURCE_LENGTH_ARB}
 	 * @param params a buffer in which to return the parameter value
 	 */
-	public static void glGetObjectParameteriARB(int obj, int pname, ByteBuffer params) {
+	public static void glGetObjectParameterivARB(int obj, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetObjectParameteriARB(int, int, ByteBuffer) GetObjectParameteriARB} */
-	public static void glGetObjectParameterARB(int obj, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
+	public static void glGetObjectParameterivARB(int obj, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetObjectParameteriARB(int, int, ByteBuffer) GetObjectParameteriARB} */
+	/** Single return value version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	public static int glGetObjectParameteriARB(int obj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1376,11 +1376,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetUniformfvARB ] ---
 
-	/** JNI method for {@link #glGetUniformfARB(int, int, ByteBuffer) GetUniformfARB} */
+	/** JNI method for {@link #glGetUniformfvARB GetUniformfvARB} */
 	@JavadocExclude
 	public static native void nglGetUniformfvARB(int programObj, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformfARB(int, int, ByteBuffer) GetUniformfARB} */
+	/** Unsafe version of {@link #glGetUniformfvARB GetUniformfvARB} */
 	@JavadocExclude
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfvARB;
@@ -1396,20 +1396,20 @@ public final class ARBShaderObjects {
 	 * @param location   the uniform variable location
 	 * @param params     a buffer in which to return the uniform values
 	 */
-	public static void glGetUniformfARB(int programObj, int location, ByteBuffer params) {
+	public static void glGetUniformfvARB(int programObj, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformfARB(int, int, ByteBuffer) GetUniformfARB} */
-	public static void glGetUniformARB(int programObj, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetUniformfvARB GetUniformfvARB} */
+	public static void glGetUniformfvARB(int programObj, int location, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformfARB(int, int, ByteBuffer) GetUniformfARB} */
+	/** Single return value version of: {@link #glGetUniformfvARB GetUniformfvARB} */
 	public static float glGetUniformfARB(int programObj, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1419,11 +1419,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetUniformivARB ] ---
 
-	/** JNI method for {@link #glGetUniformiARB(int, int, ByteBuffer) GetUniformiARB} */
+	/** JNI method for {@link #glGetUniformivARB GetUniformivARB} */
 	@JavadocExclude
 	public static native void nglGetUniformivARB(int programObj, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformiARB(int, int, ByteBuffer) GetUniformiARB} */
+	/** Unsafe version of {@link #glGetUniformivARB GetUniformivARB} */
 	@JavadocExclude
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformivARB;
@@ -1439,20 +1439,20 @@ public final class ARBShaderObjects {
 	 * @param location   the uniform variable location
 	 * @param params     a buffer in which to return the uniform values
 	 */
-	public static void glGetUniformiARB(int programObj, int location, ByteBuffer params) {
+	public static void glGetUniformivARB(int programObj, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformiARB(int, int, ByteBuffer) GetUniformiARB} */
-	public static void glGetUniformARB(int programObj, int location, IntBuffer params) {
+	/** Alternative version of: {@link #glGetUniformivARB GetUniformivARB} */
+	public static void glGetUniformivARB(int programObj, int location, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformiARB(int, int, ByteBuffer) GetUniformiARB} */
+	/** Single return value version of: {@link #glGetUniformivARB GetUniformivARB} */
 	public static int glGetUniformiARB(int programObj, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

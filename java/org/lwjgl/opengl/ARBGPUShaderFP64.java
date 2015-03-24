@@ -253,7 +253,7 @@ public final class ARBGPUShaderFP64 {
 
 	// --- [ glUniform1dv ] ---
 
-	/** Unsafe version of {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
+	/** Unsafe version of {@link #glUniform1dv Uniform1dv} */
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
@@ -269,20 +269,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1d(int location, int count, ByteBuffer value) {
+	public static void glUniform1dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
-	public static void glUniform1(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform1dv Uniform1dv} */
+	public static void glUniform1dv(int location, DoubleBuffer value) {
 		nglUniform1dv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2dv ] ---
 
-	/** Unsafe version of {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
+	/** Unsafe version of {@link #glUniform2dv Uniform2dv} */
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
@@ -298,20 +298,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2d(int location, int count, ByteBuffer value) {
+	public static void glUniform2dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
-	public static void glUniform2(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform2dv Uniform2dv} */
+	public static void glUniform2dv(int location, DoubleBuffer value) {
 		nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3dv ] ---
 
-	/** Unsafe version of {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
+	/** Unsafe version of {@link #glUniform3dv Uniform3dv} */
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
@@ -327,20 +327,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3d(int location, int count, ByteBuffer value) {
+	public static void glUniform3dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
-	public static void glUniform3(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform3dv Uniform3dv} */
+	public static void glUniform3dv(int location, DoubleBuffer value) {
 		nglUniform3dv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4dv ] ---
 
-	/** Unsafe version of {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
+	/** Unsafe version of {@link #glUniform4dv Uniform4dv} */
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
@@ -356,20 +356,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4d(int location, int count, ByteBuffer value) {
+	public static void glUniform4dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
-	public static void glUniform4(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform4dv Uniform4dv} */
+	public static void glUniform4dv(int location, DoubleBuffer value) {
 		nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
+	/** Unsafe version of {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
@@ -386,20 +386,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
-	public static void glUniformMatrix2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2dv UniformMatrix2dv} */
+	public static void glUniformMatrix2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
+	/** Unsafe version of {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
@@ -416,20 +416,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
-	public static void glUniformMatrix3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3dv UniformMatrix3dv} */
+	public static void glUniformMatrix3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
+	/** Unsafe version of {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
@@ -446,20 +446,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
-	public static void glUniformMatrix4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4dv UniformMatrix4dv} */
+	public static void glUniformMatrix4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
+	/** Unsafe version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
@@ -476,20 +476,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2x3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
-	public static void glUniformMatrix2x3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
+	public static void glUniformMatrix2x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
+	/** Unsafe version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
@@ -506,20 +506,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2x4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
-	public static void glUniformMatrix2x4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
+	public static void glUniformMatrix2x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
+	/** Unsafe version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
@@ -536,20 +536,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3x2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
-	public static void glUniformMatrix3x2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
+	public static void glUniformMatrix3x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
+	/** Unsafe version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
@@ -566,20 +566,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3x4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
-	public static void glUniformMatrix3x4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
+	public static void glUniformMatrix3x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
+	/** Unsafe version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
@@ -596,20 +596,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4x2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
-	public static void glUniformMatrix4x2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
+	public static void glUniformMatrix4x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3dv ] ---
 
-	/** Unsafe version of {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
+	/** Unsafe version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
@@ -626,20 +626,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4x3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
-	public static void glUniformMatrix4x3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
+	public static void glUniformMatrix4x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glGetUniformdv ] ---
 
-	/** Unsafe version of {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
+	/** Unsafe version of {@link #glGetUniformdv GetUniformdv} */
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
@@ -655,20 +655,20 @@ public final class ARBGPUShaderFP64 {
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformd(int program, int location, ByteBuffer params) {
+	public static void glGetUniformdv(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
-	public static void glGetUniform(int program, int location, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetUniformdv GetUniformdv} */
+	public static void glGetUniformdv(int program, int location, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
+	/** Single return value version of: {@link #glGetUniformdv GetUniformdv} */
 	public static double glGetUniformd(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -764,11 +764,11 @@ public final class ARBGPUShaderFP64 {
 
 	// --- [ glProgramUniform1dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform1dEXT(int, int, int, ByteBuffer) ProgramUniform1dEXT} */
+	/** JNI method for {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform1dvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1dEXT(int, int, int, ByteBuffer) ProgramUniform1dEXT} */
+	/** Unsafe version of {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform1dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dvEXT;
@@ -778,31 +778,31 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniform1d Uniform1d}.
+	 * DSA version of {@link #glUniform1dv Uniform1dv}.
 	 *
 	 * @param program  the program object to update
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1dEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1dvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1dEXT(int, int, int, ByteBuffer) ProgramUniform1dEXT} */
-	public static void glProgramUniform1EXT(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT} */
+	public static void glProgramUniform1dvEXT(int program, int location, DoubleBuffer value) {
 		nglProgramUniform1dvEXT(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform2dEXT(int, int, int, ByteBuffer) ProgramUniform2dEXT} */
+	/** JNI method for {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform2dvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2dEXT(int, int, int, ByteBuffer) ProgramUniform2dEXT} */
+	/** Unsafe version of {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform2dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dvEXT;
@@ -812,31 +812,31 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniform2d Uniform2d}.
+	 * DSA version of {@link #glUniform2dv Uniform2dv}.
 	 *
 	 * @param program  the program object to update
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2dEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2dvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2dEXT(int, int, int, ByteBuffer) ProgramUniform2dEXT} */
-	public static void glProgramUniform2EXT(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT} */
+	public static void glProgramUniform2dvEXT(int program, int location, DoubleBuffer value) {
 		nglProgramUniform2dvEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform3dEXT(int, int, int, ByteBuffer) ProgramUniform3dEXT} */
+	/** JNI method for {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform3dvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3dEXT(int, int, int, ByteBuffer) ProgramUniform3dEXT} */
+	/** Unsafe version of {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform3dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dvEXT;
@@ -846,31 +846,31 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniform3d Uniform3d}.
+	 * DSA version of {@link #glUniform3dv Uniform3dv}.
 	 *
 	 * @param program  the program object to update
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3dEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3dvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3dvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3dEXT(int, int, int, ByteBuffer) ProgramUniform3dEXT} */
-	public static void glProgramUniform3EXT(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT} */
+	public static void glProgramUniform3dvEXT(int program, int location, DoubleBuffer value) {
 		nglProgramUniform3dvEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform4dEXT(int, int, int, ByteBuffer) ProgramUniform4dEXT} */
+	/** JNI method for {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform4dvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4dEXT(int, int, int, ByteBuffer) ProgramUniform4dEXT} */
+	/** Unsafe version of {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform4dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dvEXT;
@@ -880,31 +880,31 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniform4d Uniform4d}.
+	 * DSA version of {@link #glUniform4dv Uniform4dv}.
 	 *
 	 * @param program  the program object to update
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4dEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4dvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4dEXT(int, int, int, ByteBuffer) ProgramUniform4dEXT} */
-	public static void glProgramUniform4EXT(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT} */
+	public static void glProgramUniform4dvEXT(int program, int location, DoubleBuffer value) {
 		nglProgramUniform4dvEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dvEXT;
@@ -914,7 +914,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2d UniformMatrix2d}.
+	 * DSA version of {@link #glUniformMatrix2dv UniformMatrix2dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -922,24 +922,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2dEXT} */
-	public static void glProgramUniformMatrix2EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT} */
+	public static void glProgramUniformMatrix2dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2dvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dvEXT;
@@ -949,7 +949,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3d UniformMatrix3d}.
+	 * DSA version of {@link #glUniformMatrix3dv UniformMatrix3dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -957,24 +957,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3dEXT} */
-	public static void glProgramUniformMatrix3EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT} */
+	public static void glProgramUniformMatrix3dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3dvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dvEXT;
@@ -984,7 +984,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4d UniformMatrix4d}.
+	 * DSA version of {@link #glUniformMatrix4dv UniformMatrix4dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -992,24 +992,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4dEXT} */
-	public static void glProgramUniformMatrix4EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT} */
+	public static void glProgramUniformMatrix4dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4dvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dvEXT;
@@ -1019,7 +1019,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2x3d UniformMatrix2x3d}.
+	 * DSA version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1027,24 +1027,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x3dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3dEXT} */
-	public static void glProgramUniformMatrix2x3EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT} */
+	public static void glProgramUniformMatrix2x3dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x3dvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dvEXT;
@@ -1054,7 +1054,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2x4d UniformMatrix2x4d}.
+	 * DSA version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1062,24 +1062,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x4dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4dEXT} */
-	public static void glProgramUniformMatrix2x4EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT} */
+	public static void glProgramUniformMatrix2x4dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x4dvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dvEXT;
@@ -1089,7 +1089,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3x2d UniformMatrix3x2d}.
+	 * DSA version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1097,24 +1097,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x2dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2dEXT} */
-	public static void glProgramUniformMatrix3x2EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT} */
+	public static void glProgramUniformMatrix3x2dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x2dvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dvEXT;
@@ -1124,7 +1124,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3x4d UniformMatrix3x4d}.
+	 * DSA version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1132,24 +1132,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x4dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4dEXT} */
-	public static void glProgramUniformMatrix3x4EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT} */
+	public static void glProgramUniformMatrix3x4dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x4dvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dvEXT;
@@ -1159,7 +1159,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4x2d UniformMatrix4x2d}.
+	 * DSA version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1167,24 +1167,24 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x2dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2dEXT} */
-	public static void glProgramUniformMatrix4x2EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT} */
+	public static void glProgramUniformMatrix4x2dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x2dvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3dvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3dEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3dEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dvEXT;
@@ -1194,7 +1194,7 @@ public final class ARBGPUShaderFP64 {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4x3d UniformMatrix4x3d}.
+	 * DSA version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}.
 	 *
 	 * @param program   the program object to update
 	 * @param location  the location of the uniform variable to be modified
@@ -1202,14 +1202,14 @@ public final class ARBGPUShaderFP64 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x3dEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3dEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3dEXT} */
-	public static void glProgramUniformMatrix4x3EXT(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT} */
+	public static void glProgramUniformMatrix4x3dvEXT(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x3dvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 

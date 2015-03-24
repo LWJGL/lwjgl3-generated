@@ -209,7 +209,7 @@ public final class ARBSync {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
+	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
@@ -224,20 +224,20 @@ public final class ARBSync {
 	 * @param pname  the parameter value to be returned
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64(int pname, ByteBuffer params) {
+	public static void glGetInteger64v(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
-	public static void glGetInteger64(int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
+	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
+	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -247,7 +247,7 @@ public final class ARBSync {
 
 	// --- [ glGetSynciv ] ---
 
-	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
+	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
@@ -267,7 +267,7 @@ public final class ARBSync {
 	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
-	public static void glGetSynci(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
+	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
@@ -275,14 +275,14 @@ public final class ARBSync {
 		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
-	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
+	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
+	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
+	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

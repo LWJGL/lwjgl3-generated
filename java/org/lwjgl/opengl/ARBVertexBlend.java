@@ -140,11 +140,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightfvARB ] ---
 
-	/** JNI method for {@link #glWeightfARB(int, ByteBuffer) WeightfARB} */
+	/** JNI method for {@link #glWeightfvARB WeightfvARB} */
 	@JavadocExclude
 	public static native void nglWeightfvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightfARB(int, ByteBuffer) WeightfARB} */
+	/** Unsafe version of {@link #glWeightfvARB WeightfvARB} */
 	@JavadocExclude
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightfvARB;
@@ -159,24 +159,24 @@ public final class ARBVertexBlend {
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightfARB(int size, ByteBuffer weights) {
+	public static void glWeightfvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightfvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightfARB(int, ByteBuffer) WeightfARB} */
-	public static void glWeightARB(FloatBuffer weights) {
+	/** Alternative version of: {@link #glWeightfvARB WeightfvARB} */
+	public static void glWeightfvARB(FloatBuffer weights) {
 		nglWeightfvARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightbvARB ] ---
 
-	/** JNI method for {@link #glWeightbARB(int, ByteBuffer) WeightbARB} */
+	/** JNI method for {@link #glWeightbvARB WeightbvARB} */
 	@JavadocExclude
 	public static native void nglWeightbvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightbARB(int, ByteBuffer) WeightbARB} */
+	/** Unsafe version of {@link #glWeightbvARB WeightbvARB} */
 	@JavadocExclude
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightbvARB;
@@ -186,29 +186,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Byte version of {@link #glWeightfARB WeightfARB}.
+	 * Byte version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightbARB(int size, ByteBuffer weights) {
+	public static void glWeightbvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size);
 		nglWeightbvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightbARB(int, ByteBuffer) WeightbARB} */
-	public static void glWeightbARB(ByteBuffer weights) {
+	/** Alternative version of: {@link #glWeightbvARB WeightbvARB} */
+	public static void glWeightbvARB(ByteBuffer weights) {
 		nglWeightbvARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightubvARB ] ---
 
-	/** JNI method for {@link #glWeightubARB(int, ByteBuffer) WeightubARB} */
+	/** JNI method for {@link #glWeightubvARB WeightubvARB} */
 	@JavadocExclude
 	public static native void nglWeightubvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightubARB(int, ByteBuffer) WeightubARB} */
+	/** Unsafe version of {@link #glWeightubvARB WeightubvARB} */
 	@JavadocExclude
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightubvARB;
@@ -218,29 +218,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned byte version of {@link #glWeightfARB WeightfARB}.
+	 * Unsigned byte version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightubARB(int size, ByteBuffer weights) {
+	public static void glWeightubvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size);
 		nglWeightubvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightubARB(int, ByteBuffer) WeightubARB} */
-	public static void glWeightubARB(ByteBuffer weights) {
+	/** Alternative version of: {@link #glWeightubvARB WeightubvARB} */
+	public static void glWeightubvARB(ByteBuffer weights) {
 		nglWeightubvARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightsvARB ] ---
 
-	/** JNI method for {@link #glWeightsARB(int, ByteBuffer) WeightsARB} */
+	/** JNI method for {@link #glWeightsvARB WeightsvARB} */
 	@JavadocExclude
 	public static native void nglWeightsvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightsARB(int, ByteBuffer) WeightsARB} */
+	/** Unsafe version of {@link #glWeightsvARB WeightsvARB} */
 	@JavadocExclude
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightsvARB;
@@ -250,29 +250,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Short version of {@link #glWeightfARB WeightfARB}.
+	 * Short version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightsARB(int size, ByteBuffer weights) {
+	public static void glWeightsvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 1);
 		nglWeightsvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightsARB(int, ByteBuffer) WeightsARB} */
-	public static void glWeightARB(ShortBuffer weights) {
+	/** Alternative version of: {@link #glWeightsvARB WeightsvARB} */
+	public static void glWeightsvARB(ShortBuffer weights) {
 		nglWeightsvARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightusvARB ] ---
 
-	/** JNI method for {@link #glWeightusARB(int, ByteBuffer) WeightusARB} */
+	/** JNI method for {@link #glWeightusvARB WeightusvARB} */
 	@JavadocExclude
 	public static native void nglWeightusvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightusARB(int, ByteBuffer) WeightusARB} */
+	/** Unsafe version of {@link #glWeightusvARB WeightusvARB} */
 	@JavadocExclude
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightusvARB;
@@ -282,29 +282,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned short version of {@link #glWeightfARB WeightfARB}.
+	 * Unsigned short version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightusARB(int size, ByteBuffer weights) {
+	public static void glWeightusvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 1);
 		nglWeightusvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightusARB(int, ByteBuffer) WeightusARB} */
-	public static void glWeightuARB(ShortBuffer weights) {
+	/** Alternative version of: {@link #glWeightusvARB WeightusvARB} */
+	public static void glWeightusvARB(ShortBuffer weights) {
 		nglWeightusvARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightivARB ] ---
 
-	/** JNI method for {@link #glWeightiARB(int, ByteBuffer) WeightiARB} */
+	/** JNI method for {@link #glWeightivARB WeightivARB} */
 	@JavadocExclude
 	public static native void nglWeightivARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightiARB(int, ByteBuffer) WeightiARB} */
+	/** Unsafe version of {@link #glWeightivARB WeightivARB} */
 	@JavadocExclude
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightivARB;
@@ -314,29 +314,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Integer version of {@link #glWeightfARB WeightfARB}.
+	 * Integer version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightiARB(int size, ByteBuffer weights) {
+	public static void glWeightivARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightivARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightiARB(int, ByteBuffer) WeightiARB} */
-	public static void glWeightARB(IntBuffer weights) {
+	/** Alternative version of: {@link #glWeightivARB WeightivARB} */
+	public static void glWeightivARB(IntBuffer weights) {
 		nglWeightivARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightuivARB ] ---
 
-	/** JNI method for {@link #glWeightuiARB(int, ByteBuffer) WeightuiARB} */
+	/** JNI method for {@link #glWeightuivARB WeightuivARB} */
 	@JavadocExclude
 	public static native void nglWeightuivARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightuiARB(int, ByteBuffer) WeightuiARB} */
+	/** Unsafe version of {@link #glWeightuivARB WeightuivARB} */
 	@JavadocExclude
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightuivARB;
@@ -346,29 +346,29 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Unsigned integer version of {@link #glWeightfARB WeightfARB}.
+	 * Unsigned integer version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightuiARB(int size, ByteBuffer weights) {
+	public static void glWeightuivARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightuivARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightuiARB(int, ByteBuffer) WeightuiARB} */
-	public static void glWeightuARB(IntBuffer weights) {
+	/** Alternative version of: {@link #glWeightuivARB WeightuivARB} */
+	public static void glWeightuivARB(IntBuffer weights) {
 		nglWeightuivARB(weights.remaining(), memAddress(weights));
 	}
 
 	// --- [ glWeightdvARB ] ---
 
-	/** JNI method for {@link #glWeightdARB(int, ByteBuffer) WeightdARB} */
+	/** JNI method for {@link #glWeightdvARB WeightdvARB} */
 	@JavadocExclude
 	public static native void nglWeightdvARB(int size, long weights, long __functionAddress);
 
-	/** Unsafe version of {@link #glWeightdARB(int, ByteBuffer) WeightdARB} */
+	/** Unsafe version of {@link #glWeightdvARB WeightdvARB} */
 	@JavadocExclude
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightdvARB;
@@ -378,19 +378,19 @@ public final class ARBVertexBlend {
 	}
 
 	/**
-	 * Double version of {@link #glWeightfARB WeightfARB}.
+	 * Double version of {@link #glWeightfvARB WeightfvARB}.
 	 *
 	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 * @param weights the vertex weights
 	 */
-	public static void glWeightdARB(int size, ByteBuffer weights) {
+	public static void glWeightdvARB(int size, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(weights, size << 3);
 		nglWeightdvARB(size, memAddress(weights));
 	}
 
-	/** Alternative version of: {@link #glWeightdARB(int, ByteBuffer) WeightdARB} */
-	public static void glWeightARB(DoubleBuffer weights) {
+	/** Alternative version of: {@link #glWeightdvARB WeightdvARB} */
+	public static void glWeightdvARB(DoubleBuffer weights) {
 		nglWeightdvARB(weights.remaining(), memAddress(weights));
 	}
 

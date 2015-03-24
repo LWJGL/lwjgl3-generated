@@ -474,11 +474,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib1fvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib1fARB(int, ByteBuffer) VertexAttrib1fARB} */
+	/** JNI method for {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1fvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1fARB(int, ByteBuffer) VertexAttrib1fARB} */
+	/** Unsafe version of {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fvARB;
@@ -493,14 +493,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1fARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib1fvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttrib1fvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1fARB(int, ByteBuffer) VertexAttrib1fARB} */
-	public static void glVertexAttrib1ARB(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
+	public static void glVertexAttrib1fvARB(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1fvARB(index, memAddress(v));
@@ -508,11 +508,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib1svARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib1sARB(int, ByteBuffer) VertexAttrib1sARB} */
+	/** JNI method for {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1svARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1sARB(int, ByteBuffer) VertexAttrib1sARB} */
+	/** Unsafe version of {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1svARB;
@@ -527,14 +527,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1sARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib1svARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglVertexAttrib1svARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1sARB(int, ByteBuffer) VertexAttrib1sARB} */
-	public static void glVertexAttrib1ARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
+	public static void glVertexAttrib1svARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1svARB(index, memAddress(v));
@@ -542,11 +542,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib1dvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib1dARB(int, ByteBuffer) VertexAttrib1dARB} */
+	/** JNI method for {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1dvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1dARB(int, ByteBuffer) VertexAttrib1dARB} */
+	/** Unsafe version of {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dvARB;
@@ -561,14 +561,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1dARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib1dvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttrib1dvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1dARB(int, ByteBuffer) VertexAttrib1dARB} */
-	public static void glVertexAttrib1ARB(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
+	public static void glVertexAttrib1dvARB(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1dvARB(index, memAddress(v));
@@ -576,11 +576,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib2fvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib2fARB(int, ByteBuffer) VertexAttrib2fARB} */
+	/** JNI method for {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2fvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2fARB(int, ByteBuffer) VertexAttrib2fARB} */
+	/** Unsafe version of {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fvARB;
@@ -595,14 +595,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2fARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib2fvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttrib2fvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2fARB(int, ByteBuffer) VertexAttrib2fARB} */
-	public static void glVertexAttrib2ARB(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
+	public static void glVertexAttrib2fvARB(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2fvARB(index, memAddress(v));
@@ -610,11 +610,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib2svARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib2sARB(int, ByteBuffer) VertexAttrib2sARB} */
+	/** JNI method for {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2svARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2sARB(int, ByteBuffer) VertexAttrib2sARB} */
+	/** Unsafe version of {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2svARB;
@@ -629,14 +629,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2sARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib2svARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglVertexAttrib2svARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2sARB(int, ByteBuffer) VertexAttrib2sARB} */
-	public static void glVertexAttrib2ARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
+	public static void glVertexAttrib2svARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2svARB(index, memAddress(v));
@@ -644,11 +644,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib2dvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib2dARB(int, ByteBuffer) VertexAttrib2dARB} */
+	/** JNI method for {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2dvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2dARB(int, ByteBuffer) VertexAttrib2dARB} */
+	/** Unsafe version of {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dvARB;
@@ -663,14 +663,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2dARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib2dvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttrib2dvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2dARB(int, ByteBuffer) VertexAttrib2dARB} */
-	public static void glVertexAttrib2ARB(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
+	public static void glVertexAttrib2dvARB(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2dvARB(index, memAddress(v));
@@ -678,11 +678,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib3fvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib3fARB(int, ByteBuffer) VertexAttrib3fARB} */
+	/** JNI method for {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3fvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3fARB(int, ByteBuffer) VertexAttrib3fARB} */
+	/** Unsafe version of {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fvARB;
@@ -697,14 +697,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3fARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib3fvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttrib3fvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3fARB(int, ByteBuffer) VertexAttrib3fARB} */
-	public static void glVertexAttrib3ARB(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
+	public static void glVertexAttrib3fvARB(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3fvARB(index, memAddress(v));
@@ -712,11 +712,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib3svARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib3sARB(int, ByteBuffer) VertexAttrib3sARB} */
+	/** JNI method for {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3svARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3sARB(int, ByteBuffer) VertexAttrib3sARB} */
+	/** Unsafe version of {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3svARB;
@@ -731,14 +731,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3sARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib3svARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglVertexAttrib3svARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3sARB(int, ByteBuffer) VertexAttrib3sARB} */
-	public static void glVertexAttrib3ARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
+	public static void glVertexAttrib3svARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3svARB(index, memAddress(v));
@@ -746,11 +746,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib3dvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib3dARB(int, ByteBuffer) VertexAttrib3dARB} */
+	/** JNI method for {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3dvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3dARB(int, ByteBuffer) VertexAttrib3dARB} */
+	/** Unsafe version of {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dvARB;
@@ -765,14 +765,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3dARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib3dvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttrib3dvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3dARB(int, ByteBuffer) VertexAttrib3dARB} */
-	public static void glVertexAttrib3ARB(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
+	public static void glVertexAttrib3dvARB(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3dvARB(index, memAddress(v));
@@ -780,11 +780,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4fvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
+	/** JNI method for {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4fvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
+	/** Unsafe version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fvARB;
@@ -799,14 +799,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4fARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4fvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4fvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4fARB(int, ByteBuffer) VertexAttrib4fARB} */
-	public static void glVertexAttrib4ARB(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
+	public static void glVertexAttrib4fvARB(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4fvARB(index, memAddress(v));
@@ -814,11 +814,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4svARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4sARB(int, ByteBuffer) VertexAttrib4sARB} */
+	/** JNI method for {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4svARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4sARB(int, ByteBuffer) VertexAttrib4sARB} */
+	/** Unsafe version of {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4svARB;
@@ -833,14 +833,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4sARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4svARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4svARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4sARB(int, ByteBuffer) VertexAttrib4sARB} */
-	public static void glVertexAttrib4ARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
+	public static void glVertexAttrib4svARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4svARB(index, memAddress(v));
@@ -848,11 +848,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4dvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4dARB(int, ByteBuffer) VertexAttrib4dARB} */
+	/** JNI method for {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4dvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4dARB(int, ByteBuffer) VertexAttrib4dARB} */
+	/** Unsafe version of {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dvARB;
@@ -867,14 +867,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4dARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4dvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttrib4dvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4dARB(int, ByteBuffer) VertexAttrib4dARB} */
-	public static void glVertexAttrib4ARB(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
+	public static void glVertexAttrib4dvARB(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4dvARB(index, memAddress(v));
@@ -882,11 +882,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4ivARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4iARB(int, ByteBuffer) VertexAttrib4iARB} */
+	/** JNI method for {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4ivARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4iARB(int, ByteBuffer) VertexAttrib4iARB} */
+	/** Unsafe version of {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ivARB;
@@ -901,14 +901,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4iARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4ivARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4ivARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4iARB(int, ByteBuffer) VertexAttrib4iARB} */
-	public static void glVertexAttrib4ARB(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
+	public static void glVertexAttrib4ivARB(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ivARB(index, memAddress(v));
@@ -916,11 +916,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4bvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4bARB(int, ByteBuffer) VertexAttrib4bARB} */
+	/** JNI method for {@link #glVertexAttrib4bvARB VertexAttrib4bvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4bvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4bARB(int, ByteBuffer) VertexAttrib4bARB} */
+	/** Unsafe version of {@link #glVertexAttrib4bvARB VertexAttrib4bvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bvARB;
@@ -935,7 +935,7 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4bARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4bvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4bvARB(index, memAddress(v));
@@ -943,11 +943,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4ubvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4ubARB(int, ByteBuffer) VertexAttrib4ubARB} */
+	/** JNI method for {@link #glVertexAttrib4ubvARB VertexAttrib4ubvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4ubvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4ubARB(int, ByteBuffer) VertexAttrib4ubARB} */
+	/** Unsafe version of {@link #glVertexAttrib4ubvARB VertexAttrib4ubvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubvARB;
@@ -962,7 +962,7 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4ubARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4ubvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ubvARB(index, memAddress(v));
@@ -970,11 +970,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4usvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4usARB(int, ByteBuffer) VertexAttrib4usARB} */
+	/** JNI method for {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4usvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4usARB(int, ByteBuffer) VertexAttrib4usARB} */
+	/** Unsafe version of {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usvARB;
@@ -989,14 +989,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4usARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4usvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4usvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4usARB(int, ByteBuffer) VertexAttrib4usARB} */
-	public static void glVertexAttrib4uARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
+	public static void glVertexAttrib4usvARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4usvARB(index, memAddress(v));
@@ -1004,11 +1004,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4uivARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4uiARB(int, ByteBuffer) VertexAttrib4uiARB} */
+	/** JNI method for {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4uivARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4uiARB(int, ByteBuffer) VertexAttrib4uiARB} */
+	/** Unsafe version of {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uivARB;
@@ -1023,14 +1023,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4uiARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4uivARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4uivARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4uiARB(int, ByteBuffer) VertexAttrib4uiARB} */
-	public static void glVertexAttrib4uARB(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
+	public static void glVertexAttrib4uivARB(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4uivARB(index, memAddress(v));
@@ -1038,11 +1038,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NbvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NbARB(int, ByteBuffer) VertexAttrib4NbARB} */
+	/** JNI method for {@link #glVertexAttrib4NbvARB VertexAttrib4NbvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NbvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NbARB(int, ByteBuffer) VertexAttrib4NbARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NbvARB VertexAttrib4NbvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NbvARB;
@@ -1057,7 +1057,7 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NbARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NbvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NbvARB(index, memAddress(v));
@@ -1065,11 +1065,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NsvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NsARB(int, ByteBuffer) VertexAttrib4NsARB} */
+	/** JNI method for {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NsvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NsARB(int, ByteBuffer) VertexAttrib4NsARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NsvARB;
@@ -1084,14 +1084,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NsARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NsvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4NsvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4NsARB(int, ByteBuffer) VertexAttrib4NsARB} */
-	public static void glVertexAttrib4NARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
+	public static void glVertexAttrib4NsvARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NsvARB(index, memAddress(v));
@@ -1099,11 +1099,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NivARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NiARB(int, ByteBuffer) VertexAttrib4NiARB} */
+	/** JNI method for {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NivARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NiARB(int, ByteBuffer) VertexAttrib4NiARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NivARB;
@@ -1118,14 +1118,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NiARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NivARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4NivARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4NiARB(int, ByteBuffer) VertexAttrib4NiARB} */
-	public static void glVertexAttrib4NARB(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
+	public static void glVertexAttrib4NivARB(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NivARB(index, memAddress(v));
@@ -1133,11 +1133,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NubvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NubARB(int, ByteBuffer) VertexAttrib4NubARB} */
+	/** JNI method for {@link #glVertexAttrib4NubvARB VertexAttrib4NubvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NubvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NubARB(int, ByteBuffer) VertexAttrib4NubARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NubvARB VertexAttrib4NubvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NubvARB;
@@ -1152,7 +1152,7 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NubARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NubvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NubvARB(index, memAddress(v));
@@ -1160,11 +1160,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NusvARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NusARB(int, ByteBuffer) VertexAttrib4NusARB} */
+	/** JNI method for {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NusvARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NusARB(int, ByteBuffer) VertexAttrib4NusARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NusvARB;
@@ -1179,14 +1179,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NusARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NusvARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4NusvARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4NusARB(int, ByteBuffer) VertexAttrib4NusARB} */
-	public static void glVertexAttrib4NuARB(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
+	public static void glVertexAttrib4NusvARB(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NusvARB(index, memAddress(v));
@@ -1194,11 +1194,11 @@ public final class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NuivARB ] ---
 
-	/** JNI method for {@link #glVertexAttrib4NuiARB(int, ByteBuffer) VertexAttrib4NuiARB} */
+	/** JNI method for {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4NuivARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4NuiARB(int, ByteBuffer) VertexAttrib4NuiARB} */
+	/** Unsafe version of {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	@JavadocExclude
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NuivARB;
@@ -1213,14 +1213,14 @@ public final class ARBVertexShader {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4NuiARB(int index, ByteBuffer v) {
+	public static void glVertexAttrib4NuivARB(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4NuivARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4NuiARB(int, ByteBuffer) VertexAttrib4NuiARB} */
-	public static void glVertexAttrib4NuARB(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
+	public static void glVertexAttrib4NuivARB(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NuivARB(index, memAddress(v));
@@ -1464,11 +1464,11 @@ public final class ARBVertexShader {
 
 	// --- [ glGetVertexAttribivARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB} */
+	/** JNI method for {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribivARB(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB} */
+	/** Unsafe version of {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribivARB;
@@ -1484,20 +1484,20 @@ public final class ARBVertexShader {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}, {@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribiARB(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribivARB(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetVertexAttribivARB(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB} */
-	public static void glGetVertexAttribARB(int index, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
+	public static void glGetVertexAttribivARB(int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribivARB(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribiARB(int, int, ByteBuffer) GetVertexAttribiARB} */
+	/** Single return value version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	public static int glGetVertexAttribiARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1507,11 +1507,11 @@ public final class ARBVertexShader {
 
 	// --- [ glGetVertexAttribfvARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB} */
+	/** JNI method for {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribfvARB(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB} */
+	/** Unsafe version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfvARB;
@@ -1521,20 +1521,20 @@ public final class ARBVertexShader {
 	}
 
 	/**
-	 * Float version of {@link #glGetVertexAttribiARB GetVertexAttribiARB}.
+	 * Float version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribfARB(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribfvARB(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribfARB(int, int, ByteBuffer) GetVertexAttribfARB} */
-	public static void glGetVertexAttribARB(int index, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
+	public static void glGetVertexAttribfvARB(int index, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
@@ -1542,11 +1542,11 @@ public final class ARBVertexShader {
 
 	// --- [ glGetVertexAttribdvARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
+	/** JNI method for {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribdvARB(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
+	/** Unsafe version of {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdvARB;
@@ -1556,20 +1556,20 @@ public final class ARBVertexShader {
 	}
 
 	/**
-	 * Double version of {@link #glGetVertexAttribiARB GetVertexAttribiARB}.
+	 * Double version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribdARB(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribdvARB(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglGetVertexAttribdvARB(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribdARB(int, int, ByteBuffer) GetVertexAttribdARB} */
-	public static void glGetVertexAttribARB(int index, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
+	public static void glGetVertexAttribdvARB(int index, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribdvARB(index, pname, memAddress(params));
@@ -1577,11 +1577,11 @@ public final class ARBVertexShader {
 
 	// --- [ glGetVertexAttribPointervARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribPointerARB(int, int, ByteBuffer) GetVertexAttribPointerARB} */
+	/** JNI method for {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribPointervARB(int index, int pname, long pointer, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribPointerARB(int, int, ByteBuffer) GetVertexAttribPointerARB} */
+	/** Unsafe version of {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointervARB;
@@ -1597,20 +1597,20 @@ public final class ARBVertexShader {
 	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}
 	 * @param pointer the pointer value
 	 */
-	public static void glGetVertexAttribPointerARB(int index, int pname, ByteBuffer pointer) {
+	public static void glGetVertexAttribPointervARB(int index, int pname, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pointer, 1 << POINTER_SHIFT);
 		nglGetVertexAttribPointervARB(index, pname, memAddress(pointer));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribPointerARB(int, int, ByteBuffer) GetVertexAttribPointerARB} */
-	public static void glGetVertexAttribPointerARB(int index, int pname, PointerBuffer pointer) {
+	/** Alternative version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
+	public static void glGetVertexAttribPointervARB(int index, int pname, PointerBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pointer, 1);
 		nglGetVertexAttribPointervARB(index, pname, memAddress(pointer));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribPointerARB(int, int, ByteBuffer) GetVertexAttribPointerARB} */
+	/** Single return value version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	public static long glGetVertexAttribPointerARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int pointer = __buffer.pointerParam();

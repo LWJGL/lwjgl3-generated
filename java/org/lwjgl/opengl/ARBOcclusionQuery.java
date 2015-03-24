@@ -248,11 +248,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGetQueryivARB ] ---
 
-	/** JNI method for {@link #glGetQueryiARB(int, int, ByteBuffer) GetQueryiARB} */
+	/** JNI method for {@link #glGetQueryivARB GetQueryivARB} */
 	@JavadocExclude
 	public static native void nglGetQueryivARB(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryiARB(int, int, ByteBuffer) GetQueryiARB} */
+	/** Unsafe version of {@link #glGetQueryivARB GetQueryivARB} */
 	@JavadocExclude
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivARB;
@@ -268,20 +268,20 @@ public final class ARBOcclusionQuery {
 	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}, {@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryiARB(int target, int pname, ByteBuffer params) {
+	public static void glGetQueryivARB(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryivARB(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryiARB(int, int, ByteBuffer) GetQueryiARB} */
-	public static void glGetQueryARB(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryivARB GetQueryivARB} */
+	public static void glGetQueryivARB(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivARB(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryiARB(int, int, ByteBuffer) GetQueryiARB} */
+	/** Single return value version of: {@link #glGetQueryivARB GetQueryivARB} */
 	public static int glGetQueryiARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -291,11 +291,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectivARB ] ---
 
-	/** JNI method for {@link #glGetQueryObjectiARB(int, int, ByteBuffer) GetQueryObjectiARB} */
+	/** JNI method for {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectivARB(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjectiARB(int, int, ByteBuffer) GetQueryObjectiARB} */
+	/** Unsafe version of {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	@JavadocExclude
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivARB;
@@ -311,20 +311,20 @@ public final class ARBOcclusionQuery {
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectiARB(int id, int pname, ByteBuffer params) {
+	public static void glGetQueryObjectivARB(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectivARB(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjectiARB(int, int, ByteBuffer) GetQueryObjectiARB} */
-	public static void glGetQueryObjectARB(int id, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
+	public static void glGetQueryObjectivARB(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectivARB(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectiARB(int, int, ByteBuffer) GetQueryObjectiARB} */
+	/** Single return value version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	public static int glGetQueryObjectiARB(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -334,11 +334,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectuivARB ] ---
 
-	/** JNI method for {@link #glGetQueryObjectuiARB(int, int, ByteBuffer) GetQueryObjectuiARB} */
+	/** JNI method for {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectuivARB(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjectuiARB(int, int, ByteBuffer) GetQueryObjectuiARB} */
+	/** Unsafe version of {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivARB;
@@ -348,26 +348,26 @@ public final class ARBOcclusionQuery {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetQueryObjecti GetQueryObjecti}.
+	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectuiARB(int id, int pname, ByteBuffer params) {
+	public static void glGetQueryObjectuivARB(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuivARB(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjectuiARB(int, int, ByteBuffer) GetQueryObjectuiARB} */
-	public static void glGetQueryObjectuARB(int id, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
+	public static void glGetQueryObjectuivARB(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivARB(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectuiARB(int, int, ByteBuffer) GetQueryObjectuiARB} */
+	/** Single return value version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	public static int glGetQueryObjectuiARB(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

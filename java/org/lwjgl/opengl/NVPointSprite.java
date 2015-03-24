@@ -103,11 +103,11 @@ public final class NVPointSprite {
 
 	// --- [ glPointParameterivNV ] ---
 
-	/** JNI method for {@link #glPointParameteriNV(int, ByteBuffer) PointParameteriNV} */
+	/** JNI method for {@link #glPointParameterivNV PointParameterivNV} */
 	@JavadocExclude
 	public static native void nglPointParameterivNV(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glPointParameteriNV(int, ByteBuffer) PointParameteriNV} */
+	/** Unsafe version of {@link #glPointParameterivNV PointParameterivNV} */
 	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
@@ -122,14 +122,14 @@ public final class NVPointSprite {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glPointParameteriNV(int pname, ByteBuffer params) {
+	public static void glPointParameterivNV(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglPointParameterivNV(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glPointParameteriNV(int, ByteBuffer) PointParameteriNV} */
-	public static void glPointParameterNV(int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glPointParameterivNV PointParameterivNV} */
+	public static void glPointParameterivNV(int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglPointParameterivNV(pname, memAddress(params));

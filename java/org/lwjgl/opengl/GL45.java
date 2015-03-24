@@ -469,11 +469,11 @@ public final class GL45 {
 
 	// --- [ glGetTransformFeedbackiv ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** JNI method for {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	@JavadocExclude
 	public static native void nglGetTransformFeedbackiv(int xfb, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** Unsafe version of {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	@JavadocExclude
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbackiv;
@@ -491,20 +491,20 @@ public final class GL45 {
 	 * @param pname the parameter to query. One of:<br>{@link GL42#GL_TRANSFORM_FEEDBACK_PAUSED TRANSFORM_FEEDBACK_PAUSED}, {@link GL42#GL_TRANSFORM_FEEDBACK_ACTIVE TRANSFORM_FEEDBACK_ACTIVE}
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbacki(int xfb, int pname, ByteBuffer param) {
+	public static void glGetTransformFeedbackiv(int xfb, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
-	public static void glGetTransformFeedback(int xfb, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
+	public static void glGetTransformFeedbackiv(int xfb, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbacki(int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** Single return value version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static int glGetTransformFeedbacki(int xfb, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -514,11 +514,11 @@ public final class GL45 {
 
 	// --- [ glGetTransformFeedbacki_v ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** JNI method for {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	@JavadocExclude
 	public static native void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** Unsafe version of {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki_v;
@@ -537,20 +537,20 @@ public final class GL45 {
 	 * @param index the transform feedback stream index
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbacki(int xfb, int pname, int index, ByteBuffer param) {
+	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
-	public static void glGetTransformFeedback(int xfb, int pname, int index, IntBuffer param) {
+	/** Alternative version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
+	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbacki(int, int, int, ByteBuffer) GetTransformFeedbacki} */
+	/** Single return value version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static int glGetTransformFeedbacki(int xfb, int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -560,11 +560,11 @@ public final class GL45 {
 
 	// --- [ glGetTransformFeedbacki64_v ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
+	/** JNI method for {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	@JavadocExclude
 	public static native void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
+	/** Unsafe version of {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
@@ -583,20 +583,20 @@ public final class GL45 {
 	 * @param index the transform feedback stream index
 	 * @param param the buffer in which to return the parameter value
 	 */
-	public static void glGetTransformFeedbacki64(int xfb, int pname, int index, ByteBuffer param) {
+	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
-	public static void glGetTransformFeedback(int xfb, int pname, int index, LongBuffer param) {
+	/** Alternative version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
+	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, LongBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetTransformFeedbacki64(int, int, int, ByteBuffer) GetTransformFeedbacki64} */
+	/** Single return value version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static long glGetTransformFeedbacki64(int xfb, int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.longParam();
@@ -1101,11 +1101,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedBufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetNamedBufferParameteri(int, int, ByteBuffer) GetNamedBufferParameteri} */
+	/** JNI method for {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	@JavadocExclude
 	public static native void nglGetNamedBufferParameteriv(int buffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedBufferParameteri(int, int, ByteBuffer) GetNamedBufferParameteri} */
+	/** Unsafe version of {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteriv;
@@ -1117,26 +1117,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL15#glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri}.
+	 * DSA version of {@link GL15#glGetBufferParameteriv GetBufferParameteriv}.
 	 *
 	 * @param buffer the buffer object name
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetNamedBufferParameteri(int buffer, int pname, ByteBuffer params) {
+	public static void glGetNamedBufferParameteriv(int buffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedBufferParameteri(int, int, ByteBuffer) GetNamedBufferParameteri} */
-	public static void glGetNamedBufferParameter(int buffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
+	public static void glGetNamedBufferParameteriv(int buffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameteri(int, int, ByteBuffer) GetNamedBufferParameteri} */
+	/** Single return value version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static int glGetNamedBufferParameteri(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1146,11 +1146,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedBufferParameteri64v ] ---
 
-	/** JNI method for {@link #glGetNamedBufferParameteri64(int, int, ByteBuffer) GetNamedBufferParameteri64} */
+	/** JNI method for {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	@JavadocExclude
 	public static native void nglGetNamedBufferParameteri64v(int buffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedBufferParameteri64(int, int, ByteBuffer) GetNamedBufferParameteri64} */
+	/** Unsafe version of {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
@@ -1162,26 +1162,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL32#glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64}.
+	 * DSA version of {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}.
 	 *
 	 * @param buffer the buffer object name
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetNamedBufferParameteri64(int buffer, int pname, ByteBuffer params) {
+	public static void glGetNamedBufferParameteri64v(int buffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedBufferParameteri64(int, int, ByteBuffer) GetNamedBufferParameteri64} */
-	public static void glGetNamedBufferParameter(int buffer, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
+	public static void glGetNamedBufferParameteri64v(int buffer, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameteri64(int, int, ByteBuffer) GetNamedBufferParameteri64} */
+	/** Single return value version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static long glGetNamedBufferParameteri64(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -1191,11 +1191,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedBufferPointerv ] ---
 
-	/** JNI method for {@link #glGetNamedBufferPointer(int, int, ByteBuffer) GetNamedBufferPointer} */
+	/** JNI method for {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	@JavadocExclude
 	public static native void nglGetNamedBufferPointerv(int buffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedBufferPointer(int, int, ByteBuffer) GetNamedBufferPointer} */
+	/** Unsafe version of {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	@JavadocExclude
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferPointerv;
@@ -1207,26 +1207,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferPointer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL15#glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer}.
+	 * DSA version of {@link GL15#glGetBufferPointerv GetBufferPointerv}.
 	 *
 	 * @param buffer the buffer object name
 	 * @param pname  the pointer to be returned. Must be:<br>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
-	public static void glGetNamedBufferPointer(int buffer, int pname, ByteBuffer params) {
+	public static void glGetNamedBufferPointerv(int buffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedBufferPointer(int, int, ByteBuffer) GetNamedBufferPointer} */
-	public static void glGetNamedBufferPointer(int buffer, int pname, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
+	public static void glGetNamedBufferPointerv(int buffer, int pname, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferPointer(int, int, ByteBuffer) GetNamedBufferPointer} */
+	/** Single return value version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static long glGetNamedBufferPointer(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -1598,11 +1598,11 @@ public final class GL45 {
 
 	// --- [ glClearNamedFramebufferiv ] ---
 
-	/** JNI method for {@link #glClearNamedFramebufferi(int, int, int, ByteBuffer) ClearNamedFramebufferi} */
+	/** JNI method for {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	@JavadocExclude
 	public static native void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glClearNamedFramebufferi(int, int, int, ByteBuffer) ClearNamedFramebufferi} */
+	/** Unsafe version of {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	@JavadocExclude
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferiv;
@@ -1614,7 +1614,7 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glClearBufferi(int, int, ByteBuffer) ClearBufferi}.
+	 * DSA version of {@link GL30#glClearBufferiv ClearBufferiv}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param buffer      the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_STENCIL STENCIL}
@@ -1622,14 +1622,14 @@ public final class GL45 {
 	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For stencil buffers, a pointer to a
 	 *                    single stencil value to clear the buffer to.
 	 */
-	public static void glClearNamedFramebufferi(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
+	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glClearNamedFramebufferi(int, int, int, ByteBuffer) ClearNamedFramebufferi} */
-	public static void glClearNamedFramebuffer(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
+	/** Alternative version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
+	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
@@ -1637,11 +1637,11 @@ public final class GL45 {
 
 	// --- [ glClearNamedFramebufferuiv ] ---
 
-	/** JNI method for {@link #glClearNamedFramebufferui(int, int, int, ByteBuffer) ClearNamedFramebufferui} */
+	/** JNI method for {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	@JavadocExclude
 	public static native void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glClearNamedFramebufferui(int, int, int, ByteBuffer) ClearNamedFramebufferui} */
+	/** Unsafe version of {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	@JavadocExclude
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
@@ -1653,21 +1653,21 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glClearBufferui(int, int, ByteBuffer) ClearBufferui}.
+	 * DSA version of {@link GL30#glClearBufferuiv ClearBufferuiv}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param buffer      the buffer to clear. Must be:<br>{@link GL11#GL_COLOR COLOR}
 	 * @param drawbuffer  the draw buffer to clear
 	 * @param value       a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
-	public static void glClearNamedFramebufferui(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
+	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 4 << 2);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glClearNamedFramebufferui(int, int, int, ByteBuffer) ClearNamedFramebufferui} */
-	public static void glClearNamedFramebufferu(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
+	/** Alternative version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
+	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 4);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
@@ -1675,11 +1675,11 @@ public final class GL45 {
 
 	// --- [ glClearNamedFramebufferfv ] ---
 
-	/** JNI method for {@link #glClearNamedFramebufferf(int, int, int, ByteBuffer) ClearNamedFramebufferf} */
+	/** JNI method for {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	@JavadocExclude
 	public static native void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glClearNamedFramebufferf(int, int, int, ByteBuffer) ClearNamedFramebufferf} */
+	/** Unsafe version of {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	@JavadocExclude
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfv;
@@ -1691,7 +1691,7 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glClearBufferf(int, int, ByteBuffer) ClearBufferf}.
+	 * DSA version of {@link GL30#glClearBufferfv ClearBufferfv}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param buffer      the buffer to clear. One of:<br>{@link GL11#GL_COLOR COLOR}, {@link GL11#GL_DEPTH DEPTH}
@@ -1699,14 +1699,14 @@ public final class GL45 {
 	 * @param value       for color buffers, a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to. For depth buffers, a pointer to a
 	 *                    single depth value to clear the buffer to.
 	 */
-	public static void glClearNamedFramebufferf(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
+	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glClearNamedFramebufferf(int, int, int, ByteBuffer) ClearNamedFramebufferf} */
-	public static void glClearNamedFramebuffer(int framebuffer, int buffer, int drawbuffer, FloatBuffer value) {
+	/** Alternative version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
+	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, FloatBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
@@ -1789,11 +1789,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetNamedFramebufferParameteri(int, int, ByteBuffer) GetNamedFramebufferParameteri} */
+	/** JNI method for {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	@JavadocExclude
 	public static native void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedFramebufferParameteri(int, int, ByteBuffer) GetNamedFramebufferParameteri} */
+	/** Unsafe version of {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
@@ -1805,26 +1805,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL43#glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri}.
+	 * DSA version of {@link GL43#glGetFramebufferParameteriv GetFramebufferParameteriv}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetNamedFramebufferParameteri(int framebuffer, int pname, ByteBuffer params) {
+	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedFramebufferParameteri(int, int, ByteBuffer) GetNamedFramebufferParameteri} */
-	public static void glGetNamedFramebufferParameter(int framebuffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
+	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferParameteri(int, int, ByteBuffer) GetNamedFramebufferParameteri} */
+	/** Single return value version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static int glGetNamedFramebufferParameteri(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1834,11 +1834,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedFramebufferAttachmentParameteriv ] ---
 
-	/** JNI method for {@link #glGetNamedFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteri} */
+	/** JNI method for {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	@JavadocExclude
 	public static native void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteri} */
+	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
@@ -1850,27 +1850,27 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri}.
+	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param attachment  the attachment within {@code target}. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
 	 * @param pname       the parameter of {@code attachment} to query. One of:<br>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params      an array to receive the value of the queried parameter
 	 */
-	public static void glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname, ByteBuffer params) {
+	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteri} */
-	public static void glGetNamedFramebufferAttachmentParameter(int framebuffer, int attachment, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
+	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteri} */
+	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static int glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1969,11 +1969,11 @@ public final class GL45 {
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetNamedRenderbufferParameteri(int, int, ByteBuffer) GetNamedRenderbufferParameteri} */
+	/** JNI method for {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	@JavadocExclude
 	public static native void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedRenderbufferParameteri(int, int, ByteBuffer) GetNamedRenderbufferParameteri} */
+	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
@@ -1985,26 +1985,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri}.
+	 * DSA version of {@link GL30#glGetRenderbufferParameteriv GetRenderbufferParameteriv}.
 	 *
 	 * @param renderbuffer 
 	 * @param pname        the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
 	 * @param params       an array to receive the value of the queried parameter
 	 */
-	public static void glGetNamedRenderbufferParameteri(int renderbuffer, int pname, ByteBuffer params) {
+	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedRenderbufferParameteri(int, int, ByteBuffer) GetNamedRenderbufferParameteri} */
-	public static void glGetNamedRenderbufferParameter(int renderbuffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
+	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedRenderbufferParameteri(int, int, ByteBuffer) GetNamedRenderbufferParameteri} */
+	/** Single return value version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static int glGetNamedRenderbufferParameteri(int renderbuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2699,11 +2699,11 @@ public final class GL45 {
 
 	// --- [ glTextureParameterfv ] ---
 
-	/** JNI method for {@link #glTextureParameterf(int, int, ByteBuffer) TextureParameterf} */
+	/** JNI method for {@link #glTextureParameterfv TextureParameterfv} */
 	@JavadocExclude
 	public static native void nglTextureParameterfv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterf(int, int, ByteBuffer) TextureParameterf} */
+	/** Unsafe version of {@link #glTextureParameterfv TextureParameterfv} */
 	@JavadocExclude
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterfv;
@@ -2715,20 +2715,20 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glTexParameterf(int, int, ByteBuffer) TexParameterf}.
+	 * DSA version of {@link GL11#glTexParameterfv TexParameterfv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to set
 	 * @param params  the parameter value
 	 */
-	public static void glTextureParameterf(int texture, int pname, ByteBuffer params) {
+	public static void glTextureParameterfv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameterfv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterf(int, int, ByteBuffer) TextureParameterf} */
-	public static void glTextureParameter(int texture, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glTextureParameterfv TextureParameterfv} */
+	public static void glTextureParameterfv(int texture, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameterfv(texture, pname, memAddress(params));
@@ -2758,11 +2758,11 @@ public final class GL45 {
 
 	// --- [ glTextureParameterIiv ] ---
 
-	/** JNI method for {@link #glTextureParameterIi(int, int, ByteBuffer) TextureParameterIi} */
+	/** JNI method for {@link #glTextureParameterIiv TextureParameterIiv} */
 	@JavadocExclude
 	public static native void nglTextureParameterIiv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterIi(int, int, ByteBuffer) TextureParameterIi} */
+	/** Unsafe version of {@link #glTextureParameterIiv TextureParameterIiv} */
 	@JavadocExclude
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIiv;
@@ -2774,26 +2774,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glTexParameterIi(int, int, ByteBuffer) TexParameterIi}.
+	 * DSA version of {@link GL30#glTexParameterIiv TexParameterIiv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the symbolic name of a single-valued texture parameter
 	 * @param params  the value of {@code pname}
 	 */
-	public static void glTextureParameterIi(int texture, int pname, ByteBuffer params) {
+	public static void glTextureParameterIiv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterIi(int, int, ByteBuffer) TextureParameterIi} */
-	public static void glTextureParameterI(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTextureParameterIiv TextureParameterIiv} */
+	public static void glTextureParameterIiv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTextureParameterIi(int, int, ByteBuffer) TextureParameterIi} */
+	/** Single value version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIi(int texture, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -2802,11 +2802,11 @@ public final class GL45 {
 
 	// --- [ glTextureParameterIuiv ] ---
 
-	/** JNI method for {@link #glTextureParameterIui(int, int, ByteBuffer) TextureParameterIui} */
+	/** JNI method for {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	@JavadocExclude
 	public static native void nglTextureParameterIuiv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterIui(int, int, ByteBuffer) TextureParameterIui} */
+	/** Unsafe version of {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	@JavadocExclude
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuiv;
@@ -2818,26 +2818,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glTexParameterIui(int, int, ByteBuffer) TexParameterIui}.
+	 * DSA version of {@link GL30#glTexParameterIuiv TexParameterIuiv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the symbolic name of a single-valued texture parameter
 	 * @param params  the value of {@code pname}
 	 */
-	public static void glTextureParameterIui(int texture, int pname, ByteBuffer params) {
+	public static void glTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterIui(int, int, ByteBuffer) TextureParameterIui} */
-	public static void glTextureParameterIu(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
+	public static void glTextureParameterIuiv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glTextureParameterIui(int, int, ByteBuffer) TextureParameterIui} */
+	/** Single value version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIui(int texture, int pname, int param) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
@@ -2846,11 +2846,11 @@ public final class GL45 {
 
 	// --- [ glTextureParameteriv ] ---
 
-	/** JNI method for {@link #glTextureParameteri(int, int, ByteBuffer) TextureParameteri} */
+	/** JNI method for {@link #glTextureParameteriv TextureParameteriv} */
 	@JavadocExclude
 	public static native void nglTextureParameteriv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameteri(int, int, ByteBuffer) TextureParameteri} */
+	/** Unsafe version of {@link #glTextureParameteriv TextureParameteriv} */
 	@JavadocExclude
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameteriv;
@@ -2862,20 +2862,20 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glTexParameteri(int, int, ByteBuffer) TexParameteri}.
+	 * DSA version of {@link GL11#glTexParameteriv TexParameteriv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to set
 	 * @param params  the parameter value
 	 */
-	public static void glTextureParameteri(int texture, int pname, ByteBuffer params) {
+	public static void glTextureParameteriv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameteriv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameteri(int, int, ByteBuffer) TextureParameteri} */
-	public static void glTextureParameter(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTextureParameteriv TextureParameteriv} */
+	public static void glTextureParameteriv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameteriv(texture, pname, memAddress(params));
@@ -3050,11 +3050,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureLevelParameterfv ] ---
 
-	/** JNI method for {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
+	/** JNI method for {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	@JavadocExclude
 	public static native void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
+	/** Unsafe version of {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfv;
@@ -3066,27 +3066,27 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glGetTexLevelParameterf(int, int, int, ByteBuffer) GetTexLevelParameterf}.
+	 * DSA version of {@link GL11#glGetTexLevelParameterfv GetTexLevelParameterfv}.
 	 *
 	 * @param texture the texture name
 	 * @param level   the level-of-detail number
 	 * @param pname   the parameter to query
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureLevelParameterf(int texture, int level, int pname, ByteBuffer params) {
+	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
-	public static void glGetTextureLevelParameter(int texture, int level, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
+	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameterf(int, int, int, ByteBuffer) GetTextureLevelParameterf} */
+	/** Single return value version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static float glGetTextureLevelParameterf(int texture, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3096,11 +3096,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureLevelParameteriv ] ---
 
-	/** JNI method for {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
+	/** JNI method for {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	@JavadocExclude
 	public static native void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
+	/** Unsafe version of {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	@JavadocExclude
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameteriv;
@@ -3112,27 +3112,27 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glGetTexLevelParameteri(int, int, int, ByteBuffer) GetTexLevelParameteri}.
+	 * DSA version of {@link GL11#glGetTexLevelParameteriv GetTexLevelParameteriv}.
 	 *
 	 * @param texture the texture name
 	 * @param level   the level-of-detail number
 	 * @param pname   the parameter to query. One of:<br>{@link GL11#GL_TEXTURE_WIDTH TEXTURE_WIDTH}, {@link GL11#GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}, {@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}, {@link GL11#GL_TEXTURE_BORDER TEXTURE_BORDER}, {@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}, {@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}, {@link GL11#GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}, {@link GL11#GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}, {@link GL11#GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}, {@link GL11#GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}, {@link GL11#GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}, {@link GL11#GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}, {@link GL11#GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}, {@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}, {@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}, {@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}, {@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}, {@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}, {@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}, {@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}, {@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}, {@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}, {@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}, {@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}, {@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}, {@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}, {@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}, {@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureLevelParameteri(int texture, int level, int pname, ByteBuffer params) {
+	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
-	public static void glGetTextureLevelParameter(int texture, int level, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
+	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameteri(int, int, int, ByteBuffer) GetTextureLevelParameteri} */
+	/** Single return value version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static int glGetTextureLevelParameteri(int texture, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3142,11 +3142,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureParameterfv ] ---
 
-	/** JNI method for {@link #glGetTextureParameterf(int, int, ByteBuffer) GetTextureParameterf} */
+	/** JNI method for {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterfv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterf(int, int, ByteBuffer) GetTextureParameterf} */
+	/** Unsafe version of {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	@JavadocExclude
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfv;
@@ -3158,26 +3158,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glGetTexParameterf(int, int, ByteBuffer) GetTexParameterf}.
+	 * DSA version of {@link GL11#glGetTexParameterfv GetTexParameterfv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to query
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureParameterf(int texture, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterfv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterf(int, int, ByteBuffer) GetTextureParameterf} */
-	public static void glGetTextureParameter(int texture, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
+	public static void glGetTextureParameterfv(int texture, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterf(int, int, ByteBuffer) GetTextureParameterf} */
+	/** Single return value version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static float glGetTextureParameterf(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3187,11 +3187,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureParameterIiv ] ---
 
-	/** JNI method for {@link #glGetTextureParameterIi(int, int, ByteBuffer) GetTextureParameterIi} */
+	/** JNI method for {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterIiv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterIi(int, int, ByteBuffer) GetTextureParameterIi} */
+	/** Unsafe version of {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	@JavadocExclude
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIiv;
@@ -3203,26 +3203,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glGetTexParameterIi(int, int, ByteBuffer) GetTexParameterIi}.
+	 * DSA version of {@link GL30#glGetTexParameterIiv GetTexParameterIiv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the symbolic name of a texture parameter
 	 * @param params  returns the texture parameter value
 	 */
-	public static void glGetTextureParameterIi(int texture, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterIiv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterIi(int, int, ByteBuffer) GetTextureParameterIi} */
-	public static void glGetTextureParameterI(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
+	public static void glGetTextureParameterIiv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIi(int, int, ByteBuffer) GetTextureParameterIi} */
+	/** Single return value version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static int glGetTextureParameterIi(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3232,11 +3232,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureParameterIuiv ] ---
 
-	/** JNI method for {@link #glGetTextureParameterIui(int, int, ByteBuffer) GetTextureParameterIui} */
+	/** JNI method for {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterIuiv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterIui(int, int, ByteBuffer) GetTextureParameterIui} */
+	/** Unsafe version of {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	@JavadocExclude
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuiv;
@@ -3248,26 +3248,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL30#glGetTexParameterIui(int, int, ByteBuffer) GetTexParameterIui}.
+	 * DSA version of {@link GL30#glGetTexParameterIuiv GetTexParameterIuiv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the symbolic name of a texture parameter
 	 * @param params  returns the texture parameter value
 	 */
-	public static void glGetTextureParameterIui(int texture, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterIui(int, int, ByteBuffer) GetTextureParameterIui} */
-	public static void glGetTextureParameterIu(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
+	public static void glGetTextureParameterIuiv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIui(int, int, ByteBuffer) GetTextureParameterIui} */
+	/** Single return value version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static int glGetTextureParameterIui(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3277,11 +3277,11 @@ public final class GL45 {
 
 	// --- [ glGetTextureParameteriv ] ---
 
-	/** JNI method for {@link #glGetTextureParameteri(int, int, ByteBuffer) GetTextureParameteri} */
+	/** JNI method for {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	@JavadocExclude
 	public static native void nglGetTextureParameteriv(int texture, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameteri(int, int, ByteBuffer) GetTextureParameteri} */
+	/** Unsafe version of {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	@JavadocExclude
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameteriv;
@@ -3293,26 +3293,26 @@ public final class GL45 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * DSA version of {@link GL11#glGetTexParameteri(int, int, ByteBuffer) GetTexParameteri}.
+	 * DSA version of {@link GL11#glGetTexParameteriv GetTexParameteriv}.
 	 *
 	 * @param texture the texture name
 	 * @param pname   the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL11#GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link GL11#GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetTextureParameteri(int texture, int pname, ByteBuffer params) {
+	public static void glGetTextureParameteriv(int texture, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameteri(int, int, ByteBuffer) GetTextureParameteri} */
-	public static void glGetTextureParameter(int texture, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
+	public static void glGetTextureParameteriv(int texture, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameteri(int, int, ByteBuffer) GetTextureParameteri} */
+	/** Single return value version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static int glGetTextureParameteri(int texture, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3614,11 +3614,11 @@ public final class GL45 {
 
 	// --- [ glGetVertexArrayiv ] ---
 
-	/** JNI method for {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
+	/** JNI method for {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayiv(int vaobj, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
+	/** Unsafe version of {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	@JavadocExclude
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayiv;
@@ -3636,20 +3636,20 @@ public final class GL45 {
 	 * @param pname the parameter to query. Must be:<br>{@link GL15#GL_ELEMENT_ARRAY_BUFFER_BINDING ELEMENT_ARRAY_BUFFER_BINDING}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayi(int vaobj, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayiv(int vaobj, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
-	public static void glGetVertexArray(int vaobj, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
+	public static void glGetVertexArrayiv(int vaobj, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayi(int, int, ByteBuffer) GetVertexArrayi} */
+	/** Single return value version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static int glGetVertexArrayi(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -3659,11 +3659,11 @@ public final class GL45 {
 
 	// --- [ glGetVertexArrayIndexediv ] ---
 
-	/** JNI method for {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
+	/** JNI method for {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
+	/** Unsafe version of {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexediv;
@@ -3682,20 +3682,20 @@ public final class GL45 {
 	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE},, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link GL20#GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}, {@link GL43#GL_VERTEX_ATTRIB_ARRAY_LONG VERTEX_ATTRIB_ARRAY_LONG}, {@link GL43#GL_VERTEX_ATTRIB_RELATIVE_OFFSET VERTEX_ATTRIB_RELATIVE_OFFSET}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayIndexedi(int vaobj, int index, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
-	public static void glGetVertexArrayIndexed(int vaobj, int index, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
+	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIndexedi(int, int, int, ByteBuffer) GetVertexArrayIndexedi} */
+	/** Single return value version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static int glGetVertexArrayIndexedi(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -3705,11 +3705,11 @@ public final class GL45 {
 
 	// --- [ glGetVertexArrayIndexed64iv ] ---
 
-	/** JNI method for {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
+	/** JNI method for {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
+	/** Unsafe version of {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
@@ -3728,20 +3728,20 @@ public final class GL45 {
 	 * @param pname the parameter to query. Must be:<br>{@link GL43#GL_VERTEX_BINDING_OFFSET VERTEX_BINDING_OFFSET}
 	 * @param param the buffer in which to return the parameter values
 	 */
-	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
-	public static void glGetVertexArrayIndexed64i(int vaobj, int index, int pname, LongBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
+	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, LongBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIndexed64i(int, int, int, ByteBuffer) GetVertexArrayIndexed64i} */
+	/** Single return value version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.longParam();
@@ -4190,11 +4190,11 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	// --- [ glGetnUniformfv ] ---
 
-	/** JNI method for {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
+	/** JNI method for {@link #glGetnUniformfv GetnUniformfv} */
 	@JavadocExclude
 	public static native void nglGetnUniformfv(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
+	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
 	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
@@ -4213,24 +4213,24 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformf(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
-	public static void glGetnUniform(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformfv GetnUniformfv} */
+	public static void glGetnUniformfv(int program, int location, FloatBuffer params) {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformiv ] ---
 
-	/** JNI method for {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
+	/** JNI method for {@link #glGetnUniformiv GetnUniformiv} */
 	@JavadocExclude
 	public static native void nglGetnUniformiv(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
+	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
 	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
@@ -4242,31 +4242,31 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Integer version of {@link #glGetnUniformf GetnUniformf}.
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformi(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
-	public static void glGetnUniformi(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformiv GetnUniformiv} */
+	public static void glGetnUniformiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformuiv ] ---
 
-	/** JNI method for {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
+	/** JNI method for {@link #glGetnUniformuiv GetnUniformuiv} */
 	@JavadocExclude
 	public static native void nglGetnUniformuiv(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
+	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
 	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
@@ -4278,21 +4278,21 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetnUniformi GetnUniformi}.
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformui(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
-	public static void glGetnUniformui(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
 	}
 

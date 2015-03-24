@@ -532,7 +532,7 @@ public final class ARBFramebufferObject {
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
+	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
@@ -548,20 +548,20 @@ public final class ARBFramebufferObject {
 	 * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br>{@link #GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}, {@link #GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}, {@link #GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}, {@link #GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}, {@link #GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}, {@link #GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}, {@link #GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}, {@link #GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}, {@link #GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}, {@link #GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}
 	 * @param params an array to receive the value of the queried parameter
 	 */
-	public static void glGetRenderbufferParameteri(int target, int pname, ByteBuffer params) {
+	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
-	public static void glGetRenderbufferParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
+	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameteri(int, int, ByteBuffer) GetRenderbufferParameteri} */
+	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -775,7 +775,7 @@ public final class ARBFramebufferObject {
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
+	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
@@ -792,20 +792,20 @@ public final class ARBFramebufferObject {
 	 * @param pname      the parameter of {@code attachment} to query. One of:<br>{@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link #GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link #GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params     an array to receive the value of the queried parameter
 	 */
-	public static void glGetFramebufferAttachmentParameteri(int target, int attachment, int pname, ByteBuffer params) {
+	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
-	public static void glGetFramebufferAttachmentParameter(int target, int attachment, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
+	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteri(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteri} */
+	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

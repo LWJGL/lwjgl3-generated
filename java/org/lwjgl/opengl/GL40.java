@@ -635,11 +635,11 @@ public final class GL40 {
 
 	// --- [ glUniform1dv ] ---
 
-	/** JNI method for {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
+	/** JNI method for {@link #glUniform1dv Uniform1dv} */
 	@JavadocExclude
 	public static native void nglUniform1dv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
+	/** Unsafe version of {@link #glUniform1dv Uniform1dv} */
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
@@ -657,24 +657,24 @@ public final class GL40 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1d(int location, int count, ByteBuffer value) {
+	public static void glUniform1dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1d(int, int, ByteBuffer) Uniform1d} */
-	public static void glUniform1(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform1dv Uniform1dv} */
+	public static void glUniform1dv(int location, DoubleBuffer value) {
 		nglUniform1dv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2dv ] ---
 
-	/** JNI method for {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
+	/** JNI method for {@link #glUniform2dv Uniform2dv} */
 	@JavadocExclude
 	public static native void nglUniform2dv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
+	/** Unsafe version of {@link #glUniform2dv Uniform2dv} */
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
@@ -692,24 +692,24 @@ public final class GL40 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2d(int location, int count, ByteBuffer value) {
+	public static void glUniform2dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2d(int, int, ByteBuffer) Uniform2d} */
-	public static void glUniform2(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform2dv Uniform2dv} */
+	public static void glUniform2dv(int location, DoubleBuffer value) {
 		nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3dv ] ---
 
-	/** JNI method for {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
+	/** JNI method for {@link #glUniform3dv Uniform3dv} */
 	@JavadocExclude
 	public static native void nglUniform3dv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
+	/** Unsafe version of {@link #glUniform3dv Uniform3dv} */
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
@@ -727,24 +727,24 @@ public final class GL40 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3d(int location, int count, ByteBuffer value) {
+	public static void glUniform3dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3d(int, int, ByteBuffer) Uniform3d} */
-	public static void glUniform3(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform3dv Uniform3dv} */
+	public static void glUniform3dv(int location, DoubleBuffer value) {
 		nglUniform3dv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4dv ] ---
 
-	/** JNI method for {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
+	/** JNI method for {@link #glUniform4dv Uniform4dv} */
 	@JavadocExclude
 	public static native void nglUniform4dv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
+	/** Unsafe version of {@link #glUniform4dv Uniform4dv} */
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
@@ -762,24 +762,24 @@ public final class GL40 {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4d(int location, int count, ByteBuffer value) {
+	public static void glUniform4dv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4dv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4d(int, int, ByteBuffer) Uniform4d} */
-	public static void glUniform4(int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniform4dv Uniform4dv} */
+	public static void glUniform4dv(int location, DoubleBuffer value) {
 		nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
+	/** JNI method for {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
+	/** Unsafe version of {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
@@ -798,24 +798,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2d(int, int, boolean, ByteBuffer) UniformMatrix2d} */
-	public static void glUniformMatrix2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2dv UniformMatrix2dv} */
+	public static void glUniformMatrix2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
+	/** JNI method for {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
+	/** Unsafe version of {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
@@ -834,24 +834,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3d(int, int, boolean, ByteBuffer) UniformMatrix3d} */
-	public static void glUniformMatrix3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3dv UniformMatrix3dv} */
+	public static void glUniformMatrix3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
+	/** JNI method for {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
+	/** Unsafe version of {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
@@ -870,24 +870,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4d(int, int, boolean, ByteBuffer) UniformMatrix4d} */
-	public static void glUniformMatrix4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4dv UniformMatrix4dv} */
+	public static void glUniformMatrix4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
+	/** JNI method for {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
+	/** Unsafe version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
@@ -906,24 +906,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2x3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x3d(int, int, boolean, ByteBuffer) UniformMatrix2x3d} */
-	public static void glUniformMatrix2x3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
+	public static void glUniformMatrix2x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2x4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
+	/** JNI method for {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
+	/** Unsafe version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
@@ -942,24 +942,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix2x4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2x4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2x4d(int, int, boolean, ByteBuffer) UniformMatrix2x4d} */
-	public static void glUniformMatrix2x4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
+	public static void glUniformMatrix2x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
+	/** JNI method for {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
+	/** Unsafe version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
@@ -978,24 +978,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3x2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x2d(int, int, boolean, ByteBuffer) UniformMatrix3x2d} */
-	public static void glUniformMatrix3x2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
+	public static void glUniformMatrix3x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3x4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
+	/** JNI method for {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
+	/** Unsafe version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
@@ -1014,24 +1014,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix3x4d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3x4dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3x4d(int, int, boolean, ByteBuffer) UniformMatrix3x4d} */
-	public static void glUniformMatrix3x4(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
+	public static void glUniformMatrix3x4dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
+	/** JNI method for {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
+	/** Unsafe version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
@@ -1050,24 +1050,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x2d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4x2dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x2d(int, int, boolean, ByteBuffer) UniformMatrix4x2d} */
-	public static void glUniformMatrix4x2(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
+	public static void glUniformMatrix4x2dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4x3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
+	/** JNI method for {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
+	/** Unsafe version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
@@ -1086,24 +1086,24 @@ public final class GL40 {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glUniformMatrix4x3d(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4x3dv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4x3d(int, int, boolean, ByteBuffer) UniformMatrix4x3d} */
-	public static void glUniformMatrix4x3(int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
+	public static void glUniformMatrix4x3dv(int location, boolean transpose, DoubleBuffer value) {
 		nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glGetUniformdv ] ---
 
-	/** JNI method for {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
+	/** JNI method for {@link #glGetUniformdv GetUniformdv} */
 	@JavadocExclude
 	public static native void nglGetUniformdv(int program, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
+	/** Unsafe version of {@link #glGetUniformdv GetUniformdv} */
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
@@ -1121,20 +1121,20 @@ public final class GL40 {
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformd(int program, int location, ByteBuffer params) {
+	public static void glGetUniformdv(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
-	public static void glGetUniform(int program, int location, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetUniformdv GetUniformdv} */
+	public static void glGetUniformdv(int program, int location, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformd(int, int, ByteBuffer) GetUniformd} */
+	/** Single return value version of: {@link #glGetUniformdv GetUniformdv} */
 	public static double glGetUniformd(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -1238,11 +1238,11 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer) GetActiveSubroutineUniformi} */
+	/** JNI method for {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	@JavadocExclude
 	public static native void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer) GetActiveSubroutineUniformi} */
+	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
@@ -1262,20 +1262,20 @@ public final class GL40 {
 	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}, {@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}, {@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}, {@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}
 	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
-	public static void glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname, ByteBuffer values) {
+	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer) GetActiveSubroutineUniformi} */
-	public static void glGetActiveSubroutineUniform(int program, int shadertype, int index, int pname, IntBuffer values) {
+	/** Alternative version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
+	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetActiveSubroutineUniformi(int, int, int, int, ByteBuffer) GetActiveSubroutineUniformi} */
+	/** Single return value version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
@@ -1407,11 +1407,11 @@ public final class GL40 {
 
 	// --- [ glUniformSubroutinesuiv ] ---
 
-	/** JNI method for {@link #glUniformSubroutinesui(int, int, ByteBuffer) UniformSubroutinesui} */
+	/** JNI method for {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	@JavadocExclude
 	public static native void nglUniformSubroutinesuiv(int shadertype, int count, long indices, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformSubroutinesui(int, int, ByteBuffer) UniformSubroutinesui} */
+	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
@@ -1429,18 +1429,18 @@ public final class GL40 {
 	 * @param count      the number of uniform indices stored in {@code indices}
 	 * @param indices    an array holding the indices to load into the shader subroutine variables
 	 */
-	public static void glUniformSubroutinesui(int shadertype, int count, ByteBuffer indices) {
+	public static void glUniformSubroutinesuiv(int shadertype, int count, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indices, count << 2);
 		nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
 	}
 
-	/** Alternative version of: {@link #glUniformSubroutinesui(int, int, ByteBuffer) UniformSubroutinesui} */
-	public static void glUniformSubroutinesu(int shadertype, IntBuffer indices) {
+	/** Alternative version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
+	public static void glUniformSubroutinesuiv(int shadertype, IntBuffer indices) {
 		nglUniformSubroutinesuiv(shadertype, indices.remaining(), memAddress(indices));
 	}
 
-	/** Single value version of: {@link #glUniformSubroutinesui(int, int, ByteBuffer) UniformSubroutinesui} */
+	/** Single value version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesui(int shadertype, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int indices = __buffer.intParam(index);
@@ -1449,11 +1449,11 @@ public final class GL40 {
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
-	/** JNI method for {@link #glGetUniformSubroutineui(int, int, ByteBuffer) GetUniformSubroutineui} */
+	/** JNI method for {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	@JavadocExclude
 	public static native void nglGetUniformSubroutineuiv(int shadertype, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformSubroutineui(int, int, ByteBuffer) GetUniformSubroutineui} */
+	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
@@ -1471,20 +1471,20 @@ public final class GL40 {
 	 * @param location   the location of the subroutine uniform
 	 * @param params     a variable to receive the value or values of the subroutine uniform
 	 */
-	public static void glGetUniformSubroutineui(int shadertype, int location, ByteBuffer params) {
+	public static void glGetUniformSubroutineuiv(int shadertype, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformSubroutineui(int, int, ByteBuffer) GetUniformSubroutineui} */
-	public static void glGetUniformSubroutineu(int shadertype, int location, IntBuffer params) {
+	/** Alternative version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
+	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformSubroutineui(int, int, ByteBuffer) GetUniformSubroutineui} */
+	/** Single return value version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static int glGetUniformSubroutineui(int shadertype, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1494,11 +1494,11 @@ public final class GL40 {
 
 	// --- [ glGetProgramStageiv ] ---
 
-	/** JNI method for {@link #glGetProgramStagei(int, int, int, ByteBuffer) GetProgramStagei} */
+	/** JNI method for {@link #glGetProgramStageiv GetProgramStageiv} */
 	@JavadocExclude
 	public static native void nglGetProgramStageiv(int program, int shadertype, int pname, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramStagei(int, int, int, ByteBuffer) GetProgramStagei} */
+	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
@@ -1517,20 +1517,20 @@ public final class GL40 {
 	 * @param pname      the parameter of the shader to query. One of:<br>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}, {@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}, {@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}
 	 * @param values     a variable into which the queried value or values will be placed
 	 */
-	public static void glGetProgramStagei(int program, int shadertype, int pname, ByteBuffer values) {
+	public static void glGetProgramStageiv(int program, int shadertype, int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetProgramStagei(int, int, int, ByteBuffer) GetProgramStagei} */
-	public static void glGetProgramStage(int program, int shadertype, int pname, IntBuffer values) {
+	/** Alternative version of: {@link #glGetProgramStageiv GetProgramStageiv} */
+	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetProgramStagei(int, int, int, ByteBuffer) GetProgramStagei} */
+	/** Single return value version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static int glGetProgramStagei(int program, int shadertype, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
@@ -1561,11 +1561,11 @@ public final class GL40 {
 
 	// --- [ glPatchParameterfv ] ---
 
-	/** JNI method for {@link #glPatchParameterf(int, ByteBuffer) PatchParameterf} */
+	/** JNI method for {@link #glPatchParameterfv PatchParameterfv} */
 	@JavadocExclude
 	public static native void nglPatchParameterfv(int pname, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glPatchParameterf(int, ByteBuffer) PatchParameterf} */
+	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
@@ -1582,15 +1582,15 @@ public final class GL40 {
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameterf(int pname, ByteBuffer values) {
+	public static void glPatchParameterfv(int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
 		nglPatchParameterfv(pname, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glPatchParameterf(int, ByteBuffer) PatchParameterf} */
-	public static void glPatchParameter(int pname, FloatBuffer values) {
+	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
+	public static void glPatchParameterfv(int pname, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
@@ -1857,11 +1857,11 @@ public final class GL40 {
 
 	// --- [ glGetQueryIndexediv ] ---
 
-	/** JNI method for {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
+	/** JNI method for {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	@JavadocExclude
 	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
+	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
@@ -1880,20 +1880,20 @@ public final class GL40 {
 	 * @param pname  the symbolic name of a query object target parameter
 	 * @param params the requested data
 	 */
-	public static void glGetQueryIndexedi(int target, int index, int pname, ByteBuffer params) {
+	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
-	public static void glGetQueryIndexed(int target, int index, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
+	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

@@ -507,11 +507,11 @@ public final class ARBVertexBufferObject {
 
 	// --- [ glGetBufferParameterivARB ] ---
 
-	/** JNI method for {@link #glGetBufferParameteriARB(int, int, ByteBuffer) GetBufferParameteriARB} */
+	/** JNI method for {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	@JavadocExclude
 	public static native void nglGetBufferParameterivARB(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameteriARB(int, int, ByteBuffer) GetBufferParameteriARB} */
+	/** Unsafe version of {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	@JavadocExclude
 	public static void nglGetBufferParameterivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterivARB;
@@ -527,16 +527,16 @@ public final class ARBVertexBufferObject {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetBufferParameteriARB(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferParameterivARB(int target, int pname, ByteBuffer params) {
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameteriARB(int, int, ByteBuffer) GetBufferParameteriARB} */
-	public static void glGetBufferParameterARB(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
+	public static void glGetBufferParameterivARB(int target, int pname, IntBuffer params) {
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteriARB(int, int, ByteBuffer) GetBufferParameteriARB} */
+	/** Single return value version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static int glGetBufferParameteriARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -546,11 +546,11 @@ public final class ARBVertexBufferObject {
 
 	// --- [ glGetBufferPointervARB ] ---
 
-	/** JNI method for {@link #glGetBufferPointerARB(int, int, ByteBuffer) GetBufferPointerARB} */
+	/** JNI method for {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	@JavadocExclude
 	public static native void nglGetBufferPointervARB(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferPointerARB(int, int, ByteBuffer) GetBufferPointerARB} */
+	/** Unsafe version of {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	@JavadocExclude
 	public static void nglGetBufferPointervARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervARB;
@@ -566,16 +566,16 @@ public final class ARBVertexBufferObject {
 	 * @param pname  the pointer to be returned. Must be:<br>{@link #GL_BUFFER_MAP_POINTER_ARB BUFFER_MAP_POINTER_ARB}
 	 * @param params the pointer value specified by {@code pname}
 	 */
-	public static void glGetBufferPointerARB(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferPointervARB(int target, int pname, ByteBuffer params) {
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferPointerARB(int, int, ByteBuffer) GetBufferPointerARB} */
-	public static void glGetBufferPointerARB(int target, int pname, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
+	public static void glGetBufferPointervARB(int target, int pname, PointerBuffer params) {
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferPointerARB(int, int, ByteBuffer) GetBufferPointerARB} */
+	/** Single return value version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static long glGetBufferPointerARB(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();

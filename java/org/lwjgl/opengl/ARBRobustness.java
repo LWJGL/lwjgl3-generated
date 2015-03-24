@@ -187,7 +187,7 @@ public final class ARBRobustness {
 	 * <p>If a reset status other than {@link #GL_NO_ERROR NO_ERROR} is returned and subsequent calls return {@link #GL_NO_ERROR NO_ERROR}, the context reset was encountered and completed. If a reset
 	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
-	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling {@link GL11#glGetInteger GetInteger} with the symbolic constant
+	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling {@link GL11#glGetIntegerv GetIntegerv} with the symbolic constant
 	 * {@link #GL_RESET_NOTIFICATION_STRATEGY_ARB RESET_NOTIFICATION_STRATEGY_ARB}.</p>
 	 * 
 	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION_ARB NO_RESET_NOTIFICATION_ARB}, then the implementation will never deliver notification of reset events, and
@@ -207,11 +207,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnMapdvARB ] ---
 
-	/** JNI method for {@link #glGetnMapdARB(int, int, int, ByteBuffer) GetnMapdARB} */
+	/** JNI method for {@link #glGetnMapdvARB GetnMapdvARB} */
 	@JavadocExclude
 	public static native void nglGetnMapdvARB(int target, int query, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnMapdARB(int, int, int, ByteBuffer) GetnMapdARB} */
+	/** Unsafe version of {@link #glGetnMapdvARB GetnMapdvARB} */
 	@JavadocExclude
 	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapdvARB;
@@ -221,25 +221,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetMapd(int, int, ByteBuffer) GetMapd}
+	 * Robust version of {@link GL11#glGetMapdv GetMapdv}
 	 *
 	 * @param target  the evaluator map
 	 * @param query   the information to query
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnMapdARB(int target, int query, int bufSize, ByteBuffer data) {
+	public static void glGetnMapdvARB(int target, int query, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 3);
 		nglGetnMapdvARB(target, query, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnMapdARB(int, int, int, ByteBuffer) GetnMapdARB} */
-	public static void glGetnMapARB(int target, int query, DoubleBuffer data) {
+	/** Alternative version of: {@link #glGetnMapdvARB GetnMapdvARB} */
+	public static void glGetnMapdvARB(int target, int query, DoubleBuffer data) {
 		nglGetnMapdvARB(target, query, data.remaining(), memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetnMapdARB(int, int, int, ByteBuffer) GetnMapdARB} */
+	/** Single return value version of: {@link #glGetnMapdvARB GetnMapdvARB} */
 	public static double glGetnMapdARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
@@ -249,11 +249,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnMapfvARB ] ---
 
-	/** JNI method for {@link #glGetnMapfARB(int, int, int, ByteBuffer) GetnMapfARB} */
+	/** JNI method for {@link #glGetnMapfvARB GetnMapfvARB} */
 	@JavadocExclude
 	public static native void nglGetnMapfvARB(int target, int query, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnMapfARB(int, int, int, ByteBuffer) GetnMapfARB} */
+	/** Unsafe version of {@link #glGetnMapfvARB GetnMapfvARB} */
 	@JavadocExclude
 	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapfvARB;
@@ -263,25 +263,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetMapf(int, int, ByteBuffer) GetMapf}
+	 * Robust version of {@link GL11#glGetMapfv GetMapfv}
 	 *
 	 * @param target  the evaluator map
 	 * @param query   the information to query
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnMapfARB(int target, int query, int bufSize, ByteBuffer data) {
+	public static void glGetnMapfvARB(int target, int query, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapfvARB(target, query, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnMapfARB(int, int, int, ByteBuffer) GetnMapfARB} */
-	public static void glGetnMapARB(int target, int query, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetnMapfvARB GetnMapfvARB} */
+	public static void glGetnMapfvARB(int target, int query, FloatBuffer data) {
 		nglGetnMapfvARB(target, query, data.remaining(), memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetnMapfARB(int, int, int, ByteBuffer) GetnMapfARB} */
+	/** Single return value version of: {@link #glGetnMapfvARB GetnMapfvARB} */
 	public static float glGetnMapfARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -291,11 +291,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnMapivARB ] ---
 
-	/** JNI method for {@link #glGetnMapiARB(int, int, int, ByteBuffer) GetnMapiARB} */
+	/** JNI method for {@link #glGetnMapivARB GetnMapivARB} */
 	@JavadocExclude
 	public static native void nglGetnMapivARB(int target, int query, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnMapiARB(int, int, int, ByteBuffer) GetnMapiARB} */
+	/** Unsafe version of {@link #glGetnMapivARB GetnMapivARB} */
 	@JavadocExclude
 	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapivARB;
@@ -305,25 +305,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetMapi(int, int, ByteBuffer) GetMapi}
+	 * Robust version of {@link GL11#glGetMapiv GetMapiv}
 	 *
 	 * @param target  the evaluator target. One of:<br>{@link GL11#GL_MAP1_VERTEX_3 MAP1_VERTEX_3}, {@link GL11#GL_MAP1_VERTEX_4 MAP1_VERTEX_4}, {@link GL11#GL_MAP1_COLOR_4 MAP1_COLOR_4}, {@link GL11#GL_MAP1_NORMAL MAP1_NORMAL}, {@link GL11#GL_MAP1_TEXTURE_COORD_1 MAP1_TEXTURE_COORD_1}, {@link GL11#GL_MAP1_TEXTURE_COORD_2 MAP1_TEXTURE_COORD_2}, {@link GL11#GL_MAP1_TEXTURE_COORD_3 MAP1_TEXTURE_COORD_3}, {@link GL11#GL_MAP1_TEXTURE_COORD_4 MAP1_TEXTURE_COORD_4}, {@link GL11#GL_MAP2_VERTEX_3 MAP2_VERTEX_3}, {@link GL11#GL_MAP2_VERTEX_4 MAP2_VERTEX_4}, {@link GL11#GL_MAP2_COLOR_4 MAP2_COLOR_4}, {@link GL11#GL_MAP2_NORMAL MAP2_NORMAL}, {@link GL11#GL_MAP2_TEXTURE_COORD_1 MAP2_TEXTURE_COORD_1}, {@link GL11#GL_MAP2_TEXTURE_COORD_2 MAP2_TEXTURE_COORD_2}, {@link GL11#GL_MAP2_TEXTURE_COORD_3 MAP2_TEXTURE_COORD_3}, {@link GL11#GL_MAP2_TEXTURE_COORD_4 MAP2_TEXTURE_COORD_4}
 	 * @param query   the information to query. One of:<br>{@link GL11#GL_ORDER ORDER}, {@link GL11#GL_COEFF COEFF}, {@link GL11#GL_DOMAIN DOMAIN}
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnMapiARB(int target, int query, int bufSize, ByteBuffer data) {
+	public static void glGetnMapivARB(int target, int query, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapivARB(target, query, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnMapiARB(int, int, int, ByteBuffer) GetnMapiARB} */
-	public static void glGetnMapARB(int target, int query, IntBuffer data) {
+	/** Alternative version of: {@link #glGetnMapivARB GetnMapivARB} */
+	public static void glGetnMapivARB(int target, int query, IntBuffer data) {
 		nglGetnMapivARB(target, query, data.remaining(), memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetnMapiARB(int, int, int, ByteBuffer) GetnMapiARB} */
+	/** Single return value version of: {@link #glGetnMapivARB GetnMapivARB} */
 	public static int glGetnMapiARB(int target, int query) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.intParam();
@@ -333,11 +333,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnPixelMapfvARB ] ---
 
-	/** JNI method for {@link #glGetnPixelMapfARB(int, int, ByteBuffer) GetnPixelMapfARB} */
+	/** JNI method for {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
 	@JavadocExclude
 	public static native void nglGetnPixelMapfvARB(int map, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnPixelMapfARB(int, int, ByteBuffer) GetnPixelMapfARB} */
+	/** Unsafe version of {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
 	@JavadocExclude
 	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapfvARB;
@@ -347,30 +347,30 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetPixelMapf(int, ByteBuffer) GetPixelMapf}
+	 * Robust version of {@link GL11#glGetPixelMapfv GetPixelMapfv}
 	 *
 	 * @param map     the pixel map parameter to query. One of:<br>{@link GL11#GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}, {@link GL11#GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}, {@link GL11#GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}, {@link GL11#GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}, {@link GL11#GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}, {@link GL11#GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}, {@link GL11#GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}, {@link GL11#GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}, {@link GL11#GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}, {@link GL11#GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnPixelMapfARB(int map, int bufSize, ByteBuffer data) {
+	public static void glGetnPixelMapfvARB(int map, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapfvARB(map, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnPixelMapfARB(int, int, ByteBuffer) GetnPixelMapfARB} */
-	public static void glGetnPixelMapARB(int map, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
+	public static void glGetnPixelMapfvARB(int map, FloatBuffer data) {
 		nglGetnPixelMapfvARB(map, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glGetnPixelMapuivARB ] ---
 
-	/** JNI method for {@link #glGetnPixelMapuiARB(int, int, ByteBuffer) GetnPixelMapuiARB} */
+	/** JNI method for {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
 	@JavadocExclude
 	public static native void nglGetnPixelMapuivARB(int map, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnPixelMapuiARB(int, int, ByteBuffer) GetnPixelMapuiARB} */
+	/** Unsafe version of {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
 	@JavadocExclude
 	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapuivARB;
@@ -380,30 +380,30 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetPixelMapui(int, ByteBuffer) GetPixelMapui}
+	 * Robust version of {@link GL11#glGetPixelMapuiv GetPixelMapuiv}
 	 *
 	 * @param map     the pixel map parameter to query
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnPixelMapuiARB(int map, int bufSize, ByteBuffer data) {
+	public static void glGetnPixelMapuivARB(int map, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapuivARB(map, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnPixelMapuiARB(int, int, ByteBuffer) GetnPixelMapuiARB} */
-	public static void glGetnPixelMapuARB(int map, IntBuffer data) {
+	/** Alternative version of: {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
+	public static void glGetnPixelMapuivARB(int map, IntBuffer data) {
 		nglGetnPixelMapuivARB(map, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glGetnPixelMapusvARB ] ---
 
-	/** JNI method for {@link #glGetnPixelMapusARB(int, int, ByteBuffer) GetnPixelMapusARB} */
+	/** JNI method for {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
 	@JavadocExclude
 	public static native void nglGetnPixelMapusvARB(int map, int bufSize, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnPixelMapusARB(int, int, ByteBuffer) GetnPixelMapusARB} */
+	/** Unsafe version of {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
 	@JavadocExclude
 	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapusvARB;
@@ -413,20 +413,20 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL11#glGetPixelMapus(int, ByteBuffer) GetPixelMapus}
+	 * Robust version of {@link GL11#glGetPixelMapusv GetPixelMapusv}
 	 *
 	 * @param map     the pixel map parameter to query
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param data    a buffer in which to place the returned data
 	 */
-	public static void glGetnPixelMapusARB(int map, int bufSize, ByteBuffer data) {
+	public static void glGetnPixelMapusvARB(int map, int bufSize, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, bufSize << 1);
 		nglGetnPixelMapusvARB(map, bufSize, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetnPixelMapusARB(int, int, ByteBuffer) GetnPixelMapusARB} */
-	public static void glGetnPixelMapuARB(int map, ShortBuffer data) {
+	/** Alternative version of: {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
+	public static void glGetnPixelMapusvARB(int map, ShortBuffer data) {
 		nglGetnPixelMapusvARB(map, data.remaining(), memAddress(data));
 	}
 
@@ -915,11 +915,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnUniformfvARB ] ---
 
-	/** JNI method for {@link #glGetnUniformfARB(int, int, int, ByteBuffer) GetnUniformfARB} */
+	/** JNI method for {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	@JavadocExclude
 	public static native void nglGetnUniformfvARB(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformfARB(int, int, int, ByteBuffer) GetnUniformfARB} */
+	/** Unsafe version of {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	@JavadocExclude
 	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvARB;
@@ -929,25 +929,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL20#glGetUniformf(int, int, ByteBuffer) GetUniformf}
+	 * Robust version of {@link GL20#glGetUniformfv GetUniformfv}
 	 *
 	 * @param program  the program object to be queried
 	 * @param location the location of the uniform variable to be queried
 	 * @param bufSize  the maximum number of bytes to write into {@code params}
 	 * @param params   a buffer in which to place the returned data
 	 */
-	public static void glGetnUniformfARB(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformfvARB(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfvARB(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformfARB(int, int, int, ByteBuffer) GetnUniformfARB} */
-	public static void glGetnUniformARB(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformfvARB GetnUniformfvARB} */
+	public static void glGetnUniformfvARB(int program, int location, FloatBuffer params) {
 		nglGetnUniformfvARB(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformfARB(int, int, int, ByteBuffer) GetnUniformfARB} */
+	/** Single return value version of: {@link #glGetnUniformfvARB GetnUniformfvARB} */
 	public static float glGetnUniformfARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -957,11 +957,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnUniformivARB ] ---
 
-	/** JNI method for {@link #glGetnUniformiARB(int, int, int, ByteBuffer) GetnUniformiARB} */
+	/** JNI method for {@link #glGetnUniformivARB GetnUniformivARB} */
 	@JavadocExclude
 	public static native void nglGetnUniformivARB(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformiARB(int, int, int, ByteBuffer) GetnUniformiARB} */
+	/** Unsafe version of {@link #glGetnUniformivARB GetnUniformivARB} */
 	@JavadocExclude
 	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivARB;
@@ -971,25 +971,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL20#glGetUniformi(int, int, ByteBuffer) GetUniformi}
+	 * Robust version of {@link GL20#glGetUniformiv GetUniformiv}
 	 *
 	 * @param program  the program object to be queried
 	 * @param location the location of the uniform variable to be queried
 	 * @param bufSize  the maximum number of bytes to write into {@code params}
 	 * @param params   a buffer in which to place the returned data
 	 */
-	public static void glGetnUniformiARB(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformivARB(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformivARB(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformiARB(int, int, int, ByteBuffer) GetnUniformiARB} */
-	public static void glGetnUniformARB(int program, int location, IntBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformivARB GetnUniformivARB} */
+	public static void glGetnUniformivARB(int program, int location, IntBuffer params) {
 		nglGetnUniformivARB(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformiARB(int, int, int, ByteBuffer) GetnUniformiARB} */
+	/** Single return value version of: {@link #glGetnUniformivARB GetnUniformivARB} */
 	public static int glGetnUniformiARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -999,11 +999,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnUniformuivARB ] ---
 
-	/** JNI method for {@link #glGetnUniformuiARB(int, int, int, ByteBuffer) GetnUniformuiARB} */
+	/** JNI method for {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	@JavadocExclude
 	public static native void nglGetnUniformuivARB(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformuiARB(int, int, int, ByteBuffer) GetnUniformuiARB} */
+	/** Unsafe version of {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	@JavadocExclude
 	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuivARB;
@@ -1013,25 +1013,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL30#glGetUniformui(int, int, ByteBuffer) GetUniformui}
+	 * Robust version of {@link GL30#glGetUniformuiv GetUniformuiv}
 	 *
 	 * @param program  the program object to be queried
 	 * @param location the location of the uniform variable to be queried
 	 * @param bufSize  the maximum number of bytes to write into {@code params}
 	 * @param params   a buffer in which to place the returned data
 	 */
-	public static void glGetnUniformuiARB(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformuivARB(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuivARB(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformuiARB(int, int, int, ByteBuffer) GetnUniformuiARB} */
-	public static void glGetnUniformuARB(int program, int location, IntBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformuivARB GetnUniformuivARB} */
+	public static void glGetnUniformuivARB(int program, int location, IntBuffer params) {
 		nglGetnUniformuivARB(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformuiARB(int, int, int, ByteBuffer) GetnUniformuiARB} */
+	/** Single return value version of: {@link #glGetnUniformuivARB GetnUniformuivARB} */
 	public static int glGetnUniformuiARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1041,11 +1041,11 @@ public final class ARBRobustness {
 
 	// --- [ glGetnUniformdvARB ] ---
 
-	/** JNI method for {@link #glGetnUniformdARB(int, int, int, ByteBuffer) GetnUniformdARB} */
+	/** JNI method for {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	@JavadocExclude
 	public static native void nglGetnUniformdvARB(int program, int location, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetnUniformdARB(int, int, int, ByteBuffer) GetnUniformdARB} */
+	/** Unsafe version of {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	@JavadocExclude
 	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformdvARB;
@@ -1055,25 +1055,25 @@ public final class ARBRobustness {
 	}
 
 	/**
-	 * Robust version of {@link GL40#glGetUniformd(int, int, ByteBuffer) GetUniformd}
+	 * Robust version of {@link GL40#glGetUniformdv GetUniformdv}
 	 *
 	 * @param program  the program object to be queried
 	 * @param location the location of the uniform variable to be queried
 	 * @param bufSize  the maximum number of bytes to write into {@code params}
 	 * @param params   a buffer in which to place the returned data
 	 */
-	public static void glGetnUniformdARB(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformdvARB(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetnUniformdvARB(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformdARB(int, int, int, ByteBuffer) GetnUniformdARB} */
-	public static void glGetnUniformARB(int program, int location, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformdvARB GetnUniformdvARB} */
+	public static void glGetnUniformdvARB(int program, int location, DoubleBuffer params) {
 		nglGetnUniformdvARB(program, location, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetnUniformdARB(int, int, int, ByteBuffer) GetnUniformdARB} */
+	/** Single return value version of: {@link #glGetnUniformdvARB GetnUniformdvARB} */
 	public static double glGetnUniformdARB(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();

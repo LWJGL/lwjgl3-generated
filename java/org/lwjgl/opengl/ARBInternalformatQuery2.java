@@ -17,7 +17,7 @@ import static org.lwjgl.system.APIUtil.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/internalformat_query2.txt">ARB_internalformat_query2</a> extension.
  * 
- * <p>This extension extends the {@link ARBInternalformatQuery#glGetInternalformati GetInternalformati} query that was added in the {@link ARBInternalformatQuery ARB_internalformat_query} extension to
+ * <p>This extension extends the {@link ARBInternalformatQuery#glGetInternalformativ GetInternalformativ} query that was added in the {@link ARBInternalformatQuery ARB_internalformat_query} extension to
  * provide applications with more granular per-format capability information.</p>
  * 
  * <p>This extension allows the remainder of the texture-style targets to be specified along with any possible internal format. We add queries for additional
@@ -203,7 +203,7 @@ public final class ARBInternalformatQuery2 {
 
 	// --- [ glGetInternalformati64v ] ---
 
-	/** Unsafe version of {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
+	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
 	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
@@ -221,18 +221,18 @@ public final class ARBInternalformatQuery2 {
 	 * @param bufSize        the maximum number of values that may be written to params by the function
 	 * @param params         a variable into which to write the retrieved information
 	 */
-	public static void glGetInternalformati64(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
+	public static void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
-	public static void glGetInternalformat(int target, int internalformat, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetInternalformati64v GetInternalformati64v} */
+	public static void glGetInternalformati64v(int target, int internalformat, int pname, LongBuffer params) {
 		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
+	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();

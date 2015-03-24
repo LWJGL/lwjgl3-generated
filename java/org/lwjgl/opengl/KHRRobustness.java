@@ -190,7 +190,7 @@ public final class KHRRobustness {
 
 	// --- [ glGetnUniformfv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
+	/** Unsafe version of {@link #glGetnUniformfv GetnUniformfv} */
 	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
@@ -207,20 +207,20 @@ public final class KHRRobustness {
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformf(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformf(int, int, int, ByteBuffer) GetnUniformf} */
-	public static void glGetnUniform(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformfv GetnUniformfv} */
+	public static void glGetnUniformfv(int program, int location, FloatBuffer params) {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
+	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
 	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
@@ -230,27 +230,27 @@ public final class KHRRobustness {
 	}
 
 	/**
-	 * Integer version of {@link #glGetnUniformf GetnUniformf}.
+	 * Integer version of {@link #glGetnUniformfv GetnUniformfv}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformi(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformi(int, int, int, ByteBuffer) GetnUniformi} */
-	public static void glGetnUniformi(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformiv GetnUniformiv} */
+	public static void glGetnUniformiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
 	// --- [ glGetnUniformuiv ] ---
 
-	/** Unsafe version of {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
+	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
 	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
@@ -260,21 +260,21 @@ public final class KHRRobustness {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetnUniformi GetnUniformi}.
+	 * Unsigned version of {@link #glGetnUniformiv GetnUniformiv}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param bufSize  the maximum number of bytes to write to {@code params}
 	 * @param params   the buffer in which to place the returned data
 	 */
-	public static void glGetnUniformui(int program, int location, int bufSize, ByteBuffer params) {
+	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetnUniformui(int, int, int, ByteBuffer) GetnUniformui} */
-	public static void glGetnUniformui(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
 	}
 

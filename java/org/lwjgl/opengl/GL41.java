@@ -635,11 +635,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glCreateShaderProgramv ] ---
 
-	/** JNI method for {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
+	/** JNI method for {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	@JavadocExclude
 	public static native int nglCreateShaderProgramv(int type, int count, long strings, long __functionAddress);
 
-	/** Unsafe version of {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
+	/** Unsafe version of {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
@@ -682,19 +682,19 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count   the number of source code strings in the array {@code strings}
 	 * @param strings an array of pointers to source code strings from which to create the program object
 	 */
-	public static int glCreateShaderProgram(int type, int count, ByteBuffer strings) {
+	public static int glCreateShaderProgramv(int type, int count, ByteBuffer strings) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
 		return nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
 
-	/** Alternative version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, PointerBuffer strings) {
+	/** Alternative version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, PointerBuffer strings) {
 		return nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
 	}
 
-	/** Array version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, CharSequence... strings) {
+	/** Array version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
@@ -703,8 +703,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
 	}
 
-	/** Single string version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, CharSequence string) {
+	/** Single string version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
@@ -836,11 +836,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glGetProgramPipelineiv ] ---
 
-	/** JNI method for {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
+	/** JNI method for {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	@JavadocExclude
 	public static native void nglGetProgramPipelineiv(int pipeline, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
+	/** Unsafe version of {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
@@ -858,20 +858,20 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param pname    the name of the parameter to retrieve. One of:<br>{@link #GL_ACTIVE_PROGRAM ACTIVE_PROGRAM}, {@link GL20#GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param params   a variable into which will be written the value or values of {@code pname} for {@code pipeline}
 	 */
-	public static void glGetProgramPipelinei(int pipeline, int pname, ByteBuffer params) {
+	public static void glGetProgramPipelineiv(int pipeline, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
-	public static void glGetProgramPipeline(int pipeline, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
+	public static void glGetProgramPipelineiv(int pipeline, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
+	/** Single return value version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	public static int glGetProgramPipelinei(int pipeline, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1257,11 +1257,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glProgramUniform1iv ] ---
 
-	/** JNI method for {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
+	/** JNI method for {@link #glProgramUniform1iv ProgramUniform1iv} */
 	@JavadocExclude
 	public static native void nglProgramUniform1iv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
+	/** Unsafe version of {@link #glProgramUniform1iv ProgramUniform1iv} */
 	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
@@ -1280,24 +1280,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
-	public static void glProgramUniform1(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1iv ProgramUniform1iv} */
+	public static void glProgramUniform1iv(int program, int location, IntBuffer value) {
 		nglProgramUniform1iv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2iv ] ---
 
-	/** JNI method for {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
+	/** JNI method for {@link #glProgramUniform2iv ProgramUniform2iv} */
 	@JavadocExclude
 	public static native void nglProgramUniform2iv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
+	/** Unsafe version of {@link #glProgramUniform2iv ProgramUniform2iv} */
 	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
@@ -1316,24 +1316,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
-	public static void glProgramUniform2(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2iv ProgramUniform2iv} */
+	public static void glProgramUniform2iv(int program, int location, IntBuffer value) {
 		nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3iv ] ---
 
-	/** JNI method for {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
+	/** JNI method for {@link #glProgramUniform3iv ProgramUniform3iv} */
 	@JavadocExclude
 	public static native void nglProgramUniform3iv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
+	/** Unsafe version of {@link #glProgramUniform3iv ProgramUniform3iv} */
 	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
@@ -1352,24 +1352,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
-	public static void glProgramUniform3(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3iv ProgramUniform3iv} */
+	public static void glProgramUniform3iv(int program, int location, IntBuffer value) {
 		nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4iv ] ---
 
-	/** JNI method for {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
+	/** JNI method for {@link #glProgramUniform4iv ProgramUniform4iv} */
 	@JavadocExclude
 	public static native void nglProgramUniform4iv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
+	/** Unsafe version of {@link #glProgramUniform4iv ProgramUniform4iv} */
 	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
@@ -1388,24 +1388,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
-	public static void glProgramUniform4(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4iv ProgramUniform4iv} */
+	public static void glProgramUniform4iv(int program, int location, IntBuffer value) {
 		nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1uiv ] ---
 
-	/** JNI method for {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
+	/** JNI method for {@link #glProgramUniform1uiv ProgramUniform1uiv} */
 	@JavadocExclude
 	public static native void nglProgramUniform1uiv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
+	/** Unsafe version of {@link #glProgramUniform1uiv ProgramUniform1uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
@@ -1424,24 +1424,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
-	public static void glProgramUniform1u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1uiv ProgramUniform1uiv} */
+	public static void glProgramUniform1uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform1uiv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2uiv ] ---
 
-	/** JNI method for {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
+	/** JNI method for {@link #glProgramUniform2uiv ProgramUniform2uiv} */
 	@JavadocExclude
 	public static native void nglProgramUniform2uiv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
+	/** Unsafe version of {@link #glProgramUniform2uiv ProgramUniform2uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
@@ -1460,24 +1460,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
-	public static void glProgramUniform2u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2uiv ProgramUniform2uiv} */
+	public static void glProgramUniform2uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3uiv ] ---
 
-	/** JNI method for {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
+	/** JNI method for {@link #glProgramUniform3uiv ProgramUniform3uiv} */
 	@JavadocExclude
 	public static native void nglProgramUniform3uiv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
+	/** Unsafe version of {@link #glProgramUniform3uiv ProgramUniform3uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
@@ -1496,24 +1496,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
-	public static void glProgramUniform3u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3uiv ProgramUniform3uiv} */
+	public static void glProgramUniform3uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uiv ] ---
 
-	/** JNI method for {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
+	/** JNI method for {@link #glProgramUniform4uiv ProgramUniform4uiv} */
 	@JavadocExclude
 	public static native void nglProgramUniform4uiv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
+	/** Unsafe version of {@link #glProgramUniform4uiv ProgramUniform4uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
@@ -1532,24 +1532,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
-	public static void glProgramUniform4u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4uiv ProgramUniform4uiv} */
+	public static void glProgramUniform4uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1fv ] ---
 
-	/** JNI method for {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
+	/** JNI method for {@link #glProgramUniform1fv ProgramUniform1fv} */
 	@JavadocExclude
 	public static native void nglProgramUniform1fv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
+	/** Unsafe version of {@link #glProgramUniform1fv ProgramUniform1fv} */
 	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
@@ -1568,24 +1568,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
-	public static void glProgramUniform1(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1fv ProgramUniform1fv} */
+	public static void glProgramUniform1fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform1fv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2fv ] ---
 
-	/** JNI method for {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
+	/** JNI method for {@link #glProgramUniform2fv ProgramUniform2fv} */
 	@JavadocExclude
 	public static native void nglProgramUniform2fv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
+	/** Unsafe version of {@link #glProgramUniform2fv ProgramUniform2fv} */
 	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
@@ -1604,24 +1604,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
-	public static void glProgramUniform2(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2fv ProgramUniform2fv} */
+	public static void glProgramUniform2fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3fv ] ---
 
-	/** JNI method for {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
+	/** JNI method for {@link #glProgramUniform3fv ProgramUniform3fv} */
 	@JavadocExclude
 	public static native void nglProgramUniform3fv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
+	/** Unsafe version of {@link #glProgramUniform3fv ProgramUniform3fv} */
 	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
@@ -1640,24 +1640,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
-	public static void glProgramUniform3(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3fv ProgramUniform3fv} */
+	public static void glProgramUniform3fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4fv ] ---
 
-	/** JNI method for {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
+	/** JNI method for {@link #glProgramUniform4fv ProgramUniform4fv} */
 	@JavadocExclude
 	public static native void nglProgramUniform4fv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
+	/** Unsafe version of {@link #glProgramUniform4fv ProgramUniform4fv} */
 	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
@@ -1676,24 +1676,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
-	public static void glProgramUniform4(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4fv ProgramUniform4fv} */
+	public static void glProgramUniform4fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1dv ] ---
 
-	/** JNI method for {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
+	/** JNI method for {@link #glProgramUniform1dv ProgramUniform1dv} */
 	@JavadocExclude
 	public static native void nglProgramUniform1dv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
+	/** Unsafe version of {@link #glProgramUniform1dv ProgramUniform1dv} */
 	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
@@ -1712,24 +1712,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
-	public static void glProgramUniform1(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1dv ProgramUniform1dv} */
+	public static void glProgramUniform1dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform1dv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2dv ] ---
 
-	/** JNI method for {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
+	/** JNI method for {@link #glProgramUniform2dv ProgramUniform2dv} */
 	@JavadocExclude
 	public static native void nglProgramUniform2dv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
+	/** Unsafe version of {@link #glProgramUniform2dv ProgramUniform2dv} */
 	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
@@ -1748,24 +1748,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
-	public static void glProgramUniform2(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2dv ProgramUniform2dv} */
+	public static void glProgramUniform2dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3dv ] ---
 
-	/** JNI method for {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
+	/** JNI method for {@link #glProgramUniform3dv ProgramUniform3dv} */
 	@JavadocExclude
 	public static native void nglProgramUniform3dv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
+	/** Unsafe version of {@link #glProgramUniform3dv ProgramUniform3dv} */
 	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
@@ -1784,24 +1784,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
-	public static void glProgramUniform3(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3dv ProgramUniform3dv} */
+	public static void glProgramUniform3dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4dv ] ---
 
-	/** JNI method for {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
+	/** JNI method for {@link #glProgramUniform4dv ProgramUniform4dv} */
 	@JavadocExclude
 	public static native void nglProgramUniform4dv(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
+	/** Unsafe version of {@link #glProgramUniform4dv ProgramUniform4dv} */
 	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
@@ -1820,24 +1820,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
-	public static void glProgramUniform4(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4dv ProgramUniform4dv} */
+	public static void glProgramUniform4dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
+	/** JNI method for {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
@@ -1857,24 +1857,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
-	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
+	public static void glProgramUniformMatrix2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
+	/** JNI method for {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
@@ -1894,24 +1894,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
-	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
+	public static void glProgramUniformMatrix3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
+	/** JNI method for {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
@@ -1931,24 +1931,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
-	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
+	public static void glProgramUniformMatrix4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
+	/** JNI method for {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
@@ -1968,24 +1968,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
-	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
+	public static void glProgramUniformMatrix2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
+	/** JNI method for {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
@@ -2005,24 +2005,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
-	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
+	public static void glProgramUniformMatrix3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
+	/** JNI method for {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
@@ -2042,24 +2042,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
-	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
+	public static void glProgramUniformMatrix4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
+	/** JNI method for {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
@@ -2079,24 +2079,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
-	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
+	public static void glProgramUniformMatrix2x3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
+	/** JNI method for {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
@@ -2116,24 +2116,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
-	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
+	public static void glProgramUniformMatrix3x2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
+	/** JNI method for {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
@@ -2153,24 +2153,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
-	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
+	public static void glProgramUniformMatrix2x4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
+	/** JNI method for {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
@@ -2190,24 +2190,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
-	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
+	public static void glProgramUniformMatrix4x2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
+	/** JNI method for {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
@@ -2227,24 +2227,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
-	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
+	public static void glProgramUniformMatrix3x4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3fv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
+	/** JNI method for {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
@@ -2264,24 +2264,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
-	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
+	public static void glProgramUniformMatrix4x3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
+	/** JNI method for {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
@@ -2301,24 +2301,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
-	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
+	public static void glProgramUniformMatrix2x3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
+	/** JNI method for {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
@@ -2338,24 +2338,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
-	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
+	public static void glProgramUniformMatrix3x2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
+	/** JNI method for {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
@@ -2375,24 +2375,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
-	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
+	public static void glProgramUniformMatrix2x4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
+	/** JNI method for {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
@@ -2412,24 +2412,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
-	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
+	public static void glProgramUniformMatrix4x2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
+	/** JNI method for {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
@@ -2449,24 +2449,24 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
-	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
+	public static void glProgramUniformMatrix3x4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3dv ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
+	/** JNI method for {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
@@ -2486,14 +2486,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
-	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
+	public static void glProgramUniformMatrix4x3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
@@ -2668,11 +2668,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glVertexAttribL1dv ] ---
 
-	/** JNI method for {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
+	/** JNI method for {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	@JavadocExclude
 	public static native void nglVertexAttribL1dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
+	/** Unsafe version of {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
@@ -2689,14 +2689,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL1d(int index, ByteBuffer v) {
+	public static void glVertexAttribL1dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
-	public static void glVertexAttribL1(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
+	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1dv(index, memAddress(v));
@@ -2704,11 +2704,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glVertexAttribL2dv ] ---
 
-	/** JNI method for {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
+	/** JNI method for {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	@JavadocExclude
 	public static native void nglVertexAttribL2dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
+	/** Unsafe version of {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
@@ -2725,14 +2725,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL2d(int index, ByteBuffer v) {
+	public static void glVertexAttribL2dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
-	public static void glVertexAttribL2(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
+	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2dv(index, memAddress(v));
@@ -2740,11 +2740,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glVertexAttribL3dv ] ---
 
-	/** JNI method for {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
+	/** JNI method for {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	@JavadocExclude
 	public static native void nglVertexAttribL3dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
+	/** Unsafe version of {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
@@ -2761,14 +2761,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL3d(int index, ByteBuffer v) {
+	public static void glVertexAttribL3dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
-	public static void glVertexAttribL3(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
+	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3dv(index, memAddress(v));
@@ -2776,11 +2776,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glVertexAttribL4dv ] ---
 
-	/** JNI method for {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
+	/** JNI method for {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	@JavadocExclude
 	public static native void nglVertexAttribL4dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
+	/** Unsafe version of {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
@@ -2797,14 +2797,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL4d(int index, ByteBuffer v) {
+	public static void glVertexAttribL4dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
-	public static void glVertexAttribL4(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
+	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4dv(index, memAddress(v));
@@ -2860,11 +2860,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glGetVertexAttribLdv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
+	/** JNI method for {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribLdv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
+	/** Unsafe version of {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
@@ -2882,22 +2882,22 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params the requested data
 	 */
-	public static void glGetVertexAttribLd(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribLdv(int index, int pname, ByteBuffer params) {
 		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
-	public static void glGetVertexAttribL(int index, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
+	public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
 		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
 	// --- [ glViewportArrayv ] ---
 
-	/** JNI method for {@link #glViewportArray(int, int, ByteBuffer) ViewportArray} */
+	/** JNI method for {@link #glViewportArrayv ViewportArrayv} */
 	@JavadocExclude
 	public static native void nglViewportArrayv(int first, int count, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glViewportArray(int, int, ByteBuffer) ViewportArray} */
+	/** Unsafe version of {@link #glViewportArrayv ViewportArrayv} */
 	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
@@ -2915,14 +2915,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count the number of viewports to set
 	 * @param v     an array containing the viewport parameters
 	 */
-	public static void glViewportArray(int first, int count, ByteBuffer v) {
+	public static void glViewportArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglViewportArrayv(first, count, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glViewportArray(int, int, ByteBuffer) ViewportArray} */
-	public static void glViewportArray(int first, FloatBuffer v) {
+	/** Alternative version of: {@link #glViewportArrayv ViewportArrayv} */
+	public static void glViewportArrayv(int first, FloatBuffer v) {
 		nglViewportArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
 
@@ -2952,11 +2952,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glViewportIndexedfv ] ---
 
-	/** JNI method for {@link #glViewportIndexedf(int, ByteBuffer) ViewportIndexedf} */
+	/** JNI method for {@link #glViewportIndexedfv ViewportIndexedfv} */
 	@JavadocExclude
 	public static native void nglViewportIndexedfv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glViewportIndexedf(int, ByteBuffer) ViewportIndexedf} */
+	/** Unsafe version of {@link #glViewportIndexedfv ViewportIndexedfv} */
 	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
@@ -2973,14 +2973,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the viewport to set
 	 * @param v     the viewport parameters
 	 */
-	public static void glViewportIndexedf(int index, ByteBuffer v) {
+	public static void glViewportIndexedfv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glViewportIndexedf(int, ByteBuffer) ViewportIndexedf} */
-	public static void glViewportIndexed(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
+	public static void glViewportIndexedfv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglViewportIndexedfv(index, memAddress(v));
@@ -2988,11 +2988,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glScissorArrayv ] ---
 
-	/** JNI method for {@link #glScissorArray(int, int, ByteBuffer) ScissorArray} */
+	/** JNI method for {@link #glScissorArrayv ScissorArrayv} */
 	@JavadocExclude
 	public static native void nglScissorArrayv(int first, int count, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glScissorArray(int, int, ByteBuffer) ScissorArray} */
+	/** Unsafe version of {@link #glScissorArrayv ScissorArrayv} */
 	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
@@ -3010,14 +3010,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count the number of scissor boxes to modify
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
-	public static void glScissorArray(int first, int count, ByteBuffer v) {
+	public static void glScissorArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglScissorArrayv(first, count, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glScissorArray(int, int, ByteBuffer) ScissorArray} */
-	public static void glScissorArray(int first, IntBuffer v) {
+	/** Alternative version of: {@link #glScissorArrayv ScissorArrayv} */
+	public static void glScissorArrayv(int first, IntBuffer v) {
 		nglScissorArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
 
@@ -3047,11 +3047,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glScissorIndexedv ] ---
 
-	/** JNI method for {@link #glScissorIndexed(int, ByteBuffer) ScissorIndexed} */
+	/** JNI method for {@link #glScissorIndexedv ScissorIndexedv} */
 	@JavadocExclude
 	public static native void nglScissorIndexedv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glScissorIndexed(int, ByteBuffer) ScissorIndexed} */
+	/** Unsafe version of {@link #glScissorIndexedv ScissorIndexedv} */
 	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
@@ -3068,14 +3068,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index the index of the viewport whose scissor box to modify
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
-	public static void glScissorIndexed(int index, ByteBuffer v) {
+	public static void glScissorIndexedv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglScissorIndexedv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glScissorIndexed(int, ByteBuffer) ScissorIndexed} */
-	public static void glScissorIndexed(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glScissorIndexedv ScissorIndexedv} */
+	public static void glScissorIndexedv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglScissorIndexedv(index, memAddress(v));
@@ -3083,11 +3083,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glDepthRangeArrayv ] ---
 
-	/** JNI method for {@link #glDepthRangeArray(int, int, ByteBuffer) DepthRangeArray} */
+	/** JNI method for {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	@JavadocExclude
 	public static native void nglDepthRangeArrayv(int first, int count, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glDepthRangeArray(int, int, ByteBuffer) DepthRangeArray} */
+	/** Unsafe version of {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
@@ -3105,14 +3105,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param count the number of viewports whose depth range to update
 	 * @param v     n array containing the near and far values for the depth range of each modified viewport
 	 */
-	public static void glDepthRangeArray(int first, int count, ByteBuffer v) {
+	public static void glDepthRangeArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 1) << 3);
 		nglDepthRangeArrayv(first, count, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glDepthRangeArray(int, int, ByteBuffer) DepthRangeArray} */
-	public static void glDepthRangeArray(int first, DoubleBuffer v) {
+	/** Alternative version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
+	public static void glDepthRangeArrayv(int first, DoubleBuffer v) {
 		nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v));
 	}
 
@@ -3140,11 +3140,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glGetFloati_v ] ---
 
-	/** JNI method for {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	/** JNI method for {@link #glGetFloati_v GetFloati_v} */
 	@JavadocExclude
 	public static native void nglGetFloati_v(int target, int index, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	/** Unsafe version of {@link #glGetFloati_v GetFloati_v} */
 	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
@@ -3162,20 +3162,20 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index  the index of the element being queried
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetFloati(int target, int index, ByteBuffer data) {
+	public static void glGetFloati_v(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
-	public static void glGetFloati(int target, int index, FloatBuffer data) {
+	/** Alternative version of: {@link #glGetFloati_v GetFloati_v} */
+	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetFloati(int, int, ByteBuffer) GetFloati} */
+	/** Single return value version of: {@link #glGetFloati_v GetFloati_v} */
 	public static float glGetFloati(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
@@ -3185,11 +3185,11 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	// --- [ glGetDoublei_v ] ---
 
-	/** JNI method for {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	/** JNI method for {@link #glGetDoublei_v GetDoublei_v} */
 	@JavadocExclude
 	public static native void nglGetDoublei_v(int target, int index, long data, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	/** Unsafe version of {@link #glGetDoublei_v GetDoublei_v} */
 	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
@@ -3207,20 +3207,20 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param index  the index of the element being queried
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
-	public static void glGetDoublei(int target, int index, ByteBuffer data) {
+	public static void glGetDoublei_v(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 3);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
-	/** Alternative version of: {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
-	public static void glGetDoublei(int target, int index, DoubleBuffer data) {
+	/** Alternative version of: {@link #glGetDoublei_v GetDoublei_v} */
+	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
-	/** Single return value version of: {@link #glGetDoublei(int, int, ByteBuffer) GetDoublei} */
+	/** Single return value version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static double glGetDoublei(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();

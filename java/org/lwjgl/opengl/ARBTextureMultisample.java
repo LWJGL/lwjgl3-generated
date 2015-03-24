@@ -157,7 +157,7 @@ public final class ARBTextureMultisample {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** Unsafe version of {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
+	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
@@ -173,20 +173,20 @@ public final class ARBTextureMultisample {
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
-	public static void glGetMultisamplef(int pname, int index, ByteBuffer val) {
+	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1 << 2);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
-	public static void glGetMultisample(int pname, int index, FloatBuffer val) {
+	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
+	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
+	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();

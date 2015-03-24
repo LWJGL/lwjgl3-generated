@@ -22,8 +22,8 @@ import static org.lwjgl.system.Checks.*;
 public final class AMDOcclusionQueryEvent {
 
 	/**
-	 * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui},
-	 * {@link GL33#glGetQueryObjecti64 GetQueryObjecti64}, and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}.
+	 * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv},
+	 * {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v}, and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}.
 	 */
 	public static final int GL_OCCLUSION_QUERY_EVENT_MASK_AMD = 0x874F;
 

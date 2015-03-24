@@ -280,11 +280,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1fvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1fARB(int, ByteBuffer) MultiTexCoord1fARB} */
+	/** JNI method for {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1fvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1fARB(int, ByteBuffer) MultiTexCoord1fARB} */
+	/** Unsafe version of {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fvARB;
@@ -299,14 +299,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1fARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1fvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1fvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1fARB(int, ByteBuffer) MultiTexCoord1fARB} */
-	public static void glMultiTexCoord1ARB(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
+	public static void glMultiTexCoord1fvARB(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1fvARB(texture, memAddress(v));
@@ -314,11 +314,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1svARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1sARB(int, ByteBuffer) MultiTexCoord1sARB} */
+	/** JNI method for {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1svARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1sARB(int, ByteBuffer) MultiTexCoord1sARB} */
+	/** Unsafe version of {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1svARB;
@@ -333,14 +333,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1sARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1svARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglMultiTexCoord1svARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1sARB(int, ByteBuffer) MultiTexCoord1sARB} */
-	public static void glMultiTexCoord1ARB(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
+	public static void glMultiTexCoord1svARB(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1svARB(texture, memAddress(v));
@@ -348,11 +348,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1ivARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1iARB(int, ByteBuffer) MultiTexCoord1iARB} */
+	/** JNI method for {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1ivARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1iARB(int, ByteBuffer) MultiTexCoord1iARB} */
+	/** Unsafe version of {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1ivARB;
@@ -367,14 +367,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1iARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1ivARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1ivARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1iARB(int, ByteBuffer) MultiTexCoord1iARB} */
-	public static void glMultiTexCoord1ARB(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
+	public static void glMultiTexCoord1ivARB(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1ivARB(texture, memAddress(v));
@@ -382,11 +382,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1dvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1dARB(int, ByteBuffer) MultiTexCoord1dARB} */
+	/** JNI method for {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord1dvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord1dARB(int, ByteBuffer) MultiTexCoord1dARB} */
+	/** Unsafe version of {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dvARB;
@@ -401,14 +401,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord1dARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord1dvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglMultiTexCoord1dvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord1dARB(int, ByteBuffer) MultiTexCoord1dARB} */
-	public static void glMultiTexCoord1ARB(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
+	public static void glMultiTexCoord1dvARB(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1dvARB(texture, memAddress(v));
@@ -496,11 +496,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2fvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2fARB(int, ByteBuffer) MultiTexCoord2fARB} */
+	/** JNI method for {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2fvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2fARB(int, ByteBuffer) MultiTexCoord2fARB} */
+	/** Unsafe version of {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fvARB;
@@ -515,14 +515,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2fARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2fvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2fvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2fARB(int, ByteBuffer) MultiTexCoord2fARB} */
-	public static void glMultiTexCoord2ARB(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
+	public static void glMultiTexCoord2fvARB(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2fvARB(texture, memAddress(v));
@@ -530,11 +530,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2svARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2sARB(int, ByteBuffer) MultiTexCoord2sARB} */
+	/** JNI method for {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2svARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2sARB(int, ByteBuffer) MultiTexCoord2sARB} */
+	/** Unsafe version of {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2svARB;
@@ -549,14 +549,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2sARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2svARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglMultiTexCoord2svARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2sARB(int, ByteBuffer) MultiTexCoord2sARB} */
-	public static void glMultiTexCoord2ARB(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
+	public static void glMultiTexCoord2svARB(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2svARB(texture, memAddress(v));
@@ -564,11 +564,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2ivARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2iARB(int, ByteBuffer) MultiTexCoord2iARB} */
+	/** JNI method for {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2ivARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2iARB(int, ByteBuffer) MultiTexCoord2iARB} */
+	/** Unsafe version of {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2ivARB;
@@ -583,14 +583,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2iARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2ivARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2ivARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2iARB(int, ByteBuffer) MultiTexCoord2iARB} */
-	public static void glMultiTexCoord2ARB(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
+	public static void glMultiTexCoord2ivARB(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2ivARB(texture, memAddress(v));
@@ -598,11 +598,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2dvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2dARB(int, ByteBuffer) MultiTexCoord2dARB} */
+	/** JNI method for {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord2dvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord2dARB(int, ByteBuffer) MultiTexCoord2dARB} */
+	/** Unsafe version of {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dvARB;
@@ -617,14 +617,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord2dARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord2dvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglMultiTexCoord2dvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord2dARB(int, ByteBuffer) MultiTexCoord2dARB} */
-	public static void glMultiTexCoord2ARB(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
+	public static void glMultiTexCoord2dvARB(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2dvARB(texture, memAddress(v));
@@ -716,11 +716,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3fvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3fARB(int, ByteBuffer) MultiTexCoord3fARB} */
+	/** JNI method for {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3fvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3fARB(int, ByteBuffer) MultiTexCoord3fARB} */
+	/** Unsafe version of {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fvARB;
@@ -735,14 +735,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3fARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3fvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3fvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3fARB(int, ByteBuffer) MultiTexCoord3fARB} */
-	public static void glMultiTexCoord3ARB(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
+	public static void glMultiTexCoord3fvARB(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3fvARB(texture, memAddress(v));
@@ -750,11 +750,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3svARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3sARB(int, ByteBuffer) MultiTexCoord3sARB} */
+	/** JNI method for {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3svARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3sARB(int, ByteBuffer) MultiTexCoord3sARB} */
+	/** Unsafe version of {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3svARB;
@@ -769,14 +769,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3sARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3svARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglMultiTexCoord3svARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3sARB(int, ByteBuffer) MultiTexCoord3sARB} */
-	public static void glMultiTexCoord3ARB(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
+	public static void glMultiTexCoord3svARB(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3svARB(texture, memAddress(v));
@@ -784,11 +784,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3ivARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3iARB(int, ByteBuffer) MultiTexCoord3iARB} */
+	/** JNI method for {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3ivARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3iARB(int, ByteBuffer) MultiTexCoord3iARB} */
+	/** Unsafe version of {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3ivARB;
@@ -803,14 +803,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3iARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3ivARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3ivARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3iARB(int, ByteBuffer) MultiTexCoord3iARB} */
-	public static void glMultiTexCoord3ARB(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
+	public static void glMultiTexCoord3ivARB(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3ivARB(texture, memAddress(v));
@@ -818,11 +818,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3dvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3dARB(int, ByteBuffer) MultiTexCoord3dARB} */
+	/** JNI method for {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord3dvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord3dARB(int, ByteBuffer) MultiTexCoord3dARB} */
+	/** Unsafe version of {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dvARB;
@@ -837,14 +837,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord3dARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord3dvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglMultiTexCoord3dvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord3dARB(int, ByteBuffer) MultiTexCoord3dARB} */
-	public static void glMultiTexCoord3ARB(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
+	public static void glMultiTexCoord3dvARB(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3dvARB(texture, memAddress(v));
@@ -940,11 +940,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4fvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4fARB(int, ByteBuffer) MultiTexCoord4fARB} */
+	/** JNI method for {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4fvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4fARB(int, ByteBuffer) MultiTexCoord4fARB} */
+	/** Unsafe version of {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fvARB;
@@ -959,14 +959,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4fARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4fvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4fvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4fARB(int, ByteBuffer) MultiTexCoord4fARB} */
-	public static void glMultiTexCoord4ARB(int texture, FloatBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
+	public static void glMultiTexCoord4fvARB(int texture, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4fvARB(texture, memAddress(v));
@@ -974,11 +974,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4svARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4sARB(int, ByteBuffer) MultiTexCoord4sARB} */
+	/** JNI method for {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4svARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4sARB(int, ByteBuffer) MultiTexCoord4sARB} */
+	/** Unsafe version of {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4svARB;
@@ -993,14 +993,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4sARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4svARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglMultiTexCoord4svARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4sARB(int, ByteBuffer) MultiTexCoord4sARB} */
-	public static void glMultiTexCoord4ARB(int texture, ShortBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
+	public static void glMultiTexCoord4svARB(int texture, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4svARB(texture, memAddress(v));
@@ -1008,11 +1008,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4ivARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4iARB(int, ByteBuffer) MultiTexCoord4iARB} */
+	/** JNI method for {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4ivARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4iARB(int, ByteBuffer) MultiTexCoord4iARB} */
+	/** Unsafe version of {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4ivARB;
@@ -1027,14 +1027,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4iARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4ivARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4ivARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4iARB(int, ByteBuffer) MultiTexCoord4iARB} */
-	public static void glMultiTexCoord4ARB(int texture, IntBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
+	public static void glMultiTexCoord4ivARB(int texture, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4ivARB(texture, memAddress(v));
@@ -1042,11 +1042,11 @@ public final class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4dvARB ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4dARB(int, ByteBuffer) MultiTexCoord4dARB} */
+	/** JNI method for {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
 	@JavadocExclude
 	public static native void nglMultiTexCoord4dvARB(int texture, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexCoord4dARB(int, ByteBuffer) MultiTexCoord4dARB} */
+	/** Unsafe version of {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dvARB;
@@ -1061,14 +1061,14 @@ public final class ARBMultitexture {
 	 * @param texture the coordinate set to be modified
 	 * @param v       the texture coordinate buffer
 	 */
-	public static void glMultiTexCoord4dARB(int texture, ByteBuffer v) {
+	public static void glMultiTexCoord4dvARB(int texture, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglMultiTexCoord4dvARB(texture, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glMultiTexCoord4dARB(int, ByteBuffer) MultiTexCoord4dARB} */
-	public static void glMultiTexCoord4ARB(int texture, DoubleBuffer v) {
+	/** Alternative version of: {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
+	public static void glMultiTexCoord4dvARB(int texture, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4dvARB(texture, memAddress(v));

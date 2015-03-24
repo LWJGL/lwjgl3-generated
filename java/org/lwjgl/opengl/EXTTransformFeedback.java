@@ -354,11 +354,11 @@ public final class EXTTransformFeedback {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** JNI method for {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetIntegerIndexedvEXT(int param, int index, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
@@ -374,20 +374,20 @@ public final class EXTTransformFeedback {
 	 * @param index  
 	 * @param values 
 	 */
-	public static void glGetIntegerIndexedEXT(int param, int index, ByteBuffer values) {
+	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
-	public static void glGetIntegerIndexedEXT(int param, int index, IntBuffer values) {
+	/** Alternative version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
+	public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
 		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** Single return value version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static int glGetIntegerIndexedEXT(int param, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
@@ -397,11 +397,11 @@ public final class EXTTransformFeedback {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** JNI method for {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetBooleanIndexedvEXT(int param, int index, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
@@ -417,13 +417,13 @@ public final class EXTTransformFeedback {
 	 * @param index  
 	 * @param values 
 	 */
-	public static void glGetBooleanIndexedEXT(int param, int index, ByteBuffer values) {
+	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
 		nglGetBooleanIndexedvEXT(param, index, memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** Single return value version of: {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static boolean glGetBooleanIndexedEXT(int param, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.booleanParam();

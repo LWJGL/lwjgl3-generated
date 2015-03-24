@@ -344,11 +344,11 @@ public final class EXTFramebufferObject {
 
 	// --- [ glGetRenderbufferParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetRenderbufferParameteriEXT(int, int, ByteBuffer) GetRenderbufferParameteriEXT} */
+	/** JNI method for {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetRenderbufferParameterivEXT(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetRenderbufferParameteriEXT(int, int, ByteBuffer) GetRenderbufferParameteriEXT} */
+	/** Unsafe version of {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameterivEXT;
@@ -364,20 +364,20 @@ public final class EXTFramebufferObject {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetRenderbufferParameteriEXT(int target, int pname, ByteBuffer params) {
+	public static void glGetRenderbufferParameterivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetRenderbufferParameteriEXT(int, int, ByteBuffer) GetRenderbufferParameteriEXT} */
-	public static void glGetRenderbufferParameterEXT(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
+	public static void glGetRenderbufferParameterivEXT(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetRenderbufferParameteriEXT(int, int, ByteBuffer) GetRenderbufferParameteriEXT} */
+	/** Single return value version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	public static int glGetRenderbufferParameteriEXT(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -609,11 +609,11 @@ public final class EXTFramebufferObject {
 
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteriEXT} */
+	/** JNI method for {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteriEXT} */
+	/** Unsafe version of {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameterivEXT;
@@ -630,20 +630,20 @@ public final class EXTFramebufferObject {
 	 * @param pname      
 	 * @param params     
 	 */
-	public static void glGetFramebufferAttachmentParameteriEXT(int target, int attachment, int pname, ByteBuffer params) {
+	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteriEXT} */
-	public static void glGetFramebufferAttachmentParameterEXT(int target, int attachment, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
+	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetFramebufferAttachmentParameteriEXT} */
+	/** Single return value version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	public static int glGetFramebufferAttachmentParameteriEXT(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

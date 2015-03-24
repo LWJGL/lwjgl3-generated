@@ -16,8 +16,8 @@ package org.lwjgl.opengl;
 public final class ARBTransformFeedbackOverflowQuery {
 
 	/**
-	 * Accepted by the {@code target} parameter of {@link GL15#glBeginQuery BeginQuery}, {@link GL15#glEndQuery EndQuery}, {@link GL15#glGetQueryi GetQueryi},
-	 * {@link GL40#glBeginQueryIndexed BeginQueryIndexed}, {@link GL40#glEndQueryIndexed EndQueryIndexed} and {@link GL40#glGetQueryIndexedi GetQueryIndexedi}.
+	 * Accepted by the {@code target} parameter of {@link GL15#glBeginQuery BeginQuery}, {@link GL15#glEndQuery EndQuery}, {@link GL15#glGetQueryiv GetQueryiv},
+	 * {@link GL40#glBeginQueryIndexed BeginQueryIndexed}, {@link GL40#glEndQueryIndexed EndQueryIndexed} and {@link GL40#glGetQueryIndexediv GetQueryIndexediv}.
 	 */
 	public static final int
 		GL_TRANSFORM_FEEDBACK_OVERFLOW_ARB        = 0x82EC,

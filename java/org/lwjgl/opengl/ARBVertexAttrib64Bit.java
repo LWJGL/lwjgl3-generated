@@ -178,7 +178,7 @@ public final class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL1dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
+	/** Unsafe version of {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
@@ -193,14 +193,14 @@ public final class ARBVertexAttrib64Bit {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL1d(int index, ByteBuffer v) {
+	public static void glVertexAttribL1dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL1d(int, ByteBuffer) VertexAttribL1d} */
-	public static void glVertexAttribL1(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
+	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1dv(index, memAddress(v));
@@ -208,7 +208,7 @@ public final class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL2dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
+	/** Unsafe version of {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
@@ -223,14 +223,14 @@ public final class ARBVertexAttrib64Bit {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL2d(int index, ByteBuffer v) {
+	public static void glVertexAttribL2dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL2d(int, ByteBuffer) VertexAttribL2d} */
-	public static void glVertexAttribL2(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
+	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2dv(index, memAddress(v));
@@ -238,7 +238,7 @@ public final class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL3dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
+	/** Unsafe version of {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
@@ -253,14 +253,14 @@ public final class ARBVertexAttrib64Bit {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL3d(int index, ByteBuffer v) {
+	public static void glVertexAttribL3dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL3d(int, ByteBuffer) VertexAttribL3d} */
-	public static void glVertexAttribL3(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
+	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3dv(index, memAddress(v));
@@ -268,7 +268,7 @@ public final class ARBVertexAttrib64Bit {
 
 	// --- [ glVertexAttribL4dv ] ---
 
-	/** Unsafe version of {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
+	/** Unsafe version of {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
@@ -283,14 +283,14 @@ public final class ARBVertexAttrib64Bit {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL4d(int index, ByteBuffer v) {
+	public static void glVertexAttribL4dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL4d(int, ByteBuffer) VertexAttribL4d} */
-	public static void glVertexAttribL4(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
+	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4dv(index, memAddress(v));
@@ -340,7 +340,7 @@ public final class ARBVertexAttrib64Bit {
 
 	// --- [ glGetVertexAttribLdv ] ---
 
-	/** Unsafe version of {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
+	/** Unsafe version of {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
@@ -356,12 +356,12 @@ public final class ARBVertexAttrib64Bit {
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params the requested data
 	 */
-	public static void glGetVertexAttribLd(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribLdv(int index, int pname, ByteBuffer params) {
 		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribLd(int, int, ByteBuffer) GetVertexAttribLd} */
-	public static void glGetVertexAttribL(int index, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
+	public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
 		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 

@@ -265,11 +265,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetBufferParameterui64vNV ] ---
 
-	/** JNI method for {@link #glGetBufferParameterui64NV(int, int, ByteBuffer) GetBufferParameterui64NV} */
+	/** JNI method for {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	@JavadocExclude
 	public static native void nglGetBufferParameterui64vNV(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameterui64NV(int, int, ByteBuffer) GetBufferParameterui64NV} */
+	/** Unsafe version of {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	@JavadocExclude
 	public static void nglGetBufferParameterui64vNV(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterui64vNV;
@@ -285,20 +285,20 @@ public final class NVShaderBufferLoad {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetBufferParameterui64NV(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferParameterui64vNV(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetBufferParameterui64vNV(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameterui64NV(int, int, ByteBuffer) GetBufferParameterui64NV} */
-	public static void glGetBufferParameteruNV(int target, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
+	public static void glGetBufferParameterui64vNV(int target, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameterui64vNV(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameterui64NV(int, int, ByteBuffer) GetBufferParameterui64NV} */
+	/** Single return value version of: {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	public static long glGetBufferParameterui64NV(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -308,11 +308,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetNamedBufferParameterui64vNV ] ---
 
-	/** JNI method for {@link #glGetNamedBufferParameterui64NV(int, int, ByteBuffer) GetNamedBufferParameterui64NV} */
+	/** JNI method for {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	@JavadocExclude
 	public static native void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedBufferParameterui64NV(int, int, ByteBuffer) GetNamedBufferParameterui64NV} */
+	/** Unsafe version of {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	@JavadocExclude
 	public static void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameterui64vNV;
@@ -328,20 +328,20 @@ public final class NVShaderBufferLoad {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetNamedBufferParameterui64NV(int buffer, int pname, ByteBuffer params) {
+	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetNamedBufferParameterui64vNV(buffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedBufferParameterui64NV(int, int, ByteBuffer) GetNamedBufferParameterui64NV} */
-	public static void glGetNamedBufferParameteruNV(int buffer, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
+	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameterui64vNV(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameterui64NV(int, int, ByteBuffer) GetNamedBufferParameterui64NV} */
+	/** Single return value version of: {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	public static long glGetNamedBufferParameterui64NV(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -351,11 +351,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetIntegerui64vNV ] ---
 
-	/** JNI method for {@link #glGetIntegerui64NV(int, ByteBuffer) GetIntegerui64NV} */
+	/** JNI method for {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	@JavadocExclude
 	public static native void nglGetIntegerui64vNV(int value, long result, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetIntegerui64NV(int, ByteBuffer) GetIntegerui64NV} */
+	/** Unsafe version of {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	@JavadocExclude
 	public static void nglGetIntegerui64vNV(int value, long result) {
 		long __functionAddress = getInstance().GetIntegerui64vNV;
@@ -370,20 +370,20 @@ public final class NVShaderBufferLoad {
 	 * @param value  
 	 * @param result 
 	 */
-	public static void glGetIntegerui64NV(int value, ByteBuffer result) {
+	public static void glGetIntegerui64vNV(int value, ByteBuffer result) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(result, 1 << 3);
 		nglGetIntegerui64vNV(value, memAddress(result));
 	}
 
-	/** Alternative version of: {@link #glGetIntegerui64NV(int, ByteBuffer) GetIntegerui64NV} */
-	public static void glGetIntegeruNV(int value, LongBuffer result) {
+	/** Alternative version of: {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
+	public static void glGetIntegerui64vNV(int value, LongBuffer result) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(result, 1);
 		nglGetIntegerui64vNV(value, memAddress(result));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerui64NV(int, ByteBuffer) GetIntegerui64NV} */
+	/** Single return value version of: {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	public static long glGetIntegerui64NV(int value) {
 		APIBuffer __buffer = apiBuffer();
 		int result = __buffer.longParam();
@@ -412,11 +412,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glUniformui64vNV ] ---
 
-	/** JNI method for {@link #glUniformui64NV(int, int, ByteBuffer) Uniformui64NV} */
+	/** JNI method for {@link #glUniformui64vNV Uniformui64vNV} */
 	@JavadocExclude
 	public static native void nglUniformui64vNV(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformui64NV(int, int, ByteBuffer) Uniformui64NV} */
+	/** Unsafe version of {@link #glUniformui64vNV Uniformui64vNV} */
 	@JavadocExclude
 	public static void nglUniformui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniformui64vNV;
@@ -432,24 +432,24 @@ public final class NVShaderBufferLoad {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glUniformui64NV(int location, int count, ByteBuffer value) {
+	public static void glUniformui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniformui64vNV(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformui64NV(int, int, ByteBuffer) Uniformui64NV} */
-	public static void glUniformuNV(int location, LongBuffer value) {
+	/** Alternative version of: {@link #glUniformui64vNV Uniformui64vNV} */
+	public static void glUniformui64vNV(int location, LongBuffer value) {
 		nglUniformui64vNV(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glGetUniformui64vNV ] ---
 
-	/** JNI method for {@link #glGetUniformui64NV(int, int, ByteBuffer) GetUniformui64NV} */
+	/** JNI method for {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	@JavadocExclude
 	public static native void nglGetUniformui64vNV(int program, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformui64NV(int, int, ByteBuffer) GetUniformui64NV} */
+	/** Unsafe version of {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
@@ -465,20 +465,20 @@ public final class NVShaderBufferLoad {
 	 * @param location 
 	 * @param params   
 	 */
-	public static void glGetUniformui64NV(int program, int location, ByteBuffer params) {
+	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformui64NV(int, int, ByteBuffer) GetUniformui64NV} */
-	public static void glGetUniformuNV(int program, int location, LongBuffer params) {
+	/** Alternative version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
+	public static void glGetUniformui64vNV(int program, int location, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformui64NV(int, int, ByteBuffer) GetUniformui64NV} */
+	/** Single return value version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static long glGetUniformui64NV(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -508,11 +508,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glProgramUniformui64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniformui64NV(int, int, int, ByteBuffer) ProgramUniformui64NV} */
+	/** JNI method for {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
 	@JavadocExclude
 	public static native void nglProgramUniformui64vNV(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformui64NV(int, int, int, ByteBuffer) ProgramUniformui64NV} */
+	/** Unsafe version of {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniformui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniformui64vNV;
@@ -529,14 +529,14 @@ public final class NVShaderBufferLoad {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniformui64NV(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniformui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniformui64vNV(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformui64NV(int, int, int, ByteBuffer) ProgramUniformui64NV} */
-	public static void glProgramUniformuNV(int program, int location, LongBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
+	public static void glProgramUniformui64vNV(int program, int location, LongBuffer value) {
 		nglProgramUniformui64vNV(program, location, value.remaining(), memAddress(value));
 	}
 

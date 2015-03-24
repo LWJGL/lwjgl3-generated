@@ -169,11 +169,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2ivARB ] ---
 
-	/** JNI method for {@link #glWindowPos2iARB(ByteBuffer) WindowPos2iARB} */
+	/** JNI method for {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	@JavadocExclude
 	public static native void nglWindowPos2ivARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2iARB(ByteBuffer) WindowPos2iARB} */
+	/** Unsafe version of {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	@JavadocExclude
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos2ivARB;
@@ -187,14 +187,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2iARB(ByteBuffer p) {
+	public static void glWindowPos2ivARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2ivARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2iARB(ByteBuffer) WindowPos2iARB} */
-	public static void glWindowPos2ARB(IntBuffer p) {
+	/** Alternative version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
+	public static void glWindowPos2ivARB(IntBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2ivARB(memAddress(p));
@@ -202,11 +202,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2svARB ] ---
 
-	/** JNI method for {@link #glWindowPos2sARB(ByteBuffer) WindowPos2sARB} */
+	/** JNI method for {@link #glWindowPos2svARB WindowPos2svARB} */
 	@JavadocExclude
 	public static native void nglWindowPos2svARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2sARB(ByteBuffer) WindowPos2sARB} */
+	/** Unsafe version of {@link #glWindowPos2svARB WindowPos2svARB} */
 	@JavadocExclude
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = getInstance().WindowPos2svARB;
@@ -220,14 +220,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2sARB(ByteBuffer p) {
+	public static void glWindowPos2svARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2 << 1);
 		nglWindowPos2svARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2sARB(ByteBuffer) WindowPos2sARB} */
-	public static void glWindowPos2ARB(ShortBuffer p) {
+	/** Alternative version of: {@link #glWindowPos2svARB WindowPos2svARB} */
+	public static void glWindowPos2svARB(ShortBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2svARB(memAddress(p));
@@ -235,11 +235,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2fvARB ] ---
 
-	/** JNI method for {@link #glWindowPos2fARB(ByteBuffer) WindowPos2fARB} */
+	/** JNI method for {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	@JavadocExclude
 	public static native void nglWindowPos2fvARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2fARB(ByteBuffer) WindowPos2fARB} */
+	/** Unsafe version of {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	@JavadocExclude
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2fvARB;
@@ -253,14 +253,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2fARB(ByteBuffer p) {
+	public static void glWindowPos2fvARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2fvARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2fARB(ByteBuffer) WindowPos2fARB} */
-	public static void glWindowPos2ARB(FloatBuffer p) {
+	/** Alternative version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
+	public static void glWindowPos2fvARB(FloatBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2fvARB(memAddress(p));
@@ -268,11 +268,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2dvARB ] ---
 
-	/** JNI method for {@link #glWindowPos2dARB(ByteBuffer) WindowPos2dARB} */
+	/** JNI method for {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	@JavadocExclude
 	public static native void nglWindowPos2dvARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos2dARB(ByteBuffer) WindowPos2dARB} */
+	/** Unsafe version of {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	@JavadocExclude
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2dvARB;
@@ -286,14 +286,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos2dARB(ByteBuffer p) {
+	public static void glWindowPos2dvARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2 << 3);
 		nglWindowPos2dvARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos2dARB(ByteBuffer) WindowPos2dARB} */
-	public static void glWindowPos2ARB(DoubleBuffer p) {
+	/** Alternative version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
+	public static void glWindowPos2dvARB(DoubleBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2dvARB(memAddress(p));
@@ -381,11 +381,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3ivARB ] ---
 
-	/** JNI method for {@link #glWindowPos3iARB(ByteBuffer) WindowPos3iARB} */
+	/** JNI method for {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	@JavadocExclude
 	public static native void nglWindowPos3ivARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3iARB(ByteBuffer) WindowPos3iARB} */
+	/** Unsafe version of {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	@JavadocExclude
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos3ivARB;
@@ -399,14 +399,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3iARB(ByteBuffer p) {
+	public static void glWindowPos3ivARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3ivARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3iARB(ByteBuffer) WindowPos3iARB} */
-	public static void glWindowPos3ARB(IntBuffer p) {
+	/** Alternative version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
+	public static void glWindowPos3ivARB(IntBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3ivARB(memAddress(p));
@@ -414,11 +414,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3svARB ] ---
 
-	/** JNI method for {@link #glWindowPos3sARB(ByteBuffer) WindowPos3sARB} */
+	/** JNI method for {@link #glWindowPos3svARB WindowPos3svARB} */
 	@JavadocExclude
 	public static native void nglWindowPos3svARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3sARB(ByteBuffer) WindowPos3sARB} */
+	/** Unsafe version of {@link #glWindowPos3svARB WindowPos3svARB} */
 	@JavadocExclude
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = getInstance().WindowPos3svARB;
@@ -432,14 +432,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3sARB(ByteBuffer p) {
+	public static void glWindowPos3svARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3 << 1);
 		nglWindowPos3svARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3sARB(ByteBuffer) WindowPos3sARB} */
-	public static void glWindowPos3ARB(ShortBuffer p) {
+	/** Alternative version of: {@link #glWindowPos3svARB WindowPos3svARB} */
+	public static void glWindowPos3svARB(ShortBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3svARB(memAddress(p));
@@ -447,11 +447,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3fvARB ] ---
 
-	/** JNI method for {@link #glWindowPos3fARB(ByteBuffer) WindowPos3fARB} */
+	/** JNI method for {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	@JavadocExclude
 	public static native void nglWindowPos3fvARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3fARB(ByteBuffer) WindowPos3fARB} */
+	/** Unsafe version of {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	@JavadocExclude
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3fvARB;
@@ -465,14 +465,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3fARB(ByteBuffer p) {
+	public static void glWindowPos3fvARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3fvARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3fARB(ByteBuffer) WindowPos3fARB} */
-	public static void glWindowPos3ARB(FloatBuffer p) {
+	/** Alternative version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
+	public static void glWindowPos3fvARB(FloatBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3fvARB(memAddress(p));
@@ -480,11 +480,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3dvARB ] ---
 
-	/** JNI method for {@link #glWindowPos3dARB(ByteBuffer) WindowPos3dARB} */
+	/** JNI method for {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	@JavadocExclude
 	public static native void nglWindowPos3dvARB(long p, long __functionAddress);
 
-	/** Unsafe version of {@link #glWindowPos3dARB(ByteBuffer) WindowPos3dARB} */
+	/** Unsafe version of {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	@JavadocExclude
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3dvARB;
@@ -498,14 +498,14 @@ public final class ARBWindowPos {
 	 *
 	 * @param p the position value
 	 */
-	public static void glWindowPos3dARB(ByteBuffer p) {
+	public static void glWindowPos3dvARB(ByteBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3 << 3);
 		nglWindowPos3dvARB(memAddress(p));
 	}
 
-	/** Alternative version of: {@link #glWindowPos3dARB(ByteBuffer) WindowPos3dARB} */
-	public static void glWindowPos3ARB(DoubleBuffer p) {
+	/** Alternative version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
+	public static void glWindowPos3dvARB(DoubleBuffer p) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3dvARB(memAddress(p));

@@ -901,11 +901,11 @@ Creates a program object.
 
 	// --- [ glUniform1fv ] ---
 
-	/** JNI method for {@link #glUniform1f(int, int, ByteBuffer) Uniform1f} */
+	/** JNI method for {@link #glUniform1fv Uniform1fv} */
 	@JavadocExclude
 	public static native void nglUniform1fv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1f(int, int, ByteBuffer) Uniform1f} */
+	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
 	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
@@ -923,24 +923,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1f(int location, int count, ByteBuffer value) {
+	public static void glUniform1fv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1fv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1f(int, int, ByteBuffer) Uniform1f} */
-	public static void glUniform1(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform1fv Uniform1fv} */
+	public static void glUniform1fv(int location, FloatBuffer value) {
 		nglUniform1fv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2fv ] ---
 
-	/** JNI method for {@link #glUniform2f(int, int, ByteBuffer) Uniform2f} */
+	/** JNI method for {@link #glUniform2fv Uniform2fv} */
 	@JavadocExclude
 	public static native void nglUniform2fv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2f(int, int, ByteBuffer) Uniform2f} */
+	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
 	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
@@ -958,24 +958,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2f(int location, int count, ByteBuffer value) {
+	public static void glUniform2fv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2fv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2f(int, int, ByteBuffer) Uniform2f} */
-	public static void glUniform2(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform2fv Uniform2fv} */
+	public static void glUniform2fv(int location, FloatBuffer value) {
 		nglUniform2fv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3fv ] ---
 
-	/** JNI method for {@link #glUniform3f(int, int, ByteBuffer) Uniform3f} */
+	/** JNI method for {@link #glUniform3fv Uniform3fv} */
 	@JavadocExclude
 	public static native void nglUniform3fv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3f(int, int, ByteBuffer) Uniform3f} */
+	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
 	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
@@ -993,24 +993,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3f(int location, int count, ByteBuffer value) {
+	public static void glUniform3fv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3fv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3f(int, int, ByteBuffer) Uniform3f} */
-	public static void glUniform3(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform3fv Uniform3fv} */
+	public static void glUniform3fv(int location, FloatBuffer value) {
 		nglUniform3fv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4fv ] ---
 
-	/** JNI method for {@link #glUniform4f(int, int, ByteBuffer) Uniform4f} */
+	/** JNI method for {@link #glUniform4fv Uniform4fv} */
 	@JavadocExclude
 	public static native void nglUniform4fv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4f(int, int, ByteBuffer) Uniform4f} */
+	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
 	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
@@ -1028,24 +1028,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4f(int location, int count, ByteBuffer value) {
+	public static void glUniform4fv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4fv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4f(int, int, ByteBuffer) Uniform4f} */
-	public static void glUniform4(int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniform4fv Uniform4fv} */
+	public static void glUniform4fv(int location, FloatBuffer value) {
 		nglUniform4fv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniform1iv ] ---
 
-	/** JNI method for {@link #glUniform1i(int, int, ByteBuffer) Uniform1i} */
+	/** JNI method for {@link #glUniform1iv Uniform1iv} */
 	@JavadocExclude
 	public static native void nglUniform1iv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform1i(int, int, ByteBuffer) Uniform1i} */
+	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
 	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
@@ -1063,24 +1063,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform1i(int location, int count, ByteBuffer value) {
+	public static void glUniform1iv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1iv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform1i(int, int, ByteBuffer) Uniform1i} */
-	public static void glUniform1(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform1iv Uniform1iv} */
+	public static void glUniform1iv(int location, IntBuffer value) {
 		nglUniform1iv(location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glUniform2iv ] ---
 
-	/** JNI method for {@link #glUniform2i(int, int, ByteBuffer) Uniform2i} */
+	/** JNI method for {@link #glUniform2iv Uniform2iv} */
 	@JavadocExclude
 	public static native void nglUniform2iv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform2i(int, int, ByteBuffer) Uniform2i} */
+	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
 	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
@@ -1098,24 +1098,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform2i(int location, int count, ByteBuffer value) {
+	public static void glUniform2iv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2iv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform2i(int, int, ByteBuffer) Uniform2i} */
-	public static void glUniform2(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform2iv Uniform2iv} */
+	public static void glUniform2iv(int location, IntBuffer value) {
 		nglUniform2iv(location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glUniform3iv ] ---
 
-	/** JNI method for {@link #glUniform3i(int, int, ByteBuffer) Uniform3i} */
+	/** JNI method for {@link #glUniform3iv Uniform3iv} */
 	@JavadocExclude
 	public static native void nglUniform3iv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform3i(int, int, ByteBuffer) Uniform3i} */
+	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
 	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
@@ -1133,24 +1133,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform3i(int location, int count, ByteBuffer value) {
+	public static void glUniform3iv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3iv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform3i(int, int, ByteBuffer) Uniform3i} */
-	public static void glUniform3(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform3iv Uniform3iv} */
+	public static void glUniform3iv(int location, IntBuffer value) {
 		nglUniform3iv(location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glUniform4iv ] ---
 
-	/** JNI method for {@link #glUniform4i(int, int, ByteBuffer) Uniform4i} */
+	/** JNI method for {@link #glUniform4iv Uniform4iv} */
 	@JavadocExclude
 	public static native void nglUniform4iv(int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniform4i(int, int, ByteBuffer) Uniform4i} */
+	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
 	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
@@ -1168,24 +1168,24 @@ Creates a program object.
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniform4i(int location, int count, ByteBuffer value) {
+	public static void glUniform4iv(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4iv(location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniform4i(int, int, ByteBuffer) Uniform4i} */
-	public static void glUniform4(int location, IntBuffer value) {
+	/** Alternative version of: {@link #glUniform4iv Uniform4iv} */
+	public static void glUniform4iv(int location, IntBuffer value) {
 		nglUniform4iv(location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2f(int, int, boolean, ByteBuffer) UniformMatrix2f} */
+	/** JNI method for {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix2fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix2f(int, int, boolean, ByteBuffer) UniformMatrix2f} */
+	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
@@ -1204,24 +1204,24 @@ Creates a program object.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix2f(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix2fv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniformMatrix2fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix2f(int, int, boolean, ByteBuffer) UniformMatrix2f} */
-	public static void glUniformMatrix2(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix2fv UniformMatrix2fv} */
+	public static void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix2fv(location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3f(int, int, boolean, ByteBuffer) UniformMatrix3f} */
+	/** JNI method for {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix3fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix3f(int, int, boolean, ByteBuffer) UniformMatrix3f} */
+	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
@@ -1240,24 +1240,24 @@ Creates a program object.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix3f(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix3fv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglUniformMatrix3fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix3f(int, int, boolean, ByteBuffer) UniformMatrix3f} */
-	public static void glUniformMatrix3(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix3fv UniformMatrix3fv} */
+	public static void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix3fv(location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glUniformMatrix4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4f(int, int, boolean, ByteBuffer) UniformMatrix4f} */
+	/** JNI method for {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	@JavadocExclude
 	public static native void nglUniformMatrix4fv(int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformMatrix4f(int, int, boolean, ByteBuffer) UniformMatrix4f} */
+	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
@@ -1276,24 +1276,24 @@ Creates a program object.
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glUniformMatrix4f(int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glUniformMatrix4fv(int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglUniformMatrix4fv(location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glUniformMatrix4f(int, int, boolean, ByteBuffer) UniformMatrix4f} */
-	public static void glUniformMatrix4(int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glUniformMatrix4fv UniformMatrix4fv} */
+	public static void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4fv(location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glGetShaderiv ] ---
 
-	/** JNI method for {@link #glGetShaderi(int, int, ByteBuffer) GetShaderi} */
+	/** JNI method for {@link #glGetShaderiv GetShaderiv} */
 	@JavadocExclude
 	public static native void nglGetShaderiv(int shader, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetShaderi(int, int, ByteBuffer) GetShaderi} */
+	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
 	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
@@ -1311,20 +1311,20 @@ Creates a program object.
 	 * @param pname  the object parameter. One of:<br>{@link #GL_SHADER_TYPE SHADER_TYPE}, {@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_COMPILE_STATUS COMPILE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_SHADER_SOURCE_LENGTH SHADER_SOURCE_LENGTH}
 	 * @param params the requested object parameter
 	 */
-	public static void glGetShaderi(int shader, int pname, ByteBuffer params) {
+	public static void glGetShaderiv(int shader, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetShaderi(int, int, ByteBuffer) GetShaderi} */
-	public static void glGetShader(int shader, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetShaderiv GetShaderiv} */
+	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetShaderi(int, int, ByteBuffer) GetShaderi} */
+	/** Single return value version of: {@link #glGetShaderiv GetShaderiv} */
 	public static int glGetShaderi(int shader, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1334,11 +1334,11 @@ Creates a program object.
 
 	// --- [ glGetProgramiv ] ---
 
-	/** JNI method for {@link #glGetProgrami(int, int, ByteBuffer) GetProgrami} */
+	/** JNI method for {@link #glGetProgramiv GetProgramiv} */
 	@JavadocExclude
 	public static native void nglGetProgramiv(int program, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgrami(int, int, ByteBuffer) GetProgrami} */
+	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
 	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
@@ -1356,20 +1356,20 @@ Creates a program object.
 	 * @param pname   the object parameter. One of:<br>{@link #GL_DELETE_STATUS DELETE_STATUS}, {@link #GL_LINK_STATUS LINK_STATUS}, {@link #GL_VALIDATE_STATUS VALIDATE_STATUS}, {@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link #GL_ATTACHED_SHADERS ATTACHED_SHADERS}, {@link #GL_ACTIVE_ATTRIBUTES ACTIVE_ATTRIBUTES}, {@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH ACTIVE_ATTRIBUTE_MAX_LENGTH}, {@link #GL_ACTIVE_UNIFORMS ACTIVE_UNIFORMS}, {@link #GL_ACTIVE_UNIFORM_MAX_LENGTH ACTIVE_UNIFORM_MAX_LENGTH}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE TRANSFORM_FEEDBACK_BUFFER_MODE}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS TRANSFORM_FEEDBACK_VARYINGS}, {@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCKS ACTIVE_UNIFORM_BLOCKS}, {@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}, {@link GL32#GL_GEOMETRY_VERTICES_OUT GEOMETRY_VERTICES_OUT}, {@link GL32#GL_GEOMETRY_INPUT_TYPE GEOMETRY_INPUT_TYPE}, {@link GL32#GL_GEOMETRY_OUTPUT_TYPE GEOMETRY_OUTPUT_TYPE}, {@link GL41#GL_PROGRAM_BINARY_LENGTH PROGRAM_BINARY_LENGTH}, {@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS ACTIVE_ATOMIC_COUNTER_BUFFERS}, {@link GL43#GL_COMPUTE_WORK_GROUP_SIZE COMPUTE_WORK_GROUP_SIZE}
 	 * @param params  the requested object parameter
 	 */
-	public static void glGetProgrami(int program, int pname, ByteBuffer params) {
+	public static void glGetProgramiv(int program, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgrami(int, int, ByteBuffer) GetProgrami} */
-	public static void glGetProgram(int program, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramiv GetProgramiv} */
+	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgrami(int, int, ByteBuffer) GetProgrami} */
+	/** Single return value version of: {@link #glGetProgramiv GetProgramiv} */
 	public static int glGetProgrami(int program, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1667,11 +1667,11 @@ Creates a program object.
 
 	// --- [ glGetUniformfv ] ---
 
-	/** JNI method for {@link #glGetUniformf(int, int, ByteBuffer) GetUniformf} */
+	/** JNI method for {@link #glGetUniformfv GetUniformfv} */
 	@JavadocExclude
 	public static native void nglGetUniformfv(int program, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformf(int, int, ByteBuffer) GetUniformf} */
+	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
 	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
@@ -1689,20 +1689,20 @@ Creates a program object.
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformf(int program, int location, ByteBuffer params) {
+	public static void glGetUniformfv(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformf(int, int, ByteBuffer) GetUniformf} */
-	public static void glGetUniform(int program, int location, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetUniformfv GetUniformfv} */
+	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformf(int, int, ByteBuffer) GetUniformf} */
+	/** Single return value version of: {@link #glGetUniformfv GetUniformfv} */
 	public static float glGetUniformf(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1712,11 +1712,11 @@ Creates a program object.
 
 	// --- [ glGetUniformiv ] ---
 
-	/** JNI method for {@link #glGetUniformi(int, int, ByteBuffer) GetUniformi} */
+	/** JNI method for {@link #glGetUniformiv GetUniformiv} */
 	@JavadocExclude
 	public static native void nglGetUniformiv(int program, int location, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetUniformi(int, int, ByteBuffer) GetUniformi} */
+	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
 	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
@@ -1734,20 +1734,20 @@ Creates a program object.
 	 * @param location the location of the uniform variable to be queried
 	 * @param params   the value of the specified uniform variable
 	 */
-	public static void glGetUniformi(int program, int location, ByteBuffer params) {
+	public static void glGetUniformiv(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetUniformi(int, int, ByteBuffer) GetUniformi} */
-	public static void glGetUniform(int program, int location, IntBuffer params) {
+	/** Alternative version of: {@link #glGetUniformiv GetUniformiv} */
+	public static void glGetUniformiv(int program, int location, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetUniformi(int, int, ByteBuffer) GetUniformi} */
+	/** Single return value version of: {@link #glGetUniformiv GetUniformiv} */
 	public static int glGetUniformi(int program, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2110,11 +2110,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib1f(int, ByteBuffer) VertexAttrib1f} */
+	/** JNI method for {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1fv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1f(int, ByteBuffer) VertexAttrib1f} */
+	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
@@ -2131,14 +2131,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1f(int index, ByteBuffer v) {
+	public static void glVertexAttrib1fv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttrib1fv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1f(int, ByteBuffer) VertexAttrib1f} */
-	public static void glVertexAttrib1(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
+	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1fv(index, memAddress(v));
@@ -2146,11 +2146,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib1s(int, ByteBuffer) VertexAttrib1s} */
+	/** JNI method for {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1sv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1s(int, ByteBuffer) VertexAttrib1s} */
+	/** Unsafe version of {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1sv;
@@ -2167,14 +2167,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1s(int index, ByteBuffer v) {
+	public static void glVertexAttrib1sv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglVertexAttrib1sv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1s(int, ByteBuffer) VertexAttrib1s} */
-	public static void glVertexAttrib1(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1sv VertexAttrib1sv} */
+	public static void glVertexAttrib1sv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1sv(index, memAddress(v));
@@ -2182,11 +2182,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib1d(int, ByteBuffer) VertexAttrib1d} */
+	/** JNI method for {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib1dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib1d(int, ByteBuffer) VertexAttrib1d} */
+	/** Unsafe version of {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dv;
@@ -2203,14 +2203,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib1d(int index, ByteBuffer v) {
+	public static void glVertexAttrib1dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttrib1dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib1d(int, ByteBuffer) VertexAttrib1d} */
-	public static void glVertexAttrib1(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib1dv VertexAttrib1dv} */
+	public static void glVertexAttrib1dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1dv(index, memAddress(v));
@@ -2218,11 +2218,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2f(int, ByteBuffer) VertexAttrib2f} */
+	/** JNI method for {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2fv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2f(int, ByteBuffer) VertexAttrib2f} */
+	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
@@ -2239,14 +2239,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2f(int index, ByteBuffer v) {
+	public static void glVertexAttrib2fv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttrib2fv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2f(int, ByteBuffer) VertexAttrib2f} */
-	public static void glVertexAttrib2(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
+	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2fv(index, memAddress(v));
@@ -2254,11 +2254,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2s(int, ByteBuffer) VertexAttrib2s} */
+	/** JNI method for {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2sv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2s(int, ByteBuffer) VertexAttrib2s} */
+	/** Unsafe version of {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2sv;
@@ -2275,14 +2275,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2s(int index, ByteBuffer v) {
+	public static void glVertexAttrib2sv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglVertexAttrib2sv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2s(int, ByteBuffer) VertexAttrib2s} */
-	public static void glVertexAttrib2(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2sv VertexAttrib2sv} */
+	public static void glVertexAttrib2sv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2sv(index, memAddress(v));
@@ -2290,11 +2290,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2d(int, ByteBuffer) VertexAttrib2d} */
+	/** JNI method for {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib2dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib2d(int, ByteBuffer) VertexAttrib2d} */
+	/** Unsafe version of {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dv;
@@ -2311,14 +2311,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib2d(int index, ByteBuffer v) {
+	public static void glVertexAttrib2dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttrib2dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib2d(int, ByteBuffer) VertexAttrib2d} */
-	public static void glVertexAttrib2(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib2dv VertexAttrib2dv} */
+	public static void glVertexAttrib2dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2dv(index, memAddress(v));
@@ -2326,11 +2326,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3f(int, ByteBuffer) VertexAttrib3f} */
+	/** JNI method for {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3fv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3f(int, ByteBuffer) VertexAttrib3f} */
+	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
@@ -2347,14 +2347,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3f(int index, ByteBuffer v) {
+	public static void glVertexAttrib3fv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttrib3fv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3f(int, ByteBuffer) VertexAttrib3f} */
-	public static void glVertexAttrib3(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
+	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3fv(index, memAddress(v));
@@ -2362,11 +2362,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3s(int, ByteBuffer) VertexAttrib3s} */
+	/** JNI method for {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3sv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3s(int, ByteBuffer) VertexAttrib3s} */
+	/** Unsafe version of {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3sv;
@@ -2383,14 +2383,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3s(int index, ByteBuffer v) {
+	public static void glVertexAttrib3sv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglVertexAttrib3sv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3s(int, ByteBuffer) VertexAttrib3s} */
-	public static void glVertexAttrib3(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3sv VertexAttrib3sv} */
+	public static void glVertexAttrib3sv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3sv(index, memAddress(v));
@@ -2398,11 +2398,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3d(int, ByteBuffer) VertexAttrib3d} */
+	/** JNI method for {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib3dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib3d(int, ByteBuffer) VertexAttrib3d} */
+	/** Unsafe version of {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dv;
@@ -2419,14 +2419,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib3d(int index, ByteBuffer v) {
+	public static void glVertexAttrib3dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttrib3dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib3d(int, ByteBuffer) VertexAttrib3d} */
-	public static void glVertexAttrib3(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib3dv VertexAttrib3dv} */
+	public static void glVertexAttrib3dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3dv(index, memAddress(v));
@@ -2434,11 +2434,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4f(int, ByteBuffer) VertexAttrib4f} */
+	/** JNI method for {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4fv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4f(int, ByteBuffer) VertexAttrib4f} */
+	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
@@ -2455,14 +2455,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4f(int index, ByteBuffer v) {
+	public static void glVertexAttrib4fv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4fv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4f(int, ByteBuffer) VertexAttrib4f} */
-	public static void glVertexAttrib4(int index, FloatBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
+	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4fv(index, memAddress(v));
@@ -2470,11 +2470,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4s(int, ByteBuffer) VertexAttrib4s} */
+	/** JNI method for {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4sv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4s(int, ByteBuffer) VertexAttrib4s} */
+	/** Unsafe version of {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4sv;
@@ -2491,14 +2491,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4s(int index, ByteBuffer v) {
+	public static void glVertexAttrib4sv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4sv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4s(int, ByteBuffer) VertexAttrib4s} */
-	public static void glVertexAttrib4(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4sv VertexAttrib4sv} */
+	public static void glVertexAttrib4sv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4sv(index, memAddress(v));
@@ -2506,11 +2506,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4d(int, ByteBuffer) VertexAttrib4d} */
+	/** JNI method for {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4dv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4d(int, ByteBuffer) VertexAttrib4d} */
+	/** Unsafe version of {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dv;
@@ -2527,14 +2527,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4d(int index, ByteBuffer v) {
+	public static void glVertexAttrib4dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttrib4dv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4d(int, ByteBuffer) VertexAttrib4d} */
-	public static void glVertexAttrib4(int index, DoubleBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4dv VertexAttrib4dv} */
+	public static void glVertexAttrib4dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4dv(index, memAddress(v));
@@ -2542,11 +2542,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4iv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4i(int, ByteBuffer) VertexAttrib4i} */
+	/** JNI method for {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4iv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4i(int, ByteBuffer) VertexAttrib4i} */
+	/** Unsafe version of {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4iv;
@@ -2563,14 +2563,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4i(int index, ByteBuffer v) {
+	public static void glVertexAttrib4iv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4iv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4i(int, ByteBuffer) VertexAttrib4i} */
-	public static void glVertexAttrib4(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4iv VertexAttrib4iv} */
+	public static void glVertexAttrib4iv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4iv(index, memAddress(v));
@@ -2578,11 +2578,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4bv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4b(int, ByteBuffer) VertexAttrib4b} */
+	/** JNI method for {@link #glVertexAttrib4bv VertexAttrib4bv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4bv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4b(int, ByteBuffer) VertexAttrib4b} */
+	/** Unsafe version of {@link #glVertexAttrib4bv VertexAttrib4bv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bv;
@@ -2599,7 +2599,7 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4b(int index, ByteBuffer v) {
+	public static void glVertexAttrib4bv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4bv(index, memAddress(v));
@@ -2607,11 +2607,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4ubv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4ub(int, ByteBuffer) VertexAttrib4ub} */
+	/** JNI method for {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4ubv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4ub(int, ByteBuffer) VertexAttrib4ub} */
+	/** Unsafe version of {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubv;
@@ -2628,7 +2628,7 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4ub(int index, ByteBuffer v) {
+	public static void glVertexAttrib4ubv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ubv(index, memAddress(v));
@@ -2636,11 +2636,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4usv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4us(int, ByteBuffer) VertexAttrib4us} */
+	/** JNI method for {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4usv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4us(int, ByteBuffer) VertexAttrib4us} */
+	/** Unsafe version of {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usv;
@@ -2657,14 +2657,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4us(int index, ByteBuffer v) {
+	public static void glVertexAttrib4usv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4usv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4us(int, ByteBuffer) VertexAttrib4us} */
-	public static void glVertexAttrib4u(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4usv VertexAttrib4usv} */
+	public static void glVertexAttrib4usv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4usv(index, memAddress(v));
@@ -2672,11 +2672,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4uiv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4ui(int, ByteBuffer) VertexAttrib4ui} */
+	/** JNI method for {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4uiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4ui(int, ByteBuffer) VertexAttrib4ui} */
+	/** Unsafe version of {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uiv;
@@ -2693,14 +2693,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4ui(int index, ByteBuffer v) {
+	public static void glVertexAttrib4uiv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4uiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4ui(int, ByteBuffer) VertexAttrib4ui} */
-	public static void glVertexAttrib4u(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
+	public static void glVertexAttrib4uiv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4uiv(index, memAddress(v));
@@ -2708,11 +2708,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nbv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nb(int, ByteBuffer) VertexAttrib4Nb} */
+	/** JNI method for {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Nbv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Nb(int, ByteBuffer) VertexAttrib4Nb} */
+	/** Unsafe version of {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nbv;
@@ -2729,7 +2729,7 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nb(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Nbv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nbv(index, memAddress(v));
@@ -2737,11 +2737,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nsv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Ns(int, ByteBuffer) VertexAttrib4Ns} */
+	/** JNI method for {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Nsv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Ns(int, ByteBuffer) VertexAttrib4Ns} */
+	/** Unsafe version of {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nsv;
@@ -2758,14 +2758,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Ns(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Nsv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4Nsv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4Ns(int, ByteBuffer) VertexAttrib4Ns} */
-	public static void glVertexAttrib4N(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
+	public static void glVertexAttrib4Nsv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nsv(index, memAddress(v));
@@ -2773,11 +2773,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Niv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Ni(int, ByteBuffer) VertexAttrib4Ni} */
+	/** JNI method for {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Niv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Ni(int, ByteBuffer) VertexAttrib4Ni} */
+	/** Unsafe version of {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Niv;
@@ -2794,14 +2794,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Ni(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Niv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4Niv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4Ni(int, ByteBuffer) VertexAttrib4Ni} */
-	public static void glVertexAttrib4N(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
+	public static void glVertexAttrib4Niv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Niv(index, memAddress(v));
@@ -2809,11 +2809,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nubv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nub(int, ByteBuffer) VertexAttrib4Nub} */
+	/** JNI method for {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Nubv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Nub(int, ByteBuffer) VertexAttrib4Nub} */
+	/** Unsafe version of {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nubv;
@@ -2830,7 +2830,7 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nub(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Nubv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nubv(index, memAddress(v));
@@ -2838,11 +2838,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nusv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nus(int, ByteBuffer) VertexAttrib4Nus} */
+	/** JNI method for {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Nusv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Nus(int, ByteBuffer) VertexAttrib4Nus} */
+	/** Unsafe version of {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nusv;
@@ -2859,14 +2859,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nus(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Nusv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4Nusv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4Nus(int, ByteBuffer) VertexAttrib4Nus} */
-	public static void glVertexAttrib4Nu(int index, ShortBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
+	public static void glVertexAttrib4Nusv(int index, ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nusv(index, memAddress(v));
@@ -2874,11 +2874,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nuiv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nui(int, ByteBuffer) VertexAttrib4Nui} */
+	/** JNI method for {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	@JavadocExclude
 	public static native void nglVertexAttrib4Nuiv(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttrib4Nui(int, ByteBuffer) VertexAttrib4Nui} */
+	/** Unsafe version of {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nuiv;
@@ -2895,14 +2895,14 @@ Creates a program object.
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttrib4Nui(int index, ByteBuffer v) {
+	public static void glVertexAttrib4Nuiv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4Nuiv(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttrib4Nui(int, ByteBuffer) VertexAttrib4Nui} */
-	public static void glVertexAttrib4Nu(int index, IntBuffer v) {
+	/** Alternative version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
+	public static void glVertexAttrib4Nuiv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nuiv(index, memAddress(v));
@@ -3158,11 +3158,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi} */
+	/** JNI method for {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribiv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi} */
+	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
@@ -3180,20 +3180,20 @@ Creates a program object.
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}, {@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}, {@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}, {@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}, {@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}, {@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}, {@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}, {@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}, {@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribi(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribiv(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi} */
-	public static void glGetVertexAttrib(int index, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
+	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribi(int, int, ByteBuffer) GetVertexAttribi} */
+	/** Single return value version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static int glGetVertexAttribi(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3203,11 +3203,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribf(int, int, ByteBuffer) GetVertexAttribf} */
+	/** JNI method for {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribfv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribf(int, int, ByteBuffer) GetVertexAttribf} */
+	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
@@ -3219,20 +3219,20 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Float version of {@link #glGetVertexAttribi GetVertexAttribi}.
+	 * Float version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribf(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribfv(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribf(int, int, ByteBuffer) GetVertexAttribf} */
-	public static void glGetVertexAttrib(int index, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
+	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
@@ -3240,11 +3240,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribdv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribd(int, int, ByteBuffer) GetVertexAttribd} */
+	/** JNI method for {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribdv(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribd(int, int, ByteBuffer) GetVertexAttribd} */
+	/** Unsafe version of {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdv;
@@ -3256,20 +3256,20 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Double version of {@link #glGetVertexAttribi GetVertexAttribi}.
+	 * Double version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
 	 * @param params returns the requested data
 	 */
-	public static void glGetVertexAttribd(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribdv(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglGetVertexAttribdv(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribd(int, int, ByteBuffer) GetVertexAttribd} */
-	public static void glGetVertexAttrib(int index, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribdv GetVertexAttribdv} */
+	public static void glGetVertexAttribdv(int index, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribdv(index, pname, memAddress(params));
@@ -3277,11 +3277,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribPointer(int, int, ByteBuffer) GetVertexAttribPointer} */
+	/** JNI method for {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribPointerv(int index, int pname, long pointer, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribPointer(int, int, ByteBuffer) GetVertexAttribPointer} */
+	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
@@ -3299,20 +3299,20 @@ Creates a program object.
 	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER VERTEX_ATTRIB_ARRAY_POINTER}
 	 * @param pointer the pointer value
 	 */
-	public static void glGetVertexAttribPointer(int index, int pname, ByteBuffer pointer) {
+	public static void glGetVertexAttribPointerv(int index, int pname, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pointer, 1 << POINTER_SHIFT);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribPointer(int, int, ByteBuffer) GetVertexAttribPointer} */
-	public static void glGetVertexAttribPointer(int index, int pname, PointerBuffer pointer) {
+	/** Alternative version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
+	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pointer, 1);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribPointer(int, int, ByteBuffer) GetVertexAttribPointer} */
+	/** Single return value version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static long glGetVertexAttribPointer(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int pointer = __buffer.pointerParam();

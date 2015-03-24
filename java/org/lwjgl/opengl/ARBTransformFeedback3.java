@@ -138,7 +138,7 @@ public final class ARBTransformFeedback3 {
 
 	// --- [ glGetQueryIndexediv ] ---
 
-	/** Unsafe version of {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
+	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
@@ -155,20 +155,20 @@ public final class ARBTransformFeedback3 {
 	 * @param pname  the symbolic name of a query object target parameter
 	 * @param params the requested data
 	 */
-	public static void glGetQueryIndexedi(int target, int index, int pname, ByteBuffer params) {
+	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
-	public static void glGetQueryIndexed(int target, int index, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryIndexedi(int, int, int, ByteBuffer) GetQueryIndexedi} */
+	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

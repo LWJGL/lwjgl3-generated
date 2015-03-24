@@ -228,7 +228,7 @@ public final class ARBSamplerObjects {
 
 	// --- [ glSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri} */
+	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
@@ -244,18 +244,18 @@ public final class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameteri(int sampler, int pname, ByteBuffer params) {
+	public static void glSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
 		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glSamplerParameteri(int, int, ByteBuffer) SamplerParameteri} */
-	public static void glSamplerParameter(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glSamplerParameteriv SamplerParameteriv} */
+	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterf(int, int, ByteBuffer) SamplerParameterf} */
+	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
@@ -265,24 +265,24 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Float version of {@link #glSamplerParameteri SamplerParameteri}.
+	 * Float version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterf(int sampler, int pname, ByteBuffer params) {
+	public static void glSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
 		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glSamplerParameterf(int, int, ByteBuffer) SamplerParameterf} */
-	public static void glSamplerParameter(int sampler, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glSamplerParameterfv SamplerParameterfv} */
+	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIi(int, int, ByteBuffer) SamplerParameterIi} */
+	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
@@ -292,24 +292,24 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
+	 * Pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterIi(int sampler, int pname, ByteBuffer params) {
+	public static void glSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glSamplerParameterIi(int, int, ByteBuffer) SamplerParameterIi} */
-	public static void glSamplerParameterI(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
+	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glSamplerParameterIui(int, int, ByteBuffer) SamplerParameterIui} */
+	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
@@ -319,24 +319,24 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Unsigned pure integer version of {@link #glSamplerParameteri SamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
 	 *
 	 * @param sampler the sampler object whose parameter to modify
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
-	public static void glSamplerParameterIui(int sampler, int pname, ByteBuffer params) {
+	public static void glSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glSamplerParameterIui(int, int, ByteBuffer) SamplerParameterIui} */
-	public static void glSamplerParameterIu(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
+	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri} */
+	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
@@ -352,20 +352,20 @@ public final class ARBSamplerObjects {
 	 * @param pname   the symbolic name of a sampler parameter. One of:<br>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, ,, {@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameteri(int sampler, int pname, ByteBuffer params) {
+	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri} */
-	public static void glGetSamplerParameter(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
+	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameteri(int, int, ByteBuffer) GetSamplerParameteri} */
+	/** Single return value version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -375,7 +375,7 @@ public final class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterf(int, int, ByteBuffer) GetSamplerParameterf} */
+	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
@@ -385,26 +385,26 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Float version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
+	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterf(int sampler, int pname, ByteBuffer params) {
+	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetSamplerParameterf(int, int, ByteBuffer) GetSamplerParameterf} */
-	public static void glGetSamplerParameter(int sampler, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
+	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterf(int, int, ByteBuffer) GetSamplerParameterf} */
+	/** Single return value version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -414,7 +414,7 @@ public final class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIi(int, int, ByteBuffer) GetSamplerParameterIi} */
+	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
@@ -424,26 +424,26 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
+	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterIi(int sampler, int pname, ByteBuffer params) {
+	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetSamplerParameterIi(int, int, ByteBuffer) GetSamplerParameterIi} */
-	public static void glGetSamplerParameterI(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
+	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIi(int, int, ByteBuffer) GetSamplerParameterIi} */
+	/** Single return value version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -453,7 +453,7 @@ public final class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/** Unsafe version of {@link #glGetSamplerParameterIui(int, int, ByteBuffer) GetSamplerParameterIui} */
+	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
@@ -463,26 +463,26 @@ public final class ARBSamplerObjects {
 	}
 
 	/**
-	 * Unsigned pure integer version of {@link #glGetSamplerParameteri GetSamplerParameteri}.
+	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
 	 *
 	 * @param sampler the name of the sampler object from which to retrieve parameters
 	 * @param pname   the symbolic name of a sampler parameter
 	 * @param params  the sampler parameters
 	 */
-	public static void glGetSamplerParameterIui(int sampler, int pname, ByteBuffer params) {
+	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetSamplerParameterIui(int, int, ByteBuffer) GetSamplerParameterIui} */
-	public static void glGetSamplerParameterIu(int sampler, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
+	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetSamplerParameterIui(int, int, ByteBuffer) GetSamplerParameterIui} */
+	/** Single return value version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

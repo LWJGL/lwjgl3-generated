@@ -266,11 +266,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3bvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3bEXT(ByteBuffer) SecondaryColor3bEXT} */
+	/** JNI method for {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3bvEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3bEXT(ByteBuffer) SecondaryColor3bEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bvEXT;
@@ -284,7 +284,7 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3bEXT(ByteBuffer v) {
+	public static void glSecondaryColor3bvEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3bvEXT(memAddress(v));
@@ -292,11 +292,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3svEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3sEXT(ByteBuffer) SecondaryColor3sEXT} */
+	/** JNI method for {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3svEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3sEXT(ByteBuffer) SecondaryColor3sEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3svEXT;
@@ -310,14 +310,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3sEXT(ByteBuffer v) {
+	public static void glSecondaryColor3svEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3svEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3sEXT(ByteBuffer) SecondaryColor3sEXT} */
-	public static void glSecondaryColor3EXT(ShortBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
+	public static void glSecondaryColor3svEXT(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3svEXT(memAddress(v));
@@ -325,11 +325,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ivEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3iEXT(ByteBuffer) SecondaryColor3iEXT} */
+	/** JNI method for {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3ivEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3iEXT(ByteBuffer) SecondaryColor3iEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ivEXT;
@@ -343,14 +343,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3iEXT(ByteBuffer v) {
+	public static void glSecondaryColor3ivEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3ivEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3iEXT(ByteBuffer) SecondaryColor3iEXT} */
-	public static void glSecondaryColor3EXT(IntBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
+	public static void glSecondaryColor3ivEXT(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3ivEXT(memAddress(v));
@@ -358,11 +358,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3fvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3fEXT(ByteBuffer) SecondaryColor3fEXT} */
+	/** JNI method for {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3fvEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3fEXT(ByteBuffer) SecondaryColor3fEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fvEXT;
@@ -376,14 +376,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3fEXT(ByteBuffer v) {
+	public static void glSecondaryColor3fvEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3fvEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3fEXT(ByteBuffer) SecondaryColor3fEXT} */
-	public static void glSecondaryColor3EXT(FloatBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
+	public static void glSecondaryColor3fvEXT(FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3fvEXT(memAddress(v));
@@ -391,11 +391,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3dvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3dEXT(ByteBuffer) SecondaryColor3dEXT} */
+	/** JNI method for {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3dvEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3dEXT(ByteBuffer) SecondaryColor3dEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dvEXT;
@@ -409,14 +409,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3dEXT(ByteBuffer v) {
+	public static void glSecondaryColor3dvEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglSecondaryColor3dvEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3dEXT(ByteBuffer) SecondaryColor3dEXT} */
-	public static void glSecondaryColor3EXT(DoubleBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
+	public static void glSecondaryColor3dvEXT(DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3dvEXT(memAddress(v));
@@ -424,11 +424,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ubvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ubEXT(ByteBuffer) SecondaryColor3ubEXT} */
+	/** JNI method for {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3ubvEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3ubEXT(ByteBuffer) SecondaryColor3ubEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubvEXT;
@@ -442,7 +442,7 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3ubEXT(ByteBuffer v) {
+	public static void glSecondaryColor3ubvEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3ubvEXT(memAddress(v));
@@ -450,11 +450,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3usvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3usEXT(ByteBuffer) SecondaryColor3usEXT} */
+	/** JNI method for {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3usvEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3usEXT(ByteBuffer) SecondaryColor3usEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usvEXT;
@@ -468,14 +468,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3usEXT(ByteBuffer v) {
+	public static void glSecondaryColor3usvEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3usvEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3usEXT(ByteBuffer) SecondaryColor3usEXT} */
-	public static void glSecondaryColor3uEXT(ShortBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
+	public static void glSecondaryColor3usvEXT(ShortBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3usvEXT(memAddress(v));
@@ -483,11 +483,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3uivEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3uiEXT(ByteBuffer) SecondaryColor3uiEXT} */
+	/** JNI method for {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	@JavadocExclude
 	public static native void nglSecondaryColor3uivEXT(long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glSecondaryColor3uiEXT(ByteBuffer) SecondaryColor3uiEXT} */
+	/** Unsafe version of {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uivEXT;
@@ -501,14 +501,14 @@ public final class EXTSecondaryColor {
 	 *
 	 * @param v the secondary color buffer
 	 */
-	public static void glSecondaryColor3uiEXT(ByteBuffer v) {
+	public static void glSecondaryColor3uivEXT(ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3uivEXT(memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glSecondaryColor3uiEXT(ByteBuffer) SecondaryColor3uiEXT} */
-	public static void glSecondaryColor3uEXT(IntBuffer v) {
+	/** Alternative version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
+	public static void glSecondaryColor3uivEXT(IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3uivEXT(memAddress(v));

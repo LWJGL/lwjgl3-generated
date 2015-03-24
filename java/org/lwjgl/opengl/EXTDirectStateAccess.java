@@ -793,7 +793,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixLoadfEXT MatrixLoadfEXT} */
-	public static void glMatrixLoadEXT(int matrixMode, FloatBuffer m) {
+	public static void glMatrixLoadfEXT(int matrixMode, FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixLoadfEXT(matrixMode, memAddress(m));
@@ -827,7 +827,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixLoaddEXT MatrixLoaddEXT} */
-	public static void glMatrixLoadEXT(int matrixMode, DoubleBuffer m) {
+	public static void glMatrixLoaddEXT(int matrixMode, DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixLoaddEXT(matrixMode, memAddress(m));
@@ -861,7 +861,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixMultfEXT MatrixMultfEXT} */
-	public static void glMatrixMultEXT(int matrixMode, FloatBuffer m) {
+	public static void glMatrixMultfEXT(int matrixMode, FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixMultfEXT(matrixMode, memAddress(m));
@@ -895,7 +895,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixMultdEXT MatrixMultdEXT} */
-	public static void glMatrixMultEXT(int matrixMode, DoubleBuffer m) {
+	public static void glMatrixMultdEXT(int matrixMode, DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixMultdEXT(matrixMode, memAddress(m));
@@ -1154,11 +1154,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterivEXT ] ---
 
-	/** JNI method for {@link #glTextureParameteriEXT(int, int, int, ByteBuffer) TextureParameteriEXT} */
+	/** JNI method for {@link #glTextureParameterivEXT TextureParameterivEXT} */
 	@JavadocExclude
 	public static native void nglTextureParameterivEXT(int texture, int target, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameteriEXT(int, int, int, ByteBuffer) TextureParameteriEXT} */
+	/** Unsafe version of {@link #glTextureParameterivEXT TextureParameterivEXT} */
 	@JavadocExclude
 	public static void nglTextureParameterivEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterivEXT;
@@ -1175,14 +1175,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param param   
 	 */
-	public static void glTextureParameteriEXT(int texture, int target, int pname, ByteBuffer param) {
+	public static void glTextureParameterivEXT(int texture, int target, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4 << 2);
 		nglTextureParameterivEXT(texture, target, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glTextureParameteriEXT(int, int, int, ByteBuffer) TextureParameteriEXT} */
-	public static void glTextureParameterEXT(int texture, int target, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glTextureParameterivEXT TextureParameterivEXT} */
+	public static void glTextureParameterivEXT(int texture, int target, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4);
 		nglTextureParameterivEXT(texture, target, pname, memAddress(param));
@@ -1211,11 +1211,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterfvEXT ] ---
 
-	/** JNI method for {@link #glTextureParameterfEXT(int, int, int, ByteBuffer) TextureParameterfEXT} */
+	/** JNI method for {@link #glTextureParameterfvEXT TextureParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglTextureParameterfvEXT(int texture, int target, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterfEXT(int, int, int, ByteBuffer) TextureParameterfEXT} */
+	/** Unsafe version of {@link #glTextureParameterfvEXT TextureParameterfvEXT} */
 	@JavadocExclude
 	public static void nglTextureParameterfvEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterfvEXT;
@@ -1232,14 +1232,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param param   
 	 */
-	public static void glTextureParameterfEXT(int texture, int target, int pname, ByteBuffer param) {
+	public static void glTextureParameterfvEXT(int texture, int target, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4 << 2);
 		nglTextureParameterfvEXT(texture, target, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterfEXT(int, int, int, ByteBuffer) TextureParameterfEXT} */
-	public static void glTextureParameterEXT(int texture, int target, int pname, FloatBuffer param) {
+	/** Alternative version of: {@link #glTextureParameterfvEXT TextureParameterfvEXT} */
+	public static void glTextureParameterfvEXT(int texture, int target, int pname, FloatBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4);
 		nglTextureParameterfvEXT(texture, target, pname, memAddress(param));
@@ -1691,11 +1691,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterfvEXT ] ---
 
-	/** JNI method for {@link #glGetTextureParameterfEXT(int, int, int, ByteBuffer) GetTextureParameterfEXT} */
+	/** JNI method for {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterfEXT(int, int, int, ByteBuffer) GetTextureParameterfEXT} */
+	/** Unsafe version of {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
 	@JavadocExclude
 	public static void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfvEXT;
@@ -1712,20 +1712,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureParameterfEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterfvEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterfvEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterfEXT(int, int, int, ByteBuffer) GetTextureParameterfEXT} */
-	public static void glGetTextureParameterEXT(int texture, int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
+	public static void glGetTextureParameterfvEXT(int texture, int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterfvEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterfEXT(int, int, int, ByteBuffer) GetTextureParameterfEXT} */
+	/** Single return value version of: {@link #glGetTextureParameterfvEXT GetTextureParameterfvEXT} */
 	public static float glGetTextureParameterfEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1735,11 +1735,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetTextureParameteriEXT(int, int, int, ByteBuffer) GetTextureParameteriEXT} */
+	/** JNI method for {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterivEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameteriEXT(int, int, int, ByteBuffer) GetTextureParameteriEXT} */
+	/** Unsafe version of {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetTextureParameterivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterivEXT;
@@ -1756,20 +1756,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureParameteriEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterivEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameteriEXT(int, int, int, ByteBuffer) GetTextureParameteriEXT} */
-	public static void glGetTextureParameterEXT(int texture, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
+	public static void glGetTextureParameterivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameteriEXT(int, int, int, ByteBuffer) GetTextureParameteriEXT} */
+	/** Single return value version of: {@link #glGetTextureParameterivEXT GetTextureParameterivEXT} */
 	public static int glGetTextureParameteriEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1779,11 +1779,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameterfvEXT ] ---
 
-	/** JNI method for {@link #glGetTextureLevelParameterfEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameterfEXT} */
+	/** JNI method for {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureLevelParameterfEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameterfEXT} */
+	/** Unsafe version of {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfvEXT;
@@ -1801,20 +1801,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureLevelParameterfEXT(int texture, int target, int level, int pname, ByteBuffer params) {
+	public static void glGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterfvEXT(texture, target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureLevelParameterfEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameterfEXT} */
-	public static void glGetTextureLevelParameterEXT(int texture, int target, int level, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
+	public static void glGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfvEXT(texture, target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameterfEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameterfEXT} */
+	/** Single return value version of: {@link #glGetTextureLevelParameterfvEXT GetTextureLevelParameterfvEXT} */
 	public static float glGetTextureLevelParameterfEXT(int texture, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -1824,11 +1824,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureLevelParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetTextureLevelParameteriEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameteriEXT} */
+	/** JNI method for {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureLevelParameteriEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameteriEXT} */
+	/** Unsafe version of {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterivEXT;
@@ -1846,20 +1846,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureLevelParameteriEXT(int texture, int target, int level, int pname, ByteBuffer params) {
+	public static void glGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterivEXT(texture, target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureLevelParameteriEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameteriEXT} */
-	public static void glGetTextureLevelParameterEXT(int texture, int target, int level, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
+	public static void glGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterivEXT(texture, target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureLevelParameteriEXT(int, int, int, int, ByteBuffer) GetTextureLevelParameteriEXT} */
+	/** Single return value version of: {@link #glGetTextureLevelParameterivEXT GetTextureLevelParameterivEXT} */
 	public static int glGetTextureLevelParameteriEXT(int texture, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2131,11 +2131,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnvfvEXT ] ---
 
-	/** JNI method for {@link #glMultiTexEnvfEXT(int, int, int, ByteBuffer) MultiTexEnvfEXT} */
+	/** JNI method for {@link #glMultiTexEnvfvEXT MultiTexEnvfvEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexEnvfvEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexEnvfEXT(int, int, int, ByteBuffer) MultiTexEnvfEXT} */
+	/** Unsafe version of {@link #glMultiTexEnvfvEXT MultiTexEnvfvEXT} */
 	@JavadocExclude
 	public static void nglMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexEnvfvEXT;
@@ -2152,14 +2152,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexEnvfEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glMultiTexEnvfvEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexEnvfvEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexEnvfEXT(int, int, int, ByteBuffer) MultiTexEnvfEXT} */
-	public static void glMultiTexEnvEXT(int texunit, int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glMultiTexEnvfvEXT MultiTexEnvfvEXT} */
+	public static void glMultiTexEnvfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexEnvfvEXT(texunit, target, pname, memAddress(params));
@@ -2188,11 +2188,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexEnvivEXT ] ---
 
-	/** JNI method for {@link #glMultiTexEnviEXT(int, int, int, ByteBuffer) MultiTexEnviEXT} */
+	/** JNI method for {@link #glMultiTexEnvivEXT MultiTexEnvivEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexEnvivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexEnviEXT(int, int, int, ByteBuffer) MultiTexEnviEXT} */
+	/** Unsafe version of {@link #glMultiTexEnvivEXT MultiTexEnvivEXT} */
 	@JavadocExclude
 	public static void nglMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexEnvivEXT;
@@ -2209,14 +2209,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexEnviEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glMultiTexEnvivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexEnvivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexEnviEXT(int, int, int, ByteBuffer) MultiTexEnviEXT} */
-	public static void glMultiTexEnvEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glMultiTexEnvivEXT MultiTexEnvivEXT} */
+	public static void glMultiTexEnvivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexEnvivEXT(texunit, target, pname, memAddress(params));
@@ -2245,11 +2245,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGendvEXT ] ---
 
-	/** JNI method for {@link #glMultiTexGendEXT(int, int, int, ByteBuffer) MultiTexGendEXT} */
+	/** JNI method for {@link #glMultiTexGendvEXT MultiTexGendvEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexGendvEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexGendEXT(int, int, int, ByteBuffer) MultiTexGendEXT} */
+	/** Unsafe version of {@link #glMultiTexGendvEXT MultiTexGendvEXT} */
 	@JavadocExclude
 	public static void nglMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGendvEXT;
@@ -2266,14 +2266,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexGendEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glMultiTexGendvEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglMultiTexGendvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexGendEXT(int, int, int, ByteBuffer) MultiTexGendEXT} */
-	public static void glMultiTexGenEXT(int texunit, int coord, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glMultiTexGendvEXT MultiTexGendvEXT} */
+	public static void glMultiTexGendvEXT(int texunit, int coord, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexGendvEXT(texunit, coord, pname, memAddress(params));
@@ -2302,11 +2302,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGenfvEXT ] ---
 
-	/** JNI method for {@link #glMultiTexGenfEXT(int, int, int, ByteBuffer) MultiTexGenfEXT} */
+	/** JNI method for {@link #glMultiTexGenfvEXT MultiTexGenfvEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexGenfvEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexGenfEXT(int, int, int, ByteBuffer) MultiTexGenfEXT} */
+	/** Unsafe version of {@link #glMultiTexGenfvEXT MultiTexGenfvEXT} */
 	@JavadocExclude
 	public static void nglMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGenfvEXT;
@@ -2323,14 +2323,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexGenfEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glMultiTexGenfvEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexGenfvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexGenfEXT(int, int, int, ByteBuffer) MultiTexGenfEXT} */
-	public static void glMultiTexGenEXT(int texunit, int coord, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glMultiTexGenfvEXT MultiTexGenfvEXT} */
+	public static void glMultiTexGenfvEXT(int texunit, int coord, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexGenfvEXT(texunit, coord, pname, memAddress(params));
@@ -2359,11 +2359,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexGenivEXT ] ---
 
-	/** JNI method for {@link #glMultiTexGeniEXT(int, int, int, ByteBuffer) MultiTexGeniEXT} */
+	/** JNI method for {@link #glMultiTexGenivEXT MultiTexGenivEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexGenivEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexGeniEXT(int, int, int, ByteBuffer) MultiTexGeniEXT} */
+	/** Unsafe version of {@link #glMultiTexGenivEXT MultiTexGenivEXT} */
 	@JavadocExclude
 	public static void nglMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexGenivEXT;
@@ -2380,14 +2380,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexGeniEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glMultiTexGenivEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexGenivEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexGeniEXT(int, int, int, ByteBuffer) MultiTexGeniEXT} */
-	public static void glMultiTexGenEXT(int texunit, int coord, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glMultiTexGenivEXT MultiTexGenivEXT} */
+	public static void glMultiTexGenivEXT(int texunit, int coord, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexGenivEXT(texunit, coord, pname, memAddress(params));
@@ -2395,11 +2395,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexEnvfvEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexEnvfEXT(int, int, int, ByteBuffer) GetMultiTexEnvfEXT} */
+	/** JNI method for {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexEnvfvEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexEnvfEXT(int, int, int, ByteBuffer) GetMultiTexEnvfEXT} */
+	/** Unsafe version of {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexEnvfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexEnvfvEXT;
@@ -2416,20 +2416,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexEnvfEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexEnvfvEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexEnvfEXT(int, int, int, ByteBuffer) GetMultiTexEnvfEXT} */
-	public static void glGetMultiTexEnvEXT(int texunit, int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
+	public static void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexEnvfvEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexEnvfEXT(int, int, int, ByteBuffer) GetMultiTexEnvfEXT} */
+	/** Single return value version of: {@link #glGetMultiTexEnvfvEXT GetMultiTexEnvfvEXT} */
 	public static float glGetMultiTexEnvfEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -2439,11 +2439,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexEnvivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexEnviEXT(int, int, int, ByteBuffer) GetMultiTexEnviEXT} */
+	/** JNI method for {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexEnvivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexEnviEXT(int, int, int, ByteBuffer) GetMultiTexEnviEXT} */
+	/** Unsafe version of {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexEnvivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexEnvivEXT;
@@ -2460,20 +2460,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexEnviEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexEnvivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexEnvivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexEnviEXT(int, int, int, ByteBuffer) GetMultiTexEnviEXT} */
-	public static void glGetMultiTexEnvEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
+	public static void glGetMultiTexEnvivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexEnvivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexEnviEXT(int, int, int, ByteBuffer) GetMultiTexEnviEXT} */
+	/** Single return value version of: {@link #glGetMultiTexEnvivEXT GetMultiTexEnvivEXT} */
 	public static int glGetMultiTexEnviEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2483,11 +2483,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGendvEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexGendEXT(int, int, int, ByteBuffer) GetMultiTexGendEXT} */
+	/** JNI method for {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexGendvEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexGendEXT(int, int, int, ByteBuffer) GetMultiTexGendEXT} */
+	/** Unsafe version of {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexGendvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGendvEXT;
@@ -2504,20 +2504,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexGendEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glGetMultiTexGendvEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetMultiTexGendvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexGendEXT(int, int, int, ByteBuffer) GetMultiTexGendEXT} */
-	public static void glGetMultiTexGenEXT(int texunit, int coord, int pname, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
+	public static void glGetMultiTexGendvEXT(int texunit, int coord, int pname, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexGendvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexGendEXT(int, int, int, ByteBuffer) GetMultiTexGendEXT} */
+	/** Single return value version of: {@link #glGetMultiTexGendvEXT GetMultiTexGendvEXT} */
 	public static double glGetMultiTexGendEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -2527,11 +2527,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGenfvEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexGenfEXT(int, int, int, ByteBuffer) GetMultiTexGenfEXT} */
+	/** JNI method for {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexGenfvEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexGenfEXT(int, int, int, ByteBuffer) GetMultiTexGenfEXT} */
+	/** Unsafe version of {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexGenfvEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGenfvEXT;
@@ -2548,20 +2548,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexGenfEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexGenfvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexGenfEXT(int, int, int, ByteBuffer) GetMultiTexGenfEXT} */
-	public static void glGetMultiTexGenEXT(int texunit, int coord, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
+	public static void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexGenfvEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexGenfEXT(int, int, int, ByteBuffer) GetMultiTexGenfEXT} */
+	/** Single return value version of: {@link #glGetMultiTexGenfvEXT GetMultiTexGenfvEXT} */
 	public static float glGetMultiTexGenfEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -2571,11 +2571,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexGenivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexGeniEXT(int, int, int, ByteBuffer) GetMultiTexGeniEXT} */
+	/** JNI method for {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexGenivEXT(int texunit, int coord, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexGeniEXT(int, int, int, ByteBuffer) GetMultiTexGeniEXT} */
+	/** Unsafe version of {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexGenivEXT(int texunit, int coord, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexGenivEXT;
@@ -2592,20 +2592,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexGeniEXT(int texunit, int coord, int pname, ByteBuffer params) {
+	public static void glGetMultiTexGenivEXT(int texunit, int coord, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexGenivEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexGeniEXT(int, int, int, ByteBuffer) GetMultiTexGeniEXT} */
-	public static void glGetMultiTexGenEXT(int texunit, int coord, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
+	public static void glGetMultiTexGenivEXT(int texunit, int coord, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexGenivEXT(texunit, coord, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexGeniEXT(int, int, int, ByteBuffer) GetMultiTexGeniEXT} */
+	/** Single return value version of: {@link #glGetMultiTexGenivEXT GetMultiTexGenivEXT} */
 	public static int glGetMultiTexGeniEXT(int texunit, int coord, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -2636,11 +2636,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterivEXT ] ---
 
-	/** JNI method for {@link #glMultiTexParameteriEXT(int, int, int, ByteBuffer) MultiTexParameteriEXT} */
+	/** JNI method for {@link #glMultiTexParameterivEXT MultiTexParameterivEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexParameterivEXT(int texunit, int target, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexParameteriEXT(int, int, int, ByteBuffer) MultiTexParameteriEXT} */
+	/** Unsafe version of {@link #glMultiTexParameterivEXT MultiTexParameterivEXT} */
 	@JavadocExclude
 	public static void nglMultiTexParameterivEXT(int texunit, int target, int pname, long param) {
 		long __functionAddress = getInstance().MultiTexParameterivEXT;
@@ -2657,14 +2657,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param param   
 	 */
-	public static void glMultiTexParameteriEXT(int texunit, int target, int pname, ByteBuffer param) {
+	public static void glMultiTexParameterivEXT(int texunit, int target, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4 << 2);
 		nglMultiTexParameterivEXT(texunit, target, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glMultiTexParameteriEXT(int, int, int, ByteBuffer) MultiTexParameteriEXT} */
-	public static void glMultiTexParameterEXT(int texunit, int target, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glMultiTexParameterivEXT MultiTexParameterivEXT} */
+	public static void glMultiTexParameterivEXT(int texunit, int target, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4);
 		nglMultiTexParameterivEXT(texunit, target, pname, memAddress(param));
@@ -2693,11 +2693,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterfvEXT ] ---
 
-	/** JNI method for {@link #glMultiTexParameterfEXT(int, int, int, ByteBuffer) MultiTexParameterfEXT} */
+	/** JNI method for {@link #glMultiTexParameterfvEXT MultiTexParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexParameterfvEXT(int texunit, int target, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexParameterfEXT(int, int, int, ByteBuffer) MultiTexParameterfEXT} */
+	/** Unsafe version of {@link #glMultiTexParameterfvEXT MultiTexParameterfvEXT} */
 	@JavadocExclude
 	public static void nglMultiTexParameterfvEXT(int texunit, int target, int pname, long param) {
 		long __functionAddress = getInstance().MultiTexParameterfvEXT;
@@ -2714,14 +2714,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param param   
 	 */
-	public static void glMultiTexParameterfEXT(int texunit, int target, int pname, ByteBuffer param) {
+	public static void glMultiTexParameterfvEXT(int texunit, int target, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4 << 2);
 		nglMultiTexParameterfvEXT(texunit, target, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glMultiTexParameterfEXT(int, int, int, ByteBuffer) MultiTexParameterfEXT} */
-	public static void glMultiTexParameterEXT(int texunit, int target, int pname, FloatBuffer param) {
+	/** Alternative version of: {@link #glMultiTexParameterfvEXT MultiTexParameterfvEXT} */
+	public static void glMultiTexParameterfvEXT(int texunit, int target, int pname, FloatBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 4);
 		nglMultiTexParameterfvEXT(texunit, target, pname, memAddress(param));
@@ -3173,11 +3173,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterfvEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexParameterfEXT(int, int, int, ByteBuffer) GetMultiTexParameterfEXT} */
+	/** JNI method for {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexParameterfvEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexParameterfEXT(int, int, int, ByteBuffer) GetMultiTexParameterfEXT} */
+	/** Unsafe version of {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexParameterfvEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterfvEXT;
@@ -3194,20 +3194,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexParameterfEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexParameterfvEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexParameterfEXT(int, int, int, ByteBuffer) GetMultiTexParameterfEXT} */
-	public static void glGetMultiTexParameterEXT(int texunit, int target, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
+	public static void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexParameterfvEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexParameterfEXT(int, int, int, ByteBuffer) GetMultiTexParameterfEXT} */
+	/** Single return value version of: {@link #glGetMultiTexParameterfvEXT GetMultiTexParameterfvEXT} */
 	public static float glGetMultiTexParameterfEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3217,11 +3217,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexParameteriEXT(int, int, int, ByteBuffer) GetMultiTexParameteriEXT} */
+	/** JNI method for {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexParameterivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexParameteriEXT(int, int, int, ByteBuffer) GetMultiTexParameteriEXT} */
+	/** Unsafe version of {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexParameterivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterivEXT;
@@ -3238,20 +3238,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexParameteriEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexParameterivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexParameterivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexParameteriEXT(int, int, int, ByteBuffer) GetMultiTexParameteriEXT} */
-	public static void glGetMultiTexParameterEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
+	public static void glGetMultiTexParameterivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexParameterivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexParameteriEXT(int, int, int, ByteBuffer) GetMultiTexParameteriEXT} */
+	/** Single return value version of: {@link #glGetMultiTexParameterivEXT GetMultiTexParameterivEXT} */
 	public static int glGetMultiTexParameteriEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3261,11 +3261,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexLevelParameterfvEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexLevelParameterfEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameterfEXT} */
+	/** JNI method for {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexLevelParameterfEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameterfEXT} */
+	/** Unsafe version of {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterfvEXT;
@@ -3283,20 +3283,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexLevelParameterfEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
+	public static void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexLevelParameterfvEXT(texunit, target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexLevelParameterfEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameterfEXT} */
-	public static void glGetMultiTexLevelParameterEXT(int texunit, int target, int level, int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
+	public static void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexLevelParameterfvEXT(texunit, target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexLevelParameterfEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameterfEXT} */
+	/** Single return value version of: {@link #glGetMultiTexLevelParameterfvEXT GetMultiTexLevelParameterfvEXT} */
 	public static float glGetMultiTexLevelParameterfEXT(int texunit, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3306,11 +3306,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexLevelParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexLevelParameteriEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameteriEXT} */
+	/** JNI method for {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexLevelParameteriEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameteriEXT} */
+	/** Unsafe version of {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterivEXT;
@@ -3328,20 +3328,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexLevelParameteriEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
+	public static void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexLevelParameterivEXT(texunit, target, level, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexLevelParameteriEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameteriEXT} */
-	public static void glGetMultiTexLevelParameterEXT(int texunit, int target, int level, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
+	public static void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexLevelParameterivEXT(texunit, target, level, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexLevelParameteriEXT(int, int, int, int, ByteBuffer) GetMultiTexLevelParameteriEXT} */
+	/** Single return value version of: {@link #glGetMultiTexLevelParameterivEXT GetMultiTexLevelParameterivEXT} */
 	public static int glGetMultiTexLevelParameteriEXT(int texunit, int target, int level, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3597,11 +3597,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetFloatIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetFloatIndexedEXT(int, int, ByteBuffer) GetFloatIndexedEXT} */
+	/** JNI method for {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetFloatIndexedvEXT(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFloatIndexedEXT(int, int, ByteBuffer) GetFloatIndexedEXT} */
+	/** Unsafe version of {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetFloatIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetFloatIndexedvEXT;
@@ -3617,20 +3617,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetFloatIndexedEXT(int target, int index, ByteBuffer params) {
+	public static void glGetFloatIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFloatIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFloatIndexedEXT(int, int, ByteBuffer) GetFloatIndexedEXT} */
-	public static void glGetFloatIndexedEXT(int target, int index, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
+	public static void glGetFloatIndexedvEXT(int target, int index, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFloatIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFloatIndexedEXT(int, int, ByteBuffer) GetFloatIndexedEXT} */
+	/** Single return value version of: {@link #glGetFloatIndexedvEXT GetFloatIndexedvEXT} */
 	public static float glGetFloatIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3640,11 +3640,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetDoubleIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetDoubleIndexedEXT(int, int, ByteBuffer) GetDoubleIndexedEXT} */
+	/** JNI method for {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetDoubleIndexedvEXT(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetDoubleIndexedEXT(int, int, ByteBuffer) GetDoubleIndexedEXT} */
+	/** Unsafe version of {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetDoubleIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetDoubleIndexedvEXT;
@@ -3660,20 +3660,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetDoubleIndexedEXT(int target, int index, ByteBuffer params) {
+	public static void glGetDoubleIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetDoubleIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetDoubleIndexedEXT(int, int, ByteBuffer) GetDoubleIndexedEXT} */
-	public static void glGetDoubleIndexeEXT(int target, int index, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
+	public static void glGetDoubleIndexedvEXT(int target, int index, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetDoubleIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetDoubleIndexedEXT(int, int, ByteBuffer) GetDoubleIndexedEXT} */
+	/** Single return value version of: {@link #glGetDoubleIndexedvEXT GetDoubleIndexedvEXT} */
 	public static double glGetDoubleIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -3683,11 +3683,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetPointerIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetPointerIndexedEXT(int, int, ByteBuffer) GetPointerIndexedEXT} */
+	/** JNI method for {@link #glGetPointerIndexedvEXT GetPointerIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetPointerIndexedvEXT(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPointerIndexedEXT(int, int, ByteBuffer) GetPointerIndexedEXT} */
+	/** Unsafe version of {@link #glGetPointerIndexedvEXT GetPointerIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetPointerIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetPointerIndexedvEXT;
@@ -3703,20 +3703,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetPointerIndexedEXT(int target, int index, ByteBuffer params) {
+	public static void glGetPointerIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointerIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetPointerIndexedEXT(int, int, ByteBuffer) GetPointerIndexedEXT} */
-	public static void glGetPointerIndexedEXT(int target, int index, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetPointerIndexedvEXT GetPointerIndexedvEXT} */
+	public static void glGetPointerIndexedvEXT(int target, int index, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetPointerIndexedEXT(int, int, ByteBuffer) GetPointerIndexedEXT} */
+	/** Single return value version of: {@link #glGetPointerIndexedvEXT GetPointerIndexedvEXT} */
 	public static long glGetPointerIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -3726,11 +3726,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetFloati_vEXT ] ---
 
-	/** JNI method for {@link #glGetFloatiEXT(int, int, ByteBuffer) GetFloatiEXT} */
+	/** JNI method for {@link #glGetFloati_vEXT GetFloati_vEXT} */
 	@JavadocExclude
 	public static native void nglGetFloati_vEXT(int pname, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFloatiEXT(int, int, ByteBuffer) GetFloatiEXT} */
+	/** Unsafe version of {@link #glGetFloati_vEXT GetFloati_vEXT} */
 	@JavadocExclude
 	public static void nglGetFloati_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetFloati_vEXT;
@@ -3746,20 +3746,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetFloatiEXT(int pname, int index, ByteBuffer params) {
+	public static void glGetFloati_vEXT(int pname, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFloati_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFloatiEXT(int, int, ByteBuffer) GetFloatiEXT} */
-	public static void glGetFloatiEXT(int pname, int index, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetFloati_vEXT GetFloati_vEXT} */
+	public static void glGetFloati_vEXT(int pname, int index, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFloati_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFloatiEXT(int, int, ByteBuffer) GetFloatiEXT} */
+	/** Single return value version of: {@link #glGetFloati_vEXT GetFloati_vEXT} */
 	public static float glGetFloatiEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
@@ -3769,11 +3769,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetDoublei_vEXT ] ---
 
-	/** JNI method for {@link #glGetDoubleiEXT(int, int, ByteBuffer) GetDoubleiEXT} */
+	/** JNI method for {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
 	@JavadocExclude
 	public static native void nglGetDoublei_vEXT(int pname, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetDoubleiEXT(int, int, ByteBuffer) GetDoubleiEXT} */
+	/** Unsafe version of {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
 	@JavadocExclude
 	public static void nglGetDoublei_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetDoublei_vEXT;
@@ -3789,20 +3789,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetDoubleiEXT(int pname, int index, ByteBuffer params) {
+	public static void glGetDoublei_vEXT(int pname, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetDoublei_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetDoubleiEXT(int, int, ByteBuffer) GetDoubleiEXT} */
-	public static void glGetDoubleiEXT(int pname, int index, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
+	public static void glGetDoublei_vEXT(int pname, int index, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetDoublei_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetDoubleiEXT(int, int, ByteBuffer) GetDoubleiEXT} */
+	/** Single return value version of: {@link #glGetDoublei_vEXT GetDoublei_vEXT} */
 	public static double glGetDoubleiEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.doubleParam();
@@ -3812,11 +3812,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetPointeri_vEXT ] ---
 
-	/** JNI method for {@link #glGetPointeriEXT(int, int, ByteBuffer) GetPointeriEXT} */
+	/** JNI method for {@link #glGetPointeri_vEXT GetPointeri_vEXT} */
 	@JavadocExclude
 	public static native void nglGetPointeri_vEXT(int pname, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetPointeriEXT(int, int, ByteBuffer) GetPointeriEXT} */
+	/** Unsafe version of {@link #glGetPointeri_vEXT GetPointeri_vEXT} */
 	@JavadocExclude
 	public static void nglGetPointeri_vEXT(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetPointeri_vEXT;
@@ -3832,20 +3832,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetPointeriEXT(int pname, int index, ByteBuffer params) {
+	public static void glGetPointeri_vEXT(int pname, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointeri_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetPointeriEXT(int, int, ByteBuffer) GetPointeriEXT} */
-	public static void glGetPointeriEXT(int pname, int index, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetPointeri_vEXT GetPointeri_vEXT} */
+	public static void glGetPointeri_vEXT(int pname, int index, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointeri_vEXT(pname, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetPointeriEXT(int, int, ByteBuffer) GetPointeriEXT} */
+	/** Single return value version of: {@link #glGetPointeri_vEXT GetPointeri_vEXT} */
 	public static long glGetPointeriEXT(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -3912,11 +3912,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** JNI method for {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetIntegerIndexedvEXT(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
@@ -3932,20 +3932,20 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetIntegerIndexedEXT(int target, int index, ByteBuffer params) {
+	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetIntegerIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
-	public static void glGetIntegerIndexedEXT(int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
+	public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetIntegerIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerIndexedEXT(int, int, ByteBuffer) GetIntegerIndexedEXT} */
+	/** Single return value version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static int glGetIntegerIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -3955,11 +3955,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** JNI method for {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static native void nglGetBooleanIndexedvEXT(int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long params) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
@@ -3975,13 +3975,13 @@ public final class EXTDirectStateAccess {
 	 * @param index  
 	 * @param params 
 	 */
-	public static void glGetBooleanIndexedEXT(int target, int index, ByteBuffer params) {
+	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBooleanIndexedvEXT(target, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBooleanIndexedEXT(int, int, ByteBuffer) GetBooleanIndexedEXT} */
+	/** Single return value version of: {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	public static boolean glGetBooleanIndexedEXT(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.booleanParam();
@@ -4050,11 +4050,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4dvEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParameter4dEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4dEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParameter4dvEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParameter4dEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4dEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParameter4dvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4dvEXT;
@@ -4071,14 +4071,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParameter4dEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glNamedProgramLocalParameter4dvEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglNamedProgramLocalParameter4dvEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParameter4dEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4dEXT} */
-	public static void glNamedProgramLocalParameter4EXT(int program, int target, int index, DoubleBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */
+	public static void glNamedProgramLocalParameter4dvEXT(int program, int target, int index, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglNamedProgramLocalParameter4dvEXT(program, target, index, memAddress(params));
@@ -4110,11 +4110,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameter4fvEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParameter4fEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4fEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParameter4fvEXT NamedProgramLocalParameter4fvEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParameter4fvEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParameter4fEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4fEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParameter4fvEXT NamedProgramLocalParameter4fvEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParameter4fvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4fvEXT;
@@ -4131,14 +4131,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParameter4fEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glNamedProgramLocalParameter4fvEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglNamedProgramLocalParameter4fvEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParameter4fEXT(int, int, int, ByteBuffer) NamedProgramLocalParameter4fEXT} */
-	public static void glNamedProgramLocalParameter4EXT(int program, int target, int index, FloatBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParameter4fvEXT NamedProgramLocalParameter4fvEXT} */
+	public static void glNamedProgramLocalParameter4fvEXT(int program, int target, int index, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglNamedProgramLocalParameter4fvEXT(program, target, index, memAddress(params));
@@ -4146,11 +4146,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterdvEXT ] ---
 
-	/** JNI method for {@link #glGetNamedProgramLocalParameterdEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterdEXT} */
+	/** JNI method for {@link #glGetNamedProgramLocalParameterdvEXT GetNamedProgramLocalParameterdvEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedProgramLocalParameterdvEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedProgramLocalParameterdEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterdEXT} */
+	/** Unsafe version of {@link #glGetNamedProgramLocalParameterdvEXT GetNamedProgramLocalParameterdvEXT} */
 	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterdvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterdvEXT;
@@ -4167,14 +4167,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glGetNamedProgramLocalParameterdEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glGetNamedProgramLocalParameterdvEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglGetNamedProgramLocalParameterdvEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedProgramLocalParameterdEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterdEXT} */
-	public static void glGetNamedProgramLocalParameterEXT(int program, int target, int index, DoubleBuffer params) {
+	/** Alternative version of: {@link #glGetNamedProgramLocalParameterdvEXT GetNamedProgramLocalParameterdvEXT} */
+	public static void glGetNamedProgramLocalParameterdvEXT(int program, int target, int index, DoubleBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetNamedProgramLocalParameterdvEXT(program, target, index, memAddress(params));
@@ -4182,11 +4182,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterfvEXT ] ---
 
-	/** JNI method for {@link #glGetNamedProgramLocalParameterfEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterfEXT} */
+	/** JNI method for {@link #glGetNamedProgramLocalParameterfvEXT GetNamedProgramLocalParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedProgramLocalParameterfvEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedProgramLocalParameterfEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterfEXT} */
+	/** Unsafe version of {@link #glGetNamedProgramLocalParameterfvEXT GetNamedProgramLocalParameterfvEXT} */
 	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterfvEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterfvEXT;
@@ -4203,14 +4203,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glGetNamedProgramLocalParameterfEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glGetNamedProgramLocalParameterfvEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetNamedProgramLocalParameterfvEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedProgramLocalParameterfEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterfEXT} */
-	public static void glGetNamedProgramLocalParameterEXT(int program, int target, int index, FloatBuffer params) {
+	/** Alternative version of: {@link #glGetNamedProgramLocalParameterfvEXT GetNamedProgramLocalParameterfvEXT} */
+	public static void glGetNamedProgramLocalParameterfvEXT(int program, int target, int index, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetNamedProgramLocalParameterfvEXT(program, target, index, memAddress(params));
@@ -4218,11 +4218,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedProgramiEXT(int, int, int, ByteBuffer) GetNamedProgramiEXT} */
+	/** JNI method for {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedProgramivEXT(int program, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedProgramiEXT(int, int, int, ByteBuffer) GetNamedProgramiEXT} */
+	/** Unsafe version of {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedProgramivEXT(int program, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedProgramivEXT;
@@ -4239,20 +4239,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetNamedProgramiEXT(int program, int target, int pname, ByteBuffer params) {
+	public static void glGetNamedProgramivEXT(int program, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedProgramivEXT(program, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedProgramiEXT(int, int, int, ByteBuffer) GetNamedProgramiEXT} */
-	public static void glGetNamedProgramEXT(int program, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
+	public static void glGetNamedProgramivEXT(int program, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedProgramivEXT(program, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedProgramiEXT(int, int, int, ByteBuffer) GetNamedProgramiEXT} */
+	/** Single return value version of: {@link #glGetNamedProgramivEXT GetNamedProgramivEXT} */
 	public static int glGetNamedProgramiEXT(int program, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -5002,7 +5002,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixLoadTransposefEXT MatrixLoadTransposefEXT} */
-	public static void glMatrixLoadTransposeEXT(int matrixMode, FloatBuffer m) {
+	public static void glMatrixLoadTransposefEXT(int matrixMode, FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixLoadTransposefEXT(matrixMode, memAddress(m));
@@ -5036,7 +5036,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixLoadTransposedEXT MatrixLoadTransposedEXT} */
-	public static void glMatrixLoadTransposeEXT(int matrixMode, DoubleBuffer m) {
+	public static void glMatrixLoadTransposedEXT(int matrixMode, DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixLoadTransposedEXT(matrixMode, memAddress(m));
@@ -5070,7 +5070,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixMultTransposefEXT MatrixMultTransposefEXT} */
-	public static void glMatrixMultTransposeEXT(int matrixMode, FloatBuffer m) {
+	public static void glMatrixMultTransposefEXT(int matrixMode, FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixMultTransposefEXT(matrixMode, memAddress(m));
@@ -5104,7 +5104,7 @@ public final class EXTDirectStateAccess {
 	}
 
 	/** Alternative version of: {@link #glMatrixMultTransposedEXT MatrixMultTransposedEXT} */
-	public static void glMatrixMultTransposeEXT(int matrixMode, DoubleBuffer m) {
+	public static void glMatrixMultTransposedEXT(int matrixMode, DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMatrixMultTransposedEXT(matrixMode, memAddress(m));
@@ -5282,11 +5282,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedBufferParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedBufferParameteriEXT(int, int, ByteBuffer) GetNamedBufferParameteriEXT} */
+	/** JNI method for {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedBufferParameterivEXT(int buffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedBufferParameteriEXT(int, int, ByteBuffer) GetNamedBufferParameteriEXT} */
+	/** Unsafe version of {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedBufferParameterivEXT(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameterivEXT;
@@ -5302,20 +5302,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glGetNamedBufferParameteriEXT(int buffer, int pname, ByteBuffer params) {
+	public static void glGetNamedBufferParameterivEXT(int buffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedBufferParameterivEXT(buffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedBufferParameteriEXT(int, int, ByteBuffer) GetNamedBufferParameteriEXT} */
-	public static void glGetNamedBufferParameterEXT(int buffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
+	public static void glGetNamedBufferParameterivEXT(int buffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameterivEXT(buffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedBufferParameteriEXT(int, int, ByteBuffer) GetNamedBufferParameteriEXT} */
+	/** Single return value version of: {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
 	public static int glGetNamedBufferParameteriEXT(int buffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -5551,11 +5551,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform1fEXT(int, int, int, ByteBuffer) ProgramUniform1fEXT} */
+	/** JNI method for {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform1fvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1fEXT(int, int, int, ByteBuffer) ProgramUniform1fEXT} */
+	/** Unsafe version of {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform1fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fvEXT;
@@ -5572,24 +5572,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform1fEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1fvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1fEXT(int, int, int, ByteBuffer) ProgramUniform1fEXT} */
-	public static void glProgramUniform1EXT(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
+	public static void glProgramUniform1fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform1fvEXT(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform2fEXT(int, int, int, ByteBuffer) ProgramUniform2fEXT} */
+	/** JNI method for {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform2fvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2fEXT(int, int, int, ByteBuffer) ProgramUniform2fEXT} */
+	/** Unsafe version of {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform2fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fvEXT;
@@ -5606,24 +5606,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform2fEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2fvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2fEXT(int, int, int, ByteBuffer) ProgramUniform2fEXT} */
-	public static void glProgramUniform2EXT(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
+	public static void glProgramUniform2fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform2fvEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform3fEXT(int, int, int, ByteBuffer) ProgramUniform3fEXT} */
+	/** JNI method for {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform3fvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3fEXT(int, int, int, ByteBuffer) ProgramUniform3fEXT} */
+	/** Unsafe version of {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform3fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fvEXT;
@@ -5640,24 +5640,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform3fEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3fvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3fvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3fEXT(int, int, int, ByteBuffer) ProgramUniform3fEXT} */
-	public static void glProgramUniform3EXT(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
+	public static void glProgramUniform3fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform3fvEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform4fEXT(int, int, int, ByteBuffer) ProgramUniform4fEXT} */
+	/** JNI method for {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform4fvEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4fEXT(int, int, int, ByteBuffer) ProgramUniform4fEXT} */
+	/** Unsafe version of {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform4fvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fvEXT;
@@ -5674,24 +5674,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform4fEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4fvEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fvEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4fEXT(int, int, int, ByteBuffer) ProgramUniform4fEXT} */
-	public static void glProgramUniform4EXT(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
+	public static void glProgramUniform4fvEXT(int program, int location, FloatBuffer value) {
 		nglProgramUniform4fvEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1ivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform1iEXT(int, int, int, ByteBuffer) ProgramUniform1iEXT} */
+	/** JNI method for {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform1ivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1iEXT(int, int, int, ByteBuffer) ProgramUniform1iEXT} */
+	/** Unsafe version of {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform1ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ivEXT;
@@ -5708,24 +5708,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform1iEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1ivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1ivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1iEXT(int, int, int, ByteBuffer) ProgramUniform1iEXT} */
-	public static void glProgramUniform1EXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
+	public static void glProgramUniform1ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1ivEXT(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2ivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform2iEXT(int, int, int, ByteBuffer) ProgramUniform2iEXT} */
+	/** JNI method for {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform2ivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2iEXT(int, int, int, ByteBuffer) ProgramUniform2iEXT} */
+	/** Unsafe version of {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform2ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ivEXT;
@@ -5742,24 +5742,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform2iEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2ivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2ivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2iEXT(int, int, int, ByteBuffer) ProgramUniform2iEXT} */
-	public static void glProgramUniform2EXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
+	public static void glProgramUniform2ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2ivEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3ivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform3iEXT(int, int, int, ByteBuffer) ProgramUniform3iEXT} */
+	/** JNI method for {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform3ivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3iEXT(int, int, int, ByteBuffer) ProgramUniform3iEXT} */
+	/** Unsafe version of {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform3ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ivEXT;
@@ -5776,24 +5776,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform3iEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3ivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3ivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3iEXT(int, int, int, ByteBuffer) ProgramUniform3iEXT} */
-	public static void glProgramUniform3EXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
+	public static void glProgramUniform3ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3ivEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4ivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform4iEXT(int, int, int, ByteBuffer) ProgramUniform4iEXT} */
+	/** JNI method for {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform4ivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4iEXT(int, int, int, ByteBuffer) ProgramUniform4iEXT} */
+	/** Unsafe version of {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform4ivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ivEXT;
@@ -5810,24 +5810,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform4iEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4ivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4ivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4iEXT(int, int, int, ByteBuffer) ProgramUniform4iEXT} */
-	public static void glProgramUniform4EXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
+	public static void glProgramUniform4ivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4ivEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fvEXT;
@@ -5845,24 +5845,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix2fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2fEXT} */
-	public static void glProgramUniformMatrix2EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
+	public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2fvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fvEXT;
@@ -5880,24 +5880,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix3fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3fEXT} */
-	public static void glProgramUniformMatrix3EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
+	public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3fvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fvEXT;
@@ -5915,24 +5915,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix4fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4fEXT} */
-	public static void glProgramUniformMatrix4EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
+	public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4fvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fvEXT;
@@ -5950,24 +5950,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix2x3fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3fEXT} */
-	public static void glProgramUniformMatrix2x3EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
+	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x3fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fvEXT;
@@ -5985,24 +5985,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix3x2fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2fEXT} */
-	public static void glProgramUniformMatrix3x2EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
+	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x2fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix2x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fvEXT;
@@ -6020,24 +6020,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix2x4fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4fEXT} */
-	public static void glProgramUniformMatrix2x4EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
+	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x4fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fvEXT;
@@ -6055,24 +6055,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix4x2fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2fEXT} */
-	public static void glProgramUniformMatrix4x2EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
+	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x2fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix3x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fvEXT;
@@ -6090,24 +6090,24 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix3x4fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4fEXT} */
-	public static void glProgramUniformMatrix3x4EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
+	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x4fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3fvEXT ] ---
 
-	/** JNI method for {@link #glProgramUniformMatrix4x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3fEXT} */
+	/** JNI method for {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3fEXT} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fvEXT;
@@ -6125,14 +6125,14 @@ public final class EXTDirectStateAccess {
 	 * @param transpose 
 	 * @param value     
 	 */
-	public static void glProgramUniformMatrix4x3fEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fvEXT(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3fEXT(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3fEXT} */
-	public static void glProgramUniformMatrix4x3EXT(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
+	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x3fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
@@ -6180,11 +6180,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterIivEXT ] ---
 
-	/** JNI method for {@link #glTextureParameterIiEXT(int, int, int, ByteBuffer) TextureParameterIiEXT} */
+	/** JNI method for {@link #glTextureParameterIivEXT TextureParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglTextureParameterIivEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterIiEXT(int, int, int, ByteBuffer) TextureParameterIiEXT} */
+	/** Unsafe version of {@link #glTextureParameterIivEXT TextureParameterIivEXT} */
 	@JavadocExclude
 	public static void nglTextureParameterIivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIivEXT;
@@ -6201,14 +6201,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glTextureParameterIiEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glTextureParameterIivEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameterIivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterIiEXT(int, int, int, ByteBuffer) TextureParameterIiEXT} */
-	public static void glTextureParameterIEXT(int texture, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTextureParameterIivEXT TextureParameterIivEXT} */
+	public static void glTextureParameterIivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameterIivEXT(texture, target, pname, memAddress(params));
@@ -6216,11 +6216,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glTextureParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glTextureParameterIuiEXT(int, int, int, ByteBuffer) TextureParameterIuiEXT} */
+	/** JNI method for {@link #glTextureParameterIuivEXT TextureParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglTextureParameterIuivEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glTextureParameterIuiEXT(int, int, int, ByteBuffer) TextureParameterIuiEXT} */
+	/** Unsafe version of {@link #glTextureParameterIuivEXT TextureParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglTextureParameterIuivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuivEXT;
@@ -6237,14 +6237,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glTextureParameterIuiEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glTextureParameterIuivEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameterIuivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glTextureParameterIuiEXT(int, int, int, ByteBuffer) TextureParameterIuiEXT} */
-	public static void glTextureParameterIuEXT(int texture, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glTextureParameterIuivEXT TextureParameterIuivEXT} */
+	public static void glTextureParameterIuivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameterIuivEXT(texture, target, pname, memAddress(params));
@@ -6252,11 +6252,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetTextureParameterIiEXT(int, int, int, ByteBuffer) GetTextureParameterIiEXT} */
+	/** JNI method for {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterIivEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterIiEXT(int, int, int, ByteBuffer) GetTextureParameterIiEXT} */
+	/** Unsafe version of {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetTextureParameterIivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIivEXT;
@@ -6273,20 +6273,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureParameterIiEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterIivEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterIiEXT(int, int, int, ByteBuffer) GetTextureParameterIiEXT} */
-	public static void glGetTextureParameterIEXT(int texture, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
+	public static void glGetTextureParameterIivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIiEXT(int, int, int, ByteBuffer) GetTextureParameterIiEXT} */
+	/** Single return value version of: {@link #glGetTextureParameterIivEXT GetTextureParameterIivEXT} */
 	public static int glGetTextureParameterIiEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -6296,11 +6296,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetTextureParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetTextureParameterIuiEXT(int, int, int, ByteBuffer) GetTextureParameterIuiEXT} */
+	/** JNI method for {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglGetTextureParameterIuivEXT(int texture, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetTextureParameterIuiEXT(int, int, int, ByteBuffer) GetTextureParameterIuiEXT} */
+	/** Unsafe version of {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetTextureParameterIuivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuivEXT;
@@ -6317,20 +6317,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetTextureParameterIuiEXT(int texture, int target, int pname, ByteBuffer params) {
+	public static void glGetTextureParameterIuivEXT(int texture, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIuivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetTextureParameterIuiEXT(int, int, int, ByteBuffer) GetTextureParameterIuiEXT} */
-	public static void glGetTextureParameterIuEXT(int texture, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
+	public static void glGetTextureParameterIuivEXT(int texture, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIuivEXT(texture, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetTextureParameterIuiEXT(int, int, int, ByteBuffer) GetTextureParameterIuiEXT} */
+	/** Single return value version of: {@link #glGetTextureParameterIuivEXT GetTextureParameterIuivEXT} */
 	public static int glGetTextureParameterIuiEXT(int texture, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -6340,11 +6340,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glMultiTexParameterIiEXT(int, int, int, ByteBuffer) MultiTexParameterIiEXT} */
+	/** JNI method for {@link #glMultiTexParameterIivEXT MultiTexParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexParameterIivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexParameterIiEXT(int, int, int, ByteBuffer) MultiTexParameterIiEXT} */
+	/** Unsafe version of {@link #glMultiTexParameterIivEXT MultiTexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexParameterIivEXT;
@@ -6361,14 +6361,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexParameterIiEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glMultiTexParameterIivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexParameterIivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexParameterIiEXT(int, int, int, ByteBuffer) MultiTexParameterIiEXT} */
-	public static void glMultiTexParameterIEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glMultiTexParameterIivEXT MultiTexParameterIivEXT} */
+	public static void glMultiTexParameterIivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexParameterIivEXT(texunit, target, pname, memAddress(params));
@@ -6376,11 +6376,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glMultiTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glMultiTexParameterIuiEXT(int, int, int, ByteBuffer) MultiTexParameterIuiEXT} */
+	/** JNI method for {@link #glMultiTexParameterIuivEXT MultiTexParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglMultiTexParameterIuivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glMultiTexParameterIuiEXT(int, int, int, ByteBuffer) MultiTexParameterIuiEXT} */
+	/** Unsafe version of {@link #glMultiTexParameterIuivEXT MultiTexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().MultiTexParameterIuivEXT;
@@ -6397,14 +6397,14 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glMultiTexParameterIuiEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glMultiTexParameterIuivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMultiTexParameterIuivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glMultiTexParameterIuiEXT(int, int, int, ByteBuffer) MultiTexParameterIuiEXT} */
-	public static void glMultiTexParameterIuEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glMultiTexParameterIuivEXT MultiTexParameterIuivEXT} */
+	public static void glMultiTexParameterIuivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglMultiTexParameterIuivEXT(texunit, target, pname, memAddress(params));
@@ -6412,11 +6412,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexParameterIiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIiEXT} */
+	/** JNI method for {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexParameterIivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexParameterIiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIiEXT} */
+	/** Unsafe version of {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexParameterIivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterIivEXT;
@@ -6433,20 +6433,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexParameterIiEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexParameterIivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexParameterIiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIiEXT} */
-	public static void glGetMultiTexParameterIEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
+	public static void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexParameterIivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexParameterIiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIiEXT} */
+	/** Single return value version of: {@link #glGetMultiTexParameterIivEXT GetMultiTexParameterIivEXT} */
 	public static int glGetMultiTexParameterIiEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -6456,11 +6456,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetMultiTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetMultiTexParameterIuiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIuiEXT} */
+	/** JNI method for {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglGetMultiTexParameterIuivEXT(int texunit, int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultiTexParameterIuiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIuiEXT} */
+	/** Unsafe version of {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetMultiTexParameterIuivEXT(int texunit, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMultiTexParameterIuivEXT;
@@ -6477,20 +6477,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname   
 	 * @param params  
 	 */
-	public static void glGetMultiTexParameterIuiEXT(int texunit, int target, int pname, ByteBuffer params) {
+	public static void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetMultiTexParameterIuivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetMultiTexParameterIuiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIuiEXT} */
-	public static void glGetMultiTexParameterIuEXT(int texunit, int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
+	public static void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetMultiTexParameterIuivEXT(texunit, target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetMultiTexParameterIuiEXT(int, int, int, ByteBuffer) GetMultiTexParameterIuiEXT} */
+	/** Single return value version of: {@link #glGetMultiTexParameterIuivEXT GetMultiTexParameterIuivEXT} */
 	public static int glGetMultiTexParameterIuiEXT(int texunit, int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -6586,11 +6586,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glProgramUniform1uivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform1uiEXT(int, int, int, ByteBuffer) ProgramUniform1uiEXT} */
+	/** JNI method for {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform1uivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform1uiEXT(int, int, int, ByteBuffer) ProgramUniform1uiEXT} */
+	/** Unsafe version of {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform1uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uivEXT;
@@ -6607,24 +6607,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform1uiEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1uivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1uiEXT(int, int, int, ByteBuffer) ProgramUniform1uiEXT} */
-	public static void glProgramUniform1uEXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
+	public static void glProgramUniform1uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform1uivEXT(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2uivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform2uiEXT(int, int, int, ByteBuffer) ProgramUniform2uiEXT} */
+	/** JNI method for {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform2uivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform2uiEXT(int, int, int, ByteBuffer) ProgramUniform2uiEXT} */
+	/** Unsafe version of {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform2uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uivEXT;
@@ -6641,24 +6641,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform2uiEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2uivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2uiEXT(int, int, int, ByteBuffer) ProgramUniform2uiEXT} */
-	public static void glProgramUniform2uEXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
+	public static void glProgramUniform2uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform2uivEXT(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3uivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform3uiEXT(int, int, int, ByteBuffer) ProgramUniform3uiEXT} */
+	/** JNI method for {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform3uivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform3uiEXT(int, int, int, ByteBuffer) ProgramUniform3uiEXT} */
+	/** Unsafe version of {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform3uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uivEXT;
@@ -6675,24 +6675,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform3uiEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3uivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3uivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3uiEXT(int, int, int, ByteBuffer) ProgramUniform3uiEXT} */
-	public static void glProgramUniform3uEXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
+	public static void glProgramUniform3uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform3uivEXT(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uivEXT ] ---
 
-	/** JNI method for {@link #glProgramUniform4uiEXT(int, int, int, ByteBuffer) ProgramUniform4uiEXT} */
+	/** JNI method for {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	@JavadocExclude
 	public static native void nglProgramUniform4uivEXT(int program, int location, int count, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniform4uiEXT(int, int, int, ByteBuffer) ProgramUniform4uiEXT} */
+	/** Unsafe version of {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
 	@JavadocExclude
 	public static void nglProgramUniform4uivEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uivEXT;
@@ -6709,24 +6709,24 @@ public final class EXTDirectStateAccess {
 	 * @param count    
 	 * @param value    
 	 */
-	public static void glProgramUniform4uiEXT(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4uivEXT(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uivEXT(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4uiEXT(int, int, int, ByteBuffer) ProgramUniform4uiEXT} */
-	public static void glProgramUniform4uEXT(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
+	public static void glProgramUniform4uivEXT(int program, int location, IntBuffer value) {
 		nglProgramUniform4uivEXT(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glNamedProgramLocalParameters4fvEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParameters4fEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParameters4fEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParameters4fvEXT NamedProgramLocalParameters4fvEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParameters4fEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParameters4fEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParameters4fvEXT NamedProgramLocalParameters4fvEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameters4fvEXT;
@@ -6744,14 +6744,14 @@ public final class EXTDirectStateAccess {
 	 * @param count   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParameters4fEXT(int program, int target, int index, int count, ByteBuffer params) {
+	public static void glNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, (count << 2) << 2);
 		nglNamedProgramLocalParameters4fvEXT(program, target, index, count, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParameters4fEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParameters4fEXT} */
-	public static void glNamedProgramLocalParameters4EXT(int program, int target, int index, FloatBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParameters4fvEXT NamedProgramLocalParameters4fvEXT} */
+	public static void glNamedProgramLocalParameters4fvEXT(int program, int target, int index, FloatBuffer params) {
 		nglNamedProgramLocalParameters4fvEXT(program, target, index, params.remaining() >> 2, memAddress(params));
 	}
 
@@ -6781,11 +6781,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4ivEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParameterI4iEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4iEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParameterI4ivEXT NamedProgramLocalParameterI4ivEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParameterI4ivEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParameterI4iEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4iEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParameterI4ivEXT NamedProgramLocalParameterI4ivEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParameterI4ivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4ivEXT;
@@ -6802,14 +6802,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParameterI4iEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glNamedProgramLocalParameterI4ivEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglNamedProgramLocalParameterI4ivEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParameterI4iEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4iEXT} */
-	public static void glNamedProgramLocalParameterI4EXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParameterI4ivEXT NamedProgramLocalParameterI4ivEXT} */
+	public static void glNamedProgramLocalParameterI4ivEXT(int program, int target, int index, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglNamedProgramLocalParameterI4ivEXT(program, target, index, memAddress(params));
@@ -6817,11 +6817,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParametersI4ivEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParametersI4iEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4iEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParametersI4ivEXT NamedProgramLocalParametersI4ivEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParametersI4iEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4iEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParametersI4ivEXT NamedProgramLocalParametersI4ivEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4ivEXT;
@@ -6839,14 +6839,14 @@ public final class EXTDirectStateAccess {
 	 * @param count   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParametersI4iEXT(int program, int target, int index, int count, ByteBuffer params) {
+	public static void glNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, (count << 2) << 2);
 		nglNamedProgramLocalParametersI4ivEXT(program, target, index, count, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParametersI4iEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4iEXT} */
-	public static void glNamedProgramLocalParametersI4EXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParametersI4ivEXT NamedProgramLocalParametersI4ivEXT} */
+	public static void glNamedProgramLocalParametersI4ivEXT(int program, int target, int index, IntBuffer params) {
 		nglNamedProgramLocalParametersI4ivEXT(program, target, index, params.remaining() >> 2, memAddress(params));
 	}
 
@@ -6876,11 +6876,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParameterI4uivEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParameterI4uiEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4uiEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParameterI4uivEXT NamedProgramLocalParameterI4uivEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParameterI4uivEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParameterI4uiEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4uiEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParameterI4uivEXT NamedProgramLocalParameterI4uivEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParameterI4uivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4uivEXT;
@@ -6897,14 +6897,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParameterI4uiEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glNamedProgramLocalParameterI4uivEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglNamedProgramLocalParameterI4uivEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParameterI4uiEXT(int, int, int, ByteBuffer) NamedProgramLocalParameterI4uiEXT} */
-	public static void glNamedProgramLocalParameterI4uEXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParameterI4uivEXT NamedProgramLocalParameterI4uivEXT} */
+	public static void glNamedProgramLocalParameterI4uivEXT(int program, int target, int index, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglNamedProgramLocalParameterI4uivEXT(program, target, index, memAddress(params));
@@ -6912,11 +6912,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glNamedProgramLocalParametersI4uivEXT ] ---
 
-	/** JNI method for {@link #glNamedProgramLocalParametersI4uiEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4uiEXT} */
+	/** JNI method for {@link #glNamedProgramLocalParametersI4uivEXT NamedProgramLocalParametersI4uivEXT} */
 	@JavadocExclude
 	public static native void nglNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedProgramLocalParametersI4uiEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4uiEXT} */
+	/** Unsafe version of {@link #glNamedProgramLocalParametersI4uivEXT NamedProgramLocalParametersI4uivEXT} */
 	@JavadocExclude
 	public static void nglNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, long params) {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4uivEXT;
@@ -6934,24 +6934,24 @@ public final class EXTDirectStateAccess {
 	 * @param count   
 	 * @param params  
 	 */
-	public static void glNamedProgramLocalParametersI4uiEXT(int program, int target, int index, int count, ByteBuffer params) {
+	public static void glNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, (count << 2) << 2);
 		nglNamedProgramLocalParametersI4uivEXT(program, target, index, count, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glNamedProgramLocalParametersI4uiEXT(int, int, int, int, ByteBuffer) NamedProgramLocalParametersI4uiEXT} */
-	public static void glNamedProgramLocalParametersI4uEXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glNamedProgramLocalParametersI4uivEXT NamedProgramLocalParametersI4uivEXT} */
+	public static void glNamedProgramLocalParametersI4uivEXT(int program, int target, int index, IntBuffer params) {
 		nglNamedProgramLocalParametersI4uivEXT(program, target, index, params.remaining() >> 2, memAddress(params));
 	}
 
 	// --- [ glGetNamedProgramLocalParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedProgramLocalParameterIiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIiEXT} */
+	/** JNI method for {@link #glGetNamedProgramLocalParameterIivEXT GetNamedProgramLocalParameterIivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedProgramLocalParameterIivEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIiEXT} */
+	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIivEXT GetNamedProgramLocalParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterIivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIivEXT;
@@ -6968,14 +6968,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glGetNamedProgramLocalParameterIiEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glGetNamedProgramLocalParameterIivEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetNamedProgramLocalParameterIivEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedProgramLocalParameterIiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIiEXT} */
-	public static void glGetNamedProgramLocalParameterIEXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedProgramLocalParameterIivEXT GetNamedProgramLocalParameterIivEXT} */
+	public static void glGetNamedProgramLocalParameterIivEXT(int program, int target, int index, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetNamedProgramLocalParameterIivEXT(program, target, index, memAddress(params));
@@ -6983,11 +6983,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedProgramLocalParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedProgramLocalParameterIuiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIuiEXT} */
+	/** JNI method for {@link #glGetNamedProgramLocalParameterIuivEXT GetNamedProgramLocalParameterIuivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIuiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIuiEXT} */
+	/** Unsafe version of {@link #glGetNamedProgramLocalParameterIuivEXT GetNamedProgramLocalParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, long params) {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIuivEXT;
@@ -7004,14 +7004,14 @@ public final class EXTDirectStateAccess {
 	 * @param index   
 	 * @param params  
 	 */
-	public static void glGetNamedProgramLocalParameterIuiEXT(int program, int target, int index, ByteBuffer params) {
+	public static void glGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetNamedProgramLocalParameterIuivEXT(program, target, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedProgramLocalParameterIuiEXT(int, int, int, ByteBuffer) GetNamedProgramLocalParameterIuiEXT} */
-	public static void glGetNamedProgramLocalParameterIuEXT(int program, int target, int index, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedProgramLocalParameterIuivEXT GetNamedProgramLocalParameterIuivEXT} */
+	public static void glGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 4);
 		nglGetNamedProgramLocalParameterIuivEXT(program, target, index, memAddress(params));
@@ -7040,11 +7040,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedRenderbufferParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedRenderbufferParameteriEXT(int, int, ByteBuffer) GetNamedRenderbufferParameteriEXT} */
+	/** JNI method for {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedRenderbufferParameteriEXT(int, int, ByteBuffer) GetNamedRenderbufferParameteriEXT} */
+	/** Unsafe version of {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameterivEXT;
@@ -7060,20 +7060,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname        
 	 * @param params       
 	 */
-	public static void glGetNamedRenderbufferParameteriEXT(int renderbuffer, int pname, ByteBuffer params) {
+	public static void glGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedRenderbufferParameterivEXT(renderbuffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedRenderbufferParameteriEXT(int, int, ByteBuffer) GetNamedRenderbufferParameteriEXT} */
-	public static void glGetNamedRenderbufferParameterEXT(int renderbuffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
+	public static void glGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedRenderbufferParameterivEXT(renderbuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedRenderbufferParameteriEXT(int, int, ByteBuffer) GetNamedRenderbufferParameteriEXT} */
+	/** Single return value version of: {@link #glGetNamedRenderbufferParameterivEXT GetNamedRenderbufferParameterivEXT} */
 	public static int glGetNamedRenderbufferParameteriEXT(int renderbuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -7235,11 +7235,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetNamedFramebufferAttachmentParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteriEXT} */
+	/** JNI method for {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteriEXT} */
+	/** Unsafe version of {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameterivEXT;
@@ -7256,20 +7256,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname       
 	 * @param params      
 	 */
-	public static void glGetNamedFramebufferAttachmentParameteriEXT(int framebuffer, int attachment, int pname, ByteBuffer params) {
+	public static void glGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteriEXT} */
-	public static void glGetNamedFramebufferAttachmentParameterEXT(int framebuffer, int attachment, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
+	public static void glGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, attachment, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameteriEXT(int, int, int, ByteBuffer) GetNamedFramebufferAttachmentParameteriEXT} */
+	/** Single return value version of: {@link #glGetNamedFramebufferAttachmentParameterivEXT GetNamedFramebufferAttachmentParameterivEXT} */
 	public static int glGetNamedFramebufferAttachmentParameteriEXT(int framebuffer, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -7388,11 +7388,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetFramebufferParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetFramebufferParameteriEXT(int, int, ByteBuffer) GetFramebufferParameteriEXT} */
+	/** JNI method for {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetFramebufferParameterivEXT(int framebuffer, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFramebufferParameteriEXT(int, int, ByteBuffer) GetFramebufferParameteriEXT} */
+	/** Unsafe version of {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetFramebufferParameterivEXT(int framebuffer, int pname, long param) {
 		long __functionAddress = getInstance().GetFramebufferParameterivEXT;
@@ -7408,20 +7408,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname       
 	 * @param param       
 	 */
-	public static void glGetFramebufferParameteriEXT(int framebuffer, int pname, ByteBuffer param) {
+	public static void glGetFramebufferParameterivEXT(int framebuffer, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetFramebufferParameterivEXT(framebuffer, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferParameteriEXT(int, int, ByteBuffer) GetFramebufferParameteriEXT} */
-	public static void glGetFramebufferParameterEXT(int framebuffer, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
+	public static void glGetFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetFramebufferParameterivEXT(framebuffer, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteriEXT(int, int, ByteBuffer) GetFramebufferParameteriEXT} */
+	/** Single return value version of: {@link #glGetFramebufferParameterivEXT GetFramebufferParameterivEXT} */
 	public static int glGetFramebufferParameteriEXT(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -7886,11 +7886,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayIntegervEXT ] ---
 
-	/** JNI method for {@link #glGetVertexArrayIntegerEXT(int, int, ByteBuffer) GetVertexArrayIntegerEXT} */
+	/** JNI method for {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayIntegervEXT(int vaobj, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayIntegerEXT(int, int, ByteBuffer) GetVertexArrayIntegerEXT} */
+	/** Unsafe version of {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
 	@JavadocExclude
 	public static void nglGetVertexArrayIntegervEXT(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIntegervEXT;
@@ -7906,20 +7906,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname 
 	 * @param param 
 	 */
-	public static void glGetVertexArrayIntegerEXT(int vaobj, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayIntegervEXT(int vaobj, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIntegervEXT(vaobj, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayIntegerEXT(int, int, ByteBuffer) GetVertexArrayIntegerEXT} */
-	public static void glGetVertexArrayIntegerEXT(int vaobj, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
+	public static void glGetVertexArrayIntegervEXT(int vaobj, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIntegervEXT(vaobj, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIntegerEXT(int, int, ByteBuffer) GetVertexArrayIntegerEXT} */
+	/** Single return value version of: {@link #glGetVertexArrayIntegervEXT GetVertexArrayIntegervEXT} */
 	public static int glGetVertexArrayIntegerEXT(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -7929,11 +7929,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayPointervEXT ] ---
 
-	/** JNI method for {@link #glGetVertexArrayPointerEXT(int, int, ByteBuffer) GetVertexArrayPointerEXT} */
+	/** JNI method for {@link #glGetVertexArrayPointervEXT GetVertexArrayPointervEXT} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayPointervEXT(int vaobj, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayPointerEXT(int, int, ByteBuffer) GetVertexArrayPointerEXT} */
+	/** Unsafe version of {@link #glGetVertexArrayPointervEXT GetVertexArrayPointervEXT} */
 	@JavadocExclude
 	public static void nglGetVertexArrayPointervEXT(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayPointervEXT;
@@ -7949,20 +7949,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname 
 	 * @param param 
 	 */
-	public static void glGetVertexArrayPointerEXT(int vaobj, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayPointervEXT(int vaobj, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << POINTER_SHIFT);
 		nglGetVertexArrayPointervEXT(vaobj, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayPointerEXT(int, int, ByteBuffer) GetVertexArrayPointerEXT} */
-	public static void glGetVertexArrayPointerEXT(int vaobj, int pname, PointerBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayPointervEXT GetVertexArrayPointervEXT} */
+	public static void glGetVertexArrayPointervEXT(int vaobj, int pname, PointerBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayPointervEXT(vaobj, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayPointerEXT(int, int, ByteBuffer) GetVertexArrayPointerEXT} */
+	/** Single return value version of: {@link #glGetVertexArrayPointervEXT GetVertexArrayPointervEXT} */
 	public static long glGetVertexArrayPointerEXT(int vaobj, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.pointerParam();
@@ -7972,11 +7972,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayIntegeri_vEXT ] ---
 
-	/** JNI method for {@link #glGetVertexArrayIntegeriEXT(int, int, int, ByteBuffer) GetVertexArrayIntegeriEXT} */
+	/** JNI method for {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayIntegeriEXT(int, int, int, ByteBuffer) GetVertexArrayIntegeriEXT} */
+	/** Unsafe version of {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
 	@JavadocExclude
 	public static void nglGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIntegeri_vEXT;
@@ -7993,20 +7993,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname 
 	 * @param param 
 	 */
-	public static void glGetVertexArrayIntegeriEXT(int vaobj, int index, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIntegeri_vEXT(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayIntegeriEXT(int, int, int, ByteBuffer) GetVertexArrayIntegeriEXT} */
-	public static void glGetVertexArrayIntegerEXT(int vaobj, int index, int pname, IntBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
+	public static void glGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, IntBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIntegeri_vEXT(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayIntegeriEXT(int, int, int, ByteBuffer) GetVertexArrayIntegeriEXT} */
+	/** Single return value version of: {@link #glGetVertexArrayIntegeri_vEXT GetVertexArrayIntegeri_vEXT} */
 	public static int glGetVertexArrayIntegeriEXT(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.intParam();
@@ -8016,11 +8016,11 @@ public final class EXTDirectStateAccess {
 
 	// --- [ glGetVertexArrayPointeri_vEXT ] ---
 
-	/** JNI method for {@link #glGetVertexArrayPointeriEXT(int, int, int, ByteBuffer) GetVertexArrayPointeriEXT} */
+	/** JNI method for {@link #glGetVertexArrayPointeri_vEXT GetVertexArrayPointeri_vEXT} */
 	@JavadocExclude
 	public static native void nglGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, long param, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexArrayPointeriEXT(int, int, int, ByteBuffer) GetVertexArrayPointeriEXT} */
+	/** Unsafe version of {@link #glGetVertexArrayPointeri_vEXT GetVertexArrayPointeri_vEXT} */
 	@JavadocExclude
 	public static void nglGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayPointeri_vEXT;
@@ -8037,20 +8037,20 @@ public final class EXTDirectStateAccess {
 	 * @param pname 
 	 * @param param 
 	 */
-	public static void glGetVertexArrayPointeriEXT(int vaobj, int index, int pname, ByteBuffer param) {
+	public static void glGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, ByteBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1 << POINTER_SHIFT);
 		nglGetVertexArrayPointeri_vEXT(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Alternative version of: {@link #glGetVertexArrayPointeriEXT(int, int, int, ByteBuffer) GetVertexArrayPointeriEXT} */
-	public static void glGetVertexArrayPointeriEXT(int vaobj, int index, int pname, PointerBuffer param) {
+	/** Alternative version of: {@link #glGetVertexArrayPointeri_vEXT GetVertexArrayPointeri_vEXT} */
+	public static void glGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, PointerBuffer param) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayPointeri_vEXT(vaobj, index, pname, memAddress(param));
 	}
 
-	/** Single return value version of: {@link #glGetVertexArrayPointeriEXT(int, int, int, ByteBuffer) GetVertexArrayPointeriEXT} */
+	/** Single return value version of: {@link #glGetVertexArrayPointeri_vEXT GetVertexArrayPointeri_vEXT} */
 	public static long glGetVertexArrayPointeriEXT(int vaobj, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int param = __buffer.pointerParam();

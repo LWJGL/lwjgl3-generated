@@ -460,11 +460,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformsiv ] ---
 
-	/** JNI method for {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
+	/** JNI method for {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
+	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
@@ -484,7 +484,7 @@ public final class GL31 {
 	 * @param pname          the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
 	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
 	 */
-	public static void glGetActiveUniformsi(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
+	public static void glGetActiveUniformsiv(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(uniformIndices, uniformCount << 2);
 			checkBuffer(params, uniformCount << 2);
@@ -492,14 +492,14 @@ public final class GL31 {
 		nglGetActiveUniformsiv(program, uniformCount, memAddress(uniformIndices), pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
-	public static void glGetActiveUniforms(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
+	public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
 		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
 
-	/** Single value version of: {@link #glGetActiveUniformsi(int, int, ByteBuffer, int, ByteBuffer) GetActiveUniformsi} */
+	/** Single value version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static int glGetActiveUniformsi(int program, int uniformIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -606,11 +606,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformBlockiv ] ---
 
-	/** JNI method for {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
+	/** JNI method for {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	@JavadocExclude
 	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
+	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
@@ -629,20 +629,20 @@ public final class GL31 {
 	 * @param pname             the name of the parameter to query. One of:<br>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}, {@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}, {@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}, {@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}, {@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}
 	 * @param params            the address of a variable to receive the result of the query
 	 */
-	public static void glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
+	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
-	public static void glGetActiveUniformBlock(int program, int uniformBlockIndex, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
+	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetActiveUniformBlocki(int, int, int, ByteBuffer) GetActiveUniformBlocki} */
+	/** Single return value version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

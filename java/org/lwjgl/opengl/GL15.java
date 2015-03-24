@@ -565,11 +565,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
+	/** JNI method for {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	@JavadocExclude
 	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
+	/** Unsafe version of {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
@@ -587,20 +587,20 @@ public final class GL15 {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link #GL_BUFFER_SIZE BUFFER_SIZE}, {@link #GL_BUFFER_USAGE BUFFER_USAGE}, {@link #GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link #GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetBufferParameteri(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
-	public static void glGetBufferParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
+	public static void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri(int, int, ByteBuffer) GetBufferParameteri} */
+	/** Single return value version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static int glGetBufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -610,11 +610,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferPointerv ] ---
 
-	/** JNI method for {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
+	/** JNI method for {@link #glGetBufferPointerv GetBufferPointerv} */
 	@JavadocExclude
 	public static native void nglGetBufferPointerv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
+	/** Unsafe version of {@link #glGetBufferPointerv GetBufferPointerv} */
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
@@ -632,20 +632,20 @@ public final class GL15 {
 	 * @param pname  the pointer to be returned. Must be:<br>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}
 	 * @param params the pointer value specified by {@code pname}
 	 */
-	public static void glGetBufferPointer(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferPointerv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
-	public static void glGetBufferPointer(int target, int pname, PointerBuffer params) {
+	/** Alternative version of: {@link #glGetBufferPointerv GetBufferPointerv} */
+	public static void glGetBufferPointerv(int target, int pname, PointerBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferPointer(int, int, ByteBuffer) GetBufferPointer} */
+	/** Single return value version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static long glGetBufferPointer(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.pointerParam();
@@ -799,11 +799,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryiv ] ---
 
-	/** JNI method for {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
+	/** JNI method for {@link #glGetQueryiv GetQueryiv} */
 	@JavadocExclude
 	public static native void nglGetQueryiv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
+	/** Unsafe version of {@link #glGetQueryiv GetQueryiv} */
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
@@ -821,20 +821,20 @@ public final class GL15 {
 	 * @param pname  the symbolic name of a query object target parameter. One of:<br>{@link #GL_QUERY_COUNTER_BITS QUERY_COUNTER_BITS}, {@link #GL_CURRENT_QUERY CURRENT_QUERY}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryi(int target, int pname, ByteBuffer params) {
+	public static void glGetQueryiv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
-	public static void glGetQuery(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryiv GetQueryiv} */
+	public static void glGetQueryiv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryi(int, int, ByteBuffer) GetQueryi} */
+	/** Single return value version of: {@link #glGetQueryiv GetQueryiv} */
 	public static int glGetQueryi(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -844,11 +844,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
+	/** JNI method for {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectiv(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
+	/** Unsafe version of {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
@@ -866,20 +866,20 @@ public final class GL15 {
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT QUERY_RESULT}, {@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjecti(int id, int pname, ByteBuffer params) {
+	public static void glGetQueryObjectiv(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
-	public static void glGetQueryObject(int id, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryObjectiv GetQueryObjectiv} */
+	public static void glGetQueryObjectiv(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjecti(int, int, ByteBuffer) GetQueryObjecti} */
+	/** Single return value version of: {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	public static int glGetQueryObjecti(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -889,11 +889,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectuiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
+	/** JNI method for {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	@JavadocExclude
 	public static native void nglGetQueryObjectuiv(int id, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
+	/** Unsafe version of {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
@@ -905,26 +905,26 @@ public final class GL15 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Unsigned version of {@link #glGetQueryObjecti GetQueryObjecti}.
+	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT QUERY_RESULT}, {@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}
 	 * @param params the requested data
 	 */
-	public static void glGetQueryObjectui(int id, int pname, ByteBuffer params) {
+	public static void glGetQueryObjectuiv(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
-	public static void glGetQueryObjectu(int id, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
+	public static void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetQueryObjectui(int, int, ByteBuffer) GetQueryObjectui} */
+	/** Single return value version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static int glGetQueryObjectui(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

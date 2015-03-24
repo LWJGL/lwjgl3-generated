@@ -260,11 +260,11 @@ public final class GL32 {
 
 	// --- [ glGetBufferParameteri64v ] ---
 
-	/** JNI method for {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
+	/** JNI method for {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	@JavadocExclude
 	public static native void nglGetBufferParameteri64v(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
+	/** Unsafe version of {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
@@ -282,20 +282,20 @@ public final class GL32 {
 	 * @param pname  the symbolic name of a buffer object parameter. One of:<br>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}, {@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}, {@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}, {@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}, {@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}, {@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}, {@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}, {@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}, {@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}
 	 * @param params the requested parameter
 	 */
-	public static void glGetBufferParameteri64(int target, int pname, ByteBuffer params) {
+	public static void glGetBufferParameteri64v(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
-	public static void glGetBufferParameter(int target, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
+	public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetBufferParameteri64(int, int, ByteBuffer) GetBufferParameteri64} */
+	/** Single return value version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static long glGetBufferParameteri64(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -637,11 +637,11 @@ public final class GL32 {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/** JNI method for {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
+	/** JNI method for {@link #glGetMultisamplefv GetMultisamplefv} */
 	@JavadocExclude
 	public static native void nglGetMultisamplefv(int pname, int index, long val, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
+	/** Unsafe version of {@link #glGetMultisamplefv GetMultisamplefv} */
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
@@ -659,20 +659,20 @@ public final class GL32 {
 	 * @param index the index of the sample whose position to query
 	 * @param val   an array to receive the position of the sample
 	 */
-	public static void glGetMultisamplef(int pname, int index, ByteBuffer val) {
+	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1 << 2);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Alternative version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
-	public static void glGetMultisample(int pname, int index, FloatBuffer val) {
+	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
+	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
-	/** Single return value version of: {@link #glGetMultisamplef(int, int, ByteBuffer) GetMultisamplef} */
+	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
@@ -855,11 +855,11 @@ public final class GL32 {
 
 	// --- [ glGetInteger64v ] ---
 
-	/** JNI method for {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
+	/** JNI method for {@link #glGetInteger64v GetInteger64v} */
 	@JavadocExclude
 	public static native void nglGetInteger64v(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
+	/** Unsafe version of {@link #glGetInteger64v GetInteger64v} */
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
@@ -876,20 +876,20 @@ public final class GL32 {
 	 * @param pname  the parameter value to be returned
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64(int pname, ByteBuffer params) {
+	public static void glGetInteger64v(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
-	public static void glGetInteger64(int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
+	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64(int, ByteBuffer) GetInteger64} */
+	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -899,11 +899,11 @@ public final class GL32 {
 
 	// --- [ glGetInteger64i_v ] ---
 
-	/** JNI method for {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	/** JNI method for {@link #glGetInteger64i_v GetInteger64i_v} */
 	@JavadocExclude
 	public static native void nglGetInteger64i_v(int pname, int index, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	/** Unsafe version of {@link #glGetInteger64i_v GetInteger64i_v} */
 	@JavadocExclude
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetInteger64i_v;
@@ -921,20 +921,20 @@ public final class GL32 {
 	 * @param index  the index of the element being queried
 	 * @param params the value or values of the specified parameter
 	 */
-	public static void glGetInteger64i(int pname, int index, ByteBuffer params) {
+	public static void glGetInteger64i_v(int pname, int index, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64i_v(pname, index, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
-	public static void glGetInteger64i(int pname, int index, LongBuffer params) {
+	/** Alternative version of: {@link #glGetInteger64i_v GetInteger64i_v} */
+	public static void glGetInteger64i_v(int pname, int index, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64i_v(pname, index, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInteger64i(int, int, ByteBuffer) GetInteger64i} */
+	/** Single return value version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static long glGetInteger64i(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -944,11 +944,11 @@ public final class GL32 {
 
 	// --- [ glGetSynciv ] ---
 
-	/** JNI method for {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
+	/** JNI method for {@link #glGetSynciv GetSynciv} */
 	@JavadocExclude
 	public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
+	/** Unsafe version of {@link #glGetSynciv GetSynciv} */
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
@@ -970,7 +970,7 @@ public final class GL32 {
 	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
 	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
-	public static void glGetSynci(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
+	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
@@ -978,14 +978,14 @@ public final class GL32 {
 		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
-	public static void glGetSync(long sync, int pname, IntBuffer length, IntBuffer values) {
+	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
+	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
-	/** Single return value version of: {@link #glGetSynci(long, int, int, ByteBuffer, ByteBuffer) GetSynci} */
+	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);

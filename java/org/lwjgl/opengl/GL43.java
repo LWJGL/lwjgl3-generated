@@ -435,7 +435,8 @@ public final class GL43 {
 	public static final int
 		GL_VERTEX_BINDING_DIVISOR = 0x82D6,
 		GL_VERTEX_BINDING_OFFSET  = 0x82D7,
-		GL_VERTEX_BINDING_STRIDE  = 0x82D8;
+		GL_VERTEX_BINDING_STRIDE  = 0x82D8,
+		GL_VERTEX_BINDING_BUFFER  = 0x8F4F;
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv, .... */
 	public static final int
@@ -1306,11 +1307,11 @@ public final class GL43 {
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
+	/** JNI method for {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	@JavadocExclude
 	public static native void nglGetFramebufferParameteriv(int target, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
+	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
@@ -1328,20 +1329,20 @@ public final class GL43 {
 	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetFramebufferParameteri(int target, int pname, ByteBuffer params) {
+	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
-	public static void glGetFramebufferParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
+	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1351,11 +1352,11 @@ public final class GL43 {
 
 	// --- [ glGetInternalformati64v ] ---
 
-	/** JNI method for {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
+	/** JNI method for {@link #glGetInternalformati64v GetInternalformati64v} */
 	@JavadocExclude
 	public static native void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
+	/** Unsafe version of {@link #glGetInternalformati64v GetInternalformati64v} */
 	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
@@ -1375,18 +1376,18 @@ public final class GL43 {
 	 * @param bufSize        the maximum number of values that may be written to params by the function
 	 * @param params         a variable into which to write the retrieved information
 	 */
-	public static void glGetInternalformati64(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
+	public static void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
-	public static void glGetInternalformat(int target, int internalformat, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetInternalformati64v GetInternalformati64v} */
+	public static void glGetInternalformati64v(int target, int internalformat, int pname, LongBuffer params) {
 		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati64(int, int, int, int, ByteBuffer) GetInternalformati64} */
+	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
@@ -1714,11 +1715,11 @@ public final class GL43 {
 
 	// --- [ glGetProgramInterfaceiv ] ---
 
-	/** JNI method for {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
+	/** JNI method for {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	@JavadocExclude
 	public static native void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
+	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
@@ -1737,20 +1738,20 @@ public final class GL43 {
 	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}, {@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}, {@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}, {@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
-	public static void glGetProgramInterfacei(int program, int programInterface, int pname, ByteBuffer params) {
+	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
-	public static void glGetProgramInterface(int program, int programInterface, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
+	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
+	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -1858,11 +1859,11 @@ public final class GL43 {
 
 	// --- [ glGetProgramResourceiv ] ---
 
-	/** JNI method for {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
+	/** JNI method for {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	@JavadocExclude
 	public static native void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
+	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
@@ -1885,7 +1886,7 @@ public final class GL43 {
 	 * @param length           a variable which will receive the number of values returned
 	 * @param params           an array that will receive the property values
 	 */
-	public static void glGetProgramResourcei(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
+	public static void glGetProgramResourceiv(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(props, propCount << 2);
 			checkBuffer(params, bufSize << 2);
@@ -1894,15 +1895,15 @@ public final class GL43 {
 		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
-	public static void glGetProgramResource(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
-	public static IntBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
+	/** Buffer return version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	public static IntBuffer glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int params = __buffer.bufferParam(bufSize << 2);

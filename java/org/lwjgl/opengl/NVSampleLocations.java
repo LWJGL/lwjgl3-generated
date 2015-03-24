@@ -88,11 +88,11 @@ public final class NVSampleLocations {
 
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) FramebufferSampleLocationsfNV} */
+	/** JNI method for {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) FramebufferSampleLocationsfNV} */
+	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
@@ -109,24 +109,24 @@ public final class NVSampleLocations {
 	 * @param count  the number of sample locations to modify
 	 * @param v      a pair of floating point values in the range [0,1] for each sample location
 	 */
-	public static void glFramebufferSampleLocationsfNV(int target, int start, int count, ByteBuffer v) {
+	public static void glFramebufferSampleLocationsfvNV(int target, int start, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 1) << 2);
 		nglFramebufferSampleLocationsfvNV(target, start, count, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) FramebufferSampleLocationsfNV} */
-	public static void glFramebufferSampleLocationsNV(int target, int start, FloatBuffer v) {
+	/** Alternative version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
+	public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
 		nglFramebufferSampleLocationsfvNV(target, start, v.remaining() >> 1, memAddress(v));
 	}
 
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glNamedFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) NamedFramebufferSampleLocationsfNV} */
+	/** JNI method for {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) NamedFramebufferSampleLocationsfNV} */
+	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
@@ -143,14 +143,14 @@ public final class NVSampleLocations {
 	 * @param count       the number of sample locations to modify
 	 * @param v           a pair of floating point values in the range [0,1] for each sample location
 	 */
-	public static void glNamedFramebufferSampleLocationsfNV(int framebuffer, int start, int count, ByteBuffer v) {
+	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 1) << 2);
 		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glNamedFramebufferSampleLocationsfNV(int, int, int, ByteBuffer) NamedFramebufferSampleLocationsfNV} */
-	public static void glNamedFramebufferSampleLocationsNV(int framebuffer, int start, FloatBuffer v) {
+	/** Alternative version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
+	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
 		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, v.remaining() >> 1, memAddress(v));
 	}
 

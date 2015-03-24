@@ -105,7 +105,7 @@ public final class ARBTransposeMatrix {
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
-	public static void glLoadTransposeMatrixARB(FloatBuffer m) {
+	public static void glLoadTransposeMatrixfARB(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixfARB(memAddress(m));
@@ -138,7 +138,7 @@ public final class ARBTransposeMatrix {
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
-	public static void glLoadTransposeMatrixARB(DoubleBuffer m) {
+	public static void glLoadTransposeMatrixdARB(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixdARB(memAddress(m));
@@ -171,7 +171,7 @@ public final class ARBTransposeMatrix {
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
-	public static void glMultTransposeMatrixARB(FloatBuffer m) {
+	public static void glMultTransposeMatrixfARB(FloatBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixfARB(memAddress(m));
@@ -204,7 +204,7 @@ public final class ARBTransposeMatrix {
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
-	public static void glMultTransposeMatrixARB(DoubleBuffer m) {
+	public static void glMultTransposeMatrixdARB(DoubleBuffer m) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixdARB(memAddress(m));

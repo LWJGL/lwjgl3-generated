@@ -336,11 +336,11 @@ public final class NVVertexBufferUnifiedMemory {
 
 	// --- [ glGetIntegerui64i_vNV ] ---
 
-	/** JNI method for {@link #glGetIntegerui64iNV(int, int, ByteBuffer) GetIntegerui64iNV} */
+	/** JNI method for {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	@JavadocExclude
 	public static native void nglGetIntegerui64i_vNV(int value, int index, long result, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetIntegerui64iNV(int, int, ByteBuffer) GetIntegerui64iNV} */
+	/** Unsafe version of {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	@JavadocExclude
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = getInstance().GetIntegerui64i_vNV;
@@ -356,20 +356,20 @@ public final class NVVertexBufferUnifiedMemory {
 	 * @param index  
 	 * @param result 
 	 */
-	public static void glGetIntegerui64iNV(int value, int index, ByteBuffer result) {
+	public static void glGetIntegerui64i_vNV(int value, int index, ByteBuffer result) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(result, 1 << 3);
 		nglGetIntegerui64i_vNV(value, index, memAddress(result));
 	}
 
-	/** Alternative version of: {@link #glGetIntegerui64iNV(int, int, ByteBuffer) GetIntegerui64iNV} */
-	public static void glGetIntegerui64iNV(int value, int index, LongBuffer result) {
+	/** Alternative version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
+	public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(result, 1);
 		nglGetIntegerui64i_vNV(value, index, memAddress(result));
 	}
 
-	/** Single return value version of: {@link #glGetIntegerui64iNV(int, int, ByteBuffer) GetIntegerui64iNV} */
+	/** Single return value version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static long glGetIntegerui64iNV(int value, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int result = __buffer.longParam();

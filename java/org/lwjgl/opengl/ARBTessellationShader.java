@@ -160,7 +160,7 @@ public final class ARBTessellationShader {
 
 	// --- [ glPatchParameterfv ] ---
 
-	/** Unsafe version of {@link #glPatchParameterf(int, ByteBuffer) PatchParameterf} */
+	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
@@ -175,15 +175,15 @@ public final class ARBTessellationShader {
 	 * @param pname  the name of the parameter to set. One of:<br>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}, {@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
-	public static void glPatchParameterf(int pname, ByteBuffer values) {
+	public static void glPatchParameterfv(int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
 		nglPatchParameterfv(pname, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glPatchParameterf(int, ByteBuffer) PatchParameterf} */
-	public static void glPatchParameter(int pname, FloatBuffer values) {
+	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
+	public static void glPatchParameterfv(int pname, FloatBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));

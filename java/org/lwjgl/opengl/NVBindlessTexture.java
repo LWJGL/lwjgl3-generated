@@ -343,11 +343,11 @@ public final class NVBindlessTexture {
 
 	// --- [ glUniformHandleui64vNV ] ---
 
-	/** JNI method for {@link #glUniformHandleui64NV(int, int, ByteBuffer) UniformHandleui64NV} */
+	/** JNI method for {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	@JavadocExclude
 	public static native void nglUniformHandleui64vNV(int location, int count, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformHandleui64NV(int, int, ByteBuffer) UniformHandleui64NV} */
+	/** Unsafe version of {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	@JavadocExclude
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vNV;
@@ -363,14 +363,14 @@ public final class NVBindlessTexture {
 	 * @param count    the number of handles to load
 	 * @param values   a buffer from which to load the handles
 	 */
-	public static void glUniformHandleui64NV(int location, int count, ByteBuffer values) {
+	public static void glUniformHandleui64vNV(int location, int count, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, count << 3);
 		nglUniformHandleui64vNV(location, count, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glUniformHandleui64NV(int, int, ByteBuffer) UniformHandleui64NV} */
-	public static void glUniformHandleuNV(int location, LongBuffer values) {
+	/** Alternative version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
+	public static void glUniformHandleui64vNV(int location, LongBuffer values) {
 		nglUniformHandleui64vNV(location, values.remaining(), memAddress(values));
 	}
 
@@ -396,11 +396,11 @@ public final class NVBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniformHandleui64NV(int, int, int, ByteBuffer) ProgramUniformHandleui64NV} */
+	/** JNI method for {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
 	@JavadocExclude
 	public static native void nglProgramUniformHandleui64vNV(int program, int location, int count, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformHandleui64NV(int, int, int, ByteBuffer) ProgramUniformHandleui64NV} */
+	/** Unsafe version of {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vNV;
@@ -410,21 +410,21 @@ public final class NVBindlessTexture {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformHandleui64NV UniformHandleui64NV}.
+	 * DSA version of {@link #glUniformHandleui64vNV UniformHandleui64vNV}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param count    the number of handles to load
 	 * @param values   a buffer from which to load the handles
 	 */
-	public static void glProgramUniformHandleui64NV(int program, int location, int count, ByteBuffer values) {
+	public static void glProgramUniformHandleui64vNV(int program, int location, int count, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, count << 3);
 		nglProgramUniformHandleui64vNV(program, location, count, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformHandleui64NV(int, int, int, ByteBuffer) ProgramUniformHandleui64NV} */
-	public static void glProgramUniformHandleuNV(int program, int location, LongBuffer values) {
+	/** Alternative version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
+	public static void glProgramUniformHandleui64vNV(int program, int location, LongBuffer values) {
 		nglProgramUniformHandleui64vNV(program, location, values.remaining(), memAddress(values));
 	}
 

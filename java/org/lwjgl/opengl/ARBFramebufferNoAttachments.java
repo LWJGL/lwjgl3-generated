@@ -118,7 +118,7 @@ public final class ARBFramebufferNoAttachments {
 
 	// --- [ glGetFramebufferParameteriv ] ---
 
-	/** Unsafe version of {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
+	/** Unsafe version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
@@ -134,20 +134,20 @@ public final class ARBFramebufferNoAttachments {
 	 * @param pname  a token indicating the parameter to be retrieved. One of:<br>{@link #GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link #GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link #GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link #GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link #GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetFramebufferParameteri(int target, int pname, ByteBuffer params) {
+	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
-	public static void glGetFramebufferParameter(int target, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetFramebufferParameteri(int, int, ByteBuffer) GetFramebufferParameteri} */
+	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -177,11 +177,11 @@ public final class ARBFramebufferNoAttachments {
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
 
-	/** JNI method for {@link #glGetNamedFramebufferParameteriEXT(int, int, ByteBuffer) GetNamedFramebufferParameteriEXT} */
+	/** JNI method for {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	@JavadocExclude
 	public static native void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetNamedFramebufferParameteriEXT(int, int, ByteBuffer) GetNamedFramebufferParameteriEXT} */
+	/** Unsafe version of {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
@@ -191,26 +191,26 @@ public final class ARBFramebufferNoAttachments {
 	}
 
 	/**
-	 * DSA version of {@link #glGetFramebufferParameteri GetFramebufferParameteri}.
+	 * DSA version of {@link #glGetFramebufferParameteriv GetFramebufferParameteriv}.
 	 *
 	 * @param framebuffer the framebuffer object
 	 * @param pname       a token indicating the parameter to be retrieved. One of:<br>{@link GL43#GL_FRAMEBUFFER_DEFAULT_WIDTH FRAMEBUFFER_DEFAULT_WIDTH}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_HEIGHT FRAMEBUFFER_DEFAULT_HEIGHT}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_LAYERS FRAMEBUFFER_DEFAULT_LAYERS}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_SAMPLES FRAMEBUFFER_DEFAULT_SAMPLES}, {@link GL43#GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS}
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
-	public static void glGetNamedFramebufferParameteriEXT(int framebuffer, int pname, ByteBuffer params) {
+	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetNamedFramebufferParameteriEXT(int, int, ByteBuffer) GetNamedFramebufferParameteriEXT} */
-	public static void glGetNamedFramebufferParameterEXT(int framebuffer, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
+	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetNamedFramebufferParameteriEXT(int, int, ByteBuffer) GetNamedFramebufferParameteriEXT} */
+	/** Single return value version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	public static int glGetNamedFramebufferParameteriEXT(int framebuffer, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

@@ -60,7 +60,7 @@ public final class ARBInternalformatQuery {
 
 	// --- [ glGetInternalformativ ] ---
 
-	/** Unsafe version of {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
+	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
@@ -78,18 +78,18 @@ public final class ARBInternalformatQuery {
 	 * @param bufSize        the maximum number of values that may be written to params by the function
 	 * @param params         a variable into which to write the retrieved information
 	 */
-	public static void glGetInternalformati(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
+	public static void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
-	public static void glGetInternalformat(int target, int internalformat, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetInternalformativ GetInternalformativ} */
+	public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
 		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetInternalformati(int, int, int, int, ByteBuffer) GetInternalformati} */
+	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();

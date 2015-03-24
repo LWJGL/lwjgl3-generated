@@ -335,11 +335,11 @@ public final class ARBBindlessTexture {
 
 	// --- [ glUniformHandleui64vARB ] ---
 
-	/** JNI method for {@link #glUniformHandleui64ARB(int, int, ByteBuffer) UniformHandleui64ARB} */
+	/** JNI method for {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
 	@JavadocExclude
 	public static native void nglUniformHandleui64vARB(int location, int count, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glUniformHandleui64ARB(int, int, ByteBuffer) UniformHandleui64ARB} */
+	/** Unsafe version of {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
 	@JavadocExclude
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vARB;
@@ -355,14 +355,14 @@ public final class ARBBindlessTexture {
 	 * @param count    the number of handles to load
 	 * @param values   a buffer from which to load the handles
 	 */
-	public static void glUniformHandleui64ARB(int location, int count, ByteBuffer values) {
+	public static void glUniformHandleui64vARB(int location, int count, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, count << 3);
 		nglUniformHandleui64vARB(location, count, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glUniformHandleui64ARB(int, int, ByteBuffer) UniformHandleui64ARB} */
-	public static void glUniformHandleuARB(int location, LongBuffer values) {
+	/** Alternative version of: {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
+	public static void glUniformHandleui64vARB(int location, LongBuffer values) {
 		nglUniformHandleui64vARB(location, values.remaining(), memAddress(values));
 	}
 
@@ -388,11 +388,11 @@ public final class ARBBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64vARB ] ---
 
-	/** JNI method for {@link #glProgramUniformHandleui64ARB(int, int, int, ByteBuffer) ProgramUniformHandleui64ARB} */
+	/** JNI method for {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
 	@JavadocExclude
 	public static native void nglProgramUniformHandleui64vARB(int program, int location, int count, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #glProgramUniformHandleui64ARB(int, int, int, ByteBuffer) ProgramUniformHandleui64ARB} */
+	/** Unsafe version of {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vARB;
@@ -402,21 +402,21 @@ public final class ARBBindlessTexture {
 	}
 
 	/**
-	 * DSA version of {@link #glUniformHandleui64ARB UniformHandleui64ARB}.
+	 * DSA version of {@link #glUniformHandleui64vARB UniformHandleui64vARB}.
 	 *
 	 * @param program  the program object
 	 * @param location the uniform location
 	 * @param count    the number of handles to load
 	 * @param values   a buffer from which to load the handles
 	 */
-	public static void glProgramUniformHandleui64ARB(int program, int location, int count, ByteBuffer values) {
+	public static void glProgramUniformHandleui64vARB(int program, int location, int count, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, count << 3);
 		nglProgramUniformHandleui64vARB(program, location, count, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformHandleui64ARB(int, int, int, ByteBuffer) ProgramUniformHandleui64ARB} */
-	public static void glProgramUniformHandleuARB(int program, int location, LongBuffer values) {
+	/** Alternative version of: {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
+	public static void glProgramUniformHandleui64vARB(int program, int location, LongBuffer values) {
 		nglProgramUniformHandleui64vARB(program, location, values.remaining(), memAddress(values));
 	}
 
@@ -477,11 +477,11 @@ public final class ARBBindlessTexture {
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
 
-	/** JNI method for {@link #glVertexAttribL1ui64ARB(int, ByteBuffer) VertexAttribL1ui64ARB} */
+	/** JNI method for {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	@JavadocExclude
 	public static native void nglVertexAttribL1ui64vARB(int index, long v, long __functionAddress);
 
-	/** Unsafe version of {@link #glVertexAttribL1ui64ARB(int, ByteBuffer) VertexAttribL1ui64ARB} */
+	/** Unsafe version of {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	@JavadocExclude
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vARB;
@@ -496,22 +496,22 @@ public final class ARBBindlessTexture {
 	 * @param index the index of the generic vertex attribute to be modified
 	 * @param v     the vertex attribute buffer
 	 */
-	public static void glVertexAttribL1ui64ARB(int index, ByteBuffer v) {
+	public static void glVertexAttribL1ui64vARB(int index, ByteBuffer v) {
 		nglVertexAttribL1ui64vARB(index, memAddress(v));
 	}
 
-	/** Alternative version of: {@link #glVertexAttribL1ui64ARB(int, ByteBuffer) VertexAttribL1ui64ARB} */
-	public static void glVertexAttribL1uARB(int index, LongBuffer v) {
+	/** Alternative version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
+	public static void glVertexAttribL1ui64vARB(int index, LongBuffer v) {
 		nglVertexAttribL1ui64vARB(index, memAddress(v));
 	}
 
 	// --- [ glGetVertexAttribLui64vARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribLui64ARB(int, int, ByteBuffer) GetVertexAttribLui64ARB} */
+	/** JNI method for {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	@JavadocExclude
 	public static native void nglGetVertexAttribLui64vARB(int index, int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glGetVertexAttribLui64ARB(int, int, ByteBuffer) GetVertexAttribLui64ARB} */
+	/** Unsafe version of {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vARB;
@@ -527,20 +527,20 @@ public final class ARBBindlessTexture {
 	 * @param pname  the parameter to query
 	 * @param params a buffer in which to place the returned data
 	 */
-	public static void glGetVertexAttribLui64ARB(int index, int pname, ByteBuffer params) {
+	public static void glGetVertexAttribLui64vARB(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetVertexAttribLui64vARB(index, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetVertexAttribLui64ARB(int, int, ByteBuffer) GetVertexAttribLui64ARB} */
-	public static void glGetVertexAttribLuARB(int index, int pname, LongBuffer params) {
+	/** Alternative version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
+	public static void glGetVertexAttribLui64vARB(int index, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLui64vARB(index, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetVertexAttribLui64ARB(int, int, ByteBuffer) GetVertexAttribLui64ARB} */
+	/** Single return value version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	public static long glGetVertexAttribLui64ARB(int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();

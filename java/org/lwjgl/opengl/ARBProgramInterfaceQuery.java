@@ -141,7 +141,7 @@ public final class ARBProgramInterfaceQuery {
 
 	// --- [ glGetProgramInterfaceiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
+	/** Unsafe version of {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
@@ -158,20 +158,20 @@ public final class ARBProgramInterfaceQuery {
 	 * @param pname            the name of the parameter within {@code programInterface} to query. One of:<br>{@link #GL_ACTIVE_RESOURCES ACTIVE_RESOURCES}, {@link #GL_MAX_NAME_LENGTH MAX_NAME_LENGTH}, {@link #GL_MAX_NUM_ACTIVE_VARIABLES MAX_NUM_ACTIVE_VARIABLES}, {@link #GL_MAX_NUM_COMPATIBLE_SUBROUTINES MAX_NUM_COMPATIBLE_SUBROUTINES}
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
-	public static void glGetProgramInterfacei(int program, int programInterface, int pname, ByteBuffer params) {
+	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
-	public static void glGetProgramInterface(int program, int programInterface, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
+	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramInterfacei(int, int, int, ByteBuffer) GetProgramInterfacei} */
+	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -267,7 +267,7 @@ public final class ARBProgramInterfaceQuery {
 
 	// --- [ glGetProgramResourceiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
+	/** Unsafe version of {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
@@ -288,7 +288,7 @@ public final class ARBProgramInterfaceQuery {
 	 * @param length           a variable which will receive the number of values returned
 	 * @param params           an array that will receive the property values
 	 */
-	public static void glGetProgramResourcei(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
+	public static void glGetProgramResourceiv(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(props, propCount << 2);
 			checkBuffer(params, bufSize << 2);
@@ -297,15 +297,15 @@ public final class ARBProgramInterfaceQuery {
 		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
-	public static void glGetProgramResource(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** Buffer return version of: {@link #glGetProgramResourcei(int, int, int, int, ByteBuffer, int, ByteBuffer, ByteBuffer) GetProgramResourcei} */
-	public static IntBuffer glGetProgramResourcei(int program, int programInterface, int index, IntBuffer props, int bufSize) {
+	/** Buffer return version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	public static IntBuffer glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int params = __buffer.bufferParam(bufSize << 2);

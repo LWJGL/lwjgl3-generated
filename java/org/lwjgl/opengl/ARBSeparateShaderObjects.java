@@ -277,7 +277,7 @@ public final class ARBSeparateShaderObjects {
 
 	// --- [ glCreateShaderProgramv ] ---
 
-	/** Unsafe version of {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
+	/** Unsafe version of {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
@@ -318,19 +318,19 @@ public final class ARBSeparateShaderObjects {
 	 * @param count   the number of source code strings in the array {@code strings}
 	 * @param strings an array of pointers to source code strings from which to create the program object
 	 */
-	public static int glCreateShaderProgram(int type, int count, ByteBuffer strings) {
+	public static int glCreateShaderProgramv(int type, int count, ByteBuffer strings) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
 		return nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
 
-	/** Alternative version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, PointerBuffer strings) {
+	/** Alternative version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, PointerBuffer strings) {
 		return nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
 	}
 
-	/** Array version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, CharSequence... strings) {
+	/** Array version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
 		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
 		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
@@ -339,8 +339,8 @@ public final class ARBSeparateShaderObjects {
 		return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
 	}
 
-	/** Single string version of: {@link #glCreateShaderProgram(int, int, ByteBuffer) CreateShaderProgram} */
-	public static int glCreateShaderProgram(int type, CharSequence string) {
+	/** Single string version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
+	public static int glCreateShaderProgramv(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
 		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
 		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
@@ -464,7 +464,7 @@ public final class ARBSeparateShaderObjects {
 
 	// --- [ glGetProgramPipelineiv ] ---
 
-	/** Unsafe version of {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
+	/** Unsafe version of {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
@@ -480,20 +480,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param pname    the name of the parameter to retrieve. One of:<br>{@link #GL_ACTIVE_PROGRAM ACTIVE_PROGRAM}, {@link GL20#GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}, {@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}, {@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}, {@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}, {@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}, {@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}
 	 * @param params   a variable into which will be written the value or values of {@code pname} for {@code pipeline}
 	 */
-	public static void glGetProgramPipelinei(int pipeline, int pname, ByteBuffer params) {
+	public static void glGetProgramPipelineiv(int pipeline, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
-	public static void glGetProgramPipeline(int pipeline, int pname, IntBuffer params) {
+	/** Alternative version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
+	public static void glGetProgramPipelineiv(int pipeline, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
-	/** Single return value version of: {@link #glGetProgramPipelinei(int, int, ByteBuffer) GetProgramPipelinei} */
+	/** Single return value version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	public static int glGetProgramPipelinei(int pipeline, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
@@ -783,7 +783,7 @@ public final class ARBSeparateShaderObjects {
 
 	// --- [ glProgramUniform1iv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
+	/** Unsafe version of {@link #glProgramUniform1iv ProgramUniform1iv} */
 	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
@@ -800,20 +800,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1i(int, int, int, ByteBuffer) ProgramUniform1i} */
-	public static void glProgramUniform1(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1iv ProgramUniform1iv} */
+	public static void glProgramUniform1iv(int program, int location, IntBuffer value) {
 		nglProgramUniform1iv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2iv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
+	/** Unsafe version of {@link #glProgramUniform2iv ProgramUniform2iv} */
 	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
@@ -830,20 +830,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2i(int, int, int, ByteBuffer) ProgramUniform2i} */
-	public static void glProgramUniform2(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2iv ProgramUniform2iv} */
+	public static void glProgramUniform2iv(int program, int location, IntBuffer value) {
 		nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3iv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
+	/** Unsafe version of {@link #glProgramUniform3iv ProgramUniform3iv} */
 	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
@@ -860,20 +860,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3i(int, int, int, ByteBuffer) ProgramUniform3i} */
-	public static void glProgramUniform3(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3iv ProgramUniform3iv} */
+	public static void glProgramUniform3iv(int program, int location, IntBuffer value) {
 		nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4iv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
+	/** Unsafe version of {@link #glProgramUniform4iv ProgramUniform4iv} */
 	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
@@ -890,20 +890,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4i(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4iv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4iv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4i(int, int, int, ByteBuffer) ProgramUniform4i} */
-	public static void glProgramUniform4(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4iv ProgramUniform4iv} */
+	public static void glProgramUniform4iv(int program, int location, IntBuffer value) {
 		nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1uiv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
+	/** Unsafe version of {@link #glProgramUniform1uiv ProgramUniform1uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
@@ -920,20 +920,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1ui(int, int, int, ByteBuffer) ProgramUniform1ui} */
-	public static void glProgramUniform1u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1uiv ProgramUniform1uiv} */
+	public static void glProgramUniform1uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform1uiv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2uiv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
+	/** Unsafe version of {@link #glProgramUniform2uiv ProgramUniform2uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
@@ -950,20 +950,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2ui(int, int, int, ByteBuffer) ProgramUniform2ui} */
-	public static void glProgramUniform2u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2uiv ProgramUniform2uiv} */
+	public static void glProgramUniform2uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3uiv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
+	/** Unsafe version of {@link #glProgramUniform3uiv ProgramUniform3uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
@@ -980,20 +980,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3ui(int, int, int, ByteBuffer) ProgramUniform3ui} */
-	public static void glProgramUniform3u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3uiv ProgramUniform3uiv} */
+	public static void glProgramUniform3uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uiv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
+	/** Unsafe version of {@link #glProgramUniform4uiv ProgramUniform4uiv} */
 	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
@@ -1010,20 +1010,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4ui(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4uiv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uiv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4ui(int, int, int, ByteBuffer) ProgramUniform4ui} */
-	public static void glProgramUniform4u(int program, int location, IntBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4uiv ProgramUniform4uiv} */
+	public static void glProgramUniform4uiv(int program, int location, IntBuffer value) {
 		nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
+	/** Unsafe version of {@link #glProgramUniform1fv ProgramUniform1fv} */
 	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
@@ -1040,20 +1040,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1f(int, int, int, ByteBuffer) ProgramUniform1f} */
-	public static void glProgramUniform1(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1fv ProgramUniform1fv} */
+	public static void glProgramUniform1fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform1fv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
+	/** Unsafe version of {@link #glProgramUniform2fv ProgramUniform2fv} */
 	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
@@ -1070,20 +1070,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2f(int, int, int, ByteBuffer) ProgramUniform2f} */
-	public static void glProgramUniform2(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2fv ProgramUniform2fv} */
+	public static void glProgramUniform2fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
+	/** Unsafe version of {@link #glProgramUniform3fv ProgramUniform3fv} */
 	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
@@ -1100,20 +1100,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3f(int, int, int, ByteBuffer) ProgramUniform3f} */
-	public static void glProgramUniform3(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3fv ProgramUniform3fv} */
+	public static void glProgramUniform3fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
+	/** Unsafe version of {@link #glProgramUniform4fv ProgramUniform4fv} */
 	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
@@ -1130,20 +1130,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4f(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4fv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4f(int, int, int, ByteBuffer) ProgramUniform4f} */
-	public static void glProgramUniform4(int program, int location, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4fv ProgramUniform4fv} */
+	public static void glProgramUniform4fv(int program, int location, FloatBuffer value) {
 		nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniform1dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
+	/** Unsafe version of {@link #glProgramUniform1dv ProgramUniform1dv} */
 	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
@@ -1160,20 +1160,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform1d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform1dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform1d(int, int, int, ByteBuffer) ProgramUniform1d} */
-	public static void glProgramUniform1(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform1dv ProgramUniform1dv} */
+	public static void glProgramUniform1dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform1dv(program, location, value.remaining(), memAddress(value));
 	}
 
 	// --- [ glProgramUniform2dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
+	/** Unsafe version of {@link #glProgramUniform2dv ProgramUniform2dv} */
 	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
@@ -1190,20 +1190,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform2d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform2dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform2d(int, int, int, ByteBuffer) ProgramUniform2d} */
-	public static void glProgramUniform2(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform2dv ProgramUniform2dv} */
+	public static void glProgramUniform2dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value));
 	}
 
 	// --- [ glProgramUniform3dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
+	/** Unsafe version of {@link #glProgramUniform3dv ProgramUniform3dv} */
 	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
@@ -1220,20 +1220,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform3d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform3dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform3d(int, int, int, ByteBuffer) ProgramUniform3d} */
-	public static void glProgramUniform3(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform3dv ProgramUniform3dv} */
+	public static void glProgramUniform3dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
+	/** Unsafe version of {@link #glProgramUniform4dv ProgramUniform4dv} */
 	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
@@ -1250,20 +1250,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
-	public static void glProgramUniform4d(int program, int location, int count, ByteBuffer value) {
+	public static void glProgramUniform4dv(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dv(program, location, count, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniform4d(int, int, int, ByteBuffer) ProgramUniform4d} */
-	public static void glProgramUniform4(int program, int location, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniform4dv ProgramUniform4dv} */
+	public static void glProgramUniform4dv(int program, int location, DoubleBuffer value) {
 		nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
@@ -1281,20 +1281,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2f} */
-	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
+	public static void glProgramUniformMatrix2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
@@ -1312,20 +1312,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3f} */
-	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
+	public static void glProgramUniformMatrix3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
@@ -1343,20 +1343,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4f} */
-	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
+	public static void glProgramUniformMatrix4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
@@ -1374,20 +1374,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2d} */
-	public static void glProgramUniformMatrix2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
+	public static void glProgramUniformMatrix2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
@@ -1405,20 +1405,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3d} */
-	public static void glProgramUniformMatrix3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
+	public static void glProgramUniformMatrix3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
@@ -1436,20 +1436,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4d} */
-	public static void glProgramUniformMatrix4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
+	public static void glProgramUniformMatrix4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
@@ -1467,20 +1467,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3f} */
-	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
+	public static void glProgramUniformMatrix2x3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
@@ -1498,20 +1498,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2f} */
-	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
+	public static void glProgramUniformMatrix3x2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
@@ -1529,20 +1529,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4f} */
-	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
+	public static void glProgramUniformMatrix2x4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
@@ -1560,20 +1560,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x2f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2f} */
-	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
+	public static void glProgramUniformMatrix4x2fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
@@ -1591,20 +1591,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x4f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4f} */
-	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
+	public static void glProgramUniformMatrix3x4fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3fv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
@@ -1622,20 +1622,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x3f(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3f(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3f} */
-	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, FloatBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
+	public static void glProgramUniformMatrix4x3fv(int program, int location, boolean transpose, FloatBuffer value) {
 		nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x3dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
@@ -1653,20 +1653,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x3d} */
-	public static void glProgramUniformMatrix2x3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
+	public static void glProgramUniformMatrix2x3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x2dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
@@ -1684,20 +1684,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x2d} */
-	public static void glProgramUniformMatrix3x2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
+	public static void glProgramUniformMatrix3x2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix2x4dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
@@ -1715,20 +1715,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix2x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix2x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix2x4d} */
-	public static void glProgramUniformMatrix2x4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
+	public static void glProgramUniformMatrix2x4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x2dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
@@ -1746,20 +1746,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x2d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x2d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x2d} */
-	public static void glProgramUniformMatrix4x2(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
+	public static void glProgramUniformMatrix4x2dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix3x4dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
@@ -1777,20 +1777,20 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix3x4d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix3x4d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix3x4d} */
-	public static void glProgramUniformMatrix3x4(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
+	public static void glProgramUniformMatrix3x4dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4x3dv ] ---
 
-	/** Unsafe version of {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
+	/** Unsafe version of {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
@@ -1808,14 +1808,14 @@ public final class ARBSeparateShaderObjects {
 	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
-	public static void glProgramUniformMatrix4x3d(int program, int location, int count, boolean transpose, ByteBuffer value) {
+	public static void glProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #glProgramUniformMatrix4x3d(int, int, int, boolean, ByteBuffer) ProgramUniformMatrix4x3d} */
-	public static void glProgramUniformMatrix4x3(int program, int location, boolean transpose, DoubleBuffer value) {
+	/** Alternative version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
+	public static void glProgramUniformMatrix4x3dv(int program, int location, boolean transpose, DoubleBuffer value) {
 		nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value));
 	}
 

@@ -133,11 +133,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcedvSOFT ] ---
 
-	/** JNI method for {@link #alSourcedSOFT SourcedSOFT} */
+	/** JNI method for {@link #alSourcedvSOFT SourcedvSOFT} */
 	@JavadocExclude
 	public static native void nalSourcedvSOFT(int source, int param, long value, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcedSOFT SourcedSOFT} */
+	/** Unsafe version of {@link #alSourcedvSOFT SourcedvSOFT} */
 	@JavadocExclude
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().SourcedvSOFT;
@@ -157,7 +157,7 @@ public final class SOFTSourceLatency {
 		nalSourcedvSOFT(source, param, memAddress(value));
 	}
 
-	/** Alternative version of: {@link #alSourcedSOFT SourcedSOFT} */
+	/** Alternative version of: {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void alSourcedvSOFT(int source, int param, DoubleBuffer value) {
 		nalSourcedvSOFT(source, param, memAddress(value));
 	}
@@ -228,11 +228,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcedvSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	/** JNI method for {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	@JavadocExclude
 	public static native void nalGetSourcedvSOFT(int source, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	/** Unsafe version of {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	@JavadocExclude
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcedvSOFT;
@@ -252,7 +252,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcedvSOFT(source, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	/** Alternative version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void alGetSourcedvSOFT(int source, int param, DoubleBuffer values) {
 		nalGetSourcedvSOFT(source, param, memAddress(values));
 	}
@@ -301,11 +301,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcei64vSOFT ] ---
 
-	/** JNI method for {@link #alSourcei64SOFT Sourcei64SOFT} */
+	/** JNI method for {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	@JavadocExclude
 	public static native void nalSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alSourcei64SOFT Sourcei64SOFT} */
+	/** Unsafe version of {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	@JavadocExclude
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcei64vSOFT;
@@ -325,7 +325,7 @@ public final class SOFTSourceLatency {
 		nalSourcei64vSOFT(source, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alSourcei64SOFT Sourcei64SOFT} */
+	/** Alternative version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void alSourcei64vSOFT(int source, int param, LongBuffer values) {
 		nalSourcei64vSOFT(source, param, memAddress(values));
 	}
@@ -396,11 +396,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64vSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	/** JNI method for {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	@JavadocExclude
 	public static native void nalGetSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
-	/** Unsafe version of {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	/** Unsafe version of {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	@JavadocExclude
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcei64vSOFT;
@@ -420,7 +420,7 @@ public final class SOFTSourceLatency {
 		nalGetSourcei64vSOFT(source, param, memAddress(values));
 	}
 
-	/** Alternative version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	/** Alternative version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void alGetSourcei64vSOFT(int source, int param, LongBuffer values) {
 		nalGetSourcei64vSOFT(source, param, memAddress(values));
 	}

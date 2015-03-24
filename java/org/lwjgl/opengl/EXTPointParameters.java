@@ -114,11 +114,11 @@ public final class EXTPointParameters {
 
 	// --- [ glPointParameterfvEXT ] ---
 
-	/** JNI method for {@link #glPointParameterfEXT(int, ByteBuffer) PointParameterfEXT} */
+	/** JNI method for {@link #glPointParameterfvEXT PointParameterfvEXT} */
 	@JavadocExclude
 	public static native void nglPointParameterfvEXT(int pname, long params, long __functionAddress);
 
-	/** Unsafe version of {@link #glPointParameterfEXT(int, ByteBuffer) PointParameterfEXT} */
+	/** Unsafe version of {@link #glPointParameterfvEXT PointParameterfvEXT} */
 	@JavadocExclude
 	public static void nglPointParameterfvEXT(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvEXT;
@@ -133,12 +133,12 @@ public final class EXTPointParameters {
 	 * @param pname  
 	 * @param params 
 	 */
-	public static void glPointParameterfEXT(int pname, ByteBuffer params) {
+	public static void glPointParameterfvEXT(int pname, ByteBuffer params) {
 		nglPointParameterfvEXT(pname, memAddress(params));
 	}
 
-	/** Alternative version of: {@link #glPointParameterfEXT(int, ByteBuffer) PointParameterfEXT} */
-	public static void glPointParameterEXT(int pname, FloatBuffer params) {
+	/** Alternative version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
+	public static void glPointParameterfvEXT(int pname, FloatBuffer params) {
 		nglPointParameterfvEXT(pname, memAddress(params));
 	}
 
