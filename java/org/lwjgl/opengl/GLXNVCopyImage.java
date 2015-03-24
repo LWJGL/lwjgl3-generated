@@ -56,7 +56,7 @@ public final class GLXNVCopyImage {
 	public static native void nglXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
 
 	/**
-	 * Behaves identically to the core function {@link NVCopyImage#glXCopyImageSubDataNV CopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
+	 * Behaves identically to the core function {@link NVCopyImage#glCopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
 	 * the contexts in which to look up the source and destination objects, respectively. A value of {@code NULL} for either context indicates that the value which is
 	 * returned by {@link GLX#glXGetCurrentContext GetCurrentContext} should be used instead. Both contexts must share the same address space.
 	 *

@@ -63,7 +63,7 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 	 * @param severity  the message severity
 	 * @param length    the message length, excluding the null-terminator
 	 * @param message   a pointer to the message string representation
-	 * @param userParam the user-specified value that was passed when calling {@link GL43#glDebugMessageCallbackARB} or {@link KHRDebug#glDebugMessageCallback}
+	 * @param userParam the user-specified value that was passed when calling {@link GL43#glDebugMessageCallback} or {@link KHRDebug#glDebugMessageCallback}
 	 */
 	public abstract void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
 

@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Unfortunately, specifying the geometry for these quads can be quite expensive, since it quadruples the amount of geometry required, and it may also
  * require the application to do extra processing to compute the location of each vertex.</p>
  * 
- * <p>The goal of this extension is to allow such apps to use points rather than quads. When {@link #GL_GL_POINT_SPRITE_NV GL_POINT_SPRITE_NV} is enabled, the state of point antialiasing
+ * <p>The goal of this extension is to allow such apps to use points rather than quads. When {@link #GL_POINT_SPRITE_NV POINT_SPRITE_NV} is enabled, the state of point antialiasing
  * is ignored. For each texture unit, the app can then specify whether to replace the existing texture coordinates with point sprite texture coordinates,
  * which are interpolated across the point. Finally, the app can set a global parameter for the way to generate the R coordinate for point sprites; the R
  * coordinate can either be zero, the input S coordinate, or the input R coordinate. This allows applications to use a 3D texture to represent a point

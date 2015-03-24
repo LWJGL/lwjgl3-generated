@@ -34,7 +34,7 @@ public final class GL44 {
 	/** Implementation-dependent state which constrains the maximum value of stride parameters to vertex array pointer-setting commands. */
 	public static final int GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
-	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link EXTDirectStateAccess#glNamedBufferStorageEXT NamedBufferStorageEXT}. */
+	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link ARBBufferStorage#glNamedBufferStorageEXT NamedBufferStorageEXT}. */
 	public static final int
 		GL_MAP_PERSISTENT_BIT  = 0x40,
 		GL_MAP_COHERENT_BIT    = 0x80,
@@ -52,7 +52,7 @@ public final class GL44 {
 	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
-	/** Accepted in the {@code props} array of {@link GL43#glGetProgramResourcei GetProgramResourcei}. */
+	/** Accepted in the {@code props} array of {@link GL43#glGetProgramResourceiv GetProgramResourceiv}. */
 	public static final int
 		GL_LOCATION_COMPONENT               = 0x934A,
 		GL_TRANSFORM_FEEDBACK_BUFFER_INDEX  = 0x934B,
@@ -81,7 +81,7 @@ public final class GL44 {
 	/**
 	 * Accepted by the {@code param} parameter of TexParameter{if}, SamplerParameter{if} and SamplerParameter{if}v, and by the {@code params} parameter of
 	 * TexParameter{if}v, TexParameterI{i ui}v and SamplerParameterI{i ui}v when their {@code pname} parameter is {@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, or
-	 * {@link GL11#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R},
+	 * {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R},
 	 */
 	public static final int GL_MIRROR_CLAMP_TO_EDGE = 0x8743;
 

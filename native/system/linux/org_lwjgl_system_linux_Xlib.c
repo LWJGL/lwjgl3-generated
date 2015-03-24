@@ -268,6 +268,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXSetInputFocus(JNIEnv *
 	return (jint)XSetInputFocus(display, (Window)focus, revert_to, (Time)time);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXGetInputFocus(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong focus_returnAddress, jlong revert_to_returnAddress) {
+	Display *display = (Display *)(intptr_t)displayAddress;
+	Window *focus_return = (Window *)(intptr_t)focus_returnAddress;
+	int *revert_to_return = (int *)(intptr_t)revert_to_returnAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)XGetInputFocus(display, focus_return, revert_to_return);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Xlib_nXMoveWindow(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong w, jint x, jint y) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	UNUSED_PARAMS(__env, clazz)

@@ -50,7 +50,7 @@ public abstract class GLFWWindowIconifyCallback extends Closure.Void {
 	 * Will be called when the specified window is iconified or restored.
 	 *
 	 * @param window    the window that was iconified or restored.
-	 * @param iconified {@link {@link GL11#GL_TRUE}} if the window was iconified, or {@link {@link GL11#GL_FALSE}} if it was restored
+	 * @param iconified {@link GL11#GL_TRUE} if the window was iconified, or {@link GL11#GL_FALSE} if it was restored
 	 */
 	public abstract void invoke(long window, int iconified);
 

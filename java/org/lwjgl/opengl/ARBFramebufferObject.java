@@ -45,7 +45,7 @@ import org.lwjgl.system.linux.*;
  * is selected for use as a framebuffer-attachable image by specifying the mipmap level, cube map face (for a cube map texture), and layer (for a 3D
  * texture) that identifies the image. The "render to texture" semantics of this extension are similar to performing traditional rendering to the
  * framebuffer, followed immediately by a call to CopyTexSubImage. However, by using this extension instead, an application can achieve the same
- * effect, but with the advantage that the GL can usually eliminate the data copy that would have been incurred by calling {@link GL11#glCopyTexSubImage CopyTexSubImage}.</p>
+ * effect, but with the advantage that the GL can usually eliminate the data copy that would have been incurred by calling CopyTexSubImage.</p>
  * 
  * <p>This extension also defines a new GL object type, called a "renderbuffer", which encapsulates a single 2D pixel image. The image of renderbuffer can be
  * used as a framebuffer-attachable image for generalized offscreen rendering and it also provides a means to support rendering to GL logical buffer types
@@ -497,8 +497,6 @@ public final class ARBFramebufferObject {
 
 	/**
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
-	 * 
-	 * <p>This method is equivalent to calling {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} with the samples set to zero.</p>
 	 *
 	 * @param target         the target of the allocation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
 	 * @param internalformat the internal format to use for the renderbuffer object's image. Must be a color-renderable, depth-renderable, or stencil-renderable format.
@@ -516,6 +514,8 @@ public final class ARBFramebufferObject {
 
 	/**
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
+	 * 
+	 * <p>{@link #glRenderbufferStorage RenderbufferStorage} is equivalent to calling this method with the samples set to zero.</p>
 	 *
 	 * @param target         the target of the allocation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
 	 * @param samples        the number of samples to be used for the renderbuffer object's storage
@@ -841,7 +841,7 @@ public final class ARBFramebufferObject {
 	/**
 	 * Generate mipmaps for a specified texture target.
 	 *
-	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link #GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link #GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
+	 * @param target the target to which the texture whose mimaps to generate is bound. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;

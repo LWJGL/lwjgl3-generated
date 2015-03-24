@@ -973,6 +973,32 @@ public final class Xlib {
 		return nXSetInputFocus(display, focus, revert_to, time);
 	}
 
+	// --- [ XGetInputFocus ] ---
+
+	/** JNI method for {@link #XGetInputFocus} */
+	@JavadocExclude
+	public static native int nXGetInputFocus(long display, long focus_return, long revert_to_return);
+
+	/**
+	 * Returns the focus window and the current focus state.
+	 *
+	 * @param display          the connection to the X server
+	 * @param focus_return     returns the focus window, {@link X#PointerRoot} or {@link X#None}
+	 * @param revert_to_return returns the current focus state
+	 */
+	public static int XGetInputFocus(long display, ByteBuffer focus_return, ByteBuffer revert_to_return) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXGetInputFocus(display, memAddress(focus_return), memAddress(revert_to_return));
+	}
+
+	/** Alternative version of: {@link #XGetInputFocus} */
+	public static int XGetInputFocus(long display, PointerBuffer focus_return, IntBuffer revert_to_return) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return nXGetInputFocus(display, memAddress(focus_return), memAddress(revert_to_return));
+	}
+
 	// --- [ XMoveWindow ] ---
 
 	/** JNI method for {@link #XMoveWindow} */

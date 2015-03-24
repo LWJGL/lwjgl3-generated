@@ -82,7 +82,7 @@ public final class GLX14 {
 	 * <ul>
 	 * <li>All GL and GLX extension functions supported by the implementation (whether those extensions are supported by the current context or not).</li>
 	 * <li>All core (non-extension) functions in GL and GLX from version 1.0 up to and including the versions of those specifications supported by the
-	 * implementation, as determined by {@link GL11#glGetString}({@link GL11#GLX_GL_VERSION GL_VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
+	 * implementation, as determined by {@link GL11#glGetString}({@link GL11#GL_VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
 	 * </ul></p>
 	 *
 	 * @param procName the function name to query

@@ -348,7 +348,7 @@ public final class ARBOcclusionQuery {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
+	 * Unsigned version of {@link #glGetQueryObjectivARB GetQueryObjectivARB}.
 	 *
 	 * @param id     the name of a query object
 	 * @param pname  the symbolic name of a query object parameter. One of:<br>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}, {@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}

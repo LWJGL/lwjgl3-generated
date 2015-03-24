@@ -469,7 +469,7 @@ public final class ARBUniformBufferObject {
 	/**
 	 * Binds a range within a buffer object to an indexed buffer target.
 	 *
-	 * @param target the target of the bind operation. One of:<br>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target of the bind operation. One of:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param index  the index of the binding point within the array specified by {@code target}
 	 * @param buffer a buffer object to bind to the specified binding point
 	 * @param offset the starting offset in basic machine units into the buffer object {@code buffer}
@@ -487,7 +487,7 @@ public final class ARBUniformBufferObject {
 	/**
 	 * Binds a buffer object to an indexed buffer target.
 	 *
-	 * @param target the target of the bind operation. One of:<br>{@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
+	 * @param target the target of the bind operation. One of:<br>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}
 	 * @param index  the index of the binding point within the array specified by {@code target}
 	 * @param buffer a buffer object to bind to the specified binding point
 	 */

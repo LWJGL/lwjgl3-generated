@@ -1172,7 +1172,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Fixed-point byte version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 * Fixed-point version of {@link #glVertexAttrib4bvARB VertexAttrib4bvARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1199,7 +1199,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Fixed-point short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 * Fixed-point version of {@link #glVertexAttrib4svARB VertexAttrib4svARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1233,7 +1233,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Fixed-point integer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 * Fixed-point version of {@link #glVertexAttrib4ivARB VertexAttrib4ivARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1267,7 +1267,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Pointer version of {@link #glVertexAttrib4ubARB VertexAttrib4ubARB}
+	 * Fixed-point unsigned version of {@link #glVertexAttrib4bvARB VertexAttrib4bvARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1294,7 +1294,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Fixed-point unsigned short version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 * Fixed-point unsigned version of {@link #glVertexAttrib4svARB VertexAttrib4svARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value
@@ -1328,7 +1328,7 @@ public final class ARBVertexProgram {
 	}
 
 	/**
-	 * Fixed-point unsigned integer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
+	 * Fixed-point unsigned version of {@link #glVertexAttrib4ivARB VertexAttrib4ivARB}
 	 *
 	 * @param index the vertex attribute index
 	 * @param v     a buffer from which to read the attribute value

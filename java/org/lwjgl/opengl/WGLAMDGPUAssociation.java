@@ -235,7 +235,7 @@ public final class WGLAMDGPUAssociation {
 	/**
 	 * Create an associated context with a specific GL version.
 	 * 
-	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglwglCreateContextAttribsARB wglCreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
+	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
 	 *
 	 * @param id           a valid GPU id
 	 * @param shareContext must either be NULL or that of an associated context created with the the same GPU ID as {@code id}

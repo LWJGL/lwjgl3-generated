@@ -267,7 +267,7 @@ public final class CL10GL {
 	 *
 	 * @param context        a valid OpenCL context created from an OpenGL context
 	 * @param flags          a bit-field that is used to specify usage information. One of:<br>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
-	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<br>{@link GL12#CL_GL_TEXTURE_3D GL_TEXTURE_3D}
+	 * @param texture_target defines the image type of {@code texture}. No reference to a bound GL texture object is made or implied by this parameter. Must be:<br>{@link GL12#GL_TEXTURE_3D}
 	 * @param miplevel       the mipmap level to be used
 	 * @param texture        the name of a GL 3D texture object. The texture object must be a complete texture as per OpenGL rules on texture completeness. The texture format
 	 *                       and dimensions defined by OpenGL for the specified {@code miplevel} of the texture will be used to create the 3D image object. Only GL texture

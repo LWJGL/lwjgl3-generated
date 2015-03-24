@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
 public final class WGLARBPixelFormat {
 
 	/**
-	 * Accepted in the {@code attributes} parameter array of {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}, and {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}, and as a type in
+	 * Accepted in the {@code attributes} parameter array of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, and {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB}, and as a type in
 	 * the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB}.
 	 */
 	public static final int
@@ -75,7 +75,7 @@ public final class WGLARBPixelFormat {
 
 	/**
 	 * Accepted as a value in the {@code attribIList} and {@code attribFList} parameter arrays of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB}, and returned in the
-	 * {@code values} parameter array of {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB} and {@link #wglGetPixelFormatAttribARB GetPixelFormatAttribARB}.
+	 * {@code values} parameter array of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} and {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB}.
 	 */
 	public static final int
 		WGL_NO_ACCELERATION_ARB      = 0x2025,

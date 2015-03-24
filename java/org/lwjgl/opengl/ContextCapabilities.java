@@ -152,6 +152,7 @@ public final class ContextCapabilities {
 	final NVBindlessTexture             __NVBindlessTexture;
 	final NVConditionalRender           __NVConditionalRender;
 	final NVConservativeRaster          __NVConservativeRaster;
+	final NVCopyImage                   __NVCopyImage;
 	final NVDrawTexture                 __NVDrawTexture;
 	final NVPointSprite                 __NVPointSprite;
 	final NVSampleLocations             __NVSampleLocations;
@@ -332,7 +333,7 @@ public final class ContextCapabilities {
 	 * performing a trinary operation with a single built-in function, shader compilers and optimizers may be able to generate better instruction sequences for
 	 * perform sorting and other multi-input functions.</p>
 	 * 
-	 * <p>Requires {@link GL20 OpenGL 2.0} or {@link #GL_ARB_shader_object ARB_shader_object}.</p>
+	 * <p>Requires {@link GL20 OpenGL 2.0} or {@link #GL_ARB_shader_objects ARB_shader_objects}.</p>
 	 */
 	public final boolean GL_AMD_shader_trinary_minmax;
 	/**
@@ -343,7 +344,7 @@ public final class ContextCapabilities {
 	 * <p>These texture functions may be used to access one component textures.</p>
 	 * 
 	 * <p>The {@code texture4} built-in function returns a texture value derived from a 2x2 set of texels in the image array of level levelbase is selected. These
-	 * texels are selected in the same way as when the value of {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER} is {@GL11#GL_LINEAR LINEAR}, but instead
+	 * texels are selected in the same way as when the value of {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER} is {@link GL11#GL_LINEAR LINEAR}, but instead
 	 * of these texels being filtered to generate the texture value, the R, G, B and A texture values are derived directly from these four texels.</p>
 	 */
 	public final boolean GL_AMD_texture_texture4;
@@ -360,7 +361,7 @@ public final class ContextCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/vertex_shader_layer.txt">AMD_vertex_shader_layer</a> extension is supported.
 	 * 
-	 * <p>The {@code gl_Layer} built-in shading language variable was introduced with the {@link #GL_ARB_geometry_shader ARB_geometry_shader} extension and subsequently promoted to core
+	 * <p>The {@code gl_Layer} built-in shading language variable was introduced with the {@link #GL_ARB_geometry_shader4 ARB_geometry_shader4} extension and subsequently promoted to core
 	 * OpenGL in version 3.2. This variable is an output from the geometry shader stage that allows rendering to be directed to a specific layer of an array
 	 * texture, slice of a 3D texture or face of a cube map or cube map array attachment of the framebuffer. Thus, this extremely useful functionality is only
 	 * available if a geometry shader is present - even if the geometry shader is not otherwise required by the application. This adds overhead to the graphics
@@ -1117,6 +1118,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_window_pos;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/ATI/shader_texture_lod.txt">ATI_shader_texture_lod</a> extension is supported. */
 	public final boolean GL_ATI_shader_texture_lod;
+	/** When true, {@link ATITextureCompression3DC} is supported. */
+	public final boolean GL_ATI_texture_compression_3dc;
 	/** When true, {@link EXTABGR} is supported. */
 	public final boolean GL_EXT_abgr;
 	/** When true, {@link EXTBGRA} is supported. */
@@ -1228,6 +1231,8 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_conservative_raster;
 	/** When true, {@link NVCopyDepthToColor} is supported. */
 	public final boolean GL_NV_copy_depth_to_color;
+	/** When true, {@link NVCopyImage} is supported. */
+	public final boolean GL_NV_copy_image;
 	/** When true, {@link NVDrawTexture} is supported. */
 	public final boolean GL_NV_draw_texture;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program4.txt">NV_fragment_program4</a> extension is supported. */
@@ -1640,6 +1645,7 @@ public final class ContextCapabilities {
 		GL_ARB_viewport_array = (__ARBViewportArray = ARBViewportArray.create(ext, provider)) != null;
 		GL_ARB_window_pos = (__ARBWindowPos = ARBWindowPos.create(ext, provider)) != null;
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
+		GL_ATI_texture_compression_3dc = ext.contains("GL_ATI_texture_compression_3dc");
 		GL_EXT_abgr = ext.contains("GL_EXT_abgr");
 		GL_EXT_bgra = ext.contains("GL_EXT_bgra");
 		GL_EXT_bindable_uniform = (__EXTBindableUniform = EXTBindableUniform.create(ext, provider)) != null;
@@ -1685,6 +1691,7 @@ public final class ContextCapabilities {
 		GL_NV_conditional_render = (__NVConditionalRender = NVConditionalRender.create(ext, provider)) != null;
 		GL_NV_conservative_raster = (__NVConservativeRaster = NVConservativeRaster.create(ext, provider)) != null;
 		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
+		GL_NV_copy_image = (__NVCopyImage = NVCopyImage.create(ext, provider)) != null;
 		GL_NV_draw_texture = (__NVDrawTexture = NVDrawTexture.create(ext, provider)) != null;
 		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
 		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");

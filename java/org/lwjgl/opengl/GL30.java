@@ -2188,8 +2188,6 @@ Ends conditional rendering.
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorage.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Establishes data storage, format and dimensions of a renderbuffer object's image.
-	 * 
-	 * <p>This method is equivalent to calling {@link #glRenderbufferStorageMultisample RenderbufferStorageMultisample} with the samples set to zero.</p>
 	 *
 	 * @param target         the target of the allocation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
 	 * @param internalformat the internal format to use for the renderbuffer object's image. Must be a color-renderable, depth-renderable, or stencil-renderable format.
@@ -2213,6 +2211,8 @@ Ends conditional rendering.
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glRenderbufferStorageMultisample.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Establishes data storage, format, dimensions and sample count of a renderbuffer object's image.
+	 * 
+	 * <p>{@link #glRenderbufferStorage RenderbufferStorage} is equivalent to calling this method with the samples set to zero.</p>
 	 *
 	 * @param target         the target of the allocation. Must be:<br>{@link #GL_RENDERBUFFER RENDERBUFFER}
 	 * @param samples        the number of samples to be used for the renderbuffer object's storage

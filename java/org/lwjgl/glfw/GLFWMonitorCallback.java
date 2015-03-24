@@ -48,7 +48,7 @@ public abstract class GLFWMonitorCallback extends Closure.Void {
 	 * Will be called when a monitor is connected to or disconnected from the system.
 	 *
 	 * @param monitor the monitor that was connected or disconnected
-	 * @param event   one of {@link {@link GLFW#GLFW_CONNECTED}} or {@link {@link GLFW#GLFW_DISCONNECTED}}
+	 * @param event   one of {@link GLFW#GLFW_CONNECTED} or {@link GLFW#GLFW_DISCONNECTED}
 	 */
 	public abstract void invoke(long monitor, int event);
 
