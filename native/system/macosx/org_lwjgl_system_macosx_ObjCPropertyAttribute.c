@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_macosx_ObjCPropertyAttribute_offset
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(objc_property_attribute_t, name));
-	buffer[1] = (jint)(offsetof(objc_property_attribute_t, value));
+	buffer[0] = (jint)offsetof(objc_property_attribute_t, name);
+	buffer[1] = (jint)offsetof(objc_property_attribute_t, value);
 
 	return sizeof(objc_property_attribute_t);
 }

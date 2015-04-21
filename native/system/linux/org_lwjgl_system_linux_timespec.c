@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_timespec_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(struct timespec, tv_sec));
-	buffer[1] = (jint)(offsetof(struct timespec, tv_nsec));
+	buffer[0] = (jint)offsetof(struct timespec, tv_sec);
+	buffer[1] = (jint)offsetof(struct timespec, tv_nsec);
 
 	return sizeof(struct timespec);
 }

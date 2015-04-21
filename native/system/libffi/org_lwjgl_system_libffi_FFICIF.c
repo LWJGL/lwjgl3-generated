@@ -14,12 +14,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_FFICIF_offsets(JNIEnv *__env
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(ffi_cif, abi));
-	buffer[1] = (jint)(offsetof(ffi_cif, nargs));
-	buffer[2] = (jint)(offsetof(ffi_cif, arg_types));
-	buffer[3] = (jint)(offsetof(ffi_cif, rtype));
-	buffer[4] = (jint)(offsetof(ffi_cif, bytes));
-	buffer[5] = (jint)(offsetof(ffi_cif, flags));
+	buffer[0] = (jint)offsetof(ffi_cif, abi);
+	buffer[1] = (jint)offsetof(ffi_cif, nargs);
+	buffer[2] = (jint)offsetof(ffi_cif, arg_types);
+	buffer[3] = (jint)offsetof(ffi_cif, rtype);
+	buffer[4] = (jint)offsetof(ffi_cif, bytes);
+	buffer[5] = (jint)offsetof(ffi_cif, flags);
 
 	return sizeof(ffi_cif);
 }

@@ -15,11 +15,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XkbDescRec_offsets(JNIEnv *__
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XkbDescRec, dpy));
-	buffer[1] = (jint)(offsetof(XkbDescRec, device_spec));
-	buffer[2] = (jint)(offsetof(XkbDescRec, min_key_code));
-	buffer[3] = (jint)(offsetof(XkbDescRec, max_key_code));
-	buffer[4] = (jint)(offsetof(XkbDescRec, names));
+	buffer[0] = (jint)offsetof(XkbDescRec, dpy);
+	buffer[1] = (jint)offsetof(XkbDescRec, device_spec);
+	buffer[2] = (jint)offsetof(XkbDescRec, min_key_code);
+	buffer[3] = (jint)offsetof(XkbDescRec, max_key_code);
+	buffer[4] = (jint)offsetof(XkbDescRec, names);
 
 	return sizeof(XkbDescRec);
 }

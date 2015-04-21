@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_POINTL_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(POINTL, x));
-	buffer[1] = (jint)(offsetof(POINTL, y));
+	buffer[0] = (jint)offsetof(POINTL, x);
+	buffer[1] = (jint)offsetof(POINTL, y);
 
 	return sizeof(POINTL);
 }

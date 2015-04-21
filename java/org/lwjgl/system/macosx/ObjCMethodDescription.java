@@ -72,19 +72,6 @@ public final class ObjCMethodDescription implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		long name,
-		long types
-	) {
-		ByteBuffer objc_method_description = malloc();
-
-		name(objc_method_description, name);
-		types(objc_method_description, types);
-
-		return objc_method_description;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long name,
 		ByteBuffer types
 	) {
 		ByteBuffer objc_method_description = malloc();

@@ -14,7 +14,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LARGE_1INTEGER_offsets(JNIE
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(LARGE_INTEGER, QuadPart));
+	buffer[0] = (jint)offsetof(LARGE_INTEGER, QuadPart);
 
 	return sizeof(LARGE_INTEGER);
 }

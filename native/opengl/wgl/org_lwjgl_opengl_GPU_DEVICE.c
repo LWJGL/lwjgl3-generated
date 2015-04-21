@@ -15,11 +15,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GPU_1DEVICE_offsets(JNIEnv *__env, 
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(GPU_DEVICE, cb));
-	buffer[1] = (jint)(offsetof(GPU_DEVICE, DeviceName));
-	buffer[2] = (jint)(offsetof(GPU_DEVICE, DeviceString));
-	buffer[3] = (jint)(offsetof(GPU_DEVICE, Flags));
-	buffer[4] = (jint)(offsetof(GPU_DEVICE, rcVirtualScreen));
+	buffer[0] = (jint)offsetof(GPU_DEVICE, cb);
+	buffer[1] = (jint)offsetof(GPU_DEVICE, DeviceName);
+	buffer[2] = (jint)offsetof(GPU_DEVICE, DeviceString);
+	buffer[3] = (jint)offsetof(GPU_DEVICE, Flags);
+	buffer[4] = (jint)offsetof(GPU_DEVICE, rcVirtualScreen);
 
 	return sizeof(GPU_DEVICE);
 }

@@ -14,10 +14,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_TRACKMOUSEEVENT_offsets(JNI
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(TRACKMOUSEEVENT, cbSize));
-	buffer[1] = (jint)(offsetof(TRACKMOUSEEVENT, dwFlags));
-	buffer[2] = (jint)(offsetof(TRACKMOUSEEVENT, hwndTrack));
-	buffer[3] = (jint)(offsetof(TRACKMOUSEEVENT, dwHoverTime));
+	buffer[0] = (jint)offsetof(TRACKMOUSEEVENT, cbSize);
+	buffer[1] = (jint)offsetof(TRACKMOUSEEVENT, dwFlags);
+	buffer[2] = (jint)offsetof(TRACKMOUSEEVENT, hwndTrack);
+	buffer[3] = (jint)offsetof(TRACKMOUSEEVENT, dwHoverTime);
 
 	return sizeof(TRACKMOUSEEVENT);
 }

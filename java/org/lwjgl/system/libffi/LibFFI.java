@@ -34,7 +34,7 @@ import static org.lwjgl.system.libffi.LibFFIConstants.*;
 public final class LibFFI {
 
 	/** Types used to create custom {@link FFICIF}. */
-	public static final int
+	public static final short
 		FFI_TYPE_VOID       = 0x0,
 		FFI_TYPE_INT        = 0x1,
 		FFI_TYPE_FLOAT      = 0x2,

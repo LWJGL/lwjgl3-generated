@@ -120,39 +120,6 @@ public final class XRRCrtcInfo implements Pointer {
 		long mode,
 		int rotation,
 		int noutput,
-		long outputs,
-		int rotations,
-		int npossible,
-		long possible
-	) {
-		ByteBuffer xrrcrtcinfo = malloc();
-
-		timestamp(xrrcrtcinfo, timestamp);
-		x(xrrcrtcinfo, x);
-		y(xrrcrtcinfo, y);
-		width(xrrcrtcinfo, width);
-		height(xrrcrtcinfo, height);
-		mode(xrrcrtcinfo, mode);
-		rotation(xrrcrtcinfo, rotation);
-		noutput(xrrcrtcinfo, noutput);
-		outputs(xrrcrtcinfo, outputs);
-		rotations(xrrcrtcinfo, rotations);
-		npossible(xrrcrtcinfo, npossible);
-		possible(xrrcrtcinfo, possible);
-
-		return xrrcrtcinfo;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long timestamp,
-		int x,
-		int y,
-		int width,
-		int height,
-		long mode,
-		int rotation,
-		int noutput,
 		ByteBuffer outputs,
 		int rotations,
 		int npossible,
@@ -185,11 +152,11 @@ public final class XRRCrtcInfo implements Pointer {
 	public static void rotation(ByteBuffer xrrcrtcinfo, int rotation) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATION, (short)rotation); }
 	public static void noutput(ByteBuffer xrrcrtcinfo, int noutput) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NOUTPUT, noutput); }
 	public static void outputs(ByteBuffer xrrcrtcinfo, long outputs) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS, outputs); }
-	public static void outputs(ByteBuffer xrrcrtcinfo, ByteBuffer outputs) { outputs(xrrcrtcinfo, memAddress(outputs)); }
+	public static void outputs(ByteBuffer xrrcrtcinfo, ByteBuffer outputs) { outputs(xrrcrtcinfo, memAddressSafe(outputs)); }
 	public static void rotations(ByteBuffer xrrcrtcinfo, int rotations) { xrrcrtcinfo.putShort(xrrcrtcinfo.position() + ROTATIONS, (short)rotations); }
 	public static void npossible(ByteBuffer xrrcrtcinfo, int npossible) { xrrcrtcinfo.putInt(xrrcrtcinfo.position() + NPOSSIBLE, npossible); }
 	public static void possible(ByteBuffer xrrcrtcinfo, long possible) { PointerBuffer.put(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE, possible); }
-	public static void possible(ByteBuffer xrrcrtcinfo, ByteBuffer possible) { possible(xrrcrtcinfo, memAddress(possible)); }
+	public static void possible(ByteBuffer xrrcrtcinfo, ByteBuffer possible) { possible(xrrcrtcinfo, memAddressSafe(possible)); }
 
 	public static long timestamp(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + TIMESTAMP); }
 	public static int x(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + X); }

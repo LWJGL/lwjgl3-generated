@@ -14,19 +14,19 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XConfigureEvent_offsets(JNIEn
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XConfigureEvent, type));
-	buffer[1] = (jint)(offsetof(XConfigureEvent, serial));
-	buffer[2] = (jint)(offsetof(XConfigureEvent, send_event));
-	buffer[3] = (jint)(offsetof(XConfigureEvent, display));
-	buffer[4] = (jint)(offsetof(XConfigureEvent, event));
-	buffer[5] = (jint)(offsetof(XConfigureEvent, window));
-	buffer[6] = (jint)(offsetof(XConfigureEvent, x));
-	buffer[7] = (jint)(offsetof(XConfigureEvent, y));
-	buffer[8] = (jint)(offsetof(XConfigureEvent, width));
-	buffer[9] = (jint)(offsetof(XConfigureEvent, height));
-	buffer[10] = (jint)(offsetof(XConfigureEvent, border_width));
-	buffer[11] = (jint)(offsetof(XConfigureEvent, above));
-	buffer[12] = (jint)(offsetof(XConfigureEvent, override_redirect));
+	buffer[0] = (jint)offsetof(XConfigureEvent, type);
+	buffer[1] = (jint)offsetof(XConfigureEvent, serial);
+	buffer[2] = (jint)offsetof(XConfigureEvent, send_event);
+	buffer[3] = (jint)offsetof(XConfigureEvent, display);
+	buffer[4] = (jint)offsetof(XConfigureEvent, event);
+	buffer[5] = (jint)offsetof(XConfigureEvent, window);
+	buffer[6] = (jint)offsetof(XConfigureEvent, x);
+	buffer[7] = (jint)offsetof(XConfigureEvent, y);
+	buffer[8] = (jint)offsetof(XConfigureEvent, width);
+	buffer[9] = (jint)offsetof(XConfigureEvent, height);
+	buffer[10] = (jint)offsetof(XConfigureEvent, border_width);
+	buffer[11] = (jint)offsetof(XConfigureEvent, above);
+	buffer[12] = (jint)offsetof(XConfigureEvent, override_redirect);
 
 	return sizeof(XConfigureEvent);
 }

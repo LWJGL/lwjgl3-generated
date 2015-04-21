@@ -14,10 +14,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CLMotionEstimationDescINTEL_offsets
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(cl_motion_estimation_desc_intel, mb_block_type));
-	buffer[1] = (jint)(offsetof(cl_motion_estimation_desc_intel, subpixel_mode));
-	buffer[2] = (jint)(offsetof(cl_motion_estimation_desc_intel, sad_adjust_mode));
-	buffer[3] = (jint)(offsetof(cl_motion_estimation_desc_intel, search_path_type));
+	buffer[0] = (jint)offsetof(cl_motion_estimation_desc_intel, mb_block_type);
+	buffer[1] = (jint)offsetof(cl_motion_estimation_desc_intel, subpixel_mode);
+	buffer[2] = (jint)offsetof(cl_motion_estimation_desc_intel, sad_adjust_mode);
+	buffer[3] = (jint)offsetof(cl_motion_estimation_desc_intel, search_path_type);
 
 	return sizeof(cl_motion_estimation_desc_intel);
 }

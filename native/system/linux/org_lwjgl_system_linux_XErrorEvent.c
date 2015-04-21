@@ -14,13 +14,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XErrorEvent_offsets(JNIEnv *_
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XErrorEvent, type));
-	buffer[1] = (jint)(offsetof(XErrorEvent, display));
-	buffer[2] = (jint)(offsetof(XErrorEvent, serial));
-	buffer[3] = (jint)(offsetof(XErrorEvent, error_code));
-	buffer[4] = (jint)(offsetof(XErrorEvent, request_code));
-	buffer[5] = (jint)(offsetof(XErrorEvent, minor_code));
-	buffer[6] = (jint)(offsetof(XErrorEvent, resourceid));
+	buffer[0] = (jint)offsetof(XErrorEvent, type);
+	buffer[1] = (jint)offsetof(XErrorEvent, display);
+	buffer[2] = (jint)offsetof(XErrorEvent, serial);
+	buffer[3] = (jint)offsetof(XErrorEvent, error_code);
+	buffer[4] = (jint)offsetof(XErrorEvent, request_code);
+	buffer[5] = (jint)offsetof(XErrorEvent, minor_code);
+	buffer[6] = (jint)offsetof(XErrorEvent, resourceid);
 
 	return sizeof(XErrorEvent);
 }

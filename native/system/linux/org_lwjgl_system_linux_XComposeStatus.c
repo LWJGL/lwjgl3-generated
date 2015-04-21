@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XComposeStatus_offsets(JNIEnv
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XComposeStatus, compose_ptr));
-	buffer[1] = (jint)(offsetof(XComposeStatus, chars_matched));
+	buffer[0] = (jint)offsetof(XComposeStatus, compose_ptr);
+	buffer[1] = (jint)offsetof(XComposeStatus, chars_matched);
 
 	return sizeof(XComposeStatus);
 }

@@ -81,23 +81,6 @@ public final class FFIType implements Pointer {
 		long size,
 		int alignment,
 		int type,
-		long elements
-	) {
-		ByteBuffer ffi_type = malloc();
-
-		size(ffi_type, size);
-		alignment(ffi_type, alignment);
-		type(ffi_type, type);
-		elements(ffi_type, elements);
-
-		return ffi_type;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long size,
-		int alignment,
-		int type,
 		ByteBuffer elements
 	) {
 		ByteBuffer ffi_type = malloc();
@@ -114,7 +97,7 @@ public final class FFIType implements Pointer {
 	public static void alignment(ByteBuffer ffi_type, int alignment) { ffi_type.putShort(ffi_type.position() + ALIGNMENT, (short)alignment); }
 	public static void type(ByteBuffer ffi_type, int type) { ffi_type.putShort(ffi_type.position() + TYPE, (short)type); }
 	public static void elements(ByteBuffer ffi_type, long elements) { PointerBuffer.put(ffi_type, ffi_type.position() + ELEMENTS, elements); }
-	public static void elements(ByteBuffer ffi_type, ByteBuffer elements) { elements(ffi_type, memAddress(elements)); }
+	public static void elements(ByteBuffer ffi_type, ByteBuffer elements) { elements(ffi_type, memAddressSafe(elements)); }
 
 	public static long size(ByteBuffer ffi_type) { return PointerBuffer.get(ffi_type, ffi_type.position() + SIZE); }
 	public static int alignment(ByteBuffer ffi_type) { return ffi_type.getShort(ffi_type.position() + ALIGNMENT) & 0xFFFF; }

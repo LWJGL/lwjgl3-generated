@@ -14,17 +14,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XClientMessageEvent_offsets(J
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XClientMessageEvent, type));
-	buffer[1] = (jint)(offsetof(XClientMessageEvent, serial));
-	buffer[2] = (jint)(offsetof(XClientMessageEvent, send_event));
-	buffer[3] = (jint)(offsetof(XClientMessageEvent, display));
-	buffer[4] = (jint)(offsetof(XClientMessageEvent, window));
-	buffer[5] = (jint)(offsetof(XClientMessageEvent, message_type));
-	buffer[6] = (jint)(offsetof(XClientMessageEvent, format));
-	buffer[7] = (jint)(offsetof(XClientMessageEvent, data));
-	buffer[8] = (jint)(offsetof(XClientMessageEvent, data.b));
-	buffer[9] = (jint)(offsetof(XClientMessageEvent, data.s));
-	buffer[10] = (jint)(offsetof(XClientMessageEvent, data.l));
+	buffer[0] = (jint)offsetof(XClientMessageEvent, type);
+	buffer[1] = (jint)offsetof(XClientMessageEvent, serial);
+	buffer[2] = (jint)offsetof(XClientMessageEvent, send_event);
+	buffer[3] = (jint)offsetof(XClientMessageEvent, display);
+	buffer[4] = (jint)offsetof(XClientMessageEvent, window);
+	buffer[5] = (jint)offsetof(XClientMessageEvent, message_type);
+	buffer[6] = (jint)offsetof(XClientMessageEvent, format);
+	buffer[7] = (jint)offsetof(XClientMessageEvent, data);
+	buffer[8] = (jint)offsetof(XClientMessageEvent, data.b);
+	buffer[9] = (jint)offsetof(XClientMessageEvent, data.s);
+	buffer[10] = (jint)offsetof(XClientMessageEvent, data.l);
 
 	return sizeof(XClientMessageEvent);
 }

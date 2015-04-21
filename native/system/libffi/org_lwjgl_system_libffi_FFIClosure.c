@@ -14,9 +14,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_FFIClosure_offsets(JNIEnv *_
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(ffi_closure, cif));
-	buffer[1] = (jint)(offsetof(ffi_closure, fun));
-	buffer[2] = (jint)(offsetof(ffi_closure, user_data));
+	buffer[0] = (jint)offsetof(ffi_closure, cif);
+	buffer[1] = (jint)offsetof(ffi_closure, fun);
+	buffer[2] = (jint)offsetof(ffi_closure, user_data);
 
 	return sizeof(ffi_closure);
 }

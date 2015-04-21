@@ -14,10 +14,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_FFIType_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(ffi_type, size));
-	buffer[1] = (jint)(offsetof(ffi_type, alignment));
-	buffer[2] = (jint)(offsetof(ffi_type, type));
-	buffer[3] = (jint)(offsetof(ffi_type, elements));
+	buffer[0] = (jint)offsetof(ffi_type, size);
+	buffer[1] = (jint)offsetof(ffi_type, alignment);
+	buffer[2] = (jint)offsetof(ffi_type, type);
+	buffer[3] = (jint)offsetof(ffi_type, elements);
 
 	return sizeof(ffi_type);
 }

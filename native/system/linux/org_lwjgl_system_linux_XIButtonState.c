@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIButtonState_offsets(JNIEnv 
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XIButtonState, mask_len));
-	buffer[1] = (jint)(offsetof(XIButtonState, mask));
+	buffer[0] = (jint)offsetof(XIButtonState, mask_len);
+	buffer[1] = (jint)offsetof(XIButtonState, mask);
 
 	return sizeof(XIButtonState);
 }

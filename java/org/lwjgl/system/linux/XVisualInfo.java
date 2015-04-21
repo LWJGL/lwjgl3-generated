@@ -102,35 +102,6 @@ public final class XVisualInfo implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		long visual,
-		long visualid,
-		int screen,
-		int depth,
-		int clazz,
-		long red_mask,
-		long green_mask,
-		long blue_mask,
-		int colormap_size,
-		int bits_per_rgb
-	) {
-		ByteBuffer xvisualinfo = malloc();
-
-		visual(xvisualinfo, visual);
-		visualid(xvisualinfo, visualid);
-		screen(xvisualinfo, screen);
-		depth(xvisualinfo, depth);
-		clazz(xvisualinfo, clazz);
-		red_mask(xvisualinfo, red_mask);
-		green_mask(xvisualinfo, green_mask);
-		blue_mask(xvisualinfo, blue_mask);
-		colormap_size(xvisualinfo, colormap_size);
-		bits_per_rgb(xvisualinfo, bits_per_rgb);
-
-		return xvisualinfo;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
 		ByteBuffer visual,
 		long visualid,
 		int screen,
@@ -159,7 +130,7 @@ public final class XVisualInfo implements Pointer {
 	}
 
 	public static void visual(ByteBuffer xvisualinfo, long visual) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUAL, visual); }
-	public static void visual(ByteBuffer xvisualinfo, ByteBuffer visual) { visual(xvisualinfo, memAddress(visual)); }
+	public static void visual(ByteBuffer xvisualinfo, ByteBuffer visual) { visual(xvisualinfo, memAddressSafe(visual)); }
 	public static void visualid(ByteBuffer xvisualinfo, long visualid) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUALID, visualid); }
 	public static void screen(ByteBuffer xvisualinfo, int screen) { xvisualinfo.putInt(xvisualinfo.position() + SCREEN, screen); }
 	public static void depth(ByteBuffer xvisualinfo, int depth) { xvisualinfo.putInt(xvisualinfo.position() + DEPTH, depth); }

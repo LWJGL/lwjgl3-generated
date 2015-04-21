@@ -15,9 +15,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIValuatorState_offsets(JNIEn
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XIValuatorState, mask_len));
-	buffer[1] = (jint)(offsetof(XIValuatorState, mask));
-	buffer[2] = (jint)(offsetof(XIValuatorState, values));
+	buffer[0] = (jint)offsetof(XIValuatorState, mask_len);
+	buffer[1] = (jint)offsetof(XIValuatorState, mask);
+	buffer[2] = (jint)offsetof(XIValuatorState, values);
 
 	return sizeof(XIValuatorState);
 }

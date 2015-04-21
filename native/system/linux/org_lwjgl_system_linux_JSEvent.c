@@ -15,10 +15,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_JSEvent_offsets(JNIEnv *__env
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(struct js_event, time));
-	buffer[1] = (jint)(offsetof(struct js_event, value));
-	buffer[2] = (jint)(offsetof(struct js_event, type));
-	buffer[3] = (jint)(offsetof(struct js_event, number));
+	buffer[0] = (jint)offsetof(struct js_event, time);
+	buffer[1] = (jint)offsetof(struct js_event, value);
+	buffer[2] = (jint)offsetof(struct js_event, type);
+	buffer[3] = (jint)offsetof(struct js_event, number);
 
 	return sizeof(struct js_event);
 }

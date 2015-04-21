@@ -14,11 +14,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XAnyEvent_offsets(JNIEnv *__e
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XAnyEvent, type));
-	buffer[1] = (jint)(offsetof(XAnyEvent, serial));
-	buffer[2] = (jint)(offsetof(XAnyEvent, send_event));
-	buffer[3] = (jint)(offsetof(XAnyEvent, display));
-	buffer[4] = (jint)(offsetof(XAnyEvent, window));
+	buffer[0] = (jint)offsetof(XAnyEvent, type);
+	buffer[1] = (jint)offsetof(XAnyEvent, serial);
+	buffer[2] = (jint)offsetof(XAnyEvent, send_event);
+	buffer[3] = (jint)offsetof(XAnyEvent, display);
+	buffer[4] = (jint)offsetof(XAnyEvent, window);
 
 	return sizeof(XAnyEvent);
 }

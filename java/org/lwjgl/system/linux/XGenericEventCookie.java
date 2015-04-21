@@ -101,31 +101,6 @@ public final class XGenericEventCookie implements Pointer {
 		int extension,
 		int evtype,
 		int cookie,
-		long data
-	) {
-		ByteBuffer xgenericeventcookie = malloc();
-
-		type(xgenericeventcookie, type);
-		serial(xgenericeventcookie, serial);
-		send_event(xgenericeventcookie, send_event);
-		display(xgenericeventcookie, display);
-		extension(xgenericeventcookie, extension);
-		evtype(xgenericeventcookie, evtype);
-		cookie(xgenericeventcookie, cookie);
-		data(xgenericeventcookie, data);
-
-		return xgenericeventcookie;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int type,
-		long serial,
-		int send_event,
-		long display,
-		int extension,
-		int evtype,
-		int cookie,
 		ByteBuffer data
 	) {
 		ByteBuffer xgenericeventcookie = malloc();
@@ -150,7 +125,7 @@ public final class XGenericEventCookie implements Pointer {
 	public static void evtype(ByteBuffer xgenericeventcookie, int evtype) { xgenericeventcookie.putInt(xgenericeventcookie.position() + EVTYPE, evtype); }
 	public static void cookie(ByteBuffer xgenericeventcookie, int cookie) { xgenericeventcookie.putInt(xgenericeventcookie.position() + COOKIE, cookie); }
 	public static void data(ByteBuffer xgenericeventcookie, long data) { PointerBuffer.put(xgenericeventcookie, xgenericeventcookie.position() + DATA, data); }
-	public static void data(ByteBuffer xgenericeventcookie, ByteBuffer data) { data(xgenericeventcookie, memAddress(data)); }
+	public static void data(ByteBuffer xgenericeventcookie, ByteBuffer data) { data(xgenericeventcookie, memAddressSafe(data)); }
 
 	public static int type(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + TYPE); }
 	public static long serial(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + SERIAL); }

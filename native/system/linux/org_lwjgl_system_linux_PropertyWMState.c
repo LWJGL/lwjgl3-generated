@@ -20,8 +20,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_PropertyWMState_offsets(JNIEn
 		Window icon;
 	} PropertyWMState;
 
-	buffer[0] = (jint)(offsetof(PropertyWMState, state));
-	buffer[1] = (jint)(offsetof(PropertyWMState, icon));
+	buffer[0] = (jint)offsetof(PropertyWMState, state);
+	buffer[1] = (jint)offsetof(PropertyWMState, icon);
 
 	return sizeof(PropertyWMState);
 }

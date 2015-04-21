@@ -78,7 +78,6 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public void setMinorVersion(int minorVersion) { minorVersion(struct, minorVersion); }
 	public void setBuildNumber(int buildNumber) { buildNumber(struct, buildNumber); }
 	public void setPlatformId(int platformId) { platformId(struct, platformId); }
-	public void setCsdVersion(long csdVersion, int bytes) { csdVersionSet(struct, csdVersion, bytes); }
 	public void setCsdVersion(ByteBuffer csdVersion) { csdVersionSet(struct, csdVersion); }
 	public void setCsdVersion(CharSequence csdVersion) { csdVersion(struct, csdVersion); }
 	public void setServicePackMajor(int servicePackMajor) { servicePackMajor(struct, servicePackMajor); }
@@ -91,7 +90,6 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public int getMinorVersion() { return minorVersion(struct); }
 	public int getBuildNumber() { return buildNumber(struct); }
 	public int getPlatformId() { return platformId(struct); }
-	public void getCsdVersion(long csdVersion, int bytes) { csdVersionGet(struct, csdVersion, bytes); }
 	public void getCsdVersion(ByteBuffer csdVersion) { csdVersionGet(struct, csdVersion); }
 	public String getCsdVersionString() { return csdVersionString(struct); }
 	public String getCsdVersionString(int size) { return csdVersionString(struct, size); }
@@ -108,36 +106,6 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		int osVersionInfoSize,
-		int majorVersion,
-		int minorVersion,
-		int buildNumber,
-		int platformId,
-		long csdVersion,
-		int csdVersionBytes,
-		int servicePackMajor,
-		int servicePackMinor,
-		int suiteMask,
-		int productType
-	) {
-		ByteBuffer osversioninfoex = malloc();
-
-		osVersionInfoSize(osversioninfoex, osVersionInfoSize);
-		majorVersion(osversioninfoex, majorVersion);
-		minorVersion(osversioninfoex, minorVersion);
-		buildNumber(osversioninfoex, buildNumber);
-		platformId(osversioninfoex, platformId);
-		csdVersionSet(osversioninfoex, csdVersion, csdVersionBytes);
-		servicePackMajor(osversioninfoex, servicePackMajor);
-		servicePackMinor(osversioninfoex, servicePackMinor);
-		suiteMask(osversioninfoex, suiteMask);
-		productType(osversioninfoex, productType);
-
-		return osversioninfoex;
-	}
-
-	/** Alternative virtual constructor. */
 	public static ByteBuffer malloc(
 		int osVersionInfoSize,
 		int majorVersion,
@@ -166,7 +134,7 @@ public final class OSVERSIONINFOEX implements Pointer {
 		return osversioninfoex;
 	}
 
-	/** Alternative virtual constructor. */
+	/** Alternative virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int osVersionInfoSize,
 		int majorVersion,
@@ -200,11 +168,10 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public static void minorVersion(ByteBuffer osversioninfoex, int minorVersion) { osversioninfoex.putInt(osversioninfoex.position() + MINORVERSION, minorVersion); }
 	public static void buildNumber(ByteBuffer osversioninfoex, int buildNumber) { osversioninfoex.putInt(osversioninfoex.position() + BUILDNUMBER, buildNumber); }
 	public static void platformId(ByteBuffer osversioninfoex, int platformId) { osversioninfoex.putInt(osversioninfoex.position() + PLATFORMID, platformId); }
-	public static void csdVersionSet(ByteBuffer osversioninfoex, long csdVersion, int bytes) { memCopy(csdVersion, memAddress(osversioninfoex) + CSDVERSION, bytes); }
 	public static void csdVersionSet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkNT2(csdVersion);
 		checkBufferGT(csdVersion, 128 * 2);
-		csdVersionSet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
+		memCopy(memAddress(csdVersion), memAddress(osversioninfoex) + CSDVERSION, csdVersion.remaining());
 	}
 	public static void csdVersion(ByteBuffer osversioninfoex, CharSequence csdVersion) { memEncodeUTF16(csdVersion, true, osversioninfoex, CSDVERSION); }
 	public static void servicePackMajor(ByteBuffer osversioninfoex, int servicePackMajor) { osversioninfoex.putShort(osversioninfoex.position() + SERVICEPACKMAJOR, (short)servicePackMajor); }
@@ -217,12 +184,9 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public static int minorVersion(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + MINORVERSION); }
 	public static int buildNumber(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + BUILDNUMBER); }
 	public static int platformId(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + PLATFORMID); }
-	public static void csdVersionGet(ByteBuffer osversioninfoex, long csdVersion, int bytes) {
-		memCopy(memAddress(osversioninfoex) + CSDVERSION, csdVersion, bytes);
-	}
 	public static void csdVersionGet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
 		checkBufferGT(csdVersion, 128 * 2);
-		csdVersionGet(osversioninfoex, memAddress(csdVersion), csdVersion.remaining());
+		memCopy(memAddress(osversioninfoex) + CSDVERSION, memAddress(csdVersion), csdVersion.remaining());
 	}
 	public static String csdVersionString(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }
 	public static String csdVersionString(ByteBuffer osversioninfoex, int size) { return memDecodeUTF16(osversioninfoex, size, CSDVERSION); }

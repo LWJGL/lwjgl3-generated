@@ -130,45 +130,6 @@ public final class XRROutputInfo implements Pointer {
 	public static ByteBuffer malloc(
 		long timestamp,
 		long crtc,
-		long name,
-		int nameLen,
-		long mm_width,
-		long mm_height,
-		int connection,
-		int subpixel_order,
-		int ncrtc,
-		long crtcs,
-		int nclone,
-		long clones,
-		int nmode,
-		int npreferred,
-		long modes
-	) {
-		ByteBuffer xrroutputinfo = malloc();
-
-		timestamp(xrroutputinfo, timestamp);
-		crtc(xrroutputinfo, crtc);
-		name(xrroutputinfo, name);
-		nameLen(xrroutputinfo, nameLen);
-		mm_width(xrroutputinfo, mm_width);
-		mm_height(xrroutputinfo, mm_height);
-		connection(xrroutputinfo, connection);
-		subpixel_order(xrroutputinfo, subpixel_order);
-		ncrtc(xrroutputinfo, ncrtc);
-		crtcs(xrroutputinfo, crtcs);
-		nclone(xrroutputinfo, nclone);
-		clones(xrroutputinfo, clones);
-		nmode(xrroutputinfo, nmode);
-		npreferred(xrroutputinfo, npreferred);
-		modes(xrroutputinfo, modes);
-
-		return xrroutputinfo;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long timestamp,
-		long crtc,
 		ByteBuffer name,
 		int nameLen,
 		long mm_width,
@@ -207,7 +168,7 @@ public final class XRROutputInfo implements Pointer {
 	public static void timestamp(ByteBuffer xrroutputinfo, long timestamp) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP, timestamp); }
 	public static void crtc(ByteBuffer xrroutputinfo, long crtc) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTC, crtc); }
 	public static void name(ByteBuffer xrroutputinfo, long name) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + NAME, name); }
-	public static void name(ByteBuffer xrroutputinfo, ByteBuffer name) { name(xrroutputinfo, memAddress(name)); }
+	public static void name(ByteBuffer xrroutputinfo, ByteBuffer name) { name(xrroutputinfo, memAddressSafe(name)); }
 	public static void nameLen(ByteBuffer xrroutputinfo, int nameLen) { xrroutputinfo.putInt(xrroutputinfo.position() + NAMELEN, nameLen); }
 	public static void mm_width(ByteBuffer xrroutputinfo, long mm_width) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH, mm_width); }
 	public static void mm_height(ByteBuffer xrroutputinfo, long mm_height) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT, mm_height); }
@@ -215,14 +176,14 @@ public final class XRROutputInfo implements Pointer {
 	public static void subpixel_order(ByteBuffer xrroutputinfo, int subpixel_order) { xrroutputinfo.putShort(xrroutputinfo.position() + SUBPIXEL_ORDER, (short)subpixel_order); }
 	public static void ncrtc(ByteBuffer xrroutputinfo, int ncrtc) { xrroutputinfo.putInt(xrroutputinfo.position() + NCRTC, ncrtc); }
 	public static void crtcs(ByteBuffer xrroutputinfo, long crtcs) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CRTCS, crtcs); }
-	public static void crtcs(ByteBuffer xrroutputinfo, ByteBuffer crtcs) { crtcs(xrroutputinfo, memAddress(crtcs)); }
+	public static void crtcs(ByteBuffer xrroutputinfo, ByteBuffer crtcs) { crtcs(xrroutputinfo, memAddressSafe(crtcs)); }
 	public static void nclone(ByteBuffer xrroutputinfo, int nclone) { xrroutputinfo.putInt(xrroutputinfo.position() + NCLONE, nclone); }
 	public static void clones(ByteBuffer xrroutputinfo, long clones) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + CLONES, clones); }
-	public static void clones(ByteBuffer xrroutputinfo, ByteBuffer clones) { clones(xrroutputinfo, memAddress(clones)); }
+	public static void clones(ByteBuffer xrroutputinfo, ByteBuffer clones) { clones(xrroutputinfo, memAddressSafe(clones)); }
 	public static void nmode(ByteBuffer xrroutputinfo, int nmode) { xrroutputinfo.putInt(xrroutputinfo.position() + NMODE, nmode); }
 	public static void npreferred(ByteBuffer xrroutputinfo, int npreferred) { xrroutputinfo.putInt(xrroutputinfo.position() + NPREFERRED, npreferred); }
 	public static void modes(ByteBuffer xrroutputinfo, long modes) { PointerBuffer.put(xrroutputinfo, xrroutputinfo.position() + MODES, modes); }
-	public static void modes(ByteBuffer xrroutputinfo, ByteBuffer modes) { modes(xrroutputinfo, memAddress(modes)); }
+	public static void modes(ByteBuffer xrroutputinfo, ByteBuffer modes) { modes(xrroutputinfo, memAddressSafe(modes)); }
 
 	public static long timestamp(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP); }
 	public static long crtc(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTC); }

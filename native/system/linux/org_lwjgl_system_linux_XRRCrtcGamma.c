@@ -15,10 +15,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XRRCrtcGamma_offsets(JNIEnv *
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XRRCrtcGamma, size));
-	buffer[1] = (jint)(offsetof(XRRCrtcGamma, red));
-	buffer[2] = (jint)(offsetof(XRRCrtcGamma, green));
-	buffer[3] = (jint)(offsetof(XRRCrtcGamma, blue));
+	buffer[0] = (jint)offsetof(XRRCrtcGamma, size);
+	buffer[1] = (jint)offsetof(XRRCrtcGamma, red);
+	buffer[2] = (jint)offsetof(XRRCrtcGamma, green);
+	buffer[3] = (jint)offsetof(XRRCrtcGamma, blue);
 
 	return sizeof(XRRCrtcGamma);
 }

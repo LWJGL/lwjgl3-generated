@@ -8,9 +8,9 @@
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_LibFFIConstants_FFI_1TYPE_1DOUBLE(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jshort JNICALL Java_org_lwjgl_system_libffi_LibFFIConstants_FFI_1TYPE_1DOUBLE(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)FFI_TYPE_DOUBLE;
+	return (jshort)FFI_TYPE_DOUBLE;
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_libffi_LibFFIConstants_FFI_1DEFAULT_1ABI(JNIEnv *__env, jclass clazz) {

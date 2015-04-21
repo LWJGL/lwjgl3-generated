@@ -74,19 +74,6 @@ public final class XClassHint implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		long res_name,
-		long res_class
-	) {
-		ByteBuffer xclasshint = malloc();
-
-		res_name(xclasshint, res_name);
-		res_class(xclasshint, res_class);
-
-		return xclasshint;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
 		ByteBuffer res_name,
 		ByteBuffer res_class
 	) {

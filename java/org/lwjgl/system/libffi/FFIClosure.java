@@ -65,7 +65,7 @@ public final class FFIClosure implements Pointer {
 
 	private static native int offsets(long buffer);
 	public static void cif(ByteBuffer ffi_closure, long cif) { PointerBuffer.put(ffi_closure, ffi_closure.position() + CIF, cif); }
-	public static void cif(ByteBuffer ffi_closure, ByteBuffer cif) { cif(ffi_closure, memAddress(cif)); }
+	public static void cif(ByteBuffer ffi_closure, ByteBuffer cif) { cif(ffi_closure, memAddressSafe(cif)); }
 	public static void fun(ByteBuffer ffi_closure, long fun) { PointerBuffer.put(ffi_closure, ffi_closure.position() + FUN, fun); }
 	public static void user_data(ByteBuffer ffi_closure, long user_data) { PointerBuffer.put(ffi_closure, ffi_closure.position() + USER_DATA, user_data); }
 

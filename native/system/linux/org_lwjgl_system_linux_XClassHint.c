@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XClassHint_offsets(JNIEnv *__
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XClassHint, res_name));
-	buffer[1] = (jint)(offsetof(XClassHint, res_class));
+	buffer[0] = (jint)offsetof(XClassHint, res_name);
+	buffer[1] = (jint)offsetof(XClassHint, res_class);
 
 	return sizeof(XClassHint);
 }

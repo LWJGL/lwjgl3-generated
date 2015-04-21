@@ -14,16 +14,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XSelectionRequestEvent_offset
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XSelectionRequestEvent, type));
-	buffer[1] = (jint)(offsetof(XSelectionRequestEvent, serial));
-	buffer[2] = (jint)(offsetof(XSelectionRequestEvent, send_event));
-	buffer[3] = (jint)(offsetof(XSelectionRequestEvent, display));
-	buffer[4] = (jint)(offsetof(XSelectionRequestEvent, owner));
-	buffer[5] = (jint)(offsetof(XSelectionRequestEvent, requestor));
-	buffer[6] = (jint)(offsetof(XSelectionRequestEvent, selection));
-	buffer[7] = (jint)(offsetof(XSelectionRequestEvent, target));
-	buffer[8] = (jint)(offsetof(XSelectionRequestEvent, property));
-	buffer[9] = (jint)(offsetof(XSelectionRequestEvent, time));
+	buffer[0] = (jint)offsetof(XSelectionRequestEvent, type);
+	buffer[1] = (jint)offsetof(XSelectionRequestEvent, serial);
+	buffer[2] = (jint)offsetof(XSelectionRequestEvent, send_event);
+	buffer[3] = (jint)offsetof(XSelectionRequestEvent, display);
+	buffer[4] = (jint)offsetof(XSelectionRequestEvent, owner);
+	buffer[5] = (jint)offsetof(XSelectionRequestEvent, requestor);
+	buffer[6] = (jint)offsetof(XSelectionRequestEvent, selection);
+	buffer[7] = (jint)offsetof(XSelectionRequestEvent, target);
+	buffer[8] = (jint)offsetof(XSelectionRequestEvent, property);
+	buffer[9] = (jint)offsetof(XSelectionRequestEvent, time);
 
 	return sizeof(XSelectionRequestEvent);
 }

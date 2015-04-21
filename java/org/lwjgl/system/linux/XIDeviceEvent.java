@@ -111,25 +111,21 @@ public final class XIDeviceEvent implements Pointer {
 	public void setEventX(double event_x) { event_x(struct, event_x); }
 	public void setEventY(double event_y) { event_y(struct, event_y); }
 	public void setFlags(int flags) { flags(struct, flags); }
-	public void setButtons(long buttons) { buttonsSet(struct, buttons); }
 	public void setButtons(ByteBuffer buttons) { buttonsSet(struct, buttons); }
 	public void setButtonsMaskLen(int mask_len) { buttonsMask_len(struct, mask_len); }
 	public void setButtonsMask(long mask) { buttonsMask(struct, mask); }
 	public void setButtonsMask(ByteBuffer mask) { buttonsMask(struct, mask); }
-	public void setValuators(long valuators) { valuatorsSet(struct, valuators); }
 	public void setValuators(ByteBuffer valuators) { valuatorsSet(struct, valuators); }
 	public void setValuatorsMaskLen(int mask_len) { valuatorsMask_len(struct, mask_len); }
 	public void setValuatorsMask(long mask) { valuatorsMask(struct, mask); }
 	public void setValuatorsMask(ByteBuffer mask) { valuatorsMask(struct, mask); }
 	public void setValuatorsValues(long values) { valuatorsValues(struct, values); }
 	public void setValuatorsValues(ByteBuffer values) { valuatorsValues(struct, values); }
-	public void setMods(long mods) { modsSet(struct, mods); }
 	public void setMods(ByteBuffer mods) { modsSet(struct, mods); }
 	public void setModsBase(int base) { modsBase(struct, base); }
 	public void setModsLatched(int latched) { modsLatched(struct, latched); }
 	public void setModsLocked(int locked) { modsLocked(struct, locked); }
 	public void setModsEffective(int effective) { modsEffective(struct, effective); }
-	public void setGroup(long group) { groupSet(struct, group); }
 	public void setGroup(ByteBuffer group) { groupSet(struct, group); }
 	public void setGroupBase(int base) { groupBase(struct, base); }
 	public void setGroupLatched(int latched) { groupLatched(struct, latched); }
@@ -154,25 +150,21 @@ public final class XIDeviceEvent implements Pointer {
 	public double getEventX() { return event_x(struct); }
 	public double getEventY() { return event_y(struct); }
 	public int getFlags() { return flags(struct); }
-	public void getButtons(long buttons) { buttonsGet(struct, buttons); }
 	public void getButtons(ByteBuffer buttons) { buttonsGet(struct, buttons); }
 	public int getButtonsMaskLen() { return buttonsMask_len(struct); }
 	public long getButtonsMask() { return buttonsMask(struct); }
 	public ByteBuffer getButtonsMask(int size) { return buttonsMask(struct, size); }
-	public void getValuators(long valuators) { valuatorsGet(struct, valuators); }
 	public void getValuators(ByteBuffer valuators) { valuatorsGet(struct, valuators); }
 	public int getValuatorsMaskLen() { return valuatorsMask_len(struct); }
 	public long getValuatorsMask() { return valuatorsMask(struct); }
 	public ByteBuffer getValuatorsMask(int size) { return valuatorsMask(struct, size); }
 	public long getValuatorsValues() { return valuatorsValues(struct); }
 	public ByteBuffer getValuatorsValues(int size) { return valuatorsValues(struct, size); }
-	public void getMods(long mods) { modsGet(struct, mods); }
 	public void getMods(ByteBuffer mods) { modsGet(struct, mods); }
 	public int getModsBase() { return modsBase(struct); }
 	public int getModsLatched() { return modsLatched(struct); }
 	public int getModsLocked() { return modsLocked(struct); }
 	public int getModsEffective() { return modsEffective(struct); }
-	public void getGroup(long group) { groupGet(struct, group); }
 	public void getGroup(ByteBuffer group) { groupGet(struct, group); }
 	public int getGroupBase() { return groupBase(struct); }
 	public int getGroupLatched() { return groupLatched(struct); }
@@ -187,59 +179,6 @@ public final class XIDeviceEvent implements Pointer {
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		int type,
-		long serial,
-		int send_event,
-		long display,
-		int extension,
-		int evtype,
-		long time,
-		int deviceid,
-		int sourceid,
-		int detail,
-		long root,
-		long event,
-		long child,
-		double root_x,
-		double root_y,
-		double event_x,
-		double event_y,
-		int flags,
-		long buttons,
-		long valuators,
-		long mods,
-		long group
-	) {
-		ByteBuffer xideviceevent = malloc();
-
-		type(xideviceevent, type);
-		serial(xideviceevent, serial);
-		send_event(xideviceevent, send_event);
-		display(xideviceevent, display);
-		extension(xideviceevent, extension);
-		evtype(xideviceevent, evtype);
-		time(xideviceevent, time);
-		deviceid(xideviceevent, deviceid);
-		sourceid(xideviceevent, sourceid);
-		detail(xideviceevent, detail);
-		root(xideviceevent, root);
-		event(xideviceevent, event);
-		child(xideviceevent, child);
-		root_x(xideviceevent, root_x);
-		root_y(xideviceevent, root_y);
-		event_x(xideviceevent, event_x);
-		event_y(xideviceevent, event_y);
-		flags(xideviceevent, flags);
-		buttonsSet(xideviceevent, buttons);
-		valuatorsSet(xideviceevent, valuators);
-		modsSet(xideviceevent, mods);
-		groupSet(xideviceevent, group);
-
-		return xideviceevent;
-	}
-
-	/** Alternative virtual constructor. */
 	public static ByteBuffer malloc(
 		int type,
 		long serial,
@@ -310,26 +249,22 @@ public final class XIDeviceEvent implements Pointer {
 	public static void event_x(ByteBuffer xideviceevent, double event_x) { xideviceevent.putDouble(xideviceevent.position() + EVENT_X, event_x); }
 	public static void event_y(ByteBuffer xideviceevent, double event_y) { xideviceevent.putDouble(xideviceevent.position() + EVENT_Y, event_y); }
 	public static void flags(ByteBuffer xideviceevent, int flags) { xideviceevent.putInt(xideviceevent.position() + FLAGS, flags); }
-	public static void buttonsSet(ByteBuffer xideviceevent, long buttons) { if ( buttons != NULL ) memCopy(buttons, memAddress(xideviceevent) + BUTTONS, XIButtonState.SIZEOF); }
-	public static void buttonsSet(ByteBuffer xideviceevent, ByteBuffer buttons) { buttonsSet(xideviceevent, memAddressSafe(buttons)); }
+	public static void buttonsSet(ByteBuffer xideviceevent, ByteBuffer buttons) { if ( buttons != null ) memCopy(memAddress(buttons), memAddress(xideviceevent) + BUTTONS, XIButtonState.SIZEOF); }
 	public static void buttonsMask_len(ByteBuffer xideviceevent, int mask_len) { xideviceevent.putInt(xideviceevent.position() + BUTTONS + XIButtonState.MASK_LEN, mask_len); }
 	public static void buttonsMask(ByteBuffer xideviceevent, long mask) { PointerBuffer.put(xideviceevent, xideviceevent.position() + BUTTONS + XIButtonState.MASK, mask); }
-	public static void buttonsMask(ByteBuffer xideviceevent, ByteBuffer mask) { buttonsMask(xideviceevent, memAddress(mask)); }
-	public static void valuatorsSet(ByteBuffer xideviceevent, long valuators) { if ( valuators != NULL ) memCopy(valuators, memAddress(xideviceevent) + VALUATORS, XIValuatorState.SIZEOF); }
-	public static void valuatorsSet(ByteBuffer xideviceevent, ByteBuffer valuators) { valuatorsSet(xideviceevent, memAddressSafe(valuators)); }
+	public static void buttonsMask(ByteBuffer xideviceevent, ByteBuffer mask) { buttonsMask(xideviceevent, memAddressSafe(mask)); }
+	public static void valuatorsSet(ByteBuffer xideviceevent, ByteBuffer valuators) { if ( valuators != null ) memCopy(memAddress(valuators), memAddress(xideviceevent) + VALUATORS, XIValuatorState.SIZEOF); }
 	public static void valuatorsMask_len(ByteBuffer xideviceevent, int mask_len) { xideviceevent.putInt(xideviceevent.position() + VALUATORS + XIValuatorState.MASK_LEN, mask_len); }
 	public static void valuatorsMask(ByteBuffer xideviceevent, long mask) { PointerBuffer.put(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.MASK, mask); }
-	public static void valuatorsMask(ByteBuffer xideviceevent, ByteBuffer mask) { valuatorsMask(xideviceevent, memAddress(mask)); }
+	public static void valuatorsMask(ByteBuffer xideviceevent, ByteBuffer mask) { valuatorsMask(xideviceevent, memAddressSafe(mask)); }
 	public static void valuatorsValues(ByteBuffer xideviceevent, long values) { PointerBuffer.put(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.VALUES, values); }
-	public static void valuatorsValues(ByteBuffer xideviceevent, ByteBuffer values) { valuatorsValues(xideviceevent, memAddress(values)); }
-	public static void modsSet(ByteBuffer xideviceevent, long mods) { if ( mods != NULL ) memCopy(mods, memAddress(xideviceevent) + MODS, XIModifierState.SIZEOF); }
-	public static void modsSet(ByteBuffer xideviceevent, ByteBuffer mods) { modsSet(xideviceevent, memAddressSafe(mods)); }
+	public static void valuatorsValues(ByteBuffer xideviceevent, ByteBuffer values) { valuatorsValues(xideviceevent, memAddressSafe(values)); }
+	public static void modsSet(ByteBuffer xideviceevent, ByteBuffer mods) { if ( mods != null ) memCopy(memAddress(mods), memAddress(xideviceevent) + MODS, XIModifierState.SIZEOF); }
 	public static void modsBase(ByteBuffer xideviceevent, int base) { xideviceevent.putInt(xideviceevent.position() + MODS + XIModifierState.BASE, base); }
 	public static void modsLatched(ByteBuffer xideviceevent, int latched) { xideviceevent.putInt(xideviceevent.position() + MODS + XIModifierState.LATCHED, latched); }
 	public static void modsLocked(ByteBuffer xideviceevent, int locked) { xideviceevent.putInt(xideviceevent.position() + MODS + XIModifierState.LOCKED, locked); }
 	public static void modsEffective(ByteBuffer xideviceevent, int effective) { xideviceevent.putInt(xideviceevent.position() + MODS + XIModifierState.EFFECTIVE, effective); }
-	public static void groupSet(ByteBuffer xideviceevent, long group) { if ( group != NULL ) memCopy(group, memAddress(xideviceevent) + GROUP, XIModifierState.SIZEOF); }
-	public static void groupSet(ByteBuffer xideviceevent, ByteBuffer group) { groupSet(xideviceevent, memAddressSafe(group)); }
+	public static void groupSet(ByteBuffer xideviceevent, ByteBuffer group) { if ( group != null ) memCopy(memAddress(group), memAddress(xideviceevent) + GROUP, XIModifierState.SIZEOF); }
 	public static void groupBase(ByteBuffer xideviceevent, int base) { xideviceevent.putInt(xideviceevent.position() + GROUP + XIModifierState.BASE, base); }
 	public static void groupLatched(ByteBuffer xideviceevent, int latched) { xideviceevent.putInt(xideviceevent.position() + GROUP + XIModifierState.LATCHED, latched); }
 	public static void groupLocked(ByteBuffer xideviceevent, int locked) { xideviceevent.putInt(xideviceevent.position() + GROUP + XIModifierState.LOCKED, locked); }
@@ -353,26 +288,22 @@ public final class XIDeviceEvent implements Pointer {
 	public static double event_x(ByteBuffer xideviceevent) { return xideviceevent.getDouble(xideviceevent.position() + EVENT_X); }
 	public static double event_y(ByteBuffer xideviceevent) { return xideviceevent.getDouble(xideviceevent.position() + EVENT_Y); }
 	public static int flags(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + FLAGS); }
-	public static void buttonsGet(ByteBuffer xideviceevent, long buttons) { memCopy(memAddress(xideviceevent) + BUTTONS, buttons, XIButtonState.SIZEOF); }
-	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { checkBuffer(buttons, XIButtonState.SIZEOF); buttonsGet(xideviceevent, memAddress(buttons)); }
+	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { checkBuffer(buttons, XIButtonState.SIZEOF); memCopy(memAddress(xideviceevent) + BUTTONS, memAddress(buttons), XIButtonState.SIZEOF); }
 	public static int buttonsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + BUTTONS + XIButtonState.MASK_LEN); }
 	public static long buttonsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + BUTTONS + XIButtonState.MASK); }
 	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int size) { long address = buttonsMask(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
-	public static void valuatorsGet(ByteBuffer xideviceevent, long valuators) { memCopy(memAddress(xideviceevent) + VALUATORS, valuators, XIValuatorState.SIZEOF); }
-	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { checkBuffer(valuators, XIValuatorState.SIZEOF); valuatorsGet(xideviceevent, memAddress(valuators)); }
+	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { checkBuffer(valuators, XIValuatorState.SIZEOF); memCopy(memAddress(xideviceevent) + VALUATORS, memAddress(valuators), XIValuatorState.SIZEOF); }
 	public static int valuatorsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + VALUATORS + XIValuatorState.MASK_LEN); }
 	public static long valuatorsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.MASK); }
 	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int size) { long address = valuatorsMask(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
 	public static long valuatorsValues(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.VALUES); }
 	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int size) { long address = valuatorsValues(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
-	public static void modsGet(ByteBuffer xideviceevent, long mods) { memCopy(memAddress(xideviceevent) + MODS, mods, XIModifierState.SIZEOF); }
-	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { checkBuffer(mods, XIModifierState.SIZEOF); modsGet(xideviceevent, memAddress(mods)); }
+	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { checkBuffer(mods, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + MODS, memAddress(mods), XIModifierState.SIZEOF); }
 	public static int modsBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.BASE); }
 	public static int modsLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LATCHED); }
 	public static int modsLocked(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LOCKED); }
 	public static int modsEffective(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.EFFECTIVE); }
-	public static void groupGet(ByteBuffer xideviceevent, long group) { memCopy(memAddress(xideviceevent) + GROUP, group, XIModifierState.SIZEOF); }
-	public static void groupGet(ByteBuffer xideviceevent, ByteBuffer group) { checkBuffer(group, XIModifierState.SIZEOF); groupGet(xideviceevent, memAddress(group)); }
+	public static void groupGet(ByteBuffer xideviceevent, ByteBuffer group) { checkBuffer(group, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + GROUP, memAddress(group), XIModifierState.SIZEOF); }
 	public static int groupBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.BASE); }
 	public static int groupLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.LATCHED); }
 	public static int groupLocked(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.LOCKED); }

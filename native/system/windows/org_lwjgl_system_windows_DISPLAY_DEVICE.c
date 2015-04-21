@@ -14,12 +14,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_DISPLAY_1DEVICE_offsets(JNI
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(DISPLAY_DEVICE, cb));
-	buffer[1] = (jint)(offsetof(DISPLAY_DEVICE, DeviceName));
-	buffer[2] = (jint)(offsetof(DISPLAY_DEVICE, DeviceString));
-	buffer[3] = (jint)(offsetof(DISPLAY_DEVICE, StateFlags));
-	buffer[4] = (jint)(offsetof(DISPLAY_DEVICE, DeviceID));
-	buffer[5] = (jint)(offsetof(DISPLAY_DEVICE, DeviceKey));
+	buffer[0] = (jint)offsetof(DISPLAY_DEVICE, cb);
+	buffer[1] = (jint)offsetof(DISPLAY_DEVICE, DeviceName);
+	buffer[2] = (jint)offsetof(DISPLAY_DEVICE, DeviceString);
+	buffer[3] = (jint)offsetof(DISPLAY_DEVICE, StateFlags);
+	buffer[4] = (jint)offsetof(DISPLAY_DEVICE, DeviceID);
+	buffer[5] = (jint)offsetof(DISPLAY_DEVICE, DeviceKey);
 
 	return sizeof(DISPLAY_DEVICE);
 }

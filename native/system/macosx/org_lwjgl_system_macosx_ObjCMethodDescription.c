@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_macosx_ObjCMethodDescription_offset
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(struct objc_method_description, name));
-	buffer[1] = (jint)(offsetof(struct objc_method_description, types));
+	buffer[0] = (jint)offsetof(struct objc_method_description, name);
+	buffer[1] = (jint)offsetof(struct objc_method_description, types);
 
 	return sizeof(struct objc_method_description);
 }

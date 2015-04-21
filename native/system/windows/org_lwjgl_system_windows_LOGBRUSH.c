@@ -14,9 +14,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGBRUSH_offsets(JNIEnv *__
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(LOGBRUSH, lbStyle));
-	buffer[1] = (jint)(offsetof(LOGBRUSH, lbColor));
-	buffer[2] = (jint)(offsetof(LOGBRUSH, lbHatch));
+	buffer[0] = (jint)offsetof(LOGBRUSH, lbStyle);
+	buffer[1] = (jint)offsetof(LOGBRUSH, lbColor);
+	buffer[2] = (jint)offsetof(LOGBRUSH, lbHatch);
 
 	return sizeof(LOGBRUSH);
 }

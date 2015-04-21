@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CLBusAddressAMD_offsets(JNIEnv *__e
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(cl_bus_address_amd, surface_bus_address));
-	buffer[1] = (jint)(offsetof(cl_bus_address_amd, marker_bus_address));
+	buffer[0] = (jint)offsetof(cl_bus_address_amd, surface_bus_address);
+	buffer[1] = (jint)offsetof(cl_bus_address_amd, marker_bus_address);
 
 	return sizeof(cl_bus_address_amd);
 }

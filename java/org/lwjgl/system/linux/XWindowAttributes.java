@@ -160,61 +160,6 @@ public final class XWindowAttributes implements Pointer {
 		int height,
 		int border_width,
 		int depth,
-		long visual,
-		long root,
-		int clazz,
-		int bit_gravity,
-		int win_gravity,
-		int backing_store,
-		long backing_planes,
-		long backing_pixel,
-		int save_under,
-		long colormap,
-		int map_installed,
-		int map_state,
-		long all_event_masks,
-		long your_event_mask,
-		long do_not_propagate_mask,
-		int override_redirect,
-		long screen
-	) {
-		ByteBuffer xwindowattributes = malloc();
-
-		x(xwindowattributes, x);
-		y(xwindowattributes, y);
-		width(xwindowattributes, width);
-		height(xwindowattributes, height);
-		border_width(xwindowattributes, border_width);
-		depth(xwindowattributes, depth);
-		visual(xwindowattributes, visual);
-		root(xwindowattributes, root);
-		clazz(xwindowattributes, clazz);
-		bit_gravity(xwindowattributes, bit_gravity);
-		win_gravity(xwindowattributes, win_gravity);
-		backing_store(xwindowattributes, backing_store);
-		backing_planes(xwindowattributes, backing_planes);
-		backing_pixel(xwindowattributes, backing_pixel);
-		save_under(xwindowattributes, save_under);
-		colormap(xwindowattributes, colormap);
-		map_installed(xwindowattributes, map_installed);
-		map_state(xwindowattributes, map_state);
-		all_event_masks(xwindowattributes, all_event_masks);
-		your_event_mask(xwindowattributes, your_event_mask);
-		do_not_propagate_mask(xwindowattributes, do_not_propagate_mask);
-		override_redirect(xwindowattributes, override_redirect);
-		screen(xwindowattributes, screen);
-
-		return xwindowattributes;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int x,
-		int y,
-		int width,
-		int height,
-		int border_width,
-		int depth,
 		ByteBuffer visual,
 		long root,
 		int clazz,
@@ -269,7 +214,7 @@ public final class XWindowAttributes implements Pointer {
 	public static void border_width(ByteBuffer xwindowattributes, int border_width) { xwindowattributes.putInt(xwindowattributes.position() + BORDER_WIDTH, border_width); }
 	public static void depth(ByteBuffer xwindowattributes, int depth) { xwindowattributes.putInt(xwindowattributes.position() + DEPTH, depth); }
 	public static void visual(ByteBuffer xwindowattributes, long visual) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + VISUAL, visual); }
-	public static void visual(ByteBuffer xwindowattributes, ByteBuffer visual) { visual(xwindowattributes, memAddress(visual)); }
+	public static void visual(ByteBuffer xwindowattributes, ByteBuffer visual) { visual(xwindowattributes, memAddressSafe(visual)); }
 	public static void root(ByteBuffer xwindowattributes, long root) { PointerBuffer.put(xwindowattributes, xwindowattributes.position() + ROOT, root); }
 	public static void clazz(ByteBuffer xwindowattributes, int clazz) { xwindowattributes.putInt(xwindowattributes.position() + CLAZZ, clazz); }
 	public static void bit_gravity(ByteBuffer xwindowattributes, int bit_gravity) { xwindowattributes.putInt(xwindowattributes.position() + BIT_GRAVITY, bit_gravity); }

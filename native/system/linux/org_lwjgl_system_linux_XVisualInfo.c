@@ -15,16 +15,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XVisualInfo_offsets(JNIEnv *_
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XVisualInfo, visual));
-	buffer[1] = (jint)(offsetof(XVisualInfo, visualid));
-	buffer[2] = (jint)(offsetof(XVisualInfo, screen));
-	buffer[3] = (jint)(offsetof(XVisualInfo, depth));
-	buffer[4] = (jint)(offsetof(XVisualInfo, class));
-	buffer[5] = (jint)(offsetof(XVisualInfo, red_mask));
-	buffer[6] = (jint)(offsetof(XVisualInfo, green_mask));
-	buffer[7] = (jint)(offsetof(XVisualInfo, blue_mask));
-	buffer[8] = (jint)(offsetof(XVisualInfo, colormap_size));
-	buffer[9] = (jint)(offsetof(XVisualInfo, bits_per_rgb));
+	buffer[0] = (jint)offsetof(XVisualInfo, visual);
+	buffer[1] = (jint)offsetof(XVisualInfo, visualid);
+	buffer[2] = (jint)offsetof(XVisualInfo, screen);
+	buffer[3] = (jint)offsetof(XVisualInfo, depth);
+	buffer[4] = (jint)offsetof(XVisualInfo, class);
+	buffer[5] = (jint)offsetof(XVisualInfo, red_mask);
+	buffer[6] = (jint)offsetof(XVisualInfo, green_mask);
+	buffer[7] = (jint)offsetof(XVisualInfo, blue_mask);
+	buffer[8] = (jint)offsetof(XVisualInfo, colormap_size);
+	buffer[9] = (jint)offsetof(XVisualInfo, bits_per_rgb);
 
 	return sizeof(XVisualInfo);
 }

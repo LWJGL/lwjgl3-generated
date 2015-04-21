@@ -15,10 +15,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIModifierState_offsets(JNIEn
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XIModifierState, base));
-	buffer[1] = (jint)(offsetof(XIModifierState, latched));
-	buffer[2] = (jint)(offsetof(XIModifierState, locked));
-	buffer[3] = (jint)(offsetof(XIModifierState, effective));
+	buffer[0] = (jint)offsetof(XIModifierState, base);
+	buffer[1] = (jint)offsetof(XIModifierState, latched);
+	buffer[2] = (jint)offsetof(XIModifierState, locked);
+	buffer[3] = (jint)offsetof(XIModifierState, effective);
 
 	return sizeof(XIModifierState);
 }

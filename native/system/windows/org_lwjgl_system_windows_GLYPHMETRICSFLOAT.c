@@ -14,11 +14,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GLYPHMETRICSFLOAT_offsets(J
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(GLYPHMETRICSFLOAT, gmfBlackBoxX));
-	buffer[1] = (jint)(offsetof(GLYPHMETRICSFLOAT, gmfBlackBoxY));
-	buffer[2] = (jint)(offsetof(GLYPHMETRICSFLOAT, gmfptGlyphOrigin));
-	buffer[3] = (jint)(offsetof(GLYPHMETRICSFLOAT, gmfCellIncX));
-	buffer[4] = (jint)(offsetof(GLYPHMETRICSFLOAT, gmfCellIncY));
+	buffer[0] = (jint)offsetof(GLYPHMETRICSFLOAT, gmfBlackBoxX);
+	buffer[1] = (jint)offsetof(GLYPHMETRICSFLOAT, gmfBlackBoxY);
+	buffer[2] = (jint)offsetof(GLYPHMETRICSFLOAT, gmfptGlyphOrigin);
+	buffer[3] = (jint)offsetof(GLYPHMETRICSFLOAT, gmfCellIncX);
+	buffer[4] = (jint)offsetof(GLYPHMETRICSFLOAT, gmfCellIncY);
 
 	return sizeof(GLYPHMETRICSFLOAT);
 }

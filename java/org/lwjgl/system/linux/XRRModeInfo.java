@@ -129,43 +129,6 @@ public final class XRRModeInfo implements Pointer {
 		int vSyncStart,
 		int vSyncEnd,
 		int vTotal,
-		long name,
-		int nameLength,
-		long modeFlags
-	) {
-		ByteBuffer xrrmodeinfo = malloc();
-
-		id(xrrmodeinfo, id);
-		width(xrrmodeinfo, width);
-		height(xrrmodeinfo, height);
-		dotClock(xrrmodeinfo, dotClock);
-		hSyncStart(xrrmodeinfo, hSyncStart);
-		hSyncEnd(xrrmodeinfo, hSyncEnd);
-		hTotal(xrrmodeinfo, hTotal);
-		hSkew(xrrmodeinfo, hSkew);
-		vSyncStart(xrrmodeinfo, vSyncStart);
-		vSyncEnd(xrrmodeinfo, vSyncEnd);
-		vTotal(xrrmodeinfo, vTotal);
-		name(xrrmodeinfo, name);
-		nameLength(xrrmodeinfo, nameLength);
-		modeFlags(xrrmodeinfo, modeFlags);
-
-		return xrrmodeinfo;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long id,
-		int width,
-		int height,
-		long dotClock,
-		int hSyncStart,
-		int hSyncEnd,
-		int hTotal,
-		int hSkew,
-		int vSyncStart,
-		int vSyncEnd,
-		int vTotal,
 		ByteBuffer name,
 		int nameLength,
 		long modeFlags
@@ -202,7 +165,7 @@ public final class XRRModeInfo implements Pointer {
 	public static void vSyncEnd(ByteBuffer xrrmodeinfo, int vSyncEnd) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VSYNCEND, vSyncEnd); }
 	public static void vTotal(ByteBuffer xrrmodeinfo, int vTotal) { xrrmodeinfo.putInt(xrrmodeinfo.position() + VTOTAL, vTotal); }
 	public static void name(ByteBuffer xrrmodeinfo, long name) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + NAME, name); }
-	public static void name(ByteBuffer xrrmodeinfo, ByteBuffer name) { name(xrrmodeinfo, memAddress(name)); }
+	public static void name(ByteBuffer xrrmodeinfo, ByteBuffer name) { name(xrrmodeinfo, memAddressSafe(name)); }
 	public static void nameLength(ByteBuffer xrrmodeinfo, int nameLength) { xrrmodeinfo.putInt(xrrmodeinfo.position() + NAMELENGTH, nameLength); }
 	public static void modeFlags(ByteBuffer xrrmodeinfo, long modeFlags) { PointerBuffer.put(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS, modeFlags); }
 

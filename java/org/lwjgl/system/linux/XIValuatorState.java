@@ -77,21 +77,6 @@ public final class XIValuatorState implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int mask_len,
-		long mask,
-		long values
-	) {
-		ByteBuffer xivaluatorstate = malloc();
-
-		mask_len(xivaluatorstate, mask_len);
-		mask(xivaluatorstate, mask);
-		values(xivaluatorstate, values);
-
-		return xivaluatorstate;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int mask_len,
 		ByteBuffer mask,
 		ByteBuffer values
 	) {
@@ -106,9 +91,9 @@ public final class XIValuatorState implements Pointer {
 
 	public static void mask_len(ByteBuffer xivaluatorstate, int mask_len) { xivaluatorstate.putInt(xivaluatorstate.position() + MASK_LEN, mask_len); }
 	public static void mask(ByteBuffer xivaluatorstate, long mask) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + MASK, mask); }
-	public static void mask(ByteBuffer xivaluatorstate, ByteBuffer mask) { mask(xivaluatorstate, memAddress(mask)); }
+	public static void mask(ByteBuffer xivaluatorstate, ByteBuffer mask) { mask(xivaluatorstate, memAddressSafe(mask)); }
 	public static void values(ByteBuffer xivaluatorstate, long values) { PointerBuffer.put(xivaluatorstate, xivaluatorstate.position() + VALUES, values); }
-	public static void values(ByteBuffer xivaluatorstate, ByteBuffer values) { values(xivaluatorstate, memAddress(values)); }
+	public static void values(ByteBuffer xivaluatorstate, ByteBuffer values) { values(xivaluatorstate, memAddressSafe(values)); }
 
 	public static int mask_len(ByteBuffer xivaluatorstate) { return xivaluatorstate.getInt(xivaluatorstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + MASK); }

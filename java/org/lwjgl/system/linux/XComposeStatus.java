@@ -70,19 +70,6 @@ public final class XComposeStatus implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		long compose_ptr,
-		int chars_matched
-	) {
-		ByteBuffer xcomposestatus = malloc();
-
-		compose_ptr(xcomposestatus, compose_ptr);
-		chars_matched(xcomposestatus, chars_matched);
-
-		return xcomposestatus;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
 		ByteBuffer compose_ptr,
 		int chars_matched
 	) {
@@ -95,7 +82,7 @@ public final class XComposeStatus implements Pointer {
 	}
 
 	public static void compose_ptr(ByteBuffer xcomposestatus, long compose_ptr) { PointerBuffer.put(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR, compose_ptr); }
-	public static void compose_ptr(ByteBuffer xcomposestatus, ByteBuffer compose_ptr) { compose_ptr(xcomposestatus, memAddress(compose_ptr)); }
+	public static void compose_ptr(ByteBuffer xcomposestatus, ByteBuffer compose_ptr) { compose_ptr(xcomposestatus, memAddressSafe(compose_ptr)); }
 	public static void chars_matched(ByteBuffer xcomposestatus, int chars_matched) { xcomposestatus.putInt(xcomposestatus.position() + CHARS_MATCHED, chars_matched); }
 
 	public static long compose_ptr(ByteBuffer xcomposestatus) { return PointerBuffer.get(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR); }

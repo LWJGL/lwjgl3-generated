@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XkbKeyAliasRec_offsets(JNIEnv
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XkbKeyAliasRec, real));
-	buffer[1] = (jint)(offsetof(XkbKeyAliasRec, alias));
+	buffer[0] = (jint)offsetof(XkbKeyAliasRec, real);
+	buffer[1] = (jint)offsetof(XkbKeyAliasRec, alias);
 
 	return sizeof(XkbKeyAliasRec);
 }

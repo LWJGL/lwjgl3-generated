@@ -14,13 +14,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_Visual_offsets(JNIEnv *__env,
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(Visual, visualid));
-	buffer[1] = (jint)(offsetof(Visual, class));
-	buffer[2] = (jint)(offsetof(Visual, red_mask));
-	buffer[3] = (jint)(offsetof(Visual, green_mask));
-	buffer[4] = (jint)(offsetof(Visual, blue_mask));
-	buffer[5] = (jint)(offsetof(Visual, bits_per_rgb));
-	buffer[6] = (jint)(offsetof(Visual, map_entries));
+	buffer[0] = (jint)offsetof(Visual, visualid);
+	buffer[1] = (jint)offsetof(Visual, class);
+	buffer[2] = (jint)offsetof(Visual, red_mask);
+	buffer[3] = (jint)offsetof(Visual, green_mask);
+	buffer[4] = (jint)offsetof(Visual, blue_mask);
+	buffer[5] = (jint)offsetof(Visual, bits_per_rgb);
+	buffer[6] = (jint)offsetof(Visual, map_entries);
 
 	return sizeof(Visual);
 }

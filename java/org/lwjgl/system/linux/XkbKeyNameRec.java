@@ -51,11 +51,9 @@ public final class XkbKeyNameRec implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setName(long name, int bytes) { nameSet(struct, name, bytes); }
 	public void setName(ByteBuffer name) { nameSet(struct, name); }
 	public void setName(CharSequence name) { name(struct, name); }
 
-	public void getName(long name, int bytes) { nameGet(struct, name, bytes); }
 	public void getName(ByteBuffer name) { nameGet(struct, name); }
 	public String getNameString() { return nameString(struct); }
 
@@ -68,18 +66,6 @@ public final class XkbKeyNameRec implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		long name,
-		int nameBytes
-	) {
-		ByteBuffer xkbkeynamerec = malloc();
-
-		nameSet(xkbkeynamerec, name, nameBytes);
-
-		return xkbkeynamerec;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
 		ByteBuffer name
 	) {
 		ByteBuffer xkbkeynamerec = malloc();
@@ -89,7 +75,7 @@ public final class XkbKeyNameRec implements Pointer {
 		return xkbkeynamerec;
 	}
 
-	/** Alternative virtual constructor. */
+	/** Alternative virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		CharSequence name
 	) {
@@ -100,20 +86,16 @@ public final class XkbKeyNameRec implements Pointer {
 		return xkbkeynamerec;
 	}
 
-	public static void nameSet(ByteBuffer xkbkeynamerec, long name, int bytes) { memCopy(name, memAddress(xkbkeynamerec) + NAME, bytes); }
 	public static void nameSet(ByteBuffer xkbkeynamerec, ByteBuffer name) {
 		checkNT1(name);
 		checkBufferGT(name, 4 * 1);
-		nameSet(xkbkeynamerec, memAddress(name), name.remaining());
+		memCopy(memAddress(name), memAddress(xkbkeynamerec) + NAME, name.remaining());
 	}
 	public static void name(ByteBuffer xkbkeynamerec, CharSequence name) { memEncodeASCII(name, false, xkbkeynamerec, NAME); }
 
-	public static void nameGet(ByteBuffer xkbkeynamerec, long name, int bytes) {
-		memCopy(memAddress(xkbkeynamerec) + NAME, name, bytes);
-	}
 	public static void nameGet(ByteBuffer xkbkeynamerec, ByteBuffer name) {
 		checkBufferGT(name, 4 * 1);
-		nameGet(xkbkeynamerec, memAddress(name), name.remaining());
+		memCopy(memAddress(xkbkeynamerec) + NAME, memAddress(name), name.remaining());
 	}
 	public static String nameString(ByteBuffer xkbkeynamerec) { return memDecodeASCII(xkbkeynamerec, 4, NAME); }
 

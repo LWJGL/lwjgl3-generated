@@ -14,14 +14,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XGenericEventCookie_offsets(J
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XGenericEventCookie, type));
-	buffer[1] = (jint)(offsetof(XGenericEventCookie, serial));
-	buffer[2] = (jint)(offsetof(XGenericEventCookie, send_event));
-	buffer[3] = (jint)(offsetof(XGenericEventCookie, display));
-	buffer[4] = (jint)(offsetof(XGenericEventCookie, extension));
-	buffer[5] = (jint)(offsetof(XGenericEventCookie, evtype));
-	buffer[6] = (jint)(offsetof(XGenericEventCookie, cookie));
-	buffer[7] = (jint)(offsetof(XGenericEventCookie, data));
+	buffer[0] = (jint)offsetof(XGenericEventCookie, type);
+	buffer[1] = (jint)offsetof(XGenericEventCookie, serial);
+	buffer[2] = (jint)offsetof(XGenericEventCookie, send_event);
+	buffer[3] = (jint)offsetof(XGenericEventCookie, display);
+	buffer[4] = (jint)offsetof(XGenericEventCookie, extension);
+	buffer[5] = (jint)offsetof(XGenericEventCookie, evtype);
+	buffer[6] = (jint)offsetof(XGenericEventCookie, cookie);
+	buffer[7] = (jint)offsetof(XGenericEventCookie, data);
 
 	return sizeof(XGenericEventCookie);
 }

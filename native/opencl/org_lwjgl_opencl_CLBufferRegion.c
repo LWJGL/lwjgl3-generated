@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CLBufferRegion_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(cl_buffer_region, origin));
-	buffer[1] = (jint)(offsetof(cl_buffer_region, size));
+	buffer[0] = (jint)offsetof(cl_buffer_region, origin);
+	buffer[1] = (jint)offsetof(cl_buffer_region, size);
 
 	return sizeof(cl_buffer_region);
 }

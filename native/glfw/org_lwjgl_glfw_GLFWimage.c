@@ -14,9 +14,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_GLFWimage_offsets(JNIEnv *__env, jcla
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(GLFWimage, width));
-	buffer[1] = (jint)(offsetof(GLFWimage, height));
-	buffer[2] = (jint)(offsetof(GLFWimage, pixels));
+	buffer[0] = (jint)offsetof(GLFWimage, width);
+	buffer[1] = (jint)offsetof(GLFWimage, height);
+	buffer[2] = (jint)offsetof(GLFWimage, pixels);
 
 	return sizeof(GLFWimage);
 }

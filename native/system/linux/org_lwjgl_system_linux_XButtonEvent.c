@@ -14,21 +14,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XButtonEvent_offsets(JNIEnv *
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XButtonEvent, type));
-	buffer[1] = (jint)(offsetof(XButtonEvent, serial));
-	buffer[2] = (jint)(offsetof(XButtonEvent, send_event));
-	buffer[3] = (jint)(offsetof(XButtonEvent, display));
-	buffer[4] = (jint)(offsetof(XButtonEvent, window));
-	buffer[5] = (jint)(offsetof(XButtonEvent, root));
-	buffer[6] = (jint)(offsetof(XButtonEvent, subwindow));
-	buffer[7] = (jint)(offsetof(XButtonEvent, time));
-	buffer[8] = (jint)(offsetof(XButtonEvent, x));
-	buffer[9] = (jint)(offsetof(XButtonEvent, y));
-	buffer[10] = (jint)(offsetof(XButtonEvent, x_root));
-	buffer[11] = (jint)(offsetof(XButtonEvent, y_root));
-	buffer[12] = (jint)(offsetof(XButtonEvent, state));
-	buffer[13] = (jint)(offsetof(XButtonEvent, button));
-	buffer[14] = (jint)(offsetof(XButtonEvent, same_screen));
+	buffer[0] = (jint)offsetof(XButtonEvent, type);
+	buffer[1] = (jint)offsetof(XButtonEvent, serial);
+	buffer[2] = (jint)offsetof(XButtonEvent, send_event);
+	buffer[3] = (jint)offsetof(XButtonEvent, display);
+	buffer[4] = (jint)offsetof(XButtonEvent, window);
+	buffer[5] = (jint)offsetof(XButtonEvent, root);
+	buffer[6] = (jint)offsetof(XButtonEvent, subwindow);
+	buffer[7] = (jint)offsetof(XButtonEvent, time);
+	buffer[8] = (jint)offsetof(XButtonEvent, x);
+	buffer[9] = (jint)offsetof(XButtonEvent, y);
+	buffer[10] = (jint)offsetof(XButtonEvent, x_root);
+	buffer[11] = (jint)offsetof(XButtonEvent, y_root);
+	buffer[12] = (jint)offsetof(XButtonEvent, state);
+	buffer[13] = (jint)offsetof(XButtonEvent, button);
+	buffer[14] = (jint)offsetof(XButtonEvent, same_screen);
 
 	return sizeof(XButtonEvent);
 }

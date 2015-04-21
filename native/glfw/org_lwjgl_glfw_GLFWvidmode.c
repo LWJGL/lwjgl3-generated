@@ -14,12 +14,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_GLFWvidmode_offsets(JNIEnv *__env, jc
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(GLFWvidmode, width));
-	buffer[1] = (jint)(offsetof(GLFWvidmode, height));
-	buffer[2] = (jint)(offsetof(GLFWvidmode, redBits));
-	buffer[3] = (jint)(offsetof(GLFWvidmode, greenBits));
-	buffer[4] = (jint)(offsetof(GLFWvidmode, blueBits));
-	buffer[5] = (jint)(offsetof(GLFWvidmode, refreshRate));
+	buffer[0] = (jint)offsetof(GLFWvidmode, width);
+	buffer[1] = (jint)offsetof(GLFWvidmode, height);
+	buffer[2] = (jint)offsetof(GLFWvidmode, redBits);
+	buffer[3] = (jint)offsetof(GLFWvidmode, greenBits);
+	buffer[4] = (jint)offsetof(GLFWvidmode, blueBits);
+	buffer[5] = (jint)offsetof(GLFWvidmode, refreshRate);
 
 	return sizeof(GLFWvidmode);
 }

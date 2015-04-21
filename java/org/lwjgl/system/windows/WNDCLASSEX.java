@@ -123,39 +123,6 @@ public final class WNDCLASSEX implements Pointer {
 		long icon,
 		long cursor,
 		long background,
-		long menuName,
-		long className,
-		long iconSm
-	) {
-		ByteBuffer wndclassex = malloc();
-
-		size(wndclassex, size);
-		style(wndclassex, style);
-		wndProc(wndclassex, wndProc);
-		clsExtra(wndclassex, clsExtra);
-		wndExtra(wndclassex, wndExtra);
-		instance(wndclassex, instance);
-		icon(wndclassex, icon);
-		cursor(wndclassex, cursor);
-		background(wndclassex, background);
-		menuName(wndclassex, menuName);
-		className(wndclassex, className);
-		iconSm(wndclassex, iconSm);
-
-		return wndclassex;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int size,
-		int style,
-		long wndProc,
-		int clsExtra,
-		int wndExtra,
-		long instance,
-		long icon,
-		long cursor,
-		long background,
 		ByteBuffer menuName,
 		ByteBuffer className,
 		long iconSm

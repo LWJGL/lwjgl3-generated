@@ -14,14 +14,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XPropertyEvent_offsets(JNIEnv
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XPropertyEvent, type));
-	buffer[1] = (jint)(offsetof(XPropertyEvent, serial));
-	buffer[2] = (jint)(offsetof(XPropertyEvent, send_event));
-	buffer[3] = (jint)(offsetof(XPropertyEvent, display));
-	buffer[4] = (jint)(offsetof(XPropertyEvent, window));
-	buffer[5] = (jint)(offsetof(XPropertyEvent, atom));
-	buffer[6] = (jint)(offsetof(XPropertyEvent, time));
-	buffer[7] = (jint)(offsetof(XPropertyEvent, state));
+	buffer[0] = (jint)offsetof(XPropertyEvent, type);
+	buffer[1] = (jint)offsetof(XPropertyEvent, serial);
+	buffer[2] = (jint)offsetof(XPropertyEvent, send_event);
+	buffer[3] = (jint)offsetof(XPropertyEvent, display);
+	buffer[4] = (jint)offsetof(XPropertyEvent, window);
+	buffer[5] = (jint)offsetof(XPropertyEvent, atom);
+	buffer[6] = (jint)offsetof(XPropertyEvent, time);
+	buffer[7] = (jint)offsetof(XPropertyEvent, state);
 
 	return sizeof(XPropertyEvent);
 }

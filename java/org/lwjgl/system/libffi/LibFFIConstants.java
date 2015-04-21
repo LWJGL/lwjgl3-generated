@@ -20,7 +20,7 @@ final class LibFFIConstants {
 	// --- [ FFI_TYPE_DOUBLE ] ---
 
 	/** Returns the {@link LibFFI#FFI_TYPE_DOUBLE} value. */
-	static native int FFI_TYPE_DOUBLE();
+	static native short FFI_TYPE_DOUBLE();
 
 	// --- [ FFI_DEFAULT_ABI ] ---
 

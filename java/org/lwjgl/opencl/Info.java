@@ -8,9 +8,9 @@ package org.lwjgl.opencl;
 import org.lwjgl.PointerBuffer;
 
 import static org.lwjgl.opencl.CL10.*;
-import static org.lwjgl.opencl.CL10GL.*;
 import static org.lwjgl.opencl.CL12.*;
 import static org.lwjgl.opencl.CL20.*;
+import static org.lwjgl.opencl.CL10GL.*;
 
 /**
  * This class provides methods that can be used to query information about OpenCL objects. These methods are similar to the corresponding

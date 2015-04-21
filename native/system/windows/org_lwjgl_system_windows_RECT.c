@@ -14,10 +14,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_RECT_offsets(JNIEnv *__env,
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(RECT, left));
-	buffer[1] = (jint)(offsetof(RECT, top));
-	buffer[2] = (jint)(offsetof(RECT, right));
-	buffer[3] = (jint)(offsetof(RECT, bottom));
+	buffer[0] = (jint)offsetof(RECT, left);
+	buffer[1] = (jint)offsetof(RECT, top);
+	buffer[2] = (jint)offsetof(RECT, right);
+	buffer[3] = (jint)offsetof(RECT, bottom);
 
 	return sizeof(RECT);
 }

@@ -14,14 +14,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CLDeviceTopologyAMD_offsets(JNIEnv 
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(cl_device_topology_amd, raw));
-	buffer[1] = (jint)(offsetof(cl_device_topology_amd, raw.type));
-	buffer[2] = (jint)(offsetof(cl_device_topology_amd, raw.data));
-	buffer[3] = (jint)(offsetof(cl_device_topology_amd, pcie));
-	buffer[4] = (jint)(offsetof(cl_device_topology_amd, pcie.type));
-	buffer[5] = (jint)(offsetof(cl_device_topology_amd, pcie.bus));
-	buffer[6] = (jint)(offsetof(cl_device_topology_amd, pcie.device));
-	buffer[7] = (jint)(offsetof(cl_device_topology_amd, pcie.function));
+	buffer[0] = (jint)offsetof(cl_device_topology_amd, raw);
+	buffer[1] = (jint)offsetof(cl_device_topology_amd, raw.type);
+	buffer[2] = (jint)offsetof(cl_device_topology_amd, raw.data);
+	buffer[3] = (jint)offsetof(cl_device_topology_amd, pcie);
+	buffer[4] = (jint)offsetof(cl_device_topology_amd, pcie.type);
+	buffer[5] = (jint)offsetof(cl_device_topology_amd, pcie.bus);
+	buffer[6] = (jint)offsetof(cl_device_topology_amd, pcie.device);
+	buffer[7] = (jint)offsetof(cl_device_topology_amd, pcie.function);
 
 	return sizeof(cl_device_topology_amd);
 }

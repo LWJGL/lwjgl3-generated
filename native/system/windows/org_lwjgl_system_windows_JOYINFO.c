@@ -14,10 +14,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_JOYINFO_offsets(JNIEnv *__e
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(JOYINFO, wXpos));
-	buffer[1] = (jint)(offsetof(JOYINFO, wYpos));
-	buffer[2] = (jint)(offsetof(JOYINFO, wZpos));
-	buffer[3] = (jint)(offsetof(JOYINFO, wButtons));
+	buffer[0] = (jint)offsetof(JOYINFO, wXpos);
+	buffer[1] = (jint)offsetof(JOYINFO, wYpos);
+	buffer[2] = (jint)offsetof(JOYINFO, wZpos);
+	buffer[3] = (jint)offsetof(JOYINFO, wButtons);
 
 	return sizeof(JOYINFO);
 }

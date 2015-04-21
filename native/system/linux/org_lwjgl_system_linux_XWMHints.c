@@ -15,15 +15,15 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XWMHints_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XWMHints, flags));
-	buffer[1] = (jint)(offsetof(XWMHints, input));
-	buffer[2] = (jint)(offsetof(XWMHints, initial_state));
-	buffer[3] = (jint)(offsetof(XWMHints, icon_pixmap));
-	buffer[4] = (jint)(offsetof(XWMHints, icon_window));
-	buffer[5] = (jint)(offsetof(XWMHints, icon_x));
-	buffer[6] = (jint)(offsetof(XWMHints, icon_y));
-	buffer[7] = (jint)(offsetof(XWMHints, icon_mask));
-	buffer[8] = (jint)(offsetof(XWMHints, window_group));
+	buffer[0] = (jint)offsetof(XWMHints, flags);
+	buffer[1] = (jint)offsetof(XWMHints, input);
+	buffer[2] = (jint)offsetof(XWMHints, initial_state);
+	buffer[3] = (jint)offsetof(XWMHints, icon_pixmap);
+	buffer[4] = (jint)offsetof(XWMHints, icon_window);
+	buffer[5] = (jint)offsetof(XWMHints, icon_x);
+	buffer[6] = (jint)offsetof(XWMHints, icon_y);
+	buffer[7] = (jint)offsetof(XWMHints, icon_mask);
+	buffer[8] = (jint)offsetof(XWMHints, window_group);
 
 	return sizeof(XWMHints);
 }

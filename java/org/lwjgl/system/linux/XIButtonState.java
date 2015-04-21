@@ -71,19 +71,6 @@ public final class XIButtonState implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int mask_len,
-		long mask
-	) {
-		ByteBuffer xibuttonstate = malloc();
-
-		mask_len(xibuttonstate, mask_len);
-		mask(xibuttonstate, mask);
-
-		return xibuttonstate;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int mask_len,
 		ByteBuffer mask
 	) {
 		ByteBuffer xibuttonstate = malloc();
@@ -96,7 +83,7 @@ public final class XIButtonState implements Pointer {
 
 	public static void mask_len(ByteBuffer xibuttonstate, int mask_len) { xibuttonstate.putInt(xibuttonstate.position() + MASK_LEN, mask_len); }
 	public static void mask(ByteBuffer xibuttonstate, long mask) { PointerBuffer.put(xibuttonstate, xibuttonstate.position() + MASK, mask); }
-	public static void mask(ByteBuffer xibuttonstate, ByteBuffer mask) { mask(xibuttonstate, memAddress(mask)); }
+	public static void mask(ByteBuffer xibuttonstate, ByteBuffer mask) { mask(xibuttonstate, memAddressSafe(mask)); }
 
 	public static int mask_len(ByteBuffer xibuttonstate) { return xibuttonstate.getInt(xibuttonstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xibuttonstate) { return PointerBuffer.get(xibuttonstate, xibuttonstate.position() + MASK); }

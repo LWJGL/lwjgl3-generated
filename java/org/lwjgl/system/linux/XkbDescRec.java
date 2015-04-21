@@ -86,25 +86,6 @@ public final class XkbDescRec implements Pointer {
 		int device_spec,
 		int min_key_code,
 		int max_key_code,
-		long names
-	) {
-		ByteBuffer xkbdescrec = malloc();
-
-		dpy(xkbdescrec, dpy);
-		device_spec(xkbdescrec, device_spec);
-		min_key_code(xkbdescrec, min_key_code);
-		max_key_code(xkbdescrec, max_key_code);
-		names(xkbdescrec, names);
-
-		return xkbdescrec;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long dpy,
-		int device_spec,
-		int min_key_code,
-		int max_key_code,
 		ByteBuffer names
 	) {
 		ByteBuffer xkbdescrec = malloc();
@@ -123,7 +104,7 @@ public final class XkbDescRec implements Pointer {
 	public static void min_key_code(ByteBuffer xkbdescrec, int min_key_code) { xkbdescrec.put(xkbdescrec.position() + MIN_KEY_CODE, (byte)min_key_code); }
 	public static void max_key_code(ByteBuffer xkbdescrec, int max_key_code) { xkbdescrec.put(xkbdescrec.position() + MAX_KEY_CODE, (byte)max_key_code); }
 	public static void names(ByteBuffer xkbdescrec, long names) { PointerBuffer.put(xkbdescrec, xkbdescrec.position() + NAMES, names); }
-	public static void names(ByteBuffer xkbdescrec, ByteBuffer names) { names(xkbdescrec, memAddress(names)); }
+	public static void names(ByteBuffer xkbdescrec, ByteBuffer names) { names(xkbdescrec, memAddressSafe(names)); }
 
 	public static long dpy(ByteBuffer xkbdescrec) { return PointerBuffer.get(xkbdescrec, xkbdescrec.position() + DPY); }
 	public static int device_spec(ByteBuffer xkbdescrec) { return xkbdescrec.getShort(xkbdescrec.position() + DEVICE_SPEC) & 0xFFFF; }

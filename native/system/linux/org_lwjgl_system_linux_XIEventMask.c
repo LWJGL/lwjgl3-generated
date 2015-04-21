@@ -15,9 +15,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XIEventMask_offsets(JNIEnv *_
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XIEventMask, deviceid));
-	buffer[1] = (jint)(offsetof(XIEventMask, mask));
-	buffer[2] = (jint)(offsetof(XIEventMask, mask_len));
+	buffer[0] = (jint)offsetof(XIEventMask, deviceid);
+	buffer[1] = (jint)offsetof(XIEventMask, mask);
+	buffer[2] = (jint)offsetof(XIEventMask, mask_len);
 
 	return sizeof(XIEventMask);
 }

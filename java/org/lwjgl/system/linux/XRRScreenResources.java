@@ -101,31 +101,6 @@ public final class XRRScreenResources implements Pointer {
 		long timestamp,
 		long configTimestamp,
 		int ncrtc,
-		long crtcs,
-		int noutput,
-		long outputs,
-		int nmode,
-		long modes
-	) {
-		ByteBuffer xrrscreenresources = malloc();
-
-		timestamp(xrrscreenresources, timestamp);
-		configTimestamp(xrrscreenresources, configTimestamp);
-		ncrtc(xrrscreenresources, ncrtc);
-		crtcs(xrrscreenresources, crtcs);
-		noutput(xrrscreenresources, noutput);
-		outputs(xrrscreenresources, outputs);
-		nmode(xrrscreenresources, nmode);
-		modes(xrrscreenresources, modes);
-
-		return xrrscreenresources;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		long timestamp,
-		long configTimestamp,
-		int ncrtc,
 		ByteBuffer crtcs,
 		int noutput,
 		ByteBuffer outputs,
@@ -150,13 +125,13 @@ public final class XRRScreenResources implements Pointer {
 	public static void configTimestamp(ByteBuffer xrrscreenresources, long configTimestamp) { PointerBuffer.put(xrrscreenresources, xrrscreenresources.position() + CONFIGTIMESTAMP, configTimestamp); }
 	public static void ncrtc(ByteBuffer xrrscreenresources, int ncrtc) { xrrscreenresources.putInt(xrrscreenresources.position() + NCRTC, ncrtc); }
 	public static void crtcs(ByteBuffer xrrscreenresources, long crtcs) { PointerBuffer.put(xrrscreenresources, xrrscreenresources.position() + CRTCS, crtcs); }
-	public static void crtcs(ByteBuffer xrrscreenresources, ByteBuffer crtcs) { crtcs(xrrscreenresources, memAddress(crtcs)); }
+	public static void crtcs(ByteBuffer xrrscreenresources, ByteBuffer crtcs) { crtcs(xrrscreenresources, memAddressSafe(crtcs)); }
 	public static void noutput(ByteBuffer xrrscreenresources, int noutput) { xrrscreenresources.putInt(xrrscreenresources.position() + NOUTPUT, noutput); }
 	public static void outputs(ByteBuffer xrrscreenresources, long outputs) { PointerBuffer.put(xrrscreenresources, xrrscreenresources.position() + OUTPUTS, outputs); }
-	public static void outputs(ByteBuffer xrrscreenresources, ByteBuffer outputs) { outputs(xrrscreenresources, memAddress(outputs)); }
+	public static void outputs(ByteBuffer xrrscreenresources, ByteBuffer outputs) { outputs(xrrscreenresources, memAddressSafe(outputs)); }
 	public static void nmode(ByteBuffer xrrscreenresources, int nmode) { xrrscreenresources.putInt(xrrscreenresources.position() + NMODE, nmode); }
 	public static void modes(ByteBuffer xrrscreenresources, long modes) { PointerBuffer.put(xrrscreenresources, xrrscreenresources.position() + MODES, modes); }
-	public static void modes(ByteBuffer xrrscreenresources, ByteBuffer modes) { modes(xrrscreenresources, memAddress(modes)); }
+	public static void modes(ByteBuffer xrrscreenresources, ByteBuffer modes) { modes(xrrscreenresources, memAddressSafe(modes)); }
 
 	public static long timestamp(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + TIMESTAMP); }
 	public static long configTimestamp(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + CONFIGTIMESTAMP); }

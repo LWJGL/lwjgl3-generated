@@ -75,21 +75,6 @@ public final class XIEventMask implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int deviceid,
-		long mask,
-		int mask_len
-	) {
-		ByteBuffer xieventmask = malloc();
-
-		deviceid(xieventmask, deviceid);
-		mask(xieventmask, mask);
-		mask_len(xieventmask, mask_len);
-
-		return xieventmask;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int deviceid,
 		ByteBuffer mask,
 		int mask_len
 	) {
@@ -104,7 +89,7 @@ public final class XIEventMask implements Pointer {
 
 	public static void deviceid(ByteBuffer xieventmask, int deviceid) { xieventmask.putInt(xieventmask.position() + DEVICEID, deviceid); }
 	public static void mask(ByteBuffer xieventmask, long mask) { PointerBuffer.put(xieventmask, xieventmask.position() + MASK, mask); }
-	public static void mask(ByteBuffer xieventmask, ByteBuffer mask) { mask(xieventmask, memAddress(mask)); }
+	public static void mask(ByteBuffer xieventmask, ByteBuffer mask) { mask(xieventmask, memAddressSafe(mask)); }
 	public static void mask_len(ByteBuffer xieventmask, int mask_len) { xieventmask.putInt(xieventmask.position() + MASK_LEN, mask_len); }
 
 	public static int deviceid(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + DEVICEID); }

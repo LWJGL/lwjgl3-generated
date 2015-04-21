@@ -74,19 +74,6 @@ public final class ObjCPropertyAttribute implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		long name,
-		long value
-	) {
-		ByteBuffer objc_property_attribute_t = malloc();
-
-		name(objc_property_attribute_t, name);
-		value(objc_property_attribute_t, value);
-
-		return objc_property_attribute_t;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
 		ByteBuffer name,
 		ByteBuffer value
 	) {

@@ -74,14 +74,12 @@ public final class XEvent implements Pointer {
 	}
 
 	public void setType(int type) { type(struct, type); }
-	public void setXany(long xany) { xanySet(struct, xany); }
 	public void setXany(ByteBuffer xany) { xanySet(struct, xany); }
 	public void setXanyType(int type) { xanyType(struct, type); }
 	public void setXanySerial(long serial) { xanySerial(struct, serial); }
 	public void setXanySendEvent(int send_event) { xanySend_event(struct, send_event); }
 	public void setXanyDisplay(long display) { xanyDisplay(struct, display); }
 	public void setXanyWindow(long window) { xanyWindow(struct, window); }
-	public void setXkey(long xkey) { xkeySet(struct, xkey); }
 	public void setXkey(ByteBuffer xkey) { xkeySet(struct, xkey); }
 	public void setXkeyType(int type) { xkeyType(struct, type); }
 	public void setXkeySerial(long serial) { xkeySerial(struct, serial); }
@@ -98,7 +96,6 @@ public final class XEvent implements Pointer {
 	public void setXkeyState(int state) { xkeyState(struct, state); }
 	public void setXkeyKeycode(int keycode) { xkeyKeycode(struct, keycode); }
 	public void setXkeySameScreen(int same_screen) { xkeySame_screen(struct, same_screen); }
-	public void setXbutton(long xbutton) { xbuttonSet(struct, xbutton); }
 	public void setXbutton(ByteBuffer xbutton) { xbuttonSet(struct, xbutton); }
 	public void setXbuttonType(int type) { xbuttonType(struct, type); }
 	public void setXbuttonSerial(long serial) { xbuttonSerial(struct, serial); }
@@ -115,7 +112,6 @@ public final class XEvent implements Pointer {
 	public void setXbuttonState(int state) { xbuttonState(struct, state); }
 	public void setXbuttonButton(int button) { xbuttonButton(struct, button); }
 	public void setXbuttonSameScreen(int same_screen) { xbuttonSame_screen(struct, same_screen); }
-	public void setXmotion(long xmotion) { xmotionSet(struct, xmotion); }
 	public void setXmotion(ByteBuffer xmotion) { xmotionSet(struct, xmotion); }
 	public void setXmotionType(int type) { xmotionType(struct, type); }
 	public void setXmotionSerial(long serial) { xmotionSerial(struct, serial); }
@@ -132,7 +128,6 @@ public final class XEvent implements Pointer {
 	public void setXmotionState(int state) { xmotionState(struct, state); }
 	public void setXmotionIsHint(int is_hint) { xmotionIs_hint(struct, is_hint); }
 	public void setXmotionSameScreen(int same_screen) { xmotionSame_screen(struct, same_screen); }
-	public void setXconfigure(long xconfigure) { xconfigureSet(struct, xconfigure); }
 	public void setXconfigure(ByteBuffer xconfigure) { xconfigureSet(struct, xconfigure); }
 	public void setXconfigureType(int type) { xconfigureType(struct, type); }
 	public void setXconfigureSerial(long serial) { xconfigureSerial(struct, serial); }
@@ -147,7 +142,6 @@ public final class XEvent implements Pointer {
 	public void setXconfigureBorderWidth(int border_width) { xconfigureBorder_width(struct, border_width); }
 	public void setXconfigureAbove(long above) { xconfigureAbove(struct, above); }
 	public void setXconfigureOverrideRedirect(int override_redirect) { xconfigureOverride_redirect(struct, override_redirect); }
-	public void setXproperty(long xproperty) { xpropertySet(struct, xproperty); }
 	public void setXproperty(ByteBuffer xproperty) { xpropertySet(struct, xproperty); }
 	public void setXpropertyType(int type) { xpropertyType(struct, type); }
 	public void setXpropertySerial(long serial) { xpropertySerial(struct, serial); }
@@ -157,7 +151,6 @@ public final class XEvent implements Pointer {
 	public void setXpropertyAtom(long atom) { xpropertyAtom(struct, atom); }
 	public void setXpropertyTime(long time) { xpropertyTime(struct, time); }
 	public void setXpropertyState(int state) { xpropertyState(struct, state); }
-	public void setXselectionrequest(long xselectionrequest) { xselectionrequestSet(struct, xselectionrequest); }
 	public void setXselectionrequest(ByteBuffer xselectionrequest) { xselectionrequestSet(struct, xselectionrequest); }
 	public void setXselectionrequestType(int type) { xselectionrequestType(struct, type); }
 	public void setXselectionrequestSerial(long serial) { xselectionrequestSerial(struct, serial); }
@@ -169,7 +162,6 @@ public final class XEvent implements Pointer {
 	public void setXselectionrequestTarget(long target) { xselectionrequestTarget(struct, target); }
 	public void setXselectionrequestProperty(long property) { xselectionrequestProperty(struct, property); }
 	public void setXselectionrequestTime(long time) { xselectionrequestTime(struct, time); }
-	public void setXselection(long xselection) { xselectionSet(struct, xselection); }
 	public void setXselection(ByteBuffer xselection) { xselectionSet(struct, xselection); }
 	public void setXselectionType(int type) { xselectionType(struct, type); }
 	public void setXselectionSerial(long serial) { xselectionSerial(struct, serial); }
@@ -180,7 +172,6 @@ public final class XEvent implements Pointer {
 	public void setXselectionTarget(long target) { xselectionTarget(struct, target); }
 	public void setXselectionProperty(long property) { xselectionProperty(struct, property); }
 	public void setXselectionTime(long time) { xselectionTime(struct, time); }
-	public void setXclient(long xclient) { xclientSet(struct, xclient); }
 	public void setXclient(ByteBuffer xclient) { xclientSet(struct, xclient); }
 	public void setXclientType(int type) { xclientType(struct, type); }
 	public void setXclientSerial(long serial) { xclientSerial(struct, serial); }
@@ -189,16 +180,12 @@ public final class XEvent implements Pointer {
 	public void setXclientWindow(long window) { xclientWindow(struct, window); }
 	public void setXclientMessageType(long message_type) { xclientMessage_type(struct, message_type); }
 	public void setXclientFormat(int format) { xclientFormat(struct, format); }
-	public void setXclientDataB(long b, int bytes) { xclientDataBSet(struct, b, bytes); }
 	public void setXclientDataB(ByteBuffer b) { xclientDataBSet(struct, b); }
-	public void setXclientDataB(int index, byte element) { xclientDataBSet(struct, index, element); }
-	public void setXclientDataS(long s, int bytes) { xclientDataSSet(struct, s, bytes); }
+	public void setXclientDataB(int index, byte b) { xclientDataB(struct, index, b); }
 	public void setXclientDataS(ByteBuffer s) { xclientDataSSet(struct, s); }
-	public void setXclientDataS(int index, short element) { xclientDataSSet(struct, index, element); }
-	public void setXclientDataL(long l, int bytes) { xclientDataLSet(struct, l, bytes); }
+	public void setXclientDataS(int index, short s) { xclientDataS(struct, index, s); }
 	public void setXclientDataL(ByteBuffer l) { xclientDataLSet(struct, l); }
-	public void setXclientDataL(int index, long element) { xclientDataLSet(struct, index, element); }
-	public void setXerror(long xerror) { xerrorSet(struct, xerror); }
+	public void setXclientDataL(int index, long l) { xclientDataL(struct, index, l); }
 	public void setXerror(ByteBuffer xerror) { xerrorSet(struct, xerror); }
 	public void setXerrorType(int type) { xerrorType(struct, type); }
 	public void setXerrorDisplay(long display) { xerrorDisplay(struct, display); }
@@ -207,7 +194,6 @@ public final class XEvent implements Pointer {
 	public void setXerrorRequestCode(int request_code) { xerrorRequest_code(struct, request_code); }
 	public void setXerrorMinorCode(int minor_code) { xerrorMinor_code(struct, minor_code); }
 	public void setXerrorResourceid(long resourceid) { xerrorResourceid(struct, resourceid); }
-	public void setXcookie(long xcookie) { xcookieSet(struct, xcookie); }
 	public void setXcookie(ByteBuffer xcookie) { xcookieSet(struct, xcookie); }
 	public void setXcookieType(int type) { xcookieType(struct, type); }
 	public void setXcookieSerial(long serial) { xcookieSerial(struct, serial); }
@@ -220,14 +206,12 @@ public final class XEvent implements Pointer {
 	public void setXcookieData(ByteBuffer data) { xcookieData(struct, data); }
 
 	public int getType() { return type(struct); }
-	public void getXany(long xany) { xanyGet(struct, xany); }
 	public void getXany(ByteBuffer xany) { xanyGet(struct, xany); }
 	public int getXanyType() { return xanyType(struct); }
 	public long getXanySerial() { return xanySerial(struct); }
 	public int getXanySendEvent() { return xanySend_event(struct); }
 	public long getXanyDisplay() { return xanyDisplay(struct); }
 	public long getXanyWindow() { return xanyWindow(struct); }
-	public void getXkey(long xkey) { xkeyGet(struct, xkey); }
 	public void getXkey(ByteBuffer xkey) { xkeyGet(struct, xkey); }
 	public int getXkeyType() { return xkeyType(struct); }
 	public long getXkeySerial() { return xkeySerial(struct); }
@@ -244,7 +228,6 @@ public final class XEvent implements Pointer {
 	public int getXkeyState() { return xkeyState(struct); }
 	public int getXkeyKeycode() { return xkeyKeycode(struct); }
 	public int getXkeySameScreen() { return xkeySame_screen(struct); }
-	public void getXbutton(long xbutton) { xbuttonGet(struct, xbutton); }
 	public void getXbutton(ByteBuffer xbutton) { xbuttonGet(struct, xbutton); }
 	public int getXbuttonType() { return xbuttonType(struct); }
 	public long getXbuttonSerial() { return xbuttonSerial(struct); }
@@ -261,7 +244,6 @@ public final class XEvent implements Pointer {
 	public int getXbuttonState() { return xbuttonState(struct); }
 	public int getXbuttonButton() { return xbuttonButton(struct); }
 	public int getXbuttonSameScreen() { return xbuttonSame_screen(struct); }
-	public void getXmotion(long xmotion) { xmotionGet(struct, xmotion); }
 	public void getXmotion(ByteBuffer xmotion) { xmotionGet(struct, xmotion); }
 	public int getXmotionType() { return xmotionType(struct); }
 	public long getXmotionSerial() { return xmotionSerial(struct); }
@@ -278,7 +260,6 @@ public final class XEvent implements Pointer {
 	public int getXmotionState() { return xmotionState(struct); }
 	public int getXmotionIsHint() { return xmotionIs_hint(struct); }
 	public int getXmotionSameScreen() { return xmotionSame_screen(struct); }
-	public void getXconfigure(long xconfigure) { xconfigureGet(struct, xconfigure); }
 	public void getXconfigure(ByteBuffer xconfigure) { xconfigureGet(struct, xconfigure); }
 	public int getXconfigureType() { return xconfigureType(struct); }
 	public long getXconfigureSerial() { return xconfigureSerial(struct); }
@@ -293,7 +274,6 @@ public final class XEvent implements Pointer {
 	public int getXconfigureBorderWidth() { return xconfigureBorder_width(struct); }
 	public long getXconfigureAbove() { return xconfigureAbove(struct); }
 	public int getXconfigureOverrideRedirect() { return xconfigureOverride_redirect(struct); }
-	public void getXproperty(long xproperty) { xpropertyGet(struct, xproperty); }
 	public void getXproperty(ByteBuffer xproperty) { xpropertyGet(struct, xproperty); }
 	public int getXpropertyType() { return xpropertyType(struct); }
 	public long getXpropertySerial() { return xpropertySerial(struct); }
@@ -303,7 +283,6 @@ public final class XEvent implements Pointer {
 	public long getXpropertyAtom() { return xpropertyAtom(struct); }
 	public long getXpropertyTime() { return xpropertyTime(struct); }
 	public int getXpropertyState() { return xpropertyState(struct); }
-	public void getXselectionrequest(long xselectionrequest) { xselectionrequestGet(struct, xselectionrequest); }
 	public void getXselectionrequest(ByteBuffer xselectionrequest) { xselectionrequestGet(struct, xselectionrequest); }
 	public int getXselectionrequestType() { return xselectionrequestType(struct); }
 	public long getXselectionrequestSerial() { return xselectionrequestSerial(struct); }
@@ -315,7 +294,6 @@ public final class XEvent implements Pointer {
 	public long getXselectionrequestTarget() { return xselectionrequestTarget(struct); }
 	public long getXselectionrequestProperty() { return xselectionrequestProperty(struct); }
 	public long getXselectionrequestTime() { return xselectionrequestTime(struct); }
-	public void getXselection(long xselection) { xselectionGet(struct, xselection); }
 	public void getXselection(ByteBuffer xselection) { xselectionGet(struct, xselection); }
 	public int getXselectionType() { return xselectionType(struct); }
 	public long getXselectionSerial() { return xselectionSerial(struct); }
@@ -326,7 +304,6 @@ public final class XEvent implements Pointer {
 	public long getXselectionTarget() { return xselectionTarget(struct); }
 	public long getXselectionProperty() { return xselectionProperty(struct); }
 	public long getXselectionTime() { return xselectionTime(struct); }
-	public void getXclient(long xclient) { xclientGet(struct, xclient); }
 	public void getXclient(ByteBuffer xclient) { xclientGet(struct, xclient); }
 	public int getXclientType() { return xclientType(struct); }
 	public long getXclientSerial() { return xclientSerial(struct); }
@@ -335,13 +312,9 @@ public final class XEvent implements Pointer {
 	public long getXclientWindow() { return xclientWindow(struct); }
 	public long getXclientMessageType() { return xclientMessage_type(struct); }
 	public int getXclientFormat() { return xclientFormat(struct); }
-	public void getXclientDataB(long b, int bytes) { xclientDataBGet(struct, b, bytes); }
 	public void getXclientDataB(ByteBuffer b) { xclientDataBGet(struct, b); }
-	public void getXclientDataS(long s, int bytes) { xclientDataSGet(struct, s, bytes); }
 	public void getXclientDataS(ByteBuffer s) { xclientDataSGet(struct, s); }
-	public void getXclientDataL(long l, int bytes) { xclientDataLGet(struct, l, bytes); }
 	public void getXclientDataL(ByteBuffer l) { xclientDataLGet(struct, l); }
-	public void getXerror(long xerror) { xerrorGet(struct, xerror); }
 	public void getXerror(ByteBuffer xerror) { xerrorGet(struct, xerror); }
 	public int getXerrorType() { return xerrorType(struct); }
 	public long getXerrorDisplay() { return xerrorDisplay(struct); }
@@ -350,7 +323,6 @@ public final class XEvent implements Pointer {
 	public int getXerrorRequestCode() { return xerrorRequest_code(struct); }
 	public int getXerrorMinorCode() { return xerrorMinor_code(struct); }
 	public long getXerrorResourceid() { return xerrorResourceid(struct); }
-	public void getXcookie(long xcookie) { xcookieGet(struct, xcookie); }
 	public void getXcookie(ByteBuffer xcookie) { xcookieGet(struct, xcookie); }
 	public int getXcookieType() { return xcookieType(struct); }
 	public long getXcookieSerial() { return xcookieSerial(struct); }
@@ -370,39 +342,6 @@ public final class XEvent implements Pointer {
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		int type,
-		long xany,
-		long xkey,
-		long xbutton,
-		long xmotion,
-		long xconfigure,
-		long xproperty,
-		long xselectionrequest,
-		long xselection,
-		long xclient,
-		long xerror,
-		long xcookie
-	) {
-		ByteBuffer xevent = malloc();
-
-		type(xevent, type);
-		xanySet(xevent, xany);
-		xkeySet(xevent, xkey);
-		xbuttonSet(xevent, xbutton);
-		xmotionSet(xevent, xmotion);
-		xconfigureSet(xevent, xconfigure);
-		xpropertySet(xevent, xproperty);
-		xselectionrequestSet(xevent, xselectionrequest);
-		xselectionSet(xevent, xselection);
-		xclientSet(xevent, xclient);
-		xerrorSet(xevent, xerror);
-		xcookieSet(xevent, xcookie);
-
-		return xevent;
-	}
-
-	/** Alternative virtual constructor. */
 	public static ByteBuffer malloc(
 		int type,
 		ByteBuffer xany,
@@ -436,15 +375,13 @@ public final class XEvent implements Pointer {
 	}
 
 	public static void type(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + TYPE, type); }
-	public static void xanySet(ByteBuffer xevent, long xany) { if ( xany != NULL ) memCopy(xany, memAddress(xevent) + XANY, XAnyEvent.SIZEOF); }
-	public static void xanySet(ByteBuffer xevent, ByteBuffer xany) { xanySet(xevent, memAddressSafe(xany)); }
+	public static void xanySet(ByteBuffer xevent, ByteBuffer xany) { if ( xany != null ) memCopy(memAddress(xany), memAddress(xevent) + XANY, XAnyEvent.SIZEOF); }
 	public static void xanyType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XANY + XAnyEvent.TYPE, type); }
 	public static void xanySerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XANY + XAnyEvent.SERIAL, serial); }
 	public static void xanySend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XANY + XAnyEvent.SEND_EVENT, send_event); }
 	public static void xanyDisplay(ByteBuffer xevent, long display) { PointerBuffer.put(xevent, xevent.position() + XANY + XAnyEvent.DISPLAY, display); }
 	public static void xanyWindow(ByteBuffer xevent, long window) { PointerBuffer.put(xevent, xevent.position() + XANY + XAnyEvent.WINDOW, window); }
-	public static void xkeySet(ByteBuffer xevent, long xkey) { if ( xkey != NULL ) memCopy(xkey, memAddress(xevent) + XKEY, XKeyEvent.SIZEOF); }
-	public static void xkeySet(ByteBuffer xevent, ByteBuffer xkey) { xkeySet(xevent, memAddressSafe(xkey)); }
+	public static void xkeySet(ByteBuffer xevent, ByteBuffer xkey) { if ( xkey != null ) memCopy(memAddress(xkey), memAddress(xevent) + XKEY, XKeyEvent.SIZEOF); }
 	public static void xkeyType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XKEY + XKeyEvent.TYPE, type); }
 	public static void xkeySerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XKEY + XKeyEvent.SERIAL, serial); }
 	public static void xkeySend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XKEY + XKeyEvent.SEND_EVENT, send_event); }
@@ -460,8 +397,7 @@ public final class XEvent implements Pointer {
 	public static void xkeyState(ByteBuffer xevent, int state) { xevent.putInt(xevent.position() + XKEY + XKeyEvent.STATE, state); }
 	public static void xkeyKeycode(ByteBuffer xevent, int keycode) { xevent.putInt(xevent.position() + XKEY + XKeyEvent.KEYCODE, keycode); }
 	public static void xkeySame_screen(ByteBuffer xevent, int same_screen) { xevent.putInt(xevent.position() + XKEY + XKeyEvent.SAME_SCREEN, same_screen); }
-	public static void xbuttonSet(ByteBuffer xevent, long xbutton) { if ( xbutton != NULL ) memCopy(xbutton, memAddress(xevent) + XBUTTON, XButtonEvent.SIZEOF); }
-	public static void xbuttonSet(ByteBuffer xevent, ByteBuffer xbutton) { xbuttonSet(xevent, memAddressSafe(xbutton)); }
+	public static void xbuttonSet(ByteBuffer xevent, ByteBuffer xbutton) { if ( xbutton != null ) memCopy(memAddress(xbutton), memAddress(xevent) + XBUTTON, XButtonEvent.SIZEOF); }
 	public static void xbuttonType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XBUTTON + XButtonEvent.TYPE, type); }
 	public static void xbuttonSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XBUTTON + XButtonEvent.SERIAL, serial); }
 	public static void xbuttonSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XBUTTON + XButtonEvent.SEND_EVENT, send_event); }
@@ -477,8 +413,7 @@ public final class XEvent implements Pointer {
 	public static void xbuttonState(ByteBuffer xevent, int state) { xevent.putInt(xevent.position() + XBUTTON + XButtonEvent.STATE, state); }
 	public static void xbuttonButton(ByteBuffer xevent, int button) { xevent.putInt(xevent.position() + XBUTTON + XButtonEvent.BUTTON, button); }
 	public static void xbuttonSame_screen(ByteBuffer xevent, int same_screen) { xevent.putInt(xevent.position() + XBUTTON + XButtonEvent.SAME_SCREEN, same_screen); }
-	public static void xmotionSet(ByteBuffer xevent, long xmotion) { if ( xmotion != NULL ) memCopy(xmotion, memAddress(xevent) + XMOTION, XMotionEvent.SIZEOF); }
-	public static void xmotionSet(ByteBuffer xevent, ByteBuffer xmotion) { xmotionSet(xevent, memAddressSafe(xmotion)); }
+	public static void xmotionSet(ByteBuffer xevent, ByteBuffer xmotion) { if ( xmotion != null ) memCopy(memAddress(xmotion), memAddress(xevent) + XMOTION, XMotionEvent.SIZEOF); }
 	public static void xmotionType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XMOTION + XMotionEvent.TYPE, type); }
 	public static void xmotionSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XMOTION + XMotionEvent.SERIAL, serial); }
 	public static void xmotionSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XMOTION + XMotionEvent.SEND_EVENT, send_event); }
@@ -494,8 +429,7 @@ public final class XEvent implements Pointer {
 	public static void xmotionState(ByteBuffer xevent, int state) { xevent.putInt(xevent.position() + XMOTION + XMotionEvent.STATE, state); }
 	public static void xmotionIs_hint(ByteBuffer xevent, int is_hint) { xevent.put(xevent.position() + XMOTION + XMotionEvent.IS_HINT, (byte)is_hint); }
 	public static void xmotionSame_screen(ByteBuffer xevent, int same_screen) { xevent.putInt(xevent.position() + XMOTION + XMotionEvent.SAME_SCREEN, same_screen); }
-	public static void xconfigureSet(ByteBuffer xevent, long xconfigure) { if ( xconfigure != NULL ) memCopy(xconfigure, memAddress(xevent) + XCONFIGURE, XConfigureEvent.SIZEOF); }
-	public static void xconfigureSet(ByteBuffer xevent, ByteBuffer xconfigure) { xconfigureSet(xevent, memAddressSafe(xconfigure)); }
+	public static void xconfigureSet(ByteBuffer xevent, ByteBuffer xconfigure) { if ( xconfigure != null ) memCopy(memAddress(xconfigure), memAddress(xevent) + XCONFIGURE, XConfigureEvent.SIZEOF); }
 	public static void xconfigureType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XCONFIGURE + XConfigureEvent.TYPE, type); }
 	public static void xconfigureSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XCONFIGURE + XConfigureEvent.SERIAL, serial); }
 	public static void xconfigureSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XCONFIGURE + XConfigureEvent.SEND_EVENT, send_event); }
@@ -509,8 +443,7 @@ public final class XEvent implements Pointer {
 	public static void xconfigureBorder_width(ByteBuffer xevent, int border_width) { xevent.putInt(xevent.position() + XCONFIGURE + XConfigureEvent.BORDER_WIDTH, border_width); }
 	public static void xconfigureAbove(ByteBuffer xevent, long above) { PointerBuffer.put(xevent, xevent.position() + XCONFIGURE + XConfigureEvent.ABOVE, above); }
 	public static void xconfigureOverride_redirect(ByteBuffer xevent, int override_redirect) { xevent.putInt(xevent.position() + XCONFIGURE + XConfigureEvent.OVERRIDE_REDIRECT, override_redirect); }
-	public static void xpropertySet(ByteBuffer xevent, long xproperty) { if ( xproperty != NULL ) memCopy(xproperty, memAddress(xevent) + XPROPERTY, XPropertyEvent.SIZEOF); }
-	public static void xpropertySet(ByteBuffer xevent, ByteBuffer xproperty) { xpropertySet(xevent, memAddressSafe(xproperty)); }
+	public static void xpropertySet(ByteBuffer xevent, ByteBuffer xproperty) { if ( xproperty != null ) memCopy(memAddress(xproperty), memAddress(xevent) + XPROPERTY, XPropertyEvent.SIZEOF); }
 	public static void xpropertyType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XPROPERTY + XPropertyEvent.TYPE, type); }
 	public static void xpropertySerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XPROPERTY + XPropertyEvent.SERIAL, serial); }
 	public static void xpropertySend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XPROPERTY + XPropertyEvent.SEND_EVENT, send_event); }
@@ -519,8 +452,7 @@ public final class XEvent implements Pointer {
 	public static void xpropertyAtom(ByteBuffer xevent, long atom) { PointerBuffer.put(xevent, xevent.position() + XPROPERTY + XPropertyEvent.ATOM, atom); }
 	public static void xpropertyTime(ByteBuffer xevent, long time) { PointerBuffer.put(xevent, xevent.position() + XPROPERTY + XPropertyEvent.TIME, time); }
 	public static void xpropertyState(ByteBuffer xevent, int state) { xevent.putInt(xevent.position() + XPROPERTY + XPropertyEvent.STATE, state); }
-	public static void xselectionrequestSet(ByteBuffer xevent, long xselectionrequest) { if ( xselectionrequest != NULL ) memCopy(xselectionrequest, memAddress(xevent) + XSELECTIONREQUEST, XSelectionRequestEvent.SIZEOF); }
-	public static void xselectionrequestSet(ByteBuffer xevent, ByteBuffer xselectionrequest) { xselectionrequestSet(xevent, memAddressSafe(xselectionrequest)); }
+	public static void xselectionrequestSet(ByteBuffer xevent, ByteBuffer xselectionrequest) { if ( xselectionrequest != null ) memCopy(memAddress(xselectionrequest), memAddress(xevent) + XSELECTIONREQUEST, XSelectionRequestEvent.SIZEOF); }
 	public static void xselectionrequestType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TYPE, type); }
 	public static void xselectionrequestSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.SERIAL, serial); }
 	public static void xselectionrequestSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.SEND_EVENT, send_event); }
@@ -531,8 +463,7 @@ public final class XEvent implements Pointer {
 	public static void xselectionrequestTarget(ByteBuffer xevent, long target) { PointerBuffer.put(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TARGET, target); }
 	public static void xselectionrequestProperty(ByteBuffer xevent, long property) { PointerBuffer.put(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.PROPERTY, property); }
 	public static void xselectionrequestTime(ByteBuffer xevent, long time) { PointerBuffer.put(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TIME, time); }
-	public static void xselectionSet(ByteBuffer xevent, long xselection) { if ( xselection != NULL ) memCopy(xselection, memAddress(xevent) + XSELECTION, XSelectionEvent.SIZEOF); }
-	public static void xselectionSet(ByteBuffer xevent, ByteBuffer xselection) { xselectionSet(xevent, memAddressSafe(xselection)); }
+	public static void xselectionSet(ByteBuffer xevent, ByteBuffer xselection) { if ( xselection != null ) memCopy(memAddress(xselection), memAddress(xevent) + XSELECTION, XSelectionEvent.SIZEOF); }
 	public static void xselectionType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XSELECTION + XSelectionEvent.TYPE, type); }
 	public static void xselectionSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XSELECTION + XSelectionEvent.SERIAL, serial); }
 	public static void xselectionSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XSELECTION + XSelectionEvent.SEND_EVENT, send_event); }
@@ -542,8 +473,7 @@ public final class XEvent implements Pointer {
 	public static void xselectionTarget(ByteBuffer xevent, long target) { PointerBuffer.put(xevent, xevent.position() + XSELECTION + XSelectionEvent.TARGET, target); }
 	public static void xselectionProperty(ByteBuffer xevent, long property) { PointerBuffer.put(xevent, xevent.position() + XSELECTION + XSelectionEvent.PROPERTY, property); }
 	public static void xselectionTime(ByteBuffer xevent, long time) { PointerBuffer.put(xevent, xevent.position() + XSELECTION + XSelectionEvent.TIME, time); }
-	public static void xclientSet(ByteBuffer xevent, long xclient) { if ( xclient != NULL ) memCopy(xclient, memAddress(xevent) + XCLIENT, XClientMessageEvent.SIZEOF); }
-	public static void xclientSet(ByteBuffer xevent, ByteBuffer xclient) { xclientSet(xevent, memAddressSafe(xclient)); }
+	public static void xclientSet(ByteBuffer xevent, ByteBuffer xclient) { if ( xclient != null ) memCopy(memAddress(xclient), memAddress(xevent) + XCLIENT, XClientMessageEvent.SIZEOF); }
 	public static void xclientType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XCLIENT + XClientMessageEvent.TYPE, type); }
 	public static void xclientSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XCLIENT + XClientMessageEvent.SERIAL, serial); }
 	public static void xclientSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XCLIENT + XClientMessageEvent.SEND_EVENT, send_event); }
@@ -551,26 +481,22 @@ public final class XEvent implements Pointer {
 	public static void xclientWindow(ByteBuffer xevent, long window) { PointerBuffer.put(xevent, xevent.position() + XCLIENT + XClientMessageEvent.WINDOW, window); }
 	public static void xclientMessage_type(ByteBuffer xevent, long message_type) { PointerBuffer.put(xevent, xevent.position() + XCLIENT + XClientMessageEvent.MESSAGE_TYPE, message_type); }
 	public static void xclientFormat(ByteBuffer xevent, int format) { xevent.putInt(xevent.position() + XCLIENT + XClientMessageEvent.FORMAT, format); }
-	public static void xclientDataBSet(ByteBuffer xevent, long b, int bytes) { memCopy(b, memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_B, bytes); }
 	public static void xclientDataBSet(ByteBuffer xevent, ByteBuffer b) {
 		checkBufferGT(b, 20 * 1);
-		xclientDataBSet(xevent, memAddress(b), b.remaining());
+		memCopy(memAddress(b), memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_B, b.remaining());
 	}
-	public static void xclientDataBSet(ByteBuffer xevent, int index, byte element) { xevent.put(XCLIENT + XClientMessageEvent.DATA_B + index, element); }
-	public static void xclientDataSSet(ByteBuffer xevent, long s, int bytes) { memCopy(s, memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_S, bytes); }
+	public static void xclientDataB(ByteBuffer xevent, int index, byte b) { xevent.put(XCLIENT + XClientMessageEvent.DATA_B + index, b); }
 	public static void xclientDataSSet(ByteBuffer xevent, ByteBuffer s) {
 		checkBufferGT(s, 10 * 2);
-		xclientDataSSet(xevent, memAddress(s), s.remaining());
+		memCopy(memAddress(s), memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_S, s.remaining());
 	}
-	public static void xclientDataSSet(ByteBuffer xevent, int index, short element) { xevent.putShort(XCLIENT + XClientMessageEvent.DATA_S + index * 2, element); }
-	public static void xclientDataLSet(ByteBuffer xevent, long l, int bytes) { memCopy(l, memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_L, bytes); }
+	public static void xclientDataS(ByteBuffer xevent, int index, short s) { xevent.putShort(XCLIENT + XClientMessageEvent.DATA_S + index * 2, s); }
 	public static void xclientDataLSet(ByteBuffer xevent, ByteBuffer l) {
 		checkBufferGT(l, 5 * POINTER_SIZE);
-		xclientDataLSet(xevent, memAddress(l), l.remaining());
+		memCopy(memAddress(l), memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_L, l.remaining());
 	}
-	public static void xclientDataLSet(ByteBuffer xevent, int index, long element) { PointerBuffer.put(xevent, XCLIENT + XClientMessageEvent.DATA_L + index * POINTER_SIZE, element); }
-	public static void xerrorSet(ByteBuffer xevent, long xerror) { if ( xerror != NULL ) memCopy(xerror, memAddress(xevent) + XERROR, XErrorEvent.SIZEOF); }
-	public static void xerrorSet(ByteBuffer xevent, ByteBuffer xerror) { xerrorSet(xevent, memAddressSafe(xerror)); }
+	public static void xclientDataL(ByteBuffer xevent, int index, long l) { PointerBuffer.put(xevent, XCLIENT + XClientMessageEvent.DATA_L + index * POINTER_SIZE, l); }
+	public static void xerrorSet(ByteBuffer xevent, ByteBuffer xerror) { if ( xerror != null ) memCopy(memAddress(xerror), memAddress(xevent) + XERROR, XErrorEvent.SIZEOF); }
 	public static void xerrorType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XERROR + XErrorEvent.TYPE, type); }
 	public static void xerrorDisplay(ByteBuffer xevent, long display) { PointerBuffer.put(xevent, xevent.position() + XERROR + XErrorEvent.DISPLAY, display); }
 	public static void xerrorSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XERROR + XErrorEvent.SERIAL, serial); }
@@ -578,8 +504,7 @@ public final class XEvent implements Pointer {
 	public static void xerrorRequest_code(ByteBuffer xevent, int request_code) { xevent.put(xevent.position() + XERROR + XErrorEvent.REQUEST_CODE, (byte)request_code); }
 	public static void xerrorMinor_code(ByteBuffer xevent, int minor_code) { xevent.put(xevent.position() + XERROR + XErrorEvent.MINOR_CODE, (byte)minor_code); }
 	public static void xerrorResourceid(ByteBuffer xevent, long resourceid) { PointerBuffer.put(xevent, xevent.position() + XERROR + XErrorEvent.RESOURCEID, resourceid); }
-	public static void xcookieSet(ByteBuffer xevent, long xcookie) { if ( xcookie != NULL ) memCopy(xcookie, memAddress(xevent) + XCOOKIE, XGenericEventCookie.SIZEOF); }
-	public static void xcookieSet(ByteBuffer xevent, ByteBuffer xcookie) { xcookieSet(xevent, memAddressSafe(xcookie)); }
+	public static void xcookieSet(ByteBuffer xevent, ByteBuffer xcookie) { if ( xcookie != null ) memCopy(memAddress(xcookie), memAddress(xevent) + XCOOKIE, XGenericEventCookie.SIZEOF); }
 	public static void xcookieType(ByteBuffer xevent, int type) { xevent.putInt(xevent.position() + XCOOKIE + XGenericEventCookie.TYPE, type); }
 	public static void xcookieSerial(ByteBuffer xevent, long serial) { PointerBuffer.put(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.SERIAL, serial); }
 	public static void xcookieSend_event(ByteBuffer xevent, int send_event) { xevent.putInt(xevent.position() + XCOOKIE + XGenericEventCookie.SEND_EVENT, send_event); }
@@ -588,18 +513,16 @@ public final class XEvent implements Pointer {
 	public static void xcookieEvtype(ByteBuffer xevent, int evtype) { xevent.putInt(xevent.position() + XCOOKIE + XGenericEventCookie.EVTYPE, evtype); }
 	public static void xcookieCookie(ByteBuffer xevent, int cookie) { xevent.putInt(xevent.position() + XCOOKIE + XGenericEventCookie.COOKIE, cookie); }
 	public static void xcookieData(ByteBuffer xevent, long data) { PointerBuffer.put(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.DATA, data); }
-	public static void xcookieData(ByteBuffer xevent, ByteBuffer data) { xcookieData(xevent, memAddress(data)); }
+	public static void xcookieData(ByteBuffer xevent, ByteBuffer data) { xcookieData(xevent, memAddressSafe(data)); }
 
 	public static int type(ByteBuffer xevent) { return xevent.getInt(xevent.position() + TYPE); }
-	public static void xanyGet(ByteBuffer xevent, long xany) { memCopy(memAddress(xevent) + XANY, xany, XAnyEvent.SIZEOF); }
-	public static void xanyGet(ByteBuffer xevent, ByteBuffer xany) { checkBuffer(xany, XAnyEvent.SIZEOF); xanyGet(xevent, memAddress(xany)); }
+	public static void xanyGet(ByteBuffer xevent, ByteBuffer xany) { checkBuffer(xany, XAnyEvent.SIZEOF); memCopy(memAddress(xevent) + XANY, memAddress(xany), XAnyEvent.SIZEOF); }
 	public static int xanyType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XANY + XAnyEvent.TYPE); }
 	public static long xanySerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XANY + XAnyEvent.SERIAL); }
 	public static int xanySend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XANY + XAnyEvent.SEND_EVENT); }
 	public static long xanyDisplay(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XANY + XAnyEvent.DISPLAY); }
 	public static long xanyWindow(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XANY + XAnyEvent.WINDOW); }
-	public static void xkeyGet(ByteBuffer xevent, long xkey) { memCopy(memAddress(xevent) + XKEY, xkey, XKeyEvent.SIZEOF); }
-	public static void xkeyGet(ByteBuffer xevent, ByteBuffer xkey) { checkBuffer(xkey, XKeyEvent.SIZEOF); xkeyGet(xevent, memAddress(xkey)); }
+	public static void xkeyGet(ByteBuffer xevent, ByteBuffer xkey) { checkBuffer(xkey, XKeyEvent.SIZEOF); memCopy(memAddress(xevent) + XKEY, memAddress(xkey), XKeyEvent.SIZEOF); }
 	public static int xkeyType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XKEY + XKeyEvent.TYPE); }
 	public static long xkeySerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XKEY + XKeyEvent.SERIAL); }
 	public static int xkeySend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XKEY + XKeyEvent.SEND_EVENT); }
@@ -615,8 +538,7 @@ public final class XEvent implements Pointer {
 	public static int xkeyState(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XKEY + XKeyEvent.STATE); }
 	public static int xkeyKeycode(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XKEY + XKeyEvent.KEYCODE); }
 	public static int xkeySame_screen(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XKEY + XKeyEvent.SAME_SCREEN); }
-	public static void xbuttonGet(ByteBuffer xevent, long xbutton) { memCopy(memAddress(xevent) + XBUTTON, xbutton, XButtonEvent.SIZEOF); }
-	public static void xbuttonGet(ByteBuffer xevent, ByteBuffer xbutton) { checkBuffer(xbutton, XButtonEvent.SIZEOF); xbuttonGet(xevent, memAddress(xbutton)); }
+	public static void xbuttonGet(ByteBuffer xevent, ByteBuffer xbutton) { checkBuffer(xbutton, XButtonEvent.SIZEOF); memCopy(memAddress(xevent) + XBUTTON, memAddress(xbutton), XButtonEvent.SIZEOF); }
 	public static int xbuttonType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XBUTTON + XButtonEvent.TYPE); }
 	public static long xbuttonSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XBUTTON + XButtonEvent.SERIAL); }
 	public static int xbuttonSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XBUTTON + XButtonEvent.SEND_EVENT); }
@@ -632,8 +554,7 @@ public final class XEvent implements Pointer {
 	public static int xbuttonState(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XBUTTON + XButtonEvent.STATE); }
 	public static int xbuttonButton(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XBUTTON + XButtonEvent.BUTTON); }
 	public static int xbuttonSame_screen(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XBUTTON + XButtonEvent.SAME_SCREEN); }
-	public static void xmotionGet(ByteBuffer xevent, long xmotion) { memCopy(memAddress(xevent) + XMOTION, xmotion, XMotionEvent.SIZEOF); }
-	public static void xmotionGet(ByteBuffer xevent, ByteBuffer xmotion) { checkBuffer(xmotion, XMotionEvent.SIZEOF); xmotionGet(xevent, memAddress(xmotion)); }
+	public static void xmotionGet(ByteBuffer xevent, ByteBuffer xmotion) { checkBuffer(xmotion, XMotionEvent.SIZEOF); memCopy(memAddress(xevent) + XMOTION, memAddress(xmotion), XMotionEvent.SIZEOF); }
 	public static int xmotionType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XMOTION + XMotionEvent.TYPE); }
 	public static long xmotionSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XMOTION + XMotionEvent.SERIAL); }
 	public static int xmotionSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XMOTION + XMotionEvent.SEND_EVENT); }
@@ -649,8 +570,7 @@ public final class XEvent implements Pointer {
 	public static int xmotionState(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XMOTION + XMotionEvent.STATE); }
 	public static int xmotionIs_hint(ByteBuffer xevent) { return xevent.get(xevent.position() + XMOTION + XMotionEvent.IS_HINT); }
 	public static int xmotionSame_screen(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XMOTION + XMotionEvent.SAME_SCREEN); }
-	public static void xconfigureGet(ByteBuffer xevent, long xconfigure) { memCopy(memAddress(xevent) + XCONFIGURE, xconfigure, XConfigureEvent.SIZEOF); }
-	public static void xconfigureGet(ByteBuffer xevent, ByteBuffer xconfigure) { checkBuffer(xconfigure, XConfigureEvent.SIZEOF); xconfigureGet(xevent, memAddress(xconfigure)); }
+	public static void xconfigureGet(ByteBuffer xevent, ByteBuffer xconfigure) { checkBuffer(xconfigure, XConfigureEvent.SIZEOF); memCopy(memAddress(xevent) + XCONFIGURE, memAddress(xconfigure), XConfigureEvent.SIZEOF); }
 	public static int xconfigureType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCONFIGURE + XConfigureEvent.TYPE); }
 	public static long xconfigureSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCONFIGURE + XConfigureEvent.SERIAL); }
 	public static int xconfigureSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCONFIGURE + XConfigureEvent.SEND_EVENT); }
@@ -664,8 +584,7 @@ public final class XEvent implements Pointer {
 	public static int xconfigureBorder_width(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCONFIGURE + XConfigureEvent.BORDER_WIDTH); }
 	public static long xconfigureAbove(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCONFIGURE + XConfigureEvent.ABOVE); }
 	public static int xconfigureOverride_redirect(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCONFIGURE + XConfigureEvent.OVERRIDE_REDIRECT); }
-	public static void xpropertyGet(ByteBuffer xevent, long xproperty) { memCopy(memAddress(xevent) + XPROPERTY, xproperty, XPropertyEvent.SIZEOF); }
-	public static void xpropertyGet(ByteBuffer xevent, ByteBuffer xproperty) { checkBuffer(xproperty, XPropertyEvent.SIZEOF); xpropertyGet(xevent, memAddress(xproperty)); }
+	public static void xpropertyGet(ByteBuffer xevent, ByteBuffer xproperty) { checkBuffer(xproperty, XPropertyEvent.SIZEOF); memCopy(memAddress(xevent) + XPROPERTY, memAddress(xproperty), XPropertyEvent.SIZEOF); }
 	public static int xpropertyType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XPROPERTY + XPropertyEvent.TYPE); }
 	public static long xpropertySerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XPROPERTY + XPropertyEvent.SERIAL); }
 	public static int xpropertySend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XPROPERTY + XPropertyEvent.SEND_EVENT); }
@@ -674,8 +593,7 @@ public final class XEvent implements Pointer {
 	public static long xpropertyAtom(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XPROPERTY + XPropertyEvent.ATOM); }
 	public static long xpropertyTime(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XPROPERTY + XPropertyEvent.TIME); }
 	public static int xpropertyState(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XPROPERTY + XPropertyEvent.STATE); }
-	public static void xselectionrequestGet(ByteBuffer xevent, long xselectionrequest) { memCopy(memAddress(xevent) + XSELECTIONREQUEST, xselectionrequest, XSelectionRequestEvent.SIZEOF); }
-	public static void xselectionrequestGet(ByteBuffer xevent, ByteBuffer xselectionrequest) { checkBuffer(xselectionrequest, XSelectionRequestEvent.SIZEOF); xselectionrequestGet(xevent, memAddress(xselectionrequest)); }
+	public static void xselectionrequestGet(ByteBuffer xevent, ByteBuffer xselectionrequest) { checkBuffer(xselectionrequest, XSelectionRequestEvent.SIZEOF); memCopy(memAddress(xevent) + XSELECTIONREQUEST, memAddress(xselectionrequest), XSelectionRequestEvent.SIZEOF); }
 	public static int xselectionrequestType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TYPE); }
 	public static long xselectionrequestSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.SERIAL); }
 	public static int xselectionrequestSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.SEND_EVENT); }
@@ -686,8 +604,7 @@ public final class XEvent implements Pointer {
 	public static long xselectionrequestTarget(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TARGET); }
 	public static long xselectionrequestProperty(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.PROPERTY); }
 	public static long xselectionrequestTime(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTIONREQUEST + XSelectionRequestEvent.TIME); }
-	public static void xselectionGet(ByteBuffer xevent, long xselection) { memCopy(memAddress(xevent) + XSELECTION, xselection, XSelectionEvent.SIZEOF); }
-	public static void xselectionGet(ByteBuffer xevent, ByteBuffer xselection) { checkBuffer(xselection, XSelectionEvent.SIZEOF); xselectionGet(xevent, memAddress(xselection)); }
+	public static void xselectionGet(ByteBuffer xevent, ByteBuffer xselection) { checkBuffer(xselection, XSelectionEvent.SIZEOF); memCopy(memAddress(xevent) + XSELECTION, memAddress(xselection), XSelectionEvent.SIZEOF); }
 	public static int xselectionType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XSELECTION + XSelectionEvent.TYPE); }
 	public static long xselectionSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTION + XSelectionEvent.SERIAL); }
 	public static int xselectionSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XSELECTION + XSelectionEvent.SEND_EVENT); }
@@ -697,8 +614,7 @@ public final class XEvent implements Pointer {
 	public static long xselectionTarget(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTION + XSelectionEvent.TARGET); }
 	public static long xselectionProperty(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTION + XSelectionEvent.PROPERTY); }
 	public static long xselectionTime(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XSELECTION + XSelectionEvent.TIME); }
-	public static void xclientGet(ByteBuffer xevent, long xclient) { memCopy(memAddress(xevent) + XCLIENT, xclient, XClientMessageEvent.SIZEOF); }
-	public static void xclientGet(ByteBuffer xevent, ByteBuffer xclient) { checkBuffer(xclient, XClientMessageEvent.SIZEOF); xclientGet(xevent, memAddress(xclient)); }
+	public static void xclientGet(ByteBuffer xevent, ByteBuffer xclient) { checkBuffer(xclient, XClientMessageEvent.SIZEOF); memCopy(memAddress(xevent) + XCLIENT, memAddress(xclient), XClientMessageEvent.SIZEOF); }
 	public static int xclientType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCLIENT + XClientMessageEvent.TYPE); }
 	public static long xclientSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCLIENT + XClientMessageEvent.SERIAL); }
 	public static int xclientSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCLIENT + XClientMessageEvent.SEND_EVENT); }
@@ -706,29 +622,28 @@ public final class XEvent implements Pointer {
 	public static long xclientWindow(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCLIENT + XClientMessageEvent.WINDOW); }
 	public static long xclientMessage_type(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCLIENT + XClientMessageEvent.MESSAGE_TYPE); }
 	public static int xclientFormat(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCLIENT + XClientMessageEvent.FORMAT); }
-	public static void xclientDataBGet(ByteBuffer xevent, long b, int bytes) {
-		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_B, b, bytes);
-	}
 	public static void xclientDataBGet(ByteBuffer xevent, ByteBuffer b) {
 		checkBufferGT(b, 20 * 1);
-		xclientDataBGet(xevent, memAddress(b), b.remaining());
+		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_B, memAddress(b), b.remaining());
 	}
-	public static void xclientDataSGet(ByteBuffer xevent, long s, int bytes) {
-		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_S, s, bytes);
+	public static byte xclientDataB(ByteBuffer xevent, int index) {
+		return xevent.get(XCLIENT + XClientMessageEvent.DATA_B + index * 1);
 	}
 	public static void xclientDataSGet(ByteBuffer xevent, ByteBuffer s) {
 		checkBufferGT(s, 10 * 2);
-		xclientDataSGet(xevent, memAddress(s), s.remaining());
+		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_S, memAddress(s), s.remaining());
 	}
-	public static void xclientDataLGet(ByteBuffer xevent, long l, int bytes) {
-		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_L, l, bytes);
+	public static short xclientDataS(ByteBuffer xevent, int index) {
+		return xevent.getShort(XCLIENT + XClientMessageEvent.DATA_S + index * 2);
 	}
 	public static void xclientDataLGet(ByteBuffer xevent, ByteBuffer l) {
 		checkBufferGT(l, 5 * 8);
-		xclientDataLGet(xevent, memAddress(l), l.remaining());
+		memCopy(memAddress(xevent) + XCLIENT + XClientMessageEvent.DATA_L, memAddress(l), l.remaining());
 	}
-	public static void xerrorGet(ByteBuffer xevent, long xerror) { memCopy(memAddress(xevent) + XERROR, xerror, XErrorEvent.SIZEOF); }
-	public static void xerrorGet(ByteBuffer xevent, ByteBuffer xerror) { checkBuffer(xerror, XErrorEvent.SIZEOF); xerrorGet(xevent, memAddress(xerror)); }
+	public static long xclientDataL(ByteBuffer xevent, int index) {
+		return xevent.getLong(XCLIENT + XClientMessageEvent.DATA_L + index * 8);
+	}
+	public static void xerrorGet(ByteBuffer xevent, ByteBuffer xerror) { checkBuffer(xerror, XErrorEvent.SIZEOF); memCopy(memAddress(xevent) + XERROR, memAddress(xerror), XErrorEvent.SIZEOF); }
 	public static int xerrorType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XERROR + XErrorEvent.TYPE); }
 	public static long xerrorDisplay(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR + XErrorEvent.DISPLAY); }
 	public static long xerrorSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR + XErrorEvent.SERIAL); }
@@ -736,8 +651,7 @@ public final class XEvent implements Pointer {
 	public static int xerrorRequest_code(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR + XErrorEvent.REQUEST_CODE) & 0xFF; }
 	public static int xerrorMinor_code(ByteBuffer xevent) { return xevent.get(xevent.position() + XERROR + XErrorEvent.MINOR_CODE) & 0xFF; }
 	public static long xerrorResourceid(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XERROR + XErrorEvent.RESOURCEID); }
-	public static void xcookieGet(ByteBuffer xevent, long xcookie) { memCopy(memAddress(xevent) + XCOOKIE, xcookie, XGenericEventCookie.SIZEOF); }
-	public static void xcookieGet(ByteBuffer xevent, ByteBuffer xcookie) { checkBuffer(xcookie, XGenericEventCookie.SIZEOF); xcookieGet(xevent, memAddress(xcookie)); }
+	public static void xcookieGet(ByteBuffer xevent, ByteBuffer xcookie) { checkBuffer(xcookie, XGenericEventCookie.SIZEOF); memCopy(memAddress(xevent) + XCOOKIE, memAddress(xcookie), XGenericEventCookie.SIZEOF); }
 	public static int xcookieType(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.TYPE); }
 	public static long xcookieSerial(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.SERIAL); }
 	public static int xcookieSend_event(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.SEND_EVENT); }

@@ -14,12 +14,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XColor_offsets(JNIEnv *__env,
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XColor, pixel));
-	buffer[1] = (jint)(offsetof(XColor, red));
-	buffer[2] = (jint)(offsetof(XColor, green));
-	buffer[3] = (jint)(offsetof(XColor, blue));
-	buffer[4] = (jint)(offsetof(XColor, flags));
-	buffer[5] = (jint)(offsetof(XColor, pad));
+	buffer[0] = (jint)offsetof(XColor, pixel);
+	buffer[1] = (jint)offsetof(XColor, red);
+	buffer[2] = (jint)offsetof(XColor, green);
+	buffer[3] = (jint)offsetof(XColor, blue);
+	buffer[4] = (jint)offsetof(XColor, flags);
+	buffer[5] = (jint)offsetof(XColor, pad);
 
 	return sizeof(XColor);
 }

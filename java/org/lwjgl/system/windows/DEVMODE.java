@@ -75,7 +75,6 @@ public final class DEVMODE implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setDeviceName(long deviceName, int bytes) { deviceNameSet(struct, deviceName, bytes); }
 	public void setDeviceName(ByteBuffer deviceName) { deviceNameSet(struct, deviceName); }
 	public void setDeviceName(CharSequence deviceName) { deviceName(struct, deviceName); }
 	public void setSpecVersion(int specVersion) { specVersion(struct, specVersion); }
@@ -83,7 +82,6 @@ public final class DEVMODE implements Pointer {
 	public void setSize(int size) { size(struct, size); }
 	public void setDriverExtra(int driverExtra) { driverExtra(struct, driverExtra); }
 	public void setFields(int fields) { fields(struct, fields); }
-	public void setPosition(long position) { positionSet(struct, position); }
 	public void setPosition(ByteBuffer position) { positionSet(struct, position); }
 	public void setPositionX(int x) { positionX(struct, x); }
 	public void setPositionY(int y) { positionY(struct, y); }
@@ -94,7 +92,6 @@ public final class DEVMODE implements Pointer {
 	public void setDisplayFlags(int displayFlags) { displayFlags(struct, displayFlags); }
 	public void setDisplayFrequency(int displayFrequency) { displayFrequency(struct, displayFrequency); }
 
-	public void getDeviceName(long deviceName, int bytes) { deviceNameGet(struct, deviceName, bytes); }
 	public void getDeviceName(ByteBuffer deviceName) { deviceNameGet(struct, deviceName); }
 	public String getDeviceNameString() { return deviceNameString(struct); }
 	public String getDeviceNameString(int size) { return deviceNameString(struct, size); }
@@ -103,7 +100,6 @@ public final class DEVMODE implements Pointer {
 	public int getSize() { return size(struct); }
 	public int getDriverExtra() { return driverExtra(struct); }
 	public int getFields() { return fields(struct); }
-	public void getPosition(long position) { positionGet(struct, position); }
 	public void getPosition(ByteBuffer position) { positionGet(struct, position); }
 	public int getPositionX() { return positionX(struct); }
 	public int getPositionY() { return positionY(struct); }
@@ -122,42 +118,6 @@ public final class DEVMODE implements Pointer {
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		long deviceName,
-		int deviceNameBytes,
-		int specVersion,
-		int driverVersion,
-		int size,
-		int driverExtra,
-		int fields,
-		long position,
-		int logPixels,
-		int bitsPerPel,
-		int pelsWidth,
-		int pelsHeight,
-		int displayFlags,
-		int displayFrequency
-	) {
-		ByteBuffer devmode = malloc();
-
-		deviceNameSet(devmode, deviceName, deviceNameBytes);
-		specVersion(devmode, specVersion);
-		driverVersion(devmode, driverVersion);
-		size(devmode, size);
-		driverExtra(devmode, driverExtra);
-		fields(devmode, fields);
-		positionSet(devmode, position);
-		logPixels(devmode, logPixels);
-		bitsPerPel(devmode, bitsPerPel);
-		pelsWidth(devmode, pelsWidth);
-		pelsHeight(devmode, pelsHeight);
-		displayFlags(devmode, displayFlags);
-		displayFrequency(devmode, displayFrequency);
-
-		return devmode;
-	}
-
-	/** Alternative virtual constructor. */
 	public static ByteBuffer malloc(
 		ByteBuffer deviceName,
 		int specVersion,
@@ -192,7 +152,7 @@ public final class DEVMODE implements Pointer {
 		return devmode;
 	}
 
-	/** Alternative virtual constructor. */
+	/** Alternative virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		CharSequence deviceName,
 		int specVersion,
@@ -227,11 +187,10 @@ public final class DEVMODE implements Pointer {
 		return devmode;
 	}
 
-	public static void deviceNameSet(ByteBuffer devmode, long deviceName, int bytes) { memCopy(deviceName, memAddress(devmode) + DEVICENAME, bytes); }
 	public static void deviceNameSet(ByteBuffer devmode, ByteBuffer deviceName) {
 		checkNT2(deviceName);
 		checkBufferGT(deviceName, 32 * 2);
-		deviceNameSet(devmode, memAddress(deviceName), deviceName.remaining());
+		memCopy(memAddress(deviceName), memAddress(devmode) + DEVICENAME, deviceName.remaining());
 	}
 	public static void deviceName(ByteBuffer devmode, CharSequence deviceName) { memEncodeUTF16(deviceName, true, devmode, DEVICENAME); }
 	public static void specVersion(ByteBuffer devmode, int specVersion) { devmode.putShort(devmode.position() + SPECVERSION, (short)specVersion); }
@@ -239,8 +198,7 @@ public final class DEVMODE implements Pointer {
 	public static void size(ByteBuffer devmode, int size) { devmode.putShort(devmode.position() + SIZE, (short)size); }
 	public static void driverExtra(ByteBuffer devmode, int driverExtra) { devmode.putShort(devmode.position() + DRIVEREXTRA, (short)driverExtra); }
 	public static void fields(ByteBuffer devmode, int fields) { devmode.putInt(devmode.position() + FIELDS, fields); }
-	public static void positionSet(ByteBuffer devmode, long position) { if ( position != NULL ) memCopy(position, memAddress(devmode) + POSITION, POINTL.SIZEOF); }
-	public static void positionSet(ByteBuffer devmode, ByteBuffer position) { positionSet(devmode, memAddressSafe(position)); }
+	public static void positionSet(ByteBuffer devmode, ByteBuffer position) { if ( position != null ) memCopy(memAddress(position), memAddress(devmode) + POSITION, POINTL.SIZEOF); }
 	public static void positionX(ByteBuffer devmode, int x) { devmode.putInt(devmode.position() + POSITION + POINTL.X, x); }
 	public static void positionY(ByteBuffer devmode, int y) { devmode.putInt(devmode.position() + POSITION + POINTL.Y, y); }
 	public static void logPixels(ByteBuffer devmode, int logPixels) { devmode.putShort(devmode.position() + LOGPIXELS, (short)logPixels); }
@@ -250,12 +208,9 @@ public final class DEVMODE implements Pointer {
 	public static void displayFlags(ByteBuffer devmode, int displayFlags) { devmode.putInt(devmode.position() + DISPLAYFLAGS, displayFlags); }
 	public static void displayFrequency(ByteBuffer devmode, int displayFrequency) { devmode.putInt(devmode.position() + DISPLAYFREQUENCY, displayFrequency); }
 
-	public static void deviceNameGet(ByteBuffer devmode, long deviceName, int bytes) {
-		memCopy(memAddress(devmode) + DEVICENAME, deviceName, bytes);
-	}
 	public static void deviceNameGet(ByteBuffer devmode, ByteBuffer deviceName) {
 		checkBufferGT(deviceName, 32 * 2);
-		deviceNameGet(devmode, memAddress(deviceName), deviceName.remaining());
+		memCopy(memAddress(devmode) + DEVICENAME, memAddress(deviceName), deviceName.remaining());
 	}
 	public static String deviceNameString(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
 	public static String deviceNameString(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
@@ -264,8 +219,7 @@ public final class DEVMODE implements Pointer {
 	public static int size(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
 	public static int driverExtra(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
 	public static int fields(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
-	public static void positionGet(ByteBuffer devmode, long position) { memCopy(memAddress(devmode) + POSITION, position, POINTL.SIZEOF); }
-	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { checkBuffer(position, POINTL.SIZEOF); positionGet(devmode, memAddress(position)); }
+	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { checkBuffer(position, POINTL.SIZEOF); memCopy(memAddress(devmode) + POSITION, memAddress(position), POINTL.SIZEOF); }
 	public static int positionX(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.X); }
 	public static int positionY(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.Y); }
 	public static int logPixels(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }

@@ -15,8 +15,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_timezone_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(struct timezone, tz_minuteswest));
-	buffer[1] = (jint)(offsetof(struct timezone, tz_dsttime));
+	buffer[0] = (jint)offsetof(struct timezone, tz_minuteswest);
+	buffer[1] = (jint)offsetof(struct timezone, tz_dsttime);
 
 	return sizeof(struct timezone);
 }

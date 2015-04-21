@@ -14,8 +14,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CLImageFormat_offsets(JNIEnv *__env
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(cl_image_format, image_channel_order));
-	buffer[1] = (jint)(offsetof(cl_image_format, image_channel_data_type));
+	buffer[0] = (jint)offsetof(cl_image_format, image_channel_order);
+	buffer[1] = (jint)offsetof(cl_image_format, image_channel_data_type);
 
 	return sizeof(cl_image_format);
 }

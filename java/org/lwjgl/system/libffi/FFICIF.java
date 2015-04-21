@@ -88,27 +88,6 @@ public final class FFICIF implements Pointer {
 	public static ByteBuffer malloc(
 		int abi,
 		int nargs,
-		long arg_types,
-		long rtype,
-		int bytes,
-		int flags
-	) {
-		ByteBuffer ffi_cif = malloc();
-
-		abi(ffi_cif, abi);
-		nargs(ffi_cif, nargs);
-		arg_types(ffi_cif, arg_types);
-		rtype(ffi_cif, rtype);
-		bytes(ffi_cif, bytes);
-		flags(ffi_cif, flags);
-
-		return ffi_cif;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int abi,
-		int nargs,
 		ByteBuffer arg_types,
 		long rtype,
 		int bytes,
@@ -129,7 +108,7 @@ public final class FFICIF implements Pointer {
 	public static void abi(ByteBuffer ffi_cif, int abi) { ffi_cif.putInt(ffi_cif.position() + ABI, abi); }
 	public static void nargs(ByteBuffer ffi_cif, int nargs) { ffi_cif.putInt(ffi_cif.position() + NARGS, nargs); }
 	public static void arg_types(ByteBuffer ffi_cif, long arg_types) { PointerBuffer.put(ffi_cif, ffi_cif.position() + ARG_TYPES, arg_types); }
-	public static void arg_types(ByteBuffer ffi_cif, ByteBuffer arg_types) { arg_types(ffi_cif, memAddress(arg_types)); }
+	public static void arg_types(ByteBuffer ffi_cif, ByteBuffer arg_types) { arg_types(ffi_cif, memAddressSafe(arg_types)); }
 	public static void rtype(ByteBuffer ffi_cif, long rtype) { PointerBuffer.put(ffi_cif, ffi_cif.position() + RTYPE, rtype); }
 	public static void bytes(ByteBuffer ffi_cif, int bytes) { ffi_cif.putInt(ffi_cif.position() + BYTES, bytes); }
 	public static void flags(ByteBuffer ffi_cif, int flags) { ffi_cif.putInt(ffi_cif.position() + FLAGS, flags); }

@@ -85,7 +85,7 @@ public final class JOYINFOEX implements Pointer {
 	public void setVPos(int vPos) { vPos(struct, vPos); }
 	public void setButtons(int buttons) { buttons(struct, buttons); }
 	public void setButtonNumber(int buttonNumber) { buttonNumber(struct, buttonNumber); }
-	public void setPOV(int POV) { POV(struct, POV); }
+	public void setPOV(int pov) { POV(struct, pov); }
 	public void setReserved1(int reserved1) { reserved1(struct, reserved1); }
 	public void setReserved2(int reserved2) { reserved2(struct, reserved2); }
 
@@ -155,7 +155,7 @@ public final class JOYINFOEX implements Pointer {
 	public static void vPos(ByteBuffer joyinfoex, int vPos) { joyinfoex.putInt(joyinfoex.position() + VPOS, vPos); }
 	public static void buttons(ByteBuffer joyinfoex, int buttons) { joyinfoex.putInt(joyinfoex.position() + BUTTONS, buttons); }
 	public static void buttonNumber(ByteBuffer joyinfoex, int buttonNumber) { joyinfoex.putInt(joyinfoex.position() + BUTTONNUMBER, buttonNumber); }
-	public static void POV(ByteBuffer joyinfoex, int POV) { joyinfoex.putInt(joyinfoex.position() + POV, POV); }
+	public static void POV(ByteBuffer joyinfoex, int pov) { joyinfoex.putInt(joyinfoex.position() + POV, pov); }
 	public static void reserved1(ByteBuffer joyinfoex, int reserved1) { joyinfoex.putInt(joyinfoex.position() + RESERVED1, reserved1); }
 	public static void reserved2(ByteBuffer joyinfoex, int reserved2) { joyinfoex.putInt(joyinfoex.position() + RESERVED2, reserved2); }
 

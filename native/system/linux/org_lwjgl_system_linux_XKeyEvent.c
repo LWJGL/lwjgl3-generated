@@ -14,21 +14,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XKeyEvent_offsets(JNIEnv *__e
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XKeyEvent, type));
-	buffer[1] = (jint)(offsetof(XKeyEvent, serial));
-	buffer[2] = (jint)(offsetof(XKeyEvent, send_event));
-	buffer[3] = (jint)(offsetof(XKeyEvent, display));
-	buffer[4] = (jint)(offsetof(XKeyEvent, window));
-	buffer[5] = (jint)(offsetof(XKeyEvent, root));
-	buffer[6] = (jint)(offsetof(XKeyEvent, subwindow));
-	buffer[7] = (jint)(offsetof(XKeyEvent, time));
-	buffer[8] = (jint)(offsetof(XKeyEvent, x));
-	buffer[9] = (jint)(offsetof(XKeyEvent, y));
-	buffer[10] = (jint)(offsetof(XKeyEvent, x_root));
-	buffer[11] = (jint)(offsetof(XKeyEvent, y_root));
-	buffer[12] = (jint)(offsetof(XKeyEvent, state));
-	buffer[13] = (jint)(offsetof(XKeyEvent, keycode));
-	buffer[14] = (jint)(offsetof(XKeyEvent, same_screen));
+	buffer[0] = (jint)offsetof(XKeyEvent, type);
+	buffer[1] = (jint)offsetof(XKeyEvent, serial);
+	buffer[2] = (jint)offsetof(XKeyEvent, send_event);
+	buffer[3] = (jint)offsetof(XKeyEvent, display);
+	buffer[4] = (jint)offsetof(XKeyEvent, window);
+	buffer[5] = (jint)offsetof(XKeyEvent, root);
+	buffer[6] = (jint)offsetof(XKeyEvent, subwindow);
+	buffer[7] = (jint)offsetof(XKeyEvent, time);
+	buffer[8] = (jint)offsetof(XKeyEvent, x);
+	buffer[9] = (jint)offsetof(XKeyEvent, y);
+	buffer[10] = (jint)offsetof(XKeyEvent, x_root);
+	buffer[11] = (jint)offsetof(XKeyEvent, y_root);
+	buffer[12] = (jint)offsetof(XKeyEvent, state);
+	buffer[13] = (jint)offsetof(XKeyEvent, keycode);
+	buffer[14] = (jint)offsetof(XKeyEvent, same_screen);
 
 	return sizeof(XKeyEvent);
 }

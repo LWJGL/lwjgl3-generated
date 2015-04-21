@@ -61,7 +61,6 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	public void setBlackBoxX(float blackBoxX) { blackBoxX(struct, blackBoxX); }
 	public void setBlockBoxY(float blockBoxY) { blockBoxY(struct, blockBoxY); }
-	public void setGlyphOrigin(long glyphOrigin) { glyphOriginSet(struct, glyphOrigin); }
 	public void setGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginSet(struct, glyphOrigin); }
 	public void setGlyphOriginX(float x) { glyphOriginX(struct, x); }
 	public void setGlyphOriginY(float y) { glyphOriginY(struct, y); }
@@ -70,7 +69,6 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	public float getBlackBoxX() { return blackBoxX(struct); }
 	public float getBlockBoxY() { return blockBoxY(struct); }
-	public void getGlyphOrigin(long glyphOrigin) { glyphOriginGet(struct, glyphOrigin); }
 	public void getGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginGet(struct, glyphOrigin); }
 	public float getGlyphOriginX() { return glyphOriginX(struct); }
 	public float getGlyphOriginY() { return glyphOriginY(struct); }
@@ -85,25 +83,6 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		float blackBoxX,
-		float blockBoxY,
-		long glyphOrigin,
-		float cellIncX,
-		float cellIncY
-	) {
-		ByteBuffer glyphmetricsfloat = malloc();
-
-		blackBoxX(glyphmetricsfloat, blackBoxX);
-		blockBoxY(glyphmetricsfloat, blockBoxY);
-		glyphOriginSet(glyphmetricsfloat, glyphOrigin);
-		cellIncX(glyphmetricsfloat, cellIncX);
-		cellIncY(glyphmetricsfloat, cellIncY);
-
-		return glyphmetricsfloat;
-	}
-
-	/** Alternative virtual constructor. */
 	public static ByteBuffer malloc(
 		float blackBoxX,
 		float blockBoxY,
@@ -124,8 +103,7 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	public static void blackBoxX(ByteBuffer glyphmetricsfloat, float blackBoxX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLACKBOXX, blackBoxX); }
 	public static void blockBoxY(ByteBuffer glyphmetricsfloat, float blockBoxY) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + BLOCKBOXY, blockBoxY); }
-	public static void glyphOriginSet(ByteBuffer glyphmetricsfloat, long glyphOrigin) { if ( glyphOrigin != NULL ) memCopy(glyphOrigin, memAddress(glyphmetricsfloat) + GLYPHORIGIN, POINTFLOAT.SIZEOF); }
-	public static void glyphOriginSet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { glyphOriginSet(glyphmetricsfloat, memAddressSafe(glyphOrigin)); }
+	public static void glyphOriginSet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { if ( glyphOrigin != null ) memCopy(memAddress(glyphOrigin), memAddress(glyphmetricsfloat) + GLYPHORIGIN, POINTFLOAT.SIZEOF); }
 	public static void glyphOriginX(ByteBuffer glyphmetricsfloat, float x) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X, x); }
 	public static void glyphOriginY(ByteBuffer glyphmetricsfloat, float y) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y, y); }
 	public static void cellIncX(ByteBuffer glyphmetricsfloat, float cellIncX) { glyphmetricsfloat.putFloat(glyphmetricsfloat.position() + CELLINCX, cellIncX); }
@@ -133,8 +111,7 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	public static float blackBoxX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLACKBOXX); }
 	public static float blockBoxY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLOCKBOXY); }
-	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, long glyphOrigin) { memCopy(memAddress(glyphmetricsfloat) + GLYPHORIGIN, glyphOrigin, POINTFLOAT.SIZEOF); }
-	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { checkBuffer(glyphOrigin, POINTFLOAT.SIZEOF); glyphOriginGet(glyphmetricsfloat, memAddress(glyphOrigin)); }
+	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { checkBuffer(glyphOrigin, POINTFLOAT.SIZEOF); memCopy(memAddress(glyphmetricsfloat) + GLYPHORIGIN, memAddress(glyphOrigin), POINTFLOAT.SIZEOF); }
 	public static float glyphOriginX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X); }
 	public static float glyphOriginY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y); }
 	public static float cellIncX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCX); }

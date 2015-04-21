@@ -76,21 +76,6 @@ public final class GLFWimage implements Pointer {
 	public static ByteBuffer malloc(
 		int width,
 		int height,
-		long pixels
-	) {
-		ByteBuffer glfwimage = malloc();
-
-		width(glfwimage, width);
-		height(glfwimage, height);
-		pixels(glfwimage, pixels);
-
-		return glfwimage;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int width,
-		int height,
 		ByteBuffer pixels
 	) {
 		ByteBuffer glfwimage = malloc();
@@ -105,7 +90,7 @@ public final class GLFWimage implements Pointer {
 	public static void width(ByteBuffer glfwimage, int width) { glfwimage.putInt(glfwimage.position() + WIDTH, width); }
 	public static void height(ByteBuffer glfwimage, int height) { glfwimage.putInt(glfwimage.position() + HEIGHT, height); }
 	public static void pixels(ByteBuffer glfwimage, long pixels) { PointerBuffer.put(glfwimage, glfwimage.position() + PIXELS, pixels); }
-	public static void pixels(ByteBuffer glfwimage, ByteBuffer pixels) { pixels(glfwimage, memAddress(pixels)); }
+	public static void pixels(ByteBuffer glfwimage, ByteBuffer pixels) { pixels(glfwimage, memAddressSafe(pixels)); }
 
 	public static int width(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + WIDTH); }
 	public static int height(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + HEIGHT); }

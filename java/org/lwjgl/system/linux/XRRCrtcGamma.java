@@ -83,23 +83,6 @@ public final class XRRCrtcGamma implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int size,
-		long red,
-		long green,
-		long blue
-	) {
-		ByteBuffer xrrcrtcgamma = malloc();
-
-		size(xrrcrtcgamma, size);
-		red(xrrcrtcgamma, red);
-		green(xrrcrtcgamma, green);
-		blue(xrrcrtcgamma, blue);
-
-		return xrrcrtcgamma;
-	}
-
-	/** Alternative virtual constructor. */
-	public static ByteBuffer malloc(
-		int size,
 		ByteBuffer red,
 		ByteBuffer green,
 		ByteBuffer blue
@@ -116,11 +99,11 @@ public final class XRRCrtcGamma implements Pointer {
 
 	public static void size(ByteBuffer xrrcrtcgamma, int size) { xrrcrtcgamma.putInt(xrrcrtcgamma.position() + SIZE, size); }
 	public static void red(ByteBuffer xrrcrtcgamma, long red) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + RED, red); }
-	public static void red(ByteBuffer xrrcrtcgamma, ByteBuffer red) { red(xrrcrtcgamma, memAddress(red)); }
+	public static void red(ByteBuffer xrrcrtcgamma, ByteBuffer red) { red(xrrcrtcgamma, memAddressSafe(red)); }
 	public static void green(ByteBuffer xrrcrtcgamma, long green) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN, green); }
-	public static void green(ByteBuffer xrrcrtcgamma, ByteBuffer green) { green(xrrcrtcgamma, memAddress(green)); }
+	public static void green(ByteBuffer xrrcrtcgamma, ByteBuffer green) { green(xrrcrtcgamma, memAddressSafe(green)); }
 	public static void blue(ByteBuffer xrrcrtcgamma, long blue) { PointerBuffer.put(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE, blue); }
-	public static void blue(ByteBuffer xrrcrtcgamma, ByteBuffer blue) { blue(xrrcrtcgamma, memAddress(blue)); }
+	public static void blue(ByteBuffer xrrcrtcgamma, ByteBuffer blue) { blue(xrrcrtcgamma, memAddressSafe(blue)); }
 
 	public static int size(ByteBuffer xrrcrtcgamma) { return xrrcrtcgamma.getInt(xrrcrtcgamma.position() + SIZE); }
 	public static long red(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + RED); }

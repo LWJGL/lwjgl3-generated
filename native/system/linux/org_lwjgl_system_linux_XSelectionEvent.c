@@ -14,15 +14,15 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_linux_XSelectionEvent_offsets(JNIEn
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(XSelectionEvent, type));
-	buffer[1] = (jint)(offsetof(XSelectionEvent, serial));
-	buffer[2] = (jint)(offsetof(XSelectionEvent, send_event));
-	buffer[3] = (jint)(offsetof(XSelectionEvent, display));
-	buffer[4] = (jint)(offsetof(XSelectionEvent, requestor));
-	buffer[5] = (jint)(offsetof(XSelectionEvent, selection));
-	buffer[6] = (jint)(offsetof(XSelectionEvent, target));
-	buffer[7] = (jint)(offsetof(XSelectionEvent, property));
-	buffer[8] = (jint)(offsetof(XSelectionEvent, time));
+	buffer[0] = (jint)offsetof(XSelectionEvent, type);
+	buffer[1] = (jint)offsetof(XSelectionEvent, serial);
+	buffer[2] = (jint)offsetof(XSelectionEvent, send_event);
+	buffer[3] = (jint)offsetof(XSelectionEvent, display);
+	buffer[4] = (jint)offsetof(XSelectionEvent, requestor);
+	buffer[5] = (jint)offsetof(XSelectionEvent, selection);
+	buffer[6] = (jint)offsetof(XSelectionEvent, target);
+	buffer[7] = (jint)offsetof(XSelectionEvent, property);
+	buffer[8] = (jint)offsetof(XSelectionEvent, time);
 
 	return sizeof(XSelectionEvent);
 }

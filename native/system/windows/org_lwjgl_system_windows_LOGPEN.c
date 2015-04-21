@@ -14,9 +14,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_LOGPEN_offsets(JNIEnv *__en
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(LOGPEN, lopnStyle));
-	buffer[1] = (jint)(offsetof(LOGPEN, lopnWidth));
-	buffer[2] = (jint)(offsetof(LOGPEN, lopnColor));
+	buffer[0] = (jint)offsetof(LOGPEN, lopnStyle);
+	buffer[1] = (jint)offsetof(LOGPEN, lopnWidth);
+	buffer[2] = (jint)offsetof(LOGPEN, lopnColor);
 
 	return sizeof(LOGPEN);
 }

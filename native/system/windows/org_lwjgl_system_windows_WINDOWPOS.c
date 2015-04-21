@@ -14,13 +14,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WINDOWPOS_offsets(JNIEnv *_
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)(offsetof(WINDOWPOS, hwnd));
-	buffer[1] = (jint)(offsetof(WINDOWPOS, hwndInsertAfter));
-	buffer[2] = (jint)(offsetof(WINDOWPOS, x));
-	buffer[3] = (jint)(offsetof(WINDOWPOS, y));
-	buffer[4] = (jint)(offsetof(WINDOWPOS, cx));
-	buffer[5] = (jint)(offsetof(WINDOWPOS, cy));
-	buffer[6] = (jint)(offsetof(WINDOWPOS, flags));
+	buffer[0] = (jint)offsetof(WINDOWPOS, hwnd);
+	buffer[1] = (jint)offsetof(WINDOWPOS, hwndInsertAfter);
+	buffer[2] = (jint)offsetof(WINDOWPOS, x);
+	buffer[3] = (jint)offsetof(WINDOWPOS, y);
+	buffer[4] = (jint)offsetof(WINDOWPOS, cx);
+	buffer[5] = (jint)offsetof(WINDOWPOS, cy);
+	buffer[6] = (jint)offsetof(WINDOWPOS, flags);
 
 	return sizeof(WINDOWPOS);
 }
