@@ -86,15 +86,15 @@ public final class ObjCPropertyAttribute implements Pointer {
 	}
 
 	public static void name(ByteBuffer objc_property_attribute_t, long name) { PointerBuffer.put(objc_property_attribute_t, objc_property_attribute_t.position() + NAME, name); }
-	public static void name(ByteBuffer objc_property_attribute_t, ByteBuffer name) { name(objc_property_attribute_t, name == null ? NULL : memAddress(checkNT1(name))); }
+	public static void name(ByteBuffer objc_property_attribute_t, ByteBuffer name) { if ( name != null ) checkNT1(name); name(objc_property_attribute_t, memAddressSafe(name)); }
 	public static void value(ByteBuffer objc_property_attribute_t, long value) { PointerBuffer.put(objc_property_attribute_t, objc_property_attribute_t.position() + VALUE, value); }
-	public static void value(ByteBuffer objc_property_attribute_t, ByteBuffer value) { value(objc_property_attribute_t, value == null ? NULL : memAddress(checkNT1(value))); }
+	public static void value(ByteBuffer objc_property_attribute_t, ByteBuffer value) { if ( value != null ) checkNT1(value); value(objc_property_attribute_t, memAddressSafe(value)); }
 
 	public static long name(ByteBuffer objc_property_attribute_t) { return PointerBuffer.get(objc_property_attribute_t, objc_property_attribute_t.position() + NAME); }
-	public static ByteBuffer nameBuffer(ByteBuffer objc_property_attribute_t) { long address = name(objc_property_attribute_t); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String nameString(ByteBuffer objc_property_attribute_t) { long address = name(objc_property_attribute_t); return address == NULL ? null : memDecodeUTF8(address); }
+	public static ByteBuffer nameBuffer(ByteBuffer objc_property_attribute_t) { return memByteBufferNT1(name(objc_property_attribute_t)); }
+	public static String nameString(ByteBuffer objc_property_attribute_t) { return memDecodeUTF8(name(objc_property_attribute_t)); }
 	public static long value(ByteBuffer objc_property_attribute_t) { return PointerBuffer.get(objc_property_attribute_t, objc_property_attribute_t.position() + VALUE); }
-	public static ByteBuffer valueBuffer(ByteBuffer objc_property_attribute_t) { long address = value(objc_property_attribute_t); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String valueString(ByteBuffer objc_property_attribute_t) { long address = value(objc_property_attribute_t); return address == NULL ? null : memDecodeUTF8(address); }
+	public static ByteBuffer valueBuffer(ByteBuffer objc_property_attribute_t) { return memByteBufferNT1(value(objc_property_attribute_t)); }
+	public static String valueString(ByteBuffer objc_property_attribute_t) { return memDecodeUTF8(value(objc_property_attribute_t)); }
 
 }

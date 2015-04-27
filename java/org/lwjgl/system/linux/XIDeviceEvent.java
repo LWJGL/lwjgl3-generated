@@ -291,13 +291,13 @@ public final class XIDeviceEvent implements Pointer {
 	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { checkBuffer(buttons, XIButtonState.SIZEOF); memCopy(memAddress(xideviceevent) + BUTTONS, memAddress(buttons), XIButtonState.SIZEOF); }
 	public static int buttonsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + BUTTONS + XIButtonState.MASK_LEN); }
 	public static long buttonsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + BUTTONS + XIButtonState.MASK); }
-	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int size) { long address = buttonsMask(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(buttonsMask(xideviceevent), size); }
 	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { checkBuffer(valuators, XIValuatorState.SIZEOF); memCopy(memAddress(xideviceevent) + VALUATORS, memAddress(valuators), XIValuatorState.SIZEOF); }
 	public static int valuatorsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + VALUATORS + XIValuatorState.MASK_LEN); }
 	public static long valuatorsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.MASK); }
-	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int size) { long address = valuatorsMask(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsMask(xideviceevent), size); }
 	public static long valuatorsValues(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.VALUES); }
-	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int size) { long address = valuatorsValues(xideviceevent); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsValues(xideviceevent), size); }
 	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { checkBuffer(mods, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + MODS, memAddress(mods), XIModifierState.SIZEOF); }
 	public static int modsBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.BASE); }
 	public static int modsLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LATCHED); }

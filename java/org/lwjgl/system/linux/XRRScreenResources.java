@@ -137,10 +137,10 @@ public final class XRRScreenResources implements Pointer {
 	public static long configTimestamp(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + CONFIGTIMESTAMP); }
 	public static int ncrtc(ByteBuffer xrrscreenresources) { return xrrscreenresources.getInt(xrrscreenresources.position() + NCRTC); }
 	public static long crtcs(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + CRTCS); }
-	public static ByteBuffer crtcs(ByteBuffer xrrscreenresources, int size) { long address = crtcs(xrrscreenresources); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer crtcs(ByteBuffer xrrscreenresources, int size) { return memByteBuffer(crtcs(xrrscreenresources), size); }
 	public static int noutput(ByteBuffer xrrscreenresources) { return xrrscreenresources.getInt(xrrscreenresources.position() + NOUTPUT); }
 	public static long outputs(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + OUTPUTS); }
-	public static ByteBuffer outputs(ByteBuffer xrrscreenresources, int size) { long address = outputs(xrrscreenresources); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer outputs(ByteBuffer xrrscreenresources, int size) { return memByteBuffer(outputs(xrrscreenresources), size); }
 	public static int nmode(ByteBuffer xrrscreenresources) { return xrrscreenresources.getInt(xrrscreenresources.position() + NMODE); }
 	public static long modes(ByteBuffer xrrscreenresources) { return PointerBuffer.get(xrrscreenresources, xrrscreenresources.position() + MODES); }
 	public static ByteBuffer modesBuffer(ByteBuffer xrrscreenresources) { return memByteBuffer(modes(xrrscreenresources), XRRModeInfo.SIZEOF); }

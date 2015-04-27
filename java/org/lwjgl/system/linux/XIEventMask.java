@@ -94,7 +94,7 @@ public final class XIEventMask implements Pointer {
 
 	public static int deviceid(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + DEVICEID); }
 	public static long mask(ByteBuffer xieventmask) { return PointerBuffer.get(xieventmask, xieventmask.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xieventmask, int size) { long address = mask(xieventmask); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer mask(ByteBuffer xieventmask, int size) { return memByteBuffer(mask(xieventmask), size); }
 	public static int mask_len(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + MASK_LEN); }
 
 }

@@ -135,6 +135,6 @@ public final class XGenericEventCookie implements Pointer {
 	public static int evtype(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EVTYPE); }
 	public static int cookie(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + COOKIE); }
 	public static long data(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DATA); }
-	public static ByteBuffer data(ByteBuffer xgenericeventcookie, int size) { long address = data(xgenericeventcookie); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer data(ByteBuffer xgenericeventcookie, int size) { return memByteBuffer(data(xgenericeventcookie), size); }
 
 }

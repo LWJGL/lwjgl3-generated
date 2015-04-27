@@ -87,6 +87,6 @@ public final class XIButtonState implements Pointer {
 
 	public static int mask_len(ByteBuffer xibuttonstate) { return xibuttonstate.getInt(xibuttonstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xibuttonstate) { return PointerBuffer.get(xibuttonstate, xibuttonstate.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xibuttonstate, int size) { long address = mask(xibuttonstate); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer mask(ByteBuffer xibuttonstate, int size) { return memByteBuffer(mask(xibuttonstate), size); }
 
 }

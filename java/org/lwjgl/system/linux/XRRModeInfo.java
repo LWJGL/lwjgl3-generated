@@ -181,7 +181,7 @@ public final class XRRModeInfo implements Pointer {
 	public static int vSyncEnd(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCEND); }
 	public static int vTotal(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VTOTAL); }
 	public static long name(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + NAME); }
-	public static ByteBuffer name(ByteBuffer xrrmodeinfo, int size) { long address = name(xrrmodeinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer name(ByteBuffer xrrmodeinfo, int size) { return memByteBuffer(name(xrrmodeinfo), size); }
 	public static int nameLength(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + NAMELENGTH); }
 	public static long modeFlags(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS); }
 

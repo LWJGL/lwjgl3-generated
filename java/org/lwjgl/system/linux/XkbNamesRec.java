@@ -228,7 +228,7 @@ public final class XkbNamesRec implements Pointer {
 	public static long key_aliases(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEY_ALIASES); }
 	public static ByteBuffer key_aliasesBuffer(ByteBuffer xkbnamesrec) { return memByteBuffer(key_aliases(xkbnamesrec), XkbKeyAliasRec.SIZEOF); }
 	public static long radio_groups(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + RADIO_GROUPS); }
-	public static ByteBuffer radio_groups(ByteBuffer xkbnamesrec, int size) { long address = radio_groups(xkbnamesrec); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer radio_groups(ByteBuffer xkbnamesrec, int size) { return memByteBuffer(radio_groups(xkbnamesrec), size); }
 	public static long phys_symbols(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + PHYS_SYMBOLS); }
 	public static int num_keys(ByteBuffer xkbnamesrec) { return xkbnamesrec.get(xkbnamesrec.position() + NUM_KEYS) & 0xFF; }
 	public static int num_key_aliases(ByteBuffer xkbnamesrec) { return xkbnamesrec.get(xkbnamesrec.position() + NUM_KEY_ALIASES) & 0xFF; }

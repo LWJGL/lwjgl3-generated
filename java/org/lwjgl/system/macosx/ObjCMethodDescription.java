@@ -84,11 +84,11 @@ public final class ObjCMethodDescription implements Pointer {
 
 	public static void name(ByteBuffer objc_method_description, long name) { PointerBuffer.put(objc_method_description, objc_method_description.position() + NAME, name); }
 	public static void types(ByteBuffer objc_method_description, long types) { PointerBuffer.put(objc_method_description, objc_method_description.position() + TYPES, types); }
-	public static void types(ByteBuffer objc_method_description, ByteBuffer types) { types(objc_method_description, types == null ? NULL : memAddress(checkNT1(types))); }
+	public static void types(ByteBuffer objc_method_description, ByteBuffer types) { if ( types != null ) checkNT1(types); types(objc_method_description, memAddressSafe(types)); }
 
 	public static long name(ByteBuffer objc_method_description) { return PointerBuffer.get(objc_method_description, objc_method_description.position() + NAME); }
 	public static long types(ByteBuffer objc_method_description) { return PointerBuffer.get(objc_method_description, objc_method_description.position() + TYPES); }
-	public static ByteBuffer typesBuffer(ByteBuffer objc_method_description) { long address = types(objc_method_description); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String typesString(ByteBuffer objc_method_description) { long address = types(objc_method_description); return address == NULL ? null : memDecodeUTF8(address); }
+	public static ByteBuffer typesBuffer(ByteBuffer objc_method_description) { return memByteBufferNT1(types(objc_method_description)); }
+	public static String typesString(ByteBuffer objc_method_description) { return memDecodeUTF8(types(objc_method_description)); }
 
 }

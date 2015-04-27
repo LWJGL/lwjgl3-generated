@@ -660,6 +660,6 @@ public final class XEvent implements Pointer {
 	public static int xcookieEvtype(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.EVTYPE); }
 	public static int xcookieCookie(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.COOKIE); }
 	public static long xcookieData(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.DATA); }
-	public static ByteBuffer xcookieData(ByteBuffer xevent, int size) { long address = xcookieData(xevent); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer xcookieData(ByteBuffer xevent, int size) { return memByteBuffer(xcookieData(xevent), size); }
 
 }

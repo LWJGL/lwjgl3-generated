@@ -95,6 +95,6 @@ public final class GLFWimage implements Pointer {
 	public static int width(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + WIDTH); }
 	public static int height(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + HEIGHT); }
 	public static long pixels(ByteBuffer glfwimage) { return PointerBuffer.get(glfwimage, glfwimage.position() + PIXELS); }
-	public static ByteBuffer pixels(ByteBuffer glfwimage, int size) { long address = pixels(glfwimage); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer pixels(ByteBuffer glfwimage, int size) { return memByteBuffer(pixels(glfwimage), size); }
 
 }

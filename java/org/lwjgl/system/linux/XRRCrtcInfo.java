@@ -167,10 +167,10 @@ public final class XRRCrtcInfo implements Pointer {
 	public static int rotation(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATION) & 0xFFFF; }
 	public static int noutput(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NOUTPUT); }
 	public static long outputs(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + OUTPUTS); }
-	public static ByteBuffer outputs(ByteBuffer xrrcrtcinfo, int size) { long address = outputs(xrrcrtcinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer outputs(ByteBuffer xrrcrtcinfo, int size) { return memByteBuffer(outputs(xrrcrtcinfo), size); }
 	public static int rotations(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getShort(xrrcrtcinfo.position() + ROTATIONS) & 0xFFFF; }
 	public static int npossible(ByteBuffer xrrcrtcinfo) { return xrrcrtcinfo.getInt(xrrcrtcinfo.position() + NPOSSIBLE); }
 	public static long possible(ByteBuffer xrrcrtcinfo) { return PointerBuffer.get(xrrcrtcinfo, xrrcrtcinfo.position() + POSSIBLE); }
-	public static ByteBuffer possible(ByteBuffer xrrcrtcinfo, int size) { long address = possible(xrrcrtcinfo); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer possible(ByteBuffer xrrcrtcinfo, int size) { return memByteBuffer(possible(xrrcrtcinfo), size); }
 
 }

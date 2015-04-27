@@ -86,7 +86,7 @@ public final class XComposeStatus implements Pointer {
 	public static void chars_matched(ByteBuffer xcomposestatus, int chars_matched) { xcomposestatus.putInt(xcomposestatus.position() + CHARS_MATCHED, chars_matched); }
 
 	public static long compose_ptr(ByteBuffer xcomposestatus) { return PointerBuffer.get(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR); }
-	public static ByteBuffer compose_ptr(ByteBuffer xcomposestatus, int size) { long address = compose_ptr(xcomposestatus); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer compose_ptr(ByteBuffer xcomposestatus, int size) { return memByteBuffer(compose_ptr(xcomposestatus), size); }
 	public static int chars_matched(ByteBuffer xcomposestatus) { return xcomposestatus.getInt(xcomposestatus.position() + CHARS_MATCHED); }
 
 }

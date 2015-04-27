@@ -107,10 +107,10 @@ public final class XRRCrtcGamma implements Pointer {
 
 	public static int size(ByteBuffer xrrcrtcgamma) { return xrrcrtcgamma.getInt(xrrcrtcgamma.position() + SIZE); }
 	public static long red(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + RED); }
-	public static ByteBuffer red(ByteBuffer xrrcrtcgamma, int size) { long address = red(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer red(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(red(xrrcrtcgamma), size); }
 	public static long green(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN); }
-	public static ByteBuffer green(ByteBuffer xrrcrtcgamma, int size) { long address = green(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer green(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(green(xrrcrtcgamma), size); }
 	public static long blue(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE); }
-	public static ByteBuffer blue(ByteBuffer xrrcrtcgamma, int size) { long address = blue(xrrcrtcgamma); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer blue(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(blue(xrrcrtcgamma), size); }
 
 }

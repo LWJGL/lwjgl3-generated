@@ -97,8 +97,8 @@ public final class XIValuatorState implements Pointer {
 
 	public static int mask_len(ByteBuffer xivaluatorstate) { return xivaluatorstate.getInt(xivaluatorstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xivaluatorstate, int size) { long address = mask(xivaluatorstate); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer mask(ByteBuffer xivaluatorstate, int size) { return memByteBuffer(mask(xivaluatorstate), size); }
 	public static long values(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + VALUES); }
-	public static ByteBuffer values(ByteBuffer xivaluatorstate, int size) { long address = values(xivaluatorstate); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer values(ByteBuffer xivaluatorstate, int size) { return memByteBuffer(values(xivaluatorstate), size); }
 
 }

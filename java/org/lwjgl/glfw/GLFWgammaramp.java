@@ -106,11 +106,11 @@ public final class GLFWgammaramp implements Pointer {
 	public static void size(ByteBuffer glfwgammaramp, int size) { glfwgammaramp.putInt(glfwgammaramp.position() + SIZE, size); }
 
 	public static long red(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + RED); }
-	public static ByteBuffer red(ByteBuffer glfwgammaramp, int size) { long address = red(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer red(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(red(glfwgammaramp), size); }
 	public static long green(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + GREEN); }
-	public static ByteBuffer green(ByteBuffer glfwgammaramp, int size) { long address = green(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer green(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(green(glfwgammaramp), size); }
 	public static long blue(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + BLUE); }
-	public static ByteBuffer blue(ByteBuffer glfwgammaramp, int size) { long address = blue(glfwgammaramp); return address == NULL ? null : memByteBuffer(address, size); }
+	public static ByteBuffer blue(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(blue(glfwgammaramp), size); }
 	public static int size(ByteBuffer glfwgammaramp) { return glfwgammaramp.getInt(glfwgammaramp.position() + SIZE); }
 
 }

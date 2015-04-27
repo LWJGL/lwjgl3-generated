@@ -279,9 +279,9 @@ public final class OVRHmdDesc implements Pointer {
 
 	public static void Type(ByteBuffer ovrhmddesc, int Type) { ovrhmddesc.putInt(ovrhmddesc.position() + TYPE, Type); }
 	public static void ProductName(ByteBuffer ovrhmddesc, long ProductName) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + PRODUCTNAME, ProductName); }
-	public static void ProductName(ByteBuffer ovrhmddesc, ByteBuffer ProductName) { ProductName(ovrhmddesc, ProductName == null ? NULL : memAddress(checkNT1(ProductName))); }
+	public static void ProductName(ByteBuffer ovrhmddesc, ByteBuffer ProductName) { if ( ProductName != null ) checkNT1(ProductName); ProductName(ovrhmddesc, memAddressSafe(ProductName)); }
 	public static void Manufacturer(ByteBuffer ovrhmddesc, long Manufacturer) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + MANUFACTURER, Manufacturer); }
-	public static void Manufacturer(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) { Manufacturer(ovrhmddesc, Manufacturer == null ? NULL : memAddress(checkNT1(Manufacturer))); }
+	public static void Manufacturer(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) { if ( Manufacturer != null ) checkNT1(Manufacturer); Manufacturer(ovrhmddesc, memAddressSafe(Manufacturer)); }
 	public static void VendorId(ByteBuffer ovrhmddesc, int VendorId) { ovrhmddesc.putShort(ovrhmddesc.position() + VENDORID, (short)VendorId); }
 	public static void ProductId(ByteBuffer ovrhmddesc, int ProductId) { ovrhmddesc.putShort(ovrhmddesc.position() + PRODUCTID, (short)ProductId); }
 	public static void SerialNumberSet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
@@ -327,16 +327,16 @@ public final class OVRHmdDesc implements Pointer {
 	public static void WindowsPosX(ByteBuffer ovrhmddesc, int x) { ovrhmddesc.putInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.X, x); }
 	public static void WindowsPosY(ByteBuffer ovrhmddesc, int y) { ovrhmddesc.putInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.Y, y); }
 	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, long DisplayDeviceName) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + DISPLAYDEVICENAME, DisplayDeviceName); }
-	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, ByteBuffer DisplayDeviceName) { DisplayDeviceName(ovrhmddesc, DisplayDeviceName == null ? NULL : memAddress(checkNT1(DisplayDeviceName))); }
+	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, ByteBuffer DisplayDeviceName) { if ( DisplayDeviceName != null ) checkNT1(DisplayDeviceName); DisplayDeviceName(ovrhmddesc, memAddressSafe(DisplayDeviceName)); }
 	public static void DisplayId(ByteBuffer ovrhmddesc, int DisplayId) { ovrhmddesc.putInt(ovrhmddesc.position() + DISPLAYID, DisplayId); }
 
 	public static int Type(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + TYPE); }
 	public static long ProductName(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + PRODUCTNAME); }
-	public static ByteBuffer ProductNameBuffer(ByteBuffer ovrhmddesc) { long address = ProductName(ovrhmddesc); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String ProductNameString(ByteBuffer ovrhmddesc) { long address = ProductName(ovrhmddesc); return address == NULL ? null : memDecodeASCII(address); }
+	public static ByteBuffer ProductNameBuffer(ByteBuffer ovrhmddesc) { return memByteBufferNT1(ProductName(ovrhmddesc)); }
+	public static String ProductNameString(ByteBuffer ovrhmddesc) { return memDecodeASCII(ProductName(ovrhmddesc)); }
 	public static long Manufacturer(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + MANUFACTURER); }
-	public static ByteBuffer ManufacturerBuffer(ByteBuffer ovrhmddesc) { long address = Manufacturer(ovrhmddesc); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String ManufacturerString(ByteBuffer ovrhmddesc) { long address = Manufacturer(ovrhmddesc); return address == NULL ? null : memDecodeASCII(address); }
+	public static ByteBuffer ManufacturerBuffer(ByteBuffer ovrhmddesc) { return memByteBufferNT1(Manufacturer(ovrhmddesc)); }
+	public static String ManufacturerString(ByteBuffer ovrhmddesc) { return memDecodeASCII(Manufacturer(ovrhmddesc)); }
 	public static int VendorId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + VENDORID); }
 	public static int ProductId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + PRODUCTID); }
 	public static void SerialNumberGet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
@@ -384,8 +384,8 @@ public final class OVRHmdDesc implements Pointer {
 	public static int WindowsPosX(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.X); }
 	public static int WindowsPosY(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.Y); }
 	public static long DisplayDeviceName(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + DISPLAYDEVICENAME); }
-	public static ByteBuffer DisplayDeviceNameBuffer(ByteBuffer ovrhmddesc) { long address = DisplayDeviceName(ovrhmddesc); return address == NULL ? null : memByteBufferNT1(address); }
-	public static String DisplayDeviceNameString(ByteBuffer ovrhmddesc) { long address = DisplayDeviceName(ovrhmddesc); return address == NULL ? null : memDecodeASCII(address); }
+	public static ByteBuffer DisplayDeviceNameBuffer(ByteBuffer ovrhmddesc) { return memByteBufferNT1(DisplayDeviceName(ovrhmddesc)); }
+	public static String DisplayDeviceNameString(ByteBuffer ovrhmddesc) { return memDecodeASCII(DisplayDeviceName(ovrhmddesc)); }
 	public static int DisplayId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + DISPLAYID); }
 
 }
