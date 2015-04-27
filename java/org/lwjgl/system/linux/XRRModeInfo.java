@@ -105,7 +105,7 @@ public final class XRRModeInfo implements Pointer {
 	public int getVSyncEnd() { return vSyncEnd(struct); }
 	public int getVTotal() { return vTotal(struct); }
 	public long getName() { return name(struct); }
-	public ByteBuffer getName(int size) { return name(struct, size); }
+	public ByteBuffer getName(int byteLen) { return name(struct, byteLen); }
 	public int getNameLength() { return nameLength(struct); }
 	public long getModeFlags() { return modeFlags(struct); }
 
@@ -181,7 +181,7 @@ public final class XRRModeInfo implements Pointer {
 	public static int vSyncEnd(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VSYNCEND); }
 	public static int vTotal(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + VTOTAL); }
 	public static long name(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + NAME); }
-	public static ByteBuffer name(ByteBuffer xrrmodeinfo, int size) { return memByteBuffer(name(xrrmodeinfo), size); }
+	public static ByteBuffer name(ByteBuffer xrrmodeinfo, int byteLen) { return memByteBuffer(name(xrrmodeinfo), byteLen); }
 	public static int nameLength(ByteBuffer xrrmodeinfo) { return xrrmodeinfo.getInt(xrrmodeinfo.position() + NAMELENGTH); }
 	public static long modeFlags(ByteBuffer xrrmodeinfo) { return PointerBuffer.get(xrrmodeinfo, xrrmodeinfo.position() + MODEFLAGS); }
 

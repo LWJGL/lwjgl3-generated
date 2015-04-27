@@ -59,7 +59,7 @@ public final class XIButtonState implements Pointer {
 
 	public int getMaskLen() { return mask_len(struct); }
 	public long getMask() { return mask(struct); }
-	public ByteBuffer getMask(int size) { return mask(struct, size); }
+	public ByteBuffer getMask(int byteLen) { return mask(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -87,6 +87,6 @@ public final class XIButtonState implements Pointer {
 
 	public static int mask_len(ByteBuffer xibuttonstate) { return xibuttonstate.getInt(xibuttonstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xibuttonstate) { return PointerBuffer.get(xibuttonstate, xibuttonstate.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xibuttonstate, int size) { return memByteBuffer(mask(xibuttonstate), size); }
+	public static ByteBuffer mask(ByteBuffer xibuttonstate, int byteLen) { return memByteBuffer(mask(xibuttonstate), byteLen); }
 
 }

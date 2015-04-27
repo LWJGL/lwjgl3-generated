@@ -63,7 +63,7 @@ public final class GLFWimage implements Pointer {
 	public int getWidth() { return width(struct); }
 	public int getHeight() { return height(struct); }
 	public long getPixels() { return pixels(struct); }
-	public ByteBuffer getPixels(int size) { return pixels(struct, size); }
+	public ByteBuffer getPixels(int byteLen) { return pixels(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -95,6 +95,6 @@ public final class GLFWimage implements Pointer {
 	public static int width(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + WIDTH); }
 	public static int height(ByteBuffer glfwimage) { return glfwimage.getInt(glfwimage.position() + HEIGHT); }
 	public static long pixels(ByteBuffer glfwimage) { return PointerBuffer.get(glfwimage, glfwimage.position() + PIXELS); }
-	public static ByteBuffer pixels(ByteBuffer glfwimage, int size) { return memByteBuffer(pixels(glfwimage), size); }
+	public static ByteBuffer pixels(ByteBuffer glfwimage, int byteLen) { return memByteBuffer(pixels(glfwimage), byteLen); }
 
 }

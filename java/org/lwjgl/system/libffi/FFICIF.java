@@ -72,7 +72,7 @@ public final class FFICIF implements Pointer {
 	public int getAbi() { return abi(struct); }
 	public int getNargs() { return nargs(struct); }
 	public long getArgTypes() { return arg_types(struct); }
-	public ByteBuffer getArgTypes(int size) { return arg_types(struct, size); }
+	public ByteBuffer getArgTypes(int byteLen) { return arg_types(struct, byteLen); }
 	public long getRtype() { return rtype(struct); }
 	public int getBytes() { return bytes(struct); }
 	public int getFlags() { return flags(struct); }
@@ -116,7 +116,7 @@ public final class FFICIF implements Pointer {
 	public static int abi(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + ABI); }
 	public static int nargs(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + NARGS); }
 	public static long arg_types(ByteBuffer ffi_cif) { return PointerBuffer.get(ffi_cif, ffi_cif.position() + ARG_TYPES); }
-	public static ByteBuffer arg_types(ByteBuffer ffi_cif, int size) { return memByteBuffer(arg_types(ffi_cif), size); }
+	public static ByteBuffer arg_types(ByteBuffer ffi_cif, int byteLen) { return memByteBuffer(arg_types(ffi_cif), byteLen); }
 	public static long rtype(ByteBuffer ffi_cif) { return PointerBuffer.get(ffi_cif, ffi_cif.position() + RTYPE); }
 	public static int bytes(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + BYTES); }
 	public static int flags(ByteBuffer ffi_cif) { return ffi_cif.getInt(ffi_cif.position() + FLAGS); }

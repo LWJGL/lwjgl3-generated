@@ -75,17 +75,17 @@ public final class DISPLAY_DEVICE implements Pointer {
 	public int getCb() { return cb(struct); }
 	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }
 	public String getDeviceNameString() { return DeviceNameString(struct); }
-	public String getDeviceNameString(int size) { return DeviceNameString(struct, size); }
+	public String getDeviceNameString(int byteLen) { return DeviceNameString(struct, byteLen); }
 	public void getDeviceString(ByteBuffer DeviceString) { DeviceStringGet(struct, DeviceString); }
 	public String getDeviceStringString() { return DeviceStringString(struct); }
-	public String getDeviceStringString(int size) { return DeviceStringString(struct, size); }
+	public String getDeviceStringString(int byteLen) { return DeviceStringString(struct, byteLen); }
 	public int getStateFlags() { return StateFlags(struct); }
 	public void getDeviceID(ByteBuffer DeviceID) { DeviceIDGet(struct, DeviceID); }
 	public String getDeviceIDString() { return DeviceIDString(struct); }
-	public String getDeviceIDString(int size) { return DeviceIDString(struct, size); }
+	public String getDeviceIDString(int byteLen) { return DeviceIDString(struct, byteLen); }
 	public void getDeviceKey(ByteBuffer DeviceKey) { DeviceKeyGet(struct, DeviceKey); }
 	public String getDeviceKeyString() { return DeviceKeyString(struct); }
-	public String getDeviceKeyString(int size) { return DeviceKeyString(struct, size); }
+	public String getDeviceKeyString(int byteLen) { return DeviceKeyString(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -177,25 +177,25 @@ public final class DISPLAY_DEVICE implements Pointer {
 		memCopy(memAddress(display_device) + DEVICENAME, memAddress(DeviceName), DeviceName.remaining());
 	}
 	public static String DeviceNameString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICENAME), DEVICENAME); }
-	public static String DeviceNameString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICENAME); }
+	public static String DeviceNameString(ByteBuffer display_device, int byteLen) { return memDecodeUTF16(display_device, byteLen, DEVICENAME); }
 	public static void DeviceStringGet(ByteBuffer display_device, ByteBuffer DeviceString) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceString, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICESTRING, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static String DeviceStringString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
-	public static String DeviceStringString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
+	public static String DeviceStringString(ByteBuffer display_device, int byteLen) { return memDecodeUTF16(display_device, byteLen, DEVICESTRING); }
 	public static int StateFlags(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
 	public static void DeviceIDGet(ByteBuffer display_device, ByteBuffer DeviceID) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceID, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICEID, memAddress(DeviceID), DeviceID.remaining());
 	}
 	public static String DeviceIDString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEID), DEVICEID); }
-	public static String DeviceIDString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEID); }
+	public static String DeviceIDString(ByteBuffer display_device, int byteLen) { return memDecodeUTF16(display_device, byteLen, DEVICEID); }
 	public static void DeviceKeyGet(ByteBuffer display_device, ByteBuffer DeviceKey) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceKey, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICEKEY, memAddress(DeviceKey), DeviceKey.remaining());
 	}
 	public static String DeviceKeyString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEKEY), DEVICEKEY); }
-	public static String DeviceKeyString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEKEY); }
+	public static String DeviceKeyString(ByteBuffer display_device, int byteLen) { return memDecodeUTF16(display_device, byteLen, DEVICEKEY); }
 
 }

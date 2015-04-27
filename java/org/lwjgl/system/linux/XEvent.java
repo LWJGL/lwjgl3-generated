@@ -332,7 +332,7 @@ public final class XEvent implements Pointer {
 	public int getXcookieEvtype() { return xcookieEvtype(struct); }
 	public int getXcookieCookie() { return xcookieCookie(struct); }
 	public long getXcookieData() { return xcookieData(struct); }
-	public ByteBuffer getXcookieData(int size) { return xcookieData(struct, size); }
+	public ByteBuffer getXcookieData(int byteLen) { return xcookieData(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -666,6 +666,6 @@ public final class XEvent implements Pointer {
 	public static int xcookieEvtype(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.EVTYPE); }
 	public static int xcookieCookie(ByteBuffer xevent) { return xevent.getInt(xevent.position() + XCOOKIE + XGenericEventCookie.COOKIE); }
 	public static long xcookieData(ByteBuffer xevent) { return PointerBuffer.get(xevent, xevent.position() + XCOOKIE + XGenericEventCookie.DATA); }
-	public static ByteBuffer xcookieData(ByteBuffer xevent, int size) { return memByteBuffer(xcookieData(xevent), size); }
+	public static ByteBuffer xcookieData(ByteBuffer xevent, int byteLen) { return memByteBuffer(xcookieData(xevent), byteLen); }
 
 }

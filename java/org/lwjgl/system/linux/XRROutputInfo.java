@@ -102,7 +102,7 @@ public final class XRROutputInfo implements Pointer {
 	public long getTimestamp() { return timestamp(struct); }
 	public long getCrtc() { return crtc(struct); }
 	public long getName() { return name(struct); }
-	public ByteBuffer getName(int size) { return name(struct, size); }
+	public ByteBuffer getName(int byteLen) { return name(struct, byteLen); }
 	public int getNameLen() { return nameLen(struct); }
 	public long getMmWidth() { return mm_width(struct); }
 	public long getMmHeight() { return mm_height(struct); }
@@ -110,14 +110,14 @@ public final class XRROutputInfo implements Pointer {
 	public int getSubpixelOrder() { return subpixel_order(struct); }
 	public int getNcrtc() { return ncrtc(struct); }
 	public long getCrtcs() { return crtcs(struct); }
-	public ByteBuffer getCrtcs(int size) { return crtcs(struct, size); }
+	public ByteBuffer getCrtcs(int byteLen) { return crtcs(struct, byteLen); }
 	public int getNclone() { return nclone(struct); }
 	public long getClones() { return clones(struct); }
-	public ByteBuffer getClones(int size) { return clones(struct, size); }
+	public ByteBuffer getClones(int byteLen) { return clones(struct, byteLen); }
 	public int getNmode() { return nmode(struct); }
 	public int getNpreferred() { return npreferred(struct); }
 	public long getModes() { return modes(struct); }
-	public ByteBuffer getModes(int size) { return modes(struct, size); }
+	public ByteBuffer getModes(int byteLen) { return modes(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -188,7 +188,7 @@ public final class XRROutputInfo implements Pointer {
 	public static long timestamp(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + TIMESTAMP); }
 	public static long crtc(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTC); }
 	public static long name(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + NAME); }
-	public static ByteBuffer name(ByteBuffer xrroutputinfo, int size) { return memByteBuffer(name(xrroutputinfo), size); }
+	public static ByteBuffer name(ByteBuffer xrroutputinfo, int byteLen) { return memByteBuffer(name(xrroutputinfo), byteLen); }
 	public static int nameLen(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NAMELEN); }
 	public static long mm_width(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_WIDTH); }
 	public static long mm_height(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MM_HEIGHT); }
@@ -196,13 +196,13 @@ public final class XRROutputInfo implements Pointer {
 	public static int subpixel_order(ByteBuffer xrroutputinfo) { return xrroutputinfo.getShort(xrroutputinfo.position() + SUBPIXEL_ORDER) & 0xFFFF; }
 	public static int ncrtc(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCRTC); }
 	public static long crtcs(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CRTCS); }
-	public static ByteBuffer crtcs(ByteBuffer xrroutputinfo, int size) { return memByteBuffer(crtcs(xrroutputinfo), size); }
+	public static ByteBuffer crtcs(ByteBuffer xrroutputinfo, int byteLen) { return memByteBuffer(crtcs(xrroutputinfo), byteLen); }
 	public static int nclone(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NCLONE); }
 	public static long clones(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + CLONES); }
-	public static ByteBuffer clones(ByteBuffer xrroutputinfo, int size) { return memByteBuffer(clones(xrroutputinfo), size); }
+	public static ByteBuffer clones(ByteBuffer xrroutputinfo, int byteLen) { return memByteBuffer(clones(xrroutputinfo), byteLen); }
 	public static int nmode(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NMODE); }
 	public static int npreferred(ByteBuffer xrroutputinfo) { return xrroutputinfo.getInt(xrroutputinfo.position() + NPREFERRED); }
 	public static long modes(ByteBuffer xrroutputinfo) { return PointerBuffer.get(xrroutputinfo, xrroutputinfo.position() + MODES); }
-	public static ByteBuffer modes(ByteBuffer xrroutputinfo, int size) { return memByteBuffer(modes(xrroutputinfo), size); }
+	public static ByteBuffer modes(ByteBuffer xrroutputinfo, int byteLen) { return memByteBuffer(modes(xrroutputinfo), byteLen); }
 
 }

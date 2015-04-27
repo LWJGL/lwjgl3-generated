@@ -153,13 +153,13 @@ public final class XIDeviceEvent implements Pointer {
 	public void getButtons(ByteBuffer buttons) { buttonsGet(struct, buttons); }
 	public int getButtonsMaskLen() { return buttonsMask_len(struct); }
 	public long getButtonsMask() { return buttonsMask(struct); }
-	public ByteBuffer getButtonsMask(int size) { return buttonsMask(struct, size); }
+	public ByteBuffer getButtonsMask(int byteLen) { return buttonsMask(struct, byteLen); }
 	public void getValuators(ByteBuffer valuators) { valuatorsGet(struct, valuators); }
 	public int getValuatorsMaskLen() { return valuatorsMask_len(struct); }
 	public long getValuatorsMask() { return valuatorsMask(struct); }
-	public ByteBuffer getValuatorsMask(int size) { return valuatorsMask(struct, size); }
+	public ByteBuffer getValuatorsMask(int byteLen) { return valuatorsMask(struct, byteLen); }
 	public long getValuatorsValues() { return valuatorsValues(struct); }
-	public ByteBuffer getValuatorsValues(int size) { return valuatorsValues(struct, size); }
+	public ByteBuffer getValuatorsValues(int byteLen) { return valuatorsValues(struct, byteLen); }
 	public void getMods(ByteBuffer mods) { modsGet(struct, mods); }
 	public int getModsBase() { return modsBase(struct); }
 	public int getModsLatched() { return modsLatched(struct); }
@@ -291,13 +291,13 @@ public final class XIDeviceEvent implements Pointer {
 	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { if ( LWJGLUtil.CHECKS ) checkBuffer(buttons, XIButtonState.SIZEOF); memCopy(memAddress(xideviceevent) + BUTTONS, memAddress(buttons), XIButtonState.SIZEOF); }
 	public static int buttonsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + BUTTONS + XIButtonState.MASK_LEN); }
 	public static long buttonsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + BUTTONS + XIButtonState.MASK); }
-	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(buttonsMask(xideviceevent), size); }
+	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int byteLen) { return memByteBuffer(buttonsMask(xideviceevent), byteLen); }
 	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { if ( LWJGLUtil.CHECKS ) checkBuffer(valuators, XIValuatorState.SIZEOF); memCopy(memAddress(xideviceevent) + VALUATORS, memAddress(valuators), XIValuatorState.SIZEOF); }
 	public static int valuatorsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + VALUATORS + XIValuatorState.MASK_LEN); }
 	public static long valuatorsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.MASK); }
-	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsMask(xideviceevent), size); }
+	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int byteLen) { return memByteBuffer(valuatorsMask(xideviceevent), byteLen); }
 	public static long valuatorsValues(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.VALUES); }
-	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsValues(xideviceevent), size); }
+	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int byteLen) { return memByteBuffer(valuatorsValues(xideviceevent), byteLen); }
 	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { if ( LWJGLUtil.CHECKS ) checkBuffer(mods, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + MODS, memAddress(mods), XIModifierState.SIZEOF); }
 	public static int modsBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.BASE); }
 	public static int modsLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LATCHED); }

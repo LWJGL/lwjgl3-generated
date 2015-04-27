@@ -67,11 +67,11 @@ public final class XRRCrtcGamma implements Pointer {
 
 	public int getSize() { return size(struct); }
 	public long getRed() { return red(struct); }
-	public ByteBuffer getRed(int size) { return red(struct, size); }
+	public ByteBuffer getRed(int byteLen) { return red(struct, byteLen); }
 	public long getGreen() { return green(struct); }
-	public ByteBuffer getGreen(int size) { return green(struct, size); }
+	public ByteBuffer getGreen(int byteLen) { return green(struct, byteLen); }
 	public long getBlue() { return blue(struct); }
-	public ByteBuffer getBlue(int size) { return blue(struct, size); }
+	public ByteBuffer getBlue(int byteLen) { return blue(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -107,10 +107,10 @@ public final class XRRCrtcGamma implements Pointer {
 
 	public static int size(ByteBuffer xrrcrtcgamma) { return xrrcrtcgamma.getInt(xrrcrtcgamma.position() + SIZE); }
 	public static long red(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + RED); }
-	public static ByteBuffer red(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(red(xrrcrtcgamma), size); }
+	public static ByteBuffer red(ByteBuffer xrrcrtcgamma, int byteLen) { return memByteBuffer(red(xrrcrtcgamma), byteLen); }
 	public static long green(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + GREEN); }
-	public static ByteBuffer green(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(green(xrrcrtcgamma), size); }
+	public static ByteBuffer green(ByteBuffer xrrcrtcgamma, int byteLen) { return memByteBuffer(green(xrrcrtcgamma), byteLen); }
 	public static long blue(ByteBuffer xrrcrtcgamma) { return PointerBuffer.get(xrrcrtcgamma, xrrcrtcgamma.position() + BLUE); }
-	public static ByteBuffer blue(ByteBuffer xrrcrtcgamma, int size) { return memByteBuffer(blue(xrrcrtcgamma), size); }
+	public static ByteBuffer blue(ByteBuffer xrrcrtcgamma, int byteLen) { return memByteBuffer(blue(xrrcrtcgamma), byteLen); }
 
 }

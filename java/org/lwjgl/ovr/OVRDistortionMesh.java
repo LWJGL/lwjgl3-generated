@@ -70,7 +70,7 @@ public final class OVRDistortionMesh implements Pointer {
 	public long getPVertexData() { return pVertexData(struct); }
 	public ByteBuffer getPVertexDataBuffer() { return pVertexDataBuffer(struct); }
 	public long getPIndexData() { return pIndexData(struct); }
-	public ByteBuffer getPIndexData(int size) { return pIndexData(struct, size); }
+	public ByteBuffer getPIndexData(int byteLen) { return pIndexData(struct, byteLen); }
 	public int getVertexCount() { return VertexCount(struct); }
 	public int getIndexCount() { return IndexCount(struct); }
 
@@ -108,7 +108,7 @@ public final class OVRDistortionMesh implements Pointer {
 	public static long pVertexData(ByteBuffer ovrdistortionmesh) { return PointerBuffer.get(ovrdistortionmesh, ovrdistortionmesh.position() + PVERTEXDATA); }
 	public static ByteBuffer pVertexDataBuffer(ByteBuffer ovrdistortionmesh) { return memByteBuffer(pVertexData(ovrdistortionmesh), OVRDistortionVertex.SIZEOF); }
 	public static long pIndexData(ByteBuffer ovrdistortionmesh) { return PointerBuffer.get(ovrdistortionmesh, ovrdistortionmesh.position() + PINDEXDATA); }
-	public static ByteBuffer pIndexData(ByteBuffer ovrdistortionmesh, int size) { return memByteBuffer(pIndexData(ovrdistortionmesh), size); }
+	public static ByteBuffer pIndexData(ByteBuffer ovrdistortionmesh, int byteLen) { return memByteBuffer(pIndexData(ovrdistortionmesh), byteLen); }
 	public static int VertexCount(ByteBuffer ovrdistortionmesh) { return ovrdistortionmesh.getInt(ovrdistortionmesh.position() + VERTEXCOUNT); }
 	public static int IndexCount(ByteBuffer ovrdistortionmesh) { return ovrdistortionmesh.getInt(ovrdistortionmesh.position() + INDEXCOUNT); }
 

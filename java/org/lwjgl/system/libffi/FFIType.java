@@ -67,7 +67,7 @@ public final class FFIType implements Pointer {
 	public int getAlignment() { return alignment(struct); }
 	public int getType() { return type(struct); }
 	public long getElements() { return elements(struct); }
-	public ByteBuffer getElements(int size) { return elements(struct, size); }
+	public ByteBuffer getElements(int byteLen) { return elements(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -103,6 +103,6 @@ public final class FFIType implements Pointer {
 	public static int alignment(ByteBuffer ffi_type) { return ffi_type.getShort(ffi_type.position() + ALIGNMENT) & 0xFFFF; }
 	public static int type(ByteBuffer ffi_type) { return ffi_type.getShort(ffi_type.position() + TYPE) & 0xFFFF; }
 	public static long elements(ByteBuffer ffi_type) { return PointerBuffer.get(ffi_type, ffi_type.position() + ELEMENTS); }
-	public static ByteBuffer elements(ByteBuffer ffi_type, int size) { return memByteBuffer(elements(ffi_type), size); }
+	public static ByteBuffer elements(ByteBuffer ffi_type, int byteLen) { return memByteBuffer(elements(ffi_type), byteLen); }
 
 }

@@ -83,7 +83,7 @@ public final class XGenericEventCookie implements Pointer {
 	public int getEvtype() { return evtype(struct); }
 	public int getCookie() { return cookie(struct); }
 	public long getData() { return data(struct); }
-	public ByteBuffer getData(int size) { return data(struct, size); }
+	public ByteBuffer getData(int byteLen) { return data(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -135,6 +135,6 @@ public final class XGenericEventCookie implements Pointer {
 	public static int evtype(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + EVTYPE); }
 	public static int cookie(ByteBuffer xgenericeventcookie) { return xgenericeventcookie.getInt(xgenericeventcookie.position() + COOKIE); }
 	public static long data(ByteBuffer xgenericeventcookie) { return PointerBuffer.get(xgenericeventcookie, xgenericeventcookie.position() + DATA); }
-	public static ByteBuffer data(ByteBuffer xgenericeventcookie, int size) { return memByteBuffer(data(xgenericeventcookie), size); }
+	public static ByteBuffer data(ByteBuffer xgenericeventcookie, int byteLen) { return memByteBuffer(data(xgenericeventcookie), byteLen); }
 
 }

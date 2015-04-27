@@ -62,7 +62,7 @@ public final class XIEventMask implements Pointer {
 
 	public int getDeviceid() { return deviceid(struct); }
 	public long getMask() { return mask(struct); }
-	public ByteBuffer getMask(int size) { return mask(struct, size); }
+	public ByteBuffer getMask(int byteLen) { return mask(struct, byteLen); }
 	public int getMaskLen() { return mask_len(struct); }
 
 	// -----------------------------------
@@ -94,7 +94,7 @@ public final class XIEventMask implements Pointer {
 
 	public static int deviceid(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + DEVICEID); }
 	public static long mask(ByteBuffer xieventmask) { return PointerBuffer.get(xieventmask, xieventmask.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xieventmask, int size) { return memByteBuffer(mask(xieventmask), size); }
+	public static ByteBuffer mask(ByteBuffer xieventmask, int byteLen) { return memByteBuffer(mask(xieventmask), byteLen); }
 	public static int mask_len(ByteBuffer xieventmask) { return xieventmask.getInt(xieventmask.position() + MASK_LEN); }
 
 }

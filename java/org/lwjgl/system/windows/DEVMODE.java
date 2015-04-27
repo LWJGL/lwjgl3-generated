@@ -94,7 +94,7 @@ public final class DEVMODE implements Pointer {
 
 	public void getDeviceName(ByteBuffer deviceName) { deviceNameGet(struct, deviceName); }
 	public String getDeviceNameString() { return deviceNameString(struct); }
-	public String getDeviceNameString(int size) { return deviceNameString(struct, size); }
+	public String getDeviceNameString(int byteLen) { return deviceNameString(struct, byteLen); }
 	public int getSpecVersion() { return specVersion(struct); }
 	public int getDriverVersion() { return driverVersion(struct); }
 	public int getSize() { return size(struct); }
@@ -215,7 +215,7 @@ public final class DEVMODE implements Pointer {
 		memCopy(memAddress(devmode) + DEVICENAME, memAddress(deviceName), deviceName.remaining());
 	}
 	public static String deviceNameString(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
-	public static String deviceNameString(ByteBuffer devmode, int size) { return memDecodeUTF16(devmode, size, DEVICENAME); }
+	public static String deviceNameString(ByteBuffer devmode, int byteLen) { return memDecodeUTF16(devmode, byteLen, DEVICENAME); }
 	public static int specVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SPECVERSION); }
 	public static int driverVersion(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVERVERSION); }
 	public static int size(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }

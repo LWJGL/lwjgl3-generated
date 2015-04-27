@@ -58,7 +58,7 @@ public final class XComposeStatus implements Pointer {
 	public void setCharsMatched(int chars_matched) { chars_matched(struct, chars_matched); }
 
 	public long getComposePtr() { return compose_ptr(struct); }
-	public ByteBuffer getComposePtr(int size) { return compose_ptr(struct, size); }
+	public ByteBuffer getComposePtr(int byteLen) { return compose_ptr(struct, byteLen); }
 	public int getCharsMatched() { return chars_matched(struct); }
 
 	// -----------------------------------
@@ -86,7 +86,7 @@ public final class XComposeStatus implements Pointer {
 	public static void chars_matched(ByteBuffer xcomposestatus, int chars_matched) { xcomposestatus.putInt(xcomposestatus.position() + CHARS_MATCHED, chars_matched); }
 
 	public static long compose_ptr(ByteBuffer xcomposestatus) { return PointerBuffer.get(xcomposestatus, xcomposestatus.position() + COMPOSE_PTR); }
-	public static ByteBuffer compose_ptr(ByteBuffer xcomposestatus, int size) { return memByteBuffer(compose_ptr(xcomposestatus), size); }
+	public static ByteBuffer compose_ptr(ByteBuffer xcomposestatus, int byteLen) { return memByteBuffer(compose_ptr(xcomposestatus), byteLen); }
 	public static int chars_matched(ByteBuffer xcomposestatus) { return xcomposestatus.getInt(xcomposestatus.position() + CHARS_MATCHED); }
 
 }

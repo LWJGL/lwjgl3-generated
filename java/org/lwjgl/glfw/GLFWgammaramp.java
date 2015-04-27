@@ -66,11 +66,11 @@ public final class GLFWgammaramp implements Pointer {
 	public void setSize(int size) { size(struct, size); }
 
 	public long getRed() { return red(struct); }
-	public ByteBuffer getRed(int size) { return red(struct, size); }
+	public ByteBuffer getRed(int byteLen) { return red(struct, byteLen); }
 	public long getGreen() { return green(struct); }
-	public ByteBuffer getGreen(int size) { return green(struct, size); }
+	public ByteBuffer getGreen(int byteLen) { return green(struct, byteLen); }
 	public long getBlue() { return blue(struct); }
-	public ByteBuffer getBlue(int size) { return blue(struct, size); }
+	public ByteBuffer getBlue(int byteLen) { return blue(struct, byteLen); }
 	public int getSize() { return size(struct); }
 
 	// -----------------------------------
@@ -106,11 +106,11 @@ public final class GLFWgammaramp implements Pointer {
 	public static void size(ByteBuffer glfwgammaramp, int size) { glfwgammaramp.putInt(glfwgammaramp.position() + SIZE, size); }
 
 	public static long red(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + RED); }
-	public static ByteBuffer red(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(red(glfwgammaramp), size); }
+	public static ByteBuffer red(ByteBuffer glfwgammaramp, int byteLen) { return memByteBuffer(red(glfwgammaramp), byteLen); }
 	public static long green(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + GREEN); }
-	public static ByteBuffer green(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(green(glfwgammaramp), size); }
+	public static ByteBuffer green(ByteBuffer glfwgammaramp, int byteLen) { return memByteBuffer(green(glfwgammaramp), byteLen); }
 	public static long blue(ByteBuffer glfwgammaramp) { return PointerBuffer.get(glfwgammaramp, glfwgammaramp.position() + BLUE); }
-	public static ByteBuffer blue(ByteBuffer glfwgammaramp, int size) { return memByteBuffer(blue(glfwgammaramp), size); }
+	public static ByteBuffer blue(ByteBuffer glfwgammaramp, int byteLen) { return memByteBuffer(blue(glfwgammaramp), byteLen); }
 	public static int size(ByteBuffer glfwgammaramp) { return glfwgammaramp.getInt(glfwgammaramp.position() + SIZE); }
 
 }

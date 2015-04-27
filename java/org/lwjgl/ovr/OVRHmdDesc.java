@@ -138,7 +138,7 @@ public final class OVRHmdDesc implements Pointer {
 	public int getProductId() { return ProductId(struct); }
 	public void getSerialNumber(ByteBuffer SerialNumber) { SerialNumberGet(struct, SerialNumber); }
 	public String getSerialNumberString() { return SerialNumberString(struct); }
-	public String getSerialNumberString(int size) { return SerialNumberString(struct, size); }
+	public String getSerialNumberString(int byteLen) { return SerialNumberString(struct, byteLen); }
 	public int getFirmwareMajor() { return FirmwareMajor(struct); }
 	public int getFirmwareMinor() { return FirmwareMinor(struct); }
 	public float getCameraFrustumHFovInRadians() { return CameraFrustumHFovInRadians(struct); }
@@ -348,7 +348,7 @@ public final class OVRHmdDesc implements Pointer {
 		memCopy(memAddress(ovrhmddesc) + SERIALNUMBER, memAddress(SerialNumber), SerialNumber.remaining());
 	}
 	public static String SerialNumberString(ByteBuffer ovrhmddesc) { return memDecodeASCII(ovrhmddesc, memStrLen1(ovrhmddesc, SERIALNUMBER), SERIALNUMBER); }
-	public static String SerialNumberString(ByteBuffer ovrhmddesc, int size) { return memDecodeASCII(ovrhmddesc, size, SERIALNUMBER); }
+	public static String SerialNumberString(ByteBuffer ovrhmddesc, int byteLen) { return memDecodeASCII(ovrhmddesc, byteLen, SERIALNUMBER); }
 	public static int FirmwareMajor(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + FIRMWAREMAJOR); }
 	public static int FirmwareMinor(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + FIRMWAREMINOR); }
 	public static float CameraFrustumHFovInRadians(ByteBuffer ovrhmddesc) { return ovrhmddesc.getFloat(ovrhmddesc.position() + CAMERAFRUSTUMHFOVINRADIANS); }

@@ -63,9 +63,9 @@ public final class XIValuatorState implements Pointer {
 
 	public int getMaskLen() { return mask_len(struct); }
 	public long getMask() { return mask(struct); }
-	public ByteBuffer getMask(int size) { return mask(struct, size); }
+	public ByteBuffer getMask(int byteLen) { return mask(struct, byteLen); }
 	public long getValues() { return values(struct); }
-	public ByteBuffer getValues(int size) { return values(struct, size); }
+	public ByteBuffer getValues(int byteLen) { return values(struct, byteLen); }
 
 	// -----------------------------------
 
@@ -97,8 +97,8 @@ public final class XIValuatorState implements Pointer {
 
 	public static int mask_len(ByteBuffer xivaluatorstate) { return xivaluatorstate.getInt(xivaluatorstate.position() + MASK_LEN); }
 	public static long mask(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + MASK); }
-	public static ByteBuffer mask(ByteBuffer xivaluatorstate, int size) { return memByteBuffer(mask(xivaluatorstate), size); }
+	public static ByteBuffer mask(ByteBuffer xivaluatorstate, int byteLen) { return memByteBuffer(mask(xivaluatorstate), byteLen); }
 	public static long values(ByteBuffer xivaluatorstate) { return PointerBuffer.get(xivaluatorstate, xivaluatorstate.position() + VALUES); }
-	public static ByteBuffer values(ByteBuffer xivaluatorstate, int size) { return memByteBuffer(values(xivaluatorstate), size); }
+	public static ByteBuffer values(ByteBuffer xivaluatorstate, int byteLen) { return memByteBuffer(values(xivaluatorstate), byteLen); }
 
 }

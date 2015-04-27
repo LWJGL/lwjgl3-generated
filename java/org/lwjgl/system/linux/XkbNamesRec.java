@@ -114,7 +114,7 @@ public final class XkbNamesRec implements Pointer {
 	public long getKeyAliases() { return key_aliases(struct); }
 	public ByteBuffer getKeyAliasesBuffer() { return key_aliasesBuffer(struct); }
 	public long getRadioGroups() { return radio_groups(struct); }
-	public ByteBuffer getRadioGroups(int size) { return radio_groups(struct, size); }
+	public ByteBuffer getRadioGroups(int byteLen) { return radio_groups(struct, byteLen); }
 	public long getPhysSymbols() { return phys_symbols(struct); }
 	public int getNumKeys() { return num_keys(struct); }
 	public int getNumKeyAliases() { return num_key_aliases(struct); }
@@ -234,7 +234,7 @@ public final class XkbNamesRec implements Pointer {
 	public static long key_aliases(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + KEY_ALIASES); }
 	public static ByteBuffer key_aliasesBuffer(ByteBuffer xkbnamesrec) { return memByteBuffer(key_aliases(xkbnamesrec), XkbKeyAliasRec.SIZEOF); }
 	public static long radio_groups(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + RADIO_GROUPS); }
-	public static ByteBuffer radio_groups(ByteBuffer xkbnamesrec, int size) { return memByteBuffer(radio_groups(xkbnamesrec), size); }
+	public static ByteBuffer radio_groups(ByteBuffer xkbnamesrec, int byteLen) { return memByteBuffer(radio_groups(xkbnamesrec), byteLen); }
 	public static long phys_symbols(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + PHYS_SYMBOLS); }
 	public static int num_keys(ByteBuffer xkbnamesrec) { return xkbnamesrec.get(xkbnamesrec.position() + NUM_KEYS) & 0xFF; }
 	public static int num_key_aliases(ByteBuffer xkbnamesrec) { return xkbnamesrec.get(xkbnamesrec.position() + NUM_KEY_ALIASES) & 0xFF; }
