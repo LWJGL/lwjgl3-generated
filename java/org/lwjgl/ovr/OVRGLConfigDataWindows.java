@@ -104,9 +104,9 @@ public final class OVRGLConfigDataWindows implements Pointer {
 	public static void Window(ByteBuffer ovrglconfigdata, long Window) { PointerBuffer.put(ovrglconfigdata, ovrglconfigdata.position() + WINDOW, Window); }
 	public static void DC(ByteBuffer ovrglconfigdata, long dc) { PointerBuffer.put(ovrglconfigdata, ovrglconfigdata.position() + DC, dc); }
 
-	public static void HeaderGet(ByteBuffer ovrglconfigdata, ByteBuffer Header) { checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfigdata) + HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
+	public static void HeaderGet(ByteBuffer ovrglconfigdata, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfigdata) + HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
 	public static int HeaderAPI(ByteBuffer ovrglconfigdata) { return ovrglconfigdata.getInt(ovrglconfigdata.position() + HEADER + OVRRenderAPIConfigHeader.API); }
-	public static void HeaderBackBufferSizeGet(ByteBuffer ovrglconfigdata, ByteBuffer BackBufferSize) { checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfigdata) + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
+	public static void HeaderBackBufferSizeGet(ByteBuffer ovrglconfigdata, ByteBuffer BackBufferSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfigdata) + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
 	public static int HeaderBackBufferSizeW(ByteBuffer ovrglconfigdata) { return ovrglconfigdata.getInt(ovrglconfigdata.position() + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.W); }
 	public static int HeaderBackBufferSizeH(ByteBuffer ovrglconfigdata) { return ovrglconfigdata.getInt(ovrglconfigdata.position() + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H); }
 	public static int HeaderMultisample(ByteBuffer ovrglconfigdata) { return ovrglconfigdata.getInt(ovrglconfigdata.position() + HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE); }

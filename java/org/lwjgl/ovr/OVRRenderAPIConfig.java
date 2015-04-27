@@ -97,19 +97,21 @@ public final class OVRRenderAPIConfig implements Pointer {
 	public static void HeaderBackBufferSizeH(ByteBuffer ovrrenderapiconfig, int h) { ovrrenderapiconfig.putInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H, h); }
 	public static void HeaderMultisample(ByteBuffer ovrrenderapiconfig, int Multisample) { ovrrenderapiconfig.putInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE, Multisample); }
 	public static void PlatformDataSet(ByteBuffer ovrrenderapiconfig, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		}
 		memCopy(memAddress(PlatformData), memAddress(ovrrenderapiconfig) + PLATFORMDATA, PlatformData.remaining());
 	}
 	public static void PlatformData(ByteBuffer ovrrenderapiconfig, int index, long PlatformData) { PointerBuffer.put(ovrrenderapiconfig, PLATFORMDATA + index * POINTER_SIZE, PlatformData); }
 
-	public static void HeaderGet(ByteBuffer ovrrenderapiconfig, ByteBuffer Header) { checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrrenderapiconfig) + HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
+	public static void HeaderGet(ByteBuffer ovrrenderapiconfig, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrrenderapiconfig) + HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
 	public static int HeaderAPI(ByteBuffer ovrrenderapiconfig) { return ovrrenderapiconfig.getInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.API); }
-	public static void HeaderBackBufferSizeGet(ByteBuffer ovrrenderapiconfig, ByteBuffer BackBufferSize) { checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrrenderapiconfig) + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
+	public static void HeaderBackBufferSizeGet(ByteBuffer ovrrenderapiconfig, ByteBuffer BackBufferSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrrenderapiconfig) + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
 	public static int HeaderBackBufferSizeW(ByteBuffer ovrrenderapiconfig) { return ovrrenderapiconfig.getInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.W); }
 	public static int HeaderBackBufferSizeH(ByteBuffer ovrrenderapiconfig) { return ovrrenderapiconfig.getInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H); }
 	public static int HeaderMultisample(ByteBuffer ovrrenderapiconfig) { return ovrrenderapiconfig.getInt(ovrrenderapiconfig.position() + HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE); }
 	public static void PlatformDataGet(ByteBuffer ovrrenderapiconfig, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(PlatformData, 8 * 8);
 		memCopy(memAddress(ovrrenderapiconfig) + PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());
 	}
 	public static long PlatformData(ByteBuffer ovrrenderapiconfig, int index) {

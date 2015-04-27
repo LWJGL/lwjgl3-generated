@@ -173,29 +173,29 @@ public final class OVRPoseStatef implements Pointer {
 	public static void LinearAccelerationZ(ByteBuffer ovrposestatef, float z) { ovrposestatef.putFloat(ovrposestatef.position() + LINEARACCELERATION + OVRVector3f.Z, z); }
 	public static void TimeInSeconds(ByteBuffer ovrposestatef, double TimeInSeconds) { ovrposestatef.putDouble(ovrposestatef.position() + TIMEINSECONDS, TimeInSeconds); }
 
-	public static void ThePoseGet(ByteBuffer ovrposestatef, ByteBuffer ThePose) { checkBuffer(ThePose, OVRPosef.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE, memAddress(ThePose), OVRPosef.SIZEOF); }
-	public static void ThePoseOrientationGet(ByteBuffer ovrposestatef, ByteBuffer Orientation) { checkBuffer(Orientation, OVRQuatf.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE + OVRPosef.ORIENTATION, memAddress(Orientation), OVRQuatf.SIZEOF); }
+	public static void ThePoseGet(ByteBuffer ovrposestatef, ByteBuffer ThePose) { if ( LWJGLUtil.CHECKS ) checkBuffer(ThePose, OVRPosef.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE, memAddress(ThePose), OVRPosef.SIZEOF); }
+	public static void ThePoseOrientationGet(ByteBuffer ovrposestatef, ByteBuffer Orientation) { if ( LWJGLUtil.CHECKS ) checkBuffer(Orientation, OVRQuatf.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE + OVRPosef.ORIENTATION, memAddress(Orientation), OVRQuatf.SIZEOF); }
 	public static float ThePoseOrientationX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.X); }
 	public static float ThePoseOrientationY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.Y); }
 	public static float ThePoseOrientationZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.Z); }
 	public static float ThePoseOrientationW(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.W); }
-	public static void ThePosePositionGet(ByteBuffer ovrposestatef, ByteBuffer Position) { checkBuffer(Position, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE + OVRPosef.POSITION, memAddress(Position), OVRVector3f.SIZEOF); }
+	public static void ThePosePositionGet(ByteBuffer ovrposestatef, ByteBuffer Position) { if ( LWJGLUtil.CHECKS ) checkBuffer(Position, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + THEPOSE + OVRPosef.POSITION, memAddress(Position), OVRVector3f.SIZEOF); }
 	public static float ThePosePositionX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.POSITION + OVRVector3f.X); }
 	public static float ThePosePositionY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.POSITION + OVRVector3f.Y); }
 	public static float ThePosePositionZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + THEPOSE + OVRPosef.POSITION + OVRVector3f.Z); }
-	public static void AngularVelocityGet(ByteBuffer ovrposestatef, ByteBuffer AngularVelocity) { checkBuffer(AngularVelocity, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + ANGULARVELOCITY, memAddress(AngularVelocity), OVRVector3f.SIZEOF); }
+	public static void AngularVelocityGet(ByteBuffer ovrposestatef, ByteBuffer AngularVelocity) { if ( LWJGLUtil.CHECKS ) checkBuffer(AngularVelocity, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + ANGULARVELOCITY, memAddress(AngularVelocity), OVRVector3f.SIZEOF); }
 	public static float AngularVelocityX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARVELOCITY + OVRVector3f.X); }
 	public static float AngularVelocityY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARVELOCITY + OVRVector3f.Y); }
 	public static float AngularVelocityZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARVELOCITY + OVRVector3f.Z); }
-	public static void LinearVelocityGet(ByteBuffer ovrposestatef, ByteBuffer LinearVelocity) { checkBuffer(LinearVelocity, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + LINEARVELOCITY, memAddress(LinearVelocity), OVRVector3f.SIZEOF); }
+	public static void LinearVelocityGet(ByteBuffer ovrposestatef, ByteBuffer LinearVelocity) { if ( LWJGLUtil.CHECKS ) checkBuffer(LinearVelocity, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + LINEARVELOCITY, memAddress(LinearVelocity), OVRVector3f.SIZEOF); }
 	public static float LinearVelocityX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARVELOCITY + OVRVector3f.X); }
 	public static float LinearVelocityY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARVELOCITY + OVRVector3f.Y); }
 	public static float LinearVelocityZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARVELOCITY + OVRVector3f.Z); }
-	public static void AngularAccelerationGet(ByteBuffer ovrposestatef, ByteBuffer AngularAcceleration) { checkBuffer(AngularAcceleration, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + ANGULARACCELERATION, memAddress(AngularAcceleration), OVRVector3f.SIZEOF); }
+	public static void AngularAccelerationGet(ByteBuffer ovrposestatef, ByteBuffer AngularAcceleration) { if ( LWJGLUtil.CHECKS ) checkBuffer(AngularAcceleration, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + ANGULARACCELERATION, memAddress(AngularAcceleration), OVRVector3f.SIZEOF); }
 	public static float AngularAccelerationX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARACCELERATION + OVRVector3f.X); }
 	public static float AngularAccelerationY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARACCELERATION + OVRVector3f.Y); }
 	public static float AngularAccelerationZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + ANGULARACCELERATION + OVRVector3f.Z); }
-	public static void LinearAccelerationGet(ByteBuffer ovrposestatef, ByteBuffer LinearAcceleration) { checkBuffer(LinearAcceleration, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + LINEARACCELERATION, memAddress(LinearAcceleration), OVRVector3f.SIZEOF); }
+	public static void LinearAccelerationGet(ByteBuffer ovrposestatef, ByteBuffer LinearAcceleration) { if ( LWJGLUtil.CHECKS ) checkBuffer(LinearAcceleration, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposestatef) + LINEARACCELERATION, memAddress(LinearAcceleration), OVRVector3f.SIZEOF); }
 	public static float LinearAccelerationX(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARACCELERATION + OVRVector3f.X); }
 	public static float LinearAccelerationY(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARACCELERATION + OVRVector3f.Y); }
 	public static float LinearAccelerationZ(ByteBuffer ovrposestatef) { return ovrposestatef.getFloat(ovrposestatef.position() + LINEARACCELERATION + OVRVector3f.Z); }

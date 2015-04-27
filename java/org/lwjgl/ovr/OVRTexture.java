@@ -115,25 +115,27 @@ public final class OVRTexture implements Pointer {
 	public static void HeaderRenderViewportSizeW(ByteBuffer ovrtexture, int w) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.W, w); }
 	public static void HeaderRenderViewportSizeH(ByteBuffer ovrtexture, int h) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H, h); }
 	public static void PlatformDataSet(ByteBuffer ovrtexture, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		}
 		memCopy(memAddress(PlatformData), memAddress(ovrtexture) + PLATFORMDATA, PlatformData.remaining());
 	}
 	public static void PlatformData(ByteBuffer ovrtexture, int index, long PlatformData) { PointerBuffer.put(ovrtexture, PLATFORMDATA + index * POINTER_SIZE, PlatformData); }
 
-	public static void HeaderGet(ByteBuffer ovrtexture, ByteBuffer Header) { checkBuffer(Header, OVRTextureHeader.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER, memAddress(Header), OVRTextureHeader.SIZEOF); }
+	public static void HeaderGet(ByteBuffer ovrtexture, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRTextureHeader.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER, memAddress(Header), OVRTextureHeader.SIZEOF); }
 	public static int HeaderAPI(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.API); }
-	public static void HeaderTextureSizeGet(ByteBuffer ovrtexture, ByteBuffer TextureSize) { checkBuffer(TextureSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.TEXTURESIZE, memAddress(TextureSize), OVRSizei.SIZEOF); }
+	public static void HeaderTextureSizeGet(ByteBuffer ovrtexture, ByteBuffer TextureSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(TextureSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.TEXTURESIZE, memAddress(TextureSize), OVRSizei.SIZEOF); }
 	public static int HeaderTextureSizeW(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W); }
 	public static int HeaderTextureSizeH(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H); }
-	public static void HeaderRenderViewportGet(ByteBuffer ovrtexture, ByteBuffer RenderViewport) { checkBuffer(RenderViewport, OVRRecti.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT, memAddress(RenderViewport), OVRRecti.SIZEOF); }
-	public static void HeaderRenderViewportPosGet(ByteBuffer ovrtexture, ByteBuffer Pos) { checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS, memAddress(Pos), OVRVector2i.SIZEOF); }
+	public static void HeaderRenderViewportGet(ByteBuffer ovrtexture, ByteBuffer RenderViewport) { if ( LWJGLUtil.CHECKS ) checkBuffer(RenderViewport, OVRRecti.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT, memAddress(RenderViewport), OVRRecti.SIZEOF); }
+	public static void HeaderRenderViewportPosGet(ByteBuffer ovrtexture, ByteBuffer Pos) { if ( LWJGLUtil.CHECKS ) checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS, memAddress(Pos), OVRVector2i.SIZEOF); }
 	public static int HeaderRenderViewportPosX(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.X); }
 	public static int HeaderRenderViewportPosY(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.Y); }
-	public static void HeaderRenderViewportSizeGet(ByteBuffer ovrtexture, ByteBuffer Size) { checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE, memAddress(Size), OVRSizei.SIZEOF); }
+	public static void HeaderRenderViewportSizeGet(ByteBuffer ovrtexture, ByteBuffer Size) { if ( LWJGLUtil.CHECKS ) checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE, memAddress(Size), OVRSizei.SIZEOF); }
 	public static int HeaderRenderViewportSizeW(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.W); }
 	public static int HeaderRenderViewportSizeH(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H); }
 	public static void PlatformDataGet(ByteBuffer ovrtexture, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(PlatformData, 8 * 8);
 		memCopy(memAddress(ovrtexture) + PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());
 	}
 	public static long PlatformData(ByteBuffer ovrtexture, int index) {

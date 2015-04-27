@@ -279,14 +279,16 @@ public final class OVRHmdDesc implements Pointer {
 
 	public static void Type(ByteBuffer ovrhmddesc, int Type) { ovrhmddesc.putInt(ovrhmddesc.position() + TYPE, Type); }
 	public static void ProductName(ByteBuffer ovrhmddesc, long ProductName) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + PRODUCTNAME, ProductName); }
-	public static void ProductName(ByteBuffer ovrhmddesc, ByteBuffer ProductName) { if ( ProductName != null ) checkNT1(ProductName); ProductName(ovrhmddesc, memAddressSafe(ProductName)); }
+	public static void ProductName(ByteBuffer ovrhmddesc, ByteBuffer ProductName) { if ( LWJGLUtil.CHECKS && ProductName != null ) checkNT1(ProductName); ProductName(ovrhmddesc, memAddressSafe(ProductName)); }
 	public static void Manufacturer(ByteBuffer ovrhmddesc, long Manufacturer) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + MANUFACTURER, Manufacturer); }
-	public static void Manufacturer(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) { if ( Manufacturer != null ) checkNT1(Manufacturer); Manufacturer(ovrhmddesc, memAddressSafe(Manufacturer)); }
+	public static void Manufacturer(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) { if ( LWJGLUtil.CHECKS && Manufacturer != null ) checkNT1(Manufacturer); Manufacturer(ovrhmddesc, memAddressSafe(Manufacturer)); }
 	public static void VendorId(ByteBuffer ovrhmddesc, int VendorId) { ovrhmddesc.putShort(ovrhmddesc.position() + VENDORID, (short)VendorId); }
 	public static void ProductId(ByteBuffer ovrhmddesc, int ProductId) { ovrhmddesc.putShort(ovrhmddesc.position() + PRODUCTID, (short)ProductId); }
 	public static void SerialNumberSet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
-		checkNT1(SerialNumber);
-		checkBufferGT(SerialNumber, 24 * 1);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(SerialNumber);
+			checkBufferGT(SerialNumber, 24 * 1);
+		}
 		memCopy(memAddress(SerialNumber), memAddress(ovrhmddesc) + SERIALNUMBER, SerialNumber.remaining());
 	}
 	public static void SerialNumber(ByteBuffer ovrhmddesc, CharSequence SerialNumber) { memEncodeASCII(SerialNumber, true, ovrhmddesc, SERIALNUMBER); }
@@ -300,23 +302,25 @@ public final class OVRHmdDesc implements Pointer {
 	public static void TrackingCaps(ByteBuffer ovrhmddesc, int TrackingCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + TRACKINGCAPS, TrackingCaps); }
 	public static void DistortionCaps(ByteBuffer ovrhmddesc, int DistortionCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + DISTORTIONCAPS, DistortionCaps); }
 	public static void DefaultEyeFovSet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov) {
-		checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(DefaultEyeFov), memAddress(ovrhmddesc) + DEFAULTEYEFOV, DefaultEyeFov.remaining());
 	}
 	public static void DefaultEyeFovSet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov, int index) {
-		checkBufferGT(DefaultEyeFov, OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(DefaultEyeFov), memAddress(ovrhmddesc) + DEFAULTEYEFOV + index * OVRFovPort.SIZEOF, DefaultEyeFov.remaining());
 	}
 	public static void MaxEyeFovSet(ByteBuffer ovrhmddesc, ByteBuffer MaxEyeFov) {
-		checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(MaxEyeFov), memAddress(ovrhmddesc) + MAXEYEFOV, MaxEyeFov.remaining());
 	}
 	public static void MaxEyeFovSet(ByteBuffer ovrhmddesc, ByteBuffer MaxEyeFov, int index) {
-		checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(MaxEyeFov), memAddress(ovrhmddesc) + MAXEYEFOV + index * OVRFovPort.SIZEOF, MaxEyeFov.remaining());
 	}
 	public static void EyeRenderOrderSet(ByteBuffer ovrhmddesc, ByteBuffer EyeRenderOrder) {
-		checkBufferGT(EyeRenderOrder, 2 * 4);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(EyeRenderOrder, 2 * 4);
+		}
 		memCopy(memAddress(EyeRenderOrder), memAddress(ovrhmddesc) + EYERENDERORDER, EyeRenderOrder.remaining());
 	}
 	public static void EyeRenderOrder(ByteBuffer ovrhmddesc, int index, int EyeRenderOrder) { ovrhmddesc.putInt(EYERENDERORDER + index * 4, EyeRenderOrder); }
@@ -327,7 +331,7 @@ public final class OVRHmdDesc implements Pointer {
 	public static void WindowsPosX(ByteBuffer ovrhmddesc, int x) { ovrhmddesc.putInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.X, x); }
 	public static void WindowsPosY(ByteBuffer ovrhmddesc, int y) { ovrhmddesc.putInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.Y, y); }
 	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, long DisplayDeviceName) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + DISPLAYDEVICENAME, DisplayDeviceName); }
-	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, ByteBuffer DisplayDeviceName) { if ( DisplayDeviceName != null ) checkNT1(DisplayDeviceName); DisplayDeviceName(ovrhmddesc, memAddressSafe(DisplayDeviceName)); }
+	public static void DisplayDeviceName(ByteBuffer ovrhmddesc, ByteBuffer DisplayDeviceName) { if ( LWJGLUtil.CHECKS && DisplayDeviceName != null ) checkNT1(DisplayDeviceName); DisplayDeviceName(ovrhmddesc, memAddressSafe(DisplayDeviceName)); }
 	public static void DisplayId(ByteBuffer ovrhmddesc, int DisplayId) { ovrhmddesc.putInt(ovrhmddesc.position() + DISPLAYID, DisplayId); }
 
 	public static int Type(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + TYPE); }
@@ -340,7 +344,7 @@ public final class OVRHmdDesc implements Pointer {
 	public static int VendorId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + VENDORID); }
 	public static int ProductId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + PRODUCTID); }
 	public static void SerialNumberGet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
-		checkBufferGT(SerialNumber, 24 * 1);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(SerialNumber, 24 * 1);
 		memCopy(memAddress(ovrhmddesc) + SERIALNUMBER, memAddress(SerialNumber), SerialNumber.remaining());
 	}
 	public static String SerialNumberString(ByteBuffer ovrhmddesc) { return memDecodeASCII(ovrhmddesc, memStrLen1(ovrhmddesc, SERIALNUMBER), SERIALNUMBER); }
@@ -355,32 +359,32 @@ public final class OVRHmdDesc implements Pointer {
 	public static int TrackingCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + TRACKINGCAPS); }
 	public static int DistortionCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + DISTORTIONCAPS); }
 	public static void DefaultEyeFovGet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov) {
-		checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + DEFAULTEYEFOV, memAddress(DefaultEyeFov), DefaultEyeFov.remaining());
 	}
 	public static void DefaultEyeFovGet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov, int index) {
-		checkBufferGT(DefaultEyeFov, OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + DEFAULTEYEFOV + index * OVRFovPort.SIZEOF, memAddress(DefaultEyeFov), DefaultEyeFov.remaining());
 	}
 	public static void MaxEyeFovGet(ByteBuffer ovrhmddesc, ByteBuffer MaxEyeFov) {
-		checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + MAXEYEFOV, memAddress(MaxEyeFov), MaxEyeFov.remaining());
 	}
 	public static void MaxEyeFovGet(ByteBuffer ovrhmddesc, ByteBuffer MaxEyeFov, int index) {
-		checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + MAXEYEFOV + index * OVRFovPort.SIZEOF, memAddress(MaxEyeFov), MaxEyeFov.remaining());
 	}
 	public static void EyeRenderOrderGet(ByteBuffer ovrhmddesc, ByteBuffer EyeRenderOrder) {
-		checkBufferGT(EyeRenderOrder, 2 * 4);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(EyeRenderOrder, 2 * 4);
 		memCopy(memAddress(ovrhmddesc) + EYERENDERORDER, memAddress(EyeRenderOrder), EyeRenderOrder.remaining());
 	}
 	public static int EyeRenderOrder(ByteBuffer ovrhmddesc, int index) {
 		return ovrhmddesc.getInt(EYERENDERORDER + index * 4);
 	}
-	public static void ResolutionGet(ByteBuffer ovrhmddesc, ByteBuffer Resolution) { checkBuffer(Resolution, OVRSizei.SIZEOF); memCopy(memAddress(ovrhmddesc) + RESOLUTION, memAddress(Resolution), OVRSizei.SIZEOF); }
+	public static void ResolutionGet(ByteBuffer ovrhmddesc, ByteBuffer Resolution) { if ( LWJGLUtil.CHECKS ) checkBuffer(Resolution, OVRSizei.SIZEOF); memCopy(memAddress(ovrhmddesc) + RESOLUTION, memAddress(Resolution), OVRSizei.SIZEOF); }
 	public static int ResolutionW(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.W); }
 	public static int ResolutionH(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.H); }
-	public static void WindowsPosGet(ByteBuffer ovrhmddesc, ByteBuffer WindowsPos) { checkBuffer(WindowsPos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrhmddesc) + WINDOWSPOS, memAddress(WindowsPos), OVRVector2i.SIZEOF); }
+	public static void WindowsPosGet(ByteBuffer ovrhmddesc, ByteBuffer WindowsPos) { if ( LWJGLUtil.CHECKS ) checkBuffer(WindowsPos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrhmddesc) + WINDOWSPOS, memAddress(WindowsPos), OVRVector2i.SIZEOF); }
 	public static int WindowsPosX(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.X); }
 	public static int WindowsPosY(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + WINDOWSPOS + OVRVector2i.Y); }
 	public static long DisplayDeviceName(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + DISPLAYDEVICENAME); }

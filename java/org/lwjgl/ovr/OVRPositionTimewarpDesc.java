@@ -91,22 +91,22 @@ public final class OVRPositionTimewarpDesc implements Pointer {
 	}
 
 	public static void HmdToEyeViewOffsetSet(ByteBuffer ovrpositiontimewarpdesc, ByteBuffer HmdToEyeViewOffset) {
-		checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 		memCopy(memAddress(HmdToEyeViewOffset), memAddress(ovrpositiontimewarpdesc) + HMDTOEYEVIEWOFFSET, HmdToEyeViewOffset.remaining());
 	}
 	public static void HmdToEyeViewOffsetSet(ByteBuffer ovrpositiontimewarpdesc, ByteBuffer HmdToEyeViewOffset, int index) {
-		checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
 		memCopy(memAddress(HmdToEyeViewOffset), memAddress(ovrpositiontimewarpdesc) + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, HmdToEyeViewOffset.remaining());
 	}
 	public static void NearClip(ByteBuffer ovrpositiontimewarpdesc, float NearClip) { ovrpositiontimewarpdesc.putFloat(ovrpositiontimewarpdesc.position() + NEARCLIP, NearClip); }
 	public static void FarClip(ByteBuffer ovrpositiontimewarpdesc, float FarClip) { ovrpositiontimewarpdesc.putFloat(ovrpositiontimewarpdesc.position() + FARCLIP, FarClip); }
 
 	public static void HmdToEyeViewOffsetGet(ByteBuffer ovrpositiontimewarpdesc, ByteBuffer HmdToEyeViewOffset) {
-		checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 		memCopy(memAddress(ovrpositiontimewarpdesc) + HMDTOEYEVIEWOFFSET, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
 	}
 	public static void HmdToEyeViewOffsetGet(ByteBuffer ovrpositiontimewarpdesc, ByteBuffer HmdToEyeViewOffset, int index) {
-		checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
 		memCopy(memAddress(ovrpositiontimewarpdesc) + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
 	}
 	public static float NearClip(ByteBuffer ovrpositiontimewarpdesc) { return ovrpositiontimewarpdesc.getFloat(ovrpositiontimewarpdesc.position() + NEARCLIP); }

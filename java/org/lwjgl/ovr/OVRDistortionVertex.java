@@ -137,18 +137,18 @@ public final class OVRDistortionVertex implements Pointer {
 	public static void TanEyeAnglesBX(ByteBuffer ovrdistortionvertex, float x) { ovrdistortionvertex.putFloat(ovrdistortionvertex.position() + TANEYEANGLESB + OVRVector2f.X, x); }
 	public static void TanEyeAnglesBY(ByteBuffer ovrdistortionvertex, float y) { ovrdistortionvertex.putFloat(ovrdistortionvertex.position() + TANEYEANGLESB + OVRVector2f.Y, y); }
 
-	public static void ScreenPosNDCGet(ByteBuffer ovrdistortionvertex, ByteBuffer ScreenPosNDC) { checkBuffer(ScreenPosNDC, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + SCREENPOSNDC, memAddress(ScreenPosNDC), OVRVector2f.SIZEOF); }
+	public static void ScreenPosNDCGet(ByteBuffer ovrdistortionvertex, ByteBuffer ScreenPosNDC) { if ( LWJGLUtil.CHECKS ) checkBuffer(ScreenPosNDC, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + SCREENPOSNDC, memAddress(ScreenPosNDC), OVRVector2f.SIZEOF); }
 	public static float ScreenPosNDCX(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + SCREENPOSNDC + OVRVector2f.X); }
 	public static float ScreenPosNDCY(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + SCREENPOSNDC + OVRVector2f.Y); }
 	public static float TimeWarpFactor(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TIMEWARPFACTOR); }
 	public static float VignetteFactor(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + VIGNETTEFACTOR); }
-	public static void TanEyeAnglesRGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesR) { checkBuffer(TanEyeAnglesR, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESR, memAddress(TanEyeAnglesR), OVRVector2f.SIZEOF); }
+	public static void TanEyeAnglesRGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesR) { if ( LWJGLUtil.CHECKS ) checkBuffer(TanEyeAnglesR, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESR, memAddress(TanEyeAnglesR), OVRVector2f.SIZEOF); }
 	public static float TanEyeAnglesRX(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESR + OVRVector2f.X); }
 	public static float TanEyeAnglesRY(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESR + OVRVector2f.Y); }
-	public static void TanEyeAnglesGGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesG) { checkBuffer(TanEyeAnglesG, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESG, memAddress(TanEyeAnglesG), OVRVector2f.SIZEOF); }
+	public static void TanEyeAnglesGGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesG) { if ( LWJGLUtil.CHECKS ) checkBuffer(TanEyeAnglesG, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESG, memAddress(TanEyeAnglesG), OVRVector2f.SIZEOF); }
 	public static float TanEyeAnglesGX(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESG + OVRVector2f.X); }
 	public static float TanEyeAnglesGY(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESG + OVRVector2f.Y); }
-	public static void TanEyeAnglesBGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesB) { checkBuffer(TanEyeAnglesB, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESB, memAddress(TanEyeAnglesB), OVRVector2f.SIZEOF); }
+	public static void TanEyeAnglesBGet(ByteBuffer ovrdistortionvertex, ByteBuffer TanEyeAnglesB) { if ( LWJGLUtil.CHECKS ) checkBuffer(TanEyeAnglesB, OVRVector2f.SIZEOF); memCopy(memAddress(ovrdistortionvertex) + TANEYEANGLESB, memAddress(TanEyeAnglesB), OVRVector2f.SIZEOF); }
 	public static float TanEyeAnglesBX(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESB + OVRVector2f.X); }
 	public static float TanEyeAnglesBY(ByteBuffer ovrdistortionvertex) { return ovrdistortionvertex.getFloat(ovrdistortionvertex.position() + TANEYEANGLESB + OVRVector2f.Y); }
 

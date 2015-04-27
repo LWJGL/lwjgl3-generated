@@ -87,14 +87,16 @@ public final class XkbKeyNameRec implements Pointer {
 	}
 
 	public static void nameSet(ByteBuffer xkbkeynamerec, ByteBuffer name) {
-		checkNT1(name);
-		checkBufferGT(name, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(name);
+			checkBufferGT(name, 4 * 1);
+		}
 		memCopy(memAddress(name), memAddress(xkbkeynamerec) + NAME, name.remaining());
 	}
 	public static void name(ByteBuffer xkbkeynamerec, CharSequence name) { memEncodeASCII(name, false, xkbkeynamerec, NAME); }
 
 	public static void nameGet(ByteBuffer xkbkeynamerec, ByteBuffer name) {
-		checkBufferGT(name, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(name, 4 * 1);
 		memCopy(memAddress(xkbkeynamerec) + NAME, memAddress(name), name.remaining());
 	}
 	public static String nameString(ByteBuffer xkbkeynamerec) { return memDecodeASCII(xkbkeynamerec, 4, NAME); }

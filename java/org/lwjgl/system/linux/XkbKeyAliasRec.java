@@ -97,25 +97,29 @@ public final class XkbKeyAliasRec implements Pointer {
 	}
 
 	public static void realSet(ByteBuffer xkbkeyaliasrec, ByteBuffer real) {
-		checkNT1(real);
-		checkBufferGT(real, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(real);
+			checkBufferGT(real, 4 * 1);
+		}
 		memCopy(memAddress(real), memAddress(xkbkeyaliasrec) + REAL, real.remaining());
 	}
 	public static void real(ByteBuffer xkbkeyaliasrec, CharSequence real) { memEncodeASCII(real, false, xkbkeyaliasrec, REAL); }
 	public static void aliasSet(ByteBuffer xkbkeyaliasrec, ByteBuffer alias) {
-		checkNT1(alias);
-		checkBufferGT(alias, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(alias);
+			checkBufferGT(alias, 4 * 1);
+		}
 		memCopy(memAddress(alias), memAddress(xkbkeyaliasrec) + ALIAS, alias.remaining());
 	}
 	public static void alias(ByteBuffer xkbkeyaliasrec, CharSequence alias) { memEncodeASCII(alias, false, xkbkeyaliasrec, ALIAS); }
 
 	public static void realGet(ByteBuffer xkbkeyaliasrec, ByteBuffer real) {
-		checkBufferGT(real, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(real, 4 * 1);
 		memCopy(memAddress(xkbkeyaliasrec) + REAL, memAddress(real), real.remaining());
 	}
 	public static String realString(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, REAL); }
 	public static void aliasGet(ByteBuffer xkbkeyaliasrec, ByteBuffer alias) {
-		checkBufferGT(alias, 4 * 1);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(alias, 4 * 1);
 		memCopy(memAddress(xkbkeyaliasrec) + ALIAS, memAddress(alias), alias.remaining());
 	}
 	public static String aliasString(ByteBuffer xkbkeyaliasrec) { return memDecodeASCII(xkbkeyaliasrec, 4, ALIAS); }

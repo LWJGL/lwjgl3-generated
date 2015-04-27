@@ -110,7 +110,9 @@ public final class OVRFrameTiming implements Pointer {
 	public static void NextFrameSeconds(ByteBuffer ovrframetiming, double NextFrameSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + NEXTFRAMESECONDS, NextFrameSeconds); }
 	public static void ScanoutMidpointSeconds(ByteBuffer ovrframetiming, double ScanoutMidpointSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + SCANOUTMIDPOINTSECONDS, ScanoutMidpointSeconds); }
 	public static void EyeScanoutSecondsSet(ByteBuffer ovrframetiming, ByteBuffer EyeScanoutSeconds) {
-		checkBufferGT(EyeScanoutSeconds, 2 * 8);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(EyeScanoutSeconds, 2 * 8);
+		}
 		memCopy(memAddress(EyeScanoutSeconds), memAddress(ovrframetiming) + EYESCANOUTSECONDS, EyeScanoutSeconds.remaining());
 	}
 	public static void EyeScanoutSeconds(ByteBuffer ovrframetiming, int index, double EyeScanoutSeconds) { ovrframetiming.putDouble(EYESCANOUTSECONDS + index * 8, EyeScanoutSeconds); }
@@ -121,7 +123,7 @@ public final class OVRFrameTiming implements Pointer {
 	public static double NextFrameSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + NEXTFRAMESECONDS); }
 	public static double ScanoutMidpointSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + SCANOUTMIDPOINTSECONDS); }
 	public static void EyeScanoutSecondsGet(ByteBuffer ovrframetiming, ByteBuffer EyeScanoutSeconds) {
-		checkBufferGT(EyeScanoutSeconds, 2 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(EyeScanoutSeconds, 2 * 8);
 		memCopy(memAddress(ovrframetiming) + EYESCANOUTSECONDS, memAddress(EyeScanoutSeconds), EyeScanoutSeconds.remaining());
 	}
 	public static double EyeScanoutSeconds(ByteBuffer ovrframetiming, int index) {

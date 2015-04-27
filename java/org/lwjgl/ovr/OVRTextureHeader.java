@@ -117,14 +117,14 @@ public final class OVRTextureHeader implements Pointer {
 	public static void RenderViewportSizeH(ByteBuffer ovrtextureheader, int h) { ovrtextureheader.putInt(ovrtextureheader.position() + RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H, h); }
 
 	public static int API(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + API); }
-	public static void TextureSizeGet(ByteBuffer ovrtextureheader, ByteBuffer TextureSize) { checkBuffer(TextureSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrtextureheader) + TEXTURESIZE, memAddress(TextureSize), OVRSizei.SIZEOF); }
+	public static void TextureSizeGet(ByteBuffer ovrtextureheader, ByteBuffer TextureSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(TextureSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrtextureheader) + TEXTURESIZE, memAddress(TextureSize), OVRSizei.SIZEOF); }
 	public static int TextureSizeW(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + TEXTURESIZE + OVRSizei.W); }
 	public static int TextureSizeH(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + TEXTURESIZE + OVRSizei.H); }
-	public static void RenderViewportGet(ByteBuffer ovrtextureheader, ByteBuffer RenderViewport) { checkBuffer(RenderViewport, OVRRecti.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT, memAddress(RenderViewport), OVRRecti.SIZEOF); }
-	public static void RenderViewportPosGet(ByteBuffer ovrtextureheader, ByteBuffer Pos) { checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT + OVRRecti.POS, memAddress(Pos), OVRVector2i.SIZEOF); }
+	public static void RenderViewportGet(ByteBuffer ovrtextureheader, ByteBuffer RenderViewport) { if ( LWJGLUtil.CHECKS ) checkBuffer(RenderViewport, OVRRecti.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT, memAddress(RenderViewport), OVRRecti.SIZEOF); }
+	public static void RenderViewportPosGet(ByteBuffer ovrtextureheader, ByteBuffer Pos) { if ( LWJGLUtil.CHECKS ) checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT + OVRRecti.POS, memAddress(Pos), OVRVector2i.SIZEOF); }
 	public static int RenderViewportPosX(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.X); }
 	public static int RenderViewportPosY(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.Y); }
-	public static void RenderViewportSizeGet(ByteBuffer ovrtextureheader, ByteBuffer Size) { checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT + OVRRecti.SIZE, memAddress(Size), OVRSizei.SIZEOF); }
+	public static void RenderViewportSizeGet(ByteBuffer ovrtextureheader, ByteBuffer Size) { if ( LWJGLUtil.CHECKS ) checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrtextureheader) + RENDERVIEWPORT + OVRRecti.SIZE, memAddress(Size), OVRSizei.SIZEOF); }
 	public static int RenderViewportSizeW(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.W); }
 	public static int RenderViewportSizeH(ByteBuffer ovrtextureheader) { return ovrtextureheader.getInt(ovrtextureheader.position() + RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H); }
 

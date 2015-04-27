@@ -86,9 +86,9 @@ public final class ObjCPropertyAttribute implements Pointer {
 	}
 
 	public static void name(ByteBuffer objc_property_attribute_t, long name) { PointerBuffer.put(objc_property_attribute_t, objc_property_attribute_t.position() + NAME, name); }
-	public static void name(ByteBuffer objc_property_attribute_t, ByteBuffer name) { if ( name != null ) checkNT1(name); name(objc_property_attribute_t, memAddressSafe(name)); }
+	public static void name(ByteBuffer objc_property_attribute_t, ByteBuffer name) { if ( LWJGLUtil.CHECKS && name != null ) checkNT1(name); name(objc_property_attribute_t, memAddressSafe(name)); }
 	public static void value(ByteBuffer objc_property_attribute_t, long value) { PointerBuffer.put(objc_property_attribute_t, objc_property_attribute_t.position() + VALUE, value); }
-	public static void value(ByteBuffer objc_property_attribute_t, ByteBuffer value) { if ( value != null ) checkNT1(value); value(objc_property_attribute_t, memAddressSafe(value)); }
+	public static void value(ByteBuffer objc_property_attribute_t, ByteBuffer value) { if ( LWJGLUtil.CHECKS && value != null ) checkNT1(value); value(objc_property_attribute_t, memAddressSafe(value)); }
 
 	public static long name(ByteBuffer objc_property_attribute_t) { return PointerBuffer.get(objc_property_attribute_t, objc_property_attribute_t.position() + NAME); }
 	public static ByteBuffer nameBuffer(ByteBuffer objc_property_attribute_t) { return memByteBufferNT1(name(objc_property_attribute_t)); }

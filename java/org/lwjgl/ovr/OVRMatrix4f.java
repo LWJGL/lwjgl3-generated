@@ -75,13 +75,15 @@ public final class OVRMatrix4f implements Pointer {
 	}
 
 	public static void mSet(ByteBuffer ovrmatrix4f, ByteBuffer m) {
-		checkBufferGT(m, 16 * 4);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(m, 16 * 4);
+		}
 		memCopy(memAddress(m), memAddress(ovrmatrix4f) + M, m.remaining());
 	}
 	public static void m(ByteBuffer ovrmatrix4f, int index, float m) { ovrmatrix4f.putFloat(M + index * 4, m); }
 
 	public static void mGet(ByteBuffer ovrmatrix4f, ByteBuffer m) {
-		checkBufferGT(m, 16 * 4);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(m, 16 * 4);
 		memCopy(memAddress(ovrmatrix4f) + M, memAddress(m), m.remaining());
 	}
 	public static float m(ByteBuffer ovrmatrix4f, int index) {

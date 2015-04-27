@@ -172,17 +172,23 @@ public final class XkbNamesRec implements Pointer {
 	public static void types(ByteBuffer xkbnamesrec, long types) { PointerBuffer.put(xkbnamesrec, xkbnamesrec.position() + TYPES, types); }
 	public static void compat(ByteBuffer xkbnamesrec, long compat) { PointerBuffer.put(xkbnamesrec, xkbnamesrec.position() + COMPAT, compat); }
 	public static void vmodsSet(ByteBuffer xkbnamesrec, ByteBuffer vmods) {
-		checkBufferGT(vmods, 16 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(vmods, 16 * POINTER_SIZE);
+		}
 		memCopy(memAddress(vmods), memAddress(xkbnamesrec) + VMODS, vmods.remaining());
 	}
 	public static void vmods(ByteBuffer xkbnamesrec, int index, long vmods) { PointerBuffer.put(xkbnamesrec, VMODS + index * POINTER_SIZE, vmods); }
 	public static void indicatorsSet(ByteBuffer xkbnamesrec, ByteBuffer indicators) {
-		checkBufferGT(indicators, 32 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(indicators, 32 * POINTER_SIZE);
+		}
 		memCopy(memAddress(indicators), memAddress(xkbnamesrec) + INDICATORS, indicators.remaining());
 	}
 	public static void indicators(ByteBuffer xkbnamesrec, int index, long indicators) { PointerBuffer.put(xkbnamesrec, INDICATORS + index * POINTER_SIZE, indicators); }
 	public static void groupsSet(ByteBuffer xkbnamesrec, ByteBuffer groups) {
-		checkBufferGT(groups, 4 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(groups, 4 * POINTER_SIZE);
+		}
 		memCopy(memAddress(groups), memAddress(xkbnamesrec) + GROUPS, groups.remaining());
 	}
 	public static void groups(ByteBuffer xkbnamesrec, int index, long groups) { PointerBuffer.put(xkbnamesrec, GROUPS + index * POINTER_SIZE, groups); }
@@ -203,21 +209,21 @@ public final class XkbNamesRec implements Pointer {
 	public static long types(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + TYPES); }
 	public static long compat(ByteBuffer xkbnamesrec) { return PointerBuffer.get(xkbnamesrec, xkbnamesrec.position() + COMPAT); }
 	public static void vmodsGet(ByteBuffer xkbnamesrec, ByteBuffer vmods) {
-		checkBufferGT(vmods, 16 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(vmods, 16 * 8);
 		memCopy(memAddress(xkbnamesrec) + VMODS, memAddress(vmods), vmods.remaining());
 	}
 	public static long vmods(ByteBuffer xkbnamesrec, int index) {
 		return xkbnamesrec.getLong(VMODS + index * 8);
 	}
 	public static void indicatorsGet(ByteBuffer xkbnamesrec, ByteBuffer indicators) {
-		checkBufferGT(indicators, 32 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(indicators, 32 * 8);
 		memCopy(memAddress(xkbnamesrec) + INDICATORS, memAddress(indicators), indicators.remaining());
 	}
 	public static long indicators(ByteBuffer xkbnamesrec, int index) {
 		return xkbnamesrec.getLong(INDICATORS + index * 8);
 	}
 	public static void groupsGet(ByteBuffer xkbnamesrec, ByteBuffer groups) {
-		checkBufferGT(groups, 4 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(groups, 4 * 8);
 		memCopy(memAddress(xkbnamesrec) + GROUPS, memAddress(groups), groups.remaining());
 	}
 	public static long groups(ByteBuffer xkbnamesrec, int index) {

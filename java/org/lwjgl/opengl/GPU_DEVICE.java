@@ -137,14 +137,18 @@ public final class GPU_DEVICE implements Pointer {
 
 	public static void cb(ByteBuffer gpu_device, int cb) { gpu_device.putInt(gpu_device.position() + CB, cb); }
 	public static void DeviceNameSet(ByteBuffer gpu_device, ByteBuffer DeviceName) {
-		checkNT2(DeviceName);
-		checkBufferGT(DeviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceName);
+			checkBufferGT(DeviceName, 32 * 2);
+		}
 		memCopy(memAddress(DeviceName), memAddress(gpu_device) + DEVICENAME, DeviceName.remaining());
 	}
 	public static void DeviceName(ByteBuffer gpu_device, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, gpu_device, DEVICENAME); }
 	public static void DeviceStringSet(ByteBuffer gpu_device, ByteBuffer DeviceString) {
-		checkNT2(DeviceString);
-		checkBufferGT(DeviceString, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceString);
+			checkBufferGT(DeviceString, 128 * 2);
+		}
 		memCopy(memAddress(DeviceString), memAddress(gpu_device) + DEVICESTRING, DeviceString.remaining());
 	}
 	public static void DeviceString(ByteBuffer gpu_device, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, gpu_device, DEVICESTRING); }
@@ -157,19 +161,19 @@ public final class GPU_DEVICE implements Pointer {
 
 	public static int cb(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + CB); }
 	public static void DeviceNameGet(ByteBuffer gpu_device, ByteBuffer DeviceName) {
-		checkBufferGT(DeviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceName, 32 * 2);
 		memCopy(memAddress(gpu_device) + DEVICENAME, memAddress(DeviceName), DeviceName.remaining());
 	}
 	public static String DeviceNameString(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICENAME), DEVICENAME); }
 	public static String DeviceNameString(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICENAME); }
 	public static void DeviceStringGet(ByteBuffer gpu_device, ByteBuffer DeviceString) {
-		checkBufferGT(DeviceString, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceString, 128 * 2);
 		memCopy(memAddress(gpu_device) + DEVICESTRING, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static String DeviceStringString(ByteBuffer gpu_device) { return memDecodeUTF16(gpu_device, memStrLen2(gpu_device, DEVICESTRING), DEVICESTRING); }
 	public static String DeviceStringString(ByteBuffer gpu_device, int size) { return memDecodeUTF16(gpu_device, size, DEVICESTRING); }
 	public static int Flags(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + FLAGS); }
-	public static void virtualScreenGet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { checkBuffer(virtualScreen, RECT.SIZEOF); memCopy(memAddress(gpu_device) + VIRTUALSCREEN, memAddress(virtualScreen), RECT.SIZEOF); }
+	public static void virtualScreenGet(ByteBuffer gpu_device, ByteBuffer virtualScreen) { if ( LWJGLUtil.CHECKS ) checkBuffer(virtualScreen, RECT.SIZEOF); memCopy(memAddress(gpu_device) + VIRTUALSCREEN, memAddress(virtualScreen), RECT.SIZEOF); }
 	public static int virtualScreenLeft(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.LEFT); }
 	public static int virtualScreenTop(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.TOP); }
 	public static int virtualScreenRight(ByteBuffer gpu_device) { return gpu_device.getInt(gpu_device.position() + VIRTUALSCREEN + RECT.RIGHT); }

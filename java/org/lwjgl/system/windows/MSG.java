@@ -121,7 +121,7 @@ public final class MSG implements Pointer {
 	public static long wParam(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + WPARAM); }
 	public static long lParam(ByteBuffer msg) { return PointerBuffer.get(msg, msg.position() + LPARAM); }
 	public static int time(ByteBuffer msg) { return msg.getInt(msg.position() + TIME); }
-	public static void pointGet(ByteBuffer msg, ByteBuffer point) { checkBuffer(point, org.lwjgl.system.windows.POINT.SIZEOF); memCopy(memAddress(msg) + POINT, memAddress(point), org.lwjgl.system.windows.POINT.SIZEOF); }
+	public static void pointGet(ByteBuffer msg, ByteBuffer point) { if ( LWJGLUtil.CHECKS ) checkBuffer(point, org.lwjgl.system.windows.POINT.SIZEOF); memCopy(memAddress(msg) + POINT, memAddress(point), org.lwjgl.system.windows.POINT.SIZEOF); }
 	public static int pointX(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.X); }
 	public static int pointY(ByteBuffer msg) { return msg.getInt(msg.position() + POINT + org.lwjgl.system.windows.POINT.Y); }
 

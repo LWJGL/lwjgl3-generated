@@ -95,7 +95,7 @@ public final class LOGPEN implements Pointer {
 	public static void lopnColor(ByteBuffer logpen, int lopnColor) { logpen.putInt(logpen.position() + LOPNCOLOR, lopnColor); }
 
 	public static int lopnStyle(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNSTYLE); }
-	public static void lopnWidthGet(ByteBuffer logpen, ByteBuffer lopnWidth) { checkBuffer(lopnWidth, POINT.SIZEOF); memCopy(memAddress(logpen) + LOPNWIDTH, memAddress(lopnWidth), POINT.SIZEOF); }
+	public static void lopnWidthGet(ByteBuffer logpen, ByteBuffer lopnWidth) { if ( LWJGLUtil.CHECKS ) checkBuffer(lopnWidth, POINT.SIZEOF); memCopy(memAddress(logpen) + LOPNWIDTH, memAddress(lopnWidth), POINT.SIZEOF); }
 	public static int lopnWidthX(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH + POINT.X); }
 	public static int lopnWidthY(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNWIDTH + POINT.Y); }
 	public static int lopnColor(ByteBuffer logpen) { return logpen.getInt(logpen.position() + LOPNCOLOR); }

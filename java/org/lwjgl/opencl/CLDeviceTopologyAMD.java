@@ -110,7 +110,9 @@ public final class CLDeviceTopologyAMD implements Pointer {
 
 	public static void rawType(ByteBuffer cl_device_topology_amd, int type) { cl_device_topology_amd.putInt(cl_device_topology_amd.position() + RAW_TYPE, type); }
 	public static void rawDataSet(ByteBuffer cl_device_topology_amd, ByteBuffer data) {
-		checkBufferGT(data, 5 * 4);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(data, 5 * 4);
+		}
 		memCopy(memAddress(data), memAddress(cl_device_topology_amd) + RAW_DATA, data.remaining());
 	}
 	public static void rawData(ByteBuffer cl_device_topology_amd, int index, int data) { cl_device_topology_amd.putInt(RAW_DATA + index * 4, data); }
@@ -121,7 +123,7 @@ public final class CLDeviceTopologyAMD implements Pointer {
 
 	public static int rawType(ByteBuffer cl_device_topology_amd) { return cl_device_topology_amd.getInt(cl_device_topology_amd.position() + RAW_TYPE); }
 	public static void rawDataGet(ByteBuffer cl_device_topology_amd, ByteBuffer data) {
-		checkBufferGT(data, 5 * 4);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(data, 5 * 4);
 		memCopy(memAddress(cl_device_topology_amd) + RAW_DATA, memAddress(data), data.remaining());
 	}
 	public static int rawData(ByteBuffer cl_device_topology_amd, int index) {

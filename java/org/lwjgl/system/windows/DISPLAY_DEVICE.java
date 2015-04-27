@@ -138,53 +138,61 @@ public final class DISPLAY_DEVICE implements Pointer {
 
 	public static void cb(ByteBuffer display_device, int cb) { display_device.putInt(display_device.position() + CB, cb); }
 	public static void DeviceNameSet(ByteBuffer display_device, ByteBuffer DeviceName) {
-		checkNT2(DeviceName);
-		checkBufferGT(DeviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceName);
+			checkBufferGT(DeviceName, 32 * 2);
+		}
 		memCopy(memAddress(DeviceName), memAddress(display_device) + DEVICENAME, DeviceName.remaining());
 	}
 	public static void DeviceName(ByteBuffer display_device, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, display_device, DEVICENAME); }
 	public static void DeviceStringSet(ByteBuffer display_device, ByteBuffer DeviceString) {
-		checkNT2(DeviceString);
-		checkBufferGT(DeviceString, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceString);
+			checkBufferGT(DeviceString, 128 * 2);
+		}
 		memCopy(memAddress(DeviceString), memAddress(display_device) + DEVICESTRING, DeviceString.remaining());
 	}
 	public static void DeviceString(ByteBuffer display_device, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, display_device, DEVICESTRING); }
 	public static void StateFlags(ByteBuffer display_device, int StateFlags) { display_device.putInt(display_device.position() + STATEFLAGS, StateFlags); }
 	public static void DeviceIDSet(ByteBuffer display_device, ByteBuffer DeviceID) {
-		checkNT2(DeviceID);
-		checkBufferGT(DeviceID, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceID);
+			checkBufferGT(DeviceID, 128 * 2);
+		}
 		memCopy(memAddress(DeviceID), memAddress(display_device) + DEVICEID, DeviceID.remaining());
 	}
 	public static void DeviceID(ByteBuffer display_device, CharSequence DeviceID) { memEncodeUTF16(DeviceID, true, display_device, DEVICEID); }
 	public static void DeviceKeySet(ByteBuffer display_device, ByteBuffer DeviceKey) {
-		checkNT2(DeviceKey);
-		checkBufferGT(DeviceKey, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(DeviceKey);
+			checkBufferGT(DeviceKey, 128 * 2);
+		}
 		memCopy(memAddress(DeviceKey), memAddress(display_device) + DEVICEKEY, DeviceKey.remaining());
 	}
 	public static void DeviceKey(ByteBuffer display_device, CharSequence DeviceKey) { memEncodeUTF16(DeviceKey, true, display_device, DEVICEKEY); }
 
 	public static int cb(ByteBuffer display_device) { return display_device.getInt(display_device.position() + CB); }
 	public static void DeviceNameGet(ByteBuffer display_device, ByteBuffer DeviceName) {
-		checkBufferGT(DeviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceName, 32 * 2);
 		memCopy(memAddress(display_device) + DEVICENAME, memAddress(DeviceName), DeviceName.remaining());
 	}
 	public static String DeviceNameString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICENAME), DEVICENAME); }
 	public static String DeviceNameString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICENAME); }
 	public static void DeviceStringGet(ByteBuffer display_device, ByteBuffer DeviceString) {
-		checkBufferGT(DeviceString, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceString, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICESTRING, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static String DeviceStringString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICESTRING), DEVICESTRING); }
 	public static String DeviceStringString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICESTRING); }
 	public static int StateFlags(ByteBuffer display_device) { return display_device.getInt(display_device.position() + STATEFLAGS); }
 	public static void DeviceIDGet(ByteBuffer display_device, ByteBuffer DeviceID) {
-		checkBufferGT(DeviceID, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceID, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICEID, memAddress(DeviceID), DeviceID.remaining());
 	}
 	public static String DeviceIDString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEID), DEVICEID); }
 	public static String DeviceIDString(ByteBuffer display_device, int size) { return memDecodeUTF16(display_device, size, DEVICEID); }
 	public static void DeviceKeyGet(ByteBuffer display_device, ByteBuffer DeviceKey) {
-		checkBufferGT(DeviceKey, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceKey, 128 * 2);
 		memCopy(memAddress(display_device) + DEVICEKEY, memAddress(DeviceKey), DeviceKey.remaining());
 	}
 	public static String DeviceKeyString(ByteBuffer display_device) { return memDecodeUTF16(display_device, memStrLen2(display_device, DEVICEKEY), DEVICEKEY); }

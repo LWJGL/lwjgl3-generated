@@ -103,12 +103,12 @@ public final class OVRPosef implements Pointer {
 	public static void PositionY(ByteBuffer ovrposef, float y) { ovrposef.putFloat(ovrposef.position() + POSITION + OVRVector3f.Y, y); }
 	public static void PositionZ(ByteBuffer ovrposef, float z) { ovrposef.putFloat(ovrposef.position() + POSITION + OVRVector3f.Z, z); }
 
-	public static void OrientationGet(ByteBuffer ovrposef, ByteBuffer Orientation) { checkBuffer(Orientation, OVRQuatf.SIZEOF); memCopy(memAddress(ovrposef) + ORIENTATION, memAddress(Orientation), OVRQuatf.SIZEOF); }
+	public static void OrientationGet(ByteBuffer ovrposef, ByteBuffer Orientation) { if ( LWJGLUtil.CHECKS ) checkBuffer(Orientation, OVRQuatf.SIZEOF); memCopy(memAddress(ovrposef) + ORIENTATION, memAddress(Orientation), OVRQuatf.SIZEOF); }
 	public static float OrientationX(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + ORIENTATION + OVRQuatf.X); }
 	public static float OrientationY(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + ORIENTATION + OVRQuatf.Y); }
 	public static float OrientationZ(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + ORIENTATION + OVRQuatf.Z); }
 	public static float OrientationW(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + ORIENTATION + OVRQuatf.W); }
-	public static void PositionGet(ByteBuffer ovrposef, ByteBuffer Position) { checkBuffer(Position, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposef) + POSITION, memAddress(Position), OVRVector3f.SIZEOF); }
+	public static void PositionGet(ByteBuffer ovrposef, ByteBuffer Position) { if ( LWJGLUtil.CHECKS ) checkBuffer(Position, OVRVector3f.SIZEOF); memCopy(memAddress(ovrposef) + POSITION, memAddress(Position), OVRVector3f.SIZEOF); }
 	public static float PositionX(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + POSITION + OVRVector3f.X); }
 	public static float PositionY(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + POSITION + OVRVector3f.Y); }
 	public static float PositionZ(ByteBuffer ovrposef) { return ovrposef.getFloat(ovrposef.position() + POSITION + OVRVector3f.Z); }

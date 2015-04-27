@@ -188,8 +188,10 @@ public final class DEVMODE implements Pointer {
 	}
 
 	public static void deviceNameSet(ByteBuffer devmode, ByteBuffer deviceName) {
-		checkNT2(deviceName);
-		checkBufferGT(deviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(deviceName);
+			checkBufferGT(deviceName, 32 * 2);
+		}
 		memCopy(memAddress(deviceName), memAddress(devmode) + DEVICENAME, deviceName.remaining());
 	}
 	public static void deviceName(ByteBuffer devmode, CharSequence deviceName) { memEncodeUTF16(deviceName, true, devmode, DEVICENAME); }
@@ -209,7 +211,7 @@ public final class DEVMODE implements Pointer {
 	public static void displayFrequency(ByteBuffer devmode, int displayFrequency) { devmode.putInt(devmode.position() + DISPLAYFREQUENCY, displayFrequency); }
 
 	public static void deviceNameGet(ByteBuffer devmode, ByteBuffer deviceName) {
-		checkBufferGT(deviceName, 32 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(deviceName, 32 * 2);
 		memCopy(memAddress(devmode) + DEVICENAME, memAddress(deviceName), deviceName.remaining());
 	}
 	public static String deviceNameString(ByteBuffer devmode) { return memDecodeUTF16(devmode, memStrLen2(devmode, DEVICENAME), DEVICENAME); }
@@ -219,7 +221,7 @@ public final class DEVMODE implements Pointer {
 	public static int size(ByteBuffer devmode) { return devmode.getShort(devmode.position() + SIZE); }
 	public static int driverExtra(ByteBuffer devmode) { return devmode.getShort(devmode.position() + DRIVEREXTRA); }
 	public static int fields(ByteBuffer devmode) { return devmode.getInt(devmode.position() + FIELDS); }
-	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { checkBuffer(position, POINTL.SIZEOF); memCopy(memAddress(devmode) + POSITION, memAddress(position), POINTL.SIZEOF); }
+	public static void positionGet(ByteBuffer devmode, ByteBuffer position) { if ( LWJGLUtil.CHECKS ) checkBuffer(position, POINTL.SIZEOF); memCopy(memAddress(devmode) + POSITION, memAddress(position), POINTL.SIZEOF); }
 	public static int positionX(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.X); }
 	public static int positionY(ByteBuffer devmode) { return devmode.getInt(devmode.position() + POSITION + POINTL.Y); }
 	public static int logPixels(ByteBuffer devmode) { return devmode.getShort(devmode.position() + LOGPIXELS); }

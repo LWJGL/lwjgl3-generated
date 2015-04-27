@@ -111,7 +111,7 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 
 	public static float blackBoxX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLACKBOXX); }
 	public static float blockBoxY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + BLOCKBOXY); }
-	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { checkBuffer(glyphOrigin, POINTFLOAT.SIZEOF); memCopy(memAddress(glyphmetricsfloat) + GLYPHORIGIN, memAddress(glyphOrigin), POINTFLOAT.SIZEOF); }
+	public static void glyphOriginGet(ByteBuffer glyphmetricsfloat, ByteBuffer glyphOrigin) { if ( LWJGLUtil.CHECKS ) checkBuffer(glyphOrigin, POINTFLOAT.SIZEOF); memCopy(memAddress(glyphmetricsfloat) + GLYPHORIGIN, memAddress(glyphOrigin), POINTFLOAT.SIZEOF); }
 	public static float glyphOriginX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.X); }
 	public static float glyphOriginY(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + GLYPHORIGIN + POINTFLOAT.Y); }
 	public static float cellIncX(ByteBuffer glyphmetricsfloat) { return glyphmetricsfloat.getFloat(glyphmetricsfloat.position() + CELLINCX); }

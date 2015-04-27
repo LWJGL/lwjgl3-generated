@@ -155,9 +155,9 @@ public final class WNDCLASSEX implements Pointer {
 	public static void cursor(ByteBuffer wndclassex, long cursor) { PointerBuffer.put(wndclassex, wndclassex.position() + CURSOR, cursor); }
 	public static void background(ByteBuffer wndclassex, long background) { PointerBuffer.put(wndclassex, wndclassex.position() + BACKGROUND, background); }
 	public static void menuName(ByteBuffer wndclassex, long menuName) { PointerBuffer.put(wndclassex, wndclassex.position() + MENUNAME, menuName); }
-	public static void menuName(ByteBuffer wndclassex, ByteBuffer menuName) { if ( menuName != null ) checkNT2(menuName); menuName(wndclassex, memAddressSafe(menuName)); }
+	public static void menuName(ByteBuffer wndclassex, ByteBuffer menuName) { if ( LWJGLUtil.CHECKS && menuName != null ) checkNT2(menuName); menuName(wndclassex, memAddressSafe(menuName)); }
 	public static void className(ByteBuffer wndclassex, long className) { PointerBuffer.put(wndclassex, wndclassex.position() + CLASSNAME, className); }
-	public static void className(ByteBuffer wndclassex, ByteBuffer className) { if ( className != null ) checkNT2(className); className(wndclassex, memAddressSafe(className)); }
+	public static void className(ByteBuffer wndclassex, ByteBuffer className) { if ( LWJGLUtil.CHECKS && className != null ) checkNT2(className); className(wndclassex, memAddressSafe(className)); }
 	public static void iconSm(ByteBuffer wndclassex, long iconSm) { PointerBuffer.put(wndclassex, wndclassex.position() + ICONSM, iconSm); }
 
 	public static int size(ByteBuffer wndclassex) { return wndclassex.getInt(wndclassex.position() + SIZE); }

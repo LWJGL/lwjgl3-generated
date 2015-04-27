@@ -118,7 +118,9 @@ public final class OVRGLConfigWindows implements Pointer {
 	public static void ConfigHeaderBackBufferSizeH(ByteBuffer ovrglconfig, int h) { ovrglconfig.putInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H, h); }
 	public static void ConfigHeaderMultisample(ByteBuffer ovrglconfig, int Multisample) { ovrglconfig.putInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE, Multisample); }
 	public static void ConfigPlatformDataSet(ByteBuffer ovrglconfig, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
+		}
 		memCopy(memAddress(PlatformData), memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.PLATFORMDATA, PlatformData.remaining());
 	}
 	public static void ConfigPlatformData(ByteBuffer ovrglconfig, int index, long PlatformData) { PointerBuffer.put(ovrglconfig, CONFIG + OVRRenderAPIConfig.PLATFORMDATA + index * POINTER_SIZE, PlatformData); }
@@ -132,24 +134,24 @@ public final class OVRGLConfigWindows implements Pointer {
 	public static void OGLWindow(ByteBuffer ovrglconfig, long Window) { PointerBuffer.put(ovrglconfig, ovrglconfig.position() + OGL + OVRGLConfigDataWindows.WINDOW, Window); }
 	public static void OGLDC(ByteBuffer ovrglconfig, long DC) { PointerBuffer.put(ovrglconfig, ovrglconfig.position() + OGL + OVRGLConfigDataWindows.DC, DC); }
 
-	public static void ConfigGet(ByteBuffer ovrglconfig, ByteBuffer Config) { checkBuffer(Config, OVRRenderAPIConfig.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG, memAddress(Config), OVRRenderAPIConfig.SIZEOF); }
-	public static void ConfigHeaderGet(ByteBuffer ovrglconfig, ByteBuffer Header) { checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
+	public static void ConfigGet(ByteBuffer ovrglconfig, ByteBuffer Config) { if ( LWJGLUtil.CHECKS ) checkBuffer(Config, OVRRenderAPIConfig.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG, memAddress(Config), OVRRenderAPIConfig.SIZEOF); }
+	public static void ConfigHeaderGet(ByteBuffer ovrglconfig, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
 	public static int ConfigHeaderAPI(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.API); }
-	public static void ConfigHeaderBackBufferSizeGet(ByteBuffer ovrglconfig, ByteBuffer BackBufferSize) { checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
+	public static void ConfigHeaderBackBufferSizeGet(ByteBuffer ovrglconfig, ByteBuffer BackBufferSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
 	public static int ConfigHeaderBackBufferSizeW(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.W); }
 	public static int ConfigHeaderBackBufferSizeH(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H); }
 	public static int ConfigHeaderMultisample(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + CONFIG + OVRRenderAPIConfig.HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE); }
 	public static void ConfigPlatformDataGet(ByteBuffer ovrglconfig, ByteBuffer PlatformData) {
-		checkBufferGT(PlatformData, 8 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(PlatformData, 8 * 8);
 		memCopy(memAddress(ovrglconfig) + CONFIG + OVRRenderAPIConfig.PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());
 	}
 	public static long ConfigPlatformData(ByteBuffer ovrglconfig, int index) {
 		return ovrglconfig.getLong(CONFIG + OVRRenderAPIConfig.PLATFORMDATA + index * 8);
 	}
-	public static void OGLGet(ByteBuffer ovrglconfig, ByteBuffer ogl) { checkBuffer(ogl, OVRGLConfigDataWindows.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL, memAddress(ogl), OVRGLConfigDataWindows.SIZEOF); }
-	public static void OGLHeaderGet(ByteBuffer ovrglconfig, ByteBuffer Header) { checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL + OVRGLConfigDataWindows.HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
+	public static void OGLGet(ByteBuffer ovrglconfig, ByteBuffer ogl) { if ( LWJGLUtil.CHECKS ) checkBuffer(ogl, OVRGLConfigDataWindows.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL, memAddress(ogl), OVRGLConfigDataWindows.SIZEOF); }
+	public static void OGLHeaderGet(ByteBuffer ovrglconfig, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRRenderAPIConfigHeader.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL + OVRGLConfigDataWindows.HEADER, memAddress(Header), OVRRenderAPIConfigHeader.SIZEOF); }
 	public static int OGLHeaderAPI(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.API); }
-	public static void OGLHeaderBackBufferSizeGet(ByteBuffer ovrglconfig, ByteBuffer BackBufferSize) { checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
+	public static void OGLHeaderBackBufferSizeGet(ByteBuffer ovrglconfig, ByteBuffer BackBufferSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrglconfig) + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
 	public static int OGLHeaderBackBufferSizeW(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.W); }
 	public static int OGLHeaderBackBufferSizeH(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.BACKBUFFERSIZE + OVRSizei.H); }
 	public static int OGLHeaderMultisample(ByteBuffer ovrglconfig) { return ovrglconfig.getInt(ovrglconfig.position() + OGL + OVRGLConfigDataWindows.HEADER + OVRRenderAPIConfigHeader.MULTISAMPLE); }

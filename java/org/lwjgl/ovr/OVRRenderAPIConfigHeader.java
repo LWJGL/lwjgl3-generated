@@ -96,7 +96,7 @@ public final class OVRRenderAPIConfigHeader implements Pointer {
 	public static void Multisample(ByteBuffer ovrrenderapiconfigheader, int Multisample) { ovrrenderapiconfigheader.putInt(ovrrenderapiconfigheader.position() + MULTISAMPLE, Multisample); }
 
 	public static int API(ByteBuffer ovrrenderapiconfigheader) { return ovrrenderapiconfigheader.getInt(ovrrenderapiconfigheader.position() + API); }
-	public static void BackBufferSizeGet(ByteBuffer ovrrenderapiconfigheader, ByteBuffer BackBufferSize) { checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrrenderapiconfigheader) + BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
+	public static void BackBufferSizeGet(ByteBuffer ovrrenderapiconfigheader, ByteBuffer BackBufferSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(BackBufferSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrrenderapiconfigheader) + BACKBUFFERSIZE, memAddress(BackBufferSize), OVRSizei.SIZEOF); }
 	public static int BackBufferSizeW(ByteBuffer ovrrenderapiconfigheader) { return ovrrenderapiconfigheader.getInt(ovrrenderapiconfigheader.position() + BACKBUFFERSIZE + OVRSizei.W); }
 	public static int BackBufferSizeH(ByteBuffer ovrrenderapiconfigheader) { return ovrrenderapiconfigheader.getInt(ovrrenderapiconfigheader.position() + BACKBUFFERSIZE + OVRSizei.H); }
 	public static int Multisample(ByteBuffer ovrrenderapiconfigheader) { return ovrrenderapiconfigheader.getInt(ovrrenderapiconfigheader.position() + MULTISAMPLE); }

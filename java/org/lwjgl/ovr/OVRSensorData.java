@@ -130,15 +130,15 @@ public final class OVRSensorData implements Pointer {
 	public static void Temperature(ByteBuffer ovrsensordata, float Temperature) { ovrsensordata.putFloat(ovrsensordata.position() + TEMPERATURE, Temperature); }
 	public static void TimeInSeconds(ByteBuffer ovrsensordata, float TimeInSeconds) { ovrsensordata.putFloat(ovrsensordata.position() + TIMEINSECONDS, TimeInSeconds); }
 
-	public static void AccelerometerGet(ByteBuffer ovrsensordata, ByteBuffer Accelerometer) { checkBuffer(Accelerometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + ACCELEROMETER, memAddress(Accelerometer), OVRVector3f.SIZEOF); }
+	public static void AccelerometerGet(ByteBuffer ovrsensordata, ByteBuffer Accelerometer) { if ( LWJGLUtil.CHECKS ) checkBuffer(Accelerometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + ACCELEROMETER, memAddress(Accelerometer), OVRVector3f.SIZEOF); }
 	public static float AccelerometerX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.X); }
 	public static float AccelerometerY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Y); }
 	public static float AccelerometerZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Z); }
-	public static void GyroGet(ByteBuffer ovrsensordata, ByteBuffer Gyro) { checkBuffer(Gyro, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + GYRO, memAddress(Gyro), OVRVector3f.SIZEOF); }
+	public static void GyroGet(ByteBuffer ovrsensordata, ByteBuffer Gyro) { if ( LWJGLUtil.CHECKS ) checkBuffer(Gyro, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + GYRO, memAddress(Gyro), OVRVector3f.SIZEOF); }
 	public static float GyroX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.X); }
 	public static float GyroY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.Y); }
 	public static float GyroZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.Z); }
-	public static void MagnetometerGet(ByteBuffer ovrsensordata, ByteBuffer Magnetometer) { checkBuffer(Magnetometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + MAGNETOMETER, memAddress(Magnetometer), OVRVector3f.SIZEOF); }
+	public static void MagnetometerGet(ByteBuffer ovrsensordata, ByteBuffer Magnetometer) { if ( LWJGLUtil.CHECKS ) checkBuffer(Magnetometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + MAGNETOMETER, memAddress(Magnetometer), OVRVector3f.SIZEOF); }
 	public static float MagnetometerX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.X); }
 	public static float MagnetometerY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Y); }
 	public static float MagnetometerZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Z); }

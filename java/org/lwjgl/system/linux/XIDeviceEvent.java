@@ -288,22 +288,22 @@ public final class XIDeviceEvent implements Pointer {
 	public static double event_x(ByteBuffer xideviceevent) { return xideviceevent.getDouble(xideviceevent.position() + EVENT_X); }
 	public static double event_y(ByteBuffer xideviceevent) { return xideviceevent.getDouble(xideviceevent.position() + EVENT_Y); }
 	public static int flags(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + FLAGS); }
-	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { checkBuffer(buttons, XIButtonState.SIZEOF); memCopy(memAddress(xideviceevent) + BUTTONS, memAddress(buttons), XIButtonState.SIZEOF); }
+	public static void buttonsGet(ByteBuffer xideviceevent, ByteBuffer buttons) { if ( LWJGLUtil.CHECKS ) checkBuffer(buttons, XIButtonState.SIZEOF); memCopy(memAddress(xideviceevent) + BUTTONS, memAddress(buttons), XIButtonState.SIZEOF); }
 	public static int buttonsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + BUTTONS + XIButtonState.MASK_LEN); }
 	public static long buttonsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + BUTTONS + XIButtonState.MASK); }
 	public static ByteBuffer buttonsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(buttonsMask(xideviceevent), size); }
-	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { checkBuffer(valuators, XIValuatorState.SIZEOF); memCopy(memAddress(xideviceevent) + VALUATORS, memAddress(valuators), XIValuatorState.SIZEOF); }
+	public static void valuatorsGet(ByteBuffer xideviceevent, ByteBuffer valuators) { if ( LWJGLUtil.CHECKS ) checkBuffer(valuators, XIValuatorState.SIZEOF); memCopy(memAddress(xideviceevent) + VALUATORS, memAddress(valuators), XIValuatorState.SIZEOF); }
 	public static int valuatorsMask_len(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + VALUATORS + XIValuatorState.MASK_LEN); }
 	public static long valuatorsMask(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.MASK); }
 	public static ByteBuffer valuatorsMask(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsMask(xideviceevent), size); }
 	public static long valuatorsValues(ByteBuffer xideviceevent) { return PointerBuffer.get(xideviceevent, xideviceevent.position() + VALUATORS + XIValuatorState.VALUES); }
 	public static ByteBuffer valuatorsValues(ByteBuffer xideviceevent, int size) { return memByteBuffer(valuatorsValues(xideviceevent), size); }
-	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { checkBuffer(mods, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + MODS, memAddress(mods), XIModifierState.SIZEOF); }
+	public static void modsGet(ByteBuffer xideviceevent, ByteBuffer mods) { if ( LWJGLUtil.CHECKS ) checkBuffer(mods, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + MODS, memAddress(mods), XIModifierState.SIZEOF); }
 	public static int modsBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.BASE); }
 	public static int modsLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LATCHED); }
 	public static int modsLocked(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.LOCKED); }
 	public static int modsEffective(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + MODS + XIModifierState.EFFECTIVE); }
-	public static void groupGet(ByteBuffer xideviceevent, ByteBuffer group) { checkBuffer(group, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + GROUP, memAddress(group), XIModifierState.SIZEOF); }
+	public static void groupGet(ByteBuffer xideviceevent, ByteBuffer group) { if ( LWJGLUtil.CHECKS ) checkBuffer(group, XIModifierState.SIZEOF); memCopy(memAddress(xideviceevent) + GROUP, memAddress(group), XIModifierState.SIZEOF); }
 	public static int groupBase(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.BASE); }
 	public static int groupLatched(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.LATCHED); }
 	public static int groupLocked(ByteBuffer xideviceevent) { return xideviceevent.getInt(xideviceevent.position() + GROUP + XIModifierState.LOCKED); }

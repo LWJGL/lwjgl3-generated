@@ -169,8 +169,10 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public static void buildNumber(ByteBuffer osversioninfoex, int buildNumber) { osversioninfoex.putInt(osversioninfoex.position() + BUILDNUMBER, buildNumber); }
 	public static void platformId(ByteBuffer osversioninfoex, int platformId) { osversioninfoex.putInt(osversioninfoex.position() + PLATFORMID, platformId); }
 	public static void csdVersionSet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
-		checkNT2(csdVersion);
-		checkBufferGT(csdVersion, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT2(csdVersion);
+			checkBufferGT(csdVersion, 128 * 2);
+		}
 		memCopy(memAddress(csdVersion), memAddress(osversioninfoex) + CSDVERSION, csdVersion.remaining());
 	}
 	public static void csdVersion(ByteBuffer osversioninfoex, CharSequence csdVersion) { memEncodeUTF16(csdVersion, true, osversioninfoex, CSDVERSION); }
@@ -185,7 +187,7 @@ public final class OSVERSIONINFOEX implements Pointer {
 	public static int buildNumber(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + BUILDNUMBER); }
 	public static int platformId(ByteBuffer osversioninfoex) { return osversioninfoex.getInt(osversioninfoex.position() + PLATFORMID); }
 	public static void csdVersionGet(ByteBuffer osversioninfoex, ByteBuffer csdVersion) {
-		checkBufferGT(csdVersion, 128 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(csdVersion, 128 * 2);
 		memCopy(memAddress(osversioninfoex) + CSDVERSION, memAddress(csdVersion), csdVersion.remaining());
 	}
 	public static String csdVersionString(ByteBuffer osversioninfoex) { return memDecodeUTF16(osversioninfoex, memStrLen2(osversioninfoex, CSDVERSION), CSDVERSION); }

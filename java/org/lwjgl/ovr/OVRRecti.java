@@ -94,10 +94,10 @@ public final class OVRRecti implements Pointer {
 	public static void SizeW(ByteBuffer ovrrecti, int w) { ovrrecti.putInt(ovrrecti.position() + SIZE + OVRSizei.W, w); }
 	public static void SizeH(ByteBuffer ovrrecti, int h) { ovrrecti.putInt(ovrrecti.position() + SIZE + OVRSizei.H, h); }
 
-	public static void PosGet(ByteBuffer ovrrecti, ByteBuffer Pos) { checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrrecti) + POS, memAddress(Pos), OVRVector2i.SIZEOF); }
+	public static void PosGet(ByteBuffer ovrrecti, ByteBuffer Pos) { if ( LWJGLUtil.CHECKS ) checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrrecti) + POS, memAddress(Pos), OVRVector2i.SIZEOF); }
 	public static int PosX(ByteBuffer ovrrecti) { return ovrrecti.getInt(ovrrecti.position() + POS + OVRVector2i.X); }
 	public static int PosY(ByteBuffer ovrrecti) { return ovrrecti.getInt(ovrrecti.position() + POS + OVRVector2i.Y); }
-	public static void SizeGet(ByteBuffer ovrrecti, ByteBuffer Size) { checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrrecti) + SIZE, memAddress(Size), OVRSizei.SIZEOF); }
+	public static void SizeGet(ByteBuffer ovrrecti, ByteBuffer Size) { if ( LWJGLUtil.CHECKS ) checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrrecti) + SIZE, memAddress(Size), OVRSizei.SIZEOF); }
 	public static int SizeW(ByteBuffer ovrrecti) { return ovrrecti.getInt(ovrrecti.position() + SIZE + OVRSizei.W); }
 	public static int SizeH(ByteBuffer ovrrecti) { return ovrrecti.getInt(ovrrecti.position() + SIZE + OVRSizei.H); }
 

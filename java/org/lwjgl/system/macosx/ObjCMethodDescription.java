@@ -84,7 +84,7 @@ public final class ObjCMethodDescription implements Pointer {
 
 	public static void name(ByteBuffer objc_method_description, long name) { PointerBuffer.put(objc_method_description, objc_method_description.position() + NAME, name); }
 	public static void types(ByteBuffer objc_method_description, long types) { PointerBuffer.put(objc_method_description, objc_method_description.position() + TYPES, types); }
-	public static void types(ByteBuffer objc_method_description, ByteBuffer types) { if ( types != null ) checkNT1(types); types(objc_method_description, memAddressSafe(types)); }
+	public static void types(ByteBuffer objc_method_description, ByteBuffer types) { if ( LWJGLUtil.CHECKS && types != null ) checkNT1(types); types(objc_method_description, memAddressSafe(types)); }
 
 	public static long name(ByteBuffer objc_method_description) { return PointerBuffer.get(objc_method_description, objc_method_description.position() + NAME); }
 	public static long types(ByteBuffer objc_method_description) { return PointerBuffer.get(objc_method_description, objc_method_description.position() + TYPES); }

@@ -86,9 +86,9 @@ public final class XClassHint implements Pointer {
 	}
 
 	public static void res_name(ByteBuffer xclasshint, long res_name) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_NAME, res_name); }
-	public static void res_name(ByteBuffer xclasshint, ByteBuffer res_name) { if ( res_name != null ) checkNT1(res_name); res_name(xclasshint, memAddressSafe(res_name)); }
+	public static void res_name(ByteBuffer xclasshint, ByteBuffer res_name) { if ( LWJGLUtil.CHECKS && res_name != null ) checkNT1(res_name); res_name(xclasshint, memAddressSafe(res_name)); }
 	public static void res_class(ByteBuffer xclasshint, long res_class) { PointerBuffer.put(xclasshint, xclasshint.position() + RES_CLASS, res_class); }
-	public static void res_class(ByteBuffer xclasshint, ByteBuffer res_class) { if ( res_class != null ) checkNT1(res_class); res_class(xclasshint, memAddressSafe(res_class)); }
+	public static void res_class(ByteBuffer xclasshint, ByteBuffer res_class) { if ( LWJGLUtil.CHECKS && res_class != null ) checkNT1(res_class); res_class(xclasshint, memAddressSafe(res_class)); }
 
 	public static long res_name(ByteBuffer xclasshint) { return PointerBuffer.get(xclasshint, xclasshint.position() + RES_NAME); }
 	public static ByteBuffer res_nameBuffer(ByteBuffer xclasshint) { return memByteBufferNT1(res_name(xclasshint)); }

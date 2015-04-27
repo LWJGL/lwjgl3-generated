@@ -140,17 +140,23 @@ public final class XClientMessageEvent implements Pointer {
 	public static void message_type(ByteBuffer xclientmessageevent, long message_type) { PointerBuffer.put(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE, message_type); }
 	public static void format(ByteBuffer xclientmessageevent, int format) { xclientmessageevent.putInt(xclientmessageevent.position() + FORMAT, format); }
 	public static void dataBSet(ByteBuffer xclientmessageevent, ByteBuffer b) {
-		checkBufferGT(b, 20 * 1);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(b, 20 * 1);
+		}
 		memCopy(memAddress(b), memAddress(xclientmessageevent) + DATA_B, b.remaining());
 	}
 	public static void dataB(ByteBuffer xclientmessageevent, int index, byte b) { xclientmessageevent.put(DATA_B + index, b); }
 	public static void dataSSet(ByteBuffer xclientmessageevent, ByteBuffer s) {
-		checkBufferGT(s, 10 * 2);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(s, 10 * 2);
+		}
 		memCopy(memAddress(s), memAddress(xclientmessageevent) + DATA_S, s.remaining());
 	}
 	public static void dataS(ByteBuffer xclientmessageevent, int index, short s) { xclientmessageevent.putShort(DATA_S + index * 2, s); }
 	public static void dataLSet(ByteBuffer xclientmessageevent, ByteBuffer l) {
-		checkBufferGT(l, 5 * POINTER_SIZE);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBufferGT(l, 5 * POINTER_SIZE);
+		}
 		memCopy(memAddress(l), memAddress(xclientmessageevent) + DATA_L, l.remaining());
 	}
 	public static void dataL(ByteBuffer xclientmessageevent, int index, long l) { PointerBuffer.put(xclientmessageevent, DATA_L + index * POINTER_SIZE, l); }
@@ -163,21 +169,21 @@ public final class XClientMessageEvent implements Pointer {
 	public static long message_type(ByteBuffer xclientmessageevent) { return PointerBuffer.get(xclientmessageevent, xclientmessageevent.position() + MESSAGE_TYPE); }
 	public static int format(ByteBuffer xclientmessageevent) { return xclientmessageevent.getInt(xclientmessageevent.position() + FORMAT); }
 	public static void dataBGet(ByteBuffer xclientmessageevent, ByteBuffer b) {
-		checkBufferGT(b, 20 * 1);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(b, 20 * 1);
 		memCopy(memAddress(xclientmessageevent) + DATA_B, memAddress(b), b.remaining());
 	}
 	public static byte dataB(ByteBuffer xclientmessageevent, int index) {
 		return xclientmessageevent.get(DATA_B + index * 1);
 	}
 	public static void dataSGet(ByteBuffer xclientmessageevent, ByteBuffer s) {
-		checkBufferGT(s, 10 * 2);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(s, 10 * 2);
 		memCopy(memAddress(xclientmessageevent) + DATA_S, memAddress(s), s.remaining());
 	}
 	public static short dataS(ByteBuffer xclientmessageevent, int index) {
 		return xclientmessageevent.getShort(DATA_S + index * 2);
 	}
 	public static void dataLGet(ByteBuffer xclientmessageevent, ByteBuffer l) {
-		checkBufferGT(l, 5 * 8);
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(l, 5 * 8);
 		memCopy(memAddress(xclientmessageevent) + DATA_L, memAddress(l), l.remaining());
 	}
 	public static long dataL(ByteBuffer xclientmessageevent, int index) {
