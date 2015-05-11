@@ -49,6 +49,9 @@ public final class GL12 {
 		GL_SMOOTH_LINE_WIDTH_RANGE       = 0xB22,
 		GL_SMOOTH_LINE_WIDTH_GRANULARITY = 0xB23;
 
+	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
+	public static final int GL_TEXTURE_BINDING_3D = 0x806A;
+
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev, and by the {@code pname} parameter of PixelStore. */
 	public static final int
 		GL_PACK_SKIP_IMAGES    = 0x806B,

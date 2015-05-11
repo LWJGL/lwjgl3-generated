@@ -26,6 +26,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Combined with other "bindless" extensions, such as NV_bindless_texture and NV_shader_buffer_load, it is now possible for the GPU to create draw
  * commands that source all resource inputs, which are common to change frequently between draw calls from the GPU: vertex and index buffers, samplers,
  * images and other shader input data stored in buffers.</p>
+ * 
+ * <p>Requires {@link GL43 OpenGL 4.3}, {@link NVVertexBufferUnifiedMemory NV_vertex_buffer_unified_memory},</p>
  */
 public final class NVBindlessMultiDrawIndirect {
 

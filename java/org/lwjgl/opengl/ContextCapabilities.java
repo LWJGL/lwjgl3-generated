@@ -142,6 +142,8 @@ public final class ContextCapabilities {
 	final EXTFramebufferMultisample        __EXTFramebufferMultisample;
 	final EXTFramebufferObject             __EXTFramebufferObject;
 	final EXTPointParameters               __EXTPointParameters;
+	final EXTPolygonOffsetClamp            __EXTPolygonOffsetClamp;
+	final EXTRasterMultisample             __EXTRasterMultisample;
 	final EXTSecondaryColor                __EXTSecondaryColor;
 	final EXTTextureArray                  __EXTTextureArray;
 	final EXTTextureInteger                __EXTTextureInteger;
@@ -157,10 +159,14 @@ public final class ContextCapabilities {
 	final NVConservativeRaster             __NVConservativeRaster;
 	final NVCopyImage                      __NVCopyImage;
 	final NVDrawTexture                    __NVDrawTexture;
+	final NVFragmentCoverageToColor        __NVFragmentCoverageToColor;
+	final NVFramebufferMixedSamples        __NVFramebufferMixedSamples;
+	final NVPathRenderingSharedEdge        __NVPathRenderingSharedEdge;
 	final NVPointSprite                    __NVPointSprite;
 	final NVSampleLocations                __NVSampleLocations;
 	final NVShaderBufferLoad               __NVShaderBufferLoad;
 	final NVVertexBufferUnifiedMemory      __NVVertexBufferUnifiedMemory;
+	final OVRMultiview                     __OVRMultiview;
 	final WGLAMDGPUAssociation             __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion               __WGLARBBufferRegion;
 	final WGLARBCreateContext              __WGLARBCreateContext;
@@ -313,8 +319,35 @@ public final class ContextCapabilities {
 	public final boolean GL_AMD_conservative_depth;
 	/** When true, {@link AMDDebugOutput} is supported. */
 	public final boolean GL_AMD_debug_output;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/gcn_shader.txt">AMD_gcn_shader</a> extension is supported.
+	 * 
+	 * <p>This extension exposes miscellaneous features of the AMD "Graphics Core Next" shader architecture that do not cleanly fit into other extensions
+	 * and are not significant enough alone to warrant their own extensions. This includes cross-SIMD lane ballots, cube map query functions and a
+	 * functionality to query the elapsed shader core time.</p>
+	 * 
+	 * <p>Requires {@link #GL_AMD_gpu_shader_int64 AMD_gpu_shader_int64} or {@link #GL_NV_gpu_shader5 NV_gpu_shader5}.</p>
+	 */
+	public final boolean GL_AMD_gcn_shader;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/gpu_shader_int64.txt">AMD_gpu_shader_int64</a> extension is supported.
+	 * 
+	 * <p>This extension was developed based on the {@link #GL_NV_gpu_shader5 NV_gpu_shader5} extension to allow implementations supporting 64-bit integers to expose the feature
+	 * without the additional requirements that are present in {@link #GL_NV_gpu_shader5 NV_gpu_shader5}.</p>
+	 * 
+	 * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00.</p>
+	 */
+	public final boolean GL_AMD_gpu_shader_int64;
 	/** When true, {@link AMDOcclusionQueryEvent} is supported. */
 	public final boolean GL_AMD_occlusion_query_event;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_atomic_counter_ops.txt">AMD_shader_atomic_counter_ops</a> extension is supported.
+	 * 
+	 * <p>This extension is written against the OpenGL 4.3 (core) specification and the GLSL 4.30.7 specification.</p>
+	 * 
+	 * <p>Requires {@link GL42 OpenGL 4.2} or {@link #GL_ARB_shader_atomic_counters ARB_shader_atomic_counters}.</p>
+	 */
+	public final boolean GL_AMD_shader_atomic_counter_ops;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_stencil_export.txt">AMD_shader_stencil_export</a> extension is supported.
 	 * 
@@ -361,6 +394,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL40 OpenGL 4.0} or {@link ARBTransformFeedback3 ARB_transform_feedback3}.</p>
 	 */
 	public final boolean GL_AMD_transform_feedback3_lines_triangles;
+	/** When true, {@link AMDTransformFeedback4} is supported. */
+	public final boolean GL_AMD_transform_feedback4;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/vertex_shader_layer.txt">AMD_vertex_shader_layer</a> extension is supported.
 	 * 
@@ -1159,6 +1194,22 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_packed_float;
 	/** When true, {@link EXTPointParameters} is supported. */
 	public final boolean GL_EXT_point_parameters;
+	/** When true, {@link EXTPolygonOffsetClamp} is supported. */
+	public final boolean GL_EXT_polygon_offset_clamp;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/post_depth_coverage.txt">EXT_post_depth_coverage</a> extension is supported.
+	 * 
+	 * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
+	 * depth and stencil tests.  This feature can be enabled with the following layout qualifier in the fragment shader:
+	 * <pre><code style="font-family: monospace">
+	 * layout(post_depth_coverage) in;</code></pre>
+	 * To use this feature, early fragment tests must also be enabled in the fragment shader via:
+	 * <pre><code style="font-family: monospace">
+	 * layout(early_fragment_tests) in;</code></pre></p>
+	 */
+	public final boolean GL_EXT_post_depth_coverage;
+	/** When true, {@link EXTRasterMultisample} is supported. */
+	public final boolean GL_EXT_raster_multisample;
 	/** When true, {@link EXTSecondaryColor} is supported. */
 	public final boolean GL_EXT_secondary_color;
 	/**
@@ -1172,6 +1223,31 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_shadow_funcs;
 	/** When true, {@link EXTSharedTexturePalette} is supported. */
 	public final boolean GL_EXT_shared_texture_palette;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/sparse_texture2.txt">EXT_sparse_texture2</a> extension is supported.
+	 * 
+	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:
+	 * <ul>
+	 * <li>New built-in GLSL texture lookup and image load functions are provided that return information on whether the texels accessed for the texture
+	 * lookup accessed uncommitted texture memory.</p>
+	 * 
+	 * <p>New built-in GLSL texture lookup functions are provided that specify a minimum level of detail to use for lookups where the level of detail is
+	 * computed automatically. This allows shaders to avoid accessing unpopulated portions of high-resolution levels of detail when it knows that the
+	 * memory accessed is unpopulated, either from a priori knowledge or from feedback provided by the return value of previously executed "sparse"
+	 * texture lookup functions.</p>
+	 * 
+	 * <p>Reads of uncommitted texture memory will act as though such memory were filled with zeroes; previously, the values returned by reads were undefined.</p>
+	 * 
+	 * <p>Standard implementation-independent virtual page sizes for internal formats required to be supported with sparse textures. These standard sizes can
+	 * be requested by leaving ARBSparseTexture#VIRTUAL_PAGE_SIZE_INDEX_ARB at its initial value (0).</p>
+	 * 
+	 * <p>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
+	 * implementation-dependent.</li>
+	 * </ul></p>
+	 * 
+	 * <p>Requires {@link ARBSparseTexture ARB_sparse_texture}.</p>
+	 */
+	public final boolean GL_EXT_sparse_texture2;
 	/** When true, {@link EXTStencilWrap} is supported. */
 	public final boolean GL_EXT_stencil_wrap;
 	/** When true, {@link EXTTextureArray} is supported. */
@@ -1184,6 +1260,8 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_texture_compression_s3tc;
 	/** When true, {@link EXTTextureFilterAnisotropic} is supported. */
 	public final boolean GL_EXT_texture_filter_anisotropic;
+	/** When true, {@link EXTTextureFilterMinmax} is supported. */
+	public final boolean GL_EXT_texture_filter_minmax;
 	/** When true, {@link EXTTextureInteger} is supported. */
 	public final boolean GL_EXT_texture_integer;
 	/** When true, {@link EXTTextureMirrorClamp} is supported. */
@@ -1202,6 +1280,8 @@ public final class ContextCapabilities {
 	public final boolean GL_KHR_context_flush_control;
 	/** When true, {@link KHRDebug} is supported. */
 	public final boolean GL_KHR_debug;
+	/** When true, {@link KHRNoError} is supported. */
+	public final boolean GL_KHR_no_error;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/KHR/robust_buffer_access_behavior.txt">KHR_robust_buffer_access_behavior</a> extension is supported.
 	 * 
@@ -1244,6 +1324,10 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_copy_image;
 	/** When true, {@link NVDrawTexture} is supported. */
 	public final boolean GL_NV_draw_texture;
+	/** When true, {@link NVFillRectangle} is supported. */
+	public final boolean GL_NV_fill_rectangle;
+	/** When true, {@link NVFragmentCoverageToColor} is supported. */
+	public final boolean GL_NV_fragment_coverage_to_color;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program4.txt">NV_fragment_program4</a> extension is supported. */
 	public final boolean GL_NV_fragment_program4;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/fragment_program_option.txt">NV_fragment_program_option</a> extension is supported. */
@@ -1284,6 +1368,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL43 OpenGL 4.3} and GLSL 4.30.</p>
 	 */
 	public final boolean GL_NV_fragment_shader_interlock;
+	/** When true, {@link NVFramebufferMixedSamples} is supported. */
+	public final boolean GL_NV_framebuffer_mixed_samples;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/geometry_shader4.txt">NV_geometry_shader4</a> extension is supported.
 	 * 
@@ -1297,6 +1383,21 @@ public final class ContextCapabilities {
 	 * Requires {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader4;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/geometry_shader_passthrough.txt">NV_geometry_shader_passthrough</a> extension is supported.
+	 * 
+	 * <p>This extension provides a shading language abstraction to express such shaders without requiring explicit logic to manually copy attributes from input
+	 * vertices to output vertices.</p>
+	 */
+	public final boolean GL_NV_geometry_shader_passthrough;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/gpu_shader5.txt">NV_gpu_shader5</a> extension is supported.
+	 * 
+	 * <p>This extension provides a set of new features to the OpenGL Shading Language and related APIs to support capabilities of new GPUs.</p>
+	 * 
+	 * <p>Requires {@link GL32 OpenGL 3.2}, GLSL 1.5 and {@link #GL_ARB_gpu_shader5 ARB_gpu_shader5}.</p>
+	 */
+	public final boolean GL_NV_gpu_shader5;
 	/** When true, {@link NVPackedDepthStencil} is supported. */
 	public final boolean GL_NV_packed_depth_stencil;
 	/**
@@ -1307,10 +1408,19 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL20 OpenGL 2.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4} and {@link #GL_NV_parameter_buffer_object NV_parameter_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_parameter_buffer_object2;
+	/** When true, {@link NVPathRenderingSharedEdge} is supported. */
+	public final boolean GL_NV_path_rendering_shared_edge;
 	/** When true, {@link NVPointSprite} is supported. */
 	public final boolean GL_NV_point_sprite;
 	/** When true, {@link NVSampleLocations} is supported. */
 	public final boolean GL_NV_sample_locations;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/sample_mask_override_coverage.txt">NV_sample_mask_override_coverage</a> extension is supported.
+	 * 
+	 * <p>This extension allows the fragment shader to control whether the gl_SampleMask output can enable samples that were not covered by the original
+	 * primitive, or that failed the early depth/stencil tests.</p>
+	 */
+	public final boolean GL_NV_sample_mask_override_coverage;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_counters.txt">NV_shader_atomic_counters</a> extension is supported.
 	 * 
@@ -1333,6 +1443,22 @@ public final class ContextCapabilities {
 	 * for these operations is also provided if {@link #GL_NV_gpu_program5 NV_gpu_program5} is supported.</p>
 	 */
 	public final boolean GL_NV_shader_atomic_float;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_fp16_vector.txt">NV_shader_atomic_fp16_vector</a> extension is supported.
+	 * 
+	 * <p>This extension provides GLSL built-in functions and assembly opcodes allowing shaders to perform a limited set of atomic read-modify-write operations
+	 * to buffer or texture memory with 16-bit floating point vector surface formats.</p>
+	 * 
+	 * <p>Requires {@link #GL_NV_gpu_shader5 NV_gpu_shader5}.</p>
+	 */
+	public final boolean GL_NV_shader_atomic_fp16_vector;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_int64.txt">NV_shader_atomic_int64</a> extension is supported.
+	 * 
+	 * <p>This extension provides additional GLSL built-in functions and assembly opcodes allowing shaders to perform additional atomic read-modify-write
+	 * operations on 64-bit signed and unsigned integers stored in buffer object memory.</p>
+	 */
+	public final boolean GL_NV_shader_atomic_int64;
 	/** When true, {@link NVShaderBufferLoad} is supported. */
 	public final boolean GL_NV_shader_buffer_load;
 	/**
@@ -1371,6 +1497,17 @@ public final class ContextCapabilities {
 	 * expected to be exported if GL_NV_viewport_array2 is supported.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
+	/** When true, {@link OVRMultiview} is supported. */
+	public final boolean GL_OVR_multiview;
+	/**
+	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/OVR/multiview2.txt">OVR_multiview2</a> extension.
+	 * 
+	 * <p>This extension relaxes the restriction in OVR_multiview that only {@code gl_Position} can depend on {@code ViewID} in the vertex shader.  With this
+	 * change, view-dependent outputs like reflection vectors and similar are allowed.</p>
+	 * 
+	 * <p>Requires {@link GL30 OpenGL 3.0} and {@link OVRMultiview OVR_multiview}.</p>
+	 */
+	public final boolean GL_OVR_multiview2;
 	/** When true, {@link WGLAMDGPUAssociation} is supported. */
 	public final boolean WGL_AMD_gpu_association;
 	/** When true, {@link WGLARBBufferRegion} is supported. */
@@ -1494,11 +1631,15 @@ public final class ContextCapabilities {
 		GLX_SGIX_swap_group = (__GLXSGIXSwapGroup = GLXSGIXSwapGroup.create(ext, provider)) != null;
 		GL_AMD_conservative_depth = ext.contains("GL_AMD_conservative_depth");
 		GL_AMD_debug_output = (__AMDDebugOutput = AMDDebugOutput.create(ext, provider)) != null;
+		GL_AMD_gcn_shader = ext.contains("GL_AMD_gcn_shader");
+		GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64");
 		GL_AMD_occlusion_query_event = (__AMDOcclusionQueryEvent = AMDOcclusionQueryEvent.create(ext, provider)) != null;
+		GL_AMD_shader_atomic_counter_ops = ext.contains("GL_AMD_shader_atomic_counter_ops");
 		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
 		GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
 		GL_AMD_texture_texture4 = ext.contains("GL_AMD_texture_texture4");
 		GL_AMD_transform_feedback3_lines_triangles = ext.contains("GL_AMD_transform_feedback3_lines_triangles");
+		GL_AMD_transform_feedback4 = ext.contains("GL_AMD_transform_feedback4");
 		GL_AMD_vertex_shader_layer = ext.contains("GL_AMD_vertex_shader_layer");
 		GL_AMD_vertex_shader_viewport_index = ext.contains("GL_AMD_vertex_shader_viewport_index");
 		GL_ARB_arrays_of_arrays = ext.contains("GL_ARB_arrays_of_arrays");
@@ -1675,15 +1816,20 @@ public final class ContextCapabilities {
 		GL_EXT_packed_depth_stencil = ext.contains("GL_EXT_packed_depth_stencil");
 		GL_EXT_packed_float = ext.contains("GL_EXT_packed_float");
 		GL_EXT_point_parameters = (__EXTPointParameters = EXTPointParameters.create(ext, provider)) != null;
+		GL_EXT_polygon_offset_clamp = (__EXTPolygonOffsetClamp = EXTPolygonOffsetClamp.create(ext, provider)) != null;
+		GL_EXT_post_depth_coverage = ext.contains("GL_EXT_post_depth_coverage");
+		GL_EXT_raster_multisample = (__EXTRasterMultisample = EXTRasterMultisample.create(ext, provider)) != null;
 		GL_EXT_secondary_color = (__EXTSecondaryColor = EXTSecondaryColor.create(ext, provider)) != null;
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
 		GL_EXT_shared_texture_palette = ext.contains("GL_EXT_shared_texture_palette");
+		GL_EXT_sparse_texture2 = ext.contains("GL_EXT_sparse_texture2");
 		GL_EXT_stencil_wrap = ext.contains("GL_EXT_stencil_wrap");
 		GL_EXT_texture_array = (__EXTTextureArray = EXTTextureArray.create(ext, provider)) != null;
 		GL_EXT_texture_compression_latc = ext.contains("GL_EXT_texture_compression_latc");
 		GL_EXT_texture_compression_rgtc = ext.contains("GL_EXT_texture_compression_rgtc");
 		GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
 		GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
+		GL_EXT_texture_filter_minmax = ext.contains("GL_EXT_texture_filter_minmax");
 		GL_EXT_texture_integer = (__EXTTextureInteger = EXTTextureInteger.create(ext, provider)) != null;
 		GL_EXT_texture_mirror_clamp = ext.contains("GL_EXT_texture_mirror_clamp");
 		GL_EXT_texture_shared_exponent = ext.contains("GL_EXT_texture_shared_exponent");
@@ -1693,6 +1839,7 @@ public final class ContextCapabilities {
 		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");
 		GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
 		GL_KHR_debug = (__KHRDebug = KHRDebug.create(ext, provider)) != null;
+		GL_KHR_no_error = ext.contains("GL_KHR_no_error");
 		GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
 		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
@@ -1707,16 +1854,25 @@ public final class ContextCapabilities {
 		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
 		GL_NV_copy_image = (__NVCopyImage = NVCopyImage.create(ext, provider)) != null;
 		GL_NV_draw_texture = (__NVDrawTexture = NVDrawTexture.create(ext, provider)) != null;
+		GL_NV_fill_rectangle = ext.contains("GL_NV_fill_rectangle");
+		GL_NV_fragment_coverage_to_color = (__NVFragmentCoverageToColor = NVFragmentCoverageToColor.create(ext, provider)) != null;
 		GL_NV_fragment_program4 = ext.contains("GL_NV_fragment_program4");
 		GL_NV_fragment_program_option = ext.contains("GL_NV_fragment_program_option");
 		GL_NV_fragment_shader_interlock = ext.contains("GL_NV_fragment_shader_interlock");
+		GL_NV_framebuffer_mixed_samples = (__NVFramebufferMixedSamples = NVFramebufferMixedSamples.create(ext, provider)) != null;
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
+		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
+		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5");
 		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
 		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
+		GL_NV_path_rendering_shared_edge = (__NVPathRenderingSharedEdge = NVPathRenderingSharedEdge.create(ext, provider)) != null;
 		GL_NV_point_sprite = (__NVPointSprite = NVPointSprite.create(ext, provider)) != null;
 		GL_NV_sample_locations = (__NVSampleLocations = NVSampleLocations.create(ext, provider)) != null;
+		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
 		GL_NV_shader_atomic_counters = ext.contains("GL_NV_shader_atomic_counters");
 		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
+		GL_NV_shader_atomic_fp16_vector = ext.contains("GL_NV_shader_atomic_fp16_vector");
+		GL_NV_shader_atomic_int64 = ext.contains("GL_NV_shader_atomic_int64");
 		GL_NV_shader_buffer_load = (__NVShaderBufferLoad = NVShaderBufferLoad.create(ext, provider)) != null;
 		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
 		GL_NV_shader_thread_group = ext.contains("GL_NV_shader_thread_group");
@@ -1726,6 +1882,8 @@ public final class ContextCapabilities {
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
+		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
+		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
 		WGL_AMD_gpu_association = (__WGLAMDGPUAssociation = WGLAMDGPUAssociation.create(ext, provider)) != null;
 		WGL_ARB_buffer_region = (__WGLARBBufferRegion = WGLARBBufferRegion.create(ext, provider)) != null;
 		WGL_ARB_context_flush_control = ext.contains("WGL_ARB_context_flush_control");
