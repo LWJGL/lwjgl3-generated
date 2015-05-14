@@ -154,6 +154,7 @@ public final class ContextCapabilities {
 	final NVBindlessMultiDrawIndirect      __NVBindlessMultiDrawIndirect;
 	final NVBindlessMultiDrawIndirectCount __NVBindlessMultiDrawIndirectCount;
 	final NVBindlessTexture                __NVBindlessTexture;
+	final NVBlendEquationAdvanced          __NVBlendEquationAdvanced;
 	final NVCommandList                    __NVCommandList;
 	final NVConditionalRender              __NVConditionalRender;
 	final NVConservativeRaster             __NVConservativeRaster;
@@ -165,6 +166,9 @@ public final class ContextCapabilities {
 	final NVPointSprite                    __NVPointSprite;
 	final NVSampleLocations                __NVSampleLocations;
 	final NVShaderBufferLoad               __NVShaderBufferLoad;
+	final NVTextureBarrier                 __NVTextureBarrier;
+	final NVTextureMultisample             __NVTextureMultisample;
+	final NVVertexArrayRange               __NVVertexArrayRange;
 	final NVVertexBufferUnifiedMemory      __NVVertexBufferUnifiedMemory;
 	final OVRMultiview                     __OVRMultiview;
 	final WGLAMDGPUAssociation             __WGLAMDGPUAssociation;
@@ -1310,10 +1314,14 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_bindless_multi_draw_indirect_count;
 	/** When true, {@link NVBindlessTexture} is supported. */
 	public final boolean GL_NV_bindless_texture;
+	/** When true, {@link NVBlendEquationAdvanced} is supported. */
+	public final boolean GL_NV_blend_equation_advanced;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a> extension is supported. */
 	public final boolean GL_NV_blend_square;
 	/** When true, {@link NVCommandList} is supported. */
 	public final boolean GL_NV_command_list;
+	/** When true, {@link NVComputeProgram5} is supported. */
+	public final boolean GL_NV_compute_program5;
 	/** When true, {@link NVConditionalRender} is supported. */
 	public final boolean GL_NV_conditional_render;
 	/** When true, {@link NVConservativeRaster} is supported. */
@@ -1322,6 +1330,8 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_copy_depth_to_color;
 	/** When true, {@link NVCopyImage} is supported. */
 	public final boolean GL_NV_copy_image;
+	/** When true, {@link NVDeepTexture3D} is supported. */
+	public final boolean GL_NV_deep_texture3D;
 	/** When true, {@link NVDrawTexture} is supported. */
 	public final boolean GL_NV_draw_texture;
 	/** When true, {@link NVFillRectangle} is supported. */
@@ -1391,6 +1401,15 @@ public final class ContextCapabilities {
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
 	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/gpu_program5_mem_extended.txt">NV_gpu_program5_mem_extended</a> extension is supported.
+	 * 
+	 * <p>This extension provides a new set of storage modifiers that can be used by NV_gpu_program5 assembly program instructions loading from or storing to various
+	 * forms of GPU memory.</p>
+	 * 
+	 * <p>Requires {@link #GL_NV_gpu_program5 NV_gpu_program5}.</p>
+	 */
+	public final boolean GL_NV_gpu_program5_mem_extended;
+	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/gpu_shader5.txt">NV_gpu_shader5</a> extension is supported.
 	 * 
 	 * <p>This extension provides a set of new features to the OpenGL Shading Language and related APIs to support capabilities of new GPUs.</p>
@@ -1398,6 +1417,10 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL32 OpenGL 3.2}, GLSL 1.5 and {@link #GL_ARB_gpu_shader5 ARB_gpu_shader5}.</p>
 	 */
 	public final boolean GL_NV_gpu_shader5;
+	/** When true, {@link NVLightMaxExponent} is supported. */
+	public final boolean GL_NV_light_max_exponent;
+	/** When true, {@link NVMultisampleCoverage} is supported. */
+	public final boolean GL_NV_multisample_coverage;
 	/** When true, {@link NVPackedDepthStencil} is supported. */
 	public final boolean GL_NV_packed_depth_stencil;
 	/**
@@ -1461,6 +1484,8 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_shader_atomic_int64;
 	/** When true, {@link NVShaderBufferLoad} is supported. */
 	public final boolean GL_NV_shader_buffer_load;
+	/** When true, {@link NVShaderBufferStore} is supported. */
+	public final boolean GL_NV_shader_buffer_store;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_storage_buffer_object.txt">NV_shader_storage_buffer_object</a> extension is supported.
 	 * 
@@ -1469,12 +1494,32 @@ public final class ContextCapabilities {
 	 * 
 	 * <p>Assembly programs using this extension can read and write to the memory of buffer objects bound to the binding points provided by
 	 * {@link #GL_ARB_shader_storage_buffer_object ARB_shader_storage_buffer_object}.</p>
+	 * 
+	 * <p>Requires {@link GL40 OpenGL 4.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4}, {@link #GL_NV_gpu_program5 NV_gpu_program5}, {@link ARBShaderStorageBufferObject ARB_shader_storage_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_shader_storage_buffer_object;
 	/** When true, {@link NVShaderThreadGroup} is supported. */
 	public final boolean GL_NV_shader_thread_group;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_thread_shuffle.txt">NV_shader_thread_shuffle</a> extension is supported.
+	 * 
+	 * <p>Implementations of the OpenGL Shading Language may, but are not required, to run multiple shader threads for a single stage as a SIMD thread group,
+	 * where individual execution threads are assigned to thread groups in an undefined, implementation-dependent order.  This extension provides a set of
+	 * new features to the OpenGL Shading Language to share data between multiple threads within a thread group.</p>
+	 * 
+	 * <p>Requires {@link GL43 OpenGL 4.3} and GLSL 4.3.</p>
+	 */
+	public final boolean GL_NV_shader_thread_shuffle;
+	/** When true, {@link NVTexgenReflection} is supported. */
+	public final boolean GL_NV_texgen_reflection;
+	/** When true, {@link NVTextureBarrier} is supported. */
+	public final boolean GL_NV_texture_barrier;
+	/** When true, {@link NVTextureMultisample} is supported. */
+	public final boolean GL_NV_texture_multisample;
 	/** When true, {@link NVUniformBufferUnifiedMemory} is supported. */
 	public final boolean GL_NV_uniform_buffer_unified_memory;
+	/** When true, {@link NVVertexArrayRange} is supported. */
+	public final boolean GL_NV_vertex_array_range;
 	/** When true, {@link NVVertexBufferUnifiedMemory} is supported. */
 	public final boolean GL_NV_vertex_buffer_unified_memory;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/vertex_program1_1.txt">NV_vertex_program1_1</a> extension is supported. */
@@ -1847,12 +1892,15 @@ public final class ContextCapabilities {
 		GL_NV_bindless_multi_draw_indirect = (__NVBindlessMultiDrawIndirect = NVBindlessMultiDrawIndirect.create(ext, provider)) != null;
 		GL_NV_bindless_multi_draw_indirect_count = (__NVBindlessMultiDrawIndirectCount = NVBindlessMultiDrawIndirectCount.create(ext, provider)) != null;
 		GL_NV_bindless_texture = (__NVBindlessTexture = NVBindlessTexture.create(ext, provider)) != null;
+		GL_NV_blend_equation_advanced = (__NVBlendEquationAdvanced = NVBlendEquationAdvanced.create(ext, provider)) != null;
 		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
 		GL_NV_command_list = (__NVCommandList = NVCommandList.create(ext, provider)) != null;
+		GL_NV_compute_program5 = ext.contains("GL_NV_compute_program5");
 		GL_NV_conditional_render = (__NVConditionalRender = NVConditionalRender.create(ext, provider)) != null;
 		GL_NV_conservative_raster = (__NVConservativeRaster = NVConservativeRaster.create(ext, provider)) != null;
 		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
 		GL_NV_copy_image = (__NVCopyImage = NVCopyImage.create(ext, provider)) != null;
+		GL_NV_deep_texture3D = ext.contains("GL_NV_deep_texture3D");
 		GL_NV_draw_texture = (__NVDrawTexture = NVDrawTexture.create(ext, provider)) != null;
 		GL_NV_fill_rectangle = ext.contains("GL_NV_fill_rectangle");
 		GL_NV_fragment_coverage_to_color = (__NVFragmentCoverageToColor = NVFragmentCoverageToColor.create(ext, provider)) != null;
@@ -1862,7 +1910,10 @@ public final class ContextCapabilities {
 		GL_NV_framebuffer_mixed_samples = (__NVFramebufferMixedSamples = NVFramebufferMixedSamples.create(ext, provider)) != null;
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
+		GL_NV_gpu_program5_mem_extended = ext.contains("GL_NV_gpu_program5_mem_extended");
 		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5");
+		GL_NV_light_max_exponent = ext.contains("GL_NV_light_max_exponent");
+		GL_NV_multisample_coverage = ext.contains("GL_NV_multisample_coverage");
 		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
 		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
 		GL_NV_path_rendering_shared_edge = (__NVPathRenderingSharedEdge = NVPathRenderingSharedEdge.create(ext, provider)) != null;
@@ -1874,9 +1925,15 @@ public final class ContextCapabilities {
 		GL_NV_shader_atomic_fp16_vector = ext.contains("GL_NV_shader_atomic_fp16_vector");
 		GL_NV_shader_atomic_int64 = ext.contains("GL_NV_shader_atomic_int64");
 		GL_NV_shader_buffer_load = (__NVShaderBufferLoad = NVShaderBufferLoad.create(ext, provider)) != null;
+		GL_NV_shader_buffer_store = ext.contains("GL_NV_shader_buffer_store");
 		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
 		GL_NV_shader_thread_group = ext.contains("GL_NV_shader_thread_group");
+		GL_NV_shader_thread_shuffle = ext.contains("GL_NV_shader_thread_shuffle");
+		GL_NV_texgen_reflection = ext.contains("GL_NV_texgen_reflection");
+		GL_NV_texture_barrier = (__NVTextureBarrier = NVTextureBarrier.create(ext, provider)) != null;
+		GL_NV_texture_multisample = (__NVTextureMultisample = NVTextureMultisample.create(ext, provider)) != null;
 		GL_NV_uniform_buffer_unified_memory = ext.contains("GL_NV_uniform_buffer_unified_memory");
+		GL_NV_vertex_array_range = (__NVVertexArrayRange = NVVertexArrayRange.create(ext, provider)) != null;
 		GL_NV_vertex_buffer_unified_memory = (__NVVertexBufferUnifiedMemory = NVVertexBufferUnifiedMemory.create(ext, provider)) != null;
 		GL_NV_vertex_program1_1 = ext.contains("GL_NV_vertex_program1_1");
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
