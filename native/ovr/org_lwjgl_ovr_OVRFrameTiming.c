@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <stddef.h>
 DISABLE_WARNINGS()
-#include "OVR_CAPI_0_5_0.h"
+#include "OVR_CAPI_0_6_0.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
@@ -16,12 +16,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRFrameTiming_offsets(JNIEnv *__env, 
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)offsetof(ovrFrameTiming, DeltaSeconds);
-	buffer[1] = (jint)offsetof(ovrFrameTiming, ThisFrameSeconds);
-	buffer[2] = (jint)offsetof(ovrFrameTiming, TimewarpPointSeconds);
-	buffer[3] = (jint)offsetof(ovrFrameTiming, NextFrameSeconds);
-	buffer[4] = (jint)offsetof(ovrFrameTiming, ScanoutMidpointSeconds);
-	buffer[5] = (jint)offsetof(ovrFrameTiming, EyeScanoutSeconds);
+	buffer[0] = (jint)offsetof(ovrFrameTiming, DisplayMidpointSeconds);
+	buffer[1] = (jint)offsetof(ovrFrameTiming, FrameIntervalSeconds);
+	buffer[2] = (jint)offsetof(ovrFrameTiming, AppFrameIndex);
+	buffer[3] = (jint)offsetof(ovrFrameTiming, DisplayFrameIndex);
 
 	return sizeof(ovrFrameTiming);
 }

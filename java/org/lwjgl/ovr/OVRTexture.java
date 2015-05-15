@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Contains platform-specific information about a texture. */
+/** Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}. */
 public final class OVRTexture implements Pointer {
 
 	/** The struct size in bytes. */
@@ -58,13 +58,6 @@ public final class OVRTexture implements Pointer {
 	public void setHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeSet(struct, TextureSize); }
 	public void setHeaderTextureSizeW(int w) { HeaderTextureSizeW(struct, w); }
 	public void setHeaderTextureSizeH(int h) { HeaderTextureSizeH(struct, h); }
-	public void setHeaderRenderViewport(ByteBuffer RenderViewport) { HeaderRenderViewportSet(struct, RenderViewport); }
-	public void setHeaderRenderViewportPos(ByteBuffer Pos) { HeaderRenderViewportPosSet(struct, Pos); }
-	public void setHeaderRenderViewportPosX(int x) { HeaderRenderViewportPosX(struct, x); }
-	public void setHeaderRenderViewportPosY(int y) { HeaderRenderViewportPosY(struct, y); }
-	public void setHeaderRenderViewportSize(ByteBuffer Size) { HeaderRenderViewportSizeSet(struct, Size); }
-	public void setHeaderRenderViewportSizeW(int w) { HeaderRenderViewportSizeW(struct, w); }
-	public void setHeaderRenderViewportSizeH(int h) { HeaderRenderViewportSizeH(struct, h); }
 	public void setPlatformData(ByteBuffer PlatformData) { PlatformDataSet(struct, PlatformData); }
 	public void setPlatformData(int index, long PlatformData) { PlatformData(struct, index, PlatformData); }
 
@@ -73,13 +66,6 @@ public final class OVRTexture implements Pointer {
 	public void getHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeGet(struct, TextureSize); }
 	public int getHeaderTextureSizeW() { return HeaderTextureSizeW(struct); }
 	public int getHeaderTextureSizeH() { return HeaderTextureSizeH(struct); }
-	public void getHeaderRenderViewport(ByteBuffer RenderViewport) { HeaderRenderViewportGet(struct, RenderViewport); }
-	public void getHeaderRenderViewportPos(ByteBuffer Pos) { HeaderRenderViewportPosGet(struct, Pos); }
-	public int getHeaderRenderViewportPosX() { return HeaderRenderViewportPosX(struct); }
-	public int getHeaderRenderViewportPosY() { return HeaderRenderViewportPosY(struct); }
-	public void getHeaderRenderViewportSize(ByteBuffer Size) { HeaderRenderViewportSizeGet(struct, Size); }
-	public int getHeaderRenderViewportSizeW() { return HeaderRenderViewportSizeW(struct); }
-	public int getHeaderRenderViewportSizeH() { return HeaderRenderViewportSizeH(struct); }
 	public void getPlatformData(ByteBuffer PlatformData) { PlatformDataGet(struct, PlatformData); }
 
 	// -----------------------------------
@@ -107,13 +93,6 @@ public final class OVRTexture implements Pointer {
 	public static void HeaderTextureSizeSet(ByteBuffer ovrtexture, ByteBuffer TextureSize) { if ( TextureSize != null ) memCopy(memAddress(TextureSize), memAddress(ovrtexture) + HEADER + OVRTextureHeader.TEXTURESIZE, OVRSizei.SIZEOF); }
 	public static void HeaderTextureSizeW(ByteBuffer ovrtexture, int w) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W, w); }
 	public static void HeaderTextureSizeH(ByteBuffer ovrtexture, int h) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H, h); }
-	public static void HeaderRenderViewportSet(ByteBuffer ovrtexture, ByteBuffer RenderViewport) { if ( RenderViewport != null ) memCopy(memAddress(RenderViewport), memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT, OVRRecti.SIZEOF); }
-	public static void HeaderRenderViewportPosSet(ByteBuffer ovrtexture, ByteBuffer Pos) { if ( Pos != null ) memCopy(memAddress(Pos), memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS, OVRVector2i.SIZEOF); }
-	public static void HeaderRenderViewportPosX(ByteBuffer ovrtexture, int x) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.X, x); }
-	public static void HeaderRenderViewportPosY(ByteBuffer ovrtexture, int y) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.Y, y); }
-	public static void HeaderRenderViewportSizeSet(ByteBuffer ovrtexture, ByteBuffer Size) { if ( Size != null ) memCopy(memAddress(Size), memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE, OVRSizei.SIZEOF); }
-	public static void HeaderRenderViewportSizeW(ByteBuffer ovrtexture, int w) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.W, w); }
-	public static void HeaderRenderViewportSizeH(ByteBuffer ovrtexture, int h) { ovrtexture.putInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H, h); }
 	public static void PlatformDataSet(ByteBuffer ovrtexture, ByteBuffer PlatformData) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
@@ -127,13 +106,6 @@ public final class OVRTexture implements Pointer {
 	public static void HeaderTextureSizeGet(ByteBuffer ovrtexture, ByteBuffer TextureSize) { if ( LWJGLUtil.CHECKS ) checkBuffer(TextureSize, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.TEXTURESIZE, memAddress(TextureSize), OVRSizei.SIZEOF); }
 	public static int HeaderTextureSizeW(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W); }
 	public static int HeaderTextureSizeH(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H); }
-	public static void HeaderRenderViewportGet(ByteBuffer ovrtexture, ByteBuffer RenderViewport) { if ( LWJGLUtil.CHECKS ) checkBuffer(RenderViewport, OVRRecti.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT, memAddress(RenderViewport), OVRRecti.SIZEOF); }
-	public static void HeaderRenderViewportPosGet(ByteBuffer ovrtexture, ByteBuffer Pos) { if ( LWJGLUtil.CHECKS ) checkBuffer(Pos, OVRVector2i.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS, memAddress(Pos), OVRVector2i.SIZEOF); }
-	public static int HeaderRenderViewportPosX(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.X); }
-	public static int HeaderRenderViewportPosY(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.POS + OVRVector2i.Y); }
-	public static void HeaderRenderViewportSizeGet(ByteBuffer ovrtexture, ByteBuffer Size) { if ( LWJGLUtil.CHECKS ) checkBuffer(Size, OVRSizei.SIZEOF); memCopy(memAddress(ovrtexture) + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE, memAddress(Size), OVRSizei.SIZEOF); }
-	public static int HeaderRenderViewportSizeW(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.W); }
-	public static int HeaderRenderViewportSizeH(ByteBuffer ovrtexture) { return ovrtexture.getInt(ovrtexture.position() + HEADER + OVRTextureHeader.RENDERVIEWPORT + OVRRecti.SIZE + OVRSizei.H); }
 	public static void PlatformDataGet(ByteBuffer ovrtexture, ByteBuffer PlatformData) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(PlatformData, 8 * 8);
 		memCopy(memAddress(ovrtexture) + PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());

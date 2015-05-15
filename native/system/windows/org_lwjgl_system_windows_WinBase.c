@@ -8,12 +8,6 @@
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nGetVersionEx(JNIEnv *__env, jclass clazz, jlong versionInfoAddress) {
-	LPOSVERSIONINFO versionInfo = (LPOSVERSIONINFO)(intptr_t)versionInfoAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)GetVersionEx(versionInfo);
-}
-
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_GetLastError(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)GetLastError();

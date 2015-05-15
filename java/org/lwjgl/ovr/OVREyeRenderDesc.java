@@ -12,12 +12,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Rendering information for each eye. Computed by either ovrHmd_ConfigureRendering() or ovrHmd_GetRenderDesc() based on the specified FOV. Note that the
- * rendering viewport is not included here as it can be specified separately and modified per frame through:
- * <ul>
- * <li>(a) ovrHmd_GetRenderScaleAndOffset in the case of client rendered distortion or</li>
- * <li>(b) passing different values via ovrTexture in the case of SDK rendered distortion.</li>
- * </ul>
+ * Rendering information for each eye. Computed by either {@link OVR#ovrHmd_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
+ * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  */
 public final class OVREyeRenderDesc implements Pointer {
 

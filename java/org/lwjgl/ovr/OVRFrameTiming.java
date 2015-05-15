@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Frame timing data reported by ovrHmd_BeginFrameTiming() or ovrHmd_BeginFrame(). */
+/** Frame timing data reported by {@link OVR#ovrHmd_GetFrameTiming}. */
 public final class OVRFrameTiming implements Pointer {
 
 	/** The struct size in bytes. */
@@ -19,24 +19,20 @@ public final class OVRFrameTiming implements Pointer {
 
 	/** The struct member offsets. */
 	public static final int
-		DELTASECONDS,
-		THISFRAMESECONDS,
-		TIMEWARPPOINTSECONDS,
-		NEXTFRAMESECONDS,
-		SCANOUTMIDPOINTSECONDS,
-		EYESCANOUTSECONDS;
+		DISPLAYMIDPOINTSECONDS,
+		FRAMEINTERVALSECONDS,
+		APPFRAMEINDEX,
+		DISPLAYFRAMEINDEX;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = BufferUtils.createIntBuffer(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		DELTASECONDS = offsets.get(0);
-		THISFRAMESECONDS = offsets.get(1);
-		TIMEWARPPOINTSECONDS = offsets.get(2);
-		NEXTFRAMESECONDS = offsets.get(3);
-		SCANOUTMIDPOINTSECONDS = offsets.get(4);
-		EYESCANOUTSECONDS = offsets.get(5);
+		DISPLAYMIDPOINTSECONDS = offsets.get(0);
+		FRAMEINTERVALSECONDS = offsets.get(1);
+		APPFRAMEINDEX = offsets.get(2);
+		DISPLAYFRAMEINDEX = offsets.get(3);
 	}
 
 	private final ByteBuffer struct;
@@ -61,20 +57,15 @@ public final class OVRFrameTiming implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setDeltaSeconds(float DeltaSeconds) { DeltaSeconds(struct, DeltaSeconds); }
-	public void setThisFrameSeconds(double ThisFrameSeconds) { ThisFrameSeconds(struct, ThisFrameSeconds); }
-	public void setTimewarpPointSeconds(double TimewarpPointSeconds) { TimewarpPointSeconds(struct, TimewarpPointSeconds); }
-	public void setNextFrameSeconds(double NextFrameSeconds) { NextFrameSeconds(struct, NextFrameSeconds); }
-	public void setScanoutMidpointSeconds(double ScanoutMidpointSeconds) { ScanoutMidpointSeconds(struct, ScanoutMidpointSeconds); }
-	public void setEyeScanoutSeconds(ByteBuffer EyeScanoutSeconds) { EyeScanoutSecondsSet(struct, EyeScanoutSeconds); }
-	public void setEyeScanoutSeconds(int index, double EyeScanoutSeconds) { EyeScanoutSeconds(struct, index, EyeScanoutSeconds); }
+	public void setDisplayMidpointSeconds(double DisplayMidpointSeconds) { DisplayMidpointSeconds(struct, DisplayMidpointSeconds); }
+	public void setFrameIntervalSeconds(double FrameIntervalSeconds) { FrameIntervalSeconds(struct, FrameIntervalSeconds); }
+	public void setAppFrameIndex(double AppFrameIndex) { AppFrameIndex(struct, AppFrameIndex); }
+	public void setDisplayFrameIndex(double DisplayFrameIndex) { DisplayFrameIndex(struct, DisplayFrameIndex); }
 
-	public float getDeltaSeconds() { return DeltaSeconds(struct); }
-	public double getThisFrameSeconds() { return ThisFrameSeconds(struct); }
-	public double getTimewarpPointSeconds() { return TimewarpPointSeconds(struct); }
-	public double getNextFrameSeconds() { return NextFrameSeconds(struct); }
-	public double getScanoutMidpointSeconds() { return ScanoutMidpointSeconds(struct); }
-	public void getEyeScanoutSeconds(ByteBuffer EyeScanoutSeconds) { EyeScanoutSecondsGet(struct, EyeScanoutSeconds); }
+	public double getDisplayMidpointSeconds() { return DisplayMidpointSeconds(struct); }
+	public double getFrameIntervalSeconds() { return FrameIntervalSeconds(struct); }
+	public double getAppFrameIndex() { return AppFrameIndex(struct); }
+	public double getDisplayFrameIndex() { return DisplayFrameIndex(struct); }
 
 	// -----------------------------------
 
@@ -85,49 +76,29 @@ public final class OVRFrameTiming implements Pointer {
 
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
-		float DeltaSeconds,
-		double ThisFrameSeconds,
-		double TimewarpPointSeconds,
-		double NextFrameSeconds,
-		double ScanoutMidpointSeconds,
-		ByteBuffer EyeScanoutSeconds
+		double DisplayMidpointSeconds,
+		double FrameIntervalSeconds,
+		double AppFrameIndex,
+		double DisplayFrameIndex
 	) {
 		ByteBuffer ovrframetiming = malloc();
 
-		DeltaSeconds(ovrframetiming, DeltaSeconds);
-		ThisFrameSeconds(ovrframetiming, ThisFrameSeconds);
-		TimewarpPointSeconds(ovrframetiming, TimewarpPointSeconds);
-		NextFrameSeconds(ovrframetiming, NextFrameSeconds);
-		ScanoutMidpointSeconds(ovrframetiming, ScanoutMidpointSeconds);
-		EyeScanoutSecondsSet(ovrframetiming, EyeScanoutSeconds);
+		DisplayMidpointSeconds(ovrframetiming, DisplayMidpointSeconds);
+		FrameIntervalSeconds(ovrframetiming, FrameIntervalSeconds);
+		AppFrameIndex(ovrframetiming, AppFrameIndex);
+		DisplayFrameIndex(ovrframetiming, DisplayFrameIndex);
 
 		return ovrframetiming;
 	}
 
-	public static void DeltaSeconds(ByteBuffer ovrframetiming, float DeltaSeconds) { ovrframetiming.putFloat(ovrframetiming.position() + DELTASECONDS, DeltaSeconds); }
-	public static void ThisFrameSeconds(ByteBuffer ovrframetiming, double ThisFrameSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + THISFRAMESECONDS, ThisFrameSeconds); }
-	public static void TimewarpPointSeconds(ByteBuffer ovrframetiming, double TimewarpPointSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + TIMEWARPPOINTSECONDS, TimewarpPointSeconds); }
-	public static void NextFrameSeconds(ByteBuffer ovrframetiming, double NextFrameSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + NEXTFRAMESECONDS, NextFrameSeconds); }
-	public static void ScanoutMidpointSeconds(ByteBuffer ovrframetiming, double ScanoutMidpointSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + SCANOUTMIDPOINTSECONDS, ScanoutMidpointSeconds); }
-	public static void EyeScanoutSecondsSet(ByteBuffer ovrframetiming, ByteBuffer EyeScanoutSeconds) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBufferGT(EyeScanoutSeconds, 2 * 8);
-		}
-		memCopy(memAddress(EyeScanoutSeconds), memAddress(ovrframetiming) + EYESCANOUTSECONDS, EyeScanoutSeconds.remaining());
-	}
-	public static void EyeScanoutSeconds(ByteBuffer ovrframetiming, int index, double EyeScanoutSeconds) { ovrframetiming.putDouble(EYESCANOUTSECONDS + index * 8, EyeScanoutSeconds); }
+	public static void DisplayMidpointSeconds(ByteBuffer ovrframetiming, double DisplayMidpointSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + DISPLAYMIDPOINTSECONDS, DisplayMidpointSeconds); }
+	public static void FrameIntervalSeconds(ByteBuffer ovrframetiming, double FrameIntervalSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + FRAMEINTERVALSECONDS, FrameIntervalSeconds); }
+	public static void AppFrameIndex(ByteBuffer ovrframetiming, double AppFrameIndex) { ovrframetiming.putDouble(ovrframetiming.position() + APPFRAMEINDEX, AppFrameIndex); }
+	public static void DisplayFrameIndex(ByteBuffer ovrframetiming, double DisplayFrameIndex) { ovrframetiming.putDouble(ovrframetiming.position() + DISPLAYFRAMEINDEX, DisplayFrameIndex); }
 
-	public static float DeltaSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getFloat(ovrframetiming.position() + DELTASECONDS); }
-	public static double ThisFrameSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + THISFRAMESECONDS); }
-	public static double TimewarpPointSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + TIMEWARPPOINTSECONDS); }
-	public static double NextFrameSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + NEXTFRAMESECONDS); }
-	public static double ScanoutMidpointSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + SCANOUTMIDPOINTSECONDS); }
-	public static void EyeScanoutSecondsGet(ByteBuffer ovrframetiming, ByteBuffer EyeScanoutSeconds) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(EyeScanoutSeconds, 2 * 8);
-		memCopy(memAddress(ovrframetiming) + EYESCANOUTSECONDS, memAddress(EyeScanoutSeconds), EyeScanoutSeconds.remaining());
-	}
-	public static double EyeScanoutSeconds(ByteBuffer ovrframetiming, int index) {
-		return ovrframetiming.getDouble(EYESCANOUTSECONDS + index * 8);
-	}
+	public static double DisplayMidpointSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + DISPLAYMIDPOINTSECONDS); }
+	public static double FrameIntervalSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + FRAMEINTERVALSECONDS); }
+	public static double AppFrameIndex(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + APPFRAMEINDEX); }
+	public static double DisplayFrameIndex(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + DISPLAYFRAMEINDEX); }
 
 }

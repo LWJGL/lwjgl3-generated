@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <stddef.h>
 DISABLE_WARNINGS()
-#include "OVR_CAPI_0_5_0.h"
+#include "OVR_CAPI_0_6_0.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
@@ -30,14 +30,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRHmdDesc_offsets(JNIEnv *__env, jcla
 	buffer[11] = (jint)offsetof(ovrHmdDesc, CameraFrustumFarZInMeters);
 	buffer[12] = (jint)offsetof(ovrHmdDesc, HmdCaps);
 	buffer[13] = (jint)offsetof(ovrHmdDesc, TrackingCaps);
-	buffer[14] = (jint)offsetof(ovrHmdDesc, DistortionCaps);
-	buffer[15] = (jint)offsetof(ovrHmdDesc, DefaultEyeFov);
-	buffer[16] = (jint)offsetof(ovrHmdDesc, MaxEyeFov);
-	buffer[17] = (jint)offsetof(ovrHmdDesc, EyeRenderOrder);
-	buffer[18] = (jint)offsetof(ovrHmdDesc, Resolution);
-	buffer[19] = (jint)offsetof(ovrHmdDesc, WindowsPos);
-	buffer[20] = (jint)offsetof(ovrHmdDesc, DisplayDeviceName);
-	buffer[21] = (jint)offsetof(ovrHmdDesc, DisplayId);
+	buffer[14] = (jint)offsetof(ovrHmdDesc, DefaultEyeFov);
+	buffer[15] = (jint)offsetof(ovrHmdDesc, MaxEyeFov);
+	buffer[16] = (jint)offsetof(ovrHmdDesc, EyeRenderOrder);
+	buffer[17] = (jint)offsetof(ovrHmdDesc, Resolution);
 
 	return sizeof(ovrHmdDesc);
 }

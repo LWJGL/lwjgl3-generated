@@ -45,24 +45,6 @@ public final class WinBase {
 
 	private WinBase() {}
 
-	// --- [ GetVersionEx ] ---
-
-	/** JNI method for {@link #GetVersionEx} */
-	@JavadocExclude
-	public static native int nGetVersionEx(long versionInfo);
-
-	/**
-	 * Retrieves information about the current operating system.
-	 *
-	 * @param versionInfo an {@link OSVERSIONINFOEX} structure that receives the operating system information. Before calling the {@code GetVersionEx} function, set the
-	 *                    {@code OSVersionInfoSize} member of the structure as appropriate to indicate which data structure is being passed to this function.
-	 */
-	public static int GetVersionEx(ByteBuffer versionInfo) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(versionInfo, OSVERSIONINFOEX.SIZEOF);
-		return nGetVersionEx(memAddress(versionInfo));
-	}
-
 	// --- [ GetLastError ] ---
 
 	/**

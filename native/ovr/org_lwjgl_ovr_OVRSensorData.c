@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <stddef.h>
 DISABLE_WARNINGS()
-#include "OVR_CAPI_0_5_0.h"
+#include "OVR_CAPI_0_6_0.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_EXIT

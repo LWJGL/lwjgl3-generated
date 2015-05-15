@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A complete descriptor of the HMD. */
+/** Parameters for {@link OVR#ovr_Initialize}. */
 public final class OVRInitParams implements Pointer {
 
 	/** The struct size in bytes. */

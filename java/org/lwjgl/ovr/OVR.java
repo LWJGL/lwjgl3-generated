@@ -11,30 +11,34 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to libOVR, using the <a href="https://developer.oculus.com/">Oculus SDK</a> C API.
  * 
- * <p>Basic steps to use the API:
+ * <p>Overview of the API:</p>
+ * 
  * <h3>Setup</h3>
  * <ul>
  * <li>{@link #ovr_Initialize _Initialize}</li>
- * <li>ovrHMD hmd = {@link #ovrHmd_Create Hmd_Create}(0)</li>
- * <li>Use hmd members and {@link #ovrHmd_GetFovTextureSize Hmd_GetFovTextureSize} to determine graphics configuration.</li>
+ * <li>{@link #ovrHmd_Create Hmd_Create}(0, &hmd)</li>
  * <li>Call {@link #ovrHmd_ConfigureTracking Hmd_ConfigureTracking} to configure and initialize tracking.</li>
- * <li>Call {@link #ovrHmd_ConfigureRendering Hmd_ConfigureRendering} to setup graphics for SDK rendering, which is the preferred approach. Please refer to "Client Distortion Rendering"
- * below if you prefer to do that instead.</li>
- * <li>If the ovrHmdCap_ExtendDesktop flag is not set, then use {@link #ovrHmd_AttachToWindow Hmd_AttachToWindow} to associate the relevant application window with the hmd.</li>
- * <li>Allocate render target textures as needed.</li>
+ * <li>Use hmd members and {@link #ovrHmd_GetFovTextureSize Hmd_GetFovTextureSize} to determine graphics configuration and {@link #ovrHmd_GetRenderDesc Hmd_GetRenderDesc} to get per-eye rendering parameters.</li>
+ * <li>Allocate render target texture sets with ovrHmd_CreateSwapTextureSetD3D11() or {@link OVRGL#ovrHmd_CreateSwapTextureSetGL Hmd_CreateSwapTextureSetGL}.</li>
  * </ul>
- * <h3>Game Loop</h3>
+ * 
+ * <h3>Application Loop</h3>
  * <ul>
- * <li>Call {@link #ovrHmd_BeginFrame Hmd_BeginFrame} to get the current frame timing information.</li>
- * <li>Render each eye using {@link #ovrHmd_GetEyePoses Hmd_GetEyePoses} to get each eye pose.</li>
- * <li>Call {@link #ovrHmd_EndFrame Hmd_EndFrame} to render the distorted textures to the back buffer and present them on the hmd.</li>
- * </ul></p>
+ * <li>Call {@link #ovrHmd_GetFrameTiming Hmd_GetFrameTiming} to get the current frame timing information.</li>
+ * <li>Call {@link #ovrHmd_GetTrackingState Hmd_GetTrackingState} and {@link OVRUtil#ovr_CalcEyePoses _CalcEyePoses} to obtain the predicted rendering pose for each eye based on timing.</li>
+ * <li>Render the scene content into {@code CurrentIndex} of ovrTextureSet for each eye and layer you plan to update this frame. Increment texture set
+ * {@code CurrentIndex}.</li>
+ * <li>Call {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} to render the distorted layers to the back buffer and present them on the HMD. If {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} returns
+ * {@link #ovrSuccess_NotVisible Success_NotVisible}, there is no need to render the scene for the next loop iteration. Instead, just call {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} again until it returns
+ * {@link #ovrSuccess Success}.</li>
+ * </ul>
  * 
  * <h3>Shutdown</h3>
  * <ul>
@@ -49,12 +53,98 @@ public final class OVR {
 		ovrFalse = 0x0,
 		ovrTrue  = 0x1;
 
-	/** Flags for {@link #ovr_Initialize _Initialize} */
-	public static final int
-		ovrInit_Debug          = 0x1,
-		ovrInit_ServerOptional = 0x2,
-		ovrInit_RequestVersion = 0x4,
-		ovrInit_ForceNoDebug   = 0x8;
+	/** This is a general success result. */
+	public static final int ovrSuccess = 0x0;
+
+	/**
+	 * Returned from a call to {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should continue
+	 * calling {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
+	 */
+	public static final int ovrSuccess_NotVisible = 0x3E8;
+
+	/** Failure to allocate memory. */
+	public static final int ovrError_MemoryAllocationFailure = -1000;
+
+	/** Failure to create a socket. */
+	public static final int ovrError_SocketCreationFailure = -1001;
+
+	/** Invalid HMD parameter provided. */
+	public static final int ovrError_InvalidHmd = -1002;
+
+	/** The operation timed out. */
+	public static final int ovrError_Timeout = -1003;
+
+	/** The system or component has not been initialized. */
+	public static final int ovrError_NotInitialized = -1004;
+
+	/** Invalid parameter provided. See error info or log for details. */
+	public static final int ovrError_InvalidParameter = -1005;
+
+	/** Generic service error. See error info or log for details. */
+	public static final int ovrError_ServiceError = -1006;
+
+	/** The given HMD doesn't exist. */
+	public static final int ovrError_NoHmd = -1007;
+
+	/** First Audio error. */
+	public static final int ovrError_AudioReservedBegin = -2000;
+
+	/** Last Audio error. */
+	public static final int ovrError_AudioReservedEnd = -2999;
+
+	/** Generic initialization error. */
+	public static final int ovrError_Initialize = -3000;
+
+	/** Couldn't load LibOVRRT. */
+	public static final int ovrError_LibLoad = -3001;
+
+	/** LibOVRRT version incompatibility. */
+	public static final int ovrError_LibVersion = -3002;
+
+	/** Couldn't connect to the OVR Service. */
+	public static final int ovrError_ServiceConnection = -3003;
+
+	/** OVR Service version incompatibility. */
+	public static final int ovrError_ServiceVersion = -3004;
+
+	/** The operating system version is incompatible. */
+	public static final int ovrError_IncompatibleOS = -3005;
+
+	/** Unable to initialize the HMD display. */
+	public static final int ovrError_DisplayInit = -3006;
+
+	/** Unable to start the server. Is it already running? */
+	public static final int ovrError_ServerStart = -3007;
+
+	/** Attempting to re-initialize with a different version. */
+	public static final int ovrError_Reinitialization = -3008;
+
+	/** Headset has no bundle adjustment data. */
+	public static final int ovrError_InvalidBundleAdjustment = -4000;
+
+	/** The USB hub cannot handle the camera frame bandwidth. */
+	public static final int ovrError_USBBandwidth = -4001;
+
+	/**
+	 * When a debug library is requested, a slower debugging version of the library will run which can be used to help solve problems in the library and debug
+	 * application code.
+	 */
+	public static final int ovrInit_Debug = 0x1;
+
+	/**
+	 * When {@code ServerOptional} is set, the {@link #ovr_Initialize _Initialize} call not will block waiting for the server to respond. If the server is not reachable, it might
+	 * still succeed.
+	 */
+	public static final int ovrInit_ServerOptional = 0x2;
+
+	/**
+	 * When a version is requested, the LibOVR runtime respects the {@code RequestedMinorVersion} field and verifies that the {@code RequestedMinorVersion} is
+	 * supported.
+	 */
+	public static final int ovrInit_RequestVersion = 0x4;
+
+	/** Forces debug features of LibOVR off explicitly, even if it is built in debug mode. */
+	public static final int ovrInit_ForceNoDebug = 0x8;
 
 	/** Logging levels */
 	public static final int
@@ -72,105 +162,103 @@ public final class OVR {
 		ovrHmd_CB        = 0x8,
 		ovrHmd_Other     = 0x9;
 
-	/** HMD caps */
-	public static final int
-		ovrHmdCap_Present           = 0x1,
-		ovrHmdCap_Available         = 0x2,
-		ovrHmdCap_Captured          = 0x4,
-		ovrHmdCap_ExtendDesktop     = 0x8,
-		ovrHmdCap_DebugDevice       = 0x10,
-		ovrHmdCap_NoMirrorToWindow  = 0x2000,
-		ovrHmdCap_DisplayOff        = 0x40,
-		ovrHmdCap_LowPersistence    = 0x80,
-		ovrHmdCap_DynamicPrediction = 0x200,
-		ovrHmdCap_NoVSync           = 0x1000,
-		ovrHmdCap_Writable_Mask     = ovrHmdCap_NoMirrorToWindow | ovrHmdCap_DisplayOff | ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction | ovrHmdCap_NoVSync,
-		ovrHmdCap_Service_Mask      = ovrHmdCap_NoMirrorToWindow | ovrHmdCap_DisplayOff | ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction;
+	/** (read only) Specifies that the HMD is a virtual debug device. */
+	public static final int ovrHmdCap_DebugDevice = 0x10;
 
-	/** Tracking capability bits reported by the device. Used with {@link #ovrHmd_ConfigureTracking Hmd_ConfigureTracking}. */
-	public static final int
-		ovrTrackingCap_Orientation      = 0x10,
-		ovrTrackingCap_MagYawCorrection = 0x20,
-		ovrTrackingCap_Position         = 0x40,
-		ovrTrackingCap_Idle             = 0x100;
+	/**
+	 * Toggles low persistence mode on or off.
+	 * 
+	 * <p>This setting reduces eye-tracking based motion blur. Eye-tracking based motion blur is caused by the viewer's focal point moving more pixels than have
+	 * refreshed in the same period of time. The disadvantage of this setting is that this reduces the average brightness of the display and causes some users
+	 * to perceive flicker. <i>There is no performance cost for this option. Oculus recommends exposing it to the user as an optional setting.</i></p>
+	 */
+	public static final int ovrHmdCap_LowPersistence = 0x80;
 
-	/** Distortion capability bits reported by device. Used with {@link #ovrHmd_ConfigureRendering Hmd_ConfigureRendering} and {@link #ovrHmd_CreateDistortionMesh Hmd_CreateDistortionMesh}. */
-	public static final int
-		ovrDistortionCap_Chromatic                  = 0x1,
-		ovrDistortionCap_TimeWarp                   = 0x2,
-		ovrDistortionCap_Vignette                   = 0x8,
-		ovrDistortionCap_NoRestore                  = 0x10,
-		ovrDistortionCap_FlipInput                  = 0x20,
-		ovrDistortionCap_SRGB                       = 0x40,
-		ovrDistortionCap_Overdrive                  = 0x80,
-		ovrDistortionCap_HqDistortion               = 0x100,
-		ovrDistortionCap_LinuxDevFullscreen         = 0x200,
-		ovrDistortionCap_ComputeShader              = 0x400,
-		ovrDistortionCap_TimewarpJitDelay           = 0x1000,
-		ovrDistortionCap_ProfileNoTimewarpSpinWaits = 0x10000;
+	/** (read/write) Adjusts prediction dynamically based on internally measured latency. */
+	public static final int ovrHmdCap_DynamicPrediction = 0x200;
 
-	/** Eye types */
+	/** (read/write) Supports rendering without VSync for debugging. */
+	public static final int ovrHmdCap_NoVSync = 0x1000;
+
+	/** Indicates to the developer what caps they can and cannot modify. These are processed by the client. */
+	public static final int ovrHmdCap_Writable_Mask = ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction | ovrHmdCap_NoVSync;
+
+	/** Indicates to the developer what caps they can and cannot modify. These are processed by the service. */
+	public static final int ovrHmdCap_Service_Mask = ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction;
+
+	/** Supports orientation tracking (IMU). */
+	public static final int ovrTrackingCap_Orientation = 0x10;
+
+	/** Supports yaw drift correction via a magnetometer or other means. */
+	public static final int ovrTrackingCap_MagYawCorrection = 0x20;
+
+	/** Supports positional tracking. */
+	public static final int ovrTrackingCap_Position = 0x40;
+
+	/**
+	 * Overriding the other flags, this causes the application to ignore tracking settings. This is the internal default before {@link #ovrHmd_ConfigureTracking Hmd_ConfigureTracking} is
+	 * called.
+	 */
+	public static final int ovrTrackingCap_Idle = 0x100;
+
+	/** ovrEyeType */
 	public static final int
-		ovrEye_left  = 0x0,
+		ovrEye_Left  = 0x0,
 		ovrEye_Right = 0x1,
 		ovrEye_Count = 0x2;
 
-	/** Bit flags describing the current status of sensor tracking. */
-	public static final int
-		ovrStatus_OrientationTracked = 0x1,
-		ovrStatus_PositionTracked    = 0x2,
-		ovrStatus_CameraPoseTracked  = 0x4,
-		ovrStatus_PositionConnected  = 0x20,
-		ovrStatus_HmdConnected       = 0x80;
+	/** Orientation is currently tracked (connected and in use). */
+	public static final int ovrStatus_OrientationTracked = 0x1;
+
+	/** Position is currently tracked (false if out of range). */
+	public static final int ovrStatus_PositionTracked = 0x2;
+
+	/** Camera pose is currently tracked. */
+	public static final int ovrStatus_CameraPoseTracked = 0x4;
+
+	/** Position tracking hardware is connected. */
+	public static final int ovrStatus_PositionConnected = 0x20;
+
+	/** HMD Display is available and connected. */
+	public static final int ovrStatus_HmdConnected = 0x80;
 
 	/** Render API */
 	public static final int
 		ovrRenderAPI_None         = 0x0,
 		ovrRenderAPI_OpenGL       = 0x1,
 		ovrRenderAPI_Android_GLES = 0x2,
-		ovrRenderAPI_D3D9         = 0x3,
-		ovrRenderAPI_D3D10        = 0x4,
 		ovrRenderAPI_D3D11        = 0x5,
 		ovrRenderAPI_Count        = 0x6;
+
+	/** Describes layer types that can be passed to {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}. Each layer type has an associated struct, such as {@link OVRLayerEyeFov}. */
+	public static final int
+		ovrLayerType_Disabled       = 0x0,
+		ovrLayerType_EyeFov         = 0x1,
+		ovrLayerType_EyeFovDepth    = 0x2,
+		ovrLayerType_QuadInWorld    = 0x3,
+		ovrLayerType_QuadHeadLocked = 0x4,
+		ovrLayerType_Direct         = 0x6;
+
+	/** Identifies flags used by {@link OVRLayerHeader} and which are passed to {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}. */
+	public static final int
+		ovrLayerFlag_HighQuality               = 0x1,
+		ovrLayerFlag_TextureOriginAtBottomLeft = 0x2;
 
 	static { LWJGLUtil.initialize(); }
 
 	private OVR() {}
 
-	// --- [ ovr_InitializeRenderingShimVersion ] ---
-
-	/**
-	 * Same as {@link #ovr_InitializeRenderingShim _InitializeRenderingShim} except it requests to support at least the given minor LibOVR library version.
-	 *
-	 * @param requestedMinorVersion the requested minor LibOVR library version
-	 */
-	public static native boolean ovr_InitializeRenderingShimVersion(int requestedMinorVersion);
-
-	// --- [ ovr_InitializeRenderingShim ] ---
-
-	/**
-	 * Initializes the rendering shim apart from everything else in LibOVR. This may be helpful if the application prefers to avoid creating any OVR resources
-	 * (allocations, service connections, etc) at this point. ovr_InitializeRenderingShim does not bring up anything within LibOVR except the necessary hooks
-	 * to enable the Direct-to-Rift functionality.
-	 * 
-	 * <p>Either {@link #ovr_InitializeRenderingShim _InitializeRenderingShim} or {@link #ovr_Initialize _Initialize} must be called before any Direct3D or OpenGL initialization is done by application (creation of
-	 * devices, etc). {@link #ovr_Initialize _Initialize} must still be called after to use the rest of LibOVR APIs.</p>
-	 */
-	public static native boolean ovr_InitializeRenderingShim();
-
 	// --- [ ovr_Initialize ] ---
 
 	/** JNI method for {@link #ovr_Initialize _Initialize} */
 	@JavadocExclude
-	public static native boolean novr_Initialize(long params);
+	public static native int novr_Initialize(long params);
 
 	/**
-	 * Initializes all Oculus functionality. Pass {@code NULL} to initialize with default parameters, suitable for released games.
-	 * 
-	 * <p>Library init/shutdown, must be called around all other OVR code. No other functions calls besides {@link #ovr_InitializeRenderingShim _InitializeRenderingShim} are allowed before
-	 * ovr_Initialize succeeds or after {@link #ovr_Shutdown _Shutdown}.</p>
-	 * 
-	 * <p>A second call to ovr_Initialize after successful second call returns {@link #ovrTrue True}.</p>
+	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
+	 * {@link #ovr_GetLastErrorInfo _GetLastErrorInfo}, can be called unless ovr_Initialize succeeds. A successful call to ovr_Initialize must be eventually followed by a call to
+	 * {@link #ovr_Shutdown _Shutdown}. ovr_Initialize calls are idempotent. Calling ovr_Initialize twice does not require two matching calls to {@link #ovr_Shutdown _Shutdown}. If already
+	 * initialized, the return value is {@link #ovrSuccess Success}.
 	 * 
 	 * <p>LibOVRRT shared library search order:
 	 * <ol>
@@ -181,9 +269,23 @@ public final class OVR {
 	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
 	 * </ol></p>
 	 *
-	 * @param params an {@link OVRInitParams} structure
+	 * @param params an {@link OVRInitParams} struct that cpecifies custom initialization options. May be {@code NULL} to indicate default options.
+	 *
+	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} to get more information. Example failed results
+	 *         include:
+	 *         <ul>
+	 *         <li>{@link #ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
+	 *         <li>{@link #ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
+	 *         <li>{@link #ovrError_LibVersion Error_LibVersion}: LibOVRRT version incompatibility.</li>
+	 *         <li>{@link #ovrError_ServiceConnection Error_ServiceConnection}: Couldn't connect to the OVR Service.</li>
+	 *         <li>{@link #ovrError_ServiceVersion Error_ServiceVersion}: OVR Service version incompatibility.</li>
+	 *         <li>{@link #ovrError_IncompatibleOS Error_IncompatibleOS}: The operating system version is incompatible.</li>
+	 *         <li>{@link #ovrError_DisplayInit Error_DisplayInit}: Unable to initialize the HMD display.</li>
+	 *         <li>{@link #ovrError_ServerStart Error_ServerStart}:  Unable to start the server. Is it already running?</li>
+	 *         <li>{@link #ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
+	 *         </ul>
 	 */
-	public static boolean ovr_Initialize(ByteBuffer params) {
+	public static int ovr_Initialize(ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			if ( params != null ) checkBuffer(params, OVRInitParams.SIZEOF);
 		return novr_Initialize(memAddressSafe(params));
@@ -191,8 +293,36 @@ public final class OVR {
 
 	// --- [ ovr_Shutdown ] ---
 
-	/** Shuts down all Oculus functionality. */
+	/**
+	 * Shuts down LibOVR.
+	 * 
+	 * <p>A successful call to {@link #ovr_Initialize _Initialize} must be eventually matched by a call to ovr_Shutdown. After calling ovr_Shutdown, no LibOVR functions can be called
+	 * except {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} or another {@link #ovr_Initialize _Initialize}. ovr_Shutdown invalidates all pointers, references, and created objects previously returned by
+	 * LibOVR functions. The LibOVRRT shared library can be unloaded by ovr_Shutdown.</p>
+	 */
 	public static native void ovr_Shutdown();
+
+	// --- [ ovr_GetLastErrorInfo ] ---
+
+	/** JNI method for {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} */
+	@JavadocExclude
+	public static native void novr_GetLastErrorInfo(long errorInfo);
+
+	/**
+	 * Returns information about the most recent failed return value by the current thread for this library.
+	 * 
+	 * <p>This function itself can never generate an error. The last error is never cleared by LibOVR, but will be overwritten by new errors. Do not use this
+	 * call to determine if there was an error in the last API call as successful API calls don't clear the last {@link OVRErrorInfo}. To avoid any inconsistency,
+	 * {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} should be called immediately after an API function that returned a failed {@code ovrResult}, with no other API functions called in
+	 * the interim.</p>
+	 *
+	 * @param errorInfo The last {@link OVRErrorInfo} for the current thread
+	 */
+	public static void ovr_GetLastErrorInfo(ByteBuffer errorInfo) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(errorInfo, OVRErrorInfo.SIZEOF);
+		novr_GetLastErrorInfo(memAddress(errorInfo));
+	}
 
 	// --- [ ovr_GetVersionString ] ---
 
@@ -200,30 +330,127 @@ public final class OVR {
 	@JavadocExclude
 	public static native long novr_GetVersionString();
 
-	/** Returns version string representing libOVR version. Static, so string remains valid for app lifespan. */
+	/**
+	 * Returns the version string representing the LibOVRRT version.
+	 * 
+	 * <p>The returned string pointer is valid until the next call to {@link #ovr_Shutdown _Shutdown}.</p>
+	 * 
+	 * <p>Note that the returned version string doesn't necessarily match the current OVR_MAJOR_VERSION, etc., as the returned string refers to the LibOVRRT
+	 * shared library version and not the locally compiled interface version.</p>
+	 * 
+	 * <p>The format of this string is subject to change in future versions and its contents should not be interpreted.</p>
+	 *
+	 * @return a UTF8-encoded null-terminated version string
+	 */
 	public static String ovr_GetVersionString() {
 		long __result = novr_GetVersionString();
-		return memDecodeASCII(__result);
+		return memDecodeUTF8(__result);
+	}
+
+	// --- [ ovr_TraceMessage ] ---
+
+	/** JNI method for {@link #ovr_TraceMessage _TraceMessage} */
+	@JavadocExclude
+	public static native long novr_TraceMessage(int level, long message);
+
+	/**
+	 * Writes a message string to the LibOVR tracing mechanism (if enabled).
+	 * 
+	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
+	 *
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param message a UTF8-encoded null-terminated string
+	 *
+	 * @return the {@code strlen} of the message or a negative value if the message is too large
+	 */
+	public static String ovr_TraceMessage(int level, ByteBuffer message) {
+		long __result = novr_TraceMessage(level, memAddress(message));
+		return memDecodeUTF8(__result);
+	}
+
+	/**
+	 * Writes a message string to the LibOVR tracing mechanism (if enabled).
+	 * 
+	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
+	 *
+	 * @param level   an {@code ovrLogLevel} constant. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
+	 * @param message a UTF8-encoded null-terminated string
+	 *
+	 * @return the {@code strlen} of the message or a negative value if the message is too large
+	 */
+	public static String ovr_TraceMessage(int level, CharSequence message) {
+		APIBuffer __buffer = apiBuffer();
+		int messageEncoded = __buffer.stringParamUTF8(message, true);
+		long __result = novr_TraceMessage(level, __buffer.address(messageEncoded));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ ovrHmd_Detect ] ---
 
 	/**
-	 * Detects or re-detects HMDs and reports the total number detected. Users can get information about each HMD by calling {@link #ovrHmd_Create Hmd_Create} with an index.
+	 * Detects or re-detects HMDs and reports the total number detected.
+	 * 
+	 * <p>This function is useful to determine if an HMD can be created without committing to creating it. For example, an application can use this information
+	 * to present an HMD selection GUI.</p>
+	 * 
+	 * <p>If one or more HMDs are present, an integer value is returned which indicates the number present. The number present indicates the range of valid
+	 * indexes that can be passed to {@link #ovrHmd_Create Hmd_Create}. If no HMDs are present, the return value is zero. If there is an error, a negative error {@code ovrResult}
+	 * value is returned.</p>
 	 *
-	 * @return the number of HMDs detected or -1 when the service is unreachable
+	 * @return an integer that specifies the number of HMDs currently present. Upon failure, {@code OVR_SUCCESS(result)} is false.
 	 */
 	public static native int ovrHmd_Detect();
 
 	// --- [ ovrHmd_Create ] ---
 
+	/** JNI method for {@link #ovrHmd_Create Hmd_Create} */
+	@JavadocExclude
+	public static native int novrHmd_Create(int index, long pHmd);
+
 	/**
-	 * Creates a handle to an HMD which doubles as a description structure. Index can be <code style="font-family: monospace">[0 .. {@link #ovrHmd_Detect Hmd_Detect}-1]</code>. Index mappings can cange after each
-	 * {@link #ovrHmd_Detect Hmd_Detect} call. If not null, then the returned handle must be freed with {@link #ovrHmd_Destroy Hmd_Destroy}.
+	 * Creates a handle to an HMD which doubles as a description structure.
+	 * 
+	 * <p>Upon success the returned ovrHmd* must be freed with {@link #ovrHmd_Destroy Hmd_Destroy}. A second call to {@link #ovrHmd_Create Hmd_Create} with the same index as a previously successful call
+	 * will result in an error return value.</p>
 	 *
-	 * @param index the HMD index
+	 * @param index a value in the range of {@code [0 .. ovrHmd_Detect()-1]]}.
+	 * @param pHmd  a pointer to an {@code ovrHmd} which will be written to upon success.
+	 *
+	 * @return an {@code ovrResult} indicating success or failure
 	 */
-	public static native long ovrHmd_Create(int index);
+	public static int ovrHmd_Create(int index, ByteBuffer pHmd) {
+		return novrHmd_Create(index, memAddress(pHmd));
+	}
+
+	/** Alternative version of: {@link #ovrHmd_Create Hmd_Create} */
+	public static int ovrHmd_Create(int index, PointerBuffer pHmd) {
+		return novrHmd_Create(index, memAddress(pHmd));
+	}
+
+	// --- [ ovrHmd_CreateDebug ] ---
+
+	/** JNI method for {@link #ovrHmd_CreateDebug Hmd_CreateDebug} */
+	@JavadocExclude
+	public static native int novrHmd_CreateDebug(int type, long pHmd);
+
+	/**
+	 * Creates a fake HMD used for debugging only.
+	 * 
+	 * <p>This is not tied to specific hardware, but may be used to debug some of the related rendering.</p>
+	 *
+	 * @param type indicates the HMD type to emulate. One of:<br>{@link #ovrHmd_None Hmd_None}, {@link #ovrHmd_DK1 Hmd_DK1}, {@link #ovrHmd_DKHD Hmd_DKHD}, {@link #ovrHmd_DK2 Hmd_DK2}, {@link #ovrHmd_BlackStar Hmd_BlackStar}, {@link #ovrHmd_CB Hmd_CB}, {@link #ovrHmd_Other Hmd_Other}
+	 * @param pHmd a pointer to an {@code ovrHmd} which will be written to upon success.
+	 *
+	 * @return an {@code ovrResult} indicating success or failure
+	 */
+	public static int ovrHmd_CreateDebug(int type, ByteBuffer pHmd) {
+		return novrHmd_CreateDebug(type, memAddress(pHmd));
+	}
+
+	/** Alternative version of: {@link #ovrHmd_CreateDebug Hmd_CreateDebug} */
+	public static int ovrHmd_CreateDebug(int type, PointerBuffer pHmd) {
+		return novrHmd_CreateDebug(type, memAddress(pHmd));
+	}
 
 	// --- [ ovrHmd_Destroy ] ---
 
@@ -232,72 +459,14 @@ public final class OVR {
 	public static native void novrHmd_Destroy(long hmd);
 
 	/**
-	 * Destroys an HMD handle.
+	 * Destroys the HMD.
 	 *
-	 * @param hmd the HMD handle to destroy
+	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
 	 */
 	public static void ovrHmd_Destroy(long hmd) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
 		novrHmd_Destroy(hmd);
-	}
-
-	// --- [ ovrHmd_CreateDebug ] ---
-
-	/**
-	 * Creates a 'fake' HMD used for debugging only. This is not tied to specific hardware, but may be used to debug some of the related rendering.
-	 *
-	 * @param type the HMD type. One of:<br>{@link #ovrHmd_None Hmd_None}, {@link #ovrHmd_DK1 Hmd_DK1}, {@link #ovrHmd_DKHD Hmd_DKHD}, {@link #ovrHmd_DK2 Hmd_DK2}, {@link #ovrHmd_BlackStar Hmd_BlackStar}, {@link #ovrHmd_CB Hmd_CB}, {@link #ovrHmd_Other Hmd_Other}
-	 */
-	public static native long ovrHmd_CreateDebug(int type);
-
-	// --- [ ovrHmd_GetLastError ] ---
-
-	/** JNI method for {@link #ovrHmd_GetLastError Hmd_GetLastError} */
-	@JavadocExclude
-	public static native long novrHmd_GetLastError(long hmd);
-
-	/**
-	 * Returns last error for HMD state. Returns null for no error. String is valid until next call of GetLastError or HMD is destroyed. Pass null {@code hmd}
-	 * to get global errors (during create etc).
-	 *
-	 * @param hmd the HMD handle
-	 */
-	public static String ovrHmd_GetLastError(long hmd) {
-		long __result = novrHmd_GetLastError(hmd);
-		return memDecodeASCII(__result);
-	}
-
-	// --- [ ovrHmd_AttachToWindow ] ---
-
-	/** JNI method for {@link #ovrHmd_AttachToWindow Hmd_AttachToWindow} */
-	@JavadocExclude
-	public static native boolean novrHmd_AttachToWindow(long hmd, long window, long destMirrorRect, long sourceRenderTargetRect);
-
-	/**
-	 * Platform specific function to specify the application window whose output will be displayed on the HMD. Only used if the {@link #ovrHmdCap_ExtendDesktop HmdCap_ExtendDesktop} flag is
-	 * false.
-	 * 
-	 * <p>Notes:
-	 * <ul>
-	 * <li><b>Windows</b>: SwapChain associated with this window will be displayed on the HMD. Specify {@code destMirrorRect} in window coordinates to
-	 * indicate an area of the render target output that will be mirrored from {@code sourceRenderTargetRect}. Null pointers mean "full size".</li>
-	 * <li>Source and dest mirror rects are not yet implemented.</li>
-	 * </ul></p>
-	 *
-	 * @param hmd                    
-	 * @param window                 
-	 * @param destMirrorRect         
-	 * @param sourceRenderTargetRect 
-	 */
-	public static boolean ovrHmd_AttachToWindow(long hmd, long window, ByteBuffer destMirrorRect, ByteBuffer sourceRenderTargetRect) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkPointer(window);
-			if ( destMirrorRect != null ) checkBuffer(destMirrorRect, OVRRecti.SIZEOF);
-			if ( sourceRenderTargetRect != null ) checkBuffer(sourceRenderTargetRect, OVRRecti.SIZEOF);
-		}
-		return novrHmd_AttachToWindow(hmd, window, memAddressSafe(destMirrorRect), memAddressSafe(sourceRenderTargetRect));
 	}
 
 	// --- [ ovrHmd_GetEnabledCaps ] ---
@@ -307,10 +476,13 @@ public final class OVR {
 	public static native int novrHmd_GetEnabledCaps(long hmd);
 
 	/**
-	 * Returns capability bits that are enabled at this time as described by ovrHmdCaps. Note that this value is different from ovrHmdDesc::HmdCaps, which
-	 * describes what capabilities are available for that HMD.
+	 * Returns ovrHmdCaps bits that are currently enabled.
+	 * 
+	 * <p>Note that this value is different from {@link OVRHmdDesc}{@code ::HmdCaps}, which describes what capabilities are available for that HMD.</p>
 	 *
-	 * @param hmd 
+	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 *
+	 * @return a combination of zero or more {@code ovrHmdCaps}
 	 */
 	public static int ovrHmd_GetEnabledCaps(long hmd) {
 		if ( LWJGLUtil.CHECKS )
@@ -325,10 +497,10 @@ public final class OVR {
 	public static native void novrHmd_SetEnabledCaps(long hmd, int hmdCaps);
 
 	/**
-	 * Modifies capability bits described by ovrHmdCaps that can be modified, such as {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}.
+	 * Modifies capability bits described by {@code ovrHmdCaps} that can be modified, such as {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}.
 	 *
-	 * @param hmd     
-	 * @param hmdCaps one of:<br>{@link #ovrHmdCap_Present HmdCap_Present}, {@link #ovrHmdCap_Available HmdCap_Available}, {@link #ovrHmdCap_Captured HmdCap_Captured}, {@link #ovrHmdCap_ExtendDesktop HmdCap_ExtendDesktop}, {@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice}, {@link #ovrHmdCap_NoMirrorToWindow HmdCap_NoMirrorToWindow}, {@link #ovrHmdCap_DisplayOff HmdCap_DisplayOff}, {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}, {@link #ovrHmdCap_DynamicPrediction HmdCap_DynamicPrediction}, {@link #ovrHmdCap_NoVSync HmdCap_NoVSync}, {@link #ovrHmdCap_Writable_Mask HmdCap_Writable_Mask}, {@link #ovrHmdCap_Service_Mask HmdCap_Service_Mask}
+	 * @param hmd     an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param hmdCaps a combination of 0 or more {@code ovrHmdCaps}. One or more of:<br>{@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice}, {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}, {@link #ovrHmdCap_DynamicPrediction HmdCap_DynamicPrediction}, {@link #ovrHmdCap_NoVSync HmdCap_NoVSync}
 	 */
 	public static void ovrHmd_SetEnabledCaps(long hmd, int hmdCaps) {
 		if ( LWJGLUtil.CHECKS )
@@ -340,19 +512,22 @@ public final class OVR {
 
 	/** JNI method for {@link #ovrHmd_ConfigureTracking Hmd_ConfigureTracking} */
 	@JavadocExclude
-	public static native boolean novrHmd_ConfigureTracking(long hmd, int supportedTrackingCaps, int requiredTrackingCaps);
+	public static native int novrHmd_ConfigureTracking(long hmd, int supportedTrackingCaps, int requiredTrackingCaps);
 
 	/**
-	 * Starts sensor sampling, enabling specified capabilities, described by ovrTrackingCaps. Pass 0 for both {@code supportedTrackingCaps} and
-	 * {@code requiredTrackingCaps} to disable tracking.
+	 * Starts sensor sampling, enabling specified capabilities, described by {@code ovrTrackingCaps}.
+	 * 
+	 * <p>Use 0 for both {@code supportedTrackingCaps} and {@code requiredTrackingCaps} to disable tracking.</p>
 	 *
-	 * @param hmd                   
+	 * @param hmd                   an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
 	 * @param supportedTrackingCaps specifies support that is requested. The function will succeed even if these caps are not available (i.e. sensor or camera is unplugged). Support
-	 *                              will automatically be enabled if such device is plugged in later. Software should check ovrTrackingState.StatusFlags for real-time status. One of:<br>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation}, {@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection}, {@link #ovrTrackingCap_Position TrackingCap_Position}, {@link #ovrTrackingCap_Idle TrackingCap_Idle}
+	 *                              will automatically be enabled if such device is plugged in later. Software should check {@link OVRTrackingState}{@code .StatusFlags} for real-time status. One or more of:<br>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation}, {@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection}, {@link #ovrTrackingCap_Position TrackingCap_Position}, {@link #ovrTrackingCap_Idle TrackingCap_Idle}
 	 * @param requiredTrackingCaps  specify sensor capabilities required at the time of the call. If they are not available, the function will fail. Pass 0 if only specifying
-	 *                              {@code supportedTrackingCaps}. One of:<br>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation}, {@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection}, {@link #ovrTrackingCap_Position TrackingCap_Position}, {@link #ovrTrackingCap_Idle TrackingCap_Idle}
+	 *                              {@code supportedTrackingCaps}. One or more of:<br>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation}, {@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection}, {@link #ovrTrackingCap_Position TrackingCap_Position}, {@link #ovrTrackingCap_Idle TrackingCap_Idle}
+	 *
+	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} to get more information.
 	 */
-	public static boolean ovrHmd_ConfigureTracking(long hmd, int supportedTrackingCaps, int requiredTrackingCaps) {
+	public static int ovrHmd_ConfigureTracking(long hmd, int supportedTrackingCaps, int requiredTrackingCaps) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
 		return novrHmd_ConfigureTracking(hmd, supportedTrackingCaps, requiredTrackingCaps);
@@ -365,9 +540,12 @@ public final class OVR {
 	public static native void novrHmd_RecenterPose(long hmd);
 
 	/**
-	 * Re-centers the sensor orientation. Normally this will recenter the (x,y,z) translational components and the yaw component of orientation.
+	 * Re-centers the sensor position and orientation.
+	 * 
+	 * <p>This resets the (x,y,z) positional components and the yaw orientation component. The Roll and pitch orientation components are always determined by
+	 * gravity and cannot be redefined. All future tracking will report values relative to this new reference position.</p>
 	 *
-	 * @param hmd 
+	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
 	 */
 	public static void ovrHmd_RecenterPose(long hmd) {
 		if ( LWJGLUtil.CHECKS )
@@ -382,17 +560,61 @@ public final class OVR {
 	public static native void novrHmd_GetTrackingState(long hmd, double absTime, long __result);
 
 	/**
-	 * Returns tracking state reading based on the specified absolute system time. Pass an absTime value of 0.0 to request the most recent sensor reading. In
-	 * this case both PredictedPose and SamplePose will have the same value. ovrHmd_GetEyePoses relies on a valid ovrTrackingState. This may also be used for
-	 * more refined timing of FrontBuffer rendering logic, etc.
+	 * Returns tracking state reading based on the specified absolute system time.
+	 * 
+	 * <p>Pass an {@code absTime} value of 0.0 to request the most recent sensor reading. In this case both {@code PredictedPose} and {@code SamplePose} will
+	 * have the same value.</p>
+	 * 
+	 * <p>This may also be used for more refined timing of front buffer rendering logic, and so on.</p>
 	 *
-	 * @param hmd     
-	 * @param absTime 
+	 * @param hmd      an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param absTime  the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
+	 * @param __result the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
 	public static void ovrHmd_GetTrackingState(long hmd, double absTime, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
 		novrHmd_GetTrackingState(hmd, absTime, memAddress(__result));
+	}
+
+	// --- [ ovrHmd_DestroySwapTextureSet ] ---
+
+	/** JNI method for {@link #ovrHmd_DestroySwapTextureSet Hmd_DestroySwapTextureSet} */
+	@JavadocExclude
+	public static native void novrHmd_DestroySwapTextureSet(long hmd, long textureSet);
+
+	/**
+	 * Destroys an {@link OVRSwapTextureSet} and frees all the resources associated with it.
+	 *
+	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param textureSet the {@link OVRSwapTextureSet} to destroy
+	 */
+	public static void ovrHmd_DestroySwapTextureSet(long hmd, ByteBuffer textureSet) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(hmd);
+			checkBuffer(textureSet, OVRSwapTextureSet.SIZEOF);
+		}
+		novrHmd_DestroySwapTextureSet(hmd, memAddress(textureSet));
+	}
+
+	// --- [ ovrHmd_DestroyMirrorTexture ] ---
+
+	/** JNI method for {@link #ovrHmd_DestroyMirrorTexture Hmd_DestroyMirrorTexture} */
+	@JavadocExclude
+	public static native void novrHmd_DestroyMirrorTexture(long hmd, long mirrorTexture);
+
+	/**
+	 * Destroys a mirror texture previously created by one of the mirror texture creation functions.
+	 *
+	 * @param hmd           an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param mirrorTexture the {@link OVRTexture} to destroy
+	 */
+	public static void ovrHmd_DestroyMirrorTexture(long hmd, ByteBuffer mirrorTexture) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(hmd);
+			checkBuffer(mirrorTexture, OVRTexture.SIZEOF);
+		}
+		novrHmd_DestroyMirrorTexture(hmd, memAddress(mirrorTexture));
 	}
 
 	// --- [ ovrHmd_GetFovTextureSize ] ---
@@ -402,17 +624,17 @@ public final class OVR {
 	public static native void novrHmd_GetFovTextureSize(long hmd, int eye, long fov, float pixelsPerDisplayPixel, long __result);
 
 	/**
-	 * Calculates the recommended viewport size for rendering a given eye within the HMD with a given FOV cone. Higher FOV will generally require larger
-	 * textures to maintain quality.
+	 * Calculates the recommended viewport size for rendering a given eye within the HMD with a given FOV cone.
 	 * 
-	 * <p>Apps packing multiple eye views together on the same textue should ensure there is roughly 8 pixels of padding between them to prevent texture
-	 * filtering and chromatic aberration causing images to "leak" between the two eye views.</p>
+	 * <p>Higher FOV will generally require larger textures to maintain quality. Apps packing multiple eye views together on the same texture should ensure there
+	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
 	 *
-	 * @param hmd                   
-	 * @param eye                   one of:<br>{@link #ovrEye_left Eye_left}, {@link #ovrEye_Right Eye_Right}, {@link #ovrEye_Count Eye_Count}
-	 * @param fov                   
-	 * @param pixelsPerDisplayPixel specifies the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can
-	 *                              improve performance, higher values give improved quality.
+	 * @param hmd                   an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param eye                   which eye (left or right) to calculate for. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}, {@link #ovrEye_Count Eye_Count}
+	 * @param fov                   the {@link OVRFovPort} to use
+	 * @param pixelsPerDisplayPixel the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can improve
+	 *                              performance, higher values give improved quality.
+	 * @param __result              the texture width and height size
 	 */
 	public static void ovrHmd_GetFovTextureSize(long hmd, int eye, ByteBuffer fov, float pixelsPerDisplayPixel, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -422,139 +644,6 @@ public final class OVR {
 		novrHmd_GetFovTextureSize(hmd, eye, memAddress(fov), pixelsPerDisplayPixel, memAddress(__result));
 	}
 
-	// --- [ ovrHmd_ConfigureRendering ] ---
-
-	/** JNI method for {@link #ovrHmd_ConfigureRendering Hmd_ConfigureRendering} */
-	@JavadocExclude
-	public static native boolean novrHmd_ConfigureRendering(long hmd, long apiConfig, int distortionCaps, long eyeFovIn, long eyeRenderDescOut);
-
-	/**
-	 * Configures rendering and fills in computed render parameters. This function can be called multiple times to change rendering settings.
-	 * {@code eyeRenderDescOut} is a pointer to an array of two {@link OVREyeRenderDesc} structs that are used to return complete rendering information for each eye.
-	 *
-	 * @param hmd              
-	 * @param apiConfig        
-	 * @param distortionCaps   one of:<br>{@link #ovrDistortionCap_Chromatic DistortionCap_Chromatic}, {@link #ovrDistortionCap_TimeWarp DistortionCap_TimeWarp}, {@link #ovrDistortionCap_Vignette DistortionCap_Vignette}, {@link #ovrDistortionCap_NoRestore DistortionCap_NoRestore}, {@link #ovrDistortionCap_FlipInput DistortionCap_FlipInput}, {@link #ovrDistortionCap_SRGB DistortionCap_SRGB}, {@link #ovrDistortionCap_Overdrive DistortionCap_Overdrive}, {@link #ovrDistortionCap_HqDistortion DistortionCap_HqDistortion}, {@link #ovrDistortionCap_LinuxDevFullscreen DistortionCap_LinuxDevFullscreen}, {@link #ovrDistortionCap_ComputeShader DistortionCap_ComputeShader}, {@link #ovrDistortionCap_TimewarpJitDelay DistortionCap_TimewarpJitDelay}, {@link #ovrDistortionCap_ProfileNoTimewarpSpinWaits DistortionCap_ProfileNoTimewarpSpinWaits}
-	 * @param eyeFovIn         
-	 * @param eyeRenderDescOut 
-	 */
-	public static boolean ovrHmd_ConfigureRendering(long hmd, ByteBuffer apiConfig, int distortionCaps, ByteBuffer eyeFovIn, ByteBuffer eyeRenderDescOut) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(apiConfig, OVRRenderAPIConfig.SIZEOF);
-			checkBuffer(eyeFovIn, 2 * OVRFovPort.SIZEOF);
-			checkBuffer(eyeRenderDescOut, 2 * OVREyeRenderDesc.SIZEOF);
-		}
-		return novrHmd_ConfigureRendering(hmd, memAddress(apiConfig), distortionCaps, memAddress(eyeFovIn), memAddress(eyeRenderDescOut));
-	}
-
-	// --- [ ovrHmd_BeginFrame ] ---
-
-	/** JNI method for {@link #ovrHmd_BeginFrame Hmd_BeginFrame} */
-	@JavadocExclude
-	public static native void novrHmd_BeginFrame(long hmd, int frameIndex, long __result);
-
-	/**
-	 * Begins a frame, returning timing information. This should be called at the beginning of the game rendering loop (on the render thread). Pass 0 for the
-	 * frame index if not using {@link #ovrHmd_GetFrameTiming Hmd_GetFrameTiming}.
-	 *
-	 * @param hmd        
-	 * @param frameIndex 
-	 */
-	public static void ovrHmd_BeginFrame(long hmd, int frameIndex, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		novrHmd_BeginFrame(hmd, frameIndex, memAddress(__result));
-	}
-
-	// --- [ ovrHmd_EndFrame ] ---
-
-	/** JNI method for {@link #ovrHmd_EndFrame Hmd_EndFrame} */
-	@JavadocExclude
-	public static native void novrHmd_EndFrame(long hmd, long renderPose, long eyeTexture);
-
-	/**
-	 * Ends a frame, submitting the rendered textures to the frame buffer.
-	 * <ul>
-	 * <li>RenderViewport within each eyeTexture can change per frame if necessary.</li>
-	 * <li>This may perform distortion and scaling internally, assuming is it not delegated to another thread.</li>
-	 * <li>Must be called on the same thread as BeginFrame.</li>
-	 * <li>If ovrDistortionCap_DepthProjectedTimeWarp is enabled, then app must provide eyeDepthTexture and posTimewarpDesc. Otherwise both can be {@code NULL}.</li>
-	 * <li>*** This Function will call Present/SwapBuffers and potentially wait for GPU Sync ***</li>
-	 * </ul>
-	 *
-	 * @param hmd        
-	 * @param renderPose will typically be the value returned from {@link #ovrHmd_GetEyePoses Hmd_GetEyePoses} but can be different if a different head pose was used for rendering.
-	 * @param eyeTexture 
-	 */
-	public static void ovrHmd_EndFrame(long hmd, ByteBuffer renderPose, ByteBuffer eyeTexture) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(renderPose, 2 * OVRPosef.SIZEOF);
-			checkBuffer(eyeTexture, 2 * OVRTexture.SIZEOF);
-		}
-		novrHmd_EndFrame(hmd, memAddress(renderPose), memAddress(eyeTexture));
-	}
-
-	// --- [ ovrHmd_GetEyePoses ] ---
-
-	/** JNI method for {@link #ovrHmd_GetEyePoses Hmd_GetEyePoses} */
-	@JavadocExclude
-	public static native void novrHmd_GetEyePoses(long hmd, int frameIndex, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
-
-	/**
-	 * Returns predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses} as an atomic operation. Caller need not worry
-	 * about applying HmdToEyeViewOffset to the returned {@code outEyePoses} variables.
-	 * <ul>
-	 * <li>Thread-safe function where caller should increment frameIndex with every frame and pass the index where applicable to functions called on the
-	 * rendering thread.</li>
-	 * <li>hmdToEyeViewOffset[2] can be ovrEyeRenderDesc.HmdToEyeViewOffset returned from {@link #ovrHmd_ConfigureRendering Hmd_ConfigureRendering} or {@link #ovrHmd_GetRenderDesc Hmd_GetRenderDesc}. For monoscopic
-	 * rendering, use a vector that is the average of the two vectors for both eyes.</li>
-	 * <li>If frameIndex is not being utilized, pass in 0.</li>
-	 * <li>Assuming outEyePoses are used for rendering, it should be passed into {@link #ovrHmd_EndFrame Hmd_EndFrame}.</li>
-	 * <li>If caller doesn't need {@code outHmdTrackingState}, it can be passed in as {@code NULL}</li>
-	 * </ul>
-	 *
-	 * @param hmd                 
-	 * @param frameIndex          
-	 * @param hmdToEyeViewOffset  
-	 * @param outEyePoses         
-	 * @param outHmdTrackingState 
-	 */
-	public static void ovrHmd_GetEyePoses(long hmd, int frameIndex, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses, ByteBuffer outHmdTrackingState) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(hmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
-			checkBuffer(outEyePoses, 2 * OVRPosef.SIZEOF);
-			checkBuffer(outHmdTrackingState, OVRTrackingState.SIZEOF);
-		}
-		novrHmd_GetEyePoses(hmd, frameIndex, memAddress(hmdToEyeViewOffset), memAddress(outEyePoses), memAddress(outHmdTrackingState));
-	}
-
-	// --- [ ovrHmd_GetHmdPosePerEye ] ---
-
-	/** JNI method for {@link #ovrHmd_GetHmdPosePerEye Hmd_GetHmdPosePerEye} */
-	@JavadocExclude
-	public static native void novrHmd_GetHmdPosePerEye(long hmd, int eye, long __result);
-
-	/**
-	 * Returns the predicted head pose to use when rendering the specified eye.
-	 * <ul>
-	 * <li>Important: Caller must apply HmdToEyeViewOffset before using ovrPosef for rendering</li>
-	 * <li>Must be called between {@link #ovrHmd_BeginFrameTiming Hmd_BeginFrameTiming} and {@link #ovrHmd_EndFrameTiming Hmd_EndFrameTiming}.</li>
-	 * <li>If returned pose is used for rendering the eye, it should be passed to {@link #ovrHmd_EndFrame Hmd_EndFrame}.</li>
-	 * <li>Parameter 'eye' is used internally for prediction timing only</li>
-	 * </ul>
-	 *
-	 * @param hmd 
-	 * @param eye 
-	 */
-	public static void ovrHmd_GetHmdPosePerEye(long hmd, int eye, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		novrHmd_GetHmdPosePerEye(hmd, eye, memAddress(__result));
-	}
-
 	// --- [ ovrHmd_GetRenderDesc ] ---
 
 	/** JNI method for {@link #ovrHmd_GetRenderDesc Hmd_GetRenderDesc} */
@@ -562,12 +651,12 @@ public final class OVR {
 	public static native void novrHmd_GetRenderDesc(long hmd, int eyeType, long fov, long __result);
 
 	/**
-	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye. This can be used instead of
-	 * {@link #ovrHmd_ConfigureRendering Hmd_ConfigureRendering} to do setup for client rendered distortion.
+	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye.
 	 *
-	 * @param hmd     
-	 * @param eyeType 
-	 * @param fov     
+	 * @param hmd      an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br>{@link #ovrEye_Left Eye_Left}, {@link #ovrEye_Right Eye_Right}, {@link #ovrEye_Count Eye_Count}
+	 * @param fov      the {@link OVRFovPort} to use.
+	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */
 	public static void ovrHmd_GetRenderDesc(long hmd, int eyeType, ByteBuffer fov, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -577,99 +666,69 @@ public final class OVR {
 		novrHmd_GetRenderDesc(hmd, eyeType, memAddress(fov), memAddress(__result));
 	}
 
-	// --- [ ovrHmd_CreateDistortionMesh ] ---
+	// --- [ ovrHmd_SubmitFrame ] ---
 
-	/** JNI method for {@link #ovrHmd_CreateDistortionMesh Hmd_CreateDistortionMesh} */
+	/** JNI method for {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} */
 	@JavadocExclude
-	public static native boolean novrHmd_CreateDistortionMesh(long hmd, int eyeType, long fov, int distortionCaps, long meshData);
+	public static native int novrHmd_SubmitFrame(long hmd, int frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
 
 	/**
-	 * Generate distortion mesh per eye. Distortion capabilities will depend on 'distortionCaps' flags. Users should render using the appropriate shaders
-	 * based on their settings. Distortion mesh data will be allocated and written into the ovrDistortionMesh data structure, which should be explicitly freed
-	 * with {@link #ovrHmd_DestroyDistortionMesh Hmd_DestroyDistortionMesh}. Users should call {@link #ovrHmd_GetRenderScaleAndOffset Hmd_GetRenderScaleAndOffset} to get uvScale and Offset values for rendering. The function
-	 * shouldn't fail unless theres is a configuration or memory error, in which case ovrDistortionMesh values will be set to null. This is the only function
-	 * in the SDK reliant on eye relief, currently imported from profiles, or overridden here.
+	 * Submits layers for distortion and display.
+	 * 
+	 * <p>ovrHmd_SubmitFrame triggers distortion and processing which might happen asynchronously. The function will return when there is room in the submission
+	 * queue and surfaces are available. Distortion might or might not have completed.
+	 * <ul>
+	 * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>
+	 * <li>Layers are not remembered between successive calls to ovrHmd_SubmitFrame. A layer must be specified in every call to ovrHmd_SubmitFrame or it won't
+	 * be displayed.</li>
+	 * <li>If a {@code layerPtrList} entry that was specified in a previous call to ovrHmd_SubmitFrame is passed as {@code NULL} or is of type {@link #ovrLayerType_Disabled LayerType_Disabled},
+	 * that layer is no longer displayed.</li>
+	 * <li>A {@code layerPtrList} entry can be of any layer type and multiple entries of the same layer type are allowed. No {@code layerPtrList} entry may be
+	 * duplicated (i.e. the same pointer as an earlier entry).</li>
+	 * </ul></p>
+	 * 
+	 * <h3>Example code</h3>
+	 * <pre><code style="font-family: monospace">
+	 * ovrLayerEyeFov  layer0;
+	 * ovrLayerQuad    layer1;
+	 * ...
+	 * ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
+	 * ovrResult result = ovrHmd_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
 	 *
-	 * @param hmd            
-	 * @param eyeType        
-	 * @param fov            
-	 * @param distortionCaps one of:<br>{@link #ovrDistortionCap_Chromatic DistortionCap_Chromatic}, {@link #ovrDistortionCap_TimeWarp DistortionCap_TimeWarp}, {@link #ovrDistortionCap_Vignette DistortionCap_Vignette}, {@link #ovrDistortionCap_NoRestore DistortionCap_NoRestore}, {@link #ovrDistortionCap_FlipInput DistortionCap_FlipInput}, {@link #ovrDistortionCap_SRGB DistortionCap_SRGB}, {@link #ovrDistortionCap_Overdrive DistortionCap_Overdrive}, {@link #ovrDistortionCap_HqDistortion DistortionCap_HqDistortion}, {@link #ovrDistortionCap_LinuxDevFullscreen DistortionCap_LinuxDevFullscreen}, {@link #ovrDistortionCap_ComputeShader DistortionCap_ComputeShader}, {@link #ovrDistortionCap_TimewarpJitDelay DistortionCap_TimewarpJitDelay}, {@link #ovrDistortionCap_ProfileNoTimewarpSpinWaits DistortionCap_ProfileNoTimewarpSpinWaits}
-	 * @param meshData       
+	 * @param hmd           an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param frameIndex    the targeted frame index, or 0, to refer to one frame after the last time {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} was called
+	 * @param viewScaleDesc provides additional information needed only if {@code layerPtrList} contains a {@link #ovrLayerType_QuadInWorld LayerType_QuadInWorld} or {@link #ovrLayerType_QuadHeadLocked LayerType_QuadHeadLocked}. If {@code NULL}, a
+	 *                      default version is used based on the current configuration and a 1.0 world scale.
+	 * @param layerPtrList  a list of {@code ovrLayer} pointers, which can include {@code NULL} entries to indicate that any previously shown layer at that index is to not be
+	 *                      displayed. Each layer header must be a part of a layer structure such as {@link OVRLayerEyeFov} or {@link OVRLayerQuad}, with {@code Header.Type} identifying
+	 *                      its type. A {@code NULL} {@code layerPtrList} entry in the array indicates the absence of the given layer.
+	 * @param layerCount    the number of valid elements in {@code layerPtrList}. The maximum supported {@code layerCount} is not currently specified, but may be specified in
+	 *                      a future version.
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon one of the possible success values:
+	 *         <ul>
+	 *         <li>{@link #ovrSuccess Success}: rendering completed successfully.</li>
+	 *         <li>{@link #ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently has ownership
+	 *         of the HMD. Applications receiving this result should stop rendering new content, but continue to call ovrHmd_SubmitFrame periodically until it
+	 *         returns a value other than {@link #ovrSuccess_NotVisible Success_NotVisible}.</li>
+	 *         </ul>
 	 */
-	public static boolean ovrHmd_CreateDistortionMesh(long hmd, int eyeType, ByteBuffer fov, int distortionCaps, ByteBuffer meshData) {
+	public static int ovrHmd_SubmitFrame(long hmd, int frameIndex, ByteBuffer viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-			checkBuffer(meshData, OVRDistortionMesh.SIZEOF);
+			if ( viewScaleDesc != null ) checkBuffer(viewScaleDesc, OVRViewScaleDesc.SIZEOF);
+			checkBuffer(layerPtrList, layerCount << POINTER_SHIFT);
 		}
-		return novrHmd_CreateDistortionMesh(hmd, eyeType, memAddress(fov), distortionCaps, memAddress(meshData));
+		return novrHmd_SubmitFrame(hmd, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerCount);
 	}
 
-	// --- [ ovrHmd_CreateDistortionMeshDebug ] ---
-
-	/** JNI method for {@link #ovrHmd_CreateDistortionMeshDebug Hmd_CreateDistortionMeshDebug} */
-	@JavadocExclude
-	public static native boolean novrHmd_CreateDistortionMeshDebug(long hmddesc, int eyeType, long fov, int distortionCaps, long meshData, float debugEyeReliefOverrideInMetres);
-
-	/**
-	 * Debug version of {@link #ovrHmd_CreateDistortionMesh Hmd_CreateDistortionMesh}.
-	 *
-	 * @param hmddesc                        
-	 * @param eyeType                        
-	 * @param fov                            
-	 * @param distortionCaps                 one of:<br>{@link #ovrDistortionCap_Chromatic DistortionCap_Chromatic}, {@link #ovrDistortionCap_TimeWarp DistortionCap_TimeWarp}, {@link #ovrDistortionCap_Vignette DistortionCap_Vignette}, {@link #ovrDistortionCap_NoRestore DistortionCap_NoRestore}, {@link #ovrDistortionCap_FlipInput DistortionCap_FlipInput}, {@link #ovrDistortionCap_SRGB DistortionCap_SRGB}, {@link #ovrDistortionCap_Overdrive DistortionCap_Overdrive}, {@link #ovrDistortionCap_HqDistortion DistortionCap_HqDistortion}, {@link #ovrDistortionCap_LinuxDevFullscreen DistortionCap_LinuxDevFullscreen}, {@link #ovrDistortionCap_ComputeShader DistortionCap_ComputeShader}, {@link #ovrDistortionCap_TimewarpJitDelay DistortionCap_TimewarpJitDelay}, {@link #ovrDistortionCap_ProfileNoTimewarpSpinWaits DistortionCap_ProfileNoTimewarpSpinWaits}
-	 * @param meshData                       
-	 * @param debugEyeReliefOverrideInMetres 
-	 */
-	public static boolean ovrHmd_CreateDistortionMeshDebug(long hmddesc, int eyeType, ByteBuffer fov, int distortionCaps, ByteBuffer meshData, float debugEyeReliefOverrideInMetres) {
+	/** Alternative version of: {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} */
+	public static int ovrHmd_SubmitFrame(long hmd, int frameIndex, ByteBuffer viewScaleDesc, PointerBuffer layerPtrList) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmddesc);
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-			checkBuffer(meshData, OVRDistortionMesh.SIZEOF);
+			checkPointer(hmd);
+			if ( viewScaleDesc != null ) checkBuffer(viewScaleDesc, OVRViewScaleDesc.SIZEOF);
 		}
-		return novrHmd_CreateDistortionMeshDebug(hmddesc, eyeType, memAddress(fov), distortionCaps, memAddress(meshData), debugEyeReliefOverrideInMetres);
-	}
-
-	// --- [ ovrHmd_DestroyDistortionMesh ] ---
-
-	/** JNI method for {@link #ovrHmd_DestroyDistortionMesh Hmd_DestroyDistortionMesh} */
-	@JavadocExclude
-	public static native void novrHmd_DestroyDistortionMesh(long meshData);
-
-	/**
-	 * Used to free the distortion mesh allocated by {@link #ovrHmd_CreateDistortionMesh Hmd_CreateDistortionMesh}. {@code meshData} elements are set to null and zeroes after the call.
-	 *
-	 * @param meshData 
-	 */
-	public static void ovrHmd_DestroyDistortionMesh(ByteBuffer meshData) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(meshData, OVRDistortionMesh.SIZEOF);
-		novrHmd_DestroyDistortionMesh(memAddress(meshData));
-	}
-
-	// --- [ ovrHmd_GetRenderScaleAndOffset ] ---
-
-	/** JNI method for {@link #ovrHmd_GetRenderScaleAndOffset Hmd_GetRenderScaleAndOffset} */
-	@JavadocExclude
-	public static native void novrHmd_GetRenderScaleAndOffset(long fov, long textureSize, long renderViewport, long uvScaleOffsetOut);
-
-	/**
-	 * Computes updated 'uvScaleOffsetOut' to be used with a distortion if render target size or viewport changes after the fact. This can be used to adjust
-	 * render size every frame if desired.
-	 *
-	 * @param fov              
-	 * @param textureSize      
-	 * @param renderViewport   
-	 * @param uvScaleOffsetOut 
-	 */
-	public static void ovrHmd_GetRenderScaleAndOffset(ByteBuffer fov, ByteBuffer textureSize, ByteBuffer renderViewport, ByteBuffer uvScaleOffsetOut) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-			checkBuffer(textureSize, OVRSizei.SIZEOF);
-			checkBuffer(renderViewport, OVRRecti.SIZEOF);
-			checkBuffer(uvScaleOffsetOut, 2 * OVRVector2f.SIZEOF);
-		}
-		novrHmd_GetRenderScaleAndOffset(memAddress(fov), memAddress(textureSize), memAddress(renderViewport), memAddress(uvScaleOffsetOut));
+		return novrHmd_SubmitFrame(hmd, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerPtrList.remaining());
 	}
 
 	// --- [ ovrHmd_GetFrameTiming ] ---
@@ -679,53 +738,20 @@ public final class OVR {
 	public static native void novrHmd_GetFrameTiming(long hmd, int frameIndex, long __result);
 
 	/**
-	 * Thread-safe timing function for the main thread. Caller should increment frameIndex with every frame and pass the index where applicable to functions
-	 * called on the rendering thread.
+	 * Gets the {@link OVRFrameTiming} for the given frame index.
+	 * 
+	 * <p>The application should increment {@code frameIndex} for each successively targeted frame, and pass that index to any relevent OVR functions that need
+	 * to apply to the frame identified by that index.</p>
+	 * 
+	 * <p>This function is thread-safe and allows for multiple application threads to target their processing to the same displayed frame.</p>
 	 *
-	 * @param hmd        
-	 * @param frameIndex 
+	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param frameIndex the frame the caller wishes to target
 	 */
 	public static void ovrHmd_GetFrameTiming(long hmd, int frameIndex, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
 		novrHmd_GetFrameTiming(hmd, frameIndex, memAddress(__result));
-	}
-
-	// --- [ ovrHmd_BeginFrameTiming ] ---
-
-	/** JNI method for {@link #ovrHmd_BeginFrameTiming Hmd_BeginFrameTiming} */
-	@JavadocExclude
-	public static native void novrHmd_BeginFrameTiming(long hmd, int frameIndex, long __result);
-
-	/**
-	 * Called at the beginning of the frame on the rendering thread. Pass frameIndex == 0 if {@link #ovrHmd_GetFrameTiming Hmd_GetFrameTiming} isn't being used. Otherwise, pass the same
-	 * frame index as was used for GetFrameTiming on the main thread.
-	 *
-	 * @param hmd        
-	 * @param frameIndex 
-	 */
-	public static void ovrHmd_BeginFrameTiming(long hmd, int frameIndex, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		novrHmd_BeginFrameTiming(hmd, frameIndex, memAddress(__result));
-	}
-
-	// --- [ ovrHmd_EndFrameTiming ] ---
-
-	/** JNI method for {@link #ovrHmd_EndFrameTiming Hmd_EndFrameTiming} */
-	@JavadocExclude
-	public static native void novrHmd_EndFrameTiming(long hmd);
-
-	/**
-	 * Marks the end of client distortion rendered frame, tracking the necessary timing information. This function must be called immediately after
-	 * Present/SwapBuffers + GPU sync. GPU sync is important before this call to reduce latency and ensure proper timing.
-	 *
-	 * @param hmd 
-	 */
-	public static void ovrHmd_EndFrameTiming(long hmd) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		novrHmd_EndFrameTiming(hmd);
 	}
 
 	// --- [ ovrHmd_ResetFrameTiming ] ---
@@ -735,11 +761,13 @@ public final class OVR {
 	public static native void novrHmd_ResetFrameTiming(long hmd, int frameIndex);
 
 	/**
-	 * Initializes and resets frame time tracking. This is typically not necessary, but is helpful if game changes vsync state or video mode. vsync is assumed
-	 * to be on if this isn't called. Resets internal frame index to the specified number.
+	 * Initializes and resets frame time tracking.
+	 * 
+	 * <p>This is typically not necessary, but is helpful if the application changes vsync state or video mode. vsync is assumed to be on if this isn't called.
+	 * Resets internal frame index to the specified number.</p>
 	 *
-	 * @param hmd        
-	 * @param frameIndex 
+	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param frameIndex the frame the caller wishes to target.
 	 */
 	public static void ovrHmd_ResetFrameTiming(long hmd, int frameIndex) {
 		if ( LWJGLUtil.CHECKS )
@@ -747,184 +775,16 @@ public final class OVR {
 		novrHmd_ResetFrameTiming(hmd, frameIndex);
 	}
 
-	// --- [ ovrHmd_GetEyeTimewarpMatrices ] ---
-
-	/** JNI method for {@link #ovrHmd_GetEyeTimewarpMatrices Hmd_GetEyeTimewarpMatrices} */
-	@JavadocExclude
-	public static native void novrHmd_GetEyeTimewarpMatrices(long hmd, int eye, long renderPose, long twmOut);
-
-	/**
-	 * Computes timewarp matrices used by distortion mesh shader, these are used to adjust for head orientation change since the last call to
-	 * {@link #ovrHmd_GetEyePoses Hmd_GetEyePoses} when rendering this eye. The ovrDistortionVertex::TimeWarpFactor is used to blend between the matrices, usually representing two
-	 * different sides of the screen.
-	 * 
-	 * <p>Set 'calcPosition' to true when using depth based positional timewarp.</p>
-	 * 
-	 * <p>Must be called on the same thread as {@link #ovrHmd_BeginFrameTiming Hmd_BeginFrameTiming}.</p>
-	 *
-	 * @param hmd        
-	 * @param eye        
-	 * @param renderPose 
-	 * @param twmOut     
-	 */
-	public static void ovrHmd_GetEyeTimewarpMatrices(long hmd, int eye, ByteBuffer renderPose, ByteBuffer twmOut) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(renderPose, OVRPosef.SIZEOF);
-			checkBuffer(twmOut, 2 * OVRMatrix4f.SIZEOF);
-		}
-		novrHmd_GetEyeTimewarpMatrices(hmd, eye, memAddress(renderPose), memAddress(twmOut));
-	}
-
-	// --- [ ovrHmd_GetEyeTimewarpMatricesDebug ] ---
-
-	/** JNI method for {@link #ovrHmd_GetEyeTimewarpMatricesDebug Hmd_GetEyeTimewarpMatricesDebug} */
-	@JavadocExclude
-	public static native void novrHmd_GetEyeTimewarpMatricesDebug(long hmd, int eye, long renderPose, long playerTorsoMotion, long twmOut, double debugTimingOffsetInSeconds);
-
-	/**
-	 * Debug version of {@link #ovrHmd_GetEyeTimewarpMatrices Hmd_GetEyeTimewarpMatrices}.
-	 *
-	 * @param hmd                        
-	 * @param eye                        
-	 * @param renderPose                 
-	 * @param playerTorsoMotion          
-	 * @param twmOut                     
-	 * @param debugTimingOffsetInSeconds 
-	 */
-	public static void ovrHmd_GetEyeTimewarpMatricesDebug(long hmd, int eye, ByteBuffer renderPose, ByteBuffer playerTorsoMotion, ByteBuffer twmOut, double debugTimingOffsetInSeconds) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(renderPose, OVRPosef.SIZEOF);
-			checkBuffer(playerTorsoMotion, OVRQuatf.SIZEOF);
-			checkBuffer(twmOut, 2 * OVRMatrix4f.SIZEOF);
-		}
-		novrHmd_GetEyeTimewarpMatricesDebug(hmd, eye, memAddress(renderPose), memAddress(playerTorsoMotion), memAddress(twmOut), debugTimingOffsetInSeconds);
-	}
-
 	// --- [ ovr_GetTimeInSeconds ] ---
 
-	/** Returns global, absolute high-resolution time in seconds. This is the same value as used in sensor messages. */
+	/**
+	 * Returns global, absolute high-resolution time in seconds.
+	 * 
+	 * <p>The time frame of reference for this function is not specified and should not be depended upon.</p>
+	 *
+	 * @return seconds as a floating point value
+	 */
 	public static native double ovr_GetTimeInSeconds();
-
-	// --- [ ovrHmd_ProcessLatencyTest ] ---
-
-	/** JNI method for {@link #ovrHmd_ProcessLatencyTest Hmd_ProcessLatencyTest} */
-	@JavadocExclude
-	public static native boolean novrHmd_ProcessLatencyTest(long hmd, long rgbColorOut);
-
-	/**
-	 * Does latency test processing and returns 'TRUE' if specified rgb color should be used to clear the screen.
-	 *
-	 * @param hmd         
-	 * @param rgbColorOut 
-	 */
-	public static boolean ovrHmd_ProcessLatencyTest(long hmd, ByteBuffer rgbColorOut) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(rgbColorOut, 3);
-		}
-		return novrHmd_ProcessLatencyTest(hmd, memAddress(rgbColorOut));
-	}
-
-	// --- [ ovrHmd_GetLatencyTestResult ] ---
-
-	/** JNI method for {@link #ovrHmd_GetLatencyTestResult Hmd_GetLatencyTestResult} */
-	@JavadocExclude
-	public static native long novrHmd_GetLatencyTestResult(long hmd);
-
-	/**
-	 * Returns non-null string once with latency test result, when it is available. Buffer is valid until next call.
-	 *
-	 * @param hmd 
-	 */
-	public static String ovrHmd_GetLatencyTestResult(long hmd) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		long __result = novrHmd_GetLatencyTestResult(hmd);
-		return memDecodeASCII(__result);
-	}
-
-	// --- [ ovrHmd_GetLatencyTest2DrawColor ] ---
-
-	/** JNI method for {@link #ovrHmd_GetLatencyTest2DrawColor Hmd_GetLatencyTest2DrawColor} */
-	@JavadocExclude
-	public static native boolean novrHmd_GetLatencyTest2DrawColor(long hmddesc, long rgbColorOut);
-
-	/**
-	 * Returns the latency testing color in rgbColorOut to render when using a DK2. Returns false if this feature is disabled or not-applicable (e.g. using a
-	 * DK1).
-	 *
-	 * @param hmddesc     
-	 * @param rgbColorOut 
-	 */
-	public static boolean ovrHmd_GetLatencyTest2DrawColor(long hmddesc, ByteBuffer rgbColorOut) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmddesc);
-			checkBuffer(rgbColorOut, 3);
-		}
-		return novrHmd_GetLatencyTest2DrawColor(hmddesc, memAddress(rgbColorOut));
-	}
-
-	// --- [ ovrHmd_GetHSWDisplayState ] ---
-
-	/** JNI method for {@link #ovrHmd_GetHSWDisplayState Hmd_GetHSWDisplayState} */
-	@JavadocExclude
-	public static native void novrHmd_GetHSWDisplayState(long hmd, long hasWarningState);
-
-	/**
-	 * Returns the current state of the HSW display. If the application is doing the rendering of the HSW display then this function serves to indicate that
-	 * the warning should be currently displayed. If the application is using SDK-based eye rendering then the SDK by default automatically handles the
-	 * drawing of the HSW display. An application that uses application-based eye rendering should use this function to know when to start drawing the HSW
-	 * display itself and can optionally use it in conjunction with ovrhmd_DismissHSWDisplay as described below.
-	 * 
-	 * <p>Example usage for application-based rendering:
-	 * <pre><code style="font-family: monospace">
-	 * bool HSWDisplayCurrentlyDisplayed = false; // global or class member variable
-	 * ovrHSWDisplayState hswDisplayState;
-	 * ovrhmd_GetHSWDisplayState(Hmd, &hswDisplayState);
-	 * 
-	 * if (hswDisplayState.Displayed && !HSWDisplayCurrentlyDisplayed) {
-	 * 	<insert model into the scene that stays in front of the user>
-	 * 	HSWDisplayCurrentlyDisplayed = true;
-	 * }</code></pre></p>
-	 *
-	 * @param hmd             
-	 * @param hasWarningState 
-	 */
-	public static void ovrHmd_GetHSWDisplayState(long hmd, ByteBuffer hasWarningState) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(hmd);
-			checkBuffer(hasWarningState, OVRHSWDisplayState.SIZEOF);
-		}
-		novrHmd_GetHSWDisplayState(hmd, memAddress(hasWarningState));
-	}
-
-	// --- [ ovrHmd_DismissHSWDisplay ] ---
-
-	/** JNI method for {@link #ovrHmd_DismissHSWDisplay Hmd_DismissHSWDisplay} */
-	@JavadocExclude
-	public static native boolean novrHmd_DismissHSWDisplay(long hmd);
-
-	/**
-	 * Requests a dismissal of the HSWDisplay at the earliest possible time, which may be seconds into the future due to display longevity requirements.
-	 * 
-	 * <p>Example usage:
-	 * <pre><code style="font-family: monospace">
-	 * void ProcessEvent(int key) {
-	 * 	if ( key == escape )
-	 * 		ovrhmd_DismissHSWDisplay(hmd);
-	 * }</code></pre></p>
-	 *
-	 * @param hmd 
-	 *
-	 * @return true if the display is valid, in which case the request can always be honored
-	 */
-	public static boolean ovrHmd_DismissHSWDisplay(long hmd) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hmd);
-		return novrHmd_DismissHSWDisplay(hmd);
-	}
 
 	// --- [ ovrHmd_GetBool ] ---
 
@@ -933,11 +793,13 @@ public final class OVR {
 	public static native boolean novrHmd_GetBool(long hmd, long propertyName, boolean defaultVal);
 
 	/**
-	 * Get boolean property. Returns first element if property is a boolean array. Returns defaultValue if property doesn't exist.
+	 * Reads a boolean property.
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param defaultVal   
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid for only the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static boolean ovrHmd_GetBool(long hmd, ByteBuffer propertyName, boolean defaultVal) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -963,11 +825,15 @@ public final class OVR {
 	public static native boolean novrHmd_SetBool(long hmd, long propertyName, boolean value);
 
 	/**
-	 * Modify bool property; false if property doesn't exist or is readonly.
+	 * Writes or creates a boolean property.
+	 * 
+	 * <p>If the property wasn't previously a boolean property, it is changed to a boolean property.</p>
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param value        
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovrHmd_SetBool(long hmd, ByteBuffer propertyName, boolean value) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -993,11 +859,13 @@ public final class OVR {
 	public static native int novrHmd_GetInt(long hmd, long propertyName, int defaultVal);
 
 	/**
-	 * Get integer property. Returns first element if property is an integer array. Returns defaultValue if property doesn't exist.
+	 * Reads an integer property.
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param defaultVal   
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static int ovrHmd_GetInt(long hmd, ByteBuffer propertyName, int defaultVal) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1023,11 +891,15 @@ public final class OVR {
 	public static native boolean novrHmd_SetInt(long hmd, long propertyName, int value);
 
 	/**
-	 * Modify integer property; false if property doesn't exist or is readonly.
+	 * Writes or creates an integer property.
+	 * 
+	 * <p>If the property wasn't previously an integer property, it is changed to an integer property.</p>
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param value        
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovrHmd_SetInt(long hmd, ByteBuffer propertyName, int value) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1053,11 +925,13 @@ public final class OVR {
 	public static native float novrHmd_GetFloat(long hmd, long propertyName, float defaultVal);
 
 	/**
-	 * Get float property. Returns first element if property is a float array. Returns defaultValue if property doesn't exist.
+	 * Reads a float property.
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param defaultVal   
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static float ovrHmd_GetFloat(long hmd, ByteBuffer propertyName, float defaultVal) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1083,11 +957,15 @@ public final class OVR {
 	public static native boolean novrHmd_SetFloat(long hmd, long propertyName, float value);
 
 	/**
-	 * Modify float property; false if property doesn't exist or is readonly.
+	 * Writes or creates a float property.
+	 * 
+	 * <p>If the property wasn't previously a float property, it's changed to a float property.</p>
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param value        
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the value to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovrHmd_SetFloat(long hmd, ByteBuffer propertyName, float value) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1110,23 +988,25 @@ public final class OVR {
 
 	/** JNI method for {@link #ovrHmd_GetFloatArray Hmd_GetFloatArray} */
 	@JavadocExclude
-	public static native int novrHmd_GetFloatArray(long hmd, long propertyName, long values, int arraySize);
+	public static native int novrHmd_GetFloatArray(long hmd, long propertyName, long values, int valuesCapacity);
 
 	/**
-	 * Get float[] property. Returns the number of elements filled in, 0 if property doesn't exist. Maximum of arraySize elements will be written.
+	 * Reads a float array property.
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param values       
-	 * @param arraySize    
+	 * @param hmd            an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName   the name of the property, which needs to be valid only for the call
+	 * @param values         an array of float to write to
+	 * @param valuesCapacity the maximum number of elements to write to the values array
+	 *
+	 * @return the number of elements read, or 0 if property doesn't exist or is empty
 	 */
-	public static int ovrHmd_GetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int arraySize) {
+	public static int ovrHmd_GetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int valuesCapacity) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
-			checkBuffer(values, arraySize << 2);
+			checkBuffer(values, valuesCapacity << 2);
 		}
-		return novrHmd_GetFloatArray(hmd, memAddress(propertyName), memAddress(values), arraySize);
+		return novrHmd_GetFloatArray(hmd, memAddress(propertyName), memAddress(values), valuesCapacity);
 	}
 
 	/** Alternative version of: {@link #ovrHmd_GetFloatArray Hmd_GetFloatArray} */
@@ -1149,23 +1029,25 @@ public final class OVR {
 
 	/** JNI method for {@link #ovrHmd_SetFloatArray Hmd_SetFloatArray} */
 	@JavadocExclude
-	public static native boolean novrHmd_SetFloatArray(long hmd, long propertyName, long values, int arraySize);
+	public static native boolean novrHmd_SetFloatArray(long hmd, long propertyName, long values, int valuesSize);
 
 	/**
-	 * Modify float[] property; false if property doesn't exist or is readonly.
+	 * Writes or creates a float array property.
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param values       
-	 * @param arraySize    
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param values       an array of float to write from
+	 * @param valuesSize   the number of elements to write
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
-	public static boolean ovrHmd_SetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int arraySize) {
+	public static boolean ovrHmd_SetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int valuesSize) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
-			checkBuffer(values, arraySize << 2);
+			checkBuffer(values, valuesSize << 2);
 		}
-		return novrHmd_SetFloatArray(hmd, memAddress(propertyName), memAddress(values), arraySize);
+		return novrHmd_SetFloatArray(hmd, memAddress(propertyName), memAddress(values), valuesSize);
 	}
 
 	/** Alternative version of: {@link #ovrHmd_SetFloatArray Hmd_SetFloatArray} */
@@ -1191,36 +1073,44 @@ public final class OVR {
 	public static native long novrHmd_GetString(long hmd, long propertyName, long defaultVal);
 
 	/**
-	 * Get string property. Returns first element if property is a string array. Returns defaultValue if property doesn't exist. String memory is guaranteed
-	 * to exist until next call to GetString or GetStringArray, or HMD is destroyed.
+	 * Reads a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param defaultVal   
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
+	 *         until next call to ovrHmd_GetString or until the HMD is destroyed, whichever occurs first.
 	 */
 	public static String ovrHmd_GetString(long hmd, ByteBuffer propertyName, ByteBuffer defaultVal) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-		long __result = novrHmd_GetString(hmd, memAddress(propertyName), memAddress(defaultVal));
-		return memDecodeASCII(__result);
+		long __result = novrHmd_GetString(hmd, memAddress(propertyName), memAddressSafe(defaultVal));
+		return memDecodeUTF8(__result);
 	}
 
 	/**
-	 * Get string property. Returns first element if property is a string array. Returns defaultValue if property doesn't exist. String memory is guaranteed
-	 * to exist until next call to GetString or GetStringArray, or HMD is destroyed.
+	 * Reads a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
 	 *
-	 * @param hmd          
-	 * @param propertyName 
-	 * @param defaultVal   
+	 * @param hmd          an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param defaultVal   specifes the value to return if the property couldn't be read
+	 *
+	 * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
+	 *         until next call to ovrHmd_GetString or until the HMD is destroyed, whichever occurs first.
 	 */
 	public static String ovrHmd_GetString(long hmd, CharSequence propertyName, CharSequence defaultVal) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		int defaultValEncoded = __buffer.stringParamASCII(defaultVal, true);
-		long __result = novrHmd_GetString(hmd, __buffer.address(propertyNameEncoded), __buffer.address(defaultValEncoded));
-		return memDecodeASCII(__result);
+		int defaultValEncoded = __buffer.stringParamUTF8(defaultVal, true);
+		long __result = novrHmd_GetString(hmd, __buffer.address(propertyNameEncoded), __buffer.addressSafe(defaultVal, defaultValEncoded));
+		return memDecodeUTF8(__result);
 	}
 
 	// --- [ ovrHmd_SetString ] ---
@@ -1230,11 +1120,15 @@ public final class OVR {
 	public static native boolean novrHmd_SetString(long hmddesc, long propertyName, long value);
 
 	/**
-	 * Set string property
+	 * Writes or creates a string property.
+	 * 
+	 * <p>Strings are UTF8-encoded and null-terminated.</p>
 	 *
-	 * @param hmddesc      
-	 * @param propertyName 
-	 * @param value        
+	 * @param hmddesc      an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
+	 * @param propertyName the name of the property, which needs to be valid only for the call
+	 * @param value        the string property, which only needs to be valid for the duration of the call
+	 *
+	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovrHmd_SetString(long hmddesc, ByteBuffer propertyName, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -1253,33 +1147,6 @@ public final class OVR {
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
 		int valueEncoded = __buffer.stringParamASCII(value, true);
 		return novrHmd_SetString(hmddesc, __buffer.address(propertyNameEncoded), __buffer.address(valueEncoded));
-	}
-
-	// --- [ ovr_TraceMessage ] ---
-
-	/** JNI method for {@link #ovr_TraceMessage _TraceMessage} */
-	@JavadocExclude
-	public static native int novr_TraceMessage(int level, long message);
-
-	/**
-	 * Sends a message string to the system tracing mechanism if enabled (currently Event Tracing for Windows)
-	 *
-	 * @param level   the log level. One of:<br>{@link #ovrLogLevel_Debug LogLevel_Debug}, {@link #ovrLogLevel_Info LogLevel_Info}, {@link #ovrLogLevel_Error LogLevel_Error}
-	 * @param message the message
-	 *
-	 * @return the length of the message, or -1 if message is too large
-	 */
-	public static int ovr_TraceMessage(int level, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
-			checkNT1(message);
-		return novr_TraceMessage(level, memAddress(message));
-	}
-
-	/** CharSequence version of: {@link #ovr_TraceMessage _TraceMessage} */
-	public static int ovr_TraceMessage(int level, CharSequence message) {
-		APIBuffer __buffer = apiBuffer();
-		int messageEncoded = __buffer.stringParamASCII(message, true);
-		return novr_TraceMessage(level, __buffer.address(messageEncoded));
 	}
 
      /**

@@ -11,15 +11,16 @@ ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRRecti_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRLayerDirect_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)offsetof(ovrRecti, Pos);
-	buffer[1] = (jint)offsetof(ovrRecti, Size);
+	buffer[0] = (jint)offsetof(ovrLayerDirect, Header);
+	buffer[1] = (jint)offsetof(ovrLayerDirect, ColorTexture);
+	buffer[2] = (jint)offsetof(ovrLayerDirect, Viewport);
 
-	return sizeof(ovrRecti);
+	return sizeof(ovrLayerDirect);
 }
 
 EXTERN_C_EXIT

@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Tracking state at a given absolute time (describes predicted HMD pose etc). */
+/** Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovrHmd_GetTrackingState}. */
 public final class OVRTrackingState implements Pointer {
 
 	/** The struct size in bytes. */

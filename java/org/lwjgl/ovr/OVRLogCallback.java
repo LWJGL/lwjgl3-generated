@@ -48,7 +48,7 @@ public abstract class OVRLogCallback extends Closure.Void {
 	 * The logging callback.
 	 *
 	 * @param level   one of the ovrLogLevel constants
-	 * @param message the log message
+	 * @param message a UTF8-encoded null-terminated string
 	 */
 	public abstract void invoke(int level, long message);
 

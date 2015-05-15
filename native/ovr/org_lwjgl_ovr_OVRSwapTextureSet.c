@@ -11,15 +11,16 @@ ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRRecti_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRSwapTextureSet_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
 	UNUSED_PARAMS(__env, clazz)
 
-	buffer[0] = (jint)offsetof(ovrRecti, Pos);
-	buffer[1] = (jint)offsetof(ovrRecti, Size);
+	buffer[0] = (jint)offsetof(ovrSwapTextureSet, Textures);
+	buffer[1] = (jint)offsetof(ovrSwapTextureSet, TextureCount);
+	buffer[2] = (jint)offsetof(ovrSwapTextureSet, CurrentIndex);
 
-	return sizeof(ovrRecti);
+	return sizeof(ovrSwapTextureSet);
 }
 
 EXTERN_C_EXIT

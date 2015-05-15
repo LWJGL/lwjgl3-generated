@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <stddef.h>
 DISABLE_WARNINGS()
-#include "OVR_CAPI_0_5_0.h"
+#include "OVR_CAPI_0_6_0.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
@@ -18,7 +18,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRTextureHeader_offsets(JNIEnv *__env
 
 	buffer[0] = (jint)offsetof(ovrTextureHeader, API);
 	buffer[1] = (jint)offsetof(ovrTextureHeader, TextureSize);
-	buffer[2] = (jint)offsetof(ovrTextureHeader, RenderViewport);
 
 	return sizeof(ovrTextureHeader);
 }
