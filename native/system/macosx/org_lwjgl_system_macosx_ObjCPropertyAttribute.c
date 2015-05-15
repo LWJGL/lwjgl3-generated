@@ -5,7 +5,7 @@
  */
 #include "common_tools.h"
 #include <stddef.h>
-#include "MacOSXLWJGL.h"
+#include <objc/objc-runtime.h>
 
 EXTERN_C_EXIT
 

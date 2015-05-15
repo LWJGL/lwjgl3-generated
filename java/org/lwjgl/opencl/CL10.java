@@ -1950,7 +1950,7 @@ public final class CL10 {
 	 */
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, ByteBuffer image_formats, ByteBuffer num_image_formats) {
 		if ( LWJGLUtil.CHECKS ) {
-			if ( image_formats != null ) checkBuffer(image_formats, num_entries * CLImageFormat.SIZEOF * CLImageFormat.SIZEOF);
+			if ( image_formats != null ) checkBuffer(image_formats, num_entries * CLImageFormat.SIZEOF);
 			if ( num_image_formats != null ) checkBuffer(num_image_formats, 1 << 2);
 		}
 		return nclGetSupportedImageFormats(context, flags, image_type, num_entries, memAddressSafe(image_formats), memAddressSafe(num_image_formats));

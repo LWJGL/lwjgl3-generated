@@ -4,7 +4,8 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "MacOSXLWJGL.h"
+#include <objc/objc-runtime.h>
+typedef void (*EnumerationMutationHandler)(id);
 
 EXTERN_C_ENTER
 

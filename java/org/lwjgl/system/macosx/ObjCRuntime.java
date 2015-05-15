@@ -1117,7 +1117,7 @@ public final class ObjCRuntime {
 	public static byte class_addProperty(long cls, ByteBuffer name, ByteBuffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		return nclass_addProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining());
+		return nclass_addProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
 	}
 
 	/** CharSequence version of: {@link #class_addProperty} */
@@ -1126,7 +1126,7 @@ public final class ObjCRuntime {
 			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_addProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining());
+		return nclass_addProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
 	}
 
 	// --- [ class_replaceProperty ] ---
@@ -1156,7 +1156,7 @@ public final class ObjCRuntime {
 	public static void class_replaceProperty(long cls, ByteBuffer name, ByteBuffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		nclass_replaceProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining());
+		nclass_replaceProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
 	}
 
 	/** CharSequence version of: {@link #class_replaceProperty} */
@@ -1165,7 +1165,7 @@ public final class ObjCRuntime {
 			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nclass_replaceProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining());
+		nclass_replaceProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
 	}
 
 	// --- [ class_setIvarLayout ] ---
@@ -2186,7 +2186,7 @@ public final class ObjCRuntime {
 	public static void protocol_addProperty(long proto, ByteBuffer name, ByteBuffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(proto);
-		nprotocol_addProperty(proto, memAddress(name), memAddress(attributes), attributes.remaining(), isRequiredProperty, isInstanceProperty);
+		nprotocol_addProperty(proto, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF, isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_addProperty} */
@@ -2195,7 +2195,7 @@ public final class ObjCRuntime {
 			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nprotocol_addProperty(proto, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining(), isRequiredProperty, isInstanceProperty);
+		nprotocol_addProperty(proto, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF, isRequiredProperty, isInstanceProperty);
 	}
 
 	// --- [ objc_copyImageNames ] ---

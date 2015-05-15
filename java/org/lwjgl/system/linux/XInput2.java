@@ -112,7 +112,7 @@ public final class XInput2 {
 	public static int XISelectEvents(long display, long w, ByteBuffer masks) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXISelectEvents(display, w, memAddress(masks), masks.remaining());
+		return nXISelectEvents(display, w, memAddress(masks), masks.remaining() / XIEventMask.SIZEOF);
 	}
 
 }
