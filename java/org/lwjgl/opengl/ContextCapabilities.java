@@ -1158,6 +1158,8 @@ public final class ContextCapabilities {
 	public final boolean GL_ARB_viewport_array;
 	/** When true, {@link ARBWindowPos} is supported. */
 	public final boolean GL_ARB_window_pos;
+	/** When true, {@link ATIMeminfo} is supported. */
+	public final boolean GL_ATI_meminfo;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/ATI/shader_texture_lod.txt">ATI_shader_texture_lod</a> extension is supported. */
 	public final boolean GL_ATI_shader_texture_lod;
 	/** When true, {@link ATITextureCompression3DC} is supported. */
@@ -1542,6 +1544,8 @@ public final class ContextCapabilities {
 	 * expected to be exported if GL_NV_viewport_array2 is supported.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
+	/** When true, {@link NVXGpuMemoryInfo} is supported. */
+	public final boolean GL_NVX_gpu_memory_info;
 	/** When true, {@link OVRMultiview} is supported. */
 	public final boolean GL_OVR_multiview;
 	/**
@@ -1841,6 +1845,7 @@ public final class ContextCapabilities {
 		GL_ARB_vertex_type_2_10_10_10_rev = (__ARBVertexType2_10_10_10_REV = ARBVertexType2_10_10_10_REV.create(ext, provider, fc)) != null;
 		GL_ARB_viewport_array = (__ARBViewportArray = ARBViewportArray.create(ext, provider)) != null;
 		GL_ARB_window_pos = (__ARBWindowPos = ARBWindowPos.create(ext, provider)) != null;
+		GL_ATI_meminfo = ext.contains("GL_ATI_meminfo");
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
 		GL_ATI_texture_compression_3dc = ext.contains("GL_ATI_texture_compression_3dc");
 		GL_EXT_abgr = ext.contains("GL_EXT_abgr");
@@ -1939,6 +1944,7 @@ public final class ContextCapabilities {
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
+		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
 		WGL_AMD_gpu_association = (__WGLAMDGPUAssociation = WGLAMDGPUAssociation.create(ext, provider)) != null;

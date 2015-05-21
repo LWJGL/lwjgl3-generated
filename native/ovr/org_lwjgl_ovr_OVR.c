@@ -11,7 +11,7 @@ ENABLE_WARNINGS()
 EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1Initialize(JNIEnv *__env, jclass clazz, jlong paramsAddress) {
-	ovrInitParams const *params = (ovrInitParams const *)(intptr_t)paramsAddress;
+	const ovrInitParams *params = (const ovrInitParams *)(intptr_t)paramsAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)ovr_Initialize(params);
 }
