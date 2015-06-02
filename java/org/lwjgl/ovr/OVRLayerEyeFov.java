@@ -65,7 +65,7 @@ public final class OVRLayerEyeFov implements Pointer {
 	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
 	public void setHeaderType(int Type) { HeaderType(struct, Type); }
 	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(ByteBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
+	public void setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
 	public void setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); }
 	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
 	public void setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); }
@@ -77,8 +77,8 @@ public final class OVRLayerEyeFov implements Pointer {
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }
 	public int getHeaderFlags() { return HeaderFlags(struct); }
-	public void getColorTexture(ByteBuffer ColorTexture) { ColorTextureGet(struct, ColorTexture); }
-	public void getColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureGet(struct, ColorTexture, index); }
+	public void getColorTexture(PointerBuffer ColorTexture) { ColorTextureGet(struct, ColorTexture); }
+	public long getColorTexture(int index) { return ColorTextureGet(struct, index); }
 	public void getViewport(ByteBuffer Viewport) { ViewportGet(struct, Viewport); }
 	public void getViewport(ByteBuffer Viewport, int index) { ViewportGet(struct, Viewport, index); }
 	public void getFov(ByteBuffer Fov) { FovGet(struct, Fov); }
@@ -96,7 +96,7 @@ public final class OVRLayerEyeFov implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		ByteBuffer Header,
-		ByteBuffer ColorTexture,
+		PointerBuffer ColorTexture,
 		ByteBuffer Viewport,
 		ByteBuffer Fov,
 		ByteBuffer RenderPose
@@ -115,13 +115,12 @@ public final class OVRLayerEyeFov implements Pointer {
 	public static void HeaderSet(ByteBuffer ovrlayereyefov, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayereyefov) + HEADER, OVRLayerHeader.SIZEOF); }
 	public static void HeaderType(ByteBuffer ovrlayereyefov, int Type) { ovrlayereyefov.putInt(ovrlayereyefov.position() + HEADER + OVRLayerHeader.TYPE, Type); }
 	public static void HeaderFlags(ByteBuffer ovrlayereyefov, int Flags) { ovrlayereyefov.putInt(ovrlayereyefov.position() + HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void ColorTextureSet(ByteBuffer ovrlayereyefov, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefov) + COLORTEXTURE, ColorTexture.remaining());
+	public static void ColorTextureSet(ByteBuffer ovrlayereyefov, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefov) + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void ColorTextureSet(ByteBuffer ovrlayereyefov, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefov) + COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, ColorTexture.remaining());
+		PointerBuffer.put(ovrlayereyefov, COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
 	}
 	public static void ViewportSet(ByteBuffer ovrlayereyefov, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -151,13 +150,12 @@ public final class OVRLayerEyeFov implements Pointer {
 	public static void HeaderGet(ByteBuffer ovrlayereyefov, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayereyefov) + HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
 	public static int HeaderType(ByteBuffer ovrlayereyefov) { return ovrlayereyefov.getInt(ovrlayereyefov.position() + HEADER + OVRLayerHeader.TYPE); }
 	public static int HeaderFlags(ByteBuffer ovrlayereyefov) { return ovrlayereyefov.getInt(ovrlayereyefov.position() + HEADER + OVRLayerHeader.FLAGS); }
-	public static void ColorTextureGet(ByteBuffer ovrlayereyefov, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefov) + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining());
+	public static void ColorTextureGet(ByteBuffer ovrlayereyefov, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ovrlayereyefov) + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void ColorTextureGet(ByteBuffer ovrlayereyefov, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefov) + COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(ColorTexture), ColorTexture.remaining());
+	public static long ColorTextureGet(ByteBuffer ovrlayereyefov, int index) {
+		return PointerBuffer.get(ovrlayereyefov, COLORTEXTURE + index * POINTER_SIZE);
 	}
 	public static void ViewportGet(ByteBuffer ovrlayereyefov, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);

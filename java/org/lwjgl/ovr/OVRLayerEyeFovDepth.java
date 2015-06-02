@@ -69,7 +69,7 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
 	public void setHeaderType(int Type) { HeaderType(struct, Type); }
 	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(ByteBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
+	public void setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
 	public void setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); }
 	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
 	public void setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); }
@@ -77,7 +77,7 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	public void setFov(ByteBuffer Fov, int index) { FovSet(struct, Fov, index); }
 	public void setRenderPose(ByteBuffer RenderPose) { RenderPoseSet(struct, RenderPose); }
 	public void setRenderPose(ByteBuffer RenderPose, int index) { RenderPoseSet(struct, RenderPose, index); }
-	public void setDepthTexture(ByteBuffer DepthTexture) { DepthTextureSet(struct, DepthTexture); }
+	public void setDepthTexture(PointerBuffer DepthTexture) { DepthTextureSet(struct, DepthTexture); }
 	public void setDepthTexture(ByteBuffer DepthTexture, int index) { DepthTextureSet(struct, DepthTexture, index); }
 	public void setProjectionDesc(ByteBuffer ProjectionDesc) { ProjectionDescSet(struct, ProjectionDesc); }
 	public void setProjectionDescProjection22(float Projection22) { ProjectionDescProjection22(struct, Projection22); }
@@ -87,16 +87,16 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }
 	public int getHeaderFlags() { return HeaderFlags(struct); }
-	public void getColorTexture(ByteBuffer ColorTexture) { ColorTextureGet(struct, ColorTexture); }
-	public void getColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureGet(struct, ColorTexture, index); }
+	public void getColorTexture(PointerBuffer ColorTexture) { ColorTextureGet(struct, ColorTexture); }
+	public long getColorTexture(int index) { return ColorTextureGet(struct, index); }
 	public void getViewport(ByteBuffer Viewport) { ViewportGet(struct, Viewport); }
 	public void getViewport(ByteBuffer Viewport, int index) { ViewportGet(struct, Viewport, index); }
 	public void getFov(ByteBuffer Fov) { FovGet(struct, Fov); }
 	public void getFov(ByteBuffer Fov, int index) { FovGet(struct, Fov, index); }
 	public void getRenderPose(ByteBuffer RenderPose) { RenderPoseGet(struct, RenderPose); }
 	public void getRenderPose(ByteBuffer RenderPose, int index) { RenderPoseGet(struct, RenderPose, index); }
-	public void getDepthTexture(ByteBuffer DepthTexture) { DepthTextureGet(struct, DepthTexture); }
-	public void getDepthTexture(ByteBuffer DepthTexture, int index) { DepthTextureGet(struct, DepthTexture, index); }
+	public void getDepthTexture(PointerBuffer DepthTexture) { DepthTextureGet(struct, DepthTexture); }
+	public long getDepthTexture(int index) { return DepthTextureGet(struct, index); }
 	public void getProjectionDesc(ByteBuffer ProjectionDesc) { ProjectionDescGet(struct, ProjectionDesc); }
 	public float getProjectionDescProjection22() { return ProjectionDescProjection22(struct); }
 	public float getProjectionDescProjection23() { return ProjectionDescProjection23(struct); }
@@ -112,11 +112,11 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		ByteBuffer Header,
-		ByteBuffer ColorTexture,
+		PointerBuffer ColorTexture,
 		ByteBuffer Viewport,
 		ByteBuffer Fov,
 		ByteBuffer RenderPose,
-		ByteBuffer DepthTexture,
+		PointerBuffer DepthTexture,
 		ByteBuffer ProjectionDesc
 	) {
 		ByteBuffer ovrlayereyefovdepth = malloc();
@@ -135,13 +135,12 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	public static void HeaderSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayereyefovdepth) + HEADER, OVRLayerHeader.SIZEOF); }
 	public static void HeaderType(ByteBuffer ovrlayereyefovdepth, int Type) { ovrlayereyefovdepth.putInt(ovrlayereyefovdepth.position() + HEADER + OVRLayerHeader.TYPE, Type); }
 	public static void HeaderFlags(ByteBuffer ovrlayereyefovdepth, int Flags) { ovrlayereyefovdepth.putInt(ovrlayereyefovdepth.position() + HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void ColorTextureSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefovdepth) + COLORTEXTURE, ColorTexture.remaining());
+	public static void ColorTextureSet(ByteBuffer ovrlayereyefovdepth, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefovdepth) + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void ColorTextureSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayereyefovdepth) + COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, ColorTexture.remaining());
+		PointerBuffer.put(ovrlayereyefovdepth, COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
 	}
 	public static void ViewportSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -167,13 +166,12 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, OVRPosef.SIZEOF);
 		memCopy(memAddress(RenderPose), memAddress(ovrlayereyefovdepth) + RENDERPOSE + index * OVRPosef.SIZEOF, RenderPose.remaining());
 	}
-	public static void DepthTextureSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(DepthTexture), memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE, DepthTexture.remaining());
+	public static void DepthTextureSet(ByteBuffer ovrlayereyefovdepth, PointerBuffer DepthTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		memCopy(memAddress(DepthTexture), memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
 	}
 	public static void DepthTextureSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer DepthTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(DepthTexture), memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE + index * OVRSwapTextureSet.SIZEOF, DepthTexture.remaining());
+		PointerBuffer.put(ovrlayereyefovdepth, DEPTHTEXTURE + index * POINTER_SIZE, memAddress(DepthTexture));
 	}
 	public static void ProjectionDescSet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ProjectionDesc) { if ( ProjectionDesc != null ) memCopy(memAddress(ProjectionDesc), memAddress(ovrlayereyefovdepth) + PROJECTIONDESC, OVRTimewarpProjectionDesc.SIZEOF); }
 	public static void ProjectionDescProjection22(ByteBuffer ovrlayereyefovdepth, float Projection22) { ovrlayereyefovdepth.putFloat(ovrlayereyefovdepth.position() + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22, Projection22); }
@@ -183,13 +181,12 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 	public static void HeaderGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayereyefovdepth) + HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
 	public static int HeaderType(ByteBuffer ovrlayereyefovdepth) { return ovrlayereyefovdepth.getInt(ovrlayereyefovdepth.position() + HEADER + OVRLayerHeader.TYPE); }
 	public static int HeaderFlags(ByteBuffer ovrlayereyefovdepth) { return ovrlayereyefovdepth.getInt(ovrlayereyefovdepth.position() + HEADER + OVRLayerHeader.FLAGS); }
-	public static void ColorTextureGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefovdepth) + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining());
+	public static void ColorTextureGet(ByteBuffer ovrlayereyefovdepth, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ovrlayereyefovdepth) + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void ColorTextureGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefovdepth) + COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(ColorTexture), ColorTexture.remaining());
+	public static long ColorTextureGet(ByteBuffer ovrlayereyefovdepth, int index) {
+		return PointerBuffer.get(ovrlayereyefovdepth, COLORTEXTURE + index * POINTER_SIZE);
 	}
 	public static void ViewportGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -215,13 +212,12 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, OVRPosef.SIZEOF);
 		memCopy(memAddress(ovrlayereyefovdepth) + RENDERPOSE + index * OVRPosef.SIZEOF, memAddress(RenderPose), RenderPose.remaining());
 	}
-	public static void DepthTextureGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining());
+	public static void DepthTextureGet(ByteBuffer ovrlayereyefovdepth, PointerBuffer DepthTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		memCopy(memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
 	}
-	public static void DepthTextureGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer DepthTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayereyefovdepth) + DEPTHTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(DepthTexture), DepthTexture.remaining());
+	public static long DepthTextureGet(ByteBuffer ovrlayereyefovdepth, int index) {
+		return PointerBuffer.get(ovrlayereyefovdepth, DEPTHTEXTURE + index * POINTER_SIZE);
 	}
 	public static void ProjectionDescGet(ByteBuffer ovrlayereyefovdepth, ByteBuffer ProjectionDesc) { if ( LWJGLUtil.CHECKS ) checkBuffer(ProjectionDesc, OVRTimewarpProjectionDesc.SIZEOF); memCopy(memAddress(ovrlayereyefovdepth) + PROJECTIONDESC, memAddress(ProjectionDesc), OVRTimewarpProjectionDesc.SIZEOF); }
 	public static float ProjectionDescProjection22(ByteBuffer ovrlayereyefovdepth) { return ovrlayereyefovdepth.getFloat(ovrlayereyefovdepth.position() + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22); }

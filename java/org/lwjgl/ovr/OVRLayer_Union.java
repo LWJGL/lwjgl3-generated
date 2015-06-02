@@ -66,7 +66,7 @@ public final class OVRLayer_Union implements Pointer {
 	public void setEyeFovHeader(ByteBuffer Header) { EyeFovHeaderSet(struct, Header); }
 	public void setEyeFovHeaderType(int Type) { EyeFovHeaderType(struct, Type); }
 	public void setEyeFovHeaderFlags(int Flags) { EyeFovHeaderFlags(struct, Flags); }
-	public void setEyeFovColorTexture(ByteBuffer ColorTexture) { EyeFovColorTextureSet(struct, ColorTexture); }
+	public void setEyeFovColorTexture(PointerBuffer ColorTexture) { EyeFovColorTextureSet(struct, ColorTexture); }
 	public void setEyeFovColorTexture(ByteBuffer ColorTexture, int index) { EyeFovColorTextureSet(struct, ColorTexture, index); }
 	public void setEyeFovViewport(ByteBuffer Viewport) { EyeFovViewportSet(struct, Viewport); }
 	public void setEyeFovViewport(ByteBuffer Viewport, int index) { EyeFovViewportSet(struct, Viewport, index); }
@@ -78,7 +78,7 @@ public final class OVRLayer_Union implements Pointer {
 	public void setEyeFovDepthHeader(ByteBuffer Header) { EyeFovDepthHeaderSet(struct, Header); }
 	public void setEyeFovDepthHeaderType(int Type) { EyeFovDepthHeaderType(struct, Type); }
 	public void setEyeFovDepthHeaderFlags(int Flags) { EyeFovDepthHeaderFlags(struct, Flags); }
-	public void setEyeFovDepthColorTexture(ByteBuffer ColorTexture) { EyeFovDepthColorTextureSet(struct, ColorTexture); }
+	public void setEyeFovDepthColorTexture(PointerBuffer ColorTexture) { EyeFovDepthColorTextureSet(struct, ColorTexture); }
 	public void setEyeFovDepthColorTexture(ByteBuffer ColorTexture, int index) { EyeFovDepthColorTextureSet(struct, ColorTexture, index); }
 	public void setEyeFovDepthViewport(ByteBuffer Viewport) { EyeFovDepthViewportSet(struct, Viewport); }
 	public void setEyeFovDepthViewport(ByteBuffer Viewport, int index) { EyeFovDepthViewportSet(struct, Viewport, index); }
@@ -86,7 +86,7 @@ public final class OVRLayer_Union implements Pointer {
 	public void setEyeFovDepthFov(ByteBuffer Fov, int index) { EyeFovDepthFovSet(struct, Fov, index); }
 	public void setEyeFovDepthRenderPose(ByteBuffer RenderPose) { EyeFovDepthRenderPoseSet(struct, RenderPose); }
 	public void setEyeFovDepthRenderPose(ByteBuffer RenderPose, int index) { EyeFovDepthRenderPoseSet(struct, RenderPose, index); }
-	public void setEyeFovDepthDepthTexture(ByteBuffer DepthTexture) { EyeFovDepthDepthTextureSet(struct, DepthTexture); }
+	public void setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { EyeFovDepthDepthTextureSet(struct, DepthTexture); }
 	public void setEyeFovDepthDepthTexture(ByteBuffer DepthTexture, int index) { EyeFovDepthDepthTextureSet(struct, DepthTexture, index); }
 	public void setEyeFovDepthProjectionDesc(ByteBuffer ProjectionDesc) { EyeFovDepthProjectionDescSet(struct, ProjectionDesc); }
 	public void setEyeFovDepthProjectionDescProjection22(float Projection22) { EyeFovDepthProjectionDescProjection22(struct, Projection22); }
@@ -122,7 +122,7 @@ public final class OVRLayer_Union implements Pointer {
 	public void setDirectHeader(ByteBuffer Header) { DirectHeaderSet(struct, Header); }
 	public void setDirectHeaderType(int Type) { DirectHeaderType(struct, Type); }
 	public void setDirectHeaderFlags(int Flags) { DirectHeaderFlags(struct, Flags); }
-	public void setDirectColorTexture(ByteBuffer ColorTexture) { DirectColorTextureSet(struct, ColorTexture); }
+	public void setDirectColorTexture(PointerBuffer ColorTexture) { DirectColorTextureSet(struct, ColorTexture); }
 	public void setDirectColorTexture(ByteBuffer ColorTexture, int index) { DirectColorTextureSet(struct, ColorTexture, index); }
 	public void setDirectViewport(ByteBuffer Viewport) { DirectViewportSet(struct, Viewport); }
 	public void setDirectViewport(ByteBuffer Viewport, int index) { DirectViewportSet(struct, Viewport, index); }
@@ -134,8 +134,8 @@ public final class OVRLayer_Union implements Pointer {
 	public void getEyeFovHeader(ByteBuffer Header) { EyeFovHeaderGet(struct, Header); }
 	public int getEyeFovHeaderType() { return EyeFovHeaderType(struct); }
 	public int getEyeFovHeaderFlags() { return EyeFovHeaderFlags(struct); }
-	public void getEyeFovColorTexture(ByteBuffer ColorTexture) { EyeFovColorTextureGet(struct, ColorTexture); }
-	public void getEyeFovColorTexture(ByteBuffer ColorTexture, int index) { EyeFovColorTextureGet(struct, ColorTexture, index); }
+	public void getEyeFovColorTexture(PointerBuffer ColorTexture) { EyeFovColorTextureGet(struct, ColorTexture); }
+	public long getEyeFovColorTexture(int index) { return EyeFovColorTextureGet(struct, index); }
 	public void getEyeFovViewport(ByteBuffer Viewport) { EyeFovViewportGet(struct, Viewport); }
 	public void getEyeFovViewport(ByteBuffer Viewport, int index) { EyeFovViewportGet(struct, Viewport, index); }
 	public void getEyeFovFov(ByteBuffer Fov) { EyeFovFovGet(struct, Fov); }
@@ -146,16 +146,16 @@ public final class OVRLayer_Union implements Pointer {
 	public void getEyeFovDepthHeader(ByteBuffer Header) { EyeFovDepthHeaderGet(struct, Header); }
 	public int getEyeFovDepthHeaderType() { return EyeFovDepthHeaderType(struct); }
 	public int getEyeFovDepthHeaderFlags() { return EyeFovDepthHeaderFlags(struct); }
-	public void getEyeFovDepthColorTexture(ByteBuffer ColorTexture) { EyeFovDepthColorTextureGet(struct, ColorTexture); }
-	public void getEyeFovDepthColorTexture(ByteBuffer ColorTexture, int index) { EyeFovDepthColorTextureGet(struct, ColorTexture, index); }
+	public void getEyeFovDepthColorTexture(PointerBuffer ColorTexture) { EyeFovDepthColorTextureGet(struct, ColorTexture); }
+	public long getEyeFovDepthColorTexture(int index) { return EyeFovDepthColorTextureGet(struct, index); }
 	public void getEyeFovDepthViewport(ByteBuffer Viewport) { EyeFovDepthViewportGet(struct, Viewport); }
 	public void getEyeFovDepthViewport(ByteBuffer Viewport, int index) { EyeFovDepthViewportGet(struct, Viewport, index); }
 	public void getEyeFovDepthFov(ByteBuffer Fov) { EyeFovDepthFovGet(struct, Fov); }
 	public void getEyeFovDepthFov(ByteBuffer Fov, int index) { EyeFovDepthFovGet(struct, Fov, index); }
 	public void getEyeFovDepthRenderPose(ByteBuffer RenderPose) { EyeFovDepthRenderPoseGet(struct, RenderPose); }
 	public void getEyeFovDepthRenderPose(ByteBuffer RenderPose, int index) { EyeFovDepthRenderPoseGet(struct, RenderPose, index); }
-	public void getEyeFovDepthDepthTexture(ByteBuffer DepthTexture) { EyeFovDepthDepthTextureGet(struct, DepthTexture); }
-	public void getEyeFovDepthDepthTexture(ByteBuffer DepthTexture, int index) { EyeFovDepthDepthTextureGet(struct, DepthTexture, index); }
+	public void getEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { EyeFovDepthDepthTextureGet(struct, DepthTexture); }
+	public long getEyeFovDepthDepthTexture(int index) { return EyeFovDepthDepthTextureGet(struct, index); }
 	public void getEyeFovDepthProjectionDesc(ByteBuffer ProjectionDesc) { EyeFovDepthProjectionDescGet(struct, ProjectionDesc); }
 	public float getEyeFovDepthProjectionDescProjection22() { return EyeFovDepthProjectionDescProjection22(struct); }
 	public float getEyeFovDepthProjectionDescProjection23() { return EyeFovDepthProjectionDescProjection23(struct); }
@@ -190,8 +190,8 @@ public final class OVRLayer_Union implements Pointer {
 	public void getDirectHeader(ByteBuffer Header) { DirectHeaderGet(struct, Header); }
 	public int getDirectHeaderType() { return DirectHeaderType(struct); }
 	public int getDirectHeaderFlags() { return DirectHeaderFlags(struct); }
-	public void getDirectColorTexture(ByteBuffer ColorTexture) { DirectColorTextureGet(struct, ColorTexture); }
-	public void getDirectColorTexture(ByteBuffer ColorTexture, int index) { DirectColorTextureGet(struct, ColorTexture, index); }
+	public void getDirectColorTexture(PointerBuffer ColorTexture) { DirectColorTextureGet(struct, ColorTexture); }
+	public long getDirectColorTexture(int index) { return DirectColorTextureGet(struct, index); }
 	public void getDirectViewport(ByteBuffer Viewport) { DirectViewportGet(struct, Viewport); }
 	public void getDirectViewport(ByteBuffer Viewport, int index) { DirectViewportGet(struct, Viewport, index); }
 
@@ -228,13 +228,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void EyeFovHeaderSet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.HEADER, OVRLayerHeader.SIZEOF); }
 	public static void EyeFovHeaderType(ByteBuffer ovrlayer_union, int Type) { ovrlayer_union.putInt(ovrlayer_union.position() + EYEFOV + OVRLayerEyeFov.HEADER + OVRLayerHeader.TYPE, Type); }
 	public static void EyeFovHeaderFlags(ByteBuffer ovrlayer_union, int Flags) { ovrlayer_union.putInt(ovrlayer_union.position() + EYEFOV + OVRLayerEyeFov.HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void EyeFovColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE, ColorTexture.remaining());
+	public static void EyeFovColorTextureSet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void EyeFovColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, ColorTexture.remaining());
+		PointerBuffer.put(ovrlayer_union, EYEFOV + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
 	}
 	public static void EyeFovViewportSet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -264,13 +263,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void EyeFovDepthHeaderSet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER, OVRLayerHeader.SIZEOF); }
 	public static void EyeFovDepthHeaderType(ByteBuffer ovrlayer_union, int Type) { ovrlayer_union.putInt(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER + OVRLayerHeader.TYPE, Type); }
 	public static void EyeFovDepthHeaderFlags(ByteBuffer ovrlayer_union, int Flags) { ovrlayer_union.putInt(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void EyeFovDepthColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE, ColorTexture.remaining());
+	public static void EyeFovDepthColorTextureSet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void EyeFovDepthColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, ColorTexture.remaining());
+		PointerBuffer.put(ovrlayer_union, EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
 	}
 	public static void EyeFovDepthViewportSet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -296,13 +294,12 @@ public final class OVRLayer_Union implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, OVRPosef.SIZEOF);
 		memCopy(memAddress(RenderPose), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF, RenderPose.remaining());
 	}
-	public static void EyeFovDepthDepthTextureSet(ByteBuffer ovrlayer_union, ByteBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(DepthTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, DepthTexture.remaining());
+	public static void EyeFovDepthDepthTextureSet(ByteBuffer ovrlayer_union, PointerBuffer DepthTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		memCopy(memAddress(DepthTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
 	}
 	public static void EyeFovDepthDepthTextureSet(ByteBuffer ovrlayer_union, ByteBuffer DepthTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(DepthTexture), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * OVRSwapTextureSet.SIZEOF, DepthTexture.remaining());
+		PointerBuffer.put(ovrlayer_union, EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * POINTER_SIZE, memAddress(DepthTexture));
 	}
 	public static void EyeFovDepthProjectionDescSet(ByteBuffer ovrlayer_union, ByteBuffer ProjectionDesc) { if ( ProjectionDesc != null ) memCopy(memAddress(ProjectionDesc), memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.PROJECTIONDESC, OVRTimewarpProjectionDesc.SIZEOF); }
 	public static void EyeFovDepthProjectionDescProjection22(ByteBuffer ovrlayer_union, float Projection22) { ovrlayer_union.putFloat(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22, Projection22); }
@@ -338,13 +335,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void DirectHeaderSet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.HEADER, OVRLayerHeader.SIZEOF); }
 	public static void DirectHeaderType(ByteBuffer ovrlayer_union, int Type) { ovrlayer_union.putInt(ovrlayer_union.position() + DIRECT + OVRLayerDirect.HEADER + OVRLayerHeader.TYPE, Type); }
 	public static void DirectHeaderFlags(ByteBuffer ovrlayer_union, int Flags) { ovrlayer_union.putInt(ovrlayer_union.position() + DIRECT + OVRLayerDirect.HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void DirectColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE, ColorTexture.remaining());
+	public static void DirectColorTextureSet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void DirectColorTextureSet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, ColorTexture.remaining());
+		PointerBuffer.put(ovrlayer_union, DIRECT + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
 	}
 	public static void DirectViewportSet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -362,13 +358,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void EyeFovHeaderGet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
 	public static int EyeFovHeaderType(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + EYEFOV + OVRLayerEyeFov.HEADER + OVRLayerHeader.TYPE); }
 	public static int EyeFovHeaderFlags(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + EYEFOV + OVRLayerEyeFov.HEADER + OVRLayerHeader.FLAGS); }
-	public static void EyeFovColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining());
+	public static void EyeFovColorTextureGet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void EyeFovColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOV + OVRLayerEyeFov.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(ColorTexture), ColorTexture.remaining());
+	public static long EyeFovColorTextureGet(ByteBuffer ovrlayer_union, int index) {
+		return PointerBuffer.get(ovrlayer_union, EYEFOV + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE);
 	}
 	public static void EyeFovViewportGet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -398,13 +393,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void EyeFovDepthHeaderGet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
 	public static int EyeFovDepthHeaderType(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER + OVRLayerHeader.TYPE); }
 	public static int EyeFovDepthHeaderFlags(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.HEADER + OVRLayerHeader.FLAGS); }
-	public static void EyeFovDepthColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining());
+	public static void EyeFovDepthColorTextureGet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void EyeFovDepthColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(ColorTexture), ColorTexture.remaining());
+	public static long EyeFovDepthColorTextureGet(ByteBuffer ovrlayer_union, int index) {
+		return PointerBuffer.get(ovrlayer_union, EYEFOVDEPTH + OVRLayerEyeFovDepth.COLORTEXTURE + index * POINTER_SIZE);
 	}
 	public static void EyeFovDepthViewportGet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
@@ -430,13 +424,12 @@ public final class OVRLayer_Union implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, OVRPosef.SIZEOF);
 		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF, memAddress(RenderPose), RenderPose.remaining());
 	}
-	public static void EyeFovDepthDepthTextureGet(ByteBuffer ovrlayer_union, ByteBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining());
+	public static void EyeFovDepthDepthTextureGet(ByteBuffer ovrlayer_union, PointerBuffer DepthTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
 	}
-	public static void EyeFovDepthDepthTextureGet(ByteBuffer ovrlayer_union, ByteBuffer DepthTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(DepthTexture), DepthTexture.remaining());
+	public static long EyeFovDepthDepthTextureGet(ByteBuffer ovrlayer_union, int index) {
+		return PointerBuffer.get(ovrlayer_union, EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * POINTER_SIZE);
 	}
 	public static void EyeFovDepthProjectionDescGet(ByteBuffer ovrlayer_union, ByteBuffer ProjectionDesc) { if ( LWJGLUtil.CHECKS ) checkBuffer(ProjectionDesc, OVRTimewarpProjectionDesc.SIZEOF); memCopy(memAddress(ovrlayer_union) + EYEFOVDEPTH + OVRLayerEyeFovDepth.PROJECTIONDESC, memAddress(ProjectionDesc), OVRTimewarpProjectionDesc.SIZEOF); }
 	public static float EyeFovDepthProjectionDescProjection22(ByteBuffer ovrlayer_union) { return ovrlayer_union.getFloat(ovrlayer_union.position() + EYEFOVDEPTH + OVRLayerEyeFovDepth.PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22); }
@@ -472,13 +465,12 @@ public final class OVRLayer_Union implements Pointer {
 	public static void DirectHeaderGet(ByteBuffer ovrlayer_union, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
 	public static int DirectHeaderType(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + DIRECT + OVRLayerDirect.HEADER + OVRLayerHeader.TYPE); }
 	public static int DirectHeaderFlags(ByteBuffer ovrlayer_union) { return ovrlayer_union.getInt(ovrlayer_union.position() + DIRECT + OVRLayerDirect.HEADER + OVRLayerHeader.FLAGS); }
-	public static void DirectColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2 * OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining());
+	public static void DirectColorTextureGet(ByteBuffer ovrlayer_union, PointerBuffer ColorTexture) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		memCopy(memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void DirectColorTextureGet(ByteBuffer ovrlayer_union, ByteBuffer ColorTexture, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, OVRSwapTextureSet.SIZEOF);
-		memCopy(memAddress(ovrlayer_union) + DIRECT + OVRLayerDirect.COLORTEXTURE + index * OVRSwapTextureSet.SIZEOF, memAddress(ColorTexture), ColorTexture.remaining());
+	public static long DirectColorTextureGet(ByteBuffer ovrlayer_union, int index) {
+		return PointerBuffer.get(ovrlayer_union, DIRECT + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE);
 	}
 	public static void DirectViewportGet(ByteBuffer ovrlayer_union, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
