@@ -162,6 +162,7 @@ public final class ContextCapabilities {
 	final NVDrawTexture                    __NVDrawTexture;
 	final NVFragmentCoverageToColor        __NVFragmentCoverageToColor;
 	final NVFramebufferMixedSamples        __NVFramebufferMixedSamples;
+	final NVInternalformatSampleQuery      __NVInternalformatSampleQuery;
 	final NVPathRenderingSharedEdge        __NVPathRenderingSharedEdge;
 	final NVPointSprite                    __NVPointSprite;
 	final NVSampleLocations                __NVSampleLocations;
@@ -170,6 +171,7 @@ public final class ContextCapabilities {
 	final NVTextureMultisample             __NVTextureMultisample;
 	final NVVertexArrayRange               __NVVertexArrayRange;
 	final NVVertexBufferUnifiedMemory      __NVVertexBufferUnifiedMemory;
+	final NVXConditionalRender             __NVXConditionalRender;
 	final OVRMultiview                     __OVRMultiview;
 	final WGLAMDGPUAssociation             __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion               __WGLARBBufferRegion;
@@ -1334,6 +1336,8 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_copy_image;
 	/** When true, {@link NVDeepTexture3D} is supported. */
 	public final boolean GL_NV_deep_texture3D;
+	/** When true, {@link NVDepthClamp} is supported. */
+	public final boolean GL_NV_depth_clamp;
 	/** When true, {@link NVDrawTexture} is supported. */
 	public final boolean GL_NV_draw_texture;
 	/** When true, {@link NVFillRectangle} is supported. */
@@ -1419,6 +1423,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL32 OpenGL 3.2}, GLSL 1.5 and {@link #GL_ARB_gpu_shader5 ARB_gpu_shader5}.</p>
 	 */
 	public final boolean GL_NV_gpu_shader5;
+	/** When true, {@link NVInternalformatSampleQuery} is supported. */
+	public final boolean GL_NV_internalformat_sample_query;
 	/** When true, {@link NVLightMaxExponent} is supported. */
 	public final boolean GL_NV_light_max_exponent;
 	/** When true, {@link NVMultisampleCoverage} is supported. */
@@ -1544,6 +1550,8 @@ public final class ContextCapabilities {
 	 * expected to be exported if GL_NV_viewport_array2 is supported.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
+	/** When true, {@link NVXConditionalRender} is supported. */
+	public final boolean GL_NVX_conditional_render;
 	/** When true, {@link NVXGpuMemoryInfo} is supported. */
 	public final boolean GL_NVX_gpu_memory_info;
 	/** When true, {@link OVRMultiview} is supported. */
@@ -1906,6 +1914,7 @@ public final class ContextCapabilities {
 		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
 		GL_NV_copy_image = (__NVCopyImage = NVCopyImage.create(ext, provider)) != null;
 		GL_NV_deep_texture3D = ext.contains("GL_NV_deep_texture3D");
+		GL_NV_depth_clamp = ext.contains("GL_NV_depth_clamp");
 		GL_NV_draw_texture = (__NVDrawTexture = NVDrawTexture.create(ext, provider)) != null;
 		GL_NV_fill_rectangle = ext.contains("GL_NV_fill_rectangle");
 		GL_NV_fragment_coverage_to_color = (__NVFragmentCoverageToColor = NVFragmentCoverageToColor.create(ext, provider)) != null;
@@ -1917,6 +1926,7 @@ public final class ContextCapabilities {
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
 		GL_NV_gpu_program5_mem_extended = ext.contains("GL_NV_gpu_program5_mem_extended");
 		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5");
+		GL_NV_internalformat_sample_query = (__NVInternalformatSampleQuery = NVInternalformatSampleQuery.create(ext, provider)) != null;
 		GL_NV_light_max_exponent = ext.contains("GL_NV_light_max_exponent");
 		GL_NV_multisample_coverage = ext.contains("GL_NV_multisample_coverage");
 		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
@@ -1944,6 +1954,7 @@ public final class ContextCapabilities {
 		GL_NV_vertex_program2 = ext.contains("GL_NV_vertex_program2");
 		GL_NV_vertex_program4 = ext.contains("GL_NV_vertex_program4");
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
+		GL_NVX_conditional_render = (__NVXConditionalRender = NVXConditionalRender.create(ext, provider)) != null;
 		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
